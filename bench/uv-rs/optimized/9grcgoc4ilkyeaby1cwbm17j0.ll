@@ -18492,11 +18492,11 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.loopexit.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke1456, %701, %697, %684, %633, %.loopexit.i.i.i585.i, %535, %.loopexit.i.i.i544.i, %506, %.loopexit.i.i.i531.i, %482, %.loopexit.i.i.i522.i, %453, %.loopexit.i.i.i.i
-  %.sroa.0341.1.ph.i = phi i8 [ 1, %.loopexit.i.i.i.i ], [ 1, %.invoke1456 ], [ 1, %453 ], [ %.sroa.0341.9.i, %701 ], [ 1, %.loopexit.i.i.i522.i ], [ 1, %684 ], [ 1, %482 ], [ 1, %535 ], [ 1, %.loopexit.i.i.i531.i ], [ %.sroa.0341.9.i, %697 ], [ 1, %506 ], [ 1, %.loopexit.i.i.i585.i ], [ 1, %.loopexit.i.i.i544.i ], [ 1, %633 ]
-  %.sroa.0343.1.ph.i = phi i8 [ 1, %.loopexit.i.i.i.i ], [ 1, %.invoke1456 ], [ 1, %453 ], [ %.sroa.0343.9.i, %701 ], [ 1, %.loopexit.i.i.i522.i ], [ 1, %684 ], [ 1, %482 ], [ 1, %535 ], [ 1, %.loopexit.i.i.i531.i ], [ %.sroa.0343.9.i, %697 ], [ 1, %506 ], [ 1, %.loopexit.i.i.i585.i ], [ 1, %.loopexit.i.i.i544.i ], [ 1, %633 ]
-  %.sroa.0345.1.ph.i = phi i8 [ 1, %.loopexit.i.i.i.i ], [ 1, %.invoke1456 ], [ 1, %453 ], [ %.sroa.0345.9.i, %701 ], [ 1, %.loopexit.i.i.i522.i ], [ 1, %684 ], [ 1, %482 ], [ 1, %535 ], [ 1, %.loopexit.i.i.i531.i ], [ %.sroa.0345.9.i, %697 ], [ 1, %506 ], [ 1, %.loopexit.i.i.i585.i ], [ 1, %.loopexit.i.i.i544.i ], [ 1, %633 ]
-  %.sroa.0347.1.ph.i = phi i8 [ 1, %.loopexit.i.i.i.i ], [ 1, %.invoke1456 ], [ 1, %453 ], [ %.sroa.0347.10.i, %701 ], [ 1, %.loopexit.i.i.i522.i ], [ 1, %684 ], [ 1, %482 ], [ 1, %535 ], [ 1, %.loopexit.i.i.i531.i ], [ %.sroa.0347.10.i, %697 ], [ 1, %506 ], [ 1, %.loopexit.i.i.i585.i ], [ 1, %.loopexit.i.i.i544.i ], [ 1, %633 ]
-  %.sroa.0349.1.ph.i = phi i8 [ 1, %.loopexit.i.i.i.i ], [ 1, %.invoke1456 ], [ 1, %453 ], [ 0, %701 ], [ 1, %.loopexit.i.i.i522.i ], [ 1, %684 ], [ 1, %482 ], [ 1, %535 ], [ 1, %.loopexit.i.i.i531.i ], [ 0, %697 ], [ 1, %506 ], [ 1, %.loopexit.i.i.i585.i ], [ 1, %.loopexit.i.i.i544.i ], [ 1, %633 ]
+  %.sroa.0341.1.ph.i = phi i8 [ 1, %.loopexit.i.i.i544.i ], [ 1, %.invoke1456 ], [ 1, %506 ], [ %.sroa.0341.9.i, %701 ], [ 1, %.loopexit.i.i.i531.i ], [ 1, %684 ], [ 1, %482 ], [ %.sroa.0341.9.i, %697 ], [ 1, %.loopexit.i.i.i522.i ], [ 1, %535 ], [ 1, %453 ], [ 1, %633 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %.loopexit.i.i.i585.i ]
+  %.sroa.0343.1.ph.i = phi i8 [ 1, %.loopexit.i.i.i544.i ], [ 1, %.invoke1456 ], [ 1, %506 ], [ %.sroa.0343.9.i, %701 ], [ 1, %.loopexit.i.i.i531.i ], [ 1, %684 ], [ 1, %482 ], [ %.sroa.0343.9.i, %697 ], [ 1, %.loopexit.i.i.i522.i ], [ 1, %535 ], [ 1, %453 ], [ 1, %633 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %.loopexit.i.i.i585.i ]
+  %.sroa.0345.1.ph.i = phi i8 [ 1, %.loopexit.i.i.i544.i ], [ 1, %.invoke1456 ], [ 1, %506 ], [ %.sroa.0345.9.i, %701 ], [ 1, %.loopexit.i.i.i531.i ], [ 1, %684 ], [ 1, %482 ], [ %.sroa.0345.9.i, %697 ], [ 1, %.loopexit.i.i.i522.i ], [ 1, %535 ], [ 1, %453 ], [ 1, %633 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %.loopexit.i.i.i585.i ]
+  %.sroa.0347.1.ph.i = phi i8 [ 1, %.loopexit.i.i.i544.i ], [ 1, %.invoke1456 ], [ 1, %506 ], [ %.sroa.0347.10.i, %701 ], [ 1, %.loopexit.i.i.i531.i ], [ 1, %684 ], [ 1, %482 ], [ %.sroa.0347.10.i, %697 ], [ 1, %.loopexit.i.i.i522.i ], [ 1, %535 ], [ 1, %453 ], [ 1, %633 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %.loopexit.i.i.i585.i ]
+  %.sroa.0349.1.ph.i = phi i8 [ 1, %.loopexit.i.i.i544.i ], [ 1, %.invoke1456 ], [ 1, %506 ], [ 0, %701 ], [ 1, %.loopexit.i.i.i531.i ], [ 1, %684 ], [ 1, %482 ], [ 0, %697 ], [ 1, %.loopexit.i.i.i522.i ], [ 1, %535 ], [ 1, %453 ], [ 1, %633 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %.loopexit.i.i.i585.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i
@@ -22471,11 +22471,11 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %415
 
 .loopexit.split-lp.i:                             ; preds = %.invoke881, %613, %609, %596
-  %.sroa.0341.1.ph.i = phi i8 [ %.sroa.0341.9.i, %609 ], [ %.sroa.0341.9.i, %613 ], [ 1, %596 ], [ 1, %.invoke881 ]
-  %.sroa.0343.1.ph.i = phi i8 [ %.sroa.0343.9.i, %609 ], [ %.sroa.0343.9.i, %613 ], [ 1, %596 ], [ 1, %.invoke881 ]
-  %.sroa.0345.1.ph.i = phi i8 [ %.sroa.0345.9.i, %609 ], [ %.sroa.0345.9.i, %613 ], [ 1, %596 ], [ 1, %.invoke881 ]
-  %.sroa.0347.1.ph.i = phi i8 [ %.sroa.0347.10.i, %609 ], [ %.sroa.0347.10.i, %613 ], [ 1, %596 ], [ 1, %.invoke881 ]
-  %.sroa.0349.1.ph.i = phi i8 [ 0, %609 ], [ 0, %613 ], [ 1, %596 ], [ 1, %.invoke881 ]
+  %.sroa.0341.1.ph.i = phi i8 [ 1, %.invoke881 ], [ %.sroa.0341.9.i, %609 ], [ 1, %596 ], [ %.sroa.0341.9.i, %613 ]
+  %.sroa.0343.1.ph.i = phi i8 [ 1, %.invoke881 ], [ %.sroa.0343.9.i, %609 ], [ 1, %596 ], [ %.sroa.0343.9.i, %613 ]
+  %.sroa.0345.1.ph.i = phi i8 [ 1, %.invoke881 ], [ %.sroa.0345.9.i, %609 ], [ 1, %596 ], [ %.sroa.0345.9.i, %613 ]
+  %.sroa.0347.1.ph.i = phi i8 [ 1, %.invoke881 ], [ %.sroa.0347.10.i, %609 ], [ 1, %596 ], [ %.sroa.0347.10.i, %613 ]
+  %.sroa.0349.1.ph.i = phi i8 [ 1, %.invoke881 ], [ 0, %609 ], [ 1, %596 ], [ 0, %613 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %415

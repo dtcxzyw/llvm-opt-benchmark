@@ -4354,7 +4354,7 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
   br label %.critedge32
 
 .critedge32:                                      ; preds = %123, %154, %.thread, %849, %817, %813, %812, %.loopexit55, %227, %76
-  %851 = phi i32 [ -90, %76 ], [ %850, %849 ], [ 0, %817 ], [ -1, %227 ], [ 0, %.loopexit55 ], [ 0, %812 ], [ 0, %813 ], [ -105, %154 ], [ -105, %.thread ], [ -22, %123 ]
+  %851 = phi i32 [ -90, %76 ], [ %850, %849 ], [ 0, %817 ], [ -1, %227 ], [ 0, %.loopexit55 ], [ 0, %812 ], [ 0, %813 ], [ -105, %154 ], [ -22, %123 ], [ -105, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %851
 }

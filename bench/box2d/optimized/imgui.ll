@@ -9483,8 +9483,8 @@ _ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit: ; preds = %_ZL29ImGu
   %454 = icmp ne i32 %453, %452
   br label %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread
 
-_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread: ; preds = %435, %thread-pre-split.i, %401, %443, %_ZL26GetSkipItemForListClippingv.exit.i, %26, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit
-  %.0.shrunk = phi i1 [ %454, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit ], [ false, %26 ], [ false, %_ZL26GetSkipItemForListClippingv.exit.i ], [ false, %443 ], [ false, %401 ], [ false, %thread-pre-split.i ], [ false, %435 ]
+_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit.thread: ; preds = %443, %thread-pre-split.i, %401, %435, %_ZL26GetSkipItemForListClippingv.exit.i, %26, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit
+  %.0.shrunk = phi i1 [ %454, %_ZL29ImGuiListClipper_StepInternalP16ImGuiListClipper.exit ], [ false, %26 ], [ false, %_ZL26GetSkipItemForListClippingv.exit.i ], [ false, %435 ], [ false, %401 ], [ false, %thread-pre-split.i ], [ false, %443 ]
   %455 = load ptr, ptr %18, align 8, !tbaa !343
   %.not = icmp eq ptr %455, null
   br i1 %.not, label %465, label %456
@@ -27527,8 +27527,8 @@ _ZN5ImGui20GetTopMostPopupModalEv.exit:           ; preds = %23
   br i1 %.not.i106, label %_ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit, label %.lr.ph.i105, !llvm.loop !772
 
 _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit: ; preds = %27, %36, %.lr.ph.i105, %0, %29, %_ZN5ImGui20GetTopMostPopupModalEv.exit
-  %39 = phi i1 [ true, %_ZN5ImGui20GetTopMostPopupModalEv.exit ], [ true, %36 ], [ false, %0 ], [ true, %29 ], [ true, %.lr.ph.i105 ], [ false, %27 ]
-  %.0.not = phi i1 [ true, %_ZN5ImGui20GetTopMostPopupModalEv.exit ], [ %35, %36 ], [ true, %0 ], [ true, %29 ], [ %35, %.lr.ph.i105 ], [ true, %27 ]
+  %39 = phi i1 [ true, %_ZN5ImGui20GetTopMostPopupModalEv.exit ], [ false, %0 ], [ true, %36 ], [ true, %29 ], [ true, %.lr.ph.i105 ], [ false, %27 ]
+  %.0.not = phi i1 [ true, %_ZN5ImGui20GetTopMostPopupModalEv.exit ], [ true, %0 ], [ %35, %36 ], [ true, %29 ], [ %35, %.lr.ph.i105 ], [ true, %27 ]
   %40 = load i32, ptr %2, align 8, !tbaa !834
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 7728
   %42 = load i32, ptr %41, align 8, !tbaa !806
@@ -33295,8 +33295,8 @@ _ZN5ImGui12IsKeyPressedE8ImGuiKeyij.exit.i305.i:  ; preds = %2776
   br label %2803
 
 2803:                                             ; preds = %.sink.split.i.i, %2798, %2794, %2793
-  %.sink.i306.sink.i = phi i32 [ 1, %2794 ], [ %2802, %.sink.split.i.i ], [ -1, %2798 ], [ -1, %2793 ]
-  %2804 = phi i32 [ 3, %2794 ], [ 3, %.sink.split.i.i ], [ 2, %2798 ], [ 2, %2793 ]
+  %.sink.i306.sink.i = phi i32 [ %2802, %.sink.split.i.i ], [ 1, %2794 ], [ -1, %2798 ], [ -1, %2793 ]
+  %2804 = phi i32 [ 3, %.sink.split.i.i ], [ 3, %2794 ], [ 2, %2798 ], [ 2, %2793 ]
   %2805 = getelementptr inbounds nuw i8, ptr %.pre416.i, i64 8008
   store i32 %.sink.i306.sink.i, ptr %2805, align 8, !tbaa !394
   %2806 = getelementptr inbounds nuw i8, ptr %2723, i64 209
@@ -48943,7 +48943,7 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %_ZN5ImGuiL18ItemHan
   br i1 %438, label %439, label %_ZN5ImGui19IsMouseHoveringRectERK6ImVec2S2_b.exit.thread
 
 439:                                              ; preds = %435, %_ZNK6ImRect8OverlapsERKS_.exit
-  %440 = phi i1 [ true, %_ZNK6ImRect8OverlapsERKS_.exit ], [ false, %435 ]
+  %440 = phi i1 [ false, %435 ], [ true, %_ZNK6ImRect8OverlapsERKS_.exit ]
   br i1 %.not56, label %446, label %.thread
 
 .thread:                                          ; preds = %432, %429, %426, %423, %439

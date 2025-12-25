@@ -6437,7 +6437,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen14CodeGenVTables16isVTable
   br label %24
 
 24:                                               ; preds = %7, %.fold.split, %11, %13, %18, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %13 ], [ true, %7 ], [ %12, %11 ], [ %23, %18 ], [ false, %.fold.split ]
+  %.0 = phi i1 [ false, %2 ], [ %23, %18 ], [ true, %7 ], [ %12, %11 ], [ false, %13 ], [ false, %.fold.split ]
   ret i1 %.0
 }
 
@@ -6493,28 +6493,28 @@ _ZNSt6vectorIPKN5clang13CXXRecordDeclESaIS3_EE5clearEv.exit: ; preds = %1, %._cr
 
 22:                                               ; preds = %20
   %23 = tail call noundef zeroext i1 @_ZNK5clang4Decl15isInNamedModuleEv(ptr noundef nonnull align 8 dereferenceable(33) %15) #20
-  br i1 %23, label %_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.i, label %24
+  br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr %6, align 8, !tbaa !845
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 144
-  %27 = load ptr, ptr %26, align 8, !tbaa !8
-  %28 = tail call noundef ptr @_ZN5clang10ASTContext21getCurrentKeyFunctionEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %27, ptr noundef nonnull %15) #20
-  %.not.i.i3 = icmp eq ptr %28, null
-  br i1 %.not.i.i3, label %_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit.thread, label %29
+  %25 = tail call noundef zeroext i1 @_ZNK5clang4Decl26shouldEmitInExternalSourceEv(ptr noundef nonnull align 8 dereferenceable(33) %15) #20
+  br i1 %25, label %_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.thread8.i, label %_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit.thread
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %28, align 8, !tbaa !608
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(168) %28) #20
-  br i1 %33, label %_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit.thread, label %_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.thread8.i
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %6, align 8, !tbaa !845
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 144
+  %29 = load ptr, ptr %28, align 8, !tbaa !8
+  %30 = tail call noundef ptr @_ZN5clang10ASTContext21getCurrentKeyFunctionEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %29, ptr noundef nonnull %15) #20
+  %.not.i.i3 = icmp eq ptr %30, null
+  br i1 %.not.i.i3, label %_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit.thread, label %_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.i
 
-_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.i: ; preds = %22
-  %34 = tail call noundef zeroext i1 @_ZNK5clang4Decl26shouldEmitInExternalSourceEv(ptr noundef nonnull align 8 dereferenceable(33) %15) #20
-  br i1 %34, label %_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.thread8.i, label %_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit.thread
+_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.i: ; preds = %26
+  %31 = load ptr, ptr %30, align 8, !tbaa !608
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(168) %30) #20
+  br i1 %34, label %_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit.thread, label %_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.thread8.i
 
-_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.thread8.i: ; preds = %_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.i, %29, %20
+_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.thread8.i: ; preds = %_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.i, %24, %20
   %.val.i = load ptr, ptr %7, align 8, !tbaa !906
   %35 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load i64, ptr %35, align 8
@@ -6530,7 +6530,7 @@ _ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_
   %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(24) %.val5.i, ptr noundef nonnull %15) #20
   br i1 %40, label %_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit.thread, label %_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit.thread11
 
-_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit.thread: ; preds = %20, %20, %24, %14, %_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.i, %29, %_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
+_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit.thread: ; preds = %20, %20, %26, %14, %_ZN5clang7CodeGen14CodeGenVTables16isVTableExternalEPKNS_13CXXRecordDeclE.exit.i, %24, %_ZL38shouldEmitVTableAtEndOfTranslationUnitRN5clang7CodeGen13CodeGenModuleEPKNS_13CXXRecordDeclE.exit
   %41 = load ptr, ptr %6, align 8, !tbaa !845
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 424
   %43 = load ptr, ptr %42, align 8, !tbaa !929

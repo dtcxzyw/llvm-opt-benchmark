@@ -1718,8 +1718,8 @@ zslLexValueGteMin.exit.thread:                    ; preds = %zslLexValueGteMin.e
   %.not31 = icmp eq ptr %44, null
   br i1 %.not31, label %.critedge, label %.lr.ph, !llvm.loop !65
 
-.critedge:                                        ; preds = %zslLexValueGteMin.exit, %zslLexValueGteMin.exit.thread, %27, %30, %37, %.preheader
-  %.1.lcssa = phi ptr [ %.063, %.preheader ], [ %.149, %37 ], [ %.149, %30 ], [ %.149, %27 ], [ %41, %zslLexValueGteMin.exit.thread ], [ %.149, %zslLexValueGteMin.exit ]
+.critedge:                                        ; preds = %zslLexValueGteMin.exit, %zslLexValueGteMin.exit.thread, %27, %37, %30, %.preheader
+  %.1.lcssa = phi ptr [ %.063, %.preheader ], [ %.149, %30 ], [ %.149, %37 ], [ %.149, %27 ], [ %41, %zslLexValueGteMin.exit.thread ], [ %.149, %zslLexValueGteMin.exit ]
   %45 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.next
   store ptr %.1.lcssa, ptr %45, align 8, !tbaa !29
   %46 = icmp sgt i64 %indvars.iv, 1
@@ -2474,7 +2474,7 @@ sdslen.exit18:                                    ; preds = %43, %49, %52, %56, 
   br label %69
 
 69:                                               ; preds = %.sink.split, %3, %12, %7
-  %.0 = phi i32 [ -1, %12 ], [ -1, %3 ], [ -1, %7 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %7 ], [ -1, %3 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2755,7 +2755,7 @@ zslLexValueGteMin.exit:                           ; preds = %40, %50
   %.not42 = icmp sgt i32 %53, %.sink14.i
   br i1 %.not42, label %zslLexValueGteMin.exit.thread30, label %sdscmplex.exit.thread25
 
-zslLexValueGteMin.exit.thread30:                  ; preds = %50, %43, %40, %zslLexValueGteMin.exit
+zslLexValueGteMin.exit.thread30:                  ; preds = %43, %50, %40, %zslLexValueGteMin.exit
   %54 = load ptr, ptr %0, align 8, !tbaa !18
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !20
@@ -2922,9 +2922,9 @@ zslLexValueGteMin.exit.thread:                    ; preds = %zslLexValueGteMin.e
   %.not97 = icmp eq ptr %47, null
   br i1 %.not97, label %.critedge, label %13, !llvm.loop !81
 
-.critedge:                                        ; preds = %zslLexValueGteMin.exit, %zslLexValueGteMin.exit.thread, %27, %30, %37, %5
-  %.0.lcssa191 = phi i64 [ 0, %5 ], [ %.0194, %37 ], [ %.0194, %30 ], [ %.0194, %27 ], [ %44, %zslLexValueGteMin.exit.thread ], [ %.0194, %zslLexValueGteMin.exit ]
-  %.085.lcssa = phi ptr [ %.085192, %5 ], [ %.085195, %37 ], [ %.085195, %30 ], [ %.085195, %27 ], [ %.085, %zslLexValueGteMin.exit.thread ], [ %.085195, %zslLexValueGteMin.exit ]
+.critedge:                                        ; preds = %zslLexValueGteMin.exit, %zslLexValueGteMin.exit.thread, %27, %37, %30, %5
+  %.0.lcssa191 = phi i64 [ 0, %5 ], [ %.0194, %30 ], [ %.0194, %37 ], [ %.0194, %27 ], [ %44, %zslLexValueGteMin.exit.thread ], [ %.0194, %zslLexValueGteMin.exit ]
+  %.085.lcssa = phi ptr [ %.085192, %5 ], [ %.085195, %30 ], [ %.085195, %37 ], [ %.085195, %27 ], [ %.085, %zslLexValueGteMin.exit.thread ], [ %.085195, %zslLexValueGteMin.exit ]
   %48 = icmp sgt i64 %2, -1
   %49 = load i32, ptr %6, align 8, !tbaa !12
   br i1 %48, label %50, label %150
@@ -3020,9 +3020,9 @@ zslLexValueGteMin.exit115.thread:                 ; preds = %zslLexValueGteMin.e
   %.not107 = icmp eq ptr %91, null
   br i1 %.not107, label %.critedge2, label %.lr.ph243, !llvm.loop !82
 
-.critedge2:                                       ; preds = %zslLexValueGteMin.exit115.thread, %zslLexValueGteMin.exit115, %71, %74, %81, %.preheader185
-  %.287.lcssa = phi ptr [ %.186257, %.preheader185 ], [ %.287241, %81 ], [ %.287241, %74 ], [ %.287241, %71 ], [ %.287241, %zslLexValueGteMin.exit115 ], [ %85, %zslLexValueGteMin.exit115.thread ]
-  %.2.lcssa = phi i64 [ %.1259, %.preheader185 ], [ %.2242, %81 ], [ %.2242, %74 ], [ %.2242, %71 ], [ %.2242, %zslLexValueGteMin.exit115 ], [ %88, %zslLexValueGteMin.exit115.thread ]
+.critedge2:                                       ; preds = %zslLexValueGteMin.exit115.thread, %zslLexValueGteMin.exit115, %71, %81, %74, %.preheader185
+  %.287.lcssa = phi ptr [ %.186257, %.preheader185 ], [ %.287241, %74 ], [ %.287241, %81 ], [ %.287241, %71 ], [ %.287241, %zslLexValueGteMin.exit115 ], [ %85, %zslLexValueGteMin.exit115.thread ]
+  %.2.lcssa = phi i64 [ %.1259, %.preheader185 ], [ %.2242, %74 ], [ %.2242, %81 ], [ %.2242, %71 ], [ %.2242, %zslLexValueGteMin.exit115 ], [ %88, %zslLexValueGteMin.exit115.thread ]
   %indvars.iv.next278 = add nsw i64 %indvars.iv277, -1
   %92 = icmp sgt i64 %indvars.iv277, 0
   br i1 %92, label %.preheader185, label %._crit_edge260, !llvm.loop !83
@@ -3385,8 +3385,8 @@ zslLexValueGteMin.exit143:                        ; preds = %235, %245
   %.not183 = icmp sgt i32 %248, %.sink14.i140
   br i1 %.not183, label %zslGetElementByRankFromNode.exit.thread, label %zslLexValueLteMax.exit.thread164
 
-zslGetElementByRankFromNode.exit.thread:          ; preds = %212, %108, %145, %245, %238, %235, %204, %139, %136, %135, %129, %126, %100, %zslGetElementByRankFromNode.exit136, %zslLexValueGteMin.exit143, %zslGetElementByRankFromNode.exit, %zslLexValueLteMax.exit
-  %.5 = phi ptr [ %.489161, %zslLexValueLteMax.exit ], [ null, %zslGetElementByRankFromNode.exit ], [ %.9175, %zslLexValueGteMin.exit143 ], [ null, %zslGetElementByRankFromNode.exit136 ], [ %.489161, %145 ], [ %.9175, %245 ], [ %.489161, %139 ], [ null, %100 ], [ %.489161, %126 ], [ %.489161, %129 ], [ %.489161, %135 ], [ %.489161, %136 ], [ null, %204 ], [ %.9175, %235 ], [ %.9175, %238 ], [ null, %108 ], [ null, %212 ]
+zslGetElementByRankFromNode.exit.thread:          ; preds = %212, %108, %145, %238, %245, %235, %204, %139, %136, %135, %129, %126, %100, %zslGetElementByRankFromNode.exit136, %zslLexValueGteMin.exit143, %zslGetElementByRankFromNode.exit, %zslLexValueLteMax.exit
+  %.5 = phi ptr [ %.489161, %zslLexValueLteMax.exit ], [ null, %zslGetElementByRankFromNode.exit ], [ %.9175, %zslLexValueGteMin.exit143 ], [ null, %zslGetElementByRankFromNode.exit136 ], [ %.489161, %145 ], [ %.9175, %238 ], [ %.489161, %139 ], [ null, %100 ], [ %.489161, %126 ], [ %.489161, %129 ], [ %.489161, %135 ], [ %.489161, %136 ], [ null, %204 ], [ %.9175, %235 ], [ %.9175, %245 ], [ null, %108 ], [ null, %212 ]
   br label %zslLexValueLteMax.exit.thread164
 
 zslLexValueLteMax.exit.thread164:                 ; preds = %145, %239, %232, %229, %228, %242, %142, %125, %132, %zslLexValueGteMin.exit143, %._crit_edge, %zslLexValueLteMax.exit, %._crit_edge260, %3, %zslGetElementByRankFromNode.exit.thread
@@ -11627,8 +11627,8 @@ zzlPrev.exit112:                                  ; preds = %105, %100
   %.not91 = icmp eq i64 %64, 0
   br i1 %.not91, label %.critedge2, label %.lr.ph
 
-.critedge2:                                       ; preds = %54, %48, %76, %81, %zzlPrev.exit112, %98, %103, %.lr.ph196, %42, %.thread221
-  %.073.lcssa = phi i64 [ 0, %.thread221 ], [ 0, %42 ], [ %88, %103 ], [ 0, %48 ], [ %4, %.lr.ph196 ], [ %88, %98 ], [ %4, %zzlPrev.exit112 ], [ %.073194279, %76 ], [ %.073194279, %81 ], [ 0, %54 ]
+.critedge2:                                       ; preds = %54, %48, %76, %81, %zzlPrev.exit112, %103, %98, %.lr.ph196, %42, %.thread221
+  %.073.lcssa = phi i64 [ 0, %.thread221 ], [ 0, %42 ], [ %88, %98 ], [ 0, %48 ], [ %4, %.lr.ph196 ], [ %88, %103 ], [ %4, %zzlPrev.exit112 ], [ %.073194279, %76 ], [ %.073194279, %81 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge4
@@ -12691,8 +12691,8 @@ zzlPrev.exit102:                                  ; preds = %79, %73
   %.not84 = icmp eq i64 %40, 0
   br i1 %.not84, label %.critedge2, label %.lr.ph
 
-.critedge2:                                       ; preds = %33, %27, %54, %56, %zzlPrev.exit102, %71, %77, %.lr.ph218, %21, %.thread259
-  %.069.lcssa = phi i64 [ 0, %.thread259 ], [ 0, %21 ], [ %60, %77 ], [ 0, %27 ], [ %5, %.lr.ph218 ], [ %60, %71 ], [ %5, %zzlPrev.exit102 ], [ %.069216317, %54 ], [ %.069216317, %56 ], [ 0, %33 ]
+.critedge2:                                       ; preds = %33, %27, %54, %56, %zzlPrev.exit102, %77, %71, %.lr.ph218, %21, %.thread259
+  %.069.lcssa = phi i64 [ 0, %.thread259 ], [ 0, %21 ], [ %60, %71 ], [ 0, %27 ], [ %5, %.lr.ph218 ], [ %60, %77 ], [ %5, %zzlPrev.exit102 ], [ %.069216317, %54 ], [ %.069216317, %56 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge4
@@ -12913,8 +12913,8 @@ zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread144_crit_edge: ; preds = %zs
   %.pre = load ptr, ptr %.1168, align 8, !tbaa !9
   br label %zslLexValueGteMin.exit.thread144
 
-zslLexValueGteMin.exit.thread144:                 ; preds = %zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread144_crit_edge, %177, %170, %167
-  %181 = phi ptr [ %.pre, %zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread144_crit_edge ], [ %156, %177 ], [ %156, %170 ], [ %156, %167 ]
+zslLexValueGteMin.exit.thread144:                 ; preds = %zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread144_crit_edge, %170, %177, %167
+  %181 = phi ptr [ %.pre, %zslLexValueGteMin.exit.zslLexValueGteMin.exit.thread144_crit_edge ], [ %156, %170 ], [ %156, %177 ], [ %156, %167 ]
   %182 = add i64 %.4166, 1
   %183 = load ptr, ptr %92, align 8, !tbaa !199
   %184 = getelementptr inbounds i8, ptr %181, i64 -1

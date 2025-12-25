@@ -499,7 +499,7 @@ if.then.loopexit23:                               ; preds = %if.end.i
   br label %if.then
 
 if.then:                                          ; preds = %if.then.loopexit23, %if.then.loopexit, %entry.split.us
-  %.us-phi = phi i32 [ %.us-phi.ph.ph, %if.then.loopexit ], [ 0, %entry.split.us ], [ %5, %if.then.loopexit23 ]
+  %.us-phi = phi i32 [ 0, %entry.split.us ], [ %.us-phi.ph.ph, %if.then.loopexit ], [ %5, %if.then.loopexit23 ]
   ret i32 %.us-phi
 
 for.inc:                                          ; preds = %for.cond, %if.end.i, %_ZN4llvh9StringRefC2EPKc.exit
@@ -602,7 +602,7 @@ for.inc.i:                                        ; preds = %if.end.i.i, %_ZN4ll
   br label %for.cond.i, !llvm.loop !6
 
 _ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, %if.then.loopexit.i, %if.then.loopexit23.i
-  %.us-phi.i = phi i32 [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ 0, %entry.split.us.i ], [ %5, %if.then.loopexit23.i ]
+  %.us-phi.i = phi i32 [ 0, %entry.split.us.i ], [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ %5, %if.then.loopexit23.i ]
   ret i32 %.us-phi.i
 }
 
@@ -667,7 +667,7 @@ for.inc.i:                                        ; preds = %if.end.i.i, %_ZN4ll
   br label %for.cond.i, !llvm.loop !6
 
 _ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, %if.then.loopexit.i, %if.then.loopexit23.i
-  %.us-phi.i = phi i32 [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ 0, %entry.split.us.i ], [ %5, %if.then.loopexit23.i ]
+  %.us-phi.i = phi i32 [ 0, %entry.split.us.i ], [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ %5, %if.then.loopexit23.i ]
   ret i32 %.us-phi.i
 }
 
@@ -2463,7 +2463,7 @@ for.cond.backedge:                                ; preds = %for.end57, %if.end3
   br label %for.cond, !llvm.loop !23
 
 return:                                           ; preds = %for.end57, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit
-  %retval.0 = phi ptr [ %__middle, %for.body.i ], [ %__last, %entry ], [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
+  %retval.0 = phi ptr [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %__last, %entry ], [ %__middle, %for.body.i ], [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
   ret ptr %retval.0
 }
 

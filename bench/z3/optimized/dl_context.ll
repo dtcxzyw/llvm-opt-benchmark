@@ -16467,7 +16467,7 @@ _ZNK7datalog7context12is_predicateEP9func_decl.exit: ; preds = %23, %34
   br i1 %.not, label %46, label %.critedge
 
 .critedge:                                        ; preds = %28, %42, %39, %.lr.ph, %53, %46, %_ZNK7datalog7context12is_predicateEP9func_decl.exit, %.preheader.i.i.i, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %42 ], [ false, %.preheader.i.i.i ], [ true, %46 ], [ true, %_ZNK7datalog7context12is_predicateEP9func_decl.exit ], [ false, %.lr.ph ], [ false, %53 ], [ false, %39 ], [ false, %28 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %.preheader.i.i.i ], [ false, %42 ], [ true, %46 ], [ true, %_ZNK7datalog7context12is_predicateEP9func_decl.exit ], [ false, %.lr.ph ], [ false, %53 ], [ false, %39 ], [ false, %28 ]
   ret i1 %.0
 }
 

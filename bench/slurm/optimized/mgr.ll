@@ -3760,7 +3760,7 @@ exec_wait_kill_children.exit.thread.i:            ; preds = %._crit_edge.i198.i,
   br label %1052
 
 1052:                                             ; preds = %1050, %1047, %1020, %995, %967
-  %.5146.i = phi ptr [ %.2143.lcssa.i, %1020 ], [ %.0141.i, %1050 ], [ %.0141.i, %1047 ], [ %.2143.lcssa.i, %995 ], [ %.2143.lcssa.i, %967 ]
+  %.5146.i = phi ptr [ %.2143.lcssa.i, %995 ], [ %.0141.i, %1050 ], [ %.0141.i, %1047 ], [ %.2143.lcssa.i, %1020 ], [ %.2143.lcssa.i, %967 ]
   %.not184.i = icmp eq ptr %.5146.i, null
   br i1 %.not184.i, label %.thread226.i, label %1053
 

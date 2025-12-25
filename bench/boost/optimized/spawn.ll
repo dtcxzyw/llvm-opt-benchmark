@@ -8146,7 +8146,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit46:              ; preds = %83, %_ZSt4findIPKcc
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit46.thread
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit46.thread:       ; preds = %._crit_edge.i.i.i.us86, %._crit_edge.i.i.i.us72, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46, %115, %._crit_edge.i.i.i27, %4
-  %.021 = phi ptr [ %1, %4 ], [ %1, %115 ], [ %spec.select107, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46 ], [ %1, %._crit_edge.i.i.i27 ], [ %60, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63 ], [ %74, %._crit_edge.i.i.i.us72 ], [ %19, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us ], [ %74, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77 ], [ %80, %._crit_edge.i.i.i.us86 ]
+  %.021 = phi ptr [ %1, %4 ], [ %1, %115 ], [ %spec.select107, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46 ], [ %1, %._crit_edge.i.i.i27 ], [ %60, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63 ], [ %19, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us ], [ %74, %._crit_edge.i.i.i.us72 ], [ %74, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77 ], [ %80, %._crit_edge.i.i.i.us86 ]
   ret ptr %.021
 }
 
@@ -162700,7 +162700,7 @@ _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31: ; preds = %_Z
   br i1 %or.cond, label %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit37, label %.lr.ph.i.i34, !llvm.loop !3487
 
 _ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit37: ; preds = %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit13, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit7, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit, %16, %.lr.ph.i.i34, %._crit_edge, %128, %131, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25, %84
-  %.sink = phi ptr [ %1, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31 ], [ %1, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25 ], [ %1, %84 ], [ %2, %.lr.ph.i.i34 ], [ %2, %128 ], [ %2, %131 ], [ %2, %._crit_edge ], [ %1, %16 ], [ %1, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit ], [ %1, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit7 ], [ %1, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit13 ]
+  %.sink = phi ptr [ %1, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit31 ], [ %1, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit25 ], [ %1, %84 ], [ %2, %._crit_edge ], [ %2, %131 ], [ %2, %128 ], [ %2, %.lr.ph.i.i34 ], [ %1, %16 ], [ %1, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit ], [ %1, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit7 ], [ %1, %_ZN5boost4asio16buffers_iteratorINS0_12const_bufferEcEppEv.exit13 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sink, i64 56, i1 false)
   ret void
 }

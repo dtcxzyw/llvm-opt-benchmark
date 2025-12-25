@@ -6504,7 +6504,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.i.i: ; pr
   br label %.split.split.i.i, !llvm.loop !519
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E6doFindIS2_EEPS8_RKT_.exit.i.i: ; preds = %1340, %1338, %1330, %1328, %.split.split.us.i.i, %1321, %1320, %1313, %1312, %.split.us.split.us.i.i
-  %.us-phi.i.i = phi ptr [ %1327, %1330 ], [ %1311, %1313 ], [ %1319, %1321 ], [ %1311, %.split.us.split.us.i.i ], [ %1311, %1312 ], [ %1319, %1320 ], [ %1327, %.split.split.us.i.i ], [ %1327, %1328 ], [ %1337, %1338 ], [ %1337, %1340 ]
+  %.us-phi.i.i = phi ptr [ %1319, %1321 ], [ %1327, %1330 ], [ %1311, %1313 ], [ %1311, %.split.us.split.us.i.i ], [ %1311, %1312 ], [ %1319, %1320 ], [ %1327, %.split.split.us.i.i ], [ %1327, %1328 ], [ %1337, %1338 ], [ %1337, %1340 ]
   %1346 = load ptr, ptr %1296, align 8, !tbaa !352
   %1347 = load i32, ptr %1301, align 8, !tbaa !355
   %1348 = zext i32 %1347 to i64
@@ -15482,7 +15482,7 @@ _ZSt13move_backwardIP18InstrProfValueDataS1_ET0_T_S3_S2_.exit: ; preds = %48, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !707
 
 _ZSt11swap_rangesIP18InstrProfValueDataS1_ET0_T_S3_S2_.exit: ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIP18InstrProfValueDataS1_ET0_T_S3_S2_.exit, %_ZSt4moveIP18InstrProfValueDataS1_ET0_T_S3_S2_.exit, %10, %3
-  %.053 = phi ptr [ %0, %10 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %26, %_ZSt4moveIP18InstrProfValueDataS1_ET0_T_S3_S2_.exit ], [ %26, %_ZSt13move_backwardIP18InstrProfValueDataS1_ET0_T_S3_S2_.exit ], [ %26, %._crit_edge110 ], [ %26, %._crit_edge ]
+  %.053 = phi ptr [ %0, %10 ], [ %2, %3 ], [ %26, %_ZSt13move_backwardIP18InstrProfValueDataS1_ET0_T_S3_S2_.exit ], [ %26, %_ZSt4moveIP18InstrProfValueDataS1_ET0_T_S3_S2_.exit ], [ %1, %.lr.ph.i ], [ %26, %._crit_edge110 ], [ %26, %._crit_edge ]
   ret ptr %.053
 }
 

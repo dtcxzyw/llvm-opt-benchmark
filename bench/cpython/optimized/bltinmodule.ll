@@ -2551,7 +2551,7 @@ Py_DECREF.exit79:                                 ; preds = %113, %115, %118
   br i1 %exitcond105.not, label %.loopexit, label %104, !llvm.loop !135
 
 .loopexit:                                        ; preds = %86, %126, %130, %.preheader88, %.preheader, %91, %39, %._crit_edge, %Py_DECREF.exit77, %62, %Py_DECREF.exit, %1, %Py_DECREF.exit79, %98
-  %.0 = phi ptr [ null, %62 ], [ %103, %98 ], [ %123, %Py_DECREF.exit79 ], [ null, %91 ], [ %5, %39 ], [ null, %.preheader ], [ null, %1 ], [ null, %Py_DECREF.exit77 ], [ null, %Py_DECREF.exit ], [ %5, %._crit_edge ], [ %63, %.preheader88 ], [ null, %126 ], [ null, %130 ], [ %63, %86 ]
+  %.0 = phi ptr [ null, %62 ], [ %103, %98 ], [ %123, %Py_DECREF.exit79 ], [ null, %91 ], [ %5, %39 ], [ null, %.preheader ], [ null, %1 ], [ null, %Py_DECREF.exit77 ], [ null, %Py_DECREF.exit ], [ %5, %._crit_edge ], [ null, %126 ], [ %63, %.preheader88 ], [ null, %130 ], [ %63, %86 ]
   ret ptr %.0
 }
 
@@ -3749,7 +3749,7 @@ Py_DECREF.exit122:                                ; preds = %Py_DECREF.exit122.s
   br label %238
 
 238:                                              ; preds = %198, %Py_DECREF.exit122
-  %.086 = phi ptr [ %.3, %Py_DECREF.exit122 ], [ null, %198 ]
+  %.086 = phi ptr [ null, %198 ], [ %.3, %Py_DECREF.exit122 ]
   %239 = load i32, ptr %196, align 8, !tbaa !33
   %.not.i.i148 = icmp sgt i32 %239, -1
   br i1 %.not.i.i148, label %240, label %Py_XDECREF.exit149
@@ -6823,7 +6823,7 @@ define internal noundef ptr @builtin_print(ptr readnone captures(none) %0, ptr n
   br label %builtin_print_impl.exit
 
 builtin_print_impl.exit:                          ; preds = %86, %84, %74, %72, %.thread93, %100, %97, %95, %58, %47, %40, %.thread.i, %28, %9
-  %.039 = phi ptr [ null, %28 ], [ null, %9 ], [ @_Py_NoneStruct, %40 ], [ null, %.thread.i ], [ null, %97 ], [ null, %95 ], [ @_Py_NoneStruct, %100 ], [ null, %58 ], [ null, %47 ], [ null, %.thread93 ], [ null, %74 ], [ null, %72 ], [ null, %84 ], [ null, %86 ]
+  %.039 = phi ptr [ null, %28 ], [ null, %9 ], [ @_Py_NoneStruct, %40 ], [ null, %97 ], [ null, %.thread.i ], [ null, %95 ], [ @_Py_NoneStruct, %100 ], [ null, %58 ], [ null, %47 ], [ null, %.thread93 ], [ null, %74 ], [ null, %72 ], [ null, %84 ], [ null, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.039
 }

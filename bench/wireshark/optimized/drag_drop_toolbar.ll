@@ -2752,7 +2752,7 @@ _ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 _ZSt11swap_rangesIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

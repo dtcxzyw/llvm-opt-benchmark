@@ -1633,8 +1633,8 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br label %38
 
 38:                                               ; preds = %36, %33, %26
-  %.252 = phi i32 [ %spec.select74, %36 ], [ %.05088, %26 ], [ %.05088, %33 ]
-  %.2 = phi i32 [ %.3, %36 ], [ %.04989, %26 ], [ %.3, %33 ]
+  %.252 = phi i32 [ %.05088, %33 ], [ %.05088, %26 ], [ %spec.select74, %36 ]
+  %.2 = phi i32 [ %.3, %33 ], [ %.04989, %26 ], [ %.3, %36 ]
   %39 = tail call ptr @systable_getnext(ptr noundef %10) #15
   %.not.not = icmp eq ptr %39, null
   br i1 %.not.not, label %.thread, label %.lr.ph

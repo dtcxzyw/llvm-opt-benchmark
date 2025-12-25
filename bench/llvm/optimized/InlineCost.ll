@@ -18752,7 +18752,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit.i: ; pr
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZNK12_GLOBAL__N_112CallAnalyzer26getDirectOrSimplifiedValueIN4llvm8ConstantEEEPT_PNS2_5ValueE.exit.i, %118, %.lr.ph.i.i.i.i.i, %161, %.critedge34.i
-  %.4.i = phi i1 [ true, %161 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %.critedge34.i ], [ false, %118 ], [ false, %_ZNK12_GLOBAL__N_112CallAnalyzer26getDirectOrSimplifiedValueIN4llvm8ConstantEEEPT_PNS2_5ValueE.exit.i ]
+  %.4.i = phi i1 [ true, %161 ], [ false, %.critedge34.i ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %118 ], [ false, %_ZNK12_GLOBAL__N_112CallAnalyzer26getDirectOrSimplifiedValueIN4llvm8ConstantEEEPT_PNS2_5ValueE.exit.i ]
   %164 = load ptr, ptr %4, align 8, !tbaa !25
   %165 = icmp eq ptr %164, %91
   br i1 %165, label %_ZN12_GLOBAL__N_112CallAnalyzer16simplifyCallSiteEPN4llvm8FunctionERNS1_8CallBaseE.exit, label %166
@@ -22510,8 +22510,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16Case
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %28, %20, %13, %70, %60, %49, %78
-  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %0, %70 ], [ %0, %49 ], [ %2, %78 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %.sroa.15.2, %70 ], [ %.sroa.15.0.lcssa, %49 ], [ %3, %78 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
+  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %2, %78 ], [ %0, %70 ], [ %0, %49 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
+  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %3, %78 ], [ %.sroa.15.2, %70 ], [ %.sroa.15.0.lcssa, %49 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert

@@ -1630,7 +1630,7 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit538
   br label %127
 
 127:                                              ; preds = %.sink.split, %109, %115, %118, %112, %105, %27
-  %.1391 = phi i1 [ %.0390, %27 ], [ false, %112 ], [ false, %109 ], [ false, %118 ], [ false, %105 ], [ false, %115 ], [ false, %.sink.split ]
+  %.1391 = phi i1 [ %.0390, %27 ], [ false, %105 ], [ false, %109 ], [ false, %115 ], [ false, %112 ], [ false, %118 ], [ false, %.sink.split ]
   %128 = load i32, ptr %22, align 8, !tbaa !73
   %129 = icmp ne i32 %128, 0
   %or.cond61 = or i1 %.1391, %129

@@ -507,7 +507,7 @@ _ZN10smt_logics12logic_is_allERK6symbol.exit:     ; preds = %110
           to label %117 unwind label %188
 
 117:                                              ; preds = %90, %94, %97, %100, %103, %106, %109, %_ZN10smt_logics12logic_is_allERK6symbol.exit, %114, %115
-  %118 = phi i1 [ %116, %115 ], [ true, %114 ], [ true, %_ZN10smt_logics12logic_is_allERK6symbol.exit ], [ true, %109 ], [ true, %106 ], [ true, %103 ], [ true, %100 ], [ true, %97 ], [ true, %90 ], [ true, %94 ]
+  %118 = phi i1 [ true, %97 ], [ true, %100 ], [ true, %103 ], [ true, %106 ], [ true, %109 ], [ true, %_ZN10smt_logics12logic_is_allERK6symbol.exit ], [ true, %114 ], [ %116, %115 ], [ true, %90 ], [ true, %94 ]
   %119 = load ptr, ptr %10, align 8, !tbaa !11
   %120 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %121 = icmp eq ptr %119, %120

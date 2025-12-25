@@ -3810,7 +3810,7 @@ recoveryApplyDelay.exit:                          ; preds = %260, %.lr.ph.i, %.p
   call fastcc void @recoveryPausesHere(i1 noundef zeroext false)
   br label %recoveryApplyDelay.exit.thread
 
-recoveryApplyDelay.exit.thread:                   ; preds = %236, %229, %223, %233, %recoveryStopsBefore.exit, %recoveryApplyDelay.exit, %270
+recoveryApplyDelay.exit.thread:                   ; preds = %236, %233, %223, %229, %recoveryStopsBefore.exit, %recoveryApplyDelay.exit, %270
   %271 = load ptr, ptr @xlogreader, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @rm_redo_error_callback, ptr %90, align 8

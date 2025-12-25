@@ -3200,7 +3200,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %.loopexit35
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread15: ; preds = %132, %.noexc41
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread15: ; preds = %.noexc41, %132
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
 
@@ -3300,7 +3300,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit51.thread: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.loopexit26.invoke
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit51.thread19: ; preds = %160, %.noexc50
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit51.thread19: ; preds = %.noexc50, %160
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %172
 

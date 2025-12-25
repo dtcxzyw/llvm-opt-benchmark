@@ -6470,7 +6470,7 @@ _ZN4cvc58internal8TypeNode4nullEv.exit.sink.split: ; preds = %_ZStlsISt11char_tr
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split, %.invoke, %148, %107, %39, %_ZN4cvc58internal7IntegerD2Ev.exit
-  %156 = phi i1 [ true, %_ZN4cvc58internal7IntegerD2Ev.exit ], [ false, %39 ], [ false, %107 ], [ false, %.invoke ], [ false, %148 ], [ false, %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split ]
+  %156 = phi i1 [ true, %_ZN4cvc58internal7IntegerD2Ev.exit ], [ false, %39 ], [ false, %107 ], [ false, %148 ], [ false, %.invoke ], [ false, %_ZN4cvc58internal8TypeNode4nullEv.exit.sink.split ]
   %157 = load ptr, ptr %8, align 8, !tbaa !18
   %158 = load i64, ptr %157, align 8
   %159 = and i64 %158, 1152920405095219200

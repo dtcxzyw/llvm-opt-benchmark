@@ -852,7 +852,7 @@ define internal i32 @config_input(ptr noundef %0) #1 {
   br label %.thread
 
 .thread:                                          ; preds = %30, %39, %84, %80, %76, %176, %172, %164, %._crit_edge224, %122, %95, %90, %._crit_edge213, %64, %59, %._crit_edge, %1, %.loopexit
-  %.0130 = phi i32 [ %43, %39 ], [ -12, %1 ], [ -12, %64 ], [ -12, %95 ], [ %.5, %.loopexit ], [ -12, %176 ], [ -12, %._crit_edge224 ], [ -12, %172 ], [ -22, %164 ], [ -12, %122 ], [ -12, %84 ], [ -12, %90 ], [ -12, %._crit_edge213 ], [ -12, %._crit_edge ], [ -12, %59 ], [ -12, %76 ], [ -12, %80 ], [ %34, %30 ]
+  %.0130 = phi i32 [ -12, %._crit_edge ], [ -12, %1 ], [ -12, %64 ], [ -12, %95 ], [ %.5, %.loopexit ], [ -12, %176 ], [ -12, %._crit_edge224 ], [ -12, %172 ], [ -22, %164 ], [ -12, %122 ], [ -12, %84 ], [ -12, %90 ], [ -12, %._crit_edge213 ], [ %43, %39 ], [ -12, %59 ], [ -12, %76 ], [ -12, %80 ], [ %34, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

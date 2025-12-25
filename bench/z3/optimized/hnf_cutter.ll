@@ -15475,24 +15475,24 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i:     ; preds = %531, %526
   %544 = load i8, ptr %340, align 4
   %545 = and i8 %544, 1
   %546 = icmp eq i8 %545, 0
-  br i1 %546, label %547, label %552
+  br i1 %546, label %547, label %_ZeqRK8rationalS1_.exit
 
 547:                                              ; preds = %542
   %548 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %549 = load i8, ptr %548, align 4
   %550 = and i8 %549, 1
   %551 = icmp eq i8 %550, 0
-  br i1 %551, label %_ZeqRK8rationalS1_.exit, label %552
+  br i1 %551, label %552, label %_ZeqRK8rationalS1_.exit
 
-552:                                              ; preds = %547, %542
-  %553 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %527, ptr noundef nonnull align 8 dereferenceable(16) %334, ptr noundef nonnull align 8 dereferenceable(16) %543)
-  %554 = icmp eq i32 %553, 0
-  br i1 %554, label %558, label %_ZeqRK8rationalS1_.exit.thread
+552:                                              ; preds = %547
+  %553 = load i32, ptr %334, align 8, !tbaa !25
+  %554 = load i32, ptr %543, align 8, !tbaa !25
+  %555 = icmp eq i32 %553, %554
+  br i1 %555, label %558, label %_ZeqRK8rationalS1_.exit.thread
 
-_ZeqRK8rationalS1_.exit:                          ; preds = %547
-  %555 = load i32, ptr %334, align 8, !tbaa !25
-  %556 = load i32, ptr %543, align 8, !tbaa !25
-  %557 = icmp eq i32 %555, %556
+_ZeqRK8rationalS1_.exit:                          ; preds = %542, %547
+  %556 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %527, ptr noundef nonnull align 8 dereferenceable(16) %334, ptr noundef nonnull align 8 dereferenceable(16) %543)
+  %557 = icmp eq i32 %556, 0
   br i1 %557, label %558, label %_ZeqRK8rationalS1_.exit.thread
 
 558:                                              ; preds = %552, %_ZeqRK8rationalS1_.exit

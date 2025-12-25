@@ -5299,7 +5299,7 @@ check_filter_string.exit.thread:                  ; preds = %22, %check_filter_s
   br label %68
 
 68:                                               ; preds = %.sink.split, %57, %61
-  %.0 = phi i1 [ true, %57 ], [ true, %61 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %61 ], [ true, %57 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -5702,7 +5702,7 @@ check_filter_string.exit.thread:                  ; preds = %12, %check_filter_s
   br label %52
 
 52:                                               ; preds = %.sink.split, %41, %45
-  %.0 = phi i1 [ true, %41 ], [ true, %45 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %45 ], [ true, %41 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

@@ -22666,7 +22666,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h78344beb79d24e75E.
   br label %.body.i
 
 .body18.i:                                        ; preds = %.loopexit8.i, %296, %292
-  %eh.lpad-body19.i = phi { ptr, i32 } [ %293, %292 ], [ %293, %296 ], [ %lpad.loopexit10.i, %.loopexit8.i ]
+  %eh.lpad-body19.i = phi { ptr, i32 } [ %293, %296 ], [ %293, %292 ], [ %lpad.loopexit10.i, %.loopexit8.i ]
   %309 = load i64, ptr %15, align 8, !range !37, !noalias !3237, !noundef !5
   %.not228.i = icmp eq i64 %309, -9223372036854775807
   br i1 %.not228.i, label %.body.i, label %337

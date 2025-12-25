@@ -9037,7 +9037,7 @@ hwloc_linux_try_hardwired_cpuinfo.exit.thread228: ; preds = %314, %hwloc_read_pa
   br label %hwloc_linux_try_hardwired_cpuinfo.exit.thread
 
 hwloc_linux_try_hardwired_cpuinfo.exit:           ; preds = %321, %325, %329
-  %.08.ph.i = phi i32 [ %322, %321 ], [ %326, %325 ], [ %330, %329 ]
+  %.08.ph.i = phi i32 [ %326, %325 ], [ %322, %321 ], [ %330, %329 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   %.not89 = icmp eq i32 %.08.ph.i, 0
   br i1 %.not89, label %904, label %hwloc_linux_try_hardwired_cpuinfo.exit.thread
@@ -9427,7 +9427,7 @@ hwloc_open.exit.i.i423.i:                         ; preds = %.preheader.i.i.i.i.
   br label %509
 
 509:                                              ; preds = %508, %505
-  %.1296.i = phi i32 [ 0, %508 ], [ %.3298.i, %505 ]
+  %.1296.i = phi i32 [ %.3298.i, %505 ], [ 0, %508 ]
   br i1 %.not360.i, label %.thread.i111, label %.thread686.i
 
 .thread.i111:                                     ; preds = %509, %433, %426, %423
@@ -15217,7 +15217,7 @@ hwloc_read_path_by_length.exit:                   ; preds = %60
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %hwloc_read_path_by_length.exit, %60, %hwloc_open.exit.i, %67, %hwloc_read_path_by_length.exit.us, %33, %hwloc_open.exit.i.loopexit.us, %40, %hwloc_read_path_by_length.exit.us.us, %hwloc_open.exit.i.loopexit.us.us, %18, %._crit_edge.loopexit
-  %.029.ph.ph = phi i32 [ 0, %._crit_edge.loopexit ], [ -1, %67 ], [ -1, %hwloc_read_path_by_length.exit.us.us ], [ -1, %18 ], [ -1, %hwloc_read_path_by_length.exit.us ], [ -1, %40 ], [ -1, %hwloc_open.exit.i.loopexit.us.us ], [ -1, %hwloc_open.exit.i.loopexit.us ], [ -1, %33 ], [ -1, %hwloc_open.exit.i ], [ -1, %60 ], [ -1, %hwloc_read_path_by_length.exit ]
+  %.029.ph.ph = phi i32 [ 0, %._crit_edge.loopexit ], [ -1, %40 ], [ -1, %hwloc_read_path_by_length.exit.us.us ], [ -1, %hwloc_read_path_by_length.exit.us ], [ -1, %67 ], [ -1, %18 ], [ -1, %hwloc_open.exit.i.loopexit.us.us ], [ -1, %hwloc_open.exit.i.loopexit.us ], [ -1, %33 ], [ -1, %hwloc_open.exit.i ], [ -1, %60 ], [ -1, %hwloc_read_path_by_length.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split

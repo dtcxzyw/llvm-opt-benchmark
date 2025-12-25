@@ -432,7 +432,7 @@ _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread19: ; preds = %4
   br label %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit
 
 _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit: ; preds = %._crit_edge.thread.i, %.loopexit.loopexit.i
-  %.010.i = phi i32 [ %7, %._crit_edge.thread.i ], [ %20, %.loopexit.loopexit.i ]
+  %.010.i = phi i32 [ %20, %.loopexit.loopexit.i ], [ %7, %._crit_edge.thread.i ]
   %21 = icmp ult i32 %.010.i, 10
   br i1 %21, label %22, label %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread
 
@@ -579,7 +579,7 @@ _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread18: ; preds = %4
   br label %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit
 
 _ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit: ; preds = %._crit_edge.thread.i, %.loopexit.loopexit.i
-  %.010.i = phi i32 [ %7, %._crit_edge.thread.i ], [ %20, %.loopexit.loopexit.i ]
+  %.010.i = phi i32 [ %20, %.loopexit.loopexit.i ], [ %7, %._crit_edge.thread.i ]
   %21 = icmp ult i32 %.010.i, 10
   br i1 %21, label %22, label %_ZN13CodeHeapState13findHeapIndexEP12outputStreamPKc.exit.thread
 
@@ -2456,25 +2456,25 @@ _ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread.thread:
   br label %867
 
 .loopexit1128:                                    ; preds = %.lr.ph1172.split, %.lr.ph1172.split.us.split, %.lr.ph1172.split.us.split.us, %.thread1531, %571, %217, %492, %496
-  %.2870 = phi i64 [ %.78751475, %.lr.ph1172.split.us.split.us ], [ %.78751475, %.lr.ph1172.split.us.split ], [ %.78751475, %571 ], [ %.787514741530, %496 ], [ %.18691175, %217 ], [ %.7875, %492 ], [ %.78751475, %.thread1531 ], [ %.78751475, %.lr.ph1172.split ]
-  %.1866 = phi i32 [ %526, %.lr.ph1172.split.us.split.us ], [ %526, %.lr.ph1172.split.us.split ], [ %526, %571 ], [ %.08651176, %496 ], [ %.08651176, %217 ], [ %466, %492 ], [ %.08651176, %.thread1531 ], [ %.08651176, %.lr.ph1172.split ]
-  %.1864 = phi i64 [ %243, %.lr.ph1172.split.us.split.us ], [ %243, %.lr.ph1172.split.us.split ], [ %243, %571 ], [ %243, %496 ], [ %.08631177, %217 ], [ %243, %492 ], [ %243, %.thread1531 ], [ %243, %.lr.ph1172.split ]
-  %.1859 = phi i64 [ %.3861, %.lr.ph1172.split.us.split.us ], [ %.3861, %.lr.ph1172.split.us.split ], [ %.3861, %571 ], [ %.08581178, %496 ], [ %.08581178, %217 ], [ %.2860, %492 ], [ %.08581178, %.thread1531 ], [ %.08581178, %.lr.ph1172.split ]
-  %.1854 = phi i64 [ %.3856, %.lr.ph1172.split.us.split.us ], [ %.3856, %.lr.ph1172.split.us.split ], [ %.3856, %571 ], [ %.08531179, %496 ], [ %.08531179, %217 ], [ %.2855, %492 ], [ %.08531179, %.thread1531 ], [ %.08531179, %.lr.ph1172.split ]
-  %.1849 = phi i64 [ %.48521477, %.lr.ph1172.split.us.split.us ], [ %.48521477, %.lr.ph1172.split.us.split ], [ %.48521477, %571 ], [ %.485214761529, %496 ], [ %.08481180, %217 ], [ %.3851, %492 ], [ %.48521477, %.thread1531 ], [ %.48521477, %.lr.ph1172.split ]
-  %.1844 = phi i64 [ %.48471479, %.lr.ph1172.split.us.split.us ], [ %.48471479, %.lr.ph1172.split.us.split ], [ %.48471479, %571 ], [ %.484714781528, %496 ], [ %.08431181, %217 ], [ %.3846, %492 ], [ %.48471479, %.thread1531 ], [ %.48471479, %.lr.ph1172.split ]
-  %.1839 = phi i64 [ %.48421481, %.lr.ph1172.split.us.split.us ], [ %.48421481, %.lr.ph1172.split.us.split ], [ %.48421481, %571 ], [ %.484214801527, %496 ], [ %.08381182, %217 ], [ %.3841, %492 ], [ %.48421481, %.thread1531 ], [ %.48421481, %.lr.ph1172.split ]
-  %.1836 = phi i64 [ %.08351183, %.lr.ph1172.split.us.split.us ], [ %.08351183, %.lr.ph1172.split.us.split ], [ %.08351183, %571 ], [ %500, %496 ], [ %.08351183, %217 ], [ %.08351183, %492 ], [ %580, %.thread1531 ], [ %580, %.lr.ph1172.split ]
-  %.1834 = phi i64 [ %.08331184, %.lr.ph1172.split.us.split.us ], [ %.08331184, %.lr.ph1172.split.us.split ], [ %.08331184, %571 ], [ %.08331184, %496 ], [ %219, %217 ], [ %.08331184, %492 ], [ %.08331184, %.thread1531 ], [ %.08331184, %.lr.ph1172.split ]
-  %.7830 = phi i1 [ %.111483, %.lr.ph1172.split.us.split.us ], [ %.111483, %.lr.ph1172.split.us.split ], [ %.111483, %571 ], [ %.1114821526, %496 ], [ false, %217 ], [ %.11, %492 ], [ %.111483, %.thread1531 ], [ %.111483, %.lr.ph1172.split ]
-  %.2812 = phi i32 [ %.71485, %.lr.ph1172.split.us.split.us ], [ %.71485, %.lr.ph1172.split.us.split ], [ %.71485, %571 ], [ %.714841525, %496 ], [ %.18111189, %217 ], [ %.7, %492 ], [ %.71485, %.thread1531 ], [ %.71485, %.lr.ph1172.split ]
-  %.2806 = phi i32 [ %.61487, %.lr.ph1172.split.us.split.us ], [ %.61487, %.lr.ph1172.split.us.split ], [ %.61487, %571 ], [ %.614861524, %496 ], [ %.18051190, %217 ], [ %.6, %492 ], [ %.61487, %.thread1531 ], [ %.61487, %.lr.ph1172.split ]
-  %.2801 = phi i32 [ %.51489, %.lr.ph1172.split.us.split.us ], [ %.51489, %.lr.ph1172.split.us.split ], [ %.51489, %571 ], [ %.514881523, %496 ], [ %.18001191, %217 ], [ %.5, %492 ], [ %.51489, %.thread1531 ], [ %.51489, %.lr.ph1172.split ]
-  %.1795 = phi i32 [ %.47981491, %.lr.ph1172.split.us.split.us ], [ %.47981491, %.lr.ph1172.split.us.split ], [ %.47981491, %571 ], [ %.479814901522, %496 ], [ %.07941192, %217 ], [ %.3797, %492 ], [ %.47981491, %.thread1531 ], [ %.47981491, %.lr.ph1172.split ]
-  %.1781 = phi i32 [ %.47841500, %.lr.ph1172.split.us.split.us ], [ %.47841500, %.lr.ph1172.split.us.split ], [ %.47841500, %571 ], [ %.478414991521, %496 ], [ %.07801193, %217 ], [ %.3783, %492 ], [ %.47841500, %.thread1531 ], [ %.47841500, %.lr.ph1172.split ]
-  %.1773 = phi i32 [ %.27741502, %.lr.ph1172.split.us.split.us ], [ %.27741502, %.lr.ph1172.split.us.split ], [ %.27741502, %571 ], [ %.277415011520, %496 ], [ %.07721194, %217 ], [ %.07721194, %492 ], [ %.27741502, %.thread1531 ], [ %.27741502, %.lr.ph1172.split ]
-  %.1771 = phi i32 [ %242, %.lr.ph1172.split.us.split.us ], [ %242, %.lr.ph1172.split.us.split ], [ %242, %571 ], [ %242, %496 ], [ %.07701196, %217 ], [ %242, %492 ], [ %242, %.thread1531 ], [ %242, %.lr.ph1172.split ]
-  %.2762 = phi i32 [ %.17611197, %.lr.ph1172.split.us.split.us ], [ %.17611197, %.lr.ph1172.split.us.split ], [ %.17611197, %571 ], [ %.17611197, %496 ], [ %218, %217 ], [ %.17611197, %492 ], [ %.17611197, %.thread1531 ], [ %.17611197, %.lr.ph1172.split ]
+  %.2870 = phi i64 [ %.78751475, %571 ], [ %.78751475, %.lr.ph1172.split.us.split ], [ %.78751475, %.lr.ph1172.split.us.split.us ], [ %.787514741530, %496 ], [ %.18691175, %217 ], [ %.7875, %492 ], [ %.78751475, %.thread1531 ], [ %.78751475, %.lr.ph1172.split ]
+  %.1866 = phi i32 [ %526, %571 ], [ %526, %.lr.ph1172.split.us.split ], [ %526, %.lr.ph1172.split.us.split.us ], [ %.08651176, %496 ], [ %.08651176, %217 ], [ %466, %492 ], [ %.08651176, %.thread1531 ], [ %.08651176, %.lr.ph1172.split ]
+  %.1864 = phi i64 [ %243, %571 ], [ %243, %.lr.ph1172.split.us.split ], [ %243, %.lr.ph1172.split.us.split.us ], [ %243, %496 ], [ %.08631177, %217 ], [ %243, %492 ], [ %243, %.thread1531 ], [ %243, %.lr.ph1172.split ]
+  %.1859 = phi i64 [ %.3861, %571 ], [ %.3861, %.lr.ph1172.split.us.split ], [ %.3861, %.lr.ph1172.split.us.split.us ], [ %.08581178, %496 ], [ %.08581178, %217 ], [ %.2860, %492 ], [ %.08581178, %.thread1531 ], [ %.08581178, %.lr.ph1172.split ]
+  %.1854 = phi i64 [ %.3856, %571 ], [ %.3856, %.lr.ph1172.split.us.split ], [ %.3856, %.lr.ph1172.split.us.split.us ], [ %.08531179, %496 ], [ %.08531179, %217 ], [ %.2855, %492 ], [ %.08531179, %.thread1531 ], [ %.08531179, %.lr.ph1172.split ]
+  %.1849 = phi i64 [ %.48521477, %571 ], [ %.48521477, %.lr.ph1172.split.us.split ], [ %.48521477, %.lr.ph1172.split.us.split.us ], [ %.485214761529, %496 ], [ %.08481180, %217 ], [ %.3851, %492 ], [ %.48521477, %.thread1531 ], [ %.48521477, %.lr.ph1172.split ]
+  %.1844 = phi i64 [ %.48471479, %571 ], [ %.48471479, %.lr.ph1172.split.us.split ], [ %.48471479, %.lr.ph1172.split.us.split.us ], [ %.484714781528, %496 ], [ %.08431181, %217 ], [ %.3846, %492 ], [ %.48471479, %.thread1531 ], [ %.48471479, %.lr.ph1172.split ]
+  %.1839 = phi i64 [ %.48421481, %571 ], [ %.48421481, %.lr.ph1172.split.us.split ], [ %.48421481, %.lr.ph1172.split.us.split.us ], [ %.484214801527, %496 ], [ %.08381182, %217 ], [ %.3841, %492 ], [ %.48421481, %.thread1531 ], [ %.48421481, %.lr.ph1172.split ]
+  %.1836 = phi i64 [ %.08351183, %571 ], [ %.08351183, %.lr.ph1172.split.us.split ], [ %.08351183, %.lr.ph1172.split.us.split.us ], [ %500, %496 ], [ %.08351183, %217 ], [ %.08351183, %492 ], [ %580, %.thread1531 ], [ %580, %.lr.ph1172.split ]
+  %.1834 = phi i64 [ %.08331184, %571 ], [ %.08331184, %.lr.ph1172.split.us.split ], [ %.08331184, %.lr.ph1172.split.us.split.us ], [ %.08331184, %496 ], [ %219, %217 ], [ %.08331184, %492 ], [ %.08331184, %.thread1531 ], [ %.08331184, %.lr.ph1172.split ]
+  %.7830 = phi i1 [ %.111483, %571 ], [ %.111483, %.lr.ph1172.split.us.split ], [ %.111483, %.lr.ph1172.split.us.split.us ], [ %.1114821526, %496 ], [ false, %217 ], [ %.11, %492 ], [ %.111483, %.thread1531 ], [ %.111483, %.lr.ph1172.split ]
+  %.2812 = phi i32 [ %.71485, %571 ], [ %.71485, %.lr.ph1172.split.us.split ], [ %.71485, %.lr.ph1172.split.us.split.us ], [ %.714841525, %496 ], [ %.18111189, %217 ], [ %.7, %492 ], [ %.71485, %.thread1531 ], [ %.71485, %.lr.ph1172.split ]
+  %.2806 = phi i32 [ %.61487, %571 ], [ %.61487, %.lr.ph1172.split.us.split ], [ %.61487, %.lr.ph1172.split.us.split.us ], [ %.614861524, %496 ], [ %.18051190, %217 ], [ %.6, %492 ], [ %.61487, %.thread1531 ], [ %.61487, %.lr.ph1172.split ]
+  %.2801 = phi i32 [ %.51489, %571 ], [ %.51489, %.lr.ph1172.split.us.split ], [ %.51489, %.lr.ph1172.split.us.split.us ], [ %.514881523, %496 ], [ %.18001191, %217 ], [ %.5, %492 ], [ %.51489, %.thread1531 ], [ %.51489, %.lr.ph1172.split ]
+  %.1795 = phi i32 [ %.47981491, %571 ], [ %.47981491, %.lr.ph1172.split.us.split ], [ %.47981491, %.lr.ph1172.split.us.split.us ], [ %.479814901522, %496 ], [ %.07941192, %217 ], [ %.3797, %492 ], [ %.47981491, %.thread1531 ], [ %.47981491, %.lr.ph1172.split ]
+  %.1781 = phi i32 [ %.47841500, %571 ], [ %.47841500, %.lr.ph1172.split.us.split ], [ %.47841500, %.lr.ph1172.split.us.split.us ], [ %.478414991521, %496 ], [ %.07801193, %217 ], [ %.3783, %492 ], [ %.47841500, %.thread1531 ], [ %.47841500, %.lr.ph1172.split ]
+  %.1773 = phi i32 [ %.27741502, %571 ], [ %.27741502, %.lr.ph1172.split.us.split ], [ %.27741502, %.lr.ph1172.split.us.split.us ], [ %.277415011520, %496 ], [ %.07721194, %217 ], [ %.07721194, %492 ], [ %.27741502, %.thread1531 ], [ %.27741502, %.lr.ph1172.split ]
+  %.1771 = phi i32 [ %242, %571 ], [ %242, %.lr.ph1172.split.us.split ], [ %242, %.lr.ph1172.split.us.split.us ], [ %242, %496 ], [ %.07701196, %217 ], [ %242, %492 ], [ %242, %.thread1531 ], [ %242, %.lr.ph1172.split ]
+  %.2762 = phi i32 [ %.17611197, %571 ], [ %.17611197, %.lr.ph1172.split.us.split ], [ %.17611197, %.lr.ph1172.split.us.split.us ], [ %.17611197, %496 ], [ %218, %217 ], [ %.17611197, %492 ], [ %.17611197, %.thread1531 ], [ %.17611197, %.lr.ph1172.split ]
   %643 = call noundef ptr @_ZNK8CodeHeap10next_blockEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull %.08171187) #13
   %644 = icmp eq ptr %643, null
   %.not983 = or i1 %644, %.7830

@@ -262,7 +262,7 @@ define internal range(i32 0, 2) i32 @test_asyncio(i32 noundef %0) #1 {
   br label %.thread
 
 .thread:                                          ; preds = %.thread64, %67, %56, %77, %30, %37, %1, %91, %27
-  %.045 = phi i32 [ 0, %77 ], [ 1, %91 ], [ 0, %37 ], [ 0, %30 ], [ 0, %27 ], [ 0, %1 ], [ 0, %56 ], [ 0, %67 ], [ 0, %.thread64 ]
+  %.045 = phi i32 [ 0, %56 ], [ 1, %91 ], [ 0, %37 ], [ 0, %30 ], [ 0, %27 ], [ 0, %1 ], [ 0, %77 ], [ 0, %67 ], [ 0, %.thread64 ]
   %94 = load ptr, ptr %5, align 8, !tbaa !11
   call void @SSL_free(ptr noundef %94) #6
   %95 = load ptr, ptr %4, align 8, !tbaa !11

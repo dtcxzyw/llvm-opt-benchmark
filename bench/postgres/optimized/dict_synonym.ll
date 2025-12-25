@@ -222,8 +222,8 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   br label %findwrd.exit89
 
 findwrd.exit89:                                   ; preds = %100, %97
-  %.2 = phi i16 [ 0, %100 ], [ 2, %97 ]
-  %storemerge36.i78 = phi ptr [ %94, %100 ], [ %.141.i82133, %97 ]
+  %.2 = phi i16 [ 2, %97 ], [ 0, %100 ]
+  %storemerge36.i78 = phi ptr [ %.141.i82133, %97 ], [ %94, %100 ]
   store i8 0, ptr %storemerge36.i78, align 1
   %101 = load i32, ptr %45, align 8
   %.not72 = icmp slt i32 %.060139, %101

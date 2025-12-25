@@ -2198,8 +2198,8 @@ tailrecurse:                                      ; preds = %4, %.split13
   %82 = load ptr, ptr %81, align 8, !tbaa !31
   br label %tailrecurse
 
-Fraig_NodeIsMuxType.exit.thread22:                ; preds = %22, %29, %30, %53, %68, %75, %15, %8, %7
-  %.us-phi = phi ptr [ %.tr.ph36.us, %15 ], [ %.tr.ph36.us, %7 ], [ %.tr.ph36.us, %8 ], [ %.tr, %75 ], [ %.tr, %68 ], [ %.tr, %53 ], [ %.tr, %30 ], [ %.tr, %29 ], [ %.tr, %22 ]
+Fraig_NodeIsMuxType.exit.thread22:                ; preds = %22, %29, %30, %68, %53, %75, %15, %8, %7
+  %.us-phi = phi ptr [ %.tr.ph36.us, %15 ], [ %.tr.ph36.us, %7 ], [ %.tr.ph36.us, %8 ], [ %.tr, %75 ], [ %.tr, %53 ], [ %.tr, %68 ], [ %.tr, %30 ], [ %.tr, %29 ], [ %.tr, %22 ]
   %83 = tail call i32 @Fraig_NodeVecPushUnique(ptr noundef %1, ptr noundef %.us-phi) #15
   ret void
 }

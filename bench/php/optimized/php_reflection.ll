@@ -8376,7 +8376,7 @@ get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.
   %64 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %63, i64 noundef 0, ptr noundef nonnull @.str.28) #13
   br label %73
 
-get_parameter_default.exit.thread13:              ; preds = %56, %46, %get_parameter_default.exit
+get_parameter_default.exit.thread13:              ; preds = %46, %56, %get_parameter_default.exit
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load i8, ptr %65, align 8, !tbaa !26
   %67 = icmp eq i8 %66, 11
@@ -8522,8 +8522,8 @@ get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.
   %66 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %65, i64 noundef 0, ptr noundef nonnull @.str.28) #13
   br label %zval_ptr_dtor_nogc.exit
 
-get_parameter_default.exit.thread15:              ; preds = %get_parameter_default.exit.get_parameter_default.exit.thread15_crit_edge, %58, %47
-  %67 = phi i8 [ %.pre, %get_parameter_default.exit.get_parameter_default.exit.thread15_crit_edge ], [ %57, %58 ], [ %57, %47 ]
+get_parameter_default.exit.thread15:              ; preds = %get_parameter_default.exit.get_parameter_default.exit.thread15_crit_edge, %47, %58
+  %67 = phi i8 [ %.pre, %get_parameter_default.exit.get_parameter_default.exit.thread15_crit_edge ], [ %57, %47 ], [ %57, %58 ]
   %68 = icmp eq i8 %67, 11
   br i1 %68, label %69, label %switch.edge
 
@@ -8699,8 +8699,8 @@ get_parameter_default.exit.thread:                ; preds = %get_recv_op.exit.i.
   %66 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %65, i64 noundef 0, ptr noundef nonnull @.str.28) #13
   br label %zval_ptr_dtor_nogc.exit
 
-get_parameter_default.exit.thread42:              ; preds = %get_parameter_default.exit.get_parameter_default.exit.thread42_crit_edge, %58, %47
-  %67 = phi i8 [ %.pre, %get_parameter_default.exit.get_parameter_default.exit.thread42_crit_edge ], [ %57, %58 ], [ %57, %47 ]
+get_parameter_default.exit.thread42:              ; preds = %get_parameter_default.exit.get_parameter_default.exit.thread42_crit_edge, %47, %58
+  %67 = phi i8 [ %.pre, %get_parameter_default.exit.get_parameter_default.exit.thread42_crit_edge ], [ %57, %47 ], [ %57, %58 ]
   %.not34 = icmp eq i8 %67, 11
   br i1 %.not34, label %79, label %68
 

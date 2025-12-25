@@ -1898,7 +1898,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   store i64 3, ptr %0, align 8
   br label %78
 
-"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h2edac589adb86bfcE.exit.thread11": ; preds = %67, %39, %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h2edac589adb86bfcE.exit"
+"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h2edac589adb86bfcE.exit.thread11": ; preds = %39, %67, %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h2edac589adb86bfcE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.val, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2116,7 +2116,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   store i64 3, ptr %0, align 8
   br label %78
 
-"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hd46831ce8fbf2dadE.exit.thread11": ; preds = %67, %39, %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hd46831ce8fbf2dadE.exit"
+"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hd46831ce8fbf2dadE.exit.thread11": ; preds = %39, %67, %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17hd46831ce8fbf2dadE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.val, ptr %.sroa.4.0..sroa_idx, align 8

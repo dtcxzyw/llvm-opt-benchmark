@@ -1022,7 +1022,7 @@ define hidden i32 @mbedtls_md_hmac(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %mbedtls_md_hmac_update.exit
 
 mbedtls_md_hmac_update.exit:                      ; preds = %22, %26, %30
-  %.0.i = phi i32 [ %29, %26 ], [ %25, %22 ], [ %33, %30 ]
+  %.0.i = phi i32 [ %29, %26 ], [ %33, %30 ], [ %25, %22 ]
   %.not14 = icmp eq i32 %.0.i, 0
   br i1 %.not14, label %34, label %mbedtls_md_hmac_update.exit.thread
 

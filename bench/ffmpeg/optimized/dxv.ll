@@ -1048,7 +1048,7 @@ bytestream2_get_le32.exit:                        ; preds = %241, %240, %225
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %101, %177, %247, %.loopexit.sink.split, %bytestream2_get_le32.exit143
-  %.0112 = phi i32 [ 0, %bytestream2_get_le32.exit143 ], [ -1094995529, %.loopexit.sink.split ], [ 0, %247 ], [ -1094995529, %101 ], [ -1094995529, %33 ], [ -1094995529, %177 ]
+  %.0112 = phi i32 [ -1094995529, %.loopexit.sink.split ], [ 0, %bytestream2_get_le32.exit143 ], [ 0, %247 ], [ -1094995529, %177 ], [ -1094995529, %33 ], [ -1094995529, %101 ]
   ret i32 %.0112
 }
 

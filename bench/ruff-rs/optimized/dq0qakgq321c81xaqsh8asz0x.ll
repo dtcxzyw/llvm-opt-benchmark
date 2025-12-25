@@ -2058,11 +2058,11 @@ _ZN19ruff_python_literal6format15parse_precision17h053078140ef2fa50E.exit: ; pre
   %416 = icmp eq i64 %.sroa.623.0.copyload.i, 0
   br i1 %416, label %.thread244, label %.thread254
 
-.thread254:                                       ; preds = %402, %.noexc122, %414
-  %.sroa.15.1.ph264 = phi i64 [ %.sroa.623.0.copyload.i, %414 ], [ %.sink.i110233, %.noexc122 ], [ %.sink.i110233, %402 ]
-  %.sroa.11154.1.ph263 = phi ptr [ %.sroa.522.0.copyload.i, %414 ], [ %.sroa.0.0.ph.sink.i109232, %.noexc122 ], [ %.sroa.0.0.ph.sink.i109232, %402 ]
-  %.sroa.6152.1.ph262 = phi i64 [ %.sroa.021.0.copyload.i, %414 ], [ undef, %.noexc122 ], [ undef, %402 ]
-  %.sroa.0151.0.ph261 = phi i64 [ 1, %414 ], [ %409, %.noexc122 ], [ 0, %402 ]
+.thread254:                                       ; preds = %.noexc122, %402, %414
+  %.sroa.15.1.ph264 = phi i64 [ %.sroa.623.0.copyload.i, %414 ], [ %.sink.i110233, %402 ], [ %.sink.i110233, %.noexc122 ]
+  %.sroa.11154.1.ph263 = phi ptr [ %.sroa.522.0.copyload.i, %414 ], [ %.sroa.0.0.ph.sink.i109232, %402 ], [ %.sroa.0.0.ph.sink.i109232, %.noexc122 ]
+  %.sroa.6152.1.ph262 = phi i64 [ %.sroa.021.0.copyload.i, %414 ], [ undef, %402 ], [ undef, %.noexc122 ]
+  %.sroa.0151.0.ph261 = phi i64 [ 1, %414 ], [ 0, %402 ], [ %409, %.noexc122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @"_ZN100_$LT$ruff_python_literal..format..FormatType$u20$as$u20$ruff_python_literal..format..FormatParse$GT$5parse17h087ae27fd165fb11E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %.sroa.11154.1.ph263, i64 noundef %.sroa.15.1.ph264)
   %417 = load i8, ptr %14, align 8, !range !156, !noundef !4

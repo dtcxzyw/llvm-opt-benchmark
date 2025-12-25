@@ -282,7 +282,7 @@ findindex.exit:                                   ; preds = %3, %15, %98, %112
   br label %.loopexit
 
 .loopexit:                                        ; preds = %147, %.loopexit.sink.split, %136
-  %.0 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %136 ], [ 0, %147 ]
+  %.0 = phi i32 [ 0, %136 ], [ 1, %.loopexit.sink.split ], [ 0, %147 ]
   ret i32 %.0
 }
 

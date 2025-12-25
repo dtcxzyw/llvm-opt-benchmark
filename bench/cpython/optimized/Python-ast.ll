@@ -12137,7 +12137,7 @@ obj2ast_mod.exit.thread:                          ; preds = %509, %399, %47, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %510
 
-obj2ast_mod.exit.thread24:                        ; preds = %45, %_PyAST_Interactive.exit.i, %_PyAST_Module.exit.i
+obj2ast_mod.exit.thread24:                        ; preds = %_PyAST_Module.exit.i, %_PyAST_Interactive.exit.i, %45
   %.5.ph = phi ptr [ %279, %_PyAST_Module.exit.i ], [ %363, %_PyAST_Interactive.exit.i ], [ null, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %510
@@ -32771,8 +32771,8 @@ Py_DECREF.exit146:                                ; preds = %.thread209, %163, %
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %97, %72, %69, %75, %172, %169, %Py_DECREF.exit146, %104, %.loopexit, %107, %.split106
-  %.099 = phi ptr [ %.1100, %172 ], [ %.1100, %169 ], [ %.1100, %Py_DECREF.exit146 ], [ %.1100, %.split106 ], [ %.1100, %104 ], [ %.1100, %107 ], [ %.1100, %.loopexit ], [ %.2101267, %75 ], [ %.2101267, %72 ], [ %.2101267, %69 ], [ %.5104, %97 ]
-  %.092 = phi i32 [ %.10208, %172 ], [ %.10208, %169 ], [ %.10208, %Py_DECREF.exit146 ], [ -1, %.split106 ], [ -1, %104 ], [ %.395, %107 ], [ %.395, %.loopexit ], [ -1, %75 ], [ %74, %72 ], [ %71, %69 ], [ %100, %97 ]
+  %.099 = phi ptr [ %.1100, %104 ], [ %.1100, %.split106 ], [ %.1100, %Py_DECREF.exit146 ], [ %.1100, %169 ], [ %.1100, %172 ], [ %.1100, %107 ], [ %.1100, %.loopexit ], [ %.2101267, %75 ], [ %.2101267, %72 ], [ %.2101267, %69 ], [ %.5104, %97 ]
+  %.092 = phi i32 [ -1, %104 ], [ -1, %.split106 ], [ %.10208, %Py_DECREF.exit146 ], [ %.10208, %169 ], [ %.10208, %172 ], [ %.395, %107 ], [ %.395, %.loopexit ], [ -1, %75 ], [ %74, %72 ], [ %71, %69 ], [ %100, %97 ]
   %.not.i169 = icmp eq ptr %.099, null
   br i1 %.not.i169, label %Py_XDECREF.exit171.thread, label %Py_DECREF.exit.thread223
 
@@ -32794,8 +32794,8 @@ Py_DECREF.exit.thread223:                         ; preds = %87, %90, %Py_DECREF
   br label %Py_XDECREF.exit171.thread
 
 Py_XDECREF.exit171.thread:                        ; preds = %40, %Py_DECREF.exit150, %83, %177, %174, %Py_DECREF.exit.thread223, %Py_DECREF.exit, %23, %26, %34, %50, %51, %54
-  %.0105220240 = phi ptr [ %27, %177 ], [ %27, %34 ], [ %27, %83 ], [ %27, %54 ], [ %27, %51 ], [ %27, %50 ], [ %27, %174 ], [ null, %23 ], [ null, %26 ], [ %27, %Py_DECREF.exit ], [ %27, %Py_DECREF.exit.thread223 ], [ %27, %Py_DECREF.exit150 ], [ %27, %40 ]
-  %.092221238 = phi i32 [ %.092230, %177 ], [ -1, %34 ], [ -1, %83 ], [ -1, %54 ], [ -1, %51 ], [ -1, %50 ], [ %.092230, %174 ], [ -1, %23 ], [ -1, %26 ], [ %.092, %Py_DECREF.exit ], [ %.092230, %Py_DECREF.exit.thread223 ], [ %46, %Py_DECREF.exit150 ], [ -1, %40 ]
+  %.0105220240 = phi ptr [ %27, %177 ], [ %27, %34 ], [ %27, %174 ], [ %27, %54 ], [ %27, %51 ], [ %27, %50 ], [ %27, %83 ], [ null, %23 ], [ null, %26 ], [ %27, %Py_DECREF.exit ], [ %27, %Py_DECREF.exit.thread223 ], [ %27, %Py_DECREF.exit150 ], [ %27, %40 ]
+  %.092221238 = phi i32 [ %.092230, %177 ], [ -1, %34 ], [ %.092230, %174 ], [ -1, %54 ], [ -1, %51 ], [ -1, %50 ], [ -1, %83 ], [ -1, %23 ], [ -1, %26 ], [ %.092, %Py_DECREF.exit ], [ %.092230, %Py_DECREF.exit.thread223 ], [ %46, %Py_DECREF.exit150 ], [ -1, %40 ]
   %178 = load i32, ptr %21, align 8, !tbaa !9
   %.not.i.i173 = icmp sgt i32 %178, -1
   br i1 %.not.i.i173, label %179, label %Py_XDECREF.exit174
@@ -34262,7 +34262,7 @@ ast_type_replace_check.exit:                      ; preds = %195, %192, %190
   br label %218
 
 218:                                              ; preds = %216, %203, %207, %213
-  %.028 = phi ptr [ %217, %216 ], [ null, %213 ], [ null, %207 ], [ null, %203 ]
+  %.028 = phi ptr [ null, %213 ], [ %217, %216 ], [ null, %203 ], [ null, %207 ]
   %219 = load i32, ptr %199, align 8, !tbaa !9
   %.not.i.i40 = icmp sgt i32 %219, -1
   br i1 %.not.i.i40, label %220, label %Py_XDECREF.exit
@@ -44370,7 +44370,7 @@ Py_DECREF.exit2904.sink.split:                    ; preds = %263, %238
   br label %Py_DECREF.exit2904
 
 Py_DECREF.exit2904:                               ; preds = %Py_DECREF.exit2904.sink.split, %536, %481, %Py_DECREF.exit2886.thread, %Py_DECREF.exit2890.thread, %409, %354, %346, %291, %283, %258, %233
-  %.1 = phi i32 [ -1, %481 ], [ 0, %536 ], [ -1, %233 ], [ -1, %Py_DECREF.exit2886.thread ], [ -1, %258 ], [ -1, %283 ], [ -1, %291 ], [ -1, %346 ], [ -1, %354 ], [ -1, %409 ], [ -1, %Py_DECREF.exit2890.thread ], [ -1, %Py_DECREF.exit2904.sink.split ]
+  %.1 = phi i32 [ -1, %481 ], [ -1, %Py_DECREF.exit2886.thread ], [ -1, %233 ], [ 0, %536 ], [ -1, %258 ], [ -1, %283 ], [ -1, %291 ], [ -1, %346 ], [ -1, %354 ], [ -1, %409 ], [ -1, %Py_DECREF.exit2890.thread ], [ -1, %Py_DECREF.exit2904.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -45092,7 +45092,7 @@ Py_DECREF.exit2880.sink.split:                    ; preds = %581, %556
   br label %Py_DECREF.exit2880
 
 Py_DECREF.exit2880:                               ; preds = %Py_DECREF.exit2880.sink.split, %854, %799, %Py_DECREF.exit2862.thread, %Py_DECREF.exit2866.thread, %727, %672, %664, %609, %601, %576, %551
-  %.2 = phi i32 [ -1, %799 ], [ 0, %854 ], [ -1, %551 ], [ -1, %Py_DECREF.exit2862.thread ], [ -1, %576 ], [ -1, %601 ], [ -1, %609 ], [ -1, %664 ], [ -1, %672 ], [ -1, %727 ], [ -1, %Py_DECREF.exit2866.thread ], [ -1, %Py_DECREF.exit2880.sink.split ]
+  %.2 = phi i32 [ -1, %799 ], [ -1, %Py_DECREF.exit2862.thread ], [ -1, %551 ], [ 0, %854 ], [ -1, %576 ], [ -1, %601 ], [ -1, %609 ], [ -1, %664 ], [ -1, %672 ], [ -1, %727 ], [ -1, %Py_DECREF.exit2866.thread ], [ -1, %Py_DECREF.exit2880.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -46965,7 +46965,7 @@ Py_DECREF.exit2808.sink.split:                    ; preds = %1661, %1636, %1611
   br label %Py_DECREF.exit2808
 
 Py_DECREF.exit2808:                               ; preds = %Py_DECREF.exit2808.sink.split, %1681, %1656, %1631, %1606
-  %.8 = phi i32 [ -1, %1656 ], [ 0, %1681 ], [ -1, %1606 ], [ -1, %1631 ], [ -1, %Py_DECREF.exit2808.sink.split ]
+  %.8 = phi i32 [ -1, %1656 ], [ -1, %1631 ], [ -1, %1606 ], [ 0, %1681 ], [ -1, %Py_DECREF.exit2808.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
@@ -47232,7 +47232,7 @@ Py_DECREF.exit2802.sink.split:                    ; preds = %1782, %1725, %1700
   br label %Py_DECREF.exit2802
 
 Py_DECREF.exit2802:                               ; preds = %Py_DECREF.exit2802.sink.split, %1802, %Py_DECREF.exit2796.thread, %1745, %1720, %1695
-  %.9 = phi i32 [ -1, %Py_DECREF.exit2796.thread ], [ 0, %1802 ], [ -1, %1695 ], [ -1, %1745 ], [ -1, %1720 ], [ -1, %Py_DECREF.exit2802.sink.split ]
+  %.9 = phi i32 [ -1, %Py_DECREF.exit2796.thread ], [ -1, %1745 ], [ -1, %1695 ], [ 0, %1802 ], [ -1, %1720 ], [ -1, %Py_DECREF.exit2802.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -47734,7 +47734,7 @@ Py_DECREF.exit2792.sink.split:                    ; preds = %1847, %1822
   br label %Py_DECREF.exit2792
 
 Py_DECREF.exit2792:                               ; preds = %Py_DECREF.exit2792.sink.split, %Py_DECREF.exit2778.thread, %1993, %1938, %1930, %1875, %1867, %1842, %1817
-  %.10 = phi i32 [ -1, %1993 ], [ 0, %Py_DECREF.exit2778.thread ], [ -1, %1817 ], [ -1, %1938 ], [ -1, %1842 ], [ -1, %1867 ], [ -1, %1875 ], [ -1, %1930 ], [ -1, %Py_DECREF.exit2792.sink.split ]
+  %.10 = phi i32 [ -1, %1993 ], [ -1, %1938 ], [ -1, %1817 ], [ 0, %Py_DECREF.exit2778.thread ], [ -1, %1842 ], [ -1, %1867 ], [ -1, %1875 ], [ -1, %1930 ], [ -1, %Py_DECREF.exit2792.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
@@ -48235,7 +48235,7 @@ Py_DECREF.exit2776.sink.split:                    ; preds = %2069, %2044
   br label %Py_DECREF.exit2776
 
 Py_DECREF.exit2776:                               ; preds = %Py_DECREF.exit2776.sink.split, %Py_DECREF.exit2762.thread, %2215, %2160, %2152, %2097, %2089, %2064, %2039
-  %.11 = phi i32 [ -1, %2215 ], [ 0, %Py_DECREF.exit2762.thread ], [ -1, %2039 ], [ -1, %2160 ], [ -1, %2064 ], [ -1, %2089 ], [ -1, %2097 ], [ -1, %2152 ], [ -1, %Py_DECREF.exit2776.sink.split ]
+  %.11 = phi i32 [ -1, %2215 ], [ -1, %2160 ], [ -1, %2039 ], [ 0, %Py_DECREF.exit2762.thread ], [ -1, %2064 ], [ -1, %2089 ], [ -1, %2097 ], [ -1, %2152 ], [ -1, %Py_DECREF.exit2776.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
@@ -53650,7 +53650,7 @@ Py_DECREF.exit1878.sink.split:                    ; preds = %431, %406, %381
   br label %Py_DECREF.exit1878
 
 Py_DECREF.exit1878:                               ; preds = %Py_DECREF.exit1878.sink.split, %451, %426, %401, %376
-  %.3 = phi i32 [ -1, %426 ], [ 0, %451 ], [ -1, %376 ], [ -1, %401 ], [ -1, %Py_DECREF.exit1878.sink.split ]
+  %.3 = phi i32 [ -1, %426 ], [ -1, %401 ], [ -1, %376 ], [ 0, %451 ], [ -1, %Py_DECREF.exit1878.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -54114,7 +54114,7 @@ Py_DECREF.exit1864.sink.split:                    ; preds = %646, %621, %596
   br label %Py_DECREF.exit1864
 
 Py_DECREF.exit1864:                               ; preds = %Py_DECREF.exit1864.sink.split, %666, %641, %616, %591
-  %.6 = phi i32 [ -1, %641 ], [ 0, %666 ], [ -1, %591 ], [ -1, %616 ], [ -1, %Py_DECREF.exit1864.sink.split ]
+  %.6 = phi i32 [ -1, %641 ], [ -1, %616 ], [ -1, %591 ], [ 0, %666 ], [ -1, %Py_DECREF.exit1864.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -55350,7 +55350,7 @@ Py_DECREF.exit1834.sink.split:                    ; preds = %1130, %1105
   br label %Py_DECREF.exit1834
 
 Py_DECREF.exit1834:                               ; preds = %Py_DECREF.exit1834.sink.split, %1213, %1158, %1150, %1125, %1100
-  %.11 = phi i32 [ -1, %1158 ], [ 0, %1213 ], [ -1, %1100 ], [ -1, %1150 ], [ -1, %1125 ], [ -1, %Py_DECREF.exit1834.sink.split ]
+  %.11 = phi i32 [ -1, %1158 ], [ -1, %1150 ], [ -1, %1100 ], [ 0, %1213 ], [ -1, %1125 ], [ -1, %Py_DECREF.exit1834.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %Py_DECREF.exit1856
@@ -56815,7 +56815,7 @@ Py_DECREF.exit1792.sink.split:                    ; preds = %1808, %1783
   br label %Py_DECREF.exit1792
 
 Py_DECREF.exit1792:                               ; preds = %Py_DECREF.exit1792.sink.split, %Py_DECREF.exit1786.thread, %1828, %1803, %1778
-  %.18 = phi i32 [ -1, %1828 ], [ 0, %Py_DECREF.exit1786.thread ], [ -1, %1778 ], [ -1, %1803 ], [ -1, %Py_DECREF.exit1792.sink.split ]
+  %.18 = phi i32 [ -1, %1828 ], [ -1, %1803 ], [ -1, %1778 ], [ 0, %Py_DECREF.exit1786.thread ], [ -1, %Py_DECREF.exit1792.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
@@ -57359,7 +57359,7 @@ Py_DECREF.exit1774.sink.split:                    ; preds = %2086, %2061, %2036
   br label %Py_DECREF.exit1774
 
 Py_DECREF.exit1774:                               ; preds = %Py_DECREF.exit1774.sink.split, %2106, %2081, %2056, %2031
-  %.21 = phi i32 [ -1, %2081 ], [ 0, %2106 ], [ -1, %2031 ], [ -1, %2056 ], [ -1, %Py_DECREF.exit1774.sink.split ]
+  %.21 = phi i32 [ -1, %2081 ], [ -1, %2056 ], [ -1, %2031 ], [ 0, %2106 ], [ -1, %Py_DECREF.exit1774.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
@@ -57549,7 +57549,7 @@ Py_DECREF.exit1768.sink.split:                    ; preds = %2175, %2150, %2125
   br label %Py_DECREF.exit1768
 
 Py_DECREF.exit1768:                               ; preds = %Py_DECREF.exit1768.sink.split, %2195, %2170, %2145, %2120
-  %.22 = phi i32 [ -1, %2170 ], [ 0, %2195 ], [ -1, %2120 ], [ -1, %2145 ], [ -1, %Py_DECREF.exit1768.sink.split ]
+  %.22 = phi i32 [ -1, %2170 ], [ -1, %2145 ], [ -1, %2120 ], [ 0, %2195 ], [ -1, %Py_DECREF.exit1768.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)

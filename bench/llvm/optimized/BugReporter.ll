@@ -20889,7 +20889,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i47.i: ; preds =
   br label %504
 
 504:                                              ; preds = %.thread99.i, %502, %423, %418, %405
-  %.sroa.084.1.i = phi ptr [ %406, %405 ], [ %410, %418 ], [ %410, %423 ], [ %476, %502 ], [ %503, %.thread99.i ]
+  %.sroa.084.1.i = phi ptr [ %406, %405 ], [ %410, %423 ], [ %410, %418 ], [ %476, %502 ], [ %503, %.thread99.i ]
   %.not109.i = icmp eq ptr %.sroa.084.1.i, %1
   br i1 %.not109.i, label %_ZL19removeContextCyclesRN5clang4ento10PathPiecesERKNS_13SourceManagerE.exit.loopexit, label %399
 

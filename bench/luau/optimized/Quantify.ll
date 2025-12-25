@@ -8595,7 +8595,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12visit_detail7hasSeen
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %42, !llvm.loop !298
 
 .loopexit.i.i:                                    ; preds = %48, %46, %.thread, %.thread12
-  %51 = phi ptr [ %31, %.thread12 ], [ %10, %.thread ], [ %10, %46 ], [ %10, %48 ]
+  %51 = phi ptr [ %10, %.thread ], [ %31, %.thread12 ], [ %10, %46 ], [ %10, %48 ]
   tail call void @_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.pre.i = load i64, ptr %51, align 8, !tbaa !297
   br label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i

@@ -149,7 +149,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %79
 
 79:                                               ; preds = %.sink.split, %48, %56, %60, %40, %66, %70, %64
-  %.1 = phi i1 [ false, %64 ], [ %.0118, %48 ], [ %.0118, %66 ], [ %.0118, %56 ], [ false, %70 ], [ %.0118, %40 ], [ %.0118, %60 ], [ false, %.sink.split ]
+  %.1 = phi i1 [ false, %64 ], [ %.0118, %56 ], [ %.0118, %66 ], [ %.0118, %48 ], [ false, %70 ], [ %.0118, %40 ], [ %.0118, %60 ], [ false, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %22, align 8
   %81 = sext i32 %80 to i64

@@ -3496,7 +3496,7 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
   br i1 %.not165.i, label %.loopexit203.i, label %.lr.ph265.i, !llvm.loop !13
 
 .loopexit203.i:                                   ; preds = %162, %.preheader204.i, %.preheader207.i
-  %.7142.i = phi i8 [ 0, %.preheader207.i ], [ %.3138.ph.ph.i, %.preheader204.i ], [ %.10145.i, %162 ]
+  %.7142.i = phi i8 [ %.3138.ph.ph.i, %.preheader204.i ], [ 0, %.preheader207.i ], [ %.10145.i, %162 ]
   %163 = load i8, ptr @knx_decryption_key_count, align 1
   %.not.i = icmp eq i8 %163, 0
   br i1 %.not.i, label %.thread193.i, label %.lr.ph276.i

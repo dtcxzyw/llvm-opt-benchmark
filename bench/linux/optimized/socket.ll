@@ -6366,8 +6366,8 @@ define internal fastcc i32 @do_recvmmsg(i32 noundef %0, ptr noundef %1, i32 noun
   %114 = icmp eq i32 %90, %2
   br i1 %114, label %.thread22, label %55, !llvm.loop !49
 
-115:                                              ; preds = %61, %71, %81
-  %.ph24 = phi i32 [ %87, %81 ], [ %73, %71 ], [ %63, %61 ]
+115:                                              ; preds = %81, %71, %61
+  %.ph24 = phi i32 [ %63, %61 ], [ %73, %71 ], [ %87, %81 ]
   %116 = icmp eq i32 %57, 0
   br i1 %116, label %.thread22, label %117
 

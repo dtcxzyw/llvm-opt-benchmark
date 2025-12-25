@@ -1907,9 +1907,9 @@ define internal void @pmix_server_dmdx_recv(i32 %0, ptr noundef %1, ptr noundef 
   br label %.thread265
 
 .thread265:                                       ; preds = %.thread265.sink.split, %.preheader, %36, %45, %._crit_edge
-  %.0215272 = phi ptr [ null, %.preheader ], [ null, %36 ], [ %.2217, %._crit_edge ], [ null, %45 ], [ %.2217, %.thread265.sink.split ]
-  %.0218271 = phi i32 [ 0, %.preheader ], [ 0, %36 ], [ %.2220, %._crit_edge ], [ 0, %45 ], [ %.2220, %.thread265.sink.split ]
-  %.1222 = phi ptr [ %39, %.preheader ], [ null, %36 ], [ %39, %._crit_edge ], [ null, %45 ], [ %.1222.ph, %.thread265.sink.split ]
+  %.0215272 = phi ptr [ null, %36 ], [ null, %.preheader ], [ %.2217, %._crit_edge ], [ null, %45 ], [ %.2217, %.thread265.sink.split ]
+  %.0218271 = phi i32 [ 0, %36 ], [ 0, %.preheader ], [ %.2220, %._crit_edge ], [ 0, %45 ], [ %.2220, %.thread265.sink.split ]
+  %.1222 = phi ptr [ null, %36 ], [ %39, %.preheader ], [ %39, %._crit_edge ], [ null, %45 ], [ %.1222.ph, %.thread265.sink.split ]
   %143 = call ptr @prte_get_job_data_object(ptr noundef nonnull %9) #17
   %144 = icmp eq ptr %143, null
   br i1 %144, label %145, label %184

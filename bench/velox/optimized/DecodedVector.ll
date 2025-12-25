@@ -485,7 +485,7 @@ if.then:                                          ; preds = %land.rhs
   br label %tailrecurse
 
 if.end:                                           ; preds = %land.rhs, %_ZN8facebook5velox13DecodedVector5resetEi.exit, %_ZN8facebook5velox13DecodedVector5resetEi.exit.us58, %land.rhs.us61, %lor.lhs.false.us, %lor.lhs.false.us.us
-  %.us-phi = phi ptr [ %vector.tr.us46, %_ZN8facebook5velox13DecodedVector5resetEi.exit.us58 ], [ %vector.tr.us, %lor.lhs.false.us ], [ %vector.tr.us.us, %lor.lhs.false.us.us ], [ %vector.tr.us46, %land.rhs.us61 ], [ %vector.tr, %_ZN8facebook5velox13DecodedVector5resetEi.exit ], [ %vector.tr, %land.rhs ]
+  %.us-phi = phi ptr [ %vector.tr.us.us, %lor.lhs.false.us.us ], [ %vector.tr.us, %lor.lhs.false.us ], [ %vector.tr.us46, %_ZN8facebook5velox13DecodedVector5resetEi.exit.us58 ], [ %vector.tr.us46, %land.rhs.us61 ], [ %vector.tr, %_ZN8facebook5velox13DecodedVector5resetEi.exit ], [ %vector.tr, %land.rhs ]
   %encoding_.i.i.le = getelementptr inbounds nuw i8, ptr %.us-phi, i64 28
   %40 = load i32, ptr %encoding_.i.i.le, align 4
   switch i32 %40, label %sw.default [

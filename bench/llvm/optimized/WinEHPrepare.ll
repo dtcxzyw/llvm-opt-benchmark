@@ -2200,7 +2200,7 @@ _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread: ; preds = %123, %_ZNK4l
   br label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit105.thread
 
 _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit105.thread: ; preds = %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread, %.lr.ph224
-  %138 = phi i8 [ %122, %.lr.ph224 ], [ %.pre, %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread ]
+  %138 = phi i8 [ %.pre, %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread ], [ %122, %.lr.ph224 ]
   %.not203 = icmp eq i8 %138, 80
   br i1 %.not203, label %139, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit110.thread
 
@@ -3274,7 +3274,7 @@ _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread: ; preds = %163, %_ZNK4l
   br label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit144.thread
 
 _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit144.thread: ; preds = %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread, %.lr.ph275
-  %178 = phi i8 [ %162, %.lr.ph275 ], [ %.pre, %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread ]
+  %178 = phi i8 [ %.pre, %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread ], [ %162, %.lr.ph275 ]
   %.not250 = icmp eq i8 %178, 80
   br i1 %.not250, label %179, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit150.thread
 
@@ -4351,7 +4351,7 @@ _ZN4llvm11SmallVectorISt4pairIPKNS_11InstructionEiELj8EED2Ev.exit: ; preds = %._
   br label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit203
 
 _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit203: ; preds = %338, %351, %331
-  %.0127 = phi ptr [ %333, %331 ], [ %342, %338 ], [ %355, %351 ]
+  %.0127 = phi ptr [ %333, %331 ], [ %355, %351 ], [ %342, %338 ]
   %.not148 = icmp eq ptr %.0127, null
   br i1 %.not148, label %.thread303, label %356
 

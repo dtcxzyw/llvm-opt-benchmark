@@ -1824,7 +1824,7 @@ _ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit.sink.split: ; preds =
   br label %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit
 
 _ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit: ; preds = %80, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i, %52, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit.sink.split, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit, %65
-  %.1 = phi ptr [ null, %52 ], [ null, %65 ], [ %90, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit.sink.split ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i ], [ null, %80 ]
+  %.1 = phi ptr [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit ], [ null, %52 ], [ %90, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit.sink.split ], [ null, %65 ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i ], [ null, %80 ]
   ret ptr %.1
 }
 

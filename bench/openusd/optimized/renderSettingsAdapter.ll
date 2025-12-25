@@ -1924,7 +1924,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc105
   %365 = and i1 %364, %363
   br i1 %365, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread236, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread236: ; preds = %.noexc105, %356, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread236: ; preds = %356, %.noexc105, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %366 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12UsdRenderVar16_GetStaticTfTypeEv()
           to label %.noexc106 unwind label %402
 
@@ -2590,7 +2590,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit165: ; preds = %.noexc
   %640 = and i1 %639, %638
   br i1 %640, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit165.thread240, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit190
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit165.thread240: ; preds = %.noexc164, %631, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit165
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit165.thread240: ; preds = %631, %.noexc164, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit165
   %641 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter15_GetPrimAdapterERKNS_7UsdPrimEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %25, i1 noundef zeroext false)
           to label %642 unwind label %762
 

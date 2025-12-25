@@ -1607,7 +1607,7 @@ r_less.exit21.i:                                  ; preds = %.preheader.i, %210
   br label %.preheader
 
 range_each_fixnum_loop.exit:                      ; preds = %.lr.ph.i, %.lr.ph, %115, %.lr.ph129, %200, %r_less.exit.i, %210, %208, %r_less.exit21.i, %.preheader121, %.preheader119, %.preheader.i, %.preheader5.i, %RANGE_EXCL.exit.i, %93, %91, %142, %RANGE_EXCL.exit91, %RANGE_EXCL.exit94, %174, %81, %77, %3
-  %.0 = phi i64 [ %0, %200 ], [ %0, %81 ], [ %0, %77 ], [ %6, %3 ], [ %0, %.preheader119 ], [ %0, %174 ], [ %0, %RANGE_EXCL.exit94 ], [ %0, %210 ], [ %0, %.preheader121 ], [ %0, %RANGE_EXCL.exit91 ], [ %0, %142 ], [ %0, %91 ], [ %0, %93 ], [ %0, %RANGE_EXCL.exit.i ], [ %0, %.preheader5.i ], [ %0, %.preheader.i ], [ %0, %.lr.ph ], [ %0, %115 ], [ %0, %r_less.exit21.i ], [ %0, %208 ], [ %0, %r_less.exit.i ], [ %0, %.lr.ph129 ], [ %0, %.lr.ph.i ]
+  %.0 = phi i64 [ %0, %210 ], [ %0, %81 ], [ %0, %77 ], [ %6, %3 ], [ %0, %.preheader119 ], [ %0, %174 ], [ %0, %RANGE_EXCL.exit94 ], [ %0, %.preheader121 ], [ %0, %115 ], [ %0, %RANGE_EXCL.exit91 ], [ %0, %142 ], [ %0, %91 ], [ %0, %93 ], [ %0, %RANGE_EXCL.exit.i ], [ %0, %.preheader5.i ], [ %0, %.preheader.i ], [ %0, %.lr.ph ], [ %0, %200 ], [ %0, %r_less.exit21.i ], [ %0, %208 ], [ %0, %r_less.exit.i ], [ %0, %.lr.ph129 ], [ %0, %.lr.ph.i ]
   ret i64 %.0
 }
 
@@ -2213,7 +2213,7 @@ r_less.exit214:                                   ; preds = %.preheader239, %285
   br label %.preheader239, !llvm.loop !36
 
 r_less.exit198.thread:                            ; preds = %rb_long2num_inline.exit183, %rb_long2num_inline.exit177, %r_less.exit198, %231, %239, %r_less.exit200, %241, %r_less.exit212, %r_less.exit214, %290, %RANGE_EXCL.exit180, %RANGE_EXCL.exit174, %.preheader244, %.preheader242, %RANGE_EXCL.exit186, %206, %r_less.exit207, %RANGE_EXCL.exit205, %258, %183, %82, %RANGE_EXCL.exit
-  %.0 = phi i64 [ %85, %82 ], [ %76, %RANGE_EXCL.exit ], [ %2, %.preheader242 ], [ %2, %.preheader244 ], [ %2, %183 ], [ %2, %258 ], [ %2, %RANGE_EXCL.exit205 ], [ %2, %RANGE_EXCL.exit174 ], [ %2, %RANGE_EXCL.exit180 ], [ %2, %r_less.exit198 ], [ %2, %r_less.exit207 ], [ %2, %206 ], [ %2, %RANGE_EXCL.exit186 ], [ %2, %239 ], [ %2, %rb_long2num_inline.exit177 ], [ %2, %r_less.exit212 ], [ %2, %r_less.exit214 ], [ %2, %290 ], [ %2, %241 ], [ %2, %r_less.exit200 ], [ %2, %231 ], [ %2, %rb_long2num_inline.exit183 ]
+  %.0 = phi i64 [ %85, %82 ], [ %76, %RANGE_EXCL.exit ], [ %2, %.preheader242 ], [ %2, %.preheader244 ], [ %2, %183 ], [ %2, %258 ], [ %2, %RANGE_EXCL.exit205 ], [ %2, %RANGE_EXCL.exit174 ], [ %2, %r_less.exit198 ], [ %2, %206 ], [ %2, %r_less.exit207 ], [ %2, %r_less.exit212 ], [ %2, %RANGE_EXCL.exit186 ], [ %2, %RANGE_EXCL.exit180 ], [ %2, %r_less.exit214 ], [ %2, %rb_long2num_inline.exit177 ], [ %2, %239 ], [ %2, %290 ], [ %2, %241 ], [ %2, %r_less.exit200 ], [ %2, %231 ], [ %2, %rb_long2num_inline.exit183 ]
   ret i64 %.0
 }
 
@@ -3471,7 +3471,7 @@ is_integer_p.exit464.thread552:                   ; preds = %rbimpl_intern_const
   unreachable
 
 .thread472:                                       ; preds = %275, %289, %.thread529, %333, %319, %361, %375, %.thread570, %419, %405, %.thread484, %213, %199, %.thread, %64, %50, %300, %386, %RANGE_EXCL.exit422, %RANGE_EXCL.exit, %382, %424, %296, %338, %354, %268, %137, %20, %RANGE_EXCL.exit440, %239
-  %.5 = phi i64 [ %271, %268 ], [ %339, %338 ], [ 4, %RANGE_EXCL.exit422 ], [ %254, %RANGE_EXCL.exit440 ], [ %242, %239 ], [ %425, %424 ], [ %23, %20 ], [ %385, %382 ], [ %140, %137 ], [ %.0.i423, %199 ], [ %299, %296 ], [ %357, %354 ], [ %.13263535, %.thread529 ], [ %.15265, %386 ], [ %358, %361 ], [ %402, %405 ], [ %47, %50 ], [ 4, %RANGE_EXCL.exit ], [ %.7257521603, %300 ], [ %47, %64 ], [ %.1251470, %.thread ], [ %.0.i423, %213 ], [ %.4254490, %.thread484 ], [ %402, %419 ], [ %.22272576, %.thread570 ], [ %358, %375 ], [ %316, %333 ], [ %316, %319 ], [ %272, %289 ], [ %272, %275 ]
+  %.5 = phi i64 [ %271, %268 ], [ %339, %338 ], [ 4, %RANGE_EXCL.exit422 ], [ %254, %RANGE_EXCL.exit440 ], [ %242, %239 ], [ %425, %424 ], [ %23, %20 ], [ %385, %382 ], [ %140, %137 ], [ %316, %319 ], [ %299, %296 ], [ %357, %354 ], [ %47, %50 ], [ %.15265, %386 ], [ %358, %361 ], [ %402, %405 ], [ %.0.i423, %199 ], [ 4, %RANGE_EXCL.exit ], [ %.7257521603, %300 ], [ %47, %64 ], [ %.1251470, %.thread ], [ %.0.i423, %213 ], [ %.4254490, %.thread484 ], [ %402, %419 ], [ %.22272576, %.thread570 ], [ %358, %375 ], [ %316, %333 ], [ %.13263535, %.thread529 ], [ %272, %289 ], [ %272, %275 ]
   ret i64 %.5
 }
 

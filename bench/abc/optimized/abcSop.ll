@@ -543,7 +543,7 @@ Abc_SopStart.exit.us:                             ; preds = %._crit_edge46.us, %
   br label %Abc_SopStart.exit.us
 
 .loopexit:                                        ; preds = %Abc_SopStart.exit.us, %.loopexit.sink.split, %7, %.lr.ph50, %._crit_edge
-  %.037 = phi ptr [ null, %._crit_edge ], [ %6, %.loopexit.sink.split ], [ %22, %.lr.ph50 ], [ null, %7 ], [ %22, %Abc_SopStart.exit.us ]
+  %.037 = phi ptr [ null, %._crit_edge ], [ %22, %.lr.ph50 ], [ %6, %.loopexit.sink.split ], [ null, %7 ], [ %22, %Abc_SopStart.exit.us ]
   ret ptr %.037
 }
 

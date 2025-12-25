@@ -9162,7 +9162,7 @@ thread-pre-split3922:                             ; preds = %"_ZN5alloc3vec16Vec
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.sroa.737.0.copyload, i64 noundef %.sroa.615.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.123) #23
           to label %271 unwind label %1707
 
-.thread317:                                       ; preds = %272, %337, %.loopexit.i, %477, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a1b80917ebaec09E.exit.i", %._crit_edge1557.i, %.loopexit1339.i, %.loopexit1341.i, %._crit_edge.i, %.loopexit1364.i, %.loopexit1366.i, %1166
+.thread317:                                       ; preds = %1166, %272, %.loopexit1366.i, %.loopexit1364.i, %._crit_edge.i, %.loopexit1341.i, %.loopexit1339.i, %._crit_edge1557.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a1b80917ebaec09E.exit.i", %477, %.loopexit.i, %337
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.21035.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01024.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
@@ -13403,7 +13403,7 @@ _ZN12wasm_encoder4core6Module7section17h68b2c584623a0ba9E.exit: ; preds = %"_ZN5
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %289, %._crit_edge, %104
-  %.077.ph.ph.ph.ph = phi i1 [ true, %._crit_edge ], [ true, %104 ], [ false, %289 ]
+  %.077.ph.ph.ph.ph = phi i1 [ false, %289 ], [ true, %._crit_edge ], [ true, %104 ]
   %lpad.loopexit207 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

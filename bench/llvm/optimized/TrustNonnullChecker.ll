@@ -5842,7 +5842,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_121NonNullImplicationMapEEENS0_1
   br label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_121NonNullImplicationMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit
 
 _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_121NonNullImplicationMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit: ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_121NonNullImplicationMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.sink.split, %.loopexit.i54, %.loopexit.i
-  %56 = phi ptr [ %.1.i.i.ph.i55, %.loopexit.i54 ], [ %.1.i.i.ph.i, %.loopexit.i ], [ %.ph, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_121NonNullImplicationMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.sink.split ]
+  %56 = phi ptr [ %.1.i.i.ph.i, %.loopexit.i ], [ %.1.i.i.ph.i55, %.loopexit.i54 ], [ %.ph, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_121NonNullImplicationMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.sink.split ]
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_121NonNullImplicationMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.thread, label %58
 

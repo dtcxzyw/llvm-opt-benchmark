@@ -528,7 +528,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   br label %hwloc_utils_parse_restrict_flags.exit
 
 hwloc_utils_parse_restrict_flags.exit:            ; preds = %.preheader.i.i, %93, %75, %._crit_edge.i.i, %.split19.us.i.i, %131
-  %.061.i.i = phi i64 [ %76, %75 ], [ 0, %._crit_edge.i.i ], [ -1, %131 ], [ -1, %.split19.us.i.i ], [ %.069.i.i, %93 ], [ %.069.i.i, %.preheader.i.i ]
+  %.061.i.i = phi i64 [ %76, %75 ], [ 0, %._crit_edge.i.i ], [ -1, %.split19.us.i.i ], [ -1, %131 ], [ %.069.i.i, %93 ], [ %.069.i.i, %.preheader.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %155
 
@@ -1506,8 +1506,8 @@ hwloc_calc_process_location.exit.thread.i:        ; preds = %518, %532, %._crit_
   br label %.critedge
 
 hwloc_calc_process_location.exit.thread108.i:     ; preds = %524, %510, %491
-  %.17.i.lcssa.sink.i = phi ptr [ %.0.i.i.i.i, %510 ], [ %.0.i.i.i.i.i.i, %491 ], [ %.17.i.i, %524 ]
-  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %.17.i.lcssa.sink.i)
+  %.0.i.i.i.i.i.lcssa.sink.i = phi ptr [ %.0.i.i.i.i.i.i, %491 ], [ %.0.i.i.i.i, %510 ], [ %.17.i.i, %524 ]
+  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %17, ptr noundef nonnull readonly %.0.i.i.i.i.i.lcssa.sink.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %hwloc_calc_process_location_as_set.exit
 
@@ -1670,8 +1670,8 @@ hwloc_get_next_obj_by_depth.exit.i.i:             ; preds = %580, %575
   br label %.preheader, !llvm.loop !63
 
 hwloc_cpuset_to_nodeset.exit.i:                   ; preds = %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i.i, %hwloc_get_next_obj_by_depth.exit.i.i.i, %559, %587, %hwloc_get_next_obj_by_depth.exit.i.i, %577, %568
-  %.sink132.i = phi ptr [ %38, %587 ], [ %39, %568 ], [ %38, %577 ], [ %38, %hwloc_get_next_obj_by_depth.exit.i.i ], [ %39, %559 ], [ %39, %hwloc_get_next_obj_by_depth.exit.i.i.i ], [ %39, %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i.i ]
-  %.sink.i = phi ptr [ %39, %587 ], [ %38, %568 ], [ %39, %577 ], [ %39, %hwloc_get_next_obj_by_depth.exit.i.i ], [ %38, %559 ], [ %38, %hwloc_get_next_obj_by_depth.exit.i.i.i ], [ %38, %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i.i ]
+  %.sink132.i = phi ptr [ %39, %568 ], [ %38, %587 ], [ %38, %577 ], [ %38, %hwloc_get_next_obj_by_depth.exit.i.i ], [ %39, %559 ], [ %39, %hwloc_get_next_obj_by_depth.exit.i.i.i ], [ %39, %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i.i ]
+  %.sink.i = phi ptr [ %38, %568 ], [ %39, %587 ], [ %39, %577 ], [ %39, %hwloc_get_next_obj_by_depth.exit.i.i ], [ %38, %559 ], [ %38, %hwloc_get_next_obj_by_depth.exit.i.i.i ], [ %38, %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i.i ]
   call fastcc void @hwloc_calc_append_set(ptr noundef %.sink132.i, ptr noundef %555, i32 noundef %.077.i, i32 noundef %.04481351)
   call void @hwloc_bitmap_free(ptr noundef %555) #27
   call fastcc void @hwloc_calc_append_set(ptr noundef %.sink.i, ptr noundef %541, i32 noundef %.077.i, i32 noundef %.04481351)
@@ -1722,25 +1722,25 @@ hwloc_calc_process_location_as_set.exit.thread:   ; preds = %hwloc_calc_process_
   %600 = icmp sgt i32 %597, 0
   br i1 %600, label %sub_0, label %.thread601
 
-.thread601:                                       ; preds = %596, %592, %202
-  %.04561263 = phi i32 [ %.04561345, %202 ], [ %.04561345, %592 ], [ %.3459, %596 ]
-  %.04521236 = phi i32 [ %.04521348, %202 ], [ %.04521348, %592 ], [ %.3455, %596 ]
-  %.04481209 = phi i32 [ %.04481351, %202 ], [ %.04481351, %592 ], [ %.3451, %596 ]
-  %.04371182 = phi i32 [ %.04371355, %202 ], [ %.04371355, %592 ], [ %.3440, %596 ]
-  %.04321155 = phi i32 [ %.04321358, %202 ], [ %.04321358, %592 ], [ %.3435, %596 ]
-  %.04271128 = phi i32 [ %.04271361, %202 ], [ %.04271361, %592 ], [ %.3430, %596 ]
-  %.04231101 = phi i32 [ %.04231364, %202 ], [ %.04231364, %592 ], [ %.3426, %596 ]
-  %.04191074 = phi i32 [ %.04191367, %202 ], [ %.04191367, %592 ], [ %.3422, %596 ]
-  %.04111043 = phi i32 [ %.04111370, %202 ], [ %.04111370, %592 ], [ %.3414, %596 ]
-  %.04071014 = phi i32 [ %.04071373, %202 ], [ %.04071373, %592 ], [ %.3410, %596 ]
-  %.0384987 = phi i32 [ %.03841376, %202 ], [ %.03841376, %592 ], [ %.3387, %596 ]
-  %.0380960 = phi i32 [ %.03801379, %202 ], [ %.03801379, %592 ], [ %.3383, %596 ]
-  %.0376933 = phi i32 [ %.03761382, %202 ], [ %.03761382, %592 ], [ %.3379, %596 ]
-  %.0372906 = phi i32 [ %.03721385, %202 ], [ %.03721385, %592 ], [ %.3375, %596 ]
-  %.0368879 = phi i32 [ %.03681388, %202 ], [ %.03681388, %592 ], [ %.3371, %596 ]
-  %.0361852 = phi i32 [ %.03611391, %202 ], [ %.03611391, %592 ], [ %.3364, %596 ]
-  %.2359 = phi ptr [ %204, %202 ], [ %.13581394, %592 ], [ %599, %596 ]
-  %.2355 = phi i32 [ %203, %202 ], [ 1, %592 ], [ %597, %596 ]
+.thread601:                                       ; preds = %596, %202, %592
+  %.04561263 = phi i32 [ %.04561345, %592 ], [ %.04561345, %202 ], [ %.3459, %596 ]
+  %.04521236 = phi i32 [ %.04521348, %592 ], [ %.04521348, %202 ], [ %.3455, %596 ]
+  %.04481209 = phi i32 [ %.04481351, %592 ], [ %.04481351, %202 ], [ %.3451, %596 ]
+  %.04371182 = phi i32 [ %.04371355, %592 ], [ %.04371355, %202 ], [ %.3440, %596 ]
+  %.04321155 = phi i32 [ %.04321358, %592 ], [ %.04321358, %202 ], [ %.3435, %596 ]
+  %.04271128 = phi i32 [ %.04271361, %592 ], [ %.04271361, %202 ], [ %.3430, %596 ]
+  %.04231101 = phi i32 [ %.04231364, %592 ], [ %.04231364, %202 ], [ %.3426, %596 ]
+  %.04191074 = phi i32 [ %.04191367, %592 ], [ %.04191367, %202 ], [ %.3422, %596 ]
+  %.04111043 = phi i32 [ %.04111370, %592 ], [ %.04111370, %202 ], [ %.3414, %596 ]
+  %.04071014 = phi i32 [ %.04071373, %592 ], [ %.04071373, %202 ], [ %.3410, %596 ]
+  %.0384987 = phi i32 [ %.03841376, %592 ], [ %.03841376, %202 ], [ %.3387, %596 ]
+  %.0380960 = phi i32 [ %.03801379, %592 ], [ %.03801379, %202 ], [ %.3383, %596 ]
+  %.0376933 = phi i32 [ %.03761382, %592 ], [ %.03761382, %202 ], [ %.3379, %596 ]
+  %.0372906 = phi i32 [ %.03721385, %592 ], [ %.03721385, %202 ], [ %.3375, %596 ]
+  %.0368879 = phi i32 [ %.03681388, %592 ], [ %.03681388, %202 ], [ %.3371, %596 ]
+  %.0361852 = phi i32 [ %.03611391, %592 ], [ %.03611391, %202 ], [ %.3364, %596 ]
+  %.2359 = phi ptr [ %.13581394, %592 ], [ %204, %202 ], [ %599, %596 ]
+  %.2355 = phi i32 [ 1, %592 ], [ %203, %202 ], [ %597, %596 ]
   %601 = icmp sgt i32 %.04111043, 0
   %602 = icmp sgt i32 %.04071014, 0
   %or.cond = select i1 %601, i1 %602, i1 false

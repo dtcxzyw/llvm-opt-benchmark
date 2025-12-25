@@ -6670,7 +6670,7 @@ _ZNKSt3__112regex_traitsIcE7isctypeEct.exit.thr_comm: ; preds = %40, %_ZNKSt3__1
   %79 = trunc i8 %78 to i1
   br i1 %79, label %89, label %92
 
-_ZNKSt3__112regex_traitsIcE7isctypeEct.exit.thr_comm50: ; preds = %_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.i, %15, %37, %_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.i37
+_ZNKSt3__112regex_traitsIcE7isctypeEct.exit.thr_comm50: ; preds = %_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.i, %_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.i37, %37, %15
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %81 = load i8, ptr %80, align 8
   %82 = trunc i8 %81 to i1
@@ -43634,7 +43634,7 @@ _ZN3fmt2v96detail13width_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_ifIXs
   unreachable
 
 _ZN3fmt2v96detail13width_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit: ; preds = %18, %12, %22, %16, %9
-  %.0 = phi i64 [ %.sroa.06.0.extract.trunc, %22 ], [ %13, %12 ], [ %.sroa.012.0.extract.trunc, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0 = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.012.0.extract.trunc, %18 ], [ %11, %9 ], [ %.sroa.06.0.extract.trunc, %22 ]
   %34 = icmp ugt i64 %.0, 2147483647
   br i1 %34, label %_ZN3fmt2v96detail13width_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit.thread54, label %35
 
@@ -44073,7 +44073,7 @@ _ZN3fmt2v96detail17precision_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_i
   unreachable
 
 _ZN3fmt2v96detail17precision_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit: ; preds = %18, %12, %22, %16, %9
-  %.0 = phi i64 [ %.sroa.06.0.extract.trunc, %22 ], [ %13, %12 ], [ %.sroa.012.0.extract.trunc, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0 = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.012.0.extract.trunc, %18 ], [ %11, %9 ], [ %.sroa.06.0.extract.trunc, %22 ]
   %34 = icmp ugt i64 %.0, 2147483647
   br i1 %34, label %_ZN3fmt2v96detail17precision_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit.thread54, label %35
 

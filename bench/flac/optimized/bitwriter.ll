@@ -2387,7 +2387,7 @@ bitwriter_grow_.exit.thread.sink.split:           ; preds = %231, %235
   br label %bitwriter_grow_.exit.thread
 
 bitwriter_grow_.exit.thread:                      ; preds = %120, %116, %bitwriter_grow_.exit.thread.sink.split, %52, %45, %._crit_edge241, %229
-  %.0 = phi i32 [ 1, %._crit_edge241 ], [ 0, %52 ], [ 1, %229 ], [ 1, %bitwriter_grow_.exit.thread.sink.split ], [ 0, %45 ], [ 0, %116 ], [ 0, %120 ]
+  %.0 = phi i32 [ 1, %._crit_edge241 ], [ 0, %52 ], [ 1, %229 ], [ 0, %45 ], [ 1, %bitwriter_grow_.exit.thread.sink.split ], [ 0, %116 ], [ 0, %120 ]
   ret i32 %.0
 }
 

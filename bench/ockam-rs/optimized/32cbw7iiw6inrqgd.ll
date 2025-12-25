@@ -1965,7 +1965,7 @@ common.resume:                                    ; preds = %.thread128, %42
   %57 = invoke { ptr, i8 } @"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14extensions_mut17h239bfed1bd5da3cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx)
           to label %59 unwind label %.thread
 
-.thread135:                                       ; preds = %171, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i, %178, %180
+.thread135:                                       ; preds = %171, %178, %180, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i
   %lpad.thr_comm133 = landingpad { ptr, i32 }
           cleanup
   br label %.thread128
@@ -2606,7 +2606,7 @@ common.resume:                                    ; preds = %.thread84, %34
   %49 = invoke { ptr, i8 } @"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14extensions_mut17h239bfed1bd5da3cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx)
           to label %51 unwind label %.thread
 
-.thread91:                                        ; preds = %116, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i, %123, %125
+.thread91:                                        ; preds = %116, %123, %125, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i
   %lpad.thr_comm89 = landingpad { ptr, i32 }
           cleanup
   br label %.thread84
@@ -3516,7 +3516,7 @@ common.resume:                                    ; preds = %.thread84, %34
   %49 = invoke { ptr, i8 } @"_ZN102_$LT$tracing_subscriber..registry..sharded..Data$u20$as$u20$tracing_subscriber..registry..SpanData$GT$14extensions_mut17h239bfed1bd5da3cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.8.0..sroa_idx)
           to label %51 unwind label %.thread
 
-.thread91:                                        ; preds = %115, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i, %122, %124
+.thread91:                                        ; preds = %115, %122, %124, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8848114157358331746.exit.i.i.i
   %lpad.thr_comm89 = landingpad { ptr, i32 }
           cleanup
   br label %.thread84

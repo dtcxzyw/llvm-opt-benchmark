@@ -421,8 +421,8 @@ bytestream2_get_be32.exit234:                     ; preds = %116, %120
   br label %.thread
 
 .thread:                                          ; preds = %114, %148, %.threadcondstore.split, %111, %146, %101, %97
-  %.sroa.0.1 = phi ptr [ %.sroa.0.8, %97 ], [ %.sroa.0.8, %101 ], [ %.sroa.0.8, %111 ], [ %.sroa.0.4, %148 ], [ %.sroa.0.8, %114 ], [ %.sroa.0.4, %146 ], [ %.sroa.0.4, %.threadcondstore.split ]
-  %.1 = phi i32 [ %.0205316, %97 ], [ %.0205316, %101 ], [ %.0205316, %111 ], [ %125, %148 ], [ %.0205316, %114 ], [ %125, %146 ], [ %125, %.threadcondstore.split ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.8, %97 ], [ %.sroa.0.8, %101 ], [ %.sroa.0.8, %111 ], [ %.sroa.0.4, %148 ], [ %.sroa.0.4, %146 ], [ %.sroa.0.8, %114 ], [ %.sroa.0.4, %.threadcondstore.split ]
+  %.1 = phi i32 [ %.0205316, %97 ], [ %.0205316, %101 ], [ %.0205316, %111 ], [ %125, %148 ], [ %125, %146 ], [ %.0205316, %114 ], [ %125, %.threadcondstore.split ]
   %150 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %150, label %151, label %155
 

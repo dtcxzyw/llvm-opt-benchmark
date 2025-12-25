@@ -5672,7 +5672,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN2cv7MomentsESaIS2_EEEaSERKS2_.exit.i.i.i.
   br label %.loopexit.split-lp484
 
 .loopexit.split-lp484.loopexit.split-lp.loopexit.split-lp: ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i.invoke, %629
-  %.sroa.0472.4.ph.ph.ph = phi ptr [ %.sroa.0472.7, %629 ], [ %.sroa.0472.0677, %.noexc.i.i.i.i.i.i.i.i.i.i.i.invoke ]
+  %.sroa.0472.4.ph.ph.ph = phi ptr [ %.sroa.0472.0677, %.noexc.i.i.i.i.i.i.i.i.i.i.i.invoke ], [ %.sroa.0472.7, %629 ]
   %lpad.loopexit.split-lp492 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp484

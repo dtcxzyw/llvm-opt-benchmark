@@ -124767,7 +124767,7 @@ _ZN12polars_arrow7compute11concatenate18concatenate_struct17h467c2519a97e5bfdE.e
   br label %.body184.i
 
 .loopexit.split-lp284.loopexit.split-lp.i:        ; preds = %1837, %._crit_edge388.i, %1773
-  %.sroa.061.2.ph.ph.i = phi i1 [ true, %1837 ], [ true, %1773 ], [ false, %._crit_edge388.i ]
+  %.sroa.061.2.ph.ph.i = phi i1 [ true, %1837 ], [ false, %._crit_edge388.i ], [ true, %1773 ]
   %lpad.loopexit.split-lp289.i = landingpad { ptr, i32 }
           cleanup
   br label %.body184.i
@@ -126164,7 +126164,7 @@ _ZN12polars_arrow7compute11concatenate16concatenate_view17hd01973dc3a1c4393E.exi
   br label %.body184.i538
 
 .loopexit.split-lp284.loopexit.split-lp.i535:     ; preds = %2387, %._crit_edge388.i579, %2323
-  %.sroa.061.2.ph.ph.i536 = phi i1 [ true, %2387 ], [ true, %2323 ], [ false, %._crit_edge388.i579 ]
+  %.sroa.061.2.ph.ph.i536 = phi i1 [ true, %2387 ], [ false, %._crit_edge388.i579 ], [ true, %2323 ]
   %lpad.loopexit.split-lp289.i537 = landingpad { ptr, i32 }
           cleanup
   br label %.body184.i538
@@ -182909,7 +182909,7 @@ define hidden { i64, i64 } @_ZN10polars_ops6series3ops8index_of14index_of_value1
   br i1 %91, label %.thread, label %96
 
 "_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8f625709029b39fE.exit.thread": ; preds = %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8f625709029b39fE.exit.us", %55, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8f625709029b39fE.exit30", %109, %58, %.split.us, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h26e3f17330442869E.exit"
-  %.sroa.08.2 = phi i64 [ %.sroa.08.095, %58 ], [ %.sroa.08.1, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h26e3f17330442869E.exit" ], [ %.sroa.08.095, %.split.us ], [ %.sroa.08.392, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8f625709029b39fE.exit30" ], [ %64, %109 ], [ %44, %55 ], [ %.sroa.08.1.us89, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8f625709029b39fE.exit.us" ]
+  %.sroa.08.2 = phi i64 [ %.sroa.08.1, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h26e3f17330442869E.exit" ], [ %.sroa.08.095, %58 ], [ %.sroa.08.095, %.split.us ], [ %.sroa.08.392, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8f625709029b39fE.exit30" ], [ %64, %109 ], [ %44, %55 ], [ %.sroa.08.1.us89, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8f625709029b39fE.exit.us" ]
   %94 = icmp eq ptr %16, %11
   br i1 %94, label %.loopexit, label %15
 
@@ -193742,7 +193742,7 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h1a3
   br label %116
 
 115:                                              ; preds = %130, %129, %._crit_edge307
-  %.sroa.031.2.ph = phi i8 [ 0, %130 ], [ 0, %129 ], [ 1, %._crit_edge307 ]
+  %.sroa.031.2.ph = phi i8 [ 0, %129 ], [ 0, %130 ], [ 1, %._crit_edge307 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread240
@@ -196534,7 +196534,7 @@ define hidden void @_ZN10polars_ops6series3ops5is_in20is_in_helper_list_ca17h9d1
   br label %116
 
 115:                                              ; preds = %130, %129, %._crit_edge271
-  %.sroa.031.2.ph = phi i8 [ 0, %130 ], [ 0, %129 ], [ 1, %._crit_edge271 ]
+  %.sroa.031.2.ph = phi i8 [ 0, %129 ], [ 0, %130 ], [ 1, %._crit_edge271 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread220

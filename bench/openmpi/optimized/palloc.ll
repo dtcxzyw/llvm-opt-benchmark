@@ -1519,7 +1519,7 @@ pmix_obj_run_destructors.exit518:                 ; preds = %.lr.ph.i515, %552
 597:                                              ; preds = %pmix_obj_new_tma.exit, %486
   br i1 %.not22.i, label %.thread591, label %.thread598
 
-.thread598:                                       ; preds = %566, %571, %590, %594, %pmix_obj_update.exit, %597
+.thread598:                                       ; preds = %590, %571, %566, %pmix_obj_update.exit, %594, %597
   %.0200603 = phi i32 [ %483, %597 ], [ 0, %590 ], [ 0, %571 ], [ %537, %566 ], [ 0, %pmix_obj_update.exit ], [ 0, %594 ]
   %598 = call i32 @pthread_mutex_lock(ptr noundef nonnull %467) #16
   %599 = icmp eq i32 %598, 35

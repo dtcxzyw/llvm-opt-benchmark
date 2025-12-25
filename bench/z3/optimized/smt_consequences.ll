@@ -9298,7 +9298,7 @@ thread-pre-split:                                 ; preds = %140
   br label %.loopexit
 
 .loopexit:                                        ; preds = %170, %171, %.loopexit.sink.split, %164, %162, %161
-  %.126 = phi i32 [ %163, %164 ], [ %.025, %.loopexit.sink.split ], [ %.025, %161 ], [ %163, %162 ], [ %166, %171 ], [ %.22754, %170 ]
+  %.126 = phi i32 [ %163, %164 ], [ %.025, %.loopexit.sink.split ], [ %.025, %161 ], [ %163, %162 ], [ %.22754, %170 ], [ %166, %171 ]
   %173 = phi i1 [ false, %164 ], [ false, %.loopexit.sink.split ], [ false, %161 ], [ true, %162 ], [ false, %171 ], [ false, %170 ]
   %.not.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i, label %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit, label %174
@@ -14579,8 +14579,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %31 = phi ptr [ %24, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %32 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %31 = phi ptr [ %24, %thread-pre-split.i.i.preheader ], [ %.be63, %thread-pre-split.i.i.backedge ]
+  %32 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be63, %thread-pre-split.i.i.backedge ]
   %33 = icmp eq ptr %32, null
   br i1 %33, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -14607,7 +14607,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %.noexc28, %.noexc29
-  %.be = phi ptr [ %40, %.noexc28 ], [ %80, %.noexc29 ]
+  %.be63 = phi ptr [ %80, %.noexc29 ], [ %40, %.noexc28 ]
   br label %thread-pre-split.i.i, !llvm.loop !807
 
 41:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i

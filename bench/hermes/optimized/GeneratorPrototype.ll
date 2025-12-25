@@ -504,7 +504,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
   br label %_ZN6hermes2vmL21generatorResumeAbruptERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEEb.exit
 
 _ZN6hermes2vmL21generatorResumeAbruptERNS0_7RuntimeENS0_6HandleINS0_22GeneratorInnerFunctionEEENS3_INS0_11HermesValueEEEb.exit: ; preds = %if.then10.i, %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i
-  %retval.sroa.0.0.i14 = phi ptr [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %call14.i15, %if.then10.i ], [ %24, %if.then.i.i.i.i.i.i.i ], [ %call61.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i ]
+  %retval.sroa.0.0.i14 = phi ptr [ %24, %if.then.i.i.i.i.i.i.i ], [ %call14.i15, %if.then10.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %call61.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i ]
   %cmp.i.i17.not = icmp eq ptr %retval.sroa.0.0.i14, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i17.not, label %return, label %if.end32
 

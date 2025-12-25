@@ -3732,7 +3732,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9HioGlslfx13_ParseContextD2Ev.exit: ; preds
   br i1 %or.cond75.not, label %175, label %.loopexit
 
 .loopexit:                                        ; preds = %115, %73, %_ZN32pxrInternal_v0_24__pxrReserved__9HioGlslfx13_ParseContextD2Ev.exit, %162, %._crit_edge, %42
-  %.038 = phi i1 [ false, %42 ], [ false, %._crit_edge ], [ %184, %_ZN32pxrInternal_v0_24__pxrReserved__9HioGlslfx13_ParseContextD2Ev.exit ], [ true, %162 ], [ false, %73 ], [ false, %115 ]
+  %.038 = phi i1 [ false, %42 ], [ false, %._crit_edge ], [ true, %162 ], [ %184, %_ZN32pxrInternal_v0_24__pxrReserved__9HioGlslfx13_ParseContextD2Ev.exit ], [ false, %73 ], [ false, %115 ]
   ret i1 %.038
 }
 

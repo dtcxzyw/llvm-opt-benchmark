@@ -225,7 +225,7 @@ sub_026:                                          ; preds = %6
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %sub_026, %sub_1, %sub_0, %.tail, %.tail25, %34, %22, %3
-  %.0 = phi i1 [ false, %34 ], [ false, %3 ], [ false, %22 ], [ true, %sub_026 ], [ true, %.tail25 ], [ true, %sub_0 ], [ true, %.tail ], [ true, %sub_1 ], [ true, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %34 ], [ false, %3 ], [ false, %22 ], [ true, %sub_0 ], [ true, %.tail25 ], [ true, %sub_026 ], [ true, %.tail ], [ true, %sub_1 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 

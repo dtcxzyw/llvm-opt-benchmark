@@ -1347,7 +1347,7 @@ isValidElementForJoystick.exit25:                 ; preds = %50, %45, %39, %36
   br i1 %exitcond44.not, label %.critedge, label %36
 
 .critedge:                                        ; preds = %6, %31, %26, %20, %50, %45, %39, %isValidElementForJoystick.exit25, %1
-  %.116 = phi ptr [ null, %31 ], [ null, %1 ], [ %8, %isValidElementForJoystick.exit25 ], [ null, %50 ], [ null, %45 ], [ null, %39 ], [ null, %20 ], [ null, %26 ], [ null, %6 ]
+  %.116 = phi ptr [ null, %1 ], [ null, %31 ], [ %8, %isValidElementForJoystick.exit25 ], [ null, %50 ], [ null, %45 ], [ null, %39 ], [ null, %20 ], [ null, %26 ], [ null, %6 ]
   ret ptr %.116
 }
 

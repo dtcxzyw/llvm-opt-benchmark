@@ -25390,7 +25390,7 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10i
   unreachable
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %19, %13, %23, %17, %10
-  %.0 = phi i64 [ %.sroa.06.0.extract.trunc, %23 ], [ %14, %13 ], [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %18, %17 ]
+  %.0 = phi i64 [ %18, %17 ], [ %14, %13 ], [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %.sroa.06.0.extract.trunc, %23 ]
   %35 = icmp ugt i64 %.0, 2147483647
   br i1 %35, label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit.thread66, label %36
 
@@ -25845,7 +25845,7 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXs
   unreachable
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %19, %13, %23, %17, %10
-  %.0 = phi i64 [ %.sroa.06.0.extract.trunc, %23 ], [ %14, %13 ], [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %18, %17 ]
+  %.0 = phi i64 [ %18, %17 ], [ %14, %13 ], [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %.sroa.06.0.extract.trunc, %23 ]
   %35 = icmp ugt i64 %.0, 2147483647
   br i1 %35, label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit.thread66, label %36
 

@@ -65176,8 +65176,8 @@ lean_alloc_ctor.exit1289:                         ; preds = %lean_dec.exit1007
   br label %.thread1641
 
 827:                                              ; preds = %lean_alloc_ctor.exit1257, %lean_alloc_ctor.exit1282
-  %.0852 = phi ptr [ %561, %lean_alloc_ctor.exit1257 ], [ %651, %lean_alloc_ctor.exit1282 ]
-  %.0847 = phi ptr [ %648, %lean_alloc_ctor.exit1257 ], [ %747, %lean_alloc_ctor.exit1282 ]
+  %.0852 = phi ptr [ %651, %lean_alloc_ctor.exit1282 ], [ %561, %lean_alloc_ctor.exit1257 ]
+  %.0847 = phi ptr [ %747, %lean_alloc_ctor.exit1282 ], [ %648, %lean_alloc_ctor.exit1257 ]
   %.val.i.i = load i32, ptr %17, align 4, !tbaa !8
   %828 = icmp eq i32 %.val.i.i, 1
   br i1 %828, label %lean_ensure_exclusive_array.exit.i, label %829

@@ -333,9 +333,9 @@ define internal i64 @concat_seek(ptr noundef readonly captures(none) %0, i64 nou
   br i1 %.not62, label %.critedge, label %.lr.ph75, !llvm.loop !36
 
 .critedge:                                        ; preds = %40, %.lr.ph75, %17, %.lr.ph86, %33, %14
-  %.155 = phi i32 [ 2, %14 ], [ 0, %33 ], [ 2, %17 ], [ 2, %.lr.ph86 ], [ 0, %.lr.ph75 ], [ 0, %40 ]
-  %.249 = phi i64 [ %1, %14 ], [ %.047, %33 ], [ %18, %17 ], [ %.14883, %.lr.ph86 ], [ %41, %40 ], [ %.45172, %.lr.ph75 ]
-  %.1 = phi i64 [ 0, %14 ], [ 0, %33 ], [ 0, %17 ], [ %.084, %.lr.ph86 ], [ %36, %40 ], [ %.373, %.lr.ph75 ]
+  %.155 = phi i32 [ 2, %14 ], [ 2, %17 ], [ 0, %33 ], [ 2, %.lr.ph86 ], [ 0, %.lr.ph75 ], [ 0, %40 ]
+  %.249 = phi i64 [ %1, %14 ], [ %18, %17 ], [ %.047, %33 ], [ %.14883, %.lr.ph86 ], [ %41, %40 ], [ %.45172, %.lr.ph75 ]
+  %.1 = phi i64 [ 0, %14 ], [ 0, %17 ], [ 0, %33 ], [ %.084, %.lr.ph86 ], [ %36, %40 ], [ %.373, %.lr.ph75 ]
   %43 = getelementptr inbounds nuw %struct.concat_nodes, ptr %6, i64 %.1
   %44 = load ptr, ptr %43, align 8, !tbaa !26
   %45 = tail call i64 @ffurl_seek2(ptr noundef %44, i64 noundef %.249, i32 noundef range(i32 0, 3) %.155) #5

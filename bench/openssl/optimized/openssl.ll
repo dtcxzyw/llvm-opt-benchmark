@@ -625,8 +625,8 @@ define dso_local i32 @help_main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br label %49
 
 49:                                               ; preds = %.sink.split, %.thread, %44, %37
-  %.120 = phi i32 [ %34, %.thread ], [ %34, %37 ], [ %34, %44 ], [ 1, %.sink.split ]
-  %.1 = phi i32 [ %.01732, %.thread ], [ %.01732, %37 ], [ %45, %44 ], [ %45, %.sink.split ]
+  %.120 = phi i32 [ %34, %37 ], [ %34, %.thread ], [ %34, %44 ], [ 1, %.sink.split ]
+  %.1 = phi i32 [ %.01732, %37 ], [ %.01732, %.thread ], [ %45, %44 ], [ %45, %.sink.split ]
   %50 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %51 = load i32, ptr %31, align 4, !tbaa !26
   %52 = load ptr, ptr %33, align 8, !tbaa !11

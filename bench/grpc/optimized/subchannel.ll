@@ -8430,8 +8430,8 @@ _ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEED2Ev.exit233: ; preds = %
   ret i1 %.251
 
 _ZNSt10unique_ptrIN9grpc_core15ClientTransportENS0_16OrphanableDeleteEED2Ev.exit196: ; preds = %.thread271, %723, %727, %404, %.body114, %606, %728, %682, %197, %74
-  %.sroa.0254.0 = phi ptr [ %36, %197 ], [ %.sroa.0254.2, %728 ], [ %.sroa.0254.2, %727 ], [ %36, %404 ], [ %36, %682 ], [ %36, %74 ], [ %36, %606 ], [ %36, %.body114 ], [ %.sroa.0254.2, %.thread271 ], [ %.sroa.0254.2, %723 ]
-  %.pn85.pn = phi { ptr, i32 } [ %.pn71.pn.pn.pn, %197 ], [ %729, %728 ], [ %724, %727 ], [ %405, %404 ], [ %.pn76.pn.pn.pn.pn, %682 ], [ %75, %74 ], [ %.pn57.pn.pn.pn.pn, %606 ], [ %.pn57.pn.pn.pn.pn, %.body114 ], [ %715, %.thread271 ], [ %724, %723 ]
+  %.sroa.0254.0 = phi ptr [ %36, %197 ], [ %.sroa.0254.2, %728 ], [ %.sroa.0254.2, %723 ], [ %36, %404 ], [ %36, %682 ], [ %36, %74 ], [ %36, %606 ], [ %36, %.body114 ], [ %.sroa.0254.2, %.thread271 ], [ %.sroa.0254.2, %727 ]
+  %.pn85.pn = phi { ptr, i32 } [ %.pn71.pn.pn.pn, %197 ], [ %729, %728 ], [ %724, %723 ], [ %405, %404 ], [ %.pn76.pn.pn.pn.pn, %682 ], [ %75, %74 ], [ %.pn57.pn.pn.pn.pn, %606 ], [ %.pn57.pn.pn.pn.pn, %.body114 ], [ %715, %.thread271 ], [ %724, %727 ]
   %.not.i234 = icmp eq ptr %.sroa.0254.0, null
   br i1 %.not.i234, label %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEED2Ev.exit235, label %754
 

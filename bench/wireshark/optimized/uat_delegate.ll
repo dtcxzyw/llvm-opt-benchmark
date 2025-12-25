@@ -820,7 +820,7 @@ _ZN7QStringD2Ev.exit132:                          ; preds = %200, %_ZN17QArrayDa
   unreachable
 
 215:                                              ; preds = %176, %172, %166, %199, %170, %._crit_edge
-  %.048 = phi ptr [ %177, %176 ], [ %194, %199 ], [ %125, %._crit_edge ], [ %173, %172 ], [ %171, %170 ], [ %167, %166 ]
+  %.048 = phi ptr [ %173, %172 ], [ %194, %199 ], [ %125, %._crit_edge ], [ %177, %176 ], [ %171, %170 ], [ %167, %166 ]
   %.not69 = icmp eq ptr %.048, null
   br i1 %.not69, label %.thread, label %216
 

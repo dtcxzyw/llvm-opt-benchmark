@@ -4426,7 +4426,7 @@ _ZL8zreceiveP4zbufi.exit.i34.i:                   ; preds = %423, %419
   br i1 %.not66.i36.i, label %.loopexit.i.i, label %.preheader94.i.i, !llvm.loop !37
 
 .loopexit.i.i:                                    ; preds = %.preheader94.i.i, %452, %.preheader.preheader.i37.i, %447, %338
-  %.155.i.i = phi ptr [ %340, %338 ], [ %.054.i28.i, %447 ], [ %.054.i28.i, %452 ], [ %scevgep101.i.i, %.preheader.preheader.i37.i ], [ %455, %.preheader94.i.i ]
+  %.155.i.i = phi ptr [ %340, %338 ], [ %scevgep101.i.i, %.preheader.preheader.i37.i ], [ %.054.i28.i, %447 ], [ %.054.i28.i, %452 ], [ %455, %.preheader94.i.i ]
   br label %282, !llvm.loop !38
 
 457:                                              ; preds = %341

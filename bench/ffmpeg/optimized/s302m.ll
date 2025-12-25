@@ -532,7 +532,7 @@ define internal i32 @s302m_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %316, label %.lr.ph197, label %.thread, !llvm.loop !51
 
 317:                                              ; preds = %149, %235, %310
-  %.1 = phi i32 [ %314, %310 ], [ %239, %235 ], [ %153, %149 ]
+  %.1 = phi i32 [ %153, %149 ], [ %314, %310 ], [ %239, %235 ]
   %318 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %319 = load i32, ptr %318, align 8, !tbaa !52
   %320 = icmp eq i32 %319, 3

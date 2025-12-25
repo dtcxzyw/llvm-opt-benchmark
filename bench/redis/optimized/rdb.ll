@@ -5732,7 +5732,7 @@ rdbWriteRaw.exit.loopexit.i454:                   ; preds = %541
   br label %.thread
 
 .thread:                                          ; preds = %sdslen.exit422, %.lr.ph560, %45, %51, %369, %.thread482, %367, %340, %317, %307, %rdbSaveBinaryDoubleValue.exit.thread, %169, %.thread468, %115, %rdbSaveLen.exit420.thread, %rdbSaveLen.exit.thread, %22, %.thread504, %rdbSaveMillisecondTime.exit.thread, %16, %96, %147, %153, %163, %272, %.loopexit, %561
-  %.0 = phi i64 [ %.30, %561 ], [ %.0288, %.loopexit ], [ -1, %.thread482 ], [ -1, %96 ], [ -1, %rdbSaveLen.exit420.thread ], [ -1, %147 ], [ -1, %153 ], [ -1, %163 ], [ -1, %.thread468 ], [ -1, %272 ], [ -1, %rdbSaveMillisecondTime.exit.thread ], [ -1, %.lr.ph560 ], [ -1, %.thread504 ], [ -1, %16 ], [ -1, %369 ], [ -1, %367 ], [ -1, %22 ], [ -1, %340 ], [ -1, %rdbSaveLen.exit.thread ], [ -1, %115 ], [ -1, %169 ], [ -1, %rdbSaveBinaryDoubleValue.exit.thread ], [ -1, %307 ], [ -1, %317 ], [ -1, %51 ], [ -1, %45 ], [ -1, %sdslen.exit422 ]
+  %.0 = phi i64 [ %.30, %561 ], [ %.0288, %.loopexit ], [ -1, %.thread482 ], [ -1, %96 ], [ -1, %rdbSaveLen.exit420.thread ], [ -1, %147 ], [ -1, %153 ], [ -1, %163 ], [ -1, %.thread468 ], [ -1, %272 ], [ -1, %rdbSaveMillisecondTime.exit.thread ], [ -1, %.lr.ph560 ], [ -1, %.thread504 ], [ -1, %16 ], [ -1, %340 ], [ -1, %367 ], [ -1, %22 ], [ -1, %369 ], [ -1, %rdbSaveLen.exit.thread ], [ -1, %115 ], [ -1, %169 ], [ -1, %rdbSaveBinaryDoubleValue.exit.thread ], [ -1, %307 ], [ -1, %317 ], [ -1, %51 ], [ -1, %45 ], [ -1, %sdslen.exit422 ]
   ret i64 %.0
 }
 
@@ -10062,7 +10062,7 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.critedge1047
 
-.thread1162:                                      ; preds = %._crit_edge1350, %655
+.thread1162:                                      ; preds = %655, %._crit_edge1350
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.critedge1037
 
@@ -11562,8 +11562,8 @@ rdbLoadMillisecondTime.exit:                      ; preds = %514, %.thread.i.i10
   tail call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 0, i32 noundef 3155, ptr noundef nonnull @.str.80, i32 noundef %0)
   br label %.critedge1047
 
-.critedge1037:                                    ; preds = %228, %.critedge1043, %.preheader1217, %508, %335, %333, %._crit_edge1343, %1205, %.thread1188, %.thread1171, %.thread1162, %._crit_edge, %81
-  %.0757 = phi ptr [ %82, %81 ], [ %90, %._crit_edge ], [ %238, %333 ], [ %734, %.thread1188 ], [ %238, %335 ], [ %550, %.thread1162 ], [ %666, %.thread1171 ], [ %341, %508 ], [ %1206, %1205 ], [ %949, %.preheader1217 ], [ %238, %._crit_edge1343 ], [ %949, %.critedge1043 ], [ %.2759, %228 ]
+.critedge1037:                                    ; preds = %228, %.critedge1043, %.preheader1217, %508, %._crit_edge1343, %333, %335, %1205, %.thread1188, %.thread1171, %.thread1162, %._crit_edge, %81
+  %.0757 = phi ptr [ %82, %81 ], [ %90, %._crit_edge ], [ %238, %333 ], [ %734, %.thread1188 ], [ %238, %._crit_edge1343 ], [ %550, %.thread1162 ], [ %666, %.thread1171 ], [ %341, %508 ], [ %1206, %1205 ], [ %949, %.preheader1217 ], [ %238, %335 ], [ %949, %.critedge1043 ], [ %.2759, %228 ]
   br i1 %.not, label %.critedge1047, label %1208
 
 1208:                                             ; preds = %.critedge1037
@@ -12913,7 +12913,7 @@ rioRead.exit302:                                  ; preds = %162, %164
   br label %390
 
 390:                                              ; preds = %.sink.split, %387, %383, %380
-  %.6 = phi i32 [ 7, %383 ], [ 2, %380 ], [ 2, %387 ], [ 2, %.sink.split ]
+  %.6 = phi i32 [ 2, %387 ], [ 2, %380 ], [ 7, %383 ], [ 2, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %393
 

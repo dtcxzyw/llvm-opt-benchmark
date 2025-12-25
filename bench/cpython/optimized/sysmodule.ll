@@ -3338,8 +3338,8 @@ Py_DECREF.exit31.i:                               ; preds = %37, %34, %32
   br i1 %41, label %_PySys_AddXOptionWithError.exit, label %_PySys_AddXOptionWithError.exit.thread6
 
 42:                                               ; preds = %_Py_NewRef.exit.i, %26
-  %.020.i = phi ptr [ %.121.i, %_Py_NewRef.exit.i ], [ null, %26 ]
-  %.019.i = phi ptr [ %.1.i, %_Py_NewRef.exit.i ], [ %24, %26 ]
+  %.020.i = phi ptr [ null, %26 ], [ %.121.i, %_Py_NewRef.exit.i ]
+  %.019.i = phi ptr [ %24, %26 ], [ %.1.i, %_Py_NewRef.exit.i ]
   %43 = load i32, ptr %.019.i, align 8, !tbaa !94
   %.not.i.i.i = icmp sgt i32 %43, -1
   br i1 %.not.i.i.i, label %44, label %Py_XDECREF.exit.i
@@ -6638,7 +6638,7 @@ should_audit.exit.thread3.i:                      ; preds = %should_audit.exit.i
   br label %sys_audit_impl.exit
 
 sys_audit_impl.exit:                              ; preds = %_Py_EnsureFuncTstateNotNULL.exit.i, %should_audit.exit.i, %should_audit.exit.thread3.i
-  %.013 = phi ptr [ @_Py_NoneStruct, %_Py_EnsureFuncTstateNotNULL.exit.i ], [ @_Py_NoneStruct, %should_audit.exit.i ], [ %._Py_NoneStruct.i, %should_audit.exit.thread3.i ]
+  %.013 = phi ptr [ @_Py_NoneStruct, %should_audit.exit.i ], [ @_Py_NoneStruct, %_Py_EnsureFuncTstateNotNULL.exit.i ], [ %._Py_NoneStruct.i, %should_audit.exit.thread3.i ]
   %41 = load i32, ptr %23, align 8, !tbaa !94
   %.not.i.i19 = icmp sgt i32 %41, -1
   br i1 %.not.i.i19, label %42, label %Py_XDECREF.exit

@@ -1860,8 +1860,8 @@ Aig_ObjRepr.exit.thread.sink.split:               ; preds = %Aig_ObjRepr.exit106
   br label %Aig_ObjRepr.exit.thread
 
 Aig_ObjRepr.exit.thread:                          ; preds = %Aig_ObjRepr.exit.thread.sink.split, %63, %24, %20, %Saig_ObjIsLo.exit, %Aig_ObjRepr.exit106, %Aig_ObjRepr.exit98, %Aig_ObjRepr.exit
-  %.158 = phi i32 [ %.057112, %20 ], [ %.057112, %Aig_ObjRepr.exit ], [ %32, %63 ], [ %32, %Aig_ObjRepr.exit98 ], [ %.057112, %24 ], [ %32, %Aig_ObjRepr.exit106 ], [ %32, %Saig_ObjIsLo.exit ], [ %32, %Aig_ObjRepr.exit.thread.sink.split ]
-  %.1 = phi i32 [ %.0113, %20 ], [ %.0113, %Aig_ObjRepr.exit ], [ %.0113, %63 ], [ %.0113, %Aig_ObjRepr.exit98 ], [ %.0113, %24 ], [ %.0113, %Aig_ObjRepr.exit106 ], [ %.0113, %Saig_ObjIsLo.exit ], [ %93, %Aig_ObjRepr.exit.thread.sink.split ]
+  %.158 = phi i32 [ %.057112, %20 ], [ %.057112, %Aig_ObjRepr.exit ], [ %.057112, %24 ], [ %32, %Aig_ObjRepr.exit98 ], [ %32, %63 ], [ %32, %Aig_ObjRepr.exit106 ], [ %32, %Saig_ObjIsLo.exit ], [ %32, %Aig_ObjRepr.exit.thread.sink.split ]
+  %.1 = phi i32 [ %.0113, %20 ], [ %.0113, %Aig_ObjRepr.exit ], [ %.0113, %24 ], [ %.0113, %Aig_ObjRepr.exit98 ], [ %.0113, %63 ], [ %.0113, %Aig_ObjRepr.exit106 ], [ %.0113, %Saig_ObjIsLo.exit ], [ %93, %Aig_ObjRepr.exit.thread.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph118, label %20, !llvm.loop !70

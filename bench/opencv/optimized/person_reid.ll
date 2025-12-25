@@ -4045,8 +4045,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit90:                  ; preds = %_ZNSt6vectorIfSaIfE
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %282, %283
-  %.sroa.012.235 = phi ptr [ %.sroa.012.2.lcssa, %283 ], [ %.sroa.012.281, %.loopexit.split-lp ], [ %.sroa.012.281, %.loopexit ], [ %.sroa.012.2.lcssa, %282 ]
-  %.pn50.pn = phi { ptr, i32 } [ %lpad.phi25, %283 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.phi25, %282 ]
+  %.sroa.012.235 = phi ptr [ %.sroa.012.2.lcssa, %283 ], [ %.sroa.012.281, %.loopexit ], [ %.sroa.012.281, %.loopexit.split-lp ], [ %.sroa.012.2.lcssa, %282 ]
+  %.pn50.pn = phi { ptr, i32 } [ %lpad.phi25, %283 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.phi25, %282 ]
   %.not.i.i.i93 = icmp eq ptr %.sroa.012.235, null
   br i1 %.not.i.i.i93, label %_ZNSt6vectorIfSaIfEED2Ev.exit94, label %.body.thread
 

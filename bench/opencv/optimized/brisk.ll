@@ -7977,7 +7977,7 @@ thread-pre-split:                                 ; preds = %1023, %1018
   br label %.thread489
 
 .thread489:                                       ; preds = %.lr.ph, %.critedge272.us, %.lr.ph541.split.us, %.lr.ph541.split, %..critedge272_crit_edge, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit, %.critedge, %54, %1033
-  %.0220 = phi float [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %54 ], [ %.5, %1033 ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %.critedge272.us ], [ 0.000000e+00, %.lr.ph541.split ], [ 0.000000e+00, %..critedge272_crit_edge ], [ 0.000000e+00, %.lr.ph541.split.us ], [ 0.000000e+00, %.lr.ph ]
+  %.0220 = phi float [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %54 ], [ %.5, %1033 ], [ 0.000000e+00, %.critedge272.us ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %.lr.ph541.split ], [ 0.000000e+00, %..critedge272_crit_edge ], [ 0.000000e+00, %.lr.ph541.split.us ], [ 0.000000e+00, %.lr.ph ]
   ret float %.0220
 }
 
@@ -12058,7 +12058,7 @@ thread-pre-split:                                 ; preds = %528, %524
   br label %.thread304
 
 .thread304:                                       ; preds = %.lr.ph, %.critedge216.us, %.lr.ph365.split.us, %.lr.ph365.split, %..critedge216_crit_edge, %.lr.ph342.split.us, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit, %.critedge, %60, %538
-  %.0167 = phi float [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %60 ], [ %.5, %538 ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %.critedge216.us ], [ 0.000000e+00, %.lr.ph365.split ], [ 0.000000e+00, %.lr.ph342.split.us ], [ 0.000000e+00, %..critedge216_crit_edge ], [ 0.000000e+00, %.lr.ph365.split.us ], [ 0.000000e+00, %.lr.ph ]
+  %.0167 = phi float [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %60 ], [ %.5, %538 ], [ 0.000000e+00, %.lr.ph365.split ], [ 0.000000e+00, %.critedge216.us ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %.lr.ph342.split.us ], [ 0.000000e+00, %..critedge216_crit_edge ], [ 0.000000e+00, %.lr.ph365.split.us ], [ 0.000000e+00, %.lr.ph ]
   ret float %.0167
 }
 

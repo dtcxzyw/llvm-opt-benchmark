@@ -19405,7 +19405,7 @@ define noundef range(i32 0, 3) i32 @_ZN4fish8builtins8function8function17hb8d4f6
   br label %.thread
 
 .loopexit.split-lp346.loopexit.split-lp:          ; preds = %.invoke634, %.invoke632, %.invoke630, %.invoke, %1045, %688, %683, %681, %651, %599, %545, %513, %479, %416, %305, %1086, %752, %740, %.loopexit344, %701
-  %.sroa.021.0.ph.ph = phi i1 [ true, %479 ], [ true, %.invoke ], [ true, %688 ], [ true, %651 ], [ true, %513 ], [ true, %416 ], [ true, %.invoke632 ], [ true, %740 ], [ true, %752 ], [ true, %681 ], [ true, %545 ], [ true, %683 ], [ true, %305 ], [ true, %.invoke630 ], [ true, %.loopexit344 ], [ false, %1045 ], [ true, %.invoke634 ], [ true, %701 ], [ true, %599 ], [ true, %1086 ]
+  %.sroa.021.0.ph.ph = phi i1 [ true, %479 ], [ true, %1086 ], [ true, %651 ], [ true, %688 ], [ true, %513 ], [ false, %1045 ], [ true, %.loopexit344 ], [ true, %752 ], [ true, %.invoke ], [ true, %.invoke630 ], [ true, %545 ], [ true, %305 ], [ true, %701 ], [ true, %683 ], [ true, %740 ], [ true, %681 ], [ true, %.invoke634 ], [ true, %.invoke632 ], [ true, %599 ], [ true, %416 ]
   %lpad.loopexit.split-lp351 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -22741,8 +22741,8 @@ common.resume:                                    ; preds = %450, %613, %637, %6
   %common.resume.op = phi { ptr, i32 } [ %.pn12.i, %.body.i ], [ %.pn43.i, %187 ], [ %384, %383 ], [ %1024, %1023 ], [ %.pn138, %450 ], [ %.pn210, %.thread390 ], [ %1178, %1177 ], [ %.pn199.pn361, %1266 ], [ %.pn199, %1184 ], [ %.pn194, %1267 ], [ %.pn189, %675 ], [ %.pn184, %613 ], [ %.pn182, %637 ], [ %.pn175, %726 ], [ %.pn170, %831 ], [ %.pn170, %819 ], [ %773, %772 ], [ %.pn162, %832 ], [ %.pn157, %912 ], [ %.pn152, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h174574973d18433eE.exit" ], [ %.pn143, %1321 ], [ %1050, %1054 ], [ %1050, %1049 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN4fish8builtins6status14parse_cmd_opts17h63b9477a3aade5d6E.exit.thread: ; preds = %301, %302, %341, %342, %343, %344, %345, %267, %346, %353, %292, %340
-  %.sroa.151.0.i.ph = phi i32 [ 2, %267 ], [ 2, %346 ], [ 2, %353 ], [ 2, %292 ], [ 1, %340 ], [ 1, %345 ], [ 1, %344 ], [ 1, %343 ], [ 1, %342 ], [ 1, %341 ], [ 1, %302 ], [ 1, %301 ]
+_ZN4fish8builtins6status14parse_cmd_opts17h63b9477a3aade5d6E.exit.thread: ; preds = %301, %302, %341, %342, %343, %344, %345, %267, %346, %292, %353, %340
+  %.sroa.151.0.i.ph = phi i32 [ 2, %346 ], [ 2, %267 ], [ 1, %340 ], [ 2, %353 ], [ 2, %292 ], [ 1, %345 ], [ 1, %344 ], [ 1, %343 ], [ 1, %342 ], [ 1, %341 ], [ 1, %302 ], [ 1, %301 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !1605
   call void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$$RF$widestring..utfstr..Utf32Str$GT$$GT$17h5f751a961a23ff89E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %42), !noalias !1611
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !1605

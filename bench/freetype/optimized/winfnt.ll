@@ -989,8 +989,8 @@ fnt_font_done.exit.i:                             ; preds = %443, %.thread143
   %.pre164 = load i32, ptr %18, align 4, !tbaa !29
   br label %FNT_Face_Done.exit
 
-FNT_Face_Done.exit:                               ; preds = %433, %434, %431, %432, %304, %fnt_font_done.exit.i, %435, %313, %fnt_face_get_dll_font.exit
-  %449 = phi i32 [ 0, %433 ], [ 0, %434 ], [ 0, %431 ], [ 0, %432 ], [ %306, %304 ], [ %.pre164, %fnt_font_done.exit.i ], [ %299, %435 ], [ 0, %313 ], [ 0, %fnt_face_get_dll_font.exit ]
+FNT_Face_Done.exit:                               ; preds = %431, %434, %433, %432, %304, %fnt_font_done.exit.i, %435, %313, %fnt_face_get_dll_font.exit
+  %449 = phi i32 [ 0, %431 ], [ 0, %434 ], [ 0, %433 ], [ 0, %432 ], [ %306, %304 ], [ %.pre164, %fnt_font_done.exit.i ], [ %299, %435 ], [ 0, %313 ], [ 0, %fnt_face_get_dll_font.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %449
 }

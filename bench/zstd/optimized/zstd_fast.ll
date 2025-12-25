@@ -1237,9 +1237,9 @@ ZSTD_storeSeqOnly.exit7.i:                        ; preds = %338, %ZSTD_storeSeq
   br i1 %.not287.i.i, label %.critedge3.i.i, label %.lr.ph190.i
 
 .critedge3.i.i:                                   ; preds = %ZSTD_storeSeqOnly.exit7.i, %.lr.ph190.i, %260, %ZSTD_storeSeqOnly.exit.i
-  %.3271.i.i = phi i32 [ %.2270.i.i, %ZSTD_storeSeqOnly.exit.i ], [ 0, %260 ], [ %.4272.i187.i, %.lr.ph190.i ], [ %.4239.i188.i, %ZSTD_storeSeqOnly.exit7.i ]
-  %.3238.i.i = phi i32 [ %.2237.i.i, %ZSTD_storeSeqOnly.exit.i ], [ %.2237.i.i, %260 ], [ %.4239.i188.i, %.lr.ph190.i ], [ %.4272.i187.i, %ZSTD_storeSeqOnly.exit7.i ]
-  %.1.i.i = phi ptr [ %259, %ZSTD_storeSeqOnly.exit.i ], [ %259, %260 ], [ %.2.i189.i, %.lr.ph190.i ], [ %331, %ZSTD_storeSeqOnly.exit7.i ]
+  %.3271.i.i = phi i32 [ 0, %260 ], [ %.2270.i.i, %ZSTD_storeSeqOnly.exit.i ], [ %.4272.i187.i, %.lr.ph190.i ], [ %.4239.i188.i, %ZSTD_storeSeqOnly.exit7.i ]
+  %.3238.i.i = phi i32 [ %.2237.i.i, %260 ], [ %.2237.i.i, %ZSTD_storeSeqOnly.exit.i ], [ %.4239.i188.i, %.lr.ph190.i ], [ %.4272.i187.i, %ZSTD_storeSeqOnly.exit7.i ]
+  %.1.i.i = phi ptr [ %259, %260 ], [ %259, %ZSTD_storeSeqOnly.exit.i ], [ %.2.i189.i, %.lr.ph190.i ], [ %331, %ZSTD_storeSeqOnly.exit7.i ]
   %348 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 %17
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 1
   %.not281.i.i = icmp ult ptr %349, %36
@@ -1874,9 +1874,9 @@ ZSTD_storeSeqOnly.exit7.i149:                     ; preds = %627, %ZSTD_storeSeq
   br i1 %.not287.i.i150, label %.critedge3.i.i130, label %.lr.ph190.i124
 
 .critedge3.i.i130:                                ; preds = %ZSTD_storeSeqOnly.exit7.i149, %.lr.ph190.i124, %552, %ZSTD_storeSeqOnly.exit.i119
-  %.3271.i.i131 = phi i32 [ %.2270.i.i99, %ZSTD_storeSeqOnly.exit.i119 ], [ 0, %552 ], [ %.4272.i187.i127, %.lr.ph190.i124 ], [ %.4239.i188.i126, %ZSTD_storeSeqOnly.exit7.i149 ]
-  %.3238.i.i132 = phi i32 [ %.2237.i.i103, %ZSTD_storeSeqOnly.exit.i119 ], [ %.2237.i.i103, %552 ], [ %.4239.i188.i126, %.lr.ph190.i124 ], [ %.4272.i187.i127, %ZSTD_storeSeqOnly.exit7.i149 ]
-  %.1.i.i133 = phi ptr [ %551, %ZSTD_storeSeqOnly.exit.i119 ], [ %551, %552 ], [ %.2.i189.i125, %.lr.ph190.i124 ], [ %620, %ZSTD_storeSeqOnly.exit7.i149 ]
+  %.3271.i.i131 = phi i32 [ 0, %552 ], [ %.2270.i.i99, %ZSTD_storeSeqOnly.exit.i119 ], [ %.4272.i187.i127, %.lr.ph190.i124 ], [ %.4239.i188.i126, %ZSTD_storeSeqOnly.exit7.i149 ]
+  %.3238.i.i132 = phi i32 [ %.2237.i.i103, %552 ], [ %.2237.i.i103, %ZSTD_storeSeqOnly.exit.i119 ], [ %.4239.i188.i126, %.lr.ph190.i124 ], [ %.4272.i187.i127, %ZSTD_storeSeqOnly.exit7.i149 ]
+  %.1.i.i133 = phi ptr [ %551, %552 ], [ %551, %ZSTD_storeSeqOnly.exit.i119 ], [ %.2.i189.i125, %.lr.ph190.i124 ], [ %620, %ZSTD_storeSeqOnly.exit7.i149 ]
   %637 = getelementptr inbounds nuw i8, ptr %.1.i.i133, i64 %17
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 1
   %.not281.i.i134 = icmp ult ptr %638, %36
@@ -2511,9 +2511,9 @@ ZSTD_storeSeqOnly.exit7.i326:                     ; preds = %916, %ZSTD_storeSeq
   br i1 %.not287.i.i327, label %.critedge3.i.i306, label %.lr.ph190.i300
 
 .critedge3.i.i306:                                ; preds = %ZSTD_storeSeqOnly.exit7.i326, %.lr.ph190.i300, %841, %ZSTD_storeSeqOnly.exit.i295
-  %.3271.i.i307 = phi i32 [ %.2270.i.i275, %ZSTD_storeSeqOnly.exit.i295 ], [ 0, %841 ], [ %.4272.i187.i303, %.lr.ph190.i300 ], [ %.4239.i188.i302, %ZSTD_storeSeqOnly.exit7.i326 ]
-  %.3238.i.i308 = phi i32 [ %.2237.i.i279, %ZSTD_storeSeqOnly.exit.i295 ], [ %.2237.i.i279, %841 ], [ %.4239.i188.i302, %.lr.ph190.i300 ], [ %.4272.i187.i303, %ZSTD_storeSeqOnly.exit7.i326 ]
-  %.1.i.i309 = phi ptr [ %840, %ZSTD_storeSeqOnly.exit.i295 ], [ %840, %841 ], [ %.2.i189.i301, %.lr.ph190.i300 ], [ %909, %ZSTD_storeSeqOnly.exit7.i326 ]
+  %.3271.i.i307 = phi i32 [ 0, %841 ], [ %.2270.i.i275, %ZSTD_storeSeqOnly.exit.i295 ], [ %.4272.i187.i303, %.lr.ph190.i300 ], [ %.4239.i188.i302, %ZSTD_storeSeqOnly.exit7.i326 ]
+  %.3238.i.i308 = phi i32 [ %.2237.i.i279, %841 ], [ %.2237.i.i279, %ZSTD_storeSeqOnly.exit.i295 ], [ %.4239.i188.i302, %.lr.ph190.i300 ], [ %.4272.i187.i303, %ZSTD_storeSeqOnly.exit7.i326 ]
+  %.1.i.i309 = phi ptr [ %840, %841 ], [ %840, %ZSTD_storeSeqOnly.exit.i295 ], [ %.2.i189.i301, %.lr.ph190.i300 ], [ %909, %ZSTD_storeSeqOnly.exit7.i326 ]
   %926 = getelementptr inbounds nuw i8, ptr %.1.i.i309, i64 %17
   %927 = getelementptr inbounds nuw i8, ptr %926, i64 1
   %.not281.i.i310 = icmp ult ptr %927, %36
@@ -3148,9 +3148,9 @@ ZSTD_storeSeqOnly.exit7.i507:                     ; preds = %1205, %ZSTD_storeSe
   br i1 %.not287.i.i508, label %.critedge3.i.i487, label %.lr.ph190.i481
 
 .critedge3.i.i487:                                ; preds = %ZSTD_storeSeqOnly.exit7.i507, %.lr.ph190.i481, %1130, %ZSTD_storeSeqOnly.exit.i476
-  %.3271.i.i488 = phi i32 [ %.2270.i.i456, %ZSTD_storeSeqOnly.exit.i476 ], [ 0, %1130 ], [ %.4272.i187.i484, %.lr.ph190.i481 ], [ %.4239.i188.i483, %ZSTD_storeSeqOnly.exit7.i507 ]
-  %.3238.i.i489 = phi i32 [ %.2237.i.i460, %ZSTD_storeSeqOnly.exit.i476 ], [ %.2237.i.i460, %1130 ], [ %.4239.i188.i483, %.lr.ph190.i481 ], [ %.4272.i187.i484, %ZSTD_storeSeqOnly.exit7.i507 ]
-  %.1.i.i490 = phi ptr [ %1129, %ZSTD_storeSeqOnly.exit.i476 ], [ %1129, %1130 ], [ %.2.i189.i482, %.lr.ph190.i481 ], [ %1198, %ZSTD_storeSeqOnly.exit7.i507 ]
+  %.3271.i.i488 = phi i32 [ 0, %1130 ], [ %.2270.i.i456, %ZSTD_storeSeqOnly.exit.i476 ], [ %.4272.i187.i484, %.lr.ph190.i481 ], [ %.4239.i188.i483, %ZSTD_storeSeqOnly.exit7.i507 ]
+  %.3238.i.i489 = phi i32 [ %.2237.i.i460, %1130 ], [ %.2237.i.i460, %ZSTD_storeSeqOnly.exit.i476 ], [ %.4239.i188.i483, %.lr.ph190.i481 ], [ %.4272.i187.i484, %ZSTD_storeSeqOnly.exit7.i507 ]
+  %.1.i.i490 = phi ptr [ %1129, %1130 ], [ %1129, %ZSTD_storeSeqOnly.exit.i476 ], [ %.2.i189.i482, %.lr.ph190.i481 ], [ %1198, %ZSTD_storeSeqOnly.exit7.i507 ]
   %1215 = getelementptr inbounds nuw i8, ptr %.1.i.i490, i64 %17
   %1216 = getelementptr inbounds nuw i8, ptr %1215, i64 1
   %.not281.i.i491 = icmp ult ptr %1216, %36
@@ -3870,9 +3870,9 @@ ZSTD_storeSeqOnly.exit7.i652:                     ; preds = %1522, %ZSTD_storeSe
   br i1 %.not287.i.i653, label %.critedge3.i.i644, label %.lr.ph206.i
 
 .critedge3.i.i644:                                ; preds = %ZSTD_storeSeqOnly.exit7.i652, %.lr.ph206.i, %1444, %ZSTD_storeSeqOnly.exit.i637
-  %.3271.i.i645 = phi i32 [ %.2270.i.i617, %ZSTD_storeSeqOnly.exit.i637 ], [ 0, %1444 ], [ %.4272.i203.i, %.lr.ph206.i ], [ %.4239.i204.i, %ZSTD_storeSeqOnly.exit7.i652 ]
-  %.3238.i.i646 = phi i32 [ %.2237.i.i621, %ZSTD_storeSeqOnly.exit.i637 ], [ %.2237.i.i621, %1444 ], [ %.4239.i204.i, %.lr.ph206.i ], [ %.4272.i203.i, %ZSTD_storeSeqOnly.exit7.i652 ]
-  %.1.i.i647 = phi ptr [ %1443, %ZSTD_storeSeqOnly.exit.i637 ], [ %1443, %1444 ], [ %.2.i205.i, %.lr.ph206.i ], [ %1515, %ZSTD_storeSeqOnly.exit7.i652 ]
+  %.3271.i.i645 = phi i32 [ 0, %1444 ], [ %.2270.i.i617, %ZSTD_storeSeqOnly.exit.i637 ], [ %.4272.i203.i, %.lr.ph206.i ], [ %.4239.i204.i, %ZSTD_storeSeqOnly.exit7.i652 ]
+  %.3238.i.i646 = phi i32 [ %.2237.i.i621, %1444 ], [ %.2237.i.i621, %ZSTD_storeSeqOnly.exit.i637 ], [ %.4239.i204.i, %.lr.ph206.i ], [ %.4272.i203.i, %ZSTD_storeSeqOnly.exit7.i652 ]
+  %.1.i.i647 = phi ptr [ %1443, %1444 ], [ %1443, %ZSTD_storeSeqOnly.exit.i637 ], [ %.2.i205.i, %.lr.ph206.i ], [ %1515, %ZSTD_storeSeqOnly.exit7.i652 ]
   %1532 = getelementptr inbounds nuw i8, ptr %.1.i.i647, i64 %17
   %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 1
   %.not281.i.i648 = icmp ult ptr %1533, %36
@@ -4580,9 +4580,9 @@ ZSTD_storeSeqOnly.exit7.i814:                     ; preds = %1833, %ZSTD_storeSe
   br i1 %.not287.i.i815, label %.critedge3.i.i794, label %.lr.ph206.i788
 
 .critedge3.i.i794:                                ; preds = %ZSTD_storeSeqOnly.exit7.i814, %.lr.ph206.i788, %1758, %ZSTD_storeSeqOnly.exit.i783
-  %.3271.i.i795 = phi i32 [ %.2270.i.i763, %ZSTD_storeSeqOnly.exit.i783 ], [ 0, %1758 ], [ %.4272.i203.i791, %.lr.ph206.i788 ], [ %.4239.i204.i790, %ZSTD_storeSeqOnly.exit7.i814 ]
-  %.3238.i.i796 = phi i32 [ %.2237.i.i767, %ZSTD_storeSeqOnly.exit.i783 ], [ %.2237.i.i767, %1758 ], [ %.4239.i204.i790, %.lr.ph206.i788 ], [ %.4272.i203.i791, %ZSTD_storeSeqOnly.exit7.i814 ]
-  %.1.i.i797 = phi ptr [ %1757, %ZSTD_storeSeqOnly.exit.i783 ], [ %1757, %1758 ], [ %.2.i205.i789, %.lr.ph206.i788 ], [ %1826, %ZSTD_storeSeqOnly.exit7.i814 ]
+  %.3271.i.i795 = phi i32 [ 0, %1758 ], [ %.2270.i.i763, %ZSTD_storeSeqOnly.exit.i783 ], [ %.4272.i203.i791, %.lr.ph206.i788 ], [ %.4239.i204.i790, %ZSTD_storeSeqOnly.exit7.i814 ]
+  %.3238.i.i796 = phi i32 [ %.2237.i.i767, %1758 ], [ %.2237.i.i767, %ZSTD_storeSeqOnly.exit.i783 ], [ %.4239.i204.i790, %.lr.ph206.i788 ], [ %.4272.i203.i791, %ZSTD_storeSeqOnly.exit7.i814 ]
+  %.1.i.i797 = phi ptr [ %1757, %1758 ], [ %1757, %ZSTD_storeSeqOnly.exit.i783 ], [ %.2.i205.i789, %.lr.ph206.i788 ], [ %1826, %ZSTD_storeSeqOnly.exit7.i814 ]
   %1843 = getelementptr inbounds nuw i8, ptr %.1.i.i797, i64 %17
   %1844 = getelementptr inbounds nuw i8, ptr %1843, i64 1
   %.not281.i.i798 = icmp ult ptr %1844, %36
@@ -5290,9 +5290,9 @@ ZSTD_storeSeqOnly.exit7.i1029:                    ; preds = %2144, %ZSTD_storeSe
   br i1 %.not287.i.i1030, label %.critedge3.i.i1009, label %.lr.ph206.i1003
 
 .critedge3.i.i1009:                               ; preds = %ZSTD_storeSeqOnly.exit7.i1029, %.lr.ph206.i1003, %2069, %ZSTD_storeSeqOnly.exit.i998
-  %.3271.i.i1010 = phi i32 [ %.2270.i.i978, %ZSTD_storeSeqOnly.exit.i998 ], [ 0, %2069 ], [ %.4272.i203.i1006, %.lr.ph206.i1003 ], [ %.4239.i204.i1005, %ZSTD_storeSeqOnly.exit7.i1029 ]
-  %.3238.i.i1011 = phi i32 [ %.2237.i.i982, %ZSTD_storeSeqOnly.exit.i998 ], [ %.2237.i.i982, %2069 ], [ %.4239.i204.i1005, %.lr.ph206.i1003 ], [ %.4272.i203.i1006, %ZSTD_storeSeqOnly.exit7.i1029 ]
-  %.1.i.i1012 = phi ptr [ %2068, %ZSTD_storeSeqOnly.exit.i998 ], [ %2068, %2069 ], [ %.2.i205.i1004, %.lr.ph206.i1003 ], [ %2137, %ZSTD_storeSeqOnly.exit7.i1029 ]
+  %.3271.i.i1010 = phi i32 [ 0, %2069 ], [ %.2270.i.i978, %ZSTD_storeSeqOnly.exit.i998 ], [ %.4272.i203.i1006, %.lr.ph206.i1003 ], [ %.4239.i204.i1005, %ZSTD_storeSeqOnly.exit7.i1029 ]
+  %.3238.i.i1011 = phi i32 [ %.2237.i.i982, %2069 ], [ %.2237.i.i982, %ZSTD_storeSeqOnly.exit.i998 ], [ %.4239.i204.i1005, %.lr.ph206.i1003 ], [ %.4272.i203.i1006, %ZSTD_storeSeqOnly.exit7.i1029 ]
+  %.1.i.i1012 = phi ptr [ %2068, %2069 ], [ %2068, %ZSTD_storeSeqOnly.exit.i998 ], [ %.2.i205.i1004, %.lr.ph206.i1003 ], [ %2137, %ZSTD_storeSeqOnly.exit7.i1029 ]
   %2154 = getelementptr inbounds nuw i8, ptr %.1.i.i1012, i64 %17
   %2155 = getelementptr inbounds nuw i8, ptr %2154, i64 1
   %.not281.i.i1013 = icmp ult ptr %2155, %36
@@ -6000,9 +6000,9 @@ ZSTD_storeSeqOnly.exit7.i1245:                    ; preds = %2455, %ZSTD_storeSe
   br i1 %.not287.i.i1246, label %.critedge3.i.i1225, label %.lr.ph206.i1219
 
 .critedge3.i.i1225:                               ; preds = %ZSTD_storeSeqOnly.exit7.i1245, %.lr.ph206.i1219, %2380, %ZSTD_storeSeqOnly.exit.i1214
-  %.3271.i.i1226 = phi i32 [ %.2270.i.i1194, %ZSTD_storeSeqOnly.exit.i1214 ], [ 0, %2380 ], [ %.4272.i203.i1222, %.lr.ph206.i1219 ], [ %.4239.i204.i1221, %ZSTD_storeSeqOnly.exit7.i1245 ]
-  %.3238.i.i1227 = phi i32 [ %.2237.i.i1198, %ZSTD_storeSeqOnly.exit.i1214 ], [ %.2237.i.i1198, %2380 ], [ %.4239.i204.i1221, %.lr.ph206.i1219 ], [ %.4272.i203.i1222, %ZSTD_storeSeqOnly.exit7.i1245 ]
-  %.1.i.i1228 = phi ptr [ %2379, %ZSTD_storeSeqOnly.exit.i1214 ], [ %2379, %2380 ], [ %.2.i205.i1220, %.lr.ph206.i1219 ], [ %2448, %ZSTD_storeSeqOnly.exit7.i1245 ]
+  %.3271.i.i1226 = phi i32 [ 0, %2380 ], [ %.2270.i.i1194, %ZSTD_storeSeqOnly.exit.i1214 ], [ %.4272.i203.i1222, %.lr.ph206.i1219 ], [ %.4239.i204.i1221, %ZSTD_storeSeqOnly.exit7.i1245 ]
+  %.3238.i.i1227 = phi i32 [ %.2237.i.i1198, %2380 ], [ %.2237.i.i1198, %ZSTD_storeSeqOnly.exit.i1214 ], [ %.4239.i204.i1221, %.lr.ph206.i1219 ], [ %.4272.i203.i1222, %ZSTD_storeSeqOnly.exit7.i1245 ]
+  %.1.i.i1228 = phi ptr [ %2379, %2380 ], [ %2379, %ZSTD_storeSeqOnly.exit.i1214 ], [ %.2.i205.i1220, %.lr.ph206.i1219 ], [ %2448, %ZSTD_storeSeqOnly.exit7.i1245 ]
   %2465 = getelementptr inbounds nuw i8, ptr %.1.i.i1228, i64 %17
   %2466 = getelementptr inbounds nuw i8, ptr %2465, i64 1
   %.not281.i.i1229 = icmp ult ptr %2466, %36

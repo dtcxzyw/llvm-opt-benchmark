@@ -1613,8 +1613,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %11
   tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %123, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #27
   br label %171
 
-.critedge95.thread114:                            ; preds = %.thread, %125, %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103, %86, %75, %97
-  %.0117 = phi ptr [ %52, %.thread ], [ %123, %125 ], [ %52, %69 ], [ %106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103 ], [ %84, %86 ], [ %73, %75 ], [ %95, %97 ]
+.critedge95.thread114:                            ; preds = %.thread, %125, %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103, %86, %75, %69
+  %.0117 = phi ptr [ %52, %.thread ], [ %123, %125 ], [ %95, %97 ], [ %106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103 ], [ %84, %86 ], [ %73, %75 ], [ %52, %69 ]
   call void @_ZN3zmq5own_t12launch_childEPS0_(ptr noundef nonnull align 8 dereferenceable(1444) %0, ptr noundef nonnull %.0117)
   br label %170
 

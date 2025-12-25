@@ -204,12 +204,12 @@ define hidden noundef zeroext i1 @php_dom_fragment_insertion_hierarchy_check_pre
   br i1 %21, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %7, %.lr.ph.i, %.lr.ph.i, %16, %20, %.thread18
-  %.str.2.sink.i.sink = phi ptr [ @.str.2, %.lr.ph.i ], [ @.str, %.thread18 ], [ @.str.1, %16 ], [ @.str.1, %20 ], [ @.str.2, %.lr.ph.i ], [ @.str, %7 ]
+  %.str.2.sink.i.sink = phi ptr [ @.str.2, %.lr.ph.i ], [ @.str, %.thread18 ], [ @.str.1, %20 ], [ @.str.1, %16 ], [ @.str.2, %.lr.ph.i ], [ @.str, %7 ]
   tail call void @php_dom_throw_error_with_message(i32 noundef 3, ptr noundef nonnull %.str.2.sink.i.sink, i1 noundef zeroext true) #6
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %3, %13, %20, %15
-  %.0 = phi i1 [ true, %3 ], [ true, %13 ], [ true, %20 ], [ true, %15 ], [ false, %.thread.sink.split ]
+  %.0 = phi i1 [ true, %20 ], [ true, %13 ], [ true, %3 ], [ true, %15 ], [ false, %.thread.sink.split ]
   ret i1 %.0
 }
 

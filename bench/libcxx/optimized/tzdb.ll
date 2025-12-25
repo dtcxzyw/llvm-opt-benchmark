@@ -3129,9 +3129,9 @@ _ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1B8ne210000INS_4__fs10filesyste
           to label %.backedge.i.i unwind label %.loopexit.split-lp39.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .backedge.i.i:                                    ; preds = %.noexc12.i, %.noexc12.i, %938, %.noexc23.i, %913, %897
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %897 ], [ %937, %938 ], [ %937, %.noexc23.i ], [ %.sroa.0.0.i, %913 ], [ %.sroa.0.0.i, %.noexc12.i ], [ %.sroa.0.0.i, %.noexc12.i ]
-  %.sroa.10.1.i = phi ptr [ %.sroa.10.0.i, %897 ], [ %935, %938 ], [ %935, %.noexc23.i ], [ %915, %913 ], [ %.sroa.10.0.i, %.noexc12.i ], [ %.sroa.10.0.i, %.noexc12.i ]
-  %.sroa.17.1.i = phi ptr [ %.sroa.17.0.i, %897 ], [ %933, %938 ], [ %933, %.noexc23.i ], [ %.sroa.17.0.i, %913 ], [ %.sroa.17.0.i, %.noexc12.i ], [ %.sroa.17.0.i, %.noexc12.i ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %897 ], [ %937, %.noexc23.i ], [ %937, %938 ], [ %.sroa.0.0.i, %913 ], [ %.sroa.0.0.i, %.noexc12.i ], [ %.sroa.0.0.i, %.noexc12.i ]
+  %.sroa.10.1.i = phi ptr [ %.sroa.10.0.i, %897 ], [ %935, %.noexc23.i ], [ %935, %938 ], [ %915, %913 ], [ %.sroa.10.0.i, %.noexc12.i ], [ %.sroa.10.0.i, %.noexc12.i ]
+  %.sroa.17.1.i = phi ptr [ %.sroa.17.0.i, %897 ], [ %933, %.noexc23.i ], [ %933, %938 ], [ %.sroa.17.0.i, %913 ], [ %.sroa.17.0.i, %.noexc12.i ], [ %.sroa.17.0.i, %.noexc12.i ]
   br label %_ZNSt3__114basic_ifstreamIcNS_11char_traitsIcEEEC1B8ne210000INS_4__fs10filesystem4pathEvEERKT_j.exit85, !llvm.loop !119
 
 .preheader.i86:                                   ; preds = %.noexc.i, %.noexc12.i

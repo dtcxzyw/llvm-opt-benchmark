@@ -1296,7 +1296,7 @@ Py_DECREF.exit40:                                 ; preds = %Py_DECREF.exit40thr
   call void @_Py_Dealloc(ptr noundef nonnull %83) #10
   br label %Py_DECREF.exit34
 
-89:                                               ; preds = %71, %69, %74
+89:                                               ; preds = %69, %71, %74
   %90 = add nuw nsw i64 %.02457, 1
   %exitcond.not = icmp eq i64 %90, %48
   br i1 %exitcond.not, label %Py_DECREF.exit38, label %.lr.ph, !llvm.loop !108

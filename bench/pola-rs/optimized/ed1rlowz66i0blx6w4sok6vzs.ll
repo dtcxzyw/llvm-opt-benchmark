@@ -43820,7 +43820,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17h9de0560f63e83527E(ptr dea
   br i1 %.not84, label %.thread227, label %86
 
 .thread227:                                       ; preds = %.lr.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit140", %.lr.ph312, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit129", %.lr.ph319, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit118", %.lr.ph326, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit107", %.lr.ph333, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit96", %.lr.ph340, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit151", %.preheader290, %.preheader288, %.preheader286, %.preheader284, %.preheader282, %.preheader
-  %.sroa.27.6 = phi i64 [ %74, %.preheader288 ], [ %147, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit129" ], [ %185, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit151" ], [ %74, %.preheader286 ], [ %74, %.preheader290 ], [ %74, %.preheader ], [ %89, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit96" ], [ %74, %.preheader282 ], [ %128, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit118" ], [ %74, %.preheader284 ], [ %108, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit107" ], [ %.sroa.27.0338, %.lr.ph340 ], [ %.sroa.27.1331, %.lr.ph333 ], [ %.sroa.27.2324, %.lr.ph326 ], [ %.sroa.27.3317, %.lr.ph319 ], [ %.sroa.27.4310, %.lr.ph312 ], [ %.sroa.27.5305, %.lr.ph ], [ %167, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit140" ]
+  %.sroa.27.6 = phi i64 [ %74, %.preheader288 ], [ %.sroa.27.4310, %.lr.ph312 ], [ %185, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit151" ], [ %74, %.preheader286 ], [ %74, %.preheader290 ], [ %74, %.preheader ], [ %89, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit96" ], [ %74, %.preheader282 ], [ %128, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit118" ], [ %74, %.preheader284 ], [ %108, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit107" ], [ %.sroa.27.0338, %.lr.ph340 ], [ %.sroa.27.1331, %.lr.ph333 ], [ %.sroa.27.2324, %.lr.ph326 ], [ %.sroa.27.3317, %.lr.ph319 ], [ %147, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit129" ], [ %.sroa.27.5305, %.lr.ph ], [ %167, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h908693bf0ed42f05E.exit140" ]
   %85 = sub i64 %.sroa.01.0.i, %.sroa.27.6
   store i64 %85, ptr %59, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
@@ -69138,8 +69138,8 @@ define internal fastcc void @"_ZN13polars_stream13physical_plan8lower_ir8lower_i
   br label %.invoke
 
 .critedge1226:                                    ; preds = %1161, %.loopexit.split-lp2617, %2455, %2458, %.thread2449, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1527", %1594, %1266, %1160
-  %.sroa.0519.1 = phi i8 [ %.sroa.0519.352455, %2455 ], [ %.sroa.0519.35, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1527" ], [ %.sroa.0519.352455, %.thread2449 ], [ %.sroa.0519.132771, %1266 ], [ %.sroa.0519.11, %1160 ], [ %.sroa.0519.16, %1594 ], [ %.sroa.0519.352455, %2458 ], [ %.sroa.0519.0.ph, %.loopexit.split-lp2617 ], [ %.sroa.0519.6, %1161 ]
-  %.pn1217 = phi { ptr, i32 } [ %.pn10732456, %2455 ], [ %.pn1073, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1527" ], [ %.pn10732456, %.thread2449 ], [ %.pn12112772, %1266 ], [ %.pn1209, %1160 ], [ %.pn1122, %1594 ], [ %.pn10732456, %2458 ], [ %lpad.loopexit.split-lp2619, %.loopexit.split-lp2617 ], [ %1162, %1161 ]
+  %.sroa.0519.1 = phi i8 [ %.sroa.0519.352455, %2455 ], [ %.sroa.0519.35, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1527" ], [ %.sroa.0519.16, %1594 ], [ %.sroa.0519.132771, %1266 ], [ %.sroa.0519.11, %1160 ], [ %.sroa.0519.352455, %.thread2449 ], [ %.sroa.0519.352455, %2458 ], [ %.sroa.0519.0.ph, %.loopexit.split-lp2617 ], [ %.sroa.0519.6, %1161 ]
+  %.pn1217 = phi { ptr, i32 } [ %.pn10732456, %2455 ], [ %.pn1073, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1527" ], [ %.pn1122, %1594 ], [ %.pn12112772, %1266 ], [ %.pn1209, %1160 ], [ %.pn10732456, %.thread2449 ], [ %.pn10732456, %2458 ], [ %lpad.loopexit.split-lp2619, %.loopexit.split-lp2617 ], [ %1162, %1161 ]
   %504 = trunc nuw i8 %.sroa.0519.1 to i1
   br i1 %504, label %.critedge1226.thread, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1646"
 
@@ -69207,7 +69207,7 @@ define internal fastcc void @"_ZN13polars_stream13physical_plan8lower_ir8lower_i
   br label %.thread2239
 
 513:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit1547", %1905, %1163
-  %.sroa.0519.2 = phi i8 [ %.sroa.0519.6, %1163 ], [ %.sroa.0519.362467, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit1547" ], [ %.sroa.0519.23, %1905 ]
+  %.sroa.0519.2 = phi i8 [ %.sroa.0519.6, %1163 ], [ %.sroa.0519.23, %1905 ], [ %.sroa.0519.362467, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit1547" ]
   %514 = trunc nuw i8 %.sroa.0519.2 to i1
   br i1 %514, label %.thread2239, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1644"
 
@@ -72842,7 +72842,7 @@ select.unfold:                                    ; preds = %426, %384
   br label %.body1467
 
 .loopexit.split-lp2607:                           ; preds = %1675, %._crit_edge2655, %1798
-  %.sroa.0519.24.ph = phi i8 [ 1, %1675 ], [ %.sroa.0519.28, %1798 ], [ 1, %._crit_edge2655 ]
+  %.sroa.0519.24.ph = phi i8 [ %.sroa.0519.28, %1798 ], [ 1, %1675 ], [ 1, %._crit_edge2655 ]
   %lpad.loopexit.split-lp2609 = landingpad { ptr, i32 }
           cleanup
   br label %.body1467
@@ -79986,7 +79986,7 @@ default.unreachable3179:                          ; preds = %"_ZN4core3ptr121dro
   br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1989"
 
 .thread2420:                                      ; preds = %997, %1016, %1002, %834
-  %.pn18412413 = phi { ptr, i32 } [ %1003, %1002 ], [ %lpad.thr_comm.split-lp2429, %834 ], [ %1017, %1016 ], [ %998, %997 ]
+  %.pn18412413 = phi { ptr, i32 } [ %1003, %1002 ], [ %lpad.thr_comm.split-lp2429, %834 ], [ %998, %997 ], [ %1017, %1016 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6762)
   call void @llvm.experimental.noalias.scope.decl(metadata !6765)
   %1023 = load ptr, ptr %257, align 8, !alias.scope !6768, !nonnull !4, !noundef !4

@@ -846,8 +846,8 @@ define range(i32 -1, 1) i32 @H5G__new_dense_info_test(i64 noundef %0, ptr nounde
   br label %.thread67
 
 88:                                               ; preds = %86, %80, %72, %60
-  %.130 = phi ptr [ %.231, %86 ], [ %70, %80 ], [ null, %60 ], [ null, %72 ]
-  %.2 = phi i32 [ 0, %86 ], [ -1, %80 ], [ -1, %60 ], [ -1, %72 ]
+  %.130 = phi ptr [ %70, %80 ], [ %.231, %86 ], [ null, %60 ], [ null, %72 ]
+  %.2 = phi i32 [ -1, %80 ], [ 0, %86 ], [ -1, %60 ], [ -1, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %89 = call i32 @H5B2_close(ptr noundef nonnull %50) #5
   %90 = icmp slt i32 %89, 0

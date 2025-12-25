@@ -730,8 +730,8 @@ fmap_readn.exit119.i:                             ; preds = %49
   br label %154
 
 154:                                              ; preds = %145, %.thread140.i, %110, %103, %98
-  %.082.i = phi ptr [ null, %98 ], [ null, %103 ], [ %102, %110 ], [ %.183.i, %.thread140.i ], [ %.183.i, %145 ]
-  %.081.i = phi i32 [ 26, %98 ], [ 20, %103 ], [ 26, %110 ], [ 26, %.thread140.i ], [ %spec.select.i, %145 ]
+  %.082.i = phi ptr [ null, %98 ], [ %.183.i, %145 ], [ null, %103 ], [ %.183.i, %.thread140.i ], [ %102, %110 ]
+  %.081.i = phi i32 [ 26, %98 ], [ %spec.select.i, %145 ], [ 20, %103 ], [ 26, %.thread140.i ], [ 26, %110 ]
   %.not113.i = icmp eq ptr %.185.i, null
   br i1 %.not113.i, label %156, label %155
 
@@ -3618,8 +3618,8 @@ decode_ptr.exit:                                  ; preds = %410
   br label %.sink.split
 
 .sink.split:                                      ; preds = %fmap_need_off_once_len.exit.i101, %25, %decode_ptr.exit, %268, %258, %decode_len.exit, %436, %.loopexit403, %446, %.loopexit404
-  %.sroa.23.1724.sink = phi i64 [ %.sroa.23.15, %.loopexit404 ], [ %.sroa.23.14, %436 ], [ %.sroa.23.1, %.loopexit403 ], [ %.sroa.23.1, %446 ], [ %.sroa.23.14, %decode_ptr.exit ], [ %.sroa.23.2, %268 ], [ %.sroa.23.2, %258 ], [ %.sroa.23.7, %decode_len.exit ], [ %.sroa.23.16, %25 ], [ %.sroa.23.16, %fmap_need_off_once_len.exit.i101 ]
-  %.0.ph = phi i32 [ 0, %.loopexit404 ], [ 14, %436 ], [ 0, %.loopexit403 ], [ 0, %446 ], [ %.sroa.228284.10, %decode_ptr.exit ], [ 14, %268 ], [ %.sroa.228284.1, %258 ], [ %.sroa.228284.6, %decode_len.exit ], [ 26, %25 ], [ 26, %fmap_need_off_once_len.exit.i101 ]
+  %.sroa.23.1724.sink = phi i64 [ %.sroa.23.15, %.loopexit404 ], [ %.sroa.23.14, %decode_ptr.exit ], [ %.sroa.23.1, %.loopexit403 ], [ %.sroa.23.1, %446 ], [ %.sroa.23.14, %436 ], [ %.sroa.23.2, %268 ], [ %.sroa.23.2, %258 ], [ %.sroa.23.7, %decode_len.exit ], [ %.sroa.23.16, %25 ], [ %.sroa.23.16, %fmap_need_off_once_len.exit.i101 ]
+  %.0.ph = phi i32 [ 0, %.loopexit404 ], [ %.sroa.228284.10, %decode_ptr.exit ], [ 0, %.loopexit403 ], [ 0, %446 ], [ 14, %436 ], [ 14, %268 ], [ %.sroa.228284.1, %258 ], [ %.sroa.228284.6, %decode_len.exit ], [ 26, %25 ], [ 26, %fmap_need_off_once_len.exit.i101 ]
   tail call void @free(ptr noundef %2) #12
   store i64 %.sroa.23.1724.sink, ptr %5, align 8, !tbaa !12
   br label %451

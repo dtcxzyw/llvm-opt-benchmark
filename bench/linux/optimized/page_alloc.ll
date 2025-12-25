@@ -4719,8 +4719,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__alloc_pages_bulk(i32 
   br label %.thread22
 
 .thread22:                                        ; preds = %179, %143, %127, %91, %.thread22.sink.split, %189, %225, %196, %.thread.thread, %20
-  %313 = phi i32 [ %15, %20 ], [ %15, %127 ], [ %220, %225 ], [ %15, %196 ], [ %15, %.thread.thread ], [ %.ph, %.thread22.sink.split ], [ %15, %189 ], [ %15, %91 ], [ %15, %143 ], [ %15, %179 ]
-  %314 = phi i32 [ %0, %20 ], [ %56, %127 ], [ %56, %225 ], [ %56, %196 ], [ %56, %.thread.thread ], [ %56, %.thread22.sink.split ], [ %56, %189 ], [ %56, %91 ], [ %56, %143 ], [ %56, %179 ]
+  %313 = phi i32 [ %15, %20 ], [ %.ph, %.thread22.sink.split ], [ %220, %225 ], [ %15, %196 ], [ %15, %.thread.thread ], [ %15, %127 ], [ %15, %189 ], [ %15, %91 ], [ %15, %143 ], [ %15, %179 ]
+  %314 = phi i32 [ %0, %20 ], [ %56, %.thread22.sink.split ], [ %56, %225 ], [ %56, %196 ], [ %56, %.thread.thread ], [ %56, %127 ], [ %56, %189 ], [ %56, %91 ], [ %56, %143 ], [ %56, %179 ]
   %315 = tail call ptr @__alloc_pages(i32 noundef %314, i32 noundef 0, i32 noundef %1, ptr noundef %2)
   %316 = icmp eq ptr %315, null
   br i1 %316, label %310, label %317

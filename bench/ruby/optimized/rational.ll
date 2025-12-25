@@ -5481,7 +5481,7 @@ rb_integer_type_p.exit21.thread33.i:              ; preds = %rb_integer_type_p.e
   br label %f_mul.exit
 
 f_mul.exit:                                       ; preds = %f_div.exit, %.thread.i, %rb_integer_type_p.exit21.thread.i, %rb_integer_type_p.exit21.thread33.i
-  %.0.i14 = phi i64 [ %97, %rb_integer_type_p.exit21.thread33.i ], [ %1, %.thread.i ], [ %.0.i, %f_div.exit ], [ %96, %rb_integer_type_p.exit21.thread.i ]
+  %.0.i14 = phi i64 [ %97, %rb_integer_type_p.exit21.thread33.i ], [ %96, %rb_integer_type_p.exit21.thread.i ], [ %.0.i, %f_div.exit ], [ %1, %.thread.i ]
   %98 = and i64 %.0.i14, 1
   %.not.i.i17 = icmp eq i64 %98, 0
   br i1 %.not.i.i17, label %99, label %rb_integer_type_p.exit.thread.i18

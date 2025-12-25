@@ -5009,7 +5009,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   br label %.loopexit580
 
 .loopexit580:                                     ; preds = %645, %.loopexit580.sink.split, %.noexc52, %.noexc51, %.noexc49, %.noexc48, %638
-  %.0.i = phi i8 [ 1, %638 ], [ 0, %.loopexit580.sink.split ], [ 0, %.noexc52 ], [ 0, %.noexc48 ], [ 0, %.noexc51 ], [ 0, %.noexc49 ], [ 1, %645 ]
+  %.0.i = phi i8 [ 1, %638 ], [ 0, %.noexc49 ], [ 0, %.noexc52 ], [ 0, %.loopexit580.sink.split ], [ 0, %.noexc51 ], [ 0, %.noexc48 ], [ 1, %645 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   call void @llvm.lifetime.end.p0(ptr nonnull %107)

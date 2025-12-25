@@ -2035,7 +2035,7 @@ default.unreachable:                              ; preds = %_ZNK10union_findI22
   br i1 %.not86, label %.loopexit, label %104, !llvm.loop !61
 
 .loopexit:                                        ; preds = %31, %29, %70, %122, %49
-  %.0 = phi i1 [ true, %122 ], [ true, %70 ], [ true, %49 ], [ false, %29 ], [ false, %31 ]
+  %.0 = phi i1 [ true, %70 ], [ true, %122 ], [ true, %49 ], [ false, %29 ], [ false, %31 ]
   ret i1 %.0
 }
 

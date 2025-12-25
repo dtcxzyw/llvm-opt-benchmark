@@ -73798,7 +73798,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   br label %.body211
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %125, %._crit_edge, %219, %214
-  %.0175.ph.ph = phi i1 [ true, %._crit_edge ], [ true, %125 ], [ false, %214 ], [ true, %219 ]
+  %.0175.ph.ph = phi i1 [ true, %._crit_edge ], [ true, %219 ], [ false, %214 ], [ true, %125 ]
   %lpad.loopexit.split-lp63 = landingpad { ptr, i32 }
           cleanup
   br label %.body211
@@ -74666,7 +74666,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   br label %.body211
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %125, %._crit_edge, %219, %214
-  %.0175.ph.ph = phi i1 [ true, %._crit_edge ], [ true, %125 ], [ false, %214 ], [ true, %219 ]
+  %.0175.ph.ph = phi i1 [ true, %._crit_edge ], [ true, %219 ], [ false, %214 ], [ true, %125 ]
   %lpad.loopexit.split-lp63 = landingpad { ptr, i32 }
           cleanup
   br label %.body211
@@ -95323,8 +95323,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit413: ; preds = %114
   invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17hb7b4318488061518E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %37) #20
           to label %.thread521.thread551 unwind label %103
 
-.thread521.thread551:                             ; preds = %406, %298, %.thread521.thread628, %399, %315, %302, %414, %286
-  %.pn374558 = phi { ptr, i32 } [ %405, %.thread521.thread628 ], [ %287, %286 ], [ %415, %414 ], [ %400, %399 ], [ %316, %315 ], [ %303, %302 ], [ %.pn370490, %406 ], [ %.pn368504, %298 ]
+.thread521.thread551:                             ; preds = %298, %406, %.thread521.thread628, %399, %315, %302, %286, %414
+  %.pn374558 = phi { ptr, i32 } [ %405, %.thread521.thread628 ], [ %287, %286 ], [ %415, %414 ], [ %400, %399 ], [ %316, %315 ], [ %303, %302 ], [ %.pn368504, %298 ], [ %.pn370490, %406 ]
   invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$datafusion_expr..logical_plan..plan..LogicalPlan$GT$17h2620ac68516cc299E"(ptr noalias noundef align 16 dereferenceable(352) %45) #20
           to label %.thread469 unwind label %103
 

@@ -267,7 +267,7 @@ define dso_local noundef range(i32 -12, 1) i32 @iommu_dma_init_fq(ptr noundef %0
   br label %103
 
 .thread:                                          ; preds = %73, %.loopexit, %.split, %56, %52, %.split.us, %31, %23
-  %99 = phi ptr [ %21, %23 ], [ %40, %56 ], [ %21, %31 ], [ %40, %.split.us ], [ %40, %52 ], [ %40, %.split ], [ %40, %.loopexit ], [ %40, %73 ]
+  %99 = phi ptr [ %21, %23 ], [ %21, %31 ], [ %40, %56 ], [ %40, %.split.us ], [ %40, %52 ], [ %40, %.split ], [ %40, %.loopexit ], [ %40, %73 ]
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 160

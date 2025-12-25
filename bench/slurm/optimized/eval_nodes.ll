@@ -4539,10 +4539,10 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
   br i1 %.not200.not, label %.preheader, label %.critedge3, !llvm.loop !43
 
 .critedge3:                                       ; preds = %.preheader, %199
-  %.5181 = phi i64 [ %.4180266, %.preheader ], [ %.6182, %199 ]
-  %.5167 = phi i32 [ %.4166268, %.preheader ], [ %.6168, %199 ]
-  %.6161 = phi i32 [ %.5160269, %.preheader ], [ %.7, %199 ]
-  %.5 = phi i32 [ %.4270, %.preheader ], [ %.6, %199 ]
+  %.5181 = phi i64 [ %.6182, %199 ], [ %.4180266, %.preheader ]
+  %.5167 = phi i32 [ %.6168, %199 ], [ %.4166268, %.preheader ]
+  %.6161 = phi i32 [ %.7, %199 ], [ %.5160269, %.preheader ]
+  %.5 = phi i32 [ %.6, %199 ], [ %.4270, %.preheader ]
   %200 = tail call ptr @list_next(ptr noundef %156) #8
   %.not199 = icmp eq ptr %200, null
   br i1 %.not199, label %.critedge.thread, label %.preheader.preheader, !llvm.loop !44

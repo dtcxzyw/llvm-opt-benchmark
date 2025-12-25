@@ -1595,7 +1595,7 @@ define internal fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   br i1 %.not39.i, label %sstep_back.exit, label %.lr.ph52.split.i, !llvm.loop !72
 
 sstep_back.exit:                                  ; preds = %.lr.ph.i, %49, %.lr.ph52.split.i, %70, %58, %62, %66, %42, %51
-  %.0.i = phi ptr [ %.03151.us.i, %62 ], [ %45, %51 ], [ %45, %42 ], [ %.03151.i, %.lr.ph52.split.i ], [ %scevgep68.i, %66 ], [ %.03151.us.i, %58 ], [ %scevgep68.i, %70 ], [ %45, %49 ], [ %45, %.lr.ph.i ]
+  %.0.i = phi ptr [ %45, %42 ], [ %45, %51 ], [ %.03151.us.i, %62 ], [ %.03151.i, %.lr.ph52.split.i ], [ %scevgep68.i, %66 ], [ %.03151.us.i, %58 ], [ %scevgep68.i, %70 ], [ %45, %49 ], [ %45, %.lr.ph.i ]
   %72 = tail call fastcc ptr @sslow(ptr noundef %0, ptr noundef %.0153214, ptr noundef %.0.i, i64 noundef %.0215, i64 noundef %26)
   %73 = tail call fastcc ptr @sslow(ptr noundef %0, ptr noundef %72, ptr noundef %2, i64 noundef %26, i64 noundef %4)
   %74 = icmp eq ptr %73, %2
@@ -1685,7 +1685,7 @@ sstep_back.exit:                                  ; preds = %.lr.ph.i, %49, %.lr
   br i1 %.not39.i173, label %sstep_back.exit181, label %.lr.ph52.split.i171, !llvm.loop !72
 
 sstep_back.exit181:                               ; preds = %.lr.ph.i164, %86, %.lr.ph52.split.i171, %107, %95, %99, %103, %79, %88
-  %.0.i163 = phi ptr [ %.03151.us.i175, %99 ], [ %82, %88 ], [ %82, %79 ], [ %.03151.i172, %.lr.ph52.split.i171 ], [ %scevgep68.i170, %103 ], [ %.03151.us.i175, %95 ], [ %scevgep68.i170, %107 ], [ %82, %86 ], [ %82, %.lr.ph.i164 ]
+  %.0.i163 = phi ptr [ %82, %79 ], [ %82, %88 ], [ %.03151.us.i175, %99 ], [ %.03151.i172, %.lr.ph52.split.i171 ], [ %scevgep68.i170, %103 ], [ %.03151.us.i175, %95 ], [ %scevgep68.i170, %107 ], [ %82, %86 ], [ %82, %.lr.ph.i164 ]
   %109 = tail call fastcc ptr @sslow(ptr noundef %0, ptr noundef %.0153214, ptr noundef %.0.i163, i64 noundef %.0215, i64 noundef %26)
   %110 = tail call fastcc ptr @sslow(ptr noundef %0, ptr noundef %109, ptr noundef %2, i64 noundef %26, i64 noundef %4)
   %111 = icmp eq ptr %110, %2
@@ -2288,7 +2288,7 @@ tailrecurse.outer.backedge:                       ; preds = %210, %220, %227
   br label %.loopexit
 
 .loopexit:                                        ; preds = %222, %195, %191, %188, %177, %167, %205, %126, %134, %142, %145, %97, %99, %._crit_edge414, %111, %73, %75, %78, %57, %60, %64, %36, %38, %32, %26, %28, %241, %.lr.ph349, %229, %267, %254, %.loopexit438, %278, %264
-  %.0 = phi ptr [ %277, %267 ], [ null, %126 ], [ %.0234., %.loopexit438 ], [ null, %278 ], [ %263, %254 ], [ null, %264 ], [ null, %195 ], [ null, %.lr.ph349 ], [ %230, %229 ], [ %206, %205 ], [ %253, %241 ], [ null, %28 ], [ null, %26 ], [ null, %32 ], [ null, %38 ], [ null, %36 ], [ null, %64 ], [ null, %60 ], [ null, %57 ], [ null, %78 ], [ null, %75 ], [ null, %73 ], [ null, %111 ], [ null, %._crit_edge414 ], [ null, %99 ], [ null, %97 ], [ null, %145 ], [ null, %142 ], [ null, %134 ], [ null, %167 ], [ null, %177 ], [ null, %188 ], [ null, %191 ], [ %225, %222 ]
+  %.0 = phi ptr [ %277, %267 ], [ %.0234., %.loopexit438 ], [ null, %167 ], [ null, %264 ], [ %263, %254 ], [ null, %278 ], [ null, %.lr.ph349 ], [ null, %126 ], [ %230, %229 ], [ null, %195 ], [ %253, %241 ], [ null, %28 ], [ null, %26 ], [ null, %32 ], [ null, %38 ], [ null, %36 ], [ null, %64 ], [ null, %60 ], [ null, %57 ], [ null, %78 ], [ null, %75 ], [ null, %73 ], [ null, %111 ], [ null, %._crit_edge414 ], [ null, %99 ], [ null, %97 ], [ null, %145 ], [ null, %142 ], [ null, %134 ], [ %206, %205 ], [ null, %177 ], [ null, %188 ], [ null, %191 ], [ %225, %222 ]
   ret ptr %.0
 }
 
@@ -3036,7 +3036,7 @@ define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   br i1 %.not39.i, label %lstep_back.exit, label %.lr.ph52.split.i, !llvm.loop !86
 
 lstep_back.exit:                                  ; preds = %49, %53, %.lr.ph52.split.i, %74, %62, %66, %70, %42, %55
-  %.0.i = phi ptr [ %.03151.us.i, %66 ], [ %45, %55 ], [ %45, %42 ], [ %.03151.i, %.lr.ph52.split.i ], [ %scevgep68.i, %70 ], [ %.03151.us.i, %62 ], [ %scevgep68.i, %74 ], [ %45, %53 ], [ %45, %49 ]
+  %.0.i = phi ptr [ %45, %42 ], [ %45, %55 ], [ %.03151.us.i, %66 ], [ %.03151.i, %.lr.ph52.split.i ], [ %scevgep68.i, %70 ], [ %.03151.us.i, %62 ], [ %scevgep68.i, %74 ], [ %45, %53 ], [ %45, %49 ]
   %76 = tail call fastcc ptr @lslow(ptr noundef %0, ptr noundef %.0153214, ptr noundef %.0.i, i64 noundef %.0215, i64 noundef %26)
   %77 = tail call fastcc ptr @lslow(ptr noundef %0, ptr noundef %76, ptr noundef %2, i64 noundef %26, i64 noundef %4)
   %78 = icmp eq ptr %77, %2
@@ -3132,7 +3132,7 @@ lstep_back.exit:                                  ; preds = %49, %53, %.lr.ph52.
   br i1 %.not39.i173, label %lstep_back.exit181, label %.lr.ph52.split.i171, !llvm.loop !86
 
 lstep_back.exit181:                               ; preds = %90, %94, %.lr.ph52.split.i171, %115, %103, %107, %111, %83, %96
-  %.0.i163 = phi ptr [ %.03151.us.i175, %107 ], [ %86, %96 ], [ %86, %83 ], [ %.03151.i172, %.lr.ph52.split.i171 ], [ %scevgep68.i170, %111 ], [ %.03151.us.i175, %103 ], [ %scevgep68.i170, %115 ], [ %86, %94 ], [ %86, %90 ]
+  %.0.i163 = phi ptr [ %86, %83 ], [ %86, %96 ], [ %.03151.us.i175, %107 ], [ %.03151.i172, %.lr.ph52.split.i171 ], [ %scevgep68.i170, %111 ], [ %.03151.us.i175, %103 ], [ %scevgep68.i170, %115 ], [ %86, %94 ], [ %86, %90 ]
   %117 = tail call fastcc ptr @lslow(ptr noundef %0, ptr noundef %.0153214, ptr noundef %.0.i163, i64 noundef %.0215, i64 noundef %26)
   %118 = tail call fastcc ptr @lslow(ptr noundef %0, ptr noundef %117, ptr noundef %2, i64 noundef %26, i64 noundef %4)
   %119 = icmp eq ptr %118, %2
@@ -3743,7 +3743,7 @@ tailrecurse.outer.backedge:                       ; preds = %210, %220, %227
   br label %.loopexit
 
 .loopexit:                                        ; preds = %222, %195, %191, %188, %177, %167, %205, %126, %134, %142, %145, %97, %99, %._crit_edge414, %111, %73, %75, %78, %57, %60, %64, %36, %38, %32, %26, %28, %241, %.lr.ph349, %229, %267, %254, %.loopexit438, %278, %264
-  %.0 = phi ptr [ %277, %267 ], [ null, %126 ], [ %.0234., %.loopexit438 ], [ null, %278 ], [ %263, %254 ], [ null, %264 ], [ null, %195 ], [ null, %.lr.ph349 ], [ %230, %229 ], [ %206, %205 ], [ %253, %241 ], [ null, %28 ], [ null, %26 ], [ null, %32 ], [ null, %38 ], [ null, %36 ], [ null, %64 ], [ null, %60 ], [ null, %57 ], [ null, %78 ], [ null, %75 ], [ null, %73 ], [ null, %111 ], [ null, %._crit_edge414 ], [ null, %99 ], [ null, %97 ], [ null, %145 ], [ null, %142 ], [ null, %134 ], [ null, %167 ], [ null, %177 ], [ null, %188 ], [ null, %191 ], [ %225, %222 ]
+  %.0 = phi ptr [ %277, %267 ], [ %.0234., %.loopexit438 ], [ null, %167 ], [ null, %264 ], [ %263, %254 ], [ null, %278 ], [ null, %.lr.ph349 ], [ null, %126 ], [ %230, %229 ], [ null, %195 ], [ %253, %241 ], [ null, %28 ], [ null, %26 ], [ null, %32 ], [ null, %38 ], [ null, %36 ], [ null, %64 ], [ null, %60 ], [ null, %57 ], [ null, %78 ], [ null, %75 ], [ null, %73 ], [ null, %111 ], [ null, %._crit_edge414 ], [ null, %99 ], [ null, %97 ], [ null, %145 ], [ null, %142 ], [ null, %134 ], [ %206, %205 ], [ null, %177 ], [ null, %188 ], [ null, %191 ], [ %225, %222 ]
   ret ptr %.0
 }
 

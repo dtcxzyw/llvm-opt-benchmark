@@ -1194,7 +1194,7 @@ Abc_TtNot.exit.sink.split:                        ; preds = %498, %507
   br label %Abc_TtNot.exit
 
 Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %Abc_TtNot.exit.sink.split, %519, %516
-  %.0 = phi ptr [ %2, %Abc_TtNot.exit.sink.split ], [ %517, %519 ], [ %517, %516 ], [ %517, %.lr.ph.i ]
+  %.0 = phi ptr [ %517, %519 ], [ %2, %Abc_TtNot.exit.sink.split ], [ %517, %516 ], [ %517, %.lr.ph.i ]
   %528 = getelementptr i8, ptr %437, i64 8
   %.val384 = load ptr, ptr %528, align 8, !tbaa !47
   %529 = getelementptr i8, ptr %437, i64 4
@@ -3039,8 +3039,8 @@ Abc_TtHasVar.exit.thread.i.i:                     ; preds = %._crit_edge.us.i.i.
   br i1 %exitcond.not.i80.i, label %._crit_edge.i.i, label %.lr.ph.split.split.i.i, !llvm.loop !96
 
 ._crit_edge.i.i:                                  ; preds = %Abc_TtHasVar.exit.thread.i.i, %Abc_TtHasVar.exit.thread.us.i.i, %Abc_TtHasVar.exit.us.us.i.i
-  %.023.lcssa.i.i = phi i32 [ %.124.us.us.i.i, %Abc_TtHasVar.exit.us.us.i.i ], [ %.124.us.i.i, %Abc_TtHasVar.exit.thread.us.i.i ], [ %.124.i.i, %Abc_TtHasVar.exit.thread.i.i ]
-  %.0.lcssa.i.i = phi i32 [ %.1.us.us.i.i, %Abc_TtHasVar.exit.us.us.i.i ], [ %.1.us.i.i, %Abc_TtHasVar.exit.thread.us.i.i ], [ %.1.i.i, %Abc_TtHasVar.exit.thread.i.i ]
+  %.023.lcssa.i.i = phi i32 [ %.124.us.i.i, %Abc_TtHasVar.exit.thread.us.i.i ], [ %.124.us.us.i.i, %Abc_TtHasVar.exit.us.us.i.i ], [ %.124.i.i, %Abc_TtHasVar.exit.thread.i.i ]
+  %.0.lcssa.i.i = phi i32 [ %.1.us.i.i, %Abc_TtHasVar.exit.thread.us.i.i ], [ %.1.us.us.i.i, %Abc_TtHasVar.exit.us.us.i.i ], [ %.1.i.i, %Abc_TtHasVar.exit.thread.i.i ]
   %541 = icmp eq i32 %.0.lcssa.i.i, 0
   br i1 %541, label %Abc_TtSimplify.exit, label %542
 

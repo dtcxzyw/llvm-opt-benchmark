@@ -1047,7 +1047,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit105.thread: ; preds = 
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__15NdrParserPlugin14GetInvalidNodeERKNS_22NdrNodeDiscoveryResultE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(272) %2)
           to label %567 unwind label %.loopexit.split-lp
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit105.thread154: ; preds = %.noexc104, %372, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit105
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit105.thread154: ; preds = %372, %.noexc104, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit105
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %382 unwind label %.loopexit.split-lp
 

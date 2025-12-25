@@ -8438,7 +8438,7 @@ _ZN4core10intrinsics10typed_swap17h85a37a8832cb9ef2E.exit.i104.i: ; preds = %112
           to label %1387 unwind label %.critedge125.thread510.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %1470, %1461, %1403, %1394, %1643, %1634
-  %1417 = phi ptr [ @anon.1c1caa08b2db838aff4de10731ac9f39.107, %1643 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.107, %1634 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.100, %1394 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.104, %1461 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.100, %1403 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.104, %1470 ]
+  %1417 = phi ptr [ @anon.1c1caa08b2db838aff4de10731ac9f39.107, %1643 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.107, %1634 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.100, %1394 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.104, %1461 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.104, %1470 ], [ @anon.1c1caa08b2db838aff4de10731ac9f39.100, %1403 ]
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) %1417) #33
           to label %.cont unwind label %.critedge125.thread510.loopexit.split-lp.loopexit.split-lp
 

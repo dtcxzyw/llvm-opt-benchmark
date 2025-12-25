@@ -1204,7 +1204,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16isLegalToPromoteERKNS_8CallBaseEP
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %90, %.critedge.thread.sink.split, %.preheader, %89, %73, %39, %93, %54, %49, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %.critedge.thread.sink.split ], [ false, %39 ], [ true, %.preheader ], [ false, %93 ], [ false, %49 ], [ false, %89 ], [ false, %54 ], [ false, %73 ], [ true, %90 ]
+  %.0 = phi i1 [ false, %16 ], [ true, %.preheader ], [ false, %39 ], [ false, %.critedge.thread.sink.split ], [ false, %93 ], [ false, %49 ], [ false, %89 ], [ false, %54 ], [ false, %73 ], [ true, %90 ]
   ret i1 %.0
 }
 

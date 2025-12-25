@@ -374,7 +374,7 @@ graph_is_interesting.exit.i.i:                    ; preds = %28, %24, %22
   br i1 %.not13.i.i, label %.lr.ph, label %.preheader.i.i, !llvm.loop !100
 
 .lr.ph:                                           ; preds = %28, %graph_is_interesting.exit.i.i, %13, %graph_is_interesting.exit.i
-  %.0.i.ph = phi ptr [ %5, %13 ], [ %5, %graph_is_interesting.exit.i ], [ %.0.i11.i, %graph_is_interesting.exit.i.i ], [ %.0.i11.i, %28 ]
+  %.0.i.ph = phi ptr [ %5, %graph_is_interesting.exit.i ], [ %5, %13 ], [ %.0.i11.i, %graph_is_interesting.exit.i.i ], [ %.0.i11.i, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i32, ptr %3, align 8, !tbaa !80
   %34 = add nsw i32 %33, 1
@@ -664,7 +664,7 @@ graph_is_interesting.exit.i.i.i:                  ; preds = %154, %150, %148
   br i1 %.not13.i.i.i, label %.lr.ph124.i, label %.preheader.i.i.i, !llvm.loop !100
 
 .lr.ph124.i:                                      ; preds = %graph_is_interesting.exit.i.i.i, %154, %graph_is_interesting.exit.i.i35, %139
-  %.0.i.ph.i = phi ptr [ %132, %139 ], [ %132, %graph_is_interesting.exit.i.i35 ], [ %.0.i11.i.i, %154 ], [ %.0.i11.i.i, %graph_is_interesting.exit.i.i.i ]
+  %.0.i.ph.i = phi ptr [ %132, %graph_is_interesting.exit.i.i35 ], [ %132, %139 ], [ %.0.i11.i.i, %154 ], [ %.0.i11.i.i, %graph_is_interesting.exit.i.i.i ]
   %158 = icmp ne i32 %.265.i, 0
   br label %159
 

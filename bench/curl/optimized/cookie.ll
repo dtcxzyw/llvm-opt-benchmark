@@ -2017,7 +2017,7 @@ define internal fastcc range(i32 0, 16) i32 @replace_existing(ptr noundef %0, pt
   br label %.critedge.thread139
 
 .critedge.thread139:                              ; preds = %100, %52, %53, %60, %64, %._crit_edge.thread
-  %.6 = phi i32 [ 0, %._crit_edge.thread ], [ 8, %52 ], [ 8, %64 ], [ 8, %60 ], [ 8, %53 ], [ 15, %100 ]
+  %.6 = phi i32 [ 0, %._crit_edge.thread ], [ 8, %52 ], [ 8, %53 ], [ 8, %60 ], [ 8, %64 ], [ 15, %100 ]
   ret i32 %.6
 }
 

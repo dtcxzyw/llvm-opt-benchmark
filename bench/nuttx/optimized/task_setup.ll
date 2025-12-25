@@ -219,7 +219,7 @@ nxtask_save_parent.exit:                          ; preds = %58, %71, %89, %.thr
   br label %nxtask_assign_pid.exit
 
 nxtask_assign_pid.exit:                           ; preds = %39, %37, %106
-  %.0.i34 = phi i32 [ 0, %106 ], [ -12, %39 ], [ -12, %37 ]
+  %.0.i34 = phi i32 [ 0, %106 ], [ -12, %37 ], [ -12, %39 ]
   ret i32 %.0.i34
 }
 

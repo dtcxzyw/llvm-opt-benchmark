@@ -710,7 +710,7 @@ flip_bits.exit:                                   ; preds = %.thread, %147, %152
   br label %.thread126
 
 .thread126:                                       ; preds = %18, %15, %169, %._crit_edge148, %.lr.ph147, %176, %.thread132, %._crit_edge155, %._crit_edge, %9, %6, %189
-  %.0 = phi i32 [ 0, %9 ], [ 0, %169 ], [ 0, %189 ], [ 0, %._crit_edge ], [ 1, %.thread132 ], [ 0, %176 ], [ 0, %6 ], [ 1, %._crit_edge155 ], [ 0, %.lr.ph147 ], [ 0, %._crit_edge148 ], [ 0, %15 ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %176 ], [ 0, %189 ], [ 0, %._crit_edge ], [ 1, %.thread132 ], [ 0, %.lr.ph147 ], [ 0, %6 ], [ 1, %._crit_edge155 ], [ 0, %169 ], [ 0, %._crit_edge148 ], [ 0, %15 ], [ 0, %18 ]
   ret i32 %.0
 }
 

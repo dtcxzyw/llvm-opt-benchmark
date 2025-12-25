@@ -928,7 +928,7 @@ imap_parse_url_path.exit:                         ; preds = %165
   br label %imap_perform_append.exit.thread102.i.i
 
 imap_perform_append.exit.i.i:                     ; preds = %306, %301
-  %.052.i.i = phi i32 [ %307, %306 ], [ %302, %301 ]
+  %.052.i.i = phi i32 [ %302, %301 ], [ %307, %306 ]
   %.not74.i.i = icmp eq i32 %.052.i.i, 0
   br i1 %.not74.i.i, label %imap_perform_append.exit.imap_perform_append.exit.thread102_crit_edge.i.i, label %imap_parse_custom_request.exit
 
@@ -2327,7 +2327,7 @@ imap_state_fetch_resp.exit:                       ; preds = %307, %.sink.split.i
   br label %imap_state_servergreet_resp.exit.thread91
 
 imap_state_servergreet_resp.exit:                 ; preds = %265, %179, %143, %141, %131, %128, %imap_state_auth_resp.exit, %imap_state_fetch_resp.exit
-  %.1 = phi i32 [ %183, %179 ], [ %142, %141 ], [ %266, %265 ], [ %129, %128 ], [ %.0.i58, %imap_state_auth_resp.exit ], [ %144, %143 ], [ %132, %131 ], [ %.058.i, %imap_state_fetch_resp.exit ]
+  %.1 = phi i32 [ %.058.i, %imap_state_fetch_resp.exit ], [ %132, %131 ], [ %129, %128 ], [ %183, %179 ], [ %.0.i58, %imap_state_auth_resp.exit ], [ %144, %143 ], [ %142, %141 ], [ %266, %265 ]
   %.not50 = icmp eq i32 %.1, 0
   br i1 %.not50, label %imap_state_servergreet_resp.exit.thread91, label %imap_state_servergreet_resp.exit.thread
 
@@ -2705,7 +2705,7 @@ imap_matchresp.exit.thread.sink.split:            ; preds = %155, %152, %152, %2
   br label %imap_matchresp.exit.thread
 
 imap_matchresp.exit.thread:                       ; preds = %imap_matchresp.exit.thread.sink.split, %133, %135, %137, %129, %.critedge.i106, %108, %110, %112, %104, %.critedge.i94, %46, %48, %50, %42, %.critedge.i, %142, %143, %151, %.thread115, %27, %58, %89
-  %.0 = phi i1 [ false, %27 ], [ false, %133 ], [ false, %108 ], [ false, %135 ], [ false, %137 ], [ false, %142 ], [ false, %58 ], [ false, %46 ], [ false, %129 ], [ false, %.critedge.i106 ], [ false, %89 ], [ false, %.thread115 ], [ false, %151 ], [ false, %143 ], [ false, %.critedge.i ], [ false, %42 ], [ false, %50 ], [ false, %48 ], [ false, %.critedge.i94 ], [ false, %104 ], [ false, %112 ], [ false, %110 ], [ true, %imap_matchresp.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %27 ], [ false, %.critedge.i106 ], [ false, %108 ], [ false, %129 ], [ false, %137 ], [ false, %142 ], [ false, %58 ], [ false, %46 ], [ false, %135 ], [ false, %133 ], [ false, %89 ], [ false, %.thread115 ], [ false, %151 ], [ false, %143 ], [ false, %.critedge.i ], [ false, %42 ], [ false, %50 ], [ false, %48 ], [ false, %.critedge.i94 ], [ false, %104 ], [ false, %112 ], [ false, %110 ], [ true, %imap_matchresp.exit.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -3057,7 +3057,7 @@ define internal fastcc ptr @imap_atom(ptr noundef %0, i1 noundef zeroext %1) unn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %16, %22, %12, %2, %24, %8
-  %.0 = phi ptr [ %10, %8 ], [ null, %12 ], [ null, %22 ], [ %25, %24 ], [ null, %2 ], [ null, %16 ], [ null, %18 ]
+  %.0 = phi ptr [ %10, %8 ], [ null, %12 ], [ null, %2 ], [ %25, %24 ], [ null, %22 ], [ null, %16 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

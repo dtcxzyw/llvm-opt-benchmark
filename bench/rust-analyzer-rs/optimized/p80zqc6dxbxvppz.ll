@@ -71991,8 +71991,8 @@ define internal noundef zeroext i1 @"_ZN68_$LT$rowan..api..SyntaxNode$LT$L$GT$$u
   br i1 %exitcond.not, label %91, label %92
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2947a2c57ae6f0c6E.exit": ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit
-  %.sroa.2.0.copyload.i187 = phi i64 [ %.sroa.2.0.copyload.i188, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.2.0.copyload.i.lcssa182, %.loopexit.split-lp.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp128, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit127, %.loopexit.split-lp.loopexit ]
+  %.sroa.2.0.copyload.i187 = phi i64 [ %.sroa.2.0.copyload.i.lcssa182, %.loopexit.split-lp.loopexit ], [ %.sroa.2.0.copyload.i188, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit127, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp128, %.loopexit.split-lp.loopexit.split-lp ]
   %89 = icmp eq i64 %.sroa.2.0.copyload.i187, 0
   br i1 %89, label %158, label %.thread90
 
@@ -89300,8 +89300,8 @@ define hidden void @"_ZN6hir_ty5infer6coerce54_$LT$impl$u20$hir_ty..infer..unify
   br i1 %102, label %1175, label %106
 
 .body99:                                          ; preds = %1148, %913, %104, %1172, %.body
-  %.132 = phi i8 [ %.233.lpad-body, %.body ], [ %.233.lpad-body, %1172 ], [ %.031, %104 ], [ %.3, %913 ], [ %.5, %1148 ]
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %1172 ], [ %105, %104 ], [ %914, %913 ], [ %1149, %1148 ]
+  %.132 = phi i8 [ %.233.lpad-body, %1172 ], [ %.233.lpad-body, %.body ], [ %.031, %104 ], [ %.3, %913 ], [ %.5, %1148 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %1172 ], [ %eh.lpad-body, %.body ], [ %105, %104 ], [ %914, %913 ], [ %1149, %1148 ]
   %103 = trunc nuw i8 %.132 to i1
   br i1 %103, label %.thread, label %common.resume
 
@@ -97492,8 +97492,8 @@ define hidden void @_ZN6hir_ty5infer5unify14InferenceTable12callable_sig17h1d7ad
           to label %122 unwind label %120, !noalias !19688
 
 .body.i:                                          ; preds = %.body198.thread.i, %403, %.body198.i, %189
-  %.160.i = phi i8 [ %.1534.i, %403 ], [ %.4637.i, %.body198.thread.i ], [ %.1534.i, %.body198.i ], [ %.665.i, %189 ]
-  %.pn87.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %404, %403 ], [ %.pn87.pn.pn.pn.pn9.i, %.body198.thread.i ], [ %lpad.thr_comm.split-lp.i, %.body198.i ], [ %.pn87.pn.pn.pn.i, %189 ]
+  %.160.i = phi i8 [ %.4637.i, %.body198.thread.i ], [ %.1534.i, %403 ], [ %.1534.i, %.body198.i ], [ %.665.i, %189 ]
+  %.pn87.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn87.pn.pn.pn.pn9.i, %.body198.thread.i ], [ %404, %403 ], [ %lpad.thr_comm.split-lp.i, %.body198.i ], [ %.pn87.pn.pn.pn.i, %189 ]
   %119 = trunc nuw i8 %.160.i to i1
   br i1 %119, label %.body.thread.i, label %.body223.i
 
@@ -126052,8 +126052,8 @@ define internal fastcc noundef zeroext i1 @_ZN6hir_ty17method_resolution24iterat
   br label %"_ZN4core3ptr70drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..ImplData$GT$$GT$17he2b8ab66b645b28bE.exit"
 
 .loopexit.split-lp190:                            ; preds = %.invoke, %_ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit, %59, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit96", %76, %55, %462
-  %.069.ph = phi i8 [ 0, %76 ], [ %.3, %_ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit ], [ 0, %59 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit96" ], [ %.3, %462 ], [ 0, %55 ], [ 0, %.invoke ]
-  %.068.ph = phi i8 [ 1, %76 ], [ %.3, %_ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit ], [ 0, %59 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit96" ], [ %.3, %462 ], [ 0, %55 ], [ 0, %.invoke ]
+  %.069.ph = phi i8 [ 0, %76 ], [ %.3, %_ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit ], [ 0, %59 ], [ 0, %55 ], [ %.3, %462 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit96" ], [ 0, %.invoke ]
+  %.068.ph = phi i8 [ 1, %76 ], [ %.3, %_ZN7tracing4span4Span8do_enter17ha5063e914eb89a40E.exit ], [ 0, %59 ], [ 0, %55 ], [ %.3, %462 ], [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit96" ], [ 0, %.invoke ]
   %lpad.loopexit.split-lp192 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr70drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..ImplData$GT$$GT$17he2b8ab66b645b28bE.exit"

@@ -3668,7 +3668,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   br label %64
 
 64:                                               ; preds = %.sink.split, %13, %27, %36, %20, %18, %49, %46, %44
-  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %13 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %49 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
+  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %49 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %13 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert

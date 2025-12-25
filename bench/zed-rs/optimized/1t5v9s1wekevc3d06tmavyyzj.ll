@@ -29391,8 +29391,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17800258754301373476.exit
   br label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$language_model..request..LanguageModelImage$GT$$GT$17hab3b3ffeaec1df46E.exit"
 
 "_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17hf92778e81a9fca43E.llvm.17800258754301373476.exit": ; preds = %323, %327, %330, %340
-  %343 = phi i1 [ true, %323 ], [ true, %327 ], [ true, %330 ], [ %341, %340 ]
-  %eh.lpad-body10 = phi { ptr, i32 } [ %324, %323 ], [ %324, %327 ], [ %324, %330 ], [ %342, %340 ]
+  %343 = phi i1 [ true, %330 ], [ true, %327 ], [ true, %323 ], [ %341, %340 ]
+  %eh.lpad-body10 = phi { ptr, i32 } [ %324, %330 ], [ %324, %327 ], [ %324, %323 ], [ %342, %340 ]
   %344 = load i64, ptr %18, align 8, !range !41, !noundef !4
   %345 = icmp ne i64 %344, 3
   %or.cond = and i1 %343, %345

@@ -440,7 +440,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   br label %144
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc39c817243408a4fE.exit": ; preds = %66, %.sink.split.i, %.preheader79, %144, %.preheader, %65, %131, %.preheader.i.i, %81
-  %.sroa.4.1.i = phi i64 [ %10, %81 ], [ %10, %131 ], [ %10, %.sink.split.i ], [ %10, %144 ], [ %10, %.preheader.i.i ], [ %spec.select, %65 ], [ %134, %.preheader ], [ %86, %.preheader79 ], [ %13, %66 ]
+  %.sroa.4.1.i = phi i64 [ %10, %81 ], [ %10, %131 ], [ %10, %.sink.split.i ], [ %10, %144 ], [ %10, %.preheader.i.i ], [ %spec.select, %65 ], [ %86, %.preheader79 ], [ %134, %.preheader ], [ %13, %66 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %178 = load i64, ptr %177, align 8, !alias.scope !52, !noalias !55, !noundef !12

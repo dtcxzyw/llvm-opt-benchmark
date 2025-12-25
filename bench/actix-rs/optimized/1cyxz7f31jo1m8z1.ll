@@ -4053,7 +4053,7 @@ _ZN4core5slice4sort11insert_tail17h39d2684d8092d293E.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17h1071ca92806efc20E.exit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb3d5920cb33bfcd1E.exit.i.i"
 
 .loopexit74:                                      ; preds = %.lr.ph7.i, %63, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %48, %63 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %48, %63 ], [ %.06.i, %.lr.ph7.i ]
   %94 = add i64 %.sroa.0.0.i, %.0104
   %95 = icmp ugt i64 %.0104, %94
   br i1 %95, label %.invoke194, label %96
@@ -4728,7 +4728,7 @@ _ZN4core5slice4sort11insert_tail17hd8994a85893ea55fE.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17h74dead92ad54bf8aE.exit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf2cadb9595c02852E.exit.i.i"
 
 .loopexit83:                                      ; preds = %.noexc41, %64, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.noexc41 ], [ %50, %64 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %50, %64 ], [ %.06.i, %.noexc41 ]
   %93 = add i64 %.sroa.0.0.i, %.0141
   %94 = icmp ugt i64 %.0141, %93
   br i1 %94, label %.invoke276, label %95
@@ -5531,7 +5531,7 @@ switch.lookup303:                                 ; preds = %114
           to label %_ZN4core5slice4sort20provide_sorted_batch17heb0b8d8d4c4ff25dE.exit unwind label %.loopexit85
 
 .loopexit81:                                      ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hbb7976bef0c1f96bE.exit41.i", %122, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.07.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hbb7976bef0c1f96bE.exit41.i" ], [ %49, %122 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %49, %122 ], [ %.07.i, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hbb7976bef0c1f96bE.exit41.i" ]
   %140 = add i64 %.sroa.0.0.i, %.0123
   %141 = icmp ugt i64 %.0123, %140
   br i1 %141, label %.invoke, label %142

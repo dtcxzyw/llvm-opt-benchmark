@@ -4097,7 +4097,7 @@ _ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_EEEbS3_DpT_.exit: ; preds = %_
   br label %61
 
 61:                                               ; preds = %.sink.split, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_EEEbS3_DpT_.exit, %43, %37, %32, %29, %28, %7
-  %.016 = phi i32 [ 1, %37 ], [ 1, %43 ], [ 1, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_EEEbS3_DpT_.exit ], [ 1, %29 ], [ %spec.store.select, %7 ], [ 1, %28 ], [ 1, %32 ], [ 0, %.sink.split ]
+  %.016 = phi i32 [ 1, %29 ], [ 1, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_EEEbS3_DpT_.exit ], [ 1, %43 ], [ 1, %37 ], [ %spec.store.select, %7 ], [ 1, %28 ], [ 1, %32 ], [ 0, %.sink.split ]
   %62 = icmp eq i32 %.016, 0
   %63 = load ptr, ptr %19, align 8, !tbaa !99
   tail call void @_ZN5clang12Preprocessor9BacktrackEv(ptr noundef nonnull align 8 dereferenceable(3288) %63) #10
@@ -6418,8 +6418,8 @@ thread-pre-split40:                               ; preds = %67
   br label %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit
 
 _ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit: ; preds = %55, %55, %.split, %52, %46, %43, %.split.us, %69, %76, %62, %.split46.us, %58, %67, %71, %33
-  %.027 = phi i32 [ 1, %33 ], [ 0, %76 ], [ 3, %69 ], [ 1, %58 ], [ 1, %67 ], [ 1, %.split46.us ], [ 1, %62 ], [ 1, %71 ], [ 1, %46 ], [ 1, %.split.us ], [ 1, %43 ], [ 1, %52 ], [ 1, %.split ], [ 1, %55 ], [ 1, %55 ]
-  %.2 = phi i32 [ %34, %33 ], [ %.147, %76 ], [ %.147, %69 ], [ 0, %58 ], [ 3, %67 ], [ %57, %.split46.us ], [ %64, %62 ], [ %.37, %71 ], [ %47, %46 ], [ 0, %43 ], [ 3, %.split.us ], [ %56, %55 ], [ 3, %.split ], [ 0, %52 ], [ %56, %55 ]
+  %.027 = phi i32 [ 1, %33 ], [ 1, %67 ], [ 1, %58 ], [ 3, %69 ], [ 0, %76 ], [ 1, %.split46.us ], [ 1, %62 ], [ 1, %71 ], [ 1, %46 ], [ 1, %.split.us ], [ 1, %43 ], [ 1, %52 ], [ 1, %.split ], [ 1, %55 ], [ 1, %55 ]
+  %.2 = phi i32 [ %34, %33 ], [ 3, %67 ], [ 0, %58 ], [ %.147, %69 ], [ %.147, %76 ], [ %57, %.split46.us ], [ %64, %62 ], [ %.37, %71 ], [ %47, %46 ], [ 0, %43 ], [ 3, %.split.us ], [ %56, %55 ], [ 3, %.split ], [ 0, %52 ], [ %56, %55 ]
   %79 = load ptr, ptr %16, align 8, !tbaa !1006
   call void @_ZN5clang16AttributeFactory11reclaimPoolERNS_13AttributePoolE(ptr noundef nonnull align 8 dereferenceable(1312) %79, ptr noundef nonnull align 8 dereferenceable(72) %16) #10
   %80 = load ptr, ptr %17, align 8, !tbaa !948

@@ -3045,7 +3045,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %933, %916, %963, %946, %.critedge.sink.split.i, %958, %928, %906, %895, %885, %881, %.lr.ph638.i
-  %.val295699.i = phi ptr [ %.val234.i, %.critedge.sink.split.i ], [ %.val295.i, %963 ], [ %.val295.i, %946 ], [ %.val295.i, %.lr.ph638.i ], [ %.val295.i, %916 ], [ %.val295.i, %958 ], [ %.val295.i, %906 ], [ %.val295.i, %895 ], [ %.val295.i, %885 ], [ %.val295.i, %881 ], [ %.val295.i, %928 ], [ %.val295.i, %933 ]
+  %.val295699.i = phi ptr [ %.val234.i, %.critedge.sink.split.i ], [ %.val295.i, %963 ], [ %.val295.i, %946 ], [ %.val295.i, %.lr.ph638.i ], [ %.val295.i, %958 ], [ %.val295.i, %916 ], [ %.val295.i, %906 ], [ %.val295.i, %895 ], [ %.val295.i, %885 ], [ %.val295.i, %881 ], [ %.val295.i, %928 ], [ %.val295.i, %933 ]
   %1265 = getelementptr inbounds nuw i8, ptr %.sroa.0475.0636.i, i64 4
   %.not603.i = icmp eq ptr %1265, %876
   br i1 %.not603.i, label %._crit_edge639.i, label %.lr.ph638.i

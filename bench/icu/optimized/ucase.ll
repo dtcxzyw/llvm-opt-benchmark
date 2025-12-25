@@ -1398,7 +1398,7 @@ _ZL9strcmpMaxPKDsiS0_i.exit.thread:               ; preds = %33, %_ZL9strcmpMaxP
   br i1 %74, label %.preheader63.split, label %.critedge
 
 .critedge:                                        ; preds = %_ZL9strcmpMaxPKDsiS0_i.exit.thread, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us, %68, %50, %3
-  %.042 = phi i8 [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 0, %3 ], [ 1, %68 ], [ 1, %50 ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ]
+  %.042 = phi i8 [ 1, %68 ], [ 0, %3 ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 1, %50 ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ]
   ret i8 %.042
 }
 

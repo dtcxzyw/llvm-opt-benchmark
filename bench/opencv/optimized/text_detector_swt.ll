@@ -976,8 +976,8 @@ _ZN2cv4text12_GLOBAL__N_13RayD2Ev.exit.i:         ; preds = %_ZN2cv4text12_GLOBA
   br i1 %368, label %162, label %._crit_edge267.loopexit.i, !llvm.loop !66
 
 _ZNSt6vectorIN2cv4text12_GLOBAL__N_18SWTPointESaIS3_EED2Ev.exit156.i: ; preds = %356, %.loopexit.split-lp224.i, %.loopexit223.i
-  %.sroa.15.6.i = phi ptr [ %.sroa.15.10.i, %356 ], [ %.sroa.15.8.ph225.i, %.loopexit.split-lp224.i ], [ %.sroa.15.8.ph.i, %.loopexit223.i ]
-  %.pn.pn.i = phi { ptr, i32 } [ %357, %356 ], [ %lpad.loopexit.split-lp227.i, %.loopexit.split-lp224.i ], [ %lpad.loopexit226.i, %.loopexit223.i ]
+  %.sroa.15.6.i = phi ptr [ %.sroa.15.10.i, %356 ], [ %.sroa.15.8.ph.i, %.loopexit223.i ], [ %.sroa.15.8.ph225.i, %.loopexit.split-lp224.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %357, %356 ], [ %lpad.loopexit226.i, %.loopexit223.i ], [ %lpad.loopexit.split-lp227.i, %.loopexit.split-lp224.i ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0172.9.i) #27
   %.not.i.i.i.i157.i = icmp eq ptr %.sroa.15.6.i, null
   br i1 %.not.i.i.i.i157.i, label %.body, label %_ZN2cv4text12_GLOBAL__N_13RayD2Ev.exit158.sink.split.i

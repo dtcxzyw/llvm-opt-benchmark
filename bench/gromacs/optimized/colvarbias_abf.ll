@@ -33154,11 +33154,11 @@ _ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %.thread218, %
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit.thread
 
 _ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit.thread: ; preds = %70, %66, %.loopexit, %271, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit
-  %.075406 = phi i32 [ %.075, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %273, %271 ], [ 0, %.loopexit ], [ 0, %66 ], [ 0, %70 ]
-  %.sroa.0165.1405 = phi ptr [ %.sroa.0165.1, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0165.3, %271 ], [ %.sroa.0165.3, %.loopexit ], [ %11, %66 ], [ %11, %70 ]
-  %.sroa.27.1404 = phi ptr [ %.sroa.27.1, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.27.3, %271 ], [ %.sroa.27.3, %.loopexit ], [ %13, %66 ], [ %13, %70 ]
-  %.sroa.0183.0206351402 = phi ptr [ %.sroa.0183.0206351, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0183.0206349373, %271 ], [ %.sroa.0183.0206349373, %.loopexit ], [ %9, %66 ], [ %9, %70 ]
-  %.sroa.21.0201353369400 = phi ptr [ %.sroa.21.0201353369, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.21.0201353370, %271 ], [ %.sroa.21.0201353370, %.loopexit ], [ %10, %66 ], [ %10, %70 ]
+  %.075406 = phi i32 [ %.075, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ 0, %.loopexit ], [ %273, %271 ], [ 0, %66 ], [ 0, %70 ]
+  %.sroa.0165.1405 = phi ptr [ %.sroa.0165.1, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0165.3, %.loopexit ], [ %.sroa.0165.3, %271 ], [ %11, %66 ], [ %11, %70 ]
+  %.sroa.27.1404 = phi ptr [ %.sroa.27.1, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.27.3, %.loopexit ], [ %.sroa.27.3, %271 ], [ %13, %66 ], [ %13, %70 ]
+  %.sroa.0183.0206351402 = phi ptr [ %.sroa.0183.0206351, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.0183.0206349373, %.loopexit ], [ %.sroa.0183.0206349373, %271 ], [ %9, %66 ], [ %9, %70 ]
+  %.sroa.21.0201353369400 = phi ptr [ %.sroa.21.0201353369, %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit ], [ %.sroa.21.0201353370, %.loopexit ], [ %.sroa.21.0201353370, %271 ], [ %10, %66 ], [ %10, %70 ]
   %274 = ptrtoint ptr %.sroa.27.1404 to i64
   %275 = ptrtoint ptr %.sroa.0165.1405 to i64
   %276 = sub i64 %274, %275

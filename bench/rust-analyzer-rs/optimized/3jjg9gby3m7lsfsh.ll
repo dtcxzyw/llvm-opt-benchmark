@@ -3715,8 +3715,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit170
   unreachable
 
 .body185:                                         ; preds = %208, %195, %"_ZN4core3ptr75drop_in_place$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$GT$17hfcd58e1d44db7b76E.exit", %230
-  %.4 = phi i8 [ %.1, %"_ZN4core3ptr75drop_in_place$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$GT$17hfcd58e1d44db7b76E.exit" ], [ %.2.ph, %230 ], [ %.3, %195 ], [ %.3, %208 ]
-  %.pn125 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr75drop_in_place$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$GT$17hfcd58e1d44db7b76E.exit" ], [ %.pn.pn.ph, %230 ], [ %196, %195 ], [ %209, %208 ]
+  %.4 = phi i8 [ %.2.ph, %230 ], [ %.1, %"_ZN4core3ptr75drop_in_place$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$GT$17hfcd58e1d44db7b76E.exit" ], [ %.3, %195 ], [ %.3, %208 ]
+  %.pn125 = phi { ptr, i32 } [ %.pn.pn.ph, %230 ], [ %.pn, %"_ZN4core3ptr75drop_in_place$LT$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$GT$17hfcd58e1d44db7b76E.exit" ], [ %196, %195 ], [ %209, %208 ]
   %207 = trunc nuw i8 %.4 to i1
   br i1 %207, label %.thread263, label %common.resume
 
@@ -15803,7 +15803,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit273
   call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !2354
   br label %505
 
-.thread186:                                       ; preds = %183, %181, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit208.i", %171
+.thread186:                                       ; preds = %183, %171, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h1c20a09e0c3f95b7E.exit208.i", %181
   call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !2354
   br label %501
 

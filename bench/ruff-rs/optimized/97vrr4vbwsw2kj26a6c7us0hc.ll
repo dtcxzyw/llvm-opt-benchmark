@@ -7492,9 +7492,9 @@ _ZN11compact_str13CompactString7try_new17hfeba20bad00f42a3E.exit.thread: ; preds
           to label %499 unwind label %.thread848
 
 497:                                              ; preds = %.loopexit.split-lp785, %717, %707
-  %.sroa.0234.9 = phi i8 [ %.sroa.0234.11, %717 ], [ %.sroa.0234.11, %707 ], [ %.sroa.0234.14, %.loopexit.split-lp785 ]
-  %.sroa.0239.1 = phi i8 [ %.sroa.0239.3, %717 ], [ %.sroa.0239.3, %707 ], [ %.sroa.0239.4, %.loopexit.split-lp785 ]
-  %.pn526.pn.pn = phi { ptr, i32 } [ %.pn515, %717 ], [ %.pn515, %707 ], [ %lpad.loopexit.split-lp787, %.loopexit.split-lp785 ]
+  %.sroa.0234.9 = phi i8 [ %.sroa.0234.11, %707 ], [ %.sroa.0234.11, %717 ], [ %.sroa.0234.14, %.loopexit.split-lp785 ]
+  %.sroa.0239.1 = phi i8 [ %.sroa.0239.3, %707 ], [ %.sroa.0239.3, %717 ], [ %.sroa.0239.4, %.loopexit.split-lp785 ]
+  %.pn526.pn.pn = phi { ptr, i32 } [ %.pn515, %707 ], [ %.pn515, %717 ], [ %lpad.loopexit.split-lp787, %.loopexit.split-lp785 ]
   %498 = trunc nuw i8 %.sroa.0239.1 to i1
   br i1 %498, label %.thread696, label %490
 

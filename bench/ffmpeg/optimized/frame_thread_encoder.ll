@@ -383,8 +383,8 @@ thread-pre-split.thread:                          ; preds = %17, %21, %.thread, 
   br label %.thread129
 
 .thread129:                                       ; preds = %85, %88, %.thread129.loopexit, %._crit_edge, %92, %72, %169
-  %.083 = phi i32 [ 0, %72 ], [ 0, %92 ], [ %177, %.thread129.loopexit ], [ %170, %169 ], [ 0, %._crit_edge ], [ 0, %88 ], [ 0, %85 ]
-  %.081 = phi i32 [ %73, %72 ], [ %93, %92 ], [ %.081.ph, %.thread129.loopexit ], [ %171, %169 ], [ -12, %._crit_edge ], [ -12, %88 ], [ -12, %85 ]
+  %.083 = phi i32 [ 0, %72 ], [ 0, %92 ], [ %170, %169 ], [ 0, %._crit_edge ], [ %177, %.thread129.loopexit ], [ 0, %88 ], [ 0, %85 ]
+  %.081 = phi i32 [ %73, %72 ], [ %93, %92 ], [ %171, %169 ], [ -12, %._crit_edge ], [ %.081.ph, %.thread129.loopexit ], [ -12, %88 ], [ -12, %85 ]
   call void @avcodec_parameters_free(ptr noundef nonnull %3) #7
   call void @avcodec_free_context(ptr noundef nonnull %2) #7
   store i32 %.083, ptr %15, align 8, !tbaa !37

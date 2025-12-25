@@ -847,7 +847,7 @@ _ZN3sat4drat13dump_activityEv.exit:               ; preds = %_ZNK3sat6solver8num
   br label %64
 
 64:                                               ; preds = %.sink.split, %61, %57
-  %.035 = phi i32 [ 0, %61 ], [ 0, %57 ], [ 2, %.sink.split ]
+  %.035 = phi i32 [ 0, %57 ], [ 0, %61 ], [ 2, %.sink.split ]
   %.not48 = icmp eq i32 %1, 0
   br i1 %.not48, label %._crit_edge46, label %.lr.ph45
 

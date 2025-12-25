@@ -3949,7 +3949,7 @@ _ZNK4llvm15TargetInstrInfo24isReassociationCandidateERKNS_12MachineInstrERb.exit
   br label %_ZNK4llvm15TargetInstrInfo24isReassociationCandidateERKNS_12MachineInstrERb.exit.thread
 
 _ZNK4llvm15TargetInstrInfo24isReassociationCandidateERKNS_12MachineInstrERb.exit.thread: ; preds = %_ZNK4llvm15TargetInstrInfo24isReassociationCandidateERKNS_12MachineInstrERb.exit.thread.sink.split, %10, %15, %_ZNK4llvm15TargetInstrInfo24isReassociationCandidateERKNS_12MachineInstrERb.exit
-  %65 = phi i1 [ false, %10 ], [ false, %_ZNK4llvm15TargetInstrInfo24isReassociationCandidateERKNS_12MachineInstrERb.exit ], [ false, %15 ], [ true, %_ZNK4llvm15TargetInstrInfo24isReassociationCandidateERKNS_12MachineInstrERb.exit.thread.sink.split ]
+  %65 = phi i1 [ false, %15 ], [ false, %_ZNK4llvm15TargetInstrInfo24isReassociationCandidateERKNS_12MachineInstrERb.exit ], [ false, %10 ], [ true, %_ZNK4llvm15TargetInstrInfo24isReassociationCandidateERKNS_12MachineInstrERb.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %65
 }
@@ -5005,20 +5005,20 @@ _ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.thread.i: ; preds = %_ZNK4llv
   %79 = and i32 %76, 4
   %80 = icmp ne i32 %79, 0
   %or.cond.i.i = or i1 %78, %80
-  br i1 %or.cond.i.i, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit, label %81
+  br i1 %or.cond.i.i, label %81, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit
 
 81:                                               ; preds = %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.thread.i
-  %82 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 8388608, i32 noundef 1) #27
-  br i1 %82, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread, label %88
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !177
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %85 = load i64, ptr %84, align 8, !tbaa !182
+  %86 = and i64 %85, 8388608
+  %.not64 = icmp eq i64 %86, 0
+  br i1 %.not64, label %88, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread
 
 _ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit: ; preds = %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.thread.i
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !177
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load i64, ptr %85, align 8, !tbaa !182
-  %87 = and i64 %86, 8388608
-  %.not64 = icmp eq i64 %87, 0
-  br i1 %.not64, label %88, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread
+  %87 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 8388608, i32 noundef 1) #27
+  br i1 %87, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread, label %88
 
 88:                                               ; preds = %81, %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -7845,7 +7845,7 @@ define dso_local noundef i32 @_ZNK4llvm15TargetInstrInfo16getOutliningTypeERKNS_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %4, %4, %4, %4, %4, %17, %12, %9, %9, %9, %9, %8
-  %.0 = phi i32 [ %35, %.loopexit.sink.split ], [ 3, %8 ], [ 2, %4 ], [ 2, %4 ], [ 2, %12 ], [ 2, %4 ], [ 2, %17 ], [ 3, %9 ], [ 3, %9 ], [ 3, %9 ], [ 3, %9 ], [ 2, %4 ], [ 2, %4 ], [ 2, %.lr.ph ]
+  %.0 = phi i32 [ 2, %4 ], [ 3, %8 ], [ 2, %4 ], [ 2, %4 ], [ 2, %12 ], [ %35, %.loopexit.sink.split ], [ 2, %17 ], [ 3, %9 ], [ 3, %9 ], [ 3, %9 ], [ 3, %9 ], [ 2, %4 ], [ 2, %4 ], [ 2, %.lr.ph ]
   ret i32 %.0
 }
 

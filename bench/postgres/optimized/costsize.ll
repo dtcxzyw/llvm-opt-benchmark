@@ -7004,7 +7004,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %.lr.ph, %.lr.ph, %2, %.critedge, %157, %98, %35
-  %.0 = phi i1 [ false, %157 ], [ false, %35 ], [ %173, %.critedge ], [ false, %98 ], [ false, %2 ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %tailrecurse ]
+  %.0 = phi i1 [ false, %98 ], [ false, %35 ], [ %173, %.critedge ], [ false, %157 ], [ false, %2 ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %.lr.ph ], [ false, %tailrecurse ]
   ret i1 %.0
 }
 

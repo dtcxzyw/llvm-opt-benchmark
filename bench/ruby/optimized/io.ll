@@ -9015,8 +9015,8 @@ rb_array_len.exit123:                             ; preds = %62, %65
   br label %72
 
 69:                                               ; preds = %55, %50
-  %70 = phi i8 [ 1, %50 ], [ %32, %55 ]
-  %71 = phi i8 [ %.sink, %50 ], [ %56, %55 ]
+  %70 = phi i8 [ %32, %55 ], [ 1, %50 ]
+  %71 = phi i8 [ %56, %55 ], [ %.sink, %50 ]
   switch i8 %71, label %303 [
     i8 1, label %72
     i8 -1, label %.thread212
@@ -27166,7 +27166,7 @@ define internal fastcc i64 @finish_writeconv(ptr noundef %0, i32 noundef %1) unn
   br label %.thread
 
 50:                                               ; preds = %27, %35
-  %.152 = phi ptr [ %28, %27 ], [ %.05177, %35 ]
+  %.152 = phi ptr [ %.05177, %35 ], [ %28, %27 ]
   %51 = load ptr, ptr %3, align 8, !tbaa !153
   %52 = ptrtoint ptr %51 to i64
   %53 = ptrtoint ptr %.152 to i64
@@ -32563,7 +32563,7 @@ nogvl_copy_file_range.exit.thread:                ; preds = %68, %68, %68, %68, 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %96
 
-nogvl_copy_file_range.exit.thread21:              ; preds = %._crit_edge.i, %71, %.lr.ph.i
+nogvl_copy_file_range.exit.thread21:              ; preds = %._crit_edge.i, %.lr.ph.i, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %333
 

@@ -1535,7 +1535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %21
   br label %226
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100, %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106, %.critedge88, %.critedge88.preheader
-  %.261 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ true, %.critedge88.preheader ], [ %213, %.critedge88 ], [ false, %198 ], [ false, %128 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.261 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106 ], [ true, %.critedge88.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100 ], [ %213, %.critedge88 ], [ false, %198 ], [ false, %128 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %223 = load ptr, ptr %8, align 8, !tbaa !25
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %225 = icmp eq ptr %223, %224
@@ -3044,7 +3044,7 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   br i1 %or.cond.not, label %.lr.ph154, label %.critedge62.thread
 
 .critedge62.thread:                               ; preds = %.lr.ph, %253, %.lr.ph146, %.lr.ph150, %300, %.lr.ph154, %.critedge65, %223, %62
-  %.0 = phi i1 [ false, %62 ], [ false, %223 ], [ false, %.lr.ph150 ], [ %325, %.lr.ph154 ], [ false, %.lr.ph146 ], [ true, %.critedge65 ], [ false, %300 ], [ false, %253 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %62 ], [ false, %223 ], [ false, %.lr.ph146 ], [ %325, %.lr.ph154 ], [ false, %.lr.ph150 ], [ true, %.critedge65 ], [ false, %300 ], [ false, %253 ], [ false, %.lr.ph ]
   ret i1 %.0
 
 327:                                              ; preds = %232, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit84, %71, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit69

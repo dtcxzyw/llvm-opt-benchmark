@@ -2631,8 +2631,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52
 
 _ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52: ; preds = %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit
-  %121 = phi ptr [ %.pre, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ], [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread ]
-  %.0 = phi i1 [ false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ false, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ], [ %1, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread ]
+  %121 = phi ptr [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ], [ %.pre, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread ]
+  %.0 = phi i1 [ false, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ], [ false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %1, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread ]
   %.not.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %.thread54
 

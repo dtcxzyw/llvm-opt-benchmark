@@ -390,7 +390,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   tail call void @kfree(ptr noundef nonnull %72) #8
   br label %.thread50
 
-.thread.thread:                                   ; preds = %117, %118, %30, %21, %18
+.thread.thread:                                   ; preds = %118, %117, %30, %21, %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef align 8 dereferenceable(40) %3, i64 40, i1 false)
   %145 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1089,7 +1089,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 
 .thread78:                                        ; preds = %552, %.thread.split, %429, %423, %193, %189, %.loopexit83
   %561 = phi ptr [ %183, %.loopexit83 ], [ %183, %193 ], [ %183, %189 ], [ %405, %423 ], [ %405, %429 ], [ %405, %.thread.split ], [ %405, %552 ]
-  %562 = phi i32 [ %415, %.loopexit83 ], [ -12, %193 ], [ -12, %189 ], [ -12, %429 ], [ -12, %423 ], [ -22, %.thread.split ], [ %540, %552 ]
+  %562 = phi i32 [ %415, %.loopexit83 ], [ -12, %193 ], [ -12, %189 ], [ -12, %429 ], [ -12, %423 ], [ %540, %552 ], [ -22, %.thread.split ]
   %563 = call i32 @blk_rq_unmap_user(ptr noundef %561)
   br label %.thread50
 

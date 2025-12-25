@@ -40742,8 +40742,8 @@ _ZN19OpenColorIO_v2_5dev7LogUtil9CTFParams7setTypeENS1_4TypeE.exit: ; preds = %1
   %.192 = phi i32 [ 2, %113 ], [ 0, %100 ], [ 1, %109 ]
   br i1 %.0207, label %_ZN19OpenColorIO_v2_5dev7LogUtil9CTFParams7setTypeENS1_4TypeE.exit.thread, label %_ZN19OpenColorIO_v2_5dev7LogUtil9CTFParams7setTypeENS1_4TypeE.exit.thread250
 
-_ZN19OpenColorIO_v2_5dev7LogUtil9CTFParams7setTypeENS1_4TypeE.exit.thread250: ; preds = %171, %182, %193, %204, %215, %226, %236, %247, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %250, %_ZN19OpenColorIO_v2_5dev7LogUtil9CTFParams7setTypeENS1_4TypeE.exit
-  %.192253 = phi i32 [ %.091204, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %.192, %_ZN19OpenColorIO_v2_5dev7LogUtil9CTFParams7setTypeENS1_4TypeE.exit ], [ %.091204, %250 ], [ %.091204, %247 ], [ %.091204, %236 ], [ %.091204, %226 ], [ %.091204, %215 ], [ %.091204, %204 ], [ %.091204, %193 ], [ %.091204, %182 ], [ %.091204, %171 ]
+_ZN19OpenColorIO_v2_5dev7LogUtil9CTFParams7setTypeENS1_4TypeE.exit.thread250: ; preds = %171, %247, %236, %226, %215, %204, %193, %182, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %250, %_ZN19OpenColorIO_v2_5dev7LogUtil9CTFParams7setTypeENS1_4TypeE.exit
+  %.192253 = phi i32 [ %.091204, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %.192, %_ZN19OpenColorIO_v2_5dev7LogUtil9CTFParams7setTypeENS1_4TypeE.exit ], [ %.091204, %250 ], [ %.091204, %182 ], [ %.091204, %193 ], [ %.091204, %204 ], [ %.091204, %215 ], [ %.091204, %226 ], [ %.091204, %236 ], [ %.091204, %247 ], [ %.091204, %171 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
   %252 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull @.str.143, i64 noundef 54)
@@ -47149,7 +47149,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit60:                  ; preds = %269, %.thread
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.063.0, i64 noundef %272) #35
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit62
 
-_ZNSt6vectorIdSaIdEED2Ev.exit62:                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29, %27, %271, %.thread75
+_ZNSt6vectorIdSaIdEED2Ev.exit62:                  ; preds = %27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29, %271, %.thread75
   %.merged83 = phi { ptr, i32 } [ %.merged, %271 ], [ %.merged82, %.thread75 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ], [ %28, %27 ]
   resume { ptr, i32 } %.merged83
 

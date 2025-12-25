@@ -242,7 +242,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
   br label %.loopexit
 
 .loopexit102:                                     ; preds = %71, %58, %43, %30
-  %.2 = phi i32 [ %.070.ph, %43 ], [ %.070.ph, %30 ], [ %.070.ph, %58 ], [ %63, %71 ]
+  %.2 = phi i32 [ %.070.ph, %43 ], [ %.070.ph, %30 ], [ %63, %71 ], [ %.070.ph, %58 ]
   %.069 = phi i32 [ %32, %30 ], [ %49, %43 ], [ %60, %58 ], [ %60, %71 ]
   call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #6
   call void @BIO_copy_next_retry(ptr noundef %0) #6

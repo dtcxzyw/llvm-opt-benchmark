@@ -25684,7 +25684,7 @@ _ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %49, %53
   br label %24, !llvm.loop !105
 
 _ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge92, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit
-  %.050 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %0, %5 ], [ %23, %._crit_edge92 ], [ %23, %._crit_edge ]
+  %.050 = phi ptr [ %23, %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit ], [ %0, %5 ], [ %23, %._crit_edge92 ], [ %23, %._crit_edge ]
   ret ptr %.050
 }
 

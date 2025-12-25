@@ -2576,8 +2576,8 @@ _ZN5alloc7raw_vec11finish_grow17h35d1fcf3057e3c59E.exit.i: ; preds = %22, %16
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h6dae2735fa5f4151E.llvm.9507309886595861065.exit.thread"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h6dae2735fa5f4151E.llvm.9507309886595861065.exit.thread": ; preds = %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h6dae2735fa5f4151E.llvm.9507309886595861065.exit", %3, %_ZN5alloc7raw_vec11finish_grow17h35d1fcf3057e3c59E.exit.i, %7
-  %.sroa.3.0 = phi i64 [ %9, %7 ], [ %13, %_ZN5alloc7raw_vec11finish_grow17h35d1fcf3057e3c59E.exit.i ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h6dae2735fa5f4151E.llvm.9507309886595861065.exit" ], [ undef, %3 ], [ undef, %11 ]
-  %.sroa.0.0 = phi i64 [ 0, %7 ], [ %25, %_ZN5alloc7raw_vec11finish_grow17h35d1fcf3057e3c59E.exit.i ], [ -9223372036854775807, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h6dae2735fa5f4151E.llvm.9507309886595861065.exit" ], [ -9223372036854775807, %3 ], [ 0, %11 ]
+  %.sroa.3.0 = phi i64 [ %13, %_ZN5alloc7raw_vec11finish_grow17h35d1fcf3057e3c59E.exit.i ], [ %9, %7 ], [ undef, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h6dae2735fa5f4151E.llvm.9507309886595861065.exit" ], [ undef, %3 ], [ undef, %11 ]
+  %.sroa.0.0 = phi i64 [ %25, %_ZN5alloc7raw_vec11finish_grow17h35d1fcf3057e3c59E.exit.i ], [ 0, %7 ], [ -9223372036854775807, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h6dae2735fa5f4151E.llvm.9507309886595861065.exit" ], [ -9223372036854775807, %3 ], [ 0, %11 ]
   %26 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %27 = insertvalue { i64, i64 } %26, i64 %.sroa.3.0, 1
   ret { i64, i64 } %27
@@ -4222,7 +4222,7 @@ _ZN6syntax3ast9generated5nodes4Path7segment17h607a4086bc7dc308E.exit: ; preds = 
   unreachable
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %112, %119
-  %.pn = phi { ptr, i32 } [ %113, %112 ], [ %113, %119 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %113, %119 ], [ %113, %112 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %46 = icmp eq ptr %36, null
   br i1 %46, label %.body39, label %47
 

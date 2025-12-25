@@ -2973,7 +2973,7 @@ Abc_TtHasVar.exit.thread44:                       ; preds = %29, %43
   br label %Abc_TtHasVar.exit.thread
 
 Abc_TtHasVar.exit.thread:                         ; preds = %.preheader.lr.ph.i, %._crit_edge.us.i, %28, %Abc_TtHasVar.exit.us, %5, %.lr.ph.split, %50, %._crit_edge, %62, %58, %51
-  %.0.shrunk = phi i1 [ true, %._crit_edge ], [ false, %Abc_TtHasVar.exit.us ], [ %57, %51 ], [ %61, %58 ], [ %68, %62 ], [ false, %50 ], [ false, %28 ], [ false, %._crit_edge.us.i ], [ true, %5 ], [ false, %.lr.ph.split ], [ false, %.preheader.lr.ph.i ]
+  %.0.shrunk = phi i1 [ true, %._crit_edge ], [ false, %28 ], [ %57, %51 ], [ %61, %58 ], [ %68, %62 ], [ false, %50 ], [ false, %Abc_TtHasVar.exit.us ], [ false, %._crit_edge.us.i ], [ true, %5 ], [ false, %.lr.ph.split ], [ false, %.preheader.lr.ph.i ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

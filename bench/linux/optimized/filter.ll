@@ -10791,8 +10791,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bpf_sock_ops_getsockopt
   br label %bpf_sock_ops_get_syn.exit
 
 bpf_sock_ops_get_syn.exit:                        ; preds = %20, %34, %54, %84, %95, %108
-  %.0 = phi ptr [ %92, %84 ], [ %99, %95 ], [ %22, %20 ], [ %40, %34 ], [ %60, %54 ], [ %109, %108 ]
-  %116 = phi i32 [ %94, %84 ], [ %104, %95 ], [ %33, %20 ], [ %53, %34 ], [ %73, %54 ], [ %115, %108 ]
+  %.0 = phi ptr [ %109, %108 ], [ %92, %84 ], [ %22, %20 ], [ %40, %34 ], [ %60, %54 ], [ %99, %95 ]
+  %116 = phi i32 [ %115, %108 ], [ %94, %84 ], [ %33, %20 ], [ %53, %34 ], [ %73, %54 ], [ %104, %95 ]
   %117 = icmp sgt i32 %116, 0
   br i1 %117, label %118, label %bpf_sock_ops_get_syn.exit.thread
 
@@ -13233,8 +13233,8 @@ define dso_local noundef i64 @bpf_sock_ops_store_hdr_opt(i64 noundef %0, i64 nou
   br i1 %.not, label %.thread.thread43, label %.thread.thread
 
 .thread.thread43:                                 ; preds = %92, %75, %69, %.thread39, %34, %.thread
-  %102 = phi ptr [ %98, %.thread ], [ %40, %69 ], [ %49, %.thread39 ], [ %40, %34 ], [ %49, %75 ], [ %49, %92 ]
-  %103 = phi ptr [ %99, %.thread ], [ %41, %69 ], [ %50, %.thread39 ], [ %41, %34 ], [ %50, %75 ], [ %50, %92 ]
+  %102 = phi ptr [ %98, %.thread ], [ %49, %.thread39 ], [ %40, %69 ], [ %40, %34 ], [ %49, %75 ], [ %49, %92 ]
+  %103 = phi ptr [ %99, %.thread ], [ %50, %.thread39 ], [ %41, %69 ], [ %41, %34 ], [ %50, %75 ], [ %50, %92 ]
   %104 = zext i8 %20 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %7, i64 %104, i1 false)
   %105 = load i8, ptr %26, align 2

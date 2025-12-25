@@ -3702,7 +3702,7 @@ _ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %303, %._crit_
   br label %.thread233
 
 .thread233:                                       ; preds = %81, %61, %96, %105, %.thread230, %182, %198, %197, %159, %.thread, %18, %24, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread, %370
-  %.0188 = phi float [ -1.000000e+00, %.thread ], [ -1.000000e+00, %18 ], [ %371, %370 ], [ -1.000000e+00, %159 ], [ -1.000000e+00, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread ], [ -1.000000e+00, %197 ], [ -1.000000e+00, %24 ], [ -1.000000e+00, %61 ], [ -1.000000e+00, %96 ], [ -1.000000e+00, %182 ], [ -1.000000e+00, %198 ], [ -1.000000e+00, %.thread230 ], [ -1.000000e+00, %105 ], [ -1.000000e+00, %81 ]
+  %.0188 = phi float [ -1.000000e+00, %.thread ], [ -1.000000e+00, %18 ], [ %371, %370 ], [ -1.000000e+00, %159 ], [ -1.000000e+00, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread ], [ -1.000000e+00, %197 ], [ -1.000000e+00, %24 ], [ -1.000000e+00, %96 ], [ -1.000000e+00, %182 ], [ -1.000000e+00, %61 ], [ -1.000000e+00, %198 ], [ -1.000000e+00, %.thread230 ], [ -1.000000e+00, %105 ], [ -1.000000e+00, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret float %.0188
 }

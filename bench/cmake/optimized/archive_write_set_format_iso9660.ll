@@ -4994,7 +4994,7 @@ define internal fastcc range(i32 -30, 1) i32 @isofile_gen_utility_names(ptr noun
   ]
 
 .backedge:                                        ; preds = %152, %146, %158, %167, %169, %149, %155, %172
-  %.3173.be = phi ptr [ %147, %146 ], [ %147, %152 ], [ %.3173, %149 ], [ %.3173, %155 ], [ %173, %172 ], [ %86, %169 ], [ %.0, %167 ], [ %147, %158 ]
+  %.3173.be = phi ptr [ %147, %152 ], [ %147, %146 ], [ %.3173, %149 ], [ %.3173, %155 ], [ %173, %172 ], [ %86, %169 ], [ %.0, %167 ], [ %147, %158 ]
   br label %144, !llvm.loop !233
 
 155:                                              ; preds = %152
@@ -8546,7 +8546,7 @@ wb_consume.exit.thread:                           ; preds = %156, %wb_consume.ex
   br label %.thread
 
 .thread:                                          ; preds = %_write_directory_descriptors.exit, %.loopexit, %wb_consume.exit, %wb_write_out.exit, %.thread.sink.split
-  %.5 = phi i32 [ -30, %.thread.sink.split ], [ %.0.i56, %wb_write_out.exit ], [ %159, %wb_consume.exit ], [ %133, %_write_directory_descriptors.exit ], [ 0, %.loopexit ]
+  %.5 = phi i32 [ -30, %.thread.sink.split ], [ %.0.i56, %wb_write_out.exit ], [ %159, %wb_consume.exit ], [ 0, %.loopexit ], [ %133, %_write_directory_descriptors.exit ]
   ret i32 %.5
 }
 
@@ -10390,7 +10390,7 @@ idr_resolve.exit:                                 ; preds = %266, %._crit_edge25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %347, %303, %.loopexit.sink.split, %idr_start.exit, %idr_resolve.exit, %3
-  %.0197 = phi i32 [ 0, %303 ], [ 0, %3 ], [ 0, %idr_start.exit ], [ 0, %idr_resolve.exit ], [ -30, %.loopexit.sink.split ], [ 0, %347 ]
+  %.0197 = phi i32 [ 0, %idr_start.exit ], [ 0, %3 ], [ 0, %303 ], [ 0, %idr_resolve.exit ], [ -30, %.loopexit.sink.split ], [ 0, %347 ]
   ret i32 %.0197
 }
 

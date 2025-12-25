@@ -73867,7 +73867,7 @@ _ZN5serde9__private2de7content17visit_content_seq17h4e5cef39c3f9b5b6E.exit: ; pr
   br label %.loopexit.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %196, %176, %.invoke.i
-  %.sroa.0134.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ 1, %176 ], [ %.sroa.0134.6.i.i, %196 ]
+  %.sroa.0134.1.ph.i.i = phi i8 [ 1, %176 ], [ 1, %.invoke.i ], [ %.sroa.0134.6.i.i, %196 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
@@ -100321,7 +100321,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   br label %.body.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %93, %76, %55, %38
-  %.sroa.081.1.ph.i.i = phi i8 [ %.sroa.081.6.i.i, %93 ], [ 1, %38 ], [ 1, %76 ], [ 1, %55 ]
+  %.sroa.081.1.ph.i.i = phi i8 [ 1, %76 ], [ 1, %38 ], [ %.sroa.081.6.i.i, %93 ], [ 1, %55 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -100809,9 +100809,9 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   br label %.body.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %188, %187, %154, %.invoke.i
-  %.sroa.0251.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0251.10.i.i, %187 ], [ %.sroa.0251.10.i.i, %188 ], [ 1, %154 ]
-  %.sroa.0253.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0253.8.i.i, %187 ], [ %.sroa.0253.8.i.i, %188 ], [ 1, %154 ]
-  %.sroa.0255.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0255.6.i.i, %187 ], [ %.sroa.0255.6.i.i, %188 ], [ 1, %154 ]
+  %.sroa.0251.1.ph.i.i = phi i8 [ 1, %154 ], [ 1, %.invoke.i ], [ %.sroa.0251.10.i.i, %188 ], [ %.sroa.0251.10.i.i, %187 ]
+  %.sroa.0253.1.ph.i.i = phi i8 [ 1, %154 ], [ 1, %.invoke.i ], [ %.sroa.0253.8.i.i, %188 ], [ %.sroa.0253.8.i.i, %187 ]
+  %.sroa.0255.1.ph.i.i = phi i8 [ 1, %154 ], [ 1, %.invoke.i ], [ %.sroa.0255.6.i.i, %188 ], [ %.sroa.0255.6.i.i, %187 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -101898,7 +101898,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   br label %.body.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %331, %98, %77, %60
-  %.sroa.078.1.ph.i.i = phi i8 [ %.sroa.078.6.i.i, %331 ], [ 1, %60 ], [ 1, %98 ], [ 1, %77 ]
+  %.sroa.078.1.ph.i.i = phi i8 [ 1, %98 ], [ 1, %60 ], [ %.sroa.078.6.i.i, %331 ], [ 1, %77 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -102189,9 +102189,9 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
   br label %.body.i.i.i
 
 .loopexit.split-lp.i.i.i:                         ; preds = %261, %260, %227, %.invoke.i.i
-  %.sroa.0251.1.ph.i.i.i = phi i8 [ 1, %.invoke.i.i ], [ %.sroa.0251.10.i.i.i, %260 ], [ %.sroa.0251.10.i.i.i, %261 ], [ 1, %227 ]
-  %.sroa.0253.1.ph.i.i.i = phi i8 [ 1, %.invoke.i.i ], [ %.sroa.0253.8.i.i.i, %260 ], [ %.sroa.0253.8.i.i.i, %261 ], [ 1, %227 ]
-  %.sroa.0255.1.ph.i.i.i = phi i8 [ 1, %.invoke.i.i ], [ %.sroa.0255.6.i.i.i, %260 ], [ %.sroa.0255.6.i.i.i, %261 ], [ 1, %227 ]
+  %.sroa.0251.1.ph.i.i.i = phi i8 [ 1, %227 ], [ 1, %.invoke.i.i ], [ %.sroa.0251.10.i.i.i, %261 ], [ %.sroa.0251.10.i.i.i, %260 ]
+  %.sroa.0253.1.ph.i.i.i = phi i8 [ 1, %227 ], [ 1, %.invoke.i.i ], [ %.sroa.0253.8.i.i.i, %261 ], [ %.sroa.0253.8.i.i.i, %260 ]
+  %.sroa.0255.1.ph.i.i.i = phi i8 [ 1, %227 ], [ 1, %.invoke.i.i ], [ %.sroa.0255.6.i.i.i, %261 ], [ %.sroa.0255.6.i.i.i, %260 ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
@@ -107313,9 +107313,9 @@ default.unreachable:                              ; preds = %81
   br label %_ZN5serde9__private2de7content21visit_content_map_ref17h8c8153bda3cb37f2E.exit
 
 136:                                              ; preds = %128, %120
-  %.sroa.10.0.i = phi i64 [ %.sroa.684.0.copyload.i.i, %128 ], [ %.sroa.466.0.copyload.i.i, %120 ]
-  %.sroa.7.0.i = phi ptr [ %126, %128 ], [ %.sroa.364.0.copyload.i.i, %120 ]
-  %.sroa.0.0.i = phi i64 [ %123, %128 ], [ %118, %120 ]
+  %.sroa.10.0.i = phi i64 [ %.sroa.466.0.copyload.i.i, %120 ], [ %.sroa.684.0.copyload.i.i, %128 ]
+  %.sroa.7.0.i = phi ptr [ %.sroa.364.0.copyload.i.i, %120 ], [ %126, %128 ]
+  %.sroa.0.0.i = phi i64 [ %118, %120 ], [ %123, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !5881
   store i64 %.sroa.0.0.i, ptr %15, align 8, !noalias !5879
   %.sroa.4.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %15, i64 8

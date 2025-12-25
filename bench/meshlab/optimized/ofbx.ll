@@ -6233,7 +6233,7 @@ _ZNSt6vectorIN4ofbx8TakeInfoESaIS1_EE9push_backERKS1_.exit.i: ; preds = %.lr.ph.
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   br label %_ZNKSt14default_deleteIN4ofbx5SceneEEclEPS1_.exit.i115
 
-.loopexit208:                                     ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i33, %_ZNSt6vectorIN4ofbx8TakeInfoESaIS1_EE9push_backERKS1_.exit.i, %.noexc63, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i40
+.loopexit208:                                     ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i33, %_ZNSt6vectorIN4ofbx8TakeInfoESaIS1_EE9push_backERKS1_.exit.i, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i40, %.noexc63
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   %447 = invoke fastcc noundef zeroext i1 @_ZN4ofbxL12parseObjectsERKNS_7ElementEPNS_5SceneE(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.0, ptr noundef nonnull %19)
@@ -9611,7 +9611,7 @@ _ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EE
   br label %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i
 
 _ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.i: ; preds = %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i, %.lr.ph.i105.i.i, %.lr.ph.i.i149.i.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i, %805, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i, %.noexc238.i, %621, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i, %589, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i
-  %.3391.i = phi i32 [ %.2.i, %.lr.ph.i.i149.i.i ], [ %.0476.i, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i ], [ %.0476.i, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i ], [ %.2.i, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i ], [ %.2.i, %805 ], [ %.2.i, %621 ], [ %.2.i, %.noexc238.i ], [ %.0476.i, %.lr.ph.i105.i.i ], [ %.0476.i, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i ], [ %.0476.i, %589 ], [ %.2.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i ], [ %.2.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i ], [ %.0476.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i ]
+  %.3391.i = phi i32 [ %.2.i, %.noexc238.i ], [ %.0476.i, %_ZNK4ofbx8DataView5toIntEv.exit.thread.i ], [ %.2.i, %621 ], [ %.2.i, %805 ], [ %.2.i, %_ZN4ofbxL10decompressEPKhmPhm.exit.i.i.i.i.i ], [ %.0476.i, %_ZN4ofbxL9findChildERKNS_7ElementEPKc.exit.i.i ], [ %.2.i, %.lr.ph.i.i149.i.i ], [ %.0476.i, %.lr.ph.i105.i.i ], [ %.0476.i, %_ZNK4ofbx8DataVieweqEPKc.exit117.i.i ], [ %.0476.i, %589 ], [ %.2.i, %_ZN4ofbxL15parseVertexDataINS_4Vec2EEEbRKNS_7ElementEPKcS6_PSt6vectorIT_SaIS8_EEPS7_IiSaIiEEPNS_12GeometryImpl17VertexDataMappingE.exit.thread.sink.split.i ], [ %.2.i, %_ZNK4ofbx8DataViewneEPKc.exit.i.i ], [ %.0476.i, %_ZNK4ofbx8DataVieweqEPKc.exit.thread.i.i.i ]
   store ptr @.str.78, ptr @_ZN4ofbx5Error9s_messageE, align 8
   br label %_ZN4ofbxL5remapINS_4Vec2EEEvPSt6vectorIT_SaIS3_EERKS2_IiSaIiEE.exit.i
 

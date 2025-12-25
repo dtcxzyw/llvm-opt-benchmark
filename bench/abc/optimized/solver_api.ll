@@ -2311,7 +2311,7 @@ watch_list_grow.exit.i15.i:                       ; preds = %219, %210, %watch_l
   br label %clause_watch.exit
 
 clause_watch.exit:                                ; preds = %19, %24, %231, %226, %watch_list_grow.exit.i15.i, %solver_enqueue.exit, %._crit_edge55.thread
-  %.0 = phi i32 [ 1, %231 ], [ 0, %._crit_edge55.thread ], [ %115, %solver_enqueue.exit ], [ 1, %226 ], [ 1, %watch_list_grow.exit.i15.i ], [ 1, %24 ], [ 1, %19 ]
+  %.0 = phi i32 [ 1, %226 ], [ 0, %._crit_edge55.thread ], [ %115, %solver_enqueue.exit ], [ 1, %231 ], [ 1, %watch_list_grow.exit.i15.i ], [ 1, %24 ], [ 1, %19 ]
   ret i32 %.0
 }
 

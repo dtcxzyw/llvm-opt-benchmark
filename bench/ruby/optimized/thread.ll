@@ -8114,7 +8114,7 @@ rb_threadptr_pending_interrupt_deque.exit:        ; preds = %rb_array_const_ptr.
   unreachable
 
 threadptr_pending_interrupt_active_p.exit.thread: ; preds = %rb_threadptr_pending_interrupt_deque.exit, %92, %rb_threadptr_pending_interrupt_deque.exit.thread, %threadptr_pending_interrupt_active_p.exit, %91
-  %.4 = phi i32 [ %.1, %91 ], [ %.1, %threadptr_pending_interrupt_active_p.exit ], [ 1, %rb_threadptr_pending_interrupt_deque.exit.thread ], [ 1, %rb_threadptr_pending_interrupt_deque.exit ], [ %.1, %92 ]
+  %.4 = phi i32 [ %.1, %91 ], [ %.1, %threadptr_pending_interrupt_active_p.exit ], [ 1, %rb_threadptr_pending_interrupt_deque.exit ], [ 1, %rb_threadptr_pending_interrupt_deque.exit.thread ], [ %.1, %92 ]
   %.not83 = icmp eq i32 %40, 0
   br i1 %.not83, label %237, label %.thread
 
@@ -14386,7 +14386,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %29, %rbimpl_RB_TYPE
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %26, %38, %15, %rbimpl_RB_TYPE_P_fastpath.exit.thread, %48, %rbimpl_RB_TYPE_P_fastpath.exit56, %2
-  %.0 = phi ptr [ null, %38 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit56 ], [ %.037, %48 ], [ null, %15 ], [ %.037, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ null, %2 ], [ null, %26 ], [ null, %.preheader ]
+  %.0 = phi ptr [ %.037, %48 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit56 ], [ null, %38 ], [ null, %15 ], [ %.037, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ null, %2 ], [ null, %26 ], [ null, %.preheader ]
   ret ptr %.0
 }
 
@@ -21018,7 +21018,7 @@ hrtime_update_expire.exit:                        ; preds = %132, %121
   br i1 %138, label %thread_finished.exit.thread, label %thread_finished.exit
 
 thread_finished.exit.thread:                      ; preds = %thread_finished.exit, %hrtime_update_expire.exit, %94, %thread_finished.exit.us, %hrtime_update_expire.exit.us, %.thread, %10, %thread_finished.exit31, %hrtime_update_expire.exit.thread44
-  %.2 = phi i64 [ 0, %thread_finished.exit31 ], [ 20, %hrtime_update_expire.exit.thread44 ], [ 20, %.thread ], [ 20, %10 ], [ 20, %thread_finished.exit.us ], [ 20, %hrtime_update_expire.exit.us ], [ 0, %94 ], [ 20, %thread_finished.exit ], [ 20, %hrtime_update_expire.exit ]
+  %.2 = phi i64 [ 0, %thread_finished.exit31 ], [ 20, %hrtime_update_expire.exit.thread44 ], [ 20, %.thread ], [ 20, %10 ], [ 20, %thread_finished.exit.us ], [ 20, %hrtime_update_expire.exit.us ], [ 0, %94 ], [ 20, %hrtime_update_expire.exit ], [ 20, %thread_finished.exit ]
   ret i64 %.2
 }
 

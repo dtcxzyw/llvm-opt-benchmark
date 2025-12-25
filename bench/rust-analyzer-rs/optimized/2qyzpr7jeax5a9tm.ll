@@ -33609,7 +33609,7 @@ _ZN4core3cmp9PartialEq2ne17h902b82f3b95d0f7aE.llvm.4351852226057355877.exit.loop
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %_ZN4core3cmp9PartialEq2ne17h902b82f3b95d0f7aE.llvm.4351852226057355877.exit.loopexit, %.lr.ph, %13, %_ZN4core3cmp9PartialEq2ne17hccdac4d6dfd57562E.llvm.6150282900714191917.exit.i.i.i.i.i, %22, %_ZN4core3cmp9PartialEq2ne17h902b82f3b95d0f7aE.llvm.4351852226057355877.exit.preheader, %4
-  %.0 = phi i1 [ false, %_ZN4core3cmp9PartialEq2ne17hccdac4d6dfd57562E.llvm.6150282900714191917.exit.i.i.i.i.i ], [ false, %4 ], [ true, %_ZN4core3cmp9PartialEq2ne17h902b82f3b95d0f7aE.llvm.4351852226057355877.exit.preheader ], [ false, %22 ], [ true, %_ZN4core3cmp9PartialEq2ne17h902b82f3b95d0f7aE.llvm.4351852226057355877.exit.loopexit ], [ false, %.lr.ph ], [ false, %13 ]
+  %.0 = phi i1 [ true, %_ZN4core3cmp9PartialEq2ne17h902b82f3b95d0f7aE.llvm.4351852226057355877.exit.preheader ], [ false, %4 ], [ false, %_ZN4core3cmp9PartialEq2ne17hccdac4d6dfd57562E.llvm.6150282900714191917.exit.i.i.i.i.i ], [ false, %22 ], [ true, %_ZN4core3cmp9PartialEq2ne17h902b82f3b95d0f7aE.llvm.4351852226057355877.exit.loopexit ], [ false, %13 ], [ false, %.lr.ph ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %_ZN4core3cmp9PartialEq2ne17h902b82f3b95d0f7aE.llvm.4351852226057355877.exit.preheader, %_ZN4core3cmp9PartialEq2ne17h902b82f3b95d0f7aE.llvm.4351852226057355877.exit.loopexit
@@ -44526,9 +44526,9 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
     i64 1, label %7
   ]
 
-"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread": ; preds = %19, %7, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8", %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit", %30, %28, %26, %32, %2, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h9e624559f9f568e1E.llvm.4351852226057355877.exit"
-  %.sroa.5.0 = phi i64 [ %83, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h9e624559f9f568e1E.llvm.4351852226057355877.exit" ], [ undef, %2 ], [ 0, %32 ], [ 0, %26 ], [ 0, %28 ], [ 0, %30 ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8" ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit" ], [ 0, %7 ], [ 0, %19 ]
-  %.sroa.0.0 = phi i64 [ %82, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h9e624559f9f568e1E.llvm.4351852226057355877.exit" ], [ %4, %2 ], [ 0, %32 ], [ 0, %26 ], [ 0, %28 ], [ 0, %30 ], [ 1, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8" ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit" ], [ 0, %7 ], [ 0, %19 ]
+"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread": ; preds = %19, %7, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8", %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit", %26, %28, %30, %32, %2, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h9e624559f9f568e1E.llvm.4351852226057355877.exit"
+  %.sroa.5.0 = phi i64 [ %83, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h9e624559f9f568e1E.llvm.4351852226057355877.exit" ], [ undef, %2 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %26 ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8" ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit" ], [ 0, %7 ], [ 0, %19 ]
+  %.sroa.0.0 = phi i64 [ %82, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h9e624559f9f568e1E.llvm.4351852226057355877.exit" ], [ %4, %2 ], [ 0, %32 ], [ 0, %30 ], [ 0, %28 ], [ 0, %26 ], [ 1, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8" ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit" ], [ 0, %7 ], [ 0, %19 ]
   %5 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %6 = insertvalue { i64, i64 } %5, i64 %.sroa.5.0, 1
   ret { i64, i64 } %6
@@ -44616,7 +44616,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %.0.shrunk.i7.i.i = and i1 %38, %43
   br i1 %.0.shrunk.i7.i.i, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
 
-"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8": ; preds = %25, %32, %26, %28, %30, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit"
+"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8": ; preds = %25, %32, %30, %28, %26, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit"
   br label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
 
 44:                                               ; preds = %2
@@ -45927,9 +45927,9 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
     i64 1, label %9
   ]
 
-"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread": ; preds = %33, %16, %9, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10", %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit", %40, %63, %57, %51, %44, %42, %27, %2, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17h50ed10304a2e69ccE.llvm.4351852226057355877.exit"
-  %.sroa.5.0 = phi i64 [ %.sroa.3.0.i, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17h50ed10304a2e69ccE.llvm.4351852226057355877.exit" ], [ undef, %2 ], [ 0, %27 ], [ 0, %42 ], [ 0, %44 ], [ 0, %51 ], [ 0, %57 ], [ 0, %63 ], [ 0, %40 ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10" ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit" ], [ 0, %9 ], [ 0, %16 ], [ 0, %33 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17h50ed10304a2e69ccE.llvm.4351852226057355877.exit" ], [ %6, %2 ], [ 0, %27 ], [ 0, %42 ], [ 0, %44 ], [ 0, %51 ], [ 0, %57 ], [ 0, %63 ], [ 0, %40 ], [ 1, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10" ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit" ], [ 0, %9 ], [ 0, %16 ], [ 0, %33 ]
+"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread": ; preds = %33, %16, %9, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10", %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit", %42, %63, %57, %51, %44, %40, %27, %2, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17h50ed10304a2e69ccE.llvm.4351852226057355877.exit"
+  %.sroa.5.0 = phi i64 [ %.sroa.3.0.i, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17h50ed10304a2e69ccE.llvm.4351852226057355877.exit" ], [ undef, %2 ], [ 0, %27 ], [ 0, %40 ], [ 0, %44 ], [ 0, %51 ], [ 0, %57 ], [ 0, %63 ], [ 0, %42 ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10" ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit" ], [ 0, %9 ], [ 0, %16 ], [ 0, %33 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17h50ed10304a2e69ccE.llvm.4351852226057355877.exit" ], [ %6, %2 ], [ 0, %27 ], [ 0, %40 ], [ 0, %44 ], [ 0, %51 ], [ 0, %57 ], [ 0, %63 ], [ 0, %42 ], [ 1, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10" ], [ 0, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit" ], [ 0, %9 ], [ 0, %16 ], [ 0, %33 ]
   %7 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %8 = insertvalue { i64, i64 } %7, i64 %.sroa.5.0, 1
   ret { i64, i64 } %8
@@ -46000,8 +46000,8 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
 39:                                               ; preds = %33
   switch i8 %.val.i.i.i, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10" [
     i8 2, label %40
-    i8 3, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit"
-    i8 4, label %42
+    i8 3, label %42
+    i8 4, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit"
   ]
 
 40:                                               ; preds = %39
@@ -46054,7 +46054,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %69 = icmp eq i8 %.val4.i.i.i.fr, %.val6.i.i.i.fr
   br i1 %69, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
 
-"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10": ; preds = %26, %39, %27, %42, %44, %51, %57, %63, %40, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit"
+"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10": ; preds = %26, %39, %27, %40, %44, %51, %57, %63, %42, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit"
   br label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
 
 70:                                               ; preds = %2

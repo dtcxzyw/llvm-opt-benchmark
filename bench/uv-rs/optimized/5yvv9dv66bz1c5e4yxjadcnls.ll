@@ -6104,14 +6104,14 @@ common.resume:                                    ; preds = %"_ZN4core3ptr48drop
   br label %.body.i414
 
 .loopexit.split-lp.i:                             ; preds = %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i", %901, %862, %852, %806, %794, %775, %760
-  %.sroa.13517.0.i1270 = phi i64 [ %.sroa.13517.0.i1331, %806 ], [ %.sroa.13517.0.i1331, %794 ], [ %.sroa.13517.0.i1331, %852 ], [ %.sroa.13517.0.i1331, %775 ], [ %.sroa.13517.0.i1331, %862 ], [ %.sroa.13517.0.i1331, %760 ], [ %.sroa.13517.0.i.lcssa1803, %901 ], [ %.sroa.13517.0.i.lcssa1802, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
-  %.sroa.0513.0.i1227 = phi ptr [ %.sroa.0513.0.i1332, %806 ], [ %.sroa.0513.0.i1332, %794 ], [ %.sroa.0513.0.i1332, %852 ], [ %.sroa.0513.0.i1332, %775 ], [ %.sroa.0513.0.i1332, %862 ], [ %.sroa.0513.0.i1332, %760 ], [ %.sroa.0513.0.i.lcssa1810, %901 ], [ %.sroa.0513.0.i.lcssa1809, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
-  %.sroa.13.0.i1166 = phi i64 [ %.sroa.13.0.i1333, %806 ], [ %.sroa.13.0.i1333, %794 ], [ %.sroa.13.0.i1333, %852 ], [ %.sroa.13.0.i1333, %775 ], [ %.sroa.13.0.i1333, %862 ], [ %.sroa.13.0.i1333, %760 ], [ %.sroa.13.0.i.lcssa1812, %901 ], [ %.sroa.13.0.i.lcssa1811, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
-  %.sroa.0506.0.i1119 = phi ptr [ %.sroa.0506.0.i1334, %806 ], [ %.sroa.0506.0.i1334, %794 ], [ %.sroa.0506.0.i1334, %852 ], [ %.sroa.0506.0.i1334, %775 ], [ %.sroa.0506.0.i1334, %862 ], [ %.sroa.0506.0.i1334, %760 ], [ %.sroa.0506.0.i.lcssa1818, %901 ], [ %.sroa.0506.0.i.lcssa1817, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
-  %.sroa.0221.1.ph.i = phi i8 [ 1, %806 ], [ 1, %794 ], [ 1, %852 ], [ 1, %775 ], [ 1, %862 ], [ 1, %760 ], [ 1, %901 ], [ %.sroa.0221.9.i, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
-  %.sroa.0223.1.ph.i = phi i8 [ 1, %806 ], [ 1, %794 ], [ 1, %852 ], [ 1, %775 ], [ 1, %862 ], [ 1, %760 ], [ 1, %901 ], [ %.sroa.0223.9.i, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
-  %.sroa.0225.1.ph.i = phi i8 [ 1, %806 ], [ 1, %794 ], [ 1, %852 ], [ 1, %775 ], [ 1, %862 ], [ 1, %760 ], [ 1, %901 ], [ %.sroa.0225.10.i, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
-  %.sroa.0227.1.ph.i = phi i8 [ 1, %806 ], [ 1, %794 ], [ 1, %852 ], [ 1, %775 ], [ 1, %862 ], [ 1, %760 ], [ 1, %901 ], [ %.sroa.0227.6.i, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
+  %.sroa.13517.0.i1270 = phi i64 [ %.sroa.13517.0.i1331, %852 ], [ %.sroa.13517.0.i1331, %794 ], [ %.sroa.13517.0.i1331, %862 ], [ %.sroa.13517.0.i1331, %775 ], [ %.sroa.13517.0.i1331, %806 ], [ %.sroa.13517.0.i1331, %760 ], [ %.sroa.13517.0.i.lcssa1803, %901 ], [ %.sroa.13517.0.i.lcssa1802, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
+  %.sroa.0513.0.i1227 = phi ptr [ %.sroa.0513.0.i1332, %852 ], [ %.sroa.0513.0.i1332, %794 ], [ %.sroa.0513.0.i1332, %862 ], [ %.sroa.0513.0.i1332, %775 ], [ %.sroa.0513.0.i1332, %806 ], [ %.sroa.0513.0.i1332, %760 ], [ %.sroa.0513.0.i.lcssa1810, %901 ], [ %.sroa.0513.0.i.lcssa1809, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
+  %.sroa.13.0.i1166 = phi i64 [ %.sroa.13.0.i1333, %852 ], [ %.sroa.13.0.i1333, %794 ], [ %.sroa.13.0.i1333, %862 ], [ %.sroa.13.0.i1333, %775 ], [ %.sroa.13.0.i1333, %806 ], [ %.sroa.13.0.i1333, %760 ], [ %.sroa.13.0.i.lcssa1812, %901 ], [ %.sroa.13.0.i.lcssa1811, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
+  %.sroa.0506.0.i1119 = phi ptr [ %.sroa.0506.0.i1334, %852 ], [ %.sroa.0506.0.i1334, %794 ], [ %.sroa.0506.0.i1334, %862 ], [ %.sroa.0506.0.i1334, %775 ], [ %.sroa.0506.0.i1334, %806 ], [ %.sroa.0506.0.i1334, %760 ], [ %.sroa.0506.0.i.lcssa1818, %901 ], [ %.sroa.0506.0.i.lcssa1817, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
+  %.sroa.0221.1.ph.i = phi i8 [ 1, %852 ], [ 1, %794 ], [ 1, %862 ], [ 1, %775 ], [ 1, %806 ], [ 1, %760 ], [ 1, %901 ], [ %.sroa.0221.9.i, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
+  %.sroa.0223.1.ph.i = phi i8 [ 1, %852 ], [ 1, %794 ], [ 1, %862 ], [ 1, %775 ], [ 1, %806 ], [ 1, %760 ], [ 1, %901 ], [ %.sroa.0223.9.i, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
+  %.sroa.0225.1.ph.i = phi i8 [ 1, %852 ], [ 1, %794 ], [ 1, %862 ], [ 1, %775 ], [ 1, %806 ], [ 1, %760 ], [ 1, %901 ], [ %.sroa.0225.10.i, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
+  %.sroa.0227.1.ph.i = phi i8 [ 1, %852 ], [ 1, %794 ], [ 1, %862 ], [ 1, %775 ], [ 1, %806 ], [ 1, %760 ], [ 1, %901 ], [ %.sroa.0227.6.i, %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17he4ba71c36ae4612cE.exit483.i" ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i414
@@ -12219,8 +12219,8 @@ _ZN9rmp_serde6decode13read_str_data17hea30f561422ab37bE.exit: ; preds = %182, %1
   br i1 %.not.i.i, label %._crit_edge766.loopexit, label %.lr.ph765
 
 273:                                              ; preds = %271, %267
-  %.sroa.0522.0 = phi i8 [ %265, %267 ], [ %269, %271 ]
-  %.sroa.10525.0 = phi i8 [ %.sroa.5550.0.copyload, %267 ], [ %.sroa.4547.0.copyload, %271 ]
+  %.sroa.0522.0 = phi i8 [ %269, %271 ], [ %265, %267 ]
+  %.sroa.10525.0 = phi i8 [ %.sroa.4547.0.copyload, %271 ], [ %.sroa.5550.0.copyload, %267 ]
   store i8 %.sroa.0522.0, ptr %0, align 8
   %.sroa.2286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.10525.0, ptr %.sroa.2286.0..sroa_idx, align 1

@@ -61229,7 +61229,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1015
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit: ; preds = %._crit_edge, %._crit_edge101, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit, %5, %3
-  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
+  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.024.0
 }
 
@@ -62294,11 +62294,11 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %37
   br label %._crit_edge121
 
 ._crit_edge121:                                   ; preds = %67, %._crit_edge121.loopexit.split.loop.exit, %7, %58
-  %69 = phi ptr [ %61, %58 ], [ %61, %._crit_edge121.loopexit.split.loop.exit ], [ null, %7 ], [ %61, %67 ]
-  %70 = phi ptr [ %60, %58 ], [ %60, %._crit_edge121.loopexit.split.loop.exit ], [ null, %7 ], [ %60, %67 ]
-  %71 = phi ptr [ %59, %58 ], [ %59, %._crit_edge121.loopexit.split.loop.exit ], [ null, %7 ], [ %59, %67 ]
-  %.064.lcssa159166168 = phi i64 [ %12, %58 ], [ %12, %._crit_edge121.loopexit.split.loop.exit ], [ 0, %7 ], [ %12, %67 ]
-  %.067 = phi i32 [ -1, %58 ], [ %68, %._crit_edge121.loopexit.split.loop.exit ], [ -1, %7 ], [ -1, %67 ]
+  %69 = phi ptr [ %61, %58 ], [ null, %7 ], [ %61, %._crit_edge121.loopexit.split.loop.exit ], [ %61, %67 ]
+  %70 = phi ptr [ %60, %58 ], [ null, %7 ], [ %60, %._crit_edge121.loopexit.split.loop.exit ], [ %60, %67 ]
+  %71 = phi ptr [ %59, %58 ], [ null, %7 ], [ %59, %._crit_edge121.loopexit.split.loop.exit ], [ %59, %67 ]
+  %.064.lcssa159166168 = phi i64 [ %12, %58 ], [ 0, %7 ], [ %12, %._crit_edge121.loopexit.split.loop.exit ], [ %12, %67 ]
+  %.067 = phi i32 [ -1, %58 ], [ -1, %7 ], [ %68, %._crit_edge121.loopexit.split.loop.exit ], [ -1, %67 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = ptrtoint ptr %69 to i64
   %74 = ptrtoint ptr %70 to i64
@@ -65510,7 +65510,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1061
 
 _ZSt11swap_rangesIPdS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPdS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPdS0_ET0_T_S2_S1_.exit ], [ %23, %_ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit ], [ %23, %_ZSt4moveIPdS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

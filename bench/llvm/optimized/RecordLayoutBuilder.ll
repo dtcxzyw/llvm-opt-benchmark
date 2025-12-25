@@ -2728,8 +2728,8 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit24.i.i: ; preds = %_ZNK5clang16C
   br i1 %.not22.old.i.i, label %_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder20DeterminePrimaryBaseEPKN5clang13CXXRecordDeclE.exit.i, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit24.i.i, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i, %1213, %1209
-  %.lcssa.sink.i.i = phi ptr [ %1212, %1209 ], [ %.old39.i.i, %1213 ], [ %1186, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i ], [ %1186, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit24.i.i ]
-  %.sink.i.i = phi i8 [ 1, %1209 ], [ 1, %1213 ], [ 0, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i ], [ 0, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit24.i.i ]
+  %.lcssa.sink.i.i = phi ptr [ %.old39.i.i, %1213 ], [ %1212, %1209 ], [ %1186, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i ], [ %1186, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit24.i.i ]
+  %.sink.i.i = phi i8 [ 1, %1213 ], [ 1, %1209 ], [ 0, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit.i.i ], [ 0, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit24.i.i ]
   %1214 = getelementptr inbounds nuw i8, ptr %24, i64 256
   store ptr %.lcssa.sink.i.i, ptr %1214, align 8, !tbaa !579
   %1215 = getelementptr inbounds nuw i8, ptr %24, i64 264
@@ -8783,7 +8783,7 @@ _ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclE
   br label %310
 
 _ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %266
-  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %261, %266 ]
+  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %261, %266 ], [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %268 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i.i, %261
   %.val = load i64, ptr %209, align 8, !tbaa !386
   call fastcc void @_ZN12_GLOBAL__N_117EmptySubobjectMap26UpdateEmptyFieldSubobjectsEPKN5clang9FieldDeclENS1_9CharUnitsEb(ptr noundef nonnull align 8 dereferenceable(64) %.lcssa, i64 %.val, i64 %.sroa.045.2.lcssa, i1 noundef zeroext %268)
@@ -15535,7 +15535,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder11Layo
   br i1 %.not.i.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_10PackedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !762
 
 _ZN5clangneENS_22specific_attr_iteratorINS_10PackedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i: ; preds = %77, %.lr.ph.i.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %72, %77 ]
+  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %72, %77 ], [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %79 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i.i, %72
   br label %_ZNK5clang4Decl7hasAttrINS_10PackedAttrEEEbv.exit.i
 
@@ -16627,7 +16627,7 @@ _ZNK5clang4Decl7hasAttrINS_10PackedAttrEEEbv.exit.thread444: ; preds = %607, %59
   br i1 %.not.i.i.i.i.i136, label %_ZN5clangneENS_22specific_attr_iteratorINS_10PackedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i137, label %.lr.ph.i.i.i.i.i134, !llvm.loop !762
 
 _ZN5clangneENS_22specific_attr_iteratorINS_10PackedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i137: ; preds = %643, %.lr.ph.i.i.i.i.i134
-  %.sroa.07.0.i.i.ph.i.i138 = phi ptr [ %.sroa.07.1.i.i.i.i135, %.lr.ph.i.i.i.i.i134 ], [ %638, %643 ]
+  %.sroa.07.0.i.i.ph.i.i138 = phi ptr [ %638, %643 ], [ %.sroa.07.1.i.i.i.i135, %.lr.ph.i.i.i.i.i134 ]
   %645 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i138, %638
   br label %_ZNK5clang4Decl7hasAttrINS_10PackedAttrEEEbv.exit139
 
@@ -16891,7 +16891,7 @@ _ZN12_GLOBAL__N_126ItaniumRecordLayoutBuilder25updateExternalFieldOffsetEPKN5cla
   br i1 %.not.i.i.i.i.i213, label %_ZN5clangneENS_22specific_attr_iteratorINS_19NoUniqueAddressAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i211, !llvm.loop !766
 
 _ZN5clangneENS_22specific_attr_iteratorINS_19NoUniqueAddressAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %758, %.lr.ph.i.i.i.i.i211
-  %.sroa.07.0.i.i.ph.i.i214 = phi ptr [ %.sroa.07.1.i.i.i.i212, %.lr.ph.i.i.i.i.i211 ], [ %753, %758 ]
+  %.sroa.07.0.i.i.ph.i.i214 = phi ptr [ %753, %758 ], [ %.sroa.07.1.i.i.i.i212, %.lr.ph.i.i.i.i.i211 ]
   %760 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i214, %753
   br label %_ZNK5clang4Decl7hasAttrINS_19NoUniqueAddressAttrEEEbv.exit
 
@@ -16955,7 +16955,7 @@ _ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclE
   br label %_ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE.exit
 
 _ZN12_GLOBAL__N_117EmptySubobjectMap21CanPlaceFieldAtOffsetEPKN5clang9FieldDeclENS1_9CharUnitsE.exit166: ; preds = %.lr.ph.i.i.i.i.i218, %782
-  %.sroa.07.0.i.i.ph.i.i222 = phi ptr [ %.sroa.07.1.i.i.i.i219, %.lr.ph.i.i.i.i.i218 ], [ %777, %782 ]
+  %.sroa.07.0.i.i.ph.i.i222 = phi ptr [ %777, %782 ], [ %.sroa.07.1.i.i.i.i219, %.lr.ph.i.i.i.i.i218 ]
   %784 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i222, %777
   %.val264 = load i64, ptr %14, align 8, !tbaa !386
   call fastcc void @_ZN12_GLOBAL__N_117EmptySubobjectMap26UpdateEmptyFieldSubobjectsEPKN5clang9FieldDeclENS1_9CharUnitsEb(ptr noundef nonnull align 8 dereferenceable(64) %.lcssa, i64 %.val264, i64 %.sroa.0372.1.lcssa, i1 noundef zeroext %784)
@@ -19181,7 +19181,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_14CUDA
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14CUDADeviceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !877
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14CUDADeviceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_14CUDADeviceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -19223,7 +19223,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_12CUDA
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_12CUDAHostAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !878
 
 _ZN5clangneENS_22specific_attr_iteratorINS_12CUDAHostAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_12CUDAHostAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -19265,7 +19265,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_13DLLI
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_13DLLImportAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !879
 
 _ZN5clangneENS_22specific_attr_iteratorINS_13DLLImportAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_13DLLImportAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -20633,7 +20633,7 @@ _ZSt13move_backwardIPPKN5clang13CXXRecordDeclES4_ET0_T_S6_S5_.exit: ; preds = %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !887
 
 _ZSt11swap_rangesIPPKN5clang13CXXRecordDeclES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPKN5clang13CXXRecordDeclES4_ET0_T_S6_S5_.exit, %_ZSt4moveIPPKN5clang13CXXRecordDeclES4_ET0_T_S6_S5_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPKN5clang13CXXRecordDeclES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt13move_backwardIPPKN5clang13CXXRecordDeclES4_ET0_T_S6_S5_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPKN5clang13CXXRecordDeclES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt4moveIPPKN5clang13CXXRecordDeclES4_ET0_T_S6_S5_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

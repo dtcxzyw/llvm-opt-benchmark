@@ -15473,7 +15473,7 @@ common.resume:                                    ; preds = %43, %49, %.body.i.i
   br i1 %64, label %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$chalk_solve..rust_ir..AdtVariantDatum$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h91f8edc17b78968bE.llvm.836043833466553463.exit", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ca015b2b64d7be7E.llvm.836043833466553463.exit"
 
 "_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$chalk_solve..rust_ir..AdtVariantDatum$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h91f8edc17b78968bE.llvm.836043833466553463.exit": ; preds = %61, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ca015b2b64d7be7E.llvm.836043833466553463.exit", %"_ZN3hir4Type18contains_reference2go28_$u7b$$u7b$closure$u7d$$u7d$17h838aa56f0de5df10E.llvm.1832755805191578588.exit", %2
-  %.not5 = phi i1 [ true, %"_ZN3hir4Type18contains_reference2go28_$u7b$$u7b$closure$u7d$$u7d$17h838aa56f0de5df10E.llvm.1832755805191578588.exit" ], [ false, %2 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ca015b2b64d7be7E.llvm.836043833466553463.exit" ], [ false, %61 ]
+  %.not5 = phi i1 [ false, %2 ], [ true, %"_ZN3hir4Type18contains_reference2go28_$u7b$$u7b$closure$u7d$$u7d$17h838aa56f0de5df10E.llvm.1832755805191578588.exit" ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ca015b2b64d7be7E.llvm.836043833466553463.exit" ], [ false, %61 ]
   ret i1 %.not5
 }
 
@@ -23535,8 +23535,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hdda662e56bc59ba1E.exit"
 
 "_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17hbd816153c37cff06E.exit.i.i.i": ; preds = %163, %158, %46
-  %.sroa.0.sroa.5.0.i.i.i = phi i32 [ %156, %158 ], [ %.sroa.0.sroa.5.0.extract.trunc.i.i.i, %46 ], [ %156, %163 ]
-  %.sroa.0.sroa.0.0.i.i.i = phi i32 [ %.0.i.i.i.i.i.i, %158 ], [ %.sroa.0.sroa.0.0.extract.trunc.i.i.i, %46 ], [ %.0.i.i.i.i.i.i, %163 ]
+  %.sroa.0.sroa.5.0.i.i.i = phi i32 [ %156, %163 ], [ %.sroa.0.sroa.5.0.extract.trunc.i.i.i, %46 ], [ %156, %158 ]
+  %.sroa.0.sroa.0.0.i.i.i = phi i32 [ %.0.i.i.i.i.i.i, %163 ], [ %.sroa.0.sroa.0.0.extract.trunc.i.i.i, %46 ], [ %.0.i.i.i.i.i.i, %158 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8698)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8701)
   %166 = load i32, ptr %.val.i.i.i, align 4, !noalias !8703, !noundef !4

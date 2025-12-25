@@ -4917,8 +4917,8 @@ select.unfold:                                    ; preds = %202, %210
   br label %.thread
 
 .thread:                                          ; preds = %218, %_ZL12compareCE64slls.exit, %213, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268, %228, %select.unfold
-  %.1169 = phi i32 [ %.0168421, %213 ], [ %.0168.in419, %228 ], [ %.0168421, %select.unfold ], [ %.0168421, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268 ], [ %.0168421, %_ZL12compareCE64slls.exit ], [ %.0168421, %218 ]
-  %.2166 = phi i32 [ %.0164420, %213 ], [ %229, %228 ], [ %230, %select.unfold ], [ %.0164420, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268 ], [ %.0164420, %_ZL12compareCE64slls.exit ], [ %.0164420, %218 ]
+  %.1169 = phi i32 [ %.0168421, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268 ], [ %.0168.in419, %228 ], [ %.0168421, %select.unfold ], [ %.0168421, %213 ], [ %.0168421, %_ZL12compareCE64slls.exit ], [ %.0168421, %218 ]
+  %.2166 = phi i32 [ %.0164420, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268 ], [ %229, %228 ], [ %230, %select.unfold ], [ %.0164420, %213 ], [ %.0164420, %_ZL12compareCE64slls.exit ], [ %.0164420, %218 ]
   %231 = icmp sgt i32 %.1169, 0
   br i1 %231, label %.lr.ph, label %.critedge234.loopexit, !llvm.loop !106
 

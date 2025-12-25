@@ -183,8 +183,8 @@ define internal range(i32 0, 2) i32 @test_sparse_array_num() #0 {
   br i1 %.not14, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %9, %.preheader, %20, %0, %3, %6
-  %.010 = phi ptr [ %4, %3 ], [ %4, %6 ], [ null, %0 ], [ %4, %20 ], [ %4, %.preheader ], [ %4, %9 ]
-  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 0, %0 ], [ 1, %9 ], [ 0, %.preheader ], [ 0, %20 ]
+  %.010 = phi ptr [ %4, %6 ], [ %4, %3 ], [ null, %0 ], [ %4, %20 ], [ %4, %.preheader ], [ %4, %9 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ 1, %9 ], [ 0, %.preheader ], [ 0, %20 ]
   tail call void @ossl_sa_free(ptr noundef %.010) #4
   ret i32 %.0
 }

@@ -2607,7 +2607,7 @@ _ZNK3spv10spirvbin_t13literalStringB5cxx11Ej.exit: ; preds = %166
   br i1 %.not, label %.loopexit, label %96, !llvm.loop !63
 
 .loopexit:                                        ; preds = %107, %107, %107, %183, %_ZNKSt8functionIFvRjEEclES0_.exit96, %_ZNKSt8functionIFvRjEEclES0_.exit94, %_ZNKSt8functionIFvRjEEclES0_.exit90, %.preheader102, %.preheader100, %.preheader, %_ZNKSt8functionIFvRjEEclES0_.exit88, %135, %137, %_ZNKSt8functionIFbN3spv2OpEjEEclES1_j.exit, %_ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.0 = phi i32 [ -1, %_ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %18, %.preheader ], [ %18, %_ZNKSt8functionIFbN3spv2OpEjEEclES1_j.exit ], [ %18, %135 ], [ %18, %.preheader100 ], [ %18, %_ZNKSt8functionIFvRjEEclES0_.exit88 ], [ -1, %137 ], [ %18, %.preheader102 ], [ %18, %_ZNKSt8functionIFvRjEEclES0_.exit96 ], [ %18, %_ZNKSt8functionIFvRjEEclES0_.exit90 ], [ %18, %_ZNKSt8functionIFvRjEEclES0_.exit94 ], [ %18, %183 ], [ %18, %107 ], [ %18, %107 ], [ %18, %107 ]
+  %.0 = phi i32 [ -1, %_ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %18, %_ZNKSt8functionIFvRjEEclES0_.exit88 ], [ %18, %_ZNKSt8functionIFbN3spv2OpEjEEclES1_j.exit ], [ %18, %135 ], [ %18, %.preheader100 ], [ %18, %.preheader ], [ -1, %137 ], [ %18, %.preheader102 ], [ %18, %_ZNKSt8functionIFvRjEEclES0_.exit96 ], [ %18, %_ZNKSt8functionIFvRjEEclES0_.exit90 ], [ %18, %_ZNKSt8functionIFvRjEEclES0_.exit94 ], [ %18, %183 ], [ %18, %107 ], [ %18, %107 ], [ %18, %107 ]
   ret i32 %.0
 }
 

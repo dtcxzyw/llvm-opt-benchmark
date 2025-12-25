@@ -23746,7 +23746,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %108, %.lr.ph.split,
   unreachable
 
 .outer.backedge:                                  ; preds = %141, %155, %191
-  %.2123.ph.be = phi ptr [ %195, %191 ], [ %159, %155 ], [ %143, %141 ]
+  %.2123.ph.be = phi ptr [ %195, %191 ], [ %143, %141 ], [ %159, %155 ]
   %.0114.ph.be = add i32 %.us-phi262, %.0114.ph283
   %.not139257 = icmp eq ptr %.2123.ph.be, null
   br i1 %.not139257, label %.loopexit, label %.lr.ph, !llvm.loop !37
@@ -31491,7 +31491,7 @@ ws_sign_ext32.exit:                               ; preds = %187, %183, %181
   unreachable
 
 hf_try_val64_to_str.exit:                         ; preds = %278, %274, %270, %268
-  %.0271 = phi ptr [ %279, %278 ], [ %275, %274 ], [ %269, %268 ], [ %271, %270 ]
+  %.0271 = phi ptr [ %275, %274 ], [ %279, %278 ], [ %269, %268 ], [ %271, %270 ]
   %283 = icmp eq ptr %.0271, null
   br i1 %283, label %hf_try_val64_to_str.exit.hf_try_val64_to_str.exit.thread_crit_edge, label %288
 
@@ -31661,7 +31661,7 @@ ws_sign_ext64.exit:                               ; preds = %301, %298, %297
   unreachable
 
 hf_try_val64_to_str.exit387:                      ; preds = %349, %345, %341, %339
-  %.0267 = phi ptr [ %350, %349 ], [ %346, %345 ], [ %340, %339 ], [ %342, %341 ]
+  %.0267 = phi ptr [ %346, %345 ], [ %350, %349 ], [ %340, %339 ], [ %342, %341 ]
   %354 = icmp eq ptr %.0267, null
   br i1 %354, label %hf_try_val64_to_str.exit387.hf_try_val64_to_str.exit387.thread_crit_edge, label %359
 

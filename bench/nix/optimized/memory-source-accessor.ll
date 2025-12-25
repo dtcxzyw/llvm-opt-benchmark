@@ -999,7 +999,7 @@ _ZN3nix9CanonPath8IteratorppEv.exit:              ; preds = %_ZNKSt17basic_strin
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix20MemorySourceAccessor4FileESt4lessIvESaISt4pairIKS5_S8_EEE4findISt17basic_string_viewIcS3_EEEDTcldtdtdefpT4_M_t10_M_find_trfp_EERKT_.exit.thread, %39, %_ZNK3nix9CanonPath3relEv.exit.i, %._crit_edge, %113, %117
-  %.017 = phi ptr [ %100, %._crit_edge ], [ %100, %113 ], [ %100, %117 ], [ %10, %_ZNK3nix9CanonPath3relEv.exit.i ], [ null, %39 ], [ null, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix20MemorySourceAccessor4FileESt4lessIvESaISt4pairIKS5_S8_EEE4findISt17basic_string_viewIcS3_EEEDTcldtdtdefpT4_M_t10_M_find_trfp_EERKT_.exit.thread ]
+  %.017 = phi ptr [ %100, %113 ], [ %100, %._crit_edge ], [ %100, %117 ], [ %10, %_ZNK3nix9CanonPath3relEv.exit.i ], [ null, %39 ], [ null, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix20MemorySourceAccessor4FileESt4lessIvESaISt4pairIKS5_S8_EEE4findISt17basic_string_viewIcS3_EEEDTcldtdtdefpT4_M_t10_M_find_trfp_EERKT_.exit.thread ]
   ret ptr %.017
 }
 
@@ -7408,7 +7408,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   br label %64
 
 64:                                               ; preds = %.sink.split, %13, %27, %36, %20, %18, %49, %46, %44
-  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %13 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %49 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
+  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %49 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %13 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert

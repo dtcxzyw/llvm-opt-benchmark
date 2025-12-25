@@ -1295,8 +1295,8 @@ if.end66.loopexit:                                ; preds = %land.rhs56, %for.bo
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end66.loopexit, %if.then53, %land.lhs.true, %if.end48
-  %pos.promoted78 = phi i64 [ %15, %if.end48 ], [ %15, %land.lhs.true ], [ %inc54, %if.then53 ], [ %pos.promoted7887, %if.end66.loopexit ]
-  %micros.0 = phi i64 [ 0, %if.end48 ], [ 0, %land.lhs.true ], [ 0, %if.then53 ], [ %21, %if.end66.loopexit ]
+  %pos.promoted78 = phi i64 [ %15, %land.lhs.true ], [ %15, %if.end48 ], [ %inc54, %if.then53 ], [ %pos.promoted7887, %if.end66.loopexit ]
+  %micros.0 = phi i64 [ 0, %land.lhs.true ], [ 0, %if.end48 ], [ 0, %if.then53 ], [ %21, %if.end66.loopexit ]
   %cmp6979 = icmp ult i64 %pos.promoted78, %len
   %or.cond81 = and i1 %strict, %cmp6979
   br i1 %or.cond81, label %land.rhs70, label %if.end80

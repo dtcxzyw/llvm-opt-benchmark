@@ -1219,10 +1219,10 @@ ZSTD_decodeLiteralsBlock.exit:                    ; preds = %HUF_decompress.exit
   store i64 0, ptr %103, align 1
   br label %ZSTD_decodeLiteralsBlock.exit.thread26
 
-ZSTD_decodeLiteralsBlock.exit.thread26:           ; preds = %81, %75, %90, %ZSTD_decodeLiteralsBlock.exit
-  %104 = phi i64 [ %22, %ZSTD_decodeLiteralsBlock.exit ], [ %68, %81 ], [ %68, %75 ], [ %93, %90 ]
-  %105 = phi ptr [ %19, %ZSTD_decodeLiteralsBlock.exit ], [ %82, %81 ], [ %76, %75 ], [ %94, %90 ]
-  %.0.i29 = phi i64 [ %31, %ZSTD_decodeLiteralsBlock.exit ], [ %85, %81 ], [ %80, %75 ], [ 4, %90 ]
+ZSTD_decodeLiteralsBlock.exit.thread26:           ; preds = %75, %90, %81, %ZSTD_decodeLiteralsBlock.exit
+  %104 = phi i64 [ %22, %ZSTD_decodeLiteralsBlock.exit ], [ %68, %75 ], [ %93, %90 ], [ %68, %81 ]
+  %105 = phi ptr [ %19, %ZSTD_decodeLiteralsBlock.exit ], [ %76, %75 ], [ %94, %90 ], [ %82, %81 ]
+  %.0.i29 = phi i64 [ %31, %ZSTD_decodeLiteralsBlock.exit ], [ %80, %75 ], [ 4, %90 ], [ %85, %81 ]
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i29
   %107 = sub nsw i64 %4, %.0.i29
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 %2

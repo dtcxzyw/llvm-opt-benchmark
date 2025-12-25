@@ -855,7 +855,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noun
   br label %fdt_find_add_string_.exit
 
 fdt_find_add_string_.exit:                        ; preds = %50, %113
-  %.0.i = phi i32 [ %54, %50 ], [ %69, %113 ]
+  %.0.i = phi i32 [ %69, %113 ], [ %54, %50 ]
   %131 = icmp slt i32 %.0.i, 0
   br i1 %131, label %fdt_find_add_string_.exit.thread, label %132
 
@@ -1063,7 +1063,7 @@ fdt_rw_probe_.exit.thread.sink.split:             ; preds = %69, %62
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %fdt_rw_probe_.exit.thread.sink.split, %30, %10, %5, %67, %53
-  %.1 = phi i32 [ %8, %5 ], [ %68, %67 ], [ %61, %53 ], [ -10, %10 ], [ -12, %30 ], [ 0, %fdt_rw_probe_.exit.thread.sink.split ]
+  %.1 = phi i32 [ -10, %10 ], [ %68, %67 ], [ %61, %53 ], [ %8, %5 ], [ -12, %30 ], [ 0, %fdt_rw_probe_.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
@@ -1684,7 +1684,7 @@ define dso_local i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %226
 
 226:                                              ; preds = %.sink.split, %114, %86, %80, %68, %74, %3
-  %.1 = phi i32 [ -10, %68 ], [ -3, %114 ], [ %81, %80 ], [ -3, %86 ], [ %75, %74 ], [ %24, %3 ], [ 0, %.sink.split ]
+  %.1 = phi i32 [ -10, %68 ], [ %75, %74 ], [ %81, %80 ], [ -3, %86 ], [ -3, %114 ], [ %24, %3 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }

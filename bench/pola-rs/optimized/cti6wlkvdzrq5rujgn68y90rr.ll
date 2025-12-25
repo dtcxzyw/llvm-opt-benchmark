@@ -3750,7 +3750,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h801db48987db936
   br i1 %exitcond5.not.i.i, label %._crit_edge.i.i, label %90
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77da55212cb9b364E.exit": ; preds = %84, %82, %._crit_edge.i.i
-  %.sroa.3.0.i = phi i64 [ %89, %._crit_edge.i.i ], [ 1, %82 ], [ 1, %84 ]
+  %.sroa.3.0.i = phi i64 [ 1, %82 ], [ %89, %._crit_edge.i.i ], [ 1, %84 ]
   %94 = icmp eq ptr %63, %22
   br i1 %94, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h16ee570db44069faE.exit", label %62
 
@@ -5037,7 +5037,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17ha5333c248501ac4
   br i1 %exitcond5.not.i.i, label %._crit_edge.i.i, label %86
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h43b02ccc6249b90fE.exit": ; preds = %80, %78, %._crit_edge.i.i
-  %.sroa.3.0.i = phi i64 [ %85, %._crit_edge.i.i ], [ 1, %78 ], [ 1, %80 ]
+  %.sroa.3.0.i = phi i64 [ 1, %78 ], [ %85, %._crit_edge.i.i ], [ 1, %80 ]
   %90 = icmp eq ptr %61, %22
   br i1 %90, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h01823de78e563341E.exit", label %60
 

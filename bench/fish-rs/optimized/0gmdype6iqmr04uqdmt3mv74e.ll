@@ -25626,8 +25626,8 @@ thread-pre-split:                                 ; preds = %389, %363, %366, %.
   br label %209
 
 209:                                              ; preds = %thread-pre-split, %265, %219
-  %210 = phi ptr [ %.pr, %thread-pre-split ], [ %.sroa.0120.0, %219 ], [ %255, %265 ]
-  %.pn = phi { ptr, i32 } [ %.pn.ph, %thread-pre-split ], [ %220, %219 ], [ %266, %265 ]
+  %210 = phi ptr [ %.pr, %thread-pre-split ], [ %255, %265 ], [ %.sroa.0120.0, %219 ]
+  %.pn = phi { ptr, i32 } [ %.pn.ph, %thread-pre-split ], [ %266, %265 ], [ %220, %219 ]
   %211 = icmp eq ptr %210, null
   br i1 %211, label %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$fish..env..var..EnvVar$GT$$GT$17hd8612a3c8a027095E.exit", label %212
 
@@ -33892,8 +33892,8 @@ _ZN4fish7threads27assert_is_background_thread17h5fb680b00a3f0b5bE.exit: ; preds 
   br label %.thread
 
 .thread128.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %58, %95, %96, %._crit_edge204, %191, %188
-  %.sroa.14.0.ph.ph.ph.ph.ph.ph = phi i8 [ %60, %58 ], [ %136, %._crit_edge204 ], [ %136, %188 ], [ %136, %191 ], [ %60, %96 ], [ %60, %95 ]
-  %.sroa.0.0.ph.ph.ph.ph.ph.ph = phi ptr [ %59, %58 ], [ %135, %._crit_edge204 ], [ %135, %188 ], [ %135, %191 ], [ %59, %96 ], [ %59, %95 ]
+  %.sroa.14.0.ph.ph.ph.ph.ph.ph = phi i8 [ %60, %58 ], [ %136, %._crit_edge204 ], [ %136, %191 ], [ %136, %188 ], [ %60, %96 ], [ %60, %95 ]
+  %.sroa.0.0.ph.ph.ph.ph.ph.ph = phi ptr [ %59, %58 ], [ %135, %._crit_edge204 ], [ %135, %191 ], [ %135, %188 ], [ %59, %96 ], [ %59, %95 ]
   %lpad.loopexit159 = landingpad { ptr, i32 }
           cleanup
   br label %.thread

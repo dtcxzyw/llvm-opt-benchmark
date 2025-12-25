@@ -484,7 +484,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nound
   br label %22
 
 22:                                               ; preds = %.sink.split, %._crit_edge, %1
-  %.0 = phi i32 [ 1, %1 ], [ %.1.lcssa, %._crit_edge ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 1, %1 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

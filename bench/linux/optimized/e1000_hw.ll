@@ -2613,7 +2613,7 @@ thread-pre-split97:                               ; preds = %200
   br i1 %681, label %684, label %682
 
 682:                                              ; preds = %.thread131, %679, %664
-  %683 = phi i32 [ %677, %.thread131 ], [ %680, %679 ], [ -1, %664 ]
+  %683 = phi i32 [ -1, %664 ], [ %680, %679 ], [ %677, %.thread131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %784
 

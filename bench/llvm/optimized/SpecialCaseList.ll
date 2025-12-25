@@ -1220,7 +1220,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit127, %.loopexit.sink.split, %4
-  %.not141 = phi i1 [ false, %.loopexit.sink.split ], [ true, %4 ], [ true, %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit127 ]
+  %.not141 = phi i1 [ true, %4 ], [ false, %.loopexit.sink.split ], [ true, %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit127 ]
   ret i1 %.not141
 }
 

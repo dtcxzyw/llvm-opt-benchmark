@@ -2561,9 +2561,9 @@ _ZL11sort_r_swapPcS_m.exit151:                    ; preds = %.lr.ph.i148, %93, %
   br i1 %105, label %.preheader180, label %.thread, !llvm.loop !53
 
 .thread:                                          ; preds = %.loopexit, %79, %_ZL11sort_r_swapPcS_m.exit147.us
-  %.0123192 = phi ptr [ %.0123211, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.0123211, %79 ], [ %.2125, %.loopexit ]
-  %.0122190 = phi ptr [ %.0122212, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.0122212, %79 ], [ %.1187, %.loopexit ]
-  %.1127 = phi ptr [ %.0126210, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.3, %79 ], [ %.us-phi198, %.loopexit ]
+  %.0123192 = phi ptr [ %.0123211, %79 ], [ %.0123211, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.2125, %.loopexit ]
+  %.0122190 = phi ptr [ %.0122212, %79 ], [ %.0122212, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.1187, %.loopexit ]
+  %.1127 = phi ptr [ %.3, %79 ], [ %.0126210, %_ZL11sort_r_swapPcS_m.exit147.us ], [ %.us-phi198, %.loopexit ]
   %106 = ptrtoint ptr %.1127 to i64
   %107 = ptrtoint ptr %.tr216 to i64
   %108 = sub i64 %106, %107
@@ -3177,7 +3177,7 @@ _ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.thread7.i: ; preds = %_ZN
   br i1 %.not.not.i, label %_ZL15hb_bsearch_implIK18hb_ot_name_entry_tS0_JbEEbPjRKT0_PT_mmPFiPKvS9_DpT1_ESB_.exit, label %.lr.ph.split.i, !llvm.loop !75
 
 .loopexit:                                        ; preds = %66, %71, %77, %14, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i, %44, %29
-  %.pre-phi22 = phi i64 [ %9, %14 ], [ %39, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i ], [ %24, %29 ], [ %39, %44 ], [ %61, %77 ], [ %61, %71 ], [ %61, %66 ]
+  %.pre-phi22 = phi i64 [ %24, %29 ], [ %9, %14 ], [ %39, %_ZN2OTL25_hb_ot_name_entry_cmp_keyEPKvS1_b.exit.thread.us.i ], [ %39, %44 ], [ %61, %77 ], [ %61, %71 ], [ %61, %66 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre-phi22
   br label %_ZL15hb_bsearch_implIK18hb_ot_name_entry_tS0_JbEEbPjRKT0_PT_mmPFiPKvS9_DpT1_ESB_.exit
 

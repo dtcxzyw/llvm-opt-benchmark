@@ -400,8 +400,8 @@ ossl_time_from_timeval.exit:                      ; preds = %122, %125
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.sink.split, %21, %41, %16, %39, %37, %23, %18, %13, %9, %.loopexit
-  %.0124225 = phi ptr [ %19, %.loopexit ], [ %19, %21 ], [ null, %9 ], [ %19, %41 ], [ null, %16 ], [ %19, %39 ], [ %19, %37 ], [ null, %13 ], [ %19, %23 ], [ null, %18 ], [ %19, %.lr.ph.preheader.sink.split ]
-  %.0125224 = phi i64 [ %.4129.ph, %.loopexit ], [ 1, %21 ], [ 1, %9 ], [ 1, %41 ], [ 1, %16 ], [ 1, %39 ], [ 1, %37 ], [ 1, %13 ], [ 1, %23 ], [ 1, %18 ], [ 1, %.lr.ph.preheader.sink.split ]
+  %.0124225 = phi ptr [ %19, %.loopexit ], [ %19, %21 ], [ null, %13 ], [ %19, %41 ], [ null, %16 ], [ %19, %39 ], [ %19, %37 ], [ null, %9 ], [ %19, %23 ], [ null, %18 ], [ %19, %.lr.ph.preheader.sink.split ]
+  %.0125224 = phi i64 [ %.4129.ph, %.loopexit ], [ 1, %21 ], [ 1, %13 ], [ 1, %41 ], [ 1, %16 ], [ 1, %39 ], [ 1, %37 ], [ 1, %9 ], [ 1, %23 ], [ 1, %18 ], [ 1, %.lr.ph.preheader.sink.split ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

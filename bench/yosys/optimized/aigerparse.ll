@@ -25083,7 +25083,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5Yosys12ConstEvalAig4evalERNS_5RTLIL6
   br label %18
 
 18:                                               ; preds = %.sink.split, %5, %10
-  %.0 = phi i1 [ false, %10 ], [ false, %5 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %5 ], [ false, %10 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

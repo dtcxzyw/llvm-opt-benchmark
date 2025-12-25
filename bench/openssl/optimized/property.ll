@@ -451,7 +451,7 @@ ossl_property_unlock.exit91.thread:               ; preds = %41, %53, %48
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %ossl_property_write_lock.exit, %16
-  %.sink = phi i32 [ 351, %ossl_property_write_lock.exit ], [ 344, %16 ], [ 207, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 344, %16 ], [ 351, %ossl_property_write_lock.exit ], [ 207, %.sink.split.sink.split ]
   tail call void @CRYPTO_free(ptr noundef nonnull %14, ptr noundef nonnull @.str, i32 noundef %.sink) #7
   br label %104
 

@@ -562,7 +562,7 @@ skip_prefix.exit.thread.i:                        ; preds = %95, %.critedge.i
   br label %handshake_capabilities.exit
 
 handshake_capabilities.exit:                      ; preds = %skip_prefix.exit.thread.i, %skip_prefix.exit.thread.us.i, %.loopexit.sink.split.i, %.preheader38.i, %handshake_version.exit.thread
-  %115 = phi i32 [ 1, %handshake_version.exit.thread ], [ 0, %skip_prefix.exit.thread.us.i ], [ 1, %.loopexit.sink.split.i ], [ 0, %.preheader38.i ], [ 0, %skip_prefix.exit.thread.i ]
+  %115 = phi i32 [ 1, %handshake_version.exit.thread ], [ 1, %.loopexit.sink.split.i ], [ 0, %skip_prefix.exit.thread.us.i ], [ 0, %.preheader38.i ], [ 0, %skip_prefix.exit.thread.i ]
   %116 = tail call i32 @sigchain_pop(i32 noundef 13) #12
   ret i32 %115
 }

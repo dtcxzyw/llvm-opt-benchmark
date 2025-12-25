@@ -3991,7 +3991,7 @@ select.unfold236:                                 ; preds = %743, %.thread232, %
   br label %759
 
 759:                                              ; preds = %755, %753
-  %.0 = phi i32 [ 1, %753 ], [ %758, %755 ]
+  %.0 = phi i32 [ %758, %755 ], [ 1, %753 ]
   %760 = call i32 @ff_aac_sbr_decode_usac_data(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %4, i32 noundef %.0, i32 noundef %5) #13
   %761 = icmp sgt i32 %760, -1
   br i1 %761, label %762, label %decode_usac_stereo_info.exit

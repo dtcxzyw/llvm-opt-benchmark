@@ -8038,8 +8038,8 @@ lean_nat_add.exit:                                ; preds = %l_Lake_Toml_decodeH
 lean_dec.exit33:                                  ; preds = %93, %92, %90, %lean_nat_add.exit
   br i1 %72, label %lean_dec.exit36.outer.backedge, label %94
 
-lean_dec.exit36.outer.backedge:                   ; preds = %lean_dec.exit33, %97, %99, %100, %84, %80
-  %.027.ph.be = phi ptr [ %83, %80 ], [ %85, %84 ], [ %86, %100 ], [ %86, %99 ], [ %86, %97 ], [ %86, %lean_dec.exit33 ]
+lean_dec.exit36.outer.backedge:                   ; preds = %lean_dec.exit33, %100, %99, %97, %84, %80
+  %.027.ph.be = phi ptr [ %83, %80 ], [ %85, %84 ], [ %86, %97 ], [ %86, %99 ], [ %86, %100 ], [ %86, %lean_dec.exit33 ]
   br label %lean_dec.exit36.outer
 
 94:                                               ; preds = %lean_dec.exit33
@@ -12127,8 +12127,8 @@ lean_alloc_ctor.exit589:                          ; preds = %lean_dec.exit
   br label %540
 
 537:                                              ; preds = %lean_dec.exit397, %lean_dec.exit412, %28, %lean_dec.exit380, %lean_dec.exit382, %lean_dec.exit384, %lean_dec.exit386, %lean_dec.exit391, %lean_dec.exit417, %lean_dec.exit406, %lean_dec.exit385, %lean_dec.exit383, %lean_dec.exit381
-  %.18315 = phi ptr [ %398, %lean_dec.exit391 ], [ %29, %28 ], [ %378, %lean_dec.exit397 ], [ %495, %lean_dec.exit380 ], [ %486, %lean_dec.exit381 ], [ %477, %lean_dec.exit382 ], [ %468, %lean_dec.exit383 ], [ %459, %lean_dec.exit384 ], [ %450, %lean_dec.exit385 ], [ %441, %lean_dec.exit386 ], [ %205, %lean_dec.exit406 ], [ %.0297773, %lean_dec.exit417 ], [ %185, %lean_dec.exit412 ]
-  %.18 = phi ptr [ %.0.i958, %lean_dec.exit391 ], [ %.0.i525, %28 ], [ %.0.i958, %lean_dec.exit397 ], [ %.0.i587, %lean_dec.exit380 ], [ %.0.i585, %lean_dec.exit381 ], [ %.0.i583, %lean_dec.exit382 ], [ %.0.i581, %lean_dec.exit383 ], [ %.0.i579, %lean_dec.exit384 ], [ %.0.i577, %lean_dec.exit385 ], [ %.0.i575, %lean_dec.exit386 ], [ %.0.i366952, %lean_dec.exit406 ], [ %46, %lean_dec.exit417 ], [ %.0.i366952, %lean_dec.exit412 ]
+  %.18315 = phi ptr [ %185, %lean_dec.exit412 ], [ %29, %28 ], [ %398, %lean_dec.exit391 ], [ %495, %lean_dec.exit380 ], [ %486, %lean_dec.exit381 ], [ %477, %lean_dec.exit382 ], [ %468, %lean_dec.exit383 ], [ %459, %lean_dec.exit384 ], [ %450, %lean_dec.exit385 ], [ %441, %lean_dec.exit386 ], [ %205, %lean_dec.exit406 ], [ %.0297773, %lean_dec.exit417 ], [ %378, %lean_dec.exit397 ]
+  %.18 = phi ptr [ %.0.i366952, %lean_dec.exit412 ], [ %.0.i525, %28 ], [ %.0.i958, %lean_dec.exit391 ], [ %.0.i587, %lean_dec.exit380 ], [ %.0.i585, %lean_dec.exit381 ], [ %.0.i583, %lean_dec.exit382 ], [ %.0.i581, %lean_dec.exit383 ], [ %.0.i579, %lean_dec.exit384 ], [ %.0.i577, %lean_dec.exit385 ], [ %.0.i575, %lean_dec.exit386 ], [ %.0.i366952, %lean_dec.exit406 ], [ %46, %lean_dec.exit417 ], [ %.0.i958, %lean_dec.exit397 ]
   %538 = ptrtoint ptr %.18 to i64
   %539 = and i64 %538, 1
   %.not.i522 = icmp eq i64 %539, 0

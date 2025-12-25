@@ -2177,7 +2177,7 @@ condstore.split:                                  ; preds = %80
   br label %163
 
 163:                                              ; preds = %161, %condstore.split, %.loopexit254, %128, %.split314.us, %50, %121, %117, %.loopexit, %160, %.loopexit256
-  %.8 = phi i32 [ %.0199, %50 ], [ %.us-phi317, %.split314.us ], [ %.0199, %128 ], [ %.7, %.loopexit256 ], [ %.2201, %117 ], [ %.2201, %.loopexit ], [ %.0199, %121 ], [ %.4203.lcssa, %.loopexit254 ], [ %.7441, %160 ], [ %85, %condstore.split ], [ %85, %161 ]
+  %.8 = phi i32 [ %.0199, %50 ], [ %.0199, %128 ], [ %.us-phi317, %.split314.us ], [ %.7, %.loopexit256 ], [ %.2201, %117 ], [ %.2201, %.loopexit ], [ %.0199, %121 ], [ %.4203.lcssa, %.loopexit254 ], [ %.7441, %160 ], [ %85, %condstore.split ], [ %85, %161 ]
   %164 = icmp slt i32 %.8, %2
   br i1 %164, label %50, label %.preheader249, !llvm.loop !119
 

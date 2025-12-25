@@ -420,7 +420,7 @@ define internal range(i32 -2147483648, 1) i32 @drbg_kcapi_random(ptr noundef %0,
   br label %.loopexit
 
 103:                                              ; preds = %102, %.thread9, %62
-  %104 = phi i32 [ %85, %102 ], [ %101, %.thread9 ], [ %63, %62 ]
+  %104 = phi i32 [ %63, %62 ], [ %101, %.thread9 ], [ %85, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @mutex_unlock(ptr noundef nonnull %11) #12
   %105 = icmp sgt i32 %104, -1

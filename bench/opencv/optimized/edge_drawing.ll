@@ -7893,8 +7893,8 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit:   ; preds = %.thread, %242, %243
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit53
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit53:  ; preds = %241, %244
-  %.sroa.074.1 = phi ptr [ %.sroa.074.2.lcssa, %244 ], [ %.sroa.074.3, %241 ]
-  %.pn48.pn = phi { ptr, i32 } [ %245, %244 ], [ %lpad.phi, %241 ]
+  %.sroa.074.1 = phi ptr [ %.sroa.074.3, %241 ], [ %.sroa.074.2.lcssa, %244 ]
+  %.pn48.pn = phi { ptr, i32 } [ %lpad.phi, %241 ], [ %245, %244 ]
   %.not.i.i.i63 = icmp eq ptr %.sroa.074.1, null
   br i1 %.not.i.i.i63, label %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit64, label %246
 
@@ -13664,7 +13664,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl10DetectArcsEv(ptr noundef n
   br label %.backedge
 
 .backedge:                                        ; preds = %853, %.critedge, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit437.thread, %63, %117, %119, %849, %283, %843, %.preheader669, %..critedge.thread.loopexit671_crit_edge, %469, %52, %61
-  %.0316.be = phi i32 [ %.0320.lcssa, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit437.thread ], [ %53, %52 ], [ %62, %61 ], [ %.0320.lcssa, %469 ], [ %.0320.lcssa, %..critedge.thread.loopexit671_crit_edge ], [ %.0320.lcssa, %.preheader669 ], [ %.0320.lcssa, %117 ], [ %.0320.lcssa, %849 ], [ %.0320.lcssa, %119 ], [ %.0320.lcssa, %843 ], [ %.0320.lcssa, %283 ], [ %68, %63 ], [ %.0320.lcssa, %.critedge ], [ %.0320.lcssa, %853 ]
+  %.0316.be = phi i32 [ %.0320.lcssa, %_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit437.thread ], [ %53, %52 ], [ %62, %61 ], [ %.0320.lcssa, %469 ], [ %.0320.lcssa, %..critedge.thread.loopexit671_crit_edge ], [ %.0320.lcssa, %.preheader669 ], [ %.0320.lcssa, %849 ], [ %.0320.lcssa, %117 ], [ %.0320.lcssa, %119 ], [ %.0320.lcssa, %843 ], [ %.0320.lcssa, %283 ], [ %68, %63 ], [ %.0320.lcssa, %.critedge ], [ %.0320.lcssa, %853 ]
   %54 = icmp slt i32 %.0316.be, %39
   br i1 %54, label %45, label %.loopexit674.loopexit, !llvm.loop !443
 

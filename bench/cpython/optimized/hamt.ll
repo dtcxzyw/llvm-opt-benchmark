@@ -2704,7 +2704,7 @@ hamt_node_collision_find_index.exit.thread60.sink.split.i: ; preds = %_Py_NewRef
   br label %hamt_node_bitmap_without.exit
 
 hamt_node_bitmap_without.exit:                    ; preds = %365, %358, %hamt_node_collision_find_index.exit.thread60.sink.split.i, %426, %369, %hamt_node_collision_find_index.exit.i, %354, %351, %Py_DECREF.exit94.i, %217, %hamt_node_bitmap_clone_without.exit, %143, %141, %138, %Py_DECREF.exit71.i.thread, %9
-  %.0 = phi i32 [ 1, %217 ], [ %..i, %hamt_node_bitmap_clone_without.exit ], [ 1, %9 ], [ %.3.i, %Py_DECREF.exit71.i.thread ], [ 2, %143 ], [ 0, %138 ], [ 1, %141 ], [ %.1.i, %Py_DECREF.exit94.i ], [ 1, %351 ], [ 3, %hamt_node_collision_find_index.exit.thread60.sink.split.i ], [ 0, %369 ], [ 1, %354 ], [ 2, %hamt_node_collision_find_index.exit.i ], [ 0, %426 ], [ 0, %358 ], [ 1, %365 ]
+  %.0 = phi i32 [ 1, %217 ], [ %..i, %hamt_node_bitmap_clone_without.exit ], [ 1, %9 ], [ %.3.i, %Py_DECREF.exit71.i.thread ], [ 2, %143 ], [ 0, %138 ], [ 1, %141 ], [ %.1.i, %Py_DECREF.exit94.i ], [ 1, %351 ], [ 3, %hamt_node_collision_find_index.exit.thread60.sink.split.i ], [ 0, %369 ], [ 1, %354 ], [ 2, %hamt_node_collision_find_index.exit.i ], [ 0, %426 ], [ 1, %365 ], [ 0, %358 ]
   ret i32 %.0
 }
 
@@ -2857,7 +2857,7 @@ hamt_node_bitmap_find.exit.sink.split.i:          ; preds = %hamt_node_collision
   br label %hamt_node_find.exit
 
 hamt_node_find.exit:                              ; preds = %43, %17, %62, %55, %7, %hamt_node_bitmap_find.exit.sink.split.i, %51, %40, %37, %3
-  %.0 = phi i32 [ 1, %3 ], [ 2, %hamt_node_bitmap_find.exit.sink.split.i ], [ 0, %7 ], [ 1, %62 ], [ 1, %40 ], [ 0, %37 ], [ 1, %51 ], [ 0, %55 ], [ 1, %17 ], [ 1, %43 ]
+  %.0 = phi i32 [ 1, %3 ], [ 2, %hamt_node_bitmap_find.exit.sink.split.i ], [ 0, %7 ], [ 1, %51 ], [ 1, %40 ], [ 0, %37 ], [ 1, %62 ], [ 0, %55 ], [ 1, %17 ], [ 1, %43 ]
   ret i32 %.0
 }
 

@@ -7371,8 +7371,8 @@ return.sink.split:                                ; preds = %if.else.i, %if.else
   br label %return
 
 return:                                           ; preds = %if.end15.i, %return.sink.split, %_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit
-  %retval.sroa.0.0 = phi i32 [ undef, %return.sink.split ], [ %cp.1.us.i, %_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit ], [ %add.i, %if.end15.i ]
-  %retval.sroa.3.0 = phi i64 [ 0, %return.sink.split ], [ 4294967296, %_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit ], [ 4294967296, %if.end15.i ]
+  %retval.sroa.0.0 = phi i32 [ %cp.1.us.i, %_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit ], [ undef, %return.sink.split ], [ %add.i, %if.end15.i ]
+  %retval.sroa.3.0 = phi i64 [ 4294967296, %_ZN6hermes6parser7JSLexer22consumeBracedCodePointEb.exit ], [ 0, %return.sink.split ], [ 4294967296, %if.end15.i ]
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
@@ -8338,8 +8338,8 @@ sw.bb66:                                          ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %if.else23.i, %if.end.i, %entry, %if.end, %sw.bb66, %sw.bb59, %for.end
-  %retval.sroa.0.0 = phi double [ 0.000000e+00, %entry ], [ %mul65, %sw.bb59 ], [ %result.4, %if.end ], [ %result.1.ph, %for.end ], [ %mul71, %sw.bb66 ], [ 0.000000e+00, %if.end.i ], [ 0.000000e+00, %if.else23.i ]
-  %retval.sroa.3.0 = phi i8 [ 1, %entry ], [ 1, %sw.bb59 ], [ 1, %if.end ], [ 1, %for.end ], [ 1, %sw.bb66 ], [ 0, %if.end.i ], [ 0, %if.else23.i ]
+  %retval.sroa.0.0 = phi double [ %mul65, %sw.bb59 ], [ 0.000000e+00, %entry ], [ %result.4, %if.end ], [ %result.1.ph, %for.end ], [ %mul71, %sw.bb66 ], [ 0.000000e+00, %if.end.i ], [ 0.000000e+00, %if.else23.i ]
+  %retval.sroa.3.0 = phi i8 [ 1, %sw.bb59 ], [ 1, %entry ], [ 1, %if.end ], [ 1, %for.end ], [ 1, %sw.bb66 ], [ 0, %if.end.i ], [ 0, %if.else23.i ]
   %.fca.0.insert = insertvalue { double, i8 } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { double, i8 } %.fca.1.insert
@@ -15090,8 +15090,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %_ZN4llv
   br label %while.body, !llvm.loop !1375
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us98, %while.body.us83, %while.body.us50, %land.rhs.i.i.us65, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
-  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
-  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.then.i.us ], [ true, %while.body.us50 ], [ true, %land.rhs.i.i.us98 ], [ true, %if.then.i.us.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
+  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
+  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %land.rhs.i.i.us98 ], [ true, %while.body.us50 ], [ true, %if.then.i.us.us ], [ true, %if.then.i.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }
@@ -19670,8 +19670,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %_ZN4llv
   br label %while.body, !llvm.loop !1437
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us98, %while.body.us83, %while.body.us50, %land.rhs.i.i.us65, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
-  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
-  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.then.i.us ], [ true, %while.body.us50 ], [ true, %land.rhs.i.i.us98 ], [ true, %if.then.i.us.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
+  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
+  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %land.rhs.i.i.us98 ], [ true, %while.body.us50 ], [ true, %if.then.i.us.us ], [ true, %if.then.i.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }

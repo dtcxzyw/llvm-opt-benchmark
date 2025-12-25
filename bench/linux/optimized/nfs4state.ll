@@ -4060,7 +4060,7 @@ define dso_local i32 @nfs4_discover_server_trunking(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %44, %58, %39, %28, %28, %28, %.thread.loopexit88, %.thread.loopexit, %2, %63, %55
-  %65 = phi i32 [ -5, %63 ], [ %57, %55 ], [ -127, %.thread.loopexit88 ], [ %.ph, %.thread.loopexit ], [ -2, %39 ], [ %23, %28 ], [ -2, %2 ], [ %23, %28 ], [ %23, %28 ], [ -13, %44 ], [ -1, %.loopexit ], [ -2, %58 ]
+  %65 = phi i32 [ -5, %63 ], [ %57, %55 ], [ -127, %.thread.loopexit88 ], [ %.ph, %.thread.loopexit ], [ -2, %39 ], [ %23, %28 ], [ -2, %2 ], [ %23, %28 ], [ %23, %28 ], [ -1, %.loopexit ], [ -2, %58 ], [ -13, %44 ]
   tail call void @mutex_unlock(ptr noundef nonnull @nfs_clid_init_mutex) #17
   ret i32 %65
 }

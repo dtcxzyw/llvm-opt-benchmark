@@ -1481,7 +1481,7 @@ select.unfold.i:                                  ; preds = %94, %86, %24
   ret { i64, ptr } %106
 
 "_ZN89_$LT$futures_lite..io..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hd6088f5a49c565deE.exit.loopexit215.i": ; preds = %33, %48, %.loopexit.loopexit.i, %.loopexit158.loopexit.i
-  %.sroa.10.2.i.ph = phi ptr [ %63, %.loopexit158.loopexit.i ], [ %97, %.loopexit.loopexit.i ], [ %52, %48 ], [ %37, %33 ]
+  %.sroa.10.2.i.ph = phi ptr [ %97, %.loopexit.loopexit.i ], [ %63, %.loopexit158.loopexit.i ], [ %52, %48 ], [ %37, %33 ]
   %107 = icmp eq ptr %.sroa.10.2.i.ph, null
   br i1 %107, label %.thread20, label %.sink.split
 

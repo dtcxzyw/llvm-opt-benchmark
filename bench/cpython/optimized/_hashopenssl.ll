@@ -3699,7 +3699,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit32, %
   br label %Py_DECREF.exit34
 
 Py_DECREF.exit34:                                 ; preds = %15, %Py_DECREF.exit, %28, %25, %23, %5, %1, %._crit_edge
-  %.0 = phi i32 [ %48, %._crit_edge ], [ -1, %1 ], [ -1, %5 ], [ -1, %28 ], [ -1, %25 ], [ -1, %23 ], [ -1, %Py_DECREF.exit ], [ -1, %15 ]
+  %.0 = phi i32 [ %48, %._crit_edge ], [ -1, %1 ], [ -1, %5 ], [ -1, %25 ], [ -1, %28 ], [ -1, %23 ], [ -1, %Py_DECREF.exit ], [ -1, %15 ]
   ret i32 %.0
 }
 

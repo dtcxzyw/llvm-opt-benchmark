@@ -387,7 +387,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr noundef
   br label %.split.split, !llvm.loop !7
 
 .split32.us:                                      ; preds = %.critedge, %170, %138, %.critedge.us, %.critedge.us33, %150, %123, %.critedge.us.us
-  %.us-phi = phi i32 [ %119, %123 ], [ %145, %.critedge.us33 ], [ %134, %138 ], [ %119, %.critedge.us.us ], [ %144, %150 ], [ %134, %.critedge.us ], [ %165, %.critedge ], [ %164, %170 ]
+  %.us-phi = phi i32 [ %134, %138 ], [ %119, %123 ], [ %145, %.critedge.us33 ], [ %119, %.critedge.us.us ], [ %144, %150 ], [ %134, %.critedge.us ], [ %165, %.critedge ], [ %164, %170 ]
   %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %186, label %.thread86
 

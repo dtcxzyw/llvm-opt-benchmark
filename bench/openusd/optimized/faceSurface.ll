@@ -808,7 +808,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexER
   tail call void @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex13SharpenSubsetEPNS1_16FaceVertexSubsetE(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef %1)
   br label %.critedge
 
-.critedge:                                        ; preds = %55, %49, %26, %20, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit, %32, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit35, %61, %9, %5, %.critedge31, %63
+.critedge:                                        ; preds = %55, %49, %26, %20, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit, %32, %61, %_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21hasDependentSharpnessERKNS1_10FaceVertexERKNS1_16FaceVertexSubsetE.exit35, %9, %5, %.critedge31, %63
   ret void
 }
 

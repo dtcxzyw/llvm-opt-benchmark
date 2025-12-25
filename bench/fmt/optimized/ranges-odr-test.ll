@@ -3755,7 +3755,7 @@ _ZNK3fmt3v117context3argEi.exit.thread39:         ; preds = %_ZNK3fmt3v117contex
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit: ; preds = %79, %74, %76, %78, %80
-  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
+  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
   %91 = icmp ugt i64 %.0.i, 2147483647
   br i1 %91, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread44
 

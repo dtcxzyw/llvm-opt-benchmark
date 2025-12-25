@@ -30684,7 +30684,7 @@ define internal fastcc ptr @zend_fetch_static_prop_info(ptr noundef %0, ptr noun
   br label %48
 
 48:                                               ; preds = %14, %24, %43
-  %.129 = phi ptr [ %26, %24 ], [ %47, %43 ], [ %16, %14 ]
+  %.129 = phi ptr [ %16, %14 ], [ %47, %43 ], [ %26, %24 ]
   %.not36 = icmp eq ptr %.129, null
   br i1 %.not36, label %.thread, label %49
 
@@ -47163,7 +47163,7 @@ zval_get_double.exit147:                          ; preds = %212, %214
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %is_effective_op2_double_cast.exit, %188, %187, %is_effective_op1_double_cast.exit, %177, %176, %175
-  %.sink = phi i32 [ 0, %is_effective_op1_double_cast.exit ], [ 0, %is_effective_op2_double_cast.exit ], [ 0, %188 ], [ 0, %175 ], [ 0, %176 ], [ 0, %177 ], [ 0, %187 ], [ 4, %.sink.split.sink.split ]
+  %.sink = phi i32 [ 0, %is_effective_op1_double_cast.exit ], [ 0, %188 ], [ 0, %is_effective_op2_double_cast.exit ], [ 0, %175 ], [ 0, %176 ], [ 0, %177 ], [ 0, %187 ], [ 4, %.sink.split.sink.split ]
   store i32 %.sink, ptr %44, align 8, !tbaa !28
   br label %219
 
@@ -47292,7 +47292,7 @@ zend_ssa_next_use_phi.exit:                       ; preds = %269, %261
   br i1 %.not, label %.thread161, label %237
 
 .thread161:                                       ; preds = %56, %switch.early.test.i, %switch.early.test.i, %60, %82, %zend_ssa_is_no_val_use.exit.thread, %.preheader, %237, %245, %zend_ssa_next_use_phi.exit, %264, %._crit_edge, %.thread164, %5
-  %.0132 = phi i1 [ true, %264 ], [ false, %.thread164 ], [ true, %5 ], [ true, %._crit_edge ], [ false, %237 ], [ true, %.preheader ], [ true, %zend_ssa_next_use_phi.exit ], [ false, %245 ], [ false, %zend_ssa_is_no_val_use.exit.thread ], [ false, %82 ], [ false, %60 ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ false, %56 ]
+  %.0132 = phi i1 [ true, %._crit_edge ], [ false, %.thread164 ], [ true, %5 ], [ false, %237 ], [ true, %264 ], [ true, %.preheader ], [ true, %zend_ssa_next_use_phi.exit ], [ false, %245 ], [ false, %zend_ssa_is_no_val_use.exit.thread ], [ false, %82 ], [ false, %60 ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ false, %56 ]
   ret i1 %.0132
 }
 

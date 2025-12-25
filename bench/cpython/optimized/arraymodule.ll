@@ -4148,7 +4148,7 @@ Py_DECREF.exit116:                                ; preds = %_Py_NewRef.exit147,
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %Py_DECREF.exit118, %.lr.ph206, %41, %.thread153, %53, %129, %126, %Py_DECREF.exit116, %106, %.split93, %102, %.split95, %78, %75, %73, %23, %.split, %19, %.split91, %.critedge110, %PyObject_TypeCheck.exit, %PyObject_TypeCheck.exit142
-  %.076 = phi ptr [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit ], [ null, %41 ], [ null, %.critedge110 ], [ %.289, %129 ], [ null, %78 ], [ @_Py_TrueStruct, %23 ], [ @_Py_FalseStruct, %106 ], [ %50, %.thread153 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit142 ], [ @_Py_FalseStruct, %19 ], [ @_Py_TrueStruct, %102 ], [ @_Py_FalseStruct, %.split91 ], [ @_Py_TrueStruct, %.split ], [ null, %73 ], [ null, %75 ], [ @_Py_TrueStruct, %.split95 ], [ @_Py_FalseStruct, %.split93 ], [ %.289, %Py_DECREF.exit116 ], [ %.289, %126 ], [ %50, %53 ], [ null, %.lr.ph206 ], [ null, %Py_DECREF.exit118 ]
+  %.076 = phi ptr [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit ], [ %50, %.thread153 ], [ null, %.critedge110 ], [ %.289, %129 ], [ null, %78 ], [ @_Py_TrueStruct, %23 ], [ @_Py_FalseStruct, %106 ], [ null, %41 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit142 ], [ @_Py_FalseStruct, %19 ], [ @_Py_TrueStruct, %102 ], [ @_Py_FalseStruct, %.split91 ], [ @_Py_TrueStruct, %.split ], [ null, %73 ], [ null, %75 ], [ @_Py_TrueStruct, %.split95 ], [ @_Py_FalseStruct, %.split93 ], [ %.289, %Py_DECREF.exit116 ], [ %.289, %126 ], [ %50, %53 ], [ null, %.lr.ph206 ], [ null, %Py_DECREF.exit118 ]
   ret ptr %.076
 }
 

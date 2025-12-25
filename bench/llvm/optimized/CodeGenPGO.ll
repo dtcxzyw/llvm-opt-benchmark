@@ -25022,7 +25022,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16dataTravers
   %693 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE18TraverseGCCAsmStmtEPNS_10GCCAsmStmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIPNS_4StmtELj1EbNS6_21PointerLikeTypeTraitsISA_EENS6_18PointerIntPairInfoISA_Lj1ESC_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %65, ptr noundef nonnull %11)
   br i1 %693, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread, label %_ZSt7reverseIPN4llvm14PointerIntPairIPN5clang4StmtELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvT_SB_.exit.thread
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread: ; preds = %688, %687, %686, %675, %674, %499, %_ZN12_GLOBAL__N_117MapRegionCounters19dataTraverseStmtPreEPN5clang4StmtE.exit, %294, %191, %689, %192, %194, %196, %198, %200, %202, %204, %206, %208, %210, %212, %214, %216, %218, %220, %222, %224, %226, %228, %230, %232, %234, %236, %238, %240, %242, %244, %246, %248, %250, %252, %254, %256, %258, %260, %262, %264, %266, %268, %270, %272, %274, %276, %278, %280, %282, %284, %286, %288, %290, %292, %684, %295, %297, %303, %305, %307, %309, %311, %313, %315, %317, %319, %321, %323, %325, %327, %329, %331, %333, %335, %337, %339, %341, %343, %345, %347, %349, %351, %353, %355, %357, %359, %361, %363, %365, %367, %369, %371, %373, %375, %377, %379, %381, %383, %385, %387, %389, %391, %393, %395, %397, %399, %401, %403, %405, %407, %409, %411, %413, %415, %417, %419, %421, %423, %425, %427, %682, %429, %431, %433, %435, %437, %439, %441, %443, %445, %447, %449, %451, %453, %455, %457, %459, %461, %463, %465, %467, %469, %471, %473, %475, %477, %479, %481, %483, %485, %487, %489, %491, %493, %495, %497, %680, %500, %502, %504, %506, %508, %510, %512, %514, %516, %518, %520, %522, %524, %526, %528, %530, %532, %534, %536, %538, %540, %542, %544, %546, %548, %550, %552, %554, %556, %558, %560, %562, %564, %566, %568, %570, %572, %574, %576, %578, %580, %582, %584, %586, %588, %590, %592, %594, %596, %598, %600, %602, %604, %606, %608, %610, %612, %614, %616, %618, %620, %622, %624, %626, %628, %630, %632, %634, %636, %638, %640, %642, %644, %646, %648, %650, %652, %654, %656, %658, %660, %662, %664, %666, %668, %670, %672, %678, %676, %691, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit.thread: ; preds = %688, %687, %686, %675, %674, %499, %_ZN12_GLOBAL__N_117MapRegionCounters19dataTraverseStmtPreEPN5clang4StmtE.exit, %294, %191, %676, %192, %194, %196, %198, %200, %202, %204, %206, %208, %210, %212, %214, %216, %218, %220, %222, %224, %226, %228, %230, %232, %234, %236, %238, %240, %242, %244, %246, %248, %250, %252, %254, %256, %258, %260, %262, %264, %266, %268, %270, %272, %274, %276, %278, %280, %282, %284, %286, %288, %290, %292, %678, %295, %297, %303, %305, %307, %309, %311, %313, %315, %317, %319, %321, %323, %325, %327, %329, %331, %333, %335, %337, %339, %341, %343, %345, %347, %349, %351, %353, %355, %357, %359, %361, %363, %365, %367, %369, %371, %373, %375, %377, %379, %381, %383, %385, %387, %389, %391, %393, %395, %397, %399, %401, %403, %405, %407, %409, %411, %413, %415, %417, %419, %421, %423, %425, %427, %680, %429, %431, %433, %435, %437, %439, %441, %443, %445, %447, %449, %451, %453, %455, %457, %459, %461, %463, %465, %467, %469, %471, %473, %475, %477, %479, %481, %483, %485, %487, %489, %491, %493, %495, %497, %682, %500, %502, %504, %506, %508, %510, %512, %514, %516, %518, %520, %522, %524, %526, %528, %530, %532, %534, %536, %538, %540, %542, %544, %546, %548, %550, %552, %554, %556, %558, %560, %562, %564, %566, %568, %570, %572, %574, %576, %578, %580, %582, %584, %586, %588, %590, %592, %594, %596, %598, %600, %602, %604, %606, %608, %610, %612, %614, %616, %618, %620, %622, %624, %626, %628, %630, %632, %634, %636, %638, %640, %642, %644, %646, %648, %650, %652, %654, %656, %658, %660, %662, %664, %666, %668, %670, %672, %684, %689, %691, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit
   %.idx = shl nuw nsw i64 %188, 3
   %694 = load i32, ptr %31, align 8, !tbaa !26
   %695 = zext i32 %694 to i64
@@ -25051,8 +25051,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16dataTravers
   %703 = icmp ult ptr %702, %.0.i.i
   br i1 %703, label %.lr.ph.i.i, label %thread-pre-split, !llvm.loop !1667
 
-_ZSt7reverseIPN4llvm14PointerIntPairIPN5clang4StmtELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvT_SB_.exit.thread: ; preds = %thread-pre-split, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit, %689, %691, %676, %678, %672, %670, %668, %666, %664, %662, %660, %658, %656, %654, %652, %650, %648, %646, %644, %642, %640, %638, %636, %634, %632, %630, %628, %626, %624, %622, %620, %618, %616, %614, %612, %610, %608, %606, %604, %602, %600, %598, %596, %594, %592, %590, %588, %586, %584, %582, %580, %578, %576, %574, %572, %570, %568, %566, %564, %562, %560, %558, %556, %554, %552, %550, %548, %546, %544, %542, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %520, %518, %516, %514, %512, %510, %508, %506, %504, %502, %500, %680, %497, %495, %493, %491, %489, %487, %485, %483, %481, %479, %477, %475, %473, %471, %469, %467, %465, %463, %461, %459, %457, %455, %453, %451, %449, %447, %445, %443, %441, %439, %437, %435, %433, %431, %429, %682, %427, %425, %423, %421, %419, %417, %415, %413, %411, %409, %407, %405, %403, %401, %399, %397, %395, %393, %391, %389, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %297, %295, %684, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %252, %250, %248, %246, %244, %242, %240, %238, %236, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %212, %210, %208, %206, %204, %202, %200, %198, %196, %194, %192
-  %.not.i.lcssa.ph = phi i1 [ true, %thread-pre-split ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit ], [ false, %689 ], [ false, %691 ], [ false, %676 ], [ false, %678 ], [ false, %672 ], [ false, %670 ], [ false, %668 ], [ false, %666 ], [ false, %664 ], [ false, %662 ], [ false, %660 ], [ false, %658 ], [ false, %656 ], [ false, %654 ], [ false, %652 ], [ false, %650 ], [ false, %648 ], [ false, %646 ], [ false, %644 ], [ false, %642 ], [ false, %640 ], [ false, %638 ], [ false, %636 ], [ false, %634 ], [ false, %632 ], [ false, %630 ], [ false, %628 ], [ false, %626 ], [ false, %624 ], [ false, %622 ], [ false, %620 ], [ false, %618 ], [ false, %616 ], [ false, %614 ], [ false, %612 ], [ false, %610 ], [ false, %608 ], [ false, %606 ], [ false, %604 ], [ false, %602 ], [ false, %600 ], [ false, %598 ], [ false, %596 ], [ false, %594 ], [ false, %592 ], [ false, %590 ], [ false, %588 ], [ false, %586 ], [ false, %584 ], [ false, %582 ], [ false, %580 ], [ false, %578 ], [ false, %576 ], [ false, %574 ], [ false, %572 ], [ false, %570 ], [ false, %568 ], [ false, %566 ], [ false, %564 ], [ false, %562 ], [ false, %560 ], [ false, %558 ], [ false, %556 ], [ false, %554 ], [ false, %552 ], [ false, %550 ], [ false, %548 ], [ false, %546 ], [ false, %544 ], [ false, %542 ], [ false, %540 ], [ false, %538 ], [ false, %536 ], [ false, %534 ], [ false, %532 ], [ false, %530 ], [ false, %528 ], [ false, %526 ], [ false, %524 ], [ false, %522 ], [ false, %520 ], [ false, %518 ], [ false, %516 ], [ false, %514 ], [ false, %512 ], [ false, %510 ], [ false, %508 ], [ false, %506 ], [ false, %504 ], [ false, %502 ], [ false, %500 ], [ false, %680 ], [ false, %497 ], [ false, %495 ], [ false, %493 ], [ false, %491 ], [ false, %489 ], [ false, %487 ], [ false, %485 ], [ false, %483 ], [ false, %481 ], [ false, %479 ], [ false, %477 ], [ false, %475 ], [ false, %473 ], [ false, %471 ], [ false, %469 ], [ false, %467 ], [ false, %465 ], [ false, %463 ], [ false, %461 ], [ false, %459 ], [ false, %457 ], [ false, %455 ], [ false, %453 ], [ false, %451 ], [ false, %449 ], [ false, %447 ], [ false, %445 ], [ false, %443 ], [ false, %441 ], [ false, %439 ], [ false, %437 ], [ false, %435 ], [ false, %433 ], [ false, %431 ], [ false, %429 ], [ false, %682 ], [ false, %427 ], [ false, %425 ], [ false, %423 ], [ false, %421 ], [ false, %419 ], [ false, %417 ], [ false, %415 ], [ false, %413 ], [ false, %411 ], [ false, %409 ], [ false, %407 ], [ false, %405 ], [ false, %403 ], [ false, %401 ], [ false, %399 ], [ false, %397 ], [ false, %395 ], [ false, %393 ], [ false, %391 ], [ false, %389 ], [ false, %387 ], [ false, %385 ], [ false, %383 ], [ false, %381 ], [ false, %379 ], [ false, %377 ], [ false, %375 ], [ false, %373 ], [ false, %371 ], [ false, %369 ], [ false, %367 ], [ false, %365 ], [ false, %363 ], [ false, %361 ], [ false, %359 ], [ false, %357 ], [ false, %355 ], [ false, %353 ], [ false, %351 ], [ false, %349 ], [ false, %347 ], [ false, %345 ], [ false, %343 ], [ false, %341 ], [ false, %339 ], [ false, %337 ], [ false, %335 ], [ false, %333 ], [ false, %331 ], [ false, %329 ], [ false, %327 ], [ false, %325 ], [ false, %323 ], [ false, %321 ], [ false, %319 ], [ false, %317 ], [ false, %315 ], [ false, %313 ], [ false, %311 ], [ false, %309 ], [ false, %307 ], [ false, %305 ], [ false, %303 ], [ false, %297 ], [ false, %295 ], [ false, %684 ], [ false, %292 ], [ false, %290 ], [ false, %288 ], [ false, %286 ], [ false, %284 ], [ false, %282 ], [ false, %280 ], [ false, %278 ], [ false, %276 ], [ false, %274 ], [ false, %272 ], [ false, %270 ], [ false, %268 ], [ false, %266 ], [ false, %264 ], [ false, %262 ], [ false, %260 ], [ false, %258 ], [ false, %256 ], [ false, %254 ], [ false, %252 ], [ false, %250 ], [ false, %248 ], [ false, %246 ], [ false, %244 ], [ false, %242 ], [ false, %240 ], [ false, %238 ], [ false, %236 ], [ false, %234 ], [ false, %232 ], [ false, %230 ], [ false, %228 ], [ false, %226 ], [ false, %224 ], [ false, %222 ], [ false, %220 ], [ false, %218 ], [ false, %216 ], [ false, %214 ], [ false, %212 ], [ false, %210 ], [ false, %208 ], [ false, %206 ], [ false, %204 ], [ false, %202 ], [ false, %200 ], [ false, %198 ], [ false, %196 ], [ false, %194 ], [ false, %192 ]
+_ZSt7reverseIPN4llvm14PointerIntPairIPN5clang4StmtELj1EbNS0_21PointerLikeTypeTraitsIS4_EENS0_18PointerIntPairInfoIS4_Lj1ES6_EEEEEvT_SB_.exit.thread: ; preds = %thread-pre-split, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit, %676, %691, %689, %684, %672, %670, %668, %666, %664, %662, %660, %658, %656, %654, %652, %650, %648, %646, %644, %642, %640, %638, %636, %634, %632, %630, %628, %626, %624, %622, %620, %618, %616, %614, %612, %610, %608, %606, %604, %602, %600, %598, %596, %594, %592, %590, %588, %586, %584, %582, %580, %578, %576, %574, %572, %570, %568, %566, %564, %562, %560, %558, %556, %554, %552, %550, %548, %546, %544, %542, %540, %538, %536, %534, %532, %530, %528, %526, %524, %522, %520, %518, %516, %514, %512, %510, %508, %506, %504, %502, %500, %682, %497, %495, %493, %491, %489, %487, %485, %483, %481, %479, %477, %475, %473, %471, %469, %467, %465, %463, %461, %459, %457, %455, %453, %451, %449, %447, %445, %443, %441, %439, %437, %435, %433, %431, %429, %680, %427, %425, %423, %421, %419, %417, %415, %413, %411, %409, %407, %405, %403, %401, %399, %397, %395, %393, %391, %389, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %297, %295, %678, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %254, %252, %250, %248, %246, %244, %242, %240, %238, %236, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %212, %210, %208, %206, %204, %202, %200, %198, %196, %194, %192
+  %.not.i.lcssa.ph = phi i1 [ true, %thread-pre-split ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE16dataTraverseNodeEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE.exit ], [ false, %676 ], [ false, %691 ], [ false, %689 ], [ false, %684 ], [ false, %672 ], [ false, %670 ], [ false, %668 ], [ false, %666 ], [ false, %664 ], [ false, %662 ], [ false, %660 ], [ false, %658 ], [ false, %656 ], [ false, %654 ], [ false, %652 ], [ false, %650 ], [ false, %648 ], [ false, %646 ], [ false, %644 ], [ false, %642 ], [ false, %640 ], [ false, %638 ], [ false, %636 ], [ false, %634 ], [ false, %632 ], [ false, %630 ], [ false, %628 ], [ false, %626 ], [ false, %624 ], [ false, %622 ], [ false, %620 ], [ false, %618 ], [ false, %616 ], [ false, %614 ], [ false, %612 ], [ false, %610 ], [ false, %608 ], [ false, %606 ], [ false, %604 ], [ false, %602 ], [ false, %600 ], [ false, %598 ], [ false, %596 ], [ false, %594 ], [ false, %592 ], [ false, %590 ], [ false, %588 ], [ false, %586 ], [ false, %584 ], [ false, %582 ], [ false, %580 ], [ false, %578 ], [ false, %576 ], [ false, %574 ], [ false, %572 ], [ false, %570 ], [ false, %568 ], [ false, %566 ], [ false, %564 ], [ false, %562 ], [ false, %560 ], [ false, %558 ], [ false, %556 ], [ false, %554 ], [ false, %552 ], [ false, %550 ], [ false, %548 ], [ false, %546 ], [ false, %544 ], [ false, %542 ], [ false, %540 ], [ false, %538 ], [ false, %536 ], [ false, %534 ], [ false, %532 ], [ false, %530 ], [ false, %528 ], [ false, %526 ], [ false, %524 ], [ false, %522 ], [ false, %520 ], [ false, %518 ], [ false, %516 ], [ false, %514 ], [ false, %512 ], [ false, %510 ], [ false, %508 ], [ false, %506 ], [ false, %504 ], [ false, %502 ], [ false, %500 ], [ false, %682 ], [ false, %497 ], [ false, %495 ], [ false, %493 ], [ false, %491 ], [ false, %489 ], [ false, %487 ], [ false, %485 ], [ false, %483 ], [ false, %481 ], [ false, %479 ], [ false, %477 ], [ false, %475 ], [ false, %473 ], [ false, %471 ], [ false, %469 ], [ false, %467 ], [ false, %465 ], [ false, %463 ], [ false, %461 ], [ false, %459 ], [ false, %457 ], [ false, %455 ], [ false, %453 ], [ false, %451 ], [ false, %449 ], [ false, %447 ], [ false, %445 ], [ false, %443 ], [ false, %441 ], [ false, %439 ], [ false, %437 ], [ false, %435 ], [ false, %433 ], [ false, %431 ], [ false, %429 ], [ false, %680 ], [ false, %427 ], [ false, %425 ], [ false, %423 ], [ false, %421 ], [ false, %419 ], [ false, %417 ], [ false, %415 ], [ false, %413 ], [ false, %411 ], [ false, %409 ], [ false, %407 ], [ false, %405 ], [ false, %403 ], [ false, %401 ], [ false, %399 ], [ false, %397 ], [ false, %395 ], [ false, %393 ], [ false, %391 ], [ false, %389 ], [ false, %387 ], [ false, %385 ], [ false, %383 ], [ false, %381 ], [ false, %379 ], [ false, %377 ], [ false, %375 ], [ false, %373 ], [ false, %371 ], [ false, %369 ], [ false, %367 ], [ false, %365 ], [ false, %363 ], [ false, %361 ], [ false, %359 ], [ false, %357 ], [ false, %355 ], [ false, %353 ], [ false, %351 ], [ false, %349 ], [ false, %347 ], [ false, %345 ], [ false, %343 ], [ false, %341 ], [ false, %339 ], [ false, %337 ], [ false, %335 ], [ false, %333 ], [ false, %331 ], [ false, %329 ], [ false, %327 ], [ false, %325 ], [ false, %323 ], [ false, %321 ], [ false, %319 ], [ false, %317 ], [ false, %315 ], [ false, %313 ], [ false, %311 ], [ false, %309 ], [ false, %307 ], [ false, %305 ], [ false, %303 ], [ false, %297 ], [ false, %295 ], [ false, %678 ], [ false, %292 ], [ false, %290 ], [ false, %288 ], [ false, %286 ], [ false, %284 ], [ false, %282 ], [ false, %280 ], [ false, %278 ], [ false, %276 ], [ false, %274 ], [ false, %272 ], [ false, %270 ], [ false, %268 ], [ false, %266 ], [ false, %264 ], [ false, %262 ], [ false, %260 ], [ false, %258 ], [ false, %256 ], [ false, %254 ], [ false, %252 ], [ false, %250 ], [ false, %248 ], [ false, %246 ], [ false, %244 ], [ false, %242 ], [ false, %240 ], [ false, %238 ], [ false, %236 ], [ false, %234 ], [ false, %232 ], [ false, %230 ], [ false, %228 ], [ false, %226 ], [ false, %224 ], [ false, %222 ], [ false, %220 ], [ false, %218 ], [ false, %216 ], [ false, %214 ], [ false, %212 ], [ false, %210 ], [ false, %208 ], [ false, %206 ], [ false, %204 ], [ false, %202 ], [ false, %200 ], [ false, %198 ], [ false, %196 ], [ false, %194 ], [ false, %192 ]
   %.pre = load ptr, ptr %11, align 8, !tbaa !25
   %704 = icmp eq ptr %.pre, %30
   br i1 %704, label %_ZN4llvm11SmallVectorINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELj8EED2Ev.exit, label %705
@@ -25589,7 +25589,7 @@ tailrecurse.backedge:                             ; preds = %_ZNK5clang7TypeLoc1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %3, %159, %156, %142, %140, %135, %133, %130, %127, %124, %121, %118, %116, %113, %111, %108, %106, %104, %102, %99, %96, %94, %92, %90, %88, %86, %84, %78, %75, %73, %71, %69, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26
-  %.0 = phi i1 [ %161, %159 ], [ %132, %130 ], [ %129, %127 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %158, %156 ], [ %58, %56 ], [ %61, %59 ], [ %134, %133 ], [ %64, %62 ], [ %68, %65 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %77, %75 ], [ %83, %78 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %98, %96 ], [ %139, %135 ], [ %101, %99 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %110, %108 ], [ %112, %111 ], [ %145, %142 ], [ %141, %140 ], [ %115, %113 ], [ %117, %116 ], [ %120, %118 ], [ %123, %121 ], [ %126, %124 ], [ true, %3 ], [ true, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %161, %159 ], [ %129, %127 ], [ %132, %130 ], [ %28, %26 ], [ %31, %29 ], [ %34, %32 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %158, %156 ], [ %58, %56 ], [ %61, %59 ], [ %134, %133 ], [ %64, %62 ], [ %68, %65 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %77, %75 ], [ %83, %78 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %98, %96 ], [ %139, %135 ], [ %101, %99 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %110, %108 ], [ %112, %111 ], [ %145, %142 ], [ %141, %140 ], [ %115, %113 ], [ %117, %116 ], [ %120, %118 ], [ %123, %121 ], [ %126, %124 ], [ true, %3 ], [ true, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -27029,7 +27029,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %71, %67, %65, %60, %58, %56, %54, %52, %50, %48, %46, %43, %41, %39, %37, %33, %30, %28, %26, %24, %20, %18, %15, %13, %11, %9
-  %.0 = phi i1 [ %47, %46 ], [ %55, %54 ], [ %44, %43 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %47, %46 ], [ %44, %43 ], [ %55, %54 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -30952,112 +30952,112 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %.04881 = phi ptr [ %79, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread ], [ %21, %.critedge ]
   %26 = load ptr, ptr %.04881, align 8, !tbaa !1781
   %27 = load i32, ptr %26, align 4, !tbaa !1783
-  switch i32 %27, label %72 [
+  switch i32 %27, label %75 [
     i32 0, label %28
-    i32 1, label %32
-    i32 2, label %32
-    i32 3, label %64
+    i32 1, label %39
+    i32 2, label %39
+    i32 3, label %71
   ]
 
 28:                                               ; preds = %.lr.ph82
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !1786
   %31 = icmp eq i32 %30, 1
-  br i1 %31, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+  br i1 %31, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %32
 
-32:                                               ; preds = %.lr.ph82, %.lr.ph82
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %34 = load i32, ptr %33, align 8, !tbaa !1794
-  %35 = icmp eq i32 %34, 1
-  br i1 %35, label %41, label %36
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i58 = load i64, ptr %33, align 8
+  %34 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i58, -8
+  %35 = inttoptr i64 %34 to ptr
+  %.sroa.0.0.copyload.i.i = load i64, ptr %35, align 8, !tbaa !430
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
+  %38 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %37, ptr nonnull %36)
+  br i1 %38, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %37, align 8
-  %38 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -4
-  %39 = inttoptr i64 %38 to ptr
-  %40 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %39, ptr noundef null)
-  br i1 %40, label %41, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+39:                                               ; preds = %.lr.ph82, %.lr.ph82
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %41 = load i32, ptr %40, align 8, !tbaa !1794
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %48, label %43
 
-41:                                               ; preds = %36, %32
-  %42 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %42, align 8
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
+  %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -4
+  %46 = inttoptr i64 %45 to ptr
+  %47 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %46, ptr noundef null)
+  br i1 %47, label %48, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+
+48:                                               ; preds = %43, %39
+  %49 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %49, align 8
   %.not.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i, 7
-  %43 = and i64 %.0.copyload.i.i.i.i.i.i, 4
-  %44 = icmp eq i64 %43, 0
-  %45 = and i1 %.not.i.i.i.i, %44
-  br i1 %45, label %46, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread
+  %50 = and i64 %.0.copyload.i.i.i.i.i.i, 4
+  %51 = icmp eq i64 %50, 0
+  %52 = and i1 %.not.i.i.i.i, %51
+  br i1 %52, label %53, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread
 
-46:                                               ; preds = %41
-  %47 = tail call noundef ptr @_ZNK5clang8concepts15ExprRequirement21ReturnTypeRequirement17getTypeConstraintEv(ptr noundef nonnull align 8 dereferenceable(8) %42) #22
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !894
-  %.sroa.0.0.copyload.i = load ptr, ptr %49, align 8, !tbaa !898
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 8
+53:                                               ; preds = %48
+  %54 = tail call noundef ptr @_ZNK5clang8concepts15ExprRequirement21ReturnTypeRequirement17getTypeConstraintEv(ptr noundef nonnull align 8 dereferenceable(8) %49) #22
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !894
+  %.sroa.0.0.copyload.i = load ptr, ptr %56, align 8, !tbaa !898
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !899
-  %50 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i)
-  br i1 %50, label %51, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+  %57 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE30TraverseNestedNameSpecifierLocENS_22NestedNameSpecifierLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i)
+  br i1 %57, label %58, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %53 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull byval(%"struct.clang::DeclarationNameInfo") align 8 %52)
-  br i1 %53, label %54, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %60 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull byval(%"struct.clang::DeclarationNameInfo") align 8 %59)
+  br i1 %60, label %61, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %56 = load ptr, ptr %55, align 8, !tbaa !900
-  %.not73 = icmp eq ptr %56, null
-  br i1 %.not73, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %57
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 64
+  %63 = load ptr, ptr %62, align 8, !tbaa !900
+  %.not73 = icmp eq ptr %63, null
+  br i1 %.not73, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %64
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %60 = load i32, ptr %59, align 8, !tbaa !910
-  %.not86 = icmp eq i32 %60, 0
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %67 = load i32, ptr %66, align 8, !tbaa !910
+  %.not86 = icmp eq i32 %67, 0
   br i1 %.not86, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %.lr.ph79.preheader
 
-.lr.ph79.preheader:                               ; preds = %57
-  %wide.trip.count = zext i32 %60 to i64
+.lr.ph79.preheader:                               ; preds = %64
+  %wide.trip.count = zext i32 %67 to i64
   br label %.lr.ph79
 
-61:                                               ; preds = %.lr.ph79
+68:                                               ; preds = %.lr.ph79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %.lr.ph79, !llvm.loop !912
 
-.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %61
-  %indvars.iv = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next, %61 ]
-  %62 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %58, i64 %indvars.iv
-  %63 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %62)
-  br i1 %63, label %61, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
+.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %68
+  %indvars.iv = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next, %68 ]
+  %69 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %65, i64 %indvars.iv
+  %70 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %69)
+  br i1 %70, label %68, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-64:                                               ; preds = %.lr.ph82
-  %65 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %66 = load i8, ptr %65, align 8, !tbaa !1806, !range !52, !noundef !53
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %68
+71:                                               ; preds = %.lr.ph82
+  %72 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %73 = load i8, ptr %72, align 8, !tbaa !1806, !range !52, !noundef !53
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !1809
-  %71 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %70, ptr noundef null)
-  br i1 %71, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
-
-72:                                               ; preds = %.lr.ph82
+75:                                               ; preds = %.lr.ph82
   unreachable
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit: ; preds = %28
-  %73 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i58 = load i64, ptr %73, align 8
-  %74 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i58, -8
-  %75 = inttoptr i64 %74 to ptr
-  %.sroa.0.0.copyload.i.i = load i64, ptr %75, align 8, !tbaa !430
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
-  %78 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %77, ptr nonnull %76)
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit: ; preds = %71
+  %76 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !1809
+  %78 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %77, ptr noundef null)
   br i1 %78, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %61, %54, %57, %64, %28, %41, %68, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread: ; preds = %68, %61, %64, %71, %28, %48, %32, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit
   %79 = getelementptr inbounds nuw i8, ptr %.04881, i64 8
   %.not49 = icmp eq ptr %79, %25
   br i1 %.not49, label %.critedge51, label %.lr.ph82
@@ -31134,8 +31134,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseCon
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71: ; preds = %.lr.ph, %36, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %68, %51, %46, %.lr.ph79, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %36 ], [ false, %.lr.ph79 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split ], [ false, %46 ], [ false, %51 ], [ false, %68 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %.lr.ph ]
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71: ; preds = %.lr.ph, %43, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit, %32, %58, %53, %.lr.ph79, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %.lr.ph79 ], [ false, %43 ], [ %.0.ph, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit.thread71.sink.split ], [ false, %53 ], [ false, %58 ], [ false, %32 ], [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE26TraverseConceptRequirementEPNS_8concepts11RequirementE.exit ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -59424,7 +59424,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %199, %193, %_ZNK5cl
   br i1 %.not198, label %.critedge124, label %.lr.ph224
 
 .critedge124:                                     ; preds = %.lr.ph213, %.lr.ph216, %.thread, %143, %225, %.critedge132, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread, %217, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread, %122, %113, %.thread190, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %122 ], [ false, %113 ], [ false, %.lr.ph216 ], [ false, %.thread190 ], [ false, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ true, %.critedge132 ], [ true, %217 ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ false, %.thread ], [ false, %225 ], [ false, %143 ], [ false, %.lr.ph213 ]
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_117MapRegionCountersEE27TraverseDeclarationNameInfoENS_19DeclarationNameInfoE.exit.thread ], [ false, %122 ], [ false, %113 ], [ true, %217 ], [ false, %.thread190 ], [ false, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ false, %.thread ], [ false, %.lr.ph216 ], [ true, %.critedge132 ], [ false, %225 ], [ false, %143 ], [ false, %.lr.ph213 ]
   ret i1 %.0
 }
 

@@ -494,7 +494,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %3, %ItemPointerIndi
   br label %25
 
 25:                                               ; preds = %.sink.split, %15, %12, %ItemPointerIndicatesMovedPartitions.exit.thread, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %15 ], [ true, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ true, %12 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %2 ], [ true, %12 ], [ true, %ItemPointerIndicatesMovedPartitions.exit.thread ], [ true, %15 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

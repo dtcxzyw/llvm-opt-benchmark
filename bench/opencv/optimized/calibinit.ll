@@ -4798,7 +4798,7 @@ _ZN2cv10AutoBufferINS_14ChessBoardQuadELm19EE10deallocateEv.exit.i237: ; preds =
   br label %698
 
 .thread277:                                       ; preds = %617, %622, %.thread, %427, %.thread270, %657
-  %660 = phi i1 [ false, %.thread ], [ true, %657 ], [ false, %.thread270 ], [ false, %427 ], [ false, %622 ], [ false, %617 ]
+  %660 = phi i1 [ false, %427 ], [ true, %657 ], [ false, %.thread270 ], [ false, %.thread ], [ false, %622 ], [ false, %617 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store i32 1124024333, ptr %65, align 8, !tbaa !63
   %661 = getelementptr inbounds nuw i8, ptr %65, i64 4
@@ -10119,8 +10119,8 @@ _ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EED2Ev.exit: ; preds = %._crit_edge55
   br label %398
 
 .thread457:                                       ; preds = %53, %49, %60, %64, %192, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312, %303, %.split.us, %.thread429.us538, %._crit_edge.thread, %._crit_edge515, %104, %142, %224, %._crit_edge554, %156, %155, %152, %._crit_edge, %.loopexit
-  %.sroa.0375.0739 = phi ptr [ %17, %.split.us ], [ %17, %.loopexit ], [ %17, %60 ], [ %17, %._crit_edge ], [ %17, %._crit_edge515 ], [ %17, %104 ], [ null, %._crit_edge.thread ], [ %17, %._crit_edge554 ], [ %17, %224 ], [ %17, %303 ], [ %17, %152 ], [ %17, %155 ], [ %17, %156 ], [ %17, %142 ], [ %17, %192 ], [ %17, %.thread429.us538 ], [ %17, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312 ], [ %17, %64 ], [ %17, %49 ], [ %17, %53 ]
-  %.1397417460 = phi i32 [ %.5401, %.split.us ], [ %.5401, %.loopexit ], [ %.4400, %60 ], [ %.5401, %._crit_edge ], [ %.5401, %._crit_edge515 ], [ %.5401, %104 ], [ 0, %._crit_edge.thread ], [ %.5401, %._crit_edge554 ], [ %.5401, %224 ], [ %.5401, %303 ], [ %.5401, %152 ], [ %.5401, %155 ], [ %.5401, %156 ], [ %.5401, %142 ], [ %.5401, %192 ], [ %.5401, %.thread429.us538 ], [ %.5401, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312 ], [ %.4400, %64 ], [ %.4400, %49 ], [ %.4400, %53 ]
+  %.sroa.0375.0739 = phi ptr [ %17, %60 ], [ %17, %.loopexit ], [ %17, %224 ], [ %17, %._crit_edge ], [ %17, %._crit_edge515 ], [ %17, %104 ], [ %17, %._crit_edge554 ], [ null, %._crit_edge.thread ], [ %17, %.split.us ], [ %17, %142 ], [ %17, %152 ], [ %17, %155 ], [ %17, %156 ], [ %17, %303 ], [ %17, %192 ], [ %17, %.thread429.us538 ], [ %17, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312 ], [ %17, %64 ], [ %17, %49 ], [ %17, %53 ]
+  %.1397417460 = phi i32 [ %.4400, %60 ], [ %.5401, %.loopexit ], [ %.5401, %224 ], [ %.5401, %._crit_edge ], [ %.5401, %._crit_edge515 ], [ %.5401, %104 ], [ %.5401, %._crit_edge554 ], [ 0, %._crit_edge.thread ], [ %.5401, %.split.us ], [ %.5401, %142 ], [ %.5401, %152 ], [ %.5401, %155 ], [ %.5401, %156 ], [ %.5401, %303 ], [ %.5401, %192 ], [ %.5401, %.thread429.us538 ], [ %.5401, %_ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE9push_backERKS2_.exit312 ], [ %.4400, %64 ], [ %.4400, %49 ], [ %.4400, %53 ]
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %367 = load i32, ptr %366, align 8, !tbaa !134
   %368 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -27255,7 +27255,7 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit: ; preds = %.preheader.spl
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.thread:     ; preds = %.critedge, %.preheader.split, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit, %_ZN7cvflann12UniqueRandomC2Ei.exit, %.preheader.split.us.split.us.split
-  %.034 = phi i32 [ %46, %.preheader.split.us.split.us.split ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ %93, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ %1, %.critedge ], [ 0, %.preheader.split ]
+  %.034 = phi i32 [ %46, %.preheader.split.us.split.us.split ], [ %93, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ 0, %.preheader.split ], [ %1, %.critedge ]
   store i32 %.034, ptr %5, align 4, !tbaa !87
   %.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i, label %_ZN7cvflann12UniqueRandomD2Ev.exit, label %94
@@ -40576,7 +40576,7 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit: ; preds = %.preheader.spl
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.thread:     ; preds = %.critedge, %.preheader.split, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit, %_ZN7cvflann12UniqueRandomC2Ei.exit, %.preheader.split.us.split.us.split
-  %.034 = phi i32 [ %46, %.preheader.split.us.split.us.split ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ %93, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ %1, %.critedge ], [ 0, %.preheader.split ]
+  %.034 = phi i32 [ %46, %.preheader.split.us.split.us.split ], [ %93, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ 0, %.preheader.split ], [ %1, %.critedge ]
   store i32 %.034, ptr %5, align 4, !tbaa !87
   %.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i, label %_ZN7cvflann12UniqueRandomD2Ev.exit, label %94

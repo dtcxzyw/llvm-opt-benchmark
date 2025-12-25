@@ -4806,7 +4806,7 @@ lean_array_uset.exit239:                          ; preds = %lean_ensure_exclusi
   br label %351
 
 351:                                              ; preds = %lean_array_uset.exit218, %lean_array_uset.exit198, %lean_array_uset.exit239
-  %.1114 = phi ptr [ %.0.i.i236, %lean_array_uset.exit239 ], [ %.0.i.i215, %lean_array_uset.exit218 ], [ %.0.i.i195, %lean_array_uset.exit198 ]
+  %.1114 = phi ptr [ %.0.i.i195, %lean_array_uset.exit198 ], [ %.0.i.i215, %lean_array_uset.exit218 ], [ %.0.i.i236, %lean_array_uset.exit239 ]
   %.1107 = add nuw i64 %.0106291, 1
   %exitcond.not = icmp eq i64 %.1107, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph

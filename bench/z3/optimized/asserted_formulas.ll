@@ -9519,8 +9519,8 @@ _ZN24scoped_expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast
   br label %_ZN24scoped_expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE.exit
 
 _ZN24scoped_expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE.exit: ; preds = %_ZN24scoped_expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE.exit.sink.split, %.noexc53, %.noexc38, %.noexc21
-  %186 = phi ptr [ %160, %.noexc53 ], [ %77, %.noexc21 ], [ %127, %.noexc38 ], [ %.ph, %_ZN24scoped_expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE.exit.sink.split ]
-  %.0 = phi i1 [ false, %.noexc53 ], [ true, %.noexc21 ], [ false, %.noexc38 ], [ %.0.ph, %_ZN24scoped_expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE.exit.sink.split ]
+  %186 = phi ptr [ %160, %.noexc53 ], [ %127, %.noexc38 ], [ %77, %.noexc21 ], [ %.ph, %_ZN24scoped_expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE.exit.sink.split ]
+  %.0 = phi i1 [ false, %.noexc53 ], [ false, %.noexc38 ], [ true, %.noexc21 ], [ %.0.ph, %_ZN24scoped_expr_substitution6insertEP4exprS1_P3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE.exit.sink.split ]
   %.not.i.i = icmp eq ptr %186, null
   br i1 %.not.i.i, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %187
 

@@ -347,7 +347,7 @@ EVP_PKEY_missing_parameters.exit64:               ; preds = %53
   br i1 %57, label %EVP_PKEY_missing_parameters.exit64.thread, label %75
 
 EVP_PKEY_missing_parameters.exit64.thread:        ; preds = %48, %EVP_PKEY_missing_parameters.exit64
-  %58 = phi ptr [ %.pre88109, %48 ], [ %.pre88, %EVP_PKEY_missing_parameters.exit64 ]
+  %58 = phi ptr [ %.pre88, %EVP_PKEY_missing_parameters.exit64 ], [ %.pre88109, %48 ]
   %.not.i65 = icmp eq ptr %58, null
   br i1 %.not.i65, label %EVP_PKEY_missing_parameters.exit64.thread.thread, label %61
 

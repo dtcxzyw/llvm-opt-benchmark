@@ -1812,7 +1812,7 @@ define internal fastcc range(i32 -1, 1) i32 @lru_crawler_write(ptr noundef captu
   br label %68
 
 68:                                               ; preds = %66, %44
-  %.134 = phi i32 [ %67, %66 ], [ %.03356, %44 ]
+  %.134 = phi i32 [ %.03356, %44 ], [ %67, %66 ]
   %69 = icmp ult i32 %.134, %5
   br i1 %69, label %15, label %70, !llvm.loop !107
 

@@ -3615,7 +3615,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.thread.i: ; preds = %_ZN4l
   br label %_ZL16shouldBeDeferredPN4llvm8FunctionERNS_19TargetTransformInfoENS_10InlineCostERiNS_12function_refIFS4_RNS_8CallBaseEEEE.exit.thread
 
 _ZL16shouldBeDeferredPN4llvm8FunctionERNS_19TargetTransformInfoENS_10InlineCostERiNS_12function_refIFS4_RNS_8CallBaseEEEE.exit.thread: ; preds = %._crit_edge.i, %369, %371, %_ZN4llvm10InlineCostC2ERKS0_.exit, %299, %306, %_ZNK4llvm5Value9hasOneUseEv.exit.i
-  %376 = phi i1 [ false, %_ZN4llvm10InlineCostC2ERKS0_.exit ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit.i ], [ false, %306 ], [ false, %299 ], [ %370, %369 ], [ false, %._crit_edge.i ], [ %375, %371 ]
+  %376 = phi i1 [ false, %_ZN4llvm10InlineCostC2ERKS0_.exit ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit.i ], [ false, %306 ], [ false, %299 ], [ %370, %369 ], [ %375, %371 ], [ false, %._crit_edge.i ]
   %377 = load i8, ptr %276, align 8, !tbaa !242, !range !48, !noundef !49
   %378 = trunc nuw i8 %377 to i1
   br i1 %378, label %379, label %_ZN4llvm10InlineCostD2Ev.exit

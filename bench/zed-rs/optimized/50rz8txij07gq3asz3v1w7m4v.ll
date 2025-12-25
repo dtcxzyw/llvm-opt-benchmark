@@ -4367,7 +4367,7 @@ select.unfold122:                                 ; preds = %._crit_edge.i.i65, 
   br label %189
 
 .loopexit.split-lp:                               ; preds = %185, %.loopexit177, %224, %234, %239, %248
-  %.sroa.03.0.ph = phi i8 [ 1, %185 ], [ %.sroa.03.2, %234 ], [ %.sroa.03.2, %.loopexit177 ], [ %.sroa.03.2, %224 ], [ %.sroa.03.2, %239 ], [ %.sroa.03.2, %248 ]
+  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %234 ], [ 1, %185 ], [ %.sroa.03.2, %.loopexit177 ], [ %.sroa.03.2, %224 ], [ %.sroa.03.2, %239 ], [ %.sroa.03.2, %248 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %189

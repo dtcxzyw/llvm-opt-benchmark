@@ -1017,8 +1017,8 @@ jtransform_perfect_transform.exit.thread:         ; preds = %jtransform_perfect_
   br label %.critedge
 
 .critedge:                                        ; preds = %307, %405, %.thread514, %.preheader, %._crit_edge474, %453, %291, %409
-  %.1344 = phi i32 [ %.0343, %._crit_edge474 ], [ %.0343, %453 ], [ %.0343, %409 ], [ %288, %291 ], [ %288, %.thread514 ], [ %288, %.preheader ], [ %288, %405 ], [ %288, %307 ]
-  %.1342 = phi i32 [ %.0341, %._crit_edge474 ], [ %.0341, %453 ], [ %.0341, %409 ], [ %262, %291 ], [ %262, %.thread514 ], [ %262, %.preheader ], [ %262, %405 ], [ %262, %307 ]
+  %.1344 = phi i32 [ %.0343, %._crit_edge474 ], [ %.0343, %453 ], [ %288, %291 ], [ %.0343, %409 ], [ %288, %.thread514 ], [ %288, %.preheader ], [ %288, %405 ], [ %288, %307 ]
+  %.1342 = phi i32 [ %.0341, %._crit_edge474 ], [ %.0341, %453 ], [ %262, %291 ], [ %.0341, %409 ], [ %262, %.thread514 ], [ %262, %.preheader ], [ %262, %405 ], [ %262, %307 ]
   %458 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %459 = load i32, ptr %458, align 8, !tbaa !60
   %460 = udiv i32 %.1342, %459
@@ -1275,7 +1275,7 @@ trim_right_edge.exit428:                          ; preds = %558, %562, %567
   br label %trim_bottom_edge.exit
 
 trim_bottom_edge.exit:                            ; preds = %591, %586, %582, %577, %572, %trim_right_edge.exit428, %553, %548, %544, %539, %534, %trim_right_edge.exit422, %515, %510, %506, %469, %trim_right_edge.exit, %500, %475, %476, %481, %503, %517, %541, %555, %579
-  %.not402 = phi i1 [ false, %579 ], [ false, %539 ], [ true, %577 ], [ true, %475 ], [ false, %553 ], [ true, %555 ], [ true, %trim_right_edge.exit ], [ true, %503 ], [ false, %517 ], [ false, %541 ], [ false, %469 ], [ true, %515 ], [ true, %481 ], [ true, %476 ], [ false, %591 ], [ true, %500 ], [ true, %506 ], [ true, %510 ], [ false, %trim_right_edge.exit422 ], [ false, %534 ], [ false, %544 ], [ false, %548 ], [ true, %trim_right_edge.exit428 ], [ true, %572 ], [ false, %582 ], [ false, %586 ]
+  %.not402 = phi i1 [ false, %553 ], [ false, %539 ], [ true, %577 ], [ true, %475 ], [ false, %579 ], [ true, %555 ], [ true, %trim_right_edge.exit ], [ true, %503 ], [ false, %517 ], [ false, %541 ], [ false, %469 ], [ true, %515 ], [ true, %481 ], [ true, %476 ], [ false, %591 ], [ true, %500 ], [ true, %506 ], [ true, %510 ], [ false, %trim_right_edge.exit422 ], [ false, %534 ], [ false, %544 ], [ false, %548 ], [ true, %trim_right_edge.exit428 ], [ true, %572 ], [ false, %582 ], [ false, %586 ]
   %593 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %594 = load ptr, ptr %593, align 8, !tbaa !83
   %595 = load ptr, ptr %594, align 8, !tbaa !84

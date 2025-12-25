@@ -1081,8 +1081,8 @@ _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57: ; preds = %.lr.ph.i5
   br label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51
 
 _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51: ; preds = %.lr.ph.i46, %41, %37, %12, %24, %27, %.lr.ph._crit_edge, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
-  %.sroa.7.0 = phi i32 [ 0, %24 ], [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 0, %41 ], [ 22, %12 ], [ 0, %27 ], [ 0, %37 ], [ 22, %.lr.ph.i46 ]
-  %.sroa.0.2 = phi ptr [ %25, %24 ], [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %25, %41 ], [ %0, %12 ], [ %25, %27 ], [ %25, %37 ], [ %0, %.lr.ph.i46 ]
+  %.sroa.7.0 = phi i32 [ 0, %24 ], [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 22, %12 ], [ 0, %41 ], [ 0, %27 ], [ 0, %37 ], [ 22, %.lr.ph.i46 ]
+  %.sroa.0.2 = phi ptr [ %25, %24 ], [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %0, %12 ], [ %25, %41 ], [ %25, %27 ], [ %25, %37 ], [ %0, %.lr.ph.i46 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -4247,8 +4247,8 @@ _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57: ; preds = %.lr.ph.i5
   br label %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51
 
 _ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit51: ; preds = %.lr.ph.i46, %41, %37, %12, %24, %27, %.lr.ph._crit_edge, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57
-  %.sroa.7.0 = phi i32 [ 0, %24 ], [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 0, %41 ], [ 22, %12 ], [ 0, %27 ], [ 0, %37 ], [ 22, %.lr.ph.i46 ]
-  %.sroa.0.2 = phi ptr [ %25, %24 ], [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %25, %41 ], [ %0, %12 ], [ %25, %27 ], [ %25, %37 ], [ %0, %.lr.ph.i46 ]
+  %.sroa.7.0 = phi i32 [ 0, %24 ], [ 0, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ 0, %.lr.ph._crit_edge ], [ 22, %12 ], [ 0, %41 ], [ 0, %27 ], [ 0, %37 ], [ 22, %.lr.ph.i46 ]
+  %.sroa.0.2 = phi ptr [ %25, %24 ], [ %62, %_ZN10fast_float21fastfloat_strncasecmpIcEEbPKT_S3_m.exit57 ], [ %33, %.lr.ph._crit_edge ], [ %0, %12 ], [ %25, %41 ], [ %25, %27 ], [ %25, %37 ], [ %0, %.lr.ph.i46 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -9484,15 +9484,15 @@ define range(i24 1, 67584) i24 @_ZN5folly6detail11str_to_boolEPNS_5RangeIPKcEE(p
   br i1 %exitcond177, label %.critedge, label %.lr.ph.i54, !llvm.loop !129
 
 .critedge:                                        ; preds = %68, %76, %58, %48, %38, %28, %18, %.lr.ph134, %11, %61, %51, %41, %31
-  %.188 = phi i8 [ 1, %28 ], [ %.087132, %.lr.ph134 ], [ 0, %38 ], [ 1, %31 ], [ 1, %48 ], [ 0, %41 ], [ 0, %58 ], [ 1, %51 ], [ 0, %76 ], [ 0, %61 ], [ 0, %11 ], [ %20, %18 ], [ 1, %68 ]
-  %.2 = phi ptr [ %indvars.iv169, %28 ], [ %.1133, %.lr.ph134 ], [ %indvars.iv, %38 ], [ %32, %31 ], [ %indvars.iv189, %48 ], [ %42, %41 ], [ %indvars.iv179, %58 ], [ %52, %51 ], [ %indvars.iv169, %76 ], [ %62, %61 ], [ %.0129, %11 ], [ %scevgep, %18 ], [ %indvars.iv, %68 ]
+  %.188 = phi i8 [ %.087132, %.lr.ph134 ], [ 1, %28 ], [ 0, %38 ], [ 1, %31 ], [ 1, %48 ], [ 0, %41 ], [ 0, %58 ], [ 1, %51 ], [ 0, %76 ], [ 0, %61 ], [ 0, %11 ], [ %20, %18 ], [ 1, %68 ]
+  %.2 = phi ptr [ %.1133, %.lr.ph134 ], [ %indvars.iv169, %28 ], [ %indvars.iv, %38 ], [ %32, %31 ], [ %indvars.iv189, %48 ], [ %42, %41 ], [ %indvars.iv179, %58 ], [ %52, %51 ], [ %indvars.iv169, %76 ], [ %62, %61 ], [ %.0129, %11 ], [ %scevgep, %18 ], [ %indvars.iv, %68 ]
   store ptr %.2, ptr %0, align 8, !tbaa !7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %.lr.ph, %73, %.lr.ph.i54, %15, %1, %.critedge
-  %.sroa.086.0 = phi i8 [ 2, %1 ], [ 2, %73 ], [ 1, %.critedge ], [ 2, %15 ], [ 2, %.lr.ph.i54 ], [ 2, %.lr.ph ], [ 2, %9 ]
-  %.sroa.6.0 = phi i8 [ 1, %1 ], [ 4, %73 ], [ 0, %.critedge ], [ 3, %15 ], [ 4, %.lr.ph.i54 ], [ 4, %.lr.ph ], [ 1, %9 ]
-  %.sroa.11.0 = phi i8 [ 0, %1 ], [ 0, %73 ], [ %.188, %.critedge ], [ 0, %15 ], [ 0, %.lr.ph.i54 ], [ 0, %.lr.ph ], [ 0, %9 ]
+  %.sroa.086.0 = phi i8 [ 1, %.critedge ], [ 2, %73 ], [ 2, %1 ], [ 2, %15 ], [ 2, %.lr.ph.i54 ], [ 2, %.lr.ph ], [ 2, %9 ]
+  %.sroa.6.0 = phi i8 [ 0, %.critedge ], [ 4, %73 ], [ 1, %1 ], [ 3, %15 ], [ 4, %.lr.ph.i54 ], [ 1, %9 ], [ 4, %.lr.ph ]
+  %.sroa.11.0 = phi i8 [ %.188, %.critedge ], [ 0, %73 ], [ 0, %1 ], [ 0, %15 ], [ 0, %.lr.ph.i54 ], [ 0, %.lr.ph ], [ 0, %9 ]
   %.sroa.11.0.insert.ext = zext nneg i8 %.sroa.11.0 to i24
   %.sroa.11.0.insert.shift = shl nuw nsw i24 %.sroa.11.0.insert.ext, 16
   %.sroa.6.0.insert.ext = zext nneg i8 %.sroa.6.0 to i24

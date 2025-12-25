@@ -2432,8 +2432,8 @@ open_input_file.exit.thread:                      ; preds = %30, %.thread92.i, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %open_input_file.exit.thread, %270, %269, %266, %262, %258, %254, %251
-  %272 = phi ptr [ %150, %open_input_file.exit.thread ], [ %.pre118, %.loopexit.loopexit ], [ %.val83, %266 ], [ %.val83, %270 ], [ %.val83, %262 ], [ %.val83, %258 ], [ %.val83, %269 ], [ %.val83, %251 ], [ %.val83, %254 ]
-  %.046 = phi i32 [ %.0.i.ph, %open_input_file.exit.thread ], [ %213, %.loopexit.loopexit ], [ %267, %266 ], [ %271, %270 ], [ %263, %262 ], [ %259, %258 ], [ %.6, %269 ], [ %249, %251 ], [ %255, %254 ]
+  %272 = phi ptr [ %150, %open_input_file.exit.thread ], [ %.val83, %258 ], [ %.val83, %262 ], [ %.val83, %270 ], [ %.val83, %266 ], [ %.pre118, %.loopexit.loopexit ], [ %.val83, %269 ], [ %.val83, %251 ], [ %.val83, %254 ]
+  %.046 = phi i32 [ %.0.i.ph, %open_input_file.exit.thread ], [ %259, %258 ], [ %263, %262 ], [ %271, %270 ], [ %267, %266 ], [ %213, %.loopexit.loopexit ], [ %.6, %269 ], [ %249, %251 ], [ %255, %254 ]
   %.not82 = icmp eq ptr %272, null
   br i1 %.not82, label %283, label %.loopexit.thread
 

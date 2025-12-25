@@ -2341,7 +2341,7 @@ do.end:                                           ; preds = %do.body
           to label %cleanup85.critedge unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont28.thread, %_ZN5boost20dynamic_pointer_castIN8QuantLib18PlainVanillaPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit146, %invoke.cont38
-  %54 = phi ptr [ %26, %invoke.cont28.thread ], [ %26, %_ZN5boost20dynamic_pointer_castIN8QuantLib18PlainVanillaPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit146 ], [ %32, %invoke.cont38 ]
+  %54 = phi ptr [ %32, %invoke.cont38 ], [ %26, %_ZN5boost20dynamic_pointer_castIN8QuantLib18PlainVanillaPayoffENS1_6PayoffEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit146 ], [ %26, %invoke.cont28.thread ]
   %cmp.not.i.i = icmp eq ptr %54, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEED2Ev.exit, label %if.then.i.i186
 

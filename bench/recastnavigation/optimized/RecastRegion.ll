@@ -3910,7 +3910,7 @@ _ZN10rcIntArray6resizeEi.exit.i:                  ; preds = %_ZN12rcVectorBaseIi
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %._crit_edge175.i, %._crit_edge172.i, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i.i, %786, %.noexc97.i, %783
-  %.sroa.12.0.ph.ph.ph.ph.ph.ph.ph.i = phi ptr [ %.sroa.12.2.i, %._crit_edge175.i ], [ null, %783 ], [ null, %.noexc97.i ], [ %.sroa.12.2.i, %._crit_edge172.i ], [ null, %786 ], [ null, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i.i ]
+  %.sroa.12.0.ph.ph.ph.ph.ph.ph.ph.i = phi ptr [ %.sroa.12.2.i, %._crit_edge175.i ], [ null, %.noexc97.i ], [ null, %783 ], [ %.sroa.12.2.i, %._crit_edge172.i ], [ null, %786 ], [ null, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -7154,7 +7154,7 @@ _ZN12rcVectorBaseI10DirtyEntryL11rcAllocHint1EEixEl.exit174: ; preds = %_ZN12rcV
   br i1 %251, label %.lr.ph261.preheader, label %._crit_edge271, !llvm.loop !85
 
 ._crit_edge271:                                   ; preds = %250, %._crit_edge, %248, %.preheader237, %13, %.preheader235.lr.ph, %.loopexit236
-  %.sroa.15.1 = phi ptr [ null, %.loopexit236 ], [ null, %.preheader237 ], [ null, %13 ], [ null, %.preheader235.lr.ph ], [ %.sroa.15.3, %248 ], [ %.sroa.15.3, %._crit_edge ], [ %.sroa.15.3, %250 ]
+  %.sroa.15.1 = phi ptr [ null, %.loopexit236 ], [ null, %.preheader235.lr.ph ], [ null, %13 ], [ null, %.preheader237 ], [ %.sroa.15.3, %248 ], [ %.sroa.15.3, %._crit_edge ], [ %.sroa.15.3, %250 ]
   invoke void @_Z6rcFreePv(ptr noundef %.sroa.15.1)
           to label %_ZN12rcTempVectorI10DirtyEntryED2Ev.exit175 unwind label %252
 

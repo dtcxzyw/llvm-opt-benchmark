@@ -10401,8 +10401,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16Case
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %28, %20, %13, %70, %60, %49, %78
-  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %0, %70 ], [ %0, %49 ], [ %2, %78 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %.sroa.15.2, %70 ], [ %.sroa.15.0.lcssa, %49 ], [ %3, %78 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
+  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %2, %78 ], [ %0, %70 ], [ %0, %49 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
+  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %3, %78 ], [ %.sroa.15.2, %70 ], [ %.sroa.15.0.lcssa, %49 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -10621,16 +10621,16 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %37
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load i32, ptr %52, align 8, !tbaa !195
   %54 = icmp ult i32 %53, 65
-  br i1 %54, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit, label %55
+  br i1 %54, label %55, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit
 
 55:                                               ; preds = %49
-  %56 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %51) #18
-  br i1 %56, label %60, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit.thread
+  %56 = load i64, ptr %50, align 8, !tbaa !197
+  %57 = load i64, ptr %51, align 8, !tbaa !197
+  %58 = icmp eq i64 %56, %57
+  br i1 %58, label %60, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit.thread
 
 _ZNK4llvm13ConstantRangeeqERKS0_.exit:            ; preds = %49
-  %57 = load i64, ptr %50, align 8, !tbaa !197
-  %58 = load i64, ptr %51, align 8, !tbaa !197
-  %59 = icmp eq i64 %57, %58
+  %59 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %51) #18
   br i1 %59, label %60, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit.thread
 
 60:                                               ; preds = %55, %_ZNK4llvm13ConstantRangeeqERKS0_.exit
@@ -14822,7 +14822,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !554
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 

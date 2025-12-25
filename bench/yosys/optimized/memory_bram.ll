@@ -18586,8 +18586,8 @@ _ZStgtIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %5280
           cleanup
   br label %.body2458
 
-_ZStgtIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread2710: ; preds = %5286, %5278, %_ZStgtIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, %_ZStgtIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit
-  %5294 = phi i32 [ %5276, %5286 ], [ %5276, %5278 ], [ %.pre7799, %_ZStgtIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %5276, %_ZStgtIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit ]
+_ZStgtIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread2710: ; preds = %5278, %5286, %_ZStgtIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread, %_ZStgtIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit
+  %5294 = phi i32 [ %5276, %5278 ], [ %5276, %5286 ], [ %.pre7799, %_ZStgtIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %5276, %_ZStgtIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit ]
   %5295 = load i32, ptr %4872, align 4, !tbaa !330
   %5296 = add nsw i32 %5295, 1
   %5297 = getelementptr inbounds nuw i8, ptr %4872, i64 4

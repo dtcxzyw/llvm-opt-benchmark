@@ -14802,7 +14802,7 @@ _ZN4core3cmp9PartialEq2ne17hf436496ae489c958E.llvm.11603491536561601675.exit.pre
   br i1 %.not22, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %"_ZN70_$LT$hir_expand..mod_path..ModPath$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdd88b5f3d5f9b72aE.llvm.11603491536561601675.exit.i.i", %_ZN4core3cmp9PartialEq2ne17hf436496ae489c958E.llvm.11603491536561601675.exit.backedge, %.lr.ph, %19, %"_ZN71_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d343a8715e66e0dE.llvm.11603491536561601675.exit.i.i.i", %12, %"_ZN71_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d343a8715e66e0dE.llvm.11603491536561601675.exit.thread.i.i.i", %.lr.ph.i.i.i, %53, %_ZN4core3cmp9PartialEq2ne17hecd0a70a97234369E.llvm.8873333117009505138.exit.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17hf436496ae489c958E.llvm.11603491536561601675.exit.preheader.split, %4
-  %.0 = phi i1 [ true, %_ZN4core3cmp9PartialEq2ne17hf436496ae489c958E.llvm.11603491536561601675.exit.preheader.split ], [ false, %4 ], [ false, %.lr.ph.i.i.i ], [ false, %_ZN4core3cmp9PartialEq2ne17hecd0a70a97234369E.llvm.8873333117009505138.exit.i.i.i.i ], [ false, %53 ], [ false, %"_ZN71_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d343a8715e66e0dE.llvm.11603491536561601675.exit.i.i.i" ], [ false, %19 ], [ false, %.lr.ph ], [ true, %_ZN4core3cmp9PartialEq2ne17hf436496ae489c958E.llvm.11603491536561601675.exit.backedge ], [ false, %12 ], [ false, %"_ZN70_$LT$hir_expand..mod_path..ModPath$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdd88b5f3d5f9b72aE.llvm.11603491536561601675.exit.i.i" ], [ false, %"_ZN71_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d343a8715e66e0dE.llvm.11603491536561601675.exit.thread.i.i.i" ]
+  %.0 = phi i1 [ true, %_ZN4core3cmp9PartialEq2ne17hf436496ae489c958E.llvm.11603491536561601675.exit.preheader.split ], [ false, %4 ], [ false, %.lr.ph.i.i.i ], [ false, %_ZN4core3cmp9PartialEq2ne17hecd0a70a97234369E.llvm.8873333117009505138.exit.i.i.i.i ], [ false, %53 ], [ false, %"_ZN71_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d343a8715e66e0dE.llvm.11603491536561601675.exit.i.i.i" ], [ false, %19 ], [ false, %.lr.ph ], [ true, %_ZN4core3cmp9PartialEq2ne17hf436496ae489c958E.llvm.11603491536561601675.exit.backedge ], [ false, %"_ZN70_$LT$hir_expand..mod_path..ModPath$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdd88b5f3d5f9b72aE.llvm.11603491536561601675.exit.i.i" ], [ false, %"_ZN71_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d343a8715e66e0dE.llvm.11603491536561601675.exit.thread.i.i.i" ], [ false, %12 ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %_ZN4core3cmp9PartialEq2ne17hf436496ae489c958E.llvm.11603491536561601675.exit.preheader.split, %_ZN4core3cmp9PartialEq2ne17hf436496ae489c958E.llvm.11603491536561601675.exit.backedge
@@ -50871,7 +50871,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   call void @llvm.lifetime.end.p0(ptr nonnull %168)
   ret void
 
-.loopexit599:                                     ; preds = %265, %268, %282, %285
+.loopexit599:                                     ; preds = %268, %265, %282, %285
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   call void @llvm.lifetime.end.p0(ptr nonnull %165)
   %407 = load ptr, ptr %216, align 8, !nonnull !4, !align !66, !noundef !4
@@ -53371,8 +53371,8 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
   br label %.body131.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %1314, %.critedge94.i, %1440, %1422, %.noexc105.i, %1413, %1322, %1312, %1310, %1307, %1301, %1284
-  %.ph.ph.i = phi ptr [ null, %1284 ], [ %1424, %1440 ], [ null, %1301 ], [ %1333, %.noexc105.i ], [ null, %1322 ], [ null, %1314 ], [ null, %1312 ], [ %1424, %1422 ], [ %1424, %.critedge94.i ], [ %1333, %1413 ], [ null, %1310 ], [ null, %1307 ]
-  %.2.ph.ph.i = phi i8 [ 1, %1284 ], [ 1, %1440 ], [ 1, %1301 ], [ 1, %.noexc105.i ], [ 1, %1322 ], [ 1, %1314 ], [ 1, %1312 ], [ 1, %1422 ], [ 0, %.critedge94.i ], [ 1, %1413 ], [ 1, %1310 ], [ 1, %1307 ]
+  %.ph.ph.i = phi ptr [ null, %1284 ], [ %1424, %.critedge94.i ], [ null, %1301 ], [ %1333, %.noexc105.i ], [ null, %1322 ], [ null, %1314 ], [ null, %1312 ], [ %1424, %1440 ], [ %1424, %1422 ], [ %1333, %1413 ], [ null, %1310 ], [ null, %1307 ]
+  %.2.ph.ph.i = phi i8 [ 1, %1284 ], [ 0, %.critedge94.i ], [ 1, %1301 ], [ 1, %.noexc105.i ], [ 1, %1322 ], [ 1, %1314 ], [ 1, %1312 ], [ 1, %1440 ], [ 1, %1422 ], [ 1, %1413 ], [ 1, %1310 ], [ 1, %1307 ]
   %lpad.loopexit.split-lp179.i = landingpad { ptr, i32 }
           cleanup
   br label %.body131.i

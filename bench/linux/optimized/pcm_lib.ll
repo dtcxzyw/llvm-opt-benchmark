@@ -4709,8 +4709,8 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   br label %.critedge
 
 .critedge:                                        ; preds = %224, %224, %224, %.critedge.loopexit189, %.lr.ph.preheader, %..critedge.loopexit_crit_edge178, %.critedge.loopexit, %228, %174
-  %235 = phi i64 [ %221, %.critedge.loopexit189 ], [ %221, %.critedge.loopexit ], [ 0, %174 ], [ %spec.select, %228 ], [ 0, %.lr.ph.preheader ], [ %221, %..critedge.loopexit_crit_edge178 ], [ %221, %224 ], [ %221, %224 ], [ %221, %224 ]
-  %236 = phi i32 [ %.ph, %.critedge.loopexit189 ], [ -86, %.critedge.loopexit ], [ -512, %174 ], [ %spec.select159, %228 ], [ -512, %.lr.ph.preheader ], [ -512, %..critedge.loopexit_crit_edge178 ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ]
+  %235 = phi i64 [ %221, %.critedge.loopexit189 ], [ %221, %..critedge.loopexit_crit_edge178 ], [ 0, %174 ], [ %spec.select, %228 ], [ 0, %.lr.ph.preheader ], [ %221, %.critedge.loopexit ], [ %221, %224 ], [ %221, %224 ], [ %221, %224 ]
+  %236 = phi i32 [ %.ph, %.critedge.loopexit189 ], [ -512, %..critedge.loopexit_crit_edge178 ], [ -512, %174 ], [ %spec.select159, %228 ], [ -512, %.lr.ph.preheader ], [ -86, %.critedge.loopexit ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ]
   %237 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 0, ptr nonnull elementtype(i32) %149) #21, !srcloc !37
   call void @remove_wait_queue(ptr noundef nonnull %151, ptr noundef nonnull %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4851,12 +4851,12 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %324 = icmp sgt i32 %323, -1
   br i1 %324, label %.thread47, label %.thread40.loopexit
 
-.thread47:                                        ; preds = %322, %303, %300, %239, %295
-  %325 = phi i64 [ %297, %295 ], [ %297, %322 ], [ %297, %303 ], [ %297, %300 ], [ %125, %239 ]
-  %326 = phi i64 [ %298, %295 ], [ %298, %322 ], [ %298, %303 ], [ %298, %300 ], [ %.fr57, %239 ]
-  %327 = phi i64 [ %296, %295 ], [ %296, %322 ], [ %296, %303 ], [ %296, %300 ], [ %127, %239 ]
-  %328 = phi i32 [ 0, %295 ], [ %323, %322 ], [ 0, %303 ], [ 0, %300 ], [ 0, %239 ]
-  %329 = phi i64 [ %299, %295 ], [ %299, %322 ], [ %299, %303 ], [ %299, %300 ], [ 0, %239 ]
+.thread47:                                        ; preds = %322, %295, %300, %239, %303
+  %325 = phi i64 [ %297, %303 ], [ %297, %322 ], [ %297, %295 ], [ %297, %300 ], [ %125, %239 ]
+  %326 = phi i64 [ %298, %303 ], [ %298, %322 ], [ %298, %295 ], [ %298, %300 ], [ %.fr57, %239 ]
+  %327 = phi i64 [ %296, %303 ], [ %296, %322 ], [ %296, %295 ], [ %296, %300 ], [ %127, %239 ]
+  %328 = phi i32 [ 0, %303 ], [ %323, %322 ], [ 0, %295 ], [ 0, %300 ], [ 0, %239 ]
+  %329 = phi i64 [ %299, %303 ], [ %299, %322 ], [ %299, %295 ], [ %299, %300 ], [ 0, %239 ]
   %330 = icmp eq i64 %325, 0
   br i1 %330, label %.thread40.loopexit, label %124, !llvm.loop !38
 

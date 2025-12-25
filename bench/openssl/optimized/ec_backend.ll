@@ -413,7 +413,7 @@ ec_group_explicit_todata.exit:                    ; preds = %41, %52, %57, %59, 
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink149.i, ptr noundef nonnull @__func__.ec_group_explicit_todata) #4
   br label %.thread53.sink.split
 
-107:                                              ; preds = %100, %.thread137.i, %105
+107:                                              ; preds = %105, %.thread137.i, %100
   br i1 %40, label %.thread53, label %.thread
 
 .thread:                                          ; preds = %37, %107
@@ -437,7 +437,7 @@ ec_group_explicit_todata.exit:                    ; preds = %41, %52, %57, %59, 
   br label %.thread53
 
 .thread53:                                        ; preds = %.thread53.sink.split, %110, %107, %33
-  %.0 = phi i32 [ 1, %110 ], [ 1, %107 ], [ 0, %33 ], [ 0, %.thread53.sink.split ]
+  %.0 = phi i32 [ 0, %33 ], [ 1, %107 ], [ 1, %110 ], [ 0, %.thread53.sink.split ]
   ret i32 %.0
 }
 
@@ -825,7 +825,7 @@ ossl_ec_pt_format_name2id.exit.i.i:               ; preds = %.preheader.i.i.i
   br label %54
 
 54:                                               ; preds = %ossl_ec_pt_format_name2id.exit.i.i, %43
-  %.06.i = phi i32 [ 4, %43 ], [ %53, %ossl_ec_pt_format_name2id.exit.i.i ]
+  %.06.i = phi i32 [ %53, %ossl_ec_pt_format_name2id.exit.i.i ], [ 4, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @EC_KEY_set_conv_form(ptr noundef nonnull %0, i32 noundef %.06.i) #4
   br label %55

@@ -5670,7 +5670,7 @@ _ZN12_GLOBAL__N_117GuardWideningImpl16parseRangeChecksEPN4llvm5ValueERNS1_15Smal
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12_GLOBAL__N_117GuardWideningImpl16parseRangeChecksEPN4llvm5ValueERNS1_15SmallVectorImplINS0_10RangeCheckEEE.exit, %.loopexit.sink.split, %1
-  %178 = phi i1 [ false, %.loopexit.sink.split ], [ true, %1 ], [ true, %_ZN12_GLOBAL__N_117GuardWideningImpl16parseRangeChecksEPN4llvm5ValueERNS1_15SmallVectorImplINS0_10RangeCheckEEE.exit ]
+  %178 = phi i1 [ true, %1 ], [ false, %.loopexit.sink.split ], [ true, %_ZN12_GLOBAL__N_117GuardWideningImpl16parseRangeChecksEPN4llvm5ValueERNS1_15SmallVectorImplINS0_10RangeCheckEEE.exit ]
   ret i1 %178
 }
 

@@ -540,7 +540,7 @@ _ZN14regex_automata4util6search5Input8set_span17hf9561881ad2848b0E.exit141.i.i: 
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hbd363c28ecbf2808E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hbd363c28ecbf2808E.exit": ; preds = %.backedge.i, %23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35f164eba2848bb5E.exit.thread.sink.split.i"
-  %184 = phi i1 [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35f164eba2848bb5E.exit.thread.sink.split.i" ], [ true, %23 ], [ true, %.backedge.i ]
+  %184 = phi i1 [ true, %23 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35f164eba2848bb5E.exit.thread.sink.split.i" ], [ true, %.backedge.i ]
   ret i1 %184
 
 185:                                              ; preds = %5

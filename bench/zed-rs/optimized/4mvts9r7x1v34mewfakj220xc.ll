@@ -1575,7 +1575,7 @@ default.unreachable:                              ; preds = %58
           cleanup
   br label %.body.thread
 
-.body.thread127:                                  ; preds = %234, %196, %.body.i, %243, %.body.thread, %.body.thread
+.body.thread127:                                  ; preds = %.body.i, %234, %196, %243, %.body.thread, %.body.thread
   %.pn12123 = phi { ptr, i32 } [ %.pn12124, %243 ], [ %.pn12124, %.body.thread ], [ %.pn12124, %.body.thread ], [ %197, %196 ], [ %226, %.body.i ], [ %226, %234 ]
   resume { ptr, i32 } %.pn12123
 
@@ -16250,7 +16250,7 @@ define internal fastcc void @_ZN3vim6motion12find_forward17h89358be376c048ceE(pt
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %._crit_edge, %9
-  %.sink = phi i32 [ 0, %._crit_edge ], [ 0, %9 ], [ 1, %._crit_edge.thread.sink.split ]
+  %.sink = phi i32 [ 0, %9 ], [ 0, %._crit_edge ], [ 1, %._crit_edge.thread.sink.split ]
   store i32 %.sink, ptr %0, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

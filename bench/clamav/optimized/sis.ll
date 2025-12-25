@@ -1642,8 +1642,8 @@ select.unfold939.i:                               ; preds = %564
   br label %.thread988.thread.i
 
 .thread988.thread.i:                              ; preds = %604, %.thread988.thread1327.i, %400, %395, %368, %363, %337, %332, %312
-  %.04431325.i = phi i32 [ %.32.i, %604 ], [ %.32.ph.i, %.thread988.thread1327.i ], [ 0, %400 ], [ 20, %312 ], [ 0, %368 ], [ 0, %337 ], [ 0, %332 ], [ 0, %395 ], [ 0, %363 ]
-  %.05721323.i = phi ptr [ %.6578.i, %604 ], [ %.6578.ph.i, %.thread988.thread1327.i ], [ null, %400 ], [ null, %312 ], [ null, %368 ], [ null, %337 ], [ null, %332 ], [ null, %395 ], [ null, %363 ]
+  %.04431325.i = phi i32 [ %.32.i, %604 ], [ %.32.ph.i, %.thread988.thread1327.i ], [ 0, %332 ], [ 20, %312 ], [ 0, %400 ], [ 0, %337 ], [ 0, %368 ], [ 0, %395 ], [ 0, %363 ]
+  %.05721323.i = phi ptr [ %.6578.i, %604 ], [ %.6578.ph.i, %.thread988.thread1327.i ], [ null, %332 ], [ null, %312 ], [ null, %400 ], [ null, %337 ], [ null, %368 ], [ null, %395 ], [ null, %363 ]
   br i1 %.not699.i, label %607, label %606
 
 606:                                              ; preds = %.thread988.thread.i

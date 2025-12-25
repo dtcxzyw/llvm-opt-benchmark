@@ -966,7 +966,7 @@ define range(i32 -1, 1) i32 @H5C__iter_tagged_entries(ptr noundef readonly captu
   br label %25
 
 25:                                               ; preds = %.sink.split, %19, %15, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %15 ], [ 0, %19 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %15 ], [ 0, %5 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1398,7 +1398,7 @@ define range(i32 -1, 1) i32 @H5C_flush_tagged_entries(ptr noundef %0, i64 nounde
   %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_flush_tagged_entries, i32 noundef 651, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.3) #12
   br label %62
 
-45:                                               ; preds = %22, %35
+45:                                               ; preds = %35, %22
   %46 = tail call i32 @H5C_flush_cache(ptr noundef nonnull %0, i32 noundef 64) #12
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %52

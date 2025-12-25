@@ -9999,8 +9999,8 @@ define internal fastcc void @receive_buf(ptr noundef readonly captures(none) %0,
   %462 = icmp eq ptr %461, null
   br i1 %462, label %.thread41, label %.thread43, !prof !116
 
-.thread43:                                        ; preds = %353, %445, %460
-  %463 = phi ptr [ %461, %460 ], [ %354, %353 ], [ %443, %445 ]
+.thread43:                                        ; preds = %445, %353, %460
+  %463 = phi ptr [ %461, %460 ], [ %443, %445 ], [ %354, %353 ]
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 40
   %465 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %466 = load i64, ptr %465, align 8
@@ -11196,7 +11196,7 @@ define internal fastcc ptr @receive_mergeable_xdp(ptr noundef %0, ptr noundef re
   br label %489
 
 489:                                              ; preds = %391, %395, %485, %.loopexit, %.loopexit
-  %490 = phi ptr [ null, %485 ], [ null, %.loopexit ], [ null, %.loopexit ], [ %347, %391 ], [ %347, %395 ]
+  %490 = phi ptr [ null, %485 ], [ null, %.loopexit ], [ null, %.loopexit ], [ %347, %395 ], [ %347, %391 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %490

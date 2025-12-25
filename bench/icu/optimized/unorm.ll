@@ -577,7 +577,7 @@ _ZN6icu_7713UnicodeString6insertEii.exit:         ; preds = %61
   br i1 %.not64, label %57, label %.loopexit72, !llvm.loop !29
 
 .loopexit72:                                      ; preds = %42, %59, %67, %50
-  %68 = phi ptr [ %37, %50 ], [ %35, %59 ], [ %35, %67 ], [ %37, %42 ]
+  %68 = phi ptr [ %35, %59 ], [ %37, %50 ], [ %35, %67 ], [ %37, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN6icu_7713UnicodeStringC1EPDsii(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef %2, i32 noundef 0, i32 noundef %3)
           to label %69 unwind label %95

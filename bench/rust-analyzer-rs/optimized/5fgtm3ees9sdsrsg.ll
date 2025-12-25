@@ -34783,9 +34783,9 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h21
   %68 = extractvalue { i64, ptr } %47, 1
   br label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..utility_types..WalkEvent$LT$rowan..cursor..SyntaxNode$GT$$GT$$GT$17hda05cb2853e32d0eE.exit"
 
-"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..utility_types..WalkEvent$LT$rowan..cursor..SyntaxNode$GT$$GT$$GT$17hda05cb2853e32d0eE.exit": ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb37527b1b03bbd1E.exit.thread", %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..utility_types..WalkEvent$LT$rowan..cursor..SyntaxNode$GT$$GT$$GT$17hda05cb2853e32d0eE.exit.loopexit.split.loop.exit28", %2, %57, %51
-  %.sroa.3.0 = phi ptr [ undef, %51 ], [ undef, %57 ], [ %68, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..utility_types..WalkEvent$LT$rowan..cursor..SyntaxNode$GT$$GT$$GT$17hda05cb2853e32d0eE.exit.loopexit.split.loop.exit28" ], [ undef, %2 ], [ undef, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb37527b1b03bbd1E.exit.thread" ]
-  %.sroa.0.0 = phi i64 [ 36, %51 ], [ 36, %57 ], [ %48, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..utility_types..WalkEvent$LT$rowan..cursor..SyntaxNode$GT$$GT$$GT$17hda05cb2853e32d0eE.exit.loopexit.split.loop.exit28" ], [ 37, %2 ], [ 37, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb37527b1b03bbd1E.exit.thread" ]
+"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..utility_types..WalkEvent$LT$rowan..cursor..SyntaxNode$GT$$GT$$GT$17hda05cb2853e32d0eE.exit": ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb37527b1b03bbd1E.exit.thread", %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..utility_types..WalkEvent$LT$rowan..cursor..SyntaxNode$GT$$GT$$GT$17hda05cb2853e32d0eE.exit.loopexit.split.loop.exit28", %2, %51, %57
+  %.sroa.3.0 = phi ptr [ undef, %57 ], [ undef, %51 ], [ %68, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..utility_types..WalkEvent$LT$rowan..cursor..SyntaxNode$GT$$GT$$GT$17hda05cb2853e32d0eE.exit.loopexit.split.loop.exit28" ], [ undef, %2 ], [ undef, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb37527b1b03bbd1E.exit.thread" ]
+  %.sroa.0.0 = phi i64 [ 36, %57 ], [ 36, %51 ], [ %48, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..utility_types..WalkEvent$LT$rowan..cursor..SyntaxNode$GT$$GT$$GT$17hda05cb2853e32d0eE.exit.loopexit.split.loop.exit28" ], [ 37, %2 ], [ 37, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb37527b1b03bbd1E.exit.thread" ]
   %69 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %70 = insertvalue { i64, ptr } %69, ptr %.sroa.3.0, 1
   ret { i64, ptr } %70
@@ -78410,7 +78410,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i.i.i: ; preds
   br label %.body
 
 .body:                                            ; preds = %81, %87, %96
-  %eh.lpad-body = phi { ptr, i32 } [ %97, %96 ], [ %82, %81 ], [ %82, %87 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %97, %96 ], [ %82, %87 ], [ %82, %81 ]
   br i1 %59, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h92eaa2672521186bE.llvm.6055058659040047083.exit", label %98
 
 98:                                               ; preds = %.body

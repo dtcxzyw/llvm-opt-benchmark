@@ -1675,7 +1675,7 @@ sdslen.exit48:                                    ; preds = %107, %103, %99, %95
   br label %.critedge
 
 .critedge:                                        ; preds = %60, %58, %119, %117, %71, %sdslen.exit46, %63, %.outer._crit_edge, %122
-  %.032 = phi i64 [ 0, %119 ], [ 1, %sdslen.exit46 ], [ 1, %.outer._crit_edge ], [ 1, %71 ], [ 0, %122 ], [ 0, %63 ], [ 0, %117 ], [ 0, %58 ], [ 0, %60 ]
+  %.032 = phi i64 [ 0, %119 ], [ 1, %sdslen.exit46 ], [ 1, %.outer._crit_edge ], [ 0, %63 ], [ 0, %122 ], [ 1, %71 ], [ 0, %117 ], [ 0, %58 ], [ 0, %60 ]
   ret i64 %.032
 }
 

@@ -14879,8 +14879,8 @@ split.i:                                          ; preds = %30
   br label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKcdEEbRT_RKS7_RT0_.exit.sink.split
 
 .loopexit:                                        ; preds = %24, %27, %.preheader.i, %21
-  %42 = phi ptr [ %34, %.preheader.i ], [ %18, %21 ], [ %18, %27 ], [ %18, %24 ]
-  %43 = phi ptr [ %scevgep.i, %.preheader.i ], [ %17, %21 ], [ %17, %27 ], [ %17, %24 ]
+  %42 = phi ptr [ %18, %21 ], [ %34, %.preheader.i ], [ %18, %27 ], [ %18, %24 ]
+  %43 = phi ptr [ %17, %21 ], [ %scevgep.i, %.preheader.i ], [ %17, %27 ], [ %17, %24 ]
   %44 = icmp eq ptr %43, %42
   br i1 %44, label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread.thread192, label %45
 
@@ -15035,7 +15035,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_nanIPKcdEEbRT_RKS7_RT0_.exit: ; pre
   %102 = icmp eq ptr %101, %18
   br i1 %102, label %_ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread, label %.lr.ph64.i.i.i.i.i.i.i, !llvm.loop !93
 
-_ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread.thread192: ; preds = %.loopexit, %71, %20
+_ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread.thread192: ; preds = %71, %.loopexit, %20
   %.ph191 = phi ptr [ %17, %71 ], [ %43, %.loopexit ], [ %17, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !26
@@ -15058,7 +15058,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKcdEEbRT_RKS7_RT0_.exit.thread
   %.not.i = icmp eq i8 %108, 46
   br i1 %.not.i, label %111, label %155
 
-.thread:                                          ; preds = %51, %48, %45, %81
+.thread:                                          ; preds = %51, %48, %81, %45
   %.ph = phi ptr [ %17, %81 ], [ %43, %45 ], [ %43, %48 ], [ %43, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !26
@@ -33542,7 +33542,7 @@ _ZN5boost6spirit2qi14ureal_policiesIdE9parse_infIPKwdEEbRT_RKS7_RT0_.exit.thread
   %.not.i = icmp eq i32 %158, 46
   br i1 %.not.i, label %160, label %206
 
-.thread272:                                       ; preds = %95, %92, %._crit_edge.i.i.i.i.i.i.i, %129, %89
+.thread272:                                       ; preds = %95, %92, %._crit_edge.i.i.i.i.i.i.i, %89, %129
   %.ph = phi ptr [ %87, %89 ], [ %.2.i.i.i.i, %129 ], [ %.2.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %87, %92 ], [ %87, %95 ]
   %.0.i.i58113.ph = phi i1 [ false, %89 ], [ true, %129 ], [ true, %._crit_edge.i.i.i.i.i.i.i ], [ false, %92 ], [ false, %95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

@@ -39415,7 +39415,7 @@ _ZSt13move_backwardIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i: ; pred
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !1077
 
 _ZNSt3_V26rotateIPPN12_GLOBAL__N_19IntrinsicEEET_S5_S5_S5_.exit: ; preds = %._crit_edge111.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %47, %49, %_ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i, %_ZSt13move_backwardIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i
-  %.053.i.i = phi ptr [ %.064, %49 ], [ %.063, %47 ], [ %.tr6781, %.lr.ph.i.i.i ], [ %67, %_ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i ], [ %67, %_ZSt13move_backwardIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i ], [ %67, %._crit_edge.i.i ], [ %67, %._crit_edge111.i.i ]
+  %.053.i.i = phi ptr [ %.064, %49 ], [ %.063, %47 ], [ %67, %_ZSt13move_backwardIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i ], [ %67, %_ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i ], [ %.tr6781, %.lr.ph.i.i.i ], [ %67, %._crit_edge.i.i ], [ %67, %._crit_edge111.i.i ]
   tail call fastcc void @_ZSt22__merge_without_bufferIPPN12_GLOBAL__N_19IntrinsicElN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEEEvT_SD_SD_T0_SE_T1_(ptr noundef %.tr79, ptr noundef %.064, ptr noundef %.053.i.i, i64 noundef %.0, i64 noundef %.036)
   %112 = sub nsw i64 %.tr6983, %.0
   %113 = sub nsw i64 %.tr7084, %.036
@@ -40001,7 +40001,7 @@ _ZSt13move_backwardIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i.i: ; pr
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !1077
 
 _ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_19IntrinsicES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %._crit_edge111.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %84, %_ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit38.i, %99, %_ZSt13move_backwardIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit45.i, %113, %115, %_ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i.i, %_ZSt13move_backwardIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i.i
-  %.0.i94 = phi ptr [ %97, %_ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit38.i ], [ %.0104, %99 ], [ %112, %_ZSt13move_backwardIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit45.i ], [ %.0105, %84 ], [ %.0105, %115 ], [ %.0104, %113 ], [ %.tr108130, %.lr.ph.i.i.i.i ], [ %133, %_ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i.i ], [ %133, %_ZSt13move_backwardIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i.i ], [ %133, %._crit_edge.i.i.i ], [ %133, %._crit_edge111.i.i.i ]
+  %.0.i94 = phi ptr [ %97, %_ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit38.i ], [ %.0104, %99 ], [ %112, %_ZSt13move_backwardIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit45.i ], [ %.0105, %84 ], [ %.0105, %115 ], [ %.0104, %113 ], [ %133, %_ZSt13move_backwardIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i.i ], [ %133, %_ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i.i ], [ %.tr108130, %.lr.ph.i.i.i.i ], [ %133, %._crit_edge.i.i.i ], [ %133, %._crit_edge111.i.i.i ]
   tail call fastcc void @_ZSt16__merge_adaptiveIPPN12_GLOBAL__N_19IntrinsicElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEEEvT_SD_SD_T0_SE_T1_SE_T2_(ptr noundef %.tr128, ptr noundef %.0105, ptr noundef %.0.i94, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
   %178 = sub nsw i64 %.tr111133, %.066
   %.not = icmp sgt i64 %82, %178

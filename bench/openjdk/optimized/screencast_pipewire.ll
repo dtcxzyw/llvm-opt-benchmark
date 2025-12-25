@@ -3364,10 +3364,10 @@ spa_pod_is_choice.exit.i.i:                       ; preds = %150
     i8 82, label %238
     i8 70, label %245
     i8 66, label %252
-    i8 97, label %258
-    i8 112, label %265
-    i8 104, label %272
-    i8 84, label %spa_pod_parser_can_collect.exit.i
+    i8 97, label %256
+    i8 112, label %263
+    i8 104, label %270
+    i8 84, label %277
     i8 79, label %279
   ]
 
@@ -3518,45 +3518,48 @@ spa_pod_is_string.exit.thread.i.thread.i:         ; preds = %spa_pod_is_string.e
   %253 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 4
   %254 = load i32, ptr %253, align 4
   %255 = icmp eq i32 %254, 12
-  br i1 %255, label %256, label %spa_pod_parser_can_collect.exit.thread.i
+  br i1 %255, label %spa_pod_parser_can_collect.exit.i, label %spa_pod_parser_can_collect.exit.thread.i
 
-256:                                              ; preds = %252
-  %257 = load i32, ptr %.027.i.i, align 4
-  %.not161.i = icmp eq i32 %257, 0
-  br i1 %.not161.i, label %285, label %512
+256:                                              ; preds = %165
+  %257 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 4
+  %258 = load i32, ptr %257, align 4
+  %259 = icmp eq i32 %258, 13
+  br i1 %259, label %260, label %spa_pod_parser_can_collect.exit.thread.i
 
-258:                                              ; preds = %165
-  %259 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 4
-  %260 = load i32, ptr %259, align 4
-  %261 = icmp eq i32 %260, 13
-  br i1 %261, label %262, label %spa_pod_parser_can_collect.exit.thread.i
+260:                                              ; preds = %256
+  %261 = load i32, ptr %.027.i.i, align 4
+  %262 = icmp ugt i32 %261, 7
+  br i1 %262, label %528, label %285
 
-262:                                              ; preds = %258
-  %263 = load i32, ptr %.027.i.i, align 4
-  %264 = icmp ugt i32 %263, 7
-  br i1 %264, label %528, label %285
+263:                                              ; preds = %165
+  %264 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 4
+  %265 = load i32, ptr %264, align 4
+  %266 = icmp eq i32 %265, 17
+  br i1 %266, label %267, label %spa_pod_parser_can_collect.exit.thread.i
 
-265:                                              ; preds = %165
-  %266 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 4
-  %267 = load i32, ptr %266, align 4
-  %268 = icmp eq i32 %267, 17
-  br i1 %268, label %269, label %spa_pod_parser_can_collect.exit.thread.i
+267:                                              ; preds = %263
+  %268 = load i32, ptr %.027.i.i, align 4
+  %269 = icmp ugt i32 %268, 15
+  br i1 %269, label %597, label %285
 
-269:                                              ; preds = %265
-  %270 = load i32, ptr %.027.i.i, align 4
-  %271 = icmp ugt i32 %270, 15
-  br i1 %271, label %597, label %285
+270:                                              ; preds = %165
+  %271 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 4
+  %272 = load i32, ptr %271, align 4
+  %273 = icmp eq i32 %272, 18
+  br i1 %273, label %274, label %spa_pod_parser_can_collect.exit.thread.i
 
-272:                                              ; preds = %165
-  %273 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 4
-  %274 = load i32, ptr %273, align 4
-  %275 = icmp eq i32 %274, 18
-  br i1 %275, label %276, label %spa_pod_parser_can_collect.exit.thread.i
+274:                                              ; preds = %270
+  %275 = load i32, ptr %.027.i.i, align 4
+  %276 = icmp ugt i32 %275, 7
+  br i1 %276, label %629, label %285
 
-276:                                              ; preds = %272
-  %277 = load i32, ptr %.027.i.i, align 4
-  %278 = icmp ugt i32 %277, 7
-  br i1 %278, label %629, label %285
+277:                                              ; preds = %165
+  %278 = getelementptr i8, ptr %.027.i.i, i64 4
+  %.027.val36.i.i = load i32, ptr %278, align 4
+  switch i32 %.027.val36.i.i, label %285 [
+    i32 14, label %644
+    i32 1, label %644
+  ]
 
 279:                                              ; preds = %165
   %280 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 4
@@ -3574,22 +3577,19 @@ spa_pod_is_object.exit.i.i:                       ; preds = %279
 spa_pod_is_object.exit.thread.i.thread.i:         ; preds = %spa_pod_is_object.exit.i.i
   br i1 %152, label %thread-pre-split157.i, label %spa_pod_parser_getv.exit
 
-spa_pod_parser_can_collect.exit.thread.i:         ; preds = %272, %265, %258, %252, %245, %238, %227, %220, %201, %194, %187, %180, %173, %166, %165, %160, %spa_pod_is_choice.exit.i.i
-  %.ph146.i = phi i8 [ %151, %165 ], [ 104, %272 ], [ 112, %265 ], [ 97, %258 ], [ 66, %252 ], [ 70, %245 ], [ 82, %238 ], [ 83, %220 ], [ 83, %227 ], [ 100, %201 ], [ 102, %194 ], [ 108, %187 ], [ 105, %180 ], [ 73, %173 ], [ 98, %166 ], [ %151, %160 ], [ %151, %spa_pod_is_choice.exit.i.i ]
+spa_pod_parser_can_collect.exit.thread.i:         ; preds = %270, %263, %256, %252, %245, %238, %227, %220, %201, %194, %187, %180, %173, %166, %165, %160, %spa_pod_is_choice.exit.i.i
+  %.ph146.i = phi i8 [ %151, %165 ], [ 104, %270 ], [ 112, %263 ], [ 97, %256 ], [ 66, %252 ], [ 70, %245 ], [ 82, %238 ], [ 83, %220 ], [ 83, %227 ], [ 100, %201 ], [ 102, %194 ], [ 108, %187 ], [ 105, %180 ], [ 73, %173 ], [ 98, %166 ], [ %151, %160 ], [ %151, %spa_pod_is_choice.exit.i.i ]
   br i1 %152, label %286, label %spa_pod_parser_getv.exit
 
 spa_pod_parser_can_collect.exit.thread.thread.i:  ; preds = %spa_pod_parser_next.exit.i
   br i1 %147, label %286, label %spa_pod_parser_getv.exit
 
-spa_pod_parser_can_collect.exit.i:                ; preds = %165
-  %284 = getelementptr i8, ptr %.027.i.i, i64 4
-  %.027.val36.i.i = load i32, ptr %284, align 4
-  switch i32 %.027.val36.i.i, label %285 [
-    i32 14, label %644
-    i32 1, label %644
-  ]
+spa_pod_parser_can_collect.exit.i:                ; preds = %252
+  %284 = load i32, ptr %.027.i.i, align 4
+  %.not161.i = icmp eq i32 %284, 0
+  br i1 %.not161.i, label %285, label %512
 
-285:                                              ; preds = %spa_pod_parser_can_collect.exit.i, %279, %276, %269, %262, %256, %249, %242, %235, %229, %208, %205, %198, %191, %184, %177, %170
+285:                                              ; preds = %spa_pod_parser_can_collect.exit.i, %279, %277, %274, %267, %260, %249, %242, %235, %229, %208, %205, %198, %191, %184, %177, %170
   br i1 %152, label %286, label %spa_pod_parser_getv.exit
 
 286:                                              ; preds = %285, %spa_pod_parser_can_collect.exit.thread.thread.i, %spa_pod_parser_can_collect.exit.thread.i, %spa_pod_parser_next.exit.thread.i
@@ -4049,7 +4049,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   store i64 %511, ptr %509, align 4
   br label %661
 
-512:                                              ; preds = %256
+512:                                              ; preds = %spa_pod_parser_can_collect.exit.i
   %.2.idx277.i = select i1 %155, i64 16, i64 0
   %.2278.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx277.i
   %513 = ptrtoint ptr %.2278.i to i64
@@ -4078,7 +4078,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   store ptr %515, ptr %527, align 8
   br label %661
 
-528:                                              ; preds = %262
+528:                                              ; preds = %260
   %.2.idx282.i = select i1 %155, i64 16, i64 0
   %.2283.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx282.i
   %529 = getelementptr inbounds nuw i8, ptr %.2283.i, i64 8
@@ -4192,7 +4192,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   store ptr %583, ptr %596, align 8
   br label %661
 
-597:                                              ; preds = %269
+597:                                              ; preds = %267
   %.2.idx287.i = select i1 %155, i64 16, i64 0
   %.2288.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx287.i
   %598 = ptrtoint ptr %.2288.i to i64
@@ -4246,7 +4246,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   store ptr %615, ptr %628, align 8
   br label %661
 
-629:                                              ; preds = %276
+629:                                              ; preds = %274
   %.2.idx.i = select i1 %155, i64 16, i64 0
   %.2.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx.i
   %630 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
@@ -4274,9 +4274,9 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   store i64 %631, ptr %643, align 8
   br label %661
 
-644:                                              ; preds = %spa_pod_parser_can_collect.exit.i, %spa_pod_parser_can_collect.exit.i, %spa_pod_is_object.exit.i.i, %279, %165, %158
-  %.lcssa70 = phi i1 [ %155, %spa_pod_parser_can_collect.exit.i ], [ %155, %spa_pod_parser_can_collect.exit.i ], [ %155, %spa_pod_is_object.exit.i.i ], [ %155, %279 ], [ %155, %165 ], [ true, %158 ]
-  %.not130.ph.i = phi i64 [ 16, %spa_pod_parser_can_collect.exit.i ], [ 16, %spa_pod_parser_can_collect.exit.i ], [ 16, %spa_pod_is_object.exit.i.i ], [ 16, %279 ], [ 16, %165 ], [ 0, %158 ]
+644:                                              ; preds = %spa_pod_is_object.exit.i.i, %279, %277, %277, %165, %158
+  %.lcssa70 = phi i1 [ %155, %spa_pod_is_object.exit.i.i ], [ %155, %279 ], [ %155, %277 ], [ %155, %277 ], [ %155, %165 ], [ true, %158 ]
+  %.not130.ph.i = phi i64 [ 16, %spa_pod_is_object.exit.i.i ], [ 16, %279 ], [ 16, %277 ], [ 16, %277 ], [ 16, %165 ], [ 0, %158 ]
   %.2.idx220.i = select i1 %.lcssa70, i64 %.not130.ph.i, i64 0
   %.2221.i = getelementptr inbounds nuw i8, ptr %.193145.i, i64 %.2.idx220.i
   %645 = icmp ult i32 %99, 41

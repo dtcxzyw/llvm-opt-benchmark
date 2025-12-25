@@ -3065,8 +3065,8 @@ _ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit36: ; preds = %63
   br i1 %exitcond65.not, label %_ZN4core5slice4sort6shared17find_existing_run17he318730104ad97adE.exit, label %.lr.ph54
 
 _ZN4core5slice4sort6shared17find_existing_run17he318730104ad97adE.exit: ; preds = %_ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit19, %.thread43, %44, %_ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit36, %76, %69, %63, %.preheader47, %.preheader
-  %.sroa.3.0.i = phi i1 [ true, %.preheader ], [ false, %.preheader47 ], [ true, %_ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit36 ], [ true, %63 ], [ true, %69 ], [ true, %76 ], [ false, %44 ], [ false, %.thread43 ], [ false, %_ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit19 ]
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader ], [ 2, %.preheader47 ], [ %.sroa.01.0.i53, %_ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit36 ], [ %1, %76 ], [ %.sroa.01.0.i53, %69 ], [ %.sroa.01.0.i53, %63 ], [ %1, %.thread43 ], [ %.sroa.01.1.i49, %44 ], [ %.sroa.01.1.i49, %_ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit19 ]
+  %.sroa.3.0.i = phi i1 [ true, %.preheader ], [ true, %_ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit36 ], [ false, %.preheader47 ], [ true, %63 ], [ true, %69 ], [ true, %76 ], [ false, %44 ], [ false, %.thread43 ], [ false, %_ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit19 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader ], [ %.sroa.01.0.i53, %_ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit36 ], [ 2, %.preheader47 ], [ %1, %76 ], [ %.sroa.01.0.i53, %69 ], [ %.sroa.01.0.i53, %63 ], [ %1, %.thread43 ], [ %.sroa.01.1.i49, %44 ], [ %.sroa.01.1.i49, %_ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit19 ]
   %78 = icmp ule i64 %.sroa.0.0.i, %1
   tail call void @llvm.assume(i1 %78)
   %79 = icmp eq i64 %.sroa.0.0.i, %1

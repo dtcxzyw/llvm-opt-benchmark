@@ -2958,8 +2958,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %14 = icmp eq i8 %narrow.i.i, %narrow3.i.i
   br i1 %14, label %15, label %_ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit.thread: ; preds = %77, %67, %47, %.critedge.backedge, %_ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit, %.lr.ph, %16, %22, %57, %41, %61, %29, %71, %51, %35, %31, %30, %.critedge.preheader.split, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.critedge.preheader.split ], [ false, %77 ], [ false, %67 ], [ false, %47 ], [ false, %31 ], [ false, %35 ], [ false, %51 ], [ false, %71 ], [ false, %29 ], [ false, %61 ], [ false, %41 ], [ false, %57 ], [ false, %22 ], [ false, %16 ], [ false, %.lr.ph ], [ false, %_ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit ], [ true, %.critedge.backedge ], [ false, %30 ]
+_ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit.thread: ; preds = %77, %47, %67, %.critedge.backedge, %_ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit, %.lr.ph, %16, %22, %57, %41, %61, %29, %71, %51, %35, %31, %30, %.critedge.preheader.split, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.critedge.preheader.split ], [ false, %77 ], [ false, %47 ], [ false, %67 ], [ false, %31 ], [ false, %35 ], [ false, %51 ], [ false, %71 ], [ false, %29 ], [ false, %61 ], [ false, %41 ], [ false, %57 ], [ false, %22 ], [ false, %16 ], [ false, %.lr.ph ], [ false, %_ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit ], [ true, %.critedge.backedge ], [ false, %30 ]
   ret i1 %.sroa.0.0
 
 15:                                               ; preds = %.lr.ph
@@ -3085,7 +3085,7 @@ _ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit: ; p
   %83 = icmp eq i8 %.val15.i.i, %.val16.i.i
   br i1 %83, label %.critedge.backedge, label %_ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit.thread
 
-.critedge.backedge:                               ; preds = %77, %67, %47, %_ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit, %15
+.critedge.backedge:                               ; preds = %77, %47, %67, %_ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit, %15
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %_ZN4core3cmp9PartialEq2ne17h5726c99e37d98618E.llvm.7851139787196899240.exit.thread, label %.lr.ph
 }

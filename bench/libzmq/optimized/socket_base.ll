@@ -1994,7 +1994,7 @@ define noundef range(i32 -1, 1) i32 @_ZNK3zmq13socket_base_t14check_protocolERKN
   br label %23
 
 23:                                               ; preds = %.sink.split, %16, %19, %19, %19
-  %.0 = phi i32 [ 0, %16 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %16 ], [ 0, %19 ], [ 0, %19 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

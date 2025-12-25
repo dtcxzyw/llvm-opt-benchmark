@@ -708,7 +708,7 @@ for.end507:                                       ; preds = %for.cond352.loopexi
   br label %cleanup520
 
 cleanup520:                                       ; preds = %if.end309, %lor.rhs377, %for.body354, %lor.rhs475, %if.end429, %lor.lhs.false450, %if.then404, %cleanup285.critedge, %for.end507
-  %retval.sroa.0.3 = phi ptr [ null, %cleanup285.critedge ], [ null, %lor.rhs475 ], [ null, %lor.rhs377 ], [ %call4.i, %for.end507 ], [ null, %if.then404 ], [ null, %lor.lhs.false450 ], [ null, %if.end429 ], [ null, %for.body354 ], [ null, %if.end309 ]
+  %retval.sroa.0.3 = phi ptr [ null, %cleanup285.critedge ], [ null, %lor.rhs475 ], [ %call4.i, %for.end507 ], [ null, %lor.rhs377 ], [ null, %if.then404 ], [ null, %lor.lhs.false450 ], [ null, %if.end429 ], [ null, %for.body354 ], [ null, %if.end309 ]
   %54 = load ptr, ptr %_M_before_begin.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %54, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIPN2v813EmbedderGraph4NodeESt4pairIKS3_NS0_5LocalINS0_6ObjectEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -2297,7 +2297,7 @@ if.then.i:                                        ; preds = %_ZNKSt8__detail15_H
   br label %return
 
 return:                                           ; preds = %lor.lhs.false.i.i, %if.end3.i.i, %for.cond, %for.body, %if.then.i, %_ZNKSt8__detail15_Hash_code_baseIPN4node4heap13JSGraphJSNodeES4_NS_9_IdentityENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS4_.exit
-  %retval.sroa.0.1 = phi ptr [ null, %for.cond ], [ null, %_ZNKSt8__detail15_Hash_code_baseIPN4node4heap13JSGraphJSNodeES4_NS_9_IdentityENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS4_.exit ], [ %14, %if.then.i ], [ %retval.sroa.0.0, %for.body ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ]
+  %retval.sroa.0.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseIPN4node4heap13JSGraphJSNodeES4_NS_9_IdentityENS3_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS4_.exit ], [ null, %for.cond ], [ %14, %if.then.i ], [ %retval.sroa.0.0, %for.body ], [ null, %if.end3.i.i ], [ null, %lor.lhs.false.i.i ]
   ret ptr %retval.sroa.0.1
 }
 

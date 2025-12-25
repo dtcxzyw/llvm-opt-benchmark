@@ -2253,7 +2253,7 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit45:        ; preds = %132
   br i1 %exitcond73, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %86, !llvm.loop !75
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread:   ; preds = %63, %_ZNK6icu_7713UnicodeStringneERKS0_.exit, %59, %155, %_ZNK6icu_7713UnicodeStringneERKS0_.exit39, %96, %92, %_ZNK6icu_7713UnicodeStringneERKS0_.exit45, %132, %128, %23, %19, %4, %8, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit, %2
-  %.028 = phi i1 [ false, %4 ], [ true, %2 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit45 ], [ false, %23 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ false, %8 ], [ false, %19 ], [ false, %92 ], [ false, %128 ], [ false, %132 ], [ true, %155 ], [ false, %96 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit39 ], [ false, %59 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit ], [ false, %63 ]
+  %.028 = phi i1 [ false, %4 ], [ true, %2 ], [ false, %92 ], [ false, %23 ], [ false, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ false, %8 ], [ false, %19 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit45 ], [ false, %128 ], [ false, %132 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit39 ], [ false, %96 ], [ true, %155 ], [ false, %59 ], [ false, %_ZNK6icu_7713UnicodeStringneERKS0_.exit ], [ false, %63 ]
   ret i1 %.028
 }
 

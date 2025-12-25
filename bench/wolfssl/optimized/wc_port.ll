@@ -667,7 +667,7 @@ define ptr @wc_strsep(ptr noundef captures(address_is_null) %0, ptr noundef read
   br label %20
 
 20:                                               ; preds = %.sink.split, %2, %4
-  %.019 = phi ptr [ null, %2 ], [ null, %4 ], [ %5, %.sink.split ]
+  %.019 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %.sink.split ]
   ret ptr %.019
 }
 

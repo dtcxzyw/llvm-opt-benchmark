@@ -3870,8 +3870,8 @@ spgSplitNodeAction.exit:                          ; preds = %.thread.i251, %1909
   unreachable
 
 .thread433:                                       ; preds = %1435, %1430, %1437
-  %.1130 = phi i32 [ %.01291032, %1430 ], [ %.01291032, %1437 ], [ %.2124, %1435 ]
-  %.1127 = phi i32 [ %.01261033, %1430 ], [ %1438, %1437 ], [ 0, %1435 ]
+  %.1130 = phi i32 [ %.01291032, %1437 ], [ %.01291032, %1430 ], [ %.2124, %1435 ]
+  %.1127 = phi i32 [ %1438, %1437 ], [ %.01261033, %1430 ], [ 0, %1435 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 0, ptr %18, align 1

@@ -407,7 +407,7 @@ define internal fastcc void @rb_insert_case1(ptr noundef captures(none) %0, ptr 
   br label %node_uncle.exit.i
 
 node_uncle.exit.i:                                ; preds = %17, %13
-  %.0.i.i = phi ptr [ %15, %13 ], [ %19, %17 ]
+  %.0.i.i = phi ptr [ %19, %17 ], [ %15, %13 ]
   %.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i, label %node_uncle.exit.thread.thread.i, label %20
 
@@ -2657,7 +2657,7 @@ wmem_tree_lookup32_node.exit.i:                   ; preds = %.lr.ph.i.i
   br label %wmem_tree_lookup32_array_helper.exit
 
 wmem_tree_lookup32_array_helper.exit:             ; preds = %9, %wmem_tree_lookup32.exit12, %.sink.split.i.i9, %41, %.preheader30.i, %wmem_tree_lookup32_node.exit.i, %._crit_edge43.i, %2
-  %.024.i = phi ptr [ null, %2 ], [ null, %.preheader30.i ], [ null, %41 ], [ %43, %wmem_tree_lookup32_node.exit.i ], [ null, %.sink.split.i.i9 ], [ null, %._crit_edge43.i ], [ null, %wmem_tree_lookup32.exit12 ], [ null, %9 ]
+  %.024.i = phi ptr [ null, %2 ], [ null, %.preheader30.i ], [ null, %.sink.split.i.i9 ], [ %43, %wmem_tree_lookup32_node.exit.i ], [ null, %41 ], [ null, %._crit_edge43.i ], [ null, %wmem_tree_lookup32.exit12 ], [ null, %9 ]
   ret ptr %.024.i
 }
 
@@ -2858,7 +2858,7 @@ wmem_tree_lookup32_le_node.exit.thread6.i:        ; preds = %.lr.ph.i.i, %71, %.
   br label %wmem_tree_lookup32_array_helper.exit
 
 wmem_tree_lookup32_array_helper.exit:             ; preds = %34, %9, %wmem_tree_lookup32_le.exit16, %46, %92, %.preheader30.i, %wmem_tree_lookup32_le_node.exit.thread6.i, %80, %._crit_edge43.i, %2
-  %.024.i = phi ptr [ null, %2 ], [ null, %.preheader30.i ], [ null, %92 ], [ %95, %wmem_tree_lookup32_le_node.exit.thread6.i ], [ null, %._crit_edge43.i ], [ null, %46 ], [ null, %80 ], [ null, %wmem_tree_lookup32_le.exit16 ], [ null, %9 ], [ null, %34 ]
+  %.024.i = phi ptr [ null, %2 ], [ null, %.preheader30.i ], [ null, %46 ], [ %95, %wmem_tree_lookup32_le_node.exit.thread6.i ], [ null, %._crit_edge43.i ], [ null, %92 ], [ null, %80 ], [ null, %wmem_tree_lookup32_le.exit16 ], [ null, %9 ], [ null, %34 ]
   ret ptr %.024.i
 }
 

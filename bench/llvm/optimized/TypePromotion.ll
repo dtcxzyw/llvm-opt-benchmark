@@ -2322,7 +2322,7 @@ _ZN4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_N
     i8 22, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit99.thread220
     i8 61, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit99.thread220
     i8 85, label %281
-    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit99
+    i8 67, label %295
   ]
 
 281:                                              ; preds = %279
@@ -2347,20 +2347,20 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i96: ; pre
   %292 = getelementptr inbounds nuw i8, ptr %272, i64 80
   %293 = load ptr, ptr %292, align 8, !tbaa !185
   %294 = icmp eq ptr %291, %293
-  br i1 %294, label %295, label %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertERKS2_.exit103
+  br i1 %294, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit99, label %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertERKS2_.exit103
 
-295:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i96
-  call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %296 = getelementptr inbounds nuw i8, ptr %286, i64 120
-  %.sroa.0.0.copyload.i.i.i.i97 = load ptr, ptr %296, align 8, !tbaa !202
-  store ptr %.sroa.0.0.copyload.i.i.i.i97, ptr %31, align 8
-  %297 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef 0, i32 noundef 79) #20
-  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+295:                                              ; preds = %279
+  %296 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %274) #23
+  %297 = icmp eq i32 %296, %.val82
   br i1 %297, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit99.thread220, label %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertERKS2_.exit103
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit99: ; preds = %279
-  %298 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %274) #23
-  %299 = icmp eq i32 %298, %.val82
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit99: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i96
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  %298 = getelementptr inbounds nuw i8, ptr %286, i64 120
+  %.sroa.0.0.copyload.i.i.i.i97 = load ptr, ptr %298, align 8, !tbaa !202
+  store ptr %.sroa.0.0.copyload.i.i.i.i97, ptr %31, align 8
+  %299 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef 0, i32 noundef 79) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br i1 %299, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit99.thread220, label %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertERKS2_.exit103
 
 _ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit99.thread220: ; preds = %281, %279, %279, %295, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit99
@@ -2421,7 +2421,7 @@ _ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12Den
     i8 22, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109.thread224
     i8 61, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109.thread224
     i8 85, label %328
-    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109
+    i8 67, label %342
   ]
 
 328:                                              ; preds = %326
@@ -2446,20 +2446,20 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i106: ; pr
   %339 = getelementptr inbounds nuw i8, ptr %319, i64 80
   %340 = load ptr, ptr %339, align 8, !tbaa !185
   %341 = icmp eq ptr %338, %340
-  br i1 %341, label %342, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109.thread
+  br i1 %341, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109.thread
 
-342:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i106
-  call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %343 = getelementptr inbounds nuw i8, ptr %333, i64 120
-  %.sroa.0.0.copyload.i.i.i.i107 = load ptr, ptr %343, align 8, !tbaa !202
-  store ptr %.sroa.0.0.copyload.i.i.i.i107, ptr %28, align 8
-  %344 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %28, i32 noundef 0, i32 noundef 79) #20
-  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+342:                                              ; preds = %326
+  %343 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %321) #23
+  %344 = icmp eq i32 %343, %.val83
   br i1 %344, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109.thread224, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109: ; preds = %326
-  %345 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %321) #23
-  %346 = icmp eq i32 %345, %.val83
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i106
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  %345 = getelementptr inbounds nuw i8, ptr %333, i64 120
+  %.sroa.0.0.copyload.i.i.i.i107 = load ptr, ptr %345, align 8, !tbaa !202
+  store ptr %.sroa.0.0.copyload.i.i.i.i107, ptr %28, align 8
+  %346 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %28, i32 noundef 0, i32 noundef 79) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br i1 %346, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109.thread224, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109.thread
 
 _ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109.thread: ; preds = %326, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i106, %331, %334, %318, %342, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109
@@ -2525,7 +2525,7 @@ _ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109.thread224: 
     i8 22, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116.thread232
     i8 61, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116.thread232
     i8 85, label %377
-    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116
+    i8 67, label %391
   ]
 
 377:                                              ; preds = %375
@@ -2550,20 +2550,20 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i113: ; pr
   %388 = getelementptr inbounds nuw i8, ptr %368, i64 80
   %389 = load ptr, ptr %388, align 8, !tbaa !185
   %390 = icmp eq ptr %387, %389
-  br i1 %390, label %391, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116.thread
+  br i1 %390, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116.thread
 
-391:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i113
-  call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %392 = getelementptr inbounds nuw i8, ptr %382, i64 120
-  %.sroa.0.0.copyload.i.i.i.i114 = load ptr, ptr %392, align 8, !tbaa !202
-  store ptr %.sroa.0.0.copyload.i.i.i.i114, ptr %27, align 8
-  %393 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef 0, i32 noundef 79) #20
-  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+391:                                              ; preds = %375
+  %392 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %370) #23
+  %393 = icmp eq i32 %392, %.val84
   br i1 %393, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116.thread232, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116: ; preds = %375
-  %394 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %370) #23
-  %395 = icmp eq i32 %394, %.val84
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i113
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  %394 = getelementptr inbounds nuw i8, ptr %382, i64 120
+  %.sroa.0.0.copyload.i.i.i.i114 = load ptr, ptr %394, align 8, !tbaa !202
+  store ptr %.sroa.0.0.copyload.i.i.i.i114, ptr %27, align 8
+  %395 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef 0, i32 noundef 79) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br i1 %395, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116.thread232, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116.thread
 
 _ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116.thread: ; preds = %375, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i113, %380, %383, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit109.thread224, %391, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit116
@@ -7213,7 +7213,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117TypePromotionImpl1
     i8 22, label %.critedge
     i8 61, label %.critedge
     i8 85, label %20
-    i8 67, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit
+    i8 67, label %34
   ]
 
 20:                                               ; preds = %18
@@ -7238,23 +7238,23 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i: ; preds
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %32 = load ptr, ptr %31, align 8, !tbaa !185
   %33 = icmp eq ptr %30, %32
-  br i1 %33, label %34, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split
+  br i1 %33, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split
 
-34:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i
+34:                                               ; preds = %18
+  %35 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %13) #23
+  %36 = icmp eq i32 %35, %.val
+  br i1 %36, label %.critedge, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread.thread
+
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %35 = getelementptr inbounds nuw i8, ptr %25, i64 120
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %35, align 8, !tbaa !202
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 120
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !202
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %3, align 8
-  %36 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 0, i32 noundef 79) #20
+  %38 = call noundef zeroext i1 @_ZNK4llvm13AttributeList19hasAttributeAtIndexEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 0, i32 noundef 79) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %36, label %.critedge, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split
+  br i1 %38, label %.critedge, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit: ; preds = %18
-  %37 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %13) #23
-  %38 = icmp eq i32 %37, %.val
-  br i1 %38, label %.critedge, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread.thread
-
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split: ; preds = %34, %12, %26, %23, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.threadthread-pre-split: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit, %12, %26, %23, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i
   %.pr = load i8, ptr %1, align 8, !tbaa !102
   br label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread
 
@@ -7263,8 +7263,8 @@ _ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread: ; pred
   %40 = icmp ult i8 %39, 29
   br i1 %40, label %.critedge, label %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread.thread
 
-_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread.thread: ; preds = %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread
-  %41 = phi i8 [ %39, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread ], [ 67, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit ]
+_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread.thread: ; preds = %34, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread
+  %41 = phi i8 [ %39, %_ZN12_GLOBAL__N_117TypePromotionImpl8isSourceEPN4llvm5ValueE.exit.thread ], [ 67, %34 ]
   %42 = icmp ne i8 %41, 82
   br label %.critedge
 

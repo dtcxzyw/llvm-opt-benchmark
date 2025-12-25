@@ -494,7 +494,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %91
   br label %mpeg_read_pes_packet.exit
 
 mpeg_read_pes_packet.exit:                        ; preds = %93, %95, %107, %103, %105, %168
-  %.0.i31 = phi i32 [ 0, %103 ], [ %.1.i32, %168 ], [ 0, %105 ], [ 0, %107 ], [ 0, %95 ], [ 0, %93 ]
+  %.0.i31 = phi i32 [ 0, %105 ], [ %.1.i32, %168 ], [ 0, %103 ], [ 0, %107 ], [ 0, %95 ], [ 0, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %169
 

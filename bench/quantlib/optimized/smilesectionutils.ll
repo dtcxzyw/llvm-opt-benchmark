@@ -2898,7 +2898,7 @@ if.then.i.i.i928:                                 ; preds = %lpad448.loopexit, %
   call void @_ZdlPvm(ptr noundef nonnull %tmp.sroa.0.0, i64 noundef %sub.ptr.sub.i.i932) #23
   br label %ehcleanup876
 
-ehcleanup876:                                     ; preds = %lpad220, %ehcleanup206.thread, %lpad175, %ehcleanup206.thread1060, %if.then.i.i.i928, %ehcleanup164, %ehcleanup102, %ehcleanup38, %lpad
+ehcleanup876:                                     ; preds = %ehcleanup206.thread1060, %ehcleanup206.thread, %lpad175, %lpad220, %if.then.i.i.i928, %ehcleanup164, %ehcleanup102, %ehcleanup38, %lpad
   %.pn114.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn114.pn.pn.pn.pn, %ehcleanup164 ], [ %.pn.pn.pn.pn.pn, %ehcleanup38 ], [ %74, %lpad175 ], [ %6, %lpad ], [ %75, %lpad220 ], [ %.pn76.pn.pn.pn.pn, %ehcleanup102 ], [ %.pn109.pn.pn.pn1124, %if.then.i.i.i928 ], [ %72, %ehcleanup206.thread ], [ %73, %ehcleanup206.thread1060 ]
   %296 = load ptr, ptr %k_, align 8, !tbaa !19
   %tobool.not.i.i.i936 = icmp eq ptr %296, null

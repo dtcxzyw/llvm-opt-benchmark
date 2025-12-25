@@ -1363,7 +1363,7 @@ define internal fastcc range(i32 0, 2) i32 @hpke_do_middle(ptr noundef nonnull c
   br label %132
 
 132:                                              ; preds = %.sink.split, %129, %124, %114, %104
-  %.0 = phi i32 [ 1, %129 ], [ 0, %124 ], [ 0, %114 ], [ 0, %104 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %104 ], [ 0, %124 ], [ 0, %114 ], [ 1, %129 ], [ 0, %.sink.split ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 512) #6
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 512) #6
   call void @EVP_KDF_CTX_free(ptr noundef nonnull %57) #6

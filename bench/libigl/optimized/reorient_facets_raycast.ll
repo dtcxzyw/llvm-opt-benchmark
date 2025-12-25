@@ -3239,9 +3239,9 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit464:     ; preds = %1270, %1269
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit466
 
 _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit466:     ; preds = %1273, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit464
-  %.sroa.0595.0968 = phi ptr [ %.sroa.0595.09701018, %1273 ], [ %.sroa.0595.0978984, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit464 ]
-  %.sroa.15602.0956 = phi ptr [ %.sroa.15602.09581020, %1273 ], [ %.sroa.15602.0966986, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit464 ]
-  %.pn183.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn183.pn.pn.pn.pn.pn1024, %1273 ], [ %.pn183.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit464 ]
+  %.sroa.0595.0968 = phi ptr [ %.sroa.0595.0978984, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit464 ], [ %.sroa.0595.09701018, %1273 ]
+  %.sroa.15602.0956 = phi ptr [ %.sroa.15602.0966986, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit464 ], [ %.sroa.15602.09581020, %1273 ]
+  %.pn183.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn183.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit464 ], [ %.pn183.pn.pn.pn.pn.pn1024, %1273 ]
   %.not.i.i.i467 = icmp eq ptr %.sroa.0595.0968, null
   br i1 %.not.i.i.i467, label %_ZNSt6vectorIiSaIiEED2Ev.exit396, label %1277
 
@@ -6307,9 +6307,9 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit461:     ; preds = %1270, %1269
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit463
 
 _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit463:     ; preds = %1273, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit461
-  %.sroa.0592.0965 = phi ptr [ %.sroa.0592.09671015, %1273 ], [ %.sroa.0592.0975981, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit461 ]
-  %.sroa.15599.0953 = phi ptr [ %.sroa.15599.09551017, %1273 ], [ %.sroa.15599.0963983, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit461 ]
-  %.pn183.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn183.pn.pn.pn.pn.pn1021, %1273 ], [ %.pn183.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit461 ]
+  %.sroa.0592.0965 = phi ptr [ %.sroa.0592.0975981, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit461 ], [ %.sroa.0592.09671015, %1273 ]
+  %.sroa.15599.0953 = phi ptr [ %.sroa.15599.0963983, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit461 ], [ %.sroa.15599.09551017, %1273 ]
+  %.pn183.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn183.pn.pn.pn.pn, %_ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit461 ], [ %.pn183.pn.pn.pn.pn.pn1021, %1273 ]
   %.not.i.i.i464 = icmp eq ptr %.sroa.0592.0965, null
   br i1 %.not.i.i.i464, label %_ZNSt6vectorIiSaIiEED2Ev.exit396, label %1277
 

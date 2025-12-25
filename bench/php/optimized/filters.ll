@@ -3427,7 +3427,7 @@ thread-pre-split141.i:                            ; preds = %107, %21
   br label %php_dechunk.exit
 
 php_dechunk.exit:                                 ; preds = %21, %thread-pre-split.thread.i, %.critedge.i, %.backedge.i, %11, %71, %84, %97, %100, %110, %._crit_edge223.i
-  %.0114.i = phi i64 [ %116, %._crit_edge223.i ], [ %103, %100 ], [ %.0184.i, %71 ], [ %.0184.i, %84 ], [ %94, %97 ], [ %.1.i, %110 ], [ 0, %11 ], [ %.0.be.i, %.backedge.i ], [ %.0184.i, %.critedge.i ], [ %.0184.i, %thread-pre-split.thread.i ], [ %.0184.i, %21 ]
+  %.0114.i = phi i64 [ %103, %100 ], [ %116, %._crit_edge223.i ], [ %.0184.i, %71 ], [ %.0184.i, %84 ], [ %94, %97 ], [ %.1.i, %110 ], [ 0, %11 ], [ %.0.be.i, %.backedge.i ], [ %.0184.i, %.critedge.i ], [ %.0184.i, %thread-pre-split.thread.i ], [ %.0184.i, %21 ]
   store i64 %.0114.i, ptr %14, align 8, !tbaa !23
   tail call void @php_stream_bucket_append(ptr noundef %3, ptr noundef %13) #18
   %117 = load ptr, ptr %2, align 8, !tbaa !15

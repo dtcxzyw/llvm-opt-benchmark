@@ -1014,7 +1014,7 @@ align_get_bits.exit340:                           ; preds = %173
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us403, %.loopexit.sink.split, %.preheader356.lr.ph, %349, %329, %91, %83, %53, %18, %42, %46, %50, %.loopexit366
-  %.0295 = phi i32 [ 0, %._crit_edge.us403 ], [ -1094995529, %18 ], [ -1094995529, %53 ], [ -1094995529, %83 ], [ -1094995529, %91 ], [ 0, %.loopexit366 ], [ -1163346256, %.loopexit.sink.split ], [ -1094995529, %50 ], [ -1094995529, %46 ], [ -1094995529, %42 ], [ 0, %329 ], [ 0, %349 ], [ 0, %.preheader356.lr.ph ], [ 0, %._crit_edge.us ]
+  %.0295 = phi i32 [ -1163346256, %.loopexit.sink.split ], [ -1094995529, %18 ], [ -1094995529, %53 ], [ -1094995529, %83 ], [ -1094995529, %91 ], [ 0, %.loopexit366 ], [ 0, %._crit_edge.us403 ], [ -1094995529, %50 ], [ -1094995529, %46 ], [ -1094995529, %42 ], [ 0, %329 ], [ 0, %349 ], [ 0, %.preheader356.lr.ph ], [ 0, %._crit_edge.us ]
   tail call void @av_free(ptr noundef nonnull %17) #9
   br label %366
 
@@ -1836,7 +1836,7 @@ mid_pred.exit:                                    ; preds = %357, %359, %360, %3
   br i1 %417, label %33, label %.thread311, !llvm.loop !103
 
 .thread311:                                       ; preds = %415, %33, %._crit_edge, %149, %9, %181
-  %.6 = phi i32 [ -1094995529, %181 ], [ 0, %9 ], [ 0, %._crit_edge ], [ 0, %149 ], [ 0, %415 ], [ -1094995529, %33 ]
+  %.6 = phi i32 [ -1094995529, %181 ], [ 0, %9 ], [ 0, %._crit_edge ], [ 0, %149 ], [ -1094995529, %33 ], [ 0, %415 ]
   ret i32 %.6
 }
 

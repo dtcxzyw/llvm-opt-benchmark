@@ -399,8 +399,8 @@ _ZN4core3ops8function6FnOnce9call_once17ha8214dbf1123523eE.exit.i.i: ; preds = %
   store i64 -9223372036854775807, ptr %28, align 8, !alias.scope !54, !noalias !57
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc00779f389023329E.exit"
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit.thread": ; preds = %.sink.split.i.i.i.i.i, %20, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit"
-  %.0.i1.i2 = phi ptr [ %26, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit" ], [ %8, %.sink.split.i.i.i.i.i ], [ %15, %20 ]
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit.thread": ; preds = %20, %.sink.split.i.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit"
+  %.0.i1.i2 = phi ptr [ %26, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfa06057d4aa031caE.llvm.3506456842714578515.exit" ], [ %15, %20 ], [ %8, %.sink.split.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i), !noalias !59
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
@@ -662,7 +662,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha8214dbf1123523eE.exit.i: ; preds = %se
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h6caee1e8000385bfE.llvm.3506456842714578515.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h6caee1e8000385bfE.llvm.3506456842714578515.exit": ; preds = %17, %.sink.split.i.i.i.i, %19, %22
-  %.0.i1 = phi ptr [ null, %19 ], [ %24, %22 ], [ %12, %17 ], [ %5, %.sink.split.i.i.i.i ]
+  %.0.i1 = phi ptr [ null, %19 ], [ %24, %22 ], [ %5, %.sink.split.i.i.i.i ], [ %12, %17 ]
   ret ptr %.0.i1
 }
 
@@ -11628,7 +11628,7 @@ _ZN5serde2de10EnumAccess7variant17h08514380ece1a225E.exit.i.i.i.i: ; preds = %63
   br label %104
 
 102:                                              ; preds = %43, %98
-  %.sroa.4.0.i = phi i8 [ %.sroa.0.0.i.i.i.i, %43 ], [ %59, %98 ]
+  %.sroa.4.0.i = phi i8 [ %59, %98 ], [ %.sroa.0.0.i.i.i.i, %43 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.i, ptr %103, align 1, !alias.scope !2096, !noalias !2099
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17hec85c8795fb394d2E.exit"
@@ -15654,9 +15654,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit181
   br i1 %327, label %"_ZN13project_model13build_scripts21WorkspaceBuildScripts12rustc_crates28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h74d1b8be6d0ad3a5E.exit.i.i", label %.invoke.i, !prof !2376
 
 .invoke.i:                                        ; preds = %197, %325, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit187.i", %256
-  %328 = phi i64 [ %326, %325 ], [ %259, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit187.i" ], [ %259, %256 ], [ %200, %197 ]
-  %329 = phi i64 [ %193, %325 ], [ %55, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit187.i" ], [ %260, %256 ], [ %55, %197 ]
-  %330 = phi ptr [ @anon.6aa8c548e98148b98d09c39be34e28b7.254, %325 ], [ @anon.6aa8c548e98148b98d09c39be34e28b7.243, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit187.i" ], [ @anon.6aa8c548e98148b98d09c39be34e28b7.241, %256 ], [ @anon.6aa8c548e98148b98d09c39be34e28b7.244, %197 ]
+  %328 = phi i64 [ %259, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit187.i" ], [ %326, %325 ], [ %259, %256 ], [ %200, %197 ]
+  %329 = phi i64 [ %55, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit187.i" ], [ %193, %325 ], [ %260, %256 ], [ %55, %197 ]
+  %330 = phi ptr [ @anon.6aa8c548e98148b98d09c39be34e28b7.243, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit187.i" ], [ @anon.6aa8c548e98148b98d09c39be34e28b7.254, %325 ], [ @anon.6aa8c548e98148b98d09c39be34e28b7.241, %256 ], [ @anon.6aa8c548e98148b98d09c39be34e28b7.244, %197 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %328, i64 noundef %329, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %330) #42
           to label %.cont.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !2805
 

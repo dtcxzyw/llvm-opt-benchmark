@@ -6905,11 +6905,11 @@ ExprEvalPushStep.exit231:                         ; preds = %145, %._crit_edge.i
   br i1 %230, label %.lr.ph454, label %.critedge
 
 .critedge:                                        ; preds = %184, %.lr.ph446, %.lr.ph454, %171, %.lr.ph441, %207, %.lr.ph450, %ExprEvalPushStep.exit231, %163, %124, %199
-  %.sroa.29.2 = phi ptr [ %.sroa.29.0479, %124 ], [ %.sroa.29.1431, %207 ], [ %.sroa.29.1431, %199 ], [ %130, %ExprEvalPushStep.exit231 ], [ %130, %163 ], [ %.sroa.29.1431, %171 ], [ %.sroa.29.1431, %.lr.ph450 ], [ %.sroa.29.1431, %.lr.ph454 ], [ %.sroa.29.1431, %.lr.ph441 ], [ %.sroa.29.1431, %.lr.ph446 ], [ %.sroa.29.1431, %184 ]
-  %.sroa.39.1 = phi ptr [ %.sroa.39.0480, %124 ], [ %.sroa.39.0480, %207 ], [ %.sroa.39.0480, %199 ], [ %141, %ExprEvalPushStep.exit231 ], [ %141, %163 ], [ %.sroa.39.0480, %171 ], [ %.sroa.39.0480, %.lr.ph450 ], [ %.sroa.39.0480, %.lr.ph454 ], [ %.sroa.39.0480, %.lr.ph441 ], [ %.sroa.39.0480, %.lr.ph446 ], [ %.sroa.39.0480, %184 ]
-  %.0192 = phi ptr [ null, %124 ], [ %213, %207 ], [ %15, %199 ], [ null, %ExprEvalPushStep.exit231 ], [ null, %163 ], [ null, %171 ], [ %213, %.lr.ph450 ], [ %213, %.lr.ph454 ], [ null, %.lr.ph441 ], [ null, %.lr.ph446 ], [ null, %184 ]
-  %.0191 = phi ptr [ %117, %124 ], [ null, %207 ], [ null, %199 ], [ %117, %ExprEvalPushStep.exit231 ], [ %117, %163 ], [ %173, %171 ], [ null, %.lr.ph450 ], [ null, %.lr.ph454 ], [ %173, %.lr.ph441 ], [ %173, %.lr.ph446 ], [ %173, %184 ]
-  %.3 = phi ptr [ null, %124 ], [ %.0187432, %207 ], [ %.0187432, %199 ], [ null, %ExprEvalPushStep.exit231 ], [ %166, %163 ], [ %.0187432, %171 ], [ %.0187432, %.lr.ph450 ], [ %.0187432, %.lr.ph454 ], [ %.0187432, %.lr.ph441 ], [ %.0187432, %.lr.ph446 ], [ %.0187432, %184 ]
+  %.sroa.29.2 = phi ptr [ %.sroa.29.0479, %124 ], [ %.sroa.29.1431, %207 ], [ %.sroa.29.1431, %199 ], [ %130, %163 ], [ %130, %ExprEvalPushStep.exit231 ], [ %.sroa.29.1431, %171 ], [ %.sroa.29.1431, %.lr.ph450 ], [ %.sroa.29.1431, %.lr.ph441 ], [ %.sroa.29.1431, %.lr.ph454 ], [ %.sroa.29.1431, %.lr.ph446 ], [ %.sroa.29.1431, %184 ]
+  %.sroa.39.1 = phi ptr [ %.sroa.39.0480, %124 ], [ %.sroa.39.0480, %207 ], [ %.sroa.39.0480, %199 ], [ %141, %163 ], [ %141, %ExprEvalPushStep.exit231 ], [ %.sroa.39.0480, %171 ], [ %.sroa.39.0480, %.lr.ph450 ], [ %.sroa.39.0480, %.lr.ph441 ], [ %.sroa.39.0480, %.lr.ph454 ], [ %.sroa.39.0480, %.lr.ph446 ], [ %.sroa.39.0480, %184 ]
+  %.0192 = phi ptr [ null, %124 ], [ %213, %207 ], [ %15, %199 ], [ null, %163 ], [ null, %ExprEvalPushStep.exit231 ], [ null, %171 ], [ %213, %.lr.ph450 ], [ null, %.lr.ph441 ], [ %213, %.lr.ph454 ], [ null, %.lr.ph446 ], [ null, %184 ]
+  %.0191 = phi ptr [ %117, %124 ], [ null, %207 ], [ null, %199 ], [ %117, %163 ], [ %117, %ExprEvalPushStep.exit231 ], [ %173, %171 ], [ null, %.lr.ph450 ], [ %173, %.lr.ph441 ], [ null, %.lr.ph454 ], [ %173, %.lr.ph446 ], [ %173, %184 ]
+  %.3 = phi ptr [ null, %124 ], [ %.0187432, %207 ], [ %.0187432, %199 ], [ %166, %163 ], [ null, %ExprEvalPushStep.exit231 ], [ %.0187432, %171 ], [ %.0187432, %.lr.ph450 ], [ %.0187432, %.lr.ph441 ], [ %.0187432, %.lr.ph454 ], [ %.0187432, %.lr.ph446 ], [ %.0187432, %184 ]
   %231 = load ptr, ptr %86, align 8
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 14
   %233 = load i8, ptr %232, align 2, !range !4, !noundef !5
@@ -8038,8 +8038,8 @@ define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly capt
   br label %65
 
 65:                                               ; preds = %49, %46, %30, %27, %54, %62, %7
-  %.057 = phi ptr [ %9, %7 ], [ %50, %49 ], [ %45, %46 ], [ %58, %62 ], [ %58, %54 ], [ %31, %30 ], [ %26, %27 ]
-  %.056 = phi ptr [ %6, %7 ], [ %51, %49 ], [ %47, %46 ], [ %56, %62 ], [ %56, %54 ], [ %32, %30 ], [ %28, %27 ]
+  %.057 = phi ptr [ %9, %7 ], [ %31, %30 ], [ %50, %49 ], [ %58, %62 ], [ %58, %54 ], [ %45, %46 ], [ %26, %27 ]
+  %.056 = phi ptr [ %6, %7 ], [ %32, %30 ], [ %51, %49 ], [ %56, %62 ], [ %56, %54 ], [ %47, %46 ], [ %28, %27 ]
   %66 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %67 = trunc nuw i8 %66 to i1
   %68 = icmp ne ptr %.056, null

@@ -33055,9 +33055,9 @@ _ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEED2Ev.exit: ; p
   br label %.thread
 
 407:                                              ; preds = %.loopexit235, %.loopexit, %.loopexit.split-lp, %.loopexit230, %.loopexit.split-lp231, %311, %293, %261, %222
-  %.sroa.30.4 = phi ptr [ %.sroa.17.2398, %.loopexit.split-lp231 ], [ %.sroa.30.2397, %293 ], [ %.sroa.17.2398, %.loopexit.split-lp ], [ %.sroa.30.6, %311 ], [ %.sroa.30.2397, %261 ], [ %.sroa.30.2397, %222 ], [ %.sroa.30.2397.lcssa416, %.loopexit230 ], [ %.sroa.30.2397.lcssa413, %.loopexit ], [ %.sroa.30.5, %.loopexit235 ]
-  %.sroa.0180.4 = phi ptr [ %.sroa.0180.2399, %.loopexit.split-lp231 ], [ %.sroa.0180.2399, %293 ], [ %.sroa.0180.2399, %.loopexit.split-lp ], [ %.sroa.0180.6, %311 ], [ %.sroa.0180.2399, %261 ], [ %.sroa.0180.2399, %222 ], [ %.sroa.0180.2399, %.loopexit230 ], [ %.sroa.0180.2399, %.loopexit ], [ %.sroa.0180.5, %.loopexit235 ]
-  %.pn68.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp233, %.loopexit.split-lp231 ], [ %294, %293 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %312, %311 ], [ %262, %261 ], [ %223, %222 ], [ %lpad.loopexit232, %.loopexit230 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit237, %.loopexit235 ]
+  %.sroa.30.4 = phi ptr [ %.sroa.17.2398, %.loopexit.split-lp231 ], [ %.sroa.30.2397, %293 ], [ %.sroa.30.6, %311 ], [ %.sroa.17.2398, %.loopexit.split-lp ], [ %.sroa.30.2397, %261 ], [ %.sroa.30.2397, %222 ], [ %.sroa.30.2397.lcssa416, %.loopexit230 ], [ %.sroa.30.2397.lcssa413, %.loopexit ], [ %.sroa.30.5, %.loopexit235 ]
+  %.sroa.0180.4 = phi ptr [ %.sroa.0180.2399, %.loopexit.split-lp231 ], [ %.sroa.0180.2399, %293 ], [ %.sroa.0180.6, %311 ], [ %.sroa.0180.2399, %.loopexit.split-lp ], [ %.sroa.0180.2399, %261 ], [ %.sroa.0180.2399, %222 ], [ %.sroa.0180.2399, %.loopexit230 ], [ %.sroa.0180.2399, %.loopexit ], [ %.sroa.0180.5, %.loopexit235 ]
+  %.pn68.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp233, %.loopexit.split-lp231 ], [ %294, %293 ], [ %312, %311 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %262, %261 ], [ %223, %222 ], [ %lpad.loopexit232, %.loopexit230 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit237, %.loopexit235 ]
   %.not.i.i.i169 = icmp eq ptr %.sroa.0180.4, null
   br i1 %.not.i.i.i169, label %_ZNSt6vectorIN4pbrt9PrimitiveESaIS1_EED2Ev.exit170, label %.thread
 

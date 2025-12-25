@@ -1139,7 +1139,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br label %.body
 
 _ZNK10model_core18has_interpretationEP9func_decl.exit: ; preds = %215, %226, %229, %239, %250, %.noexc110, %373, %378, %390, %395, %.preheader.i.i.i10.i, %.lr.ph
-  %.118 = phi i1 [ %.017171, %.preheader.i.i.i10.i ], [ %.017171, %.lr.ph ], [ %.017171, %250 ], [ %.017171, %239 ], [ false, %373 ], [ %.017171, %226 ], [ false, %.noexc110 ], [ false, %395 ], [ false, %390 ], [ false, %378 ], [ %.017171, %229 ], [ %.017171, %215 ]
+  %.118 = phi i1 [ %.017171, %.preheader.i.i.i10.i ], [ %.017171, %.lr.ph ], [ %.017171, %250 ], [ false, %373 ], [ %.017171, %239 ], [ %.017171, %226 ], [ false, %.noexc110 ], [ false, %395 ], [ false, %390 ], [ false, %378 ], [ %.017171, %229 ], [ %.017171, %215 ]
   %400 = getelementptr inbounds nuw i8, ptr %.sroa.0125.0170, i64 8
   %.not1.i.i = icmp eq ptr %400, %148
   br i1 %.not1.i.i, label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, label %.lr.ph.i.i90

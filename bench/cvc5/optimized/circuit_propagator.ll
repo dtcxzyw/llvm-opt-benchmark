@@ -4118,9 +4118,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit163: ; preds = %_ZN4cvc57context9C
   br i1 %611, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit109, label %._crit_edge, !llvm.loop !185
 
 612:                                              ; preds = %.loopexit259, %.loopexit.split-lp, %592, %597, %602, %581, %173
-  %.sroa.19.1 = phi ptr [ %.sroa.19.4410, %592 ], [ %.sroa.19.4410, %597 ], [ %.sroa.19.0, %173 ], [ %.sroa.19.10, %602 ], [ %.sroa.19.4410, %581 ], [ %.sroa.12221.3411, %.loopexit.split-lp ], [ %.sroa.12221.3411, %.loopexit259 ]
-  %.sroa.0215.1 = phi ptr [ %.sroa.0215.4412, %592 ], [ %.sroa.0215.4412, %597 ], [ %.sroa.0215.0, %173 ], [ %.sroa.0215.10, %602 ], [ %.sroa.0215.4412, %581 ], [ %.sroa.0215.4412, %.loopexit.split-lp ], [ %.sroa.0215.4412, %.loopexit259 ]
-  %.pn46.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %592 ], [ %.pn43.pn, %597 ], [ %.pn35, %173 ], [ %.pn46, %602 ], [ %582, %581 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit259 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.4410, %597 ], [ %.sroa.19.4410, %592 ], [ %.sroa.19.0, %173 ], [ %.sroa.19.10, %602 ], [ %.sroa.19.4410, %581 ], [ %.sroa.12221.3411, %.loopexit259 ], [ %.sroa.12221.3411, %.loopexit.split-lp ]
+  %.sroa.0215.1 = phi ptr [ %.sroa.0215.4412, %597 ], [ %.sroa.0215.4412, %592 ], [ %.sroa.0215.0, %173 ], [ %.sroa.0215.10, %602 ], [ %.sroa.0215.4412, %581 ], [ %.sroa.0215.4412, %.loopexit259 ], [ %.sroa.0215.4412, %.loopexit.split-lp ]
+  %.pn46.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn, %597 ], [ %.pn39.pn.pn, %592 ], [ %.pn35, %173 ], [ %.pn46, %602 ], [ %582, %581 ], [ %lpad.loopexit, %.loopexit259 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i164 = icmp eq ptr %.sroa.0215.1, null
   br i1 %.not.i.i.i164, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit165, label %.thread
 

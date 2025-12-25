@@ -378,7 +378,7 @@ zueci_is_valid_utf8.exit.thread.sink.split:       ; preds = %._crit_edge153, %67
   br label %zueci_is_valid_utf8.exit.thread
 
 zueci_is_valid_utf8.exit.thread:                  ; preds = %zueci_decode_utf8.exit.i, %.loopexit115, %switch.early.test78, %.loopexit, %switch.early.test, %zueci_is_valid_utf8.exit.thread.sink.split, %.critedge13, %.loopexit115.thread, %.critedge, %.loopexit.thread, %switch.early.test111, %switch.early.test111, %switch.early.test110, %zueci_is_valid_utf8.exit, %8
-  %.0 = phi i32 [ 8, %8 ], [ 7, %switch.early.test111 ], [ 9, %switch.early.test ], [ 6, %.loopexit ], [ 6, %.loopexit115.thread ], [ 9, %switch.early.test78 ], [ 9, %.critedge13 ], [ 7, %switch.early.test110 ], [ 7, %switch.early.test111 ], [ 9, %zueci_is_valid_utf8.exit ], [ 6, %.loopexit.thread ], [ 0, %zueci_is_valid_utf8.exit.thread.sink.split ], [ 6, %.loopexit115 ], [ 9, %.critedge ], [ 9, %zueci_decode_utf8.exit.i ]
+  %.0 = phi i32 [ 8, %8 ], [ 7, %switch.early.test111 ], [ 9, %.critedge13 ], [ 6, %.loopexit ], [ 6, %.loopexit115.thread ], [ 9, %switch.early.test78 ], [ 9, %switch.early.test ], [ 7, %switch.early.test110 ], [ 7, %switch.early.test111 ], [ 9, %zueci_is_valid_utf8.exit ], [ 6, %.loopexit.thread ], [ 0, %zueci_is_valid_utf8.exit.thread.sink.split ], [ 6, %.loopexit115 ], [ 9, %.critedge ], [ 9, %zueci_decode_utf8.exit.i ]
   ret i32 %.0
 }
 
@@ -1722,8 +1722,8 @@ switch.early.test:                                ; preds = %2
   br label %zueci_u_lookup_uro.exit
 
 79:                                               ; preds = %59, %63
-  %.260 = phi i32 [ %64, %63 ], [ %.05875, %59 ]
-  %.257 = phi i32 [ %.05576, %63 ], [ %60, %59 ]
+  %.260 = phi i32 [ %.05875, %59 ], [ %64, %63 ]
+  %.257 = phi i32 [ %60, %59 ], [ %.05576, %63 ]
   %.not.not = icmp sgt i32 %.257, %.260
   br i1 %.not.not, label %zueci_u_lookup_uro.exit, label %.preheader, !llvm.loop !18
 

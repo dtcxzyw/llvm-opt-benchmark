@@ -5719,8 +5719,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6d
   br i1 %spec.select.i.i559, label %.critedge, label %921
 
 921:                                              ; preds = %917, %907, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread, %854
-  %.1342 = phi i8 [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread ], [ 0, %854 ], [ 1, %907 ], [ 0, %917 ]
-  %.1340 = phi i1 [ %.0.i558, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread ], [ false, %854 ], [ %914, %907 ], [ true, %917 ]
+  %.1342 = phi i8 [ 0, %854 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread ], [ 1, %907 ], [ 0, %917 ]
+  %.1340 = phi i1 [ false, %854 ], [ %.0.i558, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread ], [ %914, %907 ], [ true, %917 ]
   %922 = load ptr, ptr %34, align 8, !tbaa !25
   %923 = load i32, ptr %346, align 8, !tbaa !26
   %924 = zext i32 %923 to i64
@@ -9387,7 +9387,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i966: ; pre
   br label %.split.split, !llvm.loop !569
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_.exit970: ; preds = %2383, %2385, %.split.split.us, %2373, %2375, %2365, %2366, %2357, %.split.us.split.us, %2358
-  %.0.i967 = phi ptr [ %2356, %2357 ], [ %2364, %2365 ], [ %2372, %.split.split.us ], [ %2356, %2358 ], [ %2356, %.split.us.split.us ], [ %2364, %2366 ], [ %2372, %2375 ], [ %2372, %2373 ], [ %2382, %2385 ], [ %2382, %2383 ]
+  %.0.i967 = phi ptr [ %2364, %2365 ], [ %2372, %.split.split.us ], [ %2356, %2357 ], [ %2356, %2358 ], [ %2356, %.split.us.split.us ], [ %2364, %2366 ], [ %2372, %2375 ], [ %2372, %2373 ], [ %2382, %2385 ], [ %2382, %2383 ]
   %2391 = load ptr, ptr %35, align 8, !tbaa !563
   %2392 = load i32, ptr %813, align 8, !tbaa !566
   %2393 = zext i32 %2392 to i64
@@ -9782,7 +9782,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i984: ; pre
   br label %.split1604.split, !llvm.loop !569
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_.exit988: ; preds = %2552, %2554, %.split1604.split.us, %2542, %2544, %2534, %2535, %2526, %.split1604.us.split.us, %2527
-  %.0.i985 = phi ptr [ %2525, %2526 ], [ %2533, %2534 ], [ %2541, %.split1604.split.us ], [ %2525, %2527 ], [ %2525, %.split1604.us.split.us ], [ %2533, %2535 ], [ %2541, %2544 ], [ %2541, %2542 ], [ %2551, %2554 ], [ %2551, %2552 ]
+  %.0.i985 = phi ptr [ %2533, %2534 ], [ %2541, %.split1604.split.us ], [ %2525, %2526 ], [ %2525, %2527 ], [ %2525, %.split1604.us.split.us ], [ %2533, %2535 ], [ %2541, %2544 ], [ %2541, %2542 ], [ %2551, %2554 ], [ %2551, %2552 ]
   %2560 = load ptr, ptr %35, align 8, !tbaa !563
   %2561 = load i32, ptr %813, align 8, !tbaa !566
   %2562 = zext i32 %2561 to i64
@@ -20825,35 +20825,35 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i33:            ; preds = %_ZN4llvm4yaml6isNul
 _ZN4llvmeqENS_9StringRefES0_.exit20.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i33
   %bcmp.i19.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.111, i64 4)
   %17 = icmp eq i32 %bcmp.i19.i, 0
-  br i1 %17, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit
+  br i1 %17, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit24.i
+
+_ZN4llvmeqENS_9StringRefES0_.exit24.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit20.i
+  %bcmp.i23.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.112, i64 4)
+  %bcmp.i23.i.fr = freeze i32 %bcmp.i23.i
+  %18 = icmp eq i32 %bcmp.i23.i.fr, 0
+  br i1 %18, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52
 
 _ZN4llvmeqENS_9StringRefES0_.exit28.i:            ; preds = %10
   %bcmp.i27.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @.str.113, i64 5)
-  %18 = icmp eq i32 %bcmp.i27.i, 0
-  br i1 %18, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit32.i
+  %19 = icmp eq i32 %bcmp.i27.i, 0
+  br i1 %19, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit32.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit32.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit28.i
   %bcmp.i31.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @.str.114, i64 5)
-  %19 = icmp eq i32 %bcmp.i31.i, 0
-  br i1 %19, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit32.thread60.i
+  %20 = icmp eq i32 %bcmp.i31.i, 0
+  br i1 %20, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit32.thread60.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit32.i
+_ZN4llvm4yaml6isBoolENS_9StringRefE.exit:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit32.i
   %bcmp.i35.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %0, ptr noundef nonnull dereferenceable(5) @.str.115, i64 5)
   %bcmp.i35.i.fr = freeze i32 %bcmp.i35.i
-  %20 = icmp eq i32 %bcmp.i35.i.fr, 0
-  br i1 %20, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52
-
-_ZN4llvm4yaml6isBoolENS_9StringRefE.exit:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit20.i
-  %bcmp.i23.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.112, i64 4)
-  %bcmp.i23.i.fr = freeze i32 %bcmp.i23.i
-  %21 = icmp eq i32 %bcmp.i23.i.fr, 0
+  %21 = icmp eq i32 %bcmp.i35.i.fr, 0
   br i1 %21, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread, label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52
 
-_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i33, %_ZN4llvmeqENS_9StringRefES0_.exit20.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.i, %_ZN4llvmeqENS_9StringRefES0_.exit32.i, %_ZN4llvmeqENS_9StringRefES0_.exit32.thread60.i, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit
+_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i33, %_ZN4llvmeqENS_9StringRefES0_.exit20.i, %_ZN4llvmeqENS_9StringRefES0_.exit28.i, %_ZN4llvmeqENS_9StringRefES0_.exit32.i, %_ZN4llvmeqENS_9StringRefES0_.exit24.i, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit
   br label %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52
 
-_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52: ; preds = %_ZN4llvm4yaml6isNullENS_9StringRefE.exit, %10, %_ZN4llvmeqENS_9StringRefES0_.exit32.thread60.i, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread
-  %22 = phi i32 [ 1, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread ], [ %15, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit ], [ %.020, %_ZN4llvmeqENS_9StringRefES0_.exit32.thread60.i ], [ %.020, %10 ], [ %spec.select, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit ]
+_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread52: ; preds = %_ZN4llvm4yaml6isNullENS_9StringRefE.exit, %10, %_ZN4llvmeqENS_9StringRefES0_.exit24.i, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread
+  %22 = phi i32 [ 1, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit.thread ], [ %.020, %_ZN4llvm4yaml6isBoolENS_9StringRefE.exit ], [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit24.i ], [ %.020, %10 ], [ %spec.select, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit ]
   %23 = tail call noundef zeroext i1 @_ZN4llvm4yaml9isNumericENS_9StringRefE(ptr nonnull %0, i64 %1)
   %spec.select31 = select i1 %23, i32 1, i32 %22
   %.pre = load i8, ptr %0, align 1, !tbaa !70

@@ -2201,7 +2201,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit68.thread89: ; preds = %145, %143
   br label %_ZNK4llvm19MachineRegisterInfo12def_operandsENS_8RegisterE.exit.i
 
 _ZNK4llvm19MachineRegisterInfo12def_operandsENS_8RegisterE.exit.i: ; preds = %163, %149
-  %.sroa.0.0.i.i.i70 = phi ptr [ %165, %163 ], [ %.0.i.i.i.i, %149 ]
+  %.sroa.0.0.i.i.i70 = phi ptr [ %.0.i.i.i.i, %149 ], [ %165, %163 ]
   %166 = getelementptr i8, ptr %.sroa.0.0.i.i.i70, i64 8
   %.val2.i.i.i.i.i31.i = load ptr, ptr %166, align 8, !tbaa !408
   %167 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.val2.i.i.i.i.i31.i, i32 %139, ptr noundef %156, i1 noundef zeroext false) #16
@@ -2344,7 +2344,7 @@ define internal fastcc range(i32 0, 65536) i32 @_ZL12scavengeVRegRN4llvm19Machin
   br label %_ZNK4llvm19MachineRegisterInfo12def_operandsENS_8RegisterE.exit
 
 _ZNK4llvm19MachineRegisterInfo12def_operandsENS_8RegisterE.exit: ; preds = %25, %4
-  %.sroa.0.0.i.i = phi ptr [ %27, %25 ], [ %.0.i.i.i, %4 ]
+  %.sroa.0.0.i.i = phi ptr [ %.0.i.i.i, %4 ], [ %27, %25 ]
   %28 = getelementptr i8, ptr %.sroa.0.0.i.i, i64 8
   %.val2.i.i.i.i.i31 = load ptr, ptr %28, align 8, !tbaa !408
   %29 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.val2.i.i.i.i.i31, i32 %2, ptr noundef %11, i1 noundef zeroext false) #16

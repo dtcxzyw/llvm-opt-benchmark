@@ -9042,9 +9042,9 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %99, %96
   br label %105
 
 105:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit34, %_ZN4llvm8ExpectedIjED2Ev.exit
-  %106 = phi i8 [ %94, %_ZN4llvm5ErrorD2Ev.exit34 ], [ %104, %_ZN4llvm8ExpectedIjED2Ev.exit ]
-  %107 = phi ptr [ %95, %_ZN4llvm5ErrorD2Ev.exit34 ], [ %103, %_ZN4llvm8ExpectedIjED2Ev.exit ]
-  %.3 = phi i32 [ %spec.store.select, %_ZN4llvm5ErrorD2Ev.exit34 ], [ %.7153, %_ZN4llvm8ExpectedIjED2Ev.exit ]
+  %106 = phi i8 [ %104, %_ZN4llvm8ExpectedIjED2Ev.exit ], [ %94, %_ZN4llvm5ErrorD2Ev.exit34 ]
+  %107 = phi ptr [ %103, %_ZN4llvm8ExpectedIjED2Ev.exit ], [ %95, %_ZN4llvm5ErrorD2Ev.exit34 ]
+  %.3 = phi i32 [ %.7153, %_ZN4llvm8ExpectedIjED2Ev.exit ], [ %spec.store.select, %_ZN4llvm5ErrorD2Ev.exit34 ]
   %cond = icmp eq i32 %.3, 2
   br i1 %cond, label %.backedge, label %.thread.loopexit
 
@@ -16336,26 +16336,26 @@ _ZSt7reverseIPPN4llvm5ValueEEvT_S4_.exit:         ; preds = %292
 312:                                              ; preds = %307
   %313 = add i8 %301, -38
   %314 = icmp ult i8 %313, 13
-  br i1 %314, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit, label %315
+  br i1 %314, label %315, label %317
 
 315:                                              ; preds = %312
+  %316 = call noundef zeroext i1 @_ZN4llvm12ConstantExpr17isSupportedCastOpEj(i32 noundef %302) #31
+  br i1 %316, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread383
+
+317:                                              ; preds = %312
   switch i8 %301, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread [
-    i8 34, label %316
+    i8 34, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit
     i8 12, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread383
     i8 57, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread383
     i8 53, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread383
     i8 54, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread383
   ]
 
-316:                                              ; preds = %315
-  %317 = getelementptr inbounds nuw i8, ptr %221, i64 40
-  %318 = load ptr, ptr %317, align 8, !tbaa !1531
-  %319 = call noundef zeroext i1 @_ZNK4llvm4Type12isScalableTyEv(ptr noundef nonnull align 8 dereferenceable(24) %318) #31
-  br i1 %319, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread383, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread
-
-_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit: ; preds = %312
-  %320 = call noundef zeroext i1 @_ZN4llvm12ConstantExpr17isSupportedCastOpEj(i32 noundef %302) #31
-  br i1 %320, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread383
+_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit: ; preds = %317
+  %318 = getelementptr inbounds nuw i8, ptr %221, i64 40
+  %319 = load ptr, ptr %318, align 8, !tbaa !1531
+  %320 = call noundef zeroext i1 @_ZNK4llvm4Type12isScalableTyEv(ptr noundef nonnull align 8 dereferenceable(24) %319) #31
+  br i1 %320, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread383, label %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread
 
 .lr.ph462:                                        ; preds = %.lr.ph462.preheader, %337
   %321 = phi i32 [ %338, %337 ], [ 0, %.lr.ph462.preheader ]
@@ -16395,7 +16395,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
   %.not189 = icmp eq ptr %339, %294
   br i1 %.not189, label %._crit_edge463, label %.lr.ph462
 
-_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread: ; preds = %315, %._crit_edge463, %310, %316, %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit
+_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread: ; preds = %317, %._crit_edge463, %310, %315, %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit
   %340 = load i32, ptr %105, align 8, !tbaa !26
   %341 = zext i32 %340 to i64
   %342 = load i32, ptr %102, align 8, !tbaa !26
@@ -17084,7 +17084,7 @@ _ZN4llvm22BitcodeReaderValueList23replaceValueWithoutRAUWEjPNS_5ValueE.exit: ; p
   store i32 %607, ptr %98, align 8, !tbaa !26
   br label %.thread, !llvm.loop !1515
 
-_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread383: ; preds = %315, %315, %315, %315, %304, %310, %316, %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread, %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit
+_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread383: ; preds = %317, %317, %317, %317, %304, %310, %315, %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread, %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit
   br i1 %.not190, label %_ZN4llvm5TwineC2EPKc.exit, label %622
 
 _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %_ZL20isConstExprSupportedPKN12_GLOBAL__N_115BitcodeConstantE.exit.thread383
@@ -23089,7 +23089,7 @@ _ZN4llvm11SmallVectorIjLj4EED2Ev.exit:            ; preds = %.thread2347, %1678
   br label %1728
 
 1728:                                             ; preds = %1725, %1721
-  %.11055.in = phi ptr [ %1727, %1725 ], [ %1724, %1721 ]
+  %.11055.in = phi ptr [ %1724, %1721 ], [ %1727, %1725 ]
   %.11055 = load ptr, ptr %.11055.in, align 8, !tbaa !1484
   %1729 = add i32 %1696, 1
   %.not1301 = icmp eq i32 %1729, %1689
@@ -29597,8 +29597,8 @@ _ZNSt6vectorIPN4llvm5ValueESaIS2_EED2Ev.exit:     ; preds = %4171, %4173
   br label %_ZN4llvm8DebugLocD2Ev.exit2019
 
 _ZN4llvm8DebugLocD2Ev.exit2019:                   ; preds = %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj2EED2Ev.exit, %2032, %4190, %4104, %3808, %3708, %3592, %.critedge1386, %.critedge1382, %.critedge1378, %.critedge1374, %3196, %3109, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev.exit, %2641, %2633, %2246, %2013, %1910, %1870, %1841, %.critedge1356, %1766, %1744, %1679, %1624, %1435, %1345, %1265
-  %.41020 = phi ptr [ %.810242444, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ %.01016, %2641 ], [ %.01016, %2633 ], [ %.01016, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev.exit ], [ %.01016, %4190 ], [ %.01016, %3109 ], [ %.01016, %3196 ], [ %.01016, %.critedge1374 ], [ %.01016, %.critedge1378 ], [ %.01016, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj2EED2Ev.exit ], [ %.01016, %1265 ], [ %.01016, %1345 ], [ %.01016, %1435 ], [ %.01016, %1624 ], [ %.01016, %1679 ], [ %.01016, %1744 ], [ %.01016, %1766 ], [ %.01016, %.critedge1356 ], [ %.01016, %1841 ], [ %.01016, %1870 ], [ %.01016, %1910 ], [ %.01016, %2013 ], [ %.01016, %2246 ], [ %.01016, %.critedge1382 ], [ %.01016, %.critedge1386 ], [ %.01016, %2032 ], [ %.01016, %4104 ], [ %.01016, %3808 ], [ %.01016, %3708 ], [ %.01016, %3592 ]
-  %.10 = phi i32 [ %.101, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ %.80, %2641 ], [ %.72, %2633 ], [ %.81, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev.exit ], [ %.175, %4190 ], [ %.102, %3109 ], [ %.108, %3196 ], [ %.112, %.critedge1374 ], [ %.118, %.critedge1378 ], [ %.57, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj2EED2Ev.exit ], [ %.17, %1265 ], [ %.19, %1345 ], [ %.21, %1435 ], [ %.25, %1624 ], [ %.28, %1679 ], [ %.32, %1744 ], [ %.37, %1766 ], [ %.38, %.critedge1356 ], [ %.40, %1841 ], [ %.41, %1870 ], [ %.42, %1910 ], [ %.44, %2013 ], [ %.59, %2246 ], [ %.124, %.critedge1382 ], [ %.129, %.critedge1386 ], [ %.47, %2032 ], [ %.162, %4104 ], [ %.151, %3808 ], [ %.142, %3708 ], [ %.135, %3592 ]
+  %.41020 = phi ptr [ %.01016, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev.exit ], [ %.01016, %2633 ], [ %.810242444, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ %.01016, %2246 ], [ %.01016, %4190 ], [ %.01016, %2641 ], [ %.01016, %3109 ], [ %.01016, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj2EED2Ev.exit ], [ %.01016, %3196 ], [ %.01016, %.critedge1374 ], [ %.01016, %1265 ], [ %.01016, %1345 ], [ %.01016, %1435 ], [ %.01016, %1624 ], [ %.01016, %1679 ], [ %.01016, %1744 ], [ %.01016, %1766 ], [ %.01016, %.critedge1356 ], [ %.01016, %1841 ], [ %.01016, %1870 ], [ %.01016, %1910 ], [ %.01016, %2013 ], [ %.01016, %.critedge1378 ], [ %.01016, %.critedge1382 ], [ %.01016, %4104 ], [ %.01016, %.critedge1386 ], [ %.01016, %3592 ], [ %.01016, %3708 ], [ %.01016, %3808 ], [ %.01016, %2032 ]
+  %.10 = phi i32 [ %.81, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev.exit ], [ %.72, %2633 ], [ %.101, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit ], [ %.59, %2246 ], [ %.175, %4190 ], [ %.80, %2641 ], [ %.102, %3109 ], [ %.57, %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj2EED2Ev.exit ], [ %.108, %3196 ], [ %.112, %.critedge1374 ], [ %.17, %1265 ], [ %.19, %1345 ], [ %.21, %1435 ], [ %.25, %1624 ], [ %.28, %1679 ], [ %.32, %1744 ], [ %.37, %1766 ], [ %.38, %.critedge1356 ], [ %.40, %1841 ], [ %.41, %1870 ], [ %.42, %1910 ], [ %.44, %2013 ], [ %.118, %.critedge1378 ], [ %.124, %.critedge1382 ], [ %.162, %4104 ], [ %.129, %.critedge1386 ], [ %.135, %3592 ], [ %.142, %3708 ], [ %.151, %3808 ], [ %.47, %2032 ]
   %cond7 = icmp eq i32 %.10, 9
   br i1 %cond7, label %_ZN4llvm8DebugLocD2Ev.exit2019.thread2529, label %.critedge1412
 
@@ -53673,9 +53673,9 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %3437, %3444
   store i32 0, ptr %262, align 8, !tbaa !26
   br label %.critedge167.thread519
 
-.critedge167.thread519:                           ; preds = %.critedge167.thread944, %_ZN12_GLOBAL__N_113BitcodeReader31parseGlobalIndirectSymbolRecordEjN4llvm8ArrayRefImEE.exit, %_ZN12_GLOBAL__N_113BitcodeReader20parseGlobalVarRecordEN4llvm8ArrayRefImEE.exit, %_ZN12_GLOBAL__N_113BitcodeReader17parseComdatRecordEN4llvm8ArrayRefImEE.exit, %_ZN12_GLOBAL__N_113BitcodeReader19parseFunctionRecordEN4llvm8ArrayRefImEE.exit, %2750, %3418, %2286, %2269, %.critedge167.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i279
-  %.sroa.0496.2 = phi i64 [ %.sroa.0496.3516, %.critedge167.thread ], [ 0, %.critedge167.thread944 ], [ %.sroa.0496.0, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i279 ], [ %.sroa.0496.0, %2269 ], [ %.sroa.0496.0, %2286 ], [ %.sroa.0496.0, %3418 ], [ %.sroa.0496.0, %2750 ], [ %.sroa.0496.0, %_ZN12_GLOBAL__N_113BitcodeReader19parseFunctionRecordEN4llvm8ArrayRefImEE.exit ], [ %.sroa.0496.0, %_ZN12_GLOBAL__N_113BitcodeReader17parseComdatRecordEN4llvm8ArrayRefImEE.exit ], [ %.sroa.0496.0, %_ZN12_GLOBAL__N_113BitcodeReader20parseGlobalVarRecordEN4llvm8ArrayRefImEE.exit ], [ %.sroa.0496.0, %_ZN12_GLOBAL__N_113BitcodeReader31parseGlobalIndirectSymbolRecordEjN4llvm8ArrayRefImEE.exit ]
-  %.25 = phi i32 [ 0, %.critedge167.thread ], [ 1, %.critedge167.thread944 ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i279 ], [ 1, %2269 ], [ 1, %2286 ], [ 1, %3418 ], [ 1, %2750 ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader19parseFunctionRecordEN4llvm8ArrayRefImEE.exit ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader17parseComdatRecordEN4llvm8ArrayRefImEE.exit ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader20parseGlobalVarRecordEN4llvm8ArrayRefImEE.exit ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader31parseGlobalIndirectSymbolRecordEjN4llvm8ArrayRefImEE.exit ]
+.critedge167.thread519:                           ; preds = %.critedge167.thread944, %_ZN12_GLOBAL__N_113BitcodeReader31parseGlobalIndirectSymbolRecordEjN4llvm8ArrayRefImEE.exit, %_ZN12_GLOBAL__N_113BitcodeReader20parseGlobalVarRecordEN4llvm8ArrayRefImEE.exit, %_ZN12_GLOBAL__N_113BitcodeReader17parseComdatRecordEN4llvm8ArrayRefImEE.exit, %_ZN12_GLOBAL__N_113BitcodeReader19parseFunctionRecordEN4llvm8ArrayRefImEE.exit, %3418, %2286, %2269, %2750, %.critedge167.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i279
+  %.sroa.0496.2 = phi i64 [ %.sroa.0496.3516, %.critedge167.thread ], [ 0, %.critedge167.thread944 ], [ %.sroa.0496.0, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i279 ], [ %.sroa.0496.0, %2750 ], [ %.sroa.0496.0, %2269 ], [ %.sroa.0496.0, %2286 ], [ %.sroa.0496.0, %3418 ], [ %.sroa.0496.0, %_ZN12_GLOBAL__N_113BitcodeReader19parseFunctionRecordEN4llvm8ArrayRefImEE.exit ], [ %.sroa.0496.0, %_ZN12_GLOBAL__N_113BitcodeReader17parseComdatRecordEN4llvm8ArrayRefImEE.exit ], [ %.sroa.0496.0, %_ZN12_GLOBAL__N_113BitcodeReader20parseGlobalVarRecordEN4llvm8ArrayRefImEE.exit ], [ %.sroa.0496.0, %_ZN12_GLOBAL__N_113BitcodeReader31parseGlobalIndirectSymbolRecordEjN4llvm8ArrayRefImEE.exit ]
+  %.25 = phi i32 [ 0, %.critedge167.thread ], [ 1, %.critedge167.thread944 ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i279 ], [ 1, %2750 ], [ 1, %2269 ], [ 1, %2286 ], [ 1, %3418 ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader19parseFunctionRecordEN4llvm8ArrayRefImEE.exit ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader17parseComdatRecordEN4llvm8ArrayRefImEE.exit ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader20parseGlobalVarRecordEN4llvm8ArrayRefImEE.exit ], [ 1, %_ZN12_GLOBAL__N_113BitcodeReader31parseGlobalIndirectSymbolRecordEjN4llvm8ArrayRefImEE.exit ]
   %3449 = load i8, ptr %521, align 8
   %3450 = trunc i8 %3449 to i1
   br i1 %3450, label %3451, label %_ZN4llvm8ExpectedIjED2Ev.exit463

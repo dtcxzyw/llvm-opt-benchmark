@@ -5158,8 +5158,8 @@ select.unfold:                                    ; preds = %select.unfold.backe
   br i1 %265, label %tdefl_find_match.exit, label %.lr.ph299
 
 tdefl_find_match.exit:                            ; preds = %252, %239, %263, %236, %169, %174, %192, %196, %214, %218, %.preheader, %._crit_edge, %150, %135
-  %.0244 = phi i32 [ %spec.select269, %._crit_edge ], [ 0, %135 ], [ 0, %150 ], [ %.2246326, %236 ], [ 0, %.preheader ], [ %.2246326, %218 ], [ %.2246326, %214 ], [ %.2246326, %196 ], [ %.2246326, %192 ], [ %.2246326, %174 ], [ %.2246326, %169 ], [ %.2246326, %239 ], [ %.3247, %263 ], [ %.086.i, %252 ]
-  %.0240 = phi i32 [ %spec.select270, %._crit_edge ], [ %spec.select, %135 ], [ %spec.select, %150 ], [ %.2327, %236 ], [ %spec.select, %.preheader ], [ %.2327, %218 ], [ %.2327, %214 ], [ %.2327, %196 ], [ %.2327, %192 ], [ %.2327, %174 ], [ %.2327, %169 ], [ %.2327, %239 ], [ %.3242, %263 ], [ %129, %252 ]
+  %.0244 = phi i32 [ %spec.select269, %._crit_edge ], [ 0, %135 ], [ 0, %150 ], [ 0, %.preheader ], [ %.2246326, %236 ], [ %.2246326, %218 ], [ %.2246326, %214 ], [ %.2246326, %196 ], [ %.2246326, %192 ], [ %.2246326, %174 ], [ %.2246326, %169 ], [ %.3247, %263 ], [ %.2246326, %239 ], [ %.086.i, %252 ]
+  %.0240 = phi i32 [ %spec.select270, %._crit_edge ], [ %spec.select, %135 ], [ %spec.select, %150 ], [ %spec.select, %.preheader ], [ %.2327, %236 ], [ %.2327, %218 ], [ %.2327, %214 ], [ %.2327, %196 ], [ %.2327, %192 ], [ %.2327, %174 ], [ %.2327, %169 ], [ %.3242, %263 ], [ %.2327, %239 ], [ %129, %252 ]
   %266 = icmp eq i32 %.0240, 3
   %267 = icmp ugt i32 %.0244, 8191
   %or.cond = select i1 %266, i1 %267, i1 false
@@ -18427,7 +18427,7 @@ mz_zip_array_push_back.exit98:                    ; preds = %.mz_zip_array_push_
   br label %.thread34
 
 .thread34:                                        ; preds = %._crit_edge41, %.thread34.sink.split, %22
-  %.0 = phi i32 [ 0, %.thread34.sink.split ], [ 1, %22 ], [ 1, %._crit_edge41 ]
+  %.0 = phi i32 [ 1, %22 ], [ 0, %.thread34.sink.split ], [ 1, %._crit_edge41 ]
   ret i32 %.0
 }
 
@@ -22003,12 +22003,12 @@ define internal fastcc i64 @zip_entries_delete_mark(ptr noundef nonnull captures
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.lr.ph232, %40, %58, %.critedge4.loopexit.split.loop.exit206, %.critedge2
-  %.288.lcssa188 = phi i64 [ %.288.lcssa, %.critedge2 ], [ %.288.lcssa, %.critedge4.loopexit.split.loop.exit206 ], [ %44, %40 ], [ %.288.lcssa, %58 ], [ %31, %.lr.ph232 ]
-  %.195.lcssa187 = phi i64 [ %.195.lcssa, %.critedge2 ], [ %.195.lcssa, %.critedge4.loopexit.split.loop.exit206 ], [ %46, %40 ], [ %.195.lcssa, %58 ], [ %.094151, %.lr.ph232 ]
-  %.1104.lcssa186 = phi i64 [ %.1104.lcssa, %.critedge2 ], [ %.1104.lcssa, %.critedge4.loopexit.split.loop.exit206 ], [ %45, %40 ], [ %.1104.lcssa, %58 ], [ %.0103148, %.lr.ph232 ]
-  %.185.lcssa179185 = phi i64 [ %.185127.lcssa, %.critedge2 ], [ %.185127.lcssa, %.critedge4.loopexit.split.loop.exit206 ], [ %.185127.lcssa, %40 ], [ %.185127.lcssa, %58 ], [ %31, %.lr.ph232 ]
-  %.1102.lcssa = phi i64 [ %.0101149, %.critedge2 ], [ %.1102140, %.critedge4.loopexit.split.loop.exit206 ], [ %.0101149, %40 ], [ %61, %58 ], [ %.0101149, %.lr.ph232 ]
-  %.399.lcssa = phi i32 [ %.298.lcssa, %.critedge2 ], [ %70, %.critedge4.loopexit.split.loop.exit206 ], [ %2, %40 ], [ %2, %58 ], [ %smax, %.lr.ph232 ]
+  %.288.lcssa188 = phi i64 [ %.288.lcssa, %.critedge2 ], [ %44, %40 ], [ %.288.lcssa, %.critedge4.loopexit.split.loop.exit206 ], [ %.288.lcssa, %58 ], [ %31, %.lr.ph232 ]
+  %.195.lcssa187 = phi i64 [ %.195.lcssa, %.critedge2 ], [ %46, %40 ], [ %.195.lcssa, %.critedge4.loopexit.split.loop.exit206 ], [ %.195.lcssa, %58 ], [ %.094151, %.lr.ph232 ]
+  %.1104.lcssa186 = phi i64 [ %.1104.lcssa, %.critedge2 ], [ %45, %40 ], [ %.1104.lcssa, %.critedge4.loopexit.split.loop.exit206 ], [ %.1104.lcssa, %58 ], [ %.0103148, %.lr.ph232 ]
+  %.185.lcssa179185 = phi i64 [ %.185127.lcssa, %.critedge2 ], [ %.185127.lcssa, %40 ], [ %.185127.lcssa, %.critedge4.loopexit.split.loop.exit206 ], [ %.185127.lcssa, %58 ], [ %31, %.lr.ph232 ]
+  %.1102.lcssa = phi i64 [ %.0101149, %.critedge2 ], [ %.0101149, %40 ], [ %.1102140, %.critedge4.loopexit.split.loop.exit206 ], [ %61, %58 ], [ %.0101149, %.lr.ph232 ]
+  %.399.lcssa = phi i32 [ %.298.lcssa, %.critedge2 ], [ %2, %40 ], [ %70, %.critedge4.loopexit.split.loop.exit206 ], [ %2, %58 ], [ %smax, %.lr.ph232 ]
   %71 = load ptr, ptr %11, align 8
   %72 = tail call noalias dereferenceable_or_null(4096) ptr @calloc(i64 noundef 1, i64 noundef 4096) #40
   %.not.i = icmp eq ptr %72, null

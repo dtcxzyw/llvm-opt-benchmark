@@ -1215,7 +1215,7 @@ typesequiv.exit546.thread.i:                      ; preds = %535, %typesequiv.ex
   br label %tzloadbody.exit
 
 tzloadbody.exit:                                  ; preds = %detzcode.exit492.i, %114, %117, %120, %168, %.lr.ph655.i, %detzcode.exit512.i, %214, %detzcode.exit533.i, %272, %280, %287, %9, %24, %47, %.loopexit601.i, %.thread594.i
-  %.0.i = phi i32 [ 0, %.thread594.i ], [ %25, %24 ], [ %49, %47 ], [ 22, %.loopexit601.i ], [ 2, %9 ], [ 22, %detzcode.exit533.i ], [ 22, %.lr.ph655.i ], [ 22, %287 ], [ 22, %detzcode.exit512.i ], [ 22, %168 ], [ 22, %280 ], [ 22, %272 ], [ 22, %214 ], [ 22, %120 ], [ 22, %117 ], [ 22, %114 ], [ 22, %detzcode.exit492.i ]
+  %.0.i = phi i32 [ 0, %.thread594.i ], [ %25, %24 ], [ %49, %47 ], [ 22, %.loopexit601.i ], [ 2, %9 ], [ 22, %287 ], [ 22, %detzcode.exit512.i ], [ 22, %280 ], [ 22, %168 ], [ 22, %detzcode.exit533.i ], [ 22, %.lr.ph655.i ], [ 22, %272 ], [ 22, %214 ], [ 22, %120 ], [ 22, %117 ], [ 22, %114 ], [ 22, %detzcode.exit492.i ]
   tail call void @free(ptr noundef %5) #20
   br label %572
 
@@ -2015,8 +2015,8 @@ getnum.exit30.i:                                  ; preds = %67
   br label %getsecs.exit
 
 getsecs.exit:                                     ; preds = %getnum.exit.i, %getnum.exit24.i, %getnum.exit30.i
-  %70 = phi i32 [ %47, %getnum.exit24.i ], [ %24, %getnum.exit.i ], [ %69, %getnum.exit30.i ]
-  %.0.i = phi ptr [ %39, %getnum.exit24.i ], [ %17, %getnum.exit.i ], [ %62, %getnum.exit30.i ]
+  %70 = phi i32 [ %69, %getnum.exit30.i ], [ %24, %getnum.exit.i ], [ %47, %getnum.exit24.i ]
+  %.0.i = phi ptr [ %62, %getnum.exit30.i ], [ %17, %getnum.exit.i ], [ %39, %getnum.exit24.i ]
   br i1 %4, label %71, label %getsecs.exit.thread
 
 71:                                               ; preds = %getsecs.exit
@@ -2230,7 +2230,7 @@ define internal fastcc noundef ptr @getrule(ptr noundef captures(ret: address, p
   br label %getnum.exit
 
 getnum.exit:                                      ; preds = %24, %89, %113
-  %.030 = phi ptr [ %106, %113 ], [ %82, %89 ], [ %17, %24 ]
+  %.030 = phi ptr [ %82, %89 ], [ %106, %113 ], [ %17, %24 ]
   %114 = load i8, ptr %.030, align 1
   %115 = icmp eq i8 %114, 47
   br i1 %115, label %116, label %120
@@ -3022,7 +3022,7 @@ define dso_local noundef zeroext i1 @pg_interpret_timezone_abbrev(ptr noundef re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %60, %.loopexit.sink.split, %5, %.preheader
-  %.0 = phi i1 [ false, %.preheader ], [ false, %60 ], [ true, %.loopexit.sink.split ], [ false, %5 ], [ false, %19 ]
+  %.0 = phi i1 [ false, %.preheader ], [ false, %5 ], [ true, %.loopexit.sink.split ], [ false, %60 ], [ false, %19 ]
   ret i1 %.0
 }
 

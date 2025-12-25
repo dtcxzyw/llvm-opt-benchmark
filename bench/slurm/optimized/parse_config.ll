@@ -1180,7 +1180,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %38, %.loopexit11.sink.split, %3
-  %.0 = phi i32 [ 0, %.loopexit11.sink.split ], [ 1, %3 ], [ 1, %38 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %.loopexit11.sink.split ], [ 1, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

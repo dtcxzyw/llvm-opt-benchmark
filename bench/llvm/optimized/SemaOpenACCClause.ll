@@ -270,14 +270,14 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC11ActOnClauseEN4llvm8ArrayRe
     i8 48, label %45
     i8 5, label %46
     i8 6, label %47
-    i8 0, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
-    i8 1, label %48
-    i8 16, label %49
-    i8 17, label %50
-    i8 42, label %51
-    i8 14, label %52
-    i8 43, label %53
-    i8 18, label %54
+    i8 0, label %48
+    i8 1, label %49
+    i8 16, label %50
+    i8 17, label %51
+    i8 42, label %52
+    i8 14, label %53
+    i8 43, label %54
+    i8 18, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
     i8 22, label %55
   ]
 
@@ -563,45 +563,45 @@ define dso_local noundef ptr @_ZN5clang11SemaOpenACC11ActOnClauseEN4llvm8ArrayRe
   ]
 
 48:                                               ; preds = %21
+  %cond6.i = icmp eq i8 %22, 5
+  br i1 %cond6.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
+
+49:                                               ; preds = %21
   switch i8 %22, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31 [
     i8 17, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread
     i8 6, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread
   ]
 
-49:                                               ; preds = %21
+50:                                               ; preds = %21
   %cond5.i = icmp eq i8 %22, 5
   br i1 %cond5.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
 
-50:                                               ; preds = %21
+51:                                               ; preds = %21
   %cond4.i = icmp eq i8 %22, 5
   br i1 %cond4.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
 
-51:                                               ; preds = %21
+52:                                               ; preds = %21
   %.off.i = add i8 %22, -14
   %switch.i = icmp ult i8 %.off.i, 3
   br i1 %switch.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
 
-52:                                               ; preds = %21
+53:                                               ; preds = %21
   %cond3.i = icmp eq i8 %22, 6
   br i1 %cond3.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
 
-53:                                               ; preds = %21
+54:                                               ; preds = %21
   %cond2.i = icmp eq i8 %22, 16
   br i1 %cond2.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
-
-54:                                               ; preds = %21
-  %cond1.i = icmp eq i8 %22, 17
-  br i1 %cond1.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
 
 55:                                               ; preds = %21
   %cond.i = icmp eq i8 %22, 17
   br i1 %cond.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
 
 _ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit: ; preds = %21
-  %cond6.i = icmp eq i8 %22, 5
-  br i1 %cond6.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
+  %cond1.i = icmp eq i8 %22, 17
+  br i1 %cond1.i, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread, label %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31
 
-_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31: ; preds = %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %54, %53, %49, %52, %50, %51, %55, %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
+_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread31: ; preds = %49, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %50, %51, %52, %55, %54, %53, %48, %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.0.0.copyload.i.i = load i32, ptr %56, align 4, !tbaa !20
@@ -665,7 +665,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_17OpenACCClauseKindEvEERKS1_OT_.
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %192
 
-_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread: ; preds = %48, %48, %21, %47, %47, %47, %47, %47, %44, %44, %44, %44, %43, %43, %43, %43, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %41, %41, %41, %41, %41, %41, %40, %40, %40, %40, %39, %39, %39, %39, %39, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %36, %36, %36, %36, %36, %36, %36, %36, %35, %35, %35, %35, %35, %35, %35, %35, %34, %34, %34, %34, %34, %34, %34, %34, %33, %33, %33, %33, %33, %33, %33, %33, %33, %32, %32, %32, %32, %32, %32, %32, %32, %32, %31, %31, %31, %31, %31, %31, %31, %31, %30, %30, %30, %30, %30, %30, %30, %30, %29, %29, %29, %29, %29, %29, %29, %28, %28, %28, %28, %28, %28, %27, %27, %27, %27, %26, %26, %26, %26, %25, %25, %25, %25, %25, %25, %25, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %23, %23, %23, %23, %23, %23, %23, %46, %46, %46, %46, %46, %45, %45, %45, %45, %45, %54, %53, %49, %52, %50, %51, %55, %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
+_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit.thread: ; preds = %49, %49, %21, %47, %47, %47, %47, %47, %44, %44, %44, %44, %43, %43, %43, %43, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %42, %41, %41, %41, %41, %41, %41, %40, %40, %40, %40, %39, %39, %39, %39, %39, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %37, %36, %36, %36, %36, %36, %36, %36, %36, %35, %35, %35, %35, %35, %35, %35, %35, %34, %34, %34, %34, %34, %34, %34, %34, %33, %33, %33, %33, %33, %33, %33, %33, %33, %32, %32, %32, %32, %32, %32, %32, %32, %32, %31, %31, %31, %31, %31, %31, %31, %31, %30, %30, %30, %30, %30, %30, %30, %30, %29, %29, %29, %29, %29, %29, %29, %28, %28, %28, %28, %28, %28, %27, %27, %27, %27, %26, %26, %26, %26, %25, %25, %25, %25, %25, %25, %25, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24, %23, %23, %23, %23, %23, %23, %23, %46, %46, %46, %46, %46, %45, %45, %45, %45, %45, %50, %51, %52, %55, %54, %53, %48, %_ZN12_GLOBAL__N_126doesClauseApplyToDirectiveEN5clang20OpenACCDirectiveKindENS0_17OpenACCClauseKindE.exit
   %.idx1.i = shl nuw nsw i64 %2, 3
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx1.i
   %89 = lshr i64 %2, 2

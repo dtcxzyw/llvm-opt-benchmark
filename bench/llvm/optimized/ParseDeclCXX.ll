@@ -24244,8 +24244,8 @@ _ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434: ; pred
   br label %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread
 
 _ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread: ; preds = %662, %662, %662, %662, %662, %662, %666, %_ZN5clang6Parser9NextTokenEv.exit264, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit, %651
-  %.ph = phi i1 [ false, %651 ], [ false, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit ], [ false, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ true, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434 ], [ false, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ false, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit264 ], [ true, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split ], [ true, %666 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ]
-  %.0153.ph = phi i16 [ 4, %651 ], [ 4, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit ], [ 4, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ 0, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434 ], [ 4, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ 12, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433 ], [ 8, %_ZN5clang6Parser9NextTokenEv.exit264 ], [ 0, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split ], [ 0, %666 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ]
+  %.ph = phi i1 [ true, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434 ], [ false, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433 ], [ false, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ false, %_ZN5clang6Parser9NextTokenEv.exit264 ], [ false, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ false, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit ], [ false, %651 ], [ true, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split ], [ true, %666 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ], [ true, %662 ]
+  %.0153.ph = phi i16 [ 0, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split434 ], [ 12, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split433 ], [ 4, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ 8, %_ZN5clang6Parser9NextTokenEv.exit264 ], [ 4, %_ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_EEEbS3_DpT_.exit262 ], [ 4, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit ], [ 4, %651 ], [ 0, %_ZNK5clang10Declarator20isFunctionDeclaratorEv.exit.thread.fold.split ], [ 0, %666 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ], [ 0, %662 ]
   %.pr = load i32, ptr %565, align 8, !tbaa !978
   %696 = load i16, ptr %567, align 8
   %697 = and i16 %696, -13
@@ -34631,7 +34631,7 @@ _ZNK5clang14IdentifierInfo5isStrILm7EEEbRAT__Kc.exit91: ; preds = %.critedge81
     i32 174, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread152
     i32 385, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread152
     i32 399, label %145
-    i32 387, label %151
+    i32 387, label %154
   ]
 
 145:                                              ; preds = %143
@@ -34643,32 +34643,32 @@ _ZNK5clang14IdentifierInfo5isStrILm7EEEbRAT__Kc.exit91: ; preds = %.critedge81
   %149 = load i64, ptr %148, align 8, !tbaa !1083
   %150 = and i64 %149, 4294967295
   %.not.i.i93 = icmp eq i64 %150, 9
-  br i1 %.not.i.i93, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread
+  br i1 %.not.i.i93, label %151, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread
 
-151:                                              ; preds = %143
-  br i1 %.not78, label %152, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread
+151:                                              ; preds = %146
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %152, ptr noundef nonnull dereferenceable(9) @.str.52, i64 9)
+  %153 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %153, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread152, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread
 
-152:                                              ; preds = %151
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %154 = load ptr, ptr %153, align 8, !tbaa !1080
-  %155 = load i64, ptr %154, align 8, !tbaa !1083
-  %156 = and i64 %155, 4294967295
-  %.not.i12.i = icmp eq i64 %156, 12
-  br i1 %.not.i12.i, label %157, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread
+154:                                              ; preds = %143
+  br i1 %.not78, label %155, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread
 
-157:                                              ; preds = %152
-  %158 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %bcmp.i14.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %158, ptr noundef nonnull dereferenceable(12) @.str.53, i64 12)
-  %159 = icmp eq i32 %bcmp.i14.i, 0
-  br i1 %159, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread152, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread
+155:                                              ; preds = %154
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %157 = load ptr, ptr %156, align 8, !tbaa !1080
+  %158 = load i64, ptr %157, align 8, !tbaa !1083
+  %159 = and i64 %158, 4294967295
+  %.not.i12.i = icmp eq i64 %159, 12
+  br i1 %.not.i12.i, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread
 
-_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit: ; preds = %146
-  %160 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %160, ptr noundef nonnull dereferenceable(9) @.str.52, i64 9)
-  %161 = icmp eq i32 %bcmp.i.i, 0
+_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit: ; preds = %155
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %bcmp.i14.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %160, ptr noundef nonnull dereferenceable(12) @.str.53, i64 12)
+  %161 = icmp eq i32 %bcmp.i14.i, 0
   br i1 %161, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread152, label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread
 
-_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread152: ; preds = %143, %143, %143, %143, %143, %143, %143, %157, %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit
+_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread152: ; preds = %143, %143, %143, %143, %143, %143, %143, %151, %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit
   %162 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !977
   %164 = load i32, ptr %141, align 8, !tbaa !978
@@ -34921,8 +34921,8 @@ _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %262, %_ZNKSt7__cxx1
   store i32 %275, ptr %273, align 8
   br label %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread
 
-_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread: ; preds = %143, %146, %151, %145, %152, %157, %_ZN5clang17DiagnosticBuilderD2Ev.exit100, %260, %_ZN5clang9FixItHintD2Ev.exit, %255, %137, %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit, %140, %_ZN5clang17DiagnosticBuilderD2Ev.exit, %84, %_ZN5clang6Parser12ConsumeParenEv.exit
-  %.0 = phi i1 [ true, %84 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ false, %_ZN5clang6Parser12ConsumeParenEv.exit ], [ true, %140 ], [ true, %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit ], [ true, %137 ], [ true, %255 ], [ true, %_ZN5clang9FixItHintD2Ev.exit ], [ true, %260 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit100 ], [ true, %157 ], [ true, %152 ], [ true, %145 ], [ true, %151 ], [ true, %146 ], [ true, %143 ]
+_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit.thread: ; preds = %143, %146, %154, %145, %155, %151, %_ZN5clang17DiagnosticBuilderD2Ev.exit100, %260, %_ZN5clang9FixItHintD2Ev.exit, %255, %137, %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit, %140, %_ZN5clang17DiagnosticBuilderD2Ev.exit, %84, %_ZN5clang6Parser12ConsumeParenEv.exit
+  %.0 = phi i1 [ true, %84 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ false, %_ZN5clang6Parser12ConsumeParenEv.exit ], [ true, %140 ], [ true, %_ZL33IsBuiltInOrStandardCXX11AttributePN5clang14IdentifierInfoES1_.exit ], [ true, %137 ], [ true, %255 ], [ true, %_ZN5clang9FixItHintD2Ev.exit ], [ true, %260 ], [ true, %_ZN5clang17DiagnosticBuilderD2Ev.exit100 ], [ true, %151 ], [ true, %155 ], [ true, %145 ], [ true, %154 ], [ true, %146 ], [ true, %143 ]
   ret i1 %.0
 }
 

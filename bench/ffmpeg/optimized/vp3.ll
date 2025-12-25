@@ -5010,8 +5010,8 @@ render_slice.exit:                                ; preds = %2154, %2165
   br label %2725
 
 .sink.split:                                      ; preds = %850, %851, %2063, %2060, %.loopexit379, %._crit_edge166.i, %867, %.loopexit383, %1242, %2054
-  %.str.39.sink = phi ptr [ @.str.38, %2060 ], [ @.str.37, %.loopexit379 ], [ @.str.34, %._crit_edge166.i ], [ @.str.36, %2054 ], [ @.str.35, %1242 ], [ @.str.33, %.loopexit383 ], [ @.str.39, %2063 ], [ @.str.34, %867 ], [ @.str.34, %851 ], [ @.str.34, %850 ]
-  %.2.ph = phi i32 [ %2061, %2060 ], [ -1, %.loopexit379 ], [ -1, %._crit_edge166.i ], [ -1, %2054 ], [ -1, %1242 ], [ %.1166.i.ph, %.loopexit383 ], [ %2064, %2063 ], [ -1094995529, %867 ], [ -1094995529, %850 ], [ -1, %851 ]
+  %.str.39.sink = phi ptr [ @.str.38, %2060 ], [ @.str.37, %.loopexit379 ], [ @.str.34, %._crit_edge166.i ], [ @.str.36, %2054 ], [ @.str.35, %1242 ], [ @.str.33, %.loopexit383 ], [ @.str.34, %867 ], [ @.str.39, %2063 ], [ @.str.34, %851 ], [ @.str.34, %850 ]
+  %.2.ph = phi i32 [ %2061, %2060 ], [ -1, %.loopexit379 ], [ -1, %._crit_edge166.i ], [ -1, %2054 ], [ -1, %1242 ], [ %.1166.i.ph, %.loopexit383 ], [ -1094995529, %867 ], [ %2064, %2063 ], [ -1094995529, %850 ], [ -1, %851 ]
   %2717 = load ptr, ptr %17, align 16, !tbaa !65
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2717, i32 noundef 16, ptr noundef nonnull %.str.39.sink) #10
   br label %2718

@@ -901,7 +901,7 @@ decode_rle.exit.thread.loopexit:                  ; preds = %._crit_edge.i
   br label %decode_rle.exit.thread
 
 decode_rle.exit.thread:                           ; preds = %decode_rle.exit.thread.loopexit, %281, %.preheader66.lr.ph.i, %355
-  %.0271 = phi ptr [ %357, %355 ], [ %267, %281 ], [ %267, %.preheader66.lr.ph.i ], [ %.0271.pre, %decode_rle.exit.thread.loopexit ]
+  %.0271 = phi ptr [ %357, %355 ], [ %267, %.preheader66.lr.ph.i ], [ %267, %281 ], [ %.0271.pre, %decode_rle.exit.thread.loopexit ]
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %367 = load i32, ptr %366, align 8, !tbaa !54
   switch i32 %367, label %418 [

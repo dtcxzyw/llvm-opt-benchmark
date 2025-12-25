@@ -744,7 +744,7 @@ _ZL18utrie_getDataBlockP8UNewTriei.exit127:       ; preds = %._ZL18utrie_getData
   br i1 %156, label %.lr.ph19.i133, label %_ZL15utrie_fillBlockPjiijja.exit135, !llvm.loop !24
 
 _ZL15utrie_fillBlockPjiijja.exit135:              ; preds = %.lr.ph.i104, %66, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i118, %104, %.lr.ph.i130, %154, %131, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i125, %27, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i, %.preheader.i106, %.preheader15.i103, %._crit_edge, %14, %5, %7
-  %.0 = phi i8 [ 0, %131 ], [ 0, %5 ], [ 1, %14 ], [ 0, %27 ], [ 1, %154 ], [ 0, %7 ], [ 1, %._crit_edge ], [ 1, %66 ], [ 1, %.lr.ph.i130 ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i118 ], [ 1, %.preheader.i106 ], [ 1, %.preheader15.i103 ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i125 ], [ 0, %104 ], [ 1, %.lr.ph.i104 ]
+  %.0 = phi i8 [ 0, %131 ], [ 0, %5 ], [ 1, %14 ], [ 0, %27 ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i125 ], [ 0, %7 ], [ 1, %._crit_edge ], [ 1, %66 ], [ 1, %.lr.ph.i130 ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i118 ], [ 1, %.preheader.i106 ], [ 1, %.preheader15.i103 ], [ 0, %_ZL20utrie_allocDataBlockP8UNewTrie.exit.i ], [ 1, %154 ], [ 0, %104 ], [ 1, %.lr.ph.i104 ]
   ret i8 %.0
 }
 

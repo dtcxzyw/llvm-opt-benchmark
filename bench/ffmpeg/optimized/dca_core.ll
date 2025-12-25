@@ -3618,7 +3618,7 @@ parse_subframe_audio.exit.thread.sink.split:      ; preds = %get_array.exit.i, %
   br label %parse_subframe_audio.exit.thread
 
 parse_subframe_audio.exit.thread:                 ; preds = %1252, %.lr.ph214.i, %1429, %parse_subframe_audio.exit.thread.sink.split
-  %.0.i84.ph = phi i32 [ -1094995529, %.lr.ph214.i ], [ %1433, %1429 ], [ -1094995529, %parse_subframe_audio.exit.thread.sink.split ], [ -1094995529, %1252 ]
+  %.0.i84.ph = phi i32 [ -1094995529, %.lr.ph214.i ], [ -1094995529, %parse_subframe_audio.exit.thread.sink.split ], [ %1433, %1429 ], [ -1094995529, %1252 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %parse_coding_header.exit.thread
 
@@ -6128,7 +6128,7 @@ map_prm_ch_to_spkr.exit.thread107:                ; preds = %120, %105, %102, %1
   br i1 %.not134, label %map_prm_ch_to_spkr.exit.thread, label %175, !llvm.loop !229
 
 map_prm_ch_to_spkr.exit.thread:                   ; preds = %105, %.preheader.i, %112, %map_prm_ch_to_spkr.exit, %124, %175, %._crit_edge, %.thread, %11
-  %.0 = phi i32 [ -12, %11 ], [ -22, %124 ], [ 0, %175 ], [ 0, %._crit_edge ], [ -22, %.thread ], [ -22, %map_prm_ch_to_spkr.exit ], [ -22, %112 ], [ -22, %.preheader.i ], [ -22, %105 ]
+  %.0 = phi i32 [ -12, %11 ], [ -22, %124 ], [ 0, %._crit_edge ], [ 0, %175 ], [ -22, %.thread ], [ -22, %map_prm_ch_to_spkr.exit ], [ -22, %112 ], [ -22, %.preheader.i ], [ -22, %105 ]
   ret i32 %.0
 }
 
@@ -7319,7 +7319,7 @@ map_prm_ch_to_spkr.exit226.i:                     ; preds = %570, %548, %541
   br label %filter_frame_fixed.exit
 
 filter_frame_fixed.exit.thread89:                 ; preds = %map_prm_ch_to_spkr.exit.i74, %412, %.preheader.i.i, %405, %424, %map_prm_ch_to_spkr.exit226.i, %555, %.preheader.i211.i, %562, %574, %288, %333
-  %.0.i62.ph = phi i32 [ -22, %424 ], [ %300, %288 ], [ -22, %map_prm_ch_to_spkr.exit226.i ], [ -12, %333 ], [ -22, %574 ], [ -22, %562 ], [ -22, %.preheader.i211.i ], [ -22, %555 ], [ -22, %405 ], [ -22, %.preheader.i.i ], [ -22, %412 ], [ -22, %map_prm_ch_to_spkr.exit.i74 ]
+  %.0.i62.ph = phi i32 [ -22, %424 ], [ -12, %333 ], [ %300, %288 ], [ -22, %574 ], [ -22, %map_prm_ch_to_spkr.exit226.i ], [ -22, %562 ], [ -22, %.preheader.i211.i ], [ -22, %555 ], [ -22, %405 ], [ -22, %.preheader.i.i ], [ -22, %412 ], [ -22, %map_prm_ch_to_spkr.exit.i74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %filter_frame_fixed.exit.thread
 
@@ -7403,7 +7403,7 @@ filter_frame_fixed.exit.thread86:                 ; preds = %._crit_edge145.us.i
   br label %filter_frame_fixed.exit.thread
 
 filter_frame_fixed.exit.thread:                   ; preds = %160, %167, %map_prm_ch_to_spkr.exit.i, %178, %50, %47, %filter_frame_fixed.exit.thread89, %694, %23
-  %.043 = phi i32 [ -22, %23 ], [ %., %694 ], [ %.0.i62.ph, %filter_frame_fixed.exit.thread89 ], [ -22, %178 ], [ %59, %50 ], [ %48, %47 ], [ -22, %map_prm_ch_to_spkr.exit.i ], [ -22, %167 ], [ -22, %160 ]
+  %.043 = phi i32 [ -22, %23 ], [ %., %694 ], [ %.0.i62.ph, %filter_frame_fixed.exit.thread89 ], [ %48, %47 ], [ %59, %50 ], [ -22, %178 ], [ -22, %map_prm_ch_to_spkr.exit.i ], [ -22, %167 ], [ -22, %160 ]
   ret i32 %.043
 }
 
@@ -9641,7 +9641,7 @@ parse_x96_subframe_audio.exit:                    ; preds = %1006, %.preheader.i
   br i1 %1057, label %1017, label %parse_x96_coding_header.exit.thread, !llvm.loop !305
 
 parse_x96_coding_header.exit.thread:              ; preds = %710, %277, %parse_scale.exit.i, %parse_scale.exit.us.i, %parse_joint_scale.exit.i, %parse_joint_scale.exit.us.i, %.lr.ph194.i, %1054, %.preheader, %971, %ff_dca_core_dequantize.exit.i, %708, %parse_joint_scale.exit.thread.i, %parse_scale.exit.thread.i, %583, %.split.us.i, %236, %164, %131, %106, %68, %ff_dca_check_crc.exit.thread.i, %3
-  %.0 = phi i32 [ %659, %parse_joint_scale.exit.us.i ], [ -1094995529, %708 ], [ -1094995529, %236 ], [ -1094995529, %3 ], [ -1094995529, %ff_dca_check_crc.exit.thread.i ], [ -1094995529, %68 ], [ -1094995529, %106 ], [ -1094995529, %131 ], [ -1094995529, %164 ], [ -1094995529, %.lr.ph194.i ], [ %546, %parse_scale.exit.i ], [ 0, %1054 ], [ -1094995529, %parse_joint_scale.exit.thread.i ], [ -1094995529, %parse_scale.exit.thread.i ], [ 0, %.preheader ], [ -1094995529, %583 ], [ -1094995529, %.split.us.i ], [ -1094995529, %971 ], [ %885, %ff_dca_core_dequantize.exit.i ], [ %685, %parse_joint_scale.exit.i ], [ %517, %parse_scale.exit.us.i ], [ -1094995529, %277 ], [ -1094995529, %710 ]
+  %.0 = phi i32 [ %685, %parse_joint_scale.exit.i ], [ -1094995529, %708 ], [ -1094995529, %236 ], [ -1094995529, %3 ], [ -1094995529, %ff_dca_check_crc.exit.thread.i ], [ -1094995529, %68 ], [ -1094995529, %106 ], [ -1094995529, %131 ], [ -1094995529, %164 ], [ -1094995529, %.lr.ph194.i ], [ %546, %parse_scale.exit.i ], [ 0, %1054 ], [ -1094995529, %parse_joint_scale.exit.thread.i ], [ -1094995529, %parse_scale.exit.thread.i ], [ 0, %.preheader ], [ -1094995529, %583 ], [ -1094995529, %.split.us.i ], [ -1094995529, %971 ], [ %885, %ff_dca_core_dequantize.exit.i ], [ %659, %parse_joint_scale.exit.us.i ], [ %517, %parse_scale.exit.us.i ], [ -1094995529, %277 ], [ -1094995529, %710 ]
   ret i32 %.0
 }
 

@@ -1008,7 +1008,7 @@ invoke.cont124:                                   ; preds = %sw.bb38.i.i.i, %sw.
   br i1 %cmp.i.not, label %if.then132, label %for.inc184
 
 if.then132:                                       ; preds = %invoke.cont124, %do.body113, %sw.bb38.i.i.i, %for.end.loopexit.i.i.i.us, %sw.bb38.i.i.i.us, %invoke.cont124.us
-  %.us-phi = phi i64 [ %i104.0251.us, %for.end.loopexit.i.i.i.us ], [ %i104.0251.us, %invoke.cont124.us ], [ %i104.0251.us, %sw.bb38.i.i.i.us ], [ %i104.0251, %sw.bb38.i.i.i ], [ 0, %do.body113 ], [ %i104.0251, %invoke.cont124 ]
+  %.us-phi = phi i64 [ %i104.0251.us, %for.end.loopexit.i.i.i.us ], [ %i104.0251.us, %invoke.cont124.us ], [ %i104.0251.us, %sw.bb38.i.i.i.us ], [ %i104.0251, %invoke.cont124 ], [ 0, %do.body113 ], [ %i104.0251, %sw.bb38.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream133)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream133)
           to label %invoke.cont135 unwind label %lpad134

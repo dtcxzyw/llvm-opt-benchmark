@@ -1319,9 +1319,9 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %76, %_ZNSt6vectorIi
   br i1 %131, label %106, label %._crit_edge112, !llvm.loop !82
 
 ._crit_edge112:                                   ; preds = %.loopexit, %106, %_ZNSt6vectorIiSaIiEE5clearEv.exit, %._crit_edge
-  %.sroa.19.1.lcssa172187 = phi ptr [ %spec.select, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.19.2, %._crit_edge ], [ %.sroa.19.2, %106 ], [ %.sroa.19.2, %.loopexit ]
-  %.sroa.26.1.lcssa174186 = phi ptr [ %.sroa.26.0115, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.26.2, %._crit_edge ], [ %.sroa.26.2, %106 ], [ %.sroa.26.2, %.loopexit ]
-  %.sroa.0.1.lcssa176185 = phi ptr [ %.sroa.0.0116, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.2, %106 ], [ %.sroa.0.2, %.loopexit ]
+  %.sroa.19.1.lcssa172187 = phi ptr [ %.sroa.19.2, %._crit_edge ], [ %spec.select, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.19.2, %106 ], [ %.sroa.19.2, %.loopexit ]
+  %.sroa.26.1.lcssa174186 = phi ptr [ %.sroa.26.2, %._crit_edge ], [ %.sroa.26.0115, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.26.2, %106 ], [ %.sroa.26.2, %.loopexit ]
+  %.sroa.0.1.lcssa176185 = phi ptr [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.0116, %_ZNSt6vectorIiSaIiEE5clearEv.exit ], [ %.sroa.0.2, %106 ], [ %.sroa.0.2, %.loopexit ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge118, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, !llvm.loop !83

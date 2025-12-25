@@ -870,7 +870,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %14
   %170 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %27, ptr noundef nonnull @.str.10, ptr noundef %168)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread147 unwind label %605
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread147: ; preds = %.noexc76, %152, %169, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread147: ; preds = %152, %.noexc76, %169, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %171 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %172 = load ptr, ptr %171, align 8
   %173 = ptrtoint ptr %172 to i64
@@ -1024,7 +1024,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit88.thread: ; preds = %
   %232 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %29, ptr noundef nonnull @.str.12, ptr noundef %230)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit88.thread151 unwind label %607
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit88.thread151: ; preds = %.noexc87, %214, %231, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit88
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit88.thread151: ; preds = %214, %.noexc87, %231, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit88
   %233 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17SdfValueTypeNamesE seq_cst, align 8
   %234 = inttoptr i64 %233 to ptr
   %.not.i.i89 = icmp eq i64 %233, 0
@@ -1120,7 +1120,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit97.thread: ; preds = %
   %273 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %31, ptr noundef nonnull @.str.14, ptr noundef %271)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit97.thread155 unwind label %609
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit97.thread155: ; preds = %.noexc96, %256, %272, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit97
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit97.thread155: ; preds = %256, %.noexc96, %272, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit97
   %274 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %275 = load ptr, ptr %274, align 8
   %276 = ptrtoint ptr %275 to i64
@@ -2772,7 +2772,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
   %205 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %23, ptr noundef nonnull @.str.29, ptr noundef null)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread209 unwind label %923
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread209: ; preds = %.noexc76, %191, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread209: ; preds = %191, %.noexc76, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %206 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %207 = load ptr, ptr %206, align 8
   %208 = ptrtoint ptr %207 to i64

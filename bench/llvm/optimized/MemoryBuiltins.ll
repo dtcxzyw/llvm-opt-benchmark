@@ -9106,16 +9106,16 @@ _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %174
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %183 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %184 = icmp ult i32 %15, 65
-  br i1 %184, label %_ZNK4llvm10OffsetSpaneqERKS0_.exit, label %185
+  br i1 %184, label %185, label %_ZNK4llvm10OffsetSpaneqERKS0_.exit
 
 185:                                              ; preds = %181
-  %186 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %182, ptr noundef nonnull align 8 dereferenceable(12) %183) #23
-  br i1 %186, label %190, label %_ZNK4llvm10OffsetSpaneqERKS0_.exit.thread
+  %186 = load i64, ptr %182, align 8, !tbaa !96
+  %187 = load i64, ptr %183, align 8, !tbaa !96
+  %188 = icmp eq i64 %186, %187
+  br i1 %188, label %190, label %_ZNK4llvm10OffsetSpaneqERKS0_.exit.thread
 
 _ZNK4llvm10OffsetSpaneqERKS0_.exit:               ; preds = %181
-  %187 = load i64, ptr %182, align 8, !tbaa !96
-  %188 = load i64, ptr %183, align 8, !tbaa !96
-  %189 = icmp eq i64 %187, %188
+  %189 = tail call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %182, ptr noundef nonnull align 8 dereferenceable(12) %183) #23
   br i1 %189, label %190, label %_ZNK4llvm10OffsetSpaneqERKS0_.exit.thread
 
 190:                                              ; preds = %185, %_ZNK4llvm10OffsetSpaneqERKS0_.exit

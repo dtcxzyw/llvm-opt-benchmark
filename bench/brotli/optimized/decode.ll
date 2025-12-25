@@ -621,8 +621,8 @@ BrotliBitReaderUnload.exit:                       ; preds = %149
     i32 26, label %788
   ]
 
-.backedge.backedge:                               ; preds = %165, %218, %219, %283, %287, %290, %303, %411, %414, %755, %252, %277, %275, %291, %409, %412, %465, %669, %666, %671, %747, %746, %739, %748, %790, %173, %239, %BrotliBitReaderNormalize.exit428, %._crit_edge631, %608, %749, %BrotliBitReaderNormalize.exit, %306, %315, %SafeReadBlockLength.exit.thread, %SafeReadBlockLength.exit.thread541, %ReadContextModes.exit, %548, %.thread575, %201, %203, %227, %422, %HuffmanTreeGroupDecode.exit, %.loopexit580, %.lr.ph618, %.lr.ph, %118, %116, %BrotliBitReaderSetInput.exit411, %CopyFromCompoundDictionary.exit
-  %.1311.be = phi i32 [ 1, %CopyFromCompoundDictionary.exit ], [ 1, %BrotliBitReaderSetInput.exit411 ], [ 1, %118 ], [ 1, %116 ], [ 1, %165 ], [ %551, %548 ], [ 1, %218 ], [ 1, %219 ], [ 1, %755 ], [ 2, %173 ], [ %253, %252 ], [ 1, %277 ], [ 1, %275 ], [ 1, %283 ], [ 1, %287 ], [ 1, %290 ], [ %295, %291 ], [ 1, %303 ], [ -14, %BrotliBitReaderNormalize.exit428 ], [ %314, %306 ], [ -15, %BrotliBitReaderNormalize.exit ], [ -30, %239 ], [ -13, %203 ], [ %410, %409 ], [ 1, %411 ], [ 2, %412 ], [ 1, %414 ], [ 2, %ReadContextModes.exit ], [ %468, %465 ], [ %670, %669 ], [ %667, %666 ], [ 2, %SafeReadBlockLength.exit.thread541 ], [ 2, %.lr.ph618 ], [ 2, %SafeReadBlockLength.exit.thread ], [ %591, %HuffmanTreeGroupDecode.exit ], [ %672, %671 ], [ 1, %.thread575 ], [ 1, %739 ], [ 1, %746 ], [ 1, %747 ], [ 1, %748 ], [ -27, %608 ], [ %791, %790 ], [ -10, %749 ], [ 1, %._crit_edge631 ], [ %321, %315 ], [ -13, %201 ], [ -13, %227 ], [ -21, %422 ], [ 1, %.loopexit580 ], [ 2, %.lr.ph ]
+.backedge.backedge:                               ; preds = %165, %218, %219, %283, %287, %290, %303, %411, %414, %755, %252, %277, %275, %291, %409, %412, %465, %669, %666, %671, %747, %746, %739, %748, %790, %173, %239, %BrotliBitReaderNormalize.exit428, %._crit_edge631, %608, %749, %BrotliBitReaderNormalize.exit, %306, %315, %SafeReadBlockLength.exit.thread, %SafeReadBlockLength.exit.thread541, %ReadContextModes.exit, %548, %.thread575, %203, %201, %227, %422, %HuffmanTreeGroupDecode.exit, %.loopexit580, %.lr.ph618, %.lr.ph, %118, %116, %BrotliBitReaderSetInput.exit411, %CopyFromCompoundDictionary.exit
+  %.1311.be = phi i32 [ 1, %CopyFromCompoundDictionary.exit ], [ 1, %BrotliBitReaderSetInput.exit411 ], [ 1, %118 ], [ 1, %116 ], [ 1, %165 ], [ %551, %548 ], [ 1, %218 ], [ 1, %219 ], [ 1, %755 ], [ 2, %173 ], [ %253, %252 ], [ 1, %277 ], [ 1, %275 ], [ 1, %283 ], [ 1, %287 ], [ 1, %290 ], [ %295, %291 ], [ 1, %303 ], [ -14, %BrotliBitReaderNormalize.exit428 ], [ %314, %306 ], [ -15, %BrotliBitReaderNormalize.exit ], [ -30, %239 ], [ -13, %201 ], [ %410, %409 ], [ 1, %411 ], [ 2, %412 ], [ 1, %414 ], [ 2, %ReadContextModes.exit ], [ %468, %465 ], [ %670, %669 ], [ %667, %666 ], [ 2, %SafeReadBlockLength.exit.thread541 ], [ 2, %.lr.ph618 ], [ 2, %SafeReadBlockLength.exit.thread ], [ %591, %HuffmanTreeGroupDecode.exit ], [ %672, %671 ], [ 1, %.thread575 ], [ 1, %739 ], [ 1, %746 ], [ 1, %747 ], [ 1, %748 ], [ -27, %608 ], [ %791, %790 ], [ -10, %749 ], [ 1, %._crit_edge631 ], [ %321, %315 ], [ -13, %203 ], [ -13, %227 ], [ -21, %422 ], [ 1, %.loopexit580 ], [ 2, %.lr.ph ]
   br label %.backedge
 
 ._crit_edge663:                                   ; preds = %165
@@ -8025,7 +8025,7 @@ BitMask.exit:                                     ; preds = %18
   br label %41
 
 41:                                               ; preds = %.sink.split, %BitMask.exit, %18, %16, %7
-  %.0 = phi i32 [ 0, %BitMask.exit ], [ 0, %18 ], [ 0, %16 ], [ 0, %7 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %18 ], [ 0, %BitMask.exit ], [ 0, %7 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

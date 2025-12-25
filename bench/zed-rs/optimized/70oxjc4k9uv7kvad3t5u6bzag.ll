@@ -10940,9 +10940,9 @@ _ZN4gpui7element7Element8into_any17hefbdf248ea85be10E.exit.i57: ; preds = %222
   br label %244
 
 .body71:                                          ; preds = %261, %.thread267
-  %.sroa.016.2 = phi i8 [ %.sroa.016.4265, %.thread267 ], [ %.sroa.020.2, %261 ]
-  %.sroa.020.3 = phi i8 [ 1, %.thread267 ], [ %.sroa.020.2, %261 ]
-  %.pn28 = phi { ptr, i32 } [ %.pn26266, %.thread267 ], [ %262, %261 ]
+  %.sroa.016.2 = phi i8 [ %.sroa.020.2, %261 ], [ %.sroa.016.4265, %.thread267 ]
+  %.sroa.020.3 = phi i8 [ %.sroa.020.2, %261 ], [ 1, %.thread267 ]
+  %.pn28 = phi { ptr, i32 } [ %262, %261 ], [ %.pn26266, %.thread267 ]
   %260 = trunc nuw i8 %.sroa.016.2 to i1
   br i1 %260, label %.body71.thread, label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17he1a0fff57663169eE.exit"
 

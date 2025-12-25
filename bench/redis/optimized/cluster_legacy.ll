@@ -15799,7 +15799,7 @@ define dso_local range(i32 -1, 1) i32 @checkSlotAssignmentsOrReply(ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %17, %.loopexit.sink.split, %5
-  %.016 = phi i32 [ 0, %17 ], [ -1, %.loopexit.sink.split ], [ 0, %5 ], [ 0, %28 ]
+  %.016 = phi i32 [ 0, %5 ], [ -1, %.loopexit.sink.split ], [ 0, %17 ], [ 0, %28 ]
   ret i32 %.016
 }
 

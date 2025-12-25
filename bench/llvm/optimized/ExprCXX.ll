@@ -9505,7 +9505,7 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit: ; preds = %_ZNK5clang4Type6cas
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit, %8, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit
-  %47 = phi i32 [ %46, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ 1, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ 0, %8 ], [ 0, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
+  %47 = phi i32 [ 1, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ %46, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ 0, %8 ], [ 0, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
   ret i32 %47
 }
 

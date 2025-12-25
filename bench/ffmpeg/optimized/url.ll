@@ -361,9 +361,9 @@ find_delim.exit91:                                ; preds = %.lr.ph.i87, %.lr.ph
   br label %find_delim.exit99
 
 find_delim.exit99:                                ; preds = %80, %.lr.ph.i95, %.lr.ph.i95, %73, %70, %75, %82
-  %.sink149 = phi i64 [ 24, %82 ], [ 40, %73 ], [ 40, %70 ], [ 40, %75 ], [ 40, %.lr.ph.i95 ], [ 40, %.lr.ph.i95 ], [ 40, %80 ]
-  %spec.select.sink = phi ptr [ %spec.select, %82 ], [ %71, %73 ], [ %71, %70 ], [ %spec.select67, %75 ], [ %scevgep.i94, %80 ], [ %.06.i96, %.lr.ph.i95 ], [ %.06.i96, %.lr.ph.i95 ]
-  %.3 = phi ptr [ %spec.select, %82 ], [ %.0.lcssa.i68117, %73 ], [ %.0.lcssa.i68117, %70 ], [ %.0.lcssa.i68117, %75 ], [ %.0.lcssa.i68117, %.lr.ph.i95 ], [ %.0.lcssa.i68117, %.lr.ph.i95 ], [ %.0.lcssa.i68117, %80 ]
+  %.sink149 = phi i64 [ 24, %82 ], [ 40, %75 ], [ 40, %70 ], [ 40, %73 ], [ 40, %.lr.ph.i95 ], [ 40, %.lr.ph.i95 ], [ 40, %80 ]
+  %spec.select.sink = phi ptr [ %spec.select, %82 ], [ %spec.select67, %75 ], [ %71, %70 ], [ %71, %73 ], [ %scevgep.i94, %80 ], [ %.06.i96, %.lr.ph.i95 ], [ %.06.i96, %.lr.ph.i95 ]
+  %.3 = phi ptr [ %spec.select, %82 ], [ %.0.lcssa.i68117, %75 ], [ %.0.lcssa.i68117, %70 ], [ %.0.lcssa.i68117, %73 ], [ %.0.lcssa.i68117, %.lr.ph.i95 ], [ %.0.lcssa.i68117, %.lr.ph.i95 ], [ %.0.lcssa.i68117, %80 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink149
   store ptr %spec.select.sink, ptr %85, align 8, !tbaa !25
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -654,8 +654,8 @@ is_fq_dos_path.exit157.thread166:                 ; preds = %is_fq_dos_path.exit
   br i1 %.not128, label %.preheader, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %.preheader, %114, %102, %110
-  %.081.shrunk177 = phi i1 [ %narrow, %102 ], [ false, %110 ], [ true, %114 ], [ true, %.preheader ]
-  %.079 = phi ptr [ %75, %102 ], [ undef, %110 ], [ %.180, %114 ], [ %.180, %.preheader ]
+  %.081.shrunk177 = phi i1 [ false, %110 ], [ %narrow, %102 ], [ true, %114 ], [ true, %.preheader ]
+  %.079 = phi ptr [ undef, %110 ], [ %75, %102 ], [ %.180, %114 ], [ %.180, %.preheader ]
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !18
   %121 = icmp ule ptr %57, %120
@@ -760,8 +760,8 @@ is_fq_dos_path.exit157.thread166:                 ; preds = %is_fq_dos_path.exit
   br label %.thread198
 
 .thread198:                                       ; preds = %139, %132, %170
-  %.087201 = phi i32 [ %.087.fr, %170 ], [ %140, %139 ], [ %133, %132 ]
-  %172 = phi ptr [ %spec.select, %170 ], [ @.str.15, %139 ], [ @.str.15, %132 ]
+  %.087201 = phi i32 [ %.087.fr, %170 ], [ %133, %132 ], [ %140, %139 ]
+  %172 = phi ptr [ %spec.select, %170 ], [ @.str.15, %132 ], [ @.str.15, %139 ]
   %.087201.fr = freeze i32 %.087201
   %173 = icmp eq i32 %.087201.fr, -12
   %spec.select234 = select i1 %173, ptr @.str.19, ptr %172

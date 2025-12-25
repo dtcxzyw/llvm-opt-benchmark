@@ -925,7 +925,7 @@ _ZNK7obj_mapI4sortPvE4findEPS0_RS1_.exit.sink.split: ; preds = %21, %32, %2
   br label %_ZNK7obj_mapI4sortPvE4findEPS0_RS1_.exit
 
 _ZNK7obj_mapI4sortPvE4findEPS0_RS1_.exit:         ; preds = %.preheader.i.i.i20, %_ZNK7obj_mapI4sortPvE4findEPS0_RS1_.exit33, %61, %75, %72, %26, %40, %37, %_ZNK7obj_mapI4sortPvE4findEPS0_RS1_.exit.sink.split, %.preheader.i.i.i
-  %.011 = phi ptr [ null, %40 ], [ null, %75 ], [ null, %.preheader.i.i.i ], [ null, %26 ], [ null, %61 ], [ %79, %_ZNK7obj_mapI4sortPvE4findEPS0_RS1_.exit.sink.split ], [ null, %37 ], [ null, %72 ], [ null, %_ZNK7obj_mapI4sortPvE4findEPS0_RS1_.exit33 ], [ null, %.preheader.i.i.i20 ]
+  %.011 = phi ptr [ null, %61 ], [ %79, %_ZNK7obj_mapI4sortPvE4findEPS0_RS1_.exit.sink.split ], [ null, %.preheader.i.i.i ], [ null, %75 ], [ null, %40 ], [ null, %26 ], [ null, %37 ], [ null, %72 ], [ null, %_ZNK7obj_mapI4sortPvE4findEPS0_RS1_.exit33 ], [ null, %.preheader.i.i.i20 ]
   ret ptr %.011
 }
 

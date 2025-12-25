@@ -943,7 +943,7 @@ subdivideLine.exit355.thread:                     ; preds = %subdivideLine.exit3
   call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #15
   br label %.critedge
 
-.critedge343:                                     ; preds = %subdivideLine.exit355, %303, %215, %subdivideLine.exit349, %109
+.critedge343:                                     ; preds = %303, %215, %subdivideLine.exit355, %subdivideLine.exit349, %109
   call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #15
   br label %.critedge
 

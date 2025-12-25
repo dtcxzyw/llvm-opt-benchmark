@@ -5405,7 +5405,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl11CompHistory10updateTreeERNS0_
 
 .critedge:                                        ; preds = %48, %44, %53, %51, %.preheader71
   %56 = phi i32 [ %42, %53 ], [ %.pre85, %.preheader71 ], [ %42, %51 ], [ %.pre85, %44 ], [ %.pre85, %48 ]
-  %.1 = phi ptr [ %.2, %53 ], [ %39, %.preheader71 ], [ %.2, %51 ], [ %.04676, %44 ], [ %50, %48 ]
+  %.1 = phi ptr [ %.2, %53 ], [ %39, %.preheader71 ], [ %.2, %51 ], [ %50, %48 ], [ %.04676, %44 ]
   %57 = add nsw i32 %56, %12
   br label %58
 

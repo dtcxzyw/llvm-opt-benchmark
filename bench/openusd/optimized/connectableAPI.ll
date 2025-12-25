@@ -1206,7 +1206,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
           cleanup
   br label %.loopexit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread75: ; preds = %.noexc38, %188, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread75: ; preds = %188, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   switch i32 %2, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit61 [
     i32 0, label %200
     i32 1, label %312
@@ -1989,7 +1989,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i: ; preds = %76, %63
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   br label %136
 
-_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit: ; preds = %.noexc14, %37, %85, %82, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit: ; preds = %37, %.noexc14, %85, %82, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %96 = load ptr, ptr %7, align 8
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %97, 7
@@ -4270,7 +4270,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constr
           cleanup
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit48
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread74: ; preds = %.noexc30, %107, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread74: ; preds = %107, %.noexc30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   store ptr null, ptr %10, align 8
   %143 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath12GetNameTokenEv(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.057.078)
           to label %144 unwind label %179
@@ -6906,7 +6906,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc42
   %228 = and i1 %227, %226
   br i1 %228, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread55, label %_ZN32pxrInternal_v0_24__pxrReserved__14UsdShadeOutputD2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread55: ; preds = %.noexc42, %220, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread55: ; preds = %220, %.noexc42, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdShadeOutputC1ERKNS_12UsdAttributeE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %229 unwind label %273
 
@@ -8329,7 +8329,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc42
   %228 = and i1 %227, %226
   br i1 %228, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread55, label %_ZN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputD2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread55: ; preds = %.noexc42, %220, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread55: ; preds = %220, %.noexc42, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdShadeInputC1ERKNS_12UsdAttributeE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %229 unwind label %273
 
@@ -9108,7 +9108,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc23
   %162 = and i1 %161, %160
   br i1 %162, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread30, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread30: ; preds = %.noexc23, %153, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread30: ; preds = %153, %.noexc23, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %163 = invoke ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute11GetTypeNameEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %164 unwind label %170
 

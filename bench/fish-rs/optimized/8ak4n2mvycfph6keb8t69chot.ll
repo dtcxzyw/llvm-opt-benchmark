@@ -30803,8 +30803,8 @@ switch.lookup:                                    ; preds = %481, %"_ZN115_$LT$c
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %771, %747, %738, %733, %725, %.backedge.sink.split.i, %696
-  %.sroa.040.11.be.i = phi i8 [ %.sroa.040.11641.i, %696 ], [ %.sroa.040.13.i, %725 ], [ %.sroa.040.13.i, %733 ], [ %.sroa.040.13.i, %738 ], [ %.sroa.040.13.i, %747 ], [ %.sroa.040.13.i, %771 ], [ %.sroa.040.13.i, %.backedge.sink.split.i ]
-  %.sroa.038.11.be.i = phi i8 [ %.sroa.038.11642.i, %696 ], [ %.sroa.038.13.i, %725 ], [ %.sroa.038.13.i, %733 ], [ %.sroa.038.13.i, %738 ], [ %.sroa.038.13.i, %747 ], [ %.sroa.038.13.i, %771 ], [ %.sroa.038.13.i, %.backedge.sink.split.i ]
+  %.sroa.040.11.be.i = phi i8 [ %.sroa.040.13.i, %747 ], [ %.sroa.040.13.i, %725 ], [ %.sroa.040.13.i, %733 ], [ %.sroa.040.13.i, %738 ], [ %.sroa.040.11641.i, %696 ], [ %.sroa.040.13.i, %771 ], [ %.sroa.040.13.i, %.backedge.sink.split.i ]
+  %.sroa.038.11.be.i = phi i8 [ %.sroa.038.13.i, %747 ], [ %.sroa.038.13.i, %725 ], [ %.sroa.038.13.i, %733 ], [ %.sroa.038.13.i, %738 ], [ %.sroa.038.11642.i, %696 ], [ %.sroa.038.13.i, %771 ], [ %.sroa.038.13.i, %.backedge.sink.split.i ]
   %702 = icmp eq ptr %.sroa.098.1644.i, %681
   %.sroa.098.1.idx.i = select i1 %702, i64 0, i64 104
   %.sroa.098.1.i = getelementptr inbounds nuw i8, ptr %.sroa.098.1644.i, i64 %.sroa.098.1.idx.i
@@ -33855,7 +33855,7 @@ _ZN4fish15parser_keywords29parser_keywords_is_subcommand17h2820c0321a35d94cE.exi
   br label %.body104.i.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i: ; preds = %967, %.invoke469.i.i, %952, %944, %935, %927, %900, %898, %803, %786, %770, %758, %755, %753, %749, %744, %.noexc122.i.i, %571, %.noexc120.i.i, %566, %564, %_ZN4fish8complete9Completer21try_complete_variable17h84c5af7da0271e10E.exit.thread.i.i, %_ZN4fish8complete9Completer17complete_variable17haf0be1b67feaa9cfE.exit.i.i.i, %.noexc109.i.i, %.noexc108.i.i, %328, %.split.i.i.i.i.i, %_ZN4fish8complete9Completer17try_complete_user17h68a6da323fb6ad8dE.exit.thread.i.i, %307, %._crit_edge300.i.i, %.invoke467.i.i, %283, %.invoke.i.i, %262, %261, %260, %252, %233, %._crit_edge.i.i
-  %.sroa.045.2.ph.ph.ph.i.i = phi i1 [ true, %.noexc109.i.i ], [ true, %.noexc108.i.i ], [ true, %328 ], [ true, %.split.i.i.i.i.i ], [ true, %_ZN4fish8complete9Completer17complete_variable17haf0be1b67feaa9cfE.exit.i.i.i ], [ true, %233 ], [ true, %_ZN4fish8complete9Completer21try_complete_variable17h84c5af7da0271e10E.exit.thread.i.i ], [ true, %._crit_edge.i.i ], [ true, %252 ], [ true, %260 ], [ true, %261 ], [ true, %262 ], [ true, %.noexc122.i.i ], [ true, %.invoke.i.i ], [ true, %283 ], [ true, %564 ], [ true, %967 ], [ true, %._crit_edge300.i.i ], [ true, %307 ], [ true, %.invoke467.i.i ], [ true, %749 ], [ true, %_ZN4fish8complete9Completer17try_complete_user17h68a6da323fb6ad8dE.exit.thread.i.i ], [ true, %755 ], [ true, %758 ], [ true, %566 ], [ true, %770 ], [ true, %786 ], [ true, %.noexc120.i.i ], [ true, %571 ], [ true, %803 ], [ true, %898 ], [ true, %900 ], [ false, %935 ], [ true, %927 ], [ true, %753 ], [ true, %944 ], [ true, %744 ], [ true, %.invoke469.i.i ], [ true, %952 ]
+  %.sroa.045.2.ph.ph.ph.i.i = phi i1 [ true, %.noexc109.i.i ], [ true, %.noexc108.i.i ], [ true, %328 ], [ true, %.split.i.i.i.i.i ], [ true, %566 ], [ true, %233 ], [ true, %564 ], [ true, %._crit_edge.i.i ], [ true, %252 ], [ true, %260 ], [ true, %261 ], [ true, %262 ], [ true, %.noexc122.i.i ], [ true, %.invoke.i.i ], [ true, %283 ], [ true, %_ZN4fish8complete9Completer21try_complete_variable17h84c5af7da0271e10E.exit.thread.i.i ], [ true, %967 ], [ true, %._crit_edge300.i.i ], [ true, %307 ], [ true, %.invoke467.i.i ], [ true, %749 ], [ true, %_ZN4fish8complete9Completer17try_complete_user17h68a6da323fb6ad8dE.exit.thread.i.i ], [ true, %755 ], [ true, %758 ], [ true, %_ZN4fish8complete9Completer17complete_variable17haf0be1b67feaa9cfE.exit.i.i.i ], [ true, %770 ], [ true, %786 ], [ true, %571 ], [ true, %.noexc120.i.i ], [ true, %803 ], [ true, %898 ], [ true, %900 ], [ false, %935 ], [ true, %927 ], [ true, %753 ], [ true, %944 ], [ true, %744 ], [ true, %.invoke469.i.i ], [ true, %952 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body104.i.i
@@ -47254,7 +47254,7 @@ define void @_ZN4fish8function9get_names17hd8836f23f60f7924E(ptr dead_on_unwind 
   br label %.body28
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %211, %._crit_edge.i, %43, %._crit_edge, %.split57.us, %151
-  %.sroa.06.2.ph.ph = phi i1 [ false, %._crit_edge ], [ true, %43 ], [ true, %._crit_edge.i ], [ true, %.split57.us ], [ false, %211 ], [ true, %151 ]
+  %.sroa.06.2.ph.ph = phi i1 [ false, %._crit_edge ], [ true, %._crit_edge.i ], [ true, %43 ], [ true, %.split57.us ], [ false, %211 ], [ true, %151 ]
   %lpad.loopexit.split-lp50 = landingpad { ptr, i32 }
           cleanup
   br label %.body28

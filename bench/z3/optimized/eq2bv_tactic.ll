@@ -8006,8 +8006,8 @@ _ZNK10arith_util6pluginEv.exit.i:                 ; preds = %.noexc, %121
   br label %189
 
 _ZNK7obj_mapI9func_declPS0_E4findES1_RS1_.exit.thread.invoke: ; preds = %102, %113, %116, %_ZNK10arith_util6pluginEv.exit.i, %120, %.preheader.i.i.i
-  %128 = phi ptr [ %49, %120 ], [ %49, %113 ], [ %118, %_ZNK10arith_util6pluginEv.exit.i ], [ %49, %.preheader.i.i.i ], [ %49, %116 ], [ %49, %102 ]
-  %129 = phi ptr [ %86, %120 ], [ %86, %113 ], [ %125, %_ZNK10arith_util6pluginEv.exit.i ], [ %86, %.preheader.i.i.i ], [ %86, %116 ], [ %86, %102 ]
+  %128 = phi ptr [ %49, %120 ], [ %49, %113 ], [ %49, %.preheader.i.i.i ], [ %118, %_ZNK10arith_util6pluginEv.exit.i ], [ %49, %116 ], [ %49, %102 ]
+  %129 = phi ptr [ %86, %120 ], [ %86, %113 ], [ %86, %.preheader.i.i.i ], [ %125, %_ZNK10arith_util6pluginEv.exit.i ], [ %86, %116 ], [ %86, %102 ]
   invoke void @_ZN10model_core13register_declEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef %128, ptr noundef %129)
           to label %130 unwind label %126
 

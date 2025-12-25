@@ -1543,7 +1543,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h6e7720e8443cf309E.
   br label %.body.thread.i
 
 .body18.i:                                        ; preds = %.loopexit16.i, %164, %160
-  %eh.lpad-body19.i = phi { ptr, i32 } [ %161, %160 ], [ %161, %164 ], [ %lpad.loopexit18.i, %.loopexit16.i ]
+  %eh.lpad-body19.i = phi { ptr, i32 } [ %161, %164 ], [ %161, %160 ], [ %lpad.loopexit18.i, %.loopexit16.i ]
   %177 = load i64, ptr %15, align 8, !range !5, !noalias !219, !noundef !4
   %.not.i.i = icmp eq i64 %177, 3
   br i1 %.not.i.i, label %187, label %.body.thread.i
@@ -2260,7 +2260,7 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h4ec8b9013108acdcE.
   br label %.body.thread.i
 
 .body18.i:                                        ; preds = %.loopexit16.i, %165, %161
-  %eh.lpad-body19.i = phi { ptr, i32 } [ %162, %161 ], [ %162, %165 ], [ %lpad.loopexit18.i, %.loopexit16.i ]
+  %eh.lpad-body19.i = phi { ptr, i32 } [ %162, %165 ], [ %162, %161 ], [ %lpad.loopexit18.i, %.loopexit16.i ]
   %178 = load i64, ptr %15, align 8, !range !5, !noalias !414, !noundef !4
   %.not.i.i = icmp eq i64 %178, 3
   br i1 %.not.i.i, label %188, label %.body.thread.i

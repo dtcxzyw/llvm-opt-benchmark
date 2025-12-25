@@ -1378,7 +1378,7 @@ default.unreachable:                              ; preds = %215
   call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !56
   br label %226
 
-.thread310:                                       ; preds = %220, %248
+.thread310:                                       ; preds = %248, %220
   call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !56
   br label %224
 

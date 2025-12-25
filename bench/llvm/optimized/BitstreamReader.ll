@@ -3447,8 +3447,8 @@ _ZN4llvm8ExpectedImED2Ev.exit214:                 ; preds = %545, %_ZNKSt14defau
   br label %553
 
 553:                                              ; preds = %.loopexit302, %.loopexit299, %.loopexit297, %_ZN4llvm5ErrorD2Ev.exit177, %_ZN4llvm5ErrorD2Ev.exit179, %_ZN4llvm5ErrorD2Ev.exit181, %_ZN4llvm5ErrorD2Ev.exit180, %_ZN4llvm5ErrorD2Ev.exit176
-  %.287 = phi i32 [ %.085335, %_ZN4llvm5ErrorD2Ev.exit176 ], [ %.085335, %_ZN4llvm5ErrorD2Ev.exit179 ], [ %.085335, %_ZN4llvm5ErrorD2Ev.exit177 ], [ %422, %_ZN4llvm5ErrorD2Ev.exit180 ], [ %422, %.loopexit297 ], [ %422, %.loopexit299 ], [ %422, %_ZN4llvm5ErrorD2Ev.exit181 ], [ %422, %.loopexit302 ]
-  %.6 = phi i32 [ 1, %_ZN4llvm5ErrorD2Ev.exit176 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit179 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit177 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit180 ], [ %.6.ph, %.loopexit297 ], [ %.6.ph300, %.loopexit299 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit181 ], [ %.6.ph303, %.loopexit302 ]
+  %.287 = phi i32 [ %.085335, %_ZN4llvm5ErrorD2Ev.exit176 ], [ %.085335, %_ZN4llvm5ErrorD2Ev.exit179 ], [ %.085335, %_ZN4llvm5ErrorD2Ev.exit177 ], [ %422, %_ZN4llvm5ErrorD2Ev.exit181 ], [ %422, %.loopexit297 ], [ %422, %.loopexit299 ], [ %422, %_ZN4llvm5ErrorD2Ev.exit180 ], [ %422, %.loopexit302 ]
+  %.6 = phi i32 [ 1, %_ZN4llvm5ErrorD2Ev.exit176 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit179 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit177 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit181 ], [ %.6.ph, %.loopexit297 ], [ %.6.ph300, %.loopexit299 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit180 ], [ %.6.ph303, %.loopexit302 ]
   %554 = load i8, ptr %264, align 8
   %555 = trunc i8 %554 to i1
   br i1 %555, label %556, label %_ZN4llvm8ExpectedIjED2Ev.exit218
@@ -5029,8 +5029,8 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit: ; preds = %281, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %cond, label %.backedge, label %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.thread
 
-.backedge:                                        ; preds = %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit, %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE9push_backEOS3_.exit, %124, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %139
-  %.113162 = phi ptr [ %.012209, %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE9push_backEOS3_.exit ], [ %.315, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit ], [ %.012209, %139 ], [ %.012209, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %.012209, %124 ]
+.backedge:                                        ; preds = %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %124, %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE9push_backEOS3_.exit, %139
+  %.113162 = phi ptr [ %.012209, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %.315, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit ], [ %.012209, %139 ], [ %.012209, %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE9push_backEOS3_.exit ], [ %.012209, %124 ]
   %286 = load i32, ptr %25, align 8, !tbaa !68, !noalias !433
   %287 = icmp eq i32 %286, 0
   %288 = load i64, ptr %26, align 8, !noalias !433

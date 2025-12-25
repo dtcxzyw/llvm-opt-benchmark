@@ -58766,7 +58766,7 @@ _ZNK3vcg9Triangle2IfE23InterpolationParametersERKNS_6Point2IfEERfS6_S6_.exit: ; 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %167, %.loopexit.sink.split, %5
-  %171 = phi i1 [ false, %5 ], [ true, %.loopexit.sink.split ], [ false, %167 ]
+  %171 = phi i1 [ true, %.loopexit.sink.split ], [ false, %5 ], [ false, %167 ]
   ret i1 %171
 }
 
@@ -134035,9 +134035,9 @@ _ZN3vcg23InterpolationParametersI9ParamFacefEEbT_iRKNS_6Point3IT0_EERS5_.exit.si
   br label %_ZN3vcg23InterpolationParametersI9ParamFacefEEbT_iRKNS_6Point3IT0_EERS5_.exit
 
 _ZN3vcg23InterpolationParametersI9ParamFacefEEbT_iRKNS_6Point3IT0_EERS5_.exit: ; preds = %_ZN3vcg23InterpolationParametersI9ParamFacefEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split, %174, %144, %99, %56
-  %.sink54 = phi float [ %164, %174 ], [ %134, %144 ], [ %88, %99 ], [ %45, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI9ParamFacefEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
-  %.sink51 = phi float [ %170, %174 ], [ %140, %144 ], [ %95, %99 ], [ %52, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI9ParamFacefEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
-  %.sink48 = phi float [ %172, %174 ], [ %142, %144 ], [ %97, %99 ], [ %54, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI9ParamFacefEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink54 = phi float [ %88, %99 ], [ %134, %144 ], [ %164, %174 ], [ %45, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI9ParamFacefEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink51 = phi float [ %95, %99 ], [ %140, %144 ], [ %170, %174 ], [ %52, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI9ParamFacefEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink48 = phi float [ %97, %99 ], [ %142, %144 ], [ %172, %174 ], [ %54, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI9ParamFacefEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
   %178 = fcmp oge float %.sink54, 0xBF1A36E2E0000000
   %179 = fcmp ole float %.sink54, 0x3FF00068E0000000
   %narrow.i.i31.i21 = and i1 %178, %179

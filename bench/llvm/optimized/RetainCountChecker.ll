@@ -2987,7 +2987,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit70: ; pre
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit70, %139, %84, %88
-  %.sroa.088.0 = phi ptr [ %30, %88 ], [ %30, %84 ], [ %134, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit70 ], [ %134, %139 ]
+  %.sroa.088.0 = phi ptr [ %30, %84 ], [ %30, %88 ], [ %134, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit70 ], [ %134, %139 ]
   %.not.i.i73 = icmp eq ptr %.sroa.088.0, null
   br i1 %.not.i.i73, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit, label %.critedge.thread
 
@@ -4490,7 +4490,7 @@ _ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.i: ; preds = %338
   br label %_ZL13GetReturnTypePKN5clang4ExprERNS_10ASTContextE.exit
 
 _ZL13GetReturnTypePKN5clang4ExprERNS_10ASTContextE.exit: ; preds = %355, %353, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.i, %338, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i33.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, %265, %244, %241
-  %.sroa.011.0 = phi i64 [ %242, %241 ], [ %357, %355 ], [ %.sroa.0.0.copyload.i.i210, %353 ], [ %.sroa.0.0.copyload.i.i210, %244 ], [ %.sroa.0.0.copyload.i.i210, %265 ], [ %.sroa.0.0.copyload.i.i210, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.i ], [ %.sroa.0.0.copyload.i.i210, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i ], [ %.sroa.0.0.copyload.i.i210, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i33.i ], [ %.sroa.0.0.copyload.i.i210, %338 ]
+  %.sroa.011.0 = phi i64 [ %242, %241 ], [ %.sroa.0.0.copyload.i.i210, %353 ], [ %357, %355 ], [ %.sroa.0.0.copyload.i.i210, %244 ], [ %.sroa.0.0.copyload.i.i210, %265 ], [ %.sroa.0.0.copyload.i.i210, %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.i ], [ %.sroa.0.0.copyload.i.i210, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i ], [ %.sroa.0.0.copyload.i.i210, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i33.i ], [ %.sroa.0.0.copyload.i.i210, %338 ]
   %358 = trunc i64 %.sroa.8.0 to i32
   %.sroa.09.0.extract.trunc.i = or i32 %.sroa.0274.0, %358
   %.sroa.3.0.extract.shift.i = lshr i64 %.sroa.8.0, 32
@@ -7621,7 +7621,7 @@ _ZL15isSmartPtrFieldPKN5clang4ento9MemRegionE.exit.thread: ; preds = %1, %_ZL15i
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_11CleanupAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !950
 
 _ZN5clangneENS_22specific_attr_iteratorINS_11CleanupAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %36, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %31, %36 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %31, %36 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %38 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %31
   br label %_ZNK5clang4Decl7hasAttrINS_11CleanupAttrEEEbv.exit
 

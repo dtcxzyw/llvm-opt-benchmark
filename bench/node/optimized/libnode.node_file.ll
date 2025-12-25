@@ -9675,7 +9675,7 @@ if.end47:                                         ; preds = %sw.default
   br i1 %cmp48, label %cleanup51.thread, label %cleanup51
 
 cleanup51.thread:                                 ; preds = %_ZN4node2fs18FSContinuationData17MaybeSetFirstPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %if.end47, %while.cond11, %while.cond11, %while.cond11, %while.cond11, %land.lhs.true40, %if.end46
-  %retval.1.ph = phi i32 [ %err.0, %while.cond11 ], [ -20, %land.lhs.true40 ], [ -17, %if.end46 ], [ %err.0, %while.cond11 ], [ %err.0, %while.cond11 ], [ %err.0, %while.cond11 ], [ 0, %_ZN4node2fs18FSContinuationData17MaybeSetFirstPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %call35, %if.end47 ]
+  %retval.1.ph = phi i32 [ -20, %land.lhs.true40 ], [ %err.0, %while.cond11 ], [ -17, %if.end46 ], [ %err.0, %while.cond11 ], [ %err.0, %while.cond11 ], [ %err.0, %while.cond11 ], [ 0, %_ZN4node2fs18FSContinuationData17MaybeSetFirstPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %call35, %if.end47 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %next_path) #31
   br label %return
 
@@ -16014,7 +16014,7 @@ _ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %pathView.i)
   br label %cleanup171
 
-if.end89:                                         ; preds = %if.end8.i, %if.end.i.i70, %do.body11.i
+if.end89:                                         ; preds = %if.end.i.i70, %if.end8.i, %do.body11.i
   call void @llvm.lifetime.end.p0(ptr nonnull %pathView.i)
   %cmp90.not = icmp eq i32 %12, 3
   br i1 %cmp90.not, label %if.else, label %if.then91
@@ -16705,7 +16705,7 @@ _ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %pathView.i)
   br label %cleanup201
 
-if.end91:                                         ; preds = %if.end8.i, %if.end.i.i72, %do.body11.i
+if.end91:                                         ; preds = %if.end.i.i72, %if.end8.i, %do.body11.i
   call void @llvm.lifetime.end.p0(ptr nonnull %pathView.i)
   %call92 = call noundef ptr @_ZN4node2fs10GetReqWrapERKN2v820FunctionCallbackInfoINS1_5ValueEEEib(ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 3, i1 noundef zeroext false)
   %cmp93.not = icmp eq ptr %call92, null
@@ -18281,7 +18281,7 @@ _ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %pathView.i)
   br label %cleanup
 
-if.end78:                                         ; preds = %if.end8.i, %if.end.i.i77, %do.body11.i
+if.end78:                                         ; preds = %if.end.i.i77, %if.end8.i, %do.body11.i
   call void @llvm.lifetime.end.p0(ptr nonnull %pathView.i)
   %call.i = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #31
   %cmp.i = icmp eq ptr %call.i, null
@@ -31382,7 +31382,7 @@ _ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %pathView.i)
   br label %cleanup173
 
-if.end130:                                        ; preds = %if.end8.i, %if.end.i.i100, %do.body11.i
+if.end130:                                        ; preds = %if.end.i.i100, %if.end8.i, %do.body11.i
   call void @llvm.lifetime.end.p0(ptr nonnull %pathView.i)
   %62 = load ptr, ptr %buf_.i99, align 8
   %syscall_p.i = getelementptr inbounds nuw i8, ptr %req_open, i64 440

@@ -5414,7 +5414,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__28UsdUtils_LocalizationContext20_ValueTypeI
   invoke void %244(ptr noundef nonnull align 8 dereferenceable(8) %241, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0153.0197, ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__28UsdUtils_LocalizationContext20_ValueTypeIsRelevantERKNS_7VtValueE.exit.thread163 unwind label %231
 
-_ZN32pxrInternal_v0_24__pxrReserved__28UsdUtils_LocalizationContext20_ValueTypeIsRelevantERKNS_7VtValueE.exit.thread163: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_12SdfAssetPathEEEEEbv.exit.thread16.i, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i11.i, %192, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12SdfAssetPathEEEbv.exit.thread14.i, %240, %_ZN32pxrInternal_v0_24__pxrReserved__28UsdUtils_LocalizationContext20_ValueTypeIsRelevantERKNS_7VtValueE.exit
+_ZN32pxrInternal_v0_24__pxrReserved__28UsdUtils_LocalizationContext20_ValueTypeIsRelevantERKNS_7VtValueE.exit.thread163: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_12SdfAssetPathEEEEEbv.exit.thread16.i, %192, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSafeTypeCompareERKSt9type_infoS2_.exit.thread2.i.i11.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12SdfAssetPathEEEbv.exit.thread14.i, %240, %_ZN32pxrInternal_v0_24__pxrReserved__28UsdUtils_LocalizationContext20_ValueTypeIsRelevantERKNS_7VtValueE.exit
   %245 = load ptr, ptr %82, align 8
   %246 = ptrtoint ptr %245 to i64
   %.not.i.i83 = icmp eq ptr %245, null

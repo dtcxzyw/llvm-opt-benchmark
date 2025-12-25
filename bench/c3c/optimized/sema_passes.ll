@@ -1866,7 +1866,7 @@ analyse_func_body.exit:                           ; preds = %33, %46
   store i64 %50, ptr %30, align 8
   br label %85
 
-51:                                               ; preds = %46, %42, %16, %36
+51:                                               ; preds = %16, %42, %46, %36
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %53 = load ptr, ptr %52, align 8
   %.not.i48 = icmp eq ptr %53, null

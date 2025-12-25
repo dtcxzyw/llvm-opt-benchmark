@@ -3050,7 +3050,7 @@ get_tok.exit.thread.sink.split:                   ; preds = %15, %16
   br label %get_tok.exit.thread
 
 get_tok.exit.thread:                              ; preds = %7, %get_tok.exit.thread.sink.split, %15, %get_tok.exit
-  %.0 = phi i8 [ 1, %get_tok.exit.thread.sink.split ], [ 0, %get_tok.exit ], [ 0, %15 ], [ 0, %7 ]
+  %.0 = phi i8 [ 0, %get_tok.exit ], [ 1, %get_tok.exit.thread.sink.split ], [ 0, %15 ], [ 0, %7 ]
   ret i8 %.0
 }
 

@@ -4833,10 +4833,10 @@ define hidden noundef ptr @_ZNK8CmpPNode3subEPK4TypeS2_(ptr noundef nonnull read
   br i1 %180, label %.critedge96, label %181
 
 181:                                              ; preds = %154, %168, %126, %140
-  %.087.shrunk = phi i1 [ %59, %126 ], [ %59, %140 ], [ %55, %168 ], [ %55, %154 ]
+  %.087.shrunk = phi i1 [ %59, %140 ], [ %59, %126 ], [ %55, %168 ], [ %55, %154 ]
   br i1 %.087.shrunk, label %.critedge98, label %.critedge96
 
-.critedge98:                                      ; preds = %112, %85, %181
+.critedge98:                                      ; preds = %85, %112, %181
   %182 = load i32, ptr %8, align 8
   %183 = zext i32 %182 to i64
   %184 = getelementptr inbounds nuw i32, ptr @_ZN7TypePtr8ptr_dualE, i64 %183

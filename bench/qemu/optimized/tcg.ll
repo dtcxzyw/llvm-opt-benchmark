@@ -9688,7 +9688,7 @@ patch_reloc.exit.i211:                            ; preds = %1349, %1340
   br label %tcg_out_ldst_finalize.exit
 
 tcg_out_ldst_finalize.exit:                       ; preds = %tcg_reg_alloc_mov.exit, %940, %1250, %1303, %1311, %1284, %1342, %1333, %.loopexit
-  %.2 = phi i32 [ -1, %1284 ], [ -1, %1250 ], [ -2, %1342 ], [ %1358, %.loopexit ], [ -2, %1333 ], [ -2, %1303 ], [ -2, %1311 ], [ -1, %tcg_reg_alloc_mov.exit ], [ -2, %940 ]
+  %.2 = phi i32 [ -2, %1311 ], [ -1, %1250 ], [ -2, %1342 ], [ %1358, %.loopexit ], [ -2, %1333 ], [ -2, %1303 ], [ -1, %1284 ], [ -1, %tcg_reg_alloc_mov.exit ], [ -2, %940 ]
   ret i32 %.2
 }
 

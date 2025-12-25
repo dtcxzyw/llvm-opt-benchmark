@@ -761,7 +761,7 @@ _ZN12_GLOBAL__N_112DeadCodeScan7enqueueEPKN5clang8CFGBlockE.exit46.i: ; preds = 
   br i1 %.not36.i, label %..loopexit89_crit_edge.i, label %213, !llvm.loop !199
 
 _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i: ; preds = %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i, %146, %143, %205, %166, %185, %182, %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit
-  %.5.i81.i = phi ptr [ %176, %205 ], [ %176, %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit ], [ %137, %166 ], [ %176, %185 ], [ %176, %182 ], [ %137, %143 ], [ %137, %146 ], [ %137, %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i ]
+  %.5.i81.i = phi ptr [ %176, %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit ], [ %176, %205 ], [ %176, %182 ], [ %176, %185 ], [ %137, %166 ], [ %137, %143 ], [ %137, %146 ], [ %137, %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i ]
   %248 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.5.i81.i) #17
   %249 = icmp slt i32 %248, 0
   br i1 %249, label %250, label %255
@@ -1256,7 +1256,7 @@ tailrecurse.outer122:                             ; preds = %59
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.thread108, %74, %59, %tailrecurse.outer122, %tailrecurse, %25, %.critedge2.loopexit343, %5, %28, %35, %86, %81, %45, %55, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit, %.loopexit, %.critedge, %53, %87, %96
-  %.0 = phi i1 [ %85, %81 ], [ false, %28 ], [ false, %25 ], [ false, %35 ], [ %48, %45 ], [ %85, %86 ], [ %58, %55 ], [ false, %.loopexit ], [ %85, %87 ], [ %44, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit ], [ %54, %53 ], [ true, %.critedge ], [ %85, %96 ], [ false, %tailrecurse ], [ true, %.critedge2.loopexit343 ], [ false, %5 ], [ false, %tailrecurse.outer122 ], [ true, %59 ], [ false, %74 ], [ false, %.thread108 ]
+  %.0 = phi i1 [ %85, %81 ], [ false, %28 ], [ false, %25 ], [ false, %35 ], [ %48, %45 ], [ %85, %86 ], [ %58, %55 ], [ false, %.loopexit ], [ %85, %87 ], [ %44, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit ], [ %54, %53 ], [ true, %.critedge ], [ %85, %96 ], [ false, %5 ], [ true, %.critedge2.loopexit343 ], [ false, %tailrecurse ], [ false, %tailrecurse.outer122 ], [ true, %59 ], [ false, %74 ], [ false, %.thread108 ]
   ret i1 %.0
 }
 
@@ -1870,7 +1870,7 @@ _ZL12isDeadReturnPKN5clang8CFGBlockEPKNS_4StmtE.exit.thread: ; preds = %92, %119
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEES8_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !477
 
 _ZN5clangneENS_22specific_attr_iteratorINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEES8_.exit.loopexit.i: ; preds = %144, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %138, %144 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %138, %144 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %146 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %138
   br label %_ZN5clang15hasSpecificAttrINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEbRKT0_.exit
 

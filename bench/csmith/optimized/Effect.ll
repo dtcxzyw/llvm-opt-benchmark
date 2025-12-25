@@ -3184,7 +3184,7 @@ _ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13: ; preds = 
   br i1 %exitcond27.not.i22, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %.preheader.us.i17, !llvm.loop !123
 
 _ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23: ; preds = %20, %28, %54, %62, %._crit_edge.us.i21, %89, %81, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13
-  %98 = phi i1 [ true, %54 ], [ true, %89 ], [ false, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13 ], [ false, %._crit_edge.us.i21 ], [ true, %81 ], [ true, %62 ], [ true, %28 ], [ true, %20 ]
+  %98 = phi i1 [ false, %._crit_edge.us.i21 ], [ true, %89 ], [ true, %54 ], [ false, %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13 ], [ true, %81 ], [ true, %62 ], [ true, %28 ], [ true, %20 ]
   ret i1 %98
 }
 

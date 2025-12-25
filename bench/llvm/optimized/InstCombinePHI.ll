@@ -5165,7 +5165,7 @@ _ZN4llvm11SmallVectorIPNS_7PHINodeELj16EED2Ev.exit: ; preds = %.loopexit194, %29
   br label %.critedge7.thread.thread
 
 .critedge7.thread.thread:                         ; preds = %43, %52, %48, %46, %96, %99, %93, %_ZN4llvm7PHINode15incoming_valuesEv.exit, %.critedge7.thread, %_ZN4llvm11SmallVectorIPNS_7PHINodeELj16EED2Ev.exit
-  %.4 = phi ptr [ null, %.critedge7.thread ], [ %289, %_ZN4llvm11SmallVectorIPNS_7PHINodeELj16EED2Ev.exit ], [ null, %96 ], [ null, %_ZN4llvm7PHINode15incoming_valuesEv.exit ], [ null, %93 ], [ null, %99 ], [ null, %46 ], [ null, %48 ], [ null, %52 ], [ null, %43 ]
+  %.4 = phi ptr [ null, %.critedge7.thread ], [ %289, %_ZN4llvm11SmallVectorIPNS_7PHINodeELj16EED2Ev.exit ], [ null, %_ZN4llvm7PHINode15incoming_valuesEv.exit ], [ null, %96 ], [ null, %93 ], [ null, %99 ], [ null, %46 ], [ null, %48 ], [ null, %52 ], [ null, %43 ]
   %293 = load ptr, ptr %5, align 8, !tbaa !25
   %294 = icmp eq ptr %293, %17
   br i1 %294, label %_ZN4llvm11SmallVectorIPNS_5ValueELj16EED2Ev.exit, label %295
@@ -6718,7 +6718,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit158:      ; preds = %287, %289
   br label %_ZNK4llvm11Instruction7isEHPadEv.exit
 
 _ZNK4llvm11Instruction7isEHPadEv.exit:            ; preds = %123, %125, %_ZNK4llvm4User10getOperandEj.exit131, %.lr.ph.split, %_ZNK4llvm4User10getOperandEj.exit133.us, %102, %100, %.lr.ph.split.us, %14, %._crit_edge237, %61, %21, %23, %25, %27, %.thread214, %59, %82, %267
-  %.1 = phi ptr [ null, %_ZNK4llvm4User10getOperandEj.exit133.us ], [ %282, %._crit_edge237 ], [ %302, %.thread214 ], [ null, %14 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ null, %61 ], [ %273, %267 ], [ null, %59 ], [ %83, %82 ], [ null, %.lr.ph.split.us ], [ null, %100 ], [ null, %102 ], [ null, %.lr.ph.split ], [ null, %_ZNK4llvm4User10getOperandEj.exit131 ], [ null, %125 ], [ null, %123 ]
+  %.1 = phi ptr [ %302, %.thread214 ], [ %282, %._crit_edge237 ], [ null, %_ZNK4llvm4User10getOperandEj.exit133.us ], [ null, %14 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ null, %61 ], [ %273, %267 ], [ null, %59 ], [ %83, %82 ], [ null, %.lr.ph.split.us ], [ null, %100 ], [ null, %102 ], [ null, %.lr.ph.split ], [ null, %_ZNK4llvm4User10getOperandEj.exit131 ], [ null, %125 ], [ null, %123 ]
   ret ptr %.1
 }
 
@@ -10830,7 +10830,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11ConstantIntEPNS_10BasicBlockELj8
   br label %.critedge
 
 .critedge:                                        ; preds = %254, %"_ZZL24simplifyUsingControlFlowRN4llvm12InstCombinerERNS_7PHINodeERKNS_13DominatorTreeEENK3$_2clEPNS_11ConstantIntE.exit105", %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEC2Ej.exit, %.critedge61, %"_ZZL24simplifyUsingControlFlowRN4llvm12InstCombinerERNS_7PHINodeERKNS_13DominatorTreeEENK3$_2clEPNS_11ConstantIntE.exit105.thread", %.critedge61.thread, %263, %89, %.loopexit
-  %.5 = phi ptr [ null, %.loopexit ], [ null, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEC2Ej.exit ], [ null, %89 ], [ null, %.critedge61.thread ], [ %.050, %.critedge61 ], [ null, %"_ZZL24simplifyUsingControlFlowRN4llvm12InstCombinerERNS_7PHINodeERKNS_13DominatorTreeEENK3$_2clEPNS_11ConstantIntE.exit105.thread" ], [ %269, %263 ], [ null, %"_ZZL24simplifyUsingControlFlowRN4llvm12InstCombinerERNS_7PHINodeERKNS_13DominatorTreeEENK3$_2clEPNS_11ConstantIntE.exit105" ], [ null, %254 ]
+  %.5 = phi ptr [ null, %.loopexit ], [ null, %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEC2Ej.exit ], [ null, %89 ], [ %269, %263 ], [ %.050, %.critedge61 ], [ null, %"_ZZL24simplifyUsingControlFlowRN4llvm12InstCombinerERNS_7PHINodeERKNS_13DominatorTreeEENK3$_2clEPNS_11ConstantIntE.exit105.thread" ], [ null, %.critedge61.thread ], [ null, %"_ZZL24simplifyUsingControlFlowRN4llvm12InstCombinerERNS_7PHINodeERKNS_13DominatorTreeEENK3$_2clEPNS_11ConstantIntE.exit105" ], [ null, %254 ]
   %270 = load i32, ptr %15, align 8
   %271 = and i32 %270, 1
   %.not.i.i110 = icmp eq i32 %271, 0

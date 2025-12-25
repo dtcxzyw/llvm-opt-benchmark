@@ -3661,7 +3661,7 @@ H5I__iterate_cb.exit.thread:                      ; preds = %91, %70, %.lr.ph.sp
   br label %.lr.ph.split, !llvm.loop !87
 
 .thread47:                                        ; preds = %H5I__iterate_cb.exit.thread, %86, %H5I__iterate_cb.exit.thread.us, %58, %31, %H5I__iterate_cb.exit.thread43, %11, %21, %25, %28, %17
-  %.026 = phi i32 [ 0, %11 ], [ -1, %17 ], [ 0, %21 ], [ 0, %25 ], [ 0, %28 ], [ -1, %H5I__iterate_cb.exit.thread43 ], [ 0, %H5I__iterate_cb.exit.thread.us ], [ 0, %31 ], [ 0, %58 ], [ 0, %86 ], [ 0, %H5I__iterate_cb.exit.thread ]
+  %.026 = phi i32 [ 0, %11 ], [ -1, %17 ], [ 0, %21 ], [ 0, %25 ], [ 0, %28 ], [ -1, %H5I__iterate_cb.exit.thread43 ], [ 0, %31 ], [ 0, %H5I__iterate_cb.exit.thread.us ], [ 0, %58 ], [ 0, %86 ], [ 0, %H5I__iterate_cb.exit.thread ]
   ret i32 %.026
 }
 

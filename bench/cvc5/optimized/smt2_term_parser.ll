@@ -810,8 +810,8 @@ define hidden void @_ZN4cvc56parser14Smt2TermParser9parseTermEv(ptr dead_on_unwi
   br label %.body391
 
 .loopexit.split-lp:                               ; preds = %353, %507, %693, %734, %773
-  %.sroa.74.4.ph = phi ptr [ %.sroa.74.1, %507 ], [ %.sroa.74.25, %693 ], [ %.sroa.74.26, %734 ], [ %.sroa.74.28, %773 ], [ %.sroa.74.1, %353 ]
-  %.sroa.01303.4.ph = phi ptr [ %.sroa.01303.1, %507 ], [ %.sroa.01303.25, %693 ], [ %.sroa.01303.26, %734 ], [ %.sroa.01303.28, %773 ], [ %.sroa.01303.1, %353 ]
+  %.sroa.74.4.ph = phi ptr [ %.sroa.74.1, %507 ], [ %.sroa.74.1, %353 ], [ %.sroa.74.28, %773 ], [ %.sroa.74.26, %734 ], [ %.sroa.74.25, %693 ]
+  %.sroa.01303.4.ph = phi ptr [ %.sroa.01303.1, %507 ], [ %.sroa.01303.1, %353 ], [ %.sroa.01303.28, %773 ], [ %.sroa.01303.26, %734 ], [ %.sroa.01303.25, %693 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body391
@@ -8353,7 +8353,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1097: ; preds = %2
   br label %3037
 
 2976:                                             ; preds = %2703, %2837, %2840, %2929
-  %.054 = phi i32 [ 285, %2929 ], [ 283, %2840 ], [ 281, %2837 ], [ 284, %2703 ]
+  %.054 = phi i32 [ 285, %2929 ], [ 284, %2703 ], [ 281, %2837 ], [ 283, %2840 ]
   %2977 = load ptr, ptr %131, align 8, !tbaa !23
   invoke void @_ZN4cvc56parser5Lexer8eatTokenENS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(32892) %2977, i32 noundef 63)
           to label %2978 unwind label %2710

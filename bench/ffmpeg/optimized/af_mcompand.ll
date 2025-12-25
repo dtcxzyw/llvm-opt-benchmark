@@ -1316,7 +1316,7 @@ split:                                            ; preds = %331
   br label %.loopexit
 
 389:                                              ; preds = %353, %388, %351
-  %.1191 = phi i32 [ %.0190319, %351 ], [ %367, %353 ], [ %367, %388 ]
+  %.1191 = phi i32 [ %.0190319, %351 ], [ %367, %388 ], [ %367, %353 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1

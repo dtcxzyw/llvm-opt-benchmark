@@ -617,20 +617,20 @@ _ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.thread.i.i.i: ; preds = %_ZNK
   %252 = and i32 %249, 4
   %253 = icmp ne i32 %252, 0
   %or.cond.i.i.i.i = or i1 %251, %253
-  br i1 %or.cond.i.i.i.i, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.i.i, label %254
+  br i1 %or.cond.i.i.i.i, label %254, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.i.i
 
 254:                                              ; preds = %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.thread.i.i.i
-  %255 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0123.0161.i.i, i64 noundef 8388608, i32 noundef 1) #14
-  br i1 %255, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread.i.i, label %320
+  %255 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0161.i.i, i64 16
+  %256 = load ptr, ptr %255, align 8, !tbaa !181
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 16
+  %258 = load i64, ptr %257, align 8, !tbaa !196
+  %259 = and i64 %258, 8388608
+  %.not134.i.i = icmp eq i64 %259, 0
+  br i1 %.not134.i.i, label %320, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread.i.i
 
 _ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.i.i: ; preds = %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.thread.i.i.i
-  %256 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0161.i.i, i64 16
-  %257 = load ptr, ptr %256, align 8, !tbaa !181
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  %259 = load i64, ptr %258, align 8, !tbaa !196
-  %260 = and i64 %259, 8388608
-  %.not134.i.i = icmp eq i64 %260, 0
-  br i1 %.not134.i.i, label %320, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread.i.i
+  %260 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0123.0161.i.i, i64 noundef 8388608, i32 noundef 1) #14
+  br i1 %260, label %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread.i.i, label %320
 
 _ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread.i.i: ; preds = %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.i.i, %254, %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.i.i.i, %_ZNK4llvm12MachineInstr17getPreInstrSymbolEv.exit.i.i.i
   %261 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0161.i.i, i64 68

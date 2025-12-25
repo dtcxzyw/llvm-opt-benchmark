@@ -180,7 +180,7 @@ define range(i32 -12, 1) i32 @ff_ffv1_init_slice_state(ptr noundef readonly capt
   br i1 %exitcond56.not, label %.loopexit, label %41, !llvm.loop !62
 
 .loopexit:                                        ; preds = %15, %23, %41, %._crit_edge
-  %.2 = phi i32 [ 0, %41 ], [ 0, %._crit_edge ], [ -12, %23 ], [ -12, %15 ]
+  %.2 = phi i32 [ 0, %._crit_edge ], [ 0, %41 ], [ -12, %23 ], [ -12, %15 ]
   ret i32 %.2
 }
 

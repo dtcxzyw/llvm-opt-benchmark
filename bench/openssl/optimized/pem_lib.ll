@@ -322,7 +322,7 @@ pem_free.exit31:                                  ; preds = %17, %21
   %.not.i.i = icmp sgt i32 %46, 12
   br i1 %.not.i.i, label %47, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %44, %65, %62, %69, %.thread.i, %56, %ossl_pem_check_suffix.exit.i, %51, %47, %123, %120, %check_pem.exit
+.backedge.backedge:                               ; preds = %44, %.thread.i, %69, %62, %65, %56, %ossl_pem_check_suffix.exit.i, %51, %47, %123, %120, %check_pem.exit
   br label %.backedge, !llvm.loop !13
 
 47:                                               ; preds = %44
@@ -1303,8 +1303,8 @@ define i32 @PEM_write_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br label %.thread74
 
 .loopexit:                                        ; preds = %.lr.ph, %36, %5, %15, %13, %9, %24, %22, %47, %54, %52, %50
-  %.052 = phi ptr [ %26, %52 ], [ null, %5 ], [ null, %9 ], [ %26, %50 ], [ %26, %54 ], [ null, %22 ], [ null, %24 ], [ %26, %47 ], [ null, %15 ], [ null, %13 ], [ %26, %36 ], [ %26, %.lr.ph ]
-  %.050 = phi i32 [ 524320, %52 ], [ 524294, %5 ], [ 524320, %9 ], [ 524320, %50 ], [ 524320, %54 ], [ 524320, %22 ], [ 524320, %24 ], [ 524320, %47 ], [ 524320, %15 ], [ 524320, %13 ], [ 524294, %.lr.ph ], [ 524320, %36 ]
+  %.052 = phi ptr [ %26, %52 ], [ null, %5 ], [ null, %9 ], [ %26, %50 ], [ null, %24 ], [ null, %22 ], [ %26, %54 ], [ %26, %47 ], [ null, %15 ], [ null, %13 ], [ %26, %36 ], [ %26, %.lr.ph ]
+  %.050 = phi i32 [ 524320, %52 ], [ 524294, %5 ], [ 524320, %9 ], [ 524320, %50 ], [ 524320, %24 ], [ 524320, %22 ], [ 524320, %54 ], [ 524320, %47 ], [ 524320, %15 ], [ 524320, %13 ], [ 524294, %.lr.ph ], [ 524320, %36 ]
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 700, ptr noundef nonnull @__func__.PEM_write_bio) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.050, ptr noundef null) #10

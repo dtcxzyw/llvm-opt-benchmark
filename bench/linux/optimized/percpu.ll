@@ -6629,7 +6629,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pcpu_populate_chunk(ptr no
   br i1 %266, label %254, label %.thread27, !prof !40, !llvm.loop !162
 
 .thread27:                                        ; preds = %.loopexit38, %118, %97, %129, %.loopexit34, %135, %259, %263, %254, %.loopexit.us, %226, %.thread31.split.us, %.thread24, %20
-  %267 = phi i32 [ -12, %20 ], [ -12, %.loopexit.us ], [ -12, %259 ], [ -12, %.thread24 ], [ 0, %129 ], [ -12, %.thread31.split.us ], [ -12, %226 ], [ -12, %254 ], [ -12, %263 ], [ 0, %135 ], [ 0, %.loopexit34 ], [ -12, %97 ], [ -12, %118 ], [ -12, %.loopexit38 ]
+  %267 = phi i32 [ -12, %20 ], [ -12, %.thread24 ], [ -12, %259 ], [ -12, %.loopexit.us ], [ 0, %129 ], [ -12, %.thread31.split.us ], [ -12, %226 ], [ -12, %254 ], [ -12, %263 ], [ 0, %135 ], [ 0, %.loopexit34 ], [ -12, %97 ], [ -12, %118 ], [ -12, %.loopexit38 ]
   ret i32 %267
 }
 

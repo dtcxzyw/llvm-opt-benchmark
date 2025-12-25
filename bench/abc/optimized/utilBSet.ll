@@ -2346,7 +2346,7 @@ Abc_TtGetCM5Pat.exit:                             ; preds = %144, %113, %Abc_TtG
   br label %Abc_TtCheck1Shared.exit
 
 Abc_TtCheck1Shared.exit:                          ; preds = %.loopexit40.split.us.us.i, %120, %.loopexit.i56, %.loopexit.i, %89, %7, %._crit_edge.sink.split.i, %152, %Abc_TtGetCM5Pat.exit
-  %.0 = phi i32 [ 1, %120 ], [ 1, %Abc_TtGetCM5Pat.exit ], [ %156, %._crit_edge.sink.split.i ], [ %155, %152 ], [ 1, %7 ], [ 1, %89 ], [ 1, %.loopexit.i ], [ 1, %.loopexit.i56 ], [ %155, %.loopexit40.split.us.us.i ]
+  %.0 = phi i32 [ %156, %._crit_edge.sink.split.i ], [ 1, %Abc_TtGetCM5Pat.exit ], [ 1, %120 ], [ %155, %152 ], [ 1, %7 ], [ 1, %89 ], [ 1, %.loopexit.i ], [ 1, %.loopexit.i56 ], [ %155, %.loopexit40.split.us.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
@@ -2555,7 +2555,7 @@ define void @Abc_GenChaseNext(ptr noundef captures(none) %0, ptr noundef capture
   br label %34
 
 34:                                               ; preds = %27, %32
-  %.1 = phi i32 [ 1, %32 ], [ %.05379, %27 ]
+  %.1 = phi i32 [ %.05379, %27 ], [ 1, %32 ]
   %35 = load i32, ptr %14, align 4, !tbaa !7
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %.lr.ph, label %._crit_edge.loopexit

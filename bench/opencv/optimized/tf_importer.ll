@@ -24636,7 +24636,7 @@ _ZN17opencv_tensorflow16TensorShapeProtoaSERKS0_.exit135: ; preds = %136, %_ZNKS
   br label %.lr.ph164.preheader
 
 .lr.ph164.preheader:                              ; preds = %198, %201, %190, %.thread156.sink.split
-  %211 = phi i64 [ %.ph, %.thread156.sink.split ], [ 16, %190 ], [ 20, %201 ], [ %175, %198 ]
+  %211 = phi i64 [ %175, %198 ], [ 16, %190 ], [ 20, %201 ], [ %.ph, %.thread156.sink.split ]
   br label %.lr.ph164
 
 ._crit_edge165:                                   ; preds = %.lr.ph164
@@ -60316,7 +60316,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread
 
-_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread: ; preds = %37, %26, %23, %39
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread: ; preds = %37, %23, %26, %39
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %44 = load i64, ptr %43, align 8, !tbaa !105
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40

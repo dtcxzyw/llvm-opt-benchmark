@@ -3232,7 +3232,7 @@ _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit
   br label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i
 
 _ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i: ; preds = %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit79.critedge.i.i, %.thread.i.i, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.thread87.i.i, %148, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.thread82.i.i, %139
-  %.1.i.i = phi i32 [ %153, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i ], [ %243, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit79.critedge.i.i ], [ 83, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.thread87.i.i ], [ 83, %139 ], [ 0, %.thread.i.i ], [ 83, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.thread82.i.i ], [ 83, %148 ], [ %147, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i ], [ 0, %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i ]
+  %.1.i.i = phi i32 [ %153, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.i.i ], [ %243, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit79.critedge.i.i ], [ 83, %_ZL25generateFixedDistanceTreeP11HuffmanTree.exit.thread87.i.i ], [ 83, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.thread82.i.i ], [ 0, %.thread.i.i ], [ 83, %139 ], [ 83, %148 ], [ %147, %_ZL23generateFixedLitLenTreeP11HuffmanTree.exit.i.i ], [ 0, %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i ]
   %337 = load ptr, ptr %10, align 8, !tbaa !93
   call void @free(ptr noundef %337) #33
   %338 = load ptr, ptr %125, align 8, !tbaa !71
@@ -10802,11 +10802,11 @@ _Z25lodepng_chunk_type_equalsPKhPKc.exit117.thread: ; preds = %33, %36, %40, %_Z
   br label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit
 
 _ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit:  ; preds = %133, %145, %157, %186, %200, %226, %238, %244, %232, %151, %139, %128, %46
-  %.0 = phi i32 [ %49, %46 ], [ %247, %244 ], [ %131, %128 ], [ %136, %133 ], [ %142, %139 ], [ %148, %145 ], [ %154, %151 ], [ %160, %157 ], [ %241, %238 ], [ %189, %186 ], [ %235, %232 ], [ %203, %200 ], [ %229, %226 ]
+  %.0 = phi i32 [ %49, %46 ], [ %229, %226 ], [ %131, %128 ], [ %136, %133 ], [ %142, %139 ], [ %148, %145 ], [ %154, %151 ], [ %160, %157 ], [ %235, %232 ], [ %189, %186 ], [ %241, %238 ], [ %203, %200 ], [ %247, %244 ]
   %.not135 = icmp eq i32 %.0, 0
   br i1 %.not135, label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread139, label %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread
 
-_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread139: ; preds = %69, %.preheader.i, %164, %207, %.loopexit.sink.split.i, %193, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit
+_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit.thread139: ; preds = %69, %164, %.preheader.i, %207, %.loopexit.sink.split.i, %193, %_ZL14readChunk_tRNSP16LodePNGColorModePKhm.exit
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %249 = load i32, ptr %248, align 8, !tbaa !409
   %.not107 = icmp eq i32 %249, 0
@@ -13443,7 +13443,7 @@ _ZL15ucvector_resizeP8ucvectorm.exit.i.i:         ; preds = %.thread.i.i.i.i, %5
   br label %_ZL13decodeGenericPPhPjS1_P12LodePNGStatePKhm.exit
 
 .thread.i.sink.split:                             ; preds = %110, %139, %295, %319, %328, %_ZL29lodepng_chunk_type_name_validPKh.exit.i, %364, %376, %226, %242, %225, %233, %180, %170, %168, %189, %.critedge.i.i, %96, %107, %422, %.thread426.thread569.i
-  %.0.i56.ph.sink = phi i32 [ 63, %107 ], [ 121, %.critedge.i.i ], [ 30, %96 ], [ %.0.i367.ph.i, %.thread426.thread569.i ], [ 106, %422 ], [ 44, %233 ], [ 30, %180 ], [ 39, %170 ], [ 42, %168 ], [ 103, %226 ], [ 45, %242 ], [ 43, %225 ], [ 57, %376 ], [ 69, %364 ], [ 98, %319 ], [ 122, %_ZL29lodepng_chunk_type_name_validPKh.exit.i ], [ 95, %139 ], [ 64, %110 ], [ 117, %328 ], [ 96, %295 ], [ 41, %189 ]
+  %.0.i56.ph.sink = phi i32 [ 63, %107 ], [ 30, %96 ], [ 106, %422 ], [ %.0.i367.ph.i, %.thread426.thread569.i ], [ 121, %.critedge.i.i ], [ 44, %233 ], [ 30, %180 ], [ 39, %170 ], [ 42, %168 ], [ 103, %226 ], [ 45, %242 ], [ 43, %225 ], [ 69, %364 ], [ 98, %319 ], [ 122, %_ZL29lodepng_chunk_type_name_validPKh.exit.i ], [ 95, %139 ], [ 64, %110 ], [ 117, %328 ], [ 96, %295 ], [ 57, %376 ], [ 41, %189 ]
   store i32 %.0.i56.ph.sink, ptr %19, align 8, !tbaa !402
   br label %.thread.i
 
@@ -18572,8 +18572,8 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %22, %.thread.i.i.i
   store i8 %136, ptr %137, align 1, !tbaa !18
   br label %.thread101
 
-.thread101:                                       ; preds = %47, %73, %106
-  %.1104 = phi ptr [ %109, %106 ], [ %76, %73 ], [ %34, %47 ]
+.thread101:                                       ; preds = %47, %106, %73
+  %.1104 = phi ptr [ %76, %73 ], [ %109, %106 ], [ %34, %47 ]
   tail call void @_Z26lodepng_chunk_generate_crcPh(ptr noundef nonnull %.1104)
   br label %.thread105
 
@@ -21354,7 +21354,7 @@ _ZL21HuffmanTree_makeTableP11HuffmanTree.exit.sink.split: ; preds = %80, %.crite
   br label %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit
 
 _ZL21HuffmanTree_makeTableP11HuffmanTree.exit:    ; preds = %142, %131, %188, %186, %184, %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit.sink.split, %.preheader.i, %.preheader165.i, %._crit_edge
-  %.154 = phi i32 [ 83, %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit.sink.split ], [ 55, %131 ], [ 0, %.preheader165.i ], [ 0, %.preheader.i ], [ 83, %._crit_edge ], [ 55, %188 ], [ 0, %184 ], [ 0, %186 ], [ 55, %142 ]
+  %.154 = phi i32 [ 83, %_ZL21HuffmanTree_makeTableP11HuffmanTree.exit.sink.split ], [ 55, %188 ], [ 0, %.preheader165.i ], [ 0, %.preheader.i ], [ 83, %._crit_edge ], [ 55, %131 ], [ 0, %184 ], [ 0, %186 ], [ 55, %142 ]
   ret i32 %.154
 }
 

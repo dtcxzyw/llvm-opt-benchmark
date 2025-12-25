@@ -1321,7 +1321,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split.i.i.
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_125PrintFractionalDigitsFastEmPcim.exit.i.i
 
 _ZN4absl19str_format_internal12_GLOBAL__N_125PrintFractionalDigitsFastEmPcim.exit.i.i: ; preds = %.lr.ph.i52.i.i, %146, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split.i.i.i, %134, %._crit_edge.i.i.i
-  %148 = phi ptr [ %147, %146 ], [ %.0.lcssa.i54.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split.i.i.i ], [ %.0.lcssa.i54.i.i, %._crit_edge.i.i.i ], [ %.0.lcssa.i54.i.i, %134 ], [ %.024.i.i.i, %.lr.ph.i52.i.i ]
+  %148 = phi ptr [ %147, %146 ], [ %.0.lcssa.i54.i.i, %._crit_edge.i.i.i ], [ %.0.lcssa.i54.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split.i.i.i ], [ %.0.lcssa.i54.i.i, %134 ], [ %.024.i.i.i, %.lr.ph.i52.i.i ]
   %149 = load i8, ptr %118, align 1, !tbaa !12
   %.not.i.i = icmp eq i8 %149, 48
   %spec.select.i.i = select i1 %.not.i.i, ptr %116, ptr %118
@@ -4675,7 +4675,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split: ; p
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit
 
 _ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit: ; preds = %.lr.ph57, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split, %33, %._crit_edge
-  %.11743 = phi ptr [ %.117.lcssa, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split ], [ %.117.lcssa, %._crit_edge ], [ %.117.lcssa, %33 ], [ %.11755, %.lr.ph57 ]
+  %.11743 = phi ptr [ %.117.lcssa, %._crit_edge ], [ %.117.lcssa, %_ZN4absl19str_format_internal12_GLOBAL__N_111RoundToEvenEPc.exit.sink.split ], [ %.117.lcssa, %33 ], [ %.11755, %.lr.ph57 ]
   ret ptr %.11743
 }
 
@@ -5660,7 +5660,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 

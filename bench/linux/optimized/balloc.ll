@@ -2459,8 +2459,8 @@ ext4_bg_has_super.exit.thread:                    ; preds = %.preheader7.i, %.pr
   %90 = zext i1 %89 to i64
   br label %ext4_bg_has_super.exit.thread2
 
-ext4_bg_has_super.exit.thread2:                   ; preds = %65, %39, %61, %51, %78, %75, %73, %ext4_bg_has_super.exit
-  %91 = phi i64 [ %90, %78 ], [ %74, %73 ], [ %77, %75 ], [ 0, %ext4_bg_has_super.exit ], [ 0, %39 ], [ 0, %51 ], [ 0, %61 ], [ 0, %65 ]
+ext4_bg_has_super.exit.thread2:                   ; preds = %65, %39, %51, %61, %78, %75, %73, %ext4_bg_has_super.exit
+  %91 = phi i64 [ %90, %78 ], [ %74, %73 ], [ %77, %75 ], [ 0, %ext4_bg_has_super.exit ], [ 0, %61 ], [ 0, %39 ], [ 0, %51 ], [ 0, %65 ]
   ret i64 %91
 }
 

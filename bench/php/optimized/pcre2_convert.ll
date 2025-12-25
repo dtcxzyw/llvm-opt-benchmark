@@ -667,7 +667,7 @@ convert_glob_write_str.exit182.i:                 ; preds = %240
   br i1 %252, label %.preheader.i, label %.critedge7.i
 
 .critedge7.i:                                     ; preds = %250, %.preheader.i, %245, %244
-  %.4.i = phi ptr [ %104, %244 ], [ %104, %245 ], [ %248, %.preheader.i ], [ %248, %250 ]
+  %.4.i = phi ptr [ %104, %245 ], [ %104, %244 ], [ %248, %.preheader.i ], [ %248, %250 ]
   br i1 %39, label %255, label %253
 
 253:                                              ; preds = %.critedge7.i

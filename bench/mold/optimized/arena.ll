@@ -6919,8 +6919,8 @@ _ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_
   %.not55 = icmp eq ptr %198, null
   br i1 %.not55, label %214, label %.thread
 
-.thread.sink.split:                               ; preds = %65, %51, %130, %118
-  %.lcssa144.sink = phi ptr [ %108, %118 ], [ %108, %130 ], [ %66, %65 ], [ %52, %51 ]
+.thread.sink.split:                               ; preds = %65, %51, %118, %130
+  %.lcssa144.sink = phi ptr [ %108, %130 ], [ %108, %118 ], [ %66, %65 ], [ %52, %51 ]
   store ptr %.lcssa144.sink, ptr %9, align 8, !tbaa !196
   br label %.thread
 
@@ -7352,8 +7352,8 @@ _ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specif
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE11try_acquireERS3_.exit.thread: ; preds = %25, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread
-  %.3 = phi ptr [ %.2.i52, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ], [ %.019, %25 ]
-  %.0 = phi i1 [ %.not, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ], [ true, %25 ]
+  %.3 = phi ptr [ %.019, %25 ], [ %.2.i52, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
+  %.0 = phi i1 [ true, %25 ], [ %.not, %_ZN3tbb6detail2r111task_streamILNS1_25task_stream_accessor_typeE1EE13look_specificERSt5dequeIPNS0_2d14taskENS6_23cache_aligned_allocatorIS8_EEEl.exit.thread ]
   %88 = atomicrmw xchg ptr %20, i8 0 seq_cst, align 1
   invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev.exit unwind label %89
@@ -8242,8 +8242,8 @@ _ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_
   %.not55 = icmp eq ptr %198, null
   br i1 %.not55, label %214, label %.thread
 
-.thread.sink.split:                               ; preds = %65, %51, %130, %118
-  %.lcssa144.sink = phi ptr [ %108, %118 ], [ %108, %130 ], [ %66, %65 ], [ %52, %51 ]
+.thread.sink.split:                               ; preds = %65, %51, %118, %130
+  %.lcssa144.sink = phi ptr [ %108, %130 ], [ %108, %118 ], [ %66, %65 ], [ %52, %51 ]
   store ptr %.lcssa144.sink, ptr %9, align 8, !tbaa !196
   br label %.thread
 

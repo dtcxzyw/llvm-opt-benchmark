@@ -121475,8 +121475,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %.bo
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn48.pn
 
-.thread107:                                       ; preds = %_ZNK17AstNodeArrayDType13elementsConstEv.exit.i, %102, %_ZN7AstNode9privateAsI12AstInitArrayPS_EEPT_S2_.exit, %_ZL8sameInitPK12AstInitArrayS1_.exit, %226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82
-  %.3 = phi ptr [ %294, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82 ], [ %84, %226 ], [ %84, %_ZL8sameInitPK12AstInitArrayS1_.exit ], [ %84, %_ZN7AstNode9privateAsI12AstInitArrayPS_EEPT_S2_.exit ], [ %84, %102 ], [ %84, %_ZNK17AstNodeArrayDType13elementsConstEv.exit.i ]
+.thread107:                                       ; preds = %102, %_ZNK17AstNodeArrayDType13elementsConstEv.exit.i, %_ZN7AstNode9privateAsI12AstInitArrayPS_EEPT_S2_.exit, %_ZL8sameInitPK12AstInitArrayS1_.exit, %226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82
+  %.3 = phi ptr [ %294, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82 ], [ %84, %226 ], [ %84, %_ZL8sameInitPK12AstInitArrayS1_.exit ], [ %84, %_ZN7AstNode9privateAsI12AstInitArrayPS_EEPT_S2_.exit ], [ %84, %_ZNK17AstNodeArrayDType13elementsConstEv.exit.i ], [ %84, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.3
 }
@@ -190463,8 +190463,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %109, %111
-  %114 = phi ptr [ %.pre79, %109 ], [ %.pre79, %111 ], [ %.pre, %..critedge_crit_edge ]
-  %115 = phi i1 [ true, %109 ], [ %113, %111 ], [ false, %..critedge_crit_edge ]
+  %114 = phi ptr [ %.pre79, %111 ], [ %.pre79, %109 ], [ %.pre, %..critedge_crit_edge ]
+  %115 = phi i1 [ %113, %111 ], [ true, %109 ], [ false, %..critedge_crit_edge ]
   %116 = icmp eq ptr %114, %90
   br i1 %116, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 

@@ -4420,7 +4420,7 @@ define internal noundef zeroext i1 @seskey_list_update_cb(ptr noundef readonly c
   br label %25
 
 25:                                               ; preds = %.sink.split, %21, %22, %22
-  %.0 = phi i1 [ true, %21 ], [ true, %22 ], [ true, %22 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %22 ], [ true, %21 ], [ true, %22 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

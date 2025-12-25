@@ -439,8 +439,8 @@ Psr_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %26, ptr noundef nonnull align 1 dereferenceable(16) @.str.13, i64 16, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
-.loopexit171thread-pre-split:                     ; preds = %11, %16, %23, %15
-  %.val49.ph = phi ptr [ %24, %23 ], [ %14, %15 ], [ %12, %11 ], [ %17, %16 ]
+.loopexit171thread-pre-split:                     ; preds = %16, %11, %23, %15
+  %.val49.ph = phi ptr [ %24, %23 ], [ %14, %15 ], [ %17, %16 ], [ %12, %11 ]
   %.val49.val.pr = load i8, ptr %.val49.ph, align 1, !tbaa !20
   br label %.loopexit171
 
@@ -715,7 +715,7 @@ Psr_ManUtilSkipComments.exit.i66:                 ; preds = %.lr.ph38.i.i68, %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %125, ptr noundef nonnull align 1 dereferenceable(17) @.str.15, i64 17, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
-.loopexit163:                                     ; preds = %115, %110, %108, %.preheader.i56, %122, %114
+.loopexit163:                                     ; preds = %110, %115, %108, %.preheader.i56, %122, %114
   %126 = shl i32 %99, 2
   %127 = or disjoint i32 %126, 2
   br label %Psr_ManUtilSkipSpaces.exit101.thread
@@ -1022,8 +1022,8 @@ Psr_ManUtilSkipComments.exit.i123:                ; preds = %.lr.ph38.i.i125, %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %220, ptr noundef nonnull align 1 dereferenceable(17) @.str.20, i64 17, i1 false)
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
-.loopexitthread-pre-split:                        ; preds = %205, %210, %217, %209
-  %.val48.ph = phi ptr [ %218, %217 ], [ %208, %209 ], [ %206, %205 ], [ %211, %210 ]
+.loopexitthread-pre-split:                        ; preds = %210, %205, %217, %209
+  %.val48.ph = phi ptr [ %218, %217 ], [ %208, %209 ], [ %211, %210 ], [ %206, %205 ]
   %.val48.val.pr = load i8, ptr %.val48.ph, align 1, !tbaa !20
   br label %.loopexit
 
@@ -1067,8 +1067,8 @@ Psr_ManUtilSkipComments.exit.i123:                ; preds = %.lr.ph38.i.i125, %2
   %237 = shl i32 %194, 2
   br label %Psr_ManUtilSkipSpaces.exit101.thread
 
-Psr_ManUtilSkipSpaces.exit101.thread:             ; preds = %159, %161, %166, %.preheader.i83, %173, %165, %224, %228, %230, %.loopexit.thread, %.loopexit154, %Psr_ManReadName.exit.thread, %.loopexit159, %151, %132, %.loopexit163, %.loopexit166, %Psr_ManReadConstant.exit.thread, %.loopexit174
-  %.0 = phi i32 [ 0, %.loopexit174 ], [ 0, %Psr_ManReadConstant.exit.thread ], [ 0, %.loopexit166 ], [ %127, %.loopexit163 ], [ 0, %132 ], [ 0, %151 ], [ 0, %.loopexit159 ], [ %237, %.loopexit.thread ], [ 0, %Psr_ManReadName.exit.thread ], [ 0, %.loopexit154 ], [ %236, %230 ], [ 0, %224 ], [ 0, %228 ], [ %.0.i78145, %173 ], [ %.0.i78145, %165 ], [ %.0.i78145, %.preheader.i83 ], [ %.0.i78145, %166 ], [ %.0.i78145, %161 ], [ %.0.i78145, %159 ]
+Psr_ManUtilSkipSpaces.exit101.thread:             ; preds = %159, %166, %161, %.preheader.i83, %173, %165, %224, %228, %230, %.loopexit.thread, %.loopexit154, %Psr_ManReadName.exit.thread, %.loopexit159, %151, %132, %.loopexit163, %.loopexit166, %Psr_ManReadConstant.exit.thread, %.loopexit174
+  %.0 = phi i32 [ 0, %.loopexit174 ], [ 0, %Psr_ManReadConstant.exit.thread ], [ 0, %.loopexit166 ], [ %127, %.loopexit163 ], [ 0, %132 ], [ 0, %151 ], [ 0, %.loopexit159 ], [ %237, %.loopexit.thread ], [ 0, %Psr_ManReadName.exit.thread ], [ 0, %.loopexit154 ], [ %236, %230 ], [ 0, %224 ], [ 0, %228 ], [ %.0.i78145, %173 ], [ %.0.i78145, %165 ], [ %.0.i78145, %.preheader.i83 ], [ %.0.i78145, %161 ], [ %.0.i78145, %166 ], [ %.0.i78145, %159 ]
   ret i32 %.0
 }
 
@@ -1432,7 +1432,7 @@ Psr_ManUtilSkipComments.exit.i.i.i:               ; preds = %.lr.ph38.i.i.i.i, %
   br i1 %74, label %.preheader.i.i.i.backedge, label %Psr_ManReadDesign.exit.thread550
 
 .loopexit167thread-pre-split.i.i:                 ; preds = %65, %60, %72, %64
-  %.ph.i.i = phi ptr [ %73, %72 ], [ %63, %64 ], [ %61, %60 ], [ %66, %65 ]
+  %.ph.i.i = phi ptr [ %73, %72 ], [ %63, %64 ], [ %66, %65 ], [ %61, %60 ]
   %.val17.val.i.pr.i.i = load i8, ptr %.ph.i.i, align 1, !tbaa !20
   br label %.loopexit167.i.i
 
@@ -1585,7 +1585,7 @@ Psr_ManUtilSkipSpaces.exit107.i.i:                ; preds = %94, %Psr_ManUtilSki
   br label %Psr_ManReadDesign.exit.thread
 
 .loopexit161thread-pre-split.i.i:                 ; preds = %107, %102, %114, %106
-  %.ph234.i.i = phi ptr [ %115, %114 ], [ %105, %106 ], [ %103, %102 ], [ %108, %107 ]
+  %.ph234.i.i = phi ptr [ %115, %114 ], [ %105, %106 ], [ %108, %107 ], [ %103, %102 ]
   %.val17.val.i108.pr.i.i = load i8, ptr %.ph234.i.i, align 1, !tbaa !20
   br label %.loopexit161.i.i
 
@@ -1923,7 +1923,7 @@ Psr_ManUtilSkipSpaces.exit38.i:                   ; preds = %Psr_ManInitializeNt
   br label %Psr_ManReadDesign.exit.thread
 
 .loopexit67thread-pre-split.i:                    ; preds = %233, %228, %240, %232
-  %.val82.i.ph.i = phi ptr [ %241, %240 ], [ %231, %232 ], [ %229, %228 ], [ %234, %233 ]
+  %.val82.i.ph.i = phi ptr [ %241, %240 ], [ %231, %232 ], [ %234, %233 ], [ %229, %228 ]
   %.val82.val.i.pr.i = load i8, ptr %.val82.i.ph.i, align 1, !tbaa !20
   br label %.loopexit67.i
 
@@ -2045,7 +2045,7 @@ Psr_ManUtilSkipComments.exit.i.i78:               ; preds = %.lr.ph38.i.i.i80, %
   br label %Psr_ManReadArguments.exit.thread
 
 Psr_ManUtilSkipSpaces.exit.i44.backedge:          ; preds = %.preheader.i149.i, %480, %482, %487, %494, %486
-  %.be915 = phi ptr [ %485, %486 ], [ %495, %494 ], [ %477, %480 ], [ %483, %482 ], [ %477, %.preheader.i149.i ], [ %488, %487 ]
+  %.be915 = phi ptr [ %485, %486 ], [ %495, %494 ], [ %477, %480 ], [ %488, %487 ], [ %477, %.preheader.i149.i ], [ %483, %482 ]
   br label %Psr_ManUtilSkipSpaces.exit.i44
 
 Psr_ManUtilSkipSpaces.exit.i44.preheader:         ; preds = %264, %259, %257, %.preheader.i.i41, %271, %263
@@ -2202,7 +2202,7 @@ Psr_ManUtilSkipComments.exit.i78.i:               ; preds = %.lr.ph38.i.i80.i, %
   br label %Psr_ManReadArguments.exit.thread
 
 .loopexit196.i:                                   ; preds = %307, %302, %300, %.preheader.i68.i, %314, %306
-  %.val61.i = phi ptr [ %315, %314 ], [ %305, %306 ], [ %297, %300 ], [ %303, %302 ], [ %297, %.preheader.i68.i ], [ %308, %307 ]
+  %.val61.i = phi ptr [ %315, %314 ], [ %305, %306 ], [ %297, %300 ], [ %308, %307 ], [ %297, %.preheader.i68.i ], [ %303, %302 ]
   %or.cond.i = icmp ult i32 %292, 4
   br i1 %or.cond.i, label %317, label %365
 
@@ -2313,7 +2313,7 @@ Psr_ManUtilSkipComments.exit.i102.i:              ; preds = %.lr.ph38.i.i104.i, 
   br label %Psr_ManReadArguments.exit.thread
 
 Psr_ManUtilSkipSpaces.exit110.threadthread-pre-split.i: ; preds = %335, %330, %342, %334
-  %.ph.i67 = phi ptr [ %343, %342 ], [ %333, %334 ], [ %336, %335 ], [ %331, %330 ]
+  %.ph.i67 = phi ptr [ %343, %342 ], [ %333, %334 ], [ %331, %330 ], [ %336, %335 ]
   %.val17.val.i112.pr.i = load i8, ptr %.ph.i67, align 1, !tbaa !20
   br label %Psr_ManUtilSkipSpaces.exit110.thread.i
 
@@ -2904,7 +2904,7 @@ Psr_ManUtilSkipSpaces.exit.i:                     ; preds = %.lr.ph, %Psr_ManUti
   br label %Psr_ManReadDesign.exit.thread
 
 .loopexitthread-pre-split.i:                      ; preds = %534, %529, %541, %533
-  %.ph.i = phi ptr [ %542, %541 ], [ %532, %533 ], [ %530, %529 ], [ %535, %534 ]
+  %.ph.i = phi ptr [ %542, %541 ], [ %532, %533 ], [ %535, %534 ], [ %530, %529 ]
   %.val17.val.i.pr.i = load i8, ptr %.ph.i, align 1, !tbaa !20
   br label %.loopexit.i
 
@@ -3935,7 +3935,7 @@ Psr_ManUtilSkipComments.exit.thread.sink.split:   ; preds = %Psr_ManUtilSkipComm
   br label %Psr_ManUtilSkipComments.exit.thread
 
 Psr_ManUtilSkipComments.exit.thread:              ; preds = %16, %11, %9, %.preheader, %23, %15, %Psr_ManUtilSkipComments.exit.thread.sink.split
-  %.0 = phi i32 [ 0, %23 ], [ 1, %Psr_ManUtilSkipComments.exit.thread.sink.split ], [ 0, %15 ], [ 0, %.preheader ], [ 0, %9 ], [ 0, %11 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %23 ], [ 1, %Psr_ManUtilSkipComments.exit.thread.sink.split ], [ 0, %.preheader ], [ 0, %9 ], [ 0, %11 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -4076,8 +4076,8 @@ Psr_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %46, ptr noundef nonnull align 1 dereferenceable(16) @.str.27, i64 16, i1 false)
   br label %266
 
-.loopexit150:                                     ; preds = %36, %31, %29, %.preheader.i, %43, %35
-  %.val43168 = phi ptr [ %44, %43 ], [ %34, %35 ], [ %32, %31 ], [ %26, %29 ], [ %26, %.preheader.i ], [ %37, %36 ]
+.loopexit150:                                     ; preds = %31, %36, %29, %.preheader.i, %43, %35
+  %.val43168 = phi ptr [ %44, %43 ], [ %34, %35 ], [ %37, %36 ], [ %26, %29 ], [ %26, %.preheader.i ], [ %32, %31 ]
   %.val44.val = load i8, ptr %.val43168, align 1, !tbaa !20
   %47 = add i8 %.val44.val, -58
   %48 = icmp ult i8 %47, -10
@@ -4256,8 +4256,8 @@ Psr_ManUtilSkipComments.exit.i67:                 ; preds = %.lr.ph38.i.i69, %99
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %104, ptr noundef nonnull align 1 dereferenceable(16) @.str.29, i64 16, i1 false)
   br label %266
 
-.loopexit143thread-pre-split:                     ; preds = %89, %94, %101, %93
-  %.val40.ph = phi ptr [ %102, %101 ], [ %92, %93 ], [ %90, %89 ], [ %95, %94 ]
+.loopexit143thread-pre-split:                     ; preds = %94, %89, %101, %93
+  %.val40.ph = phi ptr [ %102, %101 ], [ %92, %93 ], [ %95, %94 ], [ %90, %89 ]
   %.val40.val.pr = load i8, ptr %.val40.ph, align 1, !tbaa !20
   br label %.loopexit143
 
@@ -4427,8 +4427,8 @@ Psr_ManUtilSkipComments.exit.i97:                 ; preds = %.lr.ph38.i.i99, %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %159, ptr noundef nonnull align 1 dereferenceable(16) @.str.30, i64 16, i1 false)
   br label %266
 
-.loopexit:                                        ; preds = %149, %144, %142, %.preheader.i87, %156, %148
-  %.val41171 = phi ptr [ %157, %156 ], [ %147, %148 ], [ %145, %144 ], [ %139, %142 ], [ %139, %.preheader.i87 ], [ %150, %149 ]
+.loopexit:                                        ; preds = %144, %149, %142, %.preheader.i87, %156, %148
+  %.val41171 = phi ptr [ %157, %156 ], [ %147, %148 ], [ %150, %149 ], [ %139, %142 ], [ %139, %.preheader.i87 ], [ %145, %144 ]
   %.val42.val = load i8, ptr %.val41171, align 1, !tbaa !20
   %160 = add i8 %.val42.val, -58
   %161 = icmp ult i8 %160, -10
@@ -5146,8 +5146,8 @@ Psr_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %45, ptr noundef nonnull align 1 dereferenceable(17) @.str.114, i64 17, i1 false)
   br label %.critedge
 
-.loopexitthread-pre-split:                        ; preds = %30, %35, %42, %34
-  %.val.ph = phi ptr [ %43, %42 ], [ %33, %34 ], [ %31, %30 ], [ %36, %35 ]
+.loopexitthread-pre-split:                        ; preds = %35, %30, %42, %34
+  %.val.ph = phi ptr [ %43, %42 ], [ %33, %34 ], [ %36, %35 ], [ %31, %30 ]
   %.val.val.pr = load i8, ptr %.val.ph, align 1, !tbaa !20
   br label %.loopexit
 
@@ -5330,12 +5330,12 @@ Psr_ManUtilSkipComments.exit.i.i:                 ; preds = %.lr.ph38.i.i.i, %92
   br label %166
 
 .loopexit63.i:                                    ; preds = %87, %82, %80, %.preheader.i24.i, %94, %86
-  %98 = phi ptr [ %95, %94 ], [ %85, %86 ], [ %77, %80 ], [ %83, %82 ], [ %77, %.preheader.i24.i ], [ %88, %87 ]
+  %98 = phi ptr [ %95, %94 ], [ %85, %86 ], [ %77, %80 ], [ %88, %87 ], [ %77, %.preheader.i24.i ], [ %83, %82 ]
   %99 = icmp eq i32 %71, 4
   br i1 %99, label %Psr_ManUtilSkipSpaces.exit48.thread.i.backedge, label %100
 
 Psr_ManUtilSkipSpaces.exit48.thread.i.backedge:   ; preds = %.preheader.i30.i, %148, %150, %155, %162, %154, %.loopexit63.i
-  %.be273 = phi ptr [ %163, %162 ], [ %98, %.loopexit63.i ], [ %153, %154 ], [ %156, %155 ], [ %151, %150 ], [ %145, %.preheader.i30.i ], [ %145, %148 ]
+  %.be273 = phi ptr [ %163, %162 ], [ %98, %.loopexit63.i ], [ %153, %154 ], [ %151, %150 ], [ %156, %155 ], [ %145, %.preheader.i30.i ], [ %145, %148 ]
   br label %Psr_ManUtilSkipSpaces.exit48.thread.i
 
 100:                                              ; preds = %.loopexit63.i
@@ -5980,8 +5980,8 @@ Psr_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %35, ptr noundef nonnull align 1 dereferenceable(17) @.str.122, i64 17, i1 false)
   br label %184
 
-.loopexit180thread-pre-split:                     ; preds = %20, %25, %32, %24
-  %.val109.ph = phi ptr [ %33, %32 ], [ %23, %24 ], [ %21, %20 ], [ %26, %25 ]
+.loopexit180thread-pre-split:                     ; preds = %25, %20, %32, %24
+  %.val109.ph = phi ptr [ %33, %32 ], [ %23, %24 ], [ %26, %25 ], [ %21, %20 ]
   %.val109.val.pr = load i8, ptr %.val109.ph, align 1, !tbaa !20
   br label %.loopexit180
 
@@ -6292,8 +6292,8 @@ Psr_ManUtilSkipComments.exit.i149:                ; preds = %.lr.ph38.i.i151, %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %151, ptr noundef nonnull align 1 dereferenceable(17) @.str.125, i64 17, i1 false)
   br label %184
 
-.loopexitthread-pre-split:                        ; preds = %136, %141, %148, %140
-  %.val103.ph = phi ptr [ %149, %148 ], [ %139, %140 ], [ %137, %136 ], [ %142, %141 ]
+.loopexitthread-pre-split:                        ; preds = %141, %136, %148, %140
+  %.val103.ph = phi ptr [ %149, %148 ], [ %139, %140 ], [ %142, %141 ], [ %137, %136 ]
   %.val103.val.pr = load i8, ptr %.val103.ph, align 1, !tbaa !20
   br label %.loopexit
 
@@ -6502,8 +6502,8 @@ Psr_ManUtilSkipComments.exit.i:                   ; preds = %.lr.ph38.i.i, %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %27, ptr noundef nonnull align 1 dereferenceable(17) @.str.130, i64 17, i1 false)
   br label %254
 
-.loopexit190thread-pre-split:                     ; preds = %12, %17, %24, %16
-  %.ph = phi ptr [ %25, %24 ], [ %15, %16 ], [ %13, %12 ], [ %18, %17 ]
+.loopexit190thread-pre-split:                     ; preds = %17, %12, %24, %16
+  %.ph = phi ptr [ %25, %24 ], [ %15, %16 ], [ %18, %17 ], [ %13, %12 ]
   %.val17.val.i.pr = load i8, ptr %.ph, align 1, !tbaa !20
   br label %.loopexit190
 
@@ -6654,9 +6654,9 @@ Psr_ManUtilSkipComments.exit.i64:                 ; preds = %.lr.ph38.i.i66, %66
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %71, ptr noundef nonnull align 1 dereferenceable(17) @.str.131, i64 17, i1 false)
   br label %254
 
-Psr_ManReadName.exit.threadthread-pre-split:      ; preds = %61, %56, %68, %60, %Psr_ManReadName.exit, %.loopexit190.thread
-  %.val48.ph = phi ptr [ %33, %.loopexit190.thread ], [ %59, %60 ], [ %.val48.pre, %Psr_ManReadName.exit ], [ %69, %68 ], [ %62, %61 ], [ %57, %56 ]
-  %.012.i134.ph = phi i32 [ 0, %.loopexit190.thread ], [ %47, %60 ], [ 0, %Psr_ManReadName.exit ], [ %47, %68 ], [ %47, %56 ], [ %47, %61 ]
+Psr_ManReadName.exit.threadthread-pre-split:      ; preds = %56, %61, %68, %60, %Psr_ManReadName.exit, %.loopexit190.thread
+  %.val48.ph = phi ptr [ %33, %.loopexit190.thread ], [ %59, %60 ], [ %.val48.pre, %Psr_ManReadName.exit ], [ %69, %68 ], [ %57, %56 ], [ %62, %61 ]
+  %.012.i134.ph = phi i32 [ 0, %.loopexit190.thread ], [ %47, %60 ], [ 0, %Psr_ManReadName.exit ], [ %47, %68 ], [ %47, %61 ], [ %47, %56 ]
   %.val48.val.pr = load i8, ptr %.val48.ph, align 1, !tbaa !20
   br label %Psr_ManReadName.exit.thread
 
@@ -6766,8 +6766,8 @@ Psr_ManUtilSkipComments.exit.i88:                 ; preds = %.lr.ph38.i.i90, %92
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %97, ptr noundef nonnull align 1 dereferenceable(17) @.str.133, i64 17, i1 false)
   br label %254
 
-.loopexit178thread-pre-split:                     ; preds = %82, %87, %94, %86
-  %.val47.ph = phi ptr [ %95, %94 ], [ %85, %86 ], [ %83, %82 ], [ %88, %87 ]
+.loopexit178thread-pre-split:                     ; preds = %87, %82, %94, %86
+  %.val47.ph = phi ptr [ %95, %94 ], [ %85, %86 ], [ %88, %87 ], [ %83, %82 ]
   %.val47.val.pr = load i8, ptr %.val47.ph, align 1, !tbaa !20
   br label %.loopexit178
 
@@ -7068,7 +7068,7 @@ Psr_ManUtilSkipComments.exit.i60.i:               ; preds = %.lr.ph38.i.i62.i, %
   br label %Psr_ManReadSignalList2.exit.thread
 
 .loopexit107thread-pre-split.i:                   ; preds = %173, %168, %180, %172
-  %.val37.ph.i = phi ptr [ %181, %180 ], [ %171, %172 ], [ %169, %168 ], [ %174, %173 ]
+  %.val37.ph.i = phi ptr [ %181, %180 ], [ %171, %172 ], [ %174, %173 ], [ %169, %168 ]
   %.val37.val.pr.i = load i8, ptr %.val37.ph.i, align 1, !tbaa !20
   br label %.loopexit107.i
 
@@ -7230,10 +7230,10 @@ Psr_ManReadSignalList2.exit.thread:               ; preds = %157, %.loopexit107.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %223, ptr noundef nonnull align 1 dereferenceable(17) @.str.135, i64 17, i1 false)
   br label %254
 
-Psr_ManReadSignalList2.exit.thread149:            ; preds = %.loopexit107.i, %Psr_ManUtilSkipSpaces.exit92.i, %191, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread149_crit_edge, %98
-  %224 = phi ptr [ %.pre319, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread149_crit_edge ], [ %161, %191 ], [ %75, %98 ], [ %161, %Psr_ManUtilSkipSpaces.exit92.i ], [ %161, %.loopexit107.i ]
-  %225 = phi ptr [ %.pre, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread149_crit_edge ], [ %188, %191 ], [ %.val47, %98 ], [ %.val40.i, %Psr_ManUtilSkipSpaces.exit92.i ], [ %.val37.i, %.loopexit107.i ]
-  %.036152 = phi i32 [ %221, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread149_crit_edge ], [ %1, %191 ], [ %1, %98 ], [ %1, %Psr_ManUtilSkipSpaces.exit92.i ], [ %1, %.loopexit107.i ]
+Psr_ManReadSignalList2.exit.thread149:            ; preds = %Psr_ManUtilSkipSpaces.exit92.i, %.loopexit107.i, %191, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread149_crit_edge, %98
+  %224 = phi ptr [ %.pre319, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread149_crit_edge ], [ %75, %98 ], [ %161, %191 ], [ %161, %.loopexit107.i ], [ %161, %Psr_ManUtilSkipSpaces.exit92.i ]
+  %225 = phi ptr [ %.pre, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread149_crit_edge ], [ %.val47, %98 ], [ %188, %191 ], [ %.val37.i, %.loopexit107.i ], [ %.val40.i, %Psr_ManUtilSkipSpaces.exit92.i ]
+  %.036152 = phi i32 [ %221, %Psr_ManIsVerilogModule.exit.Psr_ManReadSignalList2.exit.thread149_crit_edge ], [ %1, %98 ], [ %1, %191 ], [ %1, %.loopexit107.i ], [ %1, %Psr_ManUtilSkipSpaces.exit92.i ]
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 1
   store ptr %226, ptr %3, align 8, !tbaa !13
   %227 = icmp ult ptr %226, %224
@@ -7326,8 +7326,8 @@ Psr_ManUtilSkipComments.exit.i119:                ; preds = %.lr.ph38.i.i121, %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %248, ptr noundef nonnull align 1 dereferenceable(17) @.str.136, i64 17, i1 false)
   br label %254
 
-.loopexitthread-pre-split:                        ; preds = %233, %238, %245, %237
-  %.val.ph = phi ptr [ %246, %245 ], [ %236, %237 ], [ %234, %233 ], [ %239, %238 ]
+.loopexitthread-pre-split:                        ; preds = %238, %233, %245, %237
+  %.val.ph = phi ptr [ %246, %245 ], [ %236, %237 ], [ %239, %238 ], [ %234, %233 ]
   %.val.val.pr = load i8, ptr %.val.ph, align 1, !tbaa !20
   br label %.loopexit
 

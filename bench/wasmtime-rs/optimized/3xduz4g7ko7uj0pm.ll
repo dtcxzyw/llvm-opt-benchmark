@@ -10600,7 +10600,7 @@ _ZN16wasmtime_environ9component9translate6inline7Inliner11initializer17hf02190c1
   br label %1635
 
 _ZN16wasmtime_environ9component9translate6inline7Inliner11initializer17hf02190c1cc0d13d4E.exit.thread321: ; preds = %_ZN16wasmtime_environ9component9translate11Translation9types_ref17hb715605a86e4cad7E.exit173.i, %_ZN16wasmtime_environ9component9translate11Translation9types_ref17hb715605a86e4cad7E.exit.i, %1392, %1287, %.loopexit430
-  %.sroa.12.3.ph = phi ptr [ %.sroa.5405.0540.i, %.loopexit430 ], [ %1390, %1392 ], [ %.sroa.12.2, %1287 ], [ %399, %_ZN16wasmtime_environ9component9translate11Translation9types_ref17hb715605a86e4cad7E.exit173.i ], [ %380, %_ZN16wasmtime_environ9component9translate11Translation9types_ref17hb715605a86e4cad7E.exit.i ]
+  %.sroa.12.3.ph = phi ptr [ %.sroa.5405.0540.i, %.loopexit430 ], [ %.sroa.12.2, %1287 ], [ %1390, %1392 ], [ %399, %_ZN16wasmtime_environ9component9translate11Translation9types_ref17hb715605a86e4cad7E.exit173.i ], [ %380, %_ZN16wasmtime_environ9component9translate11Translation9types_ref17hb715605a86e4cad7E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   call void @llvm.lifetime.end.p0(ptr nonnull %86)

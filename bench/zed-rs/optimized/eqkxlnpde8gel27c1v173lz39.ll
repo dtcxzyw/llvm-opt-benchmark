@@ -321,7 +321,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i: ; preds = %.
   br label %79
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i": ; preds = %122, %98, %.noexc9.i, %.preheader.i.i.i, %89
-  %.promoted.i1962.i = phi i64 [ %.promoted.i1978.i, %98 ], [ %.promoted.i1978.i, %89 ], [ %.promoted.i1978.i, %.preheader.i.i.i ], [ %.promoted.i1978.i, %.noexc9.i ], [ %96, %122 ]
+  %.promoted.i1962.i = phi i64 [ %.promoted.i1978.i, %89 ], [ %.promoted.i1978.i, %98 ], [ %.promoted.i1978.i, %.preheader.i.i.i ], [ %.promoted.i1978.i, %.noexc9.i ], [ %96, %122 ]
   %gepdiff50.i = sub nsw i64 %78, %.promoted.i1962.i
   %101 = load i64, ptr %.sroa.55.0..sroa_idx.i, align 8, !alias.scope !84, !noalias !74, !noundef !12
   %102 = load i64, ptr %5, align 8, !alias.scope !84, !noalias !74, !noundef !12

@@ -7724,7 +7724,7 @@ _ZSteqISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EEbRKSt6vectorIT_T0_ESC_
   %.not.i.i.i.i.i14.i.i = icmp eq ptr %2598, %2576
   br i1 %.not.i.i.i.i.i14.i.i, label %_ZNK5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_4poolINS_5RTLIL8IdStringENS0_8hash_opsIS7_EEEENS8_IS4_EEE5countERKS4_.exit, label %.lr.ph.i.i.i.i.i11.i.i, !llvm.loop !329
 
-.loopexit3517:                                    ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i.i.i.i.i.i.i.i.i, %2542, %2535, %2529, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i.i, %.noexc1138, %.lr.ph.i.i.i.i.i11.i.i, %.lr.ph.i.i, %_ZSteqISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i.i, %_ZSteqISt5tupleIJN5Yosys5RTLIL8IdStringEiNS2_6SigBitEEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i.i, %2509
+.loopexit3517:                                    ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i.i.i.i.i.i.i.i.i, %2542, %2535, %2529, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i.i, %.noexc1138, %.lr.ph.i.i.i.i.i11.i.i, %_ZSteqISt5tupleIJN5Yosys5RTLIL8IdStringEiNS2_6SigBitEEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i.i, %.lr.ph.i.i, %_ZSteqISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i.i, %2509
   %.val17.i.i = load ptr, ptr %673, align 8, !tbaa !101
   %2600 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<(anonymous namespace)::EquivStructWorker::merge_key_t, Yosys::hashlib::pool<Yosys::RTLIL::IdString>>::entry_t", ptr %.val17.i.i, i64 %2504
   %2601 = getelementptr inbounds nuw i8, ptr %2600, i64 136
@@ -9160,7 +9160,7 @@ _ZSteqISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EEbRKSt6vectorIT_T0_ESC_
   %.not.i.i.i.i.i14.i.i1188 = icmp eq ptr %3270, %3248
   br i1 %.not.i.i.i.i.i14.i.i1188, label %_ZNK5Yosys7hashlib4dictIN12_GLOBAL__N_117EquivStructWorker11merge_key_tENS0_4poolINS_5RTLIL8IdStringENS0_8hash_opsIS7_EEEENS8_IS4_EEE5countERKS4_.exit674, label %.lr.ph.i.i.i.i.i11.i.i1185, !llvm.loop !329
 
-.loopexit3544:                                    ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i.i.i.i.i.i.i.i.i1173, %3214, %3207, %3201, %.lr.ph.i.i.i.i.i.i.i1169, %.lr.ph.i.i.i.i.i6.i.i1178, %.noexc1189, %.lr.ph.i.i.i.i.i11.i.i1185, %.lr.ph.i.i663, %_ZSteqISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i.i1183, %_ZSteqISt5tupleIJN5Yosys5RTLIL8IdStringEiNS2_6SigBitEEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i.i1176, %3181
+.loopexit3544:                                    ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i.i.i.i.i.i.i.i.i1173, %3214, %3207, %3201, %.lr.ph.i.i.i.i.i.i.i1169, %.lr.ph.i.i.i.i.i6.i.i1178, %.noexc1189, %.lr.ph.i.i.i.i.i11.i.i1185, %_ZSteqISt5tupleIJN5Yosys5RTLIL8IdStringEiNS2_6SigBitEEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i.i1176, %.lr.ph.i.i663, %_ZSteqISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i.i1183, %3181
   %.val17.i.i666 = load ptr, ptr %673, align 8, !tbaa !101
   %3272 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<(anonymous namespace)::EquivStructWorker::merge_key_t, Yosys::hashlib::pool<Yosys::RTLIL::IdString>>::entry_t", ptr %.val17.i.i666, i64 %3176
   %3273 = getelementptr inbounds nuw i8, ptr %3272, i64 136
@@ -31898,7 +31898,7 @@ _ZSteqISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EEbRKSt6vectorIT_T0_ESC_
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i11.i, label %_ZNK12_GLOBAL__N_117EquivStructWorker11merge_key_teqERKS1_.exit, !llvm.loop !329
 
 _ZNK12_GLOBAL__N_117EquivStructWorker11merge_key_teqERKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %28, %34, %41, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i, %_ZSteqIN5Yosys5RTLIL8IdStringENS1_5ConstEEbRKSt4pairIT_T0_ES9_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i11.i, %2, %6, %_ZSteqISt5tupleIJN5Yosys5RTLIL8IdStringEiNS2_6SigBitEEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i, %_ZSteqISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i, %90
-  %102 = phi i1 [ %99, %.lr.ph.i.i.i.i.i11.i ], [ false, %.lr.ph.i.i.i.i.i6.i ], [ false, %2 ], [ false, %_ZSteqISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i ], [ true, %90 ], [ false, %_ZSteqISt5tupleIJN5Yosys5RTLIL8IdStringEiNS2_6SigBitEEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i ], [ false, %6 ], [ false, %_ZSteqIN5Yosys5RTLIL8IdStringENS1_5ConstEEbRKSt4pairIT_T0_ES9_.exit.i.i.i.i.i.i ], [ false, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %41 ], [ false, %34 ], [ false, %28 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+  %102 = phi i1 [ false, %.lr.ph.i.i.i.i.i6.i ], [ false, %_ZSteqISt5tupleIJN5Yosys5RTLIL8IdStringEiNS2_6SigBitEEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i ], [ false, %2 ], [ false, %_ZSteqISt4pairIN5Yosys5RTLIL8IdStringENS2_5ConstEESaIS5_EEbRKSt6vectorIT_T0_ESC_.exit.i ], [ true, %90 ], [ %99, %.lr.ph.i.i.i.i.i11.i ], [ false, %6 ], [ false, %_ZSteqIN5Yosys5RTLIL8IdStringENS1_5ConstEEbRKSt4pairIT_T0_ES9_.exit.i.i.i.i.i.i ], [ false, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i.i.i.i.i.i.i.i ], [ false, %41 ], [ false, %34 ], [ false, %28 ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %102
 }
 

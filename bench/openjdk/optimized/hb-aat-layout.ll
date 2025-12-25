@@ -7901,7 +7901,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit: ; preds =
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 
@@ -8835,7 +8835,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 
@@ -9592,7 +9592,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_13LigatureEntryILb1EE9E
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_13LigatureEntryILb1EE9EntryDataEEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_13LigatureEntryILb1EE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_13LigatureEntryILb1EE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 
@@ -9878,7 +9878,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ExtendedTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 
@@ -11660,7 +11660,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit: ; preds =
   br label %.thread
 
 .thread:                                          ; preds = %97, %139, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit, %118, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93, %109, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit, %94, %113, %.loopexit158, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit, %26, %39, %172, %173, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %26 ], [ false, %39 ], [ true, %173 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ true, %172 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ false, %39 ], [ true, %173 ], [ false, %26 ], [ true, %172 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryIvEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
   ret i1 %.070
 }
 
@@ -11948,7 +11948,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS
   br label %.thread
 
 .thread:                                          ; preds = %97, %139, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit, %118, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93, %109, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit, %94, %113, %.loopexit158, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit, %26, %39, %172, %173, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %26 ], [ false, %39 ], [ true, %173 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ true, %172 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ false, %39 ], [ true, %173 ], [ false, %26 ], [ true, %172 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_18ContextualSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
   ret i1 %.070
 }
 
@@ -12236,7 +12236,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1
   br label %.thread
 
 .thread:                                          ; preds = %97, %139, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit, %118, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93, %109, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit, %94, %113, %.loopexit158, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit, %26, %39, %172, %173, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %26 ], [ false, %39 ], [ true, %173 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ true, %172 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %14 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN3AAT10ClassTableIN2OT7IntTypeIhLj1EEEEEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS9_.exit ], [ false, %39 ], [ true, %173 ], [ false, %26 ], [ true, %172 ], [ false, %.loopexit158 ], [ false, %113 ], [ false, %94 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit ], [ false, %109 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeIhLj1EEEEEbPKT_jj.exit93 ], [ false, %118 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_17InsertionSubtableINS1_13ObsoleteTypesEE9EntryDataEEEEEbPKT_j.exit ], [ false, %139 ], [ false, %97 ]
   ret i1 %.070
 }
 
@@ -13466,7 +13466,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !81
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds = %.lr.ph.i78, %209, %195, %200, %191, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, %.loopexit.thread, %.preheader55.i77, %.preheader.i84
-  %.013.i57129 = phi i32 [ %.013.i57.ph182, %191 ], [ %.013.i57.ph182, %.loopexit.thread ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.sroa.speculated.i, %195 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
+  %.013.i57129 = phi i32 [ %.sroa.speculated.i, %195 ], [ %.013.i57.ph182, %.loopexit.thread ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i57.ph182, %191 ], [ %.sroa.speculated.i, %200 ], [ %.sroa.speculated.i, %209 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
   %215 = load ptr, ptr %122, align 8
   %216 = load i32, ptr %124, align 4
   %217 = icmp eq i32 %216, %.sroa.speculated
@@ -24888,7 +24888,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_12Format1EntryILb1EE9En
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_12Format1EntryILb1EE9EntryDataEEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_12Format1EntryILb1EE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_12Format1EntryILb1EE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 
@@ -25298,7 +25298,7 @@ _ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_19KerxSubTableFormat4IN
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit188, %165, %120, %126, %115, %173, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_19KerxSubTableFormat4INS1_18KerxSubTableHeaderEE9EntryDataEEEEEbPKT_j.exit, %138, %134, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94, %36, %191, %192, %57, %3, %14
-  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ false, %36 ], [ false, %14 ], [ true, %191 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_19KerxSubTableFormat4INS1_18KerxSubTableHeaderEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
+  %.070 = phi i1 [ false, %3 ], [ false, %57 ], [ true, %192 ], [ true, %191 ], [ false, %14 ], [ false, %36 ], [ false, %_ZNK21hb_sanitize_context_t11check_rangeIN2OT7IntTypeItLj2EEEEEbPKT_jj.exit94 ], [ false, %134 ], [ false, %138 ], [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN3AAT5EntryINS1_19KerxSubTableFormat4INS1_18KerxSubTableHeaderEE9EntryDataEEEEEbPKT_j.exit ], [ false, %173 ], [ false, %115 ], [ false, %126 ], [ false, %120 ], [ false, %165 ], [ false, %.loopexit188 ]
   ret i1 %.070
 }
 

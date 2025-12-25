@@ -1106,8 +1106,8 @@ thread-pre-split.thread:                          ; preds = %114, %thread-pre-sp
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.21) #11
   br label %h264_init_context.exit.thread
 
-h264_init_context.exit.thread:                    ; preds = %h264_init_pic.exit.i, %51, %56, %h264_init_pic.exit60.i, %49, %59, %64, %33, %.thread, %thread-pre-split, %thread-pre-split.thread, %119, %92, %72
-  %.0 = phi i32 [ %90, %92 ], [ -1313558101, %72 ], [ 0, %.thread ], [ 0, %119 ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split ], [ -12, %33 ], [ -12, %64 ], [ -12, %59 ], [ -12, %49 ], [ -12, %h264_init_pic.exit60.i ], [ -12, %56 ], [ -12, %51 ], [ -12, %h264_init_pic.exit.i ]
+h264_init_context.exit.thread:                    ; preds = %h264_init_pic.exit.i, %51, %56, %49, %59, %h264_init_pic.exit60.i, %64, %33, %.thread, %thread-pre-split, %thread-pre-split.thread, %119, %92, %72
+  %.0 = phi i32 [ %90, %92 ], [ -1313558101, %72 ], [ 0, %.thread ], [ 0, %119 ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split ], [ -12, %33 ], [ -12, %64 ], [ -12, %h264_init_pic.exit60.i ], [ -12, %59 ], [ -12, %49 ], [ -12, %56 ], [ -12, %51 ], [ -12, %h264_init_pic.exit.i ]
   ret i32 %.0
 }
 

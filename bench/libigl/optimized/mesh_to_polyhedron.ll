@@ -4936,9 +4936,9 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185:    ; preds = %.critedge115.thread
   br label %696
 
 696:                                              ; preds = %694, %.sink.split, %692
-  %697 = phi ptr [ @.str.43, %.sink.split ], [ @.str.43, %694 ], [ @.str.42, %692 ]
-  %.13869877882 = phi i1 [ false, %.sink.split ], [ false, %694 ], [ true, %692 ]
-  %698 = phi i64 [ 10, %.sink.split ], [ 10, %694 ], [ 6, %692 ]
+  %697 = phi ptr [ @.str.42, %692 ], [ @.str.43, %.sink.split ], [ @.str.43, %694 ]
+  %.13869877882 = phi i1 [ true, %692 ], [ false, %.sink.split ], [ false, %694 ]
+  %698 = phi i64 [ 6, %692 ], [ 10, %.sink.split ], [ 10, %694 ]
   %699 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %697, i64 noundef %698)
   %700 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
   %701 = getelementptr i8, ptr %700, i64 -24

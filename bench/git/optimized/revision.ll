@@ -2632,7 +2632,7 @@ handle_revision_arg_1.exit.thread:                ; preds = %add_rev_cmdline.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %247
 
-handle_revision_arg_1.exit.thread11:              ; preds = %strtol_i.exit.i, %strtol_i.exit.thread.i, %.tail.i
+handle_revision_arg_1.exit.thread11:              ; preds = %.tail.i, %strtol_i.exit.thread.i, %strtol_i.exit.i
   call void @object_context_release(ptr noundef nonnull %11) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -7395,7 +7395,7 @@ revision_sources_at.exit.i:                       ; preds = %206, %201
   call void (ptr, ...) @die(ptr noundef nonnull @.str.218, ptr noundef %26) #29
   unreachable
 
-handle_commit.exit.thread227:                     ; preds = %180, %revision_sources_at.exit.i, %224
+handle_commit.exit.thread227:                     ; preds = %180, %224, %revision_sources_at.exit.i
   %235 = load i32, ptr %.us-phi.i, align 8
   %236 = and i32 %235, 16
   %.not58 = icmp eq i32 %236, 0
@@ -11200,7 +11200,7 @@ add_rev_cmdline.exit:                             ; preds = %._crit_edge.i49, %s
   br i1 %.not47, label %.loopexit, label %58, !llvm.loop !416
 
 .loopexit:                                        ; preds = %get_reference.exit, %40, %34, %85, %53, %48, %4
-  %.036 = phi i32 [ 0, %4 ], [ 1, %53 ], [ 0, %48 ], [ 1, %85 ], [ 0, %34 ], [ 0, %40 ], [ 0, %get_reference.exit ]
+  %.036 = phi i32 [ 0, %4 ], [ 0, %48 ], [ 1, %53 ], [ 1, %85 ], [ 0, %34 ], [ 0, %40 ], [ 0, %get_reference.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.036
 }
@@ -12336,7 +12336,7 @@ select.unfold122:                                 ; preds = %229, %125
   br i1 %.not88, label %.thread, label %107, !llvm.loop !420
 
 .thread:                                          ; preds = %select.unfold, %92, %select.unfold.us138, %70, %select.unfold.us, %50, %127, %select.unfold122, %125, %229, %.preheader, %100, %97, %22, %13, %4
-  %.0 = phi i32 [ 0, %13 ], [ 0, %4 ], [ 0, %22 ], [ 0, %229 ], [ 0, %97 ], [ 0, %select.unfold.us138 ], [ 0, %select.unfold.us ], [ 0, %.preheader ], [ 0, %100 ], [ 0, %125 ], [ 0, %select.unfold122 ], [ -1, %127 ], [ 0, %50 ], [ 0, %70 ], [ 0, %92 ], [ 0, %select.unfold ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %4 ], [ 0, %22 ], [ 0, %229 ], [ 0, %97 ], [ 0, %select.unfold.us ], [ 0, %select.unfold.us138 ], [ 0, %.preheader ], [ 0, %100 ], [ 0, %125 ], [ 0, %select.unfold122 ], [ -1, %127 ], [ 0, %50 ], [ 0, %70 ], [ 0, %92 ], [ 0, %select.unfold ]
   ret i32 %.0
 }
 
@@ -12667,7 +12667,7 @@ check_maybe_different_in_bloom_filter.exit.thread31.i: ; preds = %check_maybe_di
   br i1 %or.cond49.i, label %rev_compare_tree.exit.thread.sink.split, label %rev_compare_tree.exit
 
 rev_compare_tree.exit:                            ; preds = %.thread36.i, %107
-  %.021.i = phi i32 [ %.pre.i, %.thread36.i ], [ %.pre42.i, %107 ]
+  %.021.i = phi i32 [ %.pre42.i, %107 ], [ %.pre.i, %.thread36.i ]
   switch i32 %.021.i, label %default.unreachable [
     i32 0, label %rev_compare_tree.exit.thread
     i32 1, label %rev_compare_tree.exit.thread113

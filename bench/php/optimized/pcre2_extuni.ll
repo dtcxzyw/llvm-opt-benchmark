@@ -389,7 +389,7 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly captures
   br i1 %281, label %.preheader, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %170, %.lr.ph.split.us, %279, %263
-  %.0105.lcssa = phi i32 [ %280, %279 ], [ %.0105136, %263 ], [ %.0105136.us, %.lr.ph.split.us ], [ %151, %170 ]
+  %.0105.lcssa = phi i32 [ %.0105136, %263 ], [ %280, %279 ], [ %.0105136.us, %.lr.ph.split.us ], [ %151, %170 ]
   %282 = and i32 %.0105.lcssa, 1
   %.not128 = icmp eq i32 %282, 0
   br i1 %.not128, label %._crit_edge.thread, label %.thread

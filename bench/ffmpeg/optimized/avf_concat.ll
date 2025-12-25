@@ -541,7 +541,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br i1 %122, label %67, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %119, %._crit_edge, %.loopexit105
-  %123 = phi i32 [ %37, %._crit_edge ], [ %63, %.loopexit105 ], [ %121, %119 ]
+  %123 = phi i32 [ %63, %.loopexit105 ], [ %37, %._crit_edge ], [ %121, %119 ]
   %.not139 = icmp eq i32 %123, 0
   br i1 %.not139, label %.thread, label %.lr.ph132
 

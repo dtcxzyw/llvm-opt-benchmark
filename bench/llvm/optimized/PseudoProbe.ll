@@ -414,7 +414,7 @@ _ZN4llvm29extractProbeFromDiscriminatorERKNS_11InstructionE.exit.sink.split: ; p
   br label %_ZN4llvm29extractProbeFromDiscriminatorERKNS_11InstructionE.exit
 
 _ZN4llvm29extractProbeFromDiscriminatorERKNS_11InstructionE.exit: ; preds = %_ZN4llvm29extractProbeFromDiscriminatorERKNS_11InstructionE.exit.sink.split, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit, %2, %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.i.i, %_ZNK4llvm10DILocation8getScopeEv.exit.i.i.i, %87, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit.thread
-  %.sink = phi i8 [ 0, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit ], [ 0, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit.thread ], [ 0, %87 ], [ 0, %2 ], [ 0, %_ZNK4llvm10DILocation8getScopeEv.exit.i.i.i ], [ 0, %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.i.i ], [ 1, %_ZN4llvm29extractProbeFromDiscriminatorERKNS_11InstructionE.exit.sink.split ]
+  %.sink = phi i8 [ 0, %2 ], [ 0, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit.thread ], [ 0, %87 ], [ 0, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_11InstructionEEEbRKT0_.exit ], [ 0, %_ZNK4llvm10DILocation8getScopeEv.exit.i.i.i ], [ 0, %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.i.i ], [ 1, %_ZN4llvm29extractProbeFromDiscriminatorERKNS_11InstructionE.exit.sink.split ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sink, ptr %119, align 4, !tbaa !19
   ret void

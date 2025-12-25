@@ -6283,7 +6283,7 @@ _apply_limit_factor.exit96.thread.us:             ; preds = %131, %_apply_limit_
   br label %_apply_limit_factor.exit
 
 _apply_limit_factor.exit:                         ; preds = %150, %151, %.lr.ph.split
-  %.0111 = phi i64 [ %144, %151 ], [ %140, %.lr.ph.split ], [ %144, %150 ]
+  %.0111 = phi i64 [ %144, %150 ], [ %140, %.lr.ph.split ], [ %144, %151 ]
   %152 = icmp ne i64 %.0111, -1
   %or.cond3 = select i1 %.not80122, i1 %152, i1 false
   %153 = icmp ult i64 %.0111, %.5150
@@ -6353,7 +6353,7 @@ _apply_limit_factor.exit96.thread:                ; preds = %164, %163, %169, %_
   br i1 %.not83, label %.thread141, label %.lr.ph.split
 
 .thread141:                                       ; preds = %_apply_limit_factor.exit.us.us.us, %_apply_limit_factor.exit96.thread.us.us, %_apply_limit_factor.exit96.us.us166, %132, %_apply_limit_factor.exit96.thread.us, %170, %_apply_limit_factor.exit96.thread, %_apply_limit_factor.exit96.us.us166.thread, %acct_policy_set_qos_order.exit
-  %.6 = phi i64 [ %.065, %_apply_limit_factor.exit96.us.us166 ], [ %.065, %acct_policy_set_qos_order.exit ], [ %.8.us, %132 ], [ %.8.us.us, %_apply_limit_factor.exit96.thread.us.us ], [ %.8, %170 ], [ %112, %_apply_limit_factor.exit96.us.us166.thread ], [ %.8, %_apply_limit_factor.exit96.thread ], [ %.8.us, %_apply_limit_factor.exit96.thread.us ], [ %.065, %_apply_limit_factor.exit.us.us.us ]
+  %.6 = phi i64 [ %.065, %_apply_limit_factor.exit96.us.us166 ], [ %.065, %acct_policy_set_qos_order.exit ], [ %.8, %170 ], [ %112, %_apply_limit_factor.exit96.us.us166.thread ], [ %.8.us, %132 ], [ %.8.us.us, %_apply_limit_factor.exit96.thread.us.us ], [ %.8, %_apply_limit_factor.exit96.thread ], [ %.8.us, %_apply_limit_factor.exit96.thread.us ], [ %.065, %_apply_limit_factor.exit.us.us.us ]
   call void @assoc_mgr_unlock(ptr noundef nonnull %3) #15
   %175 = trunc i64 %.6 to i32
   br label %176

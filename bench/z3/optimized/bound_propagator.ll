@@ -3027,24 +3027,24 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i:       ; preds = %68, %62
   %81 = load i8, ptr %20, align 4
   %82 = and i8 %81, 1
   %83 = icmp eq i8 %82, 0
-  br i1 %83, label %84, label %89
+  br i1 %83, label %84, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %86 = load i8, ptr %85, align 4
   %87 = and i8 %86, 1
   %88 = icmp eq i8 %87, 0
-  br i1 %88, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, label %89
+  br i1 %88, label %89, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
 
-89:                                               ; preds = %84, %79
-  %90 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %63, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %80)
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %98, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
+89:                                               ; preds = %84
+  %90 = load i32, ptr %19, align 8, !tbaa !3
+  %91 = load i32, ptr %80, align 8, !tbaa !3
+  %92 = icmp eq i32 %90, %91
+  br i1 %92, label %98, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
-_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %84
-  %92 = load i32, ptr %19, align 8, !tbaa !3
-  %93 = load i32, ptr %80, align 8, !tbaa !3
-  %94 = icmp eq i32 %92, %93
+_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %79, %84
+  %93 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %63, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %80)
+  %94 = icmp eq i32 %93, 0
   br i1 %94, label %98, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %73, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i, %89, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, %58, %54

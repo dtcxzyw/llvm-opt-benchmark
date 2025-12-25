@@ -14514,7 +14514,7 @@ thread-pre-split.i:                               ; preds = %63
   br label %505
 
 .loopexit117:                                     ; preds = %.preheader89.i, %100, %.preheader85.i, %128, %.preheader.i, %.preheader87.i
-  %.sroa.1662.0 = phi i64 [ 0, %.preheader87.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader85.i ], [ %133, %128 ], [ %105, %100 ], [ %.sroa.023.3.i, %.preheader89.i ]
+  %.sroa.1662.0 = phi i64 [ %105, %100 ], [ %133, %128 ], [ %.sroa.023.0.i, %.preheader85.i ], [ 0, %.preheader.i ], [ 0, %.preheader87.i ], [ %.sroa.023.3.i, %.preheader89.i ]
   store i64 %.sroa.1662.0, ptr %61, align 8
   %137 = load i64, ptr %1, align 8, !range !13, !alias.scope !1855, !noundef !11
   switch i64 %137, label %default.unreachable [
@@ -16009,7 +16009,7 @@ thread-pre-split.i:                               ; preds = %63
   br label %505
 
 .loopexit116:                                     ; preds = %.preheader89.i, %100, %.preheader85.i, %128, %.preheader.i, %.preheader87.i
-  %.sroa.1661.0 = phi i64 [ 0, %.preheader87.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader85.i ], [ %133, %128 ], [ %105, %100 ], [ %.sroa.023.3.i, %.preheader89.i ]
+  %.sroa.1661.0 = phi i64 [ %105, %100 ], [ %133, %128 ], [ %.sroa.023.0.i, %.preheader85.i ], [ 0, %.preheader.i ], [ 0, %.preheader87.i ], [ %.sroa.023.3.i, %.preheader89.i ]
   store i64 %.sroa.1661.0, ptr %61, align 8
   %137 = load i64, ptr %1, align 8, !range !13, !alias.scope !2090, !noundef !11
   switch i64 %137, label %default.unreachable [

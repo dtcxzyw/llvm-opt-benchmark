@@ -724,7 +724,7 @@ lean_dec.exit78:                                  ; preds = %165, %164, %162, %l
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_dec.exit75, %145, %147, %148, %lean_dec.exit70, %lean_dec.exit73, %lean_dec.exit72, %lean_dec.exit78
-  %.162 = phi ptr [ %.061131, %lean_dec.exit75 ], [ %167, %lean_dec.exit78 ], [ %94, %lean_dec.exit70 ], [ %112, %lean_dec.exit72 ], [ %124, %lean_dec.exit73 ], [ %.061131, %145 ], [ %.061131, %147 ], [ %.061131, %148 ]
+  %.162 = phi ptr [ %.061131, %148 ], [ %167, %lean_dec.exit78 ], [ %94, %lean_dec.exit70 ], [ %112, %lean_dec.exit72 ], [ %124, %lean_dec.exit73 ], [ %.061131, %147 ], [ %.061131, %145 ], [ %.061131, %lean_dec.exit75 ]
   %168 = tail call ptr @l_Lean_Expr_bindingBody_x21(ptr noundef %.162) #5
   %169 = tail call zeroext i8 @l_Lean_Expr_isHeadBetaTarget(ptr noundef %168, i8 noundef zeroext 0) #5
   %170 = icmp eq i8 %169, 0
@@ -3939,7 +3939,7 @@ lean_dec.exit91:                                  ; preds = %117, %116, %114, %l
   br label %lean_dec.exit90.backedge
 
 lean_dec.exit90.backedge:                         ; preds = %121, %125, %131, %133, %134
-  %.079.be = phi ptr [ %128, %134 ], [ %128, %133 ], [ %128, %131 ], [ %126, %125 ], [ %124, %121 ]
+  %.079.be = phi ptr [ %128, %134 ], [ %128, %131 ], [ %128, %133 ], [ %126, %125 ], [ %124, %121 ]
   br label %lean_dec.exit90
 
 125:                                              ; preds = %118
@@ -5281,8 +5281,8 @@ lean_nat_eq.exit.thread:                          ; preds = %306
   br i1 %.not254, label %lean_dec.exit131, label %lean_dec.exit142.backedge
 
 lean_dec.exit142.backedge:                        ; preds = %lean_nat_eq.exit.thread, %309, %312, %314, %315, %283, %287, %289, %290
-  %.0108.be = phi ptr [ %.1.i236, %283 ], [ %.1.i236, %290 ], [ %.0108, %312 ], [ %.0108, %314 ], [ %.0108, %309 ], [ %.0108, %315 ], [ %.1.i236, %287 ], [ %.1.i236, %289 ], [ %.0108, %lean_nat_eq.exit.thread ]
-  %.0105.be = phi ptr [ %.0105, %283 ], [ %.0105, %290 ], [ %.1.i236, %312 ], [ %.1.i236, %314 ], [ %.1.i236, %309 ], [ %.1.i236, %315 ], [ %.0105, %287 ], [ %.0105, %289 ], [ %.1.i236, %lean_nat_eq.exit.thread ]
+  %.0108.be = phi ptr [ %.1.i236, %283 ], [ %.1.i236, %287 ], [ %.0108, %315 ], [ %.0108, %314 ], [ %.0108, %309 ], [ %.0108, %312 ], [ %.1.i236, %289 ], [ %.1.i236, %290 ], [ %.0108, %lean_nat_eq.exit.thread ]
+  %.0105.be = phi ptr [ %.0105, %283 ], [ %.0105, %287 ], [ %.1.i236, %315 ], [ %.1.i236, %314 ], [ %.1.i236, %309 ], [ %.1.i236, %312 ], [ %.0105, %289 ], [ %.0105, %290 ], [ %.1.i236, %lean_nat_eq.exit.thread ]
   br label %lean_dec.exit142
 
 309:                                              ; preds = %lean_nat_eq.exit

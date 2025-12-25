@@ -16173,9 +16173,9 @@ common.resume:                                    ; preds = %common.resume.sink.
           to label %199 unwind label %227, !noalias !3426
 
 _ZN5serde2de9SeqAccess12next_element17he600ee3b4a5ffc16E.exit.i: ; preds = %219, %207
-  %..sroa.776.0.copyload.i = phi i64 [ 0, %207 ], [ %.sroa.14.8.copyload.i, %219 ]
-  %..sroa.675.0.copyload.i = phi i64 [ undef, %207 ], [ %.sroa.13113.8.copyload.i, %219 ]
-  %..sroa.574.0.copyload.i = phi ptr [ null, %207 ], [ %218, %219 ]
+  %..sroa.776.0.copyload.i = phi i64 [ %.sroa.14.8.copyload.i, %219 ], [ 0, %207 ]
+  %..sroa.675.0.copyload.i = phi i64 [ %.sroa.13113.8.copyload.i, %219 ], [ undef, %207 ]
+  %..sroa.574.0.copyload.i = phi ptr [ %218, %219 ], [ null, %207 ]
   %.sroa.052.i.sroa.5.32..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.052.i.sroa.5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.052.i.sroa.5.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.052.i.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.527.0..sroa_idx.i, i64 16, i1 false)

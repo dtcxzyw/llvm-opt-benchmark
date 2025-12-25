@@ -277,7 +277,7 @@ define void @ERR_add_error_txt(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %76
 
 76:                                               ; preds = %75, %.thread.thread, %62
-  %.170 = phi ptr [ %.3, %75 ], [ %.16498109, %.thread.thread ], [ %.167105, %62 ]
+  %.170 = phi ptr [ %.16498109, %.thread.thread ], [ %.3, %75 ], [ %.167105, %62 ]
   %77 = load i8, ptr %.170, align 1, !tbaa !12
   %.not88 = icmp eq i8 %77, 0
   br i1 %.not88, label %.critedge92, label %16, !llvm.loop !15

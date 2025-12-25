@@ -467,7 +467,7 @@ select.unfold:                                    ; preds = %.thread, %17, %2, %
   br label %22
 
 22:                                               ; preds = %17, %.thread, %select.unfold, %6, %9
-  %.0 = phi ptr [ null, %6 ], [ %7, %9 ], [ null, %select.unfold ], [ %7, %.thread ], [ %7, %17 ]
+  %.0 = phi ptr [ null, %6 ], [ %7, %9 ], [ null, %select.unfold ], [ %7, %17 ], [ %7, %.thread ]
   ret ptr %.0
 }
 

@@ -1082,7 +1082,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitStaticVarDeclERKN
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14CUDASharedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !674
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14CUDASharedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %56, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %51, %56 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %51, %56 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %58 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %51
   br label %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit
 
@@ -3680,7 +3680,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.i:    ; preds = %116
   %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i16 %144, -10
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %_ZL22tryEmitARCCopyWeakInitRN5clang7CodeGen15CodeGenFunctionERKNS0_6LValueEPKNS_4ExprE.exit.thread, label %.lr.ph.i
 
-_ZL22tryEmitARCCopyWeakInitRN5clang7CodeGen15CodeGenFunctionERKNS0_6LValueEPKNS_4ExprE.exit.thread: ; preds = %.lr.ph.i, %138, %116, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i, %107
+_ZL22tryEmitARCCopyWeakInitRN5clang7CodeGen15CodeGenFunctionERKNS0_6LValueEPKNS_4ExprE.exit.thread: ; preds = %.lr.ph.i, %138, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i, %116, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %145
@@ -9262,7 +9262,7 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   br label %.thread147
 
 .thread147:                                       ; preds = %.loopexit, %34, %32, %60, %.lr.ph175, %.thread147.sink.split, %20, %8
-  %.5 = phi i1 [ false, %20 ], [ %.not97, %.lr.ph175 ], [ true, %60 ], [ %.5.ph, %.thread147.sink.split ], [ false, %8 ], [ false, %.loopexit ], [ true, %34 ], [ true, %32 ]
+  %.5 = phi i1 [ false, %20 ], [ %.not97, %.lr.ph175 ], [ true, %60 ], [ %.5.ph, %.thread147.sink.split ], [ false, %8 ], [ true, %34 ], [ false, %.loopexit ], [ true, %32 ]
   ret i1 %.5
 }
 
@@ -12393,7 +12393,7 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %276
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14NSConsumedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1559
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14NSConsumedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %298, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %293, %298 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %293, %298 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %300 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %293
   br label %_ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit
 
@@ -12507,7 +12507,7 @@ _ZNK5clang4Decl7hasAttrINS_14NSConsumedAttrEEEbv.exit: ; preds = %284, %287, %_Z
   br i1 %.not.i.i.i.i.i188, label %_ZN5clangneENS_22specific_attr_iteratorINS_23ObjCPreciseLifetimeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i186, !llvm.loop !1322
 
 _ZN5clangneENS_22specific_attr_iteratorINS_23ObjCPreciseLifetimeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %346, %.lr.ph.i.i.i.i.i186
-  %.sroa.07.0.i.i.ph.i.i189 = phi ptr [ %.sroa.07.1.i.i.i.i187, %.lr.ph.i.i.i.i.i186 ], [ %341, %346 ]
+  %.sroa.07.0.i.i.ph.i.i189 = phi ptr [ %341, %346 ], [ %.sroa.07.1.i.i.i.i187, %.lr.ph.i.i.i.i.i186 ]
   %348 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i189, %341
   %349 = zext i1 %348 to i32
   br label %_ZNK5clang4Decl7hasAttrINS_23ObjCPreciseLifetimeAttrEEEbv.exit
@@ -15584,7 +15584,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_16Opti
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_16OptimizeNoneAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1643
 
 _ZN5clangneENS_22specific_attr_iteratorINS_16OptimizeNoneAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_16OptimizeNoneAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 

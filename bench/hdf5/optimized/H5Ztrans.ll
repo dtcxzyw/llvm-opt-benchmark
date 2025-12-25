@@ -7960,7 +7960,7 @@ H5Z__unget_token.exit:                            ; preds = %H5Z__unget_token.ex
   br i1 %.not45, label %35, label %H5Z__unget_token.exit.backedge
 
 H5Z__unget_token.exit.backedge:                   ; preds = %31, %56
-  %.036.be = phi ptr [ %22, %31 ], [ %47, %56 ]
+  %.036.be = phi ptr [ %47, %56 ], [ %22, %31 ]
   br label %H5Z__unget_token.exit
 
 35:                                               ; preds = %31

@@ -3810,7 +3810,7 @@ default.unreachable1601:                          ; preds = %189
   br label %.thread1172
 
 1764:                                             ; preds = %.thread, %1757, %1747, %1745, %1426, %1166, %1156, %1154, %577, %1674, %1683, %1491, %1207, %438, %167, %516, %476, %460
-  %.2907 = phi i32 [ 0, %167 ], [ 0, %438 ], [ 0, %1757 ], [ 0, %460 ], [ 0, %476 ], [ 0, %516 ], [ 0, %577 ], [ %.10, %1166 ], [ 0, %1207 ], [ 0, %1426 ], [ 0, %1491 ], [ 0, %1683 ], [ 0, %1674 ], [ %.10, %1154 ], [ %.10, %1156 ], [ 0, %1745 ], [ 0, %1747 ], [ 0, %.thread ]
+  %.2907 = phi i32 [ 0, %167 ], [ 0, %438 ], [ 0, %1747 ], [ 0, %460 ], [ 0, %476 ], [ 0, %516 ], [ 0, %577 ], [ %.10, %1154 ], [ 0, %1207 ], [ 0, %1426 ], [ 0, %1491 ], [ 0, %1683 ], [ 0, %1674 ], [ %.10, %1166 ], [ %.10, %1156 ], [ 0, %1745 ], [ 0, %1757 ], [ 0, %.thread ]
   %1765 = call zeroext i1 @H5T_is_numeric_with_unusual_unused_bits(ptr noundef nonnull %2) #16
   br i1 %1765, label %1766, label %1784
 
@@ -5540,8 +5540,8 @@ common.ret198:                                    ; preds = %.split47.us, %.spli
   br label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph64.split, %.lr.ph64.split.us, %.lr.ph.split.us, %.lr.ph.split.us, %.split.us.loopexit160, %.split.us.loopexit138, %.split.us.loopexit117, %tailrecurse, %H5VM_limit_enc_size.exit, %.split35.us, %._crit_edge
-  %accumulator.tr12 = phi i64 [ %accumulator.tr21.us, %._crit_edge ], [ %accumulator.tr21.us, %.lr.ph64.split.us ], [ %accumulator.tr21.us, %.lr.ph.split.us ], [ %accumulator.tr21.us, %.split.us.loopexit117 ], [ %accumulator.tr21.us, %.split.us.loopexit160 ], [ %accumulator.tr21.us, %.split35.us ], [ %accumulator.tr21.us, %.split.us.loopexit138 ], [ %accumulator.tr21.us, %H5VM_limit_enc_size.exit ], [ 0, %tailrecurse ], [ %accumulator.tr21.us, %.lr.ph.split.us ], [ %accumulator.tr21.us, %.lr.ph64.split ]
-  %.062 = phi i64 [ %128, %._crit_edge ], [ %93, %.lr.ph64.split.us ], [ 12, %.lr.ph.split.us ], [ 20, %.split.us.loopexit117 ], [ 8, %.split.us.loopexit160 ], [ %20, %.split35.us ], [ 10, %.split.us.loopexit138 ], [ 8, %H5VM_limit_enc_size.exit ], [ 0, %tailrecurse ], [ 12, %.lr.ph.split.us ], [ %102, %.lr.ph64.split ]
+  %accumulator.tr12 = phi i64 [ %accumulator.tr21.us, %._crit_edge ], [ %accumulator.tr21.us, %.lr.ph64.split.us ], [ %accumulator.tr21.us, %.lr.ph.split.us ], [ %accumulator.tr21.us, %.split.us.loopexit117 ], [ %accumulator.tr21.us, %.split.us.loopexit138 ], [ %accumulator.tr21.us, %.split35.us ], [ %accumulator.tr21.us, %.split.us.loopexit160 ], [ %accumulator.tr21.us, %H5VM_limit_enc_size.exit ], [ 0, %tailrecurse ], [ %accumulator.tr21.us, %.lr.ph.split.us ], [ %accumulator.tr21.us, %.lr.ph64.split ]
+  %.062 = phi i64 [ %128, %._crit_edge ], [ %93, %.lr.ph64.split.us ], [ 12, %.lr.ph.split.us ], [ 20, %.split.us.loopexit117 ], [ 10, %.split.us.loopexit138 ], [ %20, %.split35.us ], [ 8, %.split.us.loopexit160 ], [ 8, %H5VM_limit_enc_size.exit ], [ 0, %tailrecurse ], [ 12, %.lr.ph.split.us ], [ %102, %.lr.ph64.split ]
   %accumulator.ret.tr2 = add i64 %.062, %accumulator.tr12
   %accumulator.ret.tr196 = add i64 %accumulator.ret.tr2, %accumulator.tr
   br label %common.ret198

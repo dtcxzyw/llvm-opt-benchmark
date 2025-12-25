@@ -2481,7 +2481,7 @@ _ZN4Luau6get_ifINS_16VariadicTypePackEJNS_9Unifiable5BoundIPKNS_11TypePackVarEEE
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.loopexit324.split.loop.exit343, %.critedge, %.lr.ph277, %54, %131, %117, %145
-  %.0 = phi i1 [ %136, %131 ], [ %spec.select, %145 ], [ %122, %117 ], [ false, %.lr.ph277 ], [ false, %54 ], [ %.not.i83.not.mux.le, %.critedge.thread.loopexit324.split.loop.exit343 ], [ false, %.critedge ]
+  %.0 = phi i1 [ %136, %131 ], [ %122, %117 ], [ false, %.lr.ph277 ], [ %spec.select, %145 ], [ false, %54 ], [ %.not.i83.not.mux.le, %.critedge.thread.loopexit324.split.loop.exit343 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -3130,7 +3130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %62
   resume { ptr, i32 } %.pn143.i
 
 .critedge.i:                                      ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit73.thread.i", %33
-  %.2.i = phi ptr [ %.5.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit73.thread.i" ], [ null, %33 ]
+  %.2.i = phi ptr [ null, %33 ], [ %.5.i, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit73.thread.i" ]
   %.not.i.i.i52.i = icmp eq ptr %.sroa.0.0.i55120.i, null
   br i1 %.not.i.i.i52.i, label %_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit, label %.lr.ph.i
 
@@ -3370,7 +3370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70
   resume { ptr, i32 } %.pn143
 
 .critedge:                                        ; preds = %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit73.thread", %38
-  %.2 = phi ptr [ %.5, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit73.thread" ], [ null, %38 ]
+  %.2 = phi ptr [ null, %38 ], [ %.5, %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit73.thread" ]
   %79 = tail call noundef ptr %2(ptr noundef %1, ptr noundef %.sroa.0.0.i55120)
   %.not.i.i.i52 = icmp eq ptr %79, null
   br i1 %.not.i.i.i52, label %"_ZZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_EENK3$_0clES2_.exit.thread", label %.lr.ph
@@ -3802,7 +3802,7 @@ tailrecurse:                                      ; preds = %_ZN4Luau3getINS_8Ty
   br label %.thread
 
 .thread:                                          ; preds = %tailrecurse, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit, %tailrecurse.us, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.us, %.split.us, %.split, %.split25.us
-  %.1 = phi i1 [ %24, %.split25.us ], [ true, %.split ], [ true, %tailrecurse.us ], [ true, %.split.us ], [ true, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.us ], [ true, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit ], [ true, %tailrecurse ]
+  %.1 = phi i1 [ %24, %.split25.us ], [ true, %.split ], [ true, %.split.us ], [ true, %tailrecurse.us ], [ true, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.us ], [ true, %_ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit ], [ true, %tailrecurse ]
   ret i1 %.1
 }
 
@@ -4424,8 +4424,8 @@ _ZN4Luau16TypePackIteratorppEv.exit:              ; preds = %58, %.lr.ph80, %.no
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %3, %.noexc, %36, %.noexc.i.i.i, %_ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i
-  %.sroa.15.0.ph.ph.ph = phi ptr [ %.sroa.15.2, %_ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i ], [ %.sroa.15.2, %.noexc.i.i.i ], [ %.sroa.10.098, %36 ], [ null, %.noexc ], [ null, %3 ]
-  %.sroa.040.0.ph.ph.ph = phi ptr [ %.sroa.040.2, %_ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i ], [ %.sroa.040.2, %.noexc.i.i.i ], [ %.sroa.040.199, %36 ], [ null, %.noexc ], [ null, %3 ]
+  %.sroa.15.0.ph.ph.ph = phi ptr [ %.sroa.15.2, %_ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i ], [ %.sroa.15.2, %.noexc.i.i.i ], [ %.sroa.10.098, %36 ], [ null, %3 ], [ null, %.noexc ]
+  %.sroa.040.0.ph.ph.ph = phi ptr [ %.sroa.040.2, %_ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i.i ], [ %.sroa.040.2, %.noexc.i.i.i ], [ %.sroa.040.199, %36 ], [ null, %3 ], [ null, %.noexc ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

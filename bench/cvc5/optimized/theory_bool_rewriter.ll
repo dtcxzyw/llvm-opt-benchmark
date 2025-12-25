@@ -4391,9 +4391,9 @@ _ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS1_4kind6Kind_tESt4has
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit608
 
 1713:                                             ; preds = %1013, %1030, %1640, %1711, %.body297, %142
-  %.sroa.26.1 = phi ptr [ %.sroa.26.0, %1030 ], [ %.sroa.26.0, %1013 ], [ %.sroa.26.0, %142 ], [ %.sroa.26.9, %1711 ], [ %.sroa.26.3, %.body297 ], [ %.sroa.26.0, %1640 ]
-  %.sroa.0649.1 = phi ptr [ %.sroa.0649.0, %1030 ], [ %.sroa.0649.0, %1013 ], [ %.sroa.0649.0, %142 ], [ %.sroa.0649.9, %1711 ], [ %.sroa.0649.3, %.body297 ], [ %.sroa.0649.0, %1640 ]
-  %.pn253.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1031, %1030 ], [ %1014, %1013 ], [ %143, %142 ], [ %1712, %1711 ], [ %.pn253.pn.pn.pn.pn.pn, %.body297 ], [ %.pn214.pn.pn.pn.pn.pn, %1640 ]
+  %.sroa.26.1 = phi ptr [ %.sroa.26.0, %142 ], [ %.sroa.26.0, %1013 ], [ %.sroa.26.0, %1030 ], [ %.sroa.26.9, %1711 ], [ %.sroa.26.3, %.body297 ], [ %.sroa.26.0, %1640 ]
+  %.sroa.0649.1 = phi ptr [ %.sroa.0649.0, %142 ], [ %.sroa.0649.0, %1013 ], [ %.sroa.0649.0, %1030 ], [ %.sroa.0649.9, %1711 ], [ %.sroa.0649.3, %.body297 ], [ %.sroa.0649.0, %1640 ]
+  %.pn253.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %143, %142 ], [ %1014, %1013 ], [ %1031, %1030 ], [ %1712, %1711 ], [ %.pn253.pn.pn.pn.pn.pn, %.body297 ], [ %.pn214.pn.pn.pn.pn.pn, %1640 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %1714 = ptrtoint ptr %.sroa.26.1 to i64
   %1715 = ptrtoint ptr %.sroa.0649.1 to i64

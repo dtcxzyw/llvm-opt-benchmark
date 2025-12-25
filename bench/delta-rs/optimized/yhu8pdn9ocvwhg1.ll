@@ -23981,11 +23981,11 @@ common.ret:                                       ; preds = %1935, %690, %786, %
   br label %.body1258
 
 1012:                                             ; preds = %1000, %1002
-  %.sroa.112066.0 = phi i64 [ %.sroa.546.i.sroa.4.0.copyload.i, %1000 ], [ undef, %1002 ]
-  %.sroa.102065.0 = phi ptr [ %.sroa.546.i.sroa.0.0.copyload.i, %1000 ], [ %.sroa.444.0.i4147.i, %1002 ]
-  %.sroa.92064.0 = phi ptr [ %.sroa.548.0.copyload.i.i, %1000 ], [ %.sroa.342.0.i4048.i, %1002 ]
-  %.sroa.82063.0 = phi i64 [ %1001, %1000 ], [ 3, %1002 ]
-  %.sroa.02062.0 = phi i64 [ %.sroa.0.0.copyload.i.i, %1000 ], [ -9223372036854775808, %1002 ]
+  %.sroa.112066.0 = phi i64 [ undef, %1002 ], [ %.sroa.546.i.sroa.4.0.copyload.i, %1000 ]
+  %.sroa.102065.0 = phi ptr [ %.sroa.444.0.i4147.i, %1002 ], [ %.sroa.546.i.sroa.0.0.copyload.i, %1000 ]
+  %.sroa.92064.0 = phi ptr [ %.sroa.342.0.i4048.i, %1002 ], [ %.sroa.548.0.copyload.i.i, %1000 ]
+  %.sroa.82063.0 = phi i64 [ 3, %1002 ], [ %1001, %1000 ]
+  %.sroa.02062.0 = phi i64 [ -9223372036854775808, %1002 ], [ %.sroa.0.0.copyload.i.i, %1000 ]
   store i8 1, ptr %938, align 8, !noalias !3204
   invoke fastcc void @"_ZN4core3ptr100drop_in_place$LT$aws_smithy_types..byte_stream..ByteStream..collect..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0ae8625a88b76586E"(ptr noundef nonnull align 8 %939)
           to label %1016 unwind label %1014

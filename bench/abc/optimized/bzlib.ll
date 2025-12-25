@@ -2464,8 +2464,8 @@ unRLE_obuf_to_output_SMALL.exit:                  ; preds = %74, %.backedge363.i
   %.not50 = icmp eq i32 %787, 2
   br i1 %.not50, label %.outer, label %unRLE_obuf_to_output_SMALL.exit.thread
 
-unRLE_obuf_to_output_SMALL.exit.thread:           ; preds = %30, %unRLE_obuf_to_output_SMALL.exit, %748, %765, %786, %79, %81, %131, %171, %211, %241, %BZ2_indexIntoF.exit342.i, %325, %327, %363, %390, %417, %606, %509, %511, %544, %592, %568, %706, %696, %685, %681, %716, %717, %.thread65, %7, %3, %1
-  %.0 = phi i32 [ -4, %BZ2_indexIntoF.exit342.i ], [ -2, %1 ], [ -2, %3 ], [ -2, %7 ], [ -4, %706 ], [ %., %.thread65 ], [ -4, %79 ], [ -4, %606 ], [ -4, %717 ], [ -4, %716 ], [ -4, %681 ], [ -4, %685 ], [ -4, %696 ], [ -4, %568 ], [ -4, %592 ], [ -4, %544 ], [ -4, %511 ], [ -4, %509 ], [ -4, %417 ], [ -4, %390 ], [ -4, %363 ], [ -4, %327 ], [ -4, %325 ], [ -4, %241 ], [ -4, %211 ], [ -4, %171 ], [ -4, %131 ], [ -4, %81 ], [ -1, %30 ], [ -4, %765 ], [ %772, %786 ], [ 0, %748 ], [ 0, %unRLE_obuf_to_output_SMALL.exit ]
+unRLE_obuf_to_output_SMALL.exit.thread:           ; preds = %30, %unRLE_obuf_to_output_SMALL.exit, %748, %765, %786, %79, %81, %131, %171, %211, %241, %BZ2_indexIntoF.exit342.i, %325, %327, %363, %390, %417, %509, %511, %544, %568, %592, %606, %706, %696, %685, %681, %716, %717, %.thread65, %7, %3, %1
+  %.0 = phi i32 [ -4, %BZ2_indexIntoF.exit342.i ], [ -2, %1 ], [ -2, %3 ], [ -2, %7 ], [ -4, %509 ], [ %., %.thread65 ], [ -4, %79 ], [ -4, %706 ], [ -4, %717 ], [ -4, %716 ], [ -4, %681 ], [ -4, %685 ], [ -4, %696 ], [ -4, %606 ], [ -4, %592 ], [ -4, %568 ], [ -4, %544 ], [ -4, %511 ], [ -4, %417 ], [ -4, %390 ], [ -4, %363 ], [ -4, %327 ], [ -4, %325 ], [ -4, %241 ], [ -4, %211 ], [ -4, %171 ], [ -4, %131 ], [ -4, %81 ], [ -1, %30 ], [ -4, %765 ], [ %772, %786 ], [ 0, %748 ], [ 0, %unRLE_obuf_to_output_SMALL.exit ]
   ret i32 %.0
 }
 
@@ -3031,7 +3031,7 @@ isempty_RL.exit.thread.loopexit.i.loopexit133:    ; preds = %.preheader.split.us
   br label %isempty_RL.exit.thread.loopexit.i
 
 isempty_RL.exit.thread.loopexit.i:                ; preds = %.split65.us.i, %44, %47, %56, %.preheader.split.us77.i, %.preheader.split.us77.i, %isempty_RL.exit.thread.loopexit.i.loopexit133
-  %.0.i.ph = phi i32 [ -1, %.preheader.split.us77.i ], [ 0, %isempty_RL.exit.thread.loopexit.i.loopexit133 ], [ -1, %.preheader.split.us77.i ], [ -1, %56 ], [ -1, %.split65.us.i ], [ -2, %47 ], [ -2, %44 ]
+  %.0.i.ph = phi i32 [ -1, %.preheader.split.us77.i ], [ 0, %isempty_RL.exit.thread.loopexit.i.loopexit133 ], [ -1, %.preheader.split.us77.i ], [ -1, %.split65.us.i ], [ -2, %44 ], [ -2, %47 ], [ -1, %56 ]
   %.not99 = icmp eq ptr %0, null
   br i1 %.not99, label %75, label %74
 

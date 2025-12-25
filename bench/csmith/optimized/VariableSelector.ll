@@ -2448,9 +2448,9 @@ _ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit135:      ; preds = %_ZN16VariableSelect
   ret ptr %.2330
 
 _ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit97:       ; preds = %.loopexit215, %.loopexit.split-lp216, %.loopexit210, %.loopexit.split-lp211.loopexit.split-lp, %291, %290
-  %.sroa.24.0 = phi ptr [ %.sroa.24.1.ph.ph, %.loopexit.split-lp211.loopexit.split-lp ], [ %.sroa.24.2.lcssa, %290 ], [ %.sroa.24.2.lcssa, %291 ], [ %.sroa.16.0267, %.loopexit.split-lp216 ], [ %.sroa.24.2266.lcssa287, %.loopexit215 ], [ %.sroa.24.2266, %.loopexit210 ]
-  %.sroa.0172.0 = phi ptr [ %.sroa.0172.1.ph.ph, %.loopexit.split-lp211.loopexit.split-lp ], [ %.sroa.0172.2.lcssa, %290 ], [ %.sroa.0172.2.lcssa, %291 ], [ %.sroa.0172.2268, %.loopexit.split-lp216 ], [ %.sroa.0172.2268, %.loopexit215 ], [ %.sroa.0172.2268, %.loopexit210 ]
-  %.pn67.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp221, %.loopexit.split-lp211.loopexit.split-lp ], [ %.pn, %290 ], [ %.pn, %291 ], [ %lpad.loopexit.split-lp218, %.loopexit.split-lp216 ], [ %lpad.loopexit217, %.loopexit215 ], [ %lpad.loopexit212, %.loopexit210 ]
+  %.sroa.24.0 = phi ptr [ %.sroa.24.1.ph.ph, %.loopexit.split-lp211.loopexit.split-lp ], [ %.sroa.24.2.lcssa, %290 ], [ %.sroa.24.2.lcssa, %291 ], [ %.sroa.24.2266.lcssa287, %.loopexit215 ], [ %.sroa.16.0267, %.loopexit.split-lp216 ], [ %.sroa.24.2266, %.loopexit210 ]
+  %.sroa.0172.0 = phi ptr [ %.sroa.0172.1.ph.ph, %.loopexit.split-lp211.loopexit.split-lp ], [ %.sroa.0172.2.lcssa, %290 ], [ %.sroa.0172.2.lcssa, %291 ], [ %.sroa.0172.2268, %.loopexit215 ], [ %.sroa.0172.2268, %.loopexit.split-lp216 ], [ %.sroa.0172.2268, %.loopexit210 ]
+  %.pn67.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp221, %.loopexit.split-lp211.loopexit.split-lp ], [ %.pn, %290 ], [ %.pn, %291 ], [ %lpad.loopexit217, %.loopexit215 ], [ %lpad.loopexit.split-lp218, %.loopexit.split-lp216 ], [ %lpad.loopexit212, %.loopexit210 ]
   %.not.i.i.i136 = icmp eq ptr %.sroa.0172.0, null
   br i1 %.not.i.i.i136, label %_ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit137, label %_ZNSt6vectorIP8VariableSaIS1_EED2Ev.exit97.thread
 
@@ -5548,10 +5548,10 @@ define dso_local noundef ptr @_ZN16VariableSelector21expand_block_for_gotoEP5Blo
   br label %.critedge
 
 .critedge:                                        ; preds = %29, %.critedge.loopexit, %6
-  %38 = phi ptr [ %.pre39, %.critedge.loopexit ], [ %7, %6 ], [ %32, %29 ]
-  %39 = phi ptr [ %.pre38, %.critedge.loopexit ], [ %7, %6 ], [ %31, %29 ]
-  %.01928 = phi i64 [ %.01930, %.critedge.loopexit ], [ 0, %6 ], [ %30, %29 ]
-  %.2 = phi ptr [ %.2.ph, %.critedge.loopexit ], [ %.018, %6 ], [ %.018, %29 ]
+  %38 = phi ptr [ %7, %6 ], [ %.pre39, %.critedge.loopexit ], [ %32, %29 ]
+  %39 = phi ptr [ %7, %6 ], [ %.pre38, %.critedge.loopexit ], [ %31, %29 ]
+  %.01928 = phi i64 [ 0, %6 ], [ %.01930, %.critedge.loopexit ], [ %30, %29 ]
+  %.2 = phi ptr [ %.018, %6 ], [ %.2.ph, %.critedge.loopexit ], [ %.018, %29 ]
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %38 to i64
   %42 = sub i64 %40, %41

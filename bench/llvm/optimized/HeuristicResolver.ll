@@ -1750,7 +1750,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit.i: ; preds = %47
   br label %_ZN5clang12_GLOBAL__N_118resolveDeclsToTypeERKSt6vectorIPKNS_9NamedDeclESaIS4_EERNS_10ASTContextE.exit
 
 _ZN5clang12_GLOBAL__N_118resolveDeclsToTypeERKSt6vectorIPKNS_9NamedDeclESaIS4_EERNS_10ASTContextE.exit: ; preds = %57, %60, %65
-  %.sroa.0.0.i = phi i64 [ %61, %60 ], [ %.sroa.0.0.copyload.i.i, %65 ], [ %59, %57 ]
+  %.sroa.0.0.i = phi i64 [ %59, %57 ], [ %.sroa.0.0.copyload.i.i, %65 ], [ %61, %60 ]
   %.not.i.i.i = icmp ult i64 %.sroa.0.0.i, 16
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN5clang9NamedDeclESaIS3_EED2Ev.exit, label %67
 

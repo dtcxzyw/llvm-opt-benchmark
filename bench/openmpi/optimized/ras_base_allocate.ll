@@ -4540,7 +4540,7 @@ pmix_obj_run_destructors.exit376:                 ; preds = %.lr.ph.i373, %515
   %529 = icmp slt i64 %indvars.iv.next530, %418
   br i1 %529, label %pmix_pointer_array_get_item.exit365, label %.critedge13
 
-.critedge13:                                      ; preds = %.critedge15, %413, %526, %528, %pmix_obj_update.exit302, %472, %474, %pmix_obj_update.exit303
+.critedge13:                                      ; preds = %.critedge15, %413, %526, %528, %pmix_obj_update.exit302, %472, %pmix_obj_update.exit303, %474
   %.not273 = icmp eq ptr %.0248468, %355
   br i1 %.not273, label %530, label %413, !llvm.loop !139
 

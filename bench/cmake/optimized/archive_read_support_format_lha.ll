@@ -160,7 +160,7 @@ define internal range(i32 -1, 31) i32 @archive_read_format_lha_bid(ptr noundef %
   br i1 %39, label %.outer.split.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %._crit_edge, %21, %.lr.ph, %11, %14, %8, %5, %2
-  %.0 = phi i32 [ 0, %11 ], [ -1, %2 ], [ -1, %5 ], [ 30, %8 ], [ 30, %.lr.ph ], [ 0, %14 ], [ 0, %21 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %11 ], [ -1, %2 ], [ -1, %5 ], [ 30, %8 ], [ 0, %14 ], [ 30, %.lr.ph ], [ 0, %21 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1037,7 +1037,7 @@ lha_read_file_header_2.exit.sink.split:           ; preds = %450, %442, %340, %3
   br label %lha_read_file_header_2.exit
 
 lha_read_file_header_2.exit:                      ; preds = %lha_read_file_header_2.exit.sink.split, %lha_crc16.exit.i, %450
-  %.0.i224 = phi i32 [ %433, %450 ], [ %433, %lha_crc16.exit.i ], [ -30, %lha_read_file_header_2.exit.sink.split ]
+  %.0.i224 = phi i32 [ %433, %lha_crc16.exit.i ], [ %433, %450 ], [ -30, %lha_read_file_header_2.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %lha_read_file_header_0.exit
@@ -1205,7 +1205,7 @@ lha_read_file_header_3.exit.sink.split:           ; preds = %457, %459, %552, %4
   br label %lha_read_file_header_3.exit
 
 lha_read_file_header_3.exit:                      ; preds = %lha_read_file_header_3.exit.sink.split, %lha_crc16.exit.i245, %552
-  %.0.i227 = phi i32 [ %550, %552 ], [ %550, %lha_crc16.exit.i245 ], [ -30, %lha_read_file_header_3.exit.sink.split ]
+  %.0.i227 = phi i32 [ %550, %lha_crc16.exit.i245 ], [ %550, %552 ], [ -30, %lha_read_file_header_3.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %lha_read_file_header_0.exit
@@ -5164,7 +5164,7 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr noundef c
   br i1 %exitcond292.not, label %.thread221, label %65, !llvm.loop !183
 
 .thread221:                                       ; preds = %209, %129, %78, %140, %204, %200, %142, %180, %162, %.loopexit225, %13, %14
-  %.0184 = phi i32 [ 0, %13 ], [ 0, %180 ], [ 0, %14 ], [ 1, %.loopexit225 ], [ 0, %162 ], [ 0, %204 ], [ 0, %200 ], [ 0, %78 ], [ 0, %129 ], [ 1, %209 ], [ 0, %140 ], [ 0, %142 ]
+  %.0184 = phi i32 [ 0, %13 ], [ 1, %.loopexit225 ], [ 0, %14 ], [ 0, %180 ], [ 0, %162 ], [ 0, %200 ], [ 0, %204 ], [ 0, %78 ], [ 0, %129 ], [ 1, %209 ], [ 0, %142 ], [ 0, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0184

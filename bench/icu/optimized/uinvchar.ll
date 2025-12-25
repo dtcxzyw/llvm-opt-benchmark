@@ -251,7 +251,7 @@ define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_77(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.loopexit.sink.split, %.preheader, %5, %7
-  %.030 = phi i32 [ 0, %5 ], [ 0, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %7 ], [ %2, %31 ]
+  %.030 = phi i32 [ 0, %5 ], [ 0, %.preheader ], [ 0, %.loopexit.sink.split ], [ 0, %7 ], [ %2, %31 ]
   ret i32 %.030
 }
 
@@ -413,7 +413,7 @@ define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_77(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %.loopexit.sink.split, %.preheader, %5, %7
-  %.038 = phi i32 [ 0, %5 ], [ 0, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %7 ], [ %2, %34 ]
+  %.038 = phi i32 [ 0, %5 ], [ 0, %.preheader ], [ 0, %.loopexit.sink.split ], [ 0, %7 ], [ %2, %34 ]
   ret i32 %.038
 }
 

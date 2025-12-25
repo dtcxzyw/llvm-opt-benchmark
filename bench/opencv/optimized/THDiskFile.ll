@@ -443,7 +443,7 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
   store i32 1, ptr %4, align 4, !tbaa !19
   br label %34
 
-24:                                               ; preds = %16, %19, %13, %3
+24:                                               ; preds = %13, %19, %16, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %7)

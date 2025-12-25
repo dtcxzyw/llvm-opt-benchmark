@@ -1475,7 +1475,7 @@ _ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit: ; preds = %.pr
   br i1 %.not, label %.critedge39, label %26
 
 .critedge39:                                      ; preds = %_ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit, %46, %79, %26, %75, %78, %8, %5
-  %.0 = phi i1 [ %.not.i.i41, %5 ], [ false, %75 ], [ true, %8 ], [ false, %78 ], [ false, %_ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit ], [ false, %46 ], [ true, %79 ], [ false, %26 ]
+  %.0 = phi i1 [ %.not.i.i41, %5 ], [ false, %75 ], [ true, %8 ], [ false, %78 ], [ false, %_ZNK4llvm9LiveRange9advanceToEPKNS0_7SegmentENS_9SlotIndexE.exit ], [ true, %79 ], [ false, %46 ], [ false, %26 ]
   ret i1 %.0
 }
 
@@ -6053,7 +6053,7 @@ define dso_local void @_ZNK4llvm12LiveInterval21computeSubRangeUndefsERNS_15Smal
   br i1 %.not.i.i.i.i.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %32
-  %.sroa.0.0.i.i = phi ptr [ %31, %32 ], [ %.0.i.i.i, %26 ]
+  %.sroa.0.0.i.i = phi ptr [ %.0.i.i.i, %26 ], [ %31, %32 ]
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %36 = and i64 %7, %2
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 120

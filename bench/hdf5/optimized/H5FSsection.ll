@@ -933,7 +933,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sinfo_unlock(ptr noundef %0, 
   store i8 0, ptr %59, align 1, !tbaa !56
   br label %122
 
-.thread77:                                        ; preds = %90, %93
+.thread77:                                        ; preds = %93, %90
   store i8 0, ptr %59, align 1, !tbaa !56
   br label %101
 

@@ -1174,7 +1174,7 @@ define internal fastcc range(i32 0, 2) i32 @evp_rand_generate_locked(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %.preheader ], [ 1, %24 ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0

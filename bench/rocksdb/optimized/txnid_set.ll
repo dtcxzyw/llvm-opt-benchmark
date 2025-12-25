@@ -577,8 +577,8 @@ _ZNK4toku3omtImmLb0EE5fetchEjPm.exit:             ; preds = %_ZNK4toku3omtImmLb0
   %.sink.i = load i64, ptr %.sink.in.i, align 8, !tbaa !4
   br label %41
 
-41:                                               ; preds = %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread10.i, %5, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit
-  %42 = phi i64 [ %.sink.i, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i ], [ 0, %5 ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread10.i ]
+41:                                               ; preds = %5, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread10.i, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit
+  %42 = phi i64 [ %.sink.i, %_ZNK4toku3omtImmLb0EE5fetchEjPm.exit ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i ], [ 0, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread10.i ], [ 0, %5 ]
   ret i64 %42
 }
 

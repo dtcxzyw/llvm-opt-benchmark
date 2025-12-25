@@ -2048,7 +2048,7 @@ save_best.exit83:                                 ; preds = %._crit_edge.i74, %.
   br label %flat_mval.exit.i.i
 
 flat_mval.exit.i.i:                               ; preds = %.sink.split.i.i.i, %._crit_edge11.i.i.i, %330, %._crit_edge.i.i.i
-  %.038.i.i.i = phi i1 [ true, %._crit_edge.i.i.i ], [ true, %._crit_edge11.i.i.i ], [ true, %330 ], [ false, %.sink.split.i.i.i ]
+  %.038.i.i.i = phi i1 [ true, %._crit_edge11.i.i.i ], [ true, %._crit_edge.i.i.i ], [ true, %330 ], [ false, %.sink.split.i.i.i ]
   %371 = or i1 %.083106.i.i, %.038.i.i.i
   br label %372
 

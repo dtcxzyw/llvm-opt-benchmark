@@ -28934,7 +28934,7 @@ lean_obj_tag.exit:                                ; preds = %55, %58
   br label %lean_dec.exit37.backedge
 
 lean_dec.exit37.backedge:                         ; preds = %67, %71, %77, %79, %80
-  %.028.be = phi ptr [ %74, %80 ], [ %74, %79 ], [ %74, %77 ], [ %72, %71 ], [ %70, %67 ]
+  %.028.be = phi ptr [ %74, %79 ], [ %74, %80 ], [ %74, %77 ], [ %72, %71 ], [ %70, %67 ]
   br label %lean_dec.exit37
 
 71:                                               ; preds = %63
@@ -29831,7 +29831,7 @@ lean_obj_tag.exit:                                ; preds = %90, %93
   br label %lean_dec.exit52.backedge
 
 lean_dec.exit52.backedge:                         ; preds = %102, %106, %112, %114, %115
-  %.036.be = phi ptr [ %109, %115 ], [ %109, %114 ], [ %109, %112 ], [ %107, %106 ], [ %105, %102 ]
+  %.036.be = phi ptr [ %109, %114 ], [ %109, %115 ], [ %109, %112 ], [ %107, %106 ], [ %105, %102 ]
   br label %lean_dec.exit52
 
 106:                                              ; preds = %98
@@ -33545,7 +33545,7 @@ lean_string_dec_eq.exit.thread18.i:               ; preds = %lean_string_dec_eq.
   br label %l_Lean_Name_hasMacroScopes.exit.thread14.backedge
 
 l_Lean_Name_hasMacroScopes.exit.thread14.backedge: ; preds = %52, %lean_string_dec_eq.exit.i, %39
-  %.014.i.be = phi ptr [ %34, %lean_string_dec_eq.exit.i ], [ %34, %39 ], [ %54, %52 ]
+  %.014.i.be = phi ptr [ %34, %39 ], [ %34, %lean_string_dec_eq.exit.i ], [ %54, %52 ]
   br label %l_Lean_Name_hasMacroScopes.exit.thread14
 
 l___private_Init_Prelude_0__Lean_eraseMacroScopesAux.exit: ; preds = %lean_obj_tag.exit.i7, %lean_string_dec_eq.exit.thread18.i, %48, %50, %51

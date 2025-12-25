@@ -2055,7 +2055,7 @@ for.inc.i60:                                      ; preds = %if.then.i18.i68, %i
   br i1 %cmp.i.not.i63, label %if.end19, label %for.body.i41
 
 if.end19:                                         ; preds = %for.inc.i60, %lor.lhs.false.i48, %for.body.i41, %for.inc.i, %lor.lhs.false.i, %for.body.i, %if.else, %if.then15
-  %useStrictNode.1 = phi ptr [ null, %for.inc.i ], [ null, %if.then15 ], [ null, %if.else ], [ null, %for.body.i ], [ null, %lor.lhs.false.i ], [ %result.026.i43, %for.body.i41 ], [ %result.026.i43, %lor.lhs.false.i48 ], [ %result.1.i54, %for.inc.i60 ]
+  %useStrictNode.1 = phi ptr [ null, %for.inc.i ], [ null, %if.then15 ], [ null, %if.else ], [ null, %for.body.i ], [ null, %lor.lhs.false.i ], [ %result.1.i54, %for.inc.i60 ], [ %result.026.i43, %lor.lhs.false.i48 ], [ %result.026.i43, %for.body.i41 ]
   %46 = load ptr, ptr %funcCtx_.i, align 8
   %strictMode.i83 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %47 = load i8, ptr %strictMode.i83, align 8
@@ -8501,8 +8501,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %_ZN4llv
   br label %while.body, !llvm.loop !264
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us98, %while.body.us83, %while.body.us50, %land.rhs.i.i.us65, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
-  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
-  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.then.i.us ], [ true, %while.body.us50 ], [ true, %land.rhs.i.i.us98 ], [ true, %if.then.i.us.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
+  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
+  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %land.rhs.i.i.us98 ], [ true, %while.body.us50 ], [ true, %if.then.i.us.us ], [ true, %if.then.i.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }

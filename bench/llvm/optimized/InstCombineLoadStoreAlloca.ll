@@ -4672,7 +4672,7 @@ _ZN4llvm7detailspLERNS_8TypeSizeERKS1_.exit.i:    ; preds = %_ZN4llvm7detailspLE
   br i1 %exitcond.not.i, label %._crit_edge180.i, label %_ZN4llvm7detailspLERNS_8TypeSizeERKS1_.exit.i, !llvm.loop !315
 
 _ZL21unpackLoadToAggregateRN4llvm16InstCombinerImplERNS_8LoadInstE.exit: ; preds = %169, %._crit_edge.i, %252, %._crit_edge180.i
-  %.0.i115 = phi ptr [ %296, %._crit_edge180.i ], [ %263, %252 ], [ %183, %169 ], [ %217, %._crit_edge.i ]
+  %.0.i115 = phi ptr [ %183, %169 ], [ %296, %._crit_edge180.i ], [ %263, %252 ], [ %217, %._crit_edge.i ]
   %.not111 = icmp eq ptr %.0.i115, null
   br i1 %.not111, label %_ZL21unpackLoadToAggregateRN4llvm16InstCombinerImplERNS_8LoadInstE.exit.thread, label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit.thread
 
@@ -6322,7 +6322,7 @@ _ZN4llvm7detailspLERNS_8TypeSizeERKS1_.exit.i:    ; preds = %_ZN4llvm7detailspLE
   %exitcond.not.i = icmp eq i64 %323, %252
   br i1 %exitcond.not.i, label %._crit_edge186.i, label %_ZN4llvm7detailspLERNS_8TypeSizeERKS1_.exit.i, !llvm.loop !370
 
-_ZL22unpackStoreToAggregateRN4llvm16InstCombinerImplERNS_9StoreInstE.exit.thread100: ; preds = %_ZN4llvm11SmallVectorIcLj16EED2Ev.exit142.i, %254, %250, %.thread173.i
+_ZL22unpackStoreToAggregateRN4llvm16InstCombinerImplERNS_9StoreInstE.exit.thread100: ; preds = %_ZN4llvm11SmallVectorIcLj16EED2Ev.exit142.i, %254, %.thread173.i, %250
   %324 = call noundef ptr @_ZN4llvm16InstCombinerImpl21eraseInstFromFunctionERNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
   br label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit.thread
 
@@ -7260,7 +7260,7 @@ _ZN4llvm8DebugLocD2Ev.exit132:                    ; preds = %190, %194
   br label %.critedge
 
 .critedge:                                        ; preds = %110, %"_ZZN4llvm16InstCombinerImpl23mergeStoreIntoSuccessorERNS_9StoreInstEENK3$_0clEPS1_.exit.thread", %106, %108, %.lr.ph202, %123, %125, %71, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit, %_ZN4llvm8DebugLocD2Ev.exit132, %73, %80, %_ZN4llvm10BasicBlock13getTerminatorEv.exit112, %60, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ false, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit112 ], [ false, %60 ], [ false, %80 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit132 ], [ false, %.lr.ph202 ], [ false, %73 ], [ false, %71 ], [ false, %125 ], [ false, %123 ], [ false, %108 ], [ false, %106 ], [ false, %"_ZZN4llvm16InstCombinerImpl23mergeStoreIntoSuccessorERNS_9StoreInstEENK3$_0clEPS1_.exit.thread" ], [ false, %110 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ false, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit112 ], [ false, %60 ], [ false, %80 ], [ true, %_ZN4llvm8DebugLocD2Ev.exit132 ], [ false, %71 ], [ false, %73 ], [ false, %.lr.ph202 ], [ false, %125 ], [ false, %123 ], [ false, %108 ], [ false, %106 ], [ false, %"_ZZN4llvm16InstCombinerImpl23mergeStoreIntoSuccessorERNS_9StoreInstEENK3$_0clEPS1_.exit.thread" ], [ false, %110 ]
   ret i1 %.0
 }
 
@@ -9801,12 +9801,12 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.thread137: ; preds
   %.not157 = icmp eq ptr %.sroa.0114.0, null
   br i1 %.not157, label %.loopexit, label %24
 
-.loopexit.sink.split:                             ; preds = %_ZNK12_GLOBAL__N_115PointerReplacer27isEqualOrValidAddrSpaceCastEPKN4llvm11InstructionEj.exit.thread126, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit, %_ZNK12_GLOBAL__N_115PointerReplacer27isEqualOrValidAddrSpaceCastEPKN4llvm11InstructionEj.exit.thread, %221, %155, %150, %185, %188, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_115PointerReplacer21collectUsersRecursiveERNS_11InstructionEE3$_0EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_115PointerReplacer21collectUsersRecursiveERNS_11InstructionEE3$_1EEbOT_T0_.exit.thread", %28
+.loopexit.sink.split:                             ; preds = %_ZNK12_GLOBAL__N_115PointerReplacer27isEqualOrValidAddrSpaceCastEPKN4llvm11InstructionEj.exit.thread126, %_ZNK4llvm12MemIntrinsic10isVolatileEv.exit, %_ZNK12_GLOBAL__N_115PointerReplacer27isEqualOrValidAddrSpaceCastEPKN4llvm11InstructionEj.exit.thread, %221, %155, %150, %185, %188, %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_115PointerReplacer21collectUsersRecursiveERNS_11InstructionEE3$_1EEbOT_T0_.exit.thread", %"_ZN4llvm6any_ofINS_14iterator_rangeIPNS_3UseEEEZN12_GLOBAL__N_115PointerReplacer21collectUsersRecursiveERNS_11InstructionEE3$_0EEbOT_T0_.exit", %28
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.thread137, %.loopexit.sink.split, %2
-  %.not157176 = phi i1 [ false, %.loopexit.sink.split ], [ true, %2 ], [ true, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.thread137 ]
+  %.not157176 = phi i1 [ true, %2 ], [ false, %.loopexit.sink.split ], [ true, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.thread137 ]
   ret i1 %.not157176
 }
 

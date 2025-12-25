@@ -931,7 +931,7 @@ uniname2ctype.exit:                               ; preds = %116
   br label %uniname2ctype.exit.thread
 
 uniname2ctype.exit.thread:                        ; preds = %14, %12, %3, %uniname2ctype_hash.exit.i.i, %._crit_edge, %116, %112, %107, %102, %uniname2ctype.exit
-  %.0 = phi i32 [ -223, %uniname2ctype_hash.exit.i.i ], [ -223, %._crit_edge ], [ %121, %uniname2ctype.exit ], [ -223, %102 ], [ -223, %107 ], [ -223, %112 ], [ -223, %116 ], [ -223, %3 ], [ -223, %12 ], [ -223, %14 ]
+  %.0 = phi i32 [ -223, %._crit_edge ], [ -223, %uniname2ctype_hash.exit.i.i ], [ %121, %uniname2ctype.exit ], [ -223, %102 ], [ -223, %107 ], [ -223, %112 ], [ -223, %116 ], [ -223, %3 ], [ -223, %12 ], [ -223, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

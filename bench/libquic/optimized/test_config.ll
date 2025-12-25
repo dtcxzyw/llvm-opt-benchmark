@@ -317,7 +317,7 @@ _ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.thread103:                                       ; preds = %35, %93, %17, %.thread111
+.thread103:                                       ; preds = %93, %35, %17, %.thread111
   %.153107 = phi i32 [ %53, %.thread111 ], [ %89, %93 ], [ %31, %35 ], [ %.052144, %17 ]
   %105 = add nsw i32 %.153107, 1
   %.not145 = icmp slt i32 %105, %0

@@ -617,7 +617,7 @@ _query_fed_servers.exit:                          ; preds = %.thread.i55, %.oute
   br label %160
 
 160:                                              ; preds = %158, %155
-  %.221.i = phi i32 [ %159, %158 ], [ %157, %155 ]
+  %.221.i = phi i32 [ %157, %155 ], [ %159, %158 ]
   %.not30.i = icmp eq i32 %.221.i, 0
   br i1 %.not30.i, label %.thread.i60, label %.thread36.i
 

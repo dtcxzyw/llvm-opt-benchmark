@@ -6254,7 +6254,7 @@ _ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14
   br i1 %483, label %.thread127.i, label %529
 
 .thread127.i:                                     ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i, %455, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit, %391, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i32, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit42, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i33, %428, %.critedge.loopexit.i
-  %.182130.i = phi i64 [ %.283.i, %428 ], [ %.081.lcssa.i, %.critedge.loopexit.i ], [ %.081140.us.i, %391 ], [ %.081140.us.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i33 ], [ %.081140.us.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit42 ], [ %.081140.us.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i32 ], [ %.081140.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit ], [ %.081140.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i ], [ %.081140.i, %455 ], [ %.081140.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i ]
+  %.182130.i = phi i64 [ %.081140.us.i, %391 ], [ %.081.lcssa.i, %.critedge.loopexit.i ], [ %.283.i, %428 ], [ %.081140.us.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i33 ], [ %.081140.us.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit42 ], [ %.081140.us.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i32 ], [ %.081140.i, %_ZL24instructionClobbersQueryIN4llvm14BatchAAResultsEEbPKNS0_9MemoryDefERKNS0_14MemoryLocationEPKNS0_11InstructionERT_.exit ], [ %.081140.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.thread.i ], [ %.081140.i, %455 ], [ %.081140.i, %_ZN4llvm16dyn_cast_or_nullINS_8LoadInstEKNS_11InstructionEEEDaPT0_.exit.i ]
   %484 = load ptr, ptr %14, align 8, !tbaa !25
   %485 = getelementptr inbounds nuw ptr, ptr %484, i64 %.182130.i
   %486 = load ptr, ptr %485, align 8, !tbaa !235
@@ -14761,8 +14761,8 @@ _ZN4llvm9MemoryUse12setOptimizedEPNS_12MemoryAccessE.exit.i74: ; preds = %263, %
   br label %_ZN4llvm14MemoryUseOrDef12setOptimizedEPNS_12MemoryAccessE.exit66
 
 _ZN4llvm14MemoryUseOrDef12setOptimizedEPNS_12MemoryAccessE.exit66: ; preds = %_ZN4llvm9MemoryDef12setOptimizedEPNS_12MemoryAccessE.exit.i81, %_ZN4llvm9MemoryUse12setOptimizedEPNS_12MemoryAccessE.exit.i74, %266
-  %270 = phi i1 [ %269, %266 ], [ true, %_ZN4llvm9MemoryUse12setOptimizedEPNS_12MemoryAccessE.exit.i74 ], [ false, %_ZN4llvm9MemoryDef12setOptimizedEPNS_12MemoryAccessE.exit.i81 ]
-  %.1110 = phi ptr [ %.1.i88, %266 ], [ %224, %_ZN4llvm9MemoryUse12setOptimizedEPNS_12MemoryAccessE.exit.i74 ], [ %224, %_ZN4llvm9MemoryDef12setOptimizedEPNS_12MemoryAccessE.exit.i81 ]
+  %270 = phi i1 [ %269, %266 ], [ false, %_ZN4llvm9MemoryDef12setOptimizedEPNS_12MemoryAccessE.exit.i81 ], [ true, %_ZN4llvm9MemoryUse12setOptimizedEPNS_12MemoryAccessE.exit.i74 ]
+  %.1110 = phi ptr [ %.1.i88, %266 ], [ %224, %_ZN4llvm9MemoryDef12setOptimizedEPNS_12MemoryAccessE.exit.i81 ], [ %224, %_ZN4llvm9MemoryUse12setOptimizedEPNS_12MemoryAccessE.exit.i74 ]
   br i1 %4, label %271, label %_ZN4llvm14MemoryUseOrDef12setOptimizedEPNS_12MemoryAccessE.exit
 
 271:                                              ; preds = %_ZN4llvm14MemoryUseOrDef12setOptimizedEPNS_12MemoryAccessE.exit66

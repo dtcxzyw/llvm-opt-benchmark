@@ -4841,7 +4841,7 @@ _ZL21stbi__jpeg_dequantizePsPt.exit.us.i.i.i.i:   ; preds = %2133
   br i1 %2152, label %.lr.ph.i67.i.i.i, label %_ZL23stbi__decode_jpeg_imageP10stbi__jpeg.exit.i.i, !llvm.loop !133
 
 .critedge.sink.split.i.i.i:                       ; preds = %2091, %2086, %1378, %1375, %1371, %1369, %1139, %1134, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i, %1238, %1232, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit179.i.us.i.i.i.i, %1641, %1639, %1619, %1797, %1795, %1775, %1748, %.split.us.i.i.i.i, %.split302.us.i.i.i.i, %_ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i
-  %.str.67.sink.i.i.i = phi ptr [ @.str.62, %_ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i ], [ @.str.67, %.split302.us.i.i.i.i ], [ @.str.67, %1797 ], [ @.str.67, %.split.us.i.i.i.i ], [ @.str.67, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit179.i.us.i.i.i.i ], [ @.str.65, %1238 ], [ @.str.67, %1748 ], [ @.str.67, %1775 ], [ @.str.67, %1795 ], [ @.str.67, %1619 ], [ @.str.67, %1639 ], [ @.str.67, %1641 ], [ @.str.64, %1232 ], [ @.str.62, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i ], [ @.str.63, %1139 ], [ @.str.66, %1369 ], [ @.str.66, %1375 ], [ @.str.66, %1378 ], [ @.str.61, %2091 ], [ @.str.66, %1371 ], [ @.str.60, %2086 ], [ @.str.62, %1134 ]
+  %.str.67.sink.i.i.i = phi ptr [ @.str.67, %.split302.us.i.i.i.i ], [ @.str.67, %.split.us.i.i.i.i ], [ @.str.67, %1797 ], [ @.str.67, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit179.i.us.i.i.i.i ], [ @.str.65, %1238 ], [ @.str.62, %_ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i ], [ @.str.67, %1748 ], [ @.str.67, %1775 ], [ @.str.67, %1795 ], [ @.str.67, %1619 ], [ @.str.67, %1639 ], [ @.str.67, %1641 ], [ @.str.64, %1232 ], [ @.str.62, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i ], [ @.str.61, %2091 ], [ @.str.66, %1371 ], [ @.str.60, %2086 ], [ @.str.62, %1134 ], [ @.str.66, %1375 ], [ @.str.66, %1369 ], [ @.str.63, %1139 ], [ @.str.66, %1378 ]
   store ptr %.str.67.sink.i.i.i, ptr @_ZL22stbi__g_failure_reason, align 8, !tbaa !5
   br label %.loopexit366.i.i
 
@@ -9827,7 +9827,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   br i1 %exitcond932.not, label %.loopexit723, label %299, !llvm.loop !235
 
 .loopexit723:                                     ; preds = %299, %.loopexit725, %.loopexit712
-  %.1526 = phi ptr [ %.4529, %.loopexit725 ], [ %202, %.loopexit712 ], [ %.4529, %299 ]
+  %.1526 = phi ptr [ %202, %.loopexit712 ], [ %.4529, %.loopexit725 ], [ %.4529, %299 ]
   %indvars.iv.next964 = add nuw nsw i64 %indvars.iv963, 1
   %exitcond967.not = icmp eq i64 %indvars.iv.next964, %wide.trip.count966
   br i1 %exitcond967.not, label %._crit_edge826, label %59, !llvm.loop !236
@@ -10204,7 +10204,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   br label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %.lr.ph831, %.critedge.sink.split, %._crit_edge826.thread, %476, %475
-  %.0517 = phi i32 [ 1, %.lr.ph831 ], [ 1, %475 ], [ 1, %._crit_edge826.thread ], [ 1, %476 ], [ 0, %.critedge.sink.split ], [ 1, %.loopexit ]
+  %.0517 = phi i32 [ 1, %.lr.ph831 ], [ 1, %476 ], [ 1, %._crit_edge826.thread ], [ 1, %475 ], [ 0, %.critedge.sink.split ], [ 1, %.loopexit ]
   ret i32 %.0517
 }
 
@@ -13529,7 +13529,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi__build_huffmanP13s
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %.loopexit, %.loopexit65.sink.split, %47
-  %.0 = phi i32 [ 0, %.loopexit65.sink.split ], [ 1, %47 ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 1, %47 ], [ 0, %.loopexit65.sink.split ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -14170,7 +14170,7 @@ _ZL20stbi__extend_receiveP10stbi__jpegi.exit95:   ; preds = %205, %208
   br label %.thread118.sink.split
 
 .thread118.sink.split:                            ; preds = %177, %175, %155, %126, %.thread118.sink.split.sink.split, %_ZL22stbi__mul2shorts_validss.exit, %108, %106, %_ZL19stbi__addints_validii.exit, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit, %20, %44, %46
-  %.str.67.sink = phi ptr [ @.str.67, %.thread118.sink.split.sink.split ], [ @.str.69, %_ZL22stbi__mul2shorts_validss.exit ], [ @.str.68, %_ZL19stbi__addints_validii.exit ], [ @.str.67, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit ], [ @.str.67, %46 ], [ @.str.67, %44 ], [ @.str.67, %20 ], [ @.str.69, %108 ], [ @.str.69, %106 ], [ @.str.67, %126 ], [ @.str.67, %155 ], [ @.str.67, %175 ], [ @.str.67, %177 ]
+  %.str.67.sink = phi ptr [ @.str.69, %108 ], [ @.str.69, %_ZL22stbi__mul2shorts_validss.exit ], [ @.str.68, %_ZL19stbi__addints_validii.exit ], [ @.str.67, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit ], [ @.str.67, %46 ], [ @.str.67, %44 ], [ @.str.67, %20 ], [ @.str.67, %.thread118.sink.split.sink.split ], [ @.str.69, %106 ], [ @.str.67, %126 ], [ @.str.67, %155 ], [ @.str.67, %175 ], [ @.str.67, %177 ]
   store ptr %.str.67.sink, ptr @_ZL22stbi__g_failure_reason, align 8, !tbaa !5
   br label %.thread118
 
@@ -17888,7 +17888,7 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit121.i.i:    ; preds = %_ZL11stbi__zget8P10
   br i1 %.not77.i.i, label %.loopexit.i.i, label %.preheader144.i.i, !llvm.loop !303
 
 .loopexit.i.i:                                    ; preds = %.preheader144.i.i, %733, %.preheader.preheader.i.i, %728, %556
-  %.165.i.i = phi ptr [ %.5.i.i, %728 ], [ %.5.i.i, %733 ], [ %558, %556 ], [ %scevgep227.i.i, %.preheader.preheader.i.i ], [ %736, %.preheader144.i.i ]
+  %.165.i.i = phi ptr [ %scevgep227.i.i, %.preheader.preheader.i.i ], [ %.5.i.i, %733 ], [ %558, %556 ], [ %.5.i.i, %728 ], [ %736, %.preheader144.i.i ]
   br label %463, !llvm.loop !304
 
 _ZL25stbi__parse_huffman_blockP10stbi__zbuf.exit.i: ; preds = %559
@@ -18069,7 +18069,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__zbuild_huffmanP14
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %79, %.loopexit70.sink.split, %40
-  %.062 = phi i32 [ 0, %.loopexit70.sink.split ], [ 1, %40 ], [ 1, %79 ]
+  %.062 = phi i32 [ 1, %40 ], [ 0, %.loopexit70.sink.split ], [ 1, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.062

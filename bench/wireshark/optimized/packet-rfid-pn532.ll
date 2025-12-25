@@ -1016,7 +1016,7 @@ define internal i32 @dissect_pn532(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread1339, %62, %65, %.thread, %61
-  %.1 = phi ptr [ null, %61 ], [ null, %65 ], [ %52, %.thread ], [ null, %62 ], [ %67, %.thread1339 ], [ %67, %84 ], [ %67, %87 ]
+  %.1 = phi ptr [ null, %61 ], [ null, %62 ], [ %52, %.thread ], [ null, %65 ], [ %67, %.thread1339 ], [ %67, %84 ], [ %67, %87 ]
   switch i8 %22, label %957 [
     i8 0, label %97
     i8 1, label %138

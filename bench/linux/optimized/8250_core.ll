@@ -601,7 +601,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
   br i1 %53, label %.loopexit, label %45
 
 .loopexit:                                        ; preds = %.preheader38, %38, %.preheader, %26
-  %54 = phi ptr [ %22, %26 ], [ %50, %.preheader ], [ %34, %38 ], [ %14, %.preheader38 ]
+  %54 = phi ptr [ %22, %26 ], [ %34, %38 ], [ %50, %.preheader ], [ %14, %.preheader38 ]
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.loopexit..thread32_crit_edge, label %75
 

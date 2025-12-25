@@ -348,8 +348,8 @@ _ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thre
   store i64 %.sink.i61.sink, ptr %3, align 8, !tbaa !12
   br label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread
 
-_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread: ; preds = %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split, %4, %89, %110, %116, %123, %98, %44, %64, %70, %77, %53, %30, %21, %24, %126
-  %spec.select = phi i32 [ 0, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split ], [ 1, %4 ], [ 0, %89 ], [ 0, %110 ], [ 0, %116 ], [ 0, %123 ], [ 0, %98 ], [ 0, %44 ], [ 0, %64 ], [ 0, %70 ], [ 0, %77 ], [ 0, %53 ], [ 0, %30 ], [ 0, %21 ], [ 0, %24 ], [ 0, %126 ], [ %.236, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ]
+_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread: ; preds = %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split, %4, %89, %116, %110, %123, %98, %44, %70, %64, %77, %53, %30, %21, %24, %126
+  %spec.select = phi i32 [ 0, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread.sink.split ], [ 0, %126 ], [ 0, %89 ], [ 0, %116 ], [ 0, %110 ], [ 0, %123 ], [ 0, %98 ], [ 0, %44 ], [ 0, %70 ], [ 0, %64 ], [ 0, %77 ], [ 0, %53 ], [ 0, %30 ], [ 0, %21 ], [ 0, %24 ], [ 1, %4 ], [ %.236, %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit ]
   ret i32 %spec.select
 }
 

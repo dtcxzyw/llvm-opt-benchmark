@@ -2670,7 +2670,7 @@ _ZSteqIN32pxrInternal_v0_24__pxrReserved__22HdMaterialRelationshipESaIS1_EEbRKSt
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i12, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__14HdMaterialNodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, !llvm.loop !25
 
 _ZSteqIN32pxrInternal_v0_24__pxrReserved__14HdMaterialNodeESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22HdMaterialRelationshipES2_.exit.i.i.i.i.i, %29, %20, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i7, %.lr.ph.i.i.i.i.i12, %2, %77, %.loopexit, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__22HdMaterialRelationshipESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
-  %86 = phi i1 [ false, %.lr.ph.i.i.i.i.i7 ], [ %83, %.lr.ph.i.i.i.i.i12 ], [ false, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__22HdMaterialRelationshipESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit ], [ false, %.loopexit ], [ true, %77 ], [ false, %2 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %20 ], [ false, %29 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22HdMaterialRelationshipES2_.exit.i.i.i.i.i ]
+  %86 = phi i1 [ false, %.lr.ph.i.i.i.i.i7 ], [ false, %2 ], [ false, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__22HdMaterialRelationshipESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit ], [ false, %.loopexit ], [ true, %77 ], [ %83, %.lr.ph.i.i.i.i.i12 ], [ false, %.lr.ph.i.i.i.i.i ], [ false, %20 ], [ false, %29 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22HdMaterialRelationshipES2_.exit.i.i.i.i.i ]
   ret i1 %86
 }
 
@@ -2768,7 +2768,7 @@ _ZSteqIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkESt4le
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, !llvm.loop !27
 
 _ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkEEbRKSt4pairIT_T0_ES9_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %2, %43, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkESt4lessIS1_ESaISt4pairIKS1_S2_EEEbRKSt3mapIT_T0_T1_T2_ESG_.exit
-  %47 = phi i1 [ %44, %.lr.ph.i.i.i.i.i ], [ false, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkESt4lessIS1_ESaISt4pairIKS1_S2_EEEbRKSt3mapIT_T0_T1_T2_ESG_.exit ], [ true, %43 ], [ false, %2 ], [ false, %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkEEbRKSt4pairIT_T0_ES9_.exit.i.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i.i.i ]
+  %47 = phi i1 [ false, %2 ], [ false, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkESt4lessIS1_ESaISt4pairIKS1_S2_EEEbRKSt3mapIT_T0_T1_T2_ESG_.exit ], [ true, %43 ], [ %44, %.lr.ph.i.i.i.i.i ], [ false, %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkEEbRKSt4pairIT_T0_ES9_.exit.i.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i.i.i ]
   ret i1 %47
 }
 
@@ -2853,7 +2853,7 @@ _ZSteqIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkESt4le
   br i1 %or.cond, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_20HdMaterialNetworkMapES2_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !27
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_20HdMaterialNetworkMapES2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkEEbRKSt4pairIT_T0_ES9_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i, %2, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkESt4lessIS1_ESaISt4pairIKS1_S2_EEEbRKSt3mapIT_T0_T1_T2_ESG_.exit.i, %43
-  %46 = phi i1 [ %.not, %.lr.ph.i.i.i.i.i.i ], [ true, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkESt4lessIS1_ESaISt4pairIKS1_S2_EEEbRKSt3mapIT_T0_T1_T2_ESG_.exit.i ], [ false, %43 ], [ true, %2 ], [ true, %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkEEbRKSt4pairIT_T0_ES9_.exit.i.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i ]
+  %46 = phi i1 [ true, %2 ], [ true, %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkESt4lessIS1_ESaISt4pairIKS1_S2_EEEbRKSt3mapIT_T0_T1_T2_ESG_.exit.i ], [ false, %43 ], [ %.not, %.lr.ph.i.i.i.i.i.i ], [ true, %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_17HdMaterialNetworkEEbRKSt4pairIT_T0_ES9_.exit.i.i.i.i.i.i.i ], [ true, %.lr.ph.i.i.i.i.i.i.i ]
   ret i1 %46
 }
 

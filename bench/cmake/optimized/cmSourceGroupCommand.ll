@@ -5096,7 +5096,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i24:   ; preds = %_ZNKSt17basic_strin
   br i1 %exitcond.not.i.i25, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i24, !llvm.loop !148
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i24, %22, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit
-  %.2.i.i = phi i64 [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit ], [ %.01116.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i24 ], [ -1, %22 ]
+  %.2.i.i = phi i64 [ -1, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEPKcm.exit ], [ -1, %22 ], [ %.01116.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i24 ]
   %.not2095 = icmp eq i64 %.0710.i.i, -1
   br i1 %.not2095, label %._crit_edge, label %.lr.ph
 

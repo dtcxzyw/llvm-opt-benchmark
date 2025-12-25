@@ -24152,7 +24152,7 @@ _ZN18ruff_python_parser5lexer5Lexer22try_single_char_prefix17hfc6a698461a979eeE.
   store ptr %140, ptr %43, align 8, !alias.scope !3451
   br label %_ZN18ruff_python_parser5lexer6cursor6Cursor4bump17h2277234b3703cbf2E.exit
 
-_ZN18ruff_python_parser5lexer5Lexer22try_single_char_prefix17hfc6a698461a979eeE.exit: ; preds = %_ZN4core3str11validations15next_code_point17h40485ddcd43894e6E.exit.i, %_ZN18ruff_python_parser5lexer6cursor6Cursor6second17hd77bf6b59d0a2de7E.exit, %262, %261
+_ZN18ruff_python_parser5lexer5Lexer22try_single_char_prefix17hfc6a698461a979eeE.exit: ; preds = %_ZN4core3str11validations15next_code_point17h40485ddcd43894e6E.exit.i, %_ZN18ruff_python_parser5lexer6cursor6Cursor6second17hd77bf6b59d0a2de7E.exit, %261, %262
   %141 = icmp samesign ult i32 %1, 128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3454)
   br i1 %.not.i, label %_ZN18ruff_python_parser5lexer6cursor6Cursor9eat_while17ha25a3a5ca552b870E.exit, label %.lr.ph.preheader
@@ -25443,8 +25443,8 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i129.i.i.i.i.
   br label %.loopexit193.i.invoke.i.i.i.i.i.i
 
 .loopexit193.i.invoke.i.i.i.i.i.i:                ; preds = %1095, %1051, %795, %522, %948, %886, %678, %614, %1107, %1063, %960, %898, %807, %690, %626, %534
-  %630 = phi i64 [ 0, %678 ], [ %961, %960 ], [ %899, %898 ], [ 0, %948 ], [ %808, %807 ], [ %1064, %1063 ], [ %1108, %1107 ], [ %535, %534 ], [ %627, %626 ], [ %691, %690 ], [ 0, %614 ], [ 0, %886 ], [ 0, %522 ], [ 0, %795 ], [ 0, %1051 ], [ 0, %1095 ]
-  %631 = phi i64 [ undef, %678 ], [ %963, %960 ], [ %901, %898 ], [ undef, %948 ], [ %810, %807 ], [ %1066, %1063 ], [ %1110, %1107 ], [ %537, %534 ], [ %629, %626 ], [ %693, %690 ], [ undef, %614 ], [ undef, %886 ], [ undef, %522 ], [ undef, %795 ], [ undef, %1051 ], [ undef, %1095 ]
+  %630 = phi i64 [ %808, %807 ], [ %1108, %1107 ], [ %899, %898 ], [ %1064, %1063 ], [ %961, %960 ], [ 0, %678 ], [ 0, %948 ], [ %535, %534 ], [ %627, %626 ], [ %691, %690 ], [ 0, %614 ], [ 0, %886 ], [ 0, %522 ], [ 0, %795 ], [ 0, %1051 ], [ 0, %1095 ]
+  %631 = phi i64 [ %810, %807 ], [ %1110, %1107 ], [ %901, %898 ], [ %1066, %1063 ], [ %963, %960 ], [ undef, %678 ], [ undef, %948 ], [ %537, %534 ], [ %629, %626 ], [ %693, %690 ], [ undef, %614 ], [ undef, %886 ], [ undef, %522 ], [ undef, %795 ], [ undef, %1051 ], [ undef, %1095 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %630, i64 %631, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.aab41dc2a4de2fafba55bf875aa63917.228) #39
           to label %.loopexit193.i.cont.i.i.i.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i.i.i.i, !noalias !3539
 
@@ -30885,9 +30885,9 @@ _ZN18ruff_python_parser5lexer6cursor6Cursor6eat_if17h82820a2ee6c32467E.exit: ; p
   %.not = icmp eq i32 %93, 1114112
   br i1 %.not, label %_ZN18ruff_python_parser5lexer6cursor6Cursor6eat_if17h82820a2ee6c32467E.exit.thread, label %_ZN18ruff_python_parser5lexer6cursor6Cursor6eat_if17h82820a2ee6c32467E.exit.thread24
 
-_ZN18ruff_python_parser5lexer6cursor6Cursor6eat_if17h82820a2ee6c32467E.exit.thread24: ; preds = %72, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit12.i.i7.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit14.i.i9.i", %_ZN18ruff_python_parser5lexer6cursor6Cursor6eat_if17h82820a2ee6c32467E.exit
-  %94 = phi ptr [ %85, %_ZN18ruff_python_parser5lexer6cursor6Cursor6eat_if17h82820a2ee6c32467E.exit ], [ %59, %72 ], [ %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit12.i.i7.i" ], [ %75, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit14.i.i9.i" ]
-  %.sroa.0.0.i27 = phi i32 [ %93, %_ZN18ruff_python_parser5lexer6cursor6Cursor6eat_if17h82820a2ee6c32467E.exit ], [ %73, %72 ], [ %70, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit12.i.i7.i" ], [ %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit14.i.i9.i" ]
+_ZN18ruff_python_parser5lexer6cursor6Cursor6eat_if17h82820a2ee6c32467E.exit.thread24: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit12.i.i7.i", %72, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit14.i.i9.i", %_ZN18ruff_python_parser5lexer6cursor6Cursor6eat_if17h82820a2ee6c32467E.exit
+  %94 = phi ptr [ %85, %_ZN18ruff_python_parser5lexer6cursor6Cursor6eat_if17h82820a2ee6c32467E.exit ], [ %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit12.i.i7.i" ], [ %59, %72 ], [ %75, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit14.i.i9.i" ]
+  %.sroa.0.0.i27 = phi i32 [ %93, %_ZN18ruff_python_parser5lexer6cursor6Cursor6eat_if17h82820a2ee6c32467E.exit ], [ %70, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit12.i.i7.i" ], [ %73, %72 ], [ %82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56a0394a7ef756ecE.exit14.i.i9.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5015)
   %95 = load i32, ptr %1, align 8, !range !80, !alias.scope !5015, !noundef !3
   %96 = trunc nuw i32 %95 to i1
@@ -70345,7 +70345,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i.i.i4
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i16.i:       ; preds = %.loopexit71.i.i, %_ZN18ruff_python_parser12token_source11TokenSource4peek17h1521e258ea9aefbfE.exit.i.i.i, %358, %328, %.noexc10.i32.i, %251
-  %.sroa.04.2.ph.ph.i.i = phi i1 [ true, %251 ], [ true, %.noexc10.i32.i ], [ true, %_ZN18ruff_python_parser12token_source11TokenSource4peek17h1521e258ea9aefbfE.exit.i.i.i ], [ true, %358 ], [ false, %.loopexit71.i.i ], [ true, %328 ]
+  %.sroa.04.2.ph.ph.i.i = phi i1 [ true, %251 ], [ true, %.noexc10.i32.i ], [ true, %358 ], [ true, %_ZN18ruff_python_parser12token_source11TokenSource4peek17h1521e258ea9aefbfE.exit.i.i.i ], [ true, %328 ], [ false, %.loopexit71.i.i ]
   %lpad.loopexit.split-lp77.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i

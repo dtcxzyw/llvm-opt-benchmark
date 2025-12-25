@@ -481,7 +481,7 @@ ReadFileToWebPData.exit.thread:                   ; preds = %89
   br i1 %.not29.i.i, label %Validate.exit.i, label %Validate.exit.i.sink.split
 
 ParseRIFFHeader.exit.i:                           ; preds = %140, %137
-  %.sroa.12.1.i = phi i64 [ %96, %140 ], [ %125, %137 ]
+  %.sroa.12.1.i = phi i64 [ %125, %137 ], [ %96, %140 ]
   br label %144
 
 144:                                              ; preds = %ProcessChunk.exit.i, %ParseRIFFHeader.exit.i
@@ -1733,8 +1733,8 @@ Validate.exit.i.sink.split:                       ; preds = %688, %701, %713, %7
   br label %Validate.exit.i
 
 Validate.exit.i:                                  ; preds = %ProcessChunk.exit.i, %Validate.exit.i.sink.split, %.critedge71.i.i, %742, %738, %735, %732, %730, %727, %724, %721, %717, %713, %701, %690, %688, %667, %660, %626, %618, %563, %559, %555, %176, %165, %159, %148, %142, %122, %118, %107, %102
-  %str.2.str.1.i = phi ptr [ @str.1, %Validate.exit.i.sink.split ], [ @str.1, %122 ], [ @str.1, %660 ], [ @str.2, %690 ], [ @str.1, %701 ], [ @str.1, %688 ], [ @str.2, %.critedge71.i.i ], [ @str.2, %735 ], [ @str.1, %713 ], [ @str.1, %717 ], [ @str.1, %721 ], [ @str.1, %724 ], [ @str.1, %727 ], [ @str.1, %732 ], [ @str.1, %738 ], [ @str.1, %742 ], [ @str.1, %730 ], [ @str.1, %618 ], [ @str.1, %563 ], [ @str.1, %555 ], [ @str.1, %559 ], [ @str.1, %626 ], [ @str.1, %142 ], [ @str.1, %118 ], [ @str.1, %107 ], [ @str.1, %102 ], [ @str.1, %667 ], [ @str.1, %148 ], [ @str.1, %176 ], [ @str.1, %165 ], [ @str.1, %159 ], [ @str.1, %ProcessChunk.exit.i ]
-  %746 = phi i32 [ 1, %Validate.exit.i.sink.split ], [ 1, %122 ], [ 1, %660 ], [ 0, %690 ], [ 1, %701 ], [ 1, %688 ], [ 0, %.critedge71.i.i ], [ 0, %735 ], [ 1, %713 ], [ 1, %717 ], [ 1, %721 ], [ 1, %724 ], [ 1, %727 ], [ 1, %732 ], [ 1, %738 ], [ 1, %742 ], [ 1, %730 ], [ 1, %618 ], [ 1, %563 ], [ 1, %555 ], [ 1, %559 ], [ 1, %626 ], [ 1, %142 ], [ 1, %118 ], [ 1, %107 ], [ 1, %102 ], [ 1, %667 ], [ 1, %148 ], [ 1, %176 ], [ 1, %165 ], [ 1, %159 ], [ 1, %ProcessChunk.exit.i ]
+  %str.2.str.1.i = phi ptr [ @str.1, %176 ], [ @str.1, %122 ], [ @str.1, %148 ], [ @str.2, %690 ], [ @str.1, %701 ], [ @str.1, %688 ], [ @str.2, %.critedge71.i.i ], [ @str.2, %735 ], [ @str.1, %713 ], [ @str.1, %717 ], [ @str.1, %721 ], [ @str.1, %724 ], [ @str.1, %727 ], [ @str.1, %732 ], [ @str.1, %738 ], [ @str.1, %742 ], [ @str.1, %730 ], [ @str.1, %667 ], [ @str.1, %626 ], [ @str.1, %559 ], [ @str.1, %555 ], [ @str.1, %563 ], [ @str.1, %142 ], [ @str.1, %118 ], [ @str.1, %107 ], [ @str.1, %102 ], [ @str.1, %618 ], [ @str.1, %Validate.exit.i.sink.split ], [ @str.1, %660 ], [ @str.1, %165 ], [ @str.1, %159 ], [ @str.1, %ProcessChunk.exit.i ]
+  %746 = phi i32 [ 1, %176 ], [ 1, %122 ], [ 1, %148 ], [ 0, %690 ], [ 1, %701 ], [ 1, %688 ], [ 0, %.critedge71.i.i ], [ 0, %735 ], [ 1, %713 ], [ 1, %717 ], [ 1, %721 ], [ 1, %724 ], [ 1, %727 ], [ 1, %732 ], [ 1, %738 ], [ 1, %742 ], [ 1, %730 ], [ 1, %667 ], [ 1, %626 ], [ 1, %559 ], [ 1, %555 ], [ 1, %563 ], [ 1, %142 ], [ 1, %118 ], [ 1, %107 ], [ 1, %102 ], [ 1, %618 ], [ 1, %Validate.exit.i.sink.split ], [ 1, %660 ], [ 1, %165 ], [ 1, %159 ], [ 1, %ProcessChunk.exit.i ]
   %747 = load i32, ptr %52, align 4, !tbaa !11
   %.not23.i = icmp eq i32 %747, 0
   br i1 %.not23.i, label %748, label %AnalyzeWebP.exit
@@ -3172,7 +3172,7 @@ GetBits.exit100:                                  ; preds = %GetBits.exit100.loo
   br label %.critedge58
 
 .critedge58:                                      ; preds = %GetBits.exit100, %.critedge58.sink.split, %88, %102, %110, %GetBits.exit86, %GetBits.exit79, %72, %56, %35, %16
-  %.036 = phi i32 [ 1, %72 ], [ 0, %GetBits.exit86 ], [ 1, %56 ], [ 1, %35 ], [ 1, %16 ], [ 1, %.critedge58.sink.split ], [ 1, %88 ], [ 1, %102 ], [ 1, %110 ], [ 0, %GetBits.exit79 ], [ 0, %GetBits.exit100 ]
+  %.036 = phi i32 [ 1, %72 ], [ 0, %GetBits.exit86 ], [ 1, %56 ], [ 1, %35 ], [ 1, %16 ], [ 1, %.critedge58.sink.split ], [ 1, %110 ], [ 1, %102 ], [ 1, %88 ], [ 0, %GetBits.exit79 ], [ 0, %GetBits.exit100 ]
   ret i32 %.036
 }
 

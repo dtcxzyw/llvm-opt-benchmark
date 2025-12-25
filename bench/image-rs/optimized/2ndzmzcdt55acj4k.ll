@@ -29812,7 +29812,7 @@ _ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i
   br label %.thread
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$4find17h111a77c5657a9ca8E.exit.i": ; preds = %_ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i.i, %.preheader4.i.i, %.preheader.i.us.us.i, %.preheader.i.i, %.thread.i.i.i.i
-  %.sroa.6.3.i.i = phi i64 [ %205, %.preheader.i.i ], [ %83, %.thread.i.i.i.i ], [ %116, %.preheader4.i.i ], [ %170, %.preheader.i.us.us.i ], [ %34, %_ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i.i ]
+  %.sroa.6.3.i.i = phi i64 [ %116, %.preheader4.i.i ], [ %83, %.thread.i.i.i.i ], [ %205, %.preheader.i.i ], [ %170, %.preheader.i.us.us.i ], [ %34, %_ZN4core3str11validations15next_code_point17he3a678484acea744E.exit.thread.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3036
   %233 = icmp ne i64 %.sroa.6.3.i.i, 0
   %234 = add i64 %3, -1

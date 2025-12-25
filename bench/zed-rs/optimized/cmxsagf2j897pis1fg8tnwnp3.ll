@@ -14821,9 +14821,9 @@ _ZN5serde2de9MapAccess10next_value17h980fc868d43d719cE.exit.i.i.i.i: ; preds = %
   br label %252
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h552a4e46c0674c0aE.exit": ; preds = %232, %113
-  %.sroa.022.0 = phi i64 [ %.sroa.07.1.i.i.i, %232 ], [ %.sroa.02.0.i.i.i, %113 ]
-  %.sroa.923.0 = phi ptr [ %.sroa.108.1.i.i.i, %232 ], [ %.sroa.73.1.i.i.i, %113 ]
-  %.sroa.14.0 = phi i64 [ %.sroa.15.0.i.i.i, %232 ], [ %.sroa.10.0.i.i.i, %113 ]
+  %.sroa.022.0 = phi i64 [ %.sroa.02.0.i.i.i, %113 ], [ %.sroa.07.1.i.i.i, %232 ]
+  %.sroa.923.0 = phi ptr [ %.sroa.73.1.i.i.i, %113 ], [ %.sroa.108.1.i.i.i, %232 ]
+  %.sroa.14.0 = phi i64 [ %.sroa.10.0.i.i.i, %113 ], [ %.sroa.15.0.i.i.i, %232 ]
   store i64 %.sroa.022.0, ptr %0, align 8
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.923.0, ptr %.sroa.526.0..sroa_idx, align 8

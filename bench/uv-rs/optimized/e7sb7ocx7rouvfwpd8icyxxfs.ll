@@ -2014,7 +2014,7 @@ define internal fastcc void @"_ZN183_$LT$uv_distribution_types..index.._..$LT$im
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17ha4a9834d0022cbaaE.exit"
 
 .loopexit.split-lp:                               ; preds = %76, %94, %122, %132, %142, %152, %170, %180, %222
-  %.sroa.0163.1.ph = phi i8 [ 1, %142 ], [ 1, %132 ], [ 1, %152 ], [ 1, %122 ], [ 1, %170 ], [ 1, %94 ], [ 1, %180 ], [ 1, %76 ], [ %.sroa.0163.6632, %222 ]
+  %.sroa.0163.1.ph = phi i8 [ 1, %180 ], [ 1, %132 ], [ 1, %152 ], [ 1, %122 ], [ 1, %170 ], [ 1, %94 ], [ 1, %142 ], [ 1, %76 ], [ %.sroa.0163.6632, %222 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17ha4a9834d0022cbaaE.exit"
@@ -24608,13 +24608,13 @@ _ZN5serde2de7Visitor10visit_bool17h26057bbc70b9c8baE.exit: ; preds = %161
   br label %.body253.i
 
 .loopexit.split-lp.i:                             ; preds = %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i", %260, %249, %226, %216, %206, %190
-  %.sroa.13312.0.i188 = phi i64 [ %.sroa.13312.0.i208, %216 ], [ %.sroa.13312.0.i208, %206 ], [ %.sroa.13312.0.i208, %226 ], [ %.sroa.13312.0.i208, %190 ], [ %.sroa.13312.0.i208, %249 ], [ %.sroa.13312.0.i189, %260 ], [ %.sroa.13312.0.i189, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
-  %.sroa.0308.0.i168 = phi ptr [ %.sroa.0308.0.i209, %216 ], [ %.sroa.0308.0.i209, %206 ], [ %.sroa.0308.0.i209, %226 ], [ %.sroa.0308.0.i209, %190 ], [ %.sroa.0308.0.i209, %249 ], [ %.sroa.0308.0.i165, %260 ], [ %.sroa.0308.0.i165, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
-  %.sroa.13.0.i148 = phi i64 [ %.sroa.13.0.i210, %216 ], [ %.sroa.13.0.i210, %206 ], [ %.sroa.13.0.i210, %226 ], [ %.sroa.13.0.i210, %190 ], [ %.sroa.13.0.i210, %249 ], [ %.sroa.13.0.i149, %260 ], [ %.sroa.13.0.i149, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
-  %.sroa.0.0.i127 = phi ptr [ %.sroa.0.0.i211, %216 ], [ %.sroa.0.0.i211, %206 ], [ %.sroa.0.0.i211, %226 ], [ %.sroa.0.0.i211, %190 ], [ %.sroa.0.0.i211, %249 ], [ %.sroa.0.0.i124, %260 ], [ %.sroa.0.0.i124, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
-  %.sroa.0117.1.ph.i = phi i8 [ 1, %216 ], [ 1, %206 ], [ 1, %226 ], [ 1, %190 ], [ 1, %249 ], [ 1, %260 ], [ %.sroa.0117.7.i, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
-  %.sroa.0119.1.ph.i = phi i8 [ 1, %216 ], [ 1, %206 ], [ 1, %226 ], [ 1, %190 ], [ 1, %249 ], [ 1, %260 ], [ %.sroa.0119.7.i, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
-  %.sroa.0121.1.ph.i = phi i8 [ 1, %216 ], [ 1, %206 ], [ 1, %226 ], [ 1, %190 ], [ 1, %249 ], [ 1, %260 ], [ %.sroa.0121.6.i, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
+  %.sroa.13312.0.i188 = phi i64 [ %.sroa.13312.0.i208, %226 ], [ %.sroa.13312.0.i208, %206 ], [ %.sroa.13312.0.i208, %216 ], [ %.sroa.13312.0.i208, %190 ], [ %.sroa.13312.0.i208, %249 ], [ %.sroa.13312.0.i189, %260 ], [ %.sroa.13312.0.i189, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
+  %.sroa.0308.0.i168 = phi ptr [ %.sroa.0308.0.i209, %226 ], [ %.sroa.0308.0.i209, %206 ], [ %.sroa.0308.0.i209, %216 ], [ %.sroa.0308.0.i209, %190 ], [ %.sroa.0308.0.i209, %249 ], [ %.sroa.0308.0.i165, %260 ], [ %.sroa.0308.0.i165, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
+  %.sroa.13.0.i148 = phi i64 [ %.sroa.13.0.i210, %226 ], [ %.sroa.13.0.i210, %206 ], [ %.sroa.13.0.i210, %216 ], [ %.sroa.13.0.i210, %190 ], [ %.sroa.13.0.i210, %249 ], [ %.sroa.13.0.i149, %260 ], [ %.sroa.13.0.i149, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
+  %.sroa.0.0.i127 = phi ptr [ %.sroa.0.0.i211, %226 ], [ %.sroa.0.0.i211, %206 ], [ %.sroa.0.0.i211, %216 ], [ %.sroa.0.0.i211, %190 ], [ %.sroa.0.0.i211, %249 ], [ %.sroa.0.0.i124, %260 ], [ %.sroa.0.0.i124, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
+  %.sroa.0117.1.ph.i = phi i8 [ 1, %226 ], [ 1, %206 ], [ 1, %216 ], [ 1, %190 ], [ 1, %249 ], [ 1, %260 ], [ %.sroa.0117.7.i, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
+  %.sroa.0119.1.ph.i = phi i8 [ 1, %226 ], [ 1, %206 ], [ 1, %216 ], [ 1, %190 ], [ 1, %249 ], [ 1, %260 ], [ %.sroa.0119.7.i, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
+  %.sroa.0121.1.ph.i = phi i8 [ 1, %226 ], [ 1, %206 ], [ 1, %216 ], [ 1, %190 ], [ 1, %249 ], [ 1, %260 ], [ %.sroa.0121.6.i, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit.i" ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body253.i
@@ -36507,7 +36507,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17ha4a9834d0022cbaaE.exit.i"
 
 .loopexit.split-lp.i:                             ; preds = %287, %245, %235, %217, %207, %197, %187, %159, %142
-  %.sroa.0163.1.ph.i = phi i8 [ 1, %207 ], [ 1, %197 ], [ 1, %217 ], [ 1, %187 ], [ 1, %235 ], [ 1, %159 ], [ 1, %245 ], [ 1, %142 ], [ %.sroa.0163.6.i, %287 ]
+  %.sroa.0163.1.ph.i = phi i8 [ 1, %245 ], [ 1, %197 ], [ 1, %217 ], [ 1, %187 ], [ 1, %235 ], [ 1, %159 ], [ 1, %207 ], [ 1, %142 ], [ %.sroa.0163.6.i, %287 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17ha4a9834d0022cbaaE.exit.i"
@@ -40290,11 +40290,11 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %112
 
 .loopexit.split-lp.i:                             ; preds = %304, %225, %211, %193, %179, %165, %151, %137
-  %.sroa.0167.1.ph.i = phi i8 [ 1, %179 ], [ 1, %193 ], [ 1, %165 ], [ 1, %211 ], [ 1, %151 ], [ 1, %225 ], [ 1, %137 ], [ %.sroa.0167.6.i, %304 ]
-  %.sroa.0169.1.ph.i = phi i8 [ 1, %179 ], [ 1, %193 ], [ 1, %165 ], [ 1, %211 ], [ 1, %151 ], [ 1, %225 ], [ 1, %137 ], [ %.sroa.0169.6.i, %304 ]
-  %.sroa.0171.1.ph.i = phi i8 [ 1, %179 ], [ 1, %193 ], [ 1, %165 ], [ 1, %211 ], [ 1, %151 ], [ 1, %225 ], [ 1, %137 ], [ %.sroa.0171.6.i, %304 ]
-  %.sroa.0173.1.ph.i = phi i8 [ 1, %179 ], [ 1, %193 ], [ 1, %165 ], [ 1, %211 ], [ 1, %151 ], [ 1, %225 ], [ 1, %137 ], [ %.sroa.0173.6.i, %304 ]
-  %.sroa.0175.1.ph.i = phi i8 [ 1, %179 ], [ 1, %193 ], [ 1, %165 ], [ 1, %211 ], [ 1, %151 ], [ 1, %225 ], [ 1, %137 ], [ %.sroa.0175.6.i, %304 ]
+  %.sroa.0167.1.ph.i = phi i8 [ 1, %179 ], [ 1, %225 ], [ 1, %165 ], [ 1, %193 ], [ 1, %151 ], [ 1, %211 ], [ 1, %137 ], [ %.sroa.0167.6.i, %304 ]
+  %.sroa.0169.1.ph.i = phi i8 [ 1, %179 ], [ 1, %225 ], [ 1, %165 ], [ 1, %193 ], [ 1, %151 ], [ 1, %211 ], [ 1, %137 ], [ %.sroa.0169.6.i, %304 ]
+  %.sroa.0171.1.ph.i = phi i8 [ 1, %179 ], [ 1, %225 ], [ 1, %165 ], [ 1, %193 ], [ 1, %151 ], [ 1, %211 ], [ 1, %137 ], [ %.sroa.0171.6.i, %304 ]
+  %.sroa.0173.1.ph.i = phi i8 [ 1, %179 ], [ 1, %225 ], [ 1, %165 ], [ 1, %193 ], [ 1, %151 ], [ 1, %211 ], [ 1, %137 ], [ %.sroa.0173.6.i, %304 ]
+  %.sroa.0175.1.ph.i = phi i8 [ 1, %179 ], [ 1, %225 ], [ 1, %165 ], [ 1, %193 ], [ 1, %151 ], [ 1, %211 ], [ 1, %137 ], [ %.sroa.0175.6.i, %304 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %112
@@ -45610,11 +45610,11 @@ define internal fastcc void @"_ZN156_$LT$uv_tool..tool.._..$LT$impl$u20$serde..d
   br label %50
 
 .loopexit.split-lp:                               ; preds = %69, %84, %98, %112, %126, %144, %158, %237
-  %.sroa.0167.1.ph = phi i8 [ 1, %112 ], [ 1, %126 ], [ 1, %98 ], [ 1, %144 ], [ 1, %84 ], [ 1, %158 ], [ 1, %69 ], [ %.sroa.0167.6, %237 ]
-  %.sroa.0169.1.ph = phi i8 [ 1, %112 ], [ 1, %126 ], [ 1, %98 ], [ 1, %144 ], [ 1, %84 ], [ 1, %158 ], [ 1, %69 ], [ %.sroa.0169.6, %237 ]
-  %.sroa.0171.1.ph = phi i8 [ 1, %112 ], [ 1, %126 ], [ 1, %98 ], [ 1, %144 ], [ 1, %84 ], [ 1, %158 ], [ 1, %69 ], [ %.sroa.0171.6, %237 ]
-  %.sroa.0173.1.ph = phi i8 [ 1, %112 ], [ 1, %126 ], [ 1, %98 ], [ 1, %144 ], [ 1, %84 ], [ 1, %158 ], [ 1, %69 ], [ %.sroa.0173.6, %237 ]
-  %.sroa.0175.1.ph = phi i8 [ 1, %112 ], [ 1, %126 ], [ 1, %98 ], [ 1, %144 ], [ 1, %84 ], [ 1, %158 ], [ 1, %69 ], [ %.sroa.0175.6, %237 ]
+  %.sroa.0167.1.ph = phi i8 [ 1, %112 ], [ 1, %158 ], [ 1, %98 ], [ 1, %126 ], [ 1, %84 ], [ 1, %144 ], [ 1, %69 ], [ %.sroa.0167.6, %237 ]
+  %.sroa.0169.1.ph = phi i8 [ 1, %112 ], [ 1, %158 ], [ 1, %98 ], [ 1, %126 ], [ 1, %84 ], [ 1, %144 ], [ 1, %69 ], [ %.sroa.0169.6, %237 ]
+  %.sroa.0171.1.ph = phi i8 [ 1, %112 ], [ 1, %158 ], [ 1, %98 ], [ 1, %126 ], [ 1, %84 ], [ 1, %144 ], [ 1, %69 ], [ %.sroa.0171.6, %237 ]
+  %.sroa.0173.1.ph = phi i8 [ 1, %112 ], [ 1, %158 ], [ 1, %98 ], [ 1, %126 ], [ 1, %84 ], [ 1, %144 ], [ 1, %69 ], [ %.sroa.0173.6, %237 ]
+  %.sroa.0175.1.ph = phi i8 [ 1, %112 ], [ 1, %158 ], [ 1, %98 ], [ 1, %126 ], [ 1, %84 ], [ 1, %144 ], [ 1, %69 ], [ %.sroa.0175.6, %237 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %50

@@ -133168,9 +133168,9 @@ define hidden void @"_ZN101_$LT$ockam_api..cloud..project..models..OktaConfig$u2
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %376, %340, %266, %3
-  %.0328.ph.ph = phi i8 [ 1, %376 ], [ %.17345, %340 ], [ 1, %3 ], [ 1, %266 ]
-  %.0307.ph.ph = phi i8 [ 1, %376 ], [ %.16323, %340 ], [ 1, %3 ], [ 1, %266 ]
-  %.0305.ph.ph = phi i8 [ 1, %376 ], [ 0, %340 ], [ 1, %3 ], [ 1, %266 ]
+  %.0328.ph.ph = phi i8 [ %.17345, %340 ], [ 1, %376 ], [ 1, %3 ], [ 1, %266 ]
+  %.0307.ph.ph = phi i8 [ %.16323, %340 ], [ 1, %376 ], [ 1, %3 ], [ 1, %266 ]
+  %.0305.ph.ph = phi i8 [ 0, %340 ], [ 1, %376 ], [ 1, %3 ], [ 1, %266 ]
   %lpad.loopexit.split-lp503 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -136087,7 +136087,7 @@ define hidden void @"_ZN106_$LT$ockam_api..cloud..project..models..ProjectUserRo
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %234, %211, %189, %3
-  %.0295.ph.ph = phi i1 [ true, %3 ], [ true, %234 ], [ true, %189 ], [ false, %211 ]
+  %.0295.ph.ph = phi i1 [ true, %234 ], [ true, %3 ], [ true, %189 ], [ false, %211 ]
   %lpad.loopexit.split-lp446 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

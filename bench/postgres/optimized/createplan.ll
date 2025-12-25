@@ -10194,7 +10194,7 @@ tailrecurse:                                      ; preds = %30, %2
   br label %.thread
 
 .thread:                                          ; preds = %tailrecurse, %27, %18, %25, %15, %7, %9, %4, %33
-  %.1 = phi i1 [ false, %18 ], [ false, %25 ], [ true, %33 ], [ false, %7 ], [ false, %15 ], [ false, %4 ], [ false, %9 ], [ false, %27 ], [ false, %tailrecurse ]
+  %.1 = phi i1 [ false, %18 ], [ false, %15 ], [ true, %33 ], [ false, %7 ], [ false, %25 ], [ false, %4 ], [ false, %9 ], [ false, %27 ], [ false, %tailrecurse ]
   ret i1 %.1
 }
 

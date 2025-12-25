@@ -2034,9 +2034,9 @@ H5SM__write_mesg.exit:                            ; preds = %471, %472
   store i32 %487, ptr %5, align 4, !tbaa !3
   br label %.thread76
 
-.thread76:                                        ; preds = %475, %484, %486, %479, %157, %63, %67
-  %.183 = phi i32 [ -1, %157 ], [ 0, %67 ], [ -1, %63 ], [ 1, %486 ], [ 1, %484 ], [ 1, %479 ], [ -1, %475 ]
-  %.05781 = phi i32 [ 0, %157 ], [ 0, %67 ], [ 0, %63 ], [ %.568, %486 ], [ %.568, %484 ], [ %.568, %479 ], [ %.4, %475 ]
+.thread76:                                        ; preds = %475, %484, %486, %479, %67, %63, %157
+  %.183 = phi i32 [ -1, %157 ], [ 0, %67 ], [ -1, %63 ], [ 1, %479 ], [ 1, %484 ], [ 1, %486 ], [ -1, %475 ]
+  %.05781 = phi i32 [ 0, %157 ], [ 0, %67 ], [ 0, %63 ], [ %.568, %479 ], [ %.568, %484 ], [ %.568, %486 ], [ %.4, %475 ]
   %488 = call i64 @H5F_get_sohm_addr(ptr noundef %0) #11
   %489 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_TABLE, i64 noundef %488, ptr noundef nonnull %54, i32 noundef %.05781) #11
   %490 = icmp slt i32 %489, 0
@@ -4740,7 +4740,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SM__convert_list_to_btree(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %57, %80, %89, %93, %38, %65
-  %.148 = phi i32 [ -1, %38 ], [ -1, %65 ], [ -1, %80 ], [ 0, %93 ], [ -1, %57 ], [ -1, %89 ]
+  %.148 = phi i32 [ -1, %38 ], [ -1, %65 ], [ -1, %80 ], [ -1, %89 ], [ -1, %57 ], [ 0, %93 ]
   %96 = call i32 @H5B2_close(ptr noundef nonnull %30) #11
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %98, label %102
@@ -4990,7 +4990,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SM__convert_btree_to_list(ptr nou
   br label %36
 
 36:                                               ; preds = %32, %29
-  %.1 = phi i32 [ 0, %29 ], [ -1, %32 ]
+  %.1 = phi i32 [ -1, %32 ], [ 0, %29 ]
   %37 = load i64, ptr %11, align 8, !tbaa !51
   %38 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_LIST, i64 noundef %37, ptr noundef nonnull %23, i32 noundef 2) #11
   %39 = icmp slt i32 %38, 0

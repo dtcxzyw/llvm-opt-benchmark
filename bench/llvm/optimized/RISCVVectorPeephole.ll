@@ -742,7 +742,7 @@ _ZNK12_GLOBAL__N_119RISCVVectorPeephole11getConstantERKN4llvm14MachineOperandE.e
   br label %_ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit
 
 _ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.exit: ; preds = %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole11getConstantERKN4llvm14MachineOperandE.exit.thread.i, %227, %247, %.thread.i, %253, %.sink.split.i
-  %.0.i44 = phi i8 [ %.1232, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit ], [ %.1232, %253 ], [ %.1232, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole11getConstantERKN4llvm14MachineOperandE.exit.thread.i ], [ %.1232, %.thread.i ], [ %.1232, %227 ], [ %.1232, %247 ], [ %258, %.sink.split.i ]
+  %.0.i44 = phi i8 [ %.1232, %_ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEdeEv.exit ], [ %.1232, %253 ], [ %.1232, %_ZNK12_GLOBAL__N_119RISCVVectorPeephole11getConstantERKN4llvm14MachineOperandE.exit.thread.i ], [ %.1232, %247 ], [ %.1232, %227 ], [ %.1232, %.thread.i ], [ %258, %.sink.split.i ]
   %259 = getelementptr inbounds nuw i8, ptr %.sroa.0176.0231, i64 68
   %260 = load i16, ptr %259, align 4, !tbaa !392
   %261 = zext i16 %260 to i32

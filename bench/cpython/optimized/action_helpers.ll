@@ -3248,7 +3248,7 @@ _PyPegen_new_type_comment.exit:                   ; preds = %21
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %_PyPegen_new_type_comment.exit, %30, %27, %25, %7, %.critedge37
-  %.0 = phi ptr [ null, %7 ], [ %41, %.critedge37 ], [ null, %30 ], [ null, %27 ], [ null, %25 ], [ null, %_PyPegen_new_type_comment.exit ], [ null, %13 ]
+  %.0 = phi ptr [ null, %7 ], [ %41, %.critedge37 ], [ null, %27 ], [ null, %30 ], [ null, %25 ], [ null, %_PyPegen_new_type_comment.exit ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -4068,7 +4068,7 @@ Py_DECREF.exit:                                   ; preds = %191, %154, %151
   br label %.critedge
 
 .critedge:                                        ; preds = %114, %191, %._crit_edge277, %159, %.thread340.thread, %._crit_edge272.thread, %190, %187, %185, %.thread218, %.thread340, %219, %222, %._crit_edge272, %71, %Py_XDECREF.exit, %39
-  %.0 = phi ptr [ null, %39 ], [ %.1, %Py_XDECREF.exit ], [ %73, %71 ], [ null, %.thread340 ], [ null, %._crit_edge272 ], [ %221, %219 ], [ null, %._crit_edge272.thread ], [ %224, %222 ], [ null, %190 ], [ null, %.thread218 ], [ null, %187 ], [ null, %185 ], [ null, %.thread340.thread ], [ null, %191 ], [ null, %159 ], [ null, %._crit_edge277 ], [ null, %114 ]
+  %.0 = phi ptr [ null, %39 ], [ %.1, %Py_XDECREF.exit ], [ %73, %71 ], [ null, %.thread340 ], [ null, %._crit_edge272 ], [ %221, %219 ], [ null, %._crit_edge272.thread ], [ %224, %222 ], [ null, %187 ], [ null, %.thread218 ], [ null, %190 ], [ null, %185 ], [ null, %.thread340.thread ], [ null, %191 ], [ null, %159 ], [ null, %._crit_edge277 ], [ null, %114 ]
   ret ptr %.0
 }
 
@@ -4573,7 +4573,7 @@ tailrecurse.outer:                                ; preds = %33
   br label %.split.us
 
 .split.us:                                        ; preds = %tailrecurse.outer, %.split96.us, %33, %24, %.lr.ph113, %13, %.lr.ph119, %.lr.ph.split, %.split.us.loopexit212, %.split92.us, %.split88.us, %.lr.ph.split.us, %2, %.loopexit66.loopexit129, %21, %10
-  %.0 = phi ptr [ null, %21 ], [ null, %.split88.us ], [ null, %.split92.us ], [ %.tr.ph108, %.lr.ph.split.us ], [ null, %.loopexit66.loopexit129 ], [ null, %10 ], [ %.tr78, %.lr.ph.split ], [ %28, %.lr.ph113 ], [ null, %2 ], [ null, %.split.us.loopexit212 ], [ %17, %.lr.ph119 ], [ null, %13 ], [ null, %24 ], [ null, %tailrecurse.outer ], [ %.tr78, %.split96.us ], [ null, %33 ]
+  %.0 = phi ptr [ null, %21 ], [ null, %.split88.us ], [ null, %.split92.us ], [ null, %.split.us.loopexit212 ], [ null, %.loopexit66.loopexit129 ], [ null, %10 ], [ %.tr78, %.lr.ph.split ], [ %28, %.lr.ph113 ], [ null, %2 ], [ %.tr.ph108, %.lr.ph.split.us ], [ %17, %.lr.ph119 ], [ null, %13 ], [ null, %24 ], [ %.tr78, %.split96.us ], [ null, %tailrecurse.outer ], [ null, %33 ]
   ret ptr %.0
 }
 

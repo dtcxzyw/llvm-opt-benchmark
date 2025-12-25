@@ -922,7 +922,7 @@ _ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE12emplace_backIJ
   br label %260
 
 260:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE12emplace_backIJRA2_KcEEERS1_DpOT_.exit
-  %.129 = phi i64 [ %259, %_ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE12emplace_backIJRA2_KcEEERS1_DpOT_.exit ], [ %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.129 = phi i64 [ %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %259, %_ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE12emplace_backIJRA2_KcEEERS1_DpOT_.exit ]
   %261 = load i64, ptr %11, align 8, !tbaa !10
   %262 = icmp ult i64 %.129, %261
   br i1 %262, label %20, label %.critedge, !llvm.loop !60

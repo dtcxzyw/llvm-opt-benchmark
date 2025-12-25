@@ -3244,7 +3244,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br i1 %15, label %select.unfold, label %.loopexit31, !llvm.loop !126
 
 .loopexit31:                                      ; preds = %select.unfold, %.loopexit31.sink.split, %10
-  %.024 = phi i32 [ 1, %.loopexit31.sink.split ], [ 0, %10 ], [ 0, %select.unfold ]
+  %.024 = phi i32 [ 0, %10 ], [ 1, %.loopexit31.sink.split ], [ 0, %select.unfold ]
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !32
   %18 = icmp sgt i32 %17, 8
@@ -3697,7 +3697,7 @@ define internal fastcc void @copy_ret_buffer(ptr noundef nonnull readonly captur
   br i1 %17, label %12, label %.loopexit35, !llvm.loop !132
 
 .loopexit35:                                      ; preds = %12, %.loopexit35.sink.split, %.preheader
-  %.030 = phi i32 [ 1, %.loopexit35.sink.split ], [ 0, %.preheader ], [ 0, %12 ]
+  %.030 = phi i32 [ 0, %.preheader ], [ 1, %.loopexit35.sink.split ], [ 0, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !32
   %20 = icmp sgt i32 %19, 8

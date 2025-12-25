@@ -1427,7 +1427,7 @@ may_have_side_effects.exit:                       ; preds = %738, %740, %745, %7
   %.not465 = icmp eq i32 %756, 128
   br i1 %.not465, label %may_have_side_effects.exit.thread419, label %may_have_side_effects.exit.thread
 
-may_have_side_effects.exit.thread419:             ; preds = %693, %567, %664, %670, %672, %635, %636, %_ssa_op1_info.exit76.i, %531, %532, %_ssa_op2_info.exit.i, %_ssa_op2_info.exit.thread.i, %513, %517, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %_ssa_op1_info.exit80.i, %611, %657, %_ssa_op1_info.exit.i, %594, %may_have_side_effects.exit
+may_have_side_effects.exit.thread419:             ; preds = %693, %567, %664, %670, %672, %635, %636, %_ssa_op1_info.exit76.i, %531, %532, %_ssa_op2_info.exit.i, %_ssa_op2_info.exit.thread.i, %513, %517, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %510, %611, %_ssa_op1_info.exit80.i, %_ssa_op1_info.exit.i, %657, %594, %may_have_side_effects.exit
   %757 = load ptr, ptr %160, align 8, !tbaa !88
   %758 = getelementptr inbounds %struct._zend_op, ptr %757, i64 %indvars.iv.next555
   %759 = load ptr, ptr %161, align 8, !tbaa !91
@@ -1499,7 +1499,7 @@ may_throw_dce_exception.exit:                     ; preds = %762
   %806 = icmp ult i32 %804, %805
   br i1 %806, label %may_have_side_effects.exit.thread, label %may_break_varargs.exit
 
-may_have_side_effects.exit.thread:                ; preds = %708, %706, %582, %580, %800, %789, %778, %762, %749, %747, %734, %510, %647, %618, %601, %521, %590, %628, %is_bad_mod.exit122.i, %666, %is_bad_mod.exit128.i, %672, %_ssa_op1_info.exit76.i, %is_bad_mod.exit125.i, %639, %_ssa_op2_info.exit.thread.i, %is_bad_mod.exit.i, %517, %_ssa_op1_info.exit80.i, %611, %657, %_ssa_op1_info.exit.i, %594, %may_throw_dce_exception.exit, %may_have_side_effects.exit
+may_have_side_effects.exit.thread:                ; preds = %708, %706, %582, %580, %800, %789, %778, %762, %749, %747, %734, %510, %647, %618, %601, %521, %590, %628, %is_bad_mod.exit122.i, %666, %is_bad_mod.exit128.i, %672, %_ssa_op1_info.exit76.i, %is_bad_mod.exit125.i, %639, %_ssa_op2_info.exit.thread.i, %is_bad_mod.exit.i, %517, %611, %_ssa_op1_info.exit80.i, %_ssa_op1_info.exit.i, %657, %594, %may_throw_dce_exception.exit, %may_have_side_effects.exit
   %807 = load ptr, ptr %160, align 8, !tbaa !88
   %808 = getelementptr inbounds %struct._zend_op, ptr %807, i64 %indvars.iv.next555
   %809 = getelementptr inbounds nuw i8, ptr %808, i64 28

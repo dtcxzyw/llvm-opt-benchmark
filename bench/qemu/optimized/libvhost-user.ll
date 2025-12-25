@@ -581,7 +581,7 @@ define internal fastcc noundef zeroext i1 @vu_message_write(ptr noundef %0, i32 
   br label %.critedge4.thread42
 
 .critedge4.thread42:                              ; preds = %.critedge4.thread42.sink.split, %42, %.critedge4
-  %.0 = phi i1 [ true, %42 ], [ true, %.critedge4 ], [ false, %.critedge4.thread42.sink.split ]
+  %.0 = phi i1 [ true, %.critedge4 ], [ true, %42 ], [ false, %.critedge4.thread42.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1346,7 +1346,7 @@ vmsg_close_fds.exit.i:                            ; preds = %vmsg_close_fds.exit
   br label %163
 
 vu_process_message.exit:                          ; preds = %43, %89, %88, %20, %23, %34, %37, %39, %50, %52, %53, %59, %60, %73, %74, %76, %97, %109, %130, %131, %136, %138, %vmsg_close_fds.exit.i
-  %.074.i = phi i1 [ %22, %20 ], [ false, %vmsg_close_fds.exit.i ], [ false, %89 ], [ false, %34 ], [ false, %88 ], [ false, %37 ], [ false, %39 ], [ false, %23 ], [ false, %50 ], [ false, %138 ], [ false, %52 ], [ false, %53 ], [ false, %59 ], [ false, %60 ], [ %137, %136 ], [ false, %73 ], [ %75, %74 ], [ false, %76 ], [ false, %131 ], [ false, %109 ], [ false, %97 ], [ false, %130 ], [ false, %43 ]
+  %.074.i = phi i1 [ %22, %20 ], [ false, %vmsg_close_fds.exit.i ], [ %137, %136 ], [ false, %34 ], [ false, %138 ], [ false, %37 ], [ false, %39 ], [ false, %23 ], [ false, %50 ], [ false, %89 ], [ false, %52 ], [ false, %53 ], [ false, %59 ], [ false, %60 ], [ false, %130 ], [ false, %73 ], [ %75, %74 ], [ false, %76 ], [ false, %131 ], [ false, %109 ], [ false, %97 ], [ false, %88 ], [ false, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %or.cond.not = select i1 %.074.i, i1 true, i1 %12
   br i1 %or.cond.not, label %162, label %.critedge
@@ -3080,7 +3080,7 @@ virtqueue_alloc_element.exit.thread.sink.split:   ; preds = %40, %93, %86, %69, 
   br label %virtqueue_alloc_element.exit.thread
 
 virtqueue_alloc_element.exit.thread:              ; preds = %87, %77, %.lr.ph41, %virtqueue_alloc_element.exit.thread.sink.split, %.preheader, %116
-  %.043 = phi ptr [ %121, %.lr.ph41 ], [ %121, %.preheader ], [ null, %virtqueue_alloc_element.exit.thread.sink.split ], [ null, %116 ], [ null, %77 ], [ null, %87 ]
+  %.043 = phi ptr [ %121, %.preheader ], [ %121, %.lr.ph41 ], [ null, %virtqueue_alloc_element.exit.thread.sink.split ], [ null, %116 ], [ null, %77 ], [ null, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4536,7 +4536,7 @@ vu_check_queue_inflights.exit:                    ; preds = %._crit_edge.i, %148
   %.not54.i.not = icmp eq i32 %155, 0
   br i1 %.not54.i.not, label %vu_check_queue_inflights.exit.thread, label %vu_check_queue_inflights.exit.thread48
 
-vu_check_queue_inflights.exit.thread48:           ; preds = %113, %61, %vu_check_queue_inflights.exit
+vu_check_queue_inflights.exit.thread48:           ; preds = %61, %113, %vu_check_queue_inflights.exit
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.76, i32 noundef %6)
   br label %vu_check_queue_inflights.exit.thread
 

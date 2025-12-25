@@ -4764,7 +4764,7 @@ define void @_ZN12multi_buffer11MultiBuffer21set_active_selections17h02bce8000a6
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %69, %._crit_edge231, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbce507e3ca5b85dE.exit.thread", %270, %291, %294
-  %.sroa.08.4.ph.ph.ph = phi i1 [ true, %291 ], [ true, %69 ], [ false, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbce507e3ca5b85dE.exit.thread" ], [ false, %._crit_edge231 ], [ true, %294 ], [ true, %270 ]
+  %.sroa.08.4.ph.ph.ph = phi i1 [ true, %291 ], [ true, %270 ], [ false, %._crit_edge231 ], [ false, %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbce507e3ca5b85dE.exit.thread" ], [ true, %69 ], [ true, %294 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

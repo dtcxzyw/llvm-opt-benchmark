@@ -2116,7 +2116,7 @@ define hidden range(i32 -1, 1) i32 @_Py_convert_int_to_double(ptr noundef captur
   br label %17
 
 17:                                               ; preds = %.sink.split, %10, %7
-  %.0 = phi i32 [ 0, %10 ], [ 0, %7 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -6260,9 +6260,9 @@ thread-pre-split:                                 ; preds = %20, %22
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %75, %.critedge2.thread.sink.split, %._crit_edge, %.critedge2, %16
-  %.1158 = phi ptr [ %.9, %.critedge2.thread.sink.split ], [ %19, %16 ], [ %.9, %.critedge2 ], [ %.9, %._crit_edge ], [ %.9, %75 ]
-  %.0152 = phi i32 [ %.1153, %.critedge2.thread.sink.split ], [ 0, %16 ], [ %.1153, %.critedge2 ], [ %.1153, %._crit_edge ], [ %.1153, %75 ]
-  %.0146 = phi double [ %181, %.critedge2.thread.sink.split ], [ %18, %16 ], [ 0.000000e+00, %.critedge2 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %75 ]
+  %.1158 = phi ptr [ %.9, %._crit_edge ], [ %19, %16 ], [ %.9, %.critedge2 ], [ %.9, %.critedge2.thread.sink.split ], [ %.9, %75 ]
+  %.0152 = phi i32 [ %.1153, %._crit_edge ], [ 0, %16 ], [ %.1153, %.critedge2 ], [ %.1153, %.critedge2.thread.sink.split ], [ %.1153, %75 ]
+  %.0146 = phi double [ 0.000000e+00, %._crit_edge ], [ %18, %16 ], [ 0.000000e+00, %.critedge2 ], [ %181, %.critedge2.thread.sink.split ], [ 0.000000e+00, %75 ]
   br label %182
 
 182:                                              ; preds = %182, %.critedge2.thread

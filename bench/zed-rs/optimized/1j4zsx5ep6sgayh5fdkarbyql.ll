@@ -22721,8 +22721,8 @@ default.unreachable479:                           ; preds = %.noexc42.i.i.i, %21
   br label %.body
 
 418:                                              ; preds = %225, %405
-  %419 = phi ptr [ %175, %225 ], [ %406, %405 ]
-  %common.ret.op.i = phi i1 [ true, %225 ], [ %common.ret.op.i27.ph.i, %405 ]
+  %419 = phi ptr [ %406, %405 ], [ %175, %225 ]
+  %common.ret.op.i = phi i1 [ %common.ret.op.i27.ph.i, %405 ], [ true, %225 ]
   store i8 1, ptr %419, align 8, !noalias !3900
   invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$oo7..is_sandboxed..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4f777aa34bf69a7aE"(ptr noundef nonnull align 8 %419)
           to label %425 unwind label %423
@@ -104638,7 +104638,7 @@ define internal fastcc void @"_ZN5x11rb15rust_connection23RustConnection$LT$S$GT
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke376, %.invoke, %331, %327, %38
-  %.sroa.056.2.ph.ph = phi i1 [ true, %.invoke ], [ true, %.invoke376 ], [ false, %327 ], [ true, %38 ], [ false, %331 ]
+  %.sroa.056.2.ph.ph = phi i1 [ false, %327 ], [ true, %.invoke376 ], [ false, %331 ], [ true, %.invoke ], [ true, %38 ]
   %lpad.loopexit.split-lp122 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -105959,8 +105959,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.14019313651612263248.exit
   br label %.body45.thread
 
 .body45.thread114.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %189, %"_ZN4core3ptr108drop_in_place$LT$std..sync..mutex..MutexGuard$LT$x11rb..rust_connection..packet_reader..PacketReader$GT$$GT$17h7172103f2def34f8E.exit", %194, %179, %124, %148, %152, %175
-  %.sroa.013.0.ph.ph.ph = phi i1 [ true, %148 ], [ true, %189 ], [ false, %"_ZN4core3ptr108drop_in_place$LT$std..sync..mutex..MutexGuard$LT$x11rb..rust_connection..packet_reader..PacketReader$GT$$GT$17h7172103f2def34f8E.exit" ], [ true, %124 ], [ true, %.invoke ], [ true, %152 ], [ true, %194 ], [ true, %175 ], [ true, %179 ]
-  %.sroa.015.2.ph.ph.ph = phi i1 [ true, %148 ], [ false, %189 ], [ false, %"_ZN4core3ptr108drop_in_place$LT$std..sync..mutex..MutexGuard$LT$x11rb..rust_connection..packet_reader..PacketReader$GT$$GT$17h7172103f2def34f8E.exit" ], [ true, %124 ], [ true, %.invoke ], [ true, %152 ], [ false, %194 ], [ true, %175 ], [ true, %179 ]
+  %.sroa.013.0.ph.ph.ph = phi i1 [ true, %148 ], [ false, %"_ZN4core3ptr108drop_in_place$LT$std..sync..mutex..MutexGuard$LT$x11rb..rust_connection..packet_reader..PacketReader$GT$$GT$17h7172103f2def34f8E.exit" ], [ true, %189 ], [ true, %124 ], [ true, %.invoke ], [ true, %175 ], [ true, %194 ], [ true, %152 ], [ true, %179 ]
+  %.sroa.015.2.ph.ph.ph = phi i1 [ true, %148 ], [ false, %"_ZN4core3ptr108drop_in_place$LT$std..sync..mutex..MutexGuard$LT$x11rb..rust_connection..packet_reader..PacketReader$GT$$GT$17h7172103f2def34f8E.exit" ], [ false, %189 ], [ true, %124 ], [ true, %.invoke ], [ true, %175 ], [ false, %194 ], [ true, %152 ], [ true, %179 ]
   %lpad.loopexit.split-lp159 = landingpad { ptr, i32 }
           cleanup
   br label %.body45.thread

@@ -7693,7 +7693,7 @@ define internal fastcc void @decodehex(ptr noundef %0) unnamed_addr #0 {
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %142, %107, %._crit_edge, %.preheader252, %171, %175
-  %.sink = phi ptr [ %169, %171 ], [ %169, %175 ], [ %70, %._crit_edge ], [ %70, %.preheader252 ], [ %70, %107 ], [ %70, %142 ]
+  %.sink = phi ptr [ %169, %171 ], [ %169, %175 ], [ %70, %.preheader252 ], [ %70, %._crit_edge ], [ %70, %107 ], [ %70, %142 ]
   tail call void @free(ptr noundef %.sink) #24
   br label %.loopexit
 

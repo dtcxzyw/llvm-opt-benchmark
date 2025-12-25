@@ -14870,7 +14870,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i47: ; preds = %3
   br i1 %.not.i55.i60, label %.loopexit.i56, label %_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit60.i61
 
 _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit60.i61: ; preds = %41, %.preheader.i57
-  %.sroa.765.1.i62 = phi ptr [ %.sroa.765.0102.i59, %.preheader.i57 ], [ %43, %41 ]
+  %.sroa.765.1.i62 = phi ptr [ %43, %41 ], [ %.sroa.765.0102.i59, %.preheader.i57 ]
   br i1 %.not41.i63, label %_ZN2cv7details10Chessboard5Board9getCornerEii.exit65, label %.preheader.i57, !llvm.loop !415
 
 .loopexit.i56:                                    ; preds = %41, %.preheader92.split.i51
@@ -15555,7 +15555,7 @@ _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit: ; preds = %.lr.ph, %31
   br i1 %.not.i55, label %.loopexit, label %_ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit60
 
 _ZN2cv7details10Chessboard5Board9PointIter5rightEb.exit60: ; preds = %.preheader, %40
-  %.sroa.765.1 = phi ptr [ %.sroa.765.0102, %.preheader ], [ %42, %40 ]
+  %.sroa.765.1 = phi ptr [ %42, %40 ], [ %.sroa.765.0102, %.preheader ]
   %.not41 = icmp eq i32 %39, %2
   br i1 %.not41, label %.preheader._crit_edge, label %.preheader, !llvm.loop !415
 

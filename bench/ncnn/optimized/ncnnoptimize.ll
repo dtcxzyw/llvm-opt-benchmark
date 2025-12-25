@@ -24555,8 +24555,8 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit: ; preds
   br label %.thread176
 
 .thread176:                                       ; preds = %.thread176.loopexit, %140
-  %.0143191 = phi i64 [ %.0143214, %.thread176.loopexit ], [ %141, %140 ]
-  %.1139 = phi i64 [ %184, %.thread176.loopexit ], [ -1, %140 ]
+  %.0143191 = phi i64 [ %141, %140 ], [ %.0143214, %.thread176.loopexit ]
+  %.1139 = phi i64 [ -1, %140 ], [ %184, %.thread176.loopexit ]
   %185 = icmp eq i64 %.0143191, %10
   br i1 %185, label %._crit_edge206.thread, label %186
 

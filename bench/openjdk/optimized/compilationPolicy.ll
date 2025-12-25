@@ -3420,7 +3420,7 @@ _ZN13CompileBroker10queue_sizeEi.exit58:          ; preds = %113, %115
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
 _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread: ; preds = %96, %112, %124, %110, %19, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67, %135, %132, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit, %_ZN13CompileBroker10queue_sizeEi.exit, %33, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread, %54
-  %.0 = phi i8 [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67 ], [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ %spec.select, %135 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ 4, %132 ], [ 3, %54 ], [ 4, %33 ], [ %.mux, %96 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ 3, %112 ], [ 3, %110 ], [ 3, %124 ]
+  %.0 = phi i8 [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ 3, %112 ], [ 4, %132 ], [ %spec.select, %135 ], [ 3, %54 ], [ 4, %33 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ %.mux, %96 ], [ 3, %110 ], [ 3, %124 ]
   %.not45 = icmp eq i8 %.0, %1
   br i1 %.not45, label %.thread, label %153
 
@@ -3761,7 +3761,7 @@ _ZN13CompileBroker10queue_sizeEi.exit58:          ; preds = %113, %115
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
 _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread: ; preds = %96, %112, %124, %110, %19, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67, %135, %132, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit, %_ZN13CompileBroker10queue_sizeEi.exit, %33, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread, %54
-  %.0 = phi i8 [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67 ], [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ %spec.select, %135 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ 4, %132 ], [ 3, %54 ], [ 4, %33 ], [ %.mux, %96 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ 3, %112 ], [ 3, %110 ], [ 3, %124 ]
+  %.0 = phi i8 [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ 3, %112 ], [ 4, %132 ], [ %spec.select, %135 ], [ 3, %54 ], [ 4, %33 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ %.mux, %96 ], [ 3, %110 ], [ 3, %124 ]
   %.not45 = icmp eq i8 %.0, %1
   br i1 %.not45, label %.thread, label %153
 

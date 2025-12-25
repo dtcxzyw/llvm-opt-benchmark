@@ -52376,7 +52376,7 @@ _ZN3std4sync6poison4once4Once9call_once17h24a03b47283a33a5E.exit.i: ; preds = %.
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke.i, %_ZN10rayon_core8registry8Registry9in_worker17hf3c0d6b8901bef62E.exit.i, %311, %310, %304, %.noexc200.i, %298, %295, %290, %285, %255, %_ZN3std4sync6poison4once4Once9call_once17h24a03b47283a33a5E.exit184.i, %242, %223, %212, %205
-  %.sroa.067.0.ph.i = phi i8 [ %.sroa.067.3.i, %.invoke.i ], [ %.sroa.067.3.i, %304 ], [ %.sroa.067.3.i, %.noexc200.i ], [ %.sroa.067.3.i, %298 ], [ %.sroa.067.3.i, %295 ], [ %.sroa.067.3.i, %290 ], [ %.sroa.067.3.i, %285 ], [ 0, %212 ], [ 0, %242 ], [ 0, %223 ], [ %.sroa.067.3.i, %_ZN3std4sync6poison4once4Once9call_once17h24a03b47283a33a5E.exit184.i ], [ %.sroa.067.3.i, %255 ], [ %.sroa.067.3.i, %310 ], [ 0, %205 ], [ %.sroa.067.3.i, %311 ], [ %.sroa.067.3.i, %_ZN10rayon_core8registry8Registry9in_worker17hf3c0d6b8901bef62E.exit.i ]
+  %.sroa.067.0.ph.i = phi i8 [ %.sroa.067.3.i, %.invoke.i ], [ %.sroa.067.3.i, %304 ], [ %.sroa.067.3.i, %.noexc200.i ], [ %.sroa.067.3.i, %298 ], [ %.sroa.067.3.i, %295 ], [ %.sroa.067.3.i, %290 ], [ %.sroa.067.3.i, %285 ], [ 0, %212 ], [ 0, %242 ], [ 0, %223 ], [ %.sroa.067.3.i, %_ZN3std4sync6poison4once4Once9call_once17h24a03b47283a33a5E.exit184.i ], [ %.sroa.067.3.i, %255 ], [ 0, %205 ], [ %.sroa.067.3.i, %310 ], [ %.sroa.067.3.i, %311 ], [ %.sroa.067.3.i, %_ZN10rayon_core8registry8Registry9in_worker17hf3c0d6b8901bef62E.exit.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i

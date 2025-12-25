@@ -921,7 +921,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %235, %234, %215, %214, %._crit_edge.i233, %._crit_edge.i, %51, %103, %157, %169
-  %.sink = phi ptr [ %calloc242, %._crit_edge.i ], [ %calloc, %51 ], [ %calloc241, %169 ], [ %calloc240, %157 ], [ %calloc239, %103 ], [ %222, %._crit_edge.i233 ], [ %calloc242, %215 ], [ %calloc242, %214 ], [ %222, %234 ], [ %222, %235 ]
+  %.sink = phi ptr [ %calloc242, %._crit_edge.i ], [ %calloc, %51 ], [ %calloc241, %169 ], [ %calloc240, %157 ], [ %calloc239, %103 ], [ %calloc242, %215 ], [ %222, %._crit_edge.i233 ], [ %calloc242, %214 ], [ %222, %234 ], [ %222, %235 ]
   store ptr %.sink, ptr %3, align 8, !tbaa !98
   store i32 1044, ptr %4, align 4, !tbaa !96
   store i32 7, ptr %5, align 4, !tbaa !96

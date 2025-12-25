@@ -2687,7 +2687,7 @@ dissect_ieee802154_fcf.exit:                      ; preds = %152, %154, %156
   %318 = getelementptr inbounds nuw i8, ptr %11, i64 26
   br label %323
 
-.thread574:                                       ; preds = %253, %240, %266, %241, %313, %263, %267, %277
+.thread574:                                       ; preds = %253, %313, %266, %240, %277, %267, %263, %241
   %319 = getelementptr inbounds nuw i8, ptr %11, i64 26
   br label %333
 
@@ -5122,7 +5122,7 @@ define hidden i32 @ieee802154_dissect_frame_payload(ptr noundef %0, ptr noundef 
   br label %64
 
 64:                                               ; preds = %.sink.split.i, %46
-  %.0.i = phi ptr [ %0, %46 ], [ %55, %.sink.split.i ]
+  %.0.i = phi ptr [ %55, %.sink.split.i ], [ %0, %46 ]
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 105
   %66 = load i8, ptr %65, align 1
   switch i8 %66, label %397 [

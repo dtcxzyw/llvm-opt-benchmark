@@ -648,8 +648,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3577183c5d64acdbE.exit.i: ; pr
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.body.thread.i.i.i, %71
-  %76 = phi ptr [ %14, %.body.thread.i.i.i ], [ %.pre, %.loopexit.split-lp ], [ %14, %.loopexit ], [ %14, %71 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body4.i.i.i, %.body.thread.i.i.i ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %eh.lpad-body4.i.i.i, %71 ]
+  %76 = phi ptr [ %14, %.body.thread.i.i.i ], [ %14, %.loopexit ], [ %.pre, %.loopexit.split-lp ], [ %14, %71 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body4.i.i.i, %.body.thread.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %eh.lpad-body4.i.i.i, %71 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
   call void @llvm.experimental.noalias.scope.decl(metadata !123)
@@ -3591,8 +3591,8 @@ define internal noundef zeroext i1 @"_ZN68_$LT$rowan..api..SyntaxNode$LT$L$GT$$u
   br i1 %exitcond.not, label %91, label %92
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit": ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit
-  %.sroa.2.0.copyload.i201 = phi i64 [ %.sroa.2.0.copyload.i202, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.2.0.copyload.i.lcssa196, %.loopexit.split-lp.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp138, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit137, %.loopexit.split-lp.loopexit ]
+  %.sroa.2.0.copyload.i201 = phi i64 [ %.sroa.2.0.copyload.i.lcssa196, %.loopexit.split-lp.loopexit ], [ %.sroa.2.0.copyload.i202, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit137, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp138, %.loopexit.split-lp.loopexit.split-lp ]
   %89 = icmp eq i64 %.sroa.2.0.copyload.i201, 0
   br i1 %89, label %158, label %.thread101
 
@@ -26132,8 +26132,8 @@ _ZN4core3ops8function6FnOnce9call_once17ha89bb2788c2d46a6E.exit.thread.i: ; pred
           to label %.body unwind label %142
 
 153:                                              ; preds = %134, %132, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i"
-  %.sroa.4.1.i = phi ptr [ %.sroa.4.1.ph.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i" ], [ %.sroa.3.02028.i.i, %134 ], [ %.sroa.3.02028.i.i, %132 ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.1.ph.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i" ], [ %.sroa.0.02126.i.i, %134 ], [ %.sroa.0.02126.i.i, %132 ]
+  %.sroa.4.1.i = phi ptr [ %.sroa.3.02028.i.i, %134 ], [ %.sroa.4.1.ph.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i" ], [ %.sroa.3.02028.i.i, %132 ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.02126.i.i, %134 ], [ %.sroa.0.1.ph.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i" ], [ %.sroa.0.02126.i.i, %132 ]
   %.not = icmp eq i64 %.sroa.0.1.i, 36
   %154 = icmp eq i64 %.sroa.0.1.i, 14
   br i1 %.not, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Expr$GT$$GT$17h57ffa127139edf9aE.exit", label %155
@@ -26850,7 +26850,7 @@ _ZN3hir9semantics13SemanticsImpl6to_def17h111f2bb5b47cc537E.exit.i.i.i.i.i: ; pr
   br label %.body109
 
 .body109:                                         ; preds = %.loopexit, %.loopexit.split-lp, %400, %407
-  %eh.lpad-body110 = phi { ptr, i32 } [ %401, %407 ], [ %401, %400 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body110 = phi { ptr, i32 } [ %401, %400 ], [ %401, %407 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %429 = icmp eq ptr %.sroa.0.1.i.i.i, null
   br i1 %429, label %"_ZN4core3ptr534drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..semantics..SemanticsImpl..ancestors_with_macros..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$syntax..ast..generated..nodes..Item$u20$as$u20$syntax..ast..AstNode$GT$..cast$GT$$GT$17hd5f0dfbcb747ecb2E.exit", label %430
 

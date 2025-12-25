@@ -10934,8 +10934,8 @@ cvStartReadSeq.exit:                              ; preds = %48, %51
   br i1 %exitcond274.not, label %.loopexit, label %.preheader180, !llvm.loop !125
 
 .loopexit:                                        ; preds = %59, %72, %144, %97, %._crit_edge.us, %99, %133, %118, %._crit_edge.us244, %.preheader183, %.preheader181, %.preheader179, %.preheader.lr.ph.split
-  %.sroa.16.2 = phi ptr [ %.sroa.16.7, %.preheader.lr.ph.split ], [ %.sroa.16.5210.us, %._crit_edge.us ], [ %.sroa.16.7, %.preheader179 ], [ %.sroa.16.7, %.preheader183 ], [ %.sroa.16.5210.us, %99 ], [ %.sroa.16.4, %133 ], [ %.sroa.16.7, %.preheader181 ], [ %.sroa.16.4.us, %118 ], [ %.sroa.16.6, %144 ], [ %.sroa.16.3236.us, %._crit_edge.us244 ], [ %.sroa.16.6.us, %97 ], [ %.sroa.16.0195, %59 ], [ %.sroa.16.1, %72 ]
-  %.185 = phi i32 [ 0, %.preheader.lr.ph.split ], [ %.387212.us, %._crit_edge.us ], [ 0, %.preheader179 ], [ 0, %.preheader183 ], [ %.387212.us, %99 ], [ %45, %133 ], [ 0, %.preheader181 ], [ %45, %118 ], [ %45, %144 ], [ %.286238.us, %._crit_edge.us244 ], [ %45, %97 ], [ %.084197, %59 ], [ %45, %72 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.5210.us, %._crit_edge.us ], [ %.sroa.16.7, %.preheader.lr.ph.split ], [ %.sroa.16.7, %.preheader179 ], [ %.sroa.16.7, %.preheader183 ], [ %.sroa.16.5210.us, %99 ], [ %.sroa.16.4, %133 ], [ %.sroa.16.7, %.preheader181 ], [ %.sroa.16.4.us, %118 ], [ %.sroa.16.6, %144 ], [ %.sroa.16.3236.us, %._crit_edge.us244 ], [ %.sroa.16.6.us, %97 ], [ %.sroa.16.0195, %59 ], [ %.sroa.16.1, %72 ]
+  %.185 = phi i32 [ %.387212.us, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split ], [ 0, %.preheader179 ], [ 0, %.preheader183 ], [ %.387212.us, %99 ], [ %45, %133 ], [ 0, %.preheader181 ], [ %45, %118 ], [ %45, %144 ], [ %.286238.us, %._crit_edge.us244 ], [ %45, %97 ], [ %.084197, %59 ], [ %45, %72 ]
   %146 = icmp slt i32 %.185, %45
   %.079 = select i1 %146, ptr %.sroa.16.2, ptr null
   br label %.loopexit186
@@ -16424,8 +16424,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %6, %_
   br label %.critedge, !llvm.loop !218
 
 .critedge:                                        ; preds = %30, %.lr.ph, %.loopexit..critedge.loopexit_crit_edge, %.preheader, %22, %11
-  %.023 = phi ptr [ %spec.select, %22 ], [ null, %11 ], [ %17, %.preheader ], [ %.2, %.loopexit..critedge.loopexit_crit_edge ], [ %17, %.lr.ph ], [ %.2, %30 ]
-  %.022 = phi i32 [ %25, %22 ], [ %14, %11 ], [ %14, %.preheader ], [ %27, %.loopexit..critedge.loopexit_crit_edge ], [ %smax, %.lr.ph ], [ %smax, %30 ]
+  %.023 = phi ptr [ null, %11 ], [ %spec.select, %22 ], [ %17, %.preheader ], [ %.2, %.loopexit..critedge.loopexit_crit_edge ], [ %17, %.lr.ph ], [ %.2, %30 ]
+  %.022 = phi i32 [ %14, %11 ], [ %25, %22 ], [ %14, %.preheader ], [ %27, %.loopexit..critedge.loopexit_crit_edge ], [ %smax, %.lr.ph ], [ %smax, %30 ]
   store ptr %.023, ptr %0, align 8, !tbaa !213
   store i32 %.022, ptr %13, align 8, !tbaa !215
   ret ptr %12

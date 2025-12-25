@@ -4816,7 +4816,7 @@ is_inside.exit.thread.sink.split:                 ; preds = %340, %199
   br label %is_inside.exit.thread
 
 is_inside.exit.thread:                            ; preds = %is_inside.exit.thread.sink.split, %12, %18, %26, %.loopexit, %.loopexit181, %31, %is_inside.exit
-  %.0 = phi i32 [ 0, %is_inside.exit ], [ 0, %31 ], [ 1, %.loopexit181 ], [ 0, %12 ], [ 1, %.loopexit ], [ 0, %18 ], [ 0, %26 ], [ 1, %is_inside.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %is_inside.exit ], [ 0, %31 ], [ 1, %.loopexit181 ], [ 0, %18 ], [ 1, %.loopexit ], [ 0, %12 ], [ 0, %26 ], [ 1, %is_inside.exit.thread.sink.split ]
   ret i32 %.0
 }
 

@@ -3469,9 +3469,9 @@ _ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i:          ; preds = %_ZNK6vectorImLb0EjE
   br i1 %.not15.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !108
 
 _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread: ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i, %95, %33, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us, %46
-  %.us-phi118.pn = phi ptr [ %.045115, %95 ], [ %.045115.us, %33 ], [ %.045115.us, %46 ], [ %.045115.us, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us ], [ %.045115, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i ], [ %.045115, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread ]
-  %98 = phi ptr [ %82, %95 ], [ null, %33 ], [ %35, %46 ], [ %35, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us ], [ null, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread ], [ %82, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i ]
-  %99 = phi i1 [ false, %95 ], [ %36, %33 ], [ false, %46 ], [ %36, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us ], [ %83, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i ], [ %83, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread ]
+  %.us-phi118.pn = phi ptr [ %.045115.us, %46 ], [ %.045115, %95 ], [ %.045115.us, %33 ], [ %.045115.us, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us ], [ %.045115, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i ], [ %.045115, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread ]
+  %98 = phi ptr [ %35, %46 ], [ %82, %95 ], [ null, %33 ], [ %35, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us ], [ null, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread ], [ %82, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i ]
+  %99 = phi i1 [ false, %46 ], [ false, %95 ], [ %36, %33 ], [ %36, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us ], [ %83, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i ], [ %83, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread ]
   %100 = getelementptr inbounds nuw i8, ptr %.us-phi118.pn, i64 4
   %101 = getelementptr inbounds nuw i8, ptr %.us-phi118.pn, i64 8
   %102 = icmp eq ptr %101, %1
@@ -3617,9 +3617,9 @@ _ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60:        ; preds = %_ZNK6vectorImLb0EjE
   br i1 %.not15.i.i.i67, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit68.thread, label %.lr.ph.i.i.i62, !llvm.loop !108
 
 _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit68.thread: ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i53.thread, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60, %148, %58, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60.us, %71
-  %.us-phi138.pn = phi ptr [ %.146131, %148 ], [ %.146131.us, %58 ], [ %.146131.us, %71 ], [ %.146131.us, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60.us ], [ %.146131, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60 ], [ %.146131, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i53.thread ]
-  %151 = phi ptr [ %135, %148 ], [ null, %58 ], [ %60, %71 ], [ %60, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60.us ], [ null, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i53.thread ], [ %135, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60 ]
-  %152 = phi i1 [ false, %148 ], [ %61, %58 ], [ false, %71 ], [ %61, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60.us ], [ %136, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60 ], [ %136, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i53.thread ]
+  %.us-phi138.pn = phi ptr [ %.146131.us, %71 ], [ %.146131, %148 ], [ %.146131.us, %58 ], [ %.146131.us, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60.us ], [ %.146131, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60 ], [ %.146131, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i53.thread ]
+  %151 = phi ptr [ %60, %71 ], [ %135, %148 ], [ null, %58 ], [ %60, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60.us ], [ null, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i53.thread ], [ %135, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60 ]
+  %152 = phi i1 [ false, %71 ], [ false, %148 ], [ %61, %58 ], [ %61, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60.us ], [ %136, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60 ], [ %136, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i53.thread ]
   %153 = getelementptr inbounds nuw i8, ptr %.us-phi138.pn, i64 4
   %154 = getelementptr inbounds nuw i8, ptr %.us-phi138.pn, i64 8
   %155 = icmp eq ptr %154, %1
@@ -5388,7 +5388,7 @@ _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_p
   br i1 %.not32, label %.loopexit, label %.lr.ph69.split, !llvm.loop !127
 
 _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread: ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread, %84, %22, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us, %35, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i40, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i33.thread, %108, %47, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i40.us, %60
-  %.1 = phi ptr [ %.268, %108 ], [ %.02965.us, %22 ], [ %.268.us, %47 ], [ %.268, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i40 ], [ %.268.us, %60 ], [ %.02965, %84 ], [ %.02965.us, %35 ], [ %.268.us, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i40.us ], [ %.268, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i33.thread ], [ %.02965.us, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us ], [ %.02965, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread ], [ %.02965, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i ]
+  %.1 = phi ptr [ %.02965, %84 ], [ %.02965.us, %22 ], [ %.268, %108 ], [ %.02965.us, %35 ], [ %.268.us, %47 ], [ %.268.us, %60 ], [ %.268, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i40 ], [ %.268.us, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i40.us ], [ %.268, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i33.thread ], [ %.02965.us, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us ], [ %.02965, %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread ], [ %.02965, %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i ]
   %112 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %113 = icmp eq ptr %112, %13
   %spec.select = select i1 %113, ptr %9, ptr %112

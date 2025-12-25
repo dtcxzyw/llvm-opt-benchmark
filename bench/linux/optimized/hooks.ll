@@ -10422,7 +10422,7 @@ define internal i32 @selinux_socket_bind(ptr noundef readonly captures(none) %0,
   br label %127
 
 .thread9:                                         ; preds = %117, %95, %89, %102
-  %.ph14 = phi i32 [ %104, %102 ], [ %121, %117 ], [ %93, %89 ], [ %100, %95 ]
+  %.ph14 = phi i32 [ %93, %89 ], [ %121, %117 ], [ %104, %102 ], [ %100, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

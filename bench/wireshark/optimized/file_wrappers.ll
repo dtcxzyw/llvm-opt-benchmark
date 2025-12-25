@@ -772,7 +772,7 @@ gz_skip.exit:                                     ; preds = %39, %33
   br i1 %121, label %108, label %fast_seek_find.exit, !llvm.loop !18
 
 fast_seek_find.exit:                              ; preds = %116, %120
-  %.017.i = phi ptr [ %.121.i, %120 ], [ %113, %116 ]
+  %.017.i = phi ptr [ %113, %116 ], [ %.121.i, %120 ]
   %.not211 = icmp eq ptr %.017.i, null
   br i1 %.not211, label %fast_seek_find.exit.thread, label %122
 

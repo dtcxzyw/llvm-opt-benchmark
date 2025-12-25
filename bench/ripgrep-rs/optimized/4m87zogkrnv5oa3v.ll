@@ -334,7 +334,7 @@ _ZN4core5slice4sort11insert_tail17h127c9b463a3447aaE.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17h37162104452882b7E.exit.loopexit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h326bc359cba4096aE.exit.i.i"
 
 .loopexit80:                                      ; preds = %_ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit44.i, %_ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit44.thread.i, %_ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %_ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit.preheader.i ], [ %.010.i, %_ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit44.i ], [ %48, %_ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit44.thread.i ]
+  %.sroa.0.0.i = phi i64 [ 2, %_ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit.preheader.i ], [ %48, %_ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit44.thread.i ], [ %.010.i, %_ZN4core3ops8function5FnMut8call_mut17h67c7002f43757977E.exit44.i ]
   %111 = add i64 %.sroa.0.0.i, %.0113
   %112 = icmp ugt i64 %.0113, %111
   br i1 %112, label %.invoke213, label %113
@@ -1085,7 +1085,7 @@ _ZN4core5slice4sort11insert_tail17hb7996b871c9b99f7E.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17h78f0042017d13d91E.exit.loopexit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h064ba08a12266fabE.exit.i.i"
 
 .loopexit80:                                      ; preds = %_ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit44.i, %_ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit44.thread.i, %_ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %_ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit.preheader.i ], [ %.010.i, %_ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit44.i ], [ %48, %_ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit44.thread.i ]
+  %.sroa.0.0.i = phi i64 [ 2, %_ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit.preheader.i ], [ %48, %_ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit44.thread.i ], [ %.010.i, %_ZN4core3ops8function5FnMut8call_mut17h98f17783951ed110E.exit44.i ]
   %111 = add i64 %.sroa.0.0.i, %.0113
   %112 = icmp ugt i64 %.0113, %111
   br i1 %112, label %.invoke213, label %113

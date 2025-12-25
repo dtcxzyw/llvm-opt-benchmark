@@ -3263,7 +3263,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %64, %67
   %71 = icmp slt i64 %70, 1000
   br i1 %71, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread
 
-_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17:  ; preds = %67, %59, %55, %_ZN9grpc_coremiENS_9TimestampES0_.exit
+_ZN9grpc_coremiENS_9TimestampES0_.exit.thread17:  ; preds = %59, %67, %55, %_ZN9grpc_coremiENS_9TimestampES0_.exit
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN9grpc_core7BackOff5ResetEv(ptr noundef nonnull align 8 dereferenceable(336) %72)
   br label %80

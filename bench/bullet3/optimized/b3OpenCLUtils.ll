@@ -640,7 +640,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
   %.pre = load i32, ptr %8, align 4, !tbaa !4
   br label %.loopexit95
 
-61:                                               ; preds = %55, %54
+61:                                               ; preds = %54, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %62 = load i32, ptr %8, align 4, !tbaa !4

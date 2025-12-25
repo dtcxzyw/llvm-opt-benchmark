@@ -693,10 +693,10 @@ _Z8rawscoreiii.exit496:                           ; preds = %144, %141, %136, %1
   br label %.thread542
 
 .thread542:                                       ; preds = %.thread542.sink.split, %148, %151, %133, %130
-  %157 = phi i32 [ %87, %148 ], [ %87, %133 ], [ %87, %151 ], [ %90, %.thread542.sink.split ], [ %87, %130 ]
-  %158 = phi i32 [ %88, %148 ], [ %88, %133 ], [ %88, %151 ], [ %.ph, %.thread542.sink.split ], [ %88, %130 ]
-  %.1451 = phi i32 [ %.0450623, %148 ], [ %.0450623, %133 ], [ %.0450623, %151 ], [ 1, %.thread542.sink.split ], [ %.0450623, %130 ]
-  %.5 = phi i32 [ %.3444, %148 ], [ %.4445, %133 ], [ %.3444, %151 ], [ %.3444, %.thread542.sink.split ], [ %129, %130 ]
+  %157 = phi i32 [ %87, %133 ], [ %87, %148 ], [ %87, %151 ], [ %90, %.thread542.sink.split ], [ %87, %130 ]
+  %158 = phi i32 [ %88, %133 ], [ %88, %148 ], [ %88, %151 ], [ %.ph, %.thread542.sink.split ], [ %88, %130 ]
+  %.1451 = phi i32 [ %.0450623, %133 ], [ %.0450623, %148 ], [ %.0450623, %151 ], [ 1, %.thread542.sink.split ], [ %.0450623, %130 ]
+  %.5 = phi i32 [ %.4445, %133 ], [ %.3444, %148 ], [ %.3444, %151 ], [ %.3444, %.thread542.sink.split ], [ %129, %130 ]
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
   %exitcond726.not = icmp eq i64 %indvars.iv.next722, %wide.trip.count725
   br i1 %exitcond726.not, label %._crit_edge.loopexit, label %86, !llvm.loop !11

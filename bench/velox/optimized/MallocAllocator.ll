@@ -576,7 +576,7 @@ lpad57.loopexit.split-lp:                         ; preds = %if.then86, %if.then
   br label %ehcleanup179
 
 if.end84:                                         ; preds = %if.else.i, %_ZN8facebook5velox10ClockTimerD2Ev.exit.i
-  %ptr.0 = phi ptr [ %call2.i15.i, %if.else.i ], [ %call2.i.i, %_ZN8facebook5velox10ClockTimerD2Ev.exit.i ]
+  %ptr.0 = phi ptr [ %call2.i.i, %_ZN8facebook5velox10ClockTimerD2Ev.exit.i ], [ %call2.i15.i, %if.else.i ]
   %cmp85 = icmp eq ptr %ptr.0, null
   br i1 %cmp85, label %if.then86, label %if.end113
 

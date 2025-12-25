@@ -1092,8 +1092,8 @@ Vec_IntPush.exit106.sink.split:                   ; preds = %.critedge
   br label %Vec_IntPush.exit106
 
 Vec_IntPush.exit106:                              ; preds = %Vec_IntPush.exit106.sink.split, %Gia_ParTestSimulateInit.exit, %.critedge
-  %78 = phi i32 [ 0, %Gia_ParTestSimulateInit.exit ], [ %.pre, %.critedge ], [ %.pre, %Vec_IntPush.exit106.sink.split ]
-  %79 = phi ptr [ %40, %Gia_ParTestSimulateInit.exit ], [ %.pre.i99176, %.critedge ], [ %77, %Vec_IntPush.exit106.sink.split ]
+  %78 = phi i32 [ %.pre, %.critedge ], [ 0, %Gia_ParTestSimulateInit.exit ], [ %.pre, %Vec_IntPush.exit106.sink.split ]
+  %79 = phi ptr [ %.pre.i99176, %.critedge ], [ %40, %Gia_ParTestSimulateInit.exit ], [ %77, %Vec_IntPush.exit106.sink.split ]
   %80 = add nsw i32 %78, 1
   store i32 %80, ptr %39, align 4, !tbaa !28
   %81 = sext i32 %78 to i64

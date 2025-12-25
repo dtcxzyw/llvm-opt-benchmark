@@ -2758,7 +2758,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i:
   br i1 %.not.i.i.i.i.i.i.i.i.i170, label %.critedge15.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %1013, %1007
-  %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %1012, %1013 ], [ %.0.i.i.i.i.i.i.i, %1007 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i.i, %1007 ], [ %1012, %1013 ]
   %1016 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 8
   %1017 = load ptr, ptr %1016, align 8, !tbaa !507
   %1018 = getelementptr inbounds nuw i8, ptr %1017, i64 68
@@ -4698,7 +4698,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjNS_8RegisterEEjNS_12DenseMapInfoIS4
   br i1 %.not.i.i.i.i.i.i358.i.i, label %_ZL19isImplicitlyDefinedjRKN4llvm19MachineRegisterInfoE.exit.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %1984, %1978
-  %.sroa.0.0.i.i.i354.i.i = phi ptr [ %1983, %1984 ], [ %.0.i.i.i.i351.i.i, %1978 ]
+  %.sroa.0.0.i.i.i354.i.i = phi ptr [ %.0.i.i.i.i351.i.i, %1978 ], [ %1983, %1984 ]
   %1987 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i354.i.i, i64 8
   %1988 = load ptr, ptr %1987, align 8, !tbaa !507
   %1989 = getelementptr inbounds nuw i8, ptr %1988, i64 68
@@ -4737,7 +4737,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb
   br i1 %2003, label %.preheader.i.i.i165, label %.lr.ph.i355.loopexit.i.i, !llvm.loop !509
 
 _ZL19isImplicitlyDefinedjRKN4llvm19MachineRegisterInfoE.exit.i.i: ; preds = %.lr.ph.i355.loopexit.i.i, %1998, %.preheader.i.i.i165, %.lr.ph.preheader.i.i.i, %1984, %1981, %1967, %1955
-  %2004 = phi i1 [ true, %1955 ], [ false, %.lr.ph.preheader.i.i.i ], [ true, %1984 ], [ true, %1967 ], [ true, %1981 ], [ true, %1998 ], [ true, %.preheader.i.i.i165 ], [ false, %.lr.ph.i355.loopexit.i.i ]
+  %2004 = phi i1 [ true, %1955 ], [ true, %1998 ], [ true, %1984 ], [ true, %1967 ], [ true, %1981 ], [ false, %.lr.ph.preheader.i.i.i ], [ true, %.preheader.i.i.i165 ], [ false, %.lr.ph.i355.loopexit.i.i ]
   %2005 = getelementptr inbounds nuw i8, ptr %1959, i64 80
   %2006 = load ptr, ptr %2005, align 8, !tbaa !349
   %2007 = load i8, ptr %882, align 4, !tbaa !32, !range !48, !noalias !572, !noundef !49

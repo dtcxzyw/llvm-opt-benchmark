@@ -4299,7 +4299,7 @@ define internal i32 @rtm_get_nexthop_bucket(ptr noundef readonly captures(none) 
   br label %.thread25
 
 .thread25:                                        ; preds = %.thread25.sink.split, %14, %53, %12, %41, %47, %35
-  %.ph24 = phi i32 [ %17, %14 ], [ -22, %12 ], [ -22, %35 ], [ -22, %53 ], [ -22, %47 ], [ -22, %41 ], [ -22, %.thread25.sink.split ]
+  %.ph24 = phi i32 [ %17, %14 ], [ -22, %12 ], [ -22, %47 ], [ -22, %53 ], [ -22, %35 ], [ -22, %41 ], [ -22, %.thread25.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %144
 
@@ -7482,7 +7482,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %167, %108, %.critedge.sink.split, %157, %150, %.split24.us, %.split22.us, %.split20.us, %.split31.us, %.split26.us, %._crit_edge, %53, %38, %32, %14
-  %170 = phi i32 [ -22, %14 ], [ -22, %32 ], [ -22, %38 ], [ -22, %53 ], [ -22, %.split31.us ], [ -22, %.split26.us ], [ -22, %._crit_edge ], [ 0, %108 ], [ -22, %.critedge.sink.split ], [ -22, %157 ], [ -22, %.split22.us ], [ -22, %150 ], [ -22, %.split20.us ], [ -22, %.split24.us ], [ 0, %167 ]
+  %170 = phi i32 [ -22, %14 ], [ -22, %32 ], [ -22, %38 ], [ -22, %53 ], [ -22, %.split31.us ], [ -22, %.split26.us ], [ -22, %._crit_edge ], [ 0, %108 ], [ -22, %150 ], [ -22, %.split24.us ], [ -22, %.split22.us ], [ -22, %157 ], [ -22, %.split20.us ], [ -22, %.critedge.sink.split ], [ 0, %167 ]
   ret i32 %170
 }
 
@@ -7612,7 +7612,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_nh_config_grp_res(p
   br label %.thread
 
 .thread:                                          ; preds = %10, %12, %44, %46, %63, %62, %60, %53, %32, %30, %15
-  %64 = phi i32 [ %20, %15 ], [ -22, %32 ], [ -22, %30 ], [ -22, %46 ], [ 0, %63 ], [ 0, %53 ], [ -22, %62 ], [ -22, %60 ], [ -22, %44 ], [ -22, %12 ], [ -22, %10 ]
+  %64 = phi i32 [ %20, %15 ], [ -22, %32 ], [ -22, %30 ], [ -22, %44 ], [ 0, %63 ], [ 0, %53 ], [ -22, %62 ], [ -22, %60 ], [ -22, %46 ], [ -22, %12 ], [ -22, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %64
 }

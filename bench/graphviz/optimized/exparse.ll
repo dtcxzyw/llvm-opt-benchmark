@@ -7021,7 +7021,7 @@ agxbputc.exit:                                    ; preds = %.thread35.i, %116
   br label %.loopexit164
 
 .loopexit164:                                     ; preds = %62, %62, %62, %.loopexit164.loopexit, %.loopexit375, %.loopexit310
-  %.2113 = phi i32 [ 260, %.loopexit310 ], [ 259, %.loopexit164.loopexit ], [ 263, %.loopexit375 ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ]
+  %.2113 = phi i32 [ 263, %.loopexit375 ], [ 259, %.loopexit164.loopexit ], [ 260, %.loopexit310 ], [ 262, %62 ], [ 262, %62 ], [ 262, %62 ]
   %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 88), align 8, !tbaa !68
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 144
   tail call fastcc void @agxbputc(ptr noundef nonnull %139, i8 noundef signext %63)

@@ -1875,7 +1875,7 @@ addresses_equal.exit.i.i:                         ; preds = %682, %675, %670, %6
   br i1 %.not27.i.i, label %wg_dissect_data.exit, label %660, !llvm.loop !11
 
 wg_sessions_lookup.exit.i:                        ; preds = %704, %702, %682, %680
-  %.059.i = phi i8 [ 0, %702 ], [ 0, %704 ], [ 1, %682 ], [ 1, %680 ]
+  %.059.i = phi i8 [ 1, %682 ], [ 0, %704 ], [ 0, %702 ], [ 1, %680 ]
   %712 = getelementptr inbounds nuw i8, ptr %661, i64 64
   %.not50.i = icmp eq ptr %661, null
   br i1 %.not50.i, label %wg_dissect_data.exit, label %713

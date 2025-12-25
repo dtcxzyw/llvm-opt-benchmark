@@ -497,7 +497,7 @@ define float @Gia_ObjComputeArrival(ptr noundef readonly captures(none) %0, i32 
   br i1 %exitcond156.not, label %.critedge.thread, label %157, !llvm.loop !47
 
 .critedge:                                        ; preds = %101, %.preheader129, %61, %.preheader
-  %168 = phi i32 [ %41, %.preheader ], [ %68, %61 ], [ %94, %.preheader129 ], [ %94, %101 ]
+  %168 = phi i32 [ %94, %.preheader129 ], [ %68, %61 ], [ %41, %.preheader ], [ %94, %101 ]
   %.fr = freeze i32 %168
   %169 = icmp eq i32 %.fr, 0
   br i1 %169, label %170, label %.critedge.thread

@@ -8736,8 +8736,8 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit549:        ; preds = %1253, %_ZNSt6vector
   %lpad.phi790 = phi { ptr, i32 } [ %lpad.loopexit788, %.loopexit786 ], [ %lpad.loopexit.split-lp789, %.loopexit.split-lp787 ]
   br i1 %.not.i.i475742746, label %_ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit551, label %.thread748
 
-.thread748:                                       ; preds = %1137, %1138, %1275, %1281
-  %.pn168.pn760 = phi { ptr, i32 } [ %lpad.phi795, %1137 ], [ %lpad.phi790, %1281 ], [ %lpad.phi, %1275 ], [ %lpad.phi800, %1138 ]
+.thread748:                                       ; preds = %1275, %1138, %1137, %1281
+  %.pn168.pn760 = phi { ptr, i32 } [ %lpad.phi, %1275 ], [ %lpad.phi790, %1281 ], [ %lpad.phi795, %1137 ], [ %lpad.phi800, %1138 ]
   %1282 = getelementptr inbounds nuw i8, ptr %992, i64 8
   %1283 = load i32, ptr %1282, align 8, !tbaa !3
   %1284 = add nsw i32 %1283, -1
@@ -8752,8 +8752,8 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit549:        ; preds = %1253, %_ZNSt6vector
   call void %1289(ptr noundef nonnull align 8 dereferenceable(248) %992) #20
   br i1 %.not.i.i456729733, label %_ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit553, label %_ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit551.thread
 
-_ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit551: ; preds = %.thread748, %1281, %1275, %1138, %1137
-  %.pn168.pn.pn = phi { ptr, i32 } [ %lpad.phi795, %1137 ], [ %lpad.phi790, %1281 ], [ %.pn168.pn760, %.thread748 ], [ %lpad.phi800, %1138 ], [ %lpad.phi, %1275 ]
+_ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit551: ; preds = %.thread748, %1281, %1137, %1138, %1275
+  %.pn168.pn.pn = phi { ptr, i32 } [ %lpad.phi, %1275 ], [ %lpad.phi790, %1281 ], [ %.pn168.pn760, %.thread748 ], [ %lpad.phi800, %1138 ], [ %lpad.phi795, %1137 ]
   br i1 %.not.i.i456729733, label %_ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit553, label %_ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit551.thread
 
 _ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit551.thread: ; preds = %1286, %_ZN5Ipopt8SmartPtrIKNS_11DenseVectorEED2Ev.exit551

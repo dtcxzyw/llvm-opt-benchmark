@@ -484,7 +484,7 @@ lzma_validate_chain.exit:                         ; preds = %24, %45
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge.i, %.lr.ph.i, %lzma_validate_chain.exit, %40, %24, %4, %2, %49
-  %.1 = phi i64 [ -1, %lzma_validate_chain.exit ], [ %50, %49 ], [ -1, %.lr.ph.i ], [ -1, %2 ], [ -1, %4 ], [ -1, %24 ], [ -1, %40 ], [ -1, %._crit_edge.i ]
+  %.1 = phi i64 [ -1, %.lr.ph.i ], [ %50, %49 ], [ -1, %lzma_validate_chain.exit ], [ -1, %2 ], [ -1, %4 ], [ -1, %24 ], [ -1, %40 ], [ -1, %._crit_edge.i ]
   ret i64 %.1
 }
 

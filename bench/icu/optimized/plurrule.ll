@@ -4283,7 +4283,7 @@ _ZN6icu_776number4impl6DecNumD2Ev.exit:           ; preds = %209, %211
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %193, %_ZN6icu_776number4impl6DecNumD2Ev.exit.us, %149, %._crit_edge.loopexit174.split.loop.exit180, %.preheader
-  %.7 = phi i32 [ %.072, %.preheader ], [ %.8.us, %_ZN6icu_776number4impl6DecNumD2Ev.exit.us ], [ %225, %._crit_edge.loopexit174.split.loop.exit180 ], [ %.8.us, %149 ], [ %smax, %193 ]
+  %.7 = phi i32 [ %.072, %.preheader ], [ %225, %._crit_edge.loopexit174.split.loop.exit180 ], [ %.8.us, %_ZN6icu_776number4impl6DecNumD2Ev.exit.us ], [ %.8.us, %149 ], [ %smax, %193 ]
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %14) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %13) #29

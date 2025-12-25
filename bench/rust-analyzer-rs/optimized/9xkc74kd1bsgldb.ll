@@ -12101,7 +12101,7 @@ define hidden noundef ptr @"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$11try_to_node17
   br label %.body
 
 .body:                                            ; preds = %78, %83, %93
-  %eh.lpad-body = phi { ptr, i32 } [ %94, %93 ], [ %lpad.phi.i.i, %78 ], [ %lpad.phi.i.i, %83 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %94, %93 ], [ %lpad.phi.i.i, %83 ], [ %lpad.phi.i.i, %78 ]
   %95 = icmp eq ptr %.sroa.4.2, null
   br i1 %95, label %"_ZN4core3ptr246drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..ast..SyntaxNodePtr$LT$syntax..syntax_node..RustLanguage$GT$..try_to_node..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he10ce1b97be6c32dE.exit", label %96
 
@@ -13653,8 +13653,8 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$rowan..api..SyntaxNode$LT$L$GT$$u20
   br i1 %exitcond.not, label %92, label %93
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hcecfcb858c3ccaa1E.exit": ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit
-  %.sroa.2.0.copyload.i200 = phi i64 [ %.sroa.2.0.copyload.i201, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.2.0.copyload.i.lcssa195, %.loopexit.split-lp.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp137, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit136, %.loopexit.split-lp.loopexit ]
+  %.sroa.2.0.copyload.i200 = phi i64 [ %.sroa.2.0.copyload.i.lcssa195, %.loopexit.split-lp.loopexit ], [ %.sroa.2.0.copyload.i201, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit136, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp137, %.loopexit.split-lp.loopexit.split-lp ]
   %90 = icmp eq i64 %.sroa.2.0.copyload.i200, 0
   br i1 %90, label %159, label %.thread100
 

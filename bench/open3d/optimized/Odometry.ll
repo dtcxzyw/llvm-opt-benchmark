@@ -2962,8 +2962,8 @@ define void @_ZN6open3d9pipelines8odometry19ComputeRGBDOdometryERKNS_8geometry9R
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 196
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, 4
-  %or.cond94 = select i1 %or.cond60.i, i1 %99, i1 false
-  br i1 %or.cond94, label %150, label %_ZN6open3d9pipelines8odometryL18CheckRGBDImagePairERKNS_8geometry9RGBDImageES5_.exit.thread
+  %or.cond = select i1 %or.cond60.i, i1 %99, i1 false
+  br i1 %or.cond, label %150, label %_ZN6open3d9pipelines8odometryL18CheckRGBDImagePairERKNS_8geometry9RGBDImageES5_.exit.thread
 
 100:                                              ; preds = %7
   br i1 %59, label %_ZN6open3d9pipelines8odometryL18CheckRGBDImagePairERKNS_8geometry9RGBDImageES5_.exit.thread, label %101
@@ -3029,8 +3029,8 @@ define void @_ZN6open3d9pipelines8odometry19ComputeRGBDOdometryERKNS_8geometry9R
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 196
   %140 = load i32, ptr %139, align 4
   %141 = icmp eq i32 %140, 4
-  %or.cond = select i1 %or.cond81.i, i1 %141, i1 false
-  br i1 %or.cond, label %150, label %_ZN6open3d9pipelines8odometryL18CheckRGBDImagePairERKNS_8geometry9RGBDImageES5_.exit.thread
+  %or.cond94 = select i1 %or.cond81.i, i1 %141, i1 false
+  br i1 %or.cond94, label %150, label %_ZN6open3d9pipelines8odometryL18CheckRGBDImagePairERKNS_8geometry9RGBDImageES5_.exit.thread
 
 _ZN6open3d9pipelines8odometryL18CheckRGBDImagePairERKNS_8geometry9RGBDImageES5_.exit.thread: ; preds = %109, %117, %100, %121, %69, %77, %60, %81, %101, %61
   tail call void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.3, i32 noundef 509, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d9pipelines8odometry19ComputeRGBDOdometryERKNS_8geometry9RGBDImageES5_RKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEERKNS1_20RGBDOdometryJacobianERKNS1_14OdometryOptionE, ptr noundef nonnull @.str.4)
@@ -3053,7 +3053,7 @@ _ZN6open3d9pipelines8odometryL18CheckRGBDImagePairERKNS_8geometry9RGBDImageES5_.
   store i8 0, ptr %149, align 16, !tbaa !79
   br label %1384
 
-150:                                              ; preds = %81, %121
+150:                                              ; preds = %121, %81
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
@@ -30163,7 +30163,7 @@ _ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_cont
   unreachable
 
 _ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread11, label %35
 
@@ -30286,7 +30286,7 @@ _ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_
   unreachable
 
 _ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread11, label %35
 
@@ -34901,7 +34901,7 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %417 = trunc nuw i32 %416 to i1
   br i1 %417, label %.critedge149, label %.critedge151
 
-.critedge149.thread:                              ; preds = %406, %394, %342, %338, %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit183.thread, %402
+.critedge149.thread:                              ; preds = %394, %406, %342, %338, %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit183.thread, %402
   %418 = load ptr, ptr %300, align 8, !tbaa !200
   %419 = zext nneg i32 %.0228 to i64
   %420 = getelementptr i8, ptr %418, i64 %419
@@ -34971,8 +34971,8 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   store i32 %454, ptr %7, align 4, !tbaa !40
   br label %.critedge151
 
-.critedge151:                                     ; preds = %406, %394, %342, %404, %340, %.critedge, %453, %449, %410
-  %.1229 = phi i32 [ %450, %449 ], [ %.0228, %453 ], [ %.0228, %.critedge ], [ %.0228, %410 ], [ 9, %340 ], [ 18, %404 ], [ 9, %342 ], [ %.0228, %394 ], [ 18, %406 ]
+.critedge151:                                     ; preds = %394, %406, %342, %404, %340, %.critedge, %453, %449, %410
+  %.1229 = phi i32 [ %450, %449 ], [ %.0228, %453 ], [ %.0228, %.critedge ], [ %.0228, %410 ], [ 9, %340 ], [ 18, %404 ], [ 9, %342 ], [ 18, %406 ], [ %.0228, %394 ]
   %455 = zext nneg i32 %.1229 to i64
   %456 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %457 = load i64, ptr %456, align 8, !tbaa !202

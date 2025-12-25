@@ -669,9 +669,9 @@ define internal range(i32 0, 2) i32 @ecpkparams_i2d2i_test(i32 noundef %0) #0 {
   br label %25
 
 25:                                               ; preds = %22, %19, %8, %11
-  %.011 = phi ptr [ null, %8 ], [ %23, %22 ], [ null, %19 ], [ null, %11 ]
-  %.010 = phi ptr [ %9, %8 ], [ %20, %22 ], [ %20, %19 ], [ %9, %11 ]
-  %.0 = phi i32 [ 0, %8 ], [ %spec.select, %22 ], [ 0, %19 ], [ 0, %11 ]
+  %.011 = phi ptr [ null, %11 ], [ %23, %22 ], [ null, %19 ], [ null, %8 ]
+  %.010 = phi ptr [ %9, %11 ], [ %20, %22 ], [ %20, %19 ], [ %9, %8 ]
+  %.0 = phi i32 [ 0, %11 ], [ %spec.select, %22 ], [ 0, %19 ], [ 0, %8 ]
   %.not17 = icmp eq ptr %.010, null
   br i1 %.not17, label %.thread, label %26
 

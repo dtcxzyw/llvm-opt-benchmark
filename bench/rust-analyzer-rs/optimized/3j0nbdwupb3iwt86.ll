@@ -8519,8 +8519,8 @@ define hidden void @_ZN3mbe8expander12expand_rules17h285f36ad037d03f8E(ptr noali
   br label %32
 
 .body101:                                         ; preds = %.loopexit, %.loopexit.split-lp, %134, %138, %102, %106, %.body110, %160
-  %.2 = phi i1 [ true, %160 ], [ true, %106 ], [ true, %.body110 ], [ true, %134 ], [ true, %102 ], [ true, %138 ], [ true, %.loopexit ], [ %30, %.loopexit.split-lp ]
-  %.pn72 = phi { ptr, i32 } [ %.pn.ph, %160 ], [ %103, %106 ], [ %eh.lpad-body111, %.body110 ], [ %135, %134 ], [ %103, %102 ], [ %135, %138 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.2 = phi i1 [ true, %106 ], [ true, %160 ], [ true, %.body110 ], [ true, %134 ], [ true, %102 ], [ true, %138 ], [ true, %.loopexit ], [ %30, %.loopexit.split-lp ]
+  %.pn72 = phi { ptr, i32 } [ %103, %106 ], [ %.pn.ph, %160 ], [ %eh.lpad-body111, %.body110 ], [ %135, %134 ], [ %103, %102 ], [ %135, %138 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %28 = load i8, ptr %15, align 8, !range !2151, !noundef !30
   %29 = icmp ne i8 %28, 9
   %or.cond3 = and i1 %.2, %29
@@ -9073,8 +9073,8 @@ define hidden void @_ZN3mbe8expander12expand_rules17hf9252fbade177bc7E(ptr noali
   br label %30
 
 .body101:                                         ; preds = %.loopexit, %.loopexit.split-lp, %132, %136, %100, %104, %.body110, %158
-  %.2 = phi i1 [ true, %158 ], [ true, %104 ], [ true, %.body110 ], [ true, %132 ], [ true, %100 ], [ true, %136 ], [ true, %.loopexit ], [ %28, %.loopexit.split-lp ]
-  %.pn72 = phi { ptr, i32 } [ %.pn.ph, %158 ], [ %101, %104 ], [ %eh.lpad-body111, %.body110 ], [ %133, %132 ], [ %101, %100 ], [ %133, %136 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.2 = phi i1 [ true, %104 ], [ true, %158 ], [ true, %.body110 ], [ true, %132 ], [ true, %100 ], [ true, %136 ], [ true, %.loopexit ], [ %28, %.loopexit.split-lp ]
+  %.pn72 = phi { ptr, i32 } [ %101, %104 ], [ %.pn.ph, %158 ], [ %eh.lpad-body111, %.body110 ], [ %133, %132 ], [ %101, %100 ], [ %133, %136 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %26 = load i8, ptr %13, align 8, !range !2151, !noundef !30
   %27 = icmp ne i8 %26, 9
   %or.cond3 = and i1 %.2, %27
@@ -20916,7 +20916,7 @@ default.unreachable31:                            ; preds = %3
   br i1 %.716, label %42, label %40
 
 "_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit70.thread": ; preds = %36, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit70", %74, %40, %"_ZN73_$LT$hir_expand..name..UnescapedDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h927452daf44d3cc8E.exit", %79, %15, %"_ZN64_$LT$hir_expand..name..Display$u20$as$u20$core..fmt..Display$GT$3fmt17haeb488f261f7ade5E.exit.us", %24, %20, %.thread, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit", %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit64", %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit66", %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit68"
-  %.1 = phi i1 [ true, %20 ], [ true, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit" ], [ true, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit68" ], [ true, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit66" ], [ true, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit64" ], [ true, %40 ], [ false, %.thread ], [ true, %"_ZN64_$LT$hir_expand..name..Display$u20$as$u20$core..fmt..Display$GT$3fmt17haeb488f261f7ade5E.exit.us" ], [ true, %15 ], [ false, %24 ], [ true, %"_ZN73_$LT$hir_expand..name..UnescapedDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h927452daf44d3cc8E.exit" ], [ false, %79 ], [ true, %74 ], [ true, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit70" ], [ true, %36 ]
+  %.1 = phi i1 [ true, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit" ], [ true, %74 ], [ true, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit68" ], [ true, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit66" ], [ true, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit64" ], [ true, %20 ], [ false, %.thread ], [ true, %"_ZN64_$LT$hir_expand..name..Display$u20$as$u20$core..fmt..Display$GT$3fmt17haeb488f261f7ade5E.exit.us" ], [ true, %15 ], [ false, %24 ], [ true, %"_ZN73_$LT$hir_expand..name..UnescapedDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h927452daf44d3cc8E.exit" ], [ false, %79 ], [ true, %40 ], [ true, %"_ZN10hir_expand8mod_path16display_fmt_path28_$u7b$$u7b$closure$u7d$$u7d$17hfd8506278ff78b78E.exit70" ], [ true, %36 ]
   ret i1 %.1
 
 40:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd310d99d0440cff5E.llvm.1819014470976533947.exit"

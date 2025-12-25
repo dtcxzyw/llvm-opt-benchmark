@@ -837,7 +837,7 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %33
   %spec.select.i.i = select i1 %35, i1 %36, i1 false
   br i1 %spec.select.i.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread7
 
-_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread7:  ; preds = %31, %27, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
+_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread7:  ; preds = %27, %31, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
   %37 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #17
   br label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread
 

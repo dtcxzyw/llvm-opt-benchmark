@@ -15121,8 +15121,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h324f5eaef5cb88f9E.exit295: ; preds = %
           to label %858 unwind label %.loopexit574
 
 .body346:                                         ; preds = %.loopexit574, %1087, %1091
-  %.sroa.092.1 = phi i8 [ %.sroa.092.2, %1087 ], [ %.sroa.092.2, %1091 ], [ %.sroa.092.0.ph, %.loopexit574 ]
-  %.pn154 = phi { ptr, i32 } [ %.pn, %1087 ], [ %.pn, %1091 ], [ %lpad.loopexit576, %.loopexit574 ]
+  %.sroa.092.1 = phi i8 [ %.sroa.092.2, %1091 ], [ %.sroa.092.2, %1087 ], [ %.sroa.092.0.ph, %.loopexit574 ]
+  %.pn154 = phi { ptr, i32 } [ %.pn, %1091 ], [ %.pn, %1087 ], [ %lpad.loopexit576, %.loopexit574 ]
   %857 = trunc nuw i8 %.sroa.092.1 to i1
   br i1 %857, label %.thread515, label %.body239
 
@@ -19950,7 +19950,7 @@ _ZN4core3ops8function6FnOnce9call_once17h999b0feed55ba91bE.exit.i: ; preds = %.t
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h09426e18e9b0b579E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %131)
           to label %.thread370 unwind label %527
 
-.thread370:                                       ; preds = %.thread, %916, %.critedge.i, %"_ZN4core3ptr234drop_in_place$LT$gpui..window..ViewContext$LT$project_panel..ProjectPanel$GT$..listener$LT$workspace..pane..DraggedSelection$C$project_panel..ProjectPanel..render_entry..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h046b7bb84641f265E.llvm.5084362645732435487.exit.i", %901, %.thread247, %.thread231, %912
+.thread370:                                       ; preds = %.thread, %916, %"_ZN4core3ptr234drop_in_place$LT$gpui..window..ViewContext$LT$project_panel..ProjectPanel$GT$..listener$LT$workspace..pane..DraggedSelection$C$project_panel..ProjectPanel..render_entry..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h046b7bb84641f265E.llvm.5084362645732435487.exit.i", %.critedge.i, %901, %.thread247, %.thread231, %912
   %.pn41.pn204364 = phi { ptr, i32 } [ %902, %901 ], [ %.pn39269, %912 ], [ %lpad.thr_comm.split-lp387, %.thread247 ], [ %.pn41218, %.thread231 ], [ %412, %"_ZN4core3ptr234drop_in_place$LT$gpui..window..ViewContext$LT$project_panel..ProjectPanel$GT$..listener$LT$workspace..pane..DraggedSelection$C$project_panel..ProjectPanel..render_entry..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h046b7bb84641f265E.llvm.5084362645732435487.exit.i" ], [ %396, %.critedge.i ], [ %.pn41.pn205, %916 ], [ %.pn41.pn205, %.thread ]
   %.sroa.028.5206363 = phi i1 [ false, %901 ], [ false, %912 ], [ false, %.thread247 ], [ true, %.thread231 ], [ false, %"_ZN4core3ptr234drop_in_place$LT$gpui..window..ViewContext$LT$project_panel..ProjectPanel$GT$..listener$LT$workspace..pane..DraggedSelection$C$project_panel..ProjectPanel..render_entry..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h046b7bb84641f265E.llvm.5084362645732435487.exit.i" ], [ false, %.critedge.i ], [ true, %916 ], [ true, %.thread ]
   %.sroa.09.3210362 = phi i8 [ 1, %901 ], [ %.sroa.09.7271, %912 ], [ 1, %.thread247 ], [ 1, %.thread231 ], [ 1, %"_ZN4core3ptr234drop_in_place$LT$gpui..window..ViewContext$LT$project_panel..ProjectPanel$GT$..listener$LT$workspace..pane..DraggedSelection$C$project_panel..ProjectPanel..render_entry..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h046b7bb84641f265E.llvm.5084362645732435487.exit.i" ], [ 1, %.critedge.i ], [ 1, %916 ], [ 1, %.thread ]

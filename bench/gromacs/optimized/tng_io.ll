@@ -20764,7 +20764,7 @@ tng_data_find.exit91.thread.sink.split:           ; preds = %19, %25, %159, %147
   br label %tng_data_find.exit91.thread
 
 tng_data_find.exit91.thread:                      ; preds = %.critedge.i80, %.critedge38.i86, %157, %145, %tng_data_find.exit91.thread.sink.split, %.critedge63, %.critedge, %.critedge38.preheader.i83, %.critedge.preheader.i77, %.loopexit101
-  %.059 = phi i32 [ 1, %.critedge38.i86 ], [ 0, %tng_data_find.exit91.thread.sink.split ], [ 1, %157 ], [ %79, %.loopexit101 ], [ 1, %.critedge ], [ 1, %.critedge63 ], [ 1, %145 ], [ 1, %.critedge.preheader.i77 ], [ 1, %.critedge38.preheader.i83 ], [ 1, %.critedge.i80 ]
+  %.059 = phi i32 [ 1, %.critedge ], [ 1, %157 ], [ 0, %tng_data_find.exit91.thread.sink.split ], [ %79, %.loopexit101 ], [ 1, %.critedge38.i86 ], [ 1, %.critedge63 ], [ 1, %145 ], [ 1, %.critedge.preheader.i77 ], [ 1, %.critedge38.preheader.i83 ], [ 1, %.critedge.i80 ]
   ret i32 %.059
 }
 
@@ -21243,7 +21243,7 @@ tng_data_find.exit63.thread.sink.split:           ; preds = %18, %24, %.lr.ph.i,
   br label %tng_data_find.exit63.thread
 
 tng_data_find.exit63.thread:                      ; preds = %.critedge.i52, %.critedge38.i58, %tng_data_find.exit63.thread.sink.split, %.critedge38.preheader.i55, %.critedge.preheader.i49, %.loopexit70
-  %.034 = phi i32 [ 1, %.critedge38.i58 ], [ 0, %tng_data_find.exit63.thread.sink.split ], [ 1, %.critedge38.preheader.i55 ], [ 1, %.critedge.preheader.i49 ], [ %78, %.loopexit70 ], [ 1, %.critedge.i52 ]
+  %.034 = phi i32 [ 0, %tng_data_find.exit63.thread.sink.split ], [ 1, %.critedge38.i58 ], [ 1, %.critedge.preheader.i49 ], [ 1, %.critedge38.preheader.i55 ], [ %78, %.loopexit70 ], [ 1, %.critedge.i52 ]
   ret i32 %.034
 }
 
@@ -21575,7 +21575,7 @@ tng_data_find.exit63.thread.sink.split:           ; preds = %18, %24, %.lr.ph.i,
   br label %tng_data_find.exit63.thread
 
 tng_data_find.exit63.thread:                      ; preds = %.critedge.i52, %.critedge38.i58, %tng_data_find.exit63.thread.sink.split, %.critedge38.preheader.i55, %.critedge.preheader.i49, %.loopexit88
-  %.034 = phi i32 [ 1, %.critedge38.i58 ], [ 0, %tng_data_find.exit63.thread.sink.split ], [ 1, %.critedge38.preheader.i55 ], [ 1, %.critedge.preheader.i49 ], [ %78, %.loopexit88 ], [ 1, %.critedge.i52 ]
+  %.034 = phi i32 [ 0, %tng_data_find.exit63.thread.sink.split ], [ 1, %.critedge38.i58 ], [ 1, %.critedge.preheader.i49 ], [ 1, %.critedge38.preheader.i55 ], [ %78, %.loopexit88 ], [ 1, %.critedge.i52 ]
   ret i32 %.034
 }
 
@@ -26235,7 +26235,7 @@ tng_particle_data_find.exit.thread.sink.split:    ; preds = %.critedge.i, %54, %
   br label %tng_particle_data_find.exit.thread
 
 tng_particle_data_find.exit.thread:               ; preds = %tng_particle_data_find.exit.thread.sink.split, %.critedge38.preheader.i, %.critedge.preheader.i221, %45, %.critedge.preheader.i, %tng_particle_data_find.exit
-  %105 = phi i1 [ false, %tng_particle_data_find.exit ], [ true, %.critedge38.preheader.i ], [ true, %.critedge.preheader.i ], [ true, %.critedge.preheader.i221 ], [ true, %45 ], [ true, %tng_particle_data_find.exit.thread.sink.split ]
+  %105 = phi i1 [ false, %tng_particle_data_find.exit ], [ true, %.critedge.preheader.i221 ], [ true, %.critedge.preheader.i ], [ true, %.critedge38.preheader.i ], [ true, %45 ], [ true, %tng_particle_data_find.exit.thread.sink.split ]
   %106 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #30
   %.not.i = icmp eq ptr %106, null
   br i1 %.not.i, label %107, label %110
@@ -26972,7 +26972,7 @@ thread-pre-split:                                 ; preds = %297, %thread-pre-sp
   br label %tng_particle_data_find.exit234.thread
 
 tng_particle_data_find.exit234.thread:            ; preds = %.critedge.i229, %197, %.critedge.i238, %.critedge38.i244, %.critedge38.preheader.i267, %.critedge.preheader.i261, %367, %.critedge.preheader.i252, %.critedge.i255, %372, %.critedge.i264, %.critedge38.i270, %.critedge38.preheader.i241, %.critedge.preheader.i235, %190, %.critedge.preheader.i226, %444, %269, %264, %248, %250, %27, %25, %445, %415, %354, %286, %173, %121
-  %.0166 = phi i32 [ 1, %264 ], [ %26, %25 ], [ %120, %121 ], [ 2, %173 ], [ %28, %27 ], [ 1, %444 ], [ %243, %248 ], [ 1, %.critedge38.i270 ], [ 0, %445 ], [ %.010.i288, %354 ], [ 1, %269 ], [ %411, %415 ], [ 2, %286 ], [ %243, %250 ], [ 1, %372 ], [ 1, %.critedge.preheader.i226 ], [ 1, %.critedge.i264 ], [ 1, %190 ], [ 1, %.critedge.preheader.i235 ], [ 1, %.critedge38.preheader.i241 ], [ 1, %197 ], [ 1, %.critedge38.i244 ], [ 1, %.critedge.i238 ], [ 1, %.critedge38.preheader.i267 ], [ 1, %.critedge.i255 ], [ 1, %.critedge.preheader.i252 ], [ 1, %367 ], [ 1, %.critedge.preheader.i261 ], [ 1, %.critedge.i229 ]
+  %.0166 = phi i32 [ 1, %264 ], [ %26, %25 ], [ %120, %121 ], [ 2, %173 ], [ %28, %27 ], [ 1, %444 ], [ %243, %248 ], [ 1, %.critedge38.i270 ], [ 0, %445 ], [ %.010.i288, %354 ], [ 1, %269 ], [ %411, %415 ], [ 2, %286 ], [ %243, %250 ], [ 1, %372 ], [ 1, %.critedge.preheader.i226 ], [ 1, %.critedge.i264 ], [ 1, %190 ], [ 1, %.critedge.preheader.i235 ], [ 1, %.critedge38.preheader.i241 ], [ 1, %197 ], [ 1, %.critedge38.i244 ], [ 1, %.critedge.i255 ], [ 1, %.critedge38.preheader.i267 ], [ 1, %.critedge.i238 ], [ 1, %.critedge.preheader.i252 ], [ 1, %367 ], [ 1, %.critedge.preheader.i261 ], [ 1, %.critedge.i229 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

@@ -1565,7 +1565,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %119, label %75, label %.critedge, !llvm.loop !64
 
 .critedge:                                        ; preds = %Vec_IntPush.exit, %75, %64, %Ssc_SimFindBit.exit, %.thread38, %37
-  %.0 = phi ptr [ null, %37 ], [ null, %Ssc_SimFindBit.exit ], [ null, %.thread38 ], [ %65, %64 ], [ %65, %75 ], [ %65, %Vec_IntPush.exit ]
+  %.0 = phi ptr [ null, %37 ], [ null, %.thread38 ], [ null, %Ssc_SimFindBit.exit ], [ %65, %64 ], [ %65, %75 ], [ %65, %Vec_IntPush.exit ]
   ret ptr %.0
 }
 

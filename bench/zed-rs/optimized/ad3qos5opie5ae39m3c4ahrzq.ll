@@ -7700,7 +7700,7 @@ default.unreachable:                              ; preds = %70, %44
   br label %92
 
 89:                                               ; preds = %86, %60
-  %.sroa.11.0.in.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i, %60 ], [ %.sroa.232.0.copyload.i.i.i.i.i.i, %86 ]
+  %.sroa.11.0.in.i.i.i = phi i64 [ %.sroa.232.0.copyload.i.i.i.i.i.i, %86 ], [ %.sroa.2.0.copyload.i.i.i.i.i.i, %60 ]
   %.sroa.11.0.i.i.i = trunc nuw i64 %.sroa.11.0.in.i.i.i to i32
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %90, align 4, !alias.scope !1693, !noalias !1694

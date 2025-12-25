@@ -32654,7 +32654,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65:       ; preds = %_ZN5Ipopt8SmartPtrI
   %.not.i.i66 = icmp eq ptr %179, null
   br i1 %.not.i.i66, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit67, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65.thread119
 
-_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65.thread119: ; preds = %167, %169, %175, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65
+_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65.thread119: ; preds = %175, %169, %167, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65
   %.pn29124 = phi { ptr, i32 } [ %.pn29, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65 ], [ %170, %175 ], [ %170, %169 ], [ %168, %167 ]
   %.sroa.075.0123 = phi ptr [ %.sroa.075.0, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65 ], [ %20, %175 ], [ %20, %169 ], [ %20, %167 ]
   %180 = phi ptr [ %179, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65 ], [ %101, %175 ], [ %101, %169 ], [ %101, %167 ]
@@ -33103,7 +33103,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65:       ; preds = %_ZN5Ipopt8SmartPtrI
   %.not.i.i66 = icmp eq ptr %179, null
   br i1 %.not.i.i66, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit67, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65.thread119
 
-_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65.thread119: ; preds = %167, %169, %175, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65
+_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65.thread119: ; preds = %175, %169, %167, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65
   %.pn29124 = phi { ptr, i32 } [ %.pn29, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65 ], [ %170, %175 ], [ %170, %169 ], [ %168, %167 ]
   %.sroa.075.0123 = phi ptr [ %.sroa.075.0, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65 ], [ %20, %175 ], [ %20, %169 ], [ %20, %167 ]
   %180 = phi ptr [ %179, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit65 ], [ %101, %175 ], [ %101, %169 ], [ %101, %167 ]

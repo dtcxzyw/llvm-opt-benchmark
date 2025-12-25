@@ -404,9 +404,9 @@ rioRead.exit:                                     ; preds = %32
   %.not90 = icmp eq i64 %54, 0
   br i1 %.not90, label %.preheader.backedge, label %rioRead.exit.thread
 
-.preheader.backedge:                              ; preds = %51, %99, %115, %69, %154, %80, %75, %46, %89, %select.unfold
-  %.070.be = phi i64 [ %48, %46 ], [ %.070, %89 ], [ %.070, %select.unfold ], [ %52, %51 ], [ %.070, %99 ], [ %.070, %115 ], [ %.070, %69 ], [ -1, %154 ], [ %.070, %80 ], [ %.070, %75 ]
-  %.069.be = phi i32 [ %.069, %46 ], [ %.069, %89 ], [ %.069, %select.unfold ], [ %.069, %51 ], [ %.069, %99 ], [ %.069, %115 ], [ %.069, %69 ], [ %.069, %154 ], [ %.069, %80 ], [ %76, %75 ]
+.preheader.backedge:                              ; preds = %51, %75, %99, %46, %69, %154, %115, %89, %80, %select.unfold
+  %.070.be = phi i64 [ %.070, %89 ], [ %.070, %80 ], [ %.070, %select.unfold ], [ %52, %51 ], [ %.070, %75 ], [ %.070, %99 ], [ %48, %46 ], [ %.070, %69 ], [ -1, %154 ], [ %.070, %115 ]
+  %.069.be = phi i32 [ %.069, %89 ], [ %.069, %80 ], [ %.069, %select.unfold ], [ %.069, %51 ], [ %76, %75 ], [ %.069, %99 ], [ %.069, %46 ], [ %.069, %69 ], [ %.069, %154 ], [ %.069, %115 ]
   br label %.preheader
 
 55:                                               ; preds = %.preheader
@@ -710,7 +710,7 @@ rioRead.exit.thread:                              ; preds = %select.unfold, %89,
   call void (ptr, ...) @rdbCheckError(ptr noundef nonnull @.str.61)
   br label %.thread122
 
-.thread122:                                       ; preds = %select.unfold, %117, %114, %126, %166, %169, %170, %44, %38
+.thread122:                                       ; preds = %select.unfold, %114, %117, %126, %166, %169, %170, %44, %38
   br i1 %10, label %.sink.split.sink.split, label %.sink.split
 
 select.unfold.unreachabledefault:                 ; preds = %select.unfold

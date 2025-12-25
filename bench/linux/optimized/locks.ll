@@ -5698,8 +5698,8 @@ select.unfold.loopexit96:                         ; preds = %272
   br label %select.unfold
 
 select.unfold:                                    ; preds = %290, %select.unfold.loopexit96, %.lr.ph, %.select.unfold.loopexit79_crit_edge, %.split.us, %222, %226, %234, %325, %317, %316, %.thread22, %302
-  %328 = phi i32 [ -11, %222 ], [ %307, %302 ], [ 0, %325 ], [ 0, %317 ], [ %314, %316 ], [ -22, %.thread22 ], [ -11, %234 ], [ -11, %226 ], [ -11, %.lr.ph ], [ -11, %.split.us ], [ -11, %select.unfold.loopexit96 ], [ -11, %.select.unfold.loopexit79_crit_edge ], [ -11, %290 ]
-  %329 = phi ptr [ null, %222 ], [ %.us-phi34, %302 ], [ %318, %325 ], [ %318, %317 ], [ null, %316 ], [ null, %.thread22 ], [ null, %234 ], [ null, %226 ], [ null, %.lr.ph ], [ null, %.split.us ], [ %327, %select.unfold.loopexit96 ], [ %326, %.select.unfold.loopexit79_crit_edge ], [ %280, %290 ]
+  %328 = phi i32 [ -11, %234 ], [ %307, %302 ], [ 0, %325 ], [ 0, %317 ], [ %314, %316 ], [ -22, %.thread22 ], [ -11, %222 ], [ -11, %226 ], [ -11, %.lr.ph ], [ -11, %.split.us ], [ -11, %select.unfold.loopexit96 ], [ -11, %.select.unfold.loopexit79_crit_edge ], [ -11, %290 ]
+  %329 = phi ptr [ null, %234 ], [ %.us-phi34, %302 ], [ %318, %325 ], [ %318, %317 ], [ null, %316 ], [ null, %.thread22 ], [ null, %222 ], [ null, %226 ], [ null, %.lr.ph ], [ null, %.split.us ], [ %327, %select.unfold.loopexit96 ], [ %326, %.select.unfold.loopexit79_crit_edge ], [ %280, %290 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %193) #15
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !50
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !57

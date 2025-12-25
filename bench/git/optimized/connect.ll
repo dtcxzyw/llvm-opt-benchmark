@@ -2000,7 +2000,7 @@ define dso_local ptr @parse_feature_value(ptr noundef %0, ptr noundef readonly c
   br label %.thread65
 
 .thread65:                                        ; preds = %44, %.lr.ph, %.thread65.sink.split, %10, %33, %41, %4
-  %.0 = phi ptr [ %38, %41 ], [ null, %4 ], [ %31, %33 ], [ %.0.ph, %.thread65.sink.split ], [ null, %10 ], [ null, %.lr.ph ], [ null, %44 ]
+  %.0 = phi ptr [ %31, %33 ], [ null, %4 ], [ %38, %41 ], [ null, %10 ], [ %.0.ph, %.thread65.sink.split ], [ null, %.lr.ph ], [ null, %44 ]
   ret ptr %.0
 }
 
@@ -2194,7 +2194,7 @@ next_server_feature_value.exit27:                 ; preds = %next_server_feature
   br i1 %.not13, label %next_server_feature_value.exit27.thread, label %.lr.ph, !llvm.loop !55
 
 next_server_feature_value.exit27.thread:          ; preds = %next_server_feature_value.exit27, %.lr.ph, %47, %.lr.ph.i.i16, %74, %44
-  %.08 = phi i32 [ 0, %.lr.ph.i.i16 ], [ 1, %44 ], [ 0, %74 ], [ 1, %next_server_feature_value.exit27 ], [ 0, %.lr.ph ], [ 0, %47 ]
+  %.08 = phi i32 [ 0, %.lr.ph.i.i16 ], [ 1, %44 ], [ 0, %74 ], [ 0, %.lr.ph ], [ 0, %47 ], [ 1, %next_server_feature_value.exit27 ]
   ret i32 %.08
 }
 
@@ -2278,7 +2278,7 @@ parse_feature_value.exit.sink.split:              ; preds = %25, %32
   br label %parse_feature_value.exit
 
 parse_feature_value.exit:                         ; preds = %.lr.ph.i, %34, %parse_feature_value.exit.sink.split, %29, %25, %2, %4
-  %.0.i = phi ptr [ %26, %25 ], [ null, %2 ], [ null, %4 ], [ %31, %29 ], [ %.0.i.ph, %parse_feature_value.exit.sink.split ], [ null, %34 ], [ null, %.lr.ph.i ]
+  %.0.i = phi ptr [ null, %4 ], [ null, %2 ], [ %26, %25 ], [ %.0.i.ph, %parse_feature_value.exit.sink.split ], [ %31, %29 ], [ null, %34 ], [ null, %.lr.ph.i ]
   ret ptr %.0.i
 }
 
@@ -2337,7 +2337,7 @@ define dso_local range(i32 0, 2) i32 @server_supports(ptr noundef readonly captu
   br i1 %.not55.i.i, label %server_feature_value.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 server_feature_value.exit:                        ; preds = %16, %19, %.lr.ph.i.i, %25, %1, %3
-  %.0.i.i = phi i32 [ 0, %3 ], [ 0, %1 ], [ 1, %19 ], [ 0, %25 ], [ 1, %16 ], [ 0, %.lr.ph.i.i ]
+  %.0.i.i = phi i32 [ 0, %3 ], [ 0, %1 ], [ 1, %19 ], [ 1, %16 ], [ 0, %25 ], [ 0, %.lr.ph.i.i ]
   ret i32 %.0.i.i
 }
 

@@ -1119,8 +1119,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %334
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %294, %298, %300, %346, %296, %.loopexit.split-lp153, %.loopexit.split-lp158, %.loopexit157, %.loopexit.split-lp163, %.loopexit162, %.loopexit.split-lp168, %.loopexit167
-  %347 = phi ptr [ %42, %.loopexit.split-lp168 ], [ %42, %.loopexit167 ], [ %42, %298 ], [ %42, %300 ], [ %.pr.pre, %346 ], [ %42, %296 ], [ %42, %294 ], [ %98, %.loopexit.split-lp153 ], [ %.pr307, %.loopexit.split-lp158 ], [ %42, %.loopexit.split-lp163 ], [ %42, %.loopexit157 ], [ %42, %.loopexit162 ]
-  %.pn72.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp170, %.loopexit.split-lp168 ], [ %lpad.loopexit169, %.loopexit167 ], [ %299, %298 ], [ %301, %300 ], [ %.pn.pn, %346 ], [ %297, %296 ], [ %295, %294 ], [ %.pn72, %.loopexit.split-lp153 ], [ %lpad.loopexit.split-lp160, %.loopexit.split-lp158 ], [ %lpad.loopexit.split-lp165, %.loopexit.split-lp163 ], [ %lpad.loopexit159, %.loopexit157 ], [ %lpad.loopexit164, %.loopexit162 ]
+  %347 = phi ptr [ %42, %.loopexit167 ], [ %42, %.loopexit.split-lp168 ], [ %42, %298 ], [ %42, %300 ], [ %.pr.pre, %346 ], [ %42, %296 ], [ %42, %294 ], [ %98, %.loopexit.split-lp153 ], [ %.pr307, %.loopexit.split-lp158 ], [ %42, %.loopexit.split-lp163 ], [ %42, %.loopexit157 ], [ %42, %.loopexit162 ]
+  %.pn72.pn.pn.pn = phi { ptr, i32 } [ %lpad.loopexit169, %.loopexit167 ], [ %lpad.loopexit.split-lp170, %.loopexit.split-lp168 ], [ %299, %298 ], [ %301, %300 ], [ %.pn.pn, %346 ], [ %297, %296 ], [ %295, %294 ], [ %.pn72, %.loopexit.split-lp153 ], [ %lpad.loopexit.split-lp160, %.loopexit.split-lp158 ], [ %lpad.loopexit.split-lp165, %.loopexit.split-lp163 ], [ %lpad.loopexit159, %.loopexit157 ], [ %lpad.loopexit164, %.loopexit162 ]
   %.not.i.i.i132 = icmp eq ptr %347, null
   br i1 %.not.i.i.i132, label %_ZNSt6vectorIiSaIiEED2Ev.exit133thread-pre-split, label %348
 

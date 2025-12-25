@@ -238,7 +238,7 @@ for.inc36.i:                                      ; preds = %if.end13.i.i.i.i.i,
   %cmp.not.i = icmp eq ptr %incdec.ptr37.i, %add.ptr.i48.i
   br i1 %cmp.not.i, label %if.then, label %for.body.i
 
-_ZL17identifyCallsitesPN6hermes8FunctionERN4llvh8DenseSetIPNS_8CallInstENS2_12DenseMapInfoIS5_EEEE.exit.thread: ; preds = %if.then5.i, %if.else.i, %if.end24.i, %for.body19.i, %entry
+_ZL17identifyCallsitesPN6hermes8FunctionERN4llvh8DenseSetIPNS_8CallInstENS2_12DenseMapInfoIS5_EEEE.exit.thread: ; preds = %if.else.i, %if.then5.i, %if.end24.i, %for.body19.i, %entry
   call void @llvm.lifetime.end.p0(ptr nonnull %CI.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %CI20.i)
   br label %if.end

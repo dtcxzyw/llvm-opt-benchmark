@@ -4044,20 +4044,20 @@ _ZL10skipPGOUseRKN4llvm8FunctionE.exit.thread9.i.i: ; preds = %_ZL10skipPGOUseRK
   call void @_ZNK4llvm8Function13getEntryCountEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.295") align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) %70, i1 noundef zeroext false) #24
   %103 = load i8, ptr %46, align 8, !tbaa !247, !range !51, !noundef !52
   %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.i, label %105
+  br i1 %104, label %105, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.i
 
 105:                                              ; preds = %102
+  %106 = load i64, ptr %5, align 8, !tbaa !249
+  %107 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL31PGOColdInstrumentEntryThreshold, i64 120), align 8, !tbaa !91
+  %108 = icmp ugt i64 %106, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %106 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21PGOTreatUnknownAsCold, i64 120), align 8, !tbaa !53, !range !51, !noundef !52
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread13.i, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread.i
+  br i1 %108, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread.i, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread13.i
 
 _ZL10skipPGOGenRKN4llvm8FunctionE.exit.i:         ; preds = %102
-  %108 = load i64, ptr %5, align 8, !tbaa !249
-  %109 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL31PGOColdInstrumentEntryThreshold, i64 120), align 8, !tbaa !91
-  %110 = icmp ugt i64 %108, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %110, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread.i, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread13.i
+  %109 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL21PGOTreatUnknownAsCold, i64 120), align 8, !tbaa !53, !range !51, !noundef !52
+  %110 = trunc nuw i8 %109 to i1
+  br i1 %110, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread13.i, label %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread.i
 
 _ZL10skipPGOGenRKN4llvm8FunctionE.exit.thread13.i: ; preds = %_ZL10skipPGOGenRKN4llvm8FunctionE.exit.i, %105, %99
   %111 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull @_ZN4llvm21TargetLibraryAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %70) #24
@@ -5538,7 +5538,7 @@ _ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_10PGOUseEdgeENS_12PGOUseBBInfoEE10g
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE9push_backERKS2_.exit.i.i.i, label %_ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_10PGOUseEdgeENS_12PGOUseBBInfoEE10getInstrBBEPS1_.exit.thread49.i.i.i
 
 _ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_10PGOUseEdgeENS_12PGOUseBBInfoEE10getInstrBBEPS1_.exit.thread49.i.i.i: ; preds = %_ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_10PGOUseEdgeENS_12PGOUseBBInfoEE10getInstrBBEPS1_.exit.i.i.i, %673, %663, %656, %644
-  %.0.i52.i.i.i = phi ptr [ %642, %_ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_10PGOUseEdgeENS_12PGOUseBBInfoEE10getInstrBBEPS1_.exit.i.i.i ], [ %640, %656 ], [ %640, %644 ], [ %642, %663 ], [ %672, %673 ]
+  %.0.i52.i.i.i = phi ptr [ %642, %_ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_10PGOUseEdgeENS_12PGOUseBBInfoEE10getInstrBBEPS1_.exit.i.i.i ], [ %640, %656 ], [ %640, %644 ], [ %672, %673 ], [ %642, %663 ]
   %.not.i31.i.i.i = icmp eq ptr %.sroa.10.0.i.i, %.sroa.18.0.i.i
   br i1 %.not.i31.i.i.i, label %682, label %680
 
@@ -15524,7 +15524,7 @@ _ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_7PGOEdgeENS_9PGOBBInfoEE10getInstrB
   br i1 %.not.i, label %_ZNSt6vectorIPN4llvm10BasicBlockESaIS2_EE9push_backERKS2_.exit.i, label %_ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_7PGOEdgeENS_9PGOBBInfoEE10getInstrBBEPS1_.exit.thread49.i
 
 _ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_7PGOEdgeENS_9PGOBBInfoEE10getInstrBBEPS1_.exit.thread49.i: ; preds = %_ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_7PGOEdgeENS_9PGOBBInfoEE10getInstrBBEPS1_.exit.i, %1111, %1101, %1094, %1082
-  %.0.i52.i = phi ptr [ %1080, %_ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_7PGOEdgeENS_9PGOBBInfoEE10getInstrBBEPS1_.exit.i ], [ %1078, %1094 ], [ %1078, %1082 ], [ %1080, %1101 ], [ %1110, %1111 ]
+  %.0.i52.i = phi ptr [ %1080, %_ZN12_GLOBAL__N_122FuncPGOInstrumentationINS_7PGOEdgeENS_9PGOBBInfoEE10getInstrBBEPS1_.exit.i ], [ %1078, %1094 ], [ %1078, %1082 ], [ %1110, %1111 ], [ %1080, %1101 ]
   %.not.i31.i = icmp eq ptr %.sroa.10259.0, %.sroa.18.0
   br i1 %.not.i31.i, label %1120, label %1118
 

@@ -2220,7 +2220,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %1142, %.critedge841
   br label %.critedge841
 
 .critedge841:                                     ; preds = %85, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZNK4ncnn3Mat5emptyEv.exit871, %174, %592, %_ZNK4ncnn3Mat5emptyEv.exit874, %1056, %.critedge870, %_ZN4ncnn3MatD2Ev.exit, %_ZN4ncnn3MatD2Ev.exit879, %.critedge863, %.critedge859, %.critedge854, %.critedge845
-  %.4 = phi i32 [ -100, %.critedge845 ], [ -100, %592 ], [ -100, %.critedge854 ], [ -100, %.critedge859 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit871 ], [ -100, %_ZN4ncnn3MatD2Ev.exit879 ], [ 0, %1056 ], [ -100, %.critedge863 ], [ 0, %.critedge870 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit874 ], [ -100, %174 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %85 ]
+  %.4 = phi i32 [ -100, %.critedge845 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit871 ], [ -100, %.critedge854 ], [ -100, %.critedge859 ], [ -100, %_ZN4ncnn3MatD2Ev.exit ], [ -100, %592 ], [ -100, %_ZN4ncnn3MatD2Ev.exit879 ], [ 0, %1056 ], [ -100, %.critedge863 ], [ 0, %.critedge870 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit874 ], [ -100, %174 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit ], [ -100, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.4

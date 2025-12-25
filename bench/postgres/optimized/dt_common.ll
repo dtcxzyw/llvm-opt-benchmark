@@ -3034,7 +3034,7 @@ j2date.exit403:                                   ; preds = %538, %541
   br label %.thread417
 
 .thread417:                                       ; preds = %323, %320, %315, %307, %106, %104, %101, %98, %97, %587, %35, %358, %584, %582, %168, %173, %176, %164, %160, %.thread442, %.thread430, %207, %DecodePosixTimezone.exit.thread, %.thread, %630, %634, %649, %612, %593, %658, %626
-  %.2 = phi i32 [ -1, %634 ], [ -1, %649 ], [ -1, %.thread ], [ -1, %593 ], [ -1, %.thread442 ], [ %629, %626 ], [ -1, %DecodePosixTimezone.exit.thread ], [ -1, %612 ], [ 0, %658 ], [ -1, %207 ], [ %.6.ph, %.thread430 ], [ -1, %630 ], [ -1, %160 ], [ -1, %164 ], [ -1, %176 ], [ -1, %173 ], [ -1, %168 ], [ -1, %582 ], [ -1, %584 ], [ -1, %358 ], [ -1, %35 ], [ -1, %587 ], [ -1, %97 ], [ -1, %98 ], [ -1, %101 ], [ -1, %104 ], [ -1, %106 ], [ -1, %307 ], [ -1, %315 ], [ -1, %320 ], [ -1, %323 ]
+  %.2 = phi i32 [ -1, %593 ], [ -1, %630 ], [ -1, %.thread ], [ 0, %658 ], [ -1, %.thread442 ], [ %629, %626 ], [ -1, %DecodePosixTimezone.exit.thread ], [ -1, %612 ], [ -1, %634 ], [ -1, %207 ], [ %.6.ph, %.thread430 ], [ -1, %649 ], [ -1, %160 ], [ -1, %164 ], [ -1, %176 ], [ -1, %173 ], [ -1, %168 ], [ -1, %582 ], [ -1, %584 ], [ -1, %358 ], [ -1, %35 ], [ -1, %587 ], [ -1, %97 ], [ -1, %98 ], [ -1, %101 ], [ -1, %104 ], [ -1, %106 ], [ -1, %307 ], [ -1, %315 ], [ -1, %320 ], [ -1, %323 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -3570,7 +3570,7 @@ DecodeSpecial.exit:                               ; preds = %78, %63
   br label %.loopexit
 
 .loopexit:                                        ; preds = %96, %90, %112, %110, %106, %._crit_edge.thread, %.thread, %126, %134, %138, %136, %.thread152, %122, %._crit_edge112
-  %.0 = phi i32 [ -1, %._crit_edge112 ], [ -1, %._crit_edge.thread ], [ 0, %138 ], [ -1, %.thread ], [ 0, %126 ], [ 0, %134 ], [ -1, %122 ], [ 0, %.thread152 ], [ 0, %136 ], [ -1, %112 ], [ -1, %106 ], [ -1, %110 ], [ -1, %90 ], [ -1, %96 ]
+  %.0 = phi i32 [ -1, %._crit_edge112 ], [ 0, %138 ], [ -1, %._crit_edge.thread ], [ 0, %134 ], [ 0, %126 ], [ -1, %.thread ], [ -1, %122 ], [ 0, %.thread152 ], [ 0, %136 ], [ -1, %112 ], [ -1, %106 ], [ -1, %110 ], [ -1, %90 ], [ -1, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

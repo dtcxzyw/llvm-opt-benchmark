@@ -2664,7 +2664,7 @@ linenoiseRaw.exit:                                ; preds = %linenoiseEdit.exit.
   br label %linenoiseNoTTY.exit
 
 linenoiseNoTTY.exit:                              ; preds = %39, %39, %isUnsupportedTerm.exit.thread, %.thread.sink.split.i, %26, %linenoiseRaw.exit, %.critedge, %isUnsupportedTerm.exit, %437
-  %.010 = phi ptr [ null, %linenoiseRaw.exit ], [ null, %isUnsupportedTerm.exit ], [ %438, %437 ], [ %63, %.critedge ], [ null, %isUnsupportedTerm.exit.thread ], [ null, %.thread.sink.split.i ], [ null, %26 ], [ %.4.i, %39 ], [ %.4.i, %39 ]
+  %.010 = phi ptr [ null, %linenoiseRaw.exit ], [ null, %isUnsupportedTerm.exit ], [ %438, %437 ], [ %63, %.critedge ], [ null, %26 ], [ null, %.thread.sink.split.i ], [ null, %isUnsupportedTerm.exit.thread ], [ %.4.i, %39 ], [ %.4.i, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret ptr %.010
 }

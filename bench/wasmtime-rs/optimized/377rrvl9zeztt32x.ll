@@ -10498,7 +10498,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6a1d
   br label %.split
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h875726c7e9810623E.exit.thread": ; preds = %.lr.ph, %65, %63, %44, %37
-  %.pre-phi = phi i64 [ %57, %65 ], [ %31, %44 ], [ %31, %37 ], [ %57, %63 ], [ %82, %.lr.ph ]
+  %.pre-phi = phi i64 [ %31, %44 ], [ %57, %65 ], [ %31, %37 ], [ %57, %63 ], [ %82, %.lr.ph ]
   %95 = getelementptr inbounds { { i32, [2 x i32] }, [1 x i32], { { i64, ptr, {} }, i64 } }, ptr %8, i64 %.pre-phi
   br label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.10165051650595261532.exit
 

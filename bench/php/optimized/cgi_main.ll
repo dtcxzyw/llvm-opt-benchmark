@@ -1894,8 +1894,8 @@ is_valid_path.exit.i:                             ; preds = %443
   br label %is_valid_path.exit.thread.i
 
 is_valid_path.exit.thread.i:                      ; preds = %453, %453, %is_valid_path.exit.i, %440, %440, %431
-  %459 = phi ptr [ %433, %is_valid_path.exit.i ], [ %433, %440 ], [ %233, %431 ], [ %433, %440 ], [ %433, %453 ], [ %433, %453 ]
-  %460 = phi ptr [ %432, %is_valid_path.exit.i ], [ %432, %440 ], [ %232, %431 ], [ %432, %440 ], [ %432, %453 ], [ %432, %453 ]
+  %459 = phi ptr [ %433, %is_valid_path.exit.i ], [ %233, %431 ], [ %433, %440 ], [ %433, %440 ], [ %433, %453 ], [ %433, %453 ]
+  %460 = phi ptr [ %432, %is_valid_path.exit.i ], [ %232, %431 ], [ %432, %440 ], [ %432, %440 ], [ %432, %453 ], [ %432, %453 ]
   br i1 %.not357.i, label %464, label %461
 
 461:                                              ; preds = %is_valid_path.exit.thread.i

@@ -2395,7 +2395,7 @@ _ZN10open_spiel14dots_and_boxes13PlayerToStateEi.exit63: ; preds = %307, %312
   br label %335
 
 335:                                              ; preds = %.sink.split, %278, %_ZN10open_spiel14dots_and_boxes4Move12GetCellBelowEv.exit59, %_ZN10open_spiel14dots_and_boxes4Move12GetCellRightEv.exit57, %282, %138, %168, %_ZN10open_spiel14dots_and_boxes4Move12GetCellBelowEv.exit, %_ZN10open_spiel14dots_and_boxes4Move12GetCellRightEv.exit
-  %.1 = phi i1 [ %.2, %278 ], [ %.013, %168 ], [ %.013, %_ZN10open_spiel14dots_and_boxes4Move12GetCellBelowEv.exit ], [ %.013, %_ZN10open_spiel14dots_and_boxes4Move12GetCellRightEv.exit ], [ %.013, %138 ], [ %.2, %282 ], [ %.2, %_ZN10open_spiel14dots_and_boxes4Move12GetCellBelowEv.exit59 ], [ %.2, %_ZN10open_spiel14dots_and_boxes4Move12GetCellRightEv.exit57 ], [ true, %.sink.split ]
+  %.1 = phi i1 [ %.2, %282 ], [ %.013, %168 ], [ %.013, %_ZN10open_spiel14dots_and_boxes4Move12GetCellBelowEv.exit ], [ %.013, %_ZN10open_spiel14dots_and_boxes4Move12GetCellRightEv.exit ], [ %.013, %138 ], [ %.2, %278 ], [ %.2, %_ZN10open_spiel14dots_and_boxes4Move12GetCellBelowEv.exit59 ], [ %.2, %_ZN10open_spiel14dots_and_boxes4Move12GetCellRightEv.exit57 ], [ true, %.sink.split ]
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %337 = load i32, ptr %336, align 8
   %338 = call noundef zeroext i1 @_ZNK10open_spiel14dots_and_boxes17DotsAndBoxesState4WinsEi(ptr noundef nonnull align 8 dereferenceable(169) %0, i32 noundef %337)

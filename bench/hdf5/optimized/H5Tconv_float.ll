@@ -838,10 +838,10 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f_loop(ptr noundef %0, ptr noundef read
   br label %.thread667
 
 287:                                              ; preds = %282, %262, %264
-  %.2511 = phi i32 [ 0, %264 ], [ 0, %262 ], [ %276, %282 ]
-  %.1507 = phi i64 [ %257, %264 ], [ 0, %262 ], [ %257, %282 ]
-  %.1502 = phi i64 [ %spec.select, %264 ], [ %263, %262 ], [ %spec.select, %282 ]
-  %.1 = phi i1 [ %218, %264 ], [ true, %262 ], [ %218, %282 ]
+  %.2511 = phi i32 [ %276, %282 ], [ 0, %262 ], [ 0, %264 ]
+  %.1507 = phi i64 [ %257, %282 ], [ 0, %262 ], [ %257, %264 ]
+  %.1502 = phi i64 [ %spec.select, %282 ], [ %263, %262 ], [ %spec.select, %264 ]
+  %.1 = phi i1 [ %218, %282 ], [ true, %262 ], [ %218, %264 ]
   %.not581 = icmp eq i64 %.0503, 0
   %.not582 = icmp ugt i64 %.1502, %.sroa.44.0
   %or.cond591 = select i1 %.not581, i1 true, i1 %.not582

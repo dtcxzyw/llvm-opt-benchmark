@@ -61008,11 +61008,11 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %23 = load i32, ptr %22, align 8
   %24 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %23)
   %25 = icmp eq i32 %24, 1
-  br i1 %25, label %.split, label %.thread65
+  br i1 %25, label %.split, label %.thread66
 
 .split:                                           ; preds = %2
   %26 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %23, i1 true)
-  switch i32 %26, label %.thread65 [
+  switch i32 %26, label %.thread66 [
     i32 0, label %27
     i32 1, label %30
     i32 2, label %180
@@ -61022,7 +61022,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 27:                                               ; preds = %.split
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %29 = load i32, ptr %28, align 8
-  switch i32 %29, label %.thread65 [
+  switch i32 %29, label %.thread66 [
     i32 1, label %33
     i32 0, label %121
   ]
@@ -61030,7 +61030,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 30:                                               ; preds = %.split
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %32 = load i32, ptr %31, align 8
-  switch i32 %32, label %.thread65 [
+  switch i32 %32, label %.thread66 [
     i32 0, label %33
     i32 1, label %121
   ]
@@ -61059,7 +61059,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %48 = sub i32 0, %44
   %49 = sitofp i32 %48 to double
   %50 = fmul double %49, 5.000000e-01
-  br label %.thread65
+  br label %.thread66
 
 51:                                               ; preds = %36
   %52 = tail call noundef double @sin(double noundef %21) #54
@@ -61080,7 +61080,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %67 = fmul double %59, %66
   %68 = fmul double %67, -5.000000e-01
   %69 = tail call double @llvm.fmuladd.f64(double %53, double %58, double %68)
-  br label %.thread65
+  br label %.thread66
 
 70:                                               ; preds = %34
   %71 = fneg double %21
@@ -61113,7 +61113,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 
 97:                                               ; preds = %70
   %98 = fmul double %96, 5.000000e-01
-  br label %.thread65
+  br label %.thread66
 
 99:                                               ; preds = %70
   %100 = tail call noundef double @cos(double noundef %71) #54
@@ -61125,7 +61125,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %106 = fmul double %100, %105
   %107 = fmul double %106, -5.000000e-01
   %108 = tail call double @llvm.fmuladd.f64(double %81, double %96, double %107)
-  br label %.thread65
+  br label %.thread66
 
 109:                                              ; preds = %33
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -61143,7 +61143,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg85 = add i32 %118, %.neg86
   %119 = sitofp i32 %.neg85 to double
   %120 = fmul double %119, 5.000000e-01
-  br label %.thread65
+  br label %.thread66
 
 121:                                              ; preds = %27, %30
   br i1 %6, label %173, label %122
@@ -61188,7 +61188,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 149:                                              ; preds = %140, %134
   %.in61 = phi double [ %139, %134 ], [ %148, %140 ]
   %150 = fmul double %.in61, 5.000000e-01
-  br label %.thread65
+  br label %.thread66
 
 151:                                              ; preds = %122
   br i1 %19, label %152, label %160
@@ -61219,7 +61219,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 171:                                              ; preds = %160, %152
   %.in = phi double [ %159, %152 ], [ %170, %160 ]
   %172 = fmul double %.in, 5.000000e-01
-  br label %.thread65
+  br label %.thread66
 
 173:                                              ; preds = %121
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 132
@@ -61230,12 +61230,12 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg81 = add i32 %177, %.neg82
   %178 = sitofp i32 %.neg81 to double
   %179 = fmul double %178, 5.000000e-01
-  br label %.thread65
+  br label %.thread66
 
 180:                                              ; preds = %.split
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %182 = load i32, ptr %181, align 8
-  switch i32 %182, label %.thread65 [
+  switch i32 %182, label %.thread66 [
     i32 1, label %186
     i32 0, label %258
   ]
@@ -61243,7 +61243,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 183:                                              ; preds = %.split
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %185 = load i32, ptr %184, align 8
-  switch i32 %185, label %.thread65 [
+  switch i32 %185, label %.thread66 [
     i32 0, label %186
     i32 1, label %258
   ]
@@ -61291,7 +61291,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %222 = fneg double %221
   %223 = fmul double %216, %222
   %224 = tail call double @llvm.fmuladd.f64(double %210, double %215, double %223)
-  br label %.thread65
+  br label %.thread66
 
 225:                                              ; preds = %187
   %226 = fneg double %21
@@ -61314,7 +61314,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %243 = sub i32 %242, %241
   %244 = sitofp i32 %243 to double
   %245 = fmul double %239, %244
-  br label %.thread65
+  br label %.thread66
 
 246:                                              ; preds = %186
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -61332,7 +61332,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg78 = xor i32 %254, -1
   %.neg77 = add i32 %256, %.neg78
   %257 = sitofp i32 %.neg77 to double
-  br label %.thread65
+  br label %.thread66
 
 258:                                              ; preds = %180, %183
   br i1 %6, label %300, label %259
@@ -61352,7 +61352,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %269 = sitofp i32 %268 to double
   %270 = fmul double %262, %269
   %271 = fmul double %270, 5.000000e-01
-  br label %.thread65
+  br label %.thread66
 
 272:                                              ; preds = %259
   %273 = fneg double %21
@@ -61382,7 +61382,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %297 = sub i32 %296, %295
   %298 = sitofp i32 %297 to double
   %299 = fmul double %283, %298
-  br label %.thread65
+  br label %.thread66
 
 300:                                              ; preds = %258
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -61393,11 +61393,11 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg = add i32 %304, %.neg74
   %305 = sitofp i32 %.neg to double
   %306 = fmul double %305, 5.000000e-01
-  br label %.thread65
+  br label %.thread66
 
-.thread65:                                        ; preds = %180, %183, %27, %30, %2, %.split, %97, %99, %47, %51, %149, %171, %173, %261, %272, %300, %246, %225, %189, %109
-  %.060 = phi double [ 0.000000e+00, %30 ], [ %46, %47 ], [ %114, %109 ], [ %133, %149 ], [ 0.000000e+00, %171 ], [ 0.000000e+00, %173 ], [ %209, %189 ], [ %237, %225 ], [ %252, %246 ], [ %271, %261 ], [ %293, %272 ], [ %306, %300 ], [ 0.000000e+00, %180 ], [ %46, %51 ], [ %91, %99 ], [ %91, %97 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %183 ], [ 0.000000e+00, %.split ], [ 0.000000e+00, %2 ]
-  %.0 = phi double [ 0.000000e+00, %30 ], [ %50, %47 ], [ %120, %109 ], [ %150, %149 ], [ %172, %171 ], [ %179, %173 ], [ %224, %189 ], [ %245, %225 ], [ %257, %246 ], [ 0.000000e+00, %261 ], [ %299, %272 ], [ 0.000000e+00, %300 ], [ 0.000000e+00, %180 ], [ %69, %51 ], [ %108, %99 ], [ %98, %97 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %183 ], [ 0.000000e+00, %.split ], [ 0.000000e+00, %2 ]
+.thread66:                                        ; preds = %180, %183, %27, %30, %2, %.split, %97, %99, %47, %51, %149, %171, %173, %261, %272, %300, %246, %225, %189, %109
+  %.060 = phi double [ 0.000000e+00, %27 ], [ %46, %47 ], [ %114, %109 ], [ %133, %149 ], [ 0.000000e+00, %171 ], [ 0.000000e+00, %173 ], [ %209, %189 ], [ %237, %225 ], [ %252, %246 ], [ %271, %261 ], [ %293, %272 ], [ %306, %300 ], [ 0.000000e+00, %180 ], [ %46, %51 ], [ %91, %99 ], [ %91, %97 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %183 ], [ 0.000000e+00, %.split ], [ 0.000000e+00, %2 ]
+  %.0 = phi double [ 0.000000e+00, %27 ], [ %50, %47 ], [ %120, %109 ], [ %150, %149 ], [ %172, %171 ], [ %179, %173 ], [ %224, %189 ], [ %245, %225 ], [ %257, %246 ], [ 0.000000e+00, %261 ], [ %299, %272 ], [ 0.000000e+00, %300 ], [ 0.000000e+00, %180 ], [ %69, %51 ], [ %108, %99 ], [ %98, %97 ], [ 0.000000e+00, %30 ], [ 0.000000e+00, %183 ], [ 0.000000e+00, %.split ], [ 0.000000e+00, %2 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.060, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.0, 1
   ret { double, double } %.fca.1.insert
@@ -144089,9 +144089,9 @@ _ZNK8QCPCurve9getRegionEdddddd.exit164:           ; preds = %197, %199, %204, %2
     i32 1, label %243
     i32 2, label %244
     i32 3, label %246
-    i32 4, label %247
+    i32 4, label %_ZNK8QCPCurve11mayTraverseEii.exit
     i32 9, label %251
-    i32 6, label %_ZNK8QCPCurve11mayTraverseEii.exit
+    i32 6, label %247
     i32 7, label %248
     i32 8, label %249
   ]
@@ -144207,8 +144207,8 @@ _ZN5QListI7QPointFED2Ev.exit173:                  ; preds = %241, %_ZN17QArrayDa
 
 247:                                              ; preds = %211
   switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread [
-    i32 7, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 1, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+    i32 9, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+    i32 3, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
   ]
 
 248:                                              ; preds = %211
@@ -144235,14 +144235,14 @@ _ZN5QListI7QPointFED2Ev.exit173:                  ; preds = %241, %_ZN17QArrayDa
 
 _ZNK8QCPCurve11mayTraverseEii.exit:               ; preds = %211
   switch i32 %.0.i161, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread [
-    i32 9, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
-    i32 3, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+    i32 7, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
+    i32 1, label %_ZNK8QCPCurve11mayTraverseEii.exit.thread269
   ]
 
 default.unreachable310:                           ; preds = %211
   unreachable
 
-_ZNK8QCPCurve11mayTraverseEii.exit.thread:        ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %251, %248, %246, %243, %244, %249
+_ZNK8QCPCurve11mayTraverseEii.exit.thread:        ; preds = %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %251, %248, %246, %243, %249, %244
   %252 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 8
   %253 = load double, ptr %252, align 8
   %254 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 16
@@ -144396,8 +144396,8 @@ _ZN5QListI7QPointFED2Ev.exit203:                  ; preds = %_ZN5QListI7QPointFE
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %318
 
-_ZNK8QCPCurve11mayTraverseEii.exit.thread269:     ; preds = %._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge, %_ZNK8QCPCurve11mayTraverseEii.exit, %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %247, %246, %246, %246, %246, %243, %243, %243, %243, %248, %248, %248, %248, %251, %251, %251, %251, %244, %249
-  %299 = phi double [ %.pre, %._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %247 ], [ %195, %247 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %244 ], [ %195, %249 ]
+_ZNK8QCPCurve11mayTraverseEii.exit.thread269:     ; preds = %._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge, %_ZNK8QCPCurve11mayTraverseEii.exit, %_ZNK8QCPCurve11mayTraverseEii.exit, %247, %247, %246, %246, %246, %246, %243, %243, %243, %243, %251, %251, %251, %251, %248, %248, %248, %248, %249, %244
+  %299 = phi double [ %.pre, %._ZNK8QCPCurve11mayTraverseEii.exit.thread269_crit_edge ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %_ZNK8QCPCurve11mayTraverseEii.exit ], [ %195, %247 ], [ %195, %247 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %246 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %243 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %251 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %248 ], [ %195, %249 ], [ %195, %244 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %300 = getelementptr inbounds nuw i8, ptr %.sroa.0.0276, i64 8
   %301 = load double, ptr %300, align 8
@@ -156863,7 +156863,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit99:            ; preds = %_ZNK8QPointerI7QCPA
   %271 = fcmp ult double %270, %182
   br i1 %271, label %.critedge41.thread, label %.critedge41
 
-.critedge41.thread:                               ; preds = %_ZNK8QPointerI7QCPAxisE4dataEv.exit97, %_ZNK8QPointerI7QCPAxisE4dataEv.exit99, %268
+.critedge41.thread:                               ; preds = %_ZNK8QPointerI7QCPAxisE4dataEv.exit99, %_ZNK8QPointerI7QCPAxisE4dataEv.exit97, %268
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre = load ptr, ptr %77, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -157029,7 +157029,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit104:           ; preds = %350, %351, %355
   %or.cond129 = select i1 %360, i1 %362, i1 false
   br i1 %or.cond129, label %.critedge45, label %.critedge45.thread
 
-.critedge45.thread:                               ; preds = %_ZNK8QPointerI7QCPAxisE4dataEv.exit102, %_ZNK8QPointerI7QCPAxisE4dataEv.exit104, %334
+.critedge45.thread:                               ; preds = %_ZNK8QPointerI7QCPAxisE4dataEv.exit104, %_ZNK8QPointerI7QCPAxisE4dataEv.exit102, %334
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
@@ -257767,7 +257767,7 @@ _ZSt13move_backwardIPP8QCPLayerS2_ET0_T_S4_S3_.exit: ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1566
 
 _ZSt11swap_rangesIPP8QCPLayerS2_ET0_T_S4_S3_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP8QCPLayerS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP8QCPLayerS2_ET0_T_S4_S3_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPP8QCPLayerS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP8QCPLayerS2_ET0_T_S4_S3_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPP8QCPLayerS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt4moveIPP8QCPLayerS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -280354,7 +280354,7 @@ _ZSt13move_backwardIPP7QCPBarsS2_ET0_T_S4_S3_.exit: ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1658
 
 _ZSt11swap_rangesIPP7QCPBarsS2_ET0_T_S4_S3_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP7QCPBarsS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP7QCPBarsS2_ET0_T_S4_S3_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPP7QCPBarsS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP7QCPBarsS2_ET0_T_S4_S3_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPP7QCPBarsS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt4moveIPP7QCPBarsS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

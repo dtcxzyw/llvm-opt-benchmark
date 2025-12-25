@@ -597,7 +597,7 @@ print_sep.exit250.thread:                         ; preds = %178, %print_sep.exi
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %60, %93, %print_sep.exit.thread, %print_sep.exit, %74, %194, %135, %.critedge241, %190, %187, %print_sep.exit250, %210, %168, %78, %15, %._crit_edge
-  %.0195 = phi i32 [ %214, %._crit_edge ], [ -1, %15 ], [ -1, %194 ], [ %77, %78 ], [ %211, %210 ], [ %167, %168 ], [ %138, %135 ], [ %147, %.critedge241 ], [ -1, %190 ], [ -1, %187 ], [ -1, %print_sep.exit250 ], [ -1, %93 ], [ -1, %print_sep.exit.thread ], [ -1, %print_sep.exit ], [ %75, %74 ], [ %66, %60 ]
+  %.0195 = phi i32 [ %214, %._crit_edge ], [ -1, %15 ], [ -1, %194 ], [ %167, %168 ], [ %211, %210 ], [ %77, %78 ], [ %138, %135 ], [ %147, %.critedge241 ], [ -1, %190 ], [ -1, %187 ], [ -1, %print_sep.exit250 ], [ -1, %93 ], [ -1, %print_sep.exit.thread ], [ -1, %print_sep.exit ], [ %75, %74 ], [ %66, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -3738,8 +3738,8 @@ zend_string_release.exit282:                      ; preds = %281, %285, %292, %2
   br label %.critedge269
 
 file_strncmp16.exit:                              ; preds = %119, %129, %172, %.critedge, %.critedge.us, %68, %.preheader.i.i, %108, %.critedge.lr.ph.split.us, %102, %zend_memnstr.exit, %zend_memnstr.exit.thread285, %.split.us, %zend_string_release.exit282, %2, %2, %308, %55, %23, %20, %17, %14
-  %.0208 = phi i64 [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %310, %308 ], [ %61, %55 ], [ 0, %2 ], [ 1, %.critedge.us ], [ %.10, %zend_string_release.exit282 ], [ 0, %2 ], [ 0, %.split.us ], [ 1, %zend_memnstr.exit ], [ 1, %102 ], [ 0, %zend_memnstr.exit.thread285 ], [ 1, %.critedge.lr.ph.split.us ], [ 1, %108 ], [ 1, %.critedge ], [ %75, %68 ], [ 0, %.preheader.i.i ], [ %166, %172 ], [ 1, %129 ], [ 1, %119 ]
-  %.0206 = phi i64 [ %6, %14 ], [ %6, %17 ], [ %6, %20 ], [ %6, %23 ], [ 0, %308 ], [ 0, %55 ], [ 0, %2 ], [ 0, %.critedge.us ], [ 0, %zend_string_release.exit282 ], [ 0, %2 ], [ 0, %.split.us ], [ 0, %zend_memnstr.exit ], [ 0, %102 ], [ 0, %zend_memnstr.exit.thread285 ], [ 0, %.critedge.lr.ph.split.us ], [ 0, %108 ], [ 0, %172 ], [ 0, %68 ], [ 0, %.preheader.i.i ], [ 0, %.critedge ], [ 0, %129 ], [ 0, %119 ]
+  %.0208 = phi i64 [ %16, %14 ], [ %19, %17 ], [ %22, %20 ], [ %24, %23 ], [ %310, %308 ], [ %61, %55 ], [ 0, %2 ], [ 0, %.split.us ], [ %.10, %zend_string_release.exit282 ], [ 0, %2 ], [ 1, %.critedge.lr.ph.split.us ], [ 1, %zend_memnstr.exit ], [ 1, %102 ], [ 0, %zend_memnstr.exit.thread285 ], [ 1, %.critedge.us ], [ 1, %108 ], [ 1, %.critedge ], [ %75, %68 ], [ 0, %.preheader.i.i ], [ %166, %172 ], [ 1, %129 ], [ 1, %119 ]
+  %.0206 = phi i64 [ %6, %14 ], [ %6, %17 ], [ %6, %20 ], [ %6, %23 ], [ 0, %308 ], [ 0, %55 ], [ 0, %2 ], [ 0, %.split.us ], [ 0, %zend_string_release.exit282 ], [ 0, %2 ], [ 0, %.critedge.lr.ph.split.us ], [ 0, %zend_memnstr.exit ], [ 0, %102 ], [ 0, %zend_memnstr.exit.thread285 ], [ 0, %.critedge.us ], [ 0, %108 ], [ 0, %172 ], [ 0, %68 ], [ 0, %.preheader.i.i ], [ 0, %.critedge ], [ 0, %129 ], [ 0, %119 ]
   %313 = call i64 @file_signextend(ptr noundef %0, ptr noundef %1, i64 noundef %.0208) #21
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %315 = load i8, ptr %314, align 4, !tbaa !38
@@ -5740,8 +5740,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   br i1 %.not90, label %.critedge2, label %.critedge.thread107
 
 .critedge2:                                       ; preds = %91, %.lr.ph, %.lr.ph121, %110, %77, %52, %113, %34
-  %.3 = phi ptr [ %38, %34 ], [ %56, %52 ], [ %114, %113 ], [ %78, %77 ], [ %111, %110 ], [ %.7120, %.lr.ph121 ], [ %.4117, %.lr.ph ], [ %92, %91 ]
-  %.2 = phi ptr [ %43, %34 ], [ %61, %52 ], [ %117, %113 ], [ %71, %77 ], [ %104, %.lr.ph121 ], [ %104, %110 ], [ %71, %.lr.ph ], [ %71, %91 ]
+  %.3 = phi ptr [ %38, %34 ], [ %56, %52 ], [ %114, %113 ], [ %111, %110 ], [ %78, %77 ], [ %.7120, %.lr.ph121 ], [ %.4117, %.lr.ph ], [ %92, %91 ]
+  %.2 = phi ptr [ %43, %34 ], [ %61, %52 ], [ %117, %113 ], [ %104, %.lr.ph121 ], [ %71, %77 ], [ %104, %110 ], [ %71, %.lr.ph ], [ %71, %91 ]
   %119 = add nsw i64 %25, -1
   %.not80 = icmp eq i64 %119, 0
   br i1 %.not80, label %.critedge, label %24

@@ -2287,7 +2287,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc27
   %118 = and i1 %117, %116
   br i1 %118, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread50, label %.critedge16
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread50: ; preds = %.noexc27, %109, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread50: ; preds = %109, %.noexc27, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ComputeVisibilityERKNS_7UsdPrimERKNS_11UsdTimeCodeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %121 unwind label %119
 
@@ -3076,7 +3076,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc28
   %35 = and i1 %34, %33
   br i1 %35, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread63, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread63: ; preds = %.noexc28, %26, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread63: ; preds = %26, %.noexc28, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %36 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute16HasAuthoredValueEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %37 unwind label %44
 
@@ -3256,7 +3256,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit39: ; preds = %.noexc3
   %113 = and i1 %112, %111
   br i1 %113, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit39.thread69, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit39.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit39.thread69: ; preds = %.noexc38, %104, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit39
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit39.thread69: ; preds = %104, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit39
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_ComputePurposeVisibilityERKNS_7UsdPrimERKNS_7TfTokenERKNS_11UsdTimeCodeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit39.thread unwind label %114
 
@@ -4125,7 +4125,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %29 = and i1 %28, %27
   br i1 %29, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread59, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread59: ; preds = %.noexc, %20, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread59: ; preds = %20, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L12_MakeVisibleERKNS_7UsdPrimERKNS_11UsdTimeCodeEPb(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
           to label %30 unwind label %200
 
@@ -5587,7 +5587,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %25 = and i1 %24, %23
   br i1 %25, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread21, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread21: ; preds = %.noexc, %16, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread21: ; preds = %16, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %26 unwind label %30
 
@@ -6384,7 +6384,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc41
   %124 = and i1 %123, %122
   br i1 %124, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread167, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread167: ; preds = %.noexc41, %115, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread167: ; preds = %115, %.noexc41, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %125 unwind label %350
@@ -6514,7 +6514,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit53: ; preds = %.noexc5
   %176 = and i1 %175, %174
   br i1 %176, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit53.thread171, label %.critedge
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit53.thread171: ; preds = %.noexc52, %167, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit53
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit53.thread171: ; preds = %167, %.noexc52, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit53
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %17)

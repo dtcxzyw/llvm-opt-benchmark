@@ -1980,7 +1980,7 @@ load_cursor.exit.thread:                          ; preds = %166
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.0.i305) #7
   br label %._crit_edge
 
-load_cursor.exit:                                 ; preds = %._crit_edge.us284.i, %._crit_edge.us, %._crit_edge105.i, %.preheader.lr.ph, %432, %.lr.ph268.i, %509, %.preheader88.lr.ph.i, %._crit_edge99.i, %214, %425, %421, %391, %389, %384, %382
+load_cursor.exit:                                 ; preds = %._crit_edge.us284.i, %._crit_edge.us, %._crit_edge105.i, %.preheader.lr.ph, %432, %509, %.lr.ph268.i, %.preheader88.lr.ph.i, %._crit_edge99.i, %214, %425, %421, %391, %389, %384, %382
   %.not284 = icmp eq i32 %111, 0
   br i1 %.not284, label %._crit_edge, label %110, !llvm.loop !85
 

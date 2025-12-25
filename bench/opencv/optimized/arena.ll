@@ -1747,7 +1747,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11Serial
   br label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit
 
 _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit: ; preds = %55, %50, %35, %40
-  %.1 = phi ptr [ %39, %35 ], [ %31, %40 ], [ %54, %50 ], [ %46, %55 ]
+  %.1 = phi ptr [ %31, %40 ], [ %39, %35 ], [ %54, %50 ], [ %46, %55 ]
   ret ptr %.1
 }
 

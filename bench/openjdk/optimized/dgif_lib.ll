@@ -3095,7 +3095,7 @@ DGifGetExtensionNext.exit.thread:                 ; preds = %InternalRead.exit13
   br label %DGifDecreaseImageCounter.exit
 
 DGifDecreaseImageCounter.exit:                    ; preds = %115, %110, %29, %155, %DGifGetExtensionNext.exit.thread, %94, %91, %57, %54, %DGifGetRecordType.exit.thread, %164, %167, %104, %64
-  %.053 = phi i32 [ 0, %155 ], [ 0, %167 ], [ 0, %94 ], [ 0, %DGifGetRecordType.exit.thread ], [ 1, %164 ], [ 0, %DGifGetExtensionNext.exit.thread ], [ 0, %64 ], [ 0, %57 ], [ 0, %104 ], [ 0, %91 ], [ 0, %54 ], [ 0, %29 ], [ 0, %110 ], [ 0, %115 ]
+  %.053 = phi i32 [ 0, %54 ], [ 0, %167 ], [ 0, %94 ], [ 0, %DGifGetRecordType.exit.thread ], [ 1, %164 ], [ 0, %DGifGetExtensionNext.exit.thread ], [ 0, %64 ], [ 0, %57 ], [ 0, %104 ], [ 0, %91 ], [ 0, %155 ], [ 0, %29 ], [ 0, %110 ], [ 0, %115 ]
   ret i32 %.053
 }
 

@@ -5766,7 +5766,7 @@ cvQuadSensUpdateNorm.exit.i:                      ; preds = %.lr.ph.i.i158.i, %.
   br label %cvYddNorm.exit
 
 373:                                              ; preds = %cvQuadSensUpdateNorm.exit.i, %333, %331
-  %.2105 = phi double [ %..i157.i, %cvQuadSensUpdateNorm.exit.i ], [ %.4, %331 ], [ %.4, %333 ]
+  %.2105 = phi double [ %.4, %333 ], [ %.4, %331 ], [ %..i157.i, %cvQuadSensUpdateNorm.exit.i ]
   %374 = icmp eq i32 %.090138, 4
   %or.cond = or i1 %374, %.0141
   br i1 %or.cond, label %.thread122, label %375
@@ -14517,7 +14517,7 @@ define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef nonnull 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %220, %.loopexit.sink.split, %.preheader, %.loopexit145, %216, %192, %174, %159, %150, %137, %129, %105, %12, %24, %7
-  %.0131 = phi i32 [ -54, %216 ], [ 0, %7 ], [ 5, %.loopexit.sink.split ], [ 5, %.preheader ], [ -3, %12 ], [ -8, %105 ], [ -11, %129 ], [ -31, %137 ], [ -34, %150 ], [ -41, %159 ], [ -44, %174 ], [ -51, %192 ], [ -3, %24 ], [ 5, %.loopexit145 ], [ 5, %220 ]
+  %.0131 = phi i32 [ -54, %216 ], [ 0, %7 ], [ 5, %.preheader ], [ 5, %.loopexit.sink.split ], [ -3, %12 ], [ -8, %105 ], [ -11, %129 ], [ -31, %137 ], [ -34, %150 ], [ -41, %159 ], [ -44, %174 ], [ -51, %192 ], [ -3, %24 ], [ 5, %.loopexit145 ], [ 5, %220 ]
   ret i32 %.0131
 }
 

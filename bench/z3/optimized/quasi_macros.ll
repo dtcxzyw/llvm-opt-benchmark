@@ -770,7 +770,7 @@ _ZNK14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_da
   br i1 %.not.i.i.i.i, label %_ZNK7obj_mapI9func_decljE13find_iteratorEPS0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !80
 
 _ZNK7obj_mapI9func_decljE13find_iteratorEPS0_.exit: ; preds = %138, %149, %152, %.lr.ph.i.i.i.i, %155, %.preheader.i.i.i, %_ZNK14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE9find_coreERKS5_.exit.i.i
-  %.sroa.0.0.i.i = phi ptr [ %130, %149 ], [ %130, %_ZNK14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE9find_coreERKS5_.exit.i.i ], [ %.sroa.0.1.i.i, %.lr.ph.i.i.i.i ], [ %130, %.preheader.i.i.i ], [ %130, %155 ], [ %130, %152 ], [ %130, %138 ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %.lr.ph.i.i.i.i ], [ %130, %_ZNK14core_hashtableIN7obj_mapI9func_decljE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE9find_coreERKS5_.exit.i.i ], [ %130, %149 ], [ %130, %.preheader.i.i.i ], [ %130, %155 ], [ %130, %152 ], [ %130, %138 ]
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   %158 = load i32, ptr %157, align 8, !tbaa !17
   %159 = add i32 %158, 1

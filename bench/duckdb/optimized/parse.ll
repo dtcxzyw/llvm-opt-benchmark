@@ -4793,8 +4793,8 @@ _ZN10duckdb_re2L18LookupUnicodeGroupERKNS_11StringPieceE.exit: ; preds = %_ZN10d
   br label %.critedge
 
 .loopexit:                                        ; preds = %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i, %97, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i, %.lr.ph.i.us.i, %78, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i
-  %.13579 = phi i32 [ %.135818894, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i ], [ %.135, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i ], [ %.135, %78 ], [ %.135818894, %.lr.ph.i.us.i ], [ %.135, %97 ], [ %.135, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i ]
-  %.0.i.ph = phi ptr [ %88, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i ], [ @_ZN10duckdb_re2L8anygroupE, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i ], [ @_ZN10duckdb_re2L8anygroupE, %78 ], [ %88, %.lr.ph.i.us.i ], [ %92, %97 ], [ %92, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i ]
+  %.13579 = phi i32 [ %.135, %78 ], [ %.135818894, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i ], [ %.135, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i ], [ %.135818894, %.lr.ph.i.us.i ], [ %.135, %97 ], [ %.135, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i ]
+  %.0.i.ph = phi ptr [ @_ZN10duckdb_re2L8anygroupE, %78 ], [ %88, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i ], [ @_ZN10duckdb_re2L8anygroupE, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i ], [ %88, %.lr.ph.i.us.i ], [ %92, %97 ], [ %92, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i ]
   call fastcc void @_ZN10duckdb_re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef %2, ptr noundef nonnull %.0.i.ph, i32 noundef %.13579, i32 noundef %1)
   br label %.critedge
 
@@ -7973,8 +7973,8 @@ _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i: ; preds = %_ZN10duc
   br label %.thread234
 
 .critedge118thread-pre-split:                     ; preds = %384, %484, %436, %203, %121, %468, %.critedge114, %.critedge112, %132
-  %.sroa.9.1.ph = phi i64 [ 0, %484 ], [ %.sroa.7.3, %.critedge114 ], [ %233, %.critedge112 ], [ 0, %203 ], [ 0, %121 ], [ 0, %468 ], [ 0, %132 ], [ 0, %436 ], [ %385, %384 ]
-  %.sroa.0186.1.ph = phi ptr [ null, %484 ], [ %.sroa.0191.3, %.critedge114 ], [ %230, %.critedge112 ], [ null, %203 ], [ null, %121 ], [ null, %468 ], [ null, %132 ], [ null, %436 ], [ null, %384 ]
+  %.sroa.9.1.ph = phi i64 [ 0, %468 ], [ %.sroa.7.3, %.critedge114 ], [ %233, %.critedge112 ], [ 0, %203 ], [ 0, %121 ], [ 0, %484 ], [ 0, %436 ], [ 0, %132 ], [ %385, %384 ]
+  %.sroa.0186.1.ph = phi ptr [ null, %468 ], [ %.sroa.0191.3, %.critedge114 ], [ %230, %.critedge112 ], [ null, %203 ], [ null, %121 ], [ null, %484 ], [ null, %436 ], [ null, %132 ], [ null, %384 ]
   %.pr438 = load i64, ptr %60, align 8, !tbaa !96
   br label %.critedge118
 
@@ -7994,7 +7994,7 @@ _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i: ; preds = %_ZN10duc
   br label %.thread234
 
 .thread234:                                       ; preds = %132, %160, %438, %.loopexit248, %.critedge116, %.critedge110, %.critedge108, %.critedge120, %.loopexit247, %._crit_edge329, %._crit_edge, %.critedge
-  %.2 = phi ptr [ %91, %._crit_edge ], [ null, %.critedge ], [ %487, %._crit_edge329 ], [ null, %.loopexit247 ], [ null, %.critedge120 ], [ null, %.critedge108 ], [ null, %438 ], [ null, %.critedge110 ], [ null, %.loopexit248 ], [ null, %.critedge116 ], [ null, %160 ], [ null, %132 ]
+  %.2 = phi ptr [ %91, %._crit_edge ], [ null, %.critedge ], [ %487, %._crit_edge329 ], [ null, %.loopexit247 ], [ null, %.critedge120 ], [ null, %.critedge108 ], [ null, %.loopexit248 ], [ null, %.critedge110 ], [ null, %438 ], [ null, %.critedge116 ], [ null, %160 ], [ null, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %488 = load ptr, ptr %23, align 8, !tbaa !20
   br label %489

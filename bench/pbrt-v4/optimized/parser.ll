@@ -24773,8 +24773,8 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit: ; preds = %2
   br label %237
 
 237:                                              ; preds = %174, %233, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit
-  %.197 = phi i1 [ %.096409, %233 ], [ true, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ], [ %.096409, %174 ]
-  %.194 = phi i1 [ true, %233 ], [ %.093410, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ], [ %.093410, %174 ]
+  %.197 = phi i1 [ %.096409, %233 ], [ %.096409, %174 ], [ true, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ]
+  %.194 = phi i1 [ true, %233 ], [ %.093410, %174 ], [ %.093410, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE6resizeEm.exit ]
   %238 = getelementptr inbounds nuw i8, ptr %.091411, i64 8
   %.not = icmp eq ptr %238, %151
   br i1 %.not, label %.loopexit, label %.lr.ph

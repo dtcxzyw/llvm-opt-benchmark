@@ -2710,7 +2710,7 @@ adaptation_set_add_stream.exit224.i:              ; preds = %419
   br label %parse_adaptation_sets.exit.thread
 
 parse_adaptation_sets.exit.thread:                ; preds = %.critedge200.i, %200, %._crit_edge.i.i, %add_adaptation_set.exit208.thread.i, %266, %302, %325, %.thread278.i, %169, %.thread283.i, %.preheader._crit_edge.i
-  %.0.i440.ph = phi i32 [ -12, %._crit_edge.i.i ], [ %262, %266 ], [ %.3.i, %add_adaptation_set.exit208.thread.i ], [ -22, %.preheader._crit_edge.i ], [ -22, %.thread283.i ], [ -22, %169 ], [ -22, %.thread278.i ], [ -22, %325 ], [ -22, %302 ], [ -22, %200 ], [ -22, %.critedge200.i ]
+  %.0.i440.ph = phi i32 [ %262, %266 ], [ -12, %._crit_edge.i.i ], [ %.3.i, %add_adaptation_set.exit208.thread.i ], [ -22, %.preheader._crit_edge.i ], [ -22, %.thread283.i ], [ -22, %169 ], [ -22, %.thread278.i ], [ -22, %325 ], [ -22, %302 ], [ -22, %200 ], [ -22, %.critedge200.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %init_segment_types.exit.thread
 

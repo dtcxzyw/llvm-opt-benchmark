@@ -771,7 +771,7 @@ define i32 @cuddGarbageCollect(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph338, %18, %.lr.ph344, %16, %._crit_edge339, %35
-  %.2 = phi i32 [ 0, %.lr.ph338 ], [ %230, %._crit_edge339 ], [ 0, %16 ], [ 0, %35 ], [ 0, %18 ], [ 0, %.lr.ph344 ], [ 0, %.lr.ph ]
+  %.2 = phi i32 [ %230, %._crit_edge339 ], [ 0, %.lr.ph338 ], [ 0, %16 ], [ 0, %35 ], [ 0, %18 ], [ 0, %.lr.ph344 ], [ 0, %.lr.ph ]
   ret i32 %.2
 }
 

@@ -2678,7 +2678,7 @@ return.sink.split:                                ; preds = %if.then, %if.then5
   br label %return
 
 return:                                           ; preds = %while.body, %_ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit, %return.sink.split, %while.cond.preheader
-  %retval.0 = phi i8 [ %call7, %return.sink.split ], [ 0, %while.cond.preheader ], [ 0, %_ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit ], [ 0, %while.body ]
+  %retval.0 = phi i8 [ 0, %while.cond.preheader ], [ %call7, %return.sink.split ], [ 0, %_ZN8proxygen23StructuredHeadersBuffer13advanceCursorEv.exit ], [ 0, %while.body ]
   ret i8 %retval.0
 }
 

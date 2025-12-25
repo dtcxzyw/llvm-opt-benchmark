@@ -1766,7 +1766,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit: ; preds = %1
   br label %.lr.ph.i.i
 
 .body:                                            ; preds = %.loopexit43, %.loopexit.split-lp44.loopexit.split-lp, %.loopexit.split-lp44.loopexit, %51, %56, %31, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %26, %31 ], [ %lpad.phi, %51 ], [ %lpad.phi, %56 ], [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit49, %.loopexit.split-lp44.loopexit ], [ %lpad.loopexit.split-lp50, %.loopexit.split-lp44.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %26, %31 ], [ %lpad.phi, %56 ], [ %lpad.phi, %51 ], [ %lpad.loopexit45, %.loopexit43 ], [ %lpad.loopexit49, %.loopexit.split-lp44.loopexit ], [ %lpad.loopexit.split-lp50, %.loopexit.split-lp44.loopexit.split-lp ]
   %44 = icmp eq ptr %11, null
   br i1 %44, label %"_ZN4core3ptr341drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$syntax..ast..edit..prev_tokens..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$$LT$syntax..ast..generated..tokens..Whitespace$u20$as$u20$syntax..ast..AstToken$GT$..cast$GT$$GT$17h715d93cf0aeb56feE.exit", label %45
 
@@ -3180,7 +3180,7 @@ _ZN4core3str11validations15next_code_point17h4b896f4b2b36dcc5E.exit.thread.i.i.i
   br label %.loopexit.i
 
 "_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h85c324ec0ef1f85dE.exit.thread.i": ; preds = %.thread.i.i.i.i, %177, %134, %294, %.sink.split.i.us.i, %240, %.split.i
-  %.0116.i = phi i64 [ %.0.us.i, %240 ], [ %.0.us.i, %177 ], [ %.0158.i, %294 ], [ %.0.us.i, %.sink.split.i.us.i ], [ 0, %.split.i ], [ %.0.us.i, %134 ], [ %.0158.i, %.thread.i.i.i.i ]
+  %.0116.i = phi i64 [ %.0.us.i, %240 ], [ %.0.us.i, %177 ], [ %.0.us.i, %.sink.split.i.us.i ], [ 0, %.split.i ], [ %.0158.i, %294 ], [ %.0.us.i, %134 ], [ %.0158.i, %.thread.i.i.i.i ]
   %308 = sub i64 %.sroa.3.0.i30, %.0116.i
   %309 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !725, !noalias !732, !noundef !5
   %310 = load i64, ptr %8, align 8, !alias.scope !725, !noalias !732, !noundef !5

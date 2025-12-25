@@ -1807,7 +1807,7 @@ is_padded.exit.sink.split:                        ; preds = %23, %32, %13, %30
   br label %is_padded.exit
 
 is_padded.exit:                                   ; preds = %.lr.ph.i27, %is_padded.exit.sink.split, %10, %32
-  %.0 = phi i1 [ true, %is_padded.exit.sink.split ], [ false, %32 ], [ false, %10 ], [ false, %.lr.ph.i27 ]
+  %.0 = phi i1 [ false, %32 ], [ true, %is_padded.exit.sink.split ], [ false, %10 ], [ false, %.lr.ph.i27 ]
   ret i1 %.0
 }
 

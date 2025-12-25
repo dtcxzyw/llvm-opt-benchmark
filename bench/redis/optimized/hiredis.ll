@@ -398,7 +398,7 @@ bulklen.exit:                                     ; preds = %63, %26, %hi_sdslen
   br i1 %.not231, label %.critedge4, label %.preheader295
 
 .critedge4:                                       ; preds = %127, %138, %143, %.preheader295, %.critedge, %.critedge2
-  %.2 = phi ptr [ %.3, %143 ], [ %.1335, %.critedge2 ], [ %.0331, %.critedge ], [ %139, %138 ], [ %.3, %.preheader295 ], [ %128, %127 ]
+  %.2 = phi ptr [ %.1335, %.critedge2 ], [ %.0331, %.critedge ], [ %139, %138 ], [ %.3, %143 ], [ %.3, %.preheader295 ], [ %128, %127 ]
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %2)
   %148 = load i8, ptr %.2, align 1, !tbaa !22
   %149 = sext i8 %148 to i32
@@ -2665,7 +2665,7 @@ redisNextInBandReplyFromReader.exit18:            ; preds = %58, %redisHandledPu
   br i1 %.not.i, label %.lr.ph, label %redisBufferRead.exit.thread
 
 .thread20:                                        ; preds = %13, %15, %65, %63, %.thread
-  %80 = phi ptr [ %62, %65 ], [ null, %.thread ], [ %62, %63 ], [ %12, %15 ], [ %12, %13 ]
+  %80 = phi ptr [ null, %.thread ], [ %62, %65 ], [ %62, %63 ], [ %12, %15 ], [ %12, %13 ]
   %.not9 = icmp eq ptr %1, null
   br i1 %.not9, label %82, label %81
 

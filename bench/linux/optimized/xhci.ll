@@ -11057,8 +11057,8 @@ default.unreachable9:                             ; preds = %27
   %144 = icmp samesign ult i64 %129, 256000
   br i1 %144, label %.thread4, label %.thread6
 
-.thread6:                                         ; preds = %69, %65, %76, %136, %141
-  %145 = phi i16 [ %143, %141 ], [ 255, %76 ], [ 255, %136 ], [ %.zext, %69 ], [ 1, %65 ]
+.thread6:                                         ; preds = %69, %65, %136, %76, %141
+  %145 = phi i16 [ %143, %141 ], [ 255, %136 ], [ 255, %76 ], [ %.zext, %69 ], [ 1, %65 ]
   %146 = load i16, ptr %4, align 2
   %147 = icmp ugt i16 %145, %146
   br i1 %147, label %.thread4, label %150

@@ -648,7 +648,7 @@ if.end39.i:                                       ; preds = %while.body.i
   br i1 %cmp.i71.i, label %call.i.i.noexc, label %while.cond.i, !llvm.loop !9
 
 call.i.i.noexc:                                   ; preds = %if.end28.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops17_Iter_equals_iterIS3_EEET_SE_SE_T0_.exit66.i, %for.end.i.i17.i, %if.end39.i, %while.body.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
-  %retval.sroa.0.0.i = phi ptr [ %call2.i, %if.end39.i ], [ %call.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i27.i, %while.body.i ], [ %call2.i, %for.end.i.i17.i ], [ %call2.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops17_Iter_equals_iterIS3_EEET_SE_SE_T0_.exit66.i ], [ %call2.i, %if.end28.i ]
+  %retval.sroa.0.0.i = phi ptr [ %retval.sroa.0.0.in.sroa.speculated.i.i27.i, %while.body.i ], [ %call.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i ], [ %call2.i, %if.end39.i ], [ %call2.i, %for.end.i.i17.i ], [ %call2.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops17_Iter_equals_iterIS3_EEET_SE_SE_T0_.exit66.i ], [ %call2.i, %if.end28.i ]
   invoke void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1)
           to label %.noexc unwind label %lpad5.loopexit.loopexit
 
@@ -1273,7 +1273,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
   br i1 %cmp.i.not.i.i.i.i, label %_ZN5eastl6searchINS_16reverse_iteratorIPKcEES4_EET_S5_S5_T0_S6_.exit.i.i, label %land.rhs.i.i.i.i, !llvm.loop !26
 
 _ZN5eastl6searchINS_16reverse_iteratorIPKcEES4_EET_S5_S5_T0_S6_.exit.i.i: ; preds = %while.body23.i.i.i, %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.else.i.i.i, %while.cond.preheader.i.i.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit
-  %.sink.i.i.i = phi ptr [ %cond.i.i, %if.else.i.i.i ], [ %cond.i.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit ], [ %cond.i.i, %while.cond.preheader.i.i.i ], [ %scevgep.i.i.i, %while.body.i.i.i.i ], [ %16, %land.rhs.i.i.i.i ], [ %8, %while.body23.i.i.i ]
+  %.sink.i.i.i = phi ptr [ %cond.i.i, %while.cond.preheader.i.i.i ], [ %cond.i.i, %_ZN2EA4StdC9Stopwatch7RestartEv.exit ], [ %cond.i.i, %if.else.i.i.i ], [ %scevgep.i.i.i, %while.body.i.i.i.i ], [ %16, %land.rhs.i.i.i.i ], [ %8, %while.body23.i.i.i ]
   %cmp.not.i.i = icmp eq ptr %.sink.i.i.i, %spec.select.i.i
   br i1 %cmp.not.i.i, label %_ZN5eastl8find_endIPKcS2_EET_S3_S3_T0_S4_.exit, label %if.then.i.i
 
@@ -19169,7 +19169,7 @@ for.cond.backedge:                                ; preds = %for.end110, %if.end
   br label %for.cond, !llvm.loop !379
 
 return:                                           ; preds = %for.end110, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit
-  %retval.sroa.0.0 = phi ptr [ %__middle.coerce, %for.body.i ], [ %__last.coerce, %entry ], [ %__first.coerce, %if.else ], [ %add.ptr.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %add.ptr.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %add.ptr.i, %for.end ], [ %add.ptr.i, %for.end110 ]
+  %retval.sroa.0.0 = phi ptr [ %add.ptr.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %__last.coerce, %entry ], [ %__first.coerce, %if.else ], [ %add.ptr.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit ], [ %__middle.coerce, %for.body.i ], [ %add.ptr.i, %for.end ], [ %add.ptr.i, %for.end110 ]
   ret ptr %retval.sroa.0.0
 }
 

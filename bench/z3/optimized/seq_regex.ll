@@ -3122,7 +3122,7 @@ _ZNK8seq_util3rex8is_emptyEPK4expr.exit:          ; preds = %3, %15, %20
   br label %40
 
 40:                                               ; preds = %.sink.split, %29, %32
-  %.0 = phi i1 [ false, %29 ], [ false, %32 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %32 ], [ false, %29 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

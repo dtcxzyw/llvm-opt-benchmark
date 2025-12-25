@@ -1757,8 +1757,8 @@ calculate_unit_length.exit:                       ; preds = %238, %245
   br label %.loopexit347
 
 .loopexit347:                                     ; preds = %.loopexit346, %236, %.loopexit347.loopexit, %._crit_edge, %258, %.loopexit348, %220
-  %.5268 = phi ptr [ %.0263.lcssa, %._crit_edge ], [ %.2265, %258 ], [ %.2265, %.loopexit347.loopexit ], [ %.1264, %220 ], [ %.6, %.loopexit348 ], [ %.2265, %236 ], [ %.2265, %.loopexit346 ]
-  %.2252 = phi i32 [ %.0250.lcssa, %._crit_edge ], [ %252, %258 ], [ %269, %.loopexit347.loopexit ], [ %221, %220 ], [ %.3253, %.loopexit348 ], [ %252, %.loopexit346 ], [ %234, %236 ]
+  %.5268 = phi ptr [ %.0263.lcssa, %._crit_edge ], [ %.2265, %258 ], [ %.1264, %220 ], [ %.2265, %.loopexit347.loopexit ], [ %.6, %.loopexit348 ], [ %.2265, %236 ], [ %.2265, %.loopexit346 ]
+  %.2252 = phi i32 [ %.0250.lcssa, %._crit_edge ], [ %252, %258 ], [ %221, %220 ], [ %269, %.loopexit347.loopexit ], [ %.3253, %.loopexit348 ], [ %252, %.loopexit346 ], [ %234, %236 ]
   %270 = load ptr, ptr @mdata, align 8, !tbaa !66
   %.not306 = icmp eq ptr %.0269, %270
   br i1 %.not306, label %272, label %271
@@ -5950,7 +5950,7 @@ calculate_unit_length.exit:                       ; preds = %212, %219
   br label %.loopexit188
 
 .loopexit188:                                     ; preds = %.loopexit187, %209, %198, %.loopexit188.sink.split, %._crit_edge
-  %.3147 = phi i64 [ %195, %198 ], [ %.1145.lcssa, %._crit_edge ], [ %.3147.ph, %.loopexit188.sink.split ], [ %195, %209 ], [ %195, %.loopexit187 ]
+  %.3147 = phi i64 [ %.3147.ph, %.loopexit188.sink.split ], [ %.1145.lcssa, %._crit_edge ], [ %195, %198 ], [ %195, %209 ], [ %195, %.loopexit187 ]
   %244 = load ptr, ptr @mdata, align 8, !tbaa !66
   %.not168 = icmp eq ptr %.0149, %244
   br i1 %.not168, label %246, label %245

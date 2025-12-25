@@ -1261,8 +1261,8 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
   br label %299
 
 299:                                              ; preds = %.sink.split, %288, %266, %244
-  %.0143.i = phi ptr [ null, %244 ], [ null, %266 ], [ %5, %288 ], [ %5, %.sink.split ]
-  %.0.i268 = phi i32 [ 24, %244 ], [ 32, %266 ], [ 36, %288 ], [ %.0.i268.ph, %.sink.split ]
+  %.0143.i = phi ptr [ null, %266 ], [ null, %244 ], [ %5, %288 ], [ %5, %.sink.split ]
+  %.0.i268 = phi i32 [ 32, %266 ], [ 24, %244 ], [ 36, %288 ], [ %.0.i268.ph, %.sink.split ]
   %300 = load i32, ptr @handle_v2_as, align 4
   %301 = and i32 %300, 3
   %302 = icmp ne i32 %301, 0

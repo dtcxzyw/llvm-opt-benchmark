@@ -2252,7 +2252,7 @@ wavpack_decode_block.exit:                        ; preds = %962, %977, %979, %9
   %1004 = load i32, ptr %10, align 8, !tbaa !41
   br label %1012
 
-wavpack_decode_block.exit.thread:                 ; preds = %938, %935, %88, %962, %975, %86, %bytestream2_get_byte.exit585.i, %724, %697, %835, %837, %839, %841, %846, %.thread1294.i, %.thread871.i, %.thread1302.i.thread, %849, %817, %73, %50, %987, %40
+wavpack_decode_block.exit.thread:                 ; preds = %938, %975, %935, %88, %962, %86, %bytestream2_get_byte.exit585.i, %697, %835, %837, %839, %841, %846, %.thread1294.i, %.thread871.i, %724, %.thread1302.i.thread, %849, %817, %73, %50, %987, %40
   %.1 = phi i32 [ %.071294, %40 ], [ %.2, %987 ], [ %.071294, %.thread871.i ], [ %.071294, %50 ], [ %.071294, %73 ], [ %.071294, %.thread1294.i ], [ %.071294, %817 ], [ %.071294, %724 ], [ %.071294, %bytestream2_get_byte.exit585.i ], [ %.071294, %697 ], [ %.071294, %846 ], [ %.071294, %849 ], [ %.071294, %841 ], [ %.071294, %839 ], [ %.071294, %837 ], [ %.071294, %835 ], [ %.071294, %.thread1302.i.thread ], [ %.2, %975 ], [ %.2, %962 ], [ %.2, %935 ], [ %.2, %938 ], [ %.071294, %86 ], [ %.071294, %88 ]
   %.055 = phi i32 [ -1094995529, %40 ], [ -1094995529, %987 ], [ %.1.ph.i, %.thread871.i ], [ -1094995529, %50 ], [ -1094995529, %73 ], [ -1094995529, %.thread1294.i ], [ -1094995529, %817 ], [ -1094995529, %724 ], [ -1094995529, %bytestream2_get_byte.exit585.i ], [ -1094995529, %697 ], [ -1094995529, %846 ], [ -1094995529, %849 ], [ -1094995529, %841 ], [ -1094995529, %839 ], [ -1094995529, %837 ], [ -1094995529, %835 ], [ -1094995529, %.thread1302.i.thread ], [ %.1436.i, %975 ], [ %.0435.i, %962 ], [ -1094995529, %935 ], [ -1094995529, %938 ], [ -1094995529, %86 ], [ -1094995529, %88 ]
   %.not68 = icmp eq i32 %.1, 0
@@ -3307,7 +3307,7 @@ bytestream2_get_byte.exit:                        ; preds = %302, %303
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 105, i64 %401, i1 false)
   br label %.thread278
 
-.thread278:                                       ; preds = %205, %285, %385, %382, %bytestream2_get_byte.exit266.thread, %398, %394, %388, %bytestream2_get_byte.exit266, %3
+.thread278:                                       ; preds = %205, %285, %382, %385, %bytestream2_get_byte.exit266.thread, %398, %394, %388, %bytestream2_get_byte.exit266, %3
   %.0196 = phi i32 [ -1094995529, %388 ], [ -1094995529, %3 ], [ -1094995529, %bytestream2_get_byte.exit266.thread ], [ -1094995529, %bytestream2_get_byte.exit266 ], [ 0, %394 ], [ 0, %398 ], [ 0, %385 ], [ 0, %382 ], [ -1094995529, %285 ], [ -1094995529, %205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0196
@@ -3975,8 +3975,8 @@ bytestream2_get_byte.exit:                        ; preds = %39, %40
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 105, i64 %70, i1 false)
   br label %wv_check_crc.exit.thread
 
-wv_check_crc.exit.thread:                         ; preds = %54, %51, %67, %63, %57, %3
-  %.030 = phi i32 [ -1094995529, %57 ], [ -1094995529, %3 ], [ 0, %63 ], [ 0, %67 ], [ 0, %51 ], [ 0, %54 ]
+wv_check_crc.exit.thread:                         ; preds = %51, %54, %67, %63, %57, %3
+  %.030 = phi i32 [ -1094995529, %57 ], [ -1094995529, %3 ], [ 0, %63 ], [ 0, %67 ], [ 0, %54 ], [ 0, %51 ]
   ret i32 %.030
 }
 
@@ -4972,8 +4972,8 @@ wv_check_crc.exit:                                ; preds = %577, %583
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %573, i32 noundef 16, ptr noundef nonnull %.str.41.sink.i) #13
   br label %wv_check_crc.exit.thread
 
-wv_check_crc.exit.thread:                         ; preds = %583, %581, %.critedge, %wv_check_crc.exit, %274
-  %.0 = phi i32 [ -1094995529, %274 ], [ -1094995529, %wv_check_crc.exit ], [ 0, %.critedge ], [ 0, %581 ], [ 0, %583 ]
+wv_check_crc.exit.thread:                         ; preds = %581, %583, %.critedge, %wv_check_crc.exit, %274
+  %.0 = phi i32 [ -1094995529, %274 ], [ -1094995529, %wv_check_crc.exit ], [ 0, %.critedge ], [ 0, %583 ], [ 0, %581 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -5490,7 +5490,7 @@ wv_get_value_integer.exit121:                     ; preds = %244, %254
   %.not105 = icmp eq i32 %300, 0
   br i1 %.not105, label %.critedge107, label %301
 
-.critedge107:                                     ; preds = %293, %291, %296
+.critedge107:                                     ; preds = %291, %293, %296
   br label %301
 
 301:                                              ; preds = %.critedge, %.critedge107, %296
@@ -5537,7 +5537,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @wv_check_crc(ptr noundef r
   br label %13
 
 13:                                               ; preds = %.sink.split, %6, %9
-  %.0 = phi i32 [ 0, %6 ], [ 0, %9 ], [ -1094995529, %.sink.split ]
+  %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ -1094995529, %.sink.split ]
   ret i32 %.0
 }
 

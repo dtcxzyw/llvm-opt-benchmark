@@ -205,7 +205,7 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE7nweightERKNS_12omt_internal17subtree_templa
   tail call void @_Z9toku_freePv(ptr noundef %.sink.i6)
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread
 
-_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread: ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread10.i, %42, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, %.loopexit
+_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread: ; preds = %42, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread10.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, %.loopexit
   %74 = add nuw i32 %.013, 1
   %exitcond.not = icmp eq i32 %74, %.0.i
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %39, !llvm.loop !21
@@ -941,7 +941,7 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit: ; preds = %6, %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %21
 
-._crit_edge:                                      ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread10.i, %24, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread, %8, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit
+._crit_edge:                                      ; preds = %24, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread10.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread, %8, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit
   ret void
 
 21:                                               ; preds = %.lr.ph, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE5fetchEjPS3_.exit.thread

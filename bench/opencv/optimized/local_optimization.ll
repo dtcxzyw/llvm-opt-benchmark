@@ -9530,7 +9530,7 @@ _ZNSt6vectorIfSaIfEEaSERKS1_.exit:                ; preds = %126, %_ZSt4copyIN9_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %197, %176, %218
-  %.4 = phi i32 [ 0, %176 ], [ %224, %218 ], [ %.6, %197 ]
+  %.4 = phi i32 [ %224, %218 ], [ 0, %176 ], [ %.6, %197 ]
   %225 = add nuw nsw i32 %.048116, 1
   %226 = load i32, ptr %68, align 8, !tbaa !303
   %227 = icmp slt i32 %225, %226

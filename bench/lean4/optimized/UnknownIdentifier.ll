@@ -1619,8 +1619,8 @@ lean_alloc_ctor.exit275:                          ; preds = %lean_inc.exit
   br label %404
 
 404:                                              ; preds = %lean_inc.exit170, %lean_alloc_ctor.exit275
-  %.1135 = phi ptr [ %357, %lean_alloc_ctor.exit275 ], [ %176, %lean_inc.exit170 ]
-  %.1131 = phi ptr [ %398, %lean_alloc_ctor.exit275 ], [ %.0130333, %lean_inc.exit170 ]
+  %.1135 = phi ptr [ %176, %lean_inc.exit170 ], [ %357, %lean_alloc_ctor.exit275 ]
+  %.1131 = phi ptr [ %.0130333, %lean_inc.exit170 ], [ %398, %lean_alloc_ctor.exit275 ]
   %.1126 = add nuw i64 %.0125334, 1
   %exitcond.not = icmp eq i64 %.1126, %7
   br i1 %exitcond.not, label %._crit_edge, label %39
@@ -6771,8 +6771,8 @@ lean_alloc_ctor.exit275:                          ; preds = %lean_inc.exit
   br label %404
 
 404:                                              ; preds = %lean_inc.exit170, %lean_alloc_ctor.exit275
-  %.1135 = phi ptr [ %357, %lean_alloc_ctor.exit275 ], [ %176, %lean_inc.exit170 ]
-  %.1131 = phi ptr [ %398, %lean_alloc_ctor.exit275 ], [ %.0130333, %lean_inc.exit170 ]
+  %.1135 = phi ptr [ %176, %lean_inc.exit170 ], [ %357, %lean_alloc_ctor.exit275 ]
+  %.1131 = phi ptr [ %.0130333, %lean_inc.exit170 ], [ %398, %lean_alloc_ctor.exit275 ]
   %.1126 = add nuw i64 %.0125334, 1
   %exitcond.not = icmp eq i64 %.1126, %7
   br i1 %exitcond.not, label %._crit_edge, label %39
@@ -11214,8 +11214,8 @@ lean_alloc_ctor.exit275:                          ; preds = %lean_inc.exit
   br label %404
 
 404:                                              ; preds = %lean_inc.exit170, %lean_alloc_ctor.exit275
-  %.1135 = phi ptr [ %357, %lean_alloc_ctor.exit275 ], [ %176, %lean_inc.exit170 ]
-  %.1131 = phi ptr [ %398, %lean_alloc_ctor.exit275 ], [ %.0130333, %lean_inc.exit170 ]
+  %.1135 = phi ptr [ %176, %lean_inc.exit170 ], [ %357, %lean_alloc_ctor.exit275 ]
+  %.1131 = phi ptr [ %.0130333, %lean_inc.exit170 ], [ %398, %lean_alloc_ctor.exit275 ]
   %.1126 = add nuw i64 %.0125334, 1
   %exitcond.not = icmp eq i64 %.1126, %7
   br i1 %exitcond.not, label %._crit_edge, label %39
@@ -39518,8 +39518,8 @@ lean_alloc_ctor.exit753:                          ; preds = %1066
   br label %1075
 
 1075:                                             ; preds = %707, %228, %lean_alloc_ctor.exit599, %407, %lean_alloc_ctor.exit753
-  %.1369 = phi ptr [ %993, %lean_alloc_ctor.exit753 ], [ %634, %707 ], [ %209, %228 ], [ %209, %lean_alloc_ctor.exit599 ], [ %334, %407 ]
-  %.1363 = phi ptr [ %1069, %lean_alloc_ctor.exit753 ], [ %.03621027, %707 ], [ %.03621027, %228 ], [ %.03621027, %lean_alloc_ctor.exit599 ], [ %.03621027, %407 ]
+  %.1369 = phi ptr [ %209, %lean_alloc_ctor.exit599 ], [ %634, %707 ], [ %209, %228 ], [ %993, %lean_alloc_ctor.exit753 ], [ %334, %407 ]
+  %.1363 = phi ptr [ %.03621027, %lean_alloc_ctor.exit599 ], [ %.03621027, %707 ], [ %.03621027, %228 ], [ %1069, %lean_alloc_ctor.exit753 ], [ %.03621027, %407 ]
   %.1356 = add nuw i64 %.03551028, 1
   %exitcond.not = icmp eq i64 %.1356, %6
   br i1 %exitcond.not, label %._crit_edge, label %25
@@ -50934,8 +50934,8 @@ lean_alloc_ctor.exit730:                          ; preds = %1035
   br label %lean_dec.exit413
 
 lean_dec.exit413:                                 ; preds = %lean_inc.exit, %997, %999, %1000, %lean_inc.exit451, %599, %601, %602, %lean_dec.exit398, %lean_inc.exit448, %lean_dec.exit420, %lean_inc.exit460, %1040, %642
-  %.1343 = phi ptr [ %.03421025, %1040 ], [ %568, %lean_inc.exit451 ], [ %.03421025, %642 ], [ %.03421025, %lean_dec.exit420 ], [ %.03421025, %lean_inc.exit460 ], [ %.03421025, %lean_inc.exit448 ], [ %.03421025, %lean_dec.exit398 ], [ %568, %602 ], [ %568, %601 ], [ %568, %599 ], [ %966, %1000 ], [ %966, %999 ], [ %966, %997 ], [ %966, %lean_inc.exit ]
-  %.1331 = phi ptr [ %.0328, %1040 ], [ %587, %lean_inc.exit451 ], [ %.0374, %642 ], [ %447, %lean_dec.exit420 ], [ %374, %lean_inc.exit460 ], [ %772, %lean_inc.exit448 ], [ %845, %lean_dec.exit398 ], [ %587, %602 ], [ %587, %601 ], [ %587, %599 ], [ %985, %1000 ], [ %985, %999 ], [ %985, %997 ], [ %985, %lean_inc.exit ]
+  %.1343 = phi ptr [ %568, %lean_inc.exit451 ], [ %.03421025, %1040 ], [ %.03421025, %642 ], [ %.03421025, %lean_dec.exit420 ], [ %.03421025, %lean_inc.exit460 ], [ %.03421025, %lean_inc.exit448 ], [ %.03421025, %lean_dec.exit398 ], [ %568, %602 ], [ %568, %601 ], [ %568, %599 ], [ %966, %1000 ], [ %966, %999 ], [ %966, %997 ], [ %966, %lean_inc.exit ]
+  %.1331 = phi ptr [ %587, %lean_inc.exit451 ], [ %.0328, %1040 ], [ %.0374, %642 ], [ %447, %lean_dec.exit420 ], [ %374, %lean_inc.exit460 ], [ %772, %lean_inc.exit448 ], [ %845, %lean_dec.exit398 ], [ %587, %602 ], [ %587, %601 ], [ %587, %599 ], [ %985, %1000 ], [ %985, %999 ], [ %985, %997 ], [ %985, %lean_inc.exit ]
   %.1326 = add nuw i64 %.03251027, 1
   %exitcond.not = icmp eq i64 %.1326, %5
   br i1 %exitcond.not, label %._crit_edge, label %24

@@ -9146,7 +9146,7 @@ define dso_local range(i32 0, 2) i32 @incrCommandStatsOnError(ptr noundef captur
   br label %12
 
 12:                                               ; preds = %.sink.split, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %2 ], [ 1, %.sink.split ]
   store i64 %.pre, ptr @incrCommandStatsOnError.prev_err_count, align 8, !tbaa !80
   ret i32 %.0
 }
@@ -18246,7 +18246,7 @@ define dso_local range(i32 0, 2) i32 @redisIsSupervised(i32 noundef %0) local_un
   %24 = tail call i32 @unsetenv(ptr noundef nonnull @.str.522) #43
   br label %redisSupervisedUpstart.exit
 
-.thread14:                                        ; preds = %1, %10, %13
+.thread14:                                        ; preds = %1, %13, %10
   %25 = tail call i32 @sd_notify(i32 noundef 0, ptr noundef nonnull @.str.573) #43
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %31

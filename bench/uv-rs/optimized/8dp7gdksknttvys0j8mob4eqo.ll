@@ -21057,7 +21057,7 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$15try
   br label %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try_add_edge17h7bd60d3970bce019E.llvm.4212138799209801413.exit"
 
 "_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try_add_edge17h7bd60d3970bce019E.llvm.4212138799209801413.exit": ; preds = %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try_add_edge17h7bd60d3970bce019E.llvm.4212138799209801413.exit.sink.split", %.preheader.preheader.i, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$9find_edge17h4c214ff699b91d3fE.llvm.4212138799209801413.exit.thread"
-  %storemerge = phi i64 [ 3, %.preheader.preheader.i ], [ 1, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$9find_edge17h4c214ff699b91d3fE.llvm.4212138799209801413.exit.thread" ], [ 4, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try_add_edge17h7bd60d3970bce019E.llvm.4212138799209801413.exit.sink.split" ]
+  %storemerge = phi i64 [ 1, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$9find_edge17h4c214ff699b91d3fE.llvm.4212138799209801413.exit.thread" ], [ 3, %.preheader.preheader.i ], [ 4, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try_add_edge17h7bd60d3970bce019E.llvm.4212138799209801413.exit.sink.split" ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -21188,7 +21188,7 @@ define hidden void @"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$15try
   br label %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try_add_edge17h122cf0c63f62ff7cE.llvm.4212138799209801413.exit"
 
 "_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try_add_edge17h122cf0c63f62ff7cE.llvm.4212138799209801413.exit": ; preds = %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try_add_edge17h122cf0c63f62ff7cE.llvm.4212138799209801413.exit.sink.split", %.preheader.preheader.i, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$9find_edge17h65e02882c680eaf9E.exit.thread"
-  %storemerge = phi i64 [ 3, %.preheader.preheader.i ], [ 1, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$9find_edge17h65e02882c680eaf9E.exit.thread" ], [ 4, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try_add_edge17h122cf0c63f62ff7cE.llvm.4212138799209801413.exit.sink.split" ]
+  %storemerge = phi i64 [ 1, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$9find_edge17h65e02882c680eaf9E.exit.thread" ], [ 3, %.preheader.preheader.i ], [ 4, %"_ZN8petgraph10graph_impl28Graph$LT$N$C$E$C$Ty$C$Ix$GT$12try_add_edge17h122cf0c63f62ff7cE.llvm.4212138799209801413.exit.sink.split" ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

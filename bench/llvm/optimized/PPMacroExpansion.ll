@@ -20591,8 +20591,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i186.i.i:     ; preds = %_ZN4llvm12StringSwi
   br label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit231.i.i
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit191.i.i: ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i178.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i.i
-  %.not.i.i.i17512691280.i.i = phi i1 [ %.not.i.i.i175.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i178.i.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i.i ]
-  %.sroa.94.17.i.i = phi i16 [ %.sroa.94.13.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i.i ], [ %.sroa.0.0.insert.insert.i.i180.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i178.i.i ], [ %.sroa.94.13.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i.i ]
+  %.not.i.i.i17512691280.i.i = phi i1 [ %.not.i.i.i175.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i178.i.i ]
+  %.sroa.94.17.i.i = phi i16 [ %.sroa.94.13.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit181.i.i ], [ %.sroa.94.13.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i.i ], [ %.sroa.0.0.insert.insert.i.i180.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i178.i.i ]
   %80 = and i16 %.sroa.94.17.i.i, 256
   %.not1085.i.i = icmp eq i16 %80, 0
   %or.cond1011.i.i = select i1 %.not1085.i.i, i1 %.not.i.i.i17512691280.i.i, i1 false

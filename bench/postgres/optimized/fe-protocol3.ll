@@ -3140,7 +3140,7 @@ switch.early.test:                                ; preds = %68
   br label %.loopexit131
 
 .loopexit131:                                     ; preds = %39, %36, %.lr.ph, %.loopexit131.sink.split, %45, %48, %._crit_edge, %7, %12, %15, %18, %21
-  %.0102 = phi ptr [ %133, %.loopexit131.sink.split ], [ null, %7 ], [ null, %45 ], [ null, %48 ], [ null, %12 ], [ null, %._crit_edge ], [ null, %15 ], [ null, %18 ], [ null, %21 ], [ null, %.lr.ph ], [ null, %36 ], [ null, %39 ]
+  %.0102 = phi ptr [ null, %18 ], [ null, %7 ], [ null, %12 ], [ null, %48 ], [ null, %45 ], [ null, %._crit_edge ], [ null, %15 ], [ %133, %.loopexit131.sink.split ], [ null, %21 ], [ null, %.lr.ph ], [ null, %36 ], [ null, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0102

@@ -3535,7 +3535,7 @@ define range(i32 -2147483648, 1) i32 @filter_codec_opts(ptr noundef %0, i32 %1, 
   br label %69
 
 69:                                               ; preds = %.sink.split, %55, %60
-  %70 = phi i1 [ false, %55 ], [ false, %60 ], [ true, %.sink.split ]
+  %70 = phi i1 [ false, %60 ], [ false, %55 ], [ true, %.sink.split ]
   br i1 %.not56, label %72, label %71
 
 71:                                               ; preds = %69

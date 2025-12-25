@@ -3219,7 +3219,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_13Sele
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_13SelectAnyAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1077
 
 _ZN5clangneENS_22specific_attr_iteratorINS_13SelectAnyAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_13SelectAnyAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 

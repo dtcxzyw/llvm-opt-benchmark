@@ -29816,7 +29816,7 @@ _ZN12V3PreProcImp8forceEofEv.exit:                ; preds = %212, %219
   br label %.thread47
 
 .thread47:                                        ; preds = %_ZNK12V3PreProcImp5isEofEv.exit.thread, %_ZNK12V3PreProcImp5isEofEv.exit, %229, %231, %85, %88, %._crit_edge, %27
-  %.115 = phi i32 [ %135, %229 ], [ 305, %._crit_edge ], [ 304, %85 ], [ 305, %27 ], [ 304, %88 ], [ %135, %231 ], [ 0, %_ZNK12V3PreProcImp5isEofEv.exit ], [ 0, %_ZNK12V3PreProcImp5isEofEv.exit.thread ]
+  %.115 = phi i32 [ %135, %231 ], [ 305, %._crit_edge ], [ 304, %85 ], [ 305, %27 ], [ 304, %88 ], [ %135, %229 ], [ 0, %_ZNK12V3PreProcImp5isEofEv.exit ], [ 0, %_ZNK12V3PreProcImp5isEofEv.exit.thread ]
   ret i32 %.115
 }
 

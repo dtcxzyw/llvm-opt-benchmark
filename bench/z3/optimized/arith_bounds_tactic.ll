@@ -1397,7 +1397,7 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i:     ; preds = %199, %194
   br label %_ZeqRK8rationalS1_.exit
 
 _ZeqRK8rationalS1_.exit:                          ; preds = %.noexc68, %217
-  %224 = phi i1 [ %223, %.noexc68 ], [ %220, %217 ]
+  %224 = phi i1 [ %220, %217 ], [ %223, %.noexc68 ]
   %225 = load i8, ptr %13, align 1, !range !73
   %226 = trunc nuw i8 %225 to i1
   %or.cond = select i1 %224, i1 %226, i1 false
@@ -1692,7 +1692,7 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i83:   ; preds = %346, %341
   br label %_ZeqRK8rationalS1_.exit86
 
 _ZeqRK8rationalS1_.exit86:                        ; preds = %.noexc85, %364
-  %371 = phi i1 [ %370, %.noexc85 ], [ %367, %364 ]
+  %371 = phi i1 [ %367, %364 ], [ %370, %.noexc85 ]
   %372 = load i8, ptr %13, align 1, !range !73
   %373 = trunc nuw i8 %372 to i1
   %or.cond6 = select i1 %371, i1 %373, i1 false
@@ -2376,7 +2376,7 @@ _ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread.sink.split: ; preds 
   br label %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread
 
 _ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread: ; preds = %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread.sink.split, %.critedge, %5, %136, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i49, %147, %106, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i41, %117
-  %.0 = phi i1 [ false, %.critedge ], [ false, %5 ], [ false, %106 ], [ false, %117 ], [ false, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i41 ], [ false, %136 ], [ false, %147 ], [ false, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i49 ], [ true, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread.sink.split ]
+  %.0 = phi i1 [ false, %5 ], [ false, %.critedge ], [ false, %106 ], [ false, %117 ], [ false, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i41 ], [ false, %136 ], [ false, %147 ], [ false, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i49 ], [ true, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit50.thread.sink.split ]
   ret i1 %.0
 }
 

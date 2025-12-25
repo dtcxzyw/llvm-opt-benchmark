@@ -268,7 +268,7 @@ Io_MvLoadFile.exit.thread:                        ; preds = %.tail.thread.i, %74
   br label %85
 
 Io_MvLoadFile.exit:                               ; preds = %41, %Io_MvLoadFileGz.exit.i
-  %.0.i = phi ptr [ %42, %41 ], [ %.017.lcssa.i.i, %Io_MvLoadFileGz.exit.i ]
+  %.0.i = phi ptr [ %.017.lcssa.i.i, %Io_MvLoadFileGz.exit.i ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %83 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %.0.i, ptr %83, align 8, !tbaa !31

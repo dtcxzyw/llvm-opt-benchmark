@@ -166,7 +166,7 @@ define ptr @SRP_VBASE_new(ptr noundef %0) local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %.sink.split, %11, %13, %1
-  %.0 = phi ptr [ null, %1 ], [ %2, %11 ], [ %2, %13 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ %2, %13 ], [ %2, %11 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -472,8 +472,8 @@ SRP_get_gN_by_id.exit.thread:                     ; preds = %124, %SRP_get_gN_by
   call void @CRYPTO_free(ptr noundef nonnull %38, ptr noundef nonnull @.str, i32 noundef 502) #7
   br label %SRP_user_pwd_free.exit
 
-.thread108.thread124:                             ; preds = %86, %SRP_user_pwd_set1_ids.exit, %111, %SRP_user_pwd_set_sv.exit.thread
-  %.056116128 = phi i32 [ 2, %SRP_user_pwd_set_sv.exit.thread ], [ 4, %86 ], [ 4, %SRP_user_pwd_set1_ids.exit ], [ 2, %111 ]
+.thread108.thread124:                             ; preds = %SRP_user_pwd_set1_ids.exit, %86, %111, %SRP_user_pwd_set_sv.exit.thread
+  %.056116128 = phi i32 [ 2, %SRP_user_pwd_set_sv.exit.thread ], [ 4, %SRP_user_pwd_set1_ids.exit ], [ 4, %86 ], [ 2, %111 ]
   %142 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !3
   call void @BN_free(ptr noundef %143) #7

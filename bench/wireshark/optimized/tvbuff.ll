@@ -1462,8 +1462,8 @@ define zeroext i1 @tvb_offset_exists(ptr noundef readonly captures(address_is_nu
   br label %compute_offset.exit
 
 compute_offset.exit:                              ; preds = %17, %10
-  %19 = phi i32 [ %12, %10 ], [ %16, %17 ]
-  %.08 = phi i32 [ %1, %10 ], [ %18, %17 ]
+  %19 = phi i32 [ %16, %17 ], [ %12, %10 ]
+  %.08 = phi i32 [ %18, %17 ], [ %1, %10 ]
   %20 = icmp ult i32 %.08, %19
   br label %compute_offset.exit.thread
 
@@ -1530,7 +1530,7 @@ define i32 @tvb_reported_length_remaining(ptr noundef readonly captures(address_
   br label %compute_offset.exit
 
 compute_offset.exit:                              ; preds = %17, %10
-  %.012 = phi i32 [ %1, %10 ], [ %18, %17 ]
+  %.012 = phi i32 [ %18, %17 ], [ %1, %10 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %20 = load i32, ptr %19, align 4
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %20, i32 %.012)
@@ -1626,7 +1626,7 @@ define i32 @tvb_ensure_reported_length_remaining(ptr noundef readonly captures(a
   unreachable
 
 compute_offset.exit:                              ; preds = %27, %10
-  %.0 = phi i32 [ %1, %10 ], [ %28, %27 ]
+  %.0 = phi i32 [ %28, %27 ], [ %1, %10 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %41 = load i32, ptr %40, align 4
   %.not11 = icmp ult i32 %41, %.0
@@ -4482,8 +4482,8 @@ parse_month_name.exit.thread150:                  ; preds = %142, %145, %160, %1
   br label %.thread156.sink.split
 
 parse_month_name.exit:                            ; preds = %180, %175, %189
-  %.390 = phi ptr [ %197, %189 ], [ %176, %175 ], [ %181, %180 ]
-  %.285 = phi i64 [ %198, %189 ], [ 0, %175 ], [ 0, %180 ]
+  %.390 = phi ptr [ %181, %180 ], [ %197, %189 ], [ %176, %175 ]
+  %.285 = phi i64 [ 0, %180 ], [ %198, %189 ], [ 0, %175 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -8852,7 +8852,7 @@ default.unreachable76:                            ; preds = %.split
   unreachable
 
 .thread73:                                        ; preds = %52, %.lr.ph, %44, %38, %21, %.preheader89, %.preheader87, %.preheader, %.thread70, %.thread, %84, %67, %60, %58
-  %.1 = phi i32 [ %20, %.thread ], [ 8, %84 ], [ %37, %.thread70 ], [ 0, %.preheader ], [ 1, %58 ], [ 2, %60 ], [ 4, %67 ], [ 0, %38 ], [ 0, %.preheader87 ], [ 0, %.preheader89 ], [ 0, %21 ], [ 0, %.lr.ph ], [ 0, %52 ], [ %51, %44 ]
+  %.1 = phi i32 [ %20, %.thread ], [ 8, %84 ], [ %37, %.thread70 ], [ 0, %38 ], [ 1, %58 ], [ 2, %60 ], [ 4, %67 ], [ 0, %.preheader ], [ 0, %.preheader87 ], [ 0, %.preheader89 ], [ 0, %21 ], [ 0, %.lr.ph ], [ 0, %52 ], [ %51, %44 ]
   ret i32 %.1
 
 default.unreachable120:                           ; preds = %53

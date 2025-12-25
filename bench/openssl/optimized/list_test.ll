@@ -725,7 +725,7 @@ ossl_list_int_remove.exit111:                     ; preds = %150, %151
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %33, %.lr.ph, %76, %154, %ossl_list_int_remove.exit111, %ossl_list_int_remove.exit106, %137, %139, %142, %ossl_list_int_remove.exit99, %118, %120, %123, %._crit_edge, %88, %44, %46, %ossl_list_int_insert_after.exit73
-  %.032 = phi i32 [ 0, %ossl_list_int_insert_after.exit73 ], [ 0, %44 ], [ 0, %ossl_list_int_remove.exit111 ], [ 0, %ossl_list_int_remove.exit106 ], [ 0, %ossl_list_int_remove.exit99 ], [ 0, %._crit_edge ], [ %spec.select, %154 ], [ 0, %.lr.ph ], [ 0, %139 ], [ 0, %46 ], [ 0, %137 ], [ 0, %88 ], [ 0, %123 ], [ 0, %120 ], [ 0, %118 ], [ 0, %142 ], [ 0, %76 ], [ 0, %33 ], [ 0, %.preheader ]
+  %.032 = phi i32 [ 0, %ossl_list_int_insert_after.exit73 ], [ 0, %44 ], [ 0, %ossl_list_int_remove.exit111 ], [ 0, %ossl_list_int_remove.exit106 ], [ 0, %ossl_list_int_remove.exit99 ], [ 0, %._crit_edge ], [ 0, %137 ], [ 0, %139 ], [ 0, %.lr.ph ], [ 0, %46 ], [ %spec.select, %154 ], [ 0, %88 ], [ 0, %123 ], [ 0, %120 ], [ 0, %118 ], [ 0, %142 ], [ 0, %76 ], [ 0, %33 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.032
 }

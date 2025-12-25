@@ -1293,9 +1293,9 @@ _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split: ; preds = %69, %_ZN8
   br label %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread
 
 _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread:  ; preds = %.loopexit, %_ZNSt6vectorIhSaIhEE5clearEv.exit, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split, %20, %24, %69
-  %.sroa.051.1 = phi i32 [ 0, %20 ], [ 0, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ 0, %24 ], [ 1, %69 ], [ 1, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 1, %.loopexit ]
-  %.sroa.652.sroa.0.1 = phi i16 [ %23, %20 ], [ %98, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ %23, %24 ], [ 0, %69 ], [ 0, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 0, %.loopexit ]
-  %.sroa.652.sroa.6.1 = phi i16 [ %.sroa.652.sroa.6.0.extract.shift55, %20 ], [ %.sroa.652.sroa.6.0.extract.shift, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ %.sroa.652.sroa.6.0.extract.shift55, %24 ], [ 0, %69 ], [ 0, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 0, %.loopexit ]
+  %.sroa.051.1 = phi i32 [ 0, %24 ], [ 0, %20 ], [ 0, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ 1, %69 ], [ 1, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 1, %.loopexit ]
+  %.sroa.652.sroa.0.1 = phi i16 [ %23, %24 ], [ %23, %20 ], [ %98, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ 0, %69 ], [ 0, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 0, %.loopexit ]
+  %.sroa.652.sroa.6.1 = phi i16 [ %.sroa.652.sroa.6.0.extract.shift55, %24 ], [ %.sroa.652.sroa.6.0.extract.shift55, %20 ], [ %.sroa.652.sroa.6.0.extract.shift, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split ], [ 0, %69 ], [ 0, %_ZNSt6vectorIhSaIhEE5clearEv.exit ], [ 0, %.loopexit ]
   %.sroa.652.sroa.6.0.insert.shift = shl nuw i16 %.sroa.652.sroa.6.1, 8
   %.sroa.652.sroa.0.0.insert.ext = and i16 %.sroa.652.sroa.0.1, 255
   %.sroa.652.sroa.0.0.insert.insert = or disjoint i16 %.sroa.652.sroa.6.0.insert.shift, %.sroa.652.sroa.0.0.insert.ext

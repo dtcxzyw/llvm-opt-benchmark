@@ -1696,7 +1696,7 @@ Py_DECREF.exit91:                                 ; preds = %84, %81, %78, %Py_X
   br label %_PyErr_SetRaisedException.exit
 
 _PyErr_SetRaisedException.exit:                   ; preds = %92, %93, %95, %98, %Py_XINCREF.exit
-  %.066 = phi ptr [ %2, %Py_XINCREF.exit ], [ %35, %98 ], [ %35, %95 ], [ %35, %93 ], [ %35, %92 ]
+  %.066 = phi ptr [ %2, %Py_XINCREF.exit ], [ %35, %92 ], [ %35, %93 ], [ %35, %95 ], [ %35, %98 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %100 = load ptr, ptr %99, align 8, !tbaa !38
   br label %101
@@ -2314,8 +2314,8 @@ Py_DECREF.exit79.sink.split:                      ; preds = %46, %36
   br label %Py_DECREF.exit79
 
 Py_DECREF.exit79:                                 ; preds = %22, %_Py_NewRef.exit, %Py_DECREF.exit79.sink.split, %34, %36, %46, %_Py_NewRef.exit89, %39
-  %.056 = phi ptr [ %10, %36 ], [ %.056.ph, %Py_DECREF.exit79.sink.split ], [ %10, %34 ], [ %.054.val86, %46 ], [ %.054.val86, %_Py_NewRef.exit89 ], [ %10, %39 ], [ %10, %_Py_NewRef.exit ], [ %10, %22 ]
-  %.155 = phi ptr [ %33, %36 ], [ %.155.ph, %Py_DECREF.exit79.sink.split ], [ %33, %34 ], [ %.054, %46 ], [ %.054, %_Py_NewRef.exit89 ], [ %.054, %39 ], [ %.054, %_Py_NewRef.exit ], [ %.054, %22 ]
+  %.056 = phi ptr [ %10, %34 ], [ %10, %36 ], [ %.056.ph, %Py_DECREF.exit79.sink.split ], [ %.054.val86, %46 ], [ %.054.val86, %_Py_NewRef.exit89 ], [ %10, %39 ], [ %10, %_Py_NewRef.exit ], [ %10, %22 ]
+  %.155 = phi ptr [ %33, %34 ], [ %33, %36 ], [ %.155.ph, %Py_DECREF.exit79.sink.split ], [ %.054, %46 ], [ %.054, %_Py_NewRef.exit89 ], [ %.054, %39 ], [ %.054, %_Py_NewRef.exit ], [ %.054, %22 ]
   store ptr %.056, ptr %1, align 8, !tbaa !24
   store ptr %.155, ptr %2, align 8, !tbaa !24
   br label %.loopexit

@@ -2401,14 +2401,14 @@ define internal fastcc noundef zeroext i1 @"_ZN78_$LT$parquet..schema..types..Ba
   %79 = icmp eq i8 %76, %78
   br i1 %79, label %.thread14, label %.critedge
 
-.thread14:                                        ; preds = %41, %64, %54, %74, %31, %33
+.thread14:                                        ; preds = %41, %74, %54, %64, %31, %33
   %80 = load i32, ptr %0, align 8, !range !371, !noundef !5
   %trunc = trunc nuw i32 %80 to i1
   %81 = load i32, ptr %1, align 8, !range !371, !noundef !5
   br i1 %trunc, label %85, label %82
 
-.critedge:                                        ; preds = %68, %58, %48, %42, %39, %2, %64, %54, %74, %31, %14, %85, %32, %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h150e7aca27e11e91E.exit", %18, %33, %82, %86
-  %.0 = phi i1 [ %84, %82 ], [ %91, %86 ], [ false, %32 ], [ false, %33 ], [ false, %18 ], [ false, %68 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h150e7aca27e11e91E.exit" ], [ false, %16 ], [ false, %85 ], [ false, %64 ], [ false, %14 ], [ false, %31 ], [ false, %2 ], [ false, %74 ], [ false, %54 ], [ false, %39 ], [ false, %42 ], [ false, %48 ], [ false, %58 ]
+.critedge:                                        ; preds = %68, %58, %48, %42, %39, %2, %74, %54, %64, %31, %14, %85, %32, %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h150e7aca27e11e91E.exit", %18, %33, %82, %86
+  %.0 = phi i1 [ %84, %82 ], [ %91, %86 ], [ false, %32 ], [ false, %33 ], [ false, %18 ], [ false, %68 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h150e7aca27e11e91E.exit" ], [ false, %16 ], [ false, %85 ], [ false, %74 ], [ false, %14 ], [ false, %31 ], [ false, %2 ], [ false, %64 ], [ false, %54 ], [ false, %39 ], [ false, %42 ], [ false, %48 ], [ false, %58 ]
   ret i1 %.0
 
 82:                                               ; preds = %.thread14

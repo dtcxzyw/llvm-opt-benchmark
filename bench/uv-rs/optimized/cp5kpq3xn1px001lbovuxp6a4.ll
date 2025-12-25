@@ -7156,7 +7156,7 @@ define noundef nonnull ptr @"_ZN157_$LT$uv_pypi_types..marker_environment..Resol
           to label %30 unwind label %.body.thread132
 
 .body:                                            ; preds = %.thread109, %194, %122, %126, %99
-  %.pn.pn = phi { ptr, i32 } [ %.pn.pn.i88, %122 ], [ %lpad.thr_comm.split-lp, %99 ], [ %.pn.pn.i88, %126 ], [ %.pn112, %.thread109 ], [ %.pn112, %194 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn.pn.i88, %122 ], [ %lpad.thr_comm.split-lp, %99 ], [ %.pn.pn.i88, %126 ], [ %.pn112, %194 ], [ %.pn112, %.thread109 ]
   br i1 %.sroa.034.2, label %195, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17hc939dcbcd31df3f0E.exit104"
 
 .body.thread132:                                  ; preds = %27, %38, %68, %.thread, %85, %86

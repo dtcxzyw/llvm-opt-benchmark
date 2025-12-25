@@ -3864,7 +3864,7 @@ flush_pending.exit132:                            ; preds = %249, %264, %282
   br label %.loopexit
 
 .loopexit:                                        ; preds = %flush_pending.exit, %19, %flush_pending.exit132, %flush_pending.exit130, %289
-  %.0 = phi i32 [ 0, %flush_pending.exit132 ], [ %., %flush_pending.exit130 ], [ 1, %289 ], [ 0, %19 ], [ 0, %flush_pending.exit ]
+  %.0 = phi i32 [ 1, %289 ], [ %., %flush_pending.exit130 ], [ 0, %flush_pending.exit132 ], [ 0, %19 ], [ 0, %flush_pending.exit ]
   ret i32 %.0
 }
 
@@ -5062,7 +5062,7 @@ flush_pending.exit131:                            ; preds = %370, %384, %402
   br label %.loopexit
 
 .loopexit:                                        ; preds = %flush_pending.exit, %30, %flush_pending.exit131, %flush_pending.exit129, %3, %409
-  %.0 = phi i32 [ 0, %flush_pending.exit131 ], [ -5, %3 ], [ %., %flush_pending.exit129 ], [ 1, %409 ], [ 0, %30 ], [ 0, %flush_pending.exit ]
+  %.0 = phi i32 [ 1, %409 ], [ -5, %3 ], [ %., %flush_pending.exit129 ], [ 0, %flush_pending.exit131 ], [ 0, %30 ], [ 0, %flush_pending.exit ]
   ret i32 %.0
 }
 
@@ -5360,7 +5360,7 @@ insert_string.exit:                               ; preds = %57, %77
   br i1 %183, label %.sink.split, label %184
 
 .sink.split:                                      ; preds = %137, %.lr.ph64.i, %174, %179, %160, %151, %125, %121, %118, %._crit_edge.i, %104
-  %.sink = phi i32 [ 2, %174 ], [ 0, %151 ], [ 0, %104 ], [ 0, %._crit_edge.i ], [ %.0166, %160 ], [ 0, %118 ], [ 0, %125 ], [ 0, %121 ], [ 2, %179 ], [ 0, %.lr.ph64.i ], [ 0, %137 ]
+  %.sink = phi i32 [ 2, %179 ], [ 0, %151 ], [ 0, %104 ], [ 0, %118 ], [ %.0166, %160 ], [ 0, %._crit_edge.i ], [ 0, %125 ], [ 0, %121 ], [ 2, %174 ], [ 0, %.lr.ph64.i ], [ 0, %137 ]
   store i32 %.sink, ptr %24, align 8, !tbaa !68
   br label %184
 

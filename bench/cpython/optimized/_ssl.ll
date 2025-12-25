@@ -5087,9 +5087,9 @@ Py_DECREF.exit126:                                ; preds = %30, %35, %38
   br label %46
 
 46:                                               ; preds = %44, %42, %7
-  %.089 = phi ptr [ null, %7 ], [ %33, %42 ], [ %33, %44 ]
-  %.086 = phi ptr [ null, %7 ], [ %17, %42 ], [ %17, %44 ]
-  %.0 = phi ptr [ %4, %7 ], [ %4, %42 ], [ %45, %44 ]
+  %.089 = phi ptr [ null, %7 ], [ %33, %44 ], [ %33, %42 ]
+  %.086 = phi ptr [ null, %7 ], [ %17, %44 ], [ %17, %42 ]
+  %.0 = phi ptr [ %4, %7 ], [ %45, %44 ], [ %4, %42 ]
   %.not112 = icmp eq ptr %1, null
   br i1 %.not112, label %_Py_NewRef.exit.thread, label %47
 
@@ -5949,7 +5949,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit54, %
   br i1 %.not49, label %.critedge, label %.preheader, !llvm.loop !92
 
 .critedge:                                        ; preds = %11, %Py_DECREF.exit56, %.preheader, %50, %Py_DECREF.exit, %26, %23, %21, %6, %1
-  %.0 = phi i32 [ -1, %21 ], [ -1, %1 ], [ 0, %Py_DECREF.exit ], [ -1, %26 ], [ -1, %6 ], [ -1, %23 ], [ -1, %50 ], [ -1, %.preheader ], [ -1, %Py_DECREF.exit56 ], [ -1, %11 ]
+  %.0 = phi i32 [ -1, %21 ], [ -1, %1 ], [ -1, %26 ], [ 0, %Py_DECREF.exit ], [ -1, %6 ], [ -1, %23 ], [ -1, %50 ], [ -1, %.preheader ], [ -1, %Py_DECREF.exit56 ], [ -1, %11 ]
   ret i32 %.0
 }
 
@@ -9473,7 +9473,7 @@ _ssl_configure_hostname.exit.thread:              ; preds = %128, %153, %119, %1
   tail call void @_Py_Dealloc(ptr noundef nonnull %37) #11
   br label %Py_DECREF.exit96
 
-_ssl_configure_hostname.exit.thread106:           ; preds = %148, %136, %_ssl_configure_hostname.exit, %107
+_ssl_configure_hostname.exit.thread106:           ; preds = %136, %148, %_ssl_configure_hostname.exit, %107
   br i1 %.not, label %182, label %171
 
 171:                                              ; preds = %_ssl_configure_hostname.exit.thread106
@@ -10190,7 +10190,7 @@ define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly 
   br label %63
 
 .split64.us:                                      ; preds = %52, %48, %32, %.lr.ph72, %36
-  %.us-phi = phi i32 [ %37, %36 ], [ %.040.us71, %32 ], [ %.040.us71, %.lr.ph72 ], [ %.04067, %48 ], [ %53, %52 ]
+  %.us-phi = phi i32 [ %37, %36 ], [ %.040.us71, %32 ], [ %.040.us71, %.lr.ph72 ], [ %53, %52 ], [ %.04067, %48 ]
   %.us-phi66 = phi i1 [ true, %36 ], [ false, %32 ], [ false, %.lr.ph72 ], [ false, %48 ], [ false, %52 ]
   %61 = tail call i64 @ERR_peek_last_error() #11
   %62 = icmp eq i32 %.us-phi, 0
@@ -11396,7 +11396,7 @@ define internal range(i32 -1, 1) i32 @_ssl__SSLContext_verify_flags_set(ptr noun
   br label %_ssl__SSLContext_verify_flags_set_impl.exit
 
 _ssl__SSLContext_verify_flags_set_impl.exit:      ; preds = %3, %18, %19, %.sink.split.i
-  %.0.i = phi i32 [ -1, %3 ], [ 0, %18 ], [ 0, %19 ], [ -1, %.sink.split.i ]
+  %.0.i = phi i32 [ -1, %3 ], [ 0, %19 ], [ 0, %18 ], [ -1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
@@ -11996,7 +11996,7 @@ Py_DECREF.exit63:                                 ; preds = %45, %47, %50
   br label %Py_DECREF.exit65
 
 Py_DECREF.exit65:                                 ; preds = %Py_DECREF.exit63, %55, %58, %29
-  %.041 = phi ptr [ %31, %29 ], [ %53, %58 ], [ %53, %55 ], [ %53, %Py_DECREF.exit63 ]
+  %.041 = phi ptr [ %31, %29 ], [ %53, %58 ], [ %53, %Py_DECREF.exit63 ], [ %53, %55 ]
   %59 = load ptr, ptr %4, align 8, !tbaa !26
   %60 = load i32, ptr %59, align 8, !tbaa !25
   %.not.i58 = icmp sgt i32 %60, -1

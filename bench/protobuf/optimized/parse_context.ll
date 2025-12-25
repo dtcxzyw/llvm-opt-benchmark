@@ -7563,7 +7563,7 @@ if.end.i29:                                       ; preds = %_ZN6google8protobuf
   br label %return
 
 return:                                           ; preds = %if.end.i.i.i, %do.body.i.i.i, %if.end12.i.i, %if.end.i29, %if.then.i27, %do.end.i.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i, %if.then.i7, %for.end.i.i
-  %retval.0 = phi ptr [ %call4.i, %if.end.i29 ], [ null, %if.end12.i.i ], [ null, %for.end.i.i ], [ %add.ptr2.i, %if.then.i7 ], [ %add.ptr18.i.i.i, %do.end.i.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i ], [ %add.ptr3.i, %if.then.i27 ], [ null, %do.body.i.i.i ], [ null, %if.end.i.i.i ]
+  %retval.0 = phi ptr [ %call4.i, %if.end.i29 ], [ %add.ptr3.i, %if.then.i27 ], [ null, %for.end.i.i ], [ %add.ptr2.i, %if.then.i7 ], [ %add.ptr18.i.i.i, %do.end.i.i.i ], [ null, %_ZN6google8protobuf8internal18EpsCopyInputStream4NextEv.exit.thread.i.i.i ], [ null, %if.end12.i.i ], [ null, %do.body.i.i.i ], [ null, %if.end.i.i.i ]
   ret ptr %retval.0
 }
 

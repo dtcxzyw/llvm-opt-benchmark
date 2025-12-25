@@ -9271,7 +9271,7 @@ _Z19crxBitstreamGetBitsP12CrxBitstreami.exit198:  ; preds = %.loopexit477, %_ZL1
   br label %1521
 
 1521:                                             ; preds = %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit214, %773, %.thread456
-  %.4145 = phi i32 [ %.1142, %.thread456 ], [ %.3144, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit214 ], [ %.3144, %773 ]
+  %.4145 = phi i32 [ %.1142, %.thread456 ], [ %.3144, %773 ], [ %.3144, %_Z19crxBitstreamGetBitsP12CrxBitstreami.exit214 ]
   %1522 = add nsw i32 %.4145, 1
   %1523 = load i16, ptr %2, align 8, !tbaa !6
   %1524 = sext i16 %1523 to i32
@@ -19930,7 +19930,7 @@ define noundef range(i32 -1, 1) i32 @_ZN6LibRaw14crxDecodePlaneEPvj(ptr nonnull 
   br i1 %.not98, label %.preheader116, label %.critedge, !llvm.loop !178
 
 .critedge:                                        ; preds = %.thread107, %37, %.lr.ph134, %46, %95, %3, %89
-  %spec.select = phi i32 [ 0, %3 ], [ -1, %37 ], [ 0, %89 ], [ -1, %95 ], [ -1, %46 ], [ -1, %.lr.ph134 ], [ 0, %.thread107 ]
+  %spec.select = phi i32 [ -1, %46 ], [ -1, %37 ], [ 0, %89 ], [ 0, %3 ], [ -1, %95 ], [ -1, %.lr.ph134 ], [ 0, %.thread107 ]
   ret i32 %spec.select
 }
 

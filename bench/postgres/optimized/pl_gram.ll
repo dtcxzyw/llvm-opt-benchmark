@@ -4340,8 +4340,8 @@ define internal fastcc ptr @read_datatype(i32 noundef %0, ptr noundef nonnull %1
   br label %tok_is_keyword.exit147
 
 tok_is_keyword.exit147:                           ; preds = %97, %89, %69, %61, %40, %32
-  %.1131 = phi ptr [ %98, %97 ], [ %90, %89 ], [ %70, %69 ], [ %33, %32 ], [ %41, %40 ], [ %62, %61 ]
-  %.2 = phi i32 [ %78, %97 ], [ %78, %89 ], [ %50, %69 ], [ %21, %32 ], [ %21, %40 ], [ %50, %61 ]
+  %.1131 = phi ptr [ %62, %61 ], [ %70, %69 ], [ %98, %97 ], [ %33, %32 ], [ %41, %40 ], [ %90, %89 ]
+  %.2 = phi i32 [ %50, %61 ], [ %50, %69 ], [ %78, %97 ], [ %21, %32 ], [ %21, %40 ], [ %78, %89 ]
   %.not = icmp eq ptr %.1131, null
   br i1 %.not, label %.preheader.preheader, label %99
 

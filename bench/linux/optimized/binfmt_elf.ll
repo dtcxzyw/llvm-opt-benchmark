@@ -270,7 +270,7 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   %105 = icmp samesign ult i32 %103, %51
   br i1 %105, label %.preheader67, label %.preheader.preheader, !llvm.loop !7
 
-.loopexit68:                                      ; preds = %.thread42, %97
+.loopexit68:                                      ; preds = %97, %.thread42
   %.pr = load i16, ptr %30, align 8
   %.pre96 = zext i16 %.pr to i32
   %106 = icmp eq i16 %.pr, 0
@@ -1910,9 +1910,9 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader67, %570, %594, %588, %585, %582, %575, %606, %625, %.loopexit61, %634, %.loopexit53, %520, %516, %505, %.thread, %1
-  %.ph49 = phi ptr [ %483, %570 ], [ %483, %625 ], [ %483, %634 ], [ %483, %.loopexit53 ], [ %483, %594 ], [ %483, %520 ], [ %483, %606 ], [ null, %.loopexit61 ], [ null, %.thread ], [ null, %1 ], [ %483, %505 ], [ %483, %516 ], [ %483, %575 ], [ %483, %582 ], [ %483, %585 ], [ %483, %588 ], [ null, %.preheader67 ]
-  %.ph50 = phi ptr [ %517, %570 ], [ %517, %625 ], [ %517, %634 ], [ %517, %.loopexit53 ], [ %517, %594 ], [ %517, %520 ], [ %517, %606 ], [ null, %.loopexit61 ], [ null, %.thread ], [ null, %1 ], [ null, %505 ], [ %517, %516 ], [ %517, %575 ], [ %517, %582 ], [ %517, %585 ], [ %517, %588 ], [ null, %.preheader67 ]
-  %.ph51 = phi i32 [ 1, %570 ], [ 1, %625 ], [ 1, %634 ], [ 1, %.loopexit53 ], [ 1, %594 ], [ 1, %520 ], [ 1, %606 ], [ 1, %.loopexit61 ], [ 0, %.thread ], [ 0, %1 ], [ 1, %505 ], [ 1, %516 ], [ 1, %575 ], [ 1, %582 ], [ 1, %585 ], [ 1, %588 ], [ 0, %.preheader67 ]
+  %.ph49 = phi ptr [ %483, %570 ], [ %483, %520 ], [ %483, %594 ], [ %483, %.loopexit53 ], [ %483, %634 ], [ %483, %625 ], [ %483, %606 ], [ null, %.loopexit61 ], [ null, %.thread ], [ null, %1 ], [ %483, %505 ], [ %483, %516 ], [ %483, %575 ], [ %483, %582 ], [ %483, %585 ], [ %483, %588 ], [ null, %.preheader67 ]
+  %.ph50 = phi ptr [ %517, %570 ], [ %517, %520 ], [ %517, %594 ], [ %517, %.loopexit53 ], [ %517, %634 ], [ %517, %625 ], [ %517, %606 ], [ null, %.loopexit61 ], [ null, %.thread ], [ null, %1 ], [ null, %505 ], [ %517, %516 ], [ %517, %575 ], [ %517, %582 ], [ %517, %585 ], [ %517, %588 ], [ null, %.preheader67 ]
+  %.ph51 = phi i32 [ 1, %570 ], [ 1, %520 ], [ 1, %594 ], [ 1, %.loopexit53 ], [ 1, %634 ], [ 1, %625 ], [ 1, %606 ], [ 1, %.loopexit61 ], [ 0, %.thread ], [ 0, %1 ], [ 1, %505 ], [ 1, %516 ], [ 1, %575 ], [ 1, %582 ], [ 1, %585 ], [ 1, %588 ], [ 0, %.preheader67 ]
   %.pr52 = load ptr, ptr %5, align 8
   %636 = icmp eq ptr %.pr52, null
   br i1 %636, label %.critedge.thread, label %637

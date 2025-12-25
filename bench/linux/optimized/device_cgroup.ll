@@ -855,7 +855,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br label %190
 
 187:                                              ; preds = %183, %174
-  %.fr = phi i32 [ %185, %183 ], [ %175, %174 ]
+  %.fr = phi i32 [ %175, %174 ], [ %185, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

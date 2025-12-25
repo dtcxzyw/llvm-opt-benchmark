@@ -3661,7 +3661,7 @@ hid_iterate_over_collection.exit:                 ; preds = %.thread36.i
   br label %.thread
 
 .thread:                                          ; preds = %98, %102, %.thread.sink.split, %5, %._crit_edge, %114
-  %.2 = phi i32 [ 1, %._crit_edge ], [ 0, %.thread.sink.split ], [ 1, %114 ], [ 1, %5 ], [ -1, %102 ], [ -1, %98 ]
+  %.2 = phi i32 [ 1, %._crit_edge ], [ 1, %5 ], [ 1, %114 ], [ 0, %.thread.sink.split ], [ -1, %102 ], [ -1, %98 ]
   ret i32 %.2
 }
 

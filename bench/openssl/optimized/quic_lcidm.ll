@@ -443,7 +443,7 @@ define internal fastcc range(i32 0, 2) i32 @lcidm_generate(ptr noundef readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %19, %26, %13, %14, %5, %38
-  %.021 = phi i32 [ 0, %26 ], [ 0, %5 ], [ 0, %13 ], [ 0, %14 ], [ 1, %38 ], [ 0, %19 ], [ 0, %21 ]
+  %.021 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %13 ], [ 0, %26 ], [ 1, %38 ], [ 0, %19 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.021
 }

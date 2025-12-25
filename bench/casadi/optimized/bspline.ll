@@ -15254,7 +15254,7 @@ define linkonce_odr hidden void @_ZN6casadi19casadi_nd_boor_evalIdEEvPT_xPKS1_PK
   br i1 %80, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %75, !llvm.loop !230
 
 _ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit:        ; preds = %71, %73, %75, %76, %41, %53, %55, %64
-  %.042.i = phi i64 [ %smax.i, %75 ], [ %spec.select.i, %41 ], [ 0, %55 ], [ %65, %64 ], [ 0, %53 ], [ %.0.i, %76 ], [ %.043.i, %71 ], [ %.045.i.ph, %73 ]
+  %.042.i = phi i64 [ 0, %55 ], [ %spec.select.i, %41 ], [ %smax.i, %75 ], [ %65, %64 ], [ 0, %53 ], [ %.0.i, %76 ], [ %.043.i, %71 ], [ %.045.i.ph, %73 ]
   %81 = add i64 %37, -2
   %spec.select = tail call i64 @llvm.smin.i64(i64 %.042.i, i64 %81)
   %82 = getelementptr inbounds nuw i64, ptr %14, i64 %.0169194
@@ -18223,7 +18223,7 @@ define linkonce_odr hidden noundef i64 @_ZN6casadi24casadi_nd_boor_dual_evalIdEE
   br i1 %79, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %74, !llvm.loop !230
 
 _ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit:        ; preds = %70, %72, %74, %75, %40, %52, %54, %63
-  %.042.i = phi i64 [ %smax.i, %74 ], [ %spec.select.i, %40 ], [ 0, %54 ], [ %64, %63 ], [ 0, %52 ], [ %.0.i, %75 ], [ %.043.i, %70 ], [ %.045.i.ph, %72 ]
+  %.042.i = phi i64 [ 0, %54 ], [ %spec.select.i, %40 ], [ %smax.i, %74 ], [ %64, %63 ], [ 0, %52 ], [ %.0.i, %75 ], [ %.043.i, %70 ], [ %.045.i.ph, %72 ]
   %80 = add i64 %36, -2
   %spec.select = tail call i64 @llvm.smin.i64(i64 %.042.i, i64 %80)
   %81 = getelementptr inbounds nuw i64, ptr %13, i64 %.0166189

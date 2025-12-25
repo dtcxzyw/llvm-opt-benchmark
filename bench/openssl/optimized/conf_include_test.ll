@@ -543,7 +543,7 @@ define internal range(i32 0, 2) i32 @test_available_providers() #1 {
   br label %16
 
 16:                                               ; preds = %.sink.split, %13, %0
-  %.0 = phi i32 [ 1, %13 ], [ 0, %0 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %0 ], [ 1, %13 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

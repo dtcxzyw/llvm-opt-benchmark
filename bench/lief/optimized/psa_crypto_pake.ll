@@ -530,7 +530,7 @@ define hidden range(i32 -153, 1) i32 @mbedtls_psa_pake_input(ptr noundef %0, i32
   br label %mbedtls_psa_pake_input_internal.exit
 
 mbedtls_psa_pake_input_internal.exit:             ; preds = %4, %13, %23, %29, %38, %41, %42, %43, %44, %45, %48, %49, %50, %51, %.critedge.fold.split.i, %.critedge.fold.split43.i
-  %.1.i = phi i32 [ -134, %4 ], [ %47, %45 ], [ -138, %23 ], [ -153, %.critedge.fold.split.i ], [ -138, %13 ], [ %40, %38 ], [ 0, %29 ], [ -132, %44 ], [ -151, %43 ], [ -138, %41 ], [ -134, %42 ], [ -134, %49 ], [ -138, %48 ], [ -151, %50 ], [ -132, %51 ], [ -153, %.critedge.fold.split43.i ]
+  %.1.i = phi i32 [ -134, %4 ], [ %47, %45 ], [ -138, %23 ], [ -151, %50 ], [ -138, %13 ], [ %40, %38 ], [ 0, %29 ], [ -132, %44 ], [ -151, %43 ], [ -138, %41 ], [ -134, %42 ], [ -138, %48 ], [ -134, %49 ], [ -153, %.critedge.fold.split.i ], [ -132, %51 ], [ -153, %.critedge.fold.split43.i ]
   ret i32 %.1.i
 }
 

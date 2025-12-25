@@ -146,7 +146,7 @@ EVP_MAC_CTX_free.exit:                            ; preds = %12
   br label %24
 
 24:                                               ; preds = %.sink.split, %12, %5, %1
-  %.0 = phi ptr [ %6, %12 ], [ null, %1 ], [ null, %5 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %5 ], [ null, %1 ], [ %6, %12 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 

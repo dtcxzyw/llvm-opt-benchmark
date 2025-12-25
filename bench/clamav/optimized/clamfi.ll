@@ -1459,7 +1459,7 @@ define dso_local range(i32 0, 4) i32 @clamfi_connect(ptr noundef readnone captur
   br label %12
 
 12:                                               ; preds = %.sink.split, %4, %6
-  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 3, %.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ 3, %.sink.split ]
   ret i32 %.0
 }
 

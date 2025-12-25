@@ -3788,7 +3788,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br label %1665
 
 902:                                              ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h17c8980bd7de86e7E.exit.i.i.i", %710, %.noexc429.i, %600
-  %.029.i.i.i = phi i8 [ %.5.i.i.i.i, %710 ], [ %602, %600 ], [ %612, %.noexc429.i ], [ %.sroa.0.0.i.i.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h17c8980bd7de86e7E.exit.i.i.i" ]
+  %.029.i.i.i = phi i8 [ %602, %600 ], [ %.5.i.i.i.i, %710 ], [ %612, %.noexc429.i ], [ %.sroa.0.0.i.i.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h17c8980bd7de86e7E.exit.i.i.i" ]
   %903 = trunc nuw i8 %.029.i.i.i to i1
   br i1 %903, label %.thread.i, label %.thread923.i
 

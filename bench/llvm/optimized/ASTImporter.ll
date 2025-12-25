@@ -25299,8 +25299,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i: 
   %239 = inttoptr i64 %.sroa.07.1.i to ptr
   br label %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread230
 
-_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread230: ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit
-  %.sroa.0179.6.ph = phi ptr [ %239, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i ], [ %223, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit ], [ %.sroa.0179.4, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.thread ], [ %.sroa.0179.4, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit ]
+_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread230: ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.thread, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit
+  %.sroa.0179.6.ph = phi ptr [ %239, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i ], [ %223, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit ], [ %.sroa.0179.4, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit ], [ %.sroa.0179.4, %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.thread ]
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %241 = load i8, ptr %240, align 8
   %242 = or i8 %241, 1
@@ -25309,7 +25309,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.e
   br label %_ZN4llvm5ErrorD2Ev.exit162
 
 _ZN5clang15ASTNodeImporter13importCheckedINS_11SourceRangeEEET_RN4llvm5ErrorERKS3_.exit: ; preds = %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.i.i.i, %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.thread.i.i.i
-  %.sroa.6.0.i141 = phi i64 [ %237, %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.thread.i.i.i ], [ %.sroa.027.031.i.i.i, %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.i.i.i ]
+  %.sroa.6.0.i141 = phi i64 [ %.sroa.027.031.i.i.i, %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.i.i.i ], [ %237, %_ZN5clang11ASTImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS5_.exit13.thread.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %243 = load ptr, ptr %1, align 8, !tbaa !62
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 280120
@@ -56835,8 +56835,8 @@ _ZNK5clang20FunctionTemplateDecl28isThisDeclarationADefinitionEv.exit: ; preds =
   br i1 %.not66, label %.loopexit106, label %.lr.ph
 
 .loopexit106:                                     ; preds = %88, %33, %82, %_ZNK5clang20FunctionTemplateDecl28isThisDeclarationADefinitionEv.exit
-  %.254 = phi ptr [ %41, %_ZNK5clang20FunctionTemplateDecl28isThisDeclarationADefinitionEv.exit ], [ null, %82 ], [ null, %33 ], [ null, %88 ]
-  %cond2 = phi i1 [ true, %_ZNK5clang20FunctionTemplateDecl28isThisDeclarationADefinitionEv.exit ], [ false, %82 ], [ true, %33 ], [ true, %88 ]
+  %.254 = phi ptr [ null, %82 ], [ %41, %_ZNK5clang20FunctionTemplateDecl28isThisDeclarationADefinitionEv.exit ], [ null, %33 ], [ null, %88 ]
+  %cond2 = phi i1 [ false, %82 ], [ true, %_ZNK5clang20FunctionTemplateDecl28isThisDeclarationADefinitionEv.exit ], [ true, %33 ], [ true, %88 ]
   %90 = load ptr, ptr %12, align 8, !tbaa !26
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %92 = icmp eq ptr %90, %91
@@ -89288,7 +89288,7 @@ _ZNO12_GLOBAL__N_112AttrImporter9getResultEv.exit.thread: ; preds = %_ZNSt10uniq
   br label %_ZN12_GLOBAL__N_112AttrImporterD2Ev.exit
 
 _ZNO12_GLOBAL__N_112AttrImporter9getResultEv.exit: ; preds = %2912, %511, %1835, %805, %671, %254, %1706, %382, %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i956, %_ZN12_GLOBAL__N_112AttrImporter10importAttrIN5clang11AlignedAttrEJbRKPNS2_14TypeSourceInfoEEEEvPKT_DpOT0_.exit
-  %.sroa.146.01808 = phi ptr [ %.sroa.146.0, %_ZN12_GLOBAL__N_112AttrImporter10importAttrIN5clang11AlignedAttrEJbRKPNS2_14TypeSourceInfoEEEEvPKT_DpOT0_.exit ], [ %234, %254 ], [ %491, %511 ], [ %785, %805 ], [ %1686, %1706 ], [ %651, %671 ], [ %1815, %1835 ], [ %2892, %2912 ], [ %362, %382 ], [ %3081, %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i956 ]
+  %.sroa.146.01808 = phi ptr [ %.sroa.146.0, %_ZN12_GLOBAL__N_112AttrImporter10importAttrIN5clang11AlignedAttrEJbRKPNS2_14TypeSourceInfoEEEEvPKT_DpOT0_.exit ], [ %2892, %2912 ], [ %491, %511 ], [ %1815, %1835 ], [ %785, %805 ], [ %651, %671 ], [ %234, %254 ], [ %1686, %1706 ], [ %362, %382 ], [ %3081, %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit.i956 ]
   %3119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3120 = load i8, ptr %3119, align 8, !alias.scope !10015
   %3121 = and i8 %3120, -2

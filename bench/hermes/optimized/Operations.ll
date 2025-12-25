@@ -646,7 +646,7 @@ return.i47:                                       ; preds = %if.end17.i44
   br label %return
 
 return:                                           ; preds = %if.end12.i40, %do.body.i35, %if.end12.i, %do.body.i, %19, %return.i47, %if.then2.i51, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, %8, %return.i, %if.then2.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit
-  %retval.sroa.0.0 = phi i64 [ 0, %if.end12.i ], [ %9, %8 ], [ 0, %return.i ], [ 0, %if.then2.i ], [ 0, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit ], [ 0, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ %20, %19 ], [ 0, %return.i47 ], [ 0, %if.then2.i51 ], [ 0, %do.body.i ], [ 0, %do.body.i35 ], [ 0, %if.end12.i40 ]
+  %retval.sroa.0.0 = phi i64 [ 0, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ %9, %8 ], [ 0, %return.i ], [ 0, %if.then2.i ], [ 0, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit ], [ 0, %if.end12.i ], [ %20, %19 ], [ 0, %return.i47 ], [ 0, %if.then2.i51 ], [ 0, %do.body.i ], [ 0, %do.body.i35 ], [ 0, %if.end12.i40 ]
   ret i64 %retval.sroa.0.0
 }
 

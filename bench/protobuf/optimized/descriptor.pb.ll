@@ -7697,7 +7697,7 @@ _ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread: ; preds = %if
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.end.i.i.i, %if.then8.i.i.i, %for.body.i3, %for.body.i13, %if.then.i.i33, %if.end.i.i.i37, %if.then8.i.i.i44, %if.then.i.i61, %if.end.i.i.i65, %if.then8.i.i.i72, %if.then.i.i91, %if.end.i.i.i95, %if.then8.i.i.i102, %if.end22, %if.end6.i, %if.then8.i, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread
-  %retval.0 = phi i1 [ false, %if.then.i.i91 ], [ true, %if.end22 ], [ false, %if.then.i.i61 ], [ false, %for.body.i3 ], [ false, %for.body.i13 ], [ false, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread ], [ false, %if.then.i.i33 ], [ true, %if.end6.i ], [ true, %if.then8.i ], [ false, %if.then8.i.i.i102 ], [ false, %if.end.i.i.i95 ], [ false, %if.then8.i.i.i72 ], [ false, %if.end.i.i.i65 ], [ false, %if.then8.i.i.i44 ], [ false, %if.end.i.i.i37 ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ]
+  %retval.0 = phi i1 [ false, %if.then.i.i61 ], [ true, %if.then8.i ], [ false, %if.then.i.i91 ], [ false, %for.body.i3 ], [ false, %for.body.i13 ], [ false, %_ZNK6google8protobuf14MessageOptions13IsInitializedEv.exit.thread ], [ false, %if.then.i.i33 ], [ true, %if.end6.i ], [ true, %if.end22 ], [ false, %if.then8.i.i.i102 ], [ false, %if.end.i.i.i95 ], [ false, %if.then8.i.i.i72 ], [ false, %if.end.i.i.i65 ], [ false, %if.then8.i.i.i44 ], [ false, %if.end.i.i.i37 ], [ false, %if.then8.i.i.i ], [ false, %if.end.i.i.i ], [ false, %if.then.i.i ]
   ret i1 %retval.0
 }
 

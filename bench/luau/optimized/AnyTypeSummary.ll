@@ -14747,7 +14747,7 @@ define dso_local noundef ptr @_ZN4Luau14AnyTypeSummary25checkForFamilyInhabitanc
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %45, !llvm.loop !368
 
 .loopexit.i.i:                                    ; preds = %51, %49, %.thread, %.thread9
-  %54 = phi ptr [ %34, %.thread9 ], [ %13, %.thread ], [ %13, %49 ], [ %13, %51 ]
+  %54 = phi ptr [ %13, %.thread ], [ %34, %.thread9 ], [ %13, %49 ], [ %13, %51 ]
   tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %.pre.i = load i64, ptr %54, align 8, !tbaa !366
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
@@ -14968,7 +14968,7 @@ define dso_local noundef ptr @_ZN4Luau14AnyTypeSummary31checkForTypeFunctionInha
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %45, !llvm.loop !368
 
 .loopexit.i.i:                                    ; preds = %51, %49, %.thread, %.thread9
-  %54 = phi ptr [ %34, %.thread9 ], [ %13, %.thread ], [ %13, %49 ], [ %13, %51 ]
+  %54 = phi ptr [ %13, %.thread ], [ %34, %.thread9 ], [ %13, %49 ], [ %13, %51 ]
   tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %.pre.i = load i64, ptr %54, align 8, !tbaa !366
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i

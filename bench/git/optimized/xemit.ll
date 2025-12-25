@@ -127,8 +127,8 @@ define dso_local ptr @xdl_get_hunk(ptr noundef captures(none) %0, ptr noundef re
   br label %55
 
 55:                                               ; preds = %.sink.split, %37, %49
-  %.258 = phi ptr [ %.05393, %49 ], [ %.05393, %37 ], [ %.05690, %.sink.split ]
-  %.1 = phi i64 [ 0, %49 ], [ 0, %37 ], [ %54, %.sink.split ]
+  %.258 = phi ptr [ %.05393, %37 ], [ %.05393, %49 ], [ %.05690, %.sink.split ]
+  %.1 = phi i64 [ 0, %37 ], [ 0, %49 ], [ %54, %.sink.split ]
   %.053 = load ptr, ptr %.05393, align 8, !tbaa !16
   %.not65 = icmp eq ptr %.053, null
   br i1 %.not65, label %.thread, label %.lr.ph94, !llvm.loop !22
@@ -277,8 +277,8 @@ define dso_local range(i32 -1, 1) i32 @xdl_emit_diff(ptr noundef readonly captur
   br label %72
 
 72:                                               ; preds = %.sink.split.i, %66, %54
-  %.258.i = phi ptr [ %.05393.i, %66 ], [ %.05393.i, %54 ], [ %.05690.i, %.sink.split.i ]
-  %.1.i = phi i64 [ 0, %66 ], [ 0, %54 ], [ %71, %.sink.split.i ]
+  %.258.i = phi ptr [ %.05393.i, %54 ], [ %.05393.i, %66 ], [ %.05690.i, %.sink.split.i ]
+  %.1.i = phi i64 [ 0, %54 ], [ 0, %66 ], [ %71, %.sink.split.i ]
   %.053.i = load ptr, ptr %.05393.i, align 8, !tbaa !16
   %.not65.i = icmp eq ptr %.053.i, null
   br i1 %.not65.i, label %xdl_get_hunk.exit, label %.lr.ph94.i, !llvm.loop !22
@@ -851,8 +851,8 @@ get_func_line.exit320.thread:                     ; preds = %.lr.ph.i304, %.thre
   br label %.thread413
 
 .thread413:                                       ; preds = %277, %199, %.thread413.sink.split
-  %.0186 = phi i64 [ %.1187, %.thread413.sink.split ], [ %.1187, %277 ], [ %216, %199 ]
-  %.0184 = phi i64 [ %.1185, %.thread413.sink.split ], [ %.1185, %277 ], [ %217, %199 ]
+  %.0186 = phi i64 [ %.1187, %.thread413.sink.split ], [ %216, %199 ], [ %.1187, %277 ]
+  %.0184 = phi i64 [ %.1185, %.thread413.sink.split ], [ %217, %199 ], [ %.1185, %277 ]
   %317 = getelementptr inbounds nuw i8, ptr %.1180, i64 32
   %318 = getelementptr inbounds nuw i8, ptr %.1180, i64 16
   %319 = load i64, ptr %12, align 8, !tbaa !24

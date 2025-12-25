@@ -21609,7 +21609,7 @@ _ZNK4Type8make_ptrEv.exit9.i:                     ; preds = %30, %27, %24
   br label %_ZNK4Type8make_ptrEv.exit11.i.backedge
 
 _ZNK4Type8make_ptrEv.exit11.i.backedge:           ; preds = %37, %41, %38
-  %.pn15.i.be = phi ptr [ %40, %38 ], [ %43, %41 ], [ %.0.i, %37 ]
+  %.pn15.i.be = phi ptr [ %43, %41 ], [ %40, %38 ], [ %.0.i, %37 ]
   br label %_ZNK4Type8make_ptrEv.exit11.i, !llvm.loop !31
 
 _ZNK10TypeAryPtr17base_element_typeERi.exit:      ; preds = %21, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit9.i
@@ -24003,7 +24003,7 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %181, %191, %_ZNK4Ty
   br label %193
 
 193:                                              ; preds = %.sink.split, %153, %149, %155, %167, %168
-  %.0 = phi i32 [ 2, %153 ], [ 2, %167 ], [ 3, %149 ], [ 2, %155 ], [ 2, %168 ], [ 2, %.sink.split ]
+  %.0 = phi i32 [ 2, %167 ], [ 2, %153 ], [ 3, %149 ], [ 2, %155 ], [ 2, %168 ], [ 2, %.sink.split ]
   store i8 0, ptr %5, align 1
   switch i32 %141, label %213 [
     i32 1, label %194
@@ -29758,7 +29758,7 @@ _ZNK4Type8make_ptrEv.exit.thread:                 ; preds = %91, %101, %_ZNK4Typ
   br label %103
 
 103:                                              ; preds = %.sink.split, %63, %59, %65, %77, %78
-  %.0 = phi i32 [ 2, %63 ], [ 2, %77 ], [ 3, %59 ], [ 2, %65 ], [ 2, %78 ], [ 2, %.sink.split ]
+  %.0 = phi i32 [ 2, %77 ], [ 2, %63 ], [ 3, %59 ], [ 2, %65 ], [ 2, %78 ], [ 2, %.sink.split ]
   store i8 0, ptr %5, align 1
   switch i32 %51, label %123 [
     i32 1, label %104

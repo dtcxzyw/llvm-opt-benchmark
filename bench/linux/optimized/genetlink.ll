@@ -905,8 +905,8 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
   %346 = icmp samesign ult i64 %343, %345
   br i1 %346, label %336, label %.loopexit, !llvm.loop !65
 
-.thread32:                                        ; preds = %260, %265, %.preheader, %317, %181, %185, %329
-  %347 = phi i32 [ %314, %329 ], [ %314, %.preheader ], [ -22, %185 ], [ %314, %317 ], [ -22, %181 ], [ -12, %265 ], [ -12, %260 ]
+.thread32:                                        ; preds = %265, %260, %.preheader, %317, %181, %185, %329
+  %347 = phi i32 [ %314, %329 ], [ -22, %185 ], [ %314, %.preheader ], [ %314, %317 ], [ -22, %181 ], [ -12, %260 ], [ -12, %265 ]
   %348 = load i32, ptr %162, align 8
   %349 = sext i32 %348 to i64
   %350 = call ptr @idr_remove(ptr noundef nonnull @genl_fam_idr, i64 noundef %349) #15
@@ -3708,7 +3708,7 @@ define internal range(i32 -1, 1) i32 @genl_bind(ptr noundef readonly captures(no
   br i1 %44, label %.loopexit, label %8, !llvm.loop !107
 
 .loopexit:                                        ; preds = %40, %31, %36, %2
-  %45 = phi i32 [ 0, %2 ], [ %33, %31 ], [ %39, %36 ], [ 0, %40 ]
+  %45 = phi i32 [ 0, %2 ], [ %39, %36 ], [ %33, %31 ], [ 0, %40 ]
   call void @up_read(ptr noundef nonnull @cb_lock) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %45

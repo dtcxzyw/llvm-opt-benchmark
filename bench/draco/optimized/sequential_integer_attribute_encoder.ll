@@ -8405,7 +8405,7 @@ _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29Attrib
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %288, %.lr.ph42.i146, %260, %.lr.ph42.i, %228, %200, %198, %174, %149, %124, %99, %74, %49, %24, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, %.critedge.i169, %.critedge.i155, %.lr.ph.i143, %.critedge.i137, %.lr.ph.i132, %.critedge.i129, %.critedge.i120, %.critedge.i107, %.critedge.i94, %.critedge.i81, %.critedge.i68, %.critedge.i55, %.critedge.i, %6, %4
-  %.0 = phi i1 [ false, %.lr.ph42.i146 ], [ false, %4 ], [ false, %6 ], [ false, %24 ], [ false, %49 ], [ false, %74 ], [ false, %99 ], [ false, %124 ], [ false, %149 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ false, %200 ], [ false, %.lr.ph42.i ], [ true, %.critedge.i ], [ false, %174 ], [ true, %.critedge.i55 ], [ true, %.critedge.i129 ], [ true, %.critedge.i68 ], [ false, %.lr.ph.i132 ], [ true, %.critedge.i81 ], [ true, %.critedge.i137 ], [ true, %.critedge.i94 ], [ false, %.lr.ph.i143 ], [ true, %.critedge.i107 ], [ true, %.critedge.i155 ], [ true, %.critedge.i120 ], [ true, %.critedge.i169 ], [ false, %198 ], [ false, %228 ], [ false, %260 ], [ false, %288 ]
+  %.0 = phi i1 [ false, %.lr.ph42.i146 ], [ false, %4 ], [ false, %6 ], [ false, %24 ], [ false, %49 ], [ false, %74 ], [ false, %149 ], [ false, %124 ], [ true, %.critedge.i129 ], [ true, %_ZNK5draco17GeometryAttribute17ConvertTypedValueIalEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split ], [ true, %.critedge.i137 ], [ true, %.critedge.i169 ], [ true, %.critedge.i ], [ false, %200 ], [ true, %.critedge.i55 ], [ false, %.lr.ph.i132 ], [ true, %.critedge.i68 ], [ false, %.lr.ph42.i ], [ true, %.critedge.i81 ], [ true, %.critedge.i155 ], [ true, %.critedge.i94 ], [ false, %174 ], [ true, %.critedge.i107 ], [ false, %.lr.ph.i143 ], [ true, %.critedge.i120 ], [ false, %99 ], [ false, %198 ], [ false, %228 ], [ false, %260 ], [ false, %288 ]
   ret i1 %.0
 }
 
@@ -16397,7 +16397,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 _ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit: ; preds = %296, %259, %257, %224, %222, %190, %188, %156, %123, %90, %57, %24, %.lr.ph37.preheader.i143, %.critedge.i141, %.lr.ph39.preheader.i130, %.critedge.i128, %.lr.ph39.preheader.i117, %.critedge.i115, %.lr.ph39.preheader.i, %.critedge.i103, %.lr.ph37.preheader.i96, %.critedge.i94, %.lr.ph37.preheader.i83, %.critedge.i81, %.lr.ph37.preheader.i70, %.critedge.i68, %.lr.ph37.preheader.i57, %.critedge.i55, %.lr.ph37.preheader.i, %.critedge.i, %6, %4, %279, %277
-  %.0 = phi i1 [ false, %190 ], [ false, %4 ], [ false, %6 ], [ false, %224 ], [ false, %259 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ false, %123 ], [ false, %156 ], [ %278, %277 ], [ %280, %279 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i103 ], [ true, %.lr.ph39.preheader.i ], [ true, %.lr.ph37.preheader.i143 ], [ true, %.critedge.i115 ], [ true, %.lr.ph39.preheader.i117 ], [ true, %.critedge.i141 ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ false, %188 ], [ false, %222 ], [ false, %257 ], [ false, %296 ]
+  %.0 = phi i1 [ false, %123 ], [ false, %4 ], [ false, %6 ], [ false, %224 ], [ false, %259 ], [ false, %24 ], [ false, %57 ], [ false, %90 ], [ true, %.lr.ph37.preheader.i143 ], [ true, %.critedge.i141 ], [ %278, %277 ], [ %280, %279 ], [ true, %.critedge.i ], [ true, %.lr.ph37.preheader.i ], [ true, %.critedge.i55 ], [ true, %.lr.ph37.preheader.i57 ], [ true, %.critedge.i68 ], [ true, %.lr.ph37.preheader.i70 ], [ true, %.critedge.i81 ], [ true, %.lr.ph37.preheader.i83 ], [ true, %.critedge.i94 ], [ true, %.lr.ph37.preheader.i96 ], [ true, %.critedge.i103 ], [ true, %.lr.ph39.preheader.i ], [ false, %190 ], [ true, %.critedge.i115 ], [ true, %.lr.ph39.preheader.i117 ], [ false, %156 ], [ true, %.critedge.i128 ], [ true, %.lr.ph39.preheader.i130 ], [ false, %188 ], [ false, %222 ], [ false, %257 ], [ false, %296 ]
   ret i1 %.0
 }
 
@@ -16520,7 +16520,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute17ConvertTy
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %.lr.ph45, %23, %.lr.ph52, %31, %.lr.ph59.preheader, %.lr.ph.split.us, %.lr.ph.split, %.critedge
-  %.not31 = phi i1 [ true, %.critedge ], [ false, %23 ], [ true, %.lr.ph59.preheader ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %41 ]
+  %.not31 = phi i1 [ true, %.critedge ], [ true, %.lr.ph59.preheader ], [ false, %.lr.ph.split ], [ false, %.lr.ph.split.us ], [ false, %23 ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %41 ]
   ret i1 %.not31
 }
 
@@ -16642,7 +16642,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute17ConvertTy
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.lr.ph45, %23, %.lr.ph52, %31, %.lr.ph59.preheader, %.lr.ph.split.us, %.lr.ph.split, %.critedge
-  %.not31 = phi i1 [ true, %.critedge ], [ false, %23 ], [ true, %.lr.ph59.preheader ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %39 ]
+  %.not31 = phi i1 [ true, %.critedge ], [ true, %.lr.ph59.preheader ], [ false, %.lr.ph.split ], [ false, %.lr.ph.split.us ], [ false, %23 ], [ false, %31 ], [ false, %.lr.ph52 ], [ false, %.lr.ph45 ], [ false, %39 ]
   ret i1 %.not31
 }
 

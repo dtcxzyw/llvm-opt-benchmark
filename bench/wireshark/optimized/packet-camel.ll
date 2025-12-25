@@ -5336,32 +5336,31 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
 22:                                               ; preds = %19
   %23 = load i32, ptr @hf_camel_correlationID, align 4
   %24 = icmp eq i32 %5, %23
-  br i1 %24, label %47, label %25
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %22
-  %26 = load i32, ptr @hf_camel_dTMFDigitsCompleted, align 4
-  %27 = icmp eq i32 %5, %26
-  br i1 %27, label %.thread31, label %28
+  %26 = load i32, ptr @ett_camel_correlationID, align 4
+  %27 = load i32, ptr @opcode, align 4
+  %28 = icmp eq i32 %27, 17
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %26)
+  br i1 %28, label %54, label %57
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr @hf_camel_dTMFDigitsTimeOut, align 4
-  %30 = icmp eq i32 %5, %29
-  br i1 %30, label %.thread31, label %31
+32:                                               ; preds = %22
+  %33 = load i32, ptr @hf_camel_dTMFDigitsCompleted, align 4
+  %34 = icmp eq i32 %5, %33
+  br i1 %34, label %.thread31, label %35
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr @hf_camel_number, align 4
-  %33 = icmp eq i32 %5, %32
-  br i1 %33, label %.thread31, label %34
+35:                                               ; preds = %32
+  %36 = load i32, ptr @hf_camel_dTMFDigitsTimeOut, align 4
+  %37 = icmp eq i32 %5, %36
+  br i1 %37, label %.thread31, label %38
 
-34:                                               ; preds = %31
-  %35 = load i32, ptr @hf_camel_digitsResponse, align 4
-  %36 = icmp eq i32 %5, %35
-  %37 = load i32, ptr @ett_camel_digitsResponse, align 4
-  %spec.select = select i1 %36, i32 %37, i32 -1
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %40 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %spec.select)
-  br i1 %36, label %54, label %57
+38:                                               ; preds = %35
+  %39 = load i32, ptr @hf_camel_number, align 4
+  %40 = icmp eq i32 %5, %39
+  br i1 %40, label %.thread31, label %47
 
 .thread:                                          ; preds = %19, %16, %13, %10
   %.023.ph.in = phi ptr [ @ett_camel_additionalcallingpartynumber, %16 ], [ @ett_camel_callingAddressValue, %13 ], [ @ett_camel_calledAddressValue, %10 ], [ @ett_camel_assistingSSPIPRoutingAddress, %19 ]
@@ -5371,31 +5370,32 @@ define internal i32 @dissect_camel_Digits(i1 noundef zeroext %0, ptr noundef %1,
   %43 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %.023.ph)
   br label %57
 
-.thread31:                                        ; preds = %31, %28, %25
-  %.023.ph30.in = phi ptr [ @ett_camel_dTMFDigitsTimeOut, %28 ], [ @ett_camel_dTMFDigitsCompleted, %25 ], [ @ett_camel_number, %31 ]
+.thread31:                                        ; preds = %38, %35, %32
+  %.023.ph30.in = phi ptr [ @ett_camel_dTMFDigitsTimeOut, %35 ], [ @ett_camel_dTMFDigitsCompleted, %32 ], [ @ett_camel_number, %38 ]
   %.023.ph30 = load i32, ptr %.023.ph30.in, align 4
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %.023.ph30)
   br label %54
 
-47:                                               ; preds = %22
-  %48 = load i32, ptr @ett_camel_correlationID, align 4
-  %49 = load i32, ptr @opcode, align 4
-  %50 = icmp eq i32 %49, 17
+47:                                               ; preds = %38
+  %48 = load i32, ptr @hf_camel_digitsResponse, align 4
+  %49 = icmp eq i32 %5, %48
+  %50 = load i32, ptr @ett_camel_digitsResponse, align 4
+  %spec.select = select i1 %49, i32 %50, i32 -1
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %48)
-  br i1 %50, label %54, label %57
+  %53 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %spec.select)
+  br i1 %49, label %54, label %57
 
-54:                                               ; preds = %34, %.thread31, %47
-  %55 = phi ptr [ %46, %.thread31 ], [ %53, %47 ], [ %40, %34 ]
+54:                                               ; preds = %25, %.thread31, %47
+  %55 = phi ptr [ %46, %.thread31 ], [ %53, %47 ], [ %31, %25 ]
   %56 = load ptr, ptr %7, align 8
   call void @dissect_isup_generic_digits_parameter(ptr noundef %56, ptr noundef %55, ptr noundef null)
   br label %62
 
-57:                                               ; preds = %34, %.thread, %47
-  %58 = phi ptr [ %43, %.thread ], [ %53, %47 ], [ %40, %34 ]
+57:                                               ; preds = %25, %.thread, %47
+  %58 = phi ptr [ %43, %.thread ], [ %53, %47 ], [ %31, %25 ]
   %59 = load ptr, ptr %7, align 8
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %61 = load ptr, ptr %60, align 8

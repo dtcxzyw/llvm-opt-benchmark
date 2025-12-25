@@ -11794,7 +11794,7 @@ _ZN3satlsERSoNS_7literalE.exit50:                 ; preds = %67, %69
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %3, %._crit_edge, %6
-  %.0 = phi i1 [ true, %3 ], [ true, %6 ], [ true, %._crit_edge ], [ false, %.critedge.sink.split ]
+  %.0 = phi i1 [ true, %._crit_edge ], [ true, %6 ], [ true, %3 ], [ false, %.critedge.sink.split ]
   ret i1 %.0
 }
 
@@ -13254,7 +13254,7 @@ _ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit29: ; preds = %._crit_edge36
   br i1 %or.cond.not, label %.lr.ph40, label %_ZNK2pb6solver23validate_watch_literalsEv.exit
 
 _ZNK2pb6solver23validate_watch_literalsEv.exit:   ; preds = %20, %18, %.lr.ph, %.lr.ph40, %._crit_edge36, %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit29
-  %.0 = phi i1 [ %49, %.lr.ph40 ], [ true, %._crit_edge36 ], [ true, %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit29 ], [ false, %.lr.ph ], [ false, %18 ], [ false, %20 ]
+  %.0 = phi i1 [ true, %._crit_edge36 ], [ %49, %.lr.ph40 ], [ true, %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit29 ], [ false, %.lr.ph ], [ false, %18 ], [ false, %20 ]
   ret i1 %.0
 }
 
@@ -20940,8 +20940,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN6vectorIjLb0EjE4setxEjRKjS2_.exit
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %63 = phi ptr [ %54, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %64 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %63 = phi ptr [ %54, %thread-pre-split.i.i.preheader ], [ %.be68, %thread-pre-split.i.i.backedge ]
+  %64 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be68, %thread-pre-split.i.i.backedge ]
   %65 = icmp eq ptr %64, null
   br i1 %65, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -21065,7 +21065,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %111, %70
-  %.be = phi ptr [ %114, %111 ], [ %73, %70 ]
+  %.be68 = phi ptr [ %73, %70 ], [ %114, %111 ]
   br label %thread-pre-split.i.i, !llvm.loop !727
 
 115:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -34267,8 +34267,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10con
   br label %.thread22.i
 
 .thread22.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i, %.thread.i, %61, %54
-  %73 = phi i64 [ %48, %61 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %48, %54 ], [ %65, %.thread.i ]
-  %74 = phi ptr [ %.028.i, %61 ], [ %spec.select26.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %.028.i, %54 ], [ %63, %.thread.i ]
+  %73 = phi i64 [ %48, %54 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %48, %61 ], [ %65, %.thread.i ]
+  %74 = phi ptr [ %.028.i, %54 ], [ %spec.select26.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %.028.i, %61 ], [ %63, %.thread.i ]
   %75 = icmp sgt i64 %73, 0
   br i1 %75, label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !878
 
@@ -34378,7 +34378,7 @@ tailrecurse:                                      ; preds = %_ZSt13__upper_bound
   %or.cond = or i1 %123, %124
   br i1 %or.cond, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread64, label %9
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread64: ; preds = %tailrecurse, %5, %28, %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread64: ; preds = %tailrecurse, %5, %20, %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintES8_EEbT_T0_.exit.thread
   ret void
 }
 
@@ -34543,7 +34543,7 @@ _ZSt13move_backwardIPPN2pb10constraintES3_ET0_T_S5_S4_.exit: ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !883
 
 _ZSt11swap_rangesIPPN2pb10constraintES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN2pb10constraintES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN2pb10constraintES3_ET0_T_S5_S4_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN2pb10constraintES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN2pb10constraintES3_ET0_T_S5_S4_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN2pb10constraintES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt4moveIPPN2pb10constraintES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -34815,8 +34815,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10con
   br label %.thread22.i
 
 .thread22.i:                                      ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i, %.thread.i, %119, %112
-  %131 = phi i64 [ %106, %119 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %106, %112 ], [ %123, %.thread.i ]
-  %132 = phi ptr [ %.028.i, %119 ], [ %spec.select26.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %.028.i, %112 ], [ %121, %.thread.i ]
+  %131 = phi i64 [ %106, %112 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %106, %119 ], [ %123, %.thread.i ]
+  %132 = phi ptr [ %.028.i, %112 ], [ %spec.select26.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2pb22constraint_glue_psm_ltEEclIPPNS2_10constraintEKS7_EEbT_RT0_.exit.i ], [ %.028.i, %119 ], [ %121, %.thread.i ]
   %133 = icmp sgt i64 %131, 0
   br i1 %133, label %_ZSt7advanceIPPN2pb10constraintElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN2pb10constraintES2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_22constraint_glue_psm_ltEEEET_S9_S9_RKT0_T1_.exit.loopexit, !llvm.loop !878
 

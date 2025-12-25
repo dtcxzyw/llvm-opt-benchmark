@@ -576,7 +576,7 @@ Extra_FileReaderGetTokens_int.exit.thread.sink.split: ; preds = %._crit_edge.i, 
   br label %Extra_FileReaderGetTokens_int.exit.thread
 
 Extra_FileReaderGetTokens_int.exit.thread:        ; preds = %15, %155, %Extra_FileReaderGetTokens_int.exit, %Extra_FileReaderGetTokens_int.exit.thread.sink.split
-  %.0.i5 = phi ptr [ null, %Extra_FileReaderGetTokens_int.exit.thread.sink.split ], [ null, %Extra_FileReaderGetTokens_int.exit ], [ %.0.i, %155 ], [ null, %15 ]
+  %.0.i5 = phi ptr [ null, %Extra_FileReaderGetTokens_int.exit.thread.sink.split ], [ %.0.i, %155 ], [ null, %Extra_FileReaderGetTokens_int.exit ], [ null, %15 ]
   ret ptr %.0.i5
 }
 

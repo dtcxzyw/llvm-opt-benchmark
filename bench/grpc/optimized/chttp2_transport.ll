@@ -34566,7 +34566,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit.thread.i.i: ; preds = %82, %.thread.i.i.i
   br label %_ZN9grpc_coreplENS_8DurationES0_.exit.i.i
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.i.i:       ; preds = %88, %85, %77, %73, %41
-  %.sroa.07.0.i.i = phi i64 [ 0, %41 ], [ %spec.select.i.i.i, %73 ], [ %89, %88 ], [ -9223372036854775808, %77 ], [ -9223372036854775808, %85 ]
+  %.sroa.07.0.i.i = phi i64 [ 0, %41 ], [ %spec.select.i.i.i, %73 ], [ -9223372036854775808, %85 ], [ -9223372036854775808, %77 ], [ %89, %88 ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %93 = load ptr, ptr %92, align 8, !tbaa !327
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

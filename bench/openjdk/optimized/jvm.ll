@@ -17308,7 +17308,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split: ; preds = %_ZNK7oopDesc4is_aEP
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.thread
 
 _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %_ZNK7oopDesc5klassEv.exit.i, %171, %_ZNK7oopDesc4is_aEP5Klass.exit, %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split, %._crit_edge129, %66
-  %.068 = phi ptr [ %250, %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split ], [ null, %66 ], [ null, %._crit_edge129 ], [ null, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ null, %171 ], [ null, %_ZNK7oopDesc5klassEv.exit.i ]
+  %.068 = phi ptr [ null, %._crit_edge129 ], [ null, %66 ], [ %250, %_ZNK7oopDesc4is_aEP5Klass.exit.thread.sink.split ], [ null, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ null, %171 ], [ null, %_ZNK7oopDesc5klassEv.exit.i ]
   call void @_ZN32JvmtiVMObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
   %251 = load ptr, ptr %30, align 8
   %.not.i.i.i.i88 = icmp eq ptr %251, null

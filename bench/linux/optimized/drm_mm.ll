@@ -911,7 +911,7 @@ define dso_local noundef range(i32 -28, 1) i32 @drm_mm_insert_node_in_range(ptr 
   br label %.thread22
 
 .thread22:                                        ; preds = %37, %.thread22.loopexit240, %.thread22.loopexit238, %.lr.ph.preheader, %.lr.ph79.preheader, %103
-  %110 = phi ptr [ %107, %103 ], [ %108, %.thread22.loopexit238 ], [ %109, %.thread22.loopexit240 ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph79.preheader ], [ %44, %37 ]
+  %110 = phi ptr [ %107, %103 ], [ null, %.lr.ph79.preheader ], [ null, %.lr.ph.preheader ], [ %108, %.thread22.loopexit238 ], [ %109, %.thread22.loopexit240 ], [ %44, %37 ]
   %111 = icmp eq ptr %110, null
   br i1 %111, label %.thread26, label %112
 
@@ -1278,7 +1278,7 @@ drm_mm_interval_tree_add_node.exit:               ; preds = %.loopexit.i, %234
   br i1 %323, label %.thread26, label %324
 
 324:                                              ; preds = %305, %270, %317, %282, %319, %244
-  %325 = phi ptr [ %318, %317 ], [ %248, %244 ], [ %322, %319 ], [ %271, %270 ], [ %283, %282 ], [ %306, %305 ]
+  %325 = phi ptr [ %306, %305 ], [ %248, %244 ], [ %322, %319 ], [ %271, %270 ], [ %283, %282 ], [ %318, %317 ]
   %326 = icmp eq ptr %325, null
   br i1 %326, label %.thread26, label %125, !llvm.loop !21
 
@@ -1289,7 +1289,7 @@ drm_mm_interval_tree_add_node.exit:               ; preds = %.loopexit.i, %234
   br label %.thread26
 
 .thread26:                                        ; preds = %324, %.thread32, %249, %284, %244, %319, %307, %272, %.thread26.sink.split, %49, %76, %103, %.thread22, %21, %8
-  %327 = phi i32 [ -28, %8 ], [ -28, %21 ], [ -28, %.thread22 ], [ -28, %272 ], [ -28, %103 ], [ %.ph, %.thread26.sink.split ], [ -28, %49 ], [ -28, %76 ], [ -28, %307 ], [ -28, %319 ], [ -28, %244 ], [ -28, %284 ], [ -28, %249 ], [ -28, %.thread32 ], [ -28, %324 ]
+  %327 = phi i32 [ -28, %8 ], [ -28, %21 ], [ -28, %.thread22 ], [ %.ph, %.thread26.sink.split ], [ -28, %103 ], [ -28, %76 ], [ -28, %272 ], [ -28, %49 ], [ -28, %307 ], [ -28, %319 ], [ -28, %244 ], [ -28, %284 ], [ -28, %249 ], [ -28, %.thread32 ], [ -28, %324 ]
   ret i32 %327
 }
 

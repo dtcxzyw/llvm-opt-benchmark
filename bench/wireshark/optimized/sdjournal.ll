@@ -684,7 +684,7 @@ sdj_dump_entries.exit.thread:                     ; preds = %.backedge.i
   br label %218
 
 218:                                              ; preds = %179, %161
-  %.2101.i = phi i32 [ %174, %161 ], [ %217, %179 ]
+  %.2101.i = phi i32 [ %217, %179 ], [ %174, %161 ]
   %219 = call i32 @sd_journal_enumerate_available_data(ptr noundef %93, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %220 = icmp sgt i32 %219, 0
   br i1 %220, label %.lr.ph.i, label %.thread.i

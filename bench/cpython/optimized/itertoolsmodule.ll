@@ -3665,7 +3665,7 @@ Py_DECREF.exit:                                   ; preds = %54, %51, %49, %47
   br label %.critedge
 
 .critedge:                                        ; preds = %35, %43, %Py_DECREF.exit, %.critedge.sink.split, %1, %32, %30, %16, %14, %28, %12
-  %.3 = phi ptr [ null, %30 ], [ null, %32 ], [ null, %1 ], [ null, %.critedge.sink.split ], [ null, %28 ], [ null, %12 ], [ null, %14 ], [ null, %16 ], [ null, %Py_DECREF.exit ], [ %40, %35 ], [ null, %43 ]
+  %.3 = phi ptr [ null, %30 ], [ null, %32 ], [ null, %1 ], [ null, %.critedge.sink.split ], [ null, %28 ], [ null, %12 ], [ null, %14 ], [ null, %16 ], [ %40, %35 ], [ null, %Py_DECREF.exit ], [ null, %43 ]
   ret ptr %.3
 }
 
@@ -6345,7 +6345,7 @@ define internal ptr @filterfalse_next(ptr noundef readonly captures(none) %0) #0
   br label %Py_DECREF.exit29
 
 Py_DECREF.exit29:                                 ; preds = %25, %28, %31, %15
-  %.121.in = phi i32 [ %16, %15 ], [ %26, %31 ], [ %26, %28 ], [ %26, %25 ]
+  %.121.in = phi i32 [ %16, %15 ], [ %26, %25 ], [ %26, %28 ], [ %26, %31 ]
   %32 = icmp eq i32 %.121.in, 0
   br i1 %32, label %Py_DECREF.exit29.thread, label %33
 
@@ -6773,6 +6773,9 @@ Py_XDECREF.exit.i:                                ; preds = %42, %39, %37, %_Py_
   %.not.i22.i = icmp eq ptr %35, null
   br i1 %.not.i22.i, label %.backedge.backedge, label %43
 
+.backedge.backedge:                               ; preds = %Py_XDECREF.exit.i, %45, %43, %Py_DECREF.exit.sink.split.i
+  br label %.backedge
+
 43:                                               ; preds = %Py_XDECREF.exit.i
   %44 = load i32, ptr %35, align 8, !tbaa !37
   %.not.i.i23.i = icmp sgt i32 %44, -1
@@ -6783,9 +6786,6 @@ Py_XDECREF.exit.i:                                ; preds = %42, %39, %37, %_Py_
   store i32 %46, ptr %35, align 8, !tbaa !37
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %Py_DECREF.exit.sink.split.i, label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %45, %43, %Py_XDECREF.exit.i, %Py_DECREF.exit.sink.split.i
-  br label %.backedge
 
 Py_DECREF.exit.sink.split.i:                      ; preds = %45
   tail call void @_Py_Dealloc(ptr noundef nonnull %35) #7
@@ -6881,7 +6881,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %32, %83
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %15, %13, %Py_DECREF.exit.sink.split, %Py_XDECREF.exit, %32, %30, %83, %78
-  %.3 = phi ptr [ null, %Py_XDECREF.exit ], [ %.3.ph, %Py_DECREF.exit.sink.split ], [ null, %30 ], [ null, %32 ], [ %81, %78 ], [ %81, %83 ], [ null, %13 ], [ null, %15 ]
+  %.3 = phi ptr [ null, %30 ], [ null, %Py_XDECREF.exit ], [ %.3.ph, %Py_DECREF.exit.sink.split ], [ null, %32 ], [ %81, %78 ], [ %81, %83 ], [ null, %13 ], [ null, %15 ]
   ret ptr %.3
 }
 
@@ -7186,7 +7186,7 @@ groupby_step.exit:                                ; preds = %43
   tail call void @_Py_Dealloc(ptr noundef nonnull %32) #7
   br label %groupby_step.exit.thread21
 
-groupby_step.exit.thread21:                       ; preds = %Py_XDECREF.exit.i, %41, %43, %groupby_step.exit, %6
+groupby_step.exit.thread21:                       ; preds = %41, %43, %Py_XDECREF.exit.i, %groupby_step.exit, %6
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load ptr, ptr %46, align 8, !tbaa !80
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 40

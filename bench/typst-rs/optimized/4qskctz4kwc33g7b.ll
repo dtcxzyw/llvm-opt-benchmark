@@ -91831,8 +91831,8 @@ _ZN5typst11foundations6styles10StyleChain3get17h690eea5bf1ebbd70E.exit.i: ; pred
   br label %535
 
 .body423:                                         ; preds = %841, %543, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst..layout..frame..Frame$GT$$GT$17h04ca66c71fffcc94E.exit"
-  %.11 = phi i1 [ false, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst..layout..frame..Frame$GT$$GT$17h04ca66c71fffcc94E.exit" ], [ false, %841 ], [ %.9, %543 ]
-  %.pn150.pn = phi { ptr, i32 } [ %.pn150, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst..layout..frame..Frame$GT$$GT$17h04ca66c71fffcc94E.exit" ], [ %842, %841 ], [ %544, %543 ]
+  %.11 = phi i1 [ false, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst..layout..frame..Frame$GT$$GT$17h04ca66c71fffcc94E.exit" ], [ %.9, %543 ], [ false, %841 ]
+  %.pn150.pn = phi { ptr, i32 } [ %.pn150, %"_ZN4core3ptr87drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$typst..layout..frame..Frame$GT$$GT$17h04ca66c71fffcc94E.exit" ], [ %544, %543 ], [ %842, %841 ]
   %542 = trunc nuw i8 %.3128 to i1
   br i1 %542, label %907, label %.body321
 
@@ -103774,7 +103774,7 @@ define void @"_ZN5typst4math8equation136_$LT$impl$u20$typst..layout..LayoutSingl
           to label %.body113 unwind label %263
 
 .critedge:                                        ; preds = %191, %204
-  %.pn = phi { ptr, i32 } [ %192, %191 ], [ %205, %204 ]
+  %.pn = phi { ptr, i32 } [ %205, %204 ], [ %192, %191 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$typst..layout..frame..Frame$GT$17h70b9fd71c3f114e6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %34) #55
           to label %.thread130 unwind label %263
 
@@ -126175,7 +126175,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hfacfd343ec90d3c5E.exit.i: ; pred
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %354, %"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_..EnumElem$GT$10parents_in17hf8c6dda4de658434E.exit", %245, %248, %252, %.noexc166, %.noexc167, %._crit_edge, %.noexc179
-  %.2.ph = phi i1 [ true, %252 ], [ true, %.noexc166 ], [ true, %"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_..EnumElem$GT$10parents_in17hf8c6dda4de658434E.exit" ], [ false, %._crit_edge ], [ true, %245 ], [ true, %248 ], [ true, %.noexc167 ], [ false, %.noexc179 ], [ false, %354 ]
+  %.2.ph = phi i1 [ true, %.noexc166 ], [ false, %._crit_edge ], [ true, %"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_..EnumElem$GT$10parents_in17hf8c6dda4de658434E.exit" ], [ true, %252 ], [ true, %245 ], [ true, %248 ], [ true, %.noexc167 ], [ false, %.noexc179 ], [ false, %354 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

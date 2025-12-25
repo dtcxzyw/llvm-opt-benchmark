@@ -3156,7 +3156,7 @@ ma_ffs_32.exit:                                   ; preds = %.preheader, %.ma_ff
   br i1 %7, label %.preheader59, label %.thread54, !llvm.loop !67
 
 .thread54:                                        ; preds = %.preheader59, %._crit_edge, %49, %24, %30, %2
-  %.0 = phi i32 [ -2, %2 ], [ -4, %24 ], [ 0, %30 ], [ -4, %49 ], [ -4, %._crit_edge ], [ -4, %.preheader59 ]
+  %.0 = phi i32 [ -2, %2 ], [ 0, %30 ], [ -4, %24 ], [ -4, %49 ], [ -4, %._crit_edge ], [ -4, %.preheader59 ]
   ret i32 %.0
 }
 
@@ -13563,7 +13563,7 @@ define internal fastcc void @ma_device__read_frames_from_client(ptr noundef %0, 
   br label %ma_data_converter_get_required_input_frame_count.exit
 
 ma_data_converter_get_required_input_frame_count.exit: ; preds = %94, %99
-  %.1 = phi i64 [ %spec.select, %99 ], [ %98, %94 ]
+  %.1 = phi i64 [ %98, %94 ], [ %spec.select, %99 ]
   %.not78 = icmp eq i64 %.1, 0
   br i1 %.not78, label %ma_data_converter_get_required_input_frame_count.exit.thread, label %100
 
@@ -21084,7 +21084,7 @@ ma_lpf_process_pcm_frame_s16.exit:                ; preds = %ma_biquad_process_p
   br i1 %254, label %169, label %.critedge, !llvm.loop !537
 
 .critedge:                                        ; preds = %ma_lpf_process_pcm_frame_s16.exit, %ma_lpf_process_pcm_frame_f32.exit, %.lr.ph111.split, %18, %ma_lpf2_process_pcm_frames.exit, %.lr.ph113, %75, %.preheader89, %.preheader86, %.lr.ph111, %.preheader, %.thread, %4
-  %.059 = phi i32 [ 0, %.preheader86 ], [ -2, %4 ], [ -3, %.thread ], [ 0, %75 ], [ -2, %.lr.ph111 ], [ -2, %.lr.ph111.split ], [ 0, %.preheader ], [ 0, %.preheader89 ], [ 0, %ma_lpf_process_pcm_frame_f32.exit ], [ -2, %.lr.ph113 ], [ %82, %ma_lpf2_process_pcm_frames.exit ], [ -2, %18 ], [ 0, %ma_lpf_process_pcm_frame_s16.exit ]
+  %.059 = phi i32 [ 0, %75 ], [ -2, %4 ], [ -3, %.thread ], [ 0, %.preheader86 ], [ -2, %.lr.ph111 ], [ -2, %.lr.ph111.split ], [ 0, %.preheader ], [ 0, %.preheader89 ], [ 0, %ma_lpf_process_pcm_frame_f32.exit ], [ -2, %.lr.ph113 ], [ %82, %ma_lpf2_process_pcm_frames.exit ], [ -2, %18 ], [ 0, %ma_lpf_process_pcm_frame_s16.exit ]
   ret i32 %.059
 }
 
@@ -23490,7 +23490,7 @@ ma_biquad_process_pcm_frame_s16.exit:             ; preds = %220
   br i1 %254, label %171, label %.critedge, !llvm.loop !578
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge135, %.lr.ph141.split, %18, %ma_hpf2_process_pcm_frames.exit, %.lr.ph143, %75, %.preheader117, %.preheader114, %.lr.ph141, %.preheader, %.thread, %4
-  %.092 = phi i32 [ 0, %.preheader114 ], [ -2, %4 ], [ -3, %.thread ], [ 0, %75 ], [ -2, %.lr.ph141 ], [ -2, %.lr.ph141.split ], [ 0, %.preheader ], [ 0, %.preheader117 ], [ 0, %._crit_edge135 ], [ -2, %.lr.ph143 ], [ %82, %ma_hpf2_process_pcm_frames.exit ], [ -2, %18 ], [ 0, %._crit_edge ]
+  %.092 = phi i32 [ 0, %75 ], [ -2, %4 ], [ -3, %.thread ], [ 0, %.preheader114 ], [ -2, %.lr.ph141 ], [ -2, %.lr.ph141.split ], [ 0, %.preheader ], [ 0, %.preheader117 ], [ 0, %._crit_edge135 ], [ -2, %.lr.ph143 ], [ %82, %ma_hpf2_process_pcm_frames.exit ], [ -2, %18 ], [ 0, %._crit_edge ]
   ret i32 %.092
 }
 
@@ -35718,8 +35718,8 @@ ma_lpf_process_pcm_frame_f32.exit.i25.i:          ; preds = %ma_biquad_process_p
   br i1 %exitcond135.not.i.i58, label %.sink.split, label %.preheader76.i.i18, !llvm.loop !910
 
 .sink.split:                                      ; preds = %588, %494, %._crit_edge85.i.i76, %453, %._crit_edge91.i.i89, %313, %204, %._crit_edge85.i.i, %163, %._crit_edge91.i.i, %455, %322, %165, %17
-  %storemerge46.i59.sink = phi i64 [ %.2.lcssa152.i.i, %313 ], [ 0, %165 ], [ 0, %17 ], [ 0, %455 ], [ 0, %322 ], [ %.2.lcssa.i.i, %163 ], [ %.2.lcssa.i.i91, %453 ], [ %.2.lcssa.i.i, %._crit_edge91.i.i ], [ %199, %._crit_edge85.i.i ], [ %.05998.i.i, %204 ], [ %.2.lcssa.i.i91, %._crit_edge91.i.i89 ], [ %489, %._crit_edge85.i.i76 ], [ %.05998.i.i22, %494 ], [ %.2.lcssa152.i.i25, %588 ]
-  %storemerge.i60.sink = phi i64 [ %16, %313 ], [ 0, %165 ], [ 0, %17 ], [ 0, %455 ], [ 0, %322 ], [ %16, %163 ], [ %.05898.i.i85, %._crit_edge91.i.i89 ], [ %.05898.i.i, %._crit_edge91.i.i ], [ %.05899.i.i, %._crit_edge85.i.i ], [ %.05899.i.i, %204 ], [ %321, %453 ], [ %.05899.i.i21, %._crit_edge85.i.i76 ], [ %.05899.i.i21, %494 ], [ %321, %588 ]
+  %storemerge46.i59.sink = phi i64 [ %.2.lcssa152.i.i, %313 ], [ 0, %165 ], [ 0, %17 ], [ 0, %455 ], [ 0, %322 ], [ %.2.lcssa.i.i91, %453 ], [ %.2.lcssa.i.i, %163 ], [ %.2.lcssa.i.i, %._crit_edge91.i.i ], [ %199, %._crit_edge85.i.i ], [ %.05998.i.i, %204 ], [ %.2.lcssa.i.i91, %._crit_edge91.i.i89 ], [ %489, %._crit_edge85.i.i76 ], [ %.05998.i.i22, %494 ], [ %.2.lcssa152.i.i25, %588 ]
+  %storemerge.i60.sink = phi i64 [ %16, %313 ], [ 0, %165 ], [ 0, %17 ], [ 0, %455 ], [ 0, %322 ], [ %.05898.i.i85, %._crit_edge91.i.i89 ], [ %16, %163 ], [ %.05898.i.i, %._crit_edge91.i.i ], [ %.05899.i.i, %._crit_edge85.i.i ], [ %.05899.i.i, %204 ], [ %321, %453 ], [ %.05899.i.i21, %._crit_edge85.i.i76 ], [ %.05899.i.i21, %494 ], [ %321, %588 ]
   store i64 %storemerge46.i59.sink, ptr %2, align 8, !tbaa !63
   store i64 %storemerge.i60.sink, ptr %4, align 8, !tbaa !63
   br label %589
@@ -54493,7 +54493,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %17, %25
   br i1 %.not.i113, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %12, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %17, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %.preheader.i ], [ %.028.i, %17 ], [ %.1.i112, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ %.028.i, %.preheader.i ], [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %17 ], [ %.1.i112, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %29 = load i64, ptr %28, align 8, !tbaa !1229
   %30 = add i64 %29, %.025.i
@@ -55675,7 +55675,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %17, %25
   br i1 %.not.i113, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %12, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %17, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %.preheader.i ], [ %.028.i, %17 ], [ %.1.i112, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ %.028.i, %.preheader.i ], [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %17 ], [ %.1.i112, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %29 = load i64, ptr %28, align 8, !tbaa !1229
   %30 = add i64 %29, %.025.i
@@ -56839,7 +56839,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %17, %25
   br i1 %.not.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %12, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %17, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %.preheader.i ], [ %.028.i, %17 ], [ %.1.i111, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ %.028.i, %.preheader.i ], [ %22, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %17 ], [ %.1.i111, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %29 = load i64, ptr %28, align 8, !tbaa !1229
   %30 = add i64 %29, %.025.i
@@ -58304,7 +58304,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i: ; preds = %215, %223
   br i1 %.not.i94.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit.i, label %210, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit.i:    ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i, %215, %.preheader.i95.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i
-  %.025.i.i = phi i64 [ %220, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i ], [ %.028.i.i, %215 ], [ %.028.i.i, %.preheader.i95.i ], [ %.1.i93.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i ]
+  %.025.i.i = phi i64 [ %.028.i.i, %215 ], [ %220, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i ], [ %.028.i.i, %.preheader.i95.i ], [ %.1.i93.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i ]
   %226 = load i64, ptr %4, align 8, !tbaa !1229
   %227 = add i64 %226, %.025.i.i
   store i64 %227, ptr %4, align 8, !tbaa !1229
@@ -58322,7 +58322,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit.i:    ; preds = %ma_dr_flac__read_an
   br label %231
 
 231:                                              ; preds = %230, %228, %205
-  %.160.i = phi i64 [ %197, %228 ], [ %.059134.i, %230 ], [ %.059134.i, %205 ]
+  %.160.i = phi i64 [ %.059134.i, %230 ], [ %.059134.i, %205 ], [ %197, %228 ]
   %232 = load i8, ptr %21, align 1, !tbaa !1227
   %233 = tail call fastcc i32 @ma_dr_flac__read_next_flac_frame_header(ptr noundef %12, i8 noundef zeroext %232, ptr noundef %22)
   %.not78.i = icmp eq i32 %233, 0
@@ -77960,7 +77960,7 @@ ma_node_get_output_channels.exit286:              ; preds = %ma_node_get_output_
   br i1 %.not.i.i289, label %ma_copy_pcm_frames.exit, label %.lr.ph.i287, !llvm.loop !360
 
 ma_copy_pcm_frames.exit:                          ; preds = %279, %ma_node_process_pcm_frames_internal.exit279, %.lr.ph.i287, %ma_node_get_output_bus_count.exit.i282, %ma_node_get_output_channels.exit286, %283
-  %.4 = phi i32 [ 0, %.lr.ph.i287 ], [ 0, %ma_node_get_output_channels.exit286 ], [ 0, %283 ], [ 0, %ma_node_get_output_bus_count.exit.i282 ], [ %.3, %ma_node_process_pcm_frames_internal.exit279 ], [ %.3, %279 ]
+  %.4 = phi i32 [ 0, %ma_node_get_output_channels.exit286 ], [ 0, %.lr.ph.i287 ], [ 0, %283 ], [ 0, %ma_node_get_output_bus_count.exit.i282 ], [ %.3, %ma_node_process_pcm_frames_internal.exit279 ], [ %.3, %279 ]
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %300 = load i16, ptr %299, align 2, !tbaa !1689
   %301 = zext i16 %300 to i32
@@ -91134,10 +91134,10 @@ ma_dr_wav__seek_forward.exit736.thread927:        ; preds = %852, %ma_dr_wav__se
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %ma_dr_wav_free.exit748
 
-.thread1427:                                      ; preds = %ma_dr_wav__seek_forward.exit675.thread839, %ma_dr_wav__seek_forward.exit736.thread927, %ma_dr_wav__seek_forward.exit690.thread847
-  %.sink1514 = phi i64 [ %590, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %864, %ma_dr_wav__seek_forward.exit736.thread927 ], [ %654, %ma_dr_wav__seek_forward.exit690.thread847 ]
-  %.1385.ph1425 = phi i8 [ 1, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %.0384, %ma_dr_wav__seek_forward.exit736.thread927 ], [ %.0384, %ma_dr_wav__seek_forward.exit690.thread847 ]
-  %.3376.ph1426 = phi i64 [ %spec.select, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %.2375, %ma_dr_wav__seek_forward.exit736.thread927 ], [ %.2375, %ma_dr_wav__seek_forward.exit690.thread847 ]
+.thread1427:                                      ; preds = %ma_dr_wav__seek_forward.exit736.thread927, %ma_dr_wav__seek_forward.exit675.thread839, %ma_dr_wav__seek_forward.exit690.thread847
+  %.sink1514 = phi i64 [ %864, %ma_dr_wav__seek_forward.exit736.thread927 ], [ %590, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %654, %ma_dr_wav__seek_forward.exit690.thread847 ]
+  %.1385.ph1425 = phi i8 [ %.0384, %ma_dr_wav__seek_forward.exit736.thread927 ], [ 1, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %.0384, %ma_dr_wav__seek_forward.exit690.thread847 ]
+  %.3376.ph1426 = phi i64 [ %.2375, %ma_dr_wav__seek_forward.exit736.thread927 ], [ %spec.select, %ma_dr_wav__seek_forward.exit675.thread839 ], [ %.2375, %ma_dr_wav__seek_forward.exit690.thread847 ]
   store i64 %.sink1514, ptr %8, align 8, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.backedge
@@ -97487,7 +97487,7 @@ ma_dr_flac__init_private.exit.thread:             ; preds = %68, %89, %ma_dr_fla
   br label %ma_dr_flac__free_from_callbacks.exit140
 
 ma_dr_flac__init_private.exit:                    ; preds = %80, %87, %91, %93
-  %.0105.i = phi i32 [ %94, %93 ], [ %92, %91 ], [ %88, %87 ], [ %81, %80 ]
+  %.0105.i = phi i32 [ %88, %87 ], [ %92, %91 ], [ %94, %93 ], [ %81, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not = icmp eq i32 %.0105.i, 0
   br i1 %.not, label %ma_dr_flac__free_from_callbacks.exit140, label %95
@@ -98380,8 +98380,8 @@ ma_dr_flac__free_from_callbacks.exit359.i.sink.split: ; preds = %288, %264, %.lo
   br label %ma_dr_flac__free_from_callbacks.exit359.i
 
 ma_dr_flac__free_from_callbacks.exit359.i:        ; preds = %ma_dr_flac__free_from_callbacks.exit359.i.sink.split, %543, %540, %536, %359, %293, %214, %190, %173
-  %.2272.i = phi i32 [ %.0270637.i, %359 ], [ %.0270637.i, %543 ], [ %.0270637.i, %540 ], [ %.0270637.i, %173 ], [ %.0270637.i, %536 ], [ %168, %190 ], [ %.0270637.i, %293 ], [ %.0270637.i, %214 ], [ %.2272.i.ph, %ma_dr_flac__free_from_callbacks.exit359.i.sink.split ]
-  %.2269.i = phi i64 [ %.0267638.i, %359 ], [ %.0267638.i, %543 ], [ %.0267638.i, %540 ], [ %.0267638.i, %173 ], [ %.0267638.i, %536 ], [ %169, %190 ], [ %.0267638.i, %293 ], [ %.0267638.i, %214 ], [ %.2269.i.ph, %ma_dr_flac__free_from_callbacks.exit359.i.sink.split ]
+  %.2272.i = phi i32 [ %.0270637.i, %536 ], [ %.0270637.i, %543 ], [ %.0270637.i, %540 ], [ %.0270637.i, %173 ], [ %.0270637.i, %359 ], [ %168, %190 ], [ %.0270637.i, %293 ], [ %.0270637.i, %214 ], [ %.2272.i.ph, %ma_dr_flac__free_from_callbacks.exit359.i.sink.split ]
+  %.2269.i = phi i64 [ %.0267638.i, %536 ], [ %.0267638.i, %543 ], [ %.0267638.i, %540 ], [ %.0267638.i, %173 ], [ %.0267638.i, %359 ], [ %169, %190 ], [ %.0267638.i, %293 ], [ %.0267638.i, %214 ], [ %.2269.i.ph, %ma_dr_flac__free_from_callbacks.exit359.i.sink.split ]
   %556 = icmp ne i32 %168, 0
   %or.cond.i = and i1 %.not.i131, %556
   br i1 %or.cond.i, label %557, label %ma_dr_flac__free_from_callbacks.exit359.thread.i
@@ -98402,8 +98402,8 @@ ma_dr_flac__free_from_callbacks.exit359.thread.thread.i: ; preds = %541, %537
   br label %ma_dr_flac__free_from_callbacks.exit
 
 ma_dr_flac__free_from_callbacks.exit359.thread.i: ; preds = %557, %ma_dr_flac__free_from_callbacks.exit359.i, %555, %541, %539, %535, %185
-  %.2269489.i = phi i64 [ %.2269.i, %ma_dr_flac__free_from_callbacks.exit359.i ], [ %.2269.i, %557 ], [ %.0267638.i, %555 ], [ %.0267638.i, %185 ], [ %.0267638.i, %539 ], [ %.0267638.i, %535 ], [ %.0267638.i, %541 ]
-  %.2272488.i = phi i32 [ %.2272.i, %ma_dr_flac__free_from_callbacks.exit359.i ], [ %.2272.i, %557 ], [ %.0270637.i, %555 ], [ %.0270637.i, %185 ], [ %.0270637.i, %539 ], [ %.0270637.i, %535 ], [ %.0270637.i, %541 ]
+  %.2269489.i = phi i64 [ %.2269.i, %ma_dr_flac__free_from_callbacks.exit359.i ], [ %.2269.i, %557 ], [ %.0267638.i, %555 ], [ %.0267638.i, %185 ], [ %.0267638.i, %541 ], [ %.0267638.i, %535 ], [ %.0267638.i, %539 ]
+  %.2272488.i = phi i32 [ %.2272.i, %ma_dr_flac__free_from_callbacks.exit359.i ], [ %.2272.i, %557 ], [ %.0270637.i, %555 ], [ %.0270637.i, %185 ], [ %.0270637.i, %541 ], [ %.0270637.i, %535 ], [ %.0270637.i, %539 ]
   %563 = zext nneg i32 %168 to i64
   %564 = add i64 %169, %563
   %.not344.i = icmp sgt i32 %164, -1
@@ -99113,7 +99113,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %146, %154
   br i1 %.not.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %.lr.ph.i, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %146, %140, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ %.028.i, %.preheader.i ], [ 0, %140 ], [ %151, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %146 ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ 0, %140 ], [ %151, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %.preheader.i ], [ %.028.i, %146 ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %157 = load i64, ptr %86, align 8, !tbaa !1229
   %158 = add i64 %157, %.025.i
   store i64 %158, ptr %86, align 8, !tbaa !1229
@@ -99170,7 +99170,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i170: ; preds = %166, %174
   br i1 %.not.i173, label %ma_dr_flac__seek_forward_by_pcm_frames.exit178, label %.lr.ph.i167, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit178:   ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i170, %.preheader.i176, %166, %160, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i175
-  %.025.i174 = phi i64 [ %.028.i168, %.preheader.i176 ], [ 0, %160 ], [ %171, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i175 ], [ %.028.i168, %166 ], [ %.1.i172, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i170 ]
+  %.025.i174 = phi i64 [ 0, %160 ], [ %171, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i175 ], [ %.028.i168, %.preheader.i176 ], [ %.028.i168, %166 ], [ %.1.i172, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i170 ]
   %177 = load i64, ptr %86, align 8, !tbaa !1229
   %178 = add i64 %177, %.025.i174
   store i64 %178, ptr %86, align 8, !tbaa !1229
@@ -99340,7 +99340,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %47, %55
   br i1 %.not.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %42, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %47, %38, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ %.028.i, %.preheader.i ], [ 0, %38 ], [ %52, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %47 ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ 0, %38 ], [ %52, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %.preheader.i ], [ %.028.i, %47 ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %59 = load i64, ptr %58, align 8, !tbaa !1229
   %60 = add i64 %59, %.025.i
@@ -99566,7 +99566,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i: ; preds = %86, %94
   br i1 %.not.i, label %ma_dr_flac__seek_forward_by_pcm_frames.exit, label %.lr.ph.i, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i, %.preheader.i, %86, %80, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i
-  %.025.i = phi i64 [ %.028.i, %.preheader.i ], [ 0, %80 ], [ %91, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %86 ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
+  %.025.i = phi i64 [ 0, %80 ], [ %91, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i ], [ %.028.i, %.preheader.i ], [ %.028.i, %86 ], [ %.1.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i ]
   %97 = load i64, ptr %3, align 8, !tbaa !1229
   %98 = add i64 %97, %.025.i
   store i64 %98, ptr %3, align 8, !tbaa !1229
@@ -99623,7 +99623,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i81: ; preds = %106, %114
   br i1 %.not.i84, label %ma_dr_flac__seek_forward_by_pcm_frames.exit89, label %.lr.ph.i78, !llvm.loop !1228
 
 ma_dr_flac__seek_forward_by_pcm_frames.exit89:    ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i81, %.preheader.i87, %106, %100, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i86
-  %.025.i85 = phi i64 [ %.028.i79, %.preheader.i87 ], [ 0, %100 ], [ %111, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i86 ], [ %.028.i79, %106 ], [ %.1.i83, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i81 ]
+  %.025.i85 = phi i64 [ 0, %100 ], [ %111, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i86 ], [ %.028.i79, %.preheader.i87 ], [ %.028.i79, %106 ], [ %.1.i83, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i81 ]
   %117 = load i64, ptr %3, align 8, !tbaa !1229
   %118 = add i64 %117, %.025.i85
   store i64 %118, ptr %3, align 8, !tbaa !1229
@@ -108261,7 +108261,7 @@ ma_event_signal.exit.i98:                         ; preds = %168
   br i1 %.not.i96, label %ma_fence_release.exit99, label %161
 
 ma_fence_release.exit99:                          ; preds = %175, %161, %ma_event_signal.exit.i98, %168, %ma_async_notification_signal.exit94, %ma_fence_release.exit
-  %spec.store.select1 = phi i32 [ 0, %ma_fence_release.exit ], [ %.059, %ma_event_signal.exit.i98 ], [ %.059, %168 ], [ %.059, %ma_async_notification_signal.exit94 ], [ %.059, %161 ], [ %.059, %175 ]
+  %spec.store.select1 = phi i32 [ %.059, %ma_async_notification_signal.exit94 ], [ %.059, %ma_event_signal.exit.i98 ], [ %.059, %168 ], [ 0, %ma_fence_release.exit ], [ %.059, %161 ], [ %.059, %175 ]
   %177 = atomicrmw add ptr %12, i32 1 seq_cst, align 8
   br label %ma_resource_manager_post_job.exit
 
@@ -110529,7 +110529,7 @@ ma_event_signal.exit.i:                           ; preds = %155
   br i1 %.not.i, label %ma_fence_release.exit, label %148
 
 ma_fence_release.exit:                            ; preds = %162, %148, %15, %ma_event_signal.exit.i, %155, %ma_audio_buffer_init.exit, %ma_async_notification_signal.exit, %11, %4
-  %.0 = phi i32 [ -2, %11 ], [ %10, %4 ], [ 0, %ma_async_notification_signal.exit ], [ -2, %15 ], [ %70, %ma_audio_buffer_init.exit ], [ 0, %ma_event_signal.exit.i ], [ 0, %155 ], [ 0, %148 ], [ 0, %162 ]
+  %.0 = phi i32 [ -2, %11 ], [ %10, %4 ], [ 0, %ma_async_notification_signal.exit ], [ 0, %ma_event_signal.exit.i ], [ %70, %ma_audio_buffer_init.exit ], [ -2, %15 ], [ 0, %155 ], [ 0, %148 ], [ 0, %162 ]
   ret i32 %.0
 }
 
@@ -130482,8 +130482,8 @@ ma_dr_wav__write_or_count.exit887:                ; preds = %ma_dr_wav__write_or
   br label %702
 
 702:                                              ; preds = %ma_dr_wav__write_or_count.exit887, %ma_dr_wav__write_or_count_byte.exit875, %ma_dr_wav__write_or_count_byte.exit831
-  %.14 = phi i64 [ %680, %ma_dr_wav__write_or_count_byte.exit875 ], [ %629, %ma_dr_wav__write_or_count_byte.exit831 ], [ %701, %ma_dr_wav__write_or_count.exit887 ]
-  %.0417 = phi i32 [ %spec.select473987990993996999100210051008101210161019, %ma_dr_wav__write_or_count_byte.exit875 ], [ %628, %ma_dr_wav__write_or_count_byte.exit831 ], [ %687, %ma_dr_wav__write_or_count.exit887 ]
+  %.14 = phi i64 [ %701, %ma_dr_wav__write_or_count.exit887 ], [ %629, %ma_dr_wav__write_or_count_byte.exit831 ], [ %680, %ma_dr_wav__write_or_count_byte.exit875 ]
+  %.0417 = phi i32 [ %687, %ma_dr_wav__write_or_count.exit887 ], [ %628, %ma_dr_wav__write_or_count_byte.exit831 ], [ %spec.select473987990993996999100210051008101210161019, %ma_dr_wav__write_or_count_byte.exit875 ]
   %703 = and i32 %.0417, 1
   %.not457 = icmp eq i32 %703, 0
   br i1 %.not457, label %.thread1023, label %705
@@ -131877,7 +131877,7 @@ ma_dr_flac__flush_crc16.exit:                     ; preds = %424, %342
   br label %ma_dr_flac__decode_subframe.exit
 
 ma_dr_flac__decode_subframe.exit:                 ; preds = %57, %53, %51, %28, %457, %446, %433, %169, %157, %174, %475, %14, %1, %477
-  %.025 = phi i32 [ -17, %457 ], [ -1, %1 ], [ -1, %14 ], [ -17, %169 ], [ 0, %477 ], [ -100, %475 ], [ -17, %446 ], [ -17, %433 ], [ -17, %157 ], [ -17, %174 ], [ -1, %28 ], [ -1, %51 ], [ -1, %53 ], [ -1, %57 ]
+  %.025 = phi i32 [ -17, %157 ], [ -1, %1 ], [ -1, %14 ], [ -17, %169 ], [ 0, %477 ], [ -100, %475 ], [ -17, %433 ], [ -17, %446 ], [ -17, %457 ], [ -17, %174 ], [ -1, %28 ], [ -1, %51 ], [ -1, %53 ], [ -1, %57 ]
   ret i32 %.025
 }
 
@@ -132955,7 +132955,7 @@ ma_dr_flac__read_uint32.exit102:                  ; preds = %583, %560
   br label %.preheader.i
 
 ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread: ; preds = %399, %410, %412, %610, %615, %620, %121, %124, %126, %132, %135, %137, %146, %158, %168, %202, %214, %224, %255, %267, %277, %310, %322, %332, %365, %368, %370, %443, %456, %466, %496, %509, %519, %554, %567, %577, %617, %383, %389, %47, %115, %25, %37, %71, %83, %93, %3
-  %.1.ph = phi i32 [ 0, %3 ], [ 0, %389 ], [ 1, %617 ], [ 0, %577 ], [ 0, %567 ], [ 0, %383 ], [ 0, %124 ], [ 0, %158 ], [ 0, %365 ], [ 0, %332 ], [ 0, %310 ], [ 0, %277 ], [ 0, %255 ], [ 0, %224 ], [ 0, %202 ], [ 0, %168 ], [ 0, %146 ], [ 0, %137 ], [ 0, %132 ], [ 0, %126 ], [ 0, %121 ], [ 0, %620 ], [ 0, %370 ], [ 0, %443 ], [ 0, %466 ], [ 0, %496 ], [ 0, %519 ], [ 0, %554 ], [ 0, %615 ], [ 0, %135 ], [ 0, %214 ], [ 0, %267 ], [ 0, %322 ], [ 0, %610 ], [ 0, %412 ], [ 0, %410 ], [ 0, %368 ], [ 0, %456 ], [ 0, %509 ], [ 0, %399 ], [ 0, %115 ], [ 0, %25 ], [ 0, %37 ], [ 0, %71 ], [ 0, %83 ], [ 0, %93 ], [ 0, %47 ]
+  %.1.ph = phi i32 [ 0, %3 ], [ 0, %158 ], [ 0, %124 ], [ 0, %370 ], [ 0, %567 ], [ 0, %577 ], [ 1, %617 ], [ 0, %389 ], [ 0, %365 ], [ 0, %332 ], [ 0, %310 ], [ 0, %277 ], [ 0, %255 ], [ 0, %224 ], [ 0, %202 ], [ 0, %168 ], [ 0, %146 ], [ 0, %137 ], [ 0, %132 ], [ 0, %126 ], [ 0, %121 ], [ 0, %620 ], [ 0, %383 ], [ 0, %554 ], [ 0, %519 ], [ 0, %496 ], [ 0, %466 ], [ 0, %443 ], [ 0, %615 ], [ 0, %135 ], [ 0, %214 ], [ 0, %267 ], [ 0, %322 ], [ 0, %610 ], [ 0, %412 ], [ 0, %410 ], [ 0, %368 ], [ 0, %456 ], [ 0, %509 ], [ 0, %399 ], [ 0, %115 ], [ 0, %25 ], [ 0, %37 ], [ 0, %71 ], [ 0, %83 ], [ 0, %93 ], [ 0, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1.ph
 }
@@ -133569,7 +133569,7 @@ ma_dr_flac_ogg__read_page_header.exit:            ; preds = %169, %._crit_edge.i
   br label %.thread185
 
 199:                                              ; preds = %.thread170, %.loopexit
-  %.083 = phi i32 [ %.184.ph, %.thread170 ], [ 0, %.loopexit ]
+  %.083 = phi i32 [ 0, %.loopexit ], [ %.184.ph, %.thread170 ]
   switch i32 %.083, label %.thread185 [
     i32 0, label %82
     i32 2, label %200
@@ -146064,7 +146064,7 @@ ma_dr_flac__calculate_prediction_32.exit965:      ; preds = %6474, %6660
   br i1 %6670, label %5784, label %ma_dr_flac__decode_samples_with_residual__rice__scalar_zeroorder.exit, !llvm.loop !2272
 
 ma_dr_flac__decode_samples_with_residual__rice__scalar_zeroorder.exit: ; preds = %2002, %2000, %1587, %1585, %1172, %1170, %757, %755, %933, %1348, %1763, %2178, %4726, %4724, %4311, %4309, %3896, %3894, %3481, %3479, %3657, %4072, %4487, %4902, %6667, %5986, %5988, %6164, %445, %232, %230, %408, %.loopexit1128, %11
-  %.0115 = phi i32 [ 0, %1348 ], [ 0, %5988 ], [ 0, %2178 ], [ 0, %3657 ], [ 0, %408 ], [ 0, %232 ], [ 0, %6164 ], [ 0, %4487 ], [ 0, %933 ], [ 0, %1763 ], [ 1, %.loopexit1128 ], [ 1, %11 ], [ 0, %4726 ], [ 0, %4902 ], [ 0, %4072 ], [ 1, %445 ], [ 0, %230 ], [ 0, %5986 ], [ 1, %6667 ], [ 0, %3479 ], [ 0, %3481 ], [ 0, %3894 ], [ 0, %3896 ], [ 0, %4309 ], [ 0, %4311 ], [ 0, %4724 ], [ 0, %755 ], [ 0, %757 ], [ 0, %1170 ], [ 0, %1172 ], [ 0, %1585 ], [ 0, %1587 ], [ 0, %2000 ], [ 0, %2002 ]
+  %.0115 = phi i32 [ 0, %5988 ], [ 0, %4072 ], [ 0, %4902 ], [ 0, %6164 ], [ 0, %933 ], [ 0, %1348 ], [ 0, %4726 ], [ 0, %4487 ], [ 0, %1763 ], [ 0, %3657 ], [ 0, %2178 ], [ 1, %11 ], [ 1, %.loopexit1128 ], [ 0, %232 ], [ 0, %408 ], [ 1, %445 ], [ 0, %230 ], [ 0, %5986 ], [ 1, %6667 ], [ 0, %3479 ], [ 0, %3481 ], [ 0, %3894 ], [ 0, %3896 ], [ 0, %4309 ], [ 0, %4311 ], [ 0, %4724 ], [ 0, %755 ], [ 0, %757 ], [ 0, %1170 ], [ 0, %1172 ], [ 0, %1585 ], [ 0, %1587 ], [ 0, %2000 ], [ 0, %2002 ]
   ret i32 %.0115
 }
 
@@ -146567,7 +146567,7 @@ ma_dr_flac__read_uint64.exit:                     ; preds = %53, %67
   br label %ma_dr_flac__read_uint64.exit.thread
 
 ma_dr_flac__read_uint64.exit.thread:              ; preds = %61, %57, %47, %31, %21, %35, %86, %76, %90, %128, %114, %118, %108, %122, %._crit_edge, %7
-  %.026 = phi i32 [ 1, %7 ], [ 1, %._crit_edge ], [ 0, %86 ], [ 1, %128 ], [ 0, %118 ], [ 0, %122 ], [ 0, %108 ], [ 1, %114 ], [ 0, %90 ], [ 0, %76 ], [ 0, %35 ], [ 0, %21 ], [ 0, %31 ], [ 0, %47 ], [ 0, %57 ], [ 0, %61 ]
+  %.026 = phi i32 [ 1, %7 ], [ 1, %._crit_edge ], [ 0, %122 ], [ 0, %108 ], [ 0, %118 ], [ 0, %86 ], [ 1, %114 ], [ 1, %128 ], [ 0, %90 ], [ 0, %76 ], [ 0, %35 ], [ 0, %21 ], [ 0, %31 ], [ 0, %47 ], [ 0, %57 ], [ 0, %61 ]
   ret i32 %.026
 }
 
@@ -147280,7 +147280,7 @@ ma_dr_flac__flush_crc16.exit:                     ; preds = %376, %294
   br label %ma_dr_flac__seek_subframe.exit.thread
 
 ma_dr_flac__seek_subframe.exit.thread:            ; preds = %93, %83, %71, %111, %61, %114, %35, %39, %122, %55, %42, %31, %48, %13, %409, %398, %385, %427, %._crit_edge
-  %.0 = phi i32 [ -1, %._crit_edge ], [ %., %427 ], [ -17, %409 ], [ -17, %398 ], [ -17, %385 ], [ -1, %13 ], [ -1, %48 ], [ -1, %31 ], [ -1, %42 ], [ -1, %55 ], [ -1, %122 ], [ -1, %39 ], [ -1, %35 ], [ -1, %114 ], [ -1, %61 ], [ -1, %111 ], [ -1, %71 ], [ -1, %83 ], [ -1, %93 ]
+  %.0 = phi i32 [ -1, %._crit_edge ], [ %., %427 ], [ -17, %398 ], [ -17, %409 ], [ -17, %385 ], [ -1, %13 ], [ -1, %48 ], [ -1, %31 ], [ -1, %42 ], [ -1, %55 ], [ -1, %122 ], [ -1, %39 ], [ -1, %35 ], [ -1, %114 ], [ -1, %61 ], [ -1, %111 ], [ -1, %71 ], [ -1, %83 ], [ -1, %93 ]
   ret i32 %.0
 }
 
@@ -148315,7 +148315,7 @@ ma_dr_flac__read_and_seek_residual__rice.exit:    ; preds = %616, %660
   br i1 %665, label %ma_dr_flac__read_uint8.exit.thread, label %110
 
 ma_dr_flac__read_uint8.exit.thread:               ; preds = %180, %170, %158, %136, %126, %114, %642, %632, %620, %660, %ma_dr_flac__read_and_seek_residual__rice.exit, %407, %409, %580, %77, %66, %53, %31, %20, %7, %98, %95, %ma_dr_flac__read_uint8.exit
-  %.024 = phi i32 [ 0, %ma_dr_flac__read_uint8.exit ], [ 0, %31 ], [ 0, %95 ], [ 0, %77 ], [ 0, %580 ], [ 0, %98 ], [ 0, %7 ], [ 0, %20 ], [ 0, %53 ], [ 0, %66 ], [ 0, %407 ], [ 0, %409 ], [ 0, %180 ], [ 0, %170 ], [ 0, %158 ], [ 0, %136 ], [ 0, %126 ], [ 0, %114 ], [ 0, %642 ], [ 0, %632 ], [ 0, %620 ], [ 0, %660 ], [ 1, %ma_dr_flac__read_and_seek_residual__rice.exit ]
+  %.024 = phi i32 [ 0, %ma_dr_flac__read_uint8.exit ], [ 0, %31 ], [ 0, %95 ], [ 0, %77 ], [ 0, %407 ], [ 0, %98 ], [ 0, %7 ], [ 0, %20 ], [ 0, %53 ], [ 0, %66 ], [ 0, %580 ], [ 0, %409 ], [ 0, %180 ], [ 0, %170 ], [ 0, %158 ], [ 0, %136 ], [ 0, %126 ], [ 0, %114 ], [ 0, %642 ], [ 0, %632 ], [ 0, %620 ], [ 1, %ma_dr_flac__read_and_seek_residual__rice.exit ], [ 0, %660 ]
   ret i32 %.024
 }
 
@@ -148442,7 +148442,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i: ; preds = %56, %64
   br i1 %.not.i.i, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit, label %51, !llvm.loop !1228
 
 ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit: ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i, %.preheader.i.i, %56, %46, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i
-  %.025.i.i = phi i64 [ %.028.i.i, %.preheader.i.i ], [ 0, %46 ], [ %61, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i ], [ %.028.i.i, %56 ], [ %.1.i.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i ]
+  %.025.i.i = phi i64 [ 0, %46 ], [ %61, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i ], [ %.028.i.i, %.preheader.i.i ], [ %.028.i.i, %56 ], [ %.1.i.i, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i ]
   %67 = load i64, ptr %13, align 8, !tbaa !1229
   %68 = add i64 %67, %.025.i.i
   store i64 %68, ptr %13, align 8, !tbaa !1229
@@ -148515,7 +148515,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i118: ; preds = %83, %91
   br i1 %.not.i.i121, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit126, label %78, !llvm.loop !1228
 
 ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit126: ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i118, %.preheader.i.i124, %83, %73, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i123
-  %.025.i.i122 = phi i64 [ %.028.i.i116, %.preheader.i.i124 ], [ 0, %73 ], [ %88, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i123 ], [ %.028.i.i116, %83 ], [ %.1.i.i120, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i118 ]
+  %.025.i.i122 = phi i64 [ 0, %73 ], [ %88, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i123 ], [ %.028.i.i116, %.preheader.i.i124 ], [ %.028.i.i116, %83 ], [ %.1.i.i120, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i118 ]
   %94 = load i64, ptr %13, align 8, !tbaa !1229
   %95 = add i64 %94, %.025.i.i122
   store i64 %95, ptr %13, align 8, !tbaa !1229
@@ -148607,7 +148607,7 @@ ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i131: ; preds = %127, %135
   br i1 %.not.i.i134, label %ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit139, label %122, !llvm.loop !1228
 
 ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit139: ; preds = %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i131, %.preheader.i.i137, %127, %117, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i136
-  %.025.i.i135 = phi i64 [ %.028.i.i129, %.preheader.i.i137 ], [ 0, %117 ], [ %132, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i136 ], [ %.028.i.i129, %127 ], [ %.1.i.i133, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i131 ]
+  %.025.i.i135 = phi i64 [ 0, %117 ], [ %132, %ma_dr_flac__read_and_decode_next_flac_frame.exit.thread33.i.i136 ], [ %.028.i.i129, %.preheader.i.i137 ], [ %.028.i.i129, %127 ], [ %.1.i.i133, %ma_dr_flac__read_and_decode_next_flac_frame.exit.i.i131 ]
   %138 = load i64, ptr %13, align 8, !tbaa !1229
   %139 = add i64 %138, %.025.i.i135
   store i64 %139, ptr %13, align 8, !tbaa !1229

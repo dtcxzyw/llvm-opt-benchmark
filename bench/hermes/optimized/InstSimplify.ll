@@ -1175,7 +1175,7 @@ if.then:                                          ; preds = %if.end5.i.i, %_ZN12
   br i1 %tobool.not, label %for.cond6, label %if.end, !llvm.loop !25
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i, %_ZN12_GLOBAL__N_116simplifyAsNumberEPN6hermes12AsNumberInstE.exit.i, %if.then
-  %retval.sroa.0.0.i38 = phi ptr [ %retval.0.i.i.i35.i, %_ZN12_GLOBAL__N_116simplifyAsNumberEPN6hermes12AsNumberInstE.exit.i ], [ %call4.i.i76.i, %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i ], [ %retval.sroa.0.0.i, %if.then ]
+  %retval.sroa.0.0.i38 = phi ptr [ %call4.i.i76.i, %_ZN12_GLOBAL__N_115simplifyAsInt32EPN6hermes11AsInt32InstE.exit.i ], [ %retval.0.i.i.i35.i, %_ZN12_GLOBAL__N_116simplifyAsNumberEPN6hermes12AsNumberInstE.exit.i ], [ %retval.sroa.0.0.i, %if.then ]
   %cmp = icmp eq ptr %add.ptr.i, %retval.sroa.0.0.i38
   br i1 %cmp, label %for.cond6.outer.backedge, label %if.end20
 

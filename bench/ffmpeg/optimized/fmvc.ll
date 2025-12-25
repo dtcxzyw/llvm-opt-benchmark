@@ -3995,8 +3995,8 @@ bytestream2_peek_byte.exit456.sink.split:         ; preds = %987, %816
   br label %bytestream2_peek_byte.exit456
 
 bytestream2_peek_byte.exit456:                    ; preds = %bytestream2_peek_byte.exit456.sink.split, %987, %809, %.loopexit647, %bytestream2_put_byte.exit417
-  %.10227 = phi i32 [ %.2219, %987 ], [ 1, %bytestream2_put_byte.exit417 ], [ 1, %.loopexit647 ], [ %.2219, %809 ], [ %.2219, %bytestream2_peek_byte.exit456.sink.split ]
-  %.14211 = phi i32 [ 0, %987 ], [ %.2199, %bytestream2_put_byte.exit417 ], [ %.2199, %.loopexit647 ], [ 0, %809 ], [ %995, %bytestream2_peek_byte.exit456.sink.split ]
+  %.10227 = phi i32 [ %.2219, %809 ], [ 1, %bytestream2_put_byte.exit417 ], [ 1, %.loopexit647 ], [ %.2219, %987 ], [ %.2219, %bytestream2_peek_byte.exit456.sink.split ]
+  %.14211 = phi i32 [ 0, %809 ], [ %.2199, %bytestream2_put_byte.exit417 ], [ %.2199, %.loopexit647 ], [ 0, %987 ], [ %995, %bytestream2_peek_byte.exit456.sink.split ]
   %996 = load ptr, ptr %3, align 8, !tbaa !56
   %997 = load ptr, ptr %0, align 8, !tbaa !73
   %998 = ptrtoint ptr %996 to i64

@@ -4352,7 +4352,7 @@ tm_to_time_t.exit:                                ; preds = %.cont114.cont
   br label %.cont96
 
 .cont96:                                          ; preds = %.cont96.sink.split, %23, %tm_to_time_t.exit, %.cont107.cont, %.thread178, %.cont111.cont, %6
-  %.1 = phi i32 [ -1, %6 ], [ -1, %.thread178 ], [ -1, %tm_to_time_t.exit ], [ -1, %23 ], [ 1, %.cont111.cont ], [ 0, %.cont107.cont ], [ 0, %.cont96.sink.split ]
+  %.1 = phi i32 [ -1, %6 ], [ -1, %.thread178 ], [ -1, %tm_to_time_t.exit ], [ -1, %23 ], [ 0, %.cont107.cont ], [ 1, %.cont111.cont ], [ 0, %.cont96.sink.split ]
   ret i32 %.1
 }
 

@@ -3836,7 +3836,7 @@ define range(i32 0, 2) i32 @dt_ioppr_check_can_move_before_iop(ptr noundef %0, p
   br label %.thread177
 
 .thread177:                                       ; preds = %._crit_edge, %65, %76, %.loopexit, %.lr.ph319, %34, %.preheader225, %.preheader220, %99, %._crit_edge320, %48, %42, %.critedge, %84, %92, %86, %.critedge164, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %99 ], [ 1, %42 ], [ 0, %.critedge ], [ 0, %48 ], [ 0, %._crit_edge320 ], [ 0, %.critedge164 ], [ 0, %92 ], [ 0, %84 ], [ 1, %86 ], [ 0, %.preheader220 ], [ 0, %34 ], [ 0, %.preheader225 ], [ 0, %76 ], [ 0, %.loopexit ], [ 0, %.lr.ph319 ], [ 0, %65 ], [ 0, %._crit_edge ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %99 ], [ 1, %42 ], [ 0, %.critedge ], [ 0, %48 ], [ 0, %._crit_edge320 ], [ 0, %.critedge164 ], [ 0, %92 ], [ 0, %84 ], [ 1, %86 ], [ 0, %76 ], [ 0, %.preheader220 ], [ 0, %.preheader225 ], [ 0, %34 ], [ 0, %.loopexit ], [ 0, %.lr.ph319 ], [ 0, %65 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -4782,7 +4782,7 @@ define noalias noundef ptr @dt_ioppr_serialize_iop_order_list(ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %16, %5
-  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ null, %5 ], [ null, %16 ], [ %17, %.preheader ]
+  %.0 = phi ptr [ null, %16 ], [ null, %5 ], [ null, %.loopexit.sink.split ], [ %17, %.preheader ]
   ret ptr %.0
 }
 

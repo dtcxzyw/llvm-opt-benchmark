@@ -1481,7 +1481,7 @@ tailrecurse.backedge:                             ; preds = %.split, %tailrecurs
   br i1 %switch, label %tailrecurse.backedge, label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse, %.split, %98, %16, %.preheader98, %9, %.preheader, %38, %.thread, %57, %45, %62
-  %.3 = phi i32 [ 0, %9 ], [ -217, %57 ], [ 0, %62 ], [ -209, %38 ], [ %.sink126, %.thread ], [ 0, %16 ], [ -218, %45 ], [ %7, %.preheader ], [ %14, %.preheader98 ], [ 0, %98 ], [ 0, %.split ], [ 0, %tailrecurse ]
+  %.3 = phi i32 [ -217, %57 ], [ 0, %9 ], [ 0, %62 ], [ -209, %38 ], [ %.sink126, %.thread ], [ 0, %16 ], [ -218, %45 ], [ %7, %.preheader ], [ %14, %.preheader98 ], [ 0, %98 ], [ 0, %.split ], [ 0, %tailrecurse ]
   ret i32 %.3
 }
 
@@ -7637,7 +7637,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %41, %
   ]
 
 common.ret58:                                     ; preds = %5, %8, %18, %22, %.split, %27, %23, %tailrecurse, %41, %33
-  %common.ret58.op = phi ptr [ %40, %33 ], [ null, %18 ], [ null, %8 ], [ %.tr, %22 ], [ %spec.select, %5 ], [ null, %.split ], [ null, %27 ], [ null, %23 ], [ null, %tailrecurse ], [ null, %41 ]
+  %common.ret58.op = phi ptr [ %40, %33 ], [ null, %8 ], [ null, %18 ], [ %.tr, %22 ], [ %spec.select, %5 ], [ null, %.split ], [ null, %27 ], [ null, %23 ], [ null, %tailrecurse ], [ null, %41 ]
   ret ptr %common.ret58.op
 
 33:                                               ; preds = %.split
@@ -8102,7 +8102,7 @@ onig_is_code_in_cc.exit:                          ; preds = %.thread.i, %._crit_
   br i1 %253, label %.lr.ph, label %.thread184, !llvm.loop !244
 
 .thread184:                                       ; preds = %26, %7, %4, %248, %.lr.ph, %110, %98, %97, %99, %68, %63, %73, %160, %150, %119, %241, %230, %onig_is_code_in_cc.exit, %170, %158, %128, %44, %75, %43, %131, %33, %142, %141, %132, %19, %25
-  %.1 = phi i32 [ 1, %19 ], [ %157, %150 ], [ 0, %25 ], [ 0, %110 ], [ 0, %132 ], [ 0, %141 ], [ 0, %142 ], [ %229, %onig_is_code_in_cc.exit ], [ 1, %.lr.ph ], [ 1, %73 ], [ 0, %33 ], [ 1, %128 ], [ %169, %160 ], [ 0, %131 ], [ %171, %170 ], [ 0, %44 ], [ %159, %158 ], [ 0, %75 ], [ 0, %241 ], [ 0, %43 ], [ 0, %230 ], [ 0, %98 ], [ 1, %119 ], [ 0, %63 ], [ 0, %68 ], [ 0, %97 ], [ 1, %99 ], [ 0, %248 ], [ 0, %4 ], [ 0, %7 ], [ 0, %26 ]
+  %.1 = phi i32 [ 1, %19 ], [ %157, %150 ], [ 0, %25 ], [ %169, %160 ], [ 0, %132 ], [ 0, %141 ], [ 0, %142 ], [ %229, %onig_is_code_in_cc.exit ], [ 1, %.lr.ph ], [ 0, %98 ], [ 0, %33 ], [ 1, %128 ], [ %171, %170 ], [ 0, %131 ], [ 1, %73 ], [ 0, %44 ], [ %159, %158 ], [ 0, %75 ], [ 0, %241 ], [ 0, %43 ], [ 0, %230 ], [ 0, %110 ], [ 1, %119 ], [ 0, %63 ], [ 0, %68 ], [ 0, %97 ], [ 1, %99 ], [ 0, %248 ], [ 0, %4 ], [ 0, %7 ], [ 0, %26 ]
   ret i32 %.1
 }
 
@@ -9909,7 +9909,7 @@ is_left_anchor.exit.i:                            ; preds = %.split, %.split, %.
   br label %.thread373
 
 .thread373:                                       ; preds = %686, %.lr.ph628, %.thread373.sink.split, %669, %659
-  %.6 = phi i32 [ 0, %.thread373.sink.split ], [ %675, %669 ], [ %668, %659 ], [ %692, %686 ], [ %685, %.lr.ph628 ]
+  %.6 = phi i32 [ 0, %.thread373.sink.split ], [ %675, %669 ], [ %668, %659 ], [ %685, %.lr.ph628 ], [ %692, %686 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -11278,7 +11278,7 @@ define internal fastcc range(i32 -6, 2) i32 @set_bm_skip(ptr noundef %0, ptr nou
   br i1 %78, label %21, label %.loopexit, !llvm.loop !291
 
 .loopexit:                                        ; preds = %._crit_edge11, %63, %.lr.ph, %61, %.preheader4, %5
-  %.0 = phi i32 [ 0, %.preheader4 ], [ -6, %5 ], [ 1, %63 ], [ 1, %61 ], [ 1, %.lr.ph ], [ 0, %._crit_edge11 ]
+  %.0 = phi i32 [ -6, %5 ], [ 0, %.preheader4 ], [ 1, %63 ], [ 1, %61 ], [ 1, %.lr.ph ], [ 0, %._crit_edge11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -13122,7 +13122,7 @@ define internal fastcc i32 @compile_tree_empty_check(ptr noundef %0, ptr noundef
   br label %add_opcode.exit
 
 add_opcode.exit:                                  ; preds = %140, %133, %128, %40, %.thread, %66, %86, %106, %17, %53
-  %.0 = phi i32 [ -5, %17 ], [ -5, %40 ], [ %6, %.thread ], [ %56, %53 ], [ -5, %106 ], [ -5, %86 ], [ -5, %66 ], [ -5, %128 ], [ 0, %133 ], [ 0, %140 ]
+  %.0 = phi i32 [ -5, %17 ], [ -5, %40 ], [ %6, %.thread ], [ %56, %53 ], [ -5, %66 ], [ -5, %106 ], [ -5, %86 ], [ -5, %128 ], [ 0, %133 ], [ 0, %140 ]
   ret i32 %.0
 }
 

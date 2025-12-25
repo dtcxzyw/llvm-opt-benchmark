@@ -7123,7 +7123,7 @@ if.then.i37:                                      ; preds = %do.end38, %sw.bb41,
   br label %return
 
 return:                                           ; preds = %if.end63, %if.then.i37, %if.end.i, %if.then15, %if.then56, %entry, %lor.lhs.false
-  %retval.0 = phi i64 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %if.then.i37 ], [ 0, %if.end.i ], [ 0, %if.then15 ], [ %add, %if.then56 ], [ 0, %if.end63 ]
+  %retval.0 = phi i64 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %if.then.i37 ], [ 0, %if.end.i ], [ %add, %if.then56 ], [ 0, %if.then15 ], [ 0, %if.end63 ]
   ret i64 %retval.0
 }
 

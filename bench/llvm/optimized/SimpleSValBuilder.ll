@@ -5114,8 +5114,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %33, %44, %47
   br label %56
 
 56:                                               ; preds = %.critedge, %_ZN4llvm5APIntD2Ev.exit, %50
-  %.sroa.011.1 = phi ptr [ %0, %50 ], [ %15, %_ZN4llvm5APIntD2Ev.exit ], [ %15, %.critedge ]
-  %.sroa.3.1 = phi ptr [ %55, %50 ], [ %41, %_ZN4llvm5APIntD2Ev.exit ], [ %49, %.critedge ]
+  %.sroa.011.1 = phi ptr [ %0, %50 ], [ %15, %.critedge ], [ %15, %_ZN4llvm5APIntD2Ev.exit ]
+  %.sroa.3.1 = phi ptr [ %55, %50 ], [ %49, %.critedge ], [ %41, %_ZN4llvm5APIntD2Ev.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.011.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.1, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -1334,7 +1334,7 @@ mmbit_get_flat_block.exit365.i:                   ; preds = %767, %759, %756, %7
   br label %.backedge.i
 
 mmbit_iterate.exit312.i:                          ; preds = %797, %774, %737, %.thread508.i, %684
-  %.011.i311.i = phi i32 [ %742, %737 ], [ %777, %774 ], [ %729, %.thread508.i ], [ %686, %684 ], [ %801, %797 ]
+  %.011.i311.i = phi i32 [ %729, %.thread508.i ], [ %777, %774 ], [ %742, %737 ], [ %686, %684 ], [ %801, %797 ]
   %.not207.i = icmp eq i32 %.011.i311.i, -1
   br i1 %.not207.i, label %._crit_edge589.i, label %642
 
@@ -4335,7 +4335,7 @@ mmbit_get_flat_block.exit229.i:                   ; preds = %1271, %1263, %1260,
   br label %.backedge.i
 
 mmbit_iterate.exit182.i:                          ; preds = %1301, %1278, %1241, %.thread617.i, %1188
-  %.011.i181.i = phi i32 [ %1246, %1241 ], [ %1281, %1278 ], [ %1233, %.thread617.i ], [ %1190, %1188 ], [ %1305, %1301 ]
+  %.011.i181.i = phi i32 [ %1233, %.thread617.i ], [ %1281, %1278 ], [ %1246, %1241 ], [ %1190, %1188 ], [ %1305, %1301 ]
   %.not175.i = icmp eq i32 %.011.i181.i, -1
   br i1 %.not175.i, label %._crit_edge725.i, label %1148
 
@@ -5272,7 +5272,7 @@ mmbit_iterate.exit.i.i:                           ; preds = %mmbit_get_flat_bloc
   br i1 %.not55.i.i, label %sc_compress.exit, label %.lr.ph273.split.split.split.i.i
 
 sc_compress.exit:                                 ; preds = %.thread219.i.i, %.lr.ph273.split.split.split.i.i, %1762, %._crit_edge268.i.i, %mmbit_get_flat_block.exit95.i.i, %mmbit_iterate.exit.i.i, %mmbit_get_flat_block.exit.us.i.i, %mmbit_iterate.exit.us284.i.i, %.lr.ph273.split.split.us.i.i, %mmbit_iterate.exit.us277.i.i, %.thread239.us.i.i, %mmbit_compsize.exit407.i, %mmbit_compsize.exit407.thread435.i, %mmbit_compsize.exit407.thread.i, %mmbit_compsize.exit391.i, %mmbit_compsize.exit391.thread463.i, %mmbit_compsize.exit391.thread.i, %mmbit_compsize.exit375.i, %mmbit_compsize.exit375.thread493.i, %mmbit_compsize.exit375.thread.i, %mmbit_compsize.exit359.i, %mmbit_compsize.exit359.thread523.i, %mmbit_compsize.exit359.thread.i, %mmbit_compsize.exit343.i, %mmbit_compsize.exit343.thread553.i, %mmbit_compsize.exit343.thread.i, %mmbit_compsize.exit.i, %mmbit_compsize.exit.thread583.i, %mmbit_compsize.exit.thread.i, %sc_left_compress.exit.i, %1313, %mmbit_compsize.exit.i.i, %mmbit_compsize.exit.thread167.i.i, %mmbit_compsize.exit.thread.i.i, %mmbit_compsize.exit153.i.i, %mmbit_compsize.exit153.thread195.i.i, %mmbit_compsize.exit153.thread.i.i, %.loopexit.i.i, %mmbit_get_flat_block.exit103.i.i, %._crit_edge.i.i, %mmbit_get_flat_block.exit107.i.i, %mmbit_iterate.exit60.i.i, %.lr.ph273.split.split.split.us.i.preheader.i
-  %.1.i = phi i64 [ 0, %mmbit_compsize.exit.thread583.i ], [ 0, %mmbit_compsize.exit407.thread435.i ], [ 0, %mmbit_compsize.exit391.thread463.i ], [ 0, %mmbit_compsize.exit375.thread493.i ], [ 0, %mmbit_compsize.exit343.thread553.i ], [ 0, %mmbit_compsize.exit359.thread523.i ], [ 0, %sc_left_compress.exit.i ], [ 0, %mmbit_compsize.exit407.i ], [ 0, %mmbit_compsize.exit407.thread.i ], [ 0, %mmbit_compsize.exit391.i ], [ 0, %mmbit_compsize.exit391.thread.i ], [ 0, %mmbit_compsize.exit375.i ], [ 0, %mmbit_compsize.exit375.thread.i ], [ 0, %mmbit_compsize.exit359.i ], [ 0, %mmbit_compsize.exit359.thread.i ], [ 0, %mmbit_compsize.exit343.i ], [ 0, %mmbit_compsize.exit343.thread.i ], [ 0, %mmbit_compsize.exit.i ], [ 0, %mmbit_compsize.exit.thread.i ], [ %.0.i409.i, %1313 ], [ 0, %mmbit_compsize.exit153.thread195.i.i ], [ 0, %mmbit_compsize.exit.thread167.i.i ], [ 0, %mmbit_compsize.exit.i.i ], [ 0, %mmbit_compsize.exit.thread.i.i ], [ 0, %mmbit_compsize.exit153.i.i ], [ 0, %mmbit_compsize.exit153.thread.i.i ], [ %1499, %mmbit_iterate.exit60.i.i ], [ %1640, %.lr.ph273.split.split.us.i.i ], [ %1719, %.lr.ph273.split.split.split.i.i ], [ %1640, %.thread239.us.i.i ], [ %1499, %._crit_edge.i.i ], [ %1684, %mmbit_get_flat_block.exit.us.i.i ], [ %1499, %mmbit_get_flat_block.exit107.i.i ], [ %1499, %mmbit_get_flat_block.exit103.i.i ], [ %1499, %.loopexit.i.i ], [ %1681, %.lr.ph273.split.split.split.us.i.preheader.i ], [ %1640, %mmbit_iterate.exit.us277.i.i ], [ %1710, %mmbit_iterate.exit.us284.i.i ], [ %1719, %mmbit_iterate.exit.i.i ], [ %1719, %mmbit_get_flat_block.exit95.i.i ], [ %1719, %._crit_edge268.i.i ], [ %1719, %1762 ], [ %1499, %.thread219.i.i ]
+  %.1.i = phi i64 [ 0, %mmbit_compsize.exit.thread583.i ], [ 0, %mmbit_compsize.exit407.thread435.i ], [ 0, %mmbit_compsize.exit391.thread463.i ], [ 0, %mmbit_compsize.exit375.thread493.i ], [ 0, %mmbit_compsize.exit343.thread553.i ], [ 0, %mmbit_compsize.exit359.thread523.i ], [ 0, %sc_left_compress.exit.i ], [ 0, %mmbit_compsize.exit407.i ], [ 0, %mmbit_compsize.exit407.thread.i ], [ 0, %mmbit_compsize.exit391.i ], [ 0, %mmbit_compsize.exit391.thread.i ], [ 0, %mmbit_compsize.exit375.i ], [ 0, %mmbit_compsize.exit375.thread.i ], [ 0, %mmbit_compsize.exit359.i ], [ 0, %mmbit_compsize.exit359.thread.i ], [ 0, %mmbit_compsize.exit343.i ], [ 0, %mmbit_compsize.exit343.thread.i ], [ 0, %mmbit_compsize.exit.i ], [ 0, %mmbit_compsize.exit.thread.i ], [ %.0.i409.i, %1313 ], [ 0, %mmbit_compsize.exit153.thread195.i.i ], [ 0, %mmbit_compsize.exit.thread167.i.i ], [ 0, %mmbit_compsize.exit.i.i ], [ 0, %mmbit_compsize.exit.thread.i.i ], [ 0, %mmbit_compsize.exit153.i.i ], [ 0, %mmbit_compsize.exit153.thread.i.i ], [ %1499, %mmbit_iterate.exit60.i.i ], [ %1681, %.lr.ph273.split.split.split.us.i.preheader.i ], [ %1499, %mmbit_get_flat_block.exit103.i.i ], [ %1499, %mmbit_get_flat_block.exit107.i.i ], [ %1499, %._crit_edge.i.i ], [ %1719, %.lr.ph273.split.split.split.i.i ], [ %1640, %.thread239.us.i.i ], [ %1684, %mmbit_get_flat_block.exit.us.i.i ], [ %1499, %.loopexit.i.i ], [ %1640, %.lr.ph273.split.split.us.i.i ], [ %1640, %mmbit_iterate.exit.us277.i.i ], [ %1710, %mmbit_iterate.exit.us284.i.i ], [ %1719, %mmbit_iterate.exit.i.i ], [ %1719, %mmbit_get_flat_block.exit95.i.i ], [ %1719, %._crit_edge268.i.i ], [ %1719, %1762 ], [ %1499, %.thread219.i.i ]
   ret i64 %.1.i
 }
 
@@ -7001,7 +7001,7 @@ mmbit_get_flat_block.exit145.i:                   ; preds = %939, %931, %928, %9
   br label %.backedge.i
 
 mmbit_iterate.exit98.i:                           ; preds = %969, %946, %909, %.thread45.i, %856
-  %.011.i97.i = phi i32 [ %914, %909 ], [ %949, %946 ], [ %901, %.thread45.i ], [ %858, %856 ], [ %973, %969 ]
+  %.011.i97.i = phi i32 [ %901, %.thread45.i ], [ %949, %946 ], [ %914, %909 ], [ %858, %856 ], [ %973, %969 ]
   %.not91.i = icmp eq i32 %.011.i97.i, -1
   br i1 %.not91.i, label %._crit_edge134.i, label %826
 
@@ -7736,7 +7736,7 @@ mmbit_iterate.exit.i.i:                           ; preds = %mmbit_get_flat_bloc
   br i1 %.not31.i.i, label %sc_size.exit, label %.lr.ph67.split.split.split.i.i
 
 sc_size.exit:                                     ; preds = %.thread18.i.i, %.lr.ph67.split.split.split.i.i, %1313, %._crit_edge62.i.i, %mmbit_get_flat_block.exit71.i.i, %mmbit_iterate.exit.i.i, %mmbit_get_flat_block.exit.us.i.i, %mmbit_iterate.exit.us77.i.i, %.lr.ph67.split.split.us.i.i, %mmbit_iterate.exit.us70.i.i, %.thread38.us.i.i, %sc_left_size.exit.i, %981, %mmbit_compsize.exit.thread.i.i, %mmbit_get_flat_block.exit79.i.i, %._crit_edge.i.i, %mmbit_get_flat_block.exit83.i.i, %mmbit_iterate.exit36.i.i, %.lr.ph67.split.split.split.us.i.preheader.i
-  %.0.i = phi i64 [ 0, %sc_left_size.exit.i ], [ %.0.i240.i, %981 ], [ %1190, %mmbit_iterate.exit36.i.i ], [ %1212, %.lr.ph67.split.split.us.i.i ], [ %1270, %.lr.ph67.split.split.split.i.i ], [ %1212, %.thread38.us.i.i ], [ %1086, %mmbit_get_flat_block.exit83.i.i ], [ %1086, %mmbit_compsize.exit.thread.i.i ], [ %1086, %._crit_edge.i.i ], [ %1086, %mmbit_get_flat_block.exit79.i.i ], [ %1249, %mmbit_get_flat_block.exit.us.i.i ], [ %1246, %.lr.ph67.split.split.split.us.i.preheader.i ], [ %1212, %mmbit_iterate.exit.us70.i.i ], [ %1268, %mmbit_iterate.exit.us77.i.i ], [ %1270, %mmbit_iterate.exit.i.i ], [ %1270, %mmbit_get_flat_block.exit71.i.i ], [ %1270, %._crit_edge62.i.i ], [ %1270, %1313 ], [ %1076, %.thread18.i.i ]
+  %.0.i = phi i64 [ 0, %sc_left_size.exit.i ], [ %.0.i240.i, %981 ], [ %1190, %mmbit_iterate.exit36.i.i ], [ %1246, %.lr.ph67.split.split.split.us.i.preheader.i ], [ %1086, %mmbit_get_flat_block.exit79.i.i ], [ %1086, %._crit_edge.i.i ], [ %1086, %mmbit_compsize.exit.thread.i.i ], [ %1086, %mmbit_get_flat_block.exit83.i.i ], [ %1270, %.lr.ph67.split.split.split.i.i ], [ %1212, %.thread38.us.i.i ], [ %1249, %mmbit_get_flat_block.exit.us.i.i ], [ %1212, %.lr.ph67.split.split.us.i.i ], [ %1212, %mmbit_iterate.exit.us70.i.i ], [ %1268, %mmbit_iterate.exit.us77.i.i ], [ %1270, %mmbit_iterate.exit.i.i ], [ %1270, %mmbit_get_flat_block.exit71.i.i ], [ %1270, %._crit_edge62.i.i ], [ %1270, %1313 ], [ %1076, %.thread18.i.i ]
   ret i64 %.0.i
 }
 

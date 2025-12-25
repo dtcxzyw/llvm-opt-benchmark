@@ -1054,8 +1054,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i
   br label %84
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h6557e462dc518432E.exit.i.i.i: ; preds = %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h13133c61911464d2E.exit.i.i.i.i.i.i.i.i.i", %_ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i
-  %.sroa.2.0.i.i.i.i = phi i8 [ 0, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h13133c61911464d2E.exit.i.i.i.i.i.i.i.i.i" ], [ 3, %_ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi i64 [ %59, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h13133c61911464d2E.exit.i.i.i.i.i.i.i.i.i" ], [ %22, %_ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i ]
+  %.sroa.2.0.i.i.i.i = phi i8 [ 3, %_ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i ], [ 0, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h13133c61911464d2E.exit.i.i.i.i.i.i.i.i.i" ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ %22, %_ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i.i.i ], [ %59, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h13133c61911464d2E.exit.i.i.i.i.i.i.i.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !285)
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h474a623e1c0d01c6E.exit
 
@@ -1330,8 +1330,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i
   br label %84
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h58fe394ae23fe23fE.exit.i.i.i: ; preds = %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4de8df5aa97560c6E.exit.i.i.i.i.i.i.i.i.i", %_ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i
-  %.sroa.2.0.i.i.i.i = phi i8 [ 0, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4de8df5aa97560c6E.exit.i.i.i.i.i.i.i.i.i" ], [ 3, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi i64 [ %59, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4de8df5aa97560c6E.exit.i.i.i.i.i.i.i.i.i" ], [ %22, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i ]
+  %.sroa.2.0.i.i.i.i = phi i8 [ 3, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i ], [ 0, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4de8df5aa97560c6E.exit.i.i.i.i.i.i.i.i.i" ]
+  %.sroa.0.0.i.i.i.i = phi i64 [ %22, %_ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i.i.i ], [ %59, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4de8df5aa97560c6E.exit.i.i.i.i.i.i.i.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !437)
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17ha09aa97f49ff5835E.exit
 

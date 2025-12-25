@@ -13504,8 +13504,8 @@ _ZN3ide14file_structure14structure_node4decl17h30c3c7de6aea48a4E.exit: ; preds =
   unreachable
 
 .body302:                                         ; preds = %.body.i312, %778, %1321, %1326, %588, %.body377
-  %.1152 = phi i1 [ true, %.body377 ], [ %.not193, %588 ], [ true, %1321 ], [ true, %1326 ], [ true, %778 ], [ true, %.body.i312 ]
-  %.pn239 = phi { ptr, i32 } [ %.pn237, %.body377 ], [ %589, %588 ], [ %.pn237, %1321 ], [ %.pn237, %1326 ], [ %eh.lpad-body.i313, %778 ], [ %eh.lpad-body.i313, %.body.i312 ]
+  %.1152 = phi i1 [ true, %.body377 ], [ %.not193, %588 ], [ true, %1326 ], [ true, %1321 ], [ true, %778 ], [ true, %.body.i312 ]
+  %.pn239 = phi { ptr, i32 } [ %.pn237, %.body377 ], [ %589, %588 ], [ %.pn237, %1326 ], [ %.pn237, %1321 ], [ %eh.lpad-body.i313, %778 ], [ %eh.lpad-body.i313, %.body.i312 ]
   %587 = icmp ne ptr %387, null
   %or.cond57 = and i1 %587, %.1152
   br i1 %or.cond57, label %1327, label %"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17hdadb698a59c6a322E.exit"
@@ -14170,8 +14170,8 @@ _ZN3ide14file_structure14structure_node4decl17h24d3e1dc9dec24a2E.exit: ; preds =
   unreachable
 
 .body377:                                         ; preds = %.body.i387, %983, %997, %793
-  %.1155 = phi i1 [ true, %.body.i387 ], [ %.not194, %793 ], [ true, %983 ], [ true, %997 ]
-  %.pn237 = phi { ptr, i32 } [ %eh.lpad-body.i388, %.body.i387 ], [ %794, %793 ], [ %eh.lpad-body.i388, %983 ], [ %998, %997 ]
+  %.1155 = phi i1 [ true, %983 ], [ %.not194, %793 ], [ true, %.body.i387 ], [ true, %997 ]
+  %.pn237 = phi { ptr, i32 } [ %eh.lpad-body.i388, %983 ], [ %794, %793 ], [ %eh.lpad-body.i388, %.body.i387 ], [ %998, %997 ]
   %792 = icmp ne ptr %592, null
   %or.cond55 = and i1 %792, %.1155
   br i1 %or.cond55, label %1321, label %.body302
@@ -22908,7 +22908,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i.i: ; preds =
   unreachable
 
 .body.i:                                          ; preds = %292, %"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17hdadb698a59c6a322E.exit.thread.i", %.loopexit.split-lp185.i, %.loopexit184.i
-  %.pn51.i = phi { ptr, i32 } [ %.pn49.i, %"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17hdadb698a59c6a322E.exit.thread.i" ], [ %.pn49.i, %292 ], [ %lpad.loopexit186.i, %.loopexit184.i ], [ %lpad.loopexit.split-lp187.i, %.loopexit.split-lp185.i ]
+  %.pn51.i = phi { ptr, i32 } [ %.pn49.i, %292 ], [ %.pn49.i, %"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17hdadb698a59c6a322E.exit.thread.i" ], [ %lpad.loopexit186.i, %.loopexit184.i ], [ %lpad.loopexit.split-lp187.i, %.loopexit.split-lp185.i ]
   br i1 %256, label %"_ZN4core3ptr315drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$17h5e8f8cb769d829dfE.exit.i", label %273
 
 273:                                              ; preds = %.body.i
@@ -25972,7 +25972,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i: ; preds = %
   unreachable
 
 .body:                                            ; preds = %.loopexit219, %.loopexit.split-lp220, %"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17hdadb698a59c6a322E.exit129", %65
-  %.pn60 = phi { ptr, i32 } [ %.pn58, %"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17hdadb698a59c6a322E.exit129" ], [ %.pn58, %65 ], [ %lpad.loopexit221, %.loopexit219 ], [ %lpad.loopexit.split-lp222, %.loopexit.split-lp220 ]
+  %.pn60 = phi { ptr, i32 } [ %.pn58, %65 ], [ %.pn58, %"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17hdadb698a59c6a322E.exit129" ], [ %lpad.loopexit221, %.loopexit219 ], [ %lpad.loopexit.split-lp222, %.loopexit.split-lp220 ]
   br i1 %29, label %"_ZN4core3ptr315drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$17h5e8f8cb769d829dfE.exit", label %46
 
 46:                                               ; preds = %.body
@@ -45120,8 +45120,8 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i: ; preds = %
   unreachable
 
 .body:                                            ; preds = %.loopexit958, %.loopexit.split-lp959, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..ArgList$GT$17h8f7f09511ca488b8E.exit535", %315
-  %.3 = phi i1 [ %.5, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..ArgList$GT$17h8f7f09511ca488b8E.exit535" ], [ %.5, %315 ], [ true, %.loopexit958 ], [ %.2.ph, %.loopexit.split-lp959 ]
-  %.pn227 = phi { ptr, i32 } [ %.pn225, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..ArgList$GT$17h8f7f09511ca488b8E.exit535" ], [ %.pn225, %315 ], [ %lpad.loopexit960, %.loopexit958 ], [ %lpad.loopexit.split-lp961, %.loopexit.split-lp959 ]
+  %.3 = phi i1 [ %.5, %315 ], [ %.5, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..ArgList$GT$17h8f7f09511ca488b8E.exit535" ], [ true, %.loopexit958 ], [ %.2.ph, %.loopexit.split-lp959 ]
+  %.pn227 = phi { ptr, i32 } [ %.pn225, %315 ], [ %.pn225, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..ArgList$GT$17h8f7f09511ca488b8E.exit535" ], [ %lpad.loopexit960, %.loopexit958 ], [ %lpad.loopexit.split-lp961, %.loopexit.split-lp959 ]
   br i1 %278, label %"_ZN4core3ptr315drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$17h5e8f8cb769d829dfE.exit", label %295
 
 295:                                              ; preds = %.body

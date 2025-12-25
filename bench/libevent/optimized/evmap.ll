@@ -1217,7 +1217,7 @@ event_changelist_get_or_construct.exit.thread.sink.split: ; preds = %47
   br label %event_changelist_get_or_construct.exit.thread
 
 event_changelist_get_or_construct.exit.thread:    ; preds = %event_changelist_get_or_construct.exit.thread.sink.split, %18, %47, %event_changelist_get_or_construct.exit
-  %.0 = phi i32 [ -1, %event_changelist_get_or_construct.exit ], [ -1, %18 ], [ 0, %47 ], [ 0, %event_changelist_get_or_construct.exit.thread.sink.split ]
+  %.0 = phi i32 [ -1, %event_changelist_get_or_construct.exit ], [ 0, %47 ], [ -1, %18 ], [ 0, %event_changelist_get_or_construct.exit.thread.sink.split ]
   ret i32 %.0
 }
 

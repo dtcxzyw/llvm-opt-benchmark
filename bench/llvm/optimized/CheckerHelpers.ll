@@ -489,8 +489,8 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread28
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread28: ; preds = %21, %36, %._crit_edge, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
-  %.2 = phi i1 [ true, %_ZNK5clang7VarDecl13isStaticLocalEv.exit ], [ %.not3.i.lcssa, %._crit_edge ], [ true, %36 ], [ true, %21 ]
+_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread28: ; preds = %36, %21, %._crit_edge, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
+  %.2 = phi i1 [ true, %_ZNK5clang7VarDecl13isStaticLocalEv.exit ], [ %.not3.i.lcssa, %._crit_edge ], [ true, %21 ], [ true, %36 ]
   ret i1 %.2
 }
 

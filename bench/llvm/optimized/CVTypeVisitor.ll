@@ -1254,7 +1254,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN12_GLOBAL__N_113
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit.i, %84, %_ZN4llvm5ErrorD2Ev.exit.us.i, %.critedge.i, %_ZNK4llvm14iterator_rangeINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEEE3endEv.exit.split.us.i
-  %92 = phi i1 [ false, %.critedge.i ], [ true, %_ZN4llvm5ErrorD2Ev.exit.us.i ], [ true, %_ZNK4llvm14iterator_rangeINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEEE3endEv.exit.split.us.i ], [ true, %84 ], [ true, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit.i ]
+  %92 = phi i1 [ false, %.critedge.i ], [ true, %_ZNK4llvm14iterator_rangeINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEEE3endEv.exit.split.us.i ], [ true, %_ZN4llvm5ErrorD2Ev.exit.us.i ], [ true, %84 ], [ true, %_ZNK4llvm20iterator_facade_baseINS_22VarStreamArrayIteratorINS_8codeview8CVRecordINS2_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEESt20forward_iterator_tagKS5_lPSA_RSA_EneERKS8_.exit.i ]
   br i1 %.not.i.i.i.i.i.i.i.i.i.i3.i, label %_ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit.i, label %93
 
 93:                                               ; preds = %.loopexit.i

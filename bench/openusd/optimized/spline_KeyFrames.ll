@@ -3239,7 +3239,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit175: ; preds = %392, %397
   br label %.critedge104.thread
 
 .critedge104.thread:                              ; preds = %.critedge104.thread.sink.split, %366, %292, %.critedge104, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit164, %.critedge
-  %422 = phi double [ 0x7FF0000000000000, %366 ], [ 0x7FF0000000000000, %292 ], [ %290, %.critedge ], [ 0x7FF0000000000000, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit164 ], [ 0x7FF0000000000000, %.critedge104 ], [ %30, %.critedge104.thread.sink.split ]
+  %422 = phi double [ 0x7FF0000000000000, %366 ], [ 0x7FF0000000000000, %292 ], [ 0x7FF0000000000000, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit164 ], [ %290, %.critedge ], [ 0x7FF0000000000000, %.critedge104 ], [ %30, %.critedge104.thread.sink.split ]
   %423 = call ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap11lower_boundEd(ptr noundef nonnull align 8 dereferenceable(24) %.0.i, double noundef %30)
   %424 = load ptr, ptr %86, align 8
   %.not.i182 = icmp eq ptr %423, %424

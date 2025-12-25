@@ -3155,9 +3155,9 @@ list_length.exit191:                              ; preds = %120, %123
   br label %137
 
 133:                                              ; preds = %list_length.exit191, %list_length.exit189
-  %.0167 = phi i32 [ 0, %list_length.exit191 ], [ %117, %list_length.exit189 ]
-  %.0166 = phi i32 [ %126, %list_length.exit191 ], [ %117, %list_length.exit189 ]
-  %.0165 = phi ptr [ %122, %list_length.exit191 ], [ %112, %list_length.exit189 ]
+  %.0167 = phi i32 [ %117, %list_length.exit189 ], [ 0, %list_length.exit191 ]
+  %.0166 = phi i32 [ %117, %list_length.exit189 ], [ %126, %list_length.exit191 ]
+  %.0165 = phi ptr [ %112, %list_length.exit189 ], [ %122, %list_length.exit191 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 %.0166, ptr %134, align 4
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 192

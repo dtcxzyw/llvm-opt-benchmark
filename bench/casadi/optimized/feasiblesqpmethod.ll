@@ -21727,7 +21727,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit719: ; preds = %.lr.ph.i714, %_ZN6c
   br label %153
 
 _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit719.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit377, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit367, %343, %594, %.invoke, %1177, %1004, %838, %828, %484, %546, %295
-  %.1 = phi i32 [ 1, %295 ], [ 0, %1177 ], [ 0, %1004 ], [ 0, %838 ], [ 0, %828 ], [ 1, %546 ], [ 0, %484 ], [ 1, %.invoke ], [ 1, %594 ], [ 1, %343 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit367 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit377 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462 ]
+  %.1 = phi i32 [ 1, %295 ], [ 1, %.invoke ], [ 0, %484 ], [ 0, %828 ], [ 0, %838 ], [ 1, %546 ], [ 0, %1004 ], [ 0, %1177 ], [ 1, %594 ], [ 1, %343 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit367 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit377 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit452 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462 ]
   %1235 = load ptr, ptr %5, align 8, !tbaa !11
   %1236 = icmp eq ptr %1235, %51
   br i1 %1236, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit722, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i720

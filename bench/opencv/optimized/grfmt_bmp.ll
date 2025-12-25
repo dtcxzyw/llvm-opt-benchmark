@@ -878,7 +878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %12
 213:                                              ; preds = %211
   resume { ptr, i32 } %212
 
-.thread122:                                       ; preds = %163, %167, %159, %152, %208
+.thread122:                                       ; preds = %159, %167, %163, %152, %208
   %.2125 = phi i1 [ true, %208 ], [ true, %167 ], [ true, %152 ], [ true, %163 ], [ %or.cond13, %159 ]
   %214 = load i32, ptr %58, align 4, !tbaa !60
   %215 = icmp eq i32 %214, 32

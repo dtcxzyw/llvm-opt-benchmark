@@ -446,10 +446,10 @@ default.unreachable416:                           ; preds = %2
   br label %151
 
 .thread354:                                       ; preds = %69, %52, %109, %115, %121, %127, %133, %139, %145, %.thread343
-  %.sroa.24.sroa.0.1352 = phi ptr [ %12, %.thread343 ], [ %148, %145 ], [ %142, %139 ], [ %89, %133 ], [ %80, %127 ], [ %45, %52 ], [ %21, %109 ], [ %38, %121 ], [ %30, %115 ], [ %62, %69 ]
-  %.sroa.24.sroa.13.1351 = phi ptr [ %16, %.thread343 ], [ %149, %145 ], [ %143, %139 ], [ %93, %133 ], [ %84, %127 ], [ %54, %52 ], [ %25, %109 ], [ %123, %121 ], [ %117, %115 ], [ %71, %69 ]
-  %.sroa.24.sroa.14.1350 = phi i64 [ %11, %.thread343 ], [ %150, %145 ], [ %144, %139 ], [ %88, %133 ], [ %79, %127 ], [ %50, %52 ], [ %20, %109 ], [ %37, %121 ], [ %29, %115 ], [ %67, %69 ]
-  %.sroa.24.sroa.15.1349 = phi i64 [ undef, %.thread343 ], [ %147, %145 ], [ %141, %139 ], [ undef, %133 ], [ undef, %127 ], [ undef, %52 ], [ undef, %109 ], [ %.sroa.8256.24.insert.ext, %121 ], [ %.sroa.8247.24.insert.ext, %115 ], [ undef, %69 ]
+  %.sroa.24.sroa.0.1352 = phi ptr [ %12, %.thread343 ], [ %30, %115 ], [ %38, %121 ], [ %21, %109 ], [ %45, %52 ], [ %80, %127 ], [ %89, %133 ], [ %142, %139 ], [ %148, %145 ], [ %62, %69 ]
+  %.sroa.24.sroa.13.1351 = phi ptr [ %16, %.thread343 ], [ %117, %115 ], [ %123, %121 ], [ %25, %109 ], [ %54, %52 ], [ %84, %127 ], [ %93, %133 ], [ %143, %139 ], [ %149, %145 ], [ %71, %69 ]
+  %.sroa.24.sroa.14.1350 = phi i64 [ %11, %.thread343 ], [ %29, %115 ], [ %37, %121 ], [ %20, %109 ], [ %50, %52 ], [ %79, %127 ], [ %88, %133 ], [ %144, %139 ], [ %150, %145 ], [ %67, %69 ]
+  %.sroa.24.sroa.15.1349 = phi i64 [ undef, %.thread343 ], [ %.sroa.8247.24.insert.ext, %115 ], [ %.sroa.8256.24.insert.ext, %121 ], [ undef, %109 ], [ undef, %52 ], [ undef, %127 ], [ undef, %133 ], [ %141, %139 ], [ %147, %145 ], [ undef, %69 ]
   store i64 %7, ptr %0, align 8
   %.sroa.0126.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.24.sroa.0.1352, ptr %.sroa.0126.sroa.4.0..sroa_idx, align 8
@@ -889,11 +889,11 @@ default.unreachable313:                           ; preds = %2
   br label %107
 
 "_ZN123_$LT$object..read..coff..section..CoffSectionIterator$LT$R$C$Coff$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8aa2103cea9aae7cE.exit.thread": ; preds = %57, %63, %69, %75, %79, %83, %89, %95, %101, %.thread285
-  %.sroa.24.sroa.15.sroa.13.1296 = phi ptr [ undef, %.thread285 ], [ undef, %101 ], [ undef, %95 ], [ undef, %89 ], [ undef, %83 ], [ %81, %79 ], [ %77, %75 ], [ undef, %69 ], [ undef, %63 ], [ undef, %57 ]
-  %.sroa.24.sroa.15.sroa.0.1295 = phi i64 [ undef, %.thread285 ], [ undef, %101 ], [ undef, %95 ], [ undef, %89 ], [ undef, %83 ], [ %.sroa.662.sroa.6.0.copyload, %79 ], [ %.sroa.657.sroa.6.0.copyload, %75 ], [ undef, %69 ], [ undef, %63 ], [ undef, %57 ]
-  %.sroa.24.sroa.14.1294 = phi i64 [ %55, %.thread285 ], [ %105, %101 ], [ %99, %95 ], [ %93, %89 ], [ %87, %83 ], [ %.sroa.662.sroa.5.0.copyload, %79 ], [ %.sroa.657.sroa.5.0.copyload, %75 ], [ %72, %69 ], [ %66, %63 ], [ %61, %57 ]
-  %.sroa.24.sroa.13.1293 = phi ptr [ %6, %.thread285 ], [ %50, %101 ], [ %46, %95 ], [ %42, %89 ], [ %38, %83 ], [ %.sroa.662.sroa.4.0.copyload, %79 ], [ %.sroa.657.sroa.4.0.copyload, %75 ], [ %18, %69 ], [ %14, %63 ], [ %10, %57 ]
-  %.sroa.24.sroa.0.1292 = phi ptr [ %56, %.thread285 ], [ %106, %101 ], [ %100, %95 ], [ %94, %89 ], [ %88, %83 ], [ %82, %79 ], [ %78, %75 ], [ %74, %69 ], [ %68, %63 ], [ %62, %57 ]
+  %.sroa.24.sroa.15.sroa.13.1296 = phi ptr [ undef, %.thread285 ], [ undef, %63 ], [ undef, %69 ], [ %77, %75 ], [ undef, %95 ], [ %81, %79 ], [ undef, %101 ], [ undef, %83 ], [ undef, %89 ], [ undef, %57 ]
+  %.sroa.24.sroa.15.sroa.0.1295 = phi i64 [ undef, %.thread285 ], [ undef, %63 ], [ undef, %69 ], [ %.sroa.657.sroa.6.0.copyload, %75 ], [ undef, %95 ], [ %.sroa.662.sroa.6.0.copyload, %79 ], [ undef, %101 ], [ undef, %83 ], [ undef, %89 ], [ undef, %57 ]
+  %.sroa.24.sroa.14.1294 = phi i64 [ %55, %.thread285 ], [ %66, %63 ], [ %72, %69 ], [ %.sroa.657.sroa.5.0.copyload, %75 ], [ %99, %95 ], [ %.sroa.662.sroa.5.0.copyload, %79 ], [ %105, %101 ], [ %87, %83 ], [ %93, %89 ], [ %61, %57 ]
+  %.sroa.24.sroa.13.1293 = phi ptr [ %6, %.thread285 ], [ %14, %63 ], [ %18, %69 ], [ %.sroa.657.sroa.4.0.copyload, %75 ], [ %46, %95 ], [ %.sroa.662.sroa.4.0.copyload, %79 ], [ %50, %101 ], [ %38, %83 ], [ %42, %89 ], [ %10, %57 ]
+  %.sroa.24.sroa.0.1292 = phi ptr [ %56, %.thread285 ], [ %68, %63 ], [ %74, %69 ], [ %78, %75 ], [ %100, %95 ], [ %82, %79 ], [ %106, %101 ], [ %88, %83 ], [ %94, %89 ], [ %62, %57 ]
   store i64 %3, ptr %0, align 8
   %.sroa.021.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.24.sroa.0.1292, ptr %.sroa.021.sroa.4.0..sroa_idx, align 8
@@ -9559,7 +9559,7 @@ _ZN10wasmparser13binary_reader12BinaryReader14visit_operator17h25f1fb0a084d55acE
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %919
 
-_ZN10wasmparser13binary_reader12BinaryReader14visit_operator17h25f1fb0a084d55acE.exit.thread36: ; preds = %716, %712, %704, %699, %436, %433, %430, %425, %420, %370, %366, %362, %358, %354, %350, %346, %774, %327, %338, %323, %319, %760, %751, %303, %307, %293, %289, %281, %277, %273, %270, %265, %262, %259, %311, %315, %905, %889, %885, %881, %877, %873, %869, %865, %861, %857, %853, %849, %845, %841, %837, %833, %829, %825, %821, %817, %813, %809, %805, %801, %784, %777, %748, %250
+_ZN10wasmparser13binary_reader12BinaryReader14visit_operator17h25f1fb0a084d55acE.exit.thread36: ; preds = %311, %259, %262, %265, %270, %273, %277, %281, %289, %293, %307, %303, %751, %760, %319, %323, %338, %327, %774, %346, %350, %354, %358, %362, %366, %370, %420, %425, %430, %433, %436, %699, %704, %712, %716, %315, %250, %748, %777, %784, %801, %805, %809, %813, %817, %821, %825, %829, %833, %837, %841, %845, %849, %853, %857, %861, %865, %869, %873, %877, %881, %885, %889, %905
   %.sroa.71.1.i.ph35 = phi ptr [ %.sroa.0443.0.copyload.i, %825 ], [ %.sroa.0440.0.copyload.i, %821 ], [ %.sroa.0437.0.copyload.i, %817 ], [ %.sroa.0434.0.copyload.i, %813 ], [ %.sroa.0431.0.copyload.i, %809 ], [ %.sroa.0428.0.copyload.i, %805 ], [ %906, %905 ], [ %.sroa.0425.0.copyload.i, %801 ], [ %256, %250 ], [ %779, %777 ], [ %300, %748 ], [ %345, %784 ], [ %.sroa.0491.0.copyload.i, %889 ], [ %.sroa.0488.0.copyload.i, %885 ], [ %.sroa.0485.0.copyload.i, %881 ], [ %.sroa.0482.0.copyload.i, %877 ], [ %.sroa.0479.0.copyload.i, %873 ], [ %.sroa.0476.0.copyload.i, %869 ], [ %.sroa.0473.0.copyload.i, %865 ], [ %.sroa.0470.0.copyload.i, %861 ], [ %.sroa.0467.0.copyload.i, %857 ], [ %.sroa.0464.0.copyload.i, %853 ], [ %.sroa.0461.0.copyload.i, %849 ], [ %.sroa.0458.0.copyload.i, %845 ], [ %.sroa.0455.0.copyload.i, %841 ], [ %.sroa.0452.0.copyload.i, %837 ], [ %.sroa.0449.0.copyload.i, %833 ], [ %.sroa.0446.0.copyload.i, %829 ], [ %314, %311 ], [ %261, %259 ], [ %264, %262 ], [ %267, %265 ], [ %272, %270 ], [ %276, %273 ], [ %280, %277 ], [ %284, %281 ], [ %292, %289 ], [ %296, %293 ], [ %310, %307 ], [ %306, %303 ], [ %755, %751 ], [ %763, %760 ], [ %322, %319 ], [ %326, %323 ], [ %341, %338 ], [ %330, %327 ], [ %776, %774 ], [ %349, %346 ], [ %353, %350 ], [ %357, %354 ], [ %361, %358 ], [ %365, %362 ], [ %369, %366 ], [ %373, %370 ], [ %424, %420 ], [ %429, %425 ], [ %432, %430 ], [ %435, %433 ], [ %439, %436 ], [ %701, %699 ], [ %707, %704 ], [ %715, %712 ], [ %719, %716 ], [ %318, %315 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %93), !noalias !422
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -32682,11 +32682,11 @@ default.unreachable305:                           ; preds = %4
   store i64 10, ptr %0, align 8
   br label %174
 
-"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread.thread248": ; preds = %155, %156, %159, %166, %169, %172, %173, %.thread234, %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread"
-  %.sroa.0.1242 = phi i64 [ 0, %.thread234 ], [ %.sroa.0.1, %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread" ], [ 1, %155 ], [ 2, %156 ], [ 3, %159 ], [ 6, %166 ], [ 7, %169 ], [ 8, %172 ], [ 9, %173 ]
-  %.sroa.24.sroa.14.1241 = phi i64 [ %39, %.thread234 ], [ %.sroa.24.sroa.14.1, %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread" ], [ %58, %155 ], [ %158, %156 ], [ %161, %159 ], [ %168, %166 ], [ %171, %169 ], [ %115, %172 ], [ %143, %173 ]
-  %.sroa.24.sroa.13.1240 = phi ptr [ %35, %.thread234 ], [ %.sroa.24.sroa.13.1, %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread" ], [ %54, %155 ], [ %68, %156 ], [ %76, %159 ], [ %90, %166 ], [ %96, %169 ], [ %111, %172 ], [ %139, %173 ]
-  %.sroa.24.sroa.0.1239 = phi ptr [ %40, %.thread234 ], [ %.sroa.24.sroa.0.1, %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread" ], [ %59, %155 ], [ %157, %156 ], [ %160, %159 ], [ %167, %166 ], [ %170, %169 ], [ %116, %172 ], [ %144, %173 ]
+"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread.thread248": ; preds = %155, %173, %172, %169, %166, %159, %156, %.thread234, %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread"
+  %.sroa.0.1242 = phi i64 [ 0, %.thread234 ], [ %.sroa.0.1, %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread" ], [ 1, %155 ], [ 9, %173 ], [ 8, %172 ], [ 7, %169 ], [ 6, %166 ], [ 3, %159 ], [ 2, %156 ]
+  %.sroa.24.sroa.14.1241 = phi i64 [ %39, %.thread234 ], [ %.sroa.24.sroa.14.1, %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread" ], [ %58, %155 ], [ %143, %173 ], [ %115, %172 ], [ %171, %169 ], [ %168, %166 ], [ %161, %159 ], [ %158, %156 ]
+  %.sroa.24.sroa.13.1240 = phi ptr [ %35, %.thread234 ], [ %.sroa.24.sroa.13.1, %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread" ], [ %54, %155 ], [ %139, %173 ], [ %111, %172 ], [ %96, %169 ], [ %90, %166 ], [ %76, %159 ], [ %68, %156 ]
+  %.sroa.24.sroa.0.1239 = phi ptr [ %40, %.thread234 ], [ %.sroa.24.sroa.0.1, %"_ZN96_$LT$object..read..elf..file..ElfFile$LT$Elf$C$R$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes17hac4fd02b9ec30d49E.exit.thread" ], [ %59, %155 ], [ %144, %173 ], [ %116, %172 ], [ %170, %169 ], [ %167, %166 ], [ %160, %159 ], [ %157, %156 ]
   store i64 %.sroa.0.1242, ptr %0, align 8
   %.sroa.021.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.24.sroa.0.1239, ptr %.sroa.021.sroa.4.0..sroa_idx, align 8
@@ -34556,7 +34556,7 @@ default.unreachable21:                            ; preds = %2
   br label %"_ZN112_$LT$object..read..coff..section..CoffSection$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$10file_range17h780d316e8ed6852eE.exit"
 
 "_ZN112_$LT$object..read..coff..section..CoffSection$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$10file_range17h780d316e8ed6852eE.exit": ; preds = %"_ZN112_$LT$object..read..coff..section..CoffSection$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$10file_range17h780d316e8ed6852eE.exit.sink.split", %90, %90, %90, %70, %70, %70, %51, %30, %17, %4, %115, %109
-  %.sink = phi i64 [ 0, %109 ], [ 0, %90 ], [ 0, %115 ], [ 0, %90 ], [ 0, %90 ], [ 0, %70 ], [ 0, %70 ], [ 0, %51 ], [ 0, %30 ], [ 0, %17 ], [ 0, %4 ], [ 0, %70 ], [ 1, %"_ZN112_$LT$object..read..coff..section..CoffSection$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$10file_range17h780d316e8ed6852eE.exit.sink.split" ]
+  %.sink = phi i64 [ 0, %109 ], [ 0, %70 ], [ 0, %115 ], [ 0, %90 ], [ 0, %90 ], [ 0, %90 ], [ 0, %70 ], [ 0, %51 ], [ 0, %30 ], [ 0, %17 ], [ 0, %4 ], [ 0, %70 ], [ 1, %"_ZN112_$LT$object..read..coff..section..CoffSection$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$10file_range17h780d316e8ed6852eE.exit.sink.split" ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

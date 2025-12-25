@@ -925,7 +925,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i: ; preds
   br i1 %.not16.i12, label %.lr.ph, label %.thread.i
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %.backedge.i
-  %73 = phi i1 [ %123, %.backedge.i ], [ %70, %.lr.ph.i ]
+  %73 = phi i1 [ %115, %.backedge.i ], [ %70, %.lr.ph.i ]
   %.01520.i13 = phi ptr [ %76, %.backedge.i ], [ %4, %.lr.ph.i ]
   %74 = load ptr, ptr %9, align 8
   %spec.select.i.i.i = select i1 %73, ptr %9, ptr %74
@@ -955,8 +955,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i: ; preds
     i16 244, label %94
     i16 1, label %98
     i16 133, label %105
-    i16 130, label %113
-    i16 131, label %117
+    i16 130, label %118
+    i16 131, label %122
   ]
 
 82:                                               ; preds = %81
@@ -1012,36 +1012,36 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %112, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
 
-113:                                              ; preds = %81
-  %114 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %115 = load ptr, ptr %114, align 8, !tbaa !379
-  %116 = icmp eq ptr %.01520.i13, %115
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %116, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
-
-117:                                              ; preds = %81
-  %118 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %119 = load ptr, ptr %118, align 8, !tbaa !379
-  %120 = icmp eq ptr %.01520.i13, %119
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %120, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
-
-.backedge.i:                                      ; preds = %126, %117, %113, %105, %98, %94, %90, %82
+.backedge.i:                                      ; preds = %126, %122, %118, %105, %98, %94, %90, %82
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !364
   call void @llvm.experimental.noalias.scope.decl(metadata !381)
   call void @llvm.experimental.noalias.scope.decl(metadata !383)
-  %121 = call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %76) #17, !noalias !385
-  store i32 %121, ptr %8, align 8, !tbaa !374, !alias.scope !386, !noalias !364
+  %113 = call i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %76) #17, !noalias !385
+  store i32 %113, ptr %8, align 8, !tbaa !374, !alias.scope !386, !noalias !364
   store ptr %76, ptr %65, align 8, !tbaa !169, !alias.scope !386, !noalias !364
   call void @_ZN5clang16ParentMapContext10getParentsERKNS_12DynTypedNodeE(ptr dead_on_unwind nonnull writable sret(%"class.clang::DynTypedNodeList") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(40) %8) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !364
-  %122 = load i8, ptr %66, align 8, !tbaa !377, !range !229, !noundef !230
-  %123 = trunc nuw i8 %122 to i1
-  %124 = load i64, ptr %67, align 8
-  %125 = icmp ne i64 %124, 0
-  %.not16.i = select i1 %123, i1 true, i1 %125
+  %114 = load i8, ptr %66, align 8, !tbaa !377, !range !229, !noundef !230
+  %115 = trunc nuw i8 %114 to i1
+  %116 = load i64, ptr %67, align 8
+  %117 = icmp ne i64 %116, 0
+  %.not16.i = select i1 %115, i1 true, i1 %117
   br i1 %.not16.i, label %.lr.ph, label %.thread.i
+
+118:                                              ; preds = %81
+  %119 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %120 = load ptr, ptr %119, align 8, !tbaa !379
+  %121 = icmp eq ptr %.01520.i13, %120
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br i1 %121, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
+
+122:                                              ; preds = %81
+  %123 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %124 = load ptr, ptr %123, align 8, !tbaa !379
+  %125 = icmp eq ptr %.01520.i13, %124
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br i1 %125, label %_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread, label %.backedge.i
 
 .thread.i:                                        ; preds = %.backedge.i, %.lr.ph, %77, %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1051,7 +1051,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.backedge.i
 
-_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread: ; preds = %117, %98, %94, %90, %82, %113, %105, %53
+_ZL13isInConditionPKN5clang4StmtERNS_4ento14CheckerContextE.exit.thread: ; preds = %105, %98, %94, %90, %82, %118, %122, %53
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %127 = load ptr, ptr %27, align 8, !tbaa !210
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 48

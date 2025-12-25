@@ -1405,8 +1405,8 @@ dissect_rsocket_frame.exit.thread117:             ; preds = %106
   %166 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %165, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0)
   br label %dissect_rsocket_frame.exit.thread105
 
-dissect_rsocket_frame.exit.thread105:             ; preds = %155, %164, %151, %115, %148, %122, %139, %127, %132
-  %.0152.i.ph = phi i32 [ 6, %132 ], [ 2, %127 ], [ 6, %139 ], [ 2, %122 ], [ 6, %148 ], [ 10, %115 ], [ 6, %164 ], [ 2, %151 ], [ 2, %155 ]
+dissect_rsocket_frame.exit.thread105:             ; preds = %132, %164, %155, %115, %139, %122, %151, %127, %148
+  %.0152.i.ph = phi i32 [ 6, %148 ], [ 2, %127 ], [ 6, %164 ], [ 2, %122 ], [ 6, %139 ], [ 10, %115 ], [ 2, %155 ], [ 2, %151 ], [ 6, %132 ]
   %167 = add nuw nsw i32 %.0152.i.ph, 7
   br label %173
 

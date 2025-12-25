@@ -18498,8 +18498,8 @@ _ZN9rmp_serde6decode13read_str_data17he6e8bfe18d5564fcE.exit: ; preds = %182, %1
   br i1 %.not.i.i, label %._crit_edge766.loopexit, label %.lr.ph765
 
 273:                                              ; preds = %271, %267
-  %.sroa.0522.0 = phi i8 [ %265, %267 ], [ %269, %271 ]
-  %.sroa.10525.0 = phi i8 [ %.sroa.5550.0.copyload, %267 ], [ %.sroa.4547.0.copyload, %271 ]
+  %.sroa.0522.0 = phi i8 [ %269, %271 ], [ %265, %267 ]
+  %.sroa.10525.0 = phi i8 [ %.sroa.4547.0.copyload, %271 ], [ %.sroa.5550.0.copyload, %267 ]
   store i8 %.sroa.0522.0, ptr %0, align 8
   %.sroa.2286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.10525.0, ptr %.sroa.2286.0..sroa_idx, align 1

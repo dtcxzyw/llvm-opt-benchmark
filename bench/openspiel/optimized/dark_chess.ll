@@ -12760,14 +12760,14 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   store ptr %3, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %4, ptr %42, align 8
-  switch i8 %.sroa.1.0.extract.trunc.i.i.i.i, label %116 [
+  switch i8 %.sroa.1.0.extract.trunc.i.i.i.i, label %120 [
     i8 0, label %43
     i8 1, label %50
     i8 2, label %65
-    i8 3, label %92
-    i8 4, label %99
+    i8 3, label %90
+    i8 4, label %103
     i8 5, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i
-    i8 6, label %114
+    i8 6, label %118
   ]
 
 43:                                               ; preds = %40
@@ -12785,13 +12785,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
 46:                                               ; preds = %43
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %123
+  br label %127
 
 48:                                               ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #29
-  br label %123
+  br label %127
 
 50:                                               ; preds = %40
   switch i8 %32, label %58 [
@@ -12869,21 +12869,21 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
 61:                                               ; preds = %58
   %62 = landingpad { ptr, i32 }
           cleanup
-  br label %123
+  br label %127
 
 63:                                               ; preds = %59
   %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #29
-  br label %123
+  br label %127
 
 65:                                               ; preds = %40
-  switch i8 %32, label %85 [
+  switch i8 %32, label %83 [
     i8 1, label %66
     i8 3, label %78
     i8 4, label %81
     i8 5, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i
-    i8 6, label %83
+    i8 6, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.i.i.i
   ]
 
 66:                                               ; preds = %65
@@ -12951,79 +12951,48 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   br i1 %spec.select45.i.i.i.i, label %129, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 83:                                               ; preds = %65
-  %84 = call fastcc noundef zeroext i1 @"_ZZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_ENK3$_2clEv"(ptr noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %84, label %129, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
-
-85:                                               ; preds = %65
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #29
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.78, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %86 unwind label %88
+          to label %84 unwind label %86
 
-86:                                               ; preds = %85
+84:                                               ; preds = %83
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11) #30
-          to label %87 unwind label %90
+          to label %85 unwind label %88
 
-87:                                               ; preds = %86
+85:                                               ; preds = %84
   unreachable
 
-88:                                               ; preds = %85
+86:                                               ; preds = %83
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  br label %127
+
+88:                                               ; preds = %84
   %89 = landingpad { ptr, i32 }
           cleanup
-  br label %123
-
-90:                                               ; preds = %86
-  %91 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #29
-  br label %123
+  br label %127
 
-92:                                               ; preds = %40
+90:                                               ; preds = %40
   switch i8 %32, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i [
-    i8 1, label %93
+    i8 1, label %91
     i8 2, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread47.i.i.i
   ]
 
-93:                                               ; preds = %92
-  %94 = sext i8 %34 to i32
-  %95 = sext i8 %35 to i32
-  %96 = sub nsw i32 %94, %95
-  %97 = call i32 @llvm.abs.i32(i32 %96, i1 true)
-  %98 = icmp samesign ult i32 %97, 2
-  br i1 %98, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.i.i.i, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i
+91:                                               ; preds = %90
+  %92 = sext i8 %34 to i32
+  %93 = sext i8 %35 to i32
+  %94 = sub nsw i32 %92, %93
+  %95 = call i32 @llvm.abs.i32(i32 %94, i1 true)
+  %96 = icmp samesign ult i32 %95, 2
+  br i1 %96, label %97, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i
 
-99:                                               ; preds = %40
-  switch i8 %32, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i [
-    i8 1, label %100
-    i8 2, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread47.i.i.i
-    i8 6, label %112
-  ]
-
-100:                                              ; preds = %99
-  %101 = sext i8 %34 to i32
-  %102 = sext i8 %35 to i32
-  %103 = sub nsw i32 %101, %102
-  %104 = call i32 @llvm.abs.i32(i32 %103, i1 true)
-  %105 = icmp samesign ult i32 %104, 2
-  br i1 %105, label %106, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i
-
-106:                                              ; preds = %100
-  %107 = sext i8 %36 to i32
-  %108 = sext i8 %37 to i32
-  %109 = sub nsw i32 %107, %108
-  %110 = call i32 @llvm.abs.i32(i32 %109, i1 true)
-  %111 = icmp samesign ult i32 %110, 2
+97:                                               ; preds = %91
+  %98 = sext i8 %36 to i32
+  %99 = sext i8 %37 to i32
+  %100 = sub nsw i32 %98, %99
+  %101 = call i32 @llvm.abs.i32(i32 %100, i1 true)
+  %102 = icmp samesign ult i32 %101, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13036,10 +13005,29 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %111, label %129, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
+  br i1 %102, label %129, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-112:                                              ; preds = %99
-  %113 = call fastcc noundef zeroext i1 @"_ZZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_ENK3$_2clEv"(ptr noundef nonnull align 8 dereferenceable(24) %6)
+103:                                              ; preds = %40
+  switch i8 %32, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i [
+    i8 1, label %104
+    i8 2, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread47.i.i.i
+    i8 6, label %116
+  ]
+
+104:                                              ; preds = %103
+  %105 = sext i8 %34 to i32
+  %106 = sext i8 %35 to i32
+  %107 = sub nsw i32 %105, %106
+  %108 = call i32 @llvm.abs.i32(i32 %107, i1 true)
+  %109 = icmp samesign ult i32 %108, 2
+  br i1 %109, label %110, label %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i
+
+110:                                              ; preds = %104
+  %111 = sext i8 %36 to i32
+  %112 = sext i8 %37 to i32
+  %113 = sub nsw i32 %111, %112
+  %114 = call i32 @llvm.abs.i32(i32 %113, i1 true)
+  %115 = icmp samesign ult i32 %114, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13052,12 +13040,28 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %113, label %129, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
+  br i1 %115, label %129, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-114:                                              ; preds = %40
+116:                                              ; preds = %103
+  %117 = call fastcc noundef zeroext i1 @"_ZZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_ENK3$_2clEv"(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  br i1 %117, label %129, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
+
+118:                                              ; preds = %40
   %or.cond.i.i.i.i = icmp ult i16 %.sroa.0.0.copyload.i.i.i, 768
-  %115 = icmp eq i16 %31, 4
-  %spec.select.i.i.i.i = or i1 %or.cond.i.i.i.i, %115
+  %119 = icmp eq i16 %31, 4
+  %spec.select.i.i.i.i = or i1 %or.cond.i.i.i.i, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13072,36 +13076,36 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %spec.select.i.i.i.i, label %129, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-116:                                              ; preds = %40
+120:                                              ; preds = %40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #29
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.79, ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %117 unwind label %119
+          to label %121 unwind label %123
 
-117:                                              ; preds = %116
+121:                                              ; preds = %120
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %13) #30
-          to label %118 unwind label %121
+          to label %122 unwind label %125
 
-118:                                              ; preds = %117
+122:                                              ; preds = %121
   unreachable
 
-119:                                              ; preds = %116
-  %120 = landingpad { ptr, i32 }
+123:                                              ; preds = %120
+  %124 = landingpad { ptr, i32 }
           cleanup
-  br label %123
+  br label %127
 
-121:                                              ; preds = %117
-  %122 = landingpad { ptr, i32 }
+125:                                              ; preds = %121
+  %126 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #29
-  br label %123
+  br label %127
 
-123:                                              ; preds = %121, %119, %90, %88, %63, %61, %48, %46
-  %.sink.i.i.i.i = phi ptr [ %12, %88 ], [ %10, %61 ], [ %8, %46 ], [ %8, %48 ], [ %10, %63 ], [ %12, %90 ], [ %14, %121 ], [ %14, %119 ]
-  %.pn18.pn.i.i.i.i = phi { ptr, i32 } [ %89, %88 ], [ %62, %61 ], [ %47, %46 ], [ %49, %48 ], [ %64, %63 ], [ %91, %90 ], [ %122, %121 ], [ %120, %119 ]
+127:                                              ; preds = %125, %123, %88, %86, %63, %61, %48, %46
+  %.sink.i.i.i.i = phi ptr [ %12, %86 ], [ %10, %61 ], [ %8, %46 ], [ %8, %48 ], [ %10, %63 ], [ %12, %88 ], [ %14, %125 ], [ %14, %123 ]
+  %.pn18.pn.i.i.i.i = phi { ptr, i32 } [ %87, %86 ], [ %62, %61 ], [ %47, %46 ], [ %49, %48 ], [ %64, %63 ], [ %89, %88 ], [ %126, %125 ], [ %124, %123 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i.i.i.i) #29
   resume { ptr, i32 } %.pn18.pn.i.i.i.i
 
-_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i: ; preds = %100, %99, %93, %92, %66, %65, %50, %40, %38
+_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i: ; preds = %104, %103, %91, %90, %66, %65, %50, %40, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13116,7 +13120,7 @@ _ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6Squar
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread47.i.i.i: ; preds = %99, %92, %50, %2
+_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread47.i.i.i: ; preds = %103, %90, %50, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13131,12 +13135,8 @@ _ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6Squar
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %129
 
-_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.i.i.i: ; preds = %93
-  %124 = sext i8 %36 to i32
-  %125 = sext i8 %37 to i32
-  %126 = sub nsw i32 %124, %125
-  %127 = call i32 @llvm.abs.i32(i32 %126, i1 true)
-  %128 = icmp samesign ult i32 %127, 2
+_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.i.i.i: ; preds = %65
+  %128 = call fastcc noundef zeroext i1 @"_ZZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_ENK3$_2clEv"(ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -13151,7 +13151,7 @@ _ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6Squar
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %128, label %129, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
-129:                                              ; preds = %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.i.i.i, %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread47.i.i.i, %114, %112, %106, %83, %81, %78, %72, %56, %54, %51
+129:                                              ; preds = %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.i.i.i, %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread47.i.i.i, %118, %116, %110, %97, %81, %78, %72, %56, %54, %51
   %130 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = load i32, ptr %131, align 4
@@ -13228,7 +13228,7 @@ _ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6Squar
   %.not3.i.i.i.i = select i1 %182, i1 true, i1 %184
   br i1 %.not3.i.i.i.i, label %.lr.ph.i.i.i, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", !llvm.loop !87
 
-"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %.lr.ph.i.i.i, %51, %54, %56, %72, %78, %81, %83, %106, %112, %114, %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i, %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.i.i.i, %129, %153
+"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_122ComputePublicInfoTableERKNS0_5chess10ChessBoardEE3$_0JRKNS3_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit": ; preds = %.lr.ph.i.i.i, %51, %54, %56, %72, %78, %81, %97, %110, %116, %118, %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.thread.i.i.i, %_ZN10open_spiel10dark_chess12_GLOBAL__N_113IsUnderAttackENS_12chess_common6SquareENS_5chess5PieceES3_S5_.exit.i.i.i, %129, %153
   ret i1 true
 }
 

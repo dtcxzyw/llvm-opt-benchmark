@@ -1616,7 +1616,7 @@ get_control_selector_values.exit.thread10.fold.split.i: ; preds = %37
   br label %get_control_selector_values.exit.thread10.i
 
 get_control_selector_values.exit.thread10.i:      ; preds = %get_control_selector_values.exit.thread10.fold.split.i, %48, %44, %41, %37
-  %.013.i13.i = phi ptr [ @cs_camera_terminal_ext, %44 ], [ @cs_selector_unit_ext, %48 ], [ @cs_control_interface_ext, %37 ], [ @cs_processing_unit_ext, %41 ], [ @cs_streaming_interface_ext, %get_control_selector_values.exit.thread10.fold.split.i ]
+  %.013.i13.i = phi ptr [ @cs_camera_terminal_ext, %44 ], [ @cs_selector_unit_ext, %48 ], [ @cs_processing_unit_ext, %41 ], [ @cs_control_interface_ext, %37 ], [ @cs_streaming_interface_ext, %get_control_selector_values.exit.thread10.fold.split.i ]
   %49 = zext i8 %21 to i32
   %50 = tail call ptr @try_val_to_str_ext(i32 noundef %49, ptr noundef nonnull %.013.i13.i)
   br label %get_control_selector_name.exit
@@ -1771,7 +1771,7 @@ get_control_selector_values.exit.thread10.fold.split.i: ; preds = %32
   br label %get_control_selector_name.exit
 
 get_control_selector_name.exit:                   ; preds = %32, %36, %39, %43, %get_control_selector_values.exit.thread10.fold.split.i
-  %.013.i13.i = phi ptr [ @cs_camera_terminal_ext, %39 ], [ @cs_selector_unit_ext, %43 ], [ @cs_control_interface_ext, %32 ], [ @cs_processing_unit_ext, %36 ], [ @cs_streaming_interface_ext, %get_control_selector_values.exit.thread10.fold.split.i ]
+  %.013.i13.i = phi ptr [ @cs_camera_terminal_ext, %39 ], [ @cs_selector_unit_ext, %43 ], [ @cs_processing_unit_ext, %36 ], [ @cs_control_interface_ext, %32 ], [ @cs_streaming_interface_ext, %get_control_selector_values.exit.thread10.fold.split.i ]
   %44 = tail call ptr @try_val_to_str_ext(i32 noundef %14, ptr noundef nonnull %.013.i13.i)
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %get_control_selector_name.exit.thread, label %45

@@ -5970,8 +5970,8 @@ _ZL13LZ4_wildCopy8PvPKvS_.exit:                   ; preds = %529
   br i1 %536, label %_ZL13LZ4_wildCopy8PvPKvS_.exit.thread, label %.lr.ph, !prof !36
 
 _ZL13LZ4_wildCopy8PvPKvS_.exit.thread:            ; preds = %.critedge8.i72, %534, %_ZL13LZ4_wildCopy8PvPKvS_.exit.preheader, %345, %510, %_ZL13LZ4_wildCopy8PvPKvS_.exit
-  %.2426.i57.ph = phi ptr [ %.1425.i37331, %345 ], [ %.8432.i90, %510 ], [ %.8432.i90, %_ZL13LZ4_wildCopy8PvPKvS_.exit ], [ %.8432.i90, %534 ], [ %.1425.i37331, %_ZL13LZ4_wildCopy8PvPKvS_.exit.preheader ], [ %.1425.i37331, %.critedge8.i72 ]
-  %.2422.i58.ph = phi ptr [ %.1421.i38332.fr, %345 ], [ %.9.i89, %510 ], [ %.9.i89, %_ZL13LZ4_wildCopy8PvPKvS_.exit ], [ %.9.i89, %534 ], [ %.1421.i38332.fr, %_ZL13LZ4_wildCopy8PvPKvS_.exit.preheader ], [ %.1421.i38332.fr, %.critedge8.i72 ]
+  %.2426.i57.ph = phi ptr [ %.8432.i90, %510 ], [ %.1425.i37331, %345 ], [ %.8432.i90, %_ZL13LZ4_wildCopy8PvPKvS_.exit ], [ %.8432.i90, %534 ], [ %.1425.i37331, %.critedge8.i72 ], [ %.1425.i37331, %_ZL13LZ4_wildCopy8PvPKvS_.exit.preheader ]
+  %.2422.i58.ph = phi ptr [ %.9.i89, %510 ], [ %.1421.i38332.fr, %345 ], [ %.9.i89, %_ZL13LZ4_wildCopy8PvPKvS_.exit ], [ %.9.i89, %534 ], [ %.1421.i38332.fr, %.critedge8.i72 ], [ %.1421.i38332.fr, %_ZL13LZ4_wildCopy8PvPKvS_.exit.preheader ]
   %537 = ptrtoint ptr %308 to i64
   %538 = ptrtoint ptr %.2422.i58.ph to i64
   %539 = sub i64 %537, %538
@@ -7493,8 +7493,8 @@ _ZL9LZ4_countPKhS0_S0_.exit796:                   ; preds = %.thread995, %459, %
   br i1 %670, label %.preheader1443, label %.critedge8.i225, !llvm.loop !24
 
 .critedge8.i225:                                  ; preds = %665, %.preheader1443, %654, %651
-  %.8478.i226 = phi ptr [ %.7477.i.le, %651 ], [ %.7477.i.le, %654 ], [ %661, %.preheader1443 ], [ %661, %665 ]
-  %.4407.i227 = phi ptr [ %.0487.i1951642, %651 ], [ %.0487.i1951642, %654 ], [ %660, %.preheader1443 ], [ %660, %665 ]
+  %.8478.i226 = phi ptr [ %.7477.i.le, %654 ], [ %.7477.i.le, %651 ], [ %661, %.preheader1443 ], [ %661, %665 ]
+  %.4407.i227 = phi ptr [ %.0487.i1951642, %654 ], [ %.0487.i1951642, %651 ], [ %660, %.preheader1443 ], [ %660, %665 ]
   %671 = ptrtoint ptr %.4407.i227 to i64
   %672 = ptrtoint ptr %.1421.i1921690.fr to i64
   %673 = sub i64 %671, %672
@@ -8278,8 +8278,8 @@ _ZL9LZ4_countPKhS0_S0_.exit774:                   ; preds = %.thread1081, %832, 
   br i1 %1063, label %.preheader1447, label %.critedge8.i300, !llvm.loop !24
 
 .critedge8.i300:                                  ; preds = %1058, %.preheader1447, %1047, %1044
-  %.8478.i301 = phi ptr [ %.7477.i273, %1044 ], [ %.7477.i273, %1047 ], [ %1054, %.preheader1447 ], [ %1054, %1058 ]
-  %.4407.i302 = phi ptr [ %.0487.i2661582, %1044 ], [ %.0487.i2661582, %1047 ], [ %1053, %.preheader1447 ], [ %1053, %1058 ]
+  %.8478.i301 = phi ptr [ %.7477.i273, %1047 ], [ %.7477.i273, %1044 ], [ %1054, %.preheader1447 ], [ %1054, %1058 ]
+  %.4407.i302 = phi ptr [ %.0487.i2661582, %1047 ], [ %.0487.i2661582, %1044 ], [ %1053, %.preheader1447 ], [ %1053, %1058 ]
   %.4407.i302.fr = freeze ptr %.4407.i302
   %1064 = ptrtoint ptr %.4407.i302.fr to i64
   %1065 = ptrtoint ptr %.1421.i2631626.fr to i64
@@ -9065,8 +9065,8 @@ _ZL9LZ4_countPKhS0_S0_.exit708:                   ; preds = %.thread1177, %1225,
   br i1 %1454, label %.preheader1435, label %.critedge8.i382, !llvm.loop !24
 
 .critedge8.i382:                                  ; preds = %1449, %.preheader1435, %1438, %1435
-  %.8478.i383 = phi ptr [ %.7477.i354.le, %1435 ], [ %.7477.i354.le, %1438 ], [ %1445, %.preheader1435 ], [ %1445, %1449 ]
-  %.4407.i384 = phi ptr [ %.0487.i3471768, %1435 ], [ %.0487.i3471768, %1438 ], [ %1444, %.preheader1435 ], [ %1444, %1449 ]
+  %.8478.i383 = phi ptr [ %.7477.i354.le, %1438 ], [ %.7477.i354.le, %1435 ], [ %1445, %.preheader1435 ], [ %1445, %1449 ]
+  %.4407.i384 = phi ptr [ %.0487.i3471768, %1438 ], [ %.0487.i3471768, %1435 ], [ %1444, %.preheader1435 ], [ %1444, %1449 ]
   %1455 = ptrtoint ptr %.4407.i384 to i64
   %1456 = ptrtoint ptr %.1421.i3441816.fr to i64
   %1457 = sub i64 %1455, %1456
@@ -9828,8 +9828,8 @@ _ZL9LZ4_countPKhS0_S0_.exit642:                   ; preds = %.thread1269, %1616,
   br i1 %1831, label %.preheader1439, label %.critedge8.i465, !llvm.loop !24
 
 .critedge8.i465:                                  ; preds = %1826, %.preheader1439, %1815, %1812
-  %.8478.i466 = phi ptr [ %.7477.i437.le, %1812 ], [ %.7477.i437.le, %1815 ], [ %1822, %.preheader1439 ], [ %1822, %1826 ]
-  %.4407.i467 = phi ptr [ %.0487.i4301705, %1812 ], [ %.0487.i4301705, %1815 ], [ %1821, %.preheader1439 ], [ %1821, %1826 ]
+  %.8478.i466 = phi ptr [ %.7477.i437.le, %1815 ], [ %.7477.i437.le, %1812 ], [ %1822, %.preheader1439 ], [ %1822, %1826 ]
+  %.4407.i467 = phi ptr [ %.0487.i4301705, %1815 ], [ %.0487.i4301705, %1812 ], [ %1821, %.preheader1439 ], [ %1821, %1826 ]
   %1832 = ptrtoint ptr %.4407.i467 to i64
   %1833 = ptrtoint ptr %.1421.i4271753.fr to i64
   %1834 = sub i64 %1832, %1833
@@ -10654,8 +10654,8 @@ _ZL15LZ4_renormDictTP21LZ4_stream_t_internali.exit: ; preds = %._ZL15LZ4_renormD
   br i1 %108, label %.preheader, label %.critedge8.i, !llvm.loop !24
 
 .critedge8.i:                                     ; preds = %103, %.preheader, %92, %89
-  %.8478.i = phi ptr [ %.7477.i.le, %89 ], [ %.7477.i.le, %92 ], [ %99, %.preheader ], [ %99, %103 ]
-  %.4407.i = phi ptr [ %.0487.i506, %89 ], [ %.0487.i506, %92 ], [ %98, %.preheader ], [ %98, %103 ]
+  %.8478.i = phi ptr [ %.7477.i.le, %92 ], [ %.7477.i.le, %89 ], [ %99, %.preheader ], [ %99, %103 ]
+  %.4407.i = phi ptr [ %.0487.i506, %92 ], [ %.0487.i506, %89 ], [ %98, %.preheader ], [ %98, %103 ]
   %109 = ptrtoint ptr %.4407.i to i64
   %110 = ptrtoint ptr %.1421.i554.fr to i64
   %111 = sub i64 %109, %110
@@ -11384,8 +11384,8 @@ _ZL30LZ4_compress_generic_validatedP21LZ4_stream_t_internalPKcPciPii23limitedOut
   br i1 %458, label %.preheader407, label %.critedge8.i67, !llvm.loop !24
 
 .critedge8.i67:                                   ; preds = %453, %.preheader407, %442, %439
-  %.8478.i68 = phi ptr [ %.7477.i40.le, %439 ], [ %.7477.i40.le, %442 ], [ %449, %.preheader407 ], [ %449, %453 ]
-  %.4407.i69 = phi ptr [ %.0487.i33448, %439 ], [ %.0487.i33448, %442 ], [ %448, %.preheader407 ], [ %448, %453 ]
+  %.8478.i68 = phi ptr [ %.7477.i40.le, %442 ], [ %.7477.i40.le, %439 ], [ %449, %.preheader407 ], [ %449, %453 ]
+  %.4407.i69 = phi ptr [ %.0487.i33448, %442 ], [ %.0487.i33448, %439 ], [ %448, %.preheader407 ], [ %448, %453 ]
   %459 = ptrtoint ptr %.4407.i69 to i64
   %460 = ptrtoint ptr %.1421.i30491.fr to i64
   %461 = sub i64 %459, %460
@@ -18042,7 +18042,7 @@ _ZL27LZ4_decompress_fast_extDictPKcPciPKvm.exit:  ; preds = %193
   br label %LZ4_decompress_fast.exit.thread
 
 LZ4_decompress_fast.exit.thread:                  ; preds = %183, %211, %208, %._crit_edge.i71, %101, %129, %126, %._crit_edge, %26, %51, %._crit_edge.i, %111, %193, %36, %71, %239, %157, %_ZL27LZ4_decompress_fast_extDictPKcPciPKvm.exit, %_ZL29LZ4_decompress_unsafe_genericPKhPhimS0_m.exit, %LZ4_decompress_fast.exit
-  %.044 = phi i32 [ %155, %_ZL29LZ4_decompress_unsafe_genericPKhPhimS0_m.exit ], [ %237, %_ZL27LZ4_decompress_fast_extDictPKcPciPKvm.exit ], [ %69, %LZ4_decompress_fast.exit ], [ %69, %71 ], [ %155, %157 ], [ %237, %239 ], [ -1, %26 ], [ -1, %111 ], [ -1, %36 ], [ -1, %193 ], [ -1, %101 ], [ -1, %._crit_edge.i ], [ -1, %51 ], [ -1, %._crit_edge ], [ -1, %126 ], [ -1, %129 ], [ -1, %._crit_edge.i71 ], [ -1, %208 ], [ -1, %211 ], [ -1, %183 ]
+  %.044 = phi i32 [ %155, %_ZL29LZ4_decompress_unsafe_genericPKhPhimS0_m.exit ], [ %237, %_ZL27LZ4_decompress_fast_extDictPKcPciPKvm.exit ], [ %69, %LZ4_decompress_fast.exit ], [ %69, %71 ], [ %155, %157 ], [ %237, %239 ], [ -1, %101 ], [ -1, %193 ], [ -1, %36 ], [ -1, %26 ], [ -1, %111 ], [ -1, %._crit_edge.i ], [ -1, %51 ], [ -1, %._crit_edge ], [ -1, %126 ], [ -1, %129 ], [ -1, %._crit_edge.i71 ], [ -1, %208 ], [ -1, %211 ], [ -1, %183 ]
   ret i32 %.044
 }
 

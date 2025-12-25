@@ -13077,8 +13077,8 @@ _ZN4core3ops8function6FnOnce9call_once17h3ea76654a9a1b9c9E.exit.thread2.i.i.i: ;
           to label %common.resume unwind label %178, !noalias !396
 
 153:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std..sync..mpmc..context..Context$GT$$GT$17hddd4986cf0accba5E.exit.i.i.i.i", %.noexc6.i.i
-  %.sroa.0.0.i.i.i = phi i64 [ %139, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std..sync..mpmc..context..Context$GT$$GT$17hddd4986cf0accba5E.exit.i.i.i.i" ], [ %.pre.i.i.i, %.noexc6.i.i ]
-  %.merged.i.i = phi { i64, ptr } [ %136, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std..sync..mpmc..context..Context$GT$$GT$17hddd4986cf0accba5E.exit.i.i.i.i" ], [ %124, %.noexc6.i.i ]
+  %.sroa.0.0.i.i.i = phi i64 [ %.pre.i.i.i, %.noexc6.i.i ], [ %139, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std..sync..mpmc..context..Context$GT$$GT$17hddd4986cf0accba5E.exit.i.i.i.i" ]
+  %.merged.i.i = phi { i64, ptr } [ %124, %.noexc6.i.i ], [ %136, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$std..sync..mpmc..context..Context$GT$$GT$17hddd4986cf0accba5E.exit.i.i.i.i" ]
   %154 = icmp eq i64 %.sroa.0.0.i.i.i, 3
   br i1 %154, label %.thread.i.i, label %156
 

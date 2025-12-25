@@ -13196,8 +13196,8 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit28.i: ; preds = %_ZN4llvm9StringRe
   br i1 %83, label %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_St6vectorIN12_GLOBAL__N_115WasmComdatEntryESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS3_.exit.thread.i, label %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_St6vectorIN12_GLOBAL__N_115WasmComdatEntryESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit.i.i
 
 _ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_St6vectorIN12_GLOBAL__N_115WasmComdatEntryESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS3_.exit.i: ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit63.thread35.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit33.thread27.i.i
-  %.sroa.021.2.i.i = phi ptr [ null, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit63.thread35.i.i ], [ %42, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit33.thread27.i.i ]
-  %.sroa.12.2.i.i = phi ptr [ %57, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit63.thread35.i.i ], [ %42, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit33.thread27.i.i ]
+  %.sroa.021.2.i.i = phi ptr [ %42, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit33.thread27.i.i ], [ null, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit63.thread35.i.i ]
+  %.sroa.12.2.i.i = phi ptr [ %42, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit33.thread27.i.i ], [ %57, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit63.thread35.i.i ]
   %.not.i = icmp eq ptr %.sroa.12.2.i.i, null
   br i1 %.not.i, label %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_St6vectorIN12_GLOBAL__N_115WasmComdatEntryESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit.i.i, label %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_St6vectorIN12_GLOBAL__N_115WasmComdatEntryESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS3_.exit.thread.i
 

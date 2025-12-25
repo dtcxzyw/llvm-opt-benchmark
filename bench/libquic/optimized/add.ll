@@ -637,7 +637,7 @@ BN_uadd.exit.thread.sink.split:                   ; preds = %.preheader.i, %59, 
   br label %BN_uadd.exit.thread
 
 BN_uadd.exit.thread:                              ; preds = %BN_uadd.exit.thread.sink.split, %10, %59, %57, %46
-  %.0 = phi i32 [ 0, %10 ], [ 0, %57 ], [ 0, %46 ], [ 0, %59 ], [ 1, %BN_uadd.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %46 ], [ 0, %57 ], [ 0, %10 ], [ 0, %59 ], [ 1, %BN_uadd.exit.thread.sink.split ]
   ret i32 %.0
 }
 

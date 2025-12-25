@@ -702,7 +702,7 @@ FreePagePushSpanLeader.exit:                      ; preds = %FreePagePopSpanLead
   br i1 %.not, label %.thread, label %12
 
 .thread:                                          ; preds = %152, %12, %1, %53, %FreePagePushSpanLeader.exit, %66, %56
-  %.1 = phi i64 [ 0, %66 ], [ 0, %53 ], [ 0, %56 ], [ %151, %FreePagePushSpanLeader.exit ], [ 0, %1 ], [ 0, %12 ], [ 0, %152 ]
+  %.1 = phi i64 [ 0, %56 ], [ 0, %53 ], [ 0, %66 ], [ %151, %FreePagePushSpanLeader.exit ], [ 0, %1 ], [ 0, %12 ], [ 0, %152 ]
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %157 = load i32, ptr %156, align 4
   %.not71103 = icmp eq i32 %157, 0

@@ -315,7 +315,7 @@ _ZN4core5slice4sort11insert_tail17h189760453f4f415dE.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17h3b7ebf091b13b58aE.exit.loopexit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hfd11c3c6d0df1c29E.exit.i.i"
 
 .loopexit78:                                      ; preds = %.lr.ph7.i, %73, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %48, %73 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %48, %73 ], [ %.06.i, %.lr.ph7.i ]
   %111 = add i64 %.sroa.0.0.i, %.0108
   %112 = icmp ugt i64 %.0108, %111
   br i1 %112, label %.invoke201, label %113

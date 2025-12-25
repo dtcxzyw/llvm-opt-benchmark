@@ -250,7 +250,7 @@ for.inc:                                          ; preds = %_ZN4llvh9StringRefC
   br i1 %cmp.not.not, label %return, label %for.body
 
 return:                                           ; preds = %for.inc, %lor.lhs.false, %while.body, %entry
-  %cmp.not22 = phi i1 [ true, %lor.lhs.false ], [ false, %entry ], [ true, %while.body ], [ false, %for.inc ]
+  %cmp.not22 = phi i1 [ false, %entry ], [ true, %lor.lhs.false ], [ true, %while.body ], [ false, %for.inc ]
   ret i1 %cmp.not22
 }
 

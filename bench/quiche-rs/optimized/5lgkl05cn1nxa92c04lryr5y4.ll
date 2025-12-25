@@ -1066,8 +1066,8 @@ _ZN8smallvec10infallible17hb1f645598f494231E.exit:
   br i1 %25, label %.loopexit, label %.critedge.i.i.i25
 
 .loopexit:                                        ; preds = %.preheader.i.i.i16, %23, %.critedge.i.i.i25, %.lr.ph80
-  %.sroa.749.1 = phi ptr [ null, %.lr.ph80 ], [ %.sroa.749.077, %23 ], [ %.sroa.749.077, %.critedge.i.i.i25 ], [ %.sroa.749.077, %.preheader.i.i.i16 ]
-  %.sroa.348.1 = phi ptr [ null, %.lr.ph80 ], [ %24, %23 ], [ null, %.critedge.i.i.i25 ], [ %.sroa.08.0.i.i.i17, %.preheader.i.i.i16 ]
+  %.sroa.749.1 = phi ptr [ %.sroa.749.077, %23 ], [ null, %.lr.ph80 ], [ %.sroa.749.077, %.critedge.i.i.i25 ], [ %.sroa.749.077, %.preheader.i.i.i16 ]
+  %.sroa.348.1 = phi ptr [ %24, %23 ], [ null, %.lr.ph80 ], [ null, %.critedge.i.i.i25 ], [ %.sroa.08.0.i.i.i17, %.preheader.i.i.i16 ]
   %26 = getelementptr inbounds i8, ptr %.sroa.348.078, i64 -8
   %.val.i22 = load i64, ptr %26, align 8, !noalias !127, !noundef !8
   %27 = load i64, ptr %2, align 8, !alias.scope !128, !noalias !133, !noundef !8
@@ -3100,7 +3100,7 @@ _ZN8smallvec10deallocate17hcdc7befb03240f67E.exit.i: ; preds = %39
   tail call void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %19) #22
   unreachable
 
-44:                                               ; preds = %26, %23, %21, %18
+44:                                               ; preds = %26, %18, %21, %23
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.cb9a47d224065187d655132fdc3d24e1.35, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb9a47d224065187d655132fdc3d24e1.36) #22
   unreachable
 
@@ -3270,7 +3270,7 @@ _ZN8smallvec10deallocate17h1d1d153aef0f64fcE.exit.i: ; preds = %39
   tail call void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %19) #22
   unreachable
 
-44:                                               ; preds = %26, %23, %21, %18
+44:                                               ; preds = %26, %18, %21, %23
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.cb9a47d224065187d655132fdc3d24e1.35, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb9a47d224065187d655132fdc3d24e1.36) #22
   unreachable
 

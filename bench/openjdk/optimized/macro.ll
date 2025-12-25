@@ -2249,7 +2249,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %.backedge, %30
   br i1 %.not, label %.loopexit, label %._crit_edge128.thread
 
 ._crit_edge128.thread:                            ; preds = %._crit_edge, %99, %59, %67, %._crit_edge.thread, %._crit_edge128
-  %.091.lcssa149 = phi ptr [ %.091.lcssa, %._crit_edge128 ], [ %41, %67 ], [ %52, %59 ], [ %spec.select114154, %._crit_edge.thread ], [ %41, %99 ], [ %41, %._crit_edge ]
+  %.091.lcssa149 = phi ptr [ %.091.lcssa, %._crit_edge128 ], [ %52, %59 ], [ %41, %67 ], [ %spec.select114154, %._crit_edge.thread ], [ %41, %99 ], [ %41, %._crit_edge ]
   %102 = icmp eq ptr %.091.lcssa149, %18
   %103 = icmp eq ptr %.091.lcssa149, %19
   %or.cond111 = or i1 %102, %103
@@ -3508,7 +3508,7 @@ _ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if
   br label %.thread
 
 .thread.loopexit.loopexit:                        ; preds = %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit, %65, %149
-  %.1.ph.ph = phi i8 [ 0, %149 ], [ %.6, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ], [ 0, %65 ]
+  %.1.ph.ph = phi i8 [ 0, %149 ], [ 0, %65 ], [ %.6, %_ZN26GrowableArrayWithAllocatorIP13SafePointNode13GrowableArrayIS1_EE17append_if_missingERKS1_.exit ]
   %226 = trunc nuw i8 %.1.ph.ph to i1
   br label %.thread
 
@@ -14212,7 +14212,7 @@ _ZN16PhaseMacroExpand21expand_allocate_arrayEP17AllocateArrayNode.exit: ; preds 
   br label %_ZN7Compile16check_node_countEjPKc.exit.thread
 
 _ZN7Compile16check_node_countEjPKc.exit.thread:   ; preds = %404, %393, %551, %540, %493, %481, %386, %374, %.split.us, %9, %._crit_edge162
-  %.0 = phi i1 [ true, %551 ], [ true, %9 ], [ true, %374 ], [ true, %386 ], [ true, %493 ], [ false, %._crit_edge162 ], [ true, %.split.us ], [ true, %481 ], [ true, %540 ], [ true, %393 ], [ true, %404 ]
+  %.0 = phi i1 [ true, %374 ], [ true, %9 ], [ true, %551 ], [ true, %386 ], [ true, %481 ], [ false, %._crit_edge162 ], [ true, %.split.us ], [ true, %493 ], [ true, %540 ], [ true, %393 ], [ true, %404 ]
   ret i1 %.0
 }
 

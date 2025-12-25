@@ -1325,7 +1325,7 @@ do_decode.exit.sink.split.i:                      ; preds = %get_urice.exit56.i.
   br label %.thread
 
 osq_decode_block.exit:                            ; preds = %23, %399, %do_decode.exit.sink.split.i, %align_get_bits.exit.i, %.loopexit, %68, %65
-  %.3 = phi i32 [ %66, %65 ], [ -1094995529, %68 ], [ -1094995529, %.loopexit ], [ -558323010, %align_get_bits.exit.i ], [ -1094995529, %399 ], [ -1094995529, %do_decode.exit.sink.split.i ], [ %20, %23 ]
+  %.3 = phi i32 [ %66, %65 ], [ -1094995529, %68 ], [ -1094995529, %.loopexit ], [ -558323010, %align_get_bits.exit.i ], [ -1094995529, %do_decode.exit.sink.split.i ], [ -1094995529, %399 ], [ %20, %23 ]
   store i64 0, ptr %5, align 8, !tbaa !54
   %680 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store i32 0, ptr %680, align 8, !tbaa !58

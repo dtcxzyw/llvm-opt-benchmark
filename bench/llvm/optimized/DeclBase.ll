@@ -13945,7 +13945,7 @@ _ZNK5clang22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4Att
   br label %69, !llvm.loop !677
 
 _ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread: ; preds = %77, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit, %82, %75, %1
-  %.0 = phi i32 [ 0, %1 ], [ %.017, %75 ], [ %.017, %82 ], [ %.017, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ %.017, %77 ]
+  %.0 = phi i32 [ 0, %1 ], [ %.017, %82 ], [ %.017, %75 ], [ %.017, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ %.017, %77 ]
   ret i32 %.0
 }
 
@@ -14724,7 +14724,7 @@ _ZNK5clang4Decl8getAttrsEv.exit.i33:              ; preds = %._crit_edge.i.i.i.i
   br i1 %.not.i.i.i.i2.i39, label %_ZN5clangneENS_22specific_attr_iteratorINS_23LoaderUninitializedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i1.i37, !llvm.loop !699
 
 _ZN5clangneENS_22specific_attr_iteratorINS_23LoaderUninitializedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %130, %.lr.ph.i.i.i.i1.i37
-  %.sroa.07.0.i.i.ph.i.i40 = phi ptr [ %.sroa.07.1.i.i.i.i38, %.lr.ph.i.i.i.i1.i37 ], [ %125, %130 ]
+  %.sroa.07.0.i.i.ph.i.i40 = phi ptr [ %125, %130 ], [ %.sroa.07.1.i.i.i.i38, %.lr.ph.i.i.i.i1.i37 ]
   %132 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i40, %125
   br label %_ZNK5clang4Decl7hasAttrINS_23LoaderUninitializedAttrEEEbv.exit
 
@@ -16116,7 +16116,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %157, %_ZN4llvmeqENS
   %202 = select i1 %201, i32 3, i32 1
   br label %.critedge4
 
-.critedge:                                        ; preds = %108, %136, %132, %_ZN4llvmltERKNS_12VersionTupleES2_.exit
+.critedge:                                        ; preds = %108, %132, %136, %_ZN4llvmltERKNS_12VersionTupleES2_.exit
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.sroa.0.0.copyload.i121 = load i64, ptr %203, align 8, !tbaa !625
   %.sroa.2.0..sroa_idx.i122 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -16172,7 +16172,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %232
   %spec.select.i.not.i = select i1 %234, i1 true, i1 %235
   br i1 %spec.select.i.not.i, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread197, label %.critedge2
 
-_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread197: ; preds = %230, %226, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
+_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread197: ; preds = %226, %230, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
   %.not79 = icmp eq ptr %2, null
   br i1 %.not79, label %.critedge4, label %236
 
@@ -16286,7 +16286,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit153:       ; preds = %288
   %spec.select.i.not.i152 = select i1 %290, i1 true, i1 %291
   br i1 %spec.select.i.not.i152, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit153.thread199, label %.critedge4
 
-_ZN4llvmgeERKNS_12VersionTupleES2_.exit153.thread199: ; preds = %286, %282, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit153
+_ZN4llvmgeERKNS_12VersionTupleES2_.exit153.thread199: ; preds = %282, %286, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit153
   %.not80 = icmp eq ptr %2, null
   br i1 %.not80, label %.critedge4, label %292
 
@@ -24978,7 +24978,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang11DeclContext25InEnclosingNamespa
   br label %_ZNK5clang11DeclContext9getParentEv.exit
 
 _ZNK5clang11DeclContext9getParentEv.exit:         ; preds = %24, %17
-  %.1 = phi ptr [ %23, %17 ], [ %25, %24 ]
+  %.1 = phi ptr [ %25, %24 ], [ %23, %17 ]
   %.not12 = icmp eq ptr %.1, null
   br i1 %.not12, label %_ZNK5clang11DeclContext9getParentEv.exit.thread, label %.preheader, !llvm.loop !809
 

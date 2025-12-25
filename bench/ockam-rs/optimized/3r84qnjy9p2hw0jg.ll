@@ -28398,13 +28398,13 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
   br label %.body.i344
 
 1506:                                             ; preds = %1496, %1483
-  %1507 = phi ptr [ %1414, %1483 ], [ %1123, %1496 ]
-  %1508 = phi ptr [ %1415, %1483 ], [ %1124, %1496 ]
-  %1509 = phi ptr [ %1416, %1483 ], [ %1125, %1496 ]
-  %1510 = phi ptr [ %1417, %1483 ], [ %1126, %1496 ]
-  %.sroa.626.0.i = phi ptr [ %.sroa.0493.0.copyload.i.i, %1483 ], [ null, %1496 ]
-  %.sroa.827.0.i = phi ptr [ %.sroa.4494.0.copyload.i.i, %1483 ], [ %.sroa.18.1.i.i, %1496 ]
-  %.sroa.928.0.i = phi i64 [ %.sroa.5495.0.copyload.i.i, %1483 ], [ undef, %1496 ]
+  %1507 = phi ptr [ %1123, %1496 ], [ %1414, %1483 ]
+  %1508 = phi ptr [ %1124, %1496 ], [ %1415, %1483 ]
+  %1509 = phi ptr [ %1125, %1496 ], [ %1416, %1483 ]
+  %1510 = phi ptr [ %1126, %1496 ], [ %1417, %1483 ]
+  %.sroa.626.0.i = phi ptr [ null, %1496 ], [ %.sroa.0493.0.copyload.i.i, %1483 ]
+  %.sroa.827.0.i = phi ptr [ %.sroa.18.1.i.i, %1496 ], [ %.sroa.4494.0.copyload.i.i, %1483 ]
+  %.sroa.928.0.i = phi i64 [ undef, %1496 ], [ %.sroa.5495.0.copyload.i.i, %1483 ]
   store i8 1, ptr %1509, align 4, !noalias !3812
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2378.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5380.i.i)
@@ -29481,13 +29481,13 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
   br label %.body.i380
 
 1903:                                             ; preds = %1879, %1871, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400"
-  %1904 = phi ptr [ %1592, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %1625, %1879 ], [ %1837, %1871 ]
-  %1905 = phi ptr [ %1593, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %1626, %1879 ], [ %1838, %1871 ]
-  %1906 = phi ptr [ %1597, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %1627, %1879 ], [ %1839, %1871 ]
-  %1907 = phi ptr [ %1598, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %1628, %1879 ], [ %1840, %1871 ]
-  %.sroa.624.0.i = phi ptr [ null, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ null, %1879 ], [ %.sroa.0287.0.copyload.i.i, %1871 ]
-  %.sroa.825.0.i = phi ptr [ %1643, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %.sroa.13296.0.i.i, %1879 ], [ %.sroa.3288.0.copyload.i.i, %1871 ]
-  %.sroa.926.0.i = phi i64 [ undef, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ undef, %1879 ], [ %.sroa.5289.0.copyload.i.i, %1871 ]
+  %1904 = phi ptr [ %1592, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %1837, %1871 ], [ %1625, %1879 ]
+  %1905 = phi ptr [ %1593, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %1838, %1871 ], [ %1626, %1879 ]
+  %1906 = phi ptr [ %1597, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %1839, %1871 ], [ %1627, %1879 ]
+  %1907 = phi ptr [ %1598, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %1840, %1871 ], [ %1628, %1879 ]
+  %.sroa.624.0.i = phi ptr [ null, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %.sroa.0287.0.copyload.i.i, %1871 ], [ null, %1879 ]
+  %.sroa.825.0.i = phi ptr [ %1643, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %.sroa.3288.0.copyload.i.i, %1871 ], [ %.sroa.13296.0.i.i, %1879 ]
+  %.sroa.926.0.i = phi i64 [ undef, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i400" ], [ %.sroa.5289.0.copyload.i.i, %1871 ], [ undef, %1879 ]
   store i8 1, ptr %1906, align 1, !noalias !3975
   invoke fastcc void @"_ZN4core3ptr130drop_in_place$LT$ockam_identity..secure_channel..handshake..handshake..Handshake..decode_message3..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbbcc49f7e81c525aE"(ptr noundef nonnull align 8 %1907)
           to label %1920 unwind label %1908, !noalias !3980

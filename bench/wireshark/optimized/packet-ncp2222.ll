@@ -24169,7 +24169,7 @@ sub_1737:                                         ; preds = %.tail730, %sub_1732
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph780, %121, %check_offset_addition.exit, %113, %23, %129, %108, %96, %554, %471, %448, %439, %420, %398, %check_offset_addition.exit694, %._crit_edge, %check_offset_addition.exit685, %check_offset_addition.exit681, %check_offset_addition.exit679, %154, %134, %101, %85
-  %.2658 = phi i32 [ %562, %554 ], [ %419, %398 ], [ %95, %85 ], [ %.0656791, %96 ], [ %489, %471 ], [ %107, %101 ], [ %.0656791, %108 ], [ %470, %448 ], [ %83, %check_offset_addition.exit ], [ %447, %439 ], [ %397, %check_offset_addition.exit694 ], [ %.0656791, %129 ], [ %438, %420 ], [ %140, %134 ], [ %155, %154 ], [ %170, %check_offset_addition.exit679 ], [ %227, %check_offset_addition.exit681 ], [ %262, %check_offset_addition.exit685 ], [ %357, %._crit_edge ], [ %30, %23 ], [ %116, %113 ], [ %.3777, %.lr.ph780 ], [ %127, %121 ]
+  %.2658 = phi i32 [ %562, %554 ], [ %419, %398 ], [ %95, %85 ], [ %.0656791, %96 ], [ %489, %471 ], [ %107, %101 ], [ %.0656791, %108 ], [ %470, %448 ], [ %397, %check_offset_addition.exit694 ], [ %447, %439 ], [ %83, %check_offset_addition.exit ], [ %.0656791, %129 ], [ %438, %420 ], [ %140, %134 ], [ %155, %154 ], [ %170, %check_offset_addition.exit679 ], [ %227, %check_offset_addition.exit681 ], [ %262, %check_offset_addition.exit685 ], [ %357, %._crit_edge ], [ %30, %23 ], [ %116, %113 ], [ %.3777, %.lr.ph780 ], [ %127, %121 ]
   %563 = call i32 @tvb_captured_length_remaining(ptr noundef %2, i32 noundef %.2658)
   %564 = icmp sgt i32 %563, 4
   %565 = and i32 %.2658, 3

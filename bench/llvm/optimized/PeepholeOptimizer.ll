@@ -7303,9 +7303,9 @@ _ZN12_GLOBAL__N_112ValueTracker17getNextSourceImplEv.exit.i: ; preds = %297, %_Z
   store ptr %.sroa.084.0, ptr %30, align 8, !tbaa !528, !alias.scope !525
   br label %397
 
-.thread.sink.split:                               ; preds = %199, %109, %310
-  %.sink205 = phi i64 [ %301, %310 ], [ %.sroa.2.0.insert.ext.i.i.i.i.i, %109 ], [ %.sroa.2.0.insert.ext.i.i.i3.i.i, %199 ]
-  %.sink204 = phi i32 [ %312, %310 ], [ %111, %109 ], [ %201, %199 ]
+.thread.sink.split:                               ; preds = %109, %199, %310
+  %.sink205 = phi i64 [ %301, %310 ], [ %.sroa.2.0.insert.ext.i.i.i3.i.i, %199 ], [ %.sroa.2.0.insert.ext.i.i.i.i.i, %109 ]
+  %.sink204 = phi i32 [ %312, %310 ], [ %201, %199 ], [ %111, %109 ]
   %.sroa.2.0.insert.ext.i.i.i = shl nuw i64 %.sink205, 32
   %.sroa.0.0.insert.ext.i.i.i = zext i32 %.sink204 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.ext.i.i.i, %.sroa.0.0.insert.ext.i.i.i
@@ -7355,7 +7355,7 @@ _ZN12_GLOBAL__N_112ValueTracker17getNextSourceImplEv.exit.i: ; preds = %297, %_Z
   br i1 %.not.i.i.i.i15.i, label %397, label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i50
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i50: ; preds = %383, %377
-  %.sroa.0.0.i.i51 = phi ptr [ %382, %383 ], [ %.0.i.i.i49, %377 ]
+  %.sroa.0.0.i.i51 = phi ptr [ %.0.i.i.i49, %377 ], [ %382, %383 ]
   %386 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i51, i64 8
   %387 = load ptr, ptr %386, align 8, !tbaa !439
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 32

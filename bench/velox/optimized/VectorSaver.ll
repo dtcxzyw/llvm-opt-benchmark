@@ -26410,7 +26410,7 @@ while.body7:                                      ; preds = %if.then.i.i.i
   br i1 %tobool.i.not.i.i.i.i, label %if.then.i.i, label %while.end, !llvm.loop !397
 
 while.end:                                        ; preds = %while.body7, %if.then.i.i.i, %if.then.i.i.i.us96.us, %if.then.i.i.i.us81, %if.end16.i.i.i.us79, %while.body.split, %if.then.i.i.lr.ph.split.split.split.us.split, %while.body
-  %.us-phi = phi ptr [ %__first.sroa.0.0, %while.body ], [ %__first.sroa.0.0, %while.body.split ], [ %__first.sroa.0.0, %if.then.i.i.lr.ph.split.split.split.us.split ], [ %__first.sroa.0.168.us, %if.then.i.i.i.us81 ], [ %incdec.ptr.i.us98.us, %if.then.i.i.i.us96.us ], [ %__first.sroa.0.168.us, %if.end16.i.i.i.us79 ], [ %__first.sroa.0.0, %if.then.i.i.i ], [ %incdec.ptr.i, %while.body7 ]
+  %.us-phi = phi ptr [ %__first.sroa.0.0, %while.body ], [ %__first.sroa.0.0, %while.body.split ], [ %__first.sroa.0.0, %if.then.i.i.lr.ph.split.split.split.us.split ], [ %__first.sroa.0.168.us, %if.then.i.i.i.us81 ], [ %incdec.ptr.i.us98.us, %if.then.i.i.i.us96.us ], [ %__first.sroa.0.168.us, %if.end16.i.i.i.us79 ], [ %incdec.ptr.i, %while.body7 ], [ %__first.sroa.0.0, %if.then.i.i.i ]
   br label %while.cond10
 
 while.cond10:                                     ; preds = %while.cond10.backedge, %while.end

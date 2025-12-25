@@ -119,7 +119,7 @@ define hidden ptr @_cmsBuildKToneCurve(ptr noundef %0, i32 noundef %1, i32 nound
   br label %34
 
 34:                                               ; preds = %.sink.split, %32, %29, %20, %17, %8, %11
-  %.0 = phi ptr [ %30, %32 ], [ null, %8 ], [ null, %17 ], [ null, %11 ], [ null, %20 ], [ null, %29 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %11 ], [ null, %8 ], [ null, %17 ], [ %30, %32 ], [ null, %20 ], [ null, %29 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 

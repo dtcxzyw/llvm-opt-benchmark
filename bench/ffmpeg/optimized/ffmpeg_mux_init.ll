@@ -3504,8 +3504,8 @@ of_add_groups.exit.thread:                        ; preds = %876, %copy_meta.exi
   %.not167 = icmp slt i64 %indvars.iv.next, %1485
   br i1 %.not167, label %1473, label %mux_alloc.exit.thread, !llvm.loop !294
 
-mux_alloc.exit.thread:                            ; preds = %187, %.thread97.i.i, %296, %204, %460, %.loopexit.i198, %1480, %1483, %1469, %.thread102.i, %.thread116.i, %744, %.loopexit126.i, %265, %289, %294, %481, %of_add_attachments.exit.thread.i, %._crit_edge115.i.i, %3, %of_add_groups.exit.thread230, %70, %1447, %of_add_groups.exit.thread, %531, %514, %create_streams.exit, %126, %1468, %1458, %1454, %523, %504, %92
-  %.0 = phi i32 [ %.076.i.ph.i, %.loopexit126.i ], [ %135, %126 ], [ -12, %3 ], [ %532, %531 ], [ -22, %._crit_edge115.i.i ], [ %896, %of_add_groups.exit.thread230 ], [ %1445, %of_add_groups.exit.thread ], [ %1452, %1454 ], [ %1456, %1458 ], [ %1466, %1468 ], [ %1449, %1447 ], [ %207, %204 ], [ %515, %514 ], [ %491, %create_streams.exit ], [ %521, %523 ], [ -22, %504 ], [ %90, %92 ], [ -22, %70 ], [ %.178.i.i, %.loopexit.i198 ], [ -22, %744 ], [ -22, %265 ], [ -22, %289 ], [ -22, %294 ], [ %243, %.thread97.i.i ], [ 0, %1483 ], [ -12, %460 ], [ -22, %481 ], [ %.2.ph.i.i, %of_add_attachments.exit.thread.i ], [ -22, %.thread102.i ], [ %.076.i.ph.ph.i, %.thread116.i ], [ 0, %1469 ], [ %1481, %1480 ], [ %phi.call.i.i, %296 ], [ %189, %187 ]
+mux_alloc.exit.thread:                            ; preds = %187, %.thread97.i.i, %296, %204, %460, %.loopexit.i198, %1480, %1483, %1469, %.thread102.i, %.thread116.i, %744, %.loopexit126.i, %289, %294, %265, %481, %of_add_attachments.exit.thread.i, %._crit_edge115.i.i, %3, %of_add_groups.exit.thread230, %70, %1447, %of_add_groups.exit.thread, %531, %514, %create_streams.exit, %126, %1468, %1458, %1454, %523, %504, %92
+  %.0 = phi i32 [ %.076.i.ph.i, %.loopexit126.i ], [ %135, %126 ], [ -12, %3 ], [ %532, %531 ], [ -22, %._crit_edge115.i.i ], [ %896, %of_add_groups.exit.thread230 ], [ %1445, %of_add_groups.exit.thread ], [ %1452, %1454 ], [ %1456, %1458 ], [ %1466, %1468 ], [ %1449, %1447 ], [ %207, %204 ], [ %515, %514 ], [ %491, %create_streams.exit ], [ %521, %523 ], [ -22, %504 ], [ %90, %92 ], [ -22, %70 ], [ %.178.i.i, %.loopexit.i198 ], [ -22, %744 ], [ -22, %289 ], [ -22, %294 ], [ -22, %265 ], [ %243, %.thread97.i.i ], [ 0, %1483 ], [ -12, %460 ], [ -22, %481 ], [ %.2.ph.i.i, %of_add_attachments.exit.thread.i ], [ -22, %.thread102.i ], [ %.076.i.ph.ph.i, %.thread116.i ], [ 0, %1469 ], [ %1481, %1480 ], [ %phi.call.i.i, %296 ], [ %189, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   ret i32 %.0
 }
@@ -7361,7 +7361,7 @@ pix_fmt_parse.exit.thread7:                       ; preds = %.lr.ph.i48.i, %95
   br label %.thread1
 
 pix_fmt_parse.exit:                               ; preds = %fmt_in_list.exit.i, %choose_pixel_fmt.exit.i
-  %.0.i = phi i32 [ %.0.i55.i, %choose_pixel_fmt.exit.i ], [ %.027.ph.i, %fmt_in_list.exit.i ]
+  %.0.i = phi i32 [ %.027.ph.i, %fmt_in_list.exit.i ], [ %.0.i55.i, %choose_pixel_fmt.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %172 = getelementptr inbounds nuw i8, ptr %66, i64 136
   store i32 %.0.i, ptr %172, align 8, !tbaa !423

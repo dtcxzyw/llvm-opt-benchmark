@@ -60992,7 +60992,7 @@ lean_inc.exit116:                                 ; preds = %248, %247, %245, %2
   br i1 %.not.i256, label %249, label %lean_dec.exit153.backedge
 
 lean_dec.exit153.backedge:                        ; preds = %lean_inc.exit116, %252, %254, %255, %lean_inc.exit124, %111, %113, %114
-  %.0104.be = phi ptr [ %240, %lean_inc.exit116 ], [ %240, %252 ], [ %240, %254 ], [ %240, %255 ], [ %99, %lean_inc.exit124 ], [ %99, %111 ], [ %99, %114 ], [ %99, %113 ]
+  %.0104.be = phi ptr [ %99, %111 ], [ %240, %255 ], [ %240, %254 ], [ %240, %252 ], [ %99, %lean_inc.exit124 ], [ %240, %lean_inc.exit116 ], [ %99, %114 ], [ %99, %113 ]
   br label %lean_dec.exit153
 
 249:                                              ; preds = %lean_inc.exit116

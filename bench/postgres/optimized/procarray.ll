@@ -2258,7 +2258,7 @@ define dso_local i32 @GetOldestNonRemovableTransactionId(ptr noundef %0) local_u
   %44 = load i32, ptr %43, align 4
   br label %53
 
-45:                                               ; preds = %12, %22, %31
+45:                                               ; preds = %12, %31, %22
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %47 = load i32, ptr %46, align 4
   br label %53
@@ -6031,8 +6031,8 @@ define dso_local noundef nonnull ptr @GlobalVisTestFor(ptr noundef %0) local_unn
 GlobalVisHorizonKindForRel.exit:                  ; preds = %38, %34
   br label %GlobalVisHorizonKindForRel.exit.thread
 
-GlobalVisHorizonKindForRel.exit.thread:           ; preds = %3, %9, %1, %38, %30, %21, %11, %GlobalVisHorizonKindForRel.exit
-  %.0 = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit ], [ @GlobalVisCatalogRels, %30 ], [ @GlobalVisDataRels, %38 ], [ @GlobalVisCatalogRels, %11 ], [ @GlobalVisCatalogRels, %21 ], [ @GlobalVisSharedRels, %1 ], [ @GlobalVisSharedRels, %9 ], [ @GlobalVisSharedRels, %3 ]
+GlobalVisHorizonKindForRel.exit.thread:           ; preds = %3, %9, %1, %38, %21, %30, %11, %GlobalVisHorizonKindForRel.exit
+  %.0 = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit ], [ @GlobalVisCatalogRels, %21 ], [ @GlobalVisDataRels, %38 ], [ @GlobalVisCatalogRels, %11 ], [ @GlobalVisCatalogRels, %30 ], [ @GlobalVisSharedRels, %1 ], [ @GlobalVisSharedRels, %9 ], [ @GlobalVisSharedRels, %3 ]
   ret ptr %.0
 }
 
@@ -6183,7 +6183,7 @@ GlobalVisHorizonKindForRel.exit.i:                ; preds = %40, %36
   br label %GlobalVisTestFor.exit
 
 GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %23, %32, %40, %GlobalVisHorizonKindForRel.exit.i
-  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisSharedRels, %2 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ]
+  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisSharedRels, %2 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ]
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = icmp ult i64 %1, %44
@@ -6290,7 +6290,7 @@ GlobalVisHorizonKindForRel.exit.i:                ; preds = %40, %36
   br label %GlobalVisTestFor.exit
 
 GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %23, %32, %40, %GlobalVisHorizonKindForRel.exit.i
-  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisSharedRels, %2 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ]
+  %.0.i = phi ptr [ @GlobalVisTempRels, %GlobalVisHorizonKindForRel.exit.i ], [ @GlobalVisCatalogRels, %23 ], [ @GlobalVisDataRels, %40 ], [ @GlobalVisCatalogRels, %13 ], [ @GlobalVisCatalogRels, %32 ], [ @GlobalVisSharedRels, %2 ], [ @GlobalVisSharedRels, %11 ], [ @GlobalVisSharedRels, %5 ]
   %43 = load i64, ptr %.0.i, align 8
   %44 = trunc i64 %43 to i32
   %45 = sub i32 %1, %44

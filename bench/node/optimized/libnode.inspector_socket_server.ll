@@ -2462,7 +2462,7 @@ cleanup.thread:                                   ; preds = %if.then20, %if.then
   br label %_ZNKSt14default_deleteIN4node9inspector20SocketServerDelegateEEclEPS2_.exit.i
 
 cleanup:                                          ; preds = %if.then.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %if.then41, %if.then44
-  %delegate_holder.sroa.0.0 = phi ptr [ %23, %if.then.i.i.i ], [ %23, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %0, %if.then41 ], [ %0, %if.then44 ]
+  %delegate_holder.sroa.0.0 = phi ptr [ %23, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %23, %if.then.i.i.i ], [ %0, %if.then41 ], [ %0, %if.then44 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %port_string) #20
   %cmp.not.i10 = icmp eq ptr %delegate_holder.sroa.0.0, null
   br i1 %cmp.not.i10, label %_ZNSt10unique_ptrIN4node9inspector20SocketServerDelegateESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector20SocketServerDelegateEEclEPS2_.exit.i

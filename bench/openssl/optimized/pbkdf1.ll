@@ -271,7 +271,7 @@ define internal range(i32 0, 2) i32 @kdf_pbkdf1_derive(ptr noundef %0, ptr nound
   br label %kdf_pbkdf1_do_derive.exit
 
 kdf_pbkdf1_do_derive.exit:                        ; preds = %.lr.ph.i, %52, %54, %32, %33, %35, %37, %39, %41, %48, %._crit_edge.i
-  %.0.i = phi i32 [ 0, %32 ], [ 0, %41 ], [ 0, %48 ], [ 0, %33 ], [ 0, %35 ], [ 0, %37 ], [ 1, %._crit_edge.i ], [ 0, %39 ], [ 0, %54 ], [ 0, %52 ], [ 0, %.lr.ph.i ]
+  %.0.i = phi i32 [ 0, %32 ], [ 0, %41 ], [ 0, %48 ], [ 0, %37 ], [ 0, %35 ], [ 0, %33 ], [ 1, %._crit_edge.i ], [ 0, %39 ], [ 0, %54 ], [ 0, %52 ], [ 0, %.lr.ph.i ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 64) #6
   call void @EVP_MD_CTX_free(ptr noundef %30) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

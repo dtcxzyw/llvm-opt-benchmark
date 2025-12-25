@@ -3261,8 +3261,8 @@ define { i32, i32 } @_ZN4rope4Rope15offset_to_point17h0d4410e230cfda5cE(ptr noal
   br i1 %130, label %.thread, label %.lr.ph.i.i.i
 
 .thread:                                          ; preds = %113, %128
-  %.pn3.i = phi i32 [ %.sroa.0.028.i.i.i, %113 ], [ %.sroa.0.120.i.i.i, %128 ]
-  %.pn1.i = phi i32 [ %.sroa.4.027.i.i.i, %113 ], [ %.sroa.4.119.i.i.i, %128 ]
+  %.pn3.i = phi i32 [ %.sroa.0.120.i.i.i, %128 ], [ %.sroa.0.028.i.i.i, %113 ]
+  %.pn1.i = phi i32 [ %.sroa.4.119.i.i.i, %128 ], [ %.sroa.4.027.i.i.i, %113 ]
   %.pn3.i.fr = freeze i32 %.pn3.i
   %131 = icmp eq i32 %.pn3.i.fr, 0
   %132 = add i32 %.pn3.i.fr, %36
@@ -3507,8 +3507,8 @@ define { i32, i32 } @_ZN4rope4Rope21offset_to_point_utf1617ha0b6c118d3e7b9d4E(pt
   br i1 %122, label %.thread, label %.lr.ph.i.i.i
 
 .thread:                                          ; preds = %112, %114
-  %.pn3.i = phi i32 [ %.sroa.0.020.i.i.i, %112 ], [ %.sroa.0.1.i.i.i, %114 ]
-  %.pn1.i = phi i32 [ %.sroa.4.019.i.i.i, %112 ], [ %.sroa.4.1.i.i.i, %114 ]
+  %.pn3.i = phi i32 [ %.sroa.0.1.i.i.i, %114 ], [ %.sroa.0.020.i.i.i, %112 ]
+  %.pn1.i = phi i32 [ %.sroa.4.1.i.i.i, %114 ], [ %.sroa.4.019.i.i.i, %112 ]
   %.pn3.i.fr = freeze i32 %.pn3.i
   %123 = icmp eq i32 %.pn3.i.fr, 0
   %124 = add i32 %.pn3.i.fr, %35
@@ -3802,8 +3802,8 @@ define { i32, i32 } @_ZN4rope4Rope20point_to_point_utf1617ha27c3c5526153a21E(ptr
   br i1 %153, label %.thread, label %99
 
 .thread:                                          ; preds = %135, %152
-  %.pn3.i15 = phi i32 [ %.sroa.0.024.i.i.i, %135 ], [ %.sroa.0.1.i.i.i, %152 ]
-  %.pn1.i = phi i32 [ %.sroa.4.023.i.i.i, %135 ], [ %.sroa.4.1.i.i.i, %152 ]
+  %.pn3.i15 = phi i32 [ %.sroa.0.1.i.i.i, %152 ], [ %.sroa.0.024.i.i.i, %135 ]
+  %.pn1.i = phi i32 [ %.sroa.4.1.i.i.i, %152 ], [ %.sroa.4.023.i.i.i, %135 ]
   %.pn3.i15.fr = freeze i32 %.pn3.i15
   %154 = icmp eq i32 %.pn3.i15.fr, 0
   %155 = add i32 %.pn3.i15.fr, %54
@@ -5184,8 +5184,8 @@ define { i32, i32 } @_ZN4rope4Rope30unclipped_point_utf16_to_point17h33c713b7aec
   br label %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit10.i.i.i"
 
 .thread:                                          ; preds = %135, %139, %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit10.i.i.i"
-  %.pn3.i14 = phi i32 [ %.sroa.013.036.i.i.i, %139 ], [ %.sroa.013.036.i.i.i, %135 ], [ %.sroa.013.1.i.i.i, %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit10.i.i.i" ]
-  %.pn1.i = phi i32 [ %.sroa.10.035.i.i.i, %139 ], [ %.sroa.10.035.i.i.i, %135 ], [ %.sroa.10.1.i.i.i, %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit10.i.i.i" ]
+  %.pn3.i14 = phi i32 [ %.sroa.013.036.i.i.i, %135 ], [ %.sroa.013.036.i.i.i, %139 ], [ %.sroa.013.1.i.i.i, %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit10.i.i.i" ]
+  %.pn1.i = phi i32 [ %.sroa.10.035.i.i.i, %135 ], [ %.sroa.10.035.i.i.i, %139 ], [ %.sroa.10.1.i.i.i, %"_ZN66_$LT$rope..point..Point$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hba957e072d1b02d4E.exit10.i.i.i" ]
   %.pn3.i14.fr = freeze i32 %.pn3.i14
   %154 = icmp eq i32 %.pn3.i14.fr, 0
   %155 = add i32 %.pn3.i14.fr, %54
@@ -6207,7 +6207,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   br i1 %274, label %_ZN20unicode_segmentation8grapheme10check_pair17h018467ae3946d83dE.exit.thread90.i.i, label %_ZN20unicode_segmentation8grapheme10check_pair17h018467ae3946d83dE.exit.thread83.i.i
 
 _ZN20unicode_segmentation8grapheme10check_pair17h018467ae3946d83dE.exit.i.i: ; preds = %268, %267, %266, %263
-  %.sroa.03.0.i.i.i = phi i8 [ %switch.select9.i.i.i, %267 ], [ %..i.i.i, %263 ], [ %switch.select13.i.i.i, %268 ], [ %switch.select.i.i.i, %266 ]
+  %.sroa.03.0.i.i.i = phi i8 [ %switch.select9.i.i.i, %267 ], [ %switch.select13.i.i.i, %268 ], [ %..i.i.i, %263 ], [ %switch.select.i.i.i, %266 ]
   switch i8 %.sroa.03.0.i.i.i, label %default.unreachable [
     i8 0, label %_ZN20unicode_segmentation8grapheme10check_pair17h018467ae3946d83dE.exit.thread.i.i
     i8 1, label %_ZN20unicode_segmentation8grapheme10check_pair17h018467ae3946d83dE.exit.thread83.i.i

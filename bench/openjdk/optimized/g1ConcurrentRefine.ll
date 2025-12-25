@@ -695,7 +695,7 @@ _ZN31G1ConcurrentRefineThreadControl24create_refinement_threadEjb.exit: ; preds 
   br label %34
 
 34:                                               ; preds = %.sink.split, %2, %30, %27
-  %.0 = phi i32 [ 0, %2 ], [ 0, %30 ], [ 0, %27 ], [ -4, %.sink.split ]
+  %.0 = phi i32 [ 0, %30 ], [ 0, %2 ], [ 0, %27 ], [ -4, %.sink.split ]
   ret i32 %.0
 }
 

@@ -622,7 +622,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
   br label %.loopexit
 
 .loopexit:                                        ; preds = %231, %211, %190, %157, %136, %106, %253, %52, %37, %10, %._crit_edge, %262, %250, %238, %218, %197, %185, %164, %143, %131, %113, %91, %61, %36, %23
-  %.0267 = phi i32 [ 0, %._crit_edge ], [ 15, %23 ], [ 14, %36 ], [ 1, %10 ], [ 15, %37 ], [ 15, %61 ], [ 15, %91 ], [ 1, %52 ], [ 15, %113 ], [ 14, %250 ], [ 1, %253 ], [ 15, %262 ], [ 14, %131 ], [ 15, %238 ], [ 15, %143 ], [ 15, %218 ], [ 15, %164 ], [ 14, %185 ], [ 15, %197 ], [ 1, %106 ], [ 1, %136 ], [ 1, %157 ], [ 1, %190 ], [ 1, %211 ], [ 1, %231 ]
+  %.0267 = phi i32 [ 0, %._crit_edge ], [ 15, %23 ], [ 14, %36 ], [ 1, %10 ], [ 15, %37 ], [ 15, %61 ], [ 15, %91 ], [ 1, %52 ], [ 15, %113 ], [ 14, %250 ], [ 15, %197 ], [ 15, %262 ], [ 14, %131 ], [ 15, %238 ], [ 15, %143 ], [ 15, %218 ], [ 15, %164 ], [ 14, %185 ], [ 1, %253 ], [ 1, %106 ], [ 1, %136 ], [ 1, %157 ], [ 1, %190 ], [ 1, %211 ], [ 1, %231 ]
   ret i32 %.0267
 }
 
@@ -2488,7 +2488,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_ibm866(ptr noundef captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -3240,7 +3240,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_10(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -3339,7 +3339,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_13(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -3438,7 +3438,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_14(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -3537,7 +3537,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_15(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -3636,7 +3636,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_16(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -3735,7 +3735,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_2(ptr noundef c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -3834,7 +3834,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_3(ptr noundef c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -3933,7 +3933,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_4(ptr noundef c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -4032,7 +4032,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_5(ptr noundef c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -4131,7 +4131,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_6(ptr noundef c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -4230,7 +4230,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_7(ptr noundef c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -4329,7 +4329,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8(ptr noundef c
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -4428,7 +4428,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8_i(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -4527,7 +4527,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_r(ptr noundef captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -4626,7 +4626,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_u(ptr noundef captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -5435,7 +5435,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_macintosh(ptr noundef ca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -5540,7 +5540,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1250(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -5639,7 +5639,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1251(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -5738,7 +5738,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1252(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -5837,7 +5837,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1253(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -5936,7 +5936,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1254(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -6035,7 +6035,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1255(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -6134,7 +6134,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1256(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -6233,7 +6233,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1257(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -6332,7 +6332,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1258(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -6431,7 +6431,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_874(ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 
@@ -6530,7 +6530,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_mac_cyrillic(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.backedge, %.loopexit.sink.split, %3
-  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 0, %.backedge ], [ 1, %27 ]
+  %spec.select = phi i32 [ 0, %3 ], [ 15, %.loopexit.sink.split ], [ 1, %27 ], [ 0, %.backedge ]
   ret i32 %spec.select
 }
 

@@ -5802,7 +5802,7 @@ er_add_slice.exit298:                             ; preds = %475, %476
   %.not257 = icmp slt i32 %511, %512
   br i1 %.not257, label %370, label %._crit_edge.loopexit
 
-er_add_slice.exit.thread317:                      ; preds = %496, %er_add_slice.exit310, %454, %450, %265, %er_add_slice.exit292, %356, %er_add_slice.exit296
+er_add_slice.exit.thread317:                      ; preds = %450, %er_add_slice.exit310, %454, %496, %265, %er_add_slice.exit292, %356, %er_add_slice.exit296
   store i32 %7, ptr %6, align 4, !tbaa !208
   br label %er_add_slice.exit.thread
 

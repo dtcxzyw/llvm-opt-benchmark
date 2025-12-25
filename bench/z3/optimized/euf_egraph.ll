@@ -8303,8 +8303,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIPN3euf5
   br label %.loopexit
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %135 = phi ptr [ %20, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %136 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %135 = phi ptr [ %20, %thread-pre-split.i.i.preheader ], [ %.be223, %thread-pre-split.i.i.backedge ]
+  %136 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be223, %thread-pre-split.i.i.backedge ]
   %137 = icmp eq ptr %136, null
   br i1 %137, label %_ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.i.i
 
@@ -8331,7 +8331,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vect
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %.noexc87, %.noexc90
-  %.be = phi ptr [ %145, %.noexc87 ], [ %185, %.noexc90 ]
+  %.be223 = phi ptr [ %185, %.noexc90 ], [ %145, %.noexc87 ]
   br label %thread-pre-split.i.i, !llvm.loop !120
 
 146:                                              ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE8capacityEv.exit.thread.i.i
@@ -8511,8 +8511,8 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit66:    ; preds = %_ZNK6vectorIPN3euf5
   br i1 %228, label %237, label %.critedge99
 
 .critedge99:                                      ; preds = %.loopexit, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit66, %.critedge, %.preheader101
-  %229 = phi ptr [ null, %.preheader101 ], [ %20, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit66 ], [ %20, %.critedge ], [ %194, %.loopexit ]
-  %230 = phi ptr [ null, %.preheader101 ], [ %22, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit66 ], [ %22, %.critedge ], [ %41, %.loopexit ]
+  %229 = phi ptr [ %20, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit66 ], [ null, %.preheader101 ], [ %20, %.critedge ], [ %194, %.loopexit ]
+  %230 = phi ptr [ %22, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit66 ], [ null, %.preheader101 ], [ %22, %.critedge ], [ %41, %.loopexit ]
   %231 = invoke noundef zeroext i1 @_ZN3euf6egraph9propagateEv(ptr noundef nonnull align 8 dereferenceable(536) %0)
           to label %.preheader unwind label %266
 

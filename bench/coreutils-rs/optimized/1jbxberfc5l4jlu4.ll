@@ -1406,8 +1406,8 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
   br label %129
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread105: ; preds = %91, %71, %75, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
-  %.299108 = phi i64 [ %.2100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %37, %75 ], [ %.189, %71 ], [ %93, %91 ]
-  %95 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %78, %75 ], [ 0, %71 ], [ 0, %91 ]
+  %.299108 = phi i64 [ %.2100, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %37, %75 ], [ %93, %91 ], [ %.189, %71 ]
+  %95 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %78, %75 ], [ 0, %91 ], [ 0, %71 ]
   %96 = add nsw i64 %.sroa.078.0.copyload, -2
   %97 = icmp ult i64 %96, 3
   %98 = add nsw i64 %.sroa.078.0.copyload, -1
@@ -1753,8 +1753,8 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
   br label %110
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread100: ; preds = %72, %52, %56, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
-  %.294103 = phi i64 [ %.295, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %26, %56 ], [ %.184, %52 ], [ %74, %72 ]
-  %76 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %59, %56 ], [ 0, %52 ], [ 0, %72 ]
+  %.294103 = phi i64 [ %.295, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %26, %56 ], [ %74, %72 ], [ %.184, %52 ]
+  %76 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %59, %56 ], [ 0, %72 ], [ 0, %52 ]
   %77 = add nsw i64 %.sroa.076.0.copyload, -2
   %78 = icmp ult i64 %77, 3
   %79 = add nsw i64 %.sroa.076.0.copyload, -1

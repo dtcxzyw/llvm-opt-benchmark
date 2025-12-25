@@ -3632,7 +3632,7 @@ define internal range(i32 0, 2) i32 @ext_sct_parse_serverhello(ptr noundef reado
   br label %18
 
 18:                                               ; preds = %.sink.split, %8, %12, %3
-  %.0 = phi i32 [ 1, %8 ], [ 1, %12 ], [ 1, %3 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %12 ], [ 1, %8 ], [ 1, %3 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

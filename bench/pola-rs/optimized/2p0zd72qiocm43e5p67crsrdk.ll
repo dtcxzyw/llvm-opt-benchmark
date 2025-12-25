@@ -22178,7 +22178,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke418, %.invoke, %80, %86, %.loopexit171, %7, %126, %53, %173, %94, %93, %92, %87, %85, %78, %67, %56
-  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %94 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %93 ], [ true, %92 ], [ true, %173 ], [ true, %87 ], [ true, %85 ], [ true, %78 ], [ true, %7 ], [ true, %53 ], [ true, %67 ], [ true, %86 ], [ true, %.invoke ], [ true, %56 ], [ false, %80 ], [ true, %126 ]
+  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %86 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %67 ], [ true, %7 ], [ true, %173 ], [ true, %78 ], [ true, %85 ], [ true, %87 ], [ true, %92 ], [ true, %53 ], [ true, %93 ], [ true, %94 ], [ true, %.invoke ], [ true, %56 ], [ false, %80 ], [ true, %126 ]
   %lpad.loopexit.split-lp169 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -22868,7 +22868,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke418, %.invoke, %77, %82, %.loopexit171, %6, %122, %51, %169, %90, %89, %88, %83, %81, %75, %65, %54
-  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %90 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %89 ], [ true, %88 ], [ true, %169 ], [ true, %83 ], [ true, %81 ], [ true, %75 ], [ true, %6 ], [ true, %51 ], [ true, %65 ], [ true, %82 ], [ true, %.invoke ], [ true, %54 ], [ false, %77 ], [ true, %122 ]
+  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %82 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %65 ], [ true, %6 ], [ true, %169 ], [ true, %75 ], [ true, %81 ], [ true, %83 ], [ true, %88 ], [ true, %51 ], [ true, %89 ], [ true, %90 ], [ true, %.invoke ], [ true, %54 ], [ false, %77 ], [ true, %122 ]
   %lpad.loopexit.split-lp169 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -23572,7 +23572,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke407, %.invoke, %83, %89, %.loopexit160, %7, %130, %56, %177, %97, %96, %95, %90, %88, %81, %70, %59
-  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %97 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %96 ], [ true, %95 ], [ true, %177 ], [ true, %90 ], [ true, %88 ], [ true, %81 ], [ true, %7 ], [ true, %56 ], [ true, %70 ], [ true, %89 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
+  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %89 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %70 ], [ true, %7 ], [ true, %177 ], [ true, %81 ], [ true, %88 ], [ true, %90 ], [ true, %95 ], [ true, %56 ], [ true, %96 ], [ true, %97 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
   %lpad.loopexit.split-lp158 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -24276,7 +24276,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke407, %.invoke, %83, %89, %.loopexit160, %7, %130, %56, %177, %97, %96, %95, %90, %88, %81, %70, %59
-  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %97 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %96 ], [ true, %95 ], [ true, %177 ], [ true, %90 ], [ true, %88 ], [ true, %81 ], [ true, %7 ], [ true, %56 ], [ true, %70 ], [ true, %89 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
+  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %89 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %70 ], [ true, %7 ], [ true, %177 ], [ true, %81 ], [ true, %88 ], [ true, %90 ], [ true, %95 ], [ true, %56 ], [ true, %96 ], [ true, %97 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
   %lpad.loopexit.split-lp158 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -24980,7 +24980,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke407, %.invoke, %83, %89, %.loopexit160, %7, %130, %56, %177, %97, %96, %95, %90, %88, %81, %70, %59
-  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %97 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %96 ], [ true, %95 ], [ true, %177 ], [ true, %90 ], [ true, %88 ], [ true, %81 ], [ true, %7 ], [ true, %56 ], [ true, %70 ], [ true, %89 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
+  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %89 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %70 ], [ true, %7 ], [ true, %177 ], [ true, %81 ], [ true, %88 ], [ true, %90 ], [ true, %95 ], [ true, %56 ], [ true, %96 ], [ true, %97 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
   %lpad.loopexit.split-lp158 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -25674,7 +25674,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke418, %.invoke, %80, %86, %.loopexit171, %7, %126, %53, %173, %94, %93, %92, %87, %85, %78, %67, %56
-  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %94 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %93 ], [ true, %92 ], [ true, %173 ], [ true, %87 ], [ true, %85 ], [ true, %78 ], [ true, %7 ], [ true, %53 ], [ true, %67 ], [ true, %86 ], [ true, %.invoke ], [ true, %56 ], [ false, %80 ], [ true, %126 ]
+  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %86 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %67 ], [ true, %7 ], [ true, %173 ], [ true, %78 ], [ true, %85 ], [ true, %87 ], [ true, %92 ], [ true, %53 ], [ true, %93 ], [ true, %94 ], [ true, %.invoke ], [ true, %56 ], [ false, %80 ], [ true, %126 ]
   %lpad.loopexit.split-lp169 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -26373,7 +26373,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke414, %.invoke, %81, %87, %.loopexit167, %7, %128, %54, %175, %95, %94, %93, %88, %86, %79, %68, %57
-  %.sroa.044.0.ph.ph.ph = phi i1 [ true, %95 ], [ true, %.loopexit167 ], [ true, %.invoke414 ], [ true, %94 ], [ true, %93 ], [ true, %175 ], [ true, %88 ], [ true, %86 ], [ true, %79 ], [ true, %7 ], [ true, %54 ], [ true, %68 ], [ true, %87 ], [ true, %.invoke ], [ true, %57 ], [ false, %81 ], [ true, %128 ]
+  %.sroa.044.0.ph.ph.ph = phi i1 [ true, %87 ], [ true, %.loopexit167 ], [ true, %.invoke414 ], [ true, %68 ], [ true, %7 ], [ true, %175 ], [ true, %79 ], [ true, %86 ], [ true, %88 ], [ true, %93 ], [ true, %54 ], [ true, %94 ], [ true, %95 ], [ true, %.invoke ], [ true, %57 ], [ false, %81 ], [ true, %128 ]
   %lpad.loopexit.split-lp165 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -27067,7 +27067,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke418, %.invoke, %80, %86, %.loopexit171, %7, %126, %53, %173, %94, %93, %92, %87, %85, %78, %67, %56
-  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %94 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %93 ], [ true, %92 ], [ true, %173 ], [ true, %87 ], [ true, %85 ], [ true, %78 ], [ true, %7 ], [ true, %53 ], [ true, %67 ], [ true, %86 ], [ true, %.invoke ], [ true, %56 ], [ false, %80 ], [ true, %126 ]
+  %.sroa.046.0.ph.ph.ph = phi i1 [ true, %86 ], [ true, %.loopexit171 ], [ true, %.invoke418 ], [ true, %67 ], [ true, %7 ], [ true, %173 ], [ true, %78 ], [ true, %85 ], [ true, %87 ], [ true, %92 ], [ true, %53 ], [ true, %93 ], [ true, %94 ], [ true, %.invoke ], [ true, %56 ], [ false, %80 ], [ true, %126 ]
   %lpad.loopexit.split-lp169 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -27771,7 +27771,7 @@ define void @_ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded21op
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke407, %.invoke, %83, %89, %.loopexit160, %7, %130, %56, %177, %97, %96, %95, %90, %88, %81, %70, %59
-  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %97 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %96 ], [ true, %95 ], [ true, %177 ], [ true, %90 ], [ true, %88 ], [ true, %81 ], [ true, %7 ], [ true, %56 ], [ true, %70 ], [ true, %89 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
+  %.sroa.040.0.ph.ph.ph = phi i1 [ true, %89 ], [ true, %.loopexit160 ], [ true, %.invoke407 ], [ true, %70 ], [ true, %7 ], [ true, %177 ], [ true, %81 ], [ true, %88 ], [ true, %90 ], [ true, %95 ], [ true, %56 ], [ true, %96 ], [ true, %97 ], [ true, %.invoke ], [ true, %59 ], [ false, %83 ], [ true, %130 ]
   %lpad.loopexit.split-lp158 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

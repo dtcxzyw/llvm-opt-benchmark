@@ -2923,7 +2923,7 @@ select.unfold.sink.split:                         ; preds = %140, %86, %36, %9
   br label %select.unfold
 
 select.unfold:                                    ; preds = %108, %103, %._crit_edge, %_ZN2OT7ArrayOfIN3CFF12SuppEncodingENS_7IntTypeIhLj1EEEEixEi.exit138, %select.unfold.sink.split, %153, %.critedge, %135, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF15CFF1SuppEncDataEEEPT_mb.exit, %79, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF9Encoding1EEEPT_mb.exit, %32, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF9Encoding0EEEPT_mb.exit, %_ZL9hb_memsetPvij.exit.i.i.i, %6
-  %.075 = phi i1 [ false, %32 ], [ true, %_ZN2OT7ArrayOfIN3CFF12SuppEncodingENS_7IntTypeIhLj1EEEEixEi.exit138 ], [ false, %135 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i ], [ false, %6 ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF15CFF1SuppEncDataEEEPT_mb.exit ], [ false, %79 ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF9Encoding0EEEPT_mb.exit ], [ false, %._crit_edge ], [ false, %select.unfold.sink.split ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF9Encoding1EEEPT_mb.exit ], [ true, %153 ], [ true, %.critedge ], [ false, %103 ], [ false, %108 ]
+  %.075 = phi i1 [ false, %32 ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF15CFF1SuppEncDataEEEPT_mb.exit ], [ false, %135 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i ], [ false, %6 ], [ false, %select.unfold.sink.split ], [ false, %79 ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF9Encoding0EEEPT_mb.exit ], [ false, %._crit_edge ], [ true, %_ZN2OT7ArrayOfIN3CFF12SuppEncodingENS_7IntTypeIhLj1EEEEixEi.exit138 ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN3CFF9Encoding1EEEPT_mb.exit ], [ true, %.critedge ], [ true, %153 ], [ false, %103 ], [ false, %108 ]
   ret i1 %.075
 }
 
@@ -8421,7 +8421,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i: ; preds = %202, %193
-  %.03.i.i = phi i32 [ %198, %193 ], [ %207, %202 ]
+  %.03.i.i = phi i32 [ %207, %202 ], [ %198, %193 ]
   switch i32 %.03.i.i, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.i.thread [
     i32 256, label %208
     i32 14, label %209
@@ -16709,7 +16709,7 @@ _ZNK3CFF15parsed_cs_str_t6at_endEj.exit.thread:   ; preds = %33, %_ZNK3CFF15pars
   br i1 %64, label %.lr.ph, label %.critedge67, !llvm.loop !587
 
 .critedge67:                                      ; preds = %.lr.ph, %63, %.critedge65, %20, %15, %27, %31, %43, %45
-  %.1 = phi i1 [ %.072, %20 ], [ %.072, %45 ], [ %.072, %15 ], [ %.072, %27 ], [ %.072, %43 ], [ %.072, %31 ], [ true, %.critedge65 ], [ true, %63 ], [ true, %.lr.ph ]
+  %.1 = phi i1 [ %.072, %20 ], [ %.072, %45 ], [ %.072, %27 ], [ %.072, %15 ], [ %.072, %43 ], [ %.072, %31 ], [ true, %.critedge65 ], [ true, %63 ], [ true, %.lr.ph ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count

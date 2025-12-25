@@ -2482,8 +2482,8 @@ Vec_PtrFree.exit103:                              ; preds = %52, %56
   br i1 %exitcond172.not, label %.loopexit, label %63, !llvm.loop !88
 
 .loopexit:                                        ; preds = %83, %63, %39, %58, %71, %Vec_PtrFree.exit101
-  %.383 = phi ptr [ %53, %58 ], [ %.4130, %71 ], [ %.282139, %Vec_PtrFree.exit101 ], [ %.282139, %39 ], [ %.4130, %63 ], [ %69, %83 ]
-  %.2 = phi i32 [ 1, %58 ], [ %.3132, %71 ], [ %.1141, %Vec_PtrFree.exit101 ], [ %.1141, %39 ], [ %.3132, %63 ], [ 1, %83 ]
+  %.383 = phi ptr [ %53, %58 ], [ %.4130, %71 ], [ %.282139, %Vec_PtrFree.exit101 ], [ %.282139, %39 ], [ %69, %83 ], [ %.4130, %63 ]
+  %.2 = phi i32 [ 1, %58 ], [ %.3132, %71 ], [ %.1141, %Vec_PtrFree.exit101 ], [ %.1141, %39 ], [ 1, %83 ], [ %.3132, %63 ]
   %85 = icmp ne i32 %.2, 0
   %or.cond13 = and i1 %or.cond3.not, %85
   br i1 %or.cond13, label %.thread.sink.split, label %.thread

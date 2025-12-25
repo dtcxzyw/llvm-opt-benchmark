@@ -39161,9 +39161,9 @@ select.unfold.i:                                  ; preds = %select.unfold.loope
   br i1 %936, label %759, label %.invoke, !prof !181
 
 .invoke:                                          ; preds = %1017, %1009, %1005, %1002, %994, %990, %763, %933
-  %937 = phi ptr [ @anon.cfba456b36b811dcd9f9fe528b26821b.252, %763 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.261, %994 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.252, %933 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.264, %1002 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.261, %990 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.267, %1005 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.270, %1017 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.267, %1009 ]
-  %938 = phi i64 [ 90, %763 ], [ 57, %994 ], [ 90, %933 ], [ 53, %1002 ], [ 57, %990 ], [ 58, %1005 ], [ 52, %1017 ], [ 58, %1009 ]
-  %939 = phi ptr [ @anon.cfba456b36b811dcd9f9fe528b26821b.253, %763 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.262, %994 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.253, %933 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.265, %1002 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.262, %990 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.268, %1005 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.271, %1017 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.268, %1009 ]
+  %937 = phi ptr [ @anon.cfba456b36b811dcd9f9fe528b26821b.252, %763 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.261, %994 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.252, %933 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.264, %1002 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.261, %990 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.270, %1017 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.267, %1009 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.267, %1005 ]
+  %938 = phi i64 [ 90, %763 ], [ 57, %994 ], [ 90, %933 ], [ 53, %1002 ], [ 57, %990 ], [ 52, %1017 ], [ 58, %1009 ], [ 58, %1005 ]
+  %939 = phi ptr [ @anon.cfba456b36b811dcd9f9fe528b26821b.253, %763 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.262, %994 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.253, %933 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.265, %1002 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.262, %990 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.271, %1017 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.268, %1009 ], [ @anon.cfba456b36b811dcd9f9fe528b26821b.268, %1005 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %937, i64 noundef %938, ptr noalias noundef readonly align 8 dereferenceable(24) %939) #41
           to label %.cont unwind label %.loopexit.split-lp208.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -48819,8 +48819,8 @@ default.unreachable2178:                          ; preds = %469, %363
   br label %.invoke
 
 .critedge1226:                                    ; preds = %1404, %.loopexit.split-lp2032, %2668, %2671, %.thread1866, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1462", %1815, %1510, %1403
-  %.sroa.0519.1 = phi i8 [ %.sroa.0519.16, %1815 ], [ %.sroa.0519.35, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1462" ], [ %.sroa.0519.351872, %.thread1866 ], [ %.sroa.0519.132195, %1510 ], [ %.sroa.0519.11, %1403 ], [ %.sroa.0519.351872, %2668 ], [ %.sroa.0519.351872, %2671 ], [ %.sroa.0519.0.ph, %.loopexit.split-lp2032 ], [ %.sroa.0519.6, %1404 ]
-  %.pn1217 = phi { ptr, i32 } [ %.pn1122, %1815 ], [ %.pn1073, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1462" ], [ %.pn10731873, %.thread1866 ], [ %.pn12112196, %1510 ], [ %.pn1209, %1403 ], [ %.pn10731873, %2668 ], [ %.pn10731873, %2671 ], [ %lpad.loopexit.split-lp2034, %.loopexit.split-lp2032 ], [ %1405, %1404 ]
+  %.sroa.0519.1 = phi i8 [ %.sroa.0519.351872, %.thread1866 ], [ %.sroa.0519.35, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1462" ], [ %.sroa.0519.16, %1815 ], [ %.sroa.0519.132195, %1510 ], [ %.sroa.0519.11, %1403 ], [ %.sroa.0519.351872, %2668 ], [ %.sroa.0519.351872, %2671 ], [ %.sroa.0519.0.ph, %.loopexit.split-lp2032 ], [ %.sroa.0519.6, %1404 ]
+  %.pn1217 = phi { ptr, i32 } [ %.pn10731873, %.thread1866 ], [ %.pn1073, %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1462" ], [ %.pn1122, %1815 ], [ %.pn12112196, %1510 ], [ %.pn1209, %1403 ], [ %.pn10731873, %2668 ], [ %.pn10731873, %2671 ], [ %lpad.loopexit.split-lp2034, %.loopexit.split-lp2032 ], [ %1405, %1404 ]
   %742 = trunc nuw i8 %.sroa.0519.1 to i1
   br i1 %742, label %.critedge1226.thread, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1536"
 
@@ -48884,7 +48884,7 @@ default.unreachable2178:                          ; preds = %469, %363
   br label %.thread1660
 
 756:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit1482", %2137, %1406
-  %.sroa.0519.2 = phi i8 [ %.sroa.0519.6, %1406 ], [ %.sroa.0519.361884, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit1482" ], [ %.sroa.0519.23, %2137 ]
+  %.sroa.0519.2 = phi i8 [ %.sroa.0519.6, %1406 ], [ %.sroa.0519.23, %2137 ], [ %.sroa.0519.361884, %"_ZN4core3ptr87drop_in_place$LT$alloc..sync..Arc$LT$$u5b$polars_utils..pl_str..PlSmallStr$u5d$$GT$$GT$17hf6adaf7743a833fbE.exit1482" ]
   %757 = trunc nuw i8 %.sroa.0519.2 to i1
   br i1 %757, label %.thread1660, label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1534"
 
@@ -50213,9 +50213,9 @@ default.unreachable2178:                          ; preds = %469, %363
   br label %.body1350
 
 1230:                                             ; preds = %1254, %1306, %1268, %1264, %1250, %1246, %1236, %1234, %1223
-  %.sroa.0509.0.ph = phi i8 [ 1, %1223 ], [ 1, %1234 ], [ 1, %1236 ], [ 1, %1268 ], [ 1, %1264 ], [ 1, %1254 ], [ 1, %1250 ], [ 1, %1246 ], [ %.sroa.0509.1, %1306 ]
-  %.sroa.0511.3.ph = phi i8 [ 1, %1223 ], [ 1, %1234 ], [ 1, %1236 ], [ 1, %1268 ], [ 1, %1264 ], [ 1, %1254 ], [ 1, %1250 ], [ 1, %1246 ], [ 0, %1306 ]
-  %.sroa.0513.5.ph = phi i8 [ 1, %1223 ], [ 1, %1234 ], [ 1, %1236 ], [ 0, %1268 ], [ 0, %1264 ], [ 0, %1254 ], [ 0, %1250 ], [ 0, %1246 ], [ %.sroa.0513.6, %1306 ]
+  %.sroa.0509.0.ph = phi i8 [ 1, %1223 ], [ 1, %1234 ], [ 1, %1236 ], [ 1, %1246 ], [ 1, %1250 ], [ 1, %1254 ], [ 1, %1264 ], [ 1, %1268 ], [ %.sroa.0509.1, %1306 ]
+  %.sroa.0511.3.ph = phi i8 [ 1, %1223 ], [ 1, %1234 ], [ 1, %1236 ], [ 1, %1246 ], [ 1, %1250 ], [ 1, %1254 ], [ 1, %1264 ], [ 1, %1268 ], [ 0, %1306 ]
+  %.sroa.0513.5.ph = phi i8 [ 1, %1223 ], [ 1, %1234 ], [ 1, %1236 ], [ 0, %1246 ], [ 0, %1250 ], [ 0, %1254 ], [ 0, %1264 ], [ 0, %1268 ], [ %.sroa.0513.6, %1306 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %1231 = load i8, ptr %1199, align 1, !range !834, !noundef !4
@@ -52050,7 +52050,7 @@ select.unfold:                                    ; preds = %664, %622
   br label %.body1428
 
 .loopexit.split-lp2022:                           ; preds = %1880, %._crit_edge2070, %2019
-  %.sroa.0519.24.ph = phi i8 [ 1, %1880 ], [ %.sroa.0519.28, %2019 ], [ 1, %._crit_edge2070 ]
+  %.sroa.0519.24.ph = phi i8 [ %.sroa.0519.28, %2019 ], [ 1, %1880 ], [ 1, %._crit_edge2070 ]
   %lpad.loopexit.split-lp2024 = landingpad { ptr, i32 }
           cleanup
   br label %.body1428
@@ -58534,7 +58534,7 @@ default.unreachable3159:                          ; preds = %"_ZN4core3ptr121dro
   br label %"_ZN4core3ptr121drop_in_place$LT$alloc..sync..Arc$LT$polars_schema..schema..Schema$LT$polars_core..datatypes..dtype..DataType$GT$$GT$$GT$17hc158dc6398335118E.exit1989"
 
 .thread2393:                                      ; preds = %990, %1009, %995, %831
-  %.pn18412386 = phi { ptr, i32 } [ %996, %995 ], [ %lpad.thr_comm.split-lp2402, %831 ], [ %1010, %1009 ], [ %991, %990 ]
+  %.pn18412386 = phi { ptr, i32 } [ %996, %995 ], [ %lpad.thr_comm.split-lp2402, %831 ], [ %991, %990 ], [ %1010, %1009 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5536)
   call void @llvm.experimental.noalias.scope.decl(metadata !5539)
   %1016 = load ptr, ptr %254, align 8, !alias.scope !5542, !nonnull !4, !noundef !4

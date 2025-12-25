@@ -626,7 +626,7 @@ define internal fastcc void @Synchronize_Buffer(ptr noundef captures(none) %0) u
   br label %Window_To_Buffer.exit
 
 .critedge.i:                                      ; preds = %25, %22
-  %.027.lcssa.i = phi i32 [ %31, %25 ], [ %.02734.i, %22 ]
+  %.027.lcssa.i = phi i32 [ %.02734.i, %22 ], [ %31, %25 ]
   %33 = sext i32 %.027.lcssa.i to i64
   %34 = getelementptr inbounds i8, ptr %14, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !54
@@ -1517,7 +1517,7 @@ define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr noundef readon
   br label %.loopexit
 
 .critedge:                                        ; preds = %14, %17
-  %.027.lcssa = phi i32 [ %23, %17 ], [ %.02734, %14 ]
+  %.027.lcssa = phi i32 [ %.02734, %14 ], [ %23, %17 ]
   %25 = sext i32 %.027.lcssa to i64
   %26 = getelementptr inbounds i8, ptr %6, i64 %25
   store i8 0, ptr %26, align 1, !tbaa !54
@@ -6396,7 +6396,7 @@ define internal fastcc range(i32 -12, 1) i32 @Wrapping_Not_Necessary_Or_Wrapping
   br label %Window_To_Buffer.exit
 
 .critedge.i:                                      ; preds = %69, %.lr.ph.i
-  %.027.lcssa.i = phi i32 [ %75, %69 ], [ %.02734.i, %.lr.ph.i ]
+  %.027.lcssa.i = phi i32 [ %.02734.i, %.lr.ph.i ], [ %75, %69 ]
   %77 = sext i32 %.027.lcssa.i to i64
   %78 = getelementptr inbounds i8, ptr %61, i64 %77
   store i8 0, ptr %78, align 1, !tbaa !54
@@ -6515,7 +6515,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   br label %Window_To_Buffer.exit71
 
 .critedge.i62:                                    ; preds = %132, %.lr.ph.i59
-  %.027.lcssa.i63 = phi i32 [ %138, %132 ], [ %.02734.i60, %.lr.ph.i59 ]
+  %.027.lcssa.i63 = phi i32 [ %.02734.i60, %.lr.ph.i59 ], [ %138, %132 ]
   %140 = sext i32 %.027.lcssa.i63 to i64
   %141 = getelementptr inbounds i8, ptr %124, i64 %140
   store i8 0, ptr %141, align 1, !tbaa !54
@@ -6706,7 +6706,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %72, %74
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %48, %After_Last_Whitespace_Character.exit, %37, %40
-  %.0 = phi i32 [ -12, %37 ], [ -12, %48 ], [ -1, %40 ], [ %83, %After_Last_Whitespace_Character.exit ], [ 0, %.thread.sink.split ]
+  %.0 = phi i32 [ -12, %48 ], [ -12, %37 ], [ -1, %40 ], [ %83, %After_Last_Whitespace_Character.exit ], [ 0, %.thread.sink.split ]
   tail call void @free(ptr noundef %26) #14
   ret i32 %.0
 }

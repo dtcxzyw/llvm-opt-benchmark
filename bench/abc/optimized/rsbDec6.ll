@@ -902,7 +902,7 @@ Abc_Tt6FirstBit.exit171.thread:                   ; preds = %Abc_Tt6FirstBit.exi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Abc_Tt6FirstBit.exit171.thread, %.loopexit.sink.split, %7
-  %.0125 = phi i32 [ 0, %.loopexit.sink.split ], [ 0, %7 ], [ %452, %Abc_Tt6FirstBit.exit171.thread ]
+  %.0125 = phi i32 [ 0, %7 ], [ 0, %.loopexit.sink.split ], [ %452, %Abc_Tt6FirstBit.exit171.thread ]
   ret i32 %.0125
 }
 

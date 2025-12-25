@@ -176,8 +176,8 @@ define dso_local void @_ZN4llvm13line_iterator7advanceEv(ptr noundef nonnull ali
   store i32 %16, ptr %14, align 4, !tbaa !20
   br label %_ZL15skipIfAtLineEndRPKc.exit.thread
 
-_ZL15skipIfAtLineEndRPKc.exit.thread:             ; preds = %1, %8, %12
-  %.536 = phi ptr [ %13, %12 ], [ %6, %8 ], [ %6, %1 ]
+_ZL15skipIfAtLineEndRPKc.exit.thread:             ; preds = %8, %1, %12
+  %.536 = phi ptr [ %13, %12 ], [ %6, %1 ], [ %6, %8 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %18 = load i8, ptr %17, align 1, !tbaa !19, !range !26, !noundef !27
   %19 = trunc nuw i8 %18 to i1
@@ -352,14 +352,14 @@ _ZL11isAtLineEndPKc.exit15.thread:                ; preds = %61, %.preheader57.s
   br label %.preheader57.split, !llvm.loop !30
 
 _ZL11isAtLineEndPKc.exit.thread:                  ; preds = %.critedge, %.critedge.us, %49
-  %76 = phi i8 [ %35, %.critedge.us ], [ %51, %49 ], [ %60, %.critedge ]
-  %.033 = phi ptr [ %.2.us, %.critedge.us ], [ %.1, %49 ], [ %.2, %.critedge ]
+  %76 = phi i8 [ %51, %49 ], [ %35, %.critedge.us ], [ %60, %.critedge ]
+  %.033 = phi ptr [ %.1, %49 ], [ %.2.us, %.critedge.us ], [ %.2, %.critedge ]
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %_ZL11isAtLineEndPKc.exit.thread.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.critedge.thread, %61, %.preheader57.split, %.critedge.us.thread, %52, %22, %20, %_ZL11isAtLineEndPKc.exit.thread
-  %.033101 = phi ptr [ %.033, %_ZL11isAtLineEndPKc.exit.thread ], [ %.1, %52 ], [ %.3.ph.ph.us90, %.critedge.us.thread ], [ %.536, %20 ], [ %.536, %22 ], [ %.2, %.preheader57.split ], [ %.2, %61 ], [ %.3.ph.ph96, %.critedge.thread ]
-  %78 = phi i8 [ %76, %_ZL11isAtLineEndPKc.exit.thread ], [ 13, %52 ], [ 13, %.critedge.us.thread ], [ %21, %20 ], [ 13, %22 ], [ %60, %.preheader57.split ], [ 13, %61 ], [ 13, %.critedge.thread ]
+  %.033101 = phi ptr [ %.033, %_ZL11isAtLineEndPKc.exit.thread ], [ %.536, %22 ], [ %.536, %20 ], [ %.3.ph.ph.us90, %.critedge.us.thread ], [ %.1, %52 ], [ %.2, %.preheader57.split ], [ %.2, %61 ], [ %.3.ph.ph96, %.critedge.thread ]
+  %78 = phi i8 [ %76, %_ZL11isAtLineEndPKc.exit.thread ], [ 13, %22 ], [ %21, %20 ], [ 13, %.critedge.us.thread ], [ 13, %52 ], [ %60, %.preheader57.split ], [ 13, %61 ], [ 13, %.critedge.thread ]
   br label %.preheader
 
 _ZL11isAtLineEndPKc.exit.thread.thread:           ; preds = %.preheader56, %.preheader56.us, %_ZL11isAtLineEndPKc.exit.thread

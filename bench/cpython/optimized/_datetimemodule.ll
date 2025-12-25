@@ -5527,7 +5527,7 @@ PyObject_TypeCheck.exit34.thread:                 ; preds = %50, %PyObject_TypeC
   br label %multiply_int_timedelta.exit
 
 multiply_int_timedelta.exit:                      ; preds = %49, %46, %43, %25, %22, %19, %PyObject_TypeCheck.exit34.thread, %PyObject_TypeCheck.exit27.thread
-  %.0 = phi ptr [ %44, %43 ], [ %28, %PyObject_TypeCheck.exit27.thread ], [ %20, %22 ], [ %20, %25 ], [ %52, %PyObject_TypeCheck.exit34.thread ], [ %44, %49 ], [ %44, %46 ], [ %20, %19 ]
+  %.0 = phi ptr [ %20, %22 ], [ %28, %PyObject_TypeCheck.exit27.thread ], [ %44, %46 ], [ %20, %25 ], [ %52, %PyObject_TypeCheck.exit34.thread ], [ %44, %49 ], [ %44, %43 ], [ %20, %19 ]
   %53 = icmp eq ptr %.0, @_Py_NotImplementedStruct
   br i1 %53, label %multiply_int_timedelta.exit.thread41, label %Py_INCREF.exit
 
@@ -6051,7 +6051,7 @@ PyObject_TypeCheck.exit16.thread:                 ; preds = %26, %PyObject_TypeC
   br label %divide_timedelta_int.exit
 
 divide_timedelta_int.exit:                        ; preds = %25, %22, %19, %PyObject_TypeCheck.exit16.thread
-  %.0 = phi ptr [ %20, %25 ], [ %28, %PyObject_TypeCheck.exit16.thread ], [ %20, %22 ], [ %20, %19 ]
+  %.0 = phi ptr [ %20, %22 ], [ %28, %PyObject_TypeCheck.exit16.thread ], [ %20, %25 ], [ %20, %19 ]
   %29 = icmp eq ptr %.0, @_Py_NotImplementedStruct
   br i1 %29, label %divide_timedelta_int.exit.thread, label %Py_INCREF.exit
 
@@ -6243,7 +6243,7 @@ Py_DECREF.exit13.i:                               ; preds = %56, %53, %divide_ne
   br label %truedivide_timedelta_timedelta.exit
 
 truedivide_timedelta_timedelta.exit:              ; preds = %64, %61, %58, %Py_DECREF.exit16.sink.split.i, %25, %Py_DECREF.exit14.i, %PyObject_TypeCheck.exit23.thread
-  %.0 = phi ptr [ %18, %Py_DECREF.exit14.i ], [ %30, %PyObject_TypeCheck.exit23.thread ], [ %.0.ph.i, %Py_DECREF.exit16.sink.split.i ], [ %59, %58 ], [ %18, %25 ], [ %59, %64 ], [ %59, %61 ]
+  %.0 = phi ptr [ %59, %58 ], [ %30, %PyObject_TypeCheck.exit23.thread ], [ %.0.ph.i, %Py_DECREF.exit16.sink.split.i ], [ %18, %Py_DECREF.exit14.i ], [ %18, %25 ], [ %59, %61 ], [ %59, %64 ]
   %65 = icmp eq ptr %.0, @_Py_NotImplementedStruct
   br i1 %65, label %truedivide_timedelta_timedelta.exit.thread32, label %Py_INCREF.exit
 
@@ -10023,13 +10023,13 @@ Py_DECREF.exit176:                                ; preds = %200, %203, %206
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %219, label %.thread240, label %20
 
-make_Zreplacement.exit.thread228:                 ; preds = %99, %138, %120, %122, %make_Zreplacement.exit, %148, %make_freplacement.exit, %87, %81, %84, %52, %54
-  %.3141 = phi ptr [ %.1139.ph.ph, %87 ], [ %.1139.ph.ph, %52 ], [ %.1139.ph.ph, %81 ], [ %.1139.ph.ph, %54 ], [ %.1139.ph.ph, %84 ], [ %.1139.ph.ph, %make_Zreplacement.exit ], [ %168, %make_freplacement.exit ], [ %.1139.ph.ph, %148 ], [ %.1139.ph.ph, %122 ], [ %.1139.ph.ph, %120 ], [ %.1139.ph.ph, %138 ], [ %.1139.ph.ph, %99 ]
-  %.3135 = phi ptr [ %.1133.ph.ph, %87 ], [ %.1133.ph.ph, %52 ], [ %.1133.ph.ph, %81 ], [ %.1133.ph.ph, %54 ], [ %.1133.ph.ph, %84 ], [ %97, %make_Zreplacement.exit ], [ %.1133.ph.ph, %make_freplacement.exit ], [ %.1133.ph.ph, %148 ], [ %97, %122 ], [ %97, %120 ], [ %131, %138 ], [ %97, %99 ]
-  %.2131 = phi i64 [ %51, %87 ], [ %51, %52 ], [ %82, %81 ], [ %51, %54 ], [ %82, %84 ], [ %51, %make_Zreplacement.exit ], [ %51, %make_freplacement.exit ], [ %51, %148 ], [ %51, %122 ], [ %51, %120 ], [ %51, %138 ], [ %51, %99 ]
-  %.3121 = phi ptr [ %.1119.ph.ph, %87 ], [ %.1119.ph.ph, %52 ], [ %.1119.ph.ph, %81 ], [ %.1119.ph.ph, %54 ], [ %85, %84 ], [ %.1119.ph.ph, %make_Zreplacement.exit ], [ %.1119.ph.ph, %make_freplacement.exit ], [ %.1119.ph.ph, %148 ], [ %.1119.ph.ph, %122 ], [ %.1119.ph.ph, %120 ], [ %.1119.ph.ph, %138 ], [ %.1119.ph.ph, %99 ]
-  %.0117 = phi ptr [ %.1133.ph.ph, %87 ], [ %.1115.ph.ph, %52 ], [ %.1119.ph.ph, %81 ], [ %55, %54 ], [ %85, %84 ], [ %97, %make_Zreplacement.exit ], [ %168, %make_freplacement.exit ], [ %.1139.ph.ph, %148 ], [ %97, %122 ], [ %97, %120 ], [ %131, %138 ], [ %97, %99 ]
-  %.4 = phi ptr [ %.1115.ph.ph, %87 ], [ %.1115.ph.ph, %52 ], [ %.1115.ph.ph, %81 ], [ %55, %54 ], [ %.1115.ph.ph, %84 ], [ %.1115.ph.ph, %make_Zreplacement.exit ], [ %.1115.ph.ph, %make_freplacement.exit ], [ %.1115.ph.ph, %148 ], [ %.1115.ph.ph, %122 ], [ %.1115.ph.ph, %120 ], [ %.1115.ph.ph, %138 ], [ %.1115.ph.ph, %99 ]
+make_Zreplacement.exit.thread228:                 ; preds = %99, %138, %122, %120, %make_Zreplacement.exit, %148, %make_freplacement.exit, %87, %81, %84, %52, %54
+  %.3141 = phi ptr [ %.1139.ph.ph, %87 ], [ %.1139.ph.ph, %52 ], [ %.1139.ph.ph, %81 ], [ %.1139.ph.ph, %54 ], [ %.1139.ph.ph, %84 ], [ %.1139.ph.ph, %make_Zreplacement.exit ], [ %168, %make_freplacement.exit ], [ %.1139.ph.ph, %148 ], [ %.1139.ph.ph, %120 ], [ %.1139.ph.ph, %122 ], [ %.1139.ph.ph, %138 ], [ %.1139.ph.ph, %99 ]
+  %.3135 = phi ptr [ %.1133.ph.ph, %87 ], [ %.1133.ph.ph, %52 ], [ %.1133.ph.ph, %81 ], [ %.1133.ph.ph, %54 ], [ %.1133.ph.ph, %84 ], [ %97, %make_Zreplacement.exit ], [ %.1133.ph.ph, %make_freplacement.exit ], [ %.1133.ph.ph, %148 ], [ %97, %120 ], [ %97, %122 ], [ %131, %138 ], [ %97, %99 ]
+  %.2131 = phi i64 [ %51, %87 ], [ %51, %52 ], [ %82, %81 ], [ %51, %54 ], [ %82, %84 ], [ %51, %make_Zreplacement.exit ], [ %51, %make_freplacement.exit ], [ %51, %148 ], [ %51, %120 ], [ %51, %122 ], [ %51, %138 ], [ %51, %99 ]
+  %.3121 = phi ptr [ %.1119.ph.ph, %87 ], [ %.1119.ph.ph, %52 ], [ %.1119.ph.ph, %81 ], [ %.1119.ph.ph, %54 ], [ %85, %84 ], [ %.1119.ph.ph, %make_Zreplacement.exit ], [ %.1119.ph.ph, %make_freplacement.exit ], [ %.1119.ph.ph, %148 ], [ %.1119.ph.ph, %120 ], [ %.1119.ph.ph, %122 ], [ %.1119.ph.ph, %138 ], [ %.1119.ph.ph, %99 ]
+  %.0117 = phi ptr [ %.1133.ph.ph, %87 ], [ %.1115.ph.ph, %52 ], [ %.1119.ph.ph, %81 ], [ %55, %54 ], [ %85, %84 ], [ %97, %make_Zreplacement.exit ], [ %168, %make_freplacement.exit ], [ %.1139.ph.ph, %148 ], [ %97, %120 ], [ %97, %122 ], [ %131, %138 ], [ %97, %99 ]
+  %.4 = phi ptr [ %.1115.ph.ph, %87 ], [ %.1115.ph.ph, %52 ], [ %.1115.ph.ph, %81 ], [ %55, %54 ], [ %.1115.ph.ph, %84 ], [ %.1115.ph.ph, %make_Zreplacement.exit ], [ %.1115.ph.ph, %make_freplacement.exit ], [ %.1115.ph.ph, %148 ], [ %.1115.ph.ph, %120 ], [ %.1115.ph.ph, %122 ], [ %.1115.ph.ph, %138 ], [ %.1115.ph.ph, %99 ]
   %220 = call i32 @PyUnicodeWriter_WriteSubstring(ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %.0124, i64 noundef %22) #18
   %221 = icmp slt i32 %220, 0
   br i1 %221, label %.thread240, label %222
@@ -10178,10 +10178,10 @@ Py_XDECREF.exit222:                               ; preds = %267, %264, %262, %P
   br label %Py_XDECREF.exit225
 
 .thread240:                                       ; preds = %222, %get_tzinfo_member.exit.i, %Py_DECREF.exit26.i, %make_freplacement.exit, %84, %54, %make_Zreplacement.exit.thread228, %208, %Py_DECREF.exit178, %189, %185, %174, %215, %.thread339, %call_tzname.exit.thread.i, %145, %make_Zreplacement.exit.thread230, %232, %10
-  %.0138 = phi ptr [ null, %10 ], [ %.1139.ph.ph, %232 ], [ %.1139.ph.ph, %make_Zreplacement.exit.thread230 ], [ %.1139.ph.ph, %call_tzname.exit.thread.i ], [ %.1139.ph.ph, %145 ], [ %.1139.ph.ph, %.thread339 ], [ %.1139.ph.ph, %208 ], [ %.1139.ph.ph, %215 ], [ %.1139.ph.ph, %174 ], [ %.1139.ph.ph, %185 ], [ %.1139.ph.ph, %189 ], [ %.1139.ph.ph, %Py_DECREF.exit178 ], [ %.1139.ph.ph, %54 ], [ %.3141, %make_Zreplacement.exit.thread228 ], [ %.1139.ph.ph, %Py_DECREF.exit26.i ], [ %.1139.ph.ph, %get_tzinfo_member.exit.i ], [ %.1139.ph.ph, %84 ], [ null, %make_freplacement.exit ], [ %.3141, %222 ]
-  %.0132 = phi ptr [ null, %10 ], [ %.1133.ph.ph, %232 ], [ null, %make_Zreplacement.exit.thread230 ], [ null, %call_tzname.exit.thread.i ], [ null, %145 ], [ %.1133.ph.ph, %.thread339 ], [ %.1133.ph.ph, %208 ], [ %.1133.ph.ph, %215 ], [ %.1133.ph.ph, %174 ], [ %.1133.ph.ph, %185 ], [ %.1133.ph.ph, %189 ], [ %.1133.ph.ph, %Py_DECREF.exit178 ], [ %.1133.ph.ph, %54 ], [ %.3135, %make_Zreplacement.exit.thread228 ], [ null, %Py_DECREF.exit26.i ], [ null, %get_tzinfo_member.exit.i ], [ %.1133.ph.ph, %84 ], [ %.1133.ph.ph, %make_freplacement.exit ], [ %.3135, %222 ]
-  %.0118 = phi ptr [ null, %10 ], [ %.1119.ph.ph, %232 ], [ %.1119.ph.ph, %make_Zreplacement.exit.thread230 ], [ %.1119.ph.ph, %call_tzname.exit.thread.i ], [ %.1119.ph.ph, %145 ], [ %.1119.ph.ph, %.thread339 ], [ %.1119.ph.ph, %208 ], [ %.1119.ph.ph, %215 ], [ %.1119.ph.ph, %174 ], [ %.1119.ph.ph, %185 ], [ %.1119.ph.ph, %189 ], [ %.1119.ph.ph, %Py_DECREF.exit178 ], [ %.1119.ph.ph, %54 ], [ %.3121, %make_Zreplacement.exit.thread228 ], [ %.1119.ph.ph, %Py_DECREF.exit26.i ], [ %.1119.ph.ph, %get_tzinfo_member.exit.i ], [ null, %84 ], [ %.1119.ph.ph, %make_freplacement.exit ], [ %.3121, %222 ]
-  %.0114 = phi ptr [ null, %10 ], [ %.1115.ph.ph, %232 ], [ %.1115.ph.ph, %make_Zreplacement.exit.thread230 ], [ %.1115.ph.ph, %call_tzname.exit.thread.i ], [ %.1115.ph.ph, %145 ], [ %.1115.ph.ph, %.thread339 ], [ %.1115.ph.ph, %208 ], [ %.1115.ph.ph, %215 ], [ %.1115.ph.ph, %174 ], [ %.1115.ph.ph, %185 ], [ %.1115.ph.ph, %189 ], [ %.1115.ph.ph, %Py_DECREF.exit178 ], [ null, %54 ], [ %.4, %make_Zreplacement.exit.thread228 ], [ %.1115.ph.ph, %Py_DECREF.exit26.i ], [ %.1115.ph.ph, %get_tzinfo_member.exit.i ], [ %.1115.ph.ph, %84 ], [ %.1115.ph.ph, %make_freplacement.exit ], [ %.4, %222 ]
+  %.0138 = phi ptr [ null, %10 ], [ %.1139.ph.ph, %232 ], [ %.1139.ph.ph, %make_Zreplacement.exit.thread230 ], [ %.1139.ph.ph, %call_tzname.exit.thread.i ], [ %.1139.ph.ph, %145 ], [ %.1139.ph.ph, %.thread339 ], [ %.1139.ph.ph, %208 ], [ %.1139.ph.ph, %215 ], [ %.1139.ph.ph, %174 ], [ %.1139.ph.ph, %185 ], [ %.1139.ph.ph, %189 ], [ %.1139.ph.ph, %Py_DECREF.exit178 ], [ %.1139.ph.ph, %54 ], [ %.3141, %make_Zreplacement.exit.thread228 ], [ %.1139.ph.ph, %Py_DECREF.exit26.i ], [ %.1139.ph.ph, %get_tzinfo_member.exit.i ], [ null, %make_freplacement.exit ], [ %.1139.ph.ph, %84 ], [ %.3141, %222 ]
+  %.0132 = phi ptr [ null, %10 ], [ %.1133.ph.ph, %232 ], [ null, %make_Zreplacement.exit.thread230 ], [ null, %call_tzname.exit.thread.i ], [ null, %145 ], [ %.1133.ph.ph, %.thread339 ], [ %.1133.ph.ph, %208 ], [ %.1133.ph.ph, %215 ], [ %.1133.ph.ph, %174 ], [ %.1133.ph.ph, %185 ], [ %.1133.ph.ph, %189 ], [ %.1133.ph.ph, %Py_DECREF.exit178 ], [ %.1133.ph.ph, %54 ], [ %.3135, %make_Zreplacement.exit.thread228 ], [ null, %Py_DECREF.exit26.i ], [ null, %get_tzinfo_member.exit.i ], [ %.1133.ph.ph, %make_freplacement.exit ], [ %.1133.ph.ph, %84 ], [ %.3135, %222 ]
+  %.0118 = phi ptr [ null, %10 ], [ %.1119.ph.ph, %232 ], [ %.1119.ph.ph, %make_Zreplacement.exit.thread230 ], [ %.1119.ph.ph, %call_tzname.exit.thread.i ], [ %.1119.ph.ph, %145 ], [ %.1119.ph.ph, %.thread339 ], [ %.1119.ph.ph, %208 ], [ %.1119.ph.ph, %215 ], [ %.1119.ph.ph, %174 ], [ %.1119.ph.ph, %185 ], [ %.1119.ph.ph, %189 ], [ %.1119.ph.ph, %Py_DECREF.exit178 ], [ %.1119.ph.ph, %54 ], [ %.3121, %make_Zreplacement.exit.thread228 ], [ %.1119.ph.ph, %Py_DECREF.exit26.i ], [ %.1119.ph.ph, %get_tzinfo_member.exit.i ], [ %.1119.ph.ph, %make_freplacement.exit ], [ null, %84 ], [ %.3121, %222 ]
+  %.0114 = phi ptr [ null, %10 ], [ %.1115.ph.ph, %232 ], [ %.1115.ph.ph, %make_Zreplacement.exit.thread230 ], [ %.1115.ph.ph, %call_tzname.exit.thread.i ], [ %.1115.ph.ph, %145 ], [ %.1115.ph.ph, %.thread339 ], [ %.1115.ph.ph, %208 ], [ %.1115.ph.ph, %215 ], [ %.1115.ph.ph, %174 ], [ %.1115.ph.ph, %185 ], [ %.1115.ph.ph, %189 ], [ %.1115.ph.ph, %Py_DECREF.exit178 ], [ null, %54 ], [ %.4, %make_Zreplacement.exit.thread228 ], [ %.1115.ph.ph, %Py_DECREF.exit26.i ], [ %.1115.ph.ph, %get_tzinfo_member.exit.i ], [ %.1115.ph.ph, %make_freplacement.exit ], [ %.1115.ph.ph, %84 ], [ %.4, %222 ]
   call void @PyUnicodeWriter_Discard(ptr noundef %11) #18
   br label %Py_DECREF.exit
 
@@ -10684,7 +10684,7 @@ Py_DECREF.exit14.i:                               ; preds = %53, %50, %45
   br label %append_keyword_tzinfo.exit
 
 append_keyword_tzinfo.exit:                       ; preds = %61, %58, %55, %41, %38
-  %.1 = phi ptr [ %56, %61 ], [ %.0, %38 ], [ %56, %58 ], [ %.0, %41 ], [ %56, %55 ]
+  %.1 = phi ptr [ %56, %58 ], [ %.0, %38 ], [ %56, %61 ], [ %.0, %41 ], [ %56, %55 ]
   %62 = icmp ne ptr %.1, null
   %63 = icmp ne i8 %28, 0
   %or.cond = select i1 %62, i1 %63, i1 false
@@ -15078,7 +15078,7 @@ PyObject_TypeCheck.exit126.thread:                ; preds = %252, %PyObject_Type
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %251, %248, %Py_DECREF.exit83, %new_delta_ex.exit, %PyObject_TypeCheck.exit126.thread
-  %.0 = phi ptr [ %241, %251 ], [ %254, %PyObject_TypeCheck.exit126.thread ], [ %241, %248 ], [ %.0.i123, %new_delta_ex.exit ], [ %241, %Py_DECREF.exit83 ]
+  %.0 = phi ptr [ %241, %248 ], [ %254, %PyObject_TypeCheck.exit126.thread ], [ %241, %251 ], [ %.0.i123, %new_delta_ex.exit ], [ %241, %Py_DECREF.exit83 ]
   %255 = icmp eq ptr %.0, @_Py_NotImplementedStruct
   br i1 %255, label %Py_DECREF.exit.thread, label %.critedge
 
@@ -15952,7 +15952,7 @@ _PyUnicode_DATA.exit.split.i:                     ; preds = %_PyUnicode_DATA.exi
   br label %189
 
 _sanitize_isoformat_str.exit:                     ; preds = %55, %50, %.thread.thread.i
-  %.0.i = phi ptr [ %1, %.thread.thread.i ], [ %53, %55 ], [ %1, %50 ]
+  %.0.i = phi ptr [ %1, %50 ], [ %53, %55 ], [ %1, %.thread.thread.i ]
   %63 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %.0.i, ptr noundef nonnull %3) #18
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %68

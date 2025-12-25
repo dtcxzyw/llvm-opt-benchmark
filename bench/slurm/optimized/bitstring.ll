@@ -1576,8 +1576,8 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %32, %.loopexit.loopexit83, %53, %6
-  %.060 = phi ptr [ %14, %6 ], [ %60, %53 ], [ %60, %.loopexit.loopexit83 ], [ %14, %32 ], [ %14, %24 ]
-  %.257 = phi i32 [ 0, %6 ], [ 0, %53 ], [ %66, %.loopexit.loopexit83 ], [ %.05576, %24 ], [ %.156, %32 ]
+  %.060 = phi ptr [ %14, %6 ], [ %60, %.loopexit.loopexit83 ], [ %60, %53 ], [ %14, %32 ], [ %14, %24 ]
+  %.257 = phi i32 [ 0, %6 ], [ %66, %.loopexit.loopexit83 ], [ 0, %53 ], [ %.05576, %24 ], [ %.156, %32 ]
   %67 = sext i32 %.257 to i64
   %68 = getelementptr inbounds i32, ptr %.060, i64 %67
   store i32 -1, ptr %68, align 4

@@ -8059,7 +8059,7 @@ _ZL9anon_mmapPcm.exit.thread.i.i:                 ; preds = %16, %12
   br label %_ZL17anon_mmap_alignedPcmm.exit.i
 
 _ZL17anon_mmap_alignedPcmm.exit.i:                ; preds = %66, %55, %53, %22
-  %.045.i.i = phi ptr [ %39, %53 ], [ %11, %22 ], [ %39, %66 ], [ %39, %55 ]
+  %.045.i.i = phi ptr [ %39, %55 ], [ %11, %22 ], [ %39, %66 ], [ %39, %53 ]
   %67 = icmp eq ptr %.045.i.i, null
   br i1 %67, label %_ZN2os16numa_make_globalEPcm.exit, label %68
 

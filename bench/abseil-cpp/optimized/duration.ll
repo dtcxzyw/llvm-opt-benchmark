@@ -134,7 +134,7 @@ define dso_local noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %0
   store i32 %.sink.i, ptr %.sroa.451.0..sroa_idx.i, align 4, !tbaa !4
   br label %_ZN4absl12_GLOBAL__N_116IDivDurationImplEbNS_8DurationES1_PS1_.exit
 
-54:                                               ; preds = %5, %18, %32, %25, %11, %39, %10
+54:                                               ; preds = %5, %18, %25, %32, %10, %39, %11
   %55 = tail call fastcc noundef i64 @_ZN4absl12_GLOBAL__N_112IDivSlowPathEbNS_8DurationES1_PS1_(i1 noundef zeroext true, i64 %0, i32 %1, i64 %2, i32 %3, ptr noundef %4)
   br label %_ZN4absl12_GLOBAL__N_116IDivDurationImplEbNS_8DurationES1_PS1_.exit
 
@@ -753,7 +753,7 @@ define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8Durat
   store i32 %.sink.i, ptr %.sroa.26.0..sroa_idx, align 4, !tbaa !4
   br label %_ZN4absl12_GLOBAL__N_116IDivDurationImplEbNS_8DurationES1_PS1_.exit
 
-34:                                               ; preds = %3, %12, %18, %15, %9, %21, %8
+34:                                               ; preds = %3, %12, %15, %18, %8, %21, %9
   %35 = tail call fastcc noundef i64 @_ZN4absl12_GLOBAL__N_112IDivSlowPathEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %.sroa.05.0.copyload, i32 %.sroa.26.0.copyload, i64 %1, i32 %2, ptr noundef nonnull %0)
   br label %_ZN4absl12_GLOBAL__N_116IDivDurationImplEbNS_8DurationES1_PS1_.exit
 
@@ -2623,8 +2623,8 @@ _ZN4absl8DurationpLES0_.exit97:                   ; preds = %.sink.split.i95, %1
   store i32 %.sroa.12109.1.lcssa.sink, ptr %.sroa.12109.0..sroa_idx, align 4, !tbaa !4
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge.i, %._crit_edge.i.thread, %60, %52, %48, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit, %21, %19, %.critedge.sink.split, %3, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75
-  %.0 = phi i1 [ false, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75 ], [ false, %21 ], [ false, %3 ], [ true, %.critedge.sink.split ], [ false, %19 ], [ false, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ false, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread ], [ false, %48 ], [ false, %52 ], [ false, %60 ], [ false, %._crit_edge.i.thread ], [ false, %._crit_edge.i ]
+.critedge:                                        ; preds = %._crit_edge.i, %._crit_edge.i.thread, %60, %52, %48, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit, %19, %21, %.critedge.sink.split, %3, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75
+  %.0 = phi i1 [ false, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75 ], [ true, %.critedge.sink.split ], [ false, %19 ], [ false, %3 ], [ false, %21 ], [ false, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ false, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread ], [ false, %48 ], [ false, %52 ], [ false, %60 ], [ false, %._crit_edge.i.thread ], [ false, %._crit_edge.i ]
   ret i1 %.0
 }
 

@@ -442,7 +442,7 @@ bytestream2_get_le64.exit:                        ; preds = %152, %153
   br label %.thread
 
 .thread:                                          ; preds = %136, %46, %bytestream2_get_le32.exit255, %53, %bytestream2_get_le32.exit263, %80, %85, %bytestream2_get_le32.exit265, %92, %104, %110, %123, %147, %.thread.sink.split
-  %.1.ph = phi i32 [ -1094995529, %.thread.sink.split ], [ -1094995529, %147 ], [ -1094995529, %123 ], [ -1094995529, %136 ], [ -1094995529, %46 ], [ -1094995529, %bytestream2_get_le32.exit255 ], [ -1094995529, %53 ], [ -1094995529, %bytestream2_get_le32.exit263 ], [ %81, %80 ], [ -1094995529, %85 ], [ -1094995529, %bytestream2_get_le32.exit265 ], [ -1094995529, %92 ], [ -1094995529, %104 ], [ -1094995529, %110 ]
+  %.1.ph = phi i32 [ -1094995529, %.thread.sink.split ], [ -1094995529, %123 ], [ -1094995529, %147 ], [ -1094995529, %136 ], [ -1094995529, %46 ], [ -1094995529, %bytestream2_get_le32.exit255 ], [ -1094995529, %53 ], [ -1094995529, %bytestream2_get_le32.exit263 ], [ %81, %80 ], [ -1094995529, %85 ], [ -1094995529, %bytestream2_get_le32.exit265 ], [ -1094995529, %92 ], [ -1094995529, %104 ], [ -1094995529, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge248.thread
 

@@ -2132,8 +2132,8 @@ matches_skip_worktree.exit:                       ; preds = %83, %54, %53
   br i1 %92, label %11, label %.thread.thread, !llvm.loop !122
 
 .thread.thread:                                   ; preds = %.thread, %matches_skip_worktree.exit, %45, %38, %.preheader
-  %.155 = phi ptr [ %.05475, %45 ], [ null, %.preheader ], [ %.05475, %38 ], [ %.256.ph, %.thread ], [ %.458, %matches_skip_worktree.exit ]
-  %.1 = phi i32 [ 1, %45 ], [ 0, %.preheader ], [ 1, %38 ], [ 0, %.thread ], [ 1, %matches_skip_worktree.exit ]
+  %.155 = phi ptr [ null, %.preheader ], [ %.05475, %45 ], [ %.05475, %38 ], [ %.458, %matches_skip_worktree.exit ], [ %.256.ph, %.thread ]
+  %.1 = phi i32 [ 0, %.preheader ], [ 1, %45 ], [ 1, %38 ], [ 1, %matches_skip_worktree.exit ], [ 0, %.thread ]
   tail call void @free(ptr noundef %.155) #17
   br label %93
 

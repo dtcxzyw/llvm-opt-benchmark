@@ -991,7 +991,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %19
   br label %.loopexit81
 
 .loopexit81:                                      ; preds = %.critedge61, %.loopexit81.sink.split, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit
-  %124 = phi i1 [ false, %.loopexit81.sink.split ], [ true, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit ], [ true, %.critedge61 ]
+  %124 = phi i1 [ true, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit ], [ false, %.loopexit81.sink.split ], [ true, %.critedge61 ]
   %.not.i65 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i65, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
@@ -17675,8 +17675,8 @@ _ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_13specs_handlerI
   br label %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_.exit.sink.split
 
 _ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_.exit.sink.split: ; preds = %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_.exit.sink.split.sink.split, %121, %53
-  %.sink149 = phi i8 [ %123, %121 ], [ %54, %53 ], [ 0, %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_.exit.sink.split.sink.split ]
-  %.0.i.ph = phi ptr [ %122, %121 ], [ %45, %53 ], [ %.0.i.ph.ph, %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_.exit.sink.split.sink.split ]
+  %.sink149 = phi i8 [ %54, %53 ], [ %123, %121 ], [ 0, %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_.exit.sink.split.sink.split ]
+  %.0.i.ph = phi ptr [ %45, %53 ], [ %122, %121 ], [ %.0.i.ph.ph, %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_.exit.sink.split.sink.split ]
   %125 = load ptr, ptr %13, align 8, !tbaa !387
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i8 %.sink149, ptr %126, align 4, !tbaa !124
@@ -19603,7 +19603,7 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclINS0_9monostateETnNSt9en
   br label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
 _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3, %38, %29, %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit, %26, %36, %45
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3 ], [ %.sroa.011.0.extract.trunc.i, %38 ], [ %25, %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %28, %26 ], [ %30, %29 ], [ %37, %36 ], [ %.sroa.05.0.extract.trunc.i, %45 ]
+  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3 ], [ %30, %29 ], [ %25, %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %28, %26 ], [ %.sroa.011.0.extract.trunc.i, %38 ], [ %37, %36 ], [ %.sroa.05.0.extract.trunc.i, %45 ]
   %87 = icmp ugt i64 %.0.i, 2147483647
   br i1 %87, label %88, label %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
@@ -20367,7 +20367,7 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclINS0_9monostateETnNS
   br label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 
 _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3, %38, %29, %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit, %26, %36, %45
-  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3 ], [ %.sroa.011.0.extract.trunc.i, %38 ], [ %25, %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %28, %26 ], [ %30, %29 ], [ %37, %36 ], [ %.sroa.05.0.extract.trunc.i, %45 ]
+  %.0.i = phi i64 [ %.sroa.011.0.extract.trunc.i, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit.i3 ], [ %30, %29 ], [ %25, %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIiTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit ], [ %28, %26 ], [ %.sroa.011.0.extract.trunc.i, %38 ], [ %37, %36 ], [ %.sroa.05.0.extract.trunc.i, %45 ]
   %87 = icmp ugt i64 %.0.i, 2147483647
   br i1 %87, label %88, label %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread
 

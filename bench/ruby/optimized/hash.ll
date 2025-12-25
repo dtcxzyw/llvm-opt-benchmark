@@ -1311,8 +1311,8 @@ ar_foreach_check.exit:                            ; preds = %1
   %.not = icmp eq i32 %68, 0
   br i1 %.not, label %ar_foreach_check.exit.thread, label %ar_foreach_check.exit.thread14
 
-ar_foreach_check.exit.thread14:                   ; preds = %ar_find_entry_hint.exit.i, %36, %47, %ar_foreach_check.exit
-  %.017 = phi i32 [ %68, %ar_foreach_check.exit ], [ 2, %47 ], [ 2, %36 ], [ 2, %ar_find_entry_hint.exit.i ]
+ar_foreach_check.exit.thread14:                   ; preds = %36, %ar_find_entry_hint.exit.i, %47, %ar_foreach_check.exit
+  %.017 = phi i32 [ %68, %ar_foreach_check.exit ], [ 2, %47 ], [ 2, %ar_find_entry_hint.exit.i ], [ 2, %36 ]
   %69 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !7
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %69, ptr noundef nonnull @.str.97, i32 noundef %.017) #30
   unreachable
@@ -11716,7 +11716,7 @@ hash_stlike_lookup.exit:                          ; preds = %3, %14
   br label %51
 
 51:                                               ; preds = %.sink.split, %46, %48
-  %.0 = phi i32 [ 0, %46 ], [ 0, %48 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %48 ], [ 0, %46 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

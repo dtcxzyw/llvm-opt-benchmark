@@ -1996,7 +1996,7 @@ strbuf_setlen.exit:                               ; preds = %29, %32
   br label %.loopexit63
 
 .loopexit63:                                      ; preds = %15, %10, %22, %2, %3, %37
-  %.039 = phi ptr [ %0, %2 ], [ %0, %22 ], [ %38, %37 ], [ %0, %3 ], [ %0, %10 ], [ %0, %15 ]
+  %.039 = phi ptr [ %0, %2 ], [ %0, %3 ], [ %38, %37 ], [ %0, %22 ], [ %0, %10 ], [ %0, %15 ]
   ret ptr %.039
 }
 
@@ -2823,7 +2823,7 @@ chomp_trailing_dir_sep.exit40:                    ; preds = %.critedge.loopexit.
   br label %.split
 
 .split:                                           ; preds = %27, %12, %.lr.ph, %41, %._crit_edge, %.critedge.loopexit.split.loop.exit11.i47, %33
-  %.023 = phi i64 [ 0, %41 ], [ %42, %.critedge.loopexit.split.loop.exit11.i47 ], [ 0, %._crit_edge ], [ -1, %33 ], [ -1, %.lr.ph ], [ -1, %12 ], [ -1, %27 ]
+  %.023 = phi i64 [ 0, %._crit_edge ], [ %42, %.critedge.loopexit.split.loop.exit11.i47 ], [ 0, %41 ], [ -1, %33 ], [ -1, %.lr.ph ], [ -1, %12 ], [ -1, %27 ]
   ret i64 %.023
 }
 

@@ -874,7 +874,7 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
   br i1 %.not61, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %16, %.lr.ph.split.us, %.lr.ph.split, %26, %28, %58, %60, %.thread, %3, %36, %._crit_edge
-  %.058 = phi i1 [ false, %.lr.ph.split ], [ false, %._crit_edge ], [ true, %.thread ], [ true, %36 ], [ false, %3 ], [ false, %58 ], [ false, %60 ], [ false, %28 ], [ false, %26 ], [ false, %.lr.ph.split.us ], [ false, %16 ]
+  %.058 = phi i1 [ true, %.thread ], [ false, %._crit_edge ], [ false, %3 ], [ true, %36 ], [ false, %.lr.ph.split ], [ false, %58 ], [ false, %60 ], [ false, %28 ], [ false, %26 ], [ false, %.lr.ph.split.us ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.058
 }

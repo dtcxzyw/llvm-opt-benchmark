@@ -689,7 +689,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_check_intra4x4_pred_mode(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread44, %.loopexit.sink.split, %.loopexit46
-  %.3 = phi i32 [ -1094995529, %.loopexit.sink.split ], [ 0, %.loopexit46 ], [ 0, %.thread44 ]
+  %.3 = phi i32 [ 0, %.loopexit46 ], [ -1094995529, %.loopexit.sink.split ], [ 0, %.thread44 ]
   ret i32 %.3
 }
 

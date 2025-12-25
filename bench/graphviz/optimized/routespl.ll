@@ -1181,7 +1181,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i358, %266
   br i1 %exitcond432.not, label %.loopexit366, label %.lr.ph396, !llvm.loop !66
 
 .loopexit366:                                     ; preds = %.lr.ph396, %.preheader365, %._crit_edge
-  %.3330.lcssa481 = phi i64 [ 0, %.preheader365 ], [ %.4331, %._crit_edge ], [ %.4331, %.lr.ph396 ]
+  %.3330.lcssa481 = phi i64 [ %.4331, %._crit_edge ], [ 0, %.preheader365 ], [ %.4331, %.lr.ph396 ]
   br label %.lr.ph399
 
 ._crit_edge400:                                   ; preds = %.lr.ph399, %.preheader369

@@ -3607,8 +3607,8 @@ default.unreachable2:                             ; preds = %5
   unreachable
 
 _ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW16enter_probe_down17h161ebadc6085264bE.exit: ; preds = %18, %27
-  %.sroa.4.0.i.i = phi i32 [ %23, %18 ], [ %28, %27 ]
-  %.sroa.0.0.i.i = phi i64 [ %20, %18 ], [ %29, %27 ]
+  %.sroa.4.0.i.i = phi i32 [ %28, %27 ], [ %23, %18 ]
+  %.sroa.0.0.i.i = phi i64 [ %29, %27 ], [ %20, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store i64 %.sroa.0.0.i.i, ptr %33, align 8, !alias.scope !205, !noalias !208
@@ -3885,8 +3885,8 @@ _ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW26probe_inflight_high_upwa
   br i1 %119, label %128, label %125
 
 .critedge10.sink.split.i:                         ; preds = %178, %.noexc24, %68, %.noexc10
-  %.sroa.0.0.i.i14.sink.i = phi i64 [ %180, %178 ], [ %171, %.noexc24 ], [ %61, %.noexc10 ], [ %70, %68 ]
-  %.sroa.4.0.i.i13.sink.i = phi i32 [ %179, %178 ], [ %174, %.noexc24 ], [ %64, %.noexc10 ], [ %69, %68 ]
+  %.sroa.0.0.i.i14.sink.i = phi i64 [ %171, %.noexc24 ], [ %180, %178 ], [ %70, %68 ], [ %61, %.noexc10 ]
+  %.sroa.4.0.i.i13.sink.i = phi i32 [ %174, %.noexc24 ], [ %179, %178 ], [ %69, %68 ], [ %64, %.noexc10 ]
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 656
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 704
   store i64 %.sroa.0.0.i.i14.sink.i, ptr %121, align 8, !alias.scope !218, !noalias !248

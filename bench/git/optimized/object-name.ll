@@ -3162,7 +3162,7 @@ get_parent.exit.sink.split:                       ; preds = %53, %57
   br label %get_parent.exit
 
 get_parent.exit:                                  ; preds = %59, %get_parent.exit.sink.split, %54, %48, %50
-  %.017.i = phi i32 [ 0, %get_parent.exit.sink.split ], [ %49, %48 ], [ -1, %54 ], [ -1, %50 ], [ -1, %59 ]
+  %.017.i = phi i32 [ -1, %54 ], [ %49, %48 ], [ 0, %get_parent.exit.sink.split ], [ -1, %50 ], [ -1, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.critedge
 
@@ -3385,7 +3385,7 @@ peel_onion.exit.thread:                           ; preds = %._crit_edge171, %.s
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %159
 
-peel_onion.exit.thread123:                        ; preds = %140, %133
+peel_onion.exit.thread123:                        ; preds = %133, %140
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge
 
@@ -3994,7 +3994,7 @@ get_describe_name.exit.thread:                    ; preds = %371, %.loopexit, %g
   br label %.critedge
 
 .critedge:                                        ; preds = %34, %.lr.ph, %get_oid_basic.exit, %peel_onion.exit.thread126, %peel_onion.exit.thread123, %get_describe_name.exit, %peel_onion.exit, %get_parent.exit, %get_nth_ancestor.exit, %45, %get_describe_name.exit.thread
-  %.3 = phi i32 [ 0, %peel_onion.exit.thread126 ], [ %375, %get_describe_name.exit.thread ], [ 0, %get_oid_basic.exit ], [ 0, %peel_onion.exit ], [ -1, %45 ], [ %.0.i89, %get_nth_ancestor.exit ], [ %.017.i, %get_parent.exit ], [ 0, %peel_onion.exit.thread123 ], [ 0, %get_describe_name.exit ], [ -1, %.lr.ph ], [ -1, %34 ]
+  %.3 = phi i32 [ 0, %peel_onion.exit.thread123 ], [ %375, %get_describe_name.exit.thread ], [ 0, %get_oid_basic.exit ], [ 0, %peel_onion.exit ], [ -1, %45 ], [ %.0.i89, %get_nth_ancestor.exit ], [ %.017.i, %get_parent.exit ], [ 0, %peel_onion.exit.thread126 ], [ 0, %get_describe_name.exit ], [ -1, %.lr.ph ], [ -1, %34 ]
   ret i32 %.3
 }
 

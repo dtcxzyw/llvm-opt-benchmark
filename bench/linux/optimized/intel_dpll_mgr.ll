@@ -7065,7 +7065,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
   %123 = select i1 %122, i32 3, i32 %121
   br label %137
 
-.thread18:                                        ; preds = %110, %99
+.thread18:                                        ; preds = %99, %110
   %124 = icmp eq i64 %72, 9000000000
   %125 = zext i1 %124 to i32
   %126 = icmp eq i64 %72, 8400000000
@@ -7093,11 +7093,11 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
   br label %137
 
 137:                                              ; preds = %.thread16, %.thread12, %.thread, %133
-  %138 = phi i32 [ %134, %133 ], [ %123, %.thread16 ], [ %119, %.thread12 ], [ %115, %.thread ]
-  %139 = phi i32 [ %135, %133 ], [ %.ph15, %.thread16 ], [ %.ph11, %.thread12 ], [ %.ph8, %.thread ]
-  %140 = phi i32 [ %135, %133 ], [ %.ph14, %.thread16 ], [ %.ph10, %.thread12 ], [ %.ph, %.thread ]
-  %141 = phi i32 [ %136, %133 ], [ 7, %.thread16 ], [ 3, %.thread12 ], [ 2, %.thread ]
-  %142 = phi i32 [ 0, %133 ], [ 16, %.thread16 ], [ 8, %.thread12 ], [ 4, %.thread ]
+  %138 = phi i32 [ %134, %133 ], [ %115, %.thread ], [ %119, %.thread12 ], [ %123, %.thread16 ]
+  %139 = phi i32 [ %135, %133 ], [ %.ph8, %.thread ], [ %.ph11, %.thread12 ], [ %.ph15, %.thread16 ]
+  %140 = phi i32 [ %135, %133 ], [ %.ph, %.thread ], [ %.ph10, %.thread12 ], [ %.ph14, %.thread16 ]
+  %141 = phi i32 [ %136, %133 ], [ 2, %.thread ], [ 3, %.thread12 ], [ 7, %.thread16 ]
+  %142 = phi i32 [ 0, %133 ], [ 4, %.thread ], [ 8, %.thread12 ], [ 16, %.thread16 ]
   switch i32 %139, label %146 [
     i32 5, label %.thread21
     i32 2, label %143

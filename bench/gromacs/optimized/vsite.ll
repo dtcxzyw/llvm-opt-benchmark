@@ -13967,7 +13967,7 @@ _ZN15InteractionList5clearEv.exit129.i:           ; preds = %188, %_ZN15Interact
   br label %270
 
 .loopexit10.i:                                    ; preds = %243, %238, %235, %261
-  %.3.i = phi i32 [ %.5.i, %261 ], [ %.2.i, %243 ], [ %171, %238 ], [ %171, %235 ]
+  %.3.i = phi i32 [ %.5.i, %261 ], [ %171, %235 ], [ %171, %238 ], [ %.2.i, %243 ]
   %.3.fr.i = freeze i32 %.3.i
   %265 = sext i32 %217 to i64
   %266 = getelementptr inbounds i32, ptr %164, i64 %265

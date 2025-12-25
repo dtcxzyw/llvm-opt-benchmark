@@ -16562,7 +16562,7 @@ if.then.i.i.i:                                    ; preds = %cond.true.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i, %cond.true.i
-  %impl.sroa.5.0 = phi ptr [ null, %cond.true.i ], [ %3, %if.then.i.i.i ]
+  %impl.sroa.5.0 = phi ptr [ %3, %if.then.i.i.i ], [ null, %cond.true.i ]
   %extrapolate_.i.i.i = getelementptr inbounds nuw i8, ptr %interp, i64 8
   %5 = load i8, ptr %extrapolate_.i.i.i, align 8, !tbaa !48, !range !26, !noundef !27
   %extrapolate_2.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16

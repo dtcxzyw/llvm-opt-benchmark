@@ -4408,8 +4408,8 @@ infof_certstack.exit:                             ; preds = %734, %.lr.ph.split.
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.179) #13
   br label %verifystatus.exit
 
-verifystatus.exit.thread:                         ; preds = %757, %752, %746, %749
-  %.05414.i.ph = phi ptr [ null, %749 ], [ null, %746 ], [ %748, %752 ], [ %748, %757 ]
+verifystatus.exit.thread:                         ; preds = %749, %752, %746, %757
+  %.05414.i.ph = phi ptr [ %748, %757 ], [ null, %746 ], [ %748, %752 ], [ null, %749 ]
   call void @OCSP_RESPONSE_free(ptr noundef %.05414.i.ph) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

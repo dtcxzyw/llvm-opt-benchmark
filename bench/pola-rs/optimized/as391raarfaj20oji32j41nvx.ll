@@ -3166,7 +3166,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %79, %._crit_edge, %101, %84, %58, %45, %36
-  %.sroa.017.2.ph.ph = phi i1 [ true, %101 ], [ true, %58 ], [ false, %84 ], [ true, %36 ], [ true, %45 ], [ true, %79 ], [ false, %._crit_edge ]
+  %.sroa.017.2.ph.ph = phi i1 [ true, %101 ], [ true, %79 ], [ false, %84 ], [ true, %36 ], [ true, %45 ], [ true, %58 ], [ false, %._crit_edge ]
   %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3781,7 +3781,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %220
 
 .loopexit.split-lp:                               ; preds = %78, %92, %126, %._crit_edge, %113
-  %.sroa.019.3.ph = phi i1 [ true, %78 ], [ false, %._crit_edge ], [ true, %113 ], [ true, %92 ], [ true, %126 ]
+  %.sroa.019.3.ph = phi i1 [ true, %113 ], [ false, %._crit_edge ], [ true, %92 ], [ true, %78 ], [ true, %126 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %220

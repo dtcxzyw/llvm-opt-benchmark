@@ -2792,7 +2792,7 @@ framelocalsproxy_getval.exit71.thread:            ; preds = %78, %79, %.lr.ph97.
   br label %.thread77
 
 .thread77:                                        ; preds = %framelocalsproxy_getval.exit71.thread, %75, %framelocalsproxy_getval.exit71.thread.us, %49, %.thread77.loopexit132.split.loop.exit139, %.thread77.loopexit.split.loop.exit141, %.thread77.loopexit.split.loop.exit145, %.thread77.loopexit134, %.preheader85, %.thread77.loopexit113, %._crit_edge, %3
-  %.0 = phi i32 [ -2, %3 ], [ -2, %49 ], [ -1, %._crit_edge ], [ %90, %.thread77.loopexit132.split.loop.exit139 ], [ %91, %.thread77.loopexit134 ], [ -1, %.preheader85 ], [ %87, %.thread77.loopexit113 ], [ %89, %.thread77.loopexit.split.loop.exit145 ], [ %88, %.thread77.loopexit.split.loop.exit141 ], [ -1, %framelocalsproxy_getval.exit71.thread.us ], [ -2, %75 ], [ -1, %framelocalsproxy_getval.exit71.thread ]
+  %.0 = phi i32 [ -2, %3 ], [ -2, %49 ], [ -1, %._crit_edge ], [ %91, %.thread77.loopexit134 ], [ %90, %.thread77.loopexit132.split.loop.exit139 ], [ -1, %.preheader85 ], [ %87, %.thread77.loopexit113 ], [ %89, %.thread77.loopexit.split.loop.exit145 ], [ %88, %.thread77.loopexit.split.loop.exit141 ], [ -1, %framelocalsproxy_getval.exit71.thread.us ], [ -2, %75 ], [ -1, %framelocalsproxy_getval.exit71.thread ]
   ret i32 %.0
 }
 

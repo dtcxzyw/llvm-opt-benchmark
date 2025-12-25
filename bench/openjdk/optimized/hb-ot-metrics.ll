@@ -718,7 +718,7 @@ _ZNK2OT3OS28has_dataEv.exit131.thread:            ; preds = %265, %278, %285, %_
   br label %518
 
 518:                                              ; preds = %.sink.split, %3, %470, %423, %376, %_ZNK2OT3OS28has_dataEv.exit131.thread, %342, %330, %_ZNK2OT3OS28has_dataEv.exit123.thread, %219, %207, %_ZNK2OT3OS28has_dataEv.exit.thread, %95, %83
-  %.0 = phi i1 [ %482, %470 ], [ %435, %423 ], [ true, %95 ], [ true, %219 ], [ true, %342 ], [ %388, %376 ], [ true, %_ZNK2OT3OS28has_dataEv.exit.thread ], [ false, %3 ], [ false, %83 ], [ false, %330 ], [ true, %_ZNK2OT3OS28has_dataEv.exit123.thread ], [ true, %_ZNK2OT3OS28has_dataEv.exit131.thread ], [ false, %207 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ %482, %470 ], [ %435, %423 ], [ true, %95 ], [ true, %219 ], [ true, %342 ], [ %388, %376 ], [ true, %_ZNK2OT3OS28has_dataEv.exit.thread ], [ false, %330 ], [ false, %83 ], [ true, %_ZNK2OT3OS28has_dataEv.exit131.thread ], [ true, %_ZNK2OT3OS28has_dataEv.exit123.thread ], [ false, %3 ], [ false, %207 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
@@ -5366,7 +5366,7 @@ _ZNK2OT4post8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %24, %_ZNK2OT10po
   tail call void @hb_blob_make_immutable(ptr noundef %1)
   br label %58
 
-.critedge47:                                      ; preds = %22, %43, %42
+.critedge47:                                      ; preds = %22, %42, %43
   tail call void @hb_blob_destroy(ptr noundef nonnull %3)
   store ptr null, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)

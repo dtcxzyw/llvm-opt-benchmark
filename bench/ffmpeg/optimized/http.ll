@@ -1815,7 +1815,7 @@ redirect_cache_set.exit:                          ; preds = %520, %515, %511, %5
   br label %.outer132.outer
 
 .loopexit:                                        ; preds = %450, %464, %461, %http_should_reconnect.exit, %447, %454, %434, %487, %489, %479, %481, %redirect_cache_get.exit, %http_should_reconnect.exit.thread
-  %.087 = phi i32 [ %432, %http_should_reconnect.exit.thread ], [ 0, %487 ], [ -12, %redirect_cache_get.exit ], [ 0, %481 ], [ 0, %479 ], [ 0, %489 ], [ %432, %447 ], [ %467, %464 ], [ %432, %http_should_reconnect.exit ], [ %432, %450 ], [ %432, %454 ], [ %432, %461 ], [ %432, %434 ]
+  %.087 = phi i32 [ %432, %http_should_reconnect.exit.thread ], [ 0, %487 ], [ -12, %redirect_cache_get.exit ], [ 0, %481 ], [ 0, %479 ], [ 0, %489 ], [ %432, %454 ], [ %467, %464 ], [ %432, %http_should_reconnect.exit ], [ %432, %450 ], [ %432, %461 ], [ %432, %447 ], [ %432, %434 ]
   %524 = load ptr, ptr %39, align 8, !tbaa !37
   %.not112 = icmp eq ptr %524, null
   br i1 %.not112, label %527, label %525

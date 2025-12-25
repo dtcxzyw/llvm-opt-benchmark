@@ -5539,8 +5539,8 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_normal(ptr noundef no
   br i1 %.not447, label %.outer.outer, label %.loopexit
 
 .loopexit:                                        ; preds = %260, %214, %163, %170, %166, %186, %182, %202, %198, %._crit_edge, %.critedge462, %151, %136
-  %.1400 = phi i32 [ %.0348.ph.ph, %214 ], [ %..0399, %._crit_edge ], [ %246, %.critedge462 ], [ %spec.select, %136 ], [ %spec.select, %151 ], [ %.0348.ph.ph, %198 ], [ %.0348.ph.ph, %202 ], [ %.0348.ph.ph, %182 ], [ %.0348.ph.ph, %186 ], [ %.0348.ph.ph, %166 ], [ %.0348.ph.ph, %170 ], [ %.0348.ph.ph, %163 ], [ %261, %260 ]
-  %.0395 = phi i32 [ %.1396.ph.ph, %214 ], [ %.461, %._crit_edge ], [ %.0, %.critedge462 ], [ 0, %136 ], [ 0, %151 ], [ %.1396.ph.ph, %198 ], [ %.1396.ph.ph, %202 ], [ %.1396.ph.ph, %182 ], [ %.1396.ph.ph, %186 ], [ %.1396.ph.ph, %166 ], [ %.1396.ph.ph, %170 ], [ %.1396.ph.ph, %163 ], [ %.0, %260 ]
+  %.1400 = phi i32 [ %246, %.critedge462 ], [ %..0399, %._crit_edge ], [ %.0348.ph.ph, %214 ], [ %spec.select, %136 ], [ %spec.select, %151 ], [ %.0348.ph.ph, %198 ], [ %.0348.ph.ph, %202 ], [ %.0348.ph.ph, %182 ], [ %.0348.ph.ph, %186 ], [ %.0348.ph.ph, %166 ], [ %.0348.ph.ph, %170 ], [ %.0348.ph.ph, %163 ], [ %261, %260 ]
+  %.0395 = phi i32 [ %.0, %.critedge462 ], [ %.461, %._crit_edge ], [ %.1396.ph.ph, %214 ], [ 0, %136 ], [ 0, %151 ], [ %.1396.ph.ph, %198 ], [ %.1396.ph.ph, %202 ], [ %.1396.ph.ph, %182 ], [ %.1396.ph.ph, %186 ], [ %.1396.ph.ph, %166 ], [ %.1396.ph.ph, %170 ], [ %.1396.ph.ph, %163 ], [ %.0, %260 ]
   %262 = icmp eq i32 %.1400, 3
   %263 = icmp ugt i32 %.0395, 8191
   %or.cond = select i1 %262, i1 %263, i1 false
@@ -10018,7 +10018,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef captures(ad
   br i1 %.not180, label %224, label %.critedge185
 
 .critedge193:                                     ; preds = %223, %.preheader, %224, %150, %173, %.preheader.us.us, %129
-  %.0144206.in = phi i64 [ %indvars.iv281, %.preheader.us.us ], [ %indvars.iv268, %173 ], [ %indvars.iv260, %150 ], [ %indvars.iv281, %129 ], [ %indvars.iv255, %224 ], [ %indvars.iv255, %.preheader ], [ %indvars.iv255, %223 ]
+  %.0144206.in = phi i64 [ %indvars.iv281, %.preheader.us.us ], [ %indvars.iv281, %129 ], [ %indvars.iv260, %150 ], [ %indvars.iv268, %173 ], [ %indvars.iv255, %224 ], [ %indvars.iv255, %.preheader ], [ %indvars.iv255, %223 ]
   br i1 %.not, label %.critedge, label %237
 
 237:                                              ; preds = %.critedge193
@@ -10345,7 +10345,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %146, %.loopexit.sink.split, %157
-  %.1163 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %157 ], [ 0, %146 ]
+  %.1163 = phi i32 [ 1, %157 ], [ 0, %.loopexit.sink.split ], [ 0, %146 ]
   %163 = load ptr, ptr %14, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 128
   %165 = load ptr, ptr %164, align 8
@@ -12365,7 +12365,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %.lr.ph.split
   br label %.critedge
 
 .critedge:                                        ; preds = %mz_zip_reader_file_stat.exit, %56, %61, %42, %.lr.ph.split.us, %38, %.critedge.sink.split, %33, %2
-  %.046 = phi i32 [ 0, %2 ], [ 1, %33 ], [ 0, %.critedge.sink.split ], [ 1, %38 ], [ 0, %.lr.ph.split.us ], [ 1, %42 ], [ 0, %mz_zip_reader_file_stat.exit ], [ 0, %61 ], [ 0, %56 ]
+  %.046 = phi i32 [ 1, %33 ], [ 0, %2 ], [ 0, %.critedge.sink.split ], [ 0, %.lr.ph.split.us ], [ 1, %38 ], [ 1, %42 ], [ 0, %56 ], [ 0, %61 ], [ 0, %mz_zip_reader_file_stat.exit ]
   ret i32 %.046
 }
 
@@ -16893,7 +16893,7 @@ mz_zip_array_ensure_capacity.exit265:             ; preds = %.loopexit.i264
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge16, %.loopexit.sink.split, %22
-  %.0223 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %22 ], [ 1, %._crit_edge16 ]
+  %.0223 = phi i32 [ 1, %22 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge16 ]
   ret i32 %.0223
 }
 

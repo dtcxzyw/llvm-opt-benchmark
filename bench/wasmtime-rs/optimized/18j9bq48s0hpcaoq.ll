@@ -1345,7 +1345,7 @@ _ZN4core5slice4sort11insert_tail17hfedacd6771df327dE.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17hfb7eb8741e69bd8aE.exit.loopexit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h07aa60674f134788E.exit.i.i"
 
 .loopexit77:                                      ; preds = %.lr.ph7.i, %60, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %48, %60 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %48, %60 ], [ %.06.i, %.lr.ph7.i ]
   %90 = add i64 %.sroa.0.0.i, %.0107
   %91 = icmp ugt i64 %.0107, %90
   br i1 %91, label %.invoke199, label %92
@@ -1988,7 +1988,7 @@ _ZN4core5slice4sort11insert_tail17h173529500411cc51E.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17h011536585a542fc4E.exit.loopexit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h180697de1617473aE.exit.i.i"
 
 .loopexit74:                                      ; preds = %.lr.ph7.i, %60, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %48, %60 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %48, %60 ], [ %.06.i, %.lr.ph7.i ]
   %88 = add i64 %.sroa.0.0.i, %.0104
   %89 = icmp ugt i64 %.0104, %88
   br i1 %89, label %.invoke197, label %90

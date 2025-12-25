@@ -387,10 +387,10 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   br i1 %130, label %.thread286.sink.split, label %.thread286
 
 .thread286.sink.split:                            ; preds = %13, %20, %128, %.thread258, %121
-  %.sink = phi ptr [ %5, %121 ], [ @.str.3, %128 ], [ @.str.3, %.thread258 ], [ @.str.3, %20 ], [ @.str.3, %13 ]
-  %.6169284.ph = phi ptr [ %.1164, %121 ], [ %.1164, %128 ], [ %.1164, %.thread258 ], [ %.0163, %20 ], [ %.0163, %13 ]
-  %.0186280.ph = phi i32 [ 1, %121 ], [ 2, %128 ], [ 2, %.thread258 ], [ 2, %20 ], [ 2, %13 ]
-  %.4236276.ph = phi ptr [ %5, %121 ], [ %126, %128 ], [ %5, %.thread258 ], [ %5, %20 ], [ %5, %13 ]
+  %.sink = phi ptr [ %5, %121 ], [ @.str.3, %.thread258 ], [ @.str.3, %128 ], [ @.str.3, %20 ], [ @.str.3, %13 ]
+  %.6169284.ph = phi ptr [ %.1164, %121 ], [ %.1164, %.thread258 ], [ %.1164, %128 ], [ %.0163, %20 ], [ %.0163, %13 ]
+  %.0186280.ph = phi i32 [ 1, %121 ], [ 2, %.thread258 ], [ 2, %128 ], [ 2, %20 ], [ 2, %13 ]
+  %.4236276.ph = phi ptr [ %5, %121 ], [ %5, %.thread258 ], [ %126, %128 ], [ %5, %20 ], [ %5, %13 ]
   call void @pj_wkt1_error(ptr noundef %0, ptr noundef nonnull %.sink) #10
   br label %.thread286
 

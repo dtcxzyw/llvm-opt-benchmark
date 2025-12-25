@@ -21956,12 +21956,12 @@ define hidden void @"_ZN199_$LT$recent_projects..ssh_connections.._..$LT$impl$u2
   br i1 %trunc.i.i.i, label %33, label %31
 
 30:                                               ; preds = %.loopexit, %.loopexit.split-lp
-  %.pr = phi i64 [ %.pr696, %.loopexit.split-lp ], [ %21, %.loopexit ]
-  %.sroa.14243.0517 = phi ptr [ %.sroa.14243.0519, %.loopexit.split-lp ], [ %.sroa.14243.0550, %.loopexit ]
-  %.sroa.0239.0488 = phi i64 [ %.sroa.0239.0490, %.loopexit.split-lp ], [ %.sroa.0239.0551.lcssa618, %.loopexit ]
-  %.sroa.14.0439 = phi ptr [ %.sroa.14.0441, %.loopexit.split-lp ], [ %.sroa.14.0553, %.loopexit ]
-  %.sroa.0232.0410 = phi i64 [ %.sroa.0232.0412, %.loopexit.split-lp ], [ %.sroa.0232.0554.lcssa668, %.loopexit ]
-  %.pn178.ph = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+  %.pr = phi i64 [ %21, %.loopexit ], [ %.pr696, %.loopexit.split-lp ]
+  %.sroa.14243.0517 = phi ptr [ %.sroa.14243.0550, %.loopexit ], [ %.sroa.14243.0519, %.loopexit.split-lp ]
+  %.sroa.0239.0488 = phi i64 [ %.sroa.0239.0551.lcssa618, %.loopexit ], [ %.sroa.0239.0490, %.loopexit.split-lp ]
+  %.sroa.14.0439 = phi ptr [ %.sroa.14.0553, %.loopexit ], [ %.sroa.14.0441, %.loopexit.split-lp ]
+  %.sroa.0232.0410 = phi i64 [ %.sroa.0232.0554.lcssa668, %.loopexit ], [ %.sroa.0232.0412, %.loopexit.split-lp ]
+  %.pn178.ph = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %.thread, label %.thread332
 

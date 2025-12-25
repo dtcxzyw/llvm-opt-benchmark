@@ -1718,8 +1718,8 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeES3_NS_16DenseHashPointerESt8equal_toIS3_EE4fin
   br label %tailrecurse.backedge
 
 .thread:                                          ; preds = %.thread421, %tailrecurse.backedge, %60, %58, %3
-  %65 = phi ptr [ %13, %3 ], [ %18, %60 ], [ %18, %58 ], [ %18, %.thread421 ], [ %40, %tailrecurse.backedge ]
-  %66 = phi ptr [ %14, %3 ], [ %17, %60 ], [ %17, %58 ], [ %17, %.thread421 ], [ %41, %tailrecurse.backedge ]
+  %65 = phi ptr [ %13, %3 ], [ %18, %60 ], [ %18, %58 ], [ %40, %tailrecurse.backedge ], [ %18, %.thread421 ]
+  %66 = phi ptr [ %14, %3 ], [ %17, %60 ], [ %17, %58 ], [ %41, %tailrecurse.backedge ], [ %17, %.thread421 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %69 = load i64, ptr %68, align 8, !tbaa !82
@@ -3170,8 +3170,8 @@ _ZN4Luau12DenseHashMapIPKNS_11TypePackVarES3_NS_16DenseHashPointerESt8equal_toIS
   br label %tailrecurse.backedge
 
 .thread:                                          ; preds = %.thread237, %tailrecurse.backedge, %68, %66, %3
-  %73 = phi ptr [ %21, %3 ], [ %26, %68 ], [ %26, %66 ], [ %26, %.thread237 ], [ %48, %tailrecurse.backedge ]
-  %74 = phi ptr [ %22, %3 ], [ %25, %68 ], [ %25, %66 ], [ %25, %.thread237 ], [ %49, %tailrecurse.backedge ]
+  %73 = phi ptr [ %21, %3 ], [ %26, %68 ], [ %26, %66 ], [ %48, %tailrecurse.backedge ], [ %26, %.thread237 ]
+  %74 = phi ptr [ %22, %3 ], [ %25, %68 ], [ %25, %66 ], [ %49, %tailrecurse.backedge ], [ %25, %.thread237 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %77 = load i64, ptr %76, align 8, !tbaa !183
@@ -5505,7 +5505,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau8Unifier211occursCheckERNS
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %48, !llvm.loop !247
 
 .loopexit.i.i:                                    ; preds = %54, %52, %.thread, %.thread48
-  %57 = phi ptr [ %37, %.thread48 ], [ %16, %.thread ], [ %16, %52 ], [ %16, %54 ]
+  %57 = phi ptr [ %16, %.thread ], [ %37, %.thread48 ], [ %16, %52 ], [ %16, %54 ]
   tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %.pre.i = load i64, ptr %57, align 8, !tbaa !246
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
@@ -5927,7 +5927,7 @@ _ZN4Luau16RecursionLimiterC2EPii.exit:            ; preds = %4
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %67, !llvm.loop !255
 
 .loopexit.i.i:                                    ; preds = %73, %71, %.thread, %.thread97
-  %76 = phi ptr [ %56, %.thread97 ], [ %33, %.thread ], [ %33, %71 ], [ %33, %73 ]
+  %76 = phi ptr [ %33, %.thread ], [ %56, %.thread97 ], [ %33, %71 ], [ %33, %73 ]
   invoke void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %.noexc unwind label %51
 

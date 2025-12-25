@@ -3752,8 +3752,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27.i: ; preds = %_
   br label %.body148.i
 
 .body148.i:                                       ; preds = %.loopexit.split-lp241.i, %.loopexit240.i, %608, %603
-  %.sroa.0203.5.i = phi i32 [ %546, %603 ], [ %546, %608 ], [ %.sroa.0203.0.ph.i, %.loopexit240.i ], [ %.sroa.0203.0.ph242.i, %.loopexit.split-lp241.i ]
-  %eh.lpad-body149.i = phi { ptr, i32 } [ %604, %603 ], [ %609, %608 ], [ %lpad.loopexit243.i, %.loopexit240.i ], [ %lpad.loopexit.split-lp244.i, %.loopexit.split-lp241.i ]
+  %.sroa.0203.5.i = phi i32 [ %546, %608 ], [ %546, %603 ], [ %.sroa.0203.0.ph.i, %.loopexit240.i ], [ %.sroa.0203.0.ph242.i, %.loopexit.split-lp241.i ]
+  %eh.lpad-body149.i = phi { ptr, i32 } [ %609, %608 ], [ %604, %603 ], [ %lpad.loopexit243.i, %.loopexit240.i ], [ %lpad.loopexit.split-lp244.i, %.loopexit.split-lp241.i ]
   %1011 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !75, !range !76, !noundef !77
   %1012 = trunc nuw i8 %1011 to i1
   %1013 = icmp ne i32 %.sroa.0203.5.i, 0

@@ -145,7 +145,7 @@ define hidden void @_Z37_hb_preprocess_text_vowel_constraintsPK18hb_ot_shape_pla
   br label %.critedge226
 
 62:                                               ; preds = %43, %38
-  %.0221 = phi i1 [ %switch, %43 ], [ %42, %38 ]
+  %.0221 = phi i1 [ %42, %38 ], [ %switch, %43 ]
   %63 = load i8, ptr %17, align 2
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %83
@@ -2036,7 +2036,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit402:           ; preds = %951, %937, %930, %_
   br label %1017
 
 1017:                                             ; preds = %1007, %1012, %1002
-  %.0210.shrunk = phi i1 [ %1006, %1002 ], [ %1016, %1012 ], [ %switch259, %1007 ]
+  %.0210.shrunk = phi i1 [ %1016, %1012 ], [ %1006, %1002 ], [ %switch259, %1007 ]
   %1018 = load i8, ptr %962, align 2
   %1019 = trunc i8 %1018 to i1
   br i1 %1019, label %1020, label %1038

@@ -4704,7 +4704,7 @@ return.sink.split:                                ; preds = %_ZN7openvdb5v11_04t
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %land.lhs.true, %land.lhs.true3, %if.then, %if.then.i.i, %land.lhs.true3.i.i, %land.lhs.true.i.i, %cond.true.i, %if.then.i, %land.lhs.true3.i, %land.lhs.true.i
-  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %if.then.i ], [ false, %entry ], [ false, %land.lhs.true.i ], [ false, %cond.true.i ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true3.i ], [ false, %if.then.i.i ], [ false, %land.lhs.true3.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.then ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %land.lhs.true3 ], [ false, %if.then.i ], [ false, %entry ], [ false, %land.lhs.true3.i ], [ false, %cond.true.i ], [ false, %land.lhs.true ], [ false, %land.lhs.true.i ], [ false, %if.then.i.i ], [ false, %land.lhs.true3.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.then ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -13029,7 +13029,7 @@ return.sink.split:                                ; preds = %_ZN7openvdb5v11_04t
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %land.lhs.true, %land.lhs.true3, %if.then, %if.then.i.i, %land.lhs.true3.i.i, %land.lhs.true.i.i, %cond.true.i, %if.then.i, %land.lhs.true3.i, %land.lhs.true.i
-  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %if.then.i ], [ false, %entry ], [ false, %land.lhs.true.i ], [ false, %cond.true.i ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true3.i ], [ false, %if.then.i.i ], [ false, %land.lhs.true3.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.then ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %land.lhs.true3 ], [ false, %if.then.i ], [ false, %entry ], [ false, %land.lhs.true3.i ], [ false, %cond.true.i ], [ false, %land.lhs.true ], [ false, %land.lhs.true.i ], [ false, %if.then.i.i ], [ false, %land.lhs.true3.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.then ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -20805,7 +20805,7 @@ return.sink.split:                                ; preds = %_ZN7openvdb5v11_04t
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %land.lhs.true, %land.lhs.true3, %if.then, %if.then.i.i, %land.lhs.true3.i.i, %land.lhs.true.i.i, %cond.true.i, %if.then.i, %land.lhs.true3.i, %land.lhs.true.i
-  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %if.then.i ], [ false, %entry ], [ false, %land.lhs.true.i ], [ false, %cond.true.i ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true3.i ], [ false, %if.then.i.i ], [ false, %land.lhs.true3.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.then ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %land.lhs.true3 ], [ false, %if.then.i ], [ false, %entry ], [ false, %land.lhs.true3.i ], [ false, %cond.true.i ], [ false, %land.lhs.true ], [ false, %land.lhs.true.i ], [ false, %if.then.i.i ], [ false, %land.lhs.true3.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.then ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 

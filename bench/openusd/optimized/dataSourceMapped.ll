@@ -1214,7 +1214,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %154, %156, %1
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %6) #20
   br label %229
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread48: ; preds = %.noexc, %83, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread48: ; preds = %83, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %180 = getelementptr inbounds nuw i8, ptr %73, i64 80
   %181 = load ptr, ptr %180, align 8, !noalias !10
   %.not.i.i25 = icmp eq ptr %181, null

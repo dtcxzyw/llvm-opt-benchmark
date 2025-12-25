@@ -1623,8 +1623,8 @@ thread-pre-split:                                 ; preds = %171, %198
   br label %.thread221.thread
 
 .thread221.thread:                                ; preds = %314, %306, %.thread221
-  %324 = phi ptr [ @.str.3, %306 ], [ %.pre240, %.thread221 ], [ %316, %314 ]
-  %.3145 = phi i32 [ %307, %306 ], [ %323, %.thread221 ], [ 2, %314 ]
+  %324 = phi ptr [ %316, %314 ], [ %.pre240, %.thread221 ], [ @.str.3, %306 ]
+  %.3145 = phi i32 [ 2, %314 ], [ %323, %.thread221 ], [ %307, %306 ]
   %325 = load ptr, ptr %19, align 8, !tbaa !27
   %326 = load i64, ptr %13, align 8, !tbaa !21
   call fastcc void @phar_file_action(ptr noundef %325, ptr noundef %283, ptr noundef %324, i32 noundef %.3145, ptr noundef %282, i64 noundef %.pre, ptr noundef nonnull %61, ptr noundef %.3140, i64 noundef %326)

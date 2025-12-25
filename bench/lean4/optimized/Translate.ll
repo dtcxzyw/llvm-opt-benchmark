@@ -6346,7 +6346,7 @@ lean_alloc_ctor.exit1508:                         ; preds = %2032
   br label %.thread1538
 
 .thread1538:                                      ; preds = %lean_alloc_ctor.exit1445, %lean_alloc_ctor.exit1437, %lean_dec.exit959, %lean_dec.exit956, %lean_alloc_ctor.exit1478, %lean_dec.exit946, %lean_alloc_ctor.exit1491, %lean_alloc_ctor.exit1508, %lean_alloc_ctor.exit1447
-  %.2 = phi ptr [ %1478, %lean_alloc_ctor.exit1447 ], [ %1453, %lean_alloc_ctor.exit1445 ], [ %.07881536, %lean_dec.exit959 ], [ %1730, %lean_alloc_ctor.exit1478 ], [ %.07881536, %lean_dec.exit956 ], [ %2035, %lean_alloc_ctor.exit1508 ], [ %.07881536, %lean_alloc_ctor.exit1491 ], [ %.07881536, %lean_dec.exit946 ], [ %1413, %lean_alloc_ctor.exit1437 ]
+  %.2 = phi ptr [ %1478, %lean_alloc_ctor.exit1447 ], [ %1413, %lean_alloc_ctor.exit1437 ], [ %.07881536, %lean_dec.exit959 ], [ %1730, %lean_alloc_ctor.exit1478 ], [ %.07881536, %lean_dec.exit956 ], [ %2035, %lean_alloc_ctor.exit1508 ], [ %.07881536, %lean_alloc_ctor.exit1491 ], [ %.07881536, %lean_dec.exit946 ], [ %1453, %lean_alloc_ctor.exit1445 ]
   ret ptr %.2
 }
 

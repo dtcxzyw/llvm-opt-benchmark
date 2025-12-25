@@ -9623,7 +9623,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %lor.l
           to label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_NSt7__cxx1112basic_stringIcS2_SaIcEEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 if.then.i:                                        ; preds = %land.rhs.i.i.i, %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.035.us, %for.body.us ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.035, %land.rhs.i.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.035.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.035, %land.rhs.i.i.i ]
   %23 = load ptr, ptr %second.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %23, %0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS5_SaIcEEEELb1EEEEE18_M_deallocate_nodeEPSD_.exit.i, label %if.then.i.i.i.i.i.i.i

@@ -4503,7 +4503,7 @@ _ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split: ; pred
   br label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
 
 _ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, %731, %748, %761, %806, %818
-  %.065 = phi i1 [ true, %748 ], [ false, %806 ], [ false, %818 ], [ true, %731 ], [ true, %761 ], [ %.065.ph, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split ]
+  %.065 = phi i1 [ true, %761 ], [ false, %806 ], [ false, %818 ], [ true, %731 ], [ true, %748 ], [ %.065.ph, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split ]
   ret i1 %.065
 
 826:                                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i, %673, %105, %103, %50, %1, %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit.thread
@@ -23338,7 +23338,7 @@ _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10i
   unreachable
 
 _ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %19, %13, %23, %17, %10
-  %.0 = phi i64 [ %.sroa.06.0.extract.trunc, %23 ], [ %14, %13 ], [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %18, %17 ]
+  %.0 = phi i64 [ %18, %17 ], [ %14, %13 ], [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %.sroa.06.0.extract.trunc, %23 ]
   %35 = icmp ugt i64 %.0, 2147483647
   br i1 %35, label %_ZN3fmt2v86detail13width_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit.thread66, label %36
 
@@ -23793,7 +23793,7 @@ _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXs
   unreachable
 
 _ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit: ; preds = %19, %13, %23, %17, %10
-  %.0 = phi i64 [ %.sroa.06.0.extract.trunc, %23 ], [ %14, %13 ], [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %18, %17 ]
+  %.0 = phi i64 [ %18, %17 ], [ %14, %13 ], [ %.sroa.012.0.extract.trunc, %19 ], [ %12, %10 ], [ %.sroa.06.0.extract.trunc, %23 ]
   %35 = icmp ugt i64 %.0, 2147483647
   br i1 %35, label %_ZN3fmt2v86detail17precision_checkerINS1_13error_handlerEEclIxTnNSt9enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS7_.exit.thread66, label %36
 
@@ -35506,7 +35506,7 @@ _ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6
           to label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16 unwind label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_mENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %.lr.ph.split.us, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %43
-  %.sroa.028.0.ph = phi ptr [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.021.049.us, %.lr.ph.split.us ], [ %.0.us.i.i, %43 ], [ %.sroa.021.049, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.sroa.028.0.ph = phi ptr [ %.sroa.021.049.us, %.lr.ph.split.us ], [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.0.us.i.i, %43 ], [ %.sroa.021.049, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 40) #27
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16
 
@@ -36458,7 +36458,7 @@ _ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6
           to label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16 unwind label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_mENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %.lr.ph.split.us, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %43
-  %.sroa.028.0.ph = phi ptr [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.021.049.us, %.lr.ph.split.us ], [ %.0.us.i.i, %43 ], [ %.sroa.021.049, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.sroa.028.0.ph = phi ptr [ %.sroa.021.049.us, %.lr.ph.split.us ], [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.0.us.i.i, %43 ], [ %.sroa.021.049, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 40) #27
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16
 
@@ -48337,7 +48337,7 @@ _ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6
           to label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16 unwind label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_mENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %.lr.ph.split.us, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %43
-  %.sroa.028.0.ph = phi ptr [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.021.049.us, %.lr.ph.split.us ], [ %.0.us.i.i, %43 ], [ %.sroa.021.049, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.sroa.028.0.ph = phi ptr [ %.sroa.021.049.us, %.lr.ph.split.us ], [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.0.us.i.i, %43 ], [ %.sroa.021.049, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 40) #27
   br label %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit16
 

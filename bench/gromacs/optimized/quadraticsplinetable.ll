@@ -1015,12 +1015,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit155.thread:          ; preds = %_ZNKSt8functionIFdd
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit151
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %238, %153, %.noexc.i.i129, %.noexc.i.i
-  %.sroa.0244.1.ph.ph327 = phi ptr [ %.sroa.0244.3301315553565622, %.noexc.i.i129 ], [ %155, %.invoke ], [ %155, %.noexc.i.i ], [ null, %153 ], [ %155, %238 ]
-  %.sroa.20.1.ph.ph328 = phi ptr [ %.sroa.13.1303314554564624, %.noexc.i.i129 ], [ %159, %.invoke ], [ %159, %.noexc.i.i ], [ null, %153 ], [ %159, %238 ]
-  %.sroa.0232.1.ph.ph329 = phi ptr [ %.sroa.0232.3316552566620, %.noexc.i.i129 ], [ %160, %.invoke ], [ %160, %.noexc.i.i ], [ null, %153 ], [ %160, %238 ]
-  %.sroa.21.1.ph.ph330 = phi ptr [ %.sroa.21.3318551567618, %.noexc.i.i129 ], [ %166, %.invoke ], [ %.sroa.21.3318, %.noexc.i.i ], [ null, %153 ], [ %.sroa.21.3318, %238 ]
-  %.sroa.0220.1.ph.ph331 = phi ptr [ %.sroa.0220.3568616, %.noexc.i.i129 ], [ null, %.invoke ], [ %240, %.noexc.i.i ], [ null, %153 ], [ null, %238 ]
-  %.sroa.19.1.ph.ph332 = phi ptr [ %.sroa.12.1569614, %.noexc.i.i129 ], [ null, %.invoke ], [ %243, %.noexc.i.i ], [ null, %153 ], [ null, %238 ]
+  %.sroa.0244.1.ph.ph327 = phi ptr [ %.sroa.0244.3301315553565622, %.noexc.i.i129 ], [ null, %153 ], [ %155, %.noexc.i.i ], [ %155, %.invoke ], [ %155, %238 ]
+  %.sroa.20.1.ph.ph328 = phi ptr [ %.sroa.13.1303314554564624, %.noexc.i.i129 ], [ null, %153 ], [ %159, %.noexc.i.i ], [ %159, %.invoke ], [ %159, %238 ]
+  %.sroa.0232.1.ph.ph329 = phi ptr [ %.sroa.0232.3316552566620, %.noexc.i.i129 ], [ null, %153 ], [ %160, %.noexc.i.i ], [ %160, %.invoke ], [ %160, %238 ]
+  %.sroa.21.1.ph.ph330 = phi ptr [ %.sroa.21.3318551567618, %.noexc.i.i129 ], [ null, %153 ], [ %.sroa.21.3318, %.noexc.i.i ], [ %166, %.invoke ], [ %.sroa.21.3318, %238 ]
+  %.sroa.0220.1.ph.ph331 = phi ptr [ %.sroa.0220.3568616, %.noexc.i.i129 ], [ null, %153 ], [ %240, %.noexc.i.i ], [ null, %.invoke ], [ null, %238 ]
+  %.sroa.19.1.ph.ph332 = phi ptr [ %.sroa.12.1569614, %.noexc.i.i129 ], [ null, %153 ], [ %243, %.noexc.i.i ], [ null, %.invoke ], [ null, %238 ]
   %lpad.loopexit.split-lp334 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN3gmx16GromacsExceptionE

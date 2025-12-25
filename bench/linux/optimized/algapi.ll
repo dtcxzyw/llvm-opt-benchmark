@@ -240,7 +240,7 @@ define dso_local void @crypto_remove_spawns(ptr noundef readonly captures(addres
   br i1 %75, label %.loopexit16.backedge, label %76
 
 .loopexit16.backedge:                             ; preds = %67, %82, %60
-  %.be = phi ptr [ %85, %82 ], [ %6, %67 ], [ %61, %60 ]
+  %.be = phi ptr [ %6, %67 ], [ %85, %82 ], [ %61, %60 ]
   br label %.loopexit16, !llvm.loop !13
 
 76:                                               ; preds = %67

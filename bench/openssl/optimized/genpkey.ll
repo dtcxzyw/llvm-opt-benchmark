@@ -508,11 +508,11 @@ param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.l
   br label %show_gen_pkeyopt.exit.thread
 
 show_gen_pkeyopt.exit.thread:                     ; preds = %58, %67, %73, %71, %2, %.loopexit, %77, %99, %115, %121, %131, %170, %153, %112, %84, %80, %.thread
-  %.0120.ph = phi ptr [ null, %.thread ], [ null, %80 ], [ null, %84 ], [ null, %112 ], [ %132, %153 ], [ %157, %170 ], [ null, %131 ], [ null, %121 ], [ null, %115 ], [ null, %99 ], [ null, %2 ], [ null, %.loopexit ], [ null, %77 ], [ null, %71 ], [ null, %73 ], [ null, %67 ], [ null, %58 ]
-  %.0112.ph = phi ptr [ %.1113, %.thread ], [ %.1113, %80 ], [ %.1113, %84 ], [ %.1113, %112 ], [ %.1113, %153 ], [ %.1113, %170 ], [ %.1113, %131 ], [ %.1113, %121 ], [ %.1113, %115 ], [ %.1113, %99 ], [ null, %2 ], [ %.1113, %.loopexit ], [ %.1113, %77 ], [ %.1113, %71 ], [ %.1113, %73 ], [ %.1113, %67 ], [ %.1113, %58 ]
-  %.0110.ph = phi ptr [ %.1111, %.thread ], [ null, %80 ], [ null, %84 ], [ null, %112 ], [ %.1111, %153 ], [ %.1111, %170 ], [ %.1111, %131 ], [ null, %121 ], [ null, %115 ], [ null, %99 ], [ null, %2 ], [ null, %.loopexit ], [ null, %77 ], [ null, %71 ], [ null, %73 ], [ null, %67 ], [ null, %58 ]
-  %.0100.ph = phi ptr [ %117, %.thread ], [ null, %80 ], [ null, %84 ], [ null, %112 ], [ %117, %153 ], [ %117, %170 ], [ %117, %131 ], [ %117, %121 ], [ null, %115 ], [ null, %99 ], [ null, %2 ], [ null, %.loopexit ], [ null, %77 ], [ null, %71 ], [ null, %73 ], [ null, %67 ], [ null, %58 ]
-  %.0.ph = phi ptr [ %.1, %.thread ], [ %.1, %80 ], [ %.1, %84 ], [ %.1, %112 ], [ %.1, %153 ], [ %.1, %170 ], [ %.1, %131 ], [ %.1, %121 ], [ %.1, %115 ], [ %.1, %99 ], [ null, %2 ], [ %.1, %.loopexit ], [ %.1, %77 ], [ %.1, %58 ], [ null, %67 ], [ %.1, %73 ], [ %.1, %71 ]
+  %.0120.ph = phi ptr [ null, %.thread ], [ null, %80 ], [ null, %84 ], [ null, %112 ], [ %132, %153 ], [ %157, %170 ], [ null, %131 ], [ null, %121 ], [ null, %115 ], [ null, %99 ], [ null, %2 ], [ null, %77 ], [ null, %.loopexit ], [ null, %71 ], [ null, %73 ], [ null, %67 ], [ null, %58 ]
+  %.0112.ph = phi ptr [ %.1113, %.thread ], [ %.1113, %80 ], [ %.1113, %84 ], [ %.1113, %112 ], [ %.1113, %153 ], [ %.1113, %170 ], [ %.1113, %131 ], [ %.1113, %121 ], [ %.1113, %115 ], [ %.1113, %99 ], [ null, %2 ], [ %.1113, %77 ], [ %.1113, %.loopexit ], [ %.1113, %71 ], [ %.1113, %73 ], [ %.1113, %67 ], [ %.1113, %58 ]
+  %.0110.ph = phi ptr [ %.1111, %.thread ], [ null, %80 ], [ null, %84 ], [ null, %112 ], [ %.1111, %153 ], [ %.1111, %170 ], [ %.1111, %131 ], [ null, %121 ], [ null, %115 ], [ null, %99 ], [ null, %2 ], [ null, %77 ], [ null, %.loopexit ], [ null, %71 ], [ null, %73 ], [ null, %67 ], [ null, %58 ]
+  %.0100.ph = phi ptr [ %117, %.thread ], [ null, %80 ], [ null, %84 ], [ null, %112 ], [ %117, %153 ], [ %117, %170 ], [ %117, %131 ], [ %117, %121 ], [ null, %115 ], [ null, %99 ], [ null, %2 ], [ null, %77 ], [ null, %.loopexit ], [ null, %71 ], [ null, %73 ], [ null, %67 ], [ null, %58 ]
+  %.0.ph = phi ptr [ %.1, %.thread ], [ %.1, %80 ], [ %.1, %84 ], [ %.1, %112 ], [ %.1, %153 ], [ %.1, %170 ], [ %.1, %131 ], [ %.1, %121 ], [ %.1, %115 ], [ %.1, %99 ], [ null, %2 ], [ %.1, %77 ], [ %.1, %.loopexit ], [ %.1, %58 ], [ null, %67 ], [ %.1, %73 ], [ %.1, %71 ]
   call void @OPENSSL_sk_free(ptr noundef %9) #5
   br label %173
 
@@ -549,7 +549,7 @@ show_gen_pkeyopt.exit:                            ; preds = %162, %168
   %184 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %180, ptr noundef nonnull @.str.55, ptr noundef %.1108, ptr noundef %183) #5
   br label %186
 
-185:                                              ; preds = %.loopexit.i, %17, %14
+185:                                              ; preds = %14, %17, %.loopexit.i
   call void @OPENSSL_sk_free(ptr noundef nonnull %9) #5
   br label %195
 

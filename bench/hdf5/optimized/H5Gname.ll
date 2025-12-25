@@ -1641,7 +1641,7 @@ H5G__component.exit55:                            ; preds = %.preheader.i53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %57, %.critedge, %12, %H5G__component.exit.thread, %34, %H5G__component.exit39.thread, %74, %83, %2
-  %.0 = phi i32 [ -1, %12 ], [ %spec.select, %.critedge ], [ -1, %H5G__component.exit.thread ], [ -1, %34 ], [ -1, %83 ], [ -1, %H5G__component.exit39.thread ], [ 0, %2 ], [ -1, %74 ], [ 0, %57 ], [ 0, %55 ]
+  %.0 = phi i32 [ -1, %12 ], [ %spec.select, %.critedge ], [ -1, %H5G__component.exit.thread ], [ -1, %34 ], [ 0, %2 ], [ -1, %H5G__component.exit39.thread ], [ -1, %83 ], [ -1, %74 ], [ 0, %57 ], [ 0, %55 ]
   ret i32 %.0
 }
 

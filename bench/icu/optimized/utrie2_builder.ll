@@ -1177,7 +1177,7 @@ define void @utrie2_freeze_77(ptr noundef %0, i32 noundef %1, ptr noundef captur
   br label %101
 
 _ZL13findHighStartP9UNewTrie2j.exit.i:            ; preds = %70, %78, %.preheader.i.i, %.preheader.us.i.i
-  %.0.i.i = phi i32 [ %.486.us.i.i, %.preheader.us.i.i ], [ %indvars.iv150.in.i.i, %78 ], [ %.486.i.i, %.preheader.i.i ], [ %.04578.i.i, %70 ]
+  %.0.i.i = phi i32 [ %indvars.iv150.in.i.i, %78 ], [ %.486.us.i.i, %.preheader.us.i.i ], [ %.486.i.i, %.preheader.i.i ], [ %.04578.i.i, %70 ]
   %90 = add nsw i32 %.0.i.i, 2047
   %91 = and i32 %90, -2048
   %92 = icmp eq i32 %91, 1114112

@@ -4969,8 +4969,8 @@ p_b_term.exit.loopexit:                           ; preds = %for.body.i155
   br label %p_b_term.exit
 
 p_b_term.exit:                                    ; preds = %p_b_term.exit.loopexit, %cond.true66.i, %cond.true130.i
-  %132 = phi ptr [ %.pre375, %p_b_term.exit.loopexit ], [ %116, %cond.true130.i ], [ %94, %cond.true66.i ]
-  %133 = phi ptr [ %.pre, %p_b_term.exit.loopexit ], [ %add.ptr132.i, %cond.true130.i ], [ %add.ptr68.i, %cond.true66.i ]
+  %132 = phi ptr [ %.pre375, %p_b_term.exit.loopexit ], [ %94, %cond.true66.i ], [ %116, %cond.true130.i ]
+  %133 = phi ptr [ %.pre, %p_b_term.exit.loopexit ], [ %add.ptr68.i, %cond.true66.i ], [ %add.ptr132.i, %cond.true130.i ]
   %cmp79 = icmp ult ptr %133, %132
   br i1 %cmp79, label %land.lhs.true81, label %if.end133, !llvm.loop !28
 

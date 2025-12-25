@@ -3620,7 +3620,7 @@ _ZNK12ProfileModel5guardERK11QModelIndex.exit:    ; preds = %2
   br label %161
 
 70:                                               ; preds = %61, %55, %57, %41, %.lr.ph
-  %.134 = phi i1 [ false, %.lr.ph ], [ %switch.selectcmp, %61 ], [ false, %41 ], [ false, %55 ], [ false, %57 ]
+  %.134 = phi i1 [ false, %.lr.ph ], [ %switch.selectcmp, %61 ], [ false, %55 ], [ false, %41 ], [ false, %57 ]
   %71 = getelementptr inbounds nuw i8, ptr %.03279, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
@@ -13802,7 +13802,7 @@ switch.edge.i:                                    ; preds = %.lr.ph.i
   br i1 %.not17.i, label %_ZNK12ProfileModel14changesPendingEv.exit, label %.lr.ph.i, !llvm.loop !60
 
 _ZNK12ProfileModel14changesPendingEv.exit:        ; preds = %.lr.ph.i, %switch.edge.i
-  %.0.i = phi i1 [ %switch.i, %switch.edge.i ], [ %.01420.i, %.lr.ph.i ]
+  %.0.i = phi i1 [ %.01420.i, %.lr.ph.i ], [ %switch.i, %switch.edge.i ]
   br i1 %.0.i, label %_ZNK12ProfileModel14changesPendingEv.exit.thread, label %_ZNK12ProfileModel14changesPendingEv.exit.thread93
 
 _ZNK12ProfileModel14changesPendingEv.exit.thread: ; preds = %4, %17, %_ZNK12ProfileModel14changesPendingEv.exit

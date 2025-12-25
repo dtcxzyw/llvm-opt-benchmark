@@ -5323,7 +5323,7 @@ lean_dec.exit92:                                  ; preds = %117, %116, %114, %l
   br label %lean_dec.exit91.backedge
 
 lean_dec.exit91.backedge:                         ; preds = %121, %125, %131, %133, %134
-  %.079.be = phi ptr [ %128, %134 ], [ %128, %133 ], [ %128, %131 ], [ %126, %125 ], [ %124, %121 ]
+  %.079.be = phi ptr [ %128, %134 ], [ %128, %131 ], [ %128, %133 ], [ %126, %125 ], [ %124, %121 ]
   br label %lean_dec.exit91
 
 125:                                              ; preds = %118
@@ -10874,7 +10874,7 @@ lean_dec.exit92:                                  ; preds = %117, %116, %114, %l
   br label %lean_dec.exit91.backedge
 
 lean_dec.exit91.backedge:                         ; preds = %121, %125, %131, %133, %134
-  %.079.be = phi ptr [ %128, %134 ], [ %128, %133 ], [ %128, %131 ], [ %126, %125 ], [ %124, %121 ]
+  %.079.be = phi ptr [ %128, %134 ], [ %128, %131 ], [ %128, %133 ], [ %126, %125 ], [ %124, %121 ]
   br label %lean_dec.exit91
 
 125:                                              ; preds = %118
@@ -16528,8 +16528,8 @@ lean_dec_ref.exit404:                             ; preds = %781, %780, %778, %l
   unreachable
 
 788:                                              ; preds = %lean_alloc_ctor.exit475, %lean_inc.exit303, %lean_alloc_ctor.exit551, %lean_dec.exit323
-  %.1251 = phi ptr [ %673, %lean_alloc_ctor.exit551 ], [ %488, %lean_dec.exit323 ], [ %297, %lean_alloc_ctor.exit475 ], [ %120, %lean_inc.exit303 ]
-  %.1244 = phi ptr [ %690, %lean_alloc_ctor.exit551 ], [ %.0243674, %lean_dec.exit323 ], [ %323, %lean_alloc_ctor.exit475 ], [ %.0243674, %lean_inc.exit303 ]
+  %.1251 = phi ptr [ %488, %lean_dec.exit323 ], [ %297, %lean_alloc_ctor.exit475 ], [ %673, %lean_alloc_ctor.exit551 ], [ %120, %lean_inc.exit303 ]
+  %.1244 = phi ptr [ %.0243674, %lean_dec.exit323 ], [ %323, %lean_alloc_ctor.exit475 ], [ %690, %lean_alloc_ctor.exit551 ], [ %.0243674, %lean_inc.exit303 ]
   %.1235 = add nuw i64 %.0234675, 1
   %exitcond.not = icmp eq i64 %.1235, %4
   br i1 %exitcond.not, label %._crit_edge, label %34

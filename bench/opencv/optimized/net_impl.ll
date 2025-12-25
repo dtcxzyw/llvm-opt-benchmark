@@ -32930,7 +32930,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024122311BackendNodeEEaSERKS4_.exit1987.thread: ; pre
   br label %._crit_edge.i.i1992
 
 _ZN2cv3PtrINS_3dnn14dnn4_v2024122311BackendNodeEEaSERKS4_.exit1987: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i1985, %1738
-  %1770 = phi ptr [ %1740, %1738 ], [ %.pre2695, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i1985 ]
+  %1770 = phi ptr [ %.pre2695, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i1985 ], [ %1740, %1738 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %1771 = icmp eq ptr %1770, null
   br i1 %1771, label %._crit_edge.i.i1992, label %1772

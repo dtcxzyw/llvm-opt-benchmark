@@ -2569,9 +2569,9 @@ _ZN5serde9__private2de7content17visit_content_seq17h2d57543ad22771b5E.exit: ; pr
   br label %126
 
 .loopexit.split-lp.i.i:                           ; preds = %203, %201, %199, %.invoke.i
-  %.sroa.0153.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0153.12.i.i, %203 ], [ %.sroa.0153.12.i.i, %201 ], [ %.sroa.0153.12.i.i, %199 ]
-  %.sroa.0155.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0155.7.i.i, %203 ], [ %.sroa.0155.7.i.i, %201 ], [ %.sroa.0155.7.i.i, %199 ]
-  %.sroa.0157.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0157.6.i.i, %203 ], [ %.sroa.0157.6.i.i, %201 ], [ %.sroa.0157.6.i.i, %199 ]
+  %.sroa.0153.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0153.12.i.i, %201 ], [ %.sroa.0153.12.i.i, %199 ], [ %.sroa.0153.12.i.i, %203 ]
+  %.sroa.0155.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0155.7.i.i, %201 ], [ %.sroa.0155.7.i.i, %199 ], [ %.sroa.0155.7.i.i, %203 ]
+  %.sroa.0157.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0157.6.i.i, %201 ], [ %.sroa.0157.6.i.i, %199 ], [ %.sroa.0157.6.i.i, %203 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -5323,9 +5323,9 @@ _ZN5serde9__private2de7content17visit_content_seq17h01b51aba94decce3E.exit: ; pr
   br label %126
 
 .loopexit.split-lp.i.i:                           ; preds = %203, %201, %199, %.invoke.i
-  %.sroa.0153.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0153.12.i.i, %203 ], [ %.sroa.0153.12.i.i, %201 ], [ %.sroa.0153.12.i.i, %199 ]
-  %.sroa.0155.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0155.7.i.i, %203 ], [ %.sroa.0155.7.i.i, %201 ], [ %.sroa.0155.7.i.i, %199 ]
-  %.sroa.0157.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0157.6.i.i, %203 ], [ %.sroa.0157.6.i.i, %201 ], [ %.sroa.0157.6.i.i, %199 ]
+  %.sroa.0153.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0153.12.i.i, %201 ], [ %.sroa.0153.12.i.i, %199 ], [ %.sroa.0153.12.i.i, %203 ]
+  %.sroa.0155.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0155.7.i.i, %201 ], [ %.sroa.0155.7.i.i, %199 ], [ %.sroa.0155.7.i.i, %203 ]
+  %.sroa.0157.1.ph.i.i = phi i8 [ 1, %.invoke.i ], [ %.sroa.0157.6.i.i, %201 ], [ %.sroa.0157.6.i.i, %199 ], [ %.sroa.0157.6.i.i, %203 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %126

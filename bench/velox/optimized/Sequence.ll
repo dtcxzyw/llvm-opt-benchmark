@@ -20911,7 +20911,7 @@ lor.rhs.i41:                                      ; preds = %cond.false
   %or.cond97 = select i1 %cmp5.i42, i1 %cmp7.i46, i1 false
   br i1 %or.cond97, label %if.end13, label %if.then12
 
-if.then12:                                        ; preds = %lor.rhs.i41, %lor.rhs.i
+if.then12:                                        ; preds = %lor.rhs.i, %lor.rhs.i41
   tail call void @llvm.trap()
   unreachable
 
@@ -23662,7 +23662,7 @@ lor.rhs.i41:                                      ; preds = %cond.false
   %or.cond97 = select i1 %cmp5.i42, i1 %cmp7.i46, i1 false
   br i1 %or.cond97, label %if.end13, label %if.then12
 
-if.then12:                                        ; preds = %lor.rhs.i41, %lor.rhs.i
+if.then12:                                        ; preds = %lor.rhs.i, %lor.rhs.i41
   tail call void @llvm.trap()
   unreachable
 

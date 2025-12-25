@@ -898,7 +898,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i.invoke, %if.then.i.i.i.i368, %if.then.i.i.i276, %sw.default, %if.then.i174, %if.then.i.i.i158, %if.then.i.i.i107
-  %v.sroa.0.1.ph.ph.ph.ph.ph.ph = phi ptr [ %v.sroa.0.5910, %if.then.i.i.i107 ], [ %v.sroa.0.3.lcssa109711171123, %if.then.i.i.i.i368 ], [ %v.sroa.0.4, %if.then.i.i.i158 ], [ %v.sroa.0.0899, %if.then.i.i.i.invoke ], [ %v.sroa.0.3.lcssa109711171122, %sw.default ], [ %v.sroa.0.3.lcssa109711171122, %if.then.i.i.i276 ], [ %v.sroa.0.4, %if.then.i174 ]
+  %v.sroa.0.1.ph.ph.ph.ph.ph.ph = phi ptr [ %v.sroa.0.0899, %if.then.i.i.i.invoke ], [ %v.sroa.0.5910, %if.then.i.i.i107 ], [ %v.sroa.0.3.lcssa109711171123, %if.then.i.i.i.i368 ], [ %v.sroa.0.4, %if.then.i.i.i158 ], [ %v.sroa.0.3.lcssa109711171122, %sw.default ], [ %v.sroa.0.3.lcssa109711171122, %if.then.i.i.i276 ], [ %v.sroa.0.4, %if.then.i174 ]
   %lpad.loopexit.split-lp829 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup

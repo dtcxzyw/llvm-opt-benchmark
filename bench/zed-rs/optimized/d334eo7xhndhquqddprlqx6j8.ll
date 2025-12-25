@@ -53723,7 +53723,7 @@ define hidden void @_ZN14language_model8registry21LanguageModelRegistry17registe
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1a4db3a33151be32E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.42.0..sroa_idx.i)
           to label %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33" unwind label %132
 
-"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33.thread": ; preds = %116, %126, %.thread, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33"
+"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33.thread": ; preds = %126, %116, %.thread, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33"
   %.pn11.pn39 = phi { ptr, i32 } [ %.pn11.pn71, %.thread ], [ %.pn11, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit33" ], [ %117, %116 ], [ %127, %126 ]
   resume { ptr, i32 } %.pn11.pn39
 
@@ -54740,7 +54740,7 @@ define hidden void @_ZN14language_model8registry21LanguageModelRegistry17registe
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1a4db3a33151be32E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.42.0..sroa_idx.i)
           to label %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32" unwind label %131
 
-"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32.thread": ; preds = %115, %125, %.thread, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32"
+"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32.thread": ; preds = %125, %115, %.thread, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32"
   %.pn11.pn38 = phi { ptr, i32 } [ %.pn11.pn70, %.thread ], [ %.pn11, %"_ZN4core3ptr60drop_in_place$LT$language_model..LanguageModelProviderId$GT$17hc7c2a08a4bebd50cE.exit32" ], [ %116, %115 ], [ %126, %125 ]
   resume { ptr, i32 } %.pn11.pn38
 

@@ -564,7 +564,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br label %.critedge
 
 .critedge:                                        ; preds = %135, %.critedge.loopexit.split.loop.exit, %132, %122, %.loopexit
-  %.0209 = phi i32 [ 0, %.loopexit ], [ 0, %122 ], [ 0, %132 ], [ %140, %.critedge.loopexit.split.loop.exit ], [ 20, %135 ]
+  %.0209 = phi i32 [ 0, %122 ], [ 0, %.loopexit ], [ 0, %132 ], [ %140, %.critedge.loopexit.split.loop.exit ], [ 20, %135 ]
   %141 = call i32 @xmlTextReaderMoveToElement(ptr noundef %1) #8
   %142 = icmp eq i32 %141, -1
   br i1 %142, label %.critedge296, label %143

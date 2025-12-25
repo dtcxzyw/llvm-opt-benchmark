@@ -43264,9 +43264,9 @@ _ZN4gpui3app10entity_map9EntityMap4read17h32b829bf607ab52eE.exit535: ; preds = %
   br i1 %1685, label %1704, label %1688
 
 _ZN9collab_ui12collab_panel11CollabPanel20is_channel_collapsed17hf88c14103918fe4eE.exit.thread: ; preds = %.lr.ph.i.i560, %1679, %1698, %.lr.ph.i.i563, %1688, %1669
-  %1686 = phi i64 [ %1671, %1669 ], [ %1690, %1698 ], [ %1690, %1688 ], [ %1690, %.lr.ph.i.i563 ], [ %1671, %1679 ], [ %1671, %.lr.ph.i.i560 ]
-  %.sroa.6.1 = phi i64 [ %.sroa.6.0.ph979, %1669 ], [ %1668, %1698 ], [ %1668, %1688 ], [ %1668, %.lr.ph.i.i563 ], [ %1668, %.lr.ph.i.i560 ], [ %.sroa.6.0.ph979, %1679 ]
-  %.sroa.037.1 = phi i64 [ 0, %1669 ], [ 1, %.lr.ph.i.i563 ], [ 0, %1688 ], [ 0, %1698 ], [ 1, %.lr.ph.i.i560 ], [ 0, %1679 ]
+  %1686 = phi i64 [ %1671, %1669 ], [ %1690, %1688 ], [ %1690, %1698 ], [ %1690, %.lr.ph.i.i563 ], [ %1671, %1679 ], [ %1671, %.lr.ph.i.i560 ]
+  %.sroa.6.1 = phi i64 [ %.sroa.6.0.ph979, %1669 ], [ %1668, %1688 ], [ %1668, %1698 ], [ %1668, %.lr.ph.i.i563 ], [ %1668, %.lr.ph.i.i560 ], [ %.sroa.6.0.ph979, %1679 ]
+  %.sroa.037.1 = phi i64 [ 0, %1669 ], [ 0, %1688 ], [ 1, %.lr.ph.i.i563 ], [ 0, %1698 ], [ 1, %.lr.ph.i.i560 ], [ 0, %1679 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %1687 = getelementptr inbounds nuw i8, ptr %1666, i64 64
   invoke void @_ZN7channel13channel_store12ChannelStore15projects_for_id17h7856f1ab92e655e0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %62, ptr noalias noundef nonnull readonly align 8 dereferenceable(432) %116, i64 noundef %1686)

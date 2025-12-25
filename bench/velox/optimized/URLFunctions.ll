@@ -18077,7 +18077,7 @@ if.end1521:                                       ; preds = %if.then1507.if.end1
   br label %return
 
 return:                                           ; preds = %land.rhs, %while.cond15, %if.end1503, %if.end1521, %invoke.cont1481, %invoke.cont1444, %invoke.cont1411, %invoke.cont1354, %while.end1298, %invoke.cont1279, %while.end1235, %while.end1187, %while.end1159, %while.end1114, %while.end1082, %while.end1036, %while.end1002, %while.end966, %while.end920, %while.end894, %while.end862, %while.end832, %while.end803, %while.end780, %while.end755, %while.end732, %while.end701, %while.end678, %while.end651, %while.end605, %while.end582, %invoke.cont561, %while.end512, %while.end462, %while.end439, %while.end399, %while.end356, %while.end329, %while.end303, %while.end239, %invoke.cont194, %invoke.cont148, %invoke.cont129, %invoke.cont82, %while.end
-  %retval.0 = phi i1 [ false, %while.end ], [ false, %while.end920 ], [ false, %while.end1036 ], [ false, %invoke.cont1279 ], [ false, %while.end1298 ], [ false, %invoke.cont1354 ], [ false, %invoke.cont1481 ], [ true, %if.end1503 ], [ false, %invoke.cont1411 ], [ false, %invoke.cont1444 ], [ false, %while.end1082 ], [ false, %while.end1114 ], [ false, %while.end1159 ], [ false, %while.end1187 ], [ false, %while.end1235 ], [ false, %invoke.cont82 ], [ false, %invoke.cont129 ], [ false, %invoke.cont148 ], [ false, %invoke.cont194 ], [ false, %while.end239 ], [ false, %while.end966 ], [ false, %while.end1002 ], [ false, %while.end303 ], [ false, %while.end329 ], [ false, %while.end356 ], [ false, %while.end399 ], [ false, %while.end439 ], [ false, %while.end462 ], [ false, %while.end512 ], [ false, %invoke.cont561 ], [ false, %while.end582 ], [ false, %while.end605 ], [ false, %while.end651 ], [ false, %while.end678 ], [ false, %while.end701 ], [ false, %while.end732 ], [ false, %while.end755 ], [ false, %while.end780 ], [ false, %while.end803 ], [ false, %while.end832 ], [ false, %while.end862 ], [ false, %while.end894 ], [ true, %if.end1521 ], [ true, %while.cond15 ], [ true, %land.rhs ]
+  %retval.0 = phi i1 [ false, %while.end ], [ false, %while.end920 ], [ false, %while.end1036 ], [ false, %invoke.cont1279 ], [ false, %while.end1298 ], [ false, %invoke.cont1354 ], [ false, %invoke.cont1481 ], [ true, %if.end1521 ], [ false, %invoke.cont1411 ], [ false, %invoke.cont1444 ], [ false, %while.end1082 ], [ false, %while.end1114 ], [ false, %while.end1159 ], [ false, %while.end1187 ], [ false, %while.end1235 ], [ false, %invoke.cont82 ], [ false, %invoke.cont129 ], [ false, %invoke.cont148 ], [ false, %invoke.cont194 ], [ false, %while.end239 ], [ false, %while.end966 ], [ false, %while.end1002 ], [ false, %while.end303 ], [ false, %while.end329 ], [ false, %while.end356 ], [ false, %while.end399 ], [ false, %while.end439 ], [ false, %while.end462 ], [ false, %while.end512 ], [ false, %invoke.cont561 ], [ false, %while.end582 ], [ false, %while.end605 ], [ false, %while.end651 ], [ false, %while.end678 ], [ false, %while.end701 ], [ false, %while.end732 ], [ false, %while.end755 ], [ false, %while.end780 ], [ false, %while.end803 ], [ false, %while.end832 ], [ false, %while.end862 ], [ false, %while.end894 ], [ true, %if.end1503 ], [ true, %while.cond15 ], [ true, %land.rhs ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad1478, %lpad1480, %lpad1441, %lpad1443, %lpad1408, %lpad1410, %lpad1351, %lpad1353, %lpad1278.body, %lpad.i, %lpad1276, %lpad558, %lpad560, %lpad191, %lpad193, %lpad145, %lpad147, %lpad126, %lpad128, %lpad, %lpad81
@@ -22955,7 +22955,7 @@ return.sink.split:                                ; preds = %invoke.cont182, %re
   br label %return
 
 return:                                           ; preds = %if.else, %for.body220, %return.sink.split, %while.end214
-  %retval.2 = phi ptr [ null, %return.sink.split ], [ %13, %while.end214 ], [ %13, %for.body220 ], [ null, %if.else ]
+  %retval.2 = phi ptr [ %13, %while.end214 ], [ null, %return.sink.split ], [ %13, %for.body220 ], [ null, %if.else ]
   ret ptr %retval.2
 
 eh.resume:                                        ; preds = %lpad181.loopexit, %lpad181.loopexit.split-lp, %lpad, %lpad67
@@ -29002,7 +29002,7 @@ sw.bb68:                                          ; preds = %while.body
   br label %while.cond.backedge
 
 common.ret179:                                    ; preds = %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE15get_repeat_typeEPNS0_14re_syntax_baseE.exit.thread45, %entry, %while.cond.backedge, %while.body, %while.body, %while.body, %sw.bb11, %sw.bb60, %if.end48, %if.then42, %if.then32, %while.cond.outer.backedge, %sw.bb70
-  %common.ret179.op = phi i32 [ %spec.select, %sw.bb70 ], [ -1, %while.body ], [ -1, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE15get_repeat_typeEPNS0_14re_syntax_baseE.exit.thread45 ], [ -1, %entry ], [ -1, %while.cond.backedge ], [ -1, %while.body ], [ -1, %while.body ], [ -1, %if.then32 ], [ -1, %if.then42 ], [ -1, %if.end48 ], [ %result.0.ph73, %sw.bb11 ], [ -1, %sw.bb60 ], [ -1, %while.cond.outer.backedge ]
+  %common.ret179.op = phi i32 [ %spec.select, %sw.bb70 ], [ -1, %while.body ], [ -1, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE15get_repeat_typeEPNS0_14re_syntax_baseE.exit.thread45 ], [ -1, %entry ], [ -1, %while.cond.backedge ], [ -1, %while.body ], [ -1, %while.body ], [ -1, %if.then32 ], [ -1, %if.then42 ], [ -1, %if.end48 ], [ -1, %while.cond.outer.backedge ], [ -1, %sw.bb60 ], [ %result.0.ph73, %sw.bb11 ]
   ret i32 %common.ret179.op
 
 sw.bb70:                                          ; preds = %while.body
@@ -29020,8 +29020,8 @@ sw.bb70:                                          ; preds = %while.body
   br label %common.ret179
 
 while.cond.outer.backedge:                        ; preds = %while.body, %sw.bb, %sw.bb19, %sw.bb20, %if.end66, %sw.bb11, %if.end35, %if.end53
-  %.sink = phi i64 [ 16, %if.end53 ], [ 16, %if.end35 ], [ 8, %sw.bb19 ], [ 8, %sw.bb20 ], [ 8, %sw.bb11 ], [ 8, %if.end66 ], [ 8, %sw.bb ], [ 8, %while.body ]
-  %result.0.ph.be = phi i32 [ %add56, %if.end53 ], [ %add37, %if.end35 ], [ %add, %sw.bb19 ], [ %add21, %sw.bb20 ], [ %result.0.ph73, %sw.bb11 ], [ %add67, %if.end66 ], [ %result.0.ph73, %sw.bb ], [ %result.0.ph73, %while.body ]
+  %.sink = phi i64 [ 16, %if.end53 ], [ 16, %if.end35 ], [ 8, %sw.bb20 ], [ 8, %sw.bb19 ], [ 8, %sw.bb11 ], [ 8, %if.end66 ], [ 8, %sw.bb ], [ 8, %while.body ]
+  %result.0.ph.be = phi i32 [ %add56, %if.end53 ], [ %add37, %if.end35 ], [ %add21, %sw.bb20 ], [ %add, %sw.bb19 ], [ %result.0.ph73, %sw.bb11 ], [ %add67, %if.end66 ], [ %result.0.ph73, %sw.bb ], [ %result.0.ph73, %while.body ]
   %next81 = getelementptr inbounds nuw i8, ptr %state.addr.071, i64 %.sink
   %state.addr.0.ph.be = load ptr, ptr %next81, align 8
   %tobool.not70 = icmp eq ptr %state.addr.0.ph.be, null
@@ -33510,7 +33510,7 @@ return.sink.split:                                ; preds = %if.else30, %if.else
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then18, %if.else30, %land.lhs.true21, %if.else, %if.then3
-  %retval.0 = phi i1 [ false, %if.else30 ], [ false, %if.then3 ], [ false, %if.else ], [ false, %land.lhs.true21 ], [ false, %if.then18 ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %if.then18 ], [ false, %if.then3 ], [ false, %if.else ], [ false, %land.lhs.true21 ], [ false, %if.else30 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -33570,7 +33570,7 @@ return.sink.split:                                ; preds = %if.else, %if.then11
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then11, %if.end, %if.else, %if.then
-  %retval.0 = phi i1 [ false, %if.end ], [ false, %if.then ], [ false, %if.else ], [ false, %if.then11 ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %if.else ], [ false, %if.then ], [ false, %if.end ], [ false, %if.then11 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 

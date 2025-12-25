@@ -627,7 +627,7 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i25, label %.lr.ph.loopexit, label %22
 
 ._crit_edge:                                      ; preds = %10, %.lr.ph.loopexit, %.lr.ph61, %22, %.lr.ph.preheader, %6, %2
-  %.0.i35.shrunk45.shrunk = phi i16 [ 0, %6 ], [ %8, %.lr.ph.preheader ], [ %8, %22 ], [ 0, %2 ], [ %8, %.lr.ph.loopexit ], [ %8, %.lr.ph61 ], [ %8, %10 ]
+  %.0.i35.shrunk45.shrunk = phi i16 [ 0, %6 ], [ %8, %.lr.ph.preheader ], [ 0, %2 ], [ %8, %22 ], [ %8, %.lr.ph.loopexit ], [ %8, %.lr.ph61 ], [ %8, %10 ]
   %.0.i35.shrunk45 = zext i16 %.0.i35.shrunk45.shrunk to i32
   tail call void @lv_obj_scroll_to(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #6
   %29 = load ptr, ptr %3, align 8, !tbaa !37

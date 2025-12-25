@@ -10696,7 +10696,7 @@ _ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i41:       ; preds = %_ZNK6vectorIP3aigLb
   br i1 %165, label %_ZN11aig_manager3imp7dec_refERK7aig_lit.exit, label %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i40, !llvm.loop !25
 
 _ZN11aig_manager3imp7dec_refERK7aig_lit.exit:     ; preds = %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i40, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i41, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i31, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i32, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i29, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i38, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i
-  %.0 = phi i1 [ true, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i29 ], [ true, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i ], [ true, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i31 ], [ true, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i ], [ false, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i38 ], [ true, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i ], [ true, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i32 ], [ false, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i41 ], [ false, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i40 ]
+  %.0 = phi i1 [ true, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i31 ], [ true, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i ], [ true, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i29 ], [ false, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i38 ], [ true, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i ], [ true, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i ], [ true, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i32 ], [ false, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i41 ], [ false, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i40 ]
   ret i1 %.0
 }
 
@@ -11018,7 +11018,7 @@ _ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i41:       ; preds = %_ZNK6vectorIP3aigLb
   br i1 %165, label %_ZN11aig_manager3imp7dec_refERK7aig_lit.exit, label %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i40, !llvm.loop !25
 
 _ZN11aig_manager3imp7dec_refERK7aig_lit.exit:     ; preds = %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i40, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i41, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i31, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i32, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i29, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i38, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i
-  %.0 = phi i1 [ true, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i29 ], [ true, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i ], [ true, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i31 ], [ true, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i ], [ false, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i38 ], [ true, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i ], [ true, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i32 ], [ false, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i41 ], [ false, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i40 ]
+  %.0 = phi i1 [ true, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i31 ], [ true, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i ], [ true, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i29 ], [ false, %_ZN11aig_manager3imp12dec_ref_coreEP3aig.exit.i.i38 ], [ true, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i ], [ true, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i ], [ true, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i32 ], [ false, %_ZN6vectorIP3aigLb0EjE4backEv.exit.i.i.i41 ], [ false, %_ZNK6vectorIP3aigLb0EjE5emptyEv.exit.i.i.i40 ]
   ret i1 %.0
 }
 
@@ -13126,7 +13126,7 @@ define linkonce_odr hidden void @_ZN11aig_manager3imp8aig2expr6mk_iteEP3aig(ptr 
   %87 = and i64 %51, -2
   br label %88
 
-.thread:                                          ; preds = %24, %16, %12, %75, %9, %2
+.thread:                                          ; preds = %16, %24, %12, %75, %9, %2
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 875, ptr noundef nonnull @.str.10)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %94

@@ -4140,7 +4140,7 @@ addToResult.exit:                                 ; preds = %.loopexit248, %136,
   br label %FindWord.exit.thread
 
 FindWord.exit.thread:                             ; preds = %.preheader.i115, %128, %105, %103, %82, %124, %75, %70, %addToResult.exit
-  %.3 = phi ptr [ %143, %addToResult.exit ], [ %.2289, %70 ], [ %.2289, %124 ], [ %.2289, %75 ], [ %.2289, %82 ], [ %.2289, %103 ], [ %.2289, %105 ], [ %.2289, %128 ], [ %.2289, %.preheader.i115 ]
+  %.3 = phi ptr [ %143, %addToResult.exit ], [ %.2289, %70 ], [ %.2289, %75 ], [ %.2289, %124 ], [ %.2289, %82 ], [ %.2289, %103 ], [ %.2289, %105 ], [ %.2289, %128 ], [ %.2289, %.preheader.i115 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %144 = load i32, ptr %.0.i, align 8
   %145 = lshr i32 %144, 8
@@ -4155,7 +4155,7 @@ FindWord.exit.thread:                             ; preds = %.preheader.i115, %1
   br i1 %.not99, label %FindAffixes.exit.thread, label %31, !llvm.loop !47
 
 FindAffixes.exit.thread:                          ; preds = %._crit_edge, %37, %.preheader.split.us.i, %41, %59, %54, %24
-  %.192288 = phi ptr [ %.192294, %.preheader.split.us.i ], [ %.091, %24 ], [ %.192294, %54 ], [ %.192294, %59 ], [ %.192294, %41 ], [ %.3, %._crit_edge ], [ %.192294, %37 ]
+  %.192288 = phi ptr [ %.091, %24 ], [ %.192294, %.preheader.split.us.i ], [ %.192294, %54 ], [ %.192294, %59 ], [ %.192294, %41 ], [ %.3, %._crit_edge ], [ %.192294, %37 ]
   %.not101322 = icmp eq ptr %16, null
   br i1 %.not101322, label %.loopexit246, label %.lr.ph326
 
@@ -4425,7 +4425,7 @@ addToResult.exit157:                              ; preds = %.loopexit241, %262,
   br label %FindWord.exit154.thread
 
 FindWord.exit154.thread:                          ; preds = %.preheader.i135, %254, %231, %229, %208, %250, %201, %addToResult.exit157
-  %.8 = phi ptr [ %269, %addToResult.exit157 ], [ %.7317, %250 ], [ %.7317, %201 ], [ %.7317, %208 ], [ %.7317, %229 ], [ %.7317, %231 ], [ %.7317, %254 ], [ %.7317, %.preheader.i135 ]
+  %.8 = phi ptr [ %269, %addToResult.exit157 ], [ %.7317, %201 ], [ %.7317, %250 ], [ %.7317, %208 ], [ %.7317, %229 ], [ %.7317, %231 ], [ %.7317, %254 ], [ %.7317, %.preheader.i135 ]
   %270 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #16
   %271 = trunc i64 %270 to i32
   %.188307 = load ptr, ptr %25, align 8
@@ -4701,7 +4701,7 @@ addToResult.exit205:                              ; preds = %.loopexit, %390, %3
   br label %FindWord.exit202.thread
 
 FindWord.exit202.thread:                          ; preds = %.preheader.i183, %382, %359, %357, %336, %378, %332, %addToResult.exit205, %312
-  %.12 = phi ptr [ %.10302, %312 ], [ %397, %addToResult.exit205 ], [ %.10302, %378 ], [ %.10302, %332 ], [ %.10302, %336 ], [ %.10302, %357 ], [ %.10302, %359 ], [ %.10302, %382 ], [ %.10302, %.preheader.i183 ]
+  %.12 = phi ptr [ %.10302, %312 ], [ %397, %addToResult.exit205 ], [ %.10302, %332 ], [ %.10302, %378 ], [ %.10302, %336 ], [ %.10302, %357 ], [ %.10302, %359 ], [ %.10302, %382 ], [ %.10302, %.preheader.i183 ]
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %398 = load i32, ptr %.0.i160, align 8
   %399 = lshr i32 %398, 8
@@ -4716,7 +4716,7 @@ FindWord.exit202.thread:                          ; preds = %.preheader.i183, %3
   br i1 %.not105, label %FindAffixes.exit181.thread, label %273, !llvm.loop !49
 
 FindAffixes.exit181.thread:                       ; preds = %._crit_edge305, %279, %.preheader.split.us.i166, %283, %301, %296, %FindWord.exit154.thread, %196
-  %.13 = phi ptr [ %.7317, %196 ], [ %.8, %FindWord.exit154.thread ], [ %.9310, %.preheader.split.us.i166 ], [ %.9310, %296 ], [ %.9310, %301 ], [ %.9310, %283 ], [ %.12, %._crit_edge305 ], [ %.9310, %279 ]
+  %.13 = phi ptr [ %.7317, %196 ], [ %.9310, %.preheader.split.us.i166 ], [ %.8, %FindWord.exit154.thread ], [ %.9310, %296 ], [ %.9310, %301 ], [ %.9310, %283 ], [ %.12, %._crit_edge305 ], [ %.9310, %279 ]
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %403 = load i32, ptr %.0.i122, align 8
   %404 = lshr i32 %403, 8
@@ -5220,7 +5220,7 @@ AddStem.exit185:                                  ; preds = %._crit_edge.i182, %
   br i1 %237, label %52, label %.critedge.thread, !llvm.loop !59
 
 .critedge.thread:                                 ; preds = %AddStem.exit185, %.loopexit, %.critedge, %.preheader37.i, %CopyVar.exit
-  %.0134.ph228 = phi i32 [ %.0134.ph246, %.loopexit ], [ %.0134.ph246, %.preheader37.i ], [ %5, %CopyVar.exit ], [ %.0134.ph246, %.critedge ], [ %195, %AddStem.exit185 ]
+  %.0134.ph228 = phi i32 [ %5, %CopyVar.exit ], [ %.0134.ph246, %.preheader37.i ], [ %.0134.ph246, %.loopexit ], [ %.0134.ph246, %.critedge ], [ %195, %AddStem.exit185 ]
   %238 = sext i32 %.0134.ph228 to i64
   %239 = getelementptr inbounds i8, ptr %3, i64 %238
   %240 = sub i32 %4, %.0134.ph228
@@ -5922,7 +5922,7 @@ IsAffixFlagInUse.exit:                            ; preds = %49
   br i1 %.not51, label %.critedge, label %11, !llvm.loop !45
 
 .critedge:                                        ; preds = %11, %59, %36, %34, %13, %55, %IsAffixFlagInUse.exit.thread, %4
-  %.033 = phi i32 [ 0, %55 ], [ 0, %4 ], [ 1, %IsAffixFlagInUse.exit.thread ], [ 0, %13 ], [ 0, %34 ], [ 0, %36 ], [ 0, %59 ], [ 0, %11 ]
+  %.033 = phi i32 [ 0, %4 ], [ 0, %55 ], [ 1, %IsAffixFlagInUse.exit.thread ], [ 0, %13 ], [ 0, %34 ], [ 0, %36 ], [ 0, %59 ], [ 0, %11 ]
   ret i32 %.033
 }
 

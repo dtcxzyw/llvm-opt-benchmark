@@ -745,7 +745,7 @@ define noundef zeroext i1 @_ZN7logging16MatchVlogPatternERKN4base16BasicStringPi
   br i1 %43, label %.critedge2.thread, label %.lr.ph35, !llvm.loop !50
 
 .critedge2.thread:                                ; preds = %17, %19, %34, %.lr.ph35, %.critedge2, %.critedge2.preheader, %._crit_edge64
-  %.0 = phi i1 [ %28, %._crit_edge64 ], [ %40, %.lr.ph35 ], [ true, %34 ], [ false, %.critedge2.preheader ], [ %40, %.critedge2 ], [ false, %19 ], [ false, %17 ]
+  %.0 = phi i1 [ %28, %._crit_edge64 ], [ true, %34 ], [ %40, %.lr.ph35 ], [ false, %.critedge2.preheader ], [ %40, %.critedge2 ], [ false, %19 ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0

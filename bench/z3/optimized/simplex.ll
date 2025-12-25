@@ -11330,24 +11330,24 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i:       ; preds = %8, %3
   %23 = load i8, ptr %22, align 4
   %24 = and i8 %23, 1
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %26, label %31
+  br i1 %25, label %26, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %28 = load i8, ptr %27, align 4
   %29 = and i8 %28, 1
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, label %31
+  br i1 %30, label %31, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
 
-31:                                               ; preds = %26, %19
-  %32 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %37, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit6
+31:                                               ; preds = %26
+  %32 = load i32, ptr %20, align 8, !tbaa !3
+  %33 = load i32, ptr %21, align 8, !tbaa !3
+  %34 = icmp eq i32 %32, %33
+  br i1 %34, label %37, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit6
 
-_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %26
-  %34 = load i32, ptr %20, align 8, !tbaa !3
-  %35 = load i32, ptr %21, align 8, !tbaa !3
-  %36 = icmp eq i32 %34, %35
+_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %19, %26
+  %35 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit6
 
 37:                                               ; preds = %31, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
@@ -22230,7 +22230,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit: ; preds = %_ZNK
   br i1 %.not, label %.critedge, label %30, !llvm.loop !296
 
 .critedge:                                        ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i, %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit, %3, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit, %_ZN15_scoped_numeralI11mpq_managerILb0EEEaSERK3mpq.exit
-  %.0.i.i.i.i94 = phi i32 [ 0, %3 ], [ %.0.i.i.i.i, %_ZN15_scoped_numeralI11mpq_managerILb0EEEaSERK3mpq.exit ], [ %.0.i.i.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit ], [ %.0.i.i.i.i, %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit ], [ %.0.i.i.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ], [ %18, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i ]
+  %.0.i.i.i.i94 = phi i32 [ %.0.i.i.i.i, %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit ], [ %.0.i.i.i.i, %_ZN15_scoped_numeralI11mpq_managerILb0EEEaSERK3mpq.exit ], [ %.0.i.i.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE7row_endERKNS2_3rowE.exit ], [ 0, %3 ], [ %.0.i.i.i.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ], [ %18, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i ]
   %99 = load i32, ptr %5, align 8, !tbaa !3
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %.thread, label %106

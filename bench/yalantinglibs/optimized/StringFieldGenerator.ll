@@ -1546,8 +1546,8 @@ arraydestroy.done17:                              ; preds = %_ZNSt4pairIKNSt7__c
   ret void
 
 lpad.body:                                        ; preds = %lpad2.i9, %lpad.i4, %lpad.i14, %lpad2.i19
-  %arrayinit.endOfInit.0.lpad-body = phi ptr [ %arrayinit.element4, %lpad.i14 ], [ %arrayinit.element4, %lpad2.i19 ], [ %arrayinit.element, %lpad.i4 ], [ %arrayinit.element, %lpad2.i9 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad.i14 ], [ %5, %lpad2.i19 ], [ %2, %lpad.i4 ], [ %3, %lpad2.i9 ]
+  %arrayinit.endOfInit.0.lpad-body = phi ptr [ %arrayinit.element4, %lpad2.i19 ], [ %arrayinit.element4, %lpad.i14 ], [ %arrayinit.element, %lpad.i4 ], [ %arrayinit.element, %lpad2.i9 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad2.i19 ], [ %4, %lpad.i14 ], [ %2, %lpad.i4 ], [ %3, %lpad2.i9 ]
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %lpad.body, %arraydestroy.body

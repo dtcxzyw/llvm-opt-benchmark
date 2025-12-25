@@ -7287,7 +7287,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi
   br label %56
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi4ELi1ELb1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE11squaredNormEv.exit: ; preds = %.lr.ph83.i.i.i.i, %49, %41
-  %53 = phi double [ %42, %41 ], [ %51, %49 ], [ %47, %.lr.ph83.i.i.i.i ]
+  %53 = phi double [ %51, %49 ], [ %42, %41 ], [ %47, %.lr.ph83.i.i.i.i ]
   %54 = load double, ptr %8, align 8
   %55 = fcmp ugt double %53, 0x10000000000000
   br i1 %55, label %.critedge, label %56
@@ -42431,9 +42431,9 @@ _ZN3vcg23InterpolationParametersINS_9AlignPair6A2FaceEdEEbT_iRKNS_6Point3IT0_EER
   br label %_ZN3vcg23InterpolationParametersINS_9AlignPair6A2FaceEdEEbT_iRKNS_6Point3IT0_EERS6_.exit
 
 _ZN3vcg23InterpolationParametersINS_9AlignPair6A2FaceEdEEbT_iRKNS_6Point3IT0_EERS6_.exit: ; preds = %_ZN3vcg23InterpolationParametersINS_9AlignPair6A2FaceEdEEbT_iRKNS_6Point3IT0_EERS6_.exit.sink.split, %166, %136, %94, %56
-  %.sink51 = phi double [ %156, %166 ], [ %126, %136 ], [ %83, %94 ], [ %45, %56 ], [ 0x3FD5555555555555, %_ZN3vcg23InterpolationParametersINS_9AlignPair6A2FaceEdEEbT_iRKNS_6Point3IT0_EERS6_.exit.sink.split ]
-  %.sink48 = phi double [ %162, %166 ], [ %132, %136 ], [ %90, %94 ], [ %52, %56 ], [ 0x3FD5555555555555, %_ZN3vcg23InterpolationParametersINS_9AlignPair6A2FaceEdEEbT_iRKNS_6Point3IT0_EERS6_.exit.sink.split ]
-  %.sink45 = phi double [ %164, %166 ], [ %134, %136 ], [ %92, %94 ], [ %54, %56 ], [ 0x3FD5555555555555, %_ZN3vcg23InterpolationParametersINS_9AlignPair6A2FaceEdEEbT_iRKNS_6Point3IT0_EERS6_.exit.sink.split ]
+  %.sink51 = phi double [ %83, %94 ], [ %126, %136 ], [ %156, %166 ], [ %45, %56 ], [ 0x3FD5555555555555, %_ZN3vcg23InterpolationParametersINS_9AlignPair6A2FaceEdEEbT_iRKNS_6Point3IT0_EERS6_.exit.sink.split ]
+  %.sink48 = phi double [ %90, %94 ], [ %132, %136 ], [ %162, %166 ], [ %52, %56 ], [ 0x3FD5555555555555, %_ZN3vcg23InterpolationParametersINS_9AlignPair6A2FaceEdEEbT_iRKNS_6Point3IT0_EERS6_.exit.sink.split ]
+  %.sink45 = phi double [ %92, %94 ], [ %134, %136 ], [ %164, %166 ], [ %54, %56 ], [ 0x3FD5555555555555, %_ZN3vcg23InterpolationParametersINS_9AlignPair6A2FaceEdEEbT_iRKNS_6Point3IT0_EERS6_.exit.sink.split ]
   %170 = fcmp oge double %.sink51, 0xBF1A36E2E0000000
   %171 = fcmp ole double %.sink51, 0x3FF00068DB8B8000
   %narrow.i.i43.i21 = and i1 %170, %171
@@ -48032,7 +48032,7 @@ _ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i
   br i1 %exitcond436.not.i.i.i, label %._crit_edge212.i.i.i, label %.preheader8.i1344.i.i.backedge
 
 .preheader8.i1344.i.i.backedge:                   ; preds = %._crit_edge204.i.i.i, %._crit_edge204.i.i.i.thread
-  %indvars.iv432.i.i.i.be = phi i64 [ %indvars.iv.next433.i.i.i322, %._crit_edge204.i.i.i.thread ], [ %indvars.iv.next433.i.i.i, %._crit_edge204.i.i.i ]
+  %indvars.iv432.i.i.i.be = phi i64 [ %indvars.iv.next433.i.i.i, %._crit_edge204.i.i.i ], [ %indvars.iv.next433.i.i.i322, %._crit_edge204.i.i.i.thread ]
   br label %.preheader8.i1344.i.i, !llvm.loop !1105
 
 ._crit_edge204.i.i.i.thread:                      ; preds = %.lr.ph203.i.i.i

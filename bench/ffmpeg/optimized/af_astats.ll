@@ -5726,7 +5726,7 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef readonly captur
   br i1 %exitcond.not.i, label %._crit_edge.i, label %92, !llvm.loop !89
 
 .critedge:                                        ; preds = %31, %.lr.ph, %._crit_edge.i, %.critedge47, %1
-  %.0 = phi i32 [ 0, %._crit_edge.i ], [ -12, %1 ], [ 0, %.critedge47 ], [ -12, %.lr.ph ], [ -12, %31 ]
+  %.0 = phi i32 [ 0, %.critedge47 ], [ -12, %1 ], [ 0, %._crit_edge.i ], [ -12, %.lr.ph ], [ -12, %31 ]
   ret i32 %.0
 }
 

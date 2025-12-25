@@ -4040,7 +4040,7 @@ define noundef ptr @_ZNK6icu_778TZGNCore9findLocalERKNS_13UnicodeStringEijR10UEr
   br label %93
 
 93:                                               ; preds = %.sink.split, %73, %79, %36, %87, %10
-  %.0 = phi ptr [ null, %10 ], [ %85, %87 ], [ null, %73 ], [ null, %79 ], [ %34, %36 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %10 ], [ %34, %36 ], [ null, %73 ], [ null, %79 ], [ %85, %87 ], [ null, %.sink.split ]
   call void @_ZN6icu_7718GNameSearchHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0

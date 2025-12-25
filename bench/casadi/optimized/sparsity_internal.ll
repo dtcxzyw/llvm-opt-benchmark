@@ -13832,7 +13832,7 @@ tailrecurse:                                      ; preds = %26, %2
   br i1 %.not45, label %52, label %.critedge50
 
 .critedge50:                                      ; preds = %.critedge48.loopexit, %65, %.lr.ph, %28
-  %.not4756 = phi i1 [ false, %65 ], [ true, %28 ], [ false, %.lr.ph ], [ true, %.critedge48.loopexit ]
+  %.not4756 = phi i1 [ true, %28 ], [ false, %65 ], [ false, %.lr.ph ], [ true, %.critedge48.loopexit ]
   %68 = load ptr, ptr %3, align 8, !tbaa !48
   %.not.i.i.i = icmp eq ptr %68, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIxSaIxEED2Ev.exit, label %69

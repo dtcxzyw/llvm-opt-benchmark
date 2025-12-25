@@ -2478,7 +2478,7 @@ fcgi_close.exit59.backedge:                       ; preds = %.thread16.i58, %482
   br label %fcgi_close.exit59
 
 .loopexit90:                                      ; preds = %124, %.preheader, %.backedge, %93, %91, %fcgi_close.exit59.thread
-  %.1 = phi i32 [ -1, %.backedge ], [ %462, %fcgi_close.exit59.thread ], [ -1, %91 ], [ -1, %93 ], [ -1, %.preheader ], [ -1, %124 ]
+  %.1 = phi i32 [ %462, %fcgi_close.exit59.thread ], [ -1, %.backedge ], [ -1, %91 ], [ -1, %93 ], [ -1, %.preheader ], [ -1, %124 ]
   ret i32 %.1
 }
 

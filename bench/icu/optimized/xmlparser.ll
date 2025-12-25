@@ -1895,7 +1895,7 @@ _ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit.loopexit: ; preds = %._crit_e
   br label %_ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit
 
 _ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit: ; preds = %_ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit.loopexit, %239, %._crit_edge.i108, %271, %._crit_edge.i118
-  %.177 = phi ptr [ %.076, %271 ], [ %.076, %._crit_edge.i118 ], [ %83, %239 ], [ %83, %._crit_edge.i108 ], [ %83, %_ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit.loopexit ]
+  %.177 = phi ptr [ %.076, %._crit_edge.i118 ], [ %.076, %271 ], [ %83, %239 ], [ %83, %._crit_edge.i108 ], [ %83, %_ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit.loopexit ]
   %272 = icmp eq ptr %.177, null
   br i1 %272, label %_ZN6icu_7710UXMLParser5errorEPKcR10UErrorCode.exit.thread, label %273
 

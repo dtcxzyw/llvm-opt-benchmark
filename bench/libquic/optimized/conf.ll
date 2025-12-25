@@ -995,8 +995,8 @@ add_string.exit:                                  ; preds = %266, %value_free.ex
   br i1 %.not164, label %300, label %.sink.split
 
 .thread232:                                       ; preds = %173, %247, %226, %246, %259, %284, %CONF_VALUE_new.exit.thread, %172, %182, %21, %.outer._crit_edge
-  %.0131237.ph = phi ptr [ %calloc.i, %247 ], [ null, %.outer._crit_edge ], [ null, %172 ], [ %calloc.i, %246 ], [ null, %226 ], [ %calloc.i, %259 ], [ null, %182 ], [ null, %CONF_VALUE_new.exit.thread ], [ %calloc.i, %284 ], [ null, %21 ], [ null, %173 ]
-  %.0133235.ph = phi i64 [ %.2135, %247 ], [ %.1134.lcssa, %.outer._crit_edge ], [ %.2135, %172 ], [ %.2135, %246 ], [ %.2135, %226 ], [ %.2135, %259 ], [ %.2135, %182 ], [ %.2135, %CONF_VALUE_new.exit.thread ], [ %.2135, %284 ], [ 0, %21 ], [ %.2135, %173 ]
+  %.0131237.ph = phi ptr [ %calloc.i, %247 ], [ null, %.outer._crit_edge ], [ null, %172 ], [ %calloc.i, %246 ], [ null, %226 ], [ %calloc.i, %259 ], [ null, %CONF_VALUE_new.exit.thread ], [ null, %182 ], [ %calloc.i, %284 ], [ null, %21 ], [ null, %173 ]
+  %.0133235.ph = phi i64 [ %.2135, %247 ], [ %.1134.lcssa, %.outer._crit_edge ], [ %.2135, %172 ], [ %.2135, %246 ], [ %.2135, %226 ], [ %.2135, %259 ], [ %.2135, %CONF_VALUE_new.exit.thread ], [ %.2135, %182 ], [ %.2135, %284 ], [ 0, %21 ], [ %.2135, %173 ]
   %.pr.pr = load ptr, ptr %8, align 8, !tbaa !17
   call void @BUF_MEM_free(ptr noundef nonnull %9) #12
   %.not183 = icmp eq ptr %.pr.pr, null

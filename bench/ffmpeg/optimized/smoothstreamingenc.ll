@@ -1656,7 +1656,7 @@ add_fragment.exit:                                ; preds = %copy_moof.exit, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit187
 
-209:                                              ; preds = %23, %191, %189, %188
+209:                                              ; preds = %23, %188, %189, %191
   %.2103.ph = phi i32 [ %173, %191 ], [ %173, %189 ], [ %173, %188 ], [ %.0101206, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

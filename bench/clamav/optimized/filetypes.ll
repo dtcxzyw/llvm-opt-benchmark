@@ -856,8 +856,8 @@ cli_compare_ftm_partition.exit.thread:            ; preds = %138, %69, %cli_comp
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread246
 
-.thread246:                                       ; preds = %179, %.loopexit, %._crit_edge.i, %133, %137, %206, %.thread266, %.thread242, %151, %cli_compare_ftm_partition.exit, %171, %158, %143, %cli_compare_ftm_partition.exit.thread, %17, %72, %71, %23, %10
-  %.0 = phi i32 [ 505, %23 ], [ %.0178253, %cli_compare_ftm_partition.exit.thread ], [ %.0178253, %158 ], [ %.0178253, %143 ], [ 574, %137 ], [ 505, %17 ], [ 511, %71 ], [ 510, %72 ], [ %.2.ph, %.thread242 ], [ %.6184.ph, %.thread266 ], [ 505, %10 ], [ %.0178, %cli_compare_ftm_partition.exit ], [ %.3181, %171 ], [ %.fr, %151 ], [ %.3181, %206 ], [ 557, %._crit_edge.i ], [ 559, %133 ], [ 517, %.loopexit ], [ %.3181, %179 ]
+.thread246:                                       ; preds = %179, %._crit_edge.i, %.loopexit, %133, %137, %206, %.thread266, %.thread242, %151, %cli_compare_ftm_partition.exit, %171, %158, %143, %cli_compare_ftm_partition.exit.thread, %17, %72, %71, %23, %10
+  %.0 = phi i32 [ 505, %23 ], [ %.0178253, %cli_compare_ftm_partition.exit.thread ], [ %.0178253, %158 ], [ %.0178253, %143 ], [ 574, %137 ], [ 505, %17 ], [ 511, %71 ], [ 510, %72 ], [ %.2.ph, %.thread242 ], [ %.6184.ph, %.thread266 ], [ 505, %10 ], [ %.0178, %cli_compare_ftm_partition.exit ], [ %.3181, %171 ], [ %.fr, %151 ], [ %.3181, %206 ], [ 517, %.loopexit ], [ 559, %133 ], [ 557, %._crit_edge.i ], [ %.3181, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

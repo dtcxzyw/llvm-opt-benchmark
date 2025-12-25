@@ -8820,7 +8820,7 @@ pmix_pointer_array_get_item.exit458:              ; preds = %.preheader563, %483
   br label %483
 
 483:                                              ; preds = %.sink.split, %477, %463, %pmix_pointer_array_get_item.exit458
-  %.1315 = phi i1 [ %.0314614, %pmix_pointer_array_get_item.exit458 ], [ true, %477 ], [ %.0314614, %463 ], [ %.0314614, %.sink.split ]
+  %.1315 = phi i1 [ %.0314614, %pmix_pointer_array_get_item.exit458 ], [ %.0314614, %463 ], [ true, %477 ], [ %.0314614, %.sink.split ]
   %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674, 1
   %484 = load ptr, ptr %394, align 8, !tbaa !139
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 128

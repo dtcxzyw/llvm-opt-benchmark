@@ -5197,7 +5197,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit136.i:         ; preds = %649, %647
 _ZN12_GLOBAL__N_126AArch64InstructionSelector12preISelLowerERN4llvm12MachineInstrE.exit: ; preds = %_ZN12_GLOBAL__N_126AArch64InstructionSelector30contractCrossBankCopyIntoStoreERN4llvm12MachineInstrERNS1_19MachineRegisterInfoE.exit.i, %358, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i
   br i1 %.0.i.i, label %_ZN12_GLOBAL__N_126AArch64InstructionSelector12preISelLowerERN4llvm12MachineInstrE.exit.thread1589, label %thread-pre-split
 
-_ZN12_GLOBAL__N_126AArch64InstructionSelector12preISelLowerERN4llvm12MachineInstrE.exit.thread1589: ; preds = %435, %440, %444, %448, %674, %676, %371, %_ZNK4llvm3LLT17changeElementTypeES0_.exit.i, %488, %459, %_ZNK4llvm3LLT17changeElementTypeES0_.exit114.i, %_ZN12_GLOBAL__N_126AArch64InstructionSelector12preISelLowerERN4llvm12MachineInstrE.exit
+_ZN12_GLOBAL__N_126AArch64InstructionSelector12preISelLowerERN4llvm12MachineInstrE.exit.thread1589: ; preds = %435, %440, %444, %448, %674, %371, %_ZNK4llvm3LLT17changeElementTypeES0_.exit.i, %488, %459, %676, %_ZNK4llvm3LLT17changeElementTypeES0_.exit114.i, %_ZN12_GLOBAL__N_126AArch64InstructionSelector12preISelLowerERN4llvm12MachineInstrE.exit
   %678 = load i16, ptr %198, align 4, !tbaa !502
   br label %679
 
@@ -23407,7 +23407,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_126AArch64Instructio
   br i1 %.not.i.i.i.i.i.i, label %.critedge, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %70, %64
-  %.sroa.0.0.i.i.i = phi ptr [ %69, %70 ], [ %.0.i.i.i.i, %64 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %64 ], [ %69, %70 ]
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %74 = load ptr, ptr %73, align 8, !tbaa !296
   %.not.i.i.i.i.i.i.i = icmp eq ptr %74, null
@@ -23472,7 +23472,7 @@ _ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit: ; preds = %_
   br i1 %.not.i.i.i.i.i.i104, label %.critedge, label %.lr.ph.i.i.i.preheader.i.i99
 
 .lr.ph.i.i.i.preheader.i.i99:                     ; preds = %103, %97
-  %.sroa.0.0.i.i.i100 = phi ptr [ %102, %103 ], [ %.0.i.i.i.i96, %97 ]
+  %.sroa.0.0.i.i.i100 = phi ptr [ %.0.i.i.i.i96, %97 ], [ %102, %103 ]
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i100, i64 24
   %107 = load ptr, ptr %106, align 8, !tbaa !296
   %.not.i.i.i.i.i.i.i101 = icmp eq ptr %107, null
@@ -23535,7 +23535,7 @@ _ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit114: ; preds =
   br i1 %.not.i.i.i.i.i.i124, label %.critedge, label %.lr.ph.i.i.i.preheader.i.i119
 
 .lr.ph.i.i.i.preheader.i.i119:                    ; preds = %133, %127
-  %.sroa.0.0.i.i.i120 = phi ptr [ %132, %133 ], [ %.0.i.i.i.i116, %127 ]
+  %.sroa.0.0.i.i.i120 = phi ptr [ %.0.i.i.i.i116, %127 ], [ %132, %133 ]
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i120, i64 24
   %137 = load ptr, ptr %136, align 8, !tbaa !296
   %.not.i.i.i.i.i.i.i121 = icmp eq ptr %137, null
@@ -36781,7 +36781,7 @@ _ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyIN
   br label %_ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj62ELb1EEEE5matchERKNS_19MachineRegisterInfoES4_.exit19
 
 _ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj62ELb1EEEE5matchERKNS_19MachineRegisterInfoES4_.exit19: ; preds = %_ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj62ELb1EEEE5matchERKNS_19MachineRegisterInfoES4_.exit19.sink.split, %94, %90, %86, %84, %_ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj140ELb0EEEE5matchERKNS_19MachineRegisterInfoES4_.exit.thread, %135, %120, %116, %114, %105, %3, %9, %5
-  %.0 = phi i1 [ false, %3 ], [ false, %94 ], [ false, %90 ], [ false, %5 ], [ false, %9 ], [ false, %105 ], [ false, %114 ], [ false, %116 ], [ false, %120 ], [ false, %135 ], [ false, %_ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj140ELb0EEEE5matchERKNS_19MachineRegisterInfoES4_.exit.thread ], [ false, %84 ], [ false, %86 ], [ true, %_ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj62ELb1EEEE5matchERKNS_19MachineRegisterInfoES4_.exit19.sink.split ]
+  %.0 = phi i1 [ false, %3 ], [ false, %90 ], [ false, %94 ], [ false, %5 ], [ false, %9 ], [ false, %105 ], [ false, %114 ], [ false, %116 ], [ false, %120 ], [ false, %135 ], [ false, %_ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj140ELb0EEEE5matchERKNS_19MachineRegisterInfoES4_.exit.thread ], [ false, %84 ], [ false, %86 ], [ true, %_ZN4llvm14MIPatternMatch18OneNonDBGUse_matchINS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_13ConstantMatchIlEELj62ELb1EEEE5matchERKNS_19MachineRegisterInfoES4_.exit19.sink.split ]
   ret i1 %.0
 }
 

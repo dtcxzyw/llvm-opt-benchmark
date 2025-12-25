@@ -2303,7 +2303,7 @@ _ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit.thread: ; preds = %68
   br label %95
 
 _ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit: ; preds = %84, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i
-  %.0.i.i.sink.i = phi ptr [ %89, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ], [ %88, %84 ]
+  %.0.i.i.sink.i = phi ptr [ %88, %84 ], [ %89, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i ]
   store ptr %.0.i.i.sink.i, ptr %4, align 8
   %.not4 = icmp eq ptr %.0.i.i.sink.i, null
   %or.cond = select i1 %.not19, i1 true, i1 %.not4
@@ -2489,8 +2489,8 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i15:    ; preds = %_ZNK21StackChunkFra
   br i1 %.not7.i16, label %select.unfold21, label %82
 
 82:                                               ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15
-  %83 = phi ptr [ %26, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ], [ %.pre28, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ]
-  %.0.in = phi i32 [ %81, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ], [ %24, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ]
+  %83 = phi ptr [ %.pre28, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ], [ %26, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ]
+  %.0.in = phi i32 [ %24, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ], [ %81, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i15 ]
   %.0 = lshr i32 %.0.in, 24
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
@@ -3061,8 +3061,8 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i12:    ; preds = %_ZNK21StackChunkFra
   br i1 %.not7.i13, label %select.unfold18, label %57
 
 57:                                               ; preds = %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i12
-  %58 = phi ptr [ %13, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i12 ], [ %.pre25, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ]
-  %.0.in = phi i32 [ %56, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i12 ], [ %11, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ]
+  %58 = phi ptr [ %.pre25, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ], [ %13, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i12 ]
+  %.0.in = phi i32 [ %11, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i._crit_edge ], [ %56, %_ZNK17NativePostCallNop6decodeERiS0_.exit.i12 ]
   %.0 = lshr i32 %.0.in, 24
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8

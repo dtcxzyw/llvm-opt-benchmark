@@ -270,7 +270,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
   br label %.thread
 
 .thread:                                          ; preds = %26, %25, %.thread.sink.split, %.critedge.thread, %._crit_edge121, %.critedge, %91, %._crit_edge, %7, %3
-  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %._crit_edge ], [ %.0.ph, %.thread.sink.split ], [ 0, %.critedge ], [ 0, %.critedge.thread ], [ 0, %91 ], [ 0, %._crit_edge121 ], [ 0, %25 ], [ 0, %26 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %._crit_edge ], [ 0, %.critedge.thread ], [ 0, %.critedge ], [ %.0.ph, %.thread.sink.split ], [ 0, %91 ], [ 0, %._crit_edge121 ], [ 0, %25 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

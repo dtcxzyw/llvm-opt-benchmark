@@ -8690,7 +8690,7 @@ squash_slash.exit107.thread:                      ; preds = %76, %72, %71
   br label %squash_slash.exit
 
 squash_slash.exit:                                ; preds = %54, %32, %._crit_edge.i138, %117, %._crit_edge.i119, %98, %79, %._crit_edge.i100, %._crit_edge.i81, %xstrdup_or_null.exit69, %._crit_edge.i, %xstrdup_or_null.exit
-  %.0 = phi ptr [ null, %79 ], [ %101, %._crit_edge.i119 ], [ %55, %._crit_edge.i81 ], [ %33, %._crit_edge.i ], [ %119, %._crit_edge.i138 ], [ null, %xstrdup_or_null.exit ], [ null, %32 ], [ null, %xstrdup_or_null.exit69 ], [ %80, %._crit_edge.i100 ], [ null, %98 ], [ null, %117 ], [ null, %54 ]
+  %.0 = phi ptr [ %80, %._crit_edge.i100 ], [ %101, %._crit_edge.i119 ], [ %55, %._crit_edge.i81 ], [ %33, %._crit_edge.i ], [ %119, %._crit_edge.i138 ], [ null, %xstrdup_or_null.exit ], [ null, %32 ], [ null, %xstrdup_or_null.exit69 ], [ null, %79 ], [ null, %98 ], [ null, %117 ], [ null, %54 ]
   ret ptr %.0
 }
 
@@ -10383,7 +10383,7 @@ define internal fastcc range(i32 0, 2) i32 @path_is_beyond_symlink(ptr noundef %
   br label %path_is_beyond_symlink_1.exit
 
 path_is_beyond_symlink_1.exit:                    ; preds = %.critedge.i, %37, %14, %49
-  %.120.i = phi i32 [ 0, %14 ], [ 1, %49 ], [ 1, %37 ], [ 1, %.critedge.i ]
+  %.120.i = phi i32 [ 1, %49 ], [ 0, %14 ], [ 1, %37 ], [ 1, %.critedge.i ]
   call void @strbuf_release(ptr noundef nonnull %4) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.120.i
@@ -11358,8 +11358,8 @@ _.exit.i34:                                       ; preds = %378, %376
   br label %.thread354.thread.i
 
 .thread354.i:                                     ; preds = %381, %image_add_line.exit280.i, %.thread332.i, %image_add_line.exit264.i
-  %.2360.i = phi i32 [ %.1341347.i, %381 ], [ %.1341347.i, %image_add_line.exit280.i ], [ 0, %.thread332.i ], [ %.0150.i, %image_add_line.exit264.i ]
-  %.4179359.i = phi ptr [ %.3178339350.i, %381 ], [ %.3178339350.i, %image_add_line.exit280.i ], [ %.0175508.i, %.thread332.i ], [ %308, %image_add_line.exit264.i ]
+  %.2360.i = phi i32 [ %.1341347.i, %381 ], [ %.1341347.i, %image_add_line.exit280.i ], [ %.0150.i, %image_add_line.exit264.i ], [ 0, %.thread332.i ]
+  %.4179359.i = phi ptr [ %.3178339350.i, %381 ], [ %.3178339350.i, %image_add_line.exit280.i ], [ %308, %image_add_line.exit264.i ], [ %.0175508.i, %.thread332.i ]
   %.2360.fr.i = freeze i32 %.2360.i
   %.not203.i = icmp eq i32 %.2360.fr.i, 0
   %spec.select392.i = select i1 %.not203.i, i32 0, i32 %.0169509.i

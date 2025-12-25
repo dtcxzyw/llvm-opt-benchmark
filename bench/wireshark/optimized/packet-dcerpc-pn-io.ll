@@ -17813,8 +17813,8 @@ switch.lookup:                                    ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %69, label %401, label %.thread574
 
-.thread574:                                       ; preds = %.thread565, %371, %212, %176, %172, %383, %125, %118, %393, %.loopexit
-  %.0512569 = phi i16 [ %.0512571, %.loopexit ], [ %.1513, %.thread565 ], [ %.0512571, %393 ], [ %.0512571, %118 ], [ %.0512571, %125 ], [ %.0512571, %383 ], [ %.0512571, %172 ], [ %.0512571, %176 ], [ %.0512571, %212 ], [ %.0512571, %371 ]
+.thread574:                                       ; preds = %.thread565, %176, %212, %172, %371, %383, %125, %118, %393, %.loopexit
+  %.0512569 = phi i16 [ %.0512571, %.loopexit ], [ %.1513, %.thread565 ], [ %.0512571, %393 ], [ %.0512571, %118 ], [ %.0512571, %125 ], [ %.0512571, %383 ], [ %.0512571, %371 ], [ %.0512571, %172 ], [ %.0512571, %212 ], [ %.0512571, %176 ]
   %395 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %396 = load ptr, ptr %395, align 8
   %397 = load i8, ptr %11, align 1
@@ -17824,7 +17824,7 @@ switch.lookup:                                    ; preds = %79
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %396, i32 noundef 25, ptr noundef nonnull @.str.1720, i32 noundef %398, ptr noundef %400)
   br label %401
 
-401:                                              ; preds = %82, %371, %212, %176, %172, %383, %125, %118, %393, %.thread, %.loopexit, %.thread574, %50
+401:                                              ; preds = %82, %176, %212, %172, %371, %383, %125, %118, %393, %.thread, %.loopexit, %.thread574, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -19733,8 +19733,8 @@ dissect_RS_EventDataExtension_Data.exit.thread.i.i.i: ; preds = %185, %155, %152
   br label %dissect_RS_EventDataExtension.exit.i.i
 
 dissect_RS_EventDataExtension_Data.exit.i.i.i:    ; preds = %174, %138, %123, %107
-  %188 = phi i8 [ %184, %174 ], [ %119, %107 ], [ %136, %123 ], [ %.pre.i.i.i, %138 ]
-  %.0.i.i.i.i = phi i32 [ %182, %174 ], [ %117, %107 ], [ %134, %123 ], [ %151, %138 ]
+  %188 = phi i8 [ %136, %123 ], [ %119, %107 ], [ %184, %174 ], [ %.pre.i.i.i, %138 ]
+  %.0.i.i.i.i = phi i32 [ %134, %123 ], [ %117, %107 ], [ %182, %174 ], [ %151, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

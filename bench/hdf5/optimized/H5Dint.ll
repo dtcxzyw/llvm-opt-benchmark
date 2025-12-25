@@ -2285,7 +2285,7 @@ H5D__calculate_minimum_header_size.exit.thread.i: ; preds = %238, %227, %.thread
   br label %261
 
 H5D__calculate_minimum_header_size.exit.i:        ; preds = %259, %247, %244
-  %.079.i.i = phi i64 [ %.6.i.i, %244 ], [ %.6.i.i, %247 ], [ %.7.i.i, %259 ]
+  %.079.i.i = phi i64 [ %.6.i.i, %244 ], [ %.7.i.i, %259 ], [ %.6.i.i, %247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %260 = icmp eq i64 %.079.i.i, 0
   br i1 %260, label %261, label %265
@@ -2461,8 +2461,8 @@ H5D__prepare_minimized_oh.exit:                   ; preds = %265, %H5D__use_mini
   br label %364
 
 364:                                              ; preds = %309, %319, %326, %333, %352, %360, %357, %356, %345
-  %.098 = phi i1 [ false, %309 ], [ false, %345 ], [ true, %357 ], [ true, %360 ], [ true, %356 ], [ false, %352 ], [ false, %333 ], [ false, %319 ], [ false, %326 ]
-  %.196 = phi i32 [ -1, %309 ], [ -1, %345 ], [ 0, %357 ], [ -1, %360 ], [ 0, %356 ], [ -1, %352 ], [ -1, %333 ], [ -1, %319 ], [ -1, %326 ]
+  %.098 = phi i1 [ false, %333 ], [ false, %352 ], [ true, %356 ], [ true, %360 ], [ true, %357 ], [ false, %345 ], [ false, %309 ], [ false, %319 ], [ false, %326 ]
+  %.196 = phi i32 [ -1, %333 ], [ -1, %352 ], [ 0, %356 ], [ -1, %360 ], [ 0, %357 ], [ -1, %345 ], [ -1, %309 ], [ -1, %319 ], [ -1, %326 ]
   %365 = call i32 @H5O_unpin(ptr noundef nonnull %296) #12
   %366 = icmp slt i32 %365, 0
   br i1 %366, label %367, label %371
@@ -3572,7 +3572,7 @@ switch.lookup:                                    ; preds = %191
   %383 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D_open, i32 noundef 1545, i64 noundef %381, i64 noundef %382, ptr noundef nonnull @.str.55) #12
   br label %451
 
-384:                                              ; preds = %.critedge144.i, %.critedge.i, %67, %300, %311, %296
+384:                                              ; preds = %.critedge.i, %.critedge144.i, %67, %300, %311, %296
   %385 = load i64, ptr %4, align 8, !tbaa !10
   call void @H5AC_tag(i64 noundef %385, ptr noundef null) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -7716,8 +7716,8 @@ define range(i64 -1, -9223372036854775808) i64 @H5D_get_create_plist(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %176, %162, %.loopexit, %209, %192, %185
-  %.071 = phi ptr [ %.172, %185 ], [ %.172, %.loopexit ], [ %.172, %209 ], [ %.172, %192 ], [ %.475, %176 ], [ %.475, %162 ]
-  %.068 = phi i64 [ -1, %185 ], [ %32, %.loopexit ], [ -1, %209 ], [ -1, %192 ], [ -1, %176 ], [ -1, %162 ]
+  %.071 = phi ptr [ %.172, %209 ], [ %.172, %192 ], [ %.172, %.loopexit ], [ %.172, %185 ], [ %.475, %176 ], [ %.475, %162 ]
+  %.068 = phi i64 [ -1, %209 ], [ -1, %192 ], [ %32, %.loopexit ], [ -1, %185 ], [ -1, %176 ], [ -1, %162 ]
   %.not92 = icmp eq ptr %.071, null
   br i1 %.not92, label %220, label %213
 

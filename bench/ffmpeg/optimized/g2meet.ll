@@ -2054,7 +2054,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @kempf_decode_tile(ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %130, %125, %42, %94, %79, %.loopexit200, %59, %5, %.thread196, %101, %52
-  %.0159 = phi i32 [ -1094995529, %94 ], [ -1094995529, %5 ], [ %54, %52 ], [ 0, %42 ], [ -1094995529, %59 ], [ 0, %.loopexit200 ], [ -1094995529, %79 ], [ 0, %101 ], [ 0, %.thread196 ], [ -1094995529, %130 ], [ -1094995529, %125 ], [ 0, %._crit_edge.us ]
+  %.0159 = phi i32 [ -1094995529, %94 ], [ -1094995529, %5 ], [ %54, %52 ], [ -1094995529, %130 ], [ -1094995529, %59 ], [ 0, %.loopexit200 ], [ -1094995529, %79 ], [ 0, %101 ], [ 0, %.thread196 ], [ 0, %42 ], [ -1094995529, %125 ], [ 0, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -1185,7 +1185,7 @@ define range(i32 0, 2) i32 @ossl_drbg_enable_locking(ptr noundef captures(addres
   br label %15
 
 15:                                               ; preds = %.sink.split, %1, %2, %12
-  %.0 = phi i32 [ 1, %1 ], [ 1, %2 ], [ 1, %12 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %1 ], [ 1, %12 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

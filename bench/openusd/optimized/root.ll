@@ -1197,7 +1197,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
           cleanup
   br label %.body
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread30: ; preds = %.noexc, %53, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread30: ; preds = %53, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %63 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__11UsdSkelRoot16_GetStaticTfTypeEvE6tfType acquire, align 8
   %64 = icmp eq i8 %63, 0
   br i1 %64, label %65, label %_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry14FindSchemaInfoINS_11UsdSkelRootEEEPKNS0_10SchemaInfoEv.exit.i, !prof !4

@@ -847,7 +847,7 @@ define dso_local i64 @_ZN4llvm16DeadLaneDetector28determineInitialDefinedLanesEj
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %22, %16
-  %.sroa.0.0.i.i.i = phi ptr [ %21, %22 ], [ %.0.i.i.i.i, %16 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %16 ], [ %21, %22 ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !50
   %.not.i.i.i.i.i.i.i = icmp eq ptr %26, null
@@ -1032,7 +1032,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %86
   br i1 %.not.i.i.i.i.i.i62, label %.critedge, label %.lr.ph.i.i.i.preheader.i.i57
 
 .lr.ph.i.i.i.preheader.i.i57:                     ; preds = %117, %111
-  %.sroa.0.0.i.i.i58 = phi ptr [ %116, %117 ], [ %.0.i.i.i.i54, %111 ]
+  %.sroa.0.0.i.i.i58 = phi ptr [ %.0.i.i.i.i54, %111 ], [ %116, %117 ]
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i58, i64 24
   %121 = load ptr, ptr %120, align 8, !tbaa !50
   %.not.i.i.i.i.i.i.i59 = icmp eq ptr %121, null

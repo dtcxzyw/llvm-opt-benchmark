@@ -4415,7 +4415,7 @@ _ZNK7oopDesc4is_aEP5Klass.exit116.thread145:      ; preds = %441, %_ZNK7oopDesc4
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %305, %_ZN10Reflection19unbox_for_primitiveEP7oopDescP6jvalueP10JavaThread.exit, %217, %215, %481, %7, %484, %467, %_ZNK7oopDesc4is_aEP5Klass.exit116.thread145, %414, %231, %139, %113, %_ZNK7oopDesc4is_aEP5Klass.exit.thread142, %44
-  %.0 = phi ptr [ null, %_ZNK7oopDesc4is_aEP5Klass.exit.thread142 ], [ null, %481 ], [ null, %231 ], [ null, %7 ], [ null, %217 ], [ null, %414 ], [ null, %_ZNK7oopDesc4is_aEP5Klass.exit116.thread145 ], [ null, %467 ], [ null, %215 ], [ %486, %484 ], [ null, %44 ], [ null, %113 ], [ null, %139 ], [ null, %_ZN10Reflection19unbox_for_primitiveEP7oopDescP6jvalueP10JavaThread.exit ], [ null, %305 ]
+  %.0 = phi ptr [ null, %_ZNK7oopDesc4is_aEP5Klass.exit.thread142 ], [ null, %481 ], [ null, %231 ], [ null, %7 ], [ null, %215 ], [ null, %414 ], [ null, %_ZNK7oopDesc4is_aEP5Klass.exit116.thread145 ], [ null, %467 ], [ null, %217 ], [ %486, %484 ], [ null, %44 ], [ null, %113 ], [ null, %139 ], [ null, %_ZN10Reflection19unbox_for_primitiveEP7oopDescP6jvalueP10JavaThread.exit ], [ null, %305 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
   %487 = load ptr, ptr %26, align 8
   %.not.i.i.i.i118 = icmp eq ptr %487, null

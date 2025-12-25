@@ -14860,7 +14860,7 @@ _ZL14fstGetVarint32PhPi.exit740:                  ; preds = %.preheader1053
   br label %.loopexit787
 
 .loopexit787:                                     ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit, %switch.early.test, %switch.early.test, %651, %.thread756.thread, %.thread763.thread, %.loopexit, %714, %._crit_edge857, %494, %4, %25, %30, %504
-  %.0487 = phi ptr [ %3, %._crit_edge857 ], [ null, %494 ], [ %505, %504 ], [ null, %4 ], [ null, %30 ], [ null, %25 ], [ %3, %714 ], [ %3, %.loopexit ], [ %3, %651 ], [ %653, %.thread756.thread ], [ %741, %.thread763.thread ], [ null, %switch.early.test ], [ null, %switch.early.test ], [ null, %_ZL15fstReaderUint64P8_IO_FILE.exit ]
+  %.0487 = phi ptr [ %3, %.loopexit ], [ null, %494 ], [ %505, %504 ], [ null, %4 ], [ null, %30 ], [ null, %25 ], [ %3, %714 ], [ %3, %._crit_edge857 ], [ %3, %651 ], [ %653, %.thread756.thread ], [ %741, %.thread763.thread ], [ null, %switch.early.test ], [ null, %switch.early.test ], [ null, %_ZL15fstReaderUint64P8_IO_FILE.exit ]
   ret ptr %.0487
 }
 

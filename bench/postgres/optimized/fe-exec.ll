@@ -872,7 +872,7 @@ PQmakeEmptyPGresult.exit.thread.sink.split:       ; preds = %47, %74, %96, %PQre
   br label %PQmakeEmptyPGresult.exit.thread
 
 PQmakeEmptyPGresult.exit.thread:                  ; preds = %126, %PQmakeEmptyPGresult.exit.thread.sink.split, %102, %4, %2
-  %.059 = phi ptr [ null, %4 ], [ null, %PQmakeEmptyPGresult.exit.thread.sink.split ], [ %5, %102 ], [ null, %2 ], [ %5, %126 ]
+  %.059 = phi ptr [ null, %4 ], [ null, %2 ], [ %5, %102 ], [ null, %PQmakeEmptyPGresult.exit.thread.sink.split ], [ %5, %126 ]
   ret ptr %.059
 }
 
@@ -3376,7 +3376,7 @@ pqCommandQueueAdvance.exit:                       ; preds = %47, %52, %pqRecycle
   br label %getCopyResult.exit
 
 getCopyResult.exit:                               ; preds = %134, %132, %122, %115, %113, %103, %96, %94, %84, %43, %136, %77
-  %.045 = phi ptr [ %142, %136 ], [ %116, %115 ], [ %114, %113 ], [ %44, %43 ], [ %135, %134 ], [ %133, %132 ], [ %126, %122 ], [ %78, %77 ], [ %107, %103 ], [ %97, %96 ], [ %88, %84 ], [ %95, %94 ]
+  %.045 = phi ptr [ %142, %136 ], [ %116, %115 ], [ %107, %103 ], [ %44, %43 ], [ %126, %122 ], [ %133, %132 ], [ %135, %134 ], [ %78, %77 ], [ %114, %113 ], [ %97, %96 ], [ %88, %84 ], [ %95, %94 ]
   %.not52 = icmp eq ptr %.045, null
   br i1 %.not52, label %.thread67, label %getCopyResult.exit.thread
 

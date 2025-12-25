@@ -10194,9 +10194,9 @@ define hidden void @_ZN9ty_server6server6Server3new17hcb48e0ab6e7d826bE(ptr dead
   br label %.body.thread
 
 .body.thread232.loopexit.split-lp.loopexit.split-lp: ; preds = %499, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit
-  %.sroa.058.0.ph.ph.ph = phi i8 [ %.sroa.058.3, %499 ], [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ]
-  %.sroa.060.2.ph.ph.ph = phi i8 [ %.sroa.060.5, %499 ], [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ]
-  %.sroa.069.2.ph.ph.ph = phi i8 [ 0, %499 ], [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ]
+  %.sroa.058.0.ph.ph.ph = phi i8 [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ], [ %.sroa.058.3, %499 ]
+  %.sroa.060.2.ph.ph.ph = phi i8 [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ], [ %.sroa.060.5, %499 ]
+  %.sroa.069.2.ph.ph.ph = phi i8 [ 1, %_ZN9ty_server6server6Server27find_best_position_encoding17ha3d5d9c9ce784c27E.exit ], [ 0, %499 ]
   %lpad.loopexit.split-lp287 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread

@@ -901,7 +901,7 @@ st_mult.exit:                                     ; preds = %82
   br label %.critedge
 
 .critedge:                                        ; preds = %sq_dequote_step.exit, %thread-pre-split, %.preheader.i, %sq_dequote_step.exit.us, %thread-pre-split.us, %.preheader.i.us, %sq_dequote_step.exit.us.us, %thread-pre-split.us.us, %.preheader.i.us.us, %.critedge43..critedge.loopexit60_crit_edge, %5, %.critedge.loopexit60
-  %.0 = phi i32 [ -1, %sq_dequote_step.exit.us ], [ 0, %5 ], [ -1, %sq_dequote_step.exit.us.us ], [ -1, %.critedge.loopexit60 ], [ -1, %.preheader.i.us ], [ 0, %.critedge43..critedge.loopexit60_crit_edge ], [ -1, %.preheader.i ], [ -1, %.preheader.i.us.us ], [ -1, %thread-pre-split.us.us ], [ -1, %thread-pre-split.us ], [ -1, %thread-pre-split ], [ -1, %sq_dequote_step.exit ]
+  %.0 = phi i32 [ -1, %.preheader.i ], [ 0, %5 ], [ -1, %.preheader.i.us ], [ -1, %.critedge.loopexit60 ], [ -1, %sq_dequote_step.exit.us.us ], [ 0, %.critedge43..critedge.loopexit60_crit_edge ], [ -1, %sq_dequote_step.exit.us ], [ -1, %.preheader.i.us.us ], [ -1, %thread-pre-split.us.us ], [ -1, %thread-pre-split.us ], [ -1, %thread-pre-split ], [ -1, %sq_dequote_step.exit ]
   ret i32 %.0
 }
 

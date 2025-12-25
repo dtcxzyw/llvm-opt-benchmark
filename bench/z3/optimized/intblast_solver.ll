@@ -4371,8 +4371,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %92 = phi ptr [ %27, %thread-pre-split.i.i.preheader ], [ %.be580, %thread-pre-split.i.i.backedge ]
-  %93 = phi ptr [ %.ph575, %thread-pre-split.i.i.preheader ], [ %.be580, %thread-pre-split.i.i.backedge ]
+  %92 = phi ptr [ %27, %thread-pre-split.i.i.preheader ], [ %.be581, %thread-pre-split.i.i.backedge ]
+  %93 = phi ptr [ %.ph575, %thread-pre-split.i.i.preheader ], [ %.be581, %thread-pre-split.i.i.backedge ]
   %94 = icmp eq ptr %93, null
   br i1 %94, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -4399,7 +4399,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %.noexc294, %.noexc295
-  %.be580 = phi ptr [ %101, %.noexc294 ], [ %141, %.noexc295 ]
+  %.be581 = phi ptr [ %141, %.noexc295 ], [ %101, %.noexc294 ]
   br label %thread-pre-split.i.i, !llvm.loop !518
 
 102:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -4682,8 +4682,8 @@ thread-pre-split.i.i181.preheader:                ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i181
 
 thread-pre-split.i.i181:                          ; preds = %thread-pre-split.i.i181.backedge, %thread-pre-split.i.i181.preheader
-  %217 = phi ptr [ %193, %thread-pre-split.i.i181.preheader ], [ %.be567, %thread-pre-split.i.i181.backedge ]
-  %218 = phi ptr [ %.ph560, %thread-pre-split.i.i181.preheader ], [ %.be567, %thread-pre-split.i.i181.backedge ]
+  %217 = phi ptr [ %193, %thread-pre-split.i.i181.preheader ], [ %.be568, %thread-pre-split.i.i181.backedge ]
+  %218 = phi ptr [ %.ph560, %thread-pre-split.i.i181.preheader ], [ %.be568, %thread-pre-split.i.i181.backedge ]
   %219 = icmp eq ptr %218, null
   br i1 %219, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i188, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i185
 
@@ -4710,7 +4710,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i188: ; preds = %_ZNK6vectorIjLb0Ej
   br label %thread-pre-split.i.i181.backedge
 
 thread-pre-split.i.i181.backedge:                 ; preds = %.noexc306, %.noexc309
-  %.be567 = phi ptr [ %226, %.noexc306 ], [ %266, %.noexc309 ]
+  %.be568 = phi ptr [ %266, %.noexc309 ], [ %226, %.noexc306 ]
   br label %thread-pre-split.i.i181, !llvm.loop !518
 
 227:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i188
@@ -5078,8 +5078,8 @@ thread-pre-split.i.i209.preheader:                ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i209
 
 thread-pre-split.i.i209:                          ; preds = %thread-pre-split.i.i209.backedge, %thread-pre-split.i.i209.preheader
-  %397 = phi ptr [ %323, %thread-pre-split.i.i209.preheader ], [ %.be, %thread-pre-split.i.i209.backedge ]
-  %398 = phi ptr [ %.ph, %thread-pre-split.i.i209.preheader ], [ %.be, %thread-pre-split.i.i209.backedge ]
+  %397 = phi ptr [ %323, %thread-pre-split.i.i209.preheader ], [ %.be554, %thread-pre-split.i.i209.backedge ]
+  %398 = phi ptr [ %.ph, %thread-pre-split.i.i209.preheader ], [ %.be554, %thread-pre-split.i.i209.backedge ]
   %399 = icmp eq ptr %398, null
   br i1 %399, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i216, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i213
 
@@ -5106,7 +5106,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i216: ; preds = %_ZNK6vectorIjLb0Ej
   br label %thread-pre-split.i.i209.backedge
 
 thread-pre-split.i.i209.backedge:                 ; preds = %.noexc321, %.noexc324
-  %.be = phi ptr [ %406, %.noexc321 ], [ %446, %.noexc324 ]
+  %.be554 = phi ptr [ %446, %.noexc324 ], [ %406, %.noexc321 ]
   br label %thread-pre-split.i.i209, !llvm.loop !518
 
 407:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i216
@@ -12880,7 +12880,7 @@ _ZSt13move_backwardIPP4exprS2_ET0_T_S4_S3_.exit:  ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !627
 
 _ZSt11swap_rangesIPP4exprS2_ET0_T_S4_S3_.exit:    ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP4exprS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP4exprS2_ET0_T_S4_S3_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPP4exprS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

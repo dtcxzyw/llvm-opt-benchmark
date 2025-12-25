@@ -99150,7 +99150,7 @@ _ZN3vim9surrounds18find_surround_pair17h8d53ac92938eca67E.exit: ; preds = %"_ZN7
   br label %.thread
 
 .thread168.loopexit.split-lp:                     ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h088d4b54c8b393e7E.exit.thread", %211, %212, %213
-  %.sroa.010.0.ph.ph = phi i1 [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h088d4b54c8b393e7E.exit.thread" ], [ false, %211 ], [ false, %212 ], [ false, %213 ]
+  %.sroa.010.0.ph.ph = phi i1 [ false, %212 ], [ false, %211 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h088d4b54c8b393e7E.exit.thread" ], [ false, %213 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread

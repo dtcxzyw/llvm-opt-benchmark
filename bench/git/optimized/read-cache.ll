@@ -823,9 +823,6 @@ remove_index_entry_at.exit.i11.i.i:               ; preds = %remove_index_entry_
   %.not.i.i17.i.i = icmp ult i32 %193, %208
   br i1 %.not.i.i17.i.i, label %209, label %remove_index_entry_at.exit.i11.i.i.outer.backedge
 
-remove_index_entry_at.exit.i11.i.i.outer.backedge: ; preds = %204, %209
-  br label %remove_index_entry_at.exit.i11.i.i.outer
-
 209:                                              ; preds = %204
   %210 = sub nuw i32 %208, %193
   %211 = zext i32 %210 to i64
@@ -835,6 +832,9 @@ remove_index_entry_at.exit.i11.i.i.outer.backedge: ; preds = %204, %209
   %215 = shl nuw nsw i64 %211, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %213, ptr nonnull readonly align 1 %214, i64 %215, i1 false)
   br label %remove_index_entry_at.exit.i11.i.i.outer.backedge
+
+remove_index_entry_at.exit.i11.i.i.outer.backedge: ; preds = %209, %204
+  br label %remove_index_entry_at.exit.i11.i.i.outer
 
 216:                                              ; preds = %191
   %217 = xor i32 %193, -1
@@ -3054,7 +3054,7 @@ verify_dotfile.exit:                              ; preds = %32
   ]
 
 .loopexit:                                        ; preds = %19, %17, %14, %10, %7, %46, %46, %verify_dotfile.exit, %verify_dotfile.exit, %58, %.preheader.split, %30, %28, %.preheader.split.us, %verify_dotfile.exit.thread, %51
-  %.0 = phi i32 [ 1, %28 ], [ 1, %verify_dotfile.exit.thread ], [ %53, %51 ], [ 0, %.preheader.split ], [ 1, %30 ], [ 0, %.preheader.split.us ], [ 1, %58 ], [ 1, %verify_dotfile.exit ], [ 1, %verify_dotfile.exit ], [ 1, %46 ], [ 1, %46 ], [ 1, %7 ], [ 1, %10 ], [ 1, %14 ], [ 1, %17 ], [ 1, %19 ]
+  %.0 = phi i32 [ 0, %.preheader.split ], [ 1, %verify_dotfile.exit.thread ], [ %53, %51 ], [ 1, %28 ], [ 1, %30 ], [ 0, %.preheader.split.us ], [ 1, %58 ], [ 1, %verify_dotfile.exit ], [ 1, %verify_dotfile.exit ], [ 1, %46 ], [ 1, %46 ], [ 1, %7 ], [ 1, %10 ], [ 1, %14 ], [ 1, %17 ], [ 1, %19 ]
   ret i32 %.0
 }
 

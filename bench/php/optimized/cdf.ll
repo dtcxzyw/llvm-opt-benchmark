@@ -348,7 +348,7 @@ cdf_read.exit.thread.sink.split:                  ; preds = %cdf_read.exit, %65,
   br label %cdf_read.exit.thread
 
 cdf_read.exit.thread:                             ; preds = %cdf_read.exit.thread.sink.split, %16, %13, %68
-  %.0 = phi i32 [ 0, %68 ], [ -1, %16 ], [ -1, %13 ], [ -1, %cdf_read.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %68 ], [ -1, %13 ], [ -1, %16 ], [ -1, %cdf_read.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -1124,7 +1124,7 @@ cdf_read_short_sector.exit.thread:                ; preds = %.lr.ph.split, %42, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %cdf_read_short_sector.exit, %.loopexit.sink.split, %.preheader
-  %.036 = phi i32 [ 0, %.preheader ], [ -1, %.loopexit.sink.split ], [ 0, %cdf_read_short_sector.exit ]
+  %.036 = phi i32 [ -1, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %cdf_read_short_sector.exit ]
   ret i32 %.036
 }
 

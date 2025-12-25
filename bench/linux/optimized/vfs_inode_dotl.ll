@@ -1285,8 +1285,8 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr readnone captures(none) %0, ptr nou
   br label %84
 
 84:                                               ; preds = %78, %75, %68, %48
-  %85 = phi ptr [ %46, %75 ], [ %.pre, %78 ], [ %46, %48 ], [ %46, %68 ]
-  %86 = phi i32 [ %77, %75 ], [ %80, %78 ], [ %50, %48 ], [ %70, %68 ]
+  %85 = phi ptr [ %.pre, %78 ], [ %46, %75 ], [ %46, %48 ], [ %46, %68 ]
+  %86 = phi i32 [ %80, %78 ], [ %77, %75 ], [ %50, %48 ], [ %70, %68 ]
   %87 = icmp eq ptr %85, null
   %88 = icmp ugt ptr %85, inttoptr (i64 -4096 to ptr)
   %89 = or i1 %87, %88
@@ -1493,8 +1493,8 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr readnone captures(none) %0, ptr nou
   br label %79
 
 79:                                               ; preds = %78, %75, %71, %68, %48
-  %80 = phi ptr [ %46, %78 ], [ %46, %75 ], [ %46, %48 ], [ %46, %68 ], [ %.pre, %71 ]
-  %81 = phi i32 [ %40, %78 ], [ %77, %75 ], [ %50, %48 ], [ %70, %68 ], [ 0, %71 ]
+  %80 = phi ptr [ %46, %75 ], [ %46, %78 ], [ %46, %48 ], [ %46, %68 ], [ %.pre, %71 ]
+  %81 = phi i32 [ %77, %75 ], [ %40, %78 ], [ %50, %48 ], [ %70, %68 ], [ 0, %71 ]
   %82 = icmp eq ptr %80, null
   %83 = icmp ugt ptr %80, inttoptr (i64 -4096 to ptr)
   %84 = or i1 %82, %83

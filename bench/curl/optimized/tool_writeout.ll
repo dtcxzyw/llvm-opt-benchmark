@@ -801,9 +801,9 @@ urlpart.exit:                                     ; preds = %106
   br label %.thread103
 
 109:                                              ; preds = %._crit_edge, %._crit_edge.thread, %urlpart.exit.thread145, %27, %.loopexit, %89, %85, %80
-  %110 = phi ptr [ %26, %.loopexit ], [ %81, %80 ], [ %32, %27 ], [ %88, %89 ], [ %.pre.i, %urlpart.exit.thread145 ], [ %84, %85 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.055 = phi ptr [ null, %.loopexit ], [ null, %80 ], [ null, %27 ], [ null, %89 ], [ %.pre.i, %urlpart.exit.thread145 ], [ null, %85 ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.3 = phi i1 [ %.0, %.loopexit ], [ true, %80 ], [ %or.cond, %27 ], [ true, %89 ], [ true, %urlpart.exit.thread145 ], [ true, %85 ], [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
+  %110 = phi ptr [ %26, %.loopexit ], [ %88, %89 ], [ %32, %27 ], [ %84, %85 ], [ %.pre.i, %urlpart.exit.thread145 ], [ %81, %80 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
+  %.055 = phi ptr [ null, %.loopexit ], [ null, %89 ], [ null, %27 ], [ null, %85 ], [ %.pre.i, %urlpart.exit.thread145 ], [ null, %80 ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
+  %.3 = phi i1 [ %.0, %.loopexit ], [ true, %89 ], [ %or.cond, %27 ], [ true, %85 ], [ true, %urlpart.exit.thread145 ], [ true, %80 ], [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
   %111 = icmp ne ptr %110, null
   %or.cond3 = select i1 %.3, i1 %111, i1 false
   br i1 %or.cond3, label %112, label %.thread103

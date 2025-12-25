@@ -10604,7 +10604,7 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %35
   %spec.select.i.i = select i1 %37, i1 %38, i1 false
   br i1 %spec.select.i.i, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12
 
-_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12: ; preds = %3, %33, %29, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
+_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12: ; preds = %3, %29, %33, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
   %39 = insertvalue { i64, i64 } poison, i64 %1, 0
   %40 = insertvalue { i64, i64 } %39, i64 %2, 1
   br label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread

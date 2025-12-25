@@ -678,7 +678,7 @@ gv_recalloc.exit60:                               ; preds = %233, %231, %214
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %245
 
-.loopexit:                                        ; preds = %208, %parseRect.exit229.i, %parseReal.exit226.i, %parseReal.exit224.i, %parseReal.exit221.i, %parseReal.exit.i, %121, %parseRect.exit218.i, %parseRect.exit.i, %124, %205, %127, %186, %183, %130, %133, %176, %166, %135, %144, %155, %146, %84, %parseRect.exit.thread.i, %parseRect.exit218.thread.i, %parseRect.exit229.thread.i, %parseReal.exit226.thread.i, %parseReal.exit224.thread.i, %parseReal.exit221.thread.i, %parseReal.exit.thread.i
+.loopexit:                                        ; preds = %146, %parseReal.exit226.i, %205, %155, %121, %166, %124, %parseRect.exit229.i, %208, %127, %176, %130, %133, %parseRect.exit.i, %parseRect.exit218.i, %183, %parseReal.exit.i, %135, %144, %parseReal.exit221.i, %186, %parseReal.exit224.i, %84, %parseRect.exit.thread.i, %parseRect.exit218.thread.i, %parseReal.exit.thread.i, %parseReal.exit221.thread.i, %parseReal.exit224.thread.i, %parseReal.exit226.thread.i, %parseRect.exit229.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %242 = getelementptr inbounds nuw i8, ptr %.044176, i64 32

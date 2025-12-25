@@ -5403,8 +5403,8 @@ _ZN12_GLOBAL__N_122isNonZeroLoadImmediateERKN4llvm12MachineInstrE.exit.i15: ; pr
   %96 = icmp eq i8 %.val10.i6, 3
   br label %_ZNK12_GLOBAL__N_111VSETVLIInfo13hasNonZeroAVLEPKN4llvm13LiveIntervalsE.exit17
 
-_ZNK12_GLOBAL__N_111VSETVLIInfo13hasNonZeroAVLEPKN4llvm13LiveIntervalsE.exit17: ; preds = %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread, %_ZNK12_GLOBAL__N_111VSETVLIInfo11getAVLDefMIEPKN4llvm13LiveIntervalsE.exit.i, %33, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread, %55, %50, %45, %41, %_ZN12_GLOBAL__N_122isNonZeroLoadImmediateERKN4llvm12MachineInstrE.exit.i15, %92, %88, %83, %78, %74, %63, %59, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread24, %19, %12, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
-  %.0 = phi i1 [ true, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread ], [ false, %55 ], [ true, %12 ], [ true, %19 ], [ false, %88 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread24 ], [ false, %59 ], [ %64, %63 ], [ %96, %_ZN12_GLOBAL__N_122isNonZeroLoadImmediateERKN4llvm12MachineInstrE.exit.i15 ], [ %95, %92 ], [ false, %74 ], [ false, %78 ], [ false, %83 ], [ false, %41 ], [ false, %45 ], [ false, %50 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread ], [ false, %33 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo11getAVLDefMIEPKN4llvm13LiveIntervalsE.exit.i ]
+_ZNK12_GLOBAL__N_111VSETVLIInfo13hasNonZeroAVLEPKN4llvm13LiveIntervalsE.exit17: ; preds = %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread, %_ZNK12_GLOBAL__N_111VSETVLIInfo11getAVLDefMIEPKN4llvm13LiveIntervalsE.exit.i, %33, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread, %55, %50, %45, %41, %_ZN12_GLOBAL__N_122isNonZeroLoadImmediateERKN4llvm12MachineInstrE.exit.i15, %92, %88, %83, %78, %74, %63, %59, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread24, %12, %19, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
+  %.0 = phi i1 [ true, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread ], [ false, %55 ], [ true, %19 ], [ true, %12 ], [ false, %88 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread24 ], [ false, %59 ], [ %64, %63 ], [ %96, %_ZN12_GLOBAL__N_122isNonZeroLoadImmediateERKN4llvm12MachineInstrE.exit.i15 ], [ %95, %92 ], [ false, %74 ], [ false, %78 ], [ false, %83 ], [ false, %41 ], [ false, %45 ], [ false, %50 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread.thread ], [ false, %33 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo11getAVLDefMIEPKN4llvm13LiveIntervalsE.exit.i ]
   ret i1 %.0
 }
 
@@ -5949,7 +5949,7 @@ _ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit: ; preds = %36
   %46 = icmp eq i32 %41, %45
   br i1 %46, label %47, label %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread
 
-47:                                               ; preds = %34, %28, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
+47:                                               ; preds = %28, %34, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %.val14 = load i8, ptr %48, align 1, !tbaa !424
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -5995,8 +5995,8 @@ _ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit: ; preds = %36
   %82 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPEsEmmRKNS_14DemandedFieldsE(i64 noundef %69, i64 noundef %81, ptr noundef nonnull readonly align 1 dereferenceable(8) %1)
   br label %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread
 
-_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread: ; preds = %24, %36, %32, %21, %22, %34, %28, %55, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit, %47, %10, %14, %4, %7, %57
-  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ %82, %57 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit ], [ false, %7 ], [ false, %14 ], [ false, %47 ], [ false, %55 ], [ false, %34 ], [ false, %28 ], [ false, %22 ], [ false, %21 ], [ false, %32 ], [ false, %36 ], [ false, %24 ]
+_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread: ; preds = %24, %36, %32, %21, %22, %28, %34, %55, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit, %47, %10, %14, %4, %7, %57
+  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ %82, %57 ], [ false, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit ], [ false, %7 ], [ false, %14 ], [ false, %47 ], [ false, %55 ], [ false, %28 ], [ false, %34 ], [ false, %22 ], [ false, %21 ], [ false, %32 ], [ false, %36 ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -6853,7 +6853,7 @@ _ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit: ; preds = %56
   %66 = icmp eq i32 %61, %65
   br i1 %66, label %67, label %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread
 
-67:                                               ; preds = %54, %48, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
+67:                                               ; preds = %48, %54, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %.val100 = load i8, ptr %68, align 1, !tbaa !424
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 18
@@ -6982,7 +6982,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   %122 = call i64 @_ZN4llvm11SlotIndexes24insertMachineInstrInMapsERNS_12MachineInstrEb(ptr noundef nonnull align 8 dereferenceable(432) %121, ptr noundef nonnull align 8 dereferenceable(70) %90, i1 noundef zeroext false)
   br label %601
 
-_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread: ; preds = %44, %56, %52, %40, %42, %54, %48, %67, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
+_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit.thread: ; preds = %44, %56, %52, %40, %42, %48, %54, %67, %_ZNK12_GLOBAL__N_111VSETVLIInfo10hasSameAVLERKS0_.exit
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %.val98 = load i8, ptr %123, align 1, !tbaa !424
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 18

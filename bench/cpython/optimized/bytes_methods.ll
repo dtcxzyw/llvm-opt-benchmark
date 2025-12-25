@@ -910,7 +910,7 @@ fastsearch.exit.i.i:                              ; preds = %128
   br label %stringlib_find_slice.exit
 
 stringlib_find_slice.exit:                        ; preds = %124, %103, %68, %59, %stringlib_find_char.exit, %63, %.preheader.i, %54, %fastsearch.exit.i.i, %.preheader56.i.i.i.i, %90, %87, %82, %80, %39
-  %.0 = phi i64 [ %.049, %80 ], [ -1, %39 ], [ -1, %59 ], [ -1, %68 ], [ %spec.select, %stringlib_find_char.exit ], [ %spec.select.i.i, %82 ], [ %.048, %87 ], [ -1, %90 ], [ %spec.select.i.i64, %fastsearch.exit.i.i ], [ -1, %.preheader56.i.i.i.i ], [ -1, %.preheader.i ], [ -1, %63 ], [ -1, %54 ], [ -1, %103 ], [ -1, %124 ]
+  %.0 = phi i64 [ %.049, %80 ], [ -1, %39 ], [ -1, %.preheader.i ], [ -1, %68 ], [ %spec.select, %stringlib_find_char.exit ], [ %spec.select.i.i, %82 ], [ %.048, %87 ], [ -1, %90 ], [ %spec.select.i.i64, %fastsearch.exit.i.i ], [ -1, %.preheader56.i.i.i.i ], [ -1, %59 ], [ -1, %63 ], [ -1, %54 ], [ -1, %103 ], [ -1, %124 ]
   br i1 %.not5717, label %parse_args_finds_byte.exit.thread, label %142
 
 142:                                              ; preds = %stringlib_find_slice.exit
@@ -2369,7 +2369,7 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %.backedge, %.preheader180, %58, %.preheader175, %.thread167.us231, %.preheader175.us215, %104, %.preheader175.us, %.preheader182, %71, %.preheader177._crit_edge, %.thread170
-  %.4 = phi i64 [ -1, %.thread167.us231 ], [ -1, %.preheader175 ], [ -1, %71 ], [ %139, %.thread170 ], [ %70, %.preheader177._crit_edge ], [ -1, %104 ], [ -1, %.preheader182 ], [ -1, %58 ], [ -1, %.preheader175.us ], [ -1, %.preheader175.us215 ], [ -1, %.preheader180 ], [ -1, %.backedge ]
+  %.4 = phi i64 [ -1, %.thread167.us231 ], [ -1, %58 ], [ -1, %71 ], [ %139, %.thread170 ], [ %70, %.preheader177._crit_edge ], [ -1, %.preheader175 ], [ -1, %.preheader182 ], [ -1, %104 ], [ -1, %.preheader175.us ], [ -1, %.preheader175.us215 ], [ -1, %.preheader180 ], [ -1, %.backedge ]
   ret i64 %.4
 }
 

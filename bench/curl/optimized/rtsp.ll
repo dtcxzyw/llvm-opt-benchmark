@@ -1175,7 +1175,7 @@ select.unfold.i:                                  ; preds = %.critedge2.i
   br i1 %.not68.i, label %rtsp_parse_transport.exit, label %.lr.ph.i
 
 rtsp_parse_transport.exit:                        ; preds = %.lr.ph.i, %select.unfold.i, %42, %26, %41, %44, %.thread, %39, %.loopexit.i, %18
-  %.1 = phi i32 [ 0, %44 ], [ 85, %18 ], [ 86, %41 ], [ 0, %.loopexit.i ], [ 86, %26 ], [ %spec.select85, %42 ], [ 0, %39 ], [ 0, %.thread ], [ 0, %select.unfold.i ], [ 0, %.lr.ph.i ]
+  %.1 = phi i32 [ 0, %44 ], [ 85, %18 ], [ 86, %26 ], [ 0, %.loopexit.i ], [ 86, %41 ], [ %spec.select85, %42 ], [ 0, %39 ], [ 0, %.thread ], [ 0, %select.unfold.i ], [ 0, %.lr.ph.i ]
   ret i32 %.1
 }
 

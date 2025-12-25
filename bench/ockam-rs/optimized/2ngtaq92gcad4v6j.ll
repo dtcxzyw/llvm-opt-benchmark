@@ -25898,7 +25898,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17hfefd6b2ba46b6d1dE.exit: ; preds = 
   br label %.thread
 
 .thread:                                          ; preds = %5, %.preheader.split, %.preheader.split.us, %.thread.loopexit18, %.thread.loopexit15, %.thread.loopexit13, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17"
-  %.sroa.02.1 = phi i64 [ %.sroa.02.3, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17" ], [ %8, %.thread.loopexit13 ], [ %15, %.thread.loopexit15 ], [ %6, %.thread.loopexit18 ], [ 3, %.preheader.split ], [ 3, %.preheader.split.us ], [ 3, %5 ]
+  %.sroa.02.1 = phi i64 [ %.sroa.02.3, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17" ], [ 3, %.preheader.split ], [ %8, %.thread.loopexit13 ], [ %6, %.thread.loopexit18 ], [ %15, %.thread.loopexit15 ], [ 3, %.preheader.split.us ], [ 3, %5 ]
   ret i64 %.sroa.02.1
 }
 
@@ -123594,8 +123594,8 @@ define hidden void @"_ZN100_$LT$ockam_api..nodes..models..relay..CreateRelay$u20
   br label %.thread509
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %333, %305, %263, %3
-  %.0363.ph.ph = phi i8 [ 1, %3 ], [ 1, %333 ], [ %.14377, %305 ], [ 1, %263 ]
-  %.0361.ph.ph = phi i1 [ true, %3 ], [ true, %333 ], [ false, %305 ], [ true, %263 ]
+  %.0363.ph.ph = phi i8 [ 1, %3 ], [ %.14377, %305 ], [ 1, %333 ], [ 1, %263 ]
+  %.0361.ph.ph = phi i1 [ true, %3 ], [ false, %305 ], [ true, %333 ], [ true, %263 ]
   %lpad.loopexit.split-lp592 = landingpad { ptr, i32 }
           cleanup
   br label %.thread509

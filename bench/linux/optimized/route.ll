@@ -8522,7 +8522,7 @@ define internal fastcc i32 @ip6_route_del(ptr noundef %0, ptr noundef writeonly 
   br label %__ip6_del_rt.exit
 
 __ip6_del_rt.exit:                                ; preds = %72, %177, %179, %122, %124, %125, %.loopexit, %12, %10
-  %181 = phi i32 [ -3, %.loopexit ], [ -3, %12 ], [ -3, %10 ], [ %119, %125 ], [ %178, %177 ], [ %180, %179 ], [ %119, %124 ], [ %70, %72 ], [ %119, %122 ]
+  %181 = phi i32 [ -3, %.loopexit ], [ -3, %12 ], [ -3, %10 ], [ %119, %124 ], [ %178, %177 ], [ %180, %179 ], [ %119, %125 ], [ %70, %72 ], [ %119, %122 ]
   ret i32 %181
 }
 

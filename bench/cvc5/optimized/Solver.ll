@@ -13812,8 +13812,8 @@ _ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.thread: 
   br i1 %109, label %102, label %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader
 
 _ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader: ; preds = %102, %.backedge, %82, %84
-  %indvars.iv.next117.lcssa139.sink = phi i64 [ %indvars.iv.next117, %82 ], [ %indvars.iv.next117, %84 ], [ %indvars.iv.next, %102 ], [ %indvars.iv, %.backedge ]
-  %.us-phi64 = phi i32 [ %.sroa.05.0.copyload.us, %82 ], [ %.sroa.05.0.copyload.us, %84 ], [ %.sroa.05.0.copyload, %102 ], [ %.sroa.05.0.copyload78, %.backedge ]
+  %indvars.iv.next117.lcssa139.sink = phi i64 [ %indvars.iv.next117, %82 ], [ %indvars.iv.next117, %84 ], [ %indvars.iv, %.backedge ], [ %indvars.iv.next, %102 ]
+  %.us-phi64 = phi i32 [ %.sroa.05.0.copyload.us, %82 ], [ %.sroa.05.0.copyload.us, %84 ], [ %.sroa.05.0.copyload78, %.backedge ], [ %.sroa.05.0.copyload, %102 ]
   %110 = trunc i64 %indvars.iv.next117.lcssa139.sink to i32
   %111 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %.tr100, i64 %indvars.iv.next117.lcssa139.sink
   br i1 %.not23.i, label %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader.split82.us, label %_ZN4cvc58internal7Minisat6Solver8lemma_ltclENS1_3LitES4_.exit.preheader106

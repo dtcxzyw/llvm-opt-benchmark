@@ -9206,7 +9206,7 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.
   resume { ptr, i32 } %.pn.pn
 
 _ZNK5model8top_sort11occur_countEP9func_decl.exit.thread: ; preds = %27, %41, %38, %63, %74, %77, %.preheader.i.i.i.i32, %.preheader.i.i.i.i, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.exit, %_ZNK10model_core15get_func_interpEP9func_decl.exit, %80, %84, %_ZNK5model8top_sort11occur_countEP9func_decl.exit
-  %.0 = phi i1 [ true, %_ZNK5model8top_sort11occur_countEP9func_decl.exit ], [ false, %_ZNK10model_core15get_func_interpEP9func_decl.exit ], [ false, %80 ], [ %.lcssa, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.exit ], [ true, %84 ], [ true, %41 ], [ true, %.preheader.i.i.i.i ], [ false, %63 ], [ false, %74 ], [ false, %.preheader.i.i.i.i32 ], [ false, %77 ], [ true, %38 ], [ true, %27 ]
+  %.0 = phi i1 [ true, %_ZNK5model8top_sort11occur_countEP9func_decl.exit ], [ false, %_ZNK10model_core15get_func_interpEP9func_decl.exit ], [ false, %80 ], [ %.lcssa, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.exit ], [ true, %84 ], [ false, %63 ], [ true, %.preheader.i.i.i.i ], [ true, %41 ], [ false, %74 ], [ false, %.preheader.i.i.i.i32 ], [ false, %77 ], [ true, %38 ], [ true, %27 ]
   ret i1 %.0
 }
 

@@ -623,7 +623,7 @@ define range(i32 0, 2) i32 @lv_style_get_prop(ptr noundef readonly captures(none
   br label %lv_style_get_prop_inlined.exit
 
 lv_style_get_prop_inlined.exit:                   ; preds = %20, %.lr.ph, %7, %16, %.thread.sink.split.i
-  %.1.i = phi i32 [ 0, %.lr.ph ], [ 1, %.thread.sink.split.i ], [ 0, %7 ], [ 0, %16 ], [ 0, %20 ]
+  %.1.i = phi i32 [ 1, %.thread.sink.split.i ], [ 0, %.lr.ph ], [ 0, %7 ], [ 0, %16 ], [ 0, %20 ]
   ret i32 %.1.i
 }
 

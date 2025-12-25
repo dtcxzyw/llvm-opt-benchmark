@@ -725,7 +725,7 @@ _ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i: ; preds = %258, %249
   br i1 %260, label %322, label %_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i
 
 _ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i, %205, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread13.i.i, %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i
-  %.0.i14.i = phi i32 [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i ], [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread13.i.i ], [ 28, %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i ], [ 30, %205 ], [ 33, %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i ]
+  %.0.i14.i = phi i32 [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread13.i.i ], [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i ], [ 28, %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i ], [ 30, %205 ], [ 33, %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i ]
   %261 = call noundef ptr @_ZN7ZDriver5majorEv() #11
   %262 = call noundef zeroext i1 @_ZNK12ZDriverMajor7is_busyEv(ptr noundef nonnull align 8 dereferenceable(1264) %261) #11
   %.not.i = xor i1 %262, true

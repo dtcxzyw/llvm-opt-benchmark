@@ -95804,7 +95804,7 @@ _ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannes
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11738
 
 _ZSt11swap_rangesIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb0EEEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb0EEEEES8_ET0_T_SA_S9_.exit, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb0EEEEES8_ET0_T_SA_S9_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb0EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb0EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb0EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb0EEEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -99748,7 +99748,7 @@ _ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannes
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11993
 
 _ZSt11swap_rangesIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb0EEEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb0EEEEES8_ET0_T_SA_S9_.exit, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb0EEEEES8_ET0_T_SA_S9_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb0EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb0EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb0EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb0EEEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -102263,7 +102263,7 @@ _ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannes
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12118
 
 _ZSt11swap_rangesIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEES8_ET0_T_SA_S9_.exit, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEES8_ET0_T_SA_S9_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -104689,7 +104689,7 @@ _ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannes
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12215
 
 _ZSt11swap_rangesIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb1EEEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb1EEEEES8_ET0_T_SA_S9_.exit, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb1EEEEES8_ET0_T_SA_S9_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb1EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb1EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb1EEEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb1EEEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

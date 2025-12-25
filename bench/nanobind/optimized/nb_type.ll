@@ -2877,7 +2877,7 @@ _ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %.thread131, %15, %1
   br label %_ZL10_Py_DECREFP7_object.exit
 
 _ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL10_Py_DECREFP7_object.exit.sink.split, %.thread131, %15, %10, %.thread133, %3
-  %.0 = phi ptr [ null, %3 ], [ %14, %.thread133 ], [ null, %.thread131 ], [ null, %15 ], [ null, %10 ], [ null, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %14, %.thread133 ], [ null, %15 ], [ null, %.thread131 ], [ null, %10 ], [ null, %_ZL10_Py_DECREFP7_object.exit.sink.split ]
   ret ptr %.0
 }
 

@@ -531,10 +531,10 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br label %198
 
 198:                                              ; preds = %186, %183
-  %.058.i = phi ptr [ %.462.i, %183 ], [ %189, %186 ]
-  %.053.i = phi i32 [ %.457.i, %183 ], [ %192, %186 ]
-  %.052.i = phi i32 [ %.4.i, %183 ], [ %196, %186 ]
-  %.050.i = phi ptr [ %123, %183 ], [ %spec.select.i, %186 ]
+  %.058.i = phi ptr [ %189, %186 ], [ %.462.i, %183 ]
+  %.053.i = phi i32 [ %192, %186 ], [ %.457.i, %183 ]
+  %.052.i = phi i32 [ %196, %186 ], [ %.4.i, %183 ]
+  %.050.i = phi ptr [ %spec.select.i, %186 ], [ %123, %183 ]
   %.not77.i = icmp eq i32 %.052.i, 0
   br i1 %.not77.i, label %getProxyByGConf.exit, label %.thread98.i
 

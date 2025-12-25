@@ -377,7 +377,7 @@ bbox_8.exit.sink.split:                           ; preds = %._crit_edge.us112.i
   br label %bbox_8.exit
 
 bbox_8.exit:                                      ; preds = %._crit_edge.us.i78, %._crit_edge.us.i, %bbox_8.exit.sink.split, %.loopexit80.i13, %.preheader79.lr.ph.i67, %.loopexit80.i, %.preheader79.lr.ph.i
-  %.0 = phi i32 [ 1, %bbox_8.exit.sink.split ], [ 0, %._crit_edge.us.i ], [ 0, %.loopexit80.i ], [ 0, %.preheader79.lr.ph.i ], [ 0, %.preheader79.lr.ph.i67 ], [ 0, %.loopexit80.i13 ], [ 0, %._crit_edge.us.i78 ]
+  %.0 = phi i32 [ 1, %bbox_8.exit.sink.split ], [ 0, %.preheader79.lr.ph.i67 ], [ 0, %.loopexit80.i ], [ 0, %.preheader79.lr.ph.i ], [ 0, %._crit_edge.us.i ], [ 0, %.loopexit80.i13 ], [ 0, %._crit_edge.us.i78 ]
   ret i32 %.0
 }
 

@@ -1786,7 +1786,7 @@ set_option.exit:                                  ; preds = %472, %495, %567
   %.not32 = icmp eq i32 %.1.i73, 0
   br i1 %.not32, label %set_option.exit.thread, label %.thread
 
-.thread:                                          ; preds = %480, %511, %524, %661, %633, %537, %601, %620, %588, %550, %575, %set_option.exit
+.thread:                                          ; preds = %550, %480, %537, %661, %633, %524, %601, %620, %588, %511, %575, %set_option.exit
   br label %set_option.exit.thread
 
 set_option.exit.thread:                           ; preds = %678, %set_option.exit, %680, %657, %676, %671, %666, %643, %611, %638, %606, %593, %580, %555, %542, %529, %516, %502, %498, %485, %617, %622, %650, %660, %663, %.thread

@@ -1242,7 +1242,7 @@ dvbsub_parse_clut_segment.exit:                   ; preds = %449, %412, %287, %3
   br label %dvbsub_display_end_segment.exit159
 
 dvbsub_display_end_segment.exit159:               ; preds = %487, %492, %.critedge.i158, %454, %415, %.loopexit167.i, %140, %.loopexit110.i, %422, %394, %.loopexit.i, %get_object.exit.i, %453, %452, %451, %446, %192, %273, %.loopexit, %dvbsub_parse_region_segment.exit, %537, %533, %532, %.critedge
-  %.1113 = phi ptr [ %.0112.lcssa.ph, %.critedge ], [ %.0112.lcssa.ph, %537 ], [ %.0112.lcssa.ph, %532 ], [ %.0112.lcssa.ph, %533 ], [ %42, %.loopexit.i ], [ %42, %422 ], [ %42, %dvbsub_parse_region_segment.exit ], [ %42, %394 ], [ %42, %453 ], [ %42, %.loopexit ], [ %42, %273 ], [ %42, %192 ], [ %42, %452 ], [ %42, %451 ], [ %42, %446 ], [ %42, %get_object.exit.i ], [ %42, %.loopexit110.i ], [ %42, %140 ], [ %42, %.loopexit167.i ], [ %42, %415 ], [ %42, %454 ], [ %42, %.critedge.i158 ], [ %42, %492 ], [ %42, %487 ]
+  %.1113 = phi ptr [ %.0112.lcssa.ph, %.critedge ], [ %.0112.lcssa.ph, %537 ], [ %.0112.lcssa.ph, %532 ], [ %.0112.lcssa.ph, %533 ], [ %42, %.loopexit.i ], [ %42, %446 ], [ %42, %dvbsub_parse_region_segment.exit ], [ %42, %394 ], [ %42, %451 ], [ %42, %.loopexit ], [ %42, %273 ], [ %42, %192 ], [ %42, %452 ], [ %42, %453 ], [ %42, %422 ], [ %42, %get_object.exit.i ], [ %42, %.loopexit110.i ], [ %42, %140 ], [ %42, %.loopexit167.i ], [ %42, %415 ], [ %42, %454 ], [ %42, %.critedge.i158 ], [ %42, %492 ], [ %42, %487 ]
   %538 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %539 = load i32, ptr %538, align 8, !tbaa !46
   %540 = icmp eq i32 %539, 1

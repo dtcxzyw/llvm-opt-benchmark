@@ -4415,7 +4415,7 @@ _ZL16callInstIsMemcpyPN4llvm8CallInstE.exit.thread.i.i: ; preds = %1335, %1311, 
   br i1 %.not77.i.i, label %_ZL32tryWidenGlobalArraysUsedByMemcpyPN4llvm14GlobalVariableENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit.i, label %1237
 
 _ZL32tryWidenGlobalArraysUsedByMemcpyPN4llvm14GlobalVariableENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit.i: ; preds = %_ZL16callInstIsMemcpyPN4llvm8CallInstE.exit.thread.i.i, %._crit_edge.i.i.i136, %1341, %1339, %1234, %1228, %1224, %.loopexit791
-  %.0.i.i = phi i1 [ false, %.loopexit791 ], [ false, %1224 ], [ false, %1341 ], [ false, %1228 ], [ false, %1339 ], [ true, %._crit_edge.i.i.i136 ], [ false, %1234 ], [ false, %_ZL16callInstIsMemcpyPN4llvm8CallInstE.exit.thread.i.i ]
+  %.0.i.i = phi i1 [ false, %.loopexit791 ], [ false, %1224 ], [ false, %1339 ], [ false, %1228 ], [ false, %1341 ], [ true, %._crit_edge.i.i.i136 ], [ false, %1234 ], [ false, %_ZL16callInstIsMemcpyPN4llvm8CallInstE.exit.thread.i.i ]
   %1511 = or i1 %.053.i, %.0.i.i
   %1512 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(48) %1166) #21
   %1513 = extractvalue { ptr, i64 } %1512, 1

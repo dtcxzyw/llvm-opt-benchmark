@@ -4956,7 +4956,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
   br label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread
 
 _ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread: ; preds = %31, %.lr.ph, %.lr.ph177, %128, %.preheader, %.critedge113.loopexit, %.critedge.i, %1, %29
-  %.076 = phi i1 [ true, %29 ], [ %134, %.critedge113.loopexit ], [ false, %.lr.ph177 ], [ false, %.lr.ph ], [ true, %.critedge.i ], [ true, %1 ], [ false, %.preheader ], [ false, %128 ], [ true, %31 ]
+  %.076 = phi i1 [ true, %29 ], [ %134, %.critedge113.loopexit ], [ true, %.critedge.i ], [ false, %.lr.ph ], [ false, %.lr.ph177 ], [ true, %1 ], [ false, %.preheader ], [ false, %128 ], [ true, %31 ]
   ret i1 %.076
 
 135:                                              ; preds = %63

@@ -5135,7 +5135,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %27
   %34 = and i1 %33, %32
   br i1 %34, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread82, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit78
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread82: ; preds = %27, %25, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread82: ; preds = %25, %27, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %35 = load i64, ptr %2, align 8
   %36 = add i64 %35, 1
   store i64 %36, ptr %2, align 8

@@ -763,7 +763,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %61
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %52, %38, %30, %23
-  %.1.i.i.i = phi ptr [ %25, %23 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ], [ %32, %30 ], [ %46, %38 ], [ %60, %52 ]
+  %.1.i.i.i = phi ptr [ %25, %23 ], [ %60, %52 ], [ %32, %30 ], [ %46, %38 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge, label %.lr.ph.i.i.i.backedge
 
@@ -1184,7 +1184,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %43
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %34, %20, %12, %5
-  %.1.i.i.i = phi ptr [ %7, %5 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ], [ %14, %12 ], [ %28, %20 ], [ %42, %34 ]
+  %.1.i.i.i = phi ptr [ %7, %5 ], [ %42, %34 ], [ %14, %12 ], [ %28, %20 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZNK5clang4Expr12IgnoreParensEv.exit, label %.lr.ph.i.i.i.backedge
 
@@ -1454,7 +1454,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %45
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %36, %22, %14, %7
-  %.1.i.i.i = phi ptr [ %9, %7 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ], [ %16, %14 ], [ %30, %22 ], [ %44, %36 ]
+  %.1.i.i.i = phi ptr [ %9, %7 ], [ %44, %36 ], [ %16, %14 ], [ %30, %22 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge, label %.lr.ph.i.i.i, !llvm.loop !45
 
@@ -1636,7 +1636,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZNK5clang4Expr19ge
   br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
 
 _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %14, %10, %38, %35, %2
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload.i, %2 ], [ %39, %38 ], [ %37, %35 ], [ %.sroa.0.0.copyload.i, %10 ], [ %.sroa.0.0.copyload.i, %14 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang4Decl14getDeclContextEv.exit ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload.i, %2 ], [ %37, %35 ], [ %39, %38 ], [ %.sroa.0.0.copyload.i, %10 ], [ %.sroa.0.0.copyload.i, %14 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang4Decl14getDeclContextEv.exit ]
   ret i64 %.sroa.0.0
 }
 
@@ -2527,7 +2527,7 @@ _ZNK5clang11DeclRefExpr15getQualifierLocEv.exit.i.i: ; preds = %179
   unreachable
 
 _ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %318, %316, %203, %199, %196, %185, %_ZNK5clang11DeclRefExpr15getQualifierLocEv.exit.i.i, %97, %95, %87, %83, %66, %59, %57, %325, %322, %320, %309, %307, %305, %303, %301, %299, %296, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %264, %262, %260, %257, %255, %253, %251, %249, %247, %245, %243, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %212, %209, %207, %205, %193, %191, %189, %187, %177, %174, %172, %169, %167, %165, %162, %160, %158, %155, %152, %150, %148, %146, %143, %140, %138, %136, %134, %132, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %89, %77, %75, %73, %70, %68, %61, %52, %49, %46, %44, %42, %40, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6
-  %.sroa.0257.0 = phi i32 [ %.val351, %320 ], [ %327, %325 ], [ %324, %322 ], [ %.val, %6 ], [ %.val258, %8 ], [ %.val259, %10 ], [ %.val260, %12 ], [ %.val261, %14 ], [ %.val262, %16 ], [ %.val263, %18 ], [ %.val264, %20 ], [ %.val265, %22 ], [ %.val266, %24 ], [ %.val267, %26 ], [ %.val268, %28 ], [ %.val269, %30 ], [ %.val270, %32 ], [ %.val271, %34 ], [ %.val272, %36 ], [ %86, %83 ], [ %.val273, %40 ], [ %.val274, %42 ], [ %.val275, %44 ], [ %48, %46 ], [ %51, %49 ], [ %.val278, %52 ], [ %.sroa.0.0.copyload.i.i.i.i365, %318 ], [ %.val279, %61 ], [ %.sroa.0.0.extract.trunc.i.i.i, %57 ], [ %.val280, %68 ], [ %72, %70 ], [ %.val282, %73 ], [ %.val283, %75 ], [ %.val284, %77 ], [ %.sroa.0.0.copyload.i.i366, %66 ], [ %.val285, %89 ], [ %.sroa.0.0.copyload.i.i.i354, %87 ], [ %.val286, %101 ], [ %204, %203 ], [ %.val287, %103 ], [ %.val288, %105 ], [ %.val289, %107 ], [ %.val290, %109 ], [ %.val291, %111 ], [ %.val292, %113 ], [ %.val293, %115 ], [ %.val294, %117 ], [ %100, %97 ], [ %.val295, %119 ], [ 0, %196 ], [ %131, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit ], [ %.sroa.0.0.extract.trunc.i.i.i360, %_ZNK5clang11DeclRefExpr15getQualifierLocEv.exit.i.i ], [ %133, %132 ], [ %.val297, %134 ], [ %.val298, %136 ], [ %139, %138 ], [ %317, %316 ], [ %142, %140 ], [ %145, %143 ], [ %.val301, %146 ], [ %.val302, %148 ], [ %.val303, %150 ], [ %154, %152 ], [ %157, %155 ], [ %.val306, %158 ], [ %.val307, %160 ], [ %164, %162 ], [ %.val309, %165 ], [ %.val310, %167 ], [ %171, %169 ], [ %173, %172 ], [ %.sroa.0.0.extract.trunc.i.i.i357, %174 ], [ %.val312, %177 ], [ %.sroa.0.0.copyload.i1.i.i, %59 ], [ %.val313, %187 ], [ %.val314, %189 ], [ %.val315, %191 ], [ %.val316.val, %193 ], [ %.sroa.0.0.copyload.i3.i.i.i, %185 ], [ %.val317, %205 ], [ %.val318, %207 ], [ %211, %209 ], [ %.val320, %212 ], [ %.val321, %214 ], [ %.val322, %216 ], [ %.val323, %218 ], [ %.val324, %220 ], [ %.val325, %222 ], [ %225, %224 ], [ %.val326, %226 ], [ %.val327, %228 ], [ %231, %230 ], [ %233, %232 ], [ %.sroa.0.0.i.i364, %234 ], [ %244, %243 ], [ %246, %245 ], [ %.val328, %247 ], [ %250, %249 ], [ %.val329, %251 ], [ %.val330, %253 ], [ %.val331, %255 ], [ %259, %257 ], [ %261, %260 ], [ %263, %262 ], [ %266, %264 ], [ %.val334, %267 ], [ %.val335, %269 ], [ %.val336, %271 ], [ %.val337, %273 ], [ %.val338, %275 ], [ %278, %277 ], [ %280, %279 ], [ %.val339, %281 ], [ %.val340, %283 ], [ %.val341, %285 ], [ %288, %287 ], [ %290, %289 ], [ %.val342, %291 ], [ %295, %293 ], [ %.val344.val, %296 ], [ %.val345, %299 ], [ %.val346, %301 ], [ %.val347, %303 ], [ %.val348, %305 ], [ %.val349, %307 ], [ %310, %309 ], [ %.sroa.0.0.copyload.i.i, %95 ], [ %201, %199 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
+  %.sroa.0257.0 = phi i32 [ %.val351, %320 ], [ %327, %325 ], [ %324, %322 ], [ %.val, %6 ], [ %.val258, %8 ], [ %.val259, %10 ], [ %.val260, %12 ], [ %.val261, %14 ], [ %.val262, %16 ], [ %.val263, %18 ], [ %.val264, %20 ], [ %.val265, %22 ], [ %.val266, %24 ], [ %.val267, %26 ], [ %.val268, %28 ], [ %.val269, %30 ], [ %.val270, %32 ], [ %.val271, %34 ], [ %.val272, %36 ], [ %.sroa.0.0.copyload.i1.i.i, %59 ], [ %.val273, %40 ], [ %.val274, %42 ], [ %.val275, %44 ], [ %48, %46 ], [ %51, %49 ], [ %.val278, %52 ], [ %.sroa.0.0.copyload.i.i.i.i365, %318 ], [ %.val279, %61 ], [ %.sroa.0.0.extract.trunc.i.i.i, %57 ], [ %.val280, %68 ], [ %72, %70 ], [ %.val282, %73 ], [ %.val283, %75 ], [ %.val284, %77 ], [ %.sroa.0.0.copyload.i.i366, %66 ], [ %.val285, %89 ], [ %.sroa.0.0.copyload.i.i.i354, %87 ], [ %.val286, %101 ], [ %204, %203 ], [ %.val287, %103 ], [ %.val288, %105 ], [ %.val289, %107 ], [ %.val290, %109 ], [ %.val291, %111 ], [ %.val292, %113 ], [ %.val293, %115 ], [ %.val294, %117 ], [ %100, %97 ], [ %.val295, %119 ], [ 0, %196 ], [ %131, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit ], [ %.sroa.0.0.extract.trunc.i.i.i360, %_ZNK5clang11DeclRefExpr15getQualifierLocEv.exit.i.i ], [ %133, %132 ], [ %.val297, %134 ], [ %.val298, %136 ], [ %139, %138 ], [ %317, %316 ], [ %142, %140 ], [ %145, %143 ], [ %.val301, %146 ], [ %.val302, %148 ], [ %.val303, %150 ], [ %154, %152 ], [ %157, %155 ], [ %.val306, %158 ], [ %.val307, %160 ], [ %164, %162 ], [ %.val309, %165 ], [ %.val310, %167 ], [ %171, %169 ], [ %173, %172 ], [ %.sroa.0.0.extract.trunc.i.i.i357, %174 ], [ %.val312, %177 ], [ %86, %83 ], [ %.val313, %187 ], [ %.val314, %189 ], [ %.val315, %191 ], [ %.val316.val, %193 ], [ %.sroa.0.0.copyload.i3.i.i.i, %185 ], [ %.val317, %205 ], [ %.val318, %207 ], [ %211, %209 ], [ %.val320, %212 ], [ %.val321, %214 ], [ %.val322, %216 ], [ %.val323, %218 ], [ %.val324, %220 ], [ %.val325, %222 ], [ %225, %224 ], [ %.val326, %226 ], [ %.val327, %228 ], [ %231, %230 ], [ %233, %232 ], [ %.sroa.0.0.i.i364, %234 ], [ %244, %243 ], [ %246, %245 ], [ %.val328, %247 ], [ %250, %249 ], [ %.val329, %251 ], [ %.val330, %253 ], [ %.val331, %255 ], [ %259, %257 ], [ %261, %260 ], [ %263, %262 ], [ %266, %264 ], [ %.val334, %267 ], [ %.val335, %269 ], [ %.val336, %271 ], [ %.val337, %273 ], [ %.val338, %275 ], [ %278, %277 ], [ %280, %279 ], [ %.val339, %281 ], [ %.val340, %283 ], [ %.val341, %285 ], [ %288, %287 ], [ %290, %289 ], [ %.val342, %291 ], [ %295, %293 ], [ %.val344.val, %296 ], [ %.val345, %299 ], [ %.val346, %301 ], [ %.val347, %303 ], [ %.val348, %305 ], [ %.val349, %307 ], [ %310, %309 ], [ %.sroa.0.0.copyload.i.i, %95 ], [ %201, %199 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
   ret i32 %.sroa.0257.0
 }
 
@@ -9618,7 +9618,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i: ; preds = %42
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit: ; preds = %.lr.ph.i, %4, %7, %11, %14, %19, %28, %33, %42, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i
-  %.1.i = phi ptr [ %6, %4 ], [ %.079.i, %.lr.ph.i ], [ %13, %11 ], [ %27, %19 ], [ %41, %33 ], [ %.079.i, %7 ], [ %.079.i, %14 ], [ %.079.i, %28 ], [ %.079.i, %42 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ]
+  %.1.i = phi ptr [ %6, %4 ], [ %41, %33 ], [ %13, %11 ], [ %27, %19 ], [ %.079.i, %.lr.ph.i ], [ %.079.i, %7 ], [ %.079.i, %14 ], [ %.079.i, %28 ], [ %.079.i, %42 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ]
   %47 = load i16, ptr %.1.i, align 8
   %48 = and i16 %47, 511
   %49 = icmp eq i16 %48, 81
@@ -9904,7 +9904,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %84
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %75, %61, %53, %46
-  %.1.i.i.i = phi ptr [ %48, %46 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ], [ %55, %53 ], [ %69, %61 ], [ %83, %75 ]
+  %.1.i.i.i = phi ptr [ %48, %46 ], [ %83, %75 ], [ %55, %53 ], [ %69, %61 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge, label %.lr.ph.i.i.i, !llvm.loop !45
 
@@ -10010,7 +10010,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i34: ; preds = %136
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i37
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i37: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i34, %127, %113, %105, %98
-  %.1.i.i.i38 = phi ptr [ %100, %98 ], [ %spec.select.i.i.i36, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i34 ], [ %107, %105 ], [ %121, %113 ], [ %135, %127 ]
+  %.1.i.i.i38 = phi ptr [ %100, %98 ], [ %135, %127 ], [ %107, %105 ], [ %121, %113 ], [ %spec.select.i.i.i36, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i34 ]
   %.not.i.i.i39 = icmp eq ptr %.1.i.i.i38, %.068.i.i.i31
   br i1 %.not.i.i.i39, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i37._ZNK5clang4Expr12IgnoreParensEv.exit42_crit_edge, label %.lr.ph.i.i.i30, !llvm.loop !45
 
@@ -10178,7 +10178,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %42
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %33, %19, %11, %4
-  %.1.i.i.i = phi ptr [ %6, %4 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ], [ %13, %11 ], [ %27, %19 ], [ %41, %33 ]
+  %.1.i.i.i = phi ptr [ %6, %4 ], [ %41, %33 ], [ %13, %11 ], [ %27, %19 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge, label %.lr.ph.i.i.i, !llvm.loop !45
 
@@ -11672,7 +11672,7 @@ define dso_local noundef ptr @_ZN5clang8CastExpr19getSubExprAsWrittenEv(ptr noun
   br label %_ZN12_GLOBAL__N_123ignoreImplicitSemaNodesEPN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_123ignoreImplicitSemaNodesEPN5clang4ExprE.exit: ; preds = %8, %14, %17, %22, %.critedge.i
-  %.1.i = phi ptr [ %16, %14 ], [ %19, %17 ], [ %24, %22 ], [ %31, %.critedge.i ], [ %13, %8 ]
+  %.1.i = phi ptr [ %13, %8 ], [ %19, %17 ], [ %24, %22 ], [ %31, %.critedge.i ], [ %16, %14 ]
   %.not.i.i = icmp eq ptr %.1.i, %.068.i.i
   br i1 %.not.i.i, label %_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_EEEEPKS1_S6_DpOT_.exit, label %.lr.ph.i.i, !llvm.loop !45
 
@@ -11751,7 +11751,7 @@ _ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_EEEEPKS1_S6_DpOT_.exit: ; preds = %26
   br label %_ZN12_GLOBAL__N_123ignoreImplicitSemaNodesEPN5clang4ExprE.exit26
 
 _ZN12_GLOBAL__N_123ignoreImplicitSemaNodesEPN5clang4ExprE.exit26: ; preds = %43, %49, %52, %57, %.critedge.i25
-  %.1.i21 = phi ptr [ %51, %49 ], [ %54, %52 ], [ %59, %57 ], [ %66, %.critedge.i25 ], [ %48, %43 ]
+  %.1.i21 = phi ptr [ %48, %43 ], [ %54, %52 ], [ %59, %57 ], [ %66, %.critedge.i25 ], [ %51, %49 ]
   %.not.i.i17 = icmp eq ptr %.1.i21, %.068.i.i16
   br i1 %.not.i.i17, label %_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_EEEEPKS1_S6_DpOT_.exit19, label %.lr.ph.i.i15, !llvm.loop !45
 
@@ -11840,7 +11840,7 @@ define dso_local noundef ptr @_ZNK5clang8CastExpr21getConversionFunctionEv(ptr n
   br label %_ZN12_GLOBAL__N_123ignoreImplicitSemaNodesEPN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_123ignoreImplicitSemaNodesEPN5clang4ExprE.exit: ; preds = %7, %13, %16, %21, %.critedge.i
-  %.1.i = phi ptr [ %15, %13 ], [ %18, %16 ], [ %23, %21 ], [ %30, %.critedge.i ], [ %12, %7 ]
+  %.1.i = phi ptr [ %12, %7 ], [ %18, %16 ], [ %23, %21 ], [ %30, %.critedge.i ], [ %15, %13 ]
   %.not.i.i = icmp eq ptr %.1.i, %.068.i.i
   br i1 %.not.i.i, label %_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_EEEEPKS1_S6_DpOT_.exit, label %.lr.ph.i.i, !llvm.loop !45
 
@@ -16281,7 +16281,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %50
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %41, %27, %19, %12
-  %.1.i.i.i = phi ptr [ %14, %12 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ], [ %21, %19 ], [ %35, %27 ], [ %49, %41 ]
+  %.1.i.i.i = phi ptr [ %14, %12 ], [ %49, %41 ], [ %21, %19 ], [ %35, %27 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge, label %.lr.ph.i.i.i, !llvm.loop !45
 
@@ -17197,7 +17197,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %405
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %396, %382, %374, %367
-  %.1.i.i.i = phi ptr [ %369, %367 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ], [ %376, %374 ], [ %390, %382 ], [ %404, %396 ]
+  %.1.i.i.i = phi ptr [ %369, %367 ], [ %404, %396 ], [ %376, %374 ], [ %390, %382 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZNK5clang4Expr12IgnoreParensEv.exit, label %.lr.ph.i.i.i, !llvm.loop !45
 
@@ -17349,7 +17349,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %458
   br label %tailrecurse.backedge
 
 .critedge411:                                     ; preds = %tailrecurse.backedge, %61, %61, %61, %61, %61, %12, %12, %12, %12, %12, %12, %12, %12, %122, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit, %317, %311, %430, %413, %417, %.critedge409, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %.critedge407, %458, %_ZNK5clang4Expr12IgnoreParensEv.exit, %6, %239, %237, %234, %247, %242, %201, %186, %184, %.critedge.thread, %296, %293, %.critedge14, %231, %.critedge, %450, %_ZNK5clang4Type10isVoidTypeEv.exit454.thread, %_ZNK5clang4Type10isVoidTypeEv.exit454, %306, %285, %.critedge398, %114, %_ZN4llvm5APIntD2Ev.exit, %107, %103, %111, %.loopexit, %65, %_ZNK5clang4Type10isVoidTypeEv.exit, %298, %137, %132, %_ZNK5clang4Type10isVoidTypeEv.exit.thread
-  %.0 = phi i1 [ true, %242 ], [ true, %247 ], [ true, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ false, %237 ], [ false, %.critedge14 ], [ false, %293 ], [ true, %296 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ false, %65 ], [ false, %111 ], [ false, %239 ], [ true, %450 ], [ true, %132 ], [ true, %137 ], [ true, %285 ], [ true, %.critedge ], [ false, %234 ], [ false, %.critedge.thread ], [ true, %231 ], [ false, %184 ], [ true, %298 ], [ true, %_ZNK5clang4Type10isVoidTypeEv.exit454.thread ], [ true, %201 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit454 ], [ true, %186 ], [ false, %107 ], [ false, %_ZN4llvm5APIntD2Ev.exit ], [ %102, %.critedge398 ], [ true, %114 ], [ false, %103 ], [ true, %306 ], [ true, %.loopexit ], [ false, %6 ], [ false, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ false, %458 ], [ false, %.critedge407 ], [ false, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ false, %.critedge409 ], [ false, %417 ], [ false, %413 ], [ false, %430 ], [ false, %311 ], [ false, %317 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit ], [ false, %122 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %tailrecurse.backedge ]
+  %.0 = phi i1 [ false, %234 ], [ false, %239 ], [ true, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ false, %237 ], [ false, %.critedge14 ], [ false, %293 ], [ true, %296 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ false, %65 ], [ false, %111 ], [ true, %247 ], [ true, %450 ], [ true, %132 ], [ true, %137 ], [ true, %285 ], [ true, %.critedge ], [ true, %242 ], [ false, %.critedge.thread ], [ true, %231 ], [ true, %186 ], [ true, %298 ], [ true, %_ZNK5clang4Type10isVoidTypeEv.exit454.thread ], [ false, %103 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit454 ], [ true, %114 ], [ %102, %.critedge398 ], [ false, %_ZN4llvm5APIntD2Ev.exit ], [ false, %107 ], [ true, %201 ], [ false, %184 ], [ true, %306 ], [ true, %.loopexit ], [ false, %6 ], [ false, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ false, %458 ], [ false, %.critedge407 ], [ false, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ false, %.critedge409 ], [ false, %417 ], [ false, %413 ], [ false, %430 ], [ false, %311 ], [ false, %317 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit ], [ false, %122 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -17440,7 +17440,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i: ; preds = %42
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit: ; preds = %4, %11, %19, %33, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i
-  %.1.i = phi ptr [ %6, %4 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ], [ %13, %11 ], [ %27, %19 ], [ %41, %33 ]
+  %.1.i = phi ptr [ %6, %4 ], [ %41, %33 ], [ %13, %11 ], [ %27, %19 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ]
   %.not.i = icmp eq ptr %.1.i, %.068.i
   br i1 %.not.i, label %_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_EEEES2_S2_DpOT_.exit, label %.lr.ph.i, !llvm.loop !45
 
@@ -17482,7 +17482,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_8PureA
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !895
 
 _ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -17524,7 +17524,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_9Const
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_9ConstAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !896
 
 _ZN5clangneENS_22specific_attr_iteratorINS_9ConstAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_9ConstAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -17568,7 +17568,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_14Warn
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14WarnUnusedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !897
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14WarnUnusedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_14WarnUnusedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -17635,7 +17635,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_20Warn
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !773
 
 _ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -17731,7 +17731,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %43
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %34, %20, %12, %5
-  %.1.i.i.i = phi ptr [ %7, %5 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ], [ %14, %12 ], [ %28, %20 ], [ %42, %34 ]
+  %.1.i.i.i = phi ptr [ %7, %5 ], [ %42, %34 ], [ %14, %12 ], [ %28, %20 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge, label %.lr.ph.i.i.i.backedge
 
@@ -18290,7 +18290,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i: ; preds = %42
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit: ; preds = %.lr.ph.i, %4, %7, %11, %14, %19, %28, %33, %42, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i
-  %.1.i1 = phi ptr [ %6, %4 ], [ %.079.i, %.lr.ph.i ], [ %13, %11 ], [ %27, %19 ], [ %41, %33 ], [ %.079.i, %7 ], [ %.079.i, %14 ], [ %.079.i, %28 ], [ %.079.i, %42 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ]
+  %.1.i1 = phi ptr [ %6, %4 ], [ %41, %33 ], [ %13, %11 ], [ %27, %19 ], [ %.079.i, %.lr.ph.i ], [ %.079.i, %7 ], [ %.079.i, %14 ], [ %.079.i, %28 ], [ %.079.i, %42 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ]
   %47 = load i16, ptr %.1.i1, align 8
   %48 = and i16 %47, 511
   %49 = add nsw i16 %48, -81
@@ -18458,7 +18458,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i: ; preds = %42
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit: ; preds = %.lr.ph.i, %4, %7, %11, %14, %19, %28, %33, %42, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i
-  %.1.i1 = phi ptr [ %6, %4 ], [ %.079.i, %.lr.ph.i ], [ %13, %11 ], [ %27, %19 ], [ %41, %33 ], [ %.079.i, %7 ], [ %.079.i, %14 ], [ %.079.i, %28 ], [ %.079.i, %42 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ]
+  %.1.i1 = phi ptr [ %6, %4 ], [ %41, %33 ], [ %13, %11 ], [ %27, %19 ], [ %.079.i, %.lr.ph.i ], [ %.079.i, %7 ], [ %.079.i, %14 ], [ %.079.i, %28 ], [ %.079.i, %42 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ]
   %47 = load i16, ptr %.1.i1, align 8
   %48 = and i16 %47, 511
   %49 = add nsw i16 %48, -91
@@ -18604,7 +18604,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i: ; preds = %42
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit: ; preds = %.lr.ph.i, %4, %7, %11, %14, %19, %28, %33, %42, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i
-  %.1.i = phi ptr [ %6, %4 ], [ %.079.i, %.lr.ph.i ], [ %13, %11 ], [ %27, %19 ], [ %41, %33 ], [ %.079.i, %7 ], [ %.079.i, %14 ], [ %.079.i, %28 ], [ %.079.i, %42 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ]
+  %.1.i = phi ptr [ %6, %4 ], [ %41, %33 ], [ %13, %11 ], [ %27, %19 ], [ %.079.i, %.lr.ph.i ], [ %.079.i, %7 ], [ %.079.i, %14 ], [ %.079.i, %28 ], [ %.079.i, %42 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ]
   %47 = load i16, ptr %.1.i, align 8
   %48 = and i16 %47, 511
   %49 = add nsw i16 %48, -91
@@ -18719,7 +18719,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %44
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %44, %35, %30, %21, %16, %13, %9, %6, %3
-  %.1.i.i.i = phi ptr [ %8, %6 ], [ %.071.i, %3 ], [ %15, %13 ], [ %29, %21 ], [ %43, %35 ], [ %.071.i, %9 ], [ %.071.i, %16 ], [ %.071.i, %30 ], [ %.071.i, %44 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
+  %.1.i.i.i = phi ptr [ %8, %6 ], [ %43, %35 ], [ %15, %13 ], [ %29, %21 ], [ %.071.i, %3 ], [ %.071.i, %9 ], [ %.071.i, %16 ], [ %.071.i, %30 ], [ %.071.i, %44 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %49 = load i16, ptr %.1.i.i.i, align 8
   %50 = and i16 %49, 511
   %51 = add nsw i16 %50, -91
@@ -19280,7 +19280,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i.i: ; preds = %101
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i.i, %92, %78, %70, %63
-  %.1.i.i.i.i = phi ptr [ %65, %63 ], [ %spec.select.i.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i.i ], [ %72, %70 ], [ %86, %78 ], [ %100, %92 ]
+  %.1.i.i.i.i = phi ptr [ %65, %63 ], [ %100, %92 ], [ %72, %70 ], [ %86, %78 ], [ %spec.select.i.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i.i ]
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, %.068.i.i.i.i
   br i1 %.not.i.i.i.i, label %_ZL39skipTemporaryBindingsNoOpCastsAndParensPKN5clang4ExprE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !45
 
@@ -20479,7 +20479,7 @@ _ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread156: ; preds = %59, %48, %
   br i1 %.not.i.i.i.i.i432, label %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i430, !llvm.loop !895
 
 _ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %74, %.lr.ph.i.i.i.i.i430
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i431, %.lr.ph.i.i.i.i.i430 ], [ %69, %74 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %69, %74 ], [ %.sroa.07.1.i.i.i.i431, %.lr.ph.i.i.i.i.i430 ]
   %76 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %69
   br label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit
 
@@ -20839,7 +20839,7 @@ _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; pred
   br label %.critedge142
 
 .critedge142:                                     ; preds = %181, %.critedge138, %195, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %.critedge142.loopexit709, %.critedge142.loopexit677, %.split, %.split217.us, %.split214.us, %163, %.split226.us, %152, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %._crit_edge, %227, %144, %101, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %.split220.us, %.split223.us, %79, %.split211.us, %.split239.us, %.split242.us, %86, %.split255.us, %131, %.split250.us
-  %.0 = phi i1 [ true, %.split211.us ], [ true, %144 ], [ false, %.split226.us ], [ false, %.split ], [ true, %.split239.us ], [ true, %.split220.us ], [ true, %.split223.us ], [ true, %152 ], [ true, %227 ], [ true, %101 ], [ %spec.select, %131 ], [ false, %._crit_edge ], [ true, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ true, %163 ], [ true, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ true, %.split242.us ], [ true, %86 ], [ false, %.critedge142.loopexit709 ], [ true, %.split255.us ], [ %85, %.split250.us ], [ false, %tailrecurse.us ], [ false, %.split217.us ], [ true, %79 ], [ true, %.critedge142.loopexit677 ], [ false, %.split214.us ], [ true, %.critedge ], [ %196, %195 ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %181 ], [ false, %.critedge138 ]
+  %.0 = phi i1 [ true, %.split211.us ], [ true, %144 ], [ false, %.split226.us ], [ false, %.split ], [ true, %.split239.us ], [ true, %.split220.us ], [ true, %.split223.us ], [ true, %152 ], [ true, %227 ], [ true, %101 ], [ %spec.select, %131 ], [ false, %._crit_edge ], [ true, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ true, %163 ], [ true, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ true, %.split242.us ], [ true, %86 ], [ %196, %195 ], [ true, %.split255.us ], [ %85, %.split250.us ], [ false, %.critedge142.loopexit709 ], [ false, %.split217.us ], [ true, %79 ], [ true, %.critedge142.loopexit677 ], [ false, %.split214.us ], [ true, %.critedge ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %181 ], [ false, %.critedge138 ]
   ret i1 %.0
 }
 
@@ -26729,7 +26729,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i: ; preds = %42
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i, %33, %19, %11, %4
-  %.1.i.i = phi ptr [ %6, %4 ], [ %spec.select.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i ], [ %13, %11 ], [ %27, %19 ], [ %41, %33 ]
+  %.1.i.i = phi ptr [ %6, %4 ], [ %41, %33 ], [ %13, %11 ], [ %27, %19 ], [ %spec.select.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i ]
   %.not.i.i = icmp eq ptr %.1.i.i, %.068.i.i
   br i1 %.not.i.i, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i._ZN5clang4Expr12IgnoreParensEv.exit_crit_edge, label %.lr.ph.i.i.backedge
 
@@ -26855,7 +26855,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i104: ; preds = %100
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i104, %91, %77, %69, %62
-  %.1.i.i108 = phi ptr [ %64, %62 ], [ %spec.select.i.i106, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i104 ], [ %71, %69 ], [ %85, %77 ], [ %99, %91 ]
+  %.1.i.i108 = phi ptr [ %64, %62 ], [ %99, %91 ], [ %71, %69 ], [ %85, %77 ], [ %spec.select.i.i106, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i104 ]
   %.not.i.i109 = icmp eq ptr %.1.i.i108, %.068.i.i101
   br i1 %.not.i.i109, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge, label %.lr.ph.i.i100, !llvm.loop !45
 
@@ -26872,8 +26872,8 @@ _ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit216: ; preds = %1
   br label %_ZN5clang4Expr12IgnoreParensEv.exit112
 
 _ZN5clang4Expr12IgnoreParensEv.exit112:           ; preds = %.lr.ph.i.i100, %72, %86, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit207, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit216, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge
-  %107 = phi i16 [ %.pre182, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge ], [ %106, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit216 ], [ %105, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit207 ], [ %60, %86 ], [ %60, %72 ], [ %60, %.lr.ph.i.i100 ]
-  %.163 = phi ptr [ %.1.i.i108, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge ], [ %.068.i.i101, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit216 ], [ %.068.i.i101, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit207 ], [ %.068.i.i101, %86 ], [ %.068.i.i101, %72 ], [ %.068.i.i101, %.lr.ph.i.i100 ]
+  %107 = phi i16 [ %.pre182, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge ], [ %105, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit207 ], [ %106, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit216 ], [ %60, %86 ], [ %60, %72 ], [ %60, %.lr.ph.i.i100 ]
+  %.163 = phi ptr [ %.1.i.i108, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge ], [ %.068.i.i101, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit207 ], [ %.068.i.i101, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit216 ], [ %.068.i.i101, %86 ], [ %.068.i.i101, %72 ], [ %.068.i.i101, %.lr.ph.i.i100 ]
   %108 = and i16 %107, 511
   %.not = icmp eq i16 %108, 81
   br i1 %.not, label %.lr.ph, label %._crit_edge
@@ -27106,7 +27106,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %42
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %33, %19, %11, %4
-  %.1.i.i.i = phi ptr [ %6, %4 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ], [ %13, %11 ], [ %27, %19 ], [ %41, %33 ]
+  %.1.i.i.i = phi ptr [ %6, %4 ], [ %41, %33 ], [ %13, %11 ], [ %27, %19 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge, label %.lr.ph.i.i.i.backedge
 
@@ -27231,7 +27231,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i41: ; preds = %100
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i41, %91, %77, %69, %62
-  %.1.i.i.i45 = phi ptr [ %64, %62 ], [ %spec.select.i.i.i43, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i41 ], [ %71, %69 ], [ %85, %77 ], [ %99, %91 ]
+  %.1.i.i.i45 = phi ptr [ %64, %62 ], [ %99, %91 ], [ %71, %69 ], [ %85, %77 ], [ %spec.select.i.i.i43, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i41 ]
   %.not.i.i.i46 = icmp eq ptr %.1.i.i.i45, %.068.i.i.i38
   br i1 %.not.i.i.i46, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge, label %.lr.ph.i.i.i37, !llvm.loop !45
 
@@ -27248,8 +27248,8 @@ _ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit117: ; preds = %1
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit49
 
 _ZNK5clang4Expr12IgnoreParensEv.exit49:           ; preds = %.lr.ph.i.i.i37, %72, %86, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit108, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit117, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge
-  %107 = phi i16 [ %.pre84, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge ], [ %106, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit117 ], [ %105, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit108 ], [ %60, %86 ], [ %60, %72 ], [ %60, %.lr.ph.i.i.i37 ]
-  %.158 = phi ptr [ %.1.i.i.i45, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge ], [ %.068.i.i.i38, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit117 ], [ %.068.i.i.i38, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit108 ], [ %.068.i.i.i38, %86 ], [ %.068.i.i.i38, %72 ], [ %.068.i.i.i38, %.lr.ph.i.i.i37 ]
+  %107 = phi i16 [ %.pre84, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge ], [ %105, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit108 ], [ %106, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit117 ], [ %60, %86 ], [ %60, %72 ], [ %60, %.lr.ph.i.i.i37 ]
+  %.158 = phi ptr [ %.1.i.i.i45, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge ], [ %.068.i.i.i38, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit108 ], [ %.068.i.i.i38, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit117 ], [ %.068.i.i.i38, %86 ], [ %.068.i.i.i38, %72 ], [ %.068.i.i.i38, %.lr.ph.i.i.i37 ]
   %108 = and i16 %107, 511
   %.not = icmp eq i16 %108, 81
   br i1 %.not, label %.lr.ph, label %._crit_edge
@@ -27572,7 +27572,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %45
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %36, %22, %14, %7
-  %.1.i.i.i = phi ptr [ %9, %7 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ], [ %16, %14 ], [ %30, %22 ], [ %44, %36 ]
+  %.1.i.i.i = phi ptr [ %9, %7 ], [ %44, %36 ], [ %16, %14 ], [ %30, %22 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZNK5clang4Expr12IgnoreParensEv.exit, label %.lr.ph.i.i.i, !llvm.loop !45
 
@@ -27660,7 +27660,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i79: ; preds = %90
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i82
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i82: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i79, %81, %67, %59, %52
-  %.1.i.i.i83 = phi ptr [ %54, %52 ], [ %spec.select.i.i.i81, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i79 ], [ %61, %59 ], [ %75, %67 ], [ %89, %81 ]
+  %.1.i.i.i83 = phi ptr [ %54, %52 ], [ %89, %81 ], [ %61, %59 ], [ %75, %67 ], [ %spec.select.i.i.i81, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i79 ]
   %.not.i.i.i84 = icmp eq ptr %.1.i.i.i83, %.068.i.i.i76
   br i1 %.not.i.i.i84, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i82._ZNK5clang4Expr12IgnoreParensEv.exit87_crit_edge, label %.lr.ph.i.i.i75, !llvm.loop !45
 
@@ -27822,7 +27822,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i93: ; preds = %173
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i96
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i96: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i93, %164, %150, %142, %135
-  %.1.i.i.i97 = phi ptr [ %137, %135 ], [ %spec.select.i.i.i95, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i93 ], [ %144, %142 ], [ %158, %150 ], [ %172, %164 ]
+  %.1.i.i.i97 = phi ptr [ %137, %135 ], [ %172, %164 ], [ %144, %142 ], [ %158, %150 ], [ %spec.select.i.i.i95, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i93 ]
   %.not.i.i.i98 = icmp eq ptr %.1.i.i.i97, %.068.i.i.i90
   br i1 %.not.i.i.i98, label %_ZNK5clang4Expr12IgnoreParensEv.exit101, label %.lr.ph.i.i.i89, !llvm.loop !45
 
@@ -27912,7 +27912,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i106: ; preds = %220
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i109
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i109: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i106, %211, %197, %189, %182
-  %.1.i.i.i110 = phi ptr [ %184, %182 ], [ %spec.select.i.i.i108, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i106 ], [ %191, %189 ], [ %205, %197 ], [ %219, %211 ]
+  %.1.i.i.i110 = phi ptr [ %184, %182 ], [ %219, %211 ], [ %191, %189 ], [ %205, %197 ], [ %spec.select.i.i.i108, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i106 ]
   %.not.i.i.i111 = icmp eq ptr %.1.i.i.i110, %.068.i.i.i103
   br i1 %.not.i.i.i111, label %_ZNK5clang4Expr12IgnoreParensEv.exit114, label %.lr.ph.i.i.i102, !llvm.loop !45
 
@@ -32260,7 +32260,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i: ; preds = %43
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i, %34, %20, %12, %5
-  %.1.i.i.i = phi ptr [ %7, %5 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ], [ %14, %12 ], [ %28, %20 ], [ %42, %34 ]
+  %.1.i.i.i = phi ptr [ %7, %5 ], [ %42, %34 ], [ %14, %12 ], [ %28, %20 ], [ %spec.select.i.i.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, %.068.i.i.i
   br i1 %.not.i.i.i, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge, label %.lr.ph.i.i.i, !llvm.loop !45
 
@@ -32744,7 +32744,7 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit: ; preds = %_ZNK5clang4Type6cas
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit, %8, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit
-  %47 = phi i32 [ %46, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ 1, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ 0, %8 ], [ 0, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
+  %47 = phi i32 [ 1, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread ], [ %46, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ 0, %8 ], [ 0, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ]
   ret i32 %47
 }
 

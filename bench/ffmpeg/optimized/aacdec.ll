@@ -352,7 +352,7 @@ count_paired_channels.exit.thread.sink.split.i.i: ; preds = %._crit_edge177.loop
   br label %89
 
 89:                                               ; preds = %count_paired_channels.exit.thread.sink.split.i.i, %._crit_edge.i.i.i
-  %90 = phi i32 [ %61, %._crit_edge.i.i.i ], [ %.3.lcssa221.sink.i.i, %count_paired_channels.exit.thread.sink.split.i.i ]
+  %90 = phi i32 [ %.3.lcssa221.sink.i.i, %count_paired_channels.exit.thread.sink.split.i.i ], [ %61, %._crit_edge.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %91 = icmp samesign ult i64 %indvars.iv.i, 2
   %92 = icmp slt i32 %90, %2
@@ -4636,7 +4636,7 @@ count_paired_channels.exit.thread.sink.split:     ; preds = %7, %._crit_edge169.
   br label %count_paired_channels.exit.thread
 
 count_paired_channels.exit.thread:                ; preds = %23, %33, %115, %120, %68, %count_paired_channels.exit.thread.sink.split, %.lr.ph, %.lr.ph168, %._crit_edge.i
-  %.0 = phi i32 [ 0, %33 ], [ 0, %._crit_edge.i ], [ -1, %68 ], [ -1, %.lr.ph ], [ -1, %.lr.ph168 ], [ -1, %115 ], [ 0, %count_paired_channels.exit.thread.sink.split ], [ -1, %120 ], [ 0, %23 ]
+  %.0 = phi i32 [ -1, %115 ], [ 0, %._crit_edge.i ], [ 0, %33 ], [ -1, %.lr.ph ], [ -1, %.lr.ph168 ], [ 0, %count_paired_channels.exit.thread.sink.split ], [ -1, %68 ], [ -1, %120 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -7670,7 +7670,7 @@ default.unreachable:                              ; preds = %276
   unreachable
 
 decode_frame_ga.exit.thread:                      ; preds = %265, %253, %decode_extension_payload.exit.i, %722, %.critedge.critedge.i, %389, %271, %336, %752
-  %.1.i.ph = phi i32 [ %.0.i196.i, %decode_extension_payload.exit.i ], [ -1094995529, %.critedge.critedge.i ], [ -1094995529, %722 ], [ -1094995529, %752 ], [ -1094995529, %336 ], [ -1094995529, %271 ], [ -1094995529, %389 ], [ -1094995529, %253 ], [ -1094995529, %265 ]
+  %.1.i.ph = phi i32 [ -1094995529, %.critedge.critedge.i ], [ %.0.i196.i, %decode_extension_payload.exit.i ], [ -1094995529, %722 ], [ -1094995529, %752 ], [ -1094995529, %336 ], [ -1094995529, %271 ], [ -1094995529, %389 ], [ -1094995529, %253 ], [ -1094995529, %265 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %frame_configure_elements.exit

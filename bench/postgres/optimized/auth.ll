@@ -677,7 +677,7 @@ auth_peer.exit:                                   ; preds = %161, %162, %165, %1
   br label %.thread50.i
 
 .thread50.i:                                      ; preds = %.thread50.sink.split.i, %296, %.critedge44.i, %.critedge5.i, %.critedge.i, %258, %246
-  %.030.shrunk54.i = phi i1 [ true, %.critedge44.i ], [ false, %246 ], [ false, %258 ], [ false, %.critedge.i ], [ false, %.critedge5.i ], [ false, %296 ], [ false, %.thread50.sink.split.i ]
+  %.030.shrunk54.i = phi i1 [ true, %.critedge44.i ], [ false, %.critedge5.i ], [ false, %246 ], [ false, %258 ], [ false, %296 ], [ false, %.critedge.i ], [ false, %.thread50.sink.split.i ]
   %300 = call i32 @close(i32 noundef %232) #15
   br label %.threadthread-pre-split.i
 

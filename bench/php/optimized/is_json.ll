@@ -552,8 +552,8 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
   br i1 %exitcond.not.i71, label %json_parse_number.exit, label %.lr.ph76.i
 
 json_parse_number.exit:                           ; preds = %.lr.ph147, %.lr.ph76.i, %.lr.ph76.preheader.i, %._crit_edge.i, %._crit_edge67.i, %157, %159, %166
-  %.239.i = phi ptr [ %.138.lcssa.i, %._crit_edge.i ], [ %160, %159 ], [ %.4.lcssa.i, %._crit_edge67.i ], [ %.4.lcssa.i, %157 ], [ %.5.i, %166 ], [ %.5.i, %.lr.ph76.preheader.i ], [ %scevgep85.i, %.lr.ph147 ], [ %173, %.lr.ph76.i ]
-  %.1.i = phi i32 [ %.0.lcssa.i70, %._crit_edge.i ], [ 0, %159 ], [ %.2.lcssa.i, %._crit_edge67.i ], [ 1, %157 ], [ 0, %166 ], [ 0, %.lr.ph76.preheader.i ], [ 1, %.lr.ph76.i ], [ 1, %.lr.ph147 ]
+  %.239.i = phi ptr [ %.138.lcssa.i, %._crit_edge.i ], [ %160, %159 ], [ %.4.lcssa.i, %157 ], [ %.4.lcssa.i, %._crit_edge67.i ], [ %.5.i, %166 ], [ %.5.i, %.lr.ph76.preheader.i ], [ %scevgep85.i, %.lr.ph147 ], [ %173, %.lr.ph76.i ]
+  %.1.i = phi i32 [ %.0.lcssa.i70, %._crit_edge.i ], [ 0, %159 ], [ 1, %157 ], [ %.2.lcssa.i, %._crit_edge67.i ], [ 0, %166 ], [ 0, %.lr.ph76.preheader.i ], [ 1, %.lr.ph76.i ], [ 1, %.lr.ph147 ]
   store ptr %.239.i, ptr %7, align 8, !tbaa !13
   br label %json_parse_const.exit
 

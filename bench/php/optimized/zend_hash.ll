@@ -15719,7 +15719,7 @@ _zend_hash_get_valid_pos.exit.thread.sink.split:  ; preds = %.preheader33, %.pre
   br label %_zend_hash_get_valid_pos.exit.thread
 
 _zend_hash_get_valid_pos.exit.thread:             ; preds = %21, %27, %_zend_hash_get_valid_pos.exit.thread.sink.split, %.preheader35, %.preheader34, %_zend_hash_get_valid_pos.exit
-  %.023 = phi i32 [ -1, %27 ], [ -1, %.preheader35 ], [ -1, %.preheader34 ], [ 0, %_zend_hash_get_valid_pos.exit.thread.sink.split ], [ -1, %_zend_hash_get_valid_pos.exit ], [ -1, %21 ]
+  %.023 = phi i32 [ 0, %_zend_hash_get_valid_pos.exit.thread.sink.split ], [ -1, %.preheader34 ], [ -1, %.preheader35 ], [ -1, %27 ], [ -1, %_zend_hash_get_valid_pos.exit ], [ -1, %21 ]
   ret i32 %.023
 }
 

@@ -820,7 +820,7 @@ parse_content_length.exit:                        ; preds = %88, %92
   br label %split_tag_value.exit
 
 split_tag_value.exit:                             ; preds = %parse_content_length.exit, %96, %83, %79
-  %.2 = phi i32 [ %.029130, %96 ], [ %.029130, %83 ], [ %.029130, %parse_content_length.exit ], [ 1, %79 ]
+  %.2 = phi i32 [ %.029130, %parse_content_length.exit ], [ 1, %79 ], [ %.029130, %96 ], [ %.029130, %83 ]
   %97 = load i32, ptr %21, align 8, !tbaa !30
   %.not43 = icmp eq i32 %97, 0
   br i1 %.not43, label %45, label %split_tag_value.exit.thread108

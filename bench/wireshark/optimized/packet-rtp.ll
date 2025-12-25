@@ -4286,8 +4286,8 @@ define internal fastcc void @dissect_rtp_data(ptr noundef %0, ptr noundef %1, pt
   %.not116.not = icmp eq i32 %50, 0
   br i1 %.not116.not, label %.critedge, label %.thread125
 
-.thread125:                                       ; preds = %42, %45, %48
-  %.0128 = phi ptr [ %49, %48 ], [ %39, %45 ], [ %39, %42 ]
+.thread125:                                       ; preds = %45, %42, %48
+  %.0128 = phi ptr [ %49, %48 ], [ %39, %42 ], [ %39, %45 ]
   %51 = load i32, ptr %25, align 4
   %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0128, i32 noundef %51)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 80

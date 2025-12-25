@@ -15379,7 +15379,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt7variantIJNS_14PointerIntPairIPNS_8LoadInstE
   br label %_ZN4llvm15SmallVectorImplISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEEPNS_9StoreInstEEEE12emplace_backIJRSB_EEERSE_DpOT_.exit.thread62.i.i
 
 _ZN4llvm15SmallVectorImplISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEEPNS_9StoreInstEEEE12emplace_backIJRSB_EEERSE_DpOT_.exit.thread62.i.i: ; preds = %_ZL29isSafeLoadOfSelectToSpeculateRN4llvm8LoadInstERNS_10SelectInstEb.exit.i.i, %2117, %2110, %2095, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i, %2085, %_ZN4llvm23SmallVectorTemplateBaseISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEEPNS_9StoreInstEEELb1EE18uninitialized_moveIPSE_SH_EEvT_SI_T0_.exit.i.i.i, %_ZN4llvm15SmallVectorImplISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEEPNS_9StoreInstEEEE12assignRemoteEOSF_.exit.i.i.i, %.critedge.i327.i, %.critedge.thread.i.i
-  %.sink.i.i = phi i8 [ 1, %.critedge.i327.i ], [ 1, %_ZN4llvm15SmallVectorImplISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEEPNS_9StoreInstEEEE12assignRemoteEOSF_.exit.i.i.i ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEEPNS_9StoreInstEEELb1EE18uninitialized_moveIPSE_SH_EEvT_SI_T0_.exit.i.i.i ], [ 1, %.critedge.thread.i.i ], [ 0, %2085 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i ], [ 0, %2095 ], [ 0, %2110 ], [ 0, %2117 ], [ 0, %_ZL29isSafeLoadOfSelectToSpeculateRN4llvm8LoadInstERNS_10SelectInstEb.exit.i.i ]
+  %.sink.i.i = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEEPNS_9StoreInstEEELb1EE18uninitialized_moveIPSE_SH_EEvT_SI_T0_.exit.i.i.i ], [ 1, %_ZN4llvm15SmallVectorImplISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj2ES8_EEEEPNS_9StoreInstEEEE12assignRemoteEOSF_.exit.i.i.i ], [ 1, %.critedge.i327.i ], [ 1, %.critedge.thread.i.i ], [ 0, %2085 ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ 0, %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i ], [ 0, %2095 ], [ 0, %2110 ], [ 0, %2117 ], [ 0, %_ZL29isSafeLoadOfSelectToSpeculateRN4llvm8LoadInstERNS_10SelectInstEb.exit.i.i ]
   store i8 %.sink.i.i, ptr %387, align 8, !tbaa !849, !alias.scope !844
   %2181 = load ptr, ptr %7, align 8, !tbaa !25, !noalias !844
   %2182 = icmp eq ptr %2181, %380
@@ -22100,7 +22100,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit95.i.thread48: ; pr
   br label %.thread154.i
 
 .thread154.i:                                     ; preds = %.thread157.i, %156, %147, %134, %.thread154.sink.split.i
-  %.8.i = phi ptr [ null, %.thread154.sink.split.i ], [ %.sroa.2.0.copyload.i.i, %134 ], [ %.sroa.2.0.copyload.i.i, %147 ], [ null, %.thread157.i ], [ %.sroa.2.0.copyload.i.i, %156 ]
+  %.8.i = phi ptr [ null, %.thread154.sink.split.i ], [ %.sroa.2.0.copyload.i.i, %134 ], [ %.sroa.2.0.copyload.i.i, %147 ], [ %.sroa.2.0.copyload.i.i, %156 ], [ null, %.thread157.i ]
   %195 = load ptr, ptr %4, align 8, !tbaa !25
   %196 = icmp eq ptr %195, %127
   br i1 %196, label %_ZN4llvm11SmallVectorISt4pairIPNS_11InstructionES3_ELj4EED2Ev.exit.i, label %197
@@ -33902,7 +33902,7 @@ tailrecurse:                                      ; preds = %74, %4
   br label %.critedge175
 
 .critedge175:                                     ; preds = %.critedge, %60, %74, %35, %86, %93, %139, %132, %129, %111, %97, %118, %114, %91, %88, %79, %81, %84, %23
-  %.0 = phi ptr [ %24, %23 ], [ null, %81 ], [ null, %132 ], [ null, %129 ], [ %., %139 ], [ %119, %118 ], [ %115, %114 ], [ %80, %79 ], [ %85, %84 ], [ null, %86 ], [ null, %91 ], [ null, %88 ], [ null, %93 ], [ null, %111 ], [ null, %97 ], [ null, %35 ], [ null, %74 ], [ null, %60 ], [ null, %.critedge ]
+  %.0 = phi ptr [ %24, %23 ], [ null, %81 ], [ %115, %114 ], [ null, %129 ], [ %119, %118 ], [ %., %139 ], [ null, %132 ], [ %80, %79 ], [ %85, %84 ], [ null, %86 ], [ null, %91 ], [ null, %88 ], [ null, %93 ], [ null, %111 ], [ null, %97 ], [ null, %35 ], [ null, %74 ], [ null, %60 ], [ null, %.critedge ]
   ret ptr %.0
 }
 
@@ -38082,8 +38082,8 @@ _ZNK4llvm4Type14getWithNewTypeEPS0_.exit.i:       ; preds = %120, %112
   br label %161
 
 _ZN4llvm15SmallVectorImplIPNS_10VectorTypeEE6resizeEm.exit.i: ; preds = %_ZN4llvm15SmallVectorImplIPNS_10VectorTypeEE5eraseEPKS2_S5_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10VectorTypeELb1EE9push_backES2_.exit.i
-  %.val.i.i = phi ptr [ %.val.i.i.pre, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10VectorTypeELb1EE9push_backES2_.exit.i ], [ %.val614.i, %_ZN4llvm15SmallVectorImplIPNS_10VectorTypeEE5eraseEPKS2_S5_.exit.i ]
-  %.val3.i.i = phi i32 [ %36, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10VectorTypeELb1EE9push_backES2_.exit.i ], [ %104, %_ZN4llvm15SmallVectorImplIPNS_10VectorTypeEE5eraseEPKS2_S5_.exit.i ]
+  %.val.i.i = phi ptr [ %.val614.i, %_ZN4llvm15SmallVectorImplIPNS_10VectorTypeEE5eraseEPKS2_S5_.exit.i ], [ %.val.i.i.pre, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10VectorTypeELb1EE9push_backES2_.exit.i ]
+  %.val3.i.i = phi i32 [ %104, %_ZN4llvm15SmallVectorImplIPNS_10VectorTypeEE5eraseEPKS2_S5_.exit.i ], [ %36, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10VectorTypeELb1EE9push_backES2_.exit.i ]
   %128 = zext i32 %.val3.i.i to i64
   %.idx1.i.i.i = shl nuw nsw i64 %128, 3
   %129 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.idx1.i.i.i

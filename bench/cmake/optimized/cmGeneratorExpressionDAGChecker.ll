@@ -751,7 +751,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i87: ; preds = %16, %_ZN
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit66
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit66: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i87, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i83
-  %26 = phi i1 [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i83 ], [ %25, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i87 ]
+  %26 = phi i1 [ %25, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i87 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i83 ]
   %27 = add i32 %2, -1
   %or.cond = icmp ult i32 %27, 2
   %brmerge = or i1 %or.cond, %26

@@ -6172,7 +6172,7 @@ define internal i32 @inet6_rtm_getaddr(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %66, label %.thread18, label %.preheader, !llvm.loop !88
 
 67:                                               ; preds = %52, %33
-  %68 = phi i32 [ %53, %52 ], [ %36, %33 ]
+  %68 = phi i32 [ %36, %33 ], [ %53, %52 ]
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %.thread, label %.thread18
 
@@ -6441,7 +6441,7 @@ define internal i32 @inet6_netconf_get_devconf(ptr noundef %0, ptr noundef %1, p
   br label %.thread16
 
 47:                                               ; preds = %30, %22
-  %48 = phi i32 [ %33, %30 ], [ %25, %22 ]
+  %48 = phi i32 [ %25, %22 ], [ %33, %30 ]
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %.thread16, label %.thread17
 

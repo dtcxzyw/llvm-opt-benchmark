@@ -385,11 +385,11 @@ process_shared_options.exit:                      ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %._crit_edge159
 
-.loopexit131:                                     ; preds = %4, %20, %14, %10, %70, %63, %53
+.loopexit131:                                     ; preds = %4, %20, %14, %10, %53, %63, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %._crit_edge159
 
-75:                                               ; preds = %67, %55
+75:                                               ; preds = %55, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %76 = load i32, ptr @num_tests, align 4, !tbaa !3
   %77 = icmp slt i32 %76, 1

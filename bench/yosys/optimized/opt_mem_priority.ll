@@ -3709,14 +3709,14 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i:       ; preds = %881
 
 885:                                              ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i, %882
   %.not.i4.i.i.i = icmp eq ptr %.sroa.4.0.copyload18.i, null
-  br i1 %.not.i4.i.i.i, label %_ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.i, label %886
+  br i1 %.not.i4.i.i.i, label %886, label %_ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.i
 
 886:                                              ; preds = %885
-  %887 = icmp eq i32 %.sroa.5.0.copyload.i, %.sroa.7.0.copyload
+  %887 = icmp eq i8 %.sroa.7.sroa.0.0.extract.trunc.i, %.sroa.7.sroa.027.0.extract.trunc.i
   br i1 %887, label %892, label %_ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.thread.i
 
 _ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.i: ; preds = %885
-  %888 = icmp eq i8 %.sroa.7.sroa.0.0.extract.trunc.i, %.sroa.7.sroa.027.0.extract.trunc.i
+  %888 = icmp eq i32 %.sroa.5.0.copyload.i, %.sroa.7.0.copyload
   br i1 %888, label %892, label %_ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.thread.i
 
 _ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.thread.i: ; preds = %_ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.i, %886, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i, %882, %877
@@ -4166,14 +4166,14 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i464:    ; preds = %1062
 
 1066:                                             ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i464, %1063
   %.not.i4.i.i.i466 = icmp eq ptr %.sroa.4.0.copyload18.i457, null
-  br i1 %.not.i4.i.i.i466, label %_ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.i467, label %1067
+  br i1 %.not.i4.i.i.i466, label %1067, label %_ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.i467
 
 1067:                                             ; preds = %1066
-  %1068 = icmp eq i32 %.sroa.5.0.copyload.i459, %.sroa.539.0.copyload.i448
+  %1068 = icmp eq i8 %.sroa.7.sroa.0.0.extract.trunc.i461, %.sroa.7.sroa.027.0.extract.trunc.i450
   br i1 %1068, label %.loopexit, label %_ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.thread.i462
 
 _ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.i467: ; preds = %1066
-  %1069 = icmp eq i8 %.sroa.7.sroa.0.0.extract.trunc.i461, %.sroa.7.sroa.027.0.extract.trunc.i450
+  %1069 = icmp eq i32 %.sroa.5.0.copyload.i459, %.sroa.539.0.copyload.i448
   br i1 %1069, label %.loopexit, label %_ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.thread.i462
 
 _ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.thread.i462: ; preds = %_ZN5Yosys7hashlib8hash_opsISt4pairINS_5RTLIL6SigBitES4_EE3cmpES5_S5_.exit.i467, %1067, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.i.i.i464, %1063, %1058

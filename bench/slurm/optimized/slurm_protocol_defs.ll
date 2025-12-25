@@ -3820,7 +3820,7 @@ define internal range(i32 -1, 2) i32 @_slurm_addto_id_char_list_internal(ptr nou
   br label %_convert_to_id.exit.thread
 
 _convert_to_id.exit:                              ; preds = %.thread.i, %.thread16.i
-  %21 = phi ptr [ %18, %.thread16.i ], [ %12, %.thread.i ]
+  %21 = phi ptr [ %12, %.thread.i ], [ %18, %.thread16.i ]
   store ptr %21, ptr %6, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %_convert_to_id.exit.thread, label %23

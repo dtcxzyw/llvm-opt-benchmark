@@ -3418,9 +3418,9 @@ thread-pre-split.i.preheader:                     ; preds = %_ZNK6vectorIP3appLb
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.i.backedge, %thread-pre-split.i.preheader
-  %39 = phi ptr [ %35, %thread-pre-split.i.preheader ], [ %.be104, %thread-pre-split.i.backedge ]
-  %40 = phi ptr [ %36, %thread-pre-split.i.preheader ], [ %.be104, %thread-pre-split.i.backedge ]
-  %41 = phi ptr [ %.ph, %thread-pre-split.i.preheader ], [ %.be104, %thread-pre-split.i.backedge ]
+  %39 = phi ptr [ %35, %thread-pre-split.i.preheader ], [ %.be105, %thread-pre-split.i.backedge ]
+  %40 = phi ptr [ %36, %thread-pre-split.i.preheader ], [ %.be105, %thread-pre-split.i.backedge ]
+  %41 = phi ptr [ %.ph, %thread-pre-split.i.preheader ], [ %.be105, %thread-pre-split.i.backedge ]
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i, label %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.i
 
@@ -3447,7 +3447,7 @@ _ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i: ; preds = %_ZNK6vectorIP3appLb
   br label %thread-pre-split.i.backedge
 
 thread-pre-split.i.backedge:                      ; preds = %.noexc49, %.noexc50
-  %.be104 = phi ptr [ %50, %.noexc49 ], [ %90, %.noexc50 ]
+  %.be105 = phi ptr [ %90, %.noexc50 ], [ %50, %.noexc49 ]
   br label %thread-pre-split.i, !llvm.loop !322
 
 51:                                               ; preds = %_ZNK6vectorIP3appLb0EjE8capacityEv.exit.thread.i

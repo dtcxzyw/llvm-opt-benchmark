@@ -3594,7 +3594,7 @@ SDL_UpdateFullscreenDisplayModes.exit:            ; preds = %35, %42
   br i1 %98, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %95, %.lr.ph
-  %.046.lcssa = phi ptr [ %.04664, %.lr.ph ], [ %.147, %95 ]
+  %.046.lcssa = phi ptr [ %.147, %95 ], [ %.04664, %.lr.ph ]
   %.not58 = icmp eq ptr %.046.lcssa, null
   br i1 %.not58, label %._crit_edge.thread, label %100
 
@@ -5198,7 +5198,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   br label %tailrecurse
 
 .thread175:                                       ; preds = %85, %80, %89, %.thread173
-  %.0113 = phi i1 [ %.not147, %89 ], [ %.not147, %.thread173 ], [ false, %80 ], [ false, %85 ]
+  %.0113 = phi i1 [ %.not147, %.thread173 ], [ %.not147, %89 ], [ false, %80 ], [ false, %85 ]
   %92 = load i64, ptr %10, align 8
   %93 = and i64 %92, 1
   %.not149 = icmp eq i64 %93, 0
@@ -5999,7 +5999,7 @@ SDL_GetVideoDisplay.exit.thread.sink.split:       ; preds = %71, %.preheader.i.i
   br label %SDL_GetVideoDisplay.exit.thread
 
 SDL_GetVideoDisplay.exit.thread:                  ; preds = %102, %103, %SDL_GetVideoDisplay.exit.thread.sink.split, %.preheader, %SDL_GetVideoDisplay.exit, %.loopexit, %1, %6
-  %.023 = phi ptr [ null, %1 ], [ null, %6 ], [ %97, %.loopexit ], [ null, %SDL_GetVideoDisplay.exit ], [ null, %.preheader ], [ null, %SDL_GetVideoDisplay.exit.thread.sink.split ], [ %104, %103 ], [ null, %102 ]
+  %.023 = phi ptr [ null, %1 ], [ null, %6 ], [ %97, %.loopexit ], [ null, %SDL_GetVideoDisplay.exit ], [ null, %.preheader ], [ null, %SDL_GetVideoDisplay.exit.thread.sink.split ], [ null, %102 ], [ %104, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.023
 }

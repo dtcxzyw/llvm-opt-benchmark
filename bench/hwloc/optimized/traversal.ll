@@ -2768,13 +2768,13 @@ hwloc_get_type_depth.exit.i.backedge:             ; preds = %60, %63, %54, %57, 
   br i1 %.not82, label %.loopexit.sink.split, label %.lr.ph123.split.split, !llvm.loop !88
 
 .loopexit.sink.split:                             ; preds = %126, %112, %103, %95, %29, %28, %31, %38, %hwloc_get_next_obj_by_type.exit, %66, %92, %86, %89, %80, %83, %78, %68, %hwloc_get_type_depth.exit.i.lr.ph, %9, %6
-  %.sink = phi i32 [ 2, %hwloc_get_type_depth.exit.i.lr.ph ], [ 22, %68 ], [ 2, %78 ], [ 2, %80 ], [ 2, %86 ], [ 22, %6 ], [ 22, %9 ], [ 2, %92 ], [ 22, %66 ], [ 2, %95 ], [ 2, %103 ], [ 2, %112 ], [ 2, %29 ], [ 2, %83 ], [ 2, %89 ], [ 2, %hwloc_get_next_obj_by_type.exit ], [ 2, %38 ], [ 2, %31 ], [ 2, %28 ], [ 2, %126 ]
+  %.sink = phi i32 [ 2, %hwloc_get_type_depth.exit.i.lr.ph ], [ 22, %68 ], [ 2, %78 ], [ 2, %80 ], [ 2, %86 ], [ 22, %6 ], [ 22, %9 ], [ 2, %92 ], [ 2, %29 ], [ 2, %112 ], [ 2, %103 ], [ 2, %95 ], [ 22, %66 ], [ 2, %83 ], [ 2, %89 ], [ 2, %hwloc_get_next_obj_by_type.exit ], [ 2, %38 ], [ 2, %31 ], [ 2, %28 ], [ 2, %126 ]
   %128 = tail call ptr @__errno_location() #23
   store i32 %.sink, ptr %128, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %123, %109, %101, %.lr.ph123.split.us.split.us, %63, %59, %.loopexit.sink.split, %89, %85
-  %.061 = phi ptr [ %.0.i, %63 ], [ null, %.loopexit.sink.split ], [ %.058.lcssa, %85 ], [ %.0121.us.us, %.lr.ph123.split.us.split.us ], [ %.0121.us, %101 ], [ %.058.lcssa, %89 ], [ %.0121.us125, %109 ], [ %.0.i, %59 ], [ %.0121, %123 ]
+  %.061 = phi ptr [ %.0121.us.us, %.lr.ph123.split.us.split.us ], [ %.0121.us, %101 ], [ %.058.lcssa, %89 ], [ %.058.lcssa, %85 ], [ %.0.i, %63 ], [ %.0121.us125, %109 ], [ null, %.loopexit.sink.split ], [ %.0.i, %59 ], [ %.0121, %123 ]
   ret ptr %.061
 }
 

@@ -5867,7 +5867,7 @@ _ZNK12_GLOBAL__N_116RegAllocFastImpl22shouldAllocateRegisterEN4llvm8RegisterE.ex
   br i1 %.not.i.i.i.i.i.i349.i.i, label %_ZN12_GLOBAL__N_116RegAllocFastImpl9mayLiveInEN4llvm8RegisterE.exit.i.i, label %.lr.ph.i346.i.i
 
 .lr.ph.i346.i.i:                                  ; preds = %2411, %2405
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %2410, %2411 ], [ %.0.i.i.i.i.i.i, %2405 ]
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %.0.i.i.i.i.i.i, %2405 ], [ %2410, %2411 ]
   %2414 = load ptr, ptr %145, align 8, !tbaa !74
   %2415 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 8
   %2416 = load ptr, ptr %2415, align 8, !tbaa !477
@@ -6207,7 +6207,7 @@ _ZN12_GLOBAL__N_116RegAllocFastImpl10useVirtRegERN4llvm12MachineInstrERNS1_14Mac
   br label %2560
 
 2560:                                             ; preds = %.sink.split, %_ZNK12_GLOBAL__N_116RegAllocFastImpl22shouldAllocateRegisterEN4llvm8RegisterE.exit339.thread.i.i, %_ZNK12_GLOBAL__N_116RegAllocFastImpl22shouldAllocateRegisterEN4llvm8RegisterE.exit339.i.i, %2375, %.lr.ph692.i.i
-  %.3221.ph.i.i = phi i1 [ %.1219689.i.i, %.lr.ph692.i.i ], [ %.1219689.i.i, %2375 ], [ true, %_ZNK12_GLOBAL__N_116RegAllocFastImpl22shouldAllocateRegisterEN4llvm8RegisterE.exit339.thread.i.i ], [ %.1219689.i.i, %_ZNK12_GLOBAL__N_116RegAllocFastImpl22shouldAllocateRegisterEN4llvm8RegisterE.exit339.i.i ], [ %.1219689.i.i, %.sink.split ]
+  %.3221.ph.i.i = phi i1 [ %.1219689.i.i, %2375 ], [ %.1219689.i.i, %.lr.ph692.i.i ], [ true, %_ZNK12_GLOBAL__N_116RegAllocFastImpl22shouldAllocateRegisterEN4llvm8RegisterE.exit339.thread.i.i ], [ %.1219689.i.i, %_ZNK12_GLOBAL__N_116RegAllocFastImpl22shouldAllocateRegisterEN4llvm8RegisterE.exit339.i.i ], [ %.1219689.i.i, %.sink.split ]
   %2561 = getelementptr inbounds nuw i8, ptr %.0211690.i.i, i64 32
   %.not228.i.i = icmp eq ptr %2561, %2371
   br i1 %.not228.i.i, label %.loopexit867.i.i, label %.lr.ph692.i.i
@@ -11890,7 +11890,7 @@ _ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit: ; preds = %87, %.lr.
   br i1 %.not.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_116RegAllocFastImpl13isPhysRegFreeEt.exit105, label %.lr.ph.preheader.i75
 
 .lr.ph.preheader.i75:                             ; preds = %128, %122
-  %.sroa.0.0.i.i.i = phi ptr [ %127, %128 ], [ %.0.i.i.i.i, %122 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %122 ], [ %127, %128 ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !477
   br label %.lr.ph.i76
@@ -13090,7 +13090,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116RegAllocFastImpl10
   br i1 %.not.i.i.i.i.i, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %44
-  %.sroa.0.0.i.i = phi ptr [ %43, %44 ], [ %.0.i.i.i, %38 ]
+  %.sroa.0.0.i.i = phi ptr [ %.0.i.i.i, %38 ], [ %43, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !477
@@ -13304,7 +13304,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
   br i1 %exitcond, label %.split.us, label %143
 
 .split.us:                                        ; preds = %.lr.ph159, %.lr.ph102.split.loopexit, %.lr.ph164, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.us.loopexit, %.lr.ph102.split.preheader, %.lr.ph102.split.us
-  %.us-phi = phi ptr [ %111, %.lr.ph102.split.us ], [ %110, %.lr.ph102.split.preheader ], [ %111, %.lr.ph164 ], [ %111, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.us.loopexit ], [ %133, %.lr.ph159 ], [ %132, %.lr.ph102.split.loopexit ]
+  %.us-phi = phi ptr [ %111, %.lr.ph102.split.us ], [ %110, %.lr.ph102.split.preheader ], [ %111, %.lr.ph164 ], [ %111, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEppEv.exit.us.loopexit ], [ %132, %.lr.ph102.split.loopexit ], [ %133, %.lr.ph159 ]
   %137 = load ptr, ptr %7, align 8, !tbaa !25
   %138 = getelementptr inbounds nuw i64, ptr %137, i64 %13
   %139 = load i64, ptr %138, align 8, !tbaa !56

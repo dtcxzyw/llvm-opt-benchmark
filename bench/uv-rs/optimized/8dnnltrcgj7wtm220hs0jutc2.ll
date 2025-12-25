@@ -690,8 +690,8 @@ default.unreachable144:                           ; preds = %182, %2
   br label %.loopexit.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke281, %.invoke, %286, %282, %273, %249, %244, %224
-  %.sroa.0179.0318.i.i = phi i64 [ %.sroa.0179.0.i.i.ph285, %286 ], [ %.sroa.0179.0.i.i.ph285, %.invoke ], [ %.sroa.0179.0.i.i.ph285, %273 ], [ %.sroa.0179.0.i.i.ph285, %224 ], [ 1, %244 ], [ 0, %249 ], [ %.sroa.0179.0.i.i.ph285, %.invoke281 ], [ %.sroa.0179.0.i.i.ph285, %282 ]
-  %.sroa.0104.1.ph.i.i = phi i8 [ 0, %286 ], [ 1, %.invoke ], [ 1, %273 ], [ 1, %224 ], [ 1, %244 ], [ 1, %249 ], [ 1, %.invoke281 ], [ 0, %282 ]
+  %.sroa.0179.0318.i.i = phi i64 [ %.sroa.0179.0.i.i.ph285, %286 ], [ 0, %249 ], [ %.sroa.0179.0.i.i.ph285, %273 ], [ %.sroa.0179.0.i.i.ph285, %282 ], [ 1, %244 ], [ %.sroa.0179.0.i.i.ph285, %224 ], [ %.sroa.0179.0.i.i.ph285, %.invoke281 ], [ %.sroa.0179.0.i.i.ph285, %.invoke ]
+  %.sroa.0104.1.ph.i.i = phi i8 [ 0, %286 ], [ 1, %249 ], [ 1, %273 ], [ 0, %282 ], [ 1, %244 ], [ 1, %224 ], [ 1, %.invoke281 ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
@@ -1683,8 +1683,8 @@ default.unreachable144:                           ; preds = %182, %2
   br label %.loopexit.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke281, %.invoke, %286, %282, %273, %249, %244, %224
-  %.sroa.0179.0318.i.i = phi i64 [ %.sroa.0179.0.i.i.ph285, %286 ], [ %.sroa.0179.0.i.i.ph285, %.invoke ], [ %.sroa.0179.0.i.i.ph285, %273 ], [ %.sroa.0179.0.i.i.ph285, %224 ], [ 1, %244 ], [ 0, %249 ], [ %.sroa.0179.0.i.i.ph285, %.invoke281 ], [ %.sroa.0179.0.i.i.ph285, %282 ]
-  %.sroa.0104.1.ph.i.i = phi i8 [ 0, %286 ], [ 1, %.invoke ], [ 1, %273 ], [ 1, %224 ], [ 1, %244 ], [ 1, %249 ], [ 1, %.invoke281 ], [ 0, %282 ]
+  %.sroa.0179.0318.i.i = phi i64 [ %.sroa.0179.0.i.i.ph285, %286 ], [ 0, %249 ], [ %.sroa.0179.0.i.i.ph285, %273 ], [ %.sroa.0179.0.i.i.ph285, %282 ], [ 1, %244 ], [ %.sroa.0179.0.i.i.ph285, %224 ], [ %.sroa.0179.0.i.i.ph285, %.invoke281 ], [ %.sroa.0179.0.i.i.ph285, %.invoke ]
+  %.sroa.0104.1.ph.i.i = phi i8 [ 0, %286 ], [ 1, %249 ], [ 1, %273 ], [ 0, %282 ], [ 1, %244 ], [ 1, %224 ], [ 1, %.invoke281 ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
@@ -2681,8 +2681,8 @@ default.unreachable145:                           ; preds = %183, %2
   br label %.loopexit.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %.invoke284, %.invoke, %281, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h052a16d9c6193067E.exit.i.i", %270, %246, %241
-  %.sroa.0151.0290.i.i = phi i64 [ %.sroa.0151.0.i.i.ph288, %281 ], [ %.sroa.0151.0.i.i.ph288, %270 ], [ %.sroa.0151.0.i.i.ph288, %.invoke ], [ 1, %241 ], [ 0, %246 ], [ %.sroa.0151.0.i.i.ph288, %.invoke284 ], [ %.sroa.0151.0.i.i.ph288, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h052a16d9c6193067E.exit.i.i" ]
-  %.sroa.084.1.ph.i.i = phi i1 [ false, %281 ], [ true, %270 ], [ true, %.invoke ], [ true, %241 ], [ true, %246 ], [ true, %.invoke284 ], [ false, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h052a16d9c6193067E.exit.i.i" ]
+  %.sroa.0151.0290.i.i = phi i64 [ %.sroa.0151.0.i.i.ph288, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h052a16d9c6193067E.exit.i.i" ], [ %.sroa.0151.0.i.i.ph288, %270 ], [ 0, %246 ], [ 1, %241 ], [ %.sroa.0151.0.i.i.ph288, %.invoke ], [ %.sroa.0151.0.i.i.ph288, %.invoke284 ], [ %.sroa.0151.0.i.i.ph288, %281 ]
+  %.sroa.084.1.ph.i.i = phi i1 [ false, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h052a16d9c6193067E.exit.i.i" ], [ true, %270 ], [ true, %246 ], [ true, %241 ], [ true, %.invoke ], [ true, %.invoke284 ], [ false, %281 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i

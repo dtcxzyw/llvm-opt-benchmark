@@ -5935,7 +5935,7 @@ init_predictor_decoder.exit:                      ; preds = %102, %109
   br i1 %exitcond.not, label %init_entropy_decoder.exit.thread, label %120, !llvm.loop !160
 
 init_entropy_decoder.exit.thread:                 ; preds = %126, %120, %5, %58
-  %.0 = phi i32 [ -1094995529, %5 ], [ -1094995529, %58 ], [ 0, %120 ], [ 0, %126 ]
+  %.0 = phi i32 [ -1094995529, %58 ], [ -1094995529, %5 ], [ 0, %120 ], [ 0, %126 ]
   ret i32 %.0
 }
 

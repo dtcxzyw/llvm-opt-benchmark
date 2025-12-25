@@ -13009,7 +13009,7 @@ if.end55:                                         ; preds = %for.body51
   br i1 %cmp.i26.not, label %cleanup, label %for.body51
 
 cleanup:                                          ; preds = %for.body51, %if.end55, %if.end41, %for.end.i.i.i, %invoke.cont33
-  %retval.1 = phi i64 [ %hint, %for.end.i.i.i ], [ %hint, %invoke.cont33 ], [ 0, %if.end41 ], [ %offset.090, %for.body51 ], [ %inc, %if.end55 ]
+  %retval.1 = phi i64 [ %hint, %invoke.cont33 ], [ %hint, %for.end.i.i.i ], [ 0, %if.end41 ], [ %offset.090, %for.body51 ], [ %inc, %if.end55 ]
   %tobool.not.i.i.i28 = icmp eq ptr %indices.sroa.0.1.lcssa, null
   br i1 %tobool.not.i.i.i28, label %return, label %if.then.i.i.i29
 

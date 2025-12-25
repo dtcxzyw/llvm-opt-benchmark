@@ -1760,9 +1760,9 @@ _ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17
   br label %294
 
 290:                                              ; preds = %.loopexit.split-lp137.i, %.loopexit136.i, %.loopexit.split-lp.i30, %.loopexit.i27, %220, %.loopexit.split-lp142.i, %.loopexit141.i
-  %.sroa.0.2.i = phi ptr [ %.sroa.0.0178.i, %.loopexit.split-lp142.i ], [ %.sroa.0.5190.i, %.loopexit.split-lp.i30 ], [ %.sroa.0.4.i, %220 ], [ %.sroa.0.0178.i, %.loopexit141.i ], [ %.sroa.0.6.ph.i, %.loopexit.i27 ], [ %.sroa.0.9.ph.i, %.loopexit136.i ], [ %.sroa.0.8184.i, %.loopexit.split-lp137.i ]
-  %.sroa.26.2.i = phi ptr [ %.sroa.26.0180.i, %.loopexit.split-lp142.i ], [ %.sroa.26.5192.i, %.loopexit.split-lp.i30 ], [ %.sroa.26.4.i, %220 ], [ %.sroa.26.0180.i, %.loopexit141.i ], [ %.sroa.26.6.ph.i, %.loopexit.i27 ], [ %.sroa.26.9.ph.i, %.loopexit136.i ], [ %.sroa.26.8186.i, %.loopexit.split-lp137.i ]
-  %.pn42.pn.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp144.i, %.loopexit.split-lp142.i ], [ %lpad.loopexit.split-lp.i31, %.loopexit.split-lp.i30 ], [ %221, %220 ], [ %lpad.loopexit143.i, %.loopexit141.i ], [ %lpad.loopexit.i28, %.loopexit.i27 ], [ %lpad.loopexit138.i, %.loopexit136.i ], [ %lpad.loopexit.split-lp139.i, %.loopexit.split-lp137.i ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.5190.i, %.loopexit.split-lp.i30 ], [ %.sroa.0.0178.i, %.loopexit.split-lp142.i ], [ %.sroa.0.4.i, %220 ], [ %.sroa.0.0178.i, %.loopexit141.i ], [ %.sroa.0.6.ph.i, %.loopexit.i27 ], [ %.sroa.0.9.ph.i, %.loopexit136.i ], [ %.sroa.0.8184.i, %.loopexit.split-lp137.i ]
+  %.sroa.26.2.i = phi ptr [ %.sroa.26.5192.i, %.loopexit.split-lp.i30 ], [ %.sroa.26.0180.i, %.loopexit.split-lp142.i ], [ %.sroa.26.4.i, %220 ], [ %.sroa.26.0180.i, %.loopexit141.i ], [ %.sroa.26.6.ph.i, %.loopexit.i27 ], [ %.sroa.26.9.ph.i, %.loopexit136.i ], [ %.sroa.26.8186.i, %.loopexit.split-lp137.i ]
+  %.pn42.pn.pn.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i31, %.loopexit.split-lp.i30 ], [ %lpad.loopexit.split-lp144.i, %.loopexit.split-lp142.i ], [ %221, %220 ], [ %lpad.loopexit143.i, %.loopexit141.i ], [ %lpad.loopexit.i28, %.loopexit.i27 ], [ %lpad.loopexit138.i, %.loopexit136.i ], [ %lpad.loopexit.split-lp139.i, %.loopexit.split-lp137.i ]
   %.not.i.i.i90.i = icmp eq ptr %.sroa.0.2.i, null
   br i1 %.not.i.i.i90.i, label %.body, label %.thread.i
 

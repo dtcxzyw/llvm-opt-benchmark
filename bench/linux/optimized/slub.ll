@@ -11281,7 +11281,7 @@ thread-pre-split.i:                               ; preds = %158, %158
   br label %260
 
 260:                                              ; preds = %251, %237
-  %261 = phi ptr [ %227, %237 ], [ %1, %251 ]
+  %261 = phi ptr [ %1, %251 ], [ %227, %237 ]
   %262 = load i64, ptr %261, align 16
   %263 = lshr i64 %262, 58
   %264 = getelementptr inbounds nuw i8, ptr %261, i64 40

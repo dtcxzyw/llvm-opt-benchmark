@@ -1202,7 +1202,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail24getHostCPUNameForPowerPCENS_
   ]
 
 .critedge81:                                      ; preds = %.critedge2, %.lr.ph, %.critedge6, %22, %.preheader, %10, %13, %19, %16, %7, %.lr.ph578
-  %.2 = phi ptr [ %spec.select, %.lr.ph578 ], [ %.4, %.critedge6 ], [ %11, %10 ], [ %spec.select, %7 ], [ %17, %19 ], [ %17, %16 ], [ %11, %13 ], [ %.4557, %.preheader ], [ %23, %22 ], [ %27, %.critedge2 ], [ %.3554, %.lr.ph ]
+  %.2 = phi ptr [ %spec.select, %.lr.ph578 ], [ %11, %10 ], [ %.4, %.critedge6 ], [ %spec.select, %7 ], [ %17, %19 ], [ %17, %16 ], [ %11, %13 ], [ %.4557, %.preheader ], [ %23, %22 ], [ %27, %.critedge2 ], [ %.3554, %.lr.ph ]
   %38 = icmp ult ptr %.2, %3
   br i1 %38, label %.lr.ph572, label %.critedge10
 

@@ -3984,7 +3984,7 @@ thread-pre-split:                                 ; preds = %49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %114, %.loopexit.sink.split, %153, %110
-  %156 = phi i32 [ 0, %.loopexit.sink.split ], [ 0, %153 ], [ -105, %110 ], [ -105, %114 ]
+  %156 = phi i32 [ -105, %110 ], [ 0, %153 ], [ 0, %.loopexit.sink.split ], [ -105, %114 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %24) #14
   br label %157
 

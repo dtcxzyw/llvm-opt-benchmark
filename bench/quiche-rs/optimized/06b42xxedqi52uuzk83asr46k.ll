@@ -9681,7 +9681,7 @@ define void @_ZN6quiche6stream8recv_buf7RecvBuf5reset17h196cee79672d924bE(ptr de
   br label %16
 
 16:                                               ; preds = %.sink.split, %4, %21, %11
-  %.sink = phi i64 [ 14, %4 ], [ 14, %11 ], [ %27, %21 ], [ 20, %.sink.split ]
+  %.sink = phi i64 [ %27, %21 ], [ 14, %11 ], [ 14, %4 ], [ 20, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

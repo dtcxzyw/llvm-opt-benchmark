@@ -686,7 +686,7 @@ bytestream2_get_le16.exit34.i:                    ; preds = %207, %206
   br label %.critedge
 
 .critedge:                                        ; preds = %.split74, %._crit_edge.i49, %168, %.split74.us.us.split, %._crit_edge.i.loopexit.us.us, %85, %.split74.us.us.split.us.split.us.us, %.critedge.sink.split, %.preheader, %8
-  %.038 = phi i32 [ -1094995529, %8 ], [ 0, %.split74.us.us.split.us.split.us.us ], [ -1094995529, %._crit_edge.i.loopexit.us.us ], [ -1094995529, %168 ], [ -1094995529, %.critedge.sink.split ], [ -1094995529, %._crit_edge.i49 ], [ 0, %.split74.us.us.split ], [ -1094995529, %85 ], [ 0, %.preheader ], [ 0, %.split74 ]
+  %.038 = phi i32 [ -1094995529, %8 ], [ 0, %.split74.us.us.split.us.split.us.us ], [ -1094995529, %168 ], [ -1094995529, %._crit_edge.i.loopexit.us.us ], [ -1094995529, %.critedge.sink.split ], [ -1094995529, %._crit_edge.i49 ], [ 0, %.split74.us.us.split ], [ -1094995529, %85 ], [ 0, %.preheader ], [ 0, %.split74 ]
   ret i32 %.038
 }
 

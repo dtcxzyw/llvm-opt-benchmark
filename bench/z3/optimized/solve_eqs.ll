@@ -870,7 +870,7 @@ _ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i.i:     ; preds = %50, %61
   br label %_ZNK3euf9solve_eqs10check_occsEP4expr.exit
 
 _ZNK3euf9solve_eqs10check_occsEP4expr.exit:       ; preds = %55, %69, %66, %2, %7, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i.i, %.preheader.i.i.i.i, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.thread, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit, %_Z17is_uninterp_constPK4expr.exit
-  %73 = phi i1 [ false, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit ], [ false, %_Z17is_uninterp_constPK4expr.exit ], [ true, %69 ], [ true, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.thread ], [ true, %.preheader.i.i.i.i ], [ false, %2 ], [ %72, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i.i ], [ false, %7 ], [ true, %66 ], [ true, %55 ]
+  %73 = phi i1 [ false, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit ], [ false, %_Z17is_uninterp_constPK4expr.exit ], [ true, %69 ], [ true, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.thread ], [ true, %.preheader.i.i.i.i ], [ false, %7 ], [ %72, %_ZNK7obj_mapI4exprjE9find_coreEPS0_.exit.i.i ], [ false, %2 ], [ true, %66 ], [ true, %55 ]
   ret i1 %73
 }
 

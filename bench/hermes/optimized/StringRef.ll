@@ -2028,7 +2028,7 @@ return.sink.split:                                ; preds = %_ZN4llvh22consumeUn
   br label %return
 
 return:                                           ; preds = %if.end43.i45, %if.end43.i, %return.sink.split, %while.end.i28, %if.end.i17, %while.end.i, %if.end.i, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit59, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit
-  %retval.0 = phi i1 [ true, %if.end43.i ], [ true, %while.end.i28 ], [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit ], [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit59 ], [ false, %return.sink.split ], [ true, %if.end.i ], [ true, %while.end.i ], [ true, %if.end.i17 ], [ true, %if.end43.i45 ]
+  %retval.0 = phi i1 [ true, %while.end.i28 ], [ true, %if.end43.i ], [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit ], [ true, %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit59 ], [ false, %return.sink.split ], [ true, %if.end.i ], [ true, %while.end.i ], [ true, %if.end.i17 ], [ true, %if.end43.i45 ]
   ret i1 %retval.0
 }
 

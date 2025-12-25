@@ -265,7 +265,7 @@ lex.exit:                                         ; preds = %43, %45
   br label %lex.exit400
 
 .thread847:                                       ; preds = %.loopexit.i386, %70, %64, %73
-  %.032.i388.ph = phi i32 [ 0, %70 ], [ 10, %73 ], [ 0, %64 ], [ %.0.i387, %.loopexit.i386 ]
+  %.032.i388.ph = phi i32 [ 10, %73 ], [ 0, %70 ], [ 0, %64 ], [ %.0.i387, %.loopexit.i386 ]
   store i32 47, ptr @ex_lval, align 8, !tbaa !28
   br label %205
 
@@ -2190,9 +2190,9 @@ lex.exit655.thread.thread.sink.split:             ; preds = %.loopexit.i592, %.l
   br label %lex.exit655.thread.thread
 
 lex.exit655.thread.thread:                        ; preds = %456, %450, %.loopexit.i592, %554, %560, %.loopexit.i641, %649, %643, %lex.exit636, %.loopexit.i682, %lex.exit696, %720, %726, %switch.early.test891, %lex.exit655.thread.thread.sink.split, %.loopexit.i531, %685, %lex.exit655.thread
-  %.2302 = phi i32 [ %.2302.ph, %lex.exit655.thread.thread.sink.split ], [ %.3303, %lex.exit655.thread ], [ 259, %.loopexit.i531 ], [ 262, %.loopexit.i641 ], [ 262, %685 ], [ 259, %switch.early.test891 ], [ 259, %554 ], [ 259, %.loopexit.i592 ], [ 262, %.loopexit.i682 ], [ 262, %649 ], [ 262, %720 ], [ 259, %lex.exit636 ], [ 262, %726 ], [ 262, %lex.exit696 ], [ 262, %643 ], [ 259, %560 ], [ 259, %450 ], [ 259, %456 ]
-  %.1296 = phi i32 [ 0, %lex.exit655.thread.thread.sink.split ], [ 0, %lex.exit655.thread ], [ %.0.i532, %.loopexit.i531 ], [ %.0.i642, %.loopexit.i641 ], [ 0, %685 ], [ 16, %switch.early.test891 ], [ 0, %554 ], [ %.0.i593, %.loopexit.i592 ], [ %.0.i683, %.loopexit.i682 ], [ 0, %649 ], [ 0, %720 ], [ 0, %lex.exit636 ], [ 0, %726 ], [ 0, %lex.exit696 ], [ 0, %643 ], [ 0, %560 ], [ 0, %450 ], [ 0, %456 ]
-  %.7 = phi i32 [ 10, %lex.exit655.thread.thread.sink.split ], [ %.10, %lex.exit655.thread ], [ %.0.i532, %.loopexit.i531 ], [ %.0.i642, %.loopexit.i641 ], [ %.11, %685 ], [ %.6, %switch.early.test891 ], [ 0, %554 ], [ %.0.i593, %.loopexit.i592 ], [ %.0.i683, %.loopexit.i682 ], [ 0, %649 ], [ 0, %720 ], [ %.032.i624, %lex.exit636 ], [ 0, %726 ], [ %.0.i683, %lex.exit696 ], [ 0, %643 ], [ 0, %560 ], [ 0, %450 ], [ 0, %456 ]
+  %.2302 = phi i32 [ 259, %lex.exit636 ], [ %.3303, %lex.exit655.thread ], [ 259, %.loopexit.i531 ], [ 262, %.loopexit.i641 ], [ 259, %switch.early.test891 ], [ 262, %685 ], [ 262, %720 ], [ 259, %.loopexit.i592 ], [ 259, %554 ], [ %.2302.ph, %lex.exit655.thread.thread.sink.split ], [ 262, %.loopexit.i682 ], [ 262, %649 ], [ 262, %726 ], [ 262, %lex.exit696 ], [ 262, %643 ], [ 259, %560 ], [ 259, %450 ], [ 259, %456 ]
+  %.1296 = phi i32 [ 0, %lex.exit636 ], [ 0, %lex.exit655.thread ], [ %.0.i532, %.loopexit.i531 ], [ %.0.i642, %.loopexit.i641 ], [ 16, %switch.early.test891 ], [ 0, %685 ], [ 0, %720 ], [ %.0.i593, %.loopexit.i592 ], [ 0, %554 ], [ 0, %lex.exit655.thread.thread.sink.split ], [ %.0.i683, %.loopexit.i682 ], [ 0, %649 ], [ 0, %726 ], [ 0, %lex.exit696 ], [ 0, %643 ], [ 0, %560 ], [ 0, %450 ], [ 0, %456 ]
+  %.7 = phi i32 [ %.032.i624, %lex.exit636 ], [ %.10, %lex.exit655.thread ], [ %.0.i532, %.loopexit.i531 ], [ %.0.i642, %.loopexit.i641 ], [ %.6, %switch.early.test891 ], [ %.11, %685 ], [ 0, %720 ], [ %.0.i593, %.loopexit.i592 ], [ 0, %554 ], [ 10, %lex.exit655.thread.thread.sink.split ], [ %.0.i683, %.loopexit.i682 ], [ 0, %649 ], [ 0, %726 ], [ %.0.i683, %lex.exit696 ], [ 0, %643 ], [ 0, %560 ], [ 0, %450 ], [ 0, %456 ]
   %.val.i697 = load i8, ptr %13, align 1, !tbaa !28
   switch i8 %.val.i697, label %agxblen.exit.i.i [
     i8 -1, label %738
@@ -3312,7 +3312,7 @@ agxbputc.exit812:                                 ; preds = %1076, %1081
   ]
 
 lex.exit831.backedge:                             ; preds = %1115, %1109, %.loopexit.i817, %1118, %1122
-  %.14.be = phi i32 [ %.0.i818, %1122 ], [ 10, %1118 ], [ %.0.i818, %.loopexit.i817 ], [ 0, %1109 ], [ 0, %1115 ]
+  %.14.be = phi i32 [ 10, %1118 ], [ %.0.i818, %1122 ], [ %.0.i818, %.loopexit.i817 ], [ 0, %1109 ], [ 0, %1115 ]
   br label %lex.exit831
 
 1118:                                             ; preds = %.loopexit.i817

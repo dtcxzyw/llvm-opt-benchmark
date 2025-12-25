@@ -8452,7 +8452,7 @@ lean_array_uset.exit443:                          ; preds = %lean_ensure_exclusi
   br label %lean_dec.exit271
 
 lean_dec.exit271:                                 ; preds = %536, %lean_array_uset.exit395, %lean_array_uset.exit378, %lean_array_uset.exit443, %lean_array_uset.exit435
-  %.1220 = phi ptr [ %.0.i.i440, %lean_array_uset.exit443 ], [ %.0.i.i418, %536 ], [ %.0.i.i375, %lean_array_uset.exit378 ], [ %.0.i.i432, %lean_array_uset.exit435 ], [ %.0.i.i392, %lean_array_uset.exit395 ]
+  %.1220 = phi ptr [ %.0.i.i440, %lean_array_uset.exit443 ], [ %.0.i.i418, %536 ], [ %.0.i.i392, %lean_array_uset.exit395 ], [ %.0.i.i432, %lean_array_uset.exit435 ], [ %.0.i.i375, %lean_array_uset.exit378 ]
   %exitcond.not = icmp eq i64 %165, %3
   br i1 %exitcond.not, label %._crit_edge, label %30
 
@@ -11058,7 +11058,7 @@ lean_array_uset.exit652:                          ; preds = %lean_ensure_exclusi
   br label %lean_dec.exit406
 
 lean_dec.exit406:                                 ; preds = %812, %lean_array_uset.exit598, %lean_array_uset.exit579, %lean_array_uset.exit521, %lean_array_uset.exit652, %lean_array_uset.exit642, %lean_array_uset.exit541
-  %.1332 = phi ptr [ %.0.i.i649, %lean_array_uset.exit652 ], [ %.0.i.i518, %lean_array_uset.exit521 ], [ %.0.i.i538, %lean_array_uset.exit541 ], [ %.0.i.i623, %812 ], [ %.0.i.i576, %lean_array_uset.exit579 ], [ %.0.i.i639, %lean_array_uset.exit642 ], [ %.0.i.i595, %lean_array_uset.exit598 ]
+  %.1332 = phi ptr [ %.0.i.i649, %lean_array_uset.exit652 ], [ %.0.i.i518, %lean_array_uset.exit521 ], [ %.0.i.i538, %lean_array_uset.exit541 ], [ %.0.i.i623, %812 ], [ %.0.i.i595, %lean_array_uset.exit598 ], [ %.0.i.i639, %lean_array_uset.exit642 ], [ %.0.i.i576, %lean_array_uset.exit579 ]
   %exitcond.not = icmp eq i64 %126, %4
   br i1 %exitcond.not, label %._crit_edge, label %31
 
@@ -13489,7 +13489,7 @@ lean_dec.exit121:                                 ; preds = %162, %161, %159, %l
   br label %lean_dec.exit134
 
 lean_dec.exit128:                                 ; preds = %lean_dec.exit132, %133, %132, %130, %lean_dec.exit127.thread, %35
-  %.099 = phi i8 [ 0, %35 ], [ %127, %133 ], [ 0, %lean_dec.exit132 ], [ %127, %132 ], [ %127, %130 ], [ %126, %lean_dec.exit127.thread ]
+  %.099 = phi i8 [ 0, %35 ], [ %127, %133 ], [ 0, %lean_dec.exit132 ], [ %126, %lean_dec.exit127.thread ], [ %127, %132 ], [ %127, %130 ]
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %173 = load ptr, ptr %172, align 8, !tbaa !4
   %174 = ptrtoint ptr %173 to i64

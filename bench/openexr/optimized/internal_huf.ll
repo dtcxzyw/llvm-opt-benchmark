@@ -758,7 +758,7 @@ hufBuildEncTable.exit:                            ; preds = %270
   br label %hufPackEncTable.exit
 
 hufPackEncTable.exit:                             ; preds = %346, %._crit_edge202.i, %hufBuildEncTable.exit
-  %.070 = phi ptr [ %9, %hufBuildEncTable.exit ], [ %.788140.i, %._crit_edge202.i ], [ %351, %346 ]
+  %.070 = phi ptr [ %.788140.i, %._crit_edge202.i ], [ %9, %hufBuildEncTable.exit ], [ %351, %346 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
@@ -1204,7 +1204,7 @@ hufPackEncTable.exit.thread.sink.split:           ; preds = %7, %530
   br label %hufPackEncTable.exit.thread
 
 hufPackEncTable.exit.thread:                      ; preds = %.lr.ph176.i, %.lr.ph182.i, %.lr.ph187.i, %.lr.ph192.i, %.lr.ph327.i, %.lr.ph332.i, %.lr.ph337.i, %.lr.ph.i57, %.lr.ph367.i, %.lr.ph372.i, %.lr.ph377.i, %.lr.ph355.i, %hufPackEncTable.exit.thread.sink.split, %522, %516, %345, %12
-  %.0 = phi i32 [ 4, %.lr.ph327.i ], [ 4, %.lr.ph372.i ], [ 3, %12 ], [ 4, %.lr.ph192.i ], [ 4, %.lr.ph355.i ], [ 4, %.lr.ph187.i ], [ 4, %.lr.ph377.i ], [ 4, %345 ], [ 4, %.lr.ph182.i ], [ 4, %.lr.ph337.i ], [ 4, %516 ], [ 4, %.lr.ph.i57 ], [ 4, %.lr.ph367.i ], [ 4, %522 ], [ 4, %.lr.ph332.i ], [ 0, %hufPackEncTable.exit.thread.sink.split ], [ 4, %.lr.ph176.i ]
+  %.0 = phi i32 [ 4, %.lr.ph372.i ], [ 4, %.lr.ph327.i ], [ 3, %12 ], [ 4, %.lr.ph192.i ], [ 4, %.lr.ph355.i ], [ 4, %.lr.ph187.i ], [ 4, %.lr.ph377.i ], [ 4, %345 ], [ 4, %.lr.ph182.i ], [ 4, %.lr.ph337.i ], [ 4, %516 ], [ 4, %.lr.ph.i57 ], [ 4, %.lr.ph367.i ], [ 4, %522 ], [ 4, %.lr.ph332.i ], [ 0, %hufPackEncTable.exit.thread.sink.split ], [ 4, %.lr.ph176.i ]
   ret i32 %.0
 }
 
@@ -2719,7 +2719,7 @@ define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readon
   br i1 %exitcond.not, label %.thread84, label %.lr.ph104, !llvm.loop !129
 
 .thread84:                                        ; preds = %.loopexit97, %.lr.ph104, %24, %50, %68, %66, %.thread
-  %.5 = phi i32 [ 23, %68 ], [ 0, %.thread ], [ 23, %66 ], [ 0, %.loopexit97 ], [ 23, %.lr.ph104 ], [ 23, %24 ], [ 1, %50 ]
+  %.5 = phi i32 [ 0, %.thread ], [ 23, %68 ], [ 23, %66 ], [ 0, %.loopexit97 ], [ 23, %.lr.ph104 ], [ 1, %50 ], [ 23, %24 ]
   ret i32 %.5
 }
 

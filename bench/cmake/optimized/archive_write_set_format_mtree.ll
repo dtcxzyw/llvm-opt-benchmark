@@ -574,7 +574,7 @@ define internal range(i32 -20, 1) i32 @archive_write_mtree_options(ptr noundef r
   br label %.thread73
 
 117:                                              ; preds = %50, %96
-  %.0 = phi i32 [ %.1, %50 ], [ %.5, %96 ]
+  %.0 = phi i32 [ %.5, %96 ], [ %.1, %50 ]
   %.not49 = icmp eq i32 %.0, 0
   br i1 %.not49, label %.thread73, label %.thread
 
@@ -869,9 +869,9 @@ mtree_entry_find_child.exit.i:                    ; preds = %113, %117
   br label %.outer.split.i.preheader
 
 get_path_component.exit.thread.i:                 ; preds = %mtree_entry_find_child.exit.i, %get_path_component.exit.i, %102, %get_path_component.exit.us.i, %94
-  %.0123.ph.fr.i43 = phi ptr [ null, %get_path_component.exit.us.i ], [ %.0123.ph.fr.i54, %get_path_component.exit.i ], [ null, %94 ], [ %.0123.ph.fr.i54, %102 ], [ %.0123.ph.fr.i54, %mtree_entry_find_child.exit.i ]
-  %.0118185.i = phi ptr [ %58, %get_path_component.exit.us.i ], [ %.0118.i, %get_path_component.exit.i ], [ %58, %94 ], [ %.0118.i, %102 ], [ %.0118.i, %mtree_entry_find_child.exit.i ]
-  %.013.i155.i = phi i64 [ %.0.i.us.i, %get_path_component.exit.us.i ], [ 0, %get_path_component.exit.i ], [ 0, %94 ], [ 0, %102 ], [ %.0.i.i, %mtree_entry_find_child.exit.i ]
+  %.0123.ph.fr.i43 = phi ptr [ %.0123.ph.fr.i54, %get_path_component.exit.i ], [ null, %get_path_component.exit.us.i ], [ null, %94 ], [ %.0123.ph.fr.i54, %102 ], [ %.0123.ph.fr.i54, %mtree_entry_find_child.exit.i ]
+  %.0118185.i = phi ptr [ %.0118.i, %get_path_component.exit.i ], [ %58, %get_path_component.exit.us.i ], [ %58, %94 ], [ %.0118.i, %102 ], [ %.0118.i, %mtree_entry_find_child.exit.i ]
+  %.013.i155.i = phi i64 [ 0, %get_path_component.exit.i ], [ %.0.i.us.i, %get_path_component.exit.us.i ], [ 0, %94 ], [ 0, %102 ], [ %.0.i.i, %mtree_entry_find_child.exit.i ]
   %143 = load i8, ptr %.0118185.i, align 1, !tbaa !53
   %.not136202.i = icmp eq i8 %143, 0
   br i1 %.not136202.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2779,7 +2779,7 @@ sub_0.i:                                          ; preds = %13, %8
   br label %.backedge
 
 .backedge:                                        ; preds = %116, %113, %111, %102, %99, %96, %93, %90
-  %.3.i.be = phi ptr [ %91, %90 ], [ %91, %96 ], [ %.3.i, %93 ], [ %.3.i, %99 ], [ %117, %116 ], [ %32, %113 ], [ %.0.i, %111 ], [ %91, %102 ]
+  %.3.i.be = phi ptr [ %91, %96 ], [ %91, %90 ], [ %.3.i, %93 ], [ %.3.i, %99 ], [ %117, %116 ], [ %32, %113 ], [ %.0.i, %111 ], [ %91, %102 ]
   br label %88, !llvm.loop !149
 
 sub_04.i:                                         ; preds = %88

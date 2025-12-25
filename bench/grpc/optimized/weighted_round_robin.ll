@@ -10028,7 +10028,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit.i
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.i:         ; preds = %156, %153, %145, %141
-  %.sroa.04.0.i.i = phi i64 [ %spec.select.i.i, %141 ], [ %157, %156 ], [ -9223372036854775808, %145 ], [ -9223372036854775808, %153 ]
+  %.sroa.04.0.i.i = phi i64 [ %spec.select.i.i, %141 ], [ -9223372036854775808, %153 ], [ -9223372036854775808, %145 ], [ %157, %156 ]
   %.sroa.05.0.copyload.i = load i64, ptr %16, align 8, !tbaa !46
   %.not.i = icmp slt i64 %.sroa.04.0.i.i, %.sroa.05.0.copyload.i
   br i1 %.not.i, label %221, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread.i
@@ -10277,7 +10277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit143.i
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit143.i:      ; preds = %242, %239, %231, %227
-  %.sroa.04.0.i138.i = phi i64 [ %spec.select.i137.i, %227 ], [ %243, %242 ], [ -9223372036854775808, %231 ], [ -9223372036854775808, %239 ]
+  %.sroa.04.0.i138.i = phi i64 [ %spec.select.i137.i, %227 ], [ -9223372036854775808, %239 ], [ -9223372036854775808, %231 ], [ %243, %242 ]
   %244 = icmp slt i64 %.sroa.04.0.i138.i, %222
   br i1 %244, label %245, label %.critedge.i
 

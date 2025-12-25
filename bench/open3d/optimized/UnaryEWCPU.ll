@@ -27534,7 +27534,7 @@ _ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_cont
   unreachable
 
 _ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread11, label %35
 
@@ -27657,7 +27657,7 @@ _ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_
   unreachable
 
 _ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread11, label %35
 
@@ -32272,7 +32272,7 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %417 = trunc nuw i32 %416 to i1
   br i1 %417, label %.critedge149, label %.critedge151
 
-.critedge149.thread:                              ; preds = %406, %394, %342, %338, %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit183.thread, %402
+.critedge149.thread:                              ; preds = %394, %406, %342, %338, %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit183.thread, %402
   %418 = load ptr, ptr %300, align 8, !tbaa !112
   %419 = zext nneg i32 %.0228 to i64
   %420 = getelementptr i8, ptr %418, i64 %419
@@ -32342,8 +32342,8 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   store i32 %454, ptr %7, align 4, !tbaa !39
   br label %.critedge151
 
-.critedge151:                                     ; preds = %406, %394, %342, %404, %340, %.critedge, %453, %449, %410
-  %.1229 = phi i32 [ %450, %449 ], [ %.0228, %453 ], [ %.0228, %.critedge ], [ %.0228, %410 ], [ 9, %340 ], [ 18, %404 ], [ 9, %342 ], [ %.0228, %394 ], [ 18, %406 ]
+.critedge151:                                     ; preds = %394, %406, %342, %404, %340, %.critedge, %453, %449, %410
+  %.1229 = phi i32 [ %450, %449 ], [ %.0228, %453 ], [ %.0228, %.critedge ], [ %.0228, %410 ], [ 9, %340 ], [ 18, %404 ], [ 9, %342 ], [ 18, %406 ], [ %.0228, %394 ]
   %455 = zext nneg i32 %.1229 to i64
   %456 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %457 = load i64, ptr %456, align 8, !tbaa !114
@@ -41074,8 +41074,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIbbFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %70
 
@@ -42237,8 +42237,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIbaFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %70
 
@@ -42927,8 +42927,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIbhFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %70
 
@@ -47314,8 +47314,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIfbFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -48490,8 +48490,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIfaFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -49201,8 +49201,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIfhFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -50043,8 +50043,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIdbFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -51219,8 +51219,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIdaFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -51930,8 +51930,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIdhFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -52767,8 +52767,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIabFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %70
 
@@ -53928,8 +53928,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %70
 
@@ -54618,8 +54618,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIahFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %70
 
@@ -55445,8 +55445,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIsbFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -56622,8 +56622,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIsaFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -57332,8 +57332,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIshFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -58173,8 +58173,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIibFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -59350,8 +59350,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIiaFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -60060,8 +60060,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIihFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -60901,8 +60901,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIlbFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -62078,8 +62078,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIlaFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -62788,8 +62788,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIlhFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -63624,8 +63624,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhbFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %70
 
@@ -64785,8 +64785,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhaFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %70
 
@@ -65475,8 +65475,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %70
 
@@ -66302,8 +66302,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelItbFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -67479,8 +67479,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelItaFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -68189,8 +68189,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIthFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -69030,8 +69030,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIjbFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -70207,8 +70207,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIjaFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -70917,8 +70917,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIjhFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -71758,8 +71758,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelImbFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -72935,8 +72935,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelImaFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -73645,8 +73645,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelImhFvPKvPvEEEvRKNS0_7IndexerERKT1_ENKUllE_clEl.exit unwind label %72
 
@@ -84393,8 +84393,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIbbFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_0clEvENKUlvE_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -85568,8 +85568,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_0clEvENKUlvE0_clEvENKUlvE1_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -86278,8 +86278,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_0clEvENKUlvE0_clEvENKUlvE5_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -86979,8 +86979,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIbEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIbbFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_1clEvENKUlvE_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -87799,8 +87799,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIfbFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_1clEvENKUlvE0_clEvENKUlvE_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -87974,8 +87974,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIdbFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_1clEvENKUlvE0_clEvENKUlvE0_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -88144,8 +88144,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIabFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_1clEvENKUlvE0_clEvENKUlvE1_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -88319,8 +88319,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIsbFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_1clEvENKUlvE0_clEvENKUlvE2_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -88494,8 +88494,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIibFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_1clEvENKUlvE0_clEvENKUlvE3_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -88669,8 +88669,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIlbFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_1clEvENKUlvE0_clEvENKUlvE4_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -88839,8 +88839,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhbFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_1clEvENKUlvE0_clEvENKUlvE5_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -89014,8 +89014,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelItbFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_1clEvENKUlvE0_clEvENKUlvE6_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -89189,8 +89189,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIjbFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_1clEvENKUlvE0_clEvENKUlvE7_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -89364,8 +89364,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelImbFvPKvPvEZZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_1clEvENKUlvE0_clEvENKUlvE8_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -90294,8 +90294,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIfEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIfbFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_2clEvENKUlvE_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -90492,8 +90492,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIdEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIdbFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_2clEvENKUlvE0_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -90671,8 +90671,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIabFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_2clEvENKUlvE1_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -90855,8 +90855,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIsEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIsbFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_2clEvENKUlvE2_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -91039,8 +91039,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIiEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIibFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_2clEvENKUlvE3_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -91223,8 +91223,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIlEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIlbFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_2clEvENKUlvE4_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -91402,8 +91402,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhbFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_2clEvENKUlvE5_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -91586,8 +91586,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrItEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelItbFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_2clEvENKUlvE6_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -91770,8 +91770,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIjEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIjbFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_2clEvENKUlvE7_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -91954,8 +91954,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i: ; preds = %57,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i, %20
-  %.0.i3.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.0.i3.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i2.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrImEEPT_ll.exit.i ], [ null, %20 ], [ %68, %_ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i3.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelImbFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_2clEvENKUlvE8_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %72
 
@@ -102260,8 +102260,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE1_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -102421,8 +102421,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE1_clEvEUlllE0_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -102582,8 +102582,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE1_clEvEUlllE1_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -102743,8 +102743,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE1_clEvEUlllE2_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -102904,8 +102904,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE1_clEvEUlllE3_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -103065,8 +103065,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE1_clEvEUlllE4_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -103226,8 +103226,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE1_clEvEUlllE5_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -103387,8 +103387,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE1_clEvEUlllE6_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -103548,8 +103548,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE1_clEvEUlllE7_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -103709,8 +103709,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIaEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIaEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIaaFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE1_clEvEUlllE8_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -109349,8 +109349,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE5_clEvEUlllE_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -109510,8 +109510,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE5_clEvEUlllE0_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -109671,8 +109671,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE5_clEvEUlllE1_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -109832,8 +109832,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE5_clEvEUlllE2_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -109993,8 +109993,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE5_clEvEUlllE3_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -110154,8 +110154,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE5_clEvEUlllE4_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -110315,8 +110315,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE5_clEvEUlllE5_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -110476,8 +110476,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE5_clEvEUlllE6_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -110637,8 +110637,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE5_clEvEUlllE7_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 
@@ -110798,8 +110798,8 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i: ; preds = %55,
   br label %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i
 
 _ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.i: ; preds = %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i, %20
-  %.0.i2.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
-  %.018.i.i.i = phi ptr [ null, %20 ], [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.0.i2.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %.0.i5.i, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
+  %.018.i.i.i = phi ptr [ null, %_ZNK6open3d4core7Indexer11GetInputPtrIhEEPT_ll.exit.i ], [ null, %20 ], [ %66, %_ZNK6open3d4core7Indexer12GetOutputPtrIhEEPT_l.exit.sink.split.i ]
   invoke void %.val13(ptr noundef %.0.i2.i, ptr noundef %.018.i.i.i)
           to label %"_ZZN6open3d4core6kernelL19LaunchUnaryEWKernelIhhFvPKvPvEZZZNS1_10UnaryEWCPUERKNS0_6TensorERS7_NS1_13UnaryEWOpCodeEENK3$_3clEvENKUlvE5_clEvEUlllE8_EEvRKNS0_7IndexerERKT1_RKT2_ENKUllE_clEl.exit" unwind label %70
 

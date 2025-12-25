@@ -2631,7 +2631,7 @@ define internal fastcc ptr @parsebrackets(ptr noundef readonly captures(none) %0
   br label %.backedge243
 
 .backedge243:                                     ; preds = %177, %154, %130, %.backedge243.sink.split
-  %.0162.be = phi ptr [ %131, %130 ], [ %155, %154 ], [ %42, %.backedge243.sink.split ], [ %178, %177 ]
+  %.0162.be = phi ptr [ %42, %.backedge243.sink.split ], [ %155, %154 ], [ %131, %130 ], [ %178, %177 ]
   %.not177 = icmp eq ptr %.0162.be, null
   br i1 %.not177, label %._crit_edge, label %18, !llvm.loop !19
 
@@ -6332,10 +6332,10 @@ ptr_to_define.exit:                               ; preds = %.lr.ph247, %167, %1
   br label %.outer.backedge
 
 .loopexit:                                        ; preds = %.outer.backedge, %55, %.outer158.backedge, %60, %45
-  %or.cond150.ph220 = phi i1 [ %or.cond150.ph258, %55 ], [ %26, %45 ], [ %or.cond150.ph258, %60 ], [ %or.cond150.ph258, %.outer158.backedge ], [ %or.cond142, %.outer.backedge ]
-  %.ph208 = phi i1 [ %.ph259, %55 ], [ %46, %45 ], [ %.ph259, %60 ], [ %.ph259, %.outer158.backedge ], [ %219, %.outer.backedge ]
-  %.0169 = phi ptr [ %.0222, %55 ], [ null, %45 ], [ null, %60 ], [ null, %.outer158.backedge ], [ null, %.outer.backedge ]
-  %.not110165 = phi i1 [ false, %55 ], [ true, %45 ], [ true, %60 ], [ true, %.outer158.backedge ], [ true, %.outer.backedge ]
+  %or.cond150.ph220 = phi i1 [ %26, %45 ], [ %or.cond150.ph258, %55 ], [ %or.cond150.ph258, %60 ], [ %or.cond150.ph258, %.outer158.backedge ], [ %or.cond142, %.outer.backedge ]
+  %.ph208 = phi i1 [ %46, %45 ], [ %.ph259, %55 ], [ %.ph259, %60 ], [ %.ph259, %.outer158.backedge ], [ %219, %.outer.backedge ]
+  %.0169 = phi ptr [ null, %45 ], [ %.0222, %55 ], [ null, %60 ], [ null, %.outer158.backedge ], [ null, %.outer.backedge ]
+  %.not110165 = phi i1 [ true, %45 ], [ false, %55 ], [ true, %60 ], [ true, %.outer158.backedge ], [ true, %.outer.backedge ]
   br i1 %or.cond150.ph220, label %226, label %234
 
 226:                                              ; preds = %.loopexit

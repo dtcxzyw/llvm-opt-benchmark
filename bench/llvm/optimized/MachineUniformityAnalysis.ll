@@ -1532,7 +1532,7 @@ _ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunc
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm29GenericUniformityAnalysisImplINS_17GenericSSAContextINS_15MachineFunctionEEEE19isTemporalDivergentERKNS_17MachineBasicBlockERKNS_12MachineInstrE.exit, label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i: ; preds = %51, %45
-  %.sroa.0.0.i.i = phi ptr [ %50, %51 ], [ %.0.i.i.i, %45 ]
+  %.sroa.0.0.i.i = phi ptr [ %.0.i.i.i, %45 ], [ %50, %51 ]
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !39
   %.not.i.i3.i = icmp eq ptr %55, null

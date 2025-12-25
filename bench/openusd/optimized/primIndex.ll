@@ -4123,8 +4123,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20Pcp_CompressedSdSiteESaIS1_EE1
   br label %.loopexit.split-lp117
 
 .loopexit.split-lp117.loopexit:                   ; preds = %128, %69, %67, %58, %55, %52
-  %.sroa.13.0.ph.ph = phi ptr [ %.sroa.13.1164, %52 ], [ %.sroa.13.2, %128 ], [ %.sroa.13.1164, %55 ], [ %.sroa.13.1164, %58 ], [ %.sroa.13.1164, %67 ], [ %.sroa.13.1164, %69 ]
-  %.sroa.078.0.ph.ph = phi ptr [ %.sroa.078.1166, %52 ], [ %.sroa.078.2, %128 ], [ %.sroa.078.1166, %55 ], [ %.sroa.078.1166, %58 ], [ %.sroa.078.1166, %67 ], [ %.sroa.078.1166, %69 ]
+  %.sroa.13.0.ph.ph = phi ptr [ %.sroa.13.1164, %52 ], [ %.sroa.13.2, %128 ], [ %.sroa.13.1164, %69 ], [ %.sroa.13.1164, %67 ], [ %.sroa.13.1164, %58 ], [ %.sroa.13.1164, %55 ]
+  %.sroa.078.0.ph.ph = phi ptr [ %.sroa.078.1166, %52 ], [ %.sroa.078.2, %128 ], [ %.sroa.078.1166, %69 ], [ %.sroa.078.1166, %67 ], [ %.sroa.078.1166, %58 ], [ %.sroa.078.1166, %55 ]
   %lpad.loopexit123 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp117
@@ -16850,8 +16850,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.i.i: ; preds = %_ZNK32
   br label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEZNKS2_12PcpPrimIndex21ComputePrimChildNamesEPS7_PNS2_7pxr_tsl9robin_setIS3_NS3_11HashFunctorESt8equal_toIS3_ES6_Lb0ENSB_2rh26power_of_two_growth_policyILm2EEEEEE3$_0ET_SM_SM_T0_.exit"
 
 "_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEZNKS2_12PcpPrimIndex21ComputePrimChildNamesEPS7_PNS2_7pxr_tsl9robin_setIS3_NS3_11HashFunctorESt8equal_toIS3_ES6_Lb0ENSB_2rh26power_of_two_growth_policyILm2EEEEEE3$_0ET_SM_SM_T0_.exit": ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEZNKS2_12PcpPrimIndex21ComputePrimChildNamesEPS7_PNS2_7pxr_tsl9robin_setIS3_NS3_11HashFunctorESt8equal_toIS3_ES6_Lb0ENSB_2rh26power_of_two_growth_policyILm2EEEEEE3$_0ET_SM_SM_T0_.exit.loopexit", %.preheader.i.i
-  %281 = phi ptr [ %.pre, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEZNKS2_12PcpPrimIndex21ComputePrimChildNamesEPS7_PNS2_7pxr_tsl9robin_setIS3_NS3_11HashFunctorESt8equal_toIS3_ES6_Lb0ENSB_2rh26power_of_two_growth_policyILm2EEEEEE3$_0ET_SM_SM_T0_.exit.loopexit" ], [ %50, %.preheader.i.i ]
-  %.sroa.016.0.i.i = phi ptr [ %.sroa.016.2.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEZNKS2_12PcpPrimIndex21ComputePrimChildNamesEPS7_PNS2_7pxr_tsl9robin_setIS3_NS3_11HashFunctorESt8equal_toIS3_ES6_Lb0ENSB_2rh26power_of_two_growth_policyILm2EEEEEE3$_0ET_SM_SM_T0_.exit.loopexit" ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.preheader.i.i ]
+  %281 = phi ptr [ %50, %.preheader.i.i ], [ %.pre, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEZNKS2_12PcpPrimIndex21ComputePrimChildNamesEPS7_PNS2_7pxr_tsl9robin_setIS3_NS3_11HashFunctorESt8equal_toIS3_ES6_Lb0ENSB_2rh26power_of_two_growth_policyILm2EEEEEE3$_0ET_SM_SM_T0_.exit.loopexit" ]
+  %.sroa.016.0.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.preheader.i.i ], [ %.sroa.016.2.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEEZNKS2_12PcpPrimIndex21ComputePrimChildNamesEPS7_PNS2_7pxr_tsl9robin_setIS3_NS3_11HashFunctorESt8equal_toIS3_ES6_Lb0ENSB_2rh26power_of_two_growth_policyILm2EEEEEE3$_0ET_SM_SM_T0_.exit.loopexit" ]
   %.not.i.i26 = icmp eq ptr %.sroa.016.0.i.i, %281
   br i1 %.not.i.i26, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
 

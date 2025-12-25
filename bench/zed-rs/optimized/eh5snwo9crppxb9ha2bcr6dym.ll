@@ -25890,8 +25890,8 @@ switch.lookup:                                    ; preds = %293
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hce2ebb81b7cda237E.exit1284"
 
 508:                                              ; preds = %455, %456, %443, %406, %407, %394
-  %.sroa.01341.0.ph.ph = phi i64 [ %.sroa.01428.0.copyload, %443 ], [ %.sroa.01428.0.copyload, %456 ], [ %.sroa.01428.0.copyload, %455 ], [ %.sroa.01436.0.copyload, %394 ], [ %.sroa.01436.0.copyload, %407 ], [ %.sroa.01436.0.copyload, %406 ]
-  %.sroa.81345.0.ph.ph = phi ptr [ %.sroa.41429.0.copyload, %443 ], [ %.sroa.41429.0.copyload, %456 ], [ %.sroa.41429.0.copyload, %455 ], [ %.sroa.41437.0.copyload, %394 ], [ %.sroa.41437.0.copyload, %407 ], [ %.sroa.41437.0.copyload, %406 ]
+  %.sroa.01341.0.ph.ph = phi i64 [ %.sroa.01436.0.copyload, %407 ], [ %.sroa.01436.0.copyload, %394 ], [ %.sroa.01436.0.copyload, %406 ], [ %.sroa.01428.0.copyload, %455 ], [ %.sroa.01428.0.copyload, %456 ], [ %.sroa.01428.0.copyload, %443 ]
+  %.sroa.81345.0.ph.ph = phi ptr [ %.sroa.41437.0.copyload, %407 ], [ %.sroa.41437.0.copyload, %394 ], [ %.sroa.41437.0.copyload, %406 ], [ %.sroa.41429.0.copyload, %455 ], [ %.sroa.41429.0.copyload, %456 ], [ %.sroa.41429.0.copyload, %443 ]
   %lpad.thr_comm.split-lp1852 = landingpad { ptr, i32 }
           cleanup
   br label %.thread1843

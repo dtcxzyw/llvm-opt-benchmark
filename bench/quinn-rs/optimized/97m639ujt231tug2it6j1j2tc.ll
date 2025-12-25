@@ -3488,8 +3488,8 @@ switch.lookup.i:                                  ; preds = %17
   br label %.thread
 
 .thread:                                          ; preds = %44, %.thread.sink.split
-  %.sroa.0375.0.i = phi i64 [ 2, %44 ], [ 1, %.thread.sink.split ]
-  %.sroa.18377.0.i = phi i64 [ undef, %44 ], [ %76, %.thread.sink.split ]
+  %.sroa.0375.0.i = phi i64 [ 1, %.thread.sink.split ], [ 2, %44 ]
+  %.sroa.18377.0.i = phi i64 [ %76, %.thread.sink.split ], [ undef, %44 ]
   %.sroa.19.2.i.in = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.19.2.i = load i32, ptr %.sroa.19.2.i.in, align 8, !range !446, !noalias !443, !noundef !3
   %.sroa.25.2.i.in = getelementptr inbounds nuw i8, ptr %19, i64 12

@@ -22149,7 +22149,7 @@ select.unfold131:                                 ; preds = %._crit_edge.i.i67, 
   br label %193
 
 .loopexit.split-lp:                               ; preds = %189, %.loopexit184, %228, %238, %243, %252
-  %.sroa.03.0.ph = phi i8 [ 1, %189 ], [ %.sroa.03.2, %238 ], [ %.sroa.03.2, %.loopexit184 ], [ %.sroa.03.2, %228 ], [ %.sroa.03.2, %243 ], [ %.sroa.03.2, %252 ]
+  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %238 ], [ 1, %189 ], [ %.sroa.03.2, %.loopexit184 ], [ %.sroa.03.2, %228 ], [ %.sroa.03.2, %243 ], [ %.sroa.03.2, %252 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %193
@@ -22747,8 +22747,8 @@ select.unfold131:                                 ; preds = %._crit_edge.i.i67, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4eb9b7839e151992E.exit"
 
 .body.thread:                                     ; preds = %.body.thread.i, %315, %311, %.body.thread148
-  %eh.lpad-body144 = phi { ptr, i32 } [ %lpad.thr_comm146, %.body.thread148 ], [ %312, %315 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %312, %311 ]
-  %.sroa.05.2.lpad-body143 = phi i1 [ %.sroa.05.2.ph, %.body.thread148 ], [ false, %315 ], [ false, %.body.thread.i ], [ false, %311 ]
+  %eh.lpad-body144 = phi { ptr, i32 } [ %lpad.thr_comm146, %.body.thread148 ], [ %312, %311 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %312, %315 ]
+  %.sroa.05.2.lpad-body143 = phi i1 [ %.sroa.05.2.ph, %.body.thread148 ], [ false, %311 ], [ false, %.body.thread.i ], [ false, %315 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h77b107db02847309E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39) #46
           to label %284 unwind label %278
 

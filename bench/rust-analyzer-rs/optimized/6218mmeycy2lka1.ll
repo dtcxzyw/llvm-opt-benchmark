@@ -36277,7 +36277,7 @@ define hidden { i8, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   unreachable
 
 44:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h9121cab0c78b90d2E.exit.i.i.i", %35
-  %.sroa.4.0.i.i = phi i32 [ 0, %35 ], [ %42, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9121cab0c78b90d2E.exit.i.i.i" ]
+  %.sroa.4.0.i.i = phi i32 [ %42, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9121cab0c78b90d2E.exit.i.i.i" ], [ 0, %35 ]
   %45 = invoke { i64, ptr } @_ZN5rowan6cursor10SyntaxNode16covering_element17h4ed76c5a167238ecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val8.i.i, i32 noundef %.sroa.4.0.i.i, i32 noundef %31)
           to label %.noexc.i.i.i unwind label %107, !noalias !12664
 

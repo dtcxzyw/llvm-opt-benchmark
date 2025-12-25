@@ -909,8 +909,8 @@ zend_string_copy.exit.i:                          ; preds = %143, %139, %get_val
   br label %zend_string_release_ex.exit.i
 
 zend_string_release_ex.exit.i:                    ; preds = %160, %159, %152, %zend_string_copy.exit.i, %78
-  %.141.i = phi i32 [ %.04070.i, %78 ], [ %83, %160 ], [ %83, %159 ], [ %83, %152 ], [ %83, %zend_string_copy.exit.i ]
-  %.135.i = phi ptr [ %.03472.i, %78 ], [ %.337.i, %160 ], [ %.337.i, %159 ], [ %.337.i, %152 ], [ %.337.i, %zend_string_copy.exit.i ]
+  %.141.i = phi i32 [ %.04070.i, %78 ], [ %83, %zend_string_copy.exit.i ], [ %83, %152 ], [ %83, %159 ], [ %83, %160 ]
+  %.135.i = phi ptr [ %.03472.i, %78 ], [ %.337.i, %zend_string_copy.exit.i ], [ %.337.i, %152 ], [ %.337.i, %159 ], [ %.337.i, %160 ]
   %161 = getelementptr inbounds nuw i8, ptr %.03373.i, i64 %77
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %163 = add i32 %.03971.i, -1
@@ -1878,7 +1878,7 @@ set_proc_descriptor_from_array.exit:              ; preds = %zend_string_release
   br label %565
 
 565:                                              ; preds = %563, %314
-  %.1 = phi i32 [ %564, %563 ], [ %.0236492, %314 ]
+  %.1 = phi i32 [ %.0236492, %314 ], [ %564, %563 ]
   %566 = add i32 %.0238491, -1
   %.not270 = icmp eq i32 %566, 0
   br i1 %.not270, label %._crit_edge, label %301

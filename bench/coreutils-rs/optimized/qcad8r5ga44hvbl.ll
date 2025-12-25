@@ -4528,7 +4528,7 @@ _ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit.thread327: ; preds = %1
   br label %152
 
 _ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit: ; preds = %"_ZN4core3num21_$LT$impl$u20$u64$GT$14checked_ilog1017hee9b69ac3e782e46E.exit.i", %._crit_edge.i, %2
-  %.071.ph = phi i64 [ 1, %2 ], [ %.0.sroa.speculated.i.i, %"_ZN4core3num21_$LT$impl$u20$u64$GT$14checked_ilog1017hee9b69ac3e782e46E.exit.i" ], [ %.3.i, %._crit_edge.i ]
+  %.071.ph = phi i64 [ %.0.sroa.speculated.i.i, %"_ZN4core3num21_$LT$impl$u20$u64$GT$14checked_ilog1017hee9b69ac3e782e46E.exit.i" ], [ 1, %2 ], [ %.3.i, %._crit_edge.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1212)
   call void @llvm.experimental.noalias.scope.decl(metadata !1279)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)

@@ -222,9 +222,9 @@ define internal fastcc range(i32 0, 16) i32 @json_lex_number(ptr noundef capture
   br i1 %or.cond128, label %.preheader140, label %.critedge, !llvm.loop !5
 
 .critedge:                                        ; preds = %26, %.preheader140, %4, %20, %17
-  %.0101 = phi ptr [ %18, %17 ], [ %1, %4 ], [ %1, %20 ], [ %22, %.preheader140 ], [ %22, %26 ]
-  %.096 = phi i1 [ false, %17 ], [ true, %4 ], [ true, %20 ], [ false, %.preheader140 ], [ false, %26 ]
-  %.0 = phi i32 [ %19, %17 ], [ %9, %4 ], [ %9, %20 ], [ %23, %.preheader140 ], [ %23, %26 ]
+  %.0101 = phi ptr [ %18, %17 ], [ %1, %20 ], [ %1, %4 ], [ %22, %.preheader140 ], [ %22, %26 ]
+  %.096 = phi i1 [ false, %17 ], [ true, %20 ], [ true, %4 ], [ false, %.preheader140 ], [ false, %26 ]
+  %.0 = phi i32 [ %19, %17 ], [ %9, %20 ], [ %9, %4 ], [ %23, %.preheader140 ], [ %23, %26 ]
   %29 = sext i32 %.0 to i64
   %30 = icmp ugt i64 %12, %29
   br i1 %30, label %31, label %.critedge2
@@ -2945,7 +2945,7 @@ pg_lfind8_le.exit:                                ; preds = %pg_lfind8.exit261.p
   %251 = getelementptr inbounds i8, ptr %.1203.lcssa, i64 -1
   br label %.backedge
 
-.backedge:                                        ; preds = %208, %189, %191, %193, %195, %197, %199, %250, %115, %168, %161, %120
+.backedge:                                        ; preds = %208, %189, %191, %193, %195, %197, %199, %250, %161, %168, %115, %120
   %.0209.be = phi i32 [ %.1218, %120 ], [ -1, %250 ], [ -1, %189 ], [ -1, %191 ], [ -1, %193 ], [ -1, %195 ], [ -1, %197 ], [ -1, %199 ], [ %.0209373, %208 ], [ %.0209373, %115 ], [ -1, %168 ], [ -1, %161 ]
   %.0204.be = phi ptr [ %scevgep, %120 ], [ %251, %250 ], [ %43, %189 ], [ %43, %191 ], [ %43, %193 ], [ %43, %195 ], [ %43, %197 ], [ %43, %199 ], [ %43, %208 ], [ %scevgep, %115 ], [ %scevgep, %168 ], [ %scevgep, %161 ]
   %252 = getelementptr inbounds nuw i8, ptr %.0204.be, i64 1

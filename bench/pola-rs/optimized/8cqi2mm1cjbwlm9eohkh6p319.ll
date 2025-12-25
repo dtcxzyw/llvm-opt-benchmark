@@ -43377,7 +43377,7 @@ thread-pre-split.i.us:                            ; preds = %47
   br i1 %.not75.i.us, label %"_ZN4core3num21_$LT$impl$u20$i64$GT$16from_ascii_radix17h7378919d283c9302E.exit.us", label %.lr.ph101.i.us
 
 "_ZN4core3num21_$LT$impl$u20$i64$GT$16from_ascii_radix17h7378919d283c9302E.exit.us": ; preds = %.preheader83.i.us, %78, %.preheader79.i.us, %110, %.preheader.i.us, %.preheader81.i.us
-  %.sroa.141.1.us = phi i64 [ 0, %.preheader81.i.us ], [ 0, %.preheader.i.us ], [ %.sroa.023.0.i.us, %.preheader79.i.us ], [ %115, %110 ], [ %83, %78 ], [ %.sroa.023.3.i.us, %.preheader83.i.us ]
+  %.sroa.141.1.us = phi i64 [ %115, %110 ], [ %.sroa.023.0.i.us, %.preheader79.i.us ], [ %83, %78 ], [ 0, %.preheader.i.us ], [ 0, %.preheader81.i.us ], [ %.sroa.023.3.i.us, %.preheader83.i.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %14, ptr noundef nonnull align 16 dereferenceable(192) %18, i64 192, i1 false)
@@ -45720,8 +45720,8 @@ define internal fastcc void @_ZN10polars_sql8sql_expr14SQLExprVisitor15visit_bin
   br i1 %661, label %675, label %674
 
 662:                                              ; preds = %467, %501, %564, %601, %625, %659
-  %.sroa.0152.2 = phi i1 [ false, %659 ], [ true, %625 ], [ false, %601 ], [ true, %564 ], [ true, %501 ], [ true, %467 ]
-  %.sroa.0155.3 = phi i8 [ 1, %659 ], [ 1, %625 ], [ 1, %601 ], [ 1, %564 ], [ 0, %501 ], [ 0, %467 ]
+  %.sroa.0152.2 = phi i1 [ false, %659 ], [ false, %601 ], [ true, %467 ], [ true, %625 ], [ true, %501 ], [ true, %564 ]
+  %.sroa.0155.3 = phi i8 [ 1, %659 ], [ 1, %601 ], [ 0, %467 ], [ 1, %625 ], [ 0, %501 ], [ 1, %564 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %0, ptr noundef nonnull align 16 dereferenceable(192) %46, i64 192, i1 false)
   %663 = load i64, ptr %172, align 16, !range !671, !noundef !4
   %664 = icmp ne i64 %663, -9223372036854775783
@@ -47540,7 +47540,7 @@ thread-pre-split.i:                               ; preds = %"_ZN52_$LT$char$u20
   br i1 %136, label %.thread34, label %139
 
 .loopexit:                                        ; preds = %.preheader83.i, %102, %.preheader79.i, %129, %.preheader81.i, %.preheader.i
-  %.sroa.1512.0 = phi i64 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %134, %129 ], [ %107, %102 ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1512.0 = phi i64 [ %134, %129 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %107, %102 ], [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %.sroa.023.3.i, %.preheader83.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN56_$LT$i64$u20$as$u20$polars_plan..plans..lit..Literal$GT$3lit17he9d551a223e987f5E"(ptr noalias noundef nonnull sret([192 x i8]) align 16 captures(none) dereferenceable(192) %10, i64 noundef %.sroa.1512.0)
   %.sroa.015.0.copyload = load i64, ptr %10, align 16
@@ -48246,7 +48246,7 @@ thread-pre-split.i:                               ; preds = %"_ZN52_$LT$char$u20
   br i1 %197, label %select.unfold, label %200
 
 .thread109:                                       ; preds = %.preheader83.i, %163, %.preheader79.i, %190, %.preheader.i, %.preheader81.i
-  %.sroa.1527.0 = phi i64 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %195, %190 ], [ %168, %163 ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1527.0 = phi i64 [ %195, %190 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %168, %163 ], [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %.sroa.023.3.i, %.preheader83.i ]
   %198 = sub i64 0, %.sroa.1527.0
   %.sroa.083.0 = select i1 %.sroa.02.0, i64 %198, i64 %.sroa.1527.0
   %199 = bitcast i64 %.sroa.083.0 to double
@@ -53367,7 +53367,7 @@ define hidden void @_ZN10polars_sql8sql_expr23parse_extract_date_part17h93da430e
   %.pn3575 = phi { ptr, i32 } [ %336, %335 ], [ %.pn3581, %.thread78 ], [ %.pn29121, %.thread118 ], [ %lpad.thr_comm151, %411 ], [ %.pn3392, %.thread89 ], [ %.pn137, %.thread134 ], [ %.pn31105, %.thread102 ]
   resume { ptr, i32 } %.pn3575
 
-.thread78:                                        ; preds = %405, %388, %371, %354, %383, %366, %400, %412, %288, %131, %129
+.thread78:                                        ; preds = %405, %388, %371, %354, %131, %288, %366, %400, %412, %383, %129
   %.pn3581 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %129 ], [ %132, %131 ], [ %289, %288 ], [ %355, %354 ], [ %367, %366 ], [ %389, %388 ], [ %401, %400 ], [ %406, %405 ], [ %413, %412 ], [ %372, %371 ], [ %384, %383 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %1) #19
           to label %.thread unwind label %295

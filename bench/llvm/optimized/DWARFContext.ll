@@ -1283,8 +1283,8 @@ define internal fastcc void @"_ZZN4llvm12DWARFContext17DWARFContextState19parseM
   br i1 %.not.i.i.i.i.i13, label %_ZN4llvm12DWARFContext13compile_unitsEv.exit, label %.lr.ph.i.i.i.i.i5, !llvm.loop !190
 
 _ZN4llvm12DWARFContext13compile_unitsEv.exit:     ; preds = %60, %.lr.ph.i.i.i.i.i5, %41, %.lr.ph.i.i.i.i.i, %43, %24
-  %.sroa.722.0 = phi ptr [ %36, %41 ], [ %36, %24 ], [ %55, %43 ], [ %36, %.lr.ph.i.i.i.i.i ], [ %55, %.lr.ph.i.i.i.i.i5 ], [ %55, %60 ]
-  %.sroa.019.0 = phi ptr [ %36, %41 ], [ %28, %24 ], [ %47, %43 ], [ %.sroa.010.0.i.i, %.lr.ph.i.i.i.i.i ], [ %55, %60 ], [ %.sroa.010.0.i.i6, %.lr.ph.i.i.i.i.i5 ]
+  %.sroa.722.0 = phi ptr [ %55, %43 ], [ %36, %24 ], [ %36, %41 ], [ %36, %.lr.ph.i.i.i.i.i ], [ %55, %.lr.ph.i.i.i.i.i5 ], [ %55, %60 ]
+  %.sroa.019.0 = phi ptr [ %47, %43 ], [ %28, %24 ], [ %36, %41 ], [ %.sroa.010.0.i.i, %.lr.ph.i.i.i.i.i ], [ %55, %60 ], [ %.sroa.010.0.i.i6, %.lr.ph.i.i.i.i.i5 ]
   %62 = load ptr, ptr %15, align 8, !tbaa !158
   %63 = load i32, ptr %62, align 4, !tbaa !132
   %64 = icmp eq i32 %63, 2

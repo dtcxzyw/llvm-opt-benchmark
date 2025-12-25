@@ -653,7 +653,7 @@ ascii2index.exit155.thread164:                    ; preds = %201, %ascii2index.e
   br label %.thread
 
 .thread:                                          ; preds = %ascii2index.exit, %150, %mod_strcspn.exit146, %ascii2index.exit.thread157, %.lr.ph.i, %182, %178, %ascii2index.exit155, %.lr.ph201, %.lr.ph.i148, %101, %98, %84, %82, %66, %4, %._crit_edge207, %96, %81, %74, %65, %._crit_edge
-  %.0 = phi i32 [ -1094995529, %._crit_edge ], [ -1094995529, %65 ], [ -12, %4 ], [ -1094995529, %74 ], [ -1094995529, %81 ], [ %69, %66 ], [ -12, %82 ], [ %97, %96 ], [ -1094995529, %84 ], [ -1094995529, %.lr.ph.i ], [ -12, %101 ], [ -1094995529, %.lr.ph201 ], [ -1094995529, %.lr.ph.i148 ], [ -1094995529, %182 ], [ %230, %._crit_edge207 ], [ %99, %98 ], [ %210, %ascii2index.exit155 ], [ -1094995529, %178 ], [ -1094995529, %mod_strcspn.exit146 ], [ -1094995529, %150 ], [ -1094995529, %ascii2index.exit.thread157 ], [ %164, %ascii2index.exit ]
+  %.0 = phi i32 [ -1094995529, %._crit_edge ], [ -1094995529, %65 ], [ -12, %4 ], [ -1094995529, %74 ], [ -1094995529, %81 ], [ %69, %66 ], [ -12, %82 ], [ %97, %96 ], [ -1094995529, %84 ], [ -1094995529, %.lr.ph.i ], [ -12, %101 ], [ -1094995529, %.lr.ph201 ], [ -1094995529, %.lr.ph.i148 ], [ -1094995529, %182 ], [ %230, %._crit_edge207 ], [ %99, %98 ], [ %210, %ascii2index.exit155 ], [ -1094995529, %178 ], [ -1094995529, %mod_strcspn.exit146 ], [ -1094995529, %150 ], [ %164, %ascii2index.exit ], [ -1094995529, %ascii2index.exit.thread157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

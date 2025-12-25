@@ -6499,7 +6499,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45: ; preds =
   br label %146
 
 146:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit66, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, %.sink.split, %94
-  %.1 = phi i1 [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45 ], [ true, %94 ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit ], [ true, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit66 ], [ false, %.sink.split ]
+  %.1 = phi i1 [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit66 ], [ true, %94 ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit ], [ true, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit ], [ true, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit45 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre56 = load i32, ptr %3, align 4, !tbaa !17
   %147 = add nsw i32 %.pre56, -1

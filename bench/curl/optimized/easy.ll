@@ -1146,8 +1146,8 @@ define i32 @curl_easy_pause(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %65 = tail call i32 @Curl_updatesocket(ptr noundef nonnull %0) #10
   br label %.thread64
 
-.thread64:                                        ; preds = %50, %47, %64, %.thread, %57
-  %.2 = phi i32 [ %59, %57 ], [ %65, %64 ], [ 0, %.thread ], [ %51, %50 ], [ 42, %47 ]
+.thread64:                                        ; preds = %47, %50, %64, %.thread, %57
+  %.2 = phi i32 [ %59, %57 ], [ %65, %64 ], [ 0, %.thread ], [ 42, %47 ], [ %51, %50 ]
   br i1 %10, label %66, label %67
 
 66:                                               ; preds = %.thread64

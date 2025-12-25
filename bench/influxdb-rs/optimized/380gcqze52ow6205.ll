@@ -8027,7 +8027,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   br i1 %203, label %_ZN20unicode_segmentation8grapheme10check_pair17h18e440ab0edbb661E.exit.thread117.i.i.i, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i.thread.sink.split
 
 _ZN20unicode_segmentation8grapheme10check_pair17h18e440ab0edbb661E.exit.i.i.i: ; preds = %197, %196, %195, %192
-  %.0.i.i.i.i = phi i8 [ %switch.select17.i.i.i.i, %196 ], [ %..i.i.i.i, %192 ], [ %switch.select21.i.i.i.i, %197 ], [ %switch.select.i.i.i.i, %195 ]
+  %.0.i.i.i.i = phi i8 [ %switch.select17.i.i.i.i, %196 ], [ %switch.select21.i.i.i.i, %197 ], [ %..i.i.i.i, %192 ], [ %switch.select.i.i.i.i, %195 ]
   switch i8 %.0.i.i.i.i, label %default.unreachable [
     i8 0, label %_ZN20unicode_segmentation8grapheme10check_pair17h18e440ab0edbb661E.exit.thread.i.i.i
     i8 1, label %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i.thread.sink.split
@@ -8379,8 +8379,8 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9
   br i1 %.sroa.8.186.i.i, label %.loopexit, label %.preheader.i.i
 
 .loopexit.i:                                      ; preds = %126, %131, %.critedge.i.i.i, %123
-  %.sroa.12.0.ph.i = phi i64 [ undef, %123 ], [ %133, %131 ], [ 0, %.critedge.i.i.i ], [ %.sroa.8.1, %126 ]
-  %.sroa.7.0.ph.i = phi i64 [ 2, %123 ], [ 0, %131 ], [ 0, %.critedge.i.i.i ], [ 3, %126 ]
+  %.sroa.12.0.ph.i = phi i64 [ undef, %123 ], [ 0, %.critedge.i.i.i ], [ %133, %131 ], [ %.sroa.8.1, %126 ]
+  %.sroa.7.0.ph.i = phi i64 [ 2, %123 ], [ 0, %.critedge.i.i.i ], [ 0, %131 ], [ 3, %126 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1378
   store i64 %.sroa.7.0.ph.i, ptr %4, align 8, !noalias !1378
   %357 = getelementptr inbounds nuw i8, ptr %4, i64 8

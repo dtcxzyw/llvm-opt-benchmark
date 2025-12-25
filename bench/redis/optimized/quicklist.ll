@@ -3757,7 +3757,7 @@ __quicklistDecompressNode.exit:                   ; preds = %85, %86
   br i1 %.not82, label %quicklistGetIteratorAtIdx.exit.thread, label %.lr.ph, !llvm.loop !49
 
 quicklistGetIteratorAtIdx.exit.thread:            ; preds = %29, %113, %quicklistReleaseIterator.exit, %18, %13, %3
-  %.067 = phi i32 [ 0, %3 ], [ 0, %18 ], [ 0, %13 ], [ 1, %quicklistReleaseIterator.exit ], [ 1, %113 ], [ 0, %29 ]
+  %.067 = phi i32 [ 0, %3 ], [ 1, %quicklistReleaseIterator.exit ], [ 0, %13 ], [ 0, %18 ], [ 1, %113 ], [ 0, %29 ]
   ret i32 %.067
 }
 
@@ -3826,7 +3826,7 @@ quicklistGetIterator.exit:                        ; preds = %13
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %quicklistGetIterator.exit, %9, %3
-  %.0 = phi ptr [ null, %3 ], [ %22, %quicklistGetIterator.exit ], [ null, %9 ], [ null, %20 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ %22, %quicklistGetIterator.exit ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -4129,7 +4129,7 @@ tailrecurse:                                      ; preds = %tailrecurse.sink.sp
   br i1 %.not73, label %.loopexit, label %.lr.ph108
 
 .loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %2, %.thread83, %75
-  %.0 = phi i32 [ 1, %75 ], [ 1, %.thread83 ], [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %tailrecurse ]
+  %.0 = phi i32 [ 1, %.thread83 ], [ 1, %75 ], [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %tailrecurse ]
   ret i32 %.0
 }
 

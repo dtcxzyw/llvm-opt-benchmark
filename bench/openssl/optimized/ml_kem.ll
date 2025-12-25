@@ -2872,7 +2872,7 @@ sample_scalar.exit:                               ; preds = %24
   br label %.loopexit25
 
 .loopexit25:                                      ; preds = %._crit_edge.us, %21, %17, %2, %sample_scalar.exit
-  %.017 = phi i32 [ 1, %2 ], [ 0, %sample_scalar.exit ], [ 0, %21 ], [ 0, %17 ], [ 1, %._crit_edge.us ]
+  %.017 = phi i32 [ 0, %21 ], [ 0, %sample_scalar.exit ], [ 1, %2 ], [ 0, %17 ], [ 1, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.017
 }

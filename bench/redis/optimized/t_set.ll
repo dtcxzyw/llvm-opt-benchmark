@@ -5822,8 +5822,8 @@ setTypeInitIterator.exit:                         ; preds = %81, %86, %88
   br label %._crit_edge163
 
 ._crit_edge163:                                   ; preds = %.preheader, %160, %.preheader.us188, %154, %._crit_edge156.us178.thread, %._crit_edge163.loopexit, %setTypeInitIterator.exit
-  %.0.lcssa = phi i1 [ false, %setTypeInitIterator.exit ], [ false, %160 ], [ %163, %._crit_edge163.loopexit ], [ false, %154 ], [ false, %._crit_edge156.us178.thread ], [ false, %.preheader.us188 ], [ false, %.preheader ]
-  %.1112 = phi i64 [ 0, %setTypeInitIterator.exit ], [ %159, %160 ], [ %.2113.us, %._crit_edge163.loopexit ], [ %.2113.us175, %154 ], [ %153, %._crit_edge156.us178.thread ], [ %159, %.preheader.us188 ], [ 0, %.preheader ]
+  %.0.lcssa = phi i1 [ false, %setTypeInitIterator.exit ], [ %163, %._crit_edge163.loopexit ], [ false, %154 ], [ false, %160 ], [ false, %._crit_edge156.us178.thread ], [ false, %.preheader.us188 ], [ false, %.preheader ]
+  %.1112 = phi i64 [ 0, %setTypeInitIterator.exit ], [ %.2113.us, %._crit_edge163.loopexit ], [ %.2113.us175, %154 ], [ %159, %160 ], [ %153, %._crit_edge156.us178.thread ], [ %159, %.preheader.us188 ], [ 0, %.preheader ]
   %164 = load i32, ptr %80, align 8, !tbaa !45
   %165 = icmp eq i32 %164, 2
   br i1 %165, label %166, label %setTypeReleaseIterator.exit

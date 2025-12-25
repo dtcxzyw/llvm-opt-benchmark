@@ -2461,11 +2461,11 @@ _ZNK15stack_map_frame6verifyEPhS0_.exit:          ; preds = %32
   %.not54 = icmp ugt ptr %84, %25
   br i1 %.not54, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40, label %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread
 
-_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40: ; preds = %58, %61, %67, %69, %75, %_ZN22verification_type_info6verifyEPhS0_.exit27.i, %35, %44, %81, %.lr.ph, %49, %40, %54, %82, %_ZNK15stack_map_frame6verifyEPhS0_.exit
+_ZNK15stack_map_frame6verifyEPhS0_.exit.thread40: ; preds = %58, %61, %67, %69, %75, %_ZN22verification_type_info6verifyEPhS0_.exit27.i, %35, %44, %81, %.lr.ph, %82, %40, %54, %49, %_ZNK15stack_map_frame6verifyEPhS0_.exit
   tail call void @_ZNK15stack_map_frame15print_truncatedEP12outputStreami(ptr noundef nonnull align 1 dereferenceable(1) %.02663, ptr noundef nonnull %1, i32 noundef %.02762)
   br label %.loopexit
 
-_ZNK15stack_map_frame6verifyEPhS0_.exit.thread:   ; preds = %77, %_ZN22verification_type_info6verifyEPhS0_.exit.thread.i, %_ZN22verification_type_info6verifyEPhS0_.exit21.thread.i, %_ZN22verification_type_info6verifyEPhS0_.exit27.i, %38, %47, %29, %49, %40, %54, %82, %_ZNK15stack_map_frame6verifyEPhS0_.exit
+_ZNK15stack_map_frame6verifyEPhS0_.exit.thread:   ; preds = %77, %_ZN22verification_type_info6verifyEPhS0_.exit.thread.i, %_ZN22verification_type_info6verifyEPhS0_.exit21.thread.i, %_ZN22verification_type_info6verifyEPhS0_.exit27.i, %38, %47, %29, %82, %40, %54, %49, %_ZNK15stack_map_frame6verifyEPhS0_.exit
   tail call void @_ZNK15stack_map_frame8print_onEP12outputStreami(ptr noundef nonnull align 1 dereferenceable(1) %.02663, ptr noundef nonnull %1, i32 noundef %.02762)
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #21
   %85 = load i8, ptr %.02663, align 1
@@ -15381,7 +15381,7 @@ _ZN22verification_type_info6verifyEPhS0_.exit31.thread: ; preds = %24
   br i1 %exitcond52.not, label %_ZN22verification_type_info6verifyEPhS0_.exit.thread34, label %.lr.ph43, !llvm.loop !383
 
 _ZN22verification_type_info6verifyEPhS0_.exit.thread34: ; preds = %.lr.ph, %11, %_ZN22verification_type_info6verifyEPhS0_.exit31.thread, %.lr.ph43, %24, %19, %._crit_edge, %3
-  %.022 = phi i1 [ true, %19 ], [ false, %3 ], [ false, %._crit_edge ], [ false, %.lr.ph43 ], [ true, %_ZN22verification_type_info6verifyEPhS0_.exit31.thread ], [ false, %24 ], [ false, %11 ], [ false, %.lr.ph ]
+  %.022 = phi i1 [ false, %._crit_edge ], [ false, %3 ], [ true, %19 ], [ false, %.lr.ph43 ], [ true, %_ZN22verification_type_info6verifyEPhS0_.exit31.thread ], [ false, %24 ], [ false, %11 ], [ false, %.lr.ph ]
   ret i1 %.022
 }
 

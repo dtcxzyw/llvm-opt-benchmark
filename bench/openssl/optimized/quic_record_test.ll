@@ -845,7 +845,7 @@ define internal range(i32 0, 2) i32 @test_wire_pkt_hdr(i32 noundef %0) #0 {
   br i1 %.not13.i, label %test_hdr_prot_stats.exit, label %30
 
 test_hdr_prot_stats.exit:                         ; preds = %.lr.ph.i, %30, %15, %11, %7, %.preheader.i11, %17
-  %.0 = phi i32 [ 1, %15 ], [ 1, %.preheader.i11 ], [ 0, %11 ], [ 0, %17 ], [ 0, %7 ], [ 0, %.lr.ph.i ], [ 1, %30 ]
+  %.0 = phi i32 [ 1, %15 ], [ 1, %.preheader.i11 ], [ 0, %11 ], [ 0, %17 ], [ 0, %7 ], [ 1, %30 ], [ 0, %.lr.ph.i ]
   ret i32 %.0
 }
 

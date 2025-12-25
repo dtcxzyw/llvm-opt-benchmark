@@ -7958,7 +7958,7 @@ while.end411.invoke:                              ; preds = %while.cond, %Break2
           to label %cleanup unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont15, %invoke.cont402, %invoke.cont212, %invoke.cont157, %invoke.cont109, %invoke.cont85, %invoke.cont56, %invoke.cont34, %invoke.cont313, %while.end411.invoke, %invoke.cont313.thread, %invoke.cont34.thread, %invoke.cont15.thread, %sw.bb363, %invoke.cont198, %invoke.cont143
-  %retval.0 = phi ptr [ null, %invoke.cont198 ], [ %112, %while.end411.invoke ], [ null, %invoke.cont313 ], [ null, %invoke.cont402 ], [ null, %invoke.cont313.thread ], [ null, %invoke.cont34.thread ], [ null, %invoke.cont143 ], [ null, %sw.bb363 ], [ null, %invoke.cont15.thread ], [ null, %invoke.cont34 ], [ null, %invoke.cont56 ], [ null, %invoke.cont85 ], [ null, %invoke.cont109 ], [ null, %invoke.cont157 ], [ null, %invoke.cont212 ], [ null, %invoke.cont15 ]
+  %retval.0 = phi ptr [ null, %invoke.cont198 ], [ null, %invoke.cont15.thread ], [ null, %invoke.cont313 ], [ null, %invoke.cont402 ], [ null, %invoke.cont313.thread ], [ null, %invoke.cont34.thread ], [ null, %invoke.cont143 ], [ null, %sw.bb363 ], [ %112, %while.end411.invoke ], [ null, %invoke.cont34 ], [ null, %invoke.cont56 ], [ null, %invoke.cont85 ], [ null, %invoke.cont109 ], [ null, %invoke.cont157 ], [ null, %invoke.cont212 ], [ null, %invoke.cont15 ]
   call void @_ZN3re26Regexp10ParseStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %ps) #28
   %tmp_.i354 = getelementptr inbounds nuw i8, ptr %xstatus, i64 24
   %113 = load ptr, ptr %tmp_.i354, align 8

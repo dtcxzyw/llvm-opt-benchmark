@@ -1668,7 +1668,7 @@ define dso_local noundef zeroext i1 @_ZN22cmComputeTargetDepends15CheckComponent
   br label %.critedge30
 
 .critedge30:                                      ; preds = %.loopexit, %.critedge30.sink.split, %2
-  %.not2838 = phi i1 [ false, %.critedge30.sink.split ], [ true, %2 ], [ true, %.loopexit ]
+  %.not2838 = phi i1 [ true, %2 ], [ false, %.critedge30.sink.split ], [ true, %.loopexit ]
   ret i1 %.not2838
 }
 

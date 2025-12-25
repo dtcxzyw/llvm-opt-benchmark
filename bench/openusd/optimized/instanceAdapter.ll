@@ -4460,7 +4460,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %23
           cleanup
   br label %3785
 
-.critedge209:                                     ; preds = %.noexc220, %237, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %257
+.critedge209:                                     ; preds = %237, %.noexc220, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %257
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %262 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -4709,7 +4709,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit239: ; preds = %.noexc
   %371 = and i1 %370, %369
   br i1 %371, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit239.thread900, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit239.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit239.thread900: ; preds = %.noexc238, %362, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit239
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit239.thread900: ; preds = %362, %.noexc238, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit239
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter16GetModelDrawModeERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit unwind label %432
 
@@ -7654,7 +7654,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit458: ; preds = %.noexc
           cleanup
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit709
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit458.thread907: ; preds = %.noexc457, %1831, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit458
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit458.thread907: ; preds = %1831, %.noexc457, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit458
   %1854 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter17ShouldCullSubtreeERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32) %48)
           to label %1855 unwind label %1852
 
@@ -16523,7 +16523,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %28
           cleanup
   br label %626
 
-.thread:                                          ; preds = %.noexc, %288, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %305
+.thread:                                          ; preds = %288, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %305
   %308 = load i32, ptr %258, align 8
   %.not.i.i.i.not.i = icmp eq i32 %308, 0
   br i1 %.not.i.i.i.not.i, label %310, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject11GetPrimPathEv.exit.i
@@ -17016,7 +17016,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 525:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %524, label %.critedge, label %531
 
-.critedge:                                        ; preds = %.noexc93, %514, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %525
+.critedge:                                        ; preds = %514, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %525
   %526 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter28_CountAllInstancesToDrawImplERKNS_7UsdPrimEPNS_9TfHashMapINS_7SdfPathEmNS5_4HashESt8equal_toIS5_ESaISt4pairIKS5_mEEEE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %2)
           to label %527 unwind label %529
 
@@ -28224,7 +28224,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %373 = and i1 %372, %371
   br i1 %373, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread127, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread127: ; preds = %.noexc, %364, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread127: ; preds = %364, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %374 = load ptr, ptr %352, align 8
   %.not.i.i86 = icmp eq ptr %374, null
   br i1 %.not.i.i86, label %379, label %375
@@ -53664,7 +53664,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -54464,7 +54464,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_27_ComputeInstanceTransformFnEEEbRKNS_7UsdPrimEPSt6vectorIS3_SaIS3_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -55512,7 +55512,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -56312,7 +56312,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_37_GatherInstanceTransformTimeSamplesFnEEEbRKNS_7UsdPrimEPSt6vectorIS3_SaIS3_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -57243,7 +57243,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -58043,7 +58043,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_35_GatherInstancePrimvarTimeSamplesFnEEEbRKNS_7UsdPrimEPSt6vectorIS3_SaIS3_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -58656,7 +58656,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc25
   %136 = and i1 %135, %134
   br i1 %136, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread53, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread53: ; preds = %.noexc25, %127, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread53: ; preds = %127, %.noexc25, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %137 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %138 unwind label %183
@@ -59392,7 +59392,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %699
 
-.critedge40:                                      ; preds = %.noexc, %187, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %204
+.critedge40:                                      ; preds = %187, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %204
   %205 = load ptr, ptr %148, align 8
   %206 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %205, %206
@@ -60215,7 +60215,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit96.thread: ; preds = %
 560:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit96.thread
   br i1 %559, label %.critedge, label %566
 
-.critedge:                                        ; preds = %.noexc95, %549, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit96, %560
+.critedge:                                        ; preds = %549, %.noexc95, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit96, %560
   %561 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_29_IsInstanceTransformVaryingFnEEEbRKNS_7UsdPrimEPSt6vectorIS3_SaIS3_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %562 unwind label %564
 
@@ -62783,7 +62783,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -63583,7 +63583,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_8pxr_half4halfEEEEEbRKNS_7UsdPrimEPSt6vectorIS6_SaIS6_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -64228,7 +64228,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -66439,7 +66439,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -67239,7 +67239,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_10GfMatrix3dEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -67884,7 +67884,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -70135,7 +70135,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -70935,7 +70935,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_10GfMatrix3fEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -71580,7 +71580,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -73846,7 +73846,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -74646,7 +74646,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_10GfMatrix4dEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -75289,7 +75289,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -77055,7 +77055,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -77855,7 +77855,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_10GfMatrix4fEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -78500,7 +78500,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -80695,7 +80695,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -81495,7 +81495,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec2dEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -82140,7 +82140,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -84200,7 +84200,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -85000,7 +85000,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec2fEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -85645,7 +85645,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -87705,7 +87705,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -88505,7 +88505,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec2hEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -89150,7 +89150,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -91204,7 +91204,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -92004,7 +92004,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec2iEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -92649,7 +92649,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -94703,7 +94703,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -95503,7 +95503,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec3dEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -96148,7 +96148,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -98271,7 +98271,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -99071,7 +99071,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec3fEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -99716,7 +99716,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -101842,7 +101842,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -102642,7 +102642,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec3hEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -103287,7 +103287,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %222
@@ -105347,7 +105347,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -106147,7 +106147,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec3iEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -106792,7 +106792,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -108856,7 +108856,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -109656,7 +109656,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec4dEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -110301,7 +110301,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -112434,7 +112434,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -113234,7 +113234,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec4fEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -113879,7 +113879,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -116016,7 +116016,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -116816,7 +116816,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec4hEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -117461,7 +117461,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -119584,7 +119584,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -120384,7 +120384,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_7GfVec4iEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -121029,7 +121029,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -123154,7 +123154,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -123954,7 +123954,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnIbEEEEbRKNS_7UsdPrimEPSt6vectorIS4_SaIS4_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -124599,7 +124599,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %224
@@ -126658,7 +126658,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -127458,7 +127458,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnIcEEEEbRKNS_7UsdPrimEPSt6vectorIS4_SaIS4_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -128103,7 +128103,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -130158,7 +130158,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -130958,7 +130958,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnIdEEEEbRKNS_7UsdPrimEPSt6vectorIS4_SaIS4_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -131603,7 +131603,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -133673,7 +133673,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -134473,7 +134473,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnIfEEEEbRKNS_7UsdPrimEPSt6vectorIS4_SaIS4_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -135118,7 +135118,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -137189,7 +137189,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -137989,7 +137989,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnIsEEEEbRKNS_7UsdPrimEPSt6vectorIS4_SaIS4_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -138634,7 +138634,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -140688,7 +140688,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -141488,7 +141488,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnIiEEEEbRKNS_7UsdPrimEPSt6vectorIS4_SaIS4_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -142133,7 +142133,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -143921,7 +143921,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -144721,7 +144721,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnItEEEEbRKNS_7UsdPrimEPSt6vectorIS4_SaIS4_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -145366,7 +145366,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -147422,7 +147422,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -148222,7 +148222,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnIjEEEEbRKNS_7UsdPrimEPSt6vectorIS4_SaIS4_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -148867,7 +148867,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -150923,7 +150923,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -151723,7 +151723,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnIhEEEEbRKNS_7UsdPrimEPSt6vectorIS4_SaIS4_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -152368,7 +152368,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %223
@@ -154423,7 +154423,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -155223,7 +155223,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_7UsdPrimEPSt6vectorISA_SaISA_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -155868,7 +155868,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %153 = and i1 %152, %151
   br i1 %153, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %.noexc38, %144, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread107: ; preds = %144, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %154 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %155 unwind label %225
@@ -157995,7 +157995,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -158795,7 +158795,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_26_ComputeInheritedPrimvarFnINS_12SdfAssetPathEEEEEbRKNS_7UsdPrimEPSt6vectorIS5_SaIS5_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -160011,7 +160011,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc38
   %159 = and i1 %158, %157
   br i1 %159, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread128, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread128: ; preds = %.noexc38, %150, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread128: ; preds = %150, %.noexc38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %160 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %161 unwind label %246
@@ -162160,7 +162160,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -162960,7 +162960,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_36_IsInstanceInheritedPrimvarVaryingFnEEEbRKNS_7UsdPrimEPSt6vectorIS3_SaIS3_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -163571,7 +163571,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc15
   %134 = and i1 %133, %132
   br i1 %134, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread32, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__35UsdImaging_InheritedPrimvarStrategy13PrimvarRecordEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread32: ; preds = %.noexc15, %125, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread32: ; preds = %125, %.noexc15, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %135 = load ptr, ptr %0, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter21_GetInheritedPrimvarsERKNS_7UsdPrimE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.35") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %136 unwind label %146
@@ -164701,7 +164701,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -165501,7 +165501,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_24_GetInstanceCategoriesFnEEEbRKNS_7UsdPrimEPSt6vectorIS3_SaIS3_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -194211,7 +194211,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %716
 
-.critedge40:                                      ; preds = %.noexc, %192, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %209
+.critedge40:                                      ; preds = %192, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %209
   %210 = load ptr, ptr %149, align 8
   %211 = load ptr, ptr %150, align 8
   %.not.i43 = icmp eq ptr %210, %211
@@ -195075,7 +195075,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit99.thread: ; preds = %
 578:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit99.thread
   br i1 %577, label %.critedge, label %584
 
-.critedge:                                        ; preds = %.noexc98, %567, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit99, %578
+.critedge:                                        ; preds = %567, %.noexc98, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit99, %578
   %579 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_32_ComputeInstanceMapVariabilityFnEEEbRKNS_7UsdPrimEPSt6vectorIS3_SaIS3_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %580 unwind label %582
 
@@ -196335,7 +196335,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -197135,7 +197135,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_21_ComputeInstanceMapFnEEEbRKNS_7UsdPrimEPSt6vectorIS3_SaIS3_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -198120,7 +198120,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -198920,7 +198920,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_20_GetScenePrimPathsFnEEEbRKNS_7UsdPrimEPSt6vectorIS3_SaIS3_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 
@@ -199309,7 +199309,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %47 = and i1 %46, %45
   br i1 %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread44, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE9push_backERKS1_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread44: ; preds = %.noexc, %38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread44: ; preds = %38, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %48 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i, label %53, label %49
@@ -201219,7 +201219,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %18
           cleanup
   br label %690
 
-.critedge40:                                      ; preds = %.noexc, %186, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
+.critedge40:                                      ; preds = %186, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit, %203
   %206 = load ptr, ptr %148, align 8
   %207 = load ptr, ptr %149, align 8
   %.not.i43 = icmp eq ptr %206, %207
@@ -202019,7 +202019,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread: ; preds = %
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94.thread
   br i1 %554, label %.critedge, label %559
 
-.critedge:                                        ; preds = %.noexc93, %544, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
+.critedge:                                        ; preds = %544, %.noexc93, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit94, %555
   %556 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter29_RunForAllInstancesToDrawImplINS0_28_PopulateInstanceSelectionFnEEEbRKNS_7UsdPrimEPSt6vectorIS3_SaIS3_EEPmPT_(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
           to label %559 unwind label %557
 

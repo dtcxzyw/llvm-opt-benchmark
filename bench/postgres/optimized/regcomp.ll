@@ -17948,7 +17948,7 @@ parseqatom.exit:                                  ; preds = %1024, %1036, %536, 
   br label %newarc.exit
 
 newarc.exit:                                      ; preds = %1497, %1467, %1462, %1459, %1451, %1427, %1398, %removeconstraints.exit, %delsub.exit, %subre.exit603, %subre.exit594, %newarc.exit68, %delsub.exit70, %.thread, %subre.exit81, %subre.exit566, %865, %845, %832, %newarc.exit129, %moresubs.exit, %onechr.exit, %376, %368, %362, %358, %352, %348, %342, %336, %parseqatom.exit, %68, %1680, %1692, %1204, %1195, %887, %878, %27, %16, %1077, %1086, %.loopexit, %969, %616, %611, %609, %.thread313, %.thread317, %.loopexit.i, %.critedge, %subre.exit
-  %.031 = phi ptr [ null, %27 ], [ null, %1086 ], [ null, %subre.exit ], [ %.0, %.loopexit.i ], [ %.0, %.critedge ], [ null, %1204 ], [ null, %1077 ], [ null, %.thread317 ], [ null, %.thread313 ], [ null, %.loopexit ], [ null, %969 ], [ null, %616 ], [ null, %611 ], [ null, %609 ], [ %.0, %1680 ], [ null, %16 ], [ %.0, %1692 ], [ null, %1195 ], [ null, %878 ], [ null, %887 ], [ null, %68 ], [ null, %parseqatom.exit ], [ null, %336 ], [ null, %342 ], [ null, %348 ], [ null, %352 ], [ null, %358 ], [ null, %362 ], [ null, %368 ], [ null, %376 ], [ null, %onechr.exit ], [ null, %moresubs.exit ], [ null, %newarc.exit129 ], [ null, %832 ], [ null, %845 ], [ null, %865 ], [ null, %subre.exit566 ], [ null, %subre.exit81 ], [ null, %.thread ], [ null, %delsub.exit70 ], [ null, %newarc.exit68 ], [ null, %subre.exit594 ], [ null, %subre.exit603 ], [ null, %delsub.exit ], [ null, %removeconstraints.exit ], [ null, %1398 ], [ null, %1427 ], [ null, %1451 ], [ null, %1459 ], [ null, %1462 ], [ null, %1467 ], [ null, %1497 ]
+  %.031 = phi ptr [ null, %.loopexit ], [ null, %27 ], [ null, %subre.exit ], [ %.0, %.loopexit.i ], [ %.0, %.critedge ], [ null, %16 ], [ null, %1077 ], [ null, %.thread317 ], [ null, %.thread313 ], [ null, %1086 ], [ null, %609 ], [ null, %611 ], [ null, %616 ], [ null, %969 ], [ %.0, %1680 ], [ null, %1204 ], [ null, %887 ], [ null, %878 ], [ null, %1195 ], [ %.0, %1692 ], [ null, %68 ], [ null, %parseqatom.exit ], [ null, %336 ], [ null, %342 ], [ null, %348 ], [ null, %352 ], [ null, %358 ], [ null, %362 ], [ null, %368 ], [ null, %376 ], [ null, %onechr.exit ], [ null, %moresubs.exit ], [ null, %newarc.exit129 ], [ null, %832 ], [ null, %845 ], [ null, %865 ], [ null, %subre.exit566 ], [ null, %subre.exit81 ], [ null, %.thread ], [ null, %delsub.exit70 ], [ null, %newarc.exit68 ], [ null, %subre.exit594 ], [ null, %subre.exit603 ], [ null, %delsub.exit ], [ null, %removeconstraints.exit ], [ null, %1398 ], [ null, %1427 ], [ null, %1451 ], [ null, %1459 ], [ null, %1462 ], [ null, %1467 ], [ null, %1497 ]
   ret ptr %.031
 }
 
@@ -23480,7 +23480,7 @@ getcvec.exit65:                                   ; preds = %153
   br label %211
 
 211:                                              ; preds = %209, %207, %205, %203, %138, %136, %12, %10, %8, %6
-  %.0 = phi ptr [ %210, %209 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %204, %203 ], [ %139, %138 ], [ %206, %205 ], [ %208, %207 ], [ %137, %136 ]
+  %.0 = phi ptr [ %139, %138 ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %204, %203 ], [ %210, %209 ], [ %206, %205 ], [ %208, %207 ], [ %137, %136 ]
   %212 = icmp eq ptr %.0, null
   br i1 %212, label %.thread75, label %.thread
 
@@ -25940,7 +25940,7 @@ define internal fastcc i32 @newhicolorrow(ptr noundef captures(none) %0, i32 nou
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %.critedge.sink.split, %24
-  %.1 = phi i32 [ 0, %.critedge.sink.split ], [ %4, %24 ], [ %4, %41 ]
+  %.1 = phi i32 [ %4, %24 ], [ 0, %.critedge.sink.split ], [ %4, %41 ]
   ret i32 %.1
 }
 

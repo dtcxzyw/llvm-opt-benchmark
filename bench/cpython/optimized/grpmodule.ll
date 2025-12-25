@@ -615,7 +615,7 @@ Py_DECREF.exit49:                                 ; preds = %.split, %29, %32
   tail call void @_Py_Dealloc(ptr noundef nonnull %19) #4
   br label %42
 
-42:                                               ; preds = %41, %38, %37
+42:                                               ; preds = %37, %38, %41
   %43 = getelementptr i8, ptr %.03663, i64 8
   %.0.copyload = load ptr, ptr %43, align 8
   %44 = icmp eq ptr %.0.copyload, null

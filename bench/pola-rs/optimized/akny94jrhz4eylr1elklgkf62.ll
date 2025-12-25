@@ -9884,7 +9884,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   invoke void %89(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef align 1 %80, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
           to label %90 unwind label %168
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread23: ; preds = %28, %21, %35, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread23: ; preds = %21, %35, %28, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   store i64 0, ptr %0, align 8
   br label %167
 

@@ -83,7 +83,7 @@ l_strton.exit.thread.sink.split:                  ; preds = %7, %29
   br label %l_strton.exit.thread
 
 l_strton.exit.thread:                             ; preds = %l_strton.exit.thread.sink.split, %10, %l_strton.exit
-  %.0 = phi i32 [ 0, %10 ], [ 0, %l_strton.exit ], [ 1, %l_strton.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %l_strton.exit ], [ 0, %10 ], [ 1, %l_strton.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -7912,7 +7912,7 @@ l_strton.exit.i20.i.i:                            ; preds = %3260, %3257
   br label %luaV_tonumber_.exit.i.i
 
 luaV_tonumber_.exit.i.i:                          ; preds = %3268, %3246
-  %.124.i.i = phi double [ %3248, %3246 ], [ %3273, %3268 ]
+  %.124.i.i = phi double [ %3273, %3268 ], [ %3248, %3246 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %3275
 
@@ -8034,7 +8034,7 @@ l_strton.exit.i.i:                                ; preds = %3314, %3311
   br label %luaV_tonumber_.exit.i
 
 luaV_tonumber_.exit.i:                            ; preds = %3322, %3300
-  %.1101.i = phi double [ %3302, %3300 ], [ %3327, %3322 ]
+  %.1101.i = phi double [ %3327, %3322 ], [ %3302, %3300 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %3329
 
@@ -8106,7 +8106,7 @@ l_strton.exit.i76.i:                              ; preds = %3350, %3347
   br label %luaV_tonumber_.exit82.i
 
 luaV_tonumber_.exit82.i:                          ; preds = %3358, %3336
-  %.199.i = phi double [ %3338, %3336 ], [ %3363, %3358 ]
+  %.199.i = phi double [ %3363, %3358 ], [ %3338, %3336 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %3365
 
@@ -8177,7 +8177,7 @@ l_strton.exit.i84.i:                              ; preds = %3385, %3382
   br label %luaV_tonumber_.exit90.i
 
 luaV_tonumber_.exit90.i:                          ; preds = %3393, %3371
-  %.1103.i = phi double [ %3373, %3371 ], [ %3398, %3393 ]
+  %.1103.i = phi double [ %3398, %3393 ], [ %3373, %3371 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %3400
 

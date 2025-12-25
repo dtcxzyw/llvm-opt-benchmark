@@ -1366,8 +1366,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i339, %397
   br label %.thread350
 
 .thread350:                                       ; preds = %25, %105, %.thread350.sink.split, %pmix_obj_update.exit, %.loopexit357, %477
-  %.1212355 = phi i32 [ %.1212, %477 ], [ -32, %.thread350.sink.split ], [ -27, %105 ], [ -32, %pmix_obj_update.exit ], [ -1, %.loopexit357 ], [ -27, %25 ]
-  %.0214354 = phi ptr [ %.0214, %477 ], [ null, %.thread350.sink.split ], [ null, %105 ], [ null, %pmix_obj_update.exit ], [ @.str.21, %.loopexit357 ], [ null, %25 ]
+  %.1212355 = phi i32 [ %.1212, %477 ], [ -32, %.thread350.sink.split ], [ -1, %.loopexit357 ], [ -32, %pmix_obj_update.exit ], [ -27, %105 ], [ -27, %25 ]
+  %.0214354 = phi ptr [ %.0214, %477 ], [ null, %.thread350.sink.split ], [ @.str.21, %.loopexit357 ], [ null, %pmix_obj_update.exit ], [ null, %105 ], [ null, %25 ]
   %478 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1, ptr noundef %.0214354, i32 noundef %.1212355) #17
   br label %479
 

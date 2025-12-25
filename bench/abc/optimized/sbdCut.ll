@@ -4114,7 +4114,7 @@ define range(i32 -1, 16) i32 @Sbd_StoObjBestCut(ptr noundef readonly captures(no
   %or.cond86 = select i1 %50, i1 true, i1 %or.cond58
   br i1 %or.cond86, label %Sbd_CutCompare2.exit.thread56, label %Sbd_CutCompare2.exit.thread
 
-Sbd_CutCompare2.exit.thread56:                    ; preds = %33, %41, %27, %49, %17
+Sbd_CutCompare2.exit.thread56:                    ; preds = %33, %27, %41, %49, %17
   br label %Sbd_CutCompare2.exit.thread
 
 Sbd_CutCompare2.exit.thread:                      ; preds = %49, %9, %43, %35, %29, %19, %._crit_edge69, %14, %Sbd_CutCompare2.exit.thread56

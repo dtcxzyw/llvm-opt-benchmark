@@ -2230,7 +2230,7 @@ image_ctx_free.exit:                              ; preds = %684, %._crit_edge.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %image_ctx_free.exit, %.loopexit.sink.split, %81, %84, %update_canvas_size.exit, %14
-  %.0 = phi i32 [ -1094995529, %.loopexit.sink.split ], [ -558323010, %81 ], [ -558323010, %84 ], [ %55, %update_canvas_size.exit ], [ -1094995529, %14 ], [ %.4, %image_ctx_free.exit ]
+  %.0 = phi i32 [ -1094995529, %14 ], [ -558323010, %81 ], [ -558323010, %84 ], [ %55, %update_canvas_size.exit ], [ -1094995529, %.loopexit.sink.split ], [ %.4, %image_ctx_free.exit ]
   ret i32 %.0
 }
 

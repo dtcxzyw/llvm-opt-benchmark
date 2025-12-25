@@ -4047,7 +4047,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit44:            ; preds = %27
   br label %32
 
 32:                                               ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit32, %_ZNK6icu_7713UnicodeStringixEi.exit, %_ZNK6icu_7713UnicodeStringixEi.exit, %_ZNK6icu_7713UnicodeStringixEi.exit, %27, %_ZNK6icu_7713UnicodeStringixEi.exit44, %1, %.thread48
-  %.0 = phi i1 [ false, %.thread48 ], [ false, %1 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %27 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit44 ], [ %switch.selectcmp, %_ZNK6icu_7713UnicodeStringixEi.exit32 ]
+  %.0 = phi i1 [ false, %.thread48 ], [ false, %1 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit44 ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %_ZNK6icu_7713UnicodeStringixEi.exit ], [ true, %27 ], [ %switch.selectcmp, %_ZNK6icu_7713UnicodeStringixEi.exit32 ]
   ret i1 %.0
 }
 

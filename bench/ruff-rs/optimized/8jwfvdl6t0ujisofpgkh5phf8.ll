@@ -9415,8 +9415,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %22 = icmp eq i64 %14, %21
   br i1 %22, label %23, label %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread: ; preds = %.preheader.split.backedge, %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit, %.lr.ph, %90, %29, %59, %57, %39, %35, %25, %58, %45, %74, %84, %80, %69, %109, %119, %115, %104, %125, %137, %102, %67, %.preheader.split.preheader, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %67 ], [ false, %102 ], [ false, %137 ], [ false, %125 ], [ false, %104 ], [ false, %115 ], [ false, %119 ], [ false, %109 ], [ false, %69 ], [ false, %80 ], [ false, %84 ], [ false, %74 ], [ false, %45 ], [ false, %58 ], [ false, %25 ], [ false, %35 ], [ false, %39 ], [ false, %57 ], [ false, %59 ], [ false, %29 ], [ false, %90 ], [ false, %.lr.ph ], [ false, %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit ], [ true, %.preheader.split.backedge ]
+_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread: ; preds = %.preheader.split.backedge, %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit, %.lr.ph, %90, %29, %59, %57, %39, %35, %25, %58, %45, %74, %84, %80, %69, %109, %119, %115, %104, %125, %67, %137, %102, %.preheader.split.preheader, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %102 ], [ false, %137 ], [ false, %67 ], [ false, %125 ], [ false, %104 ], [ false, %115 ], [ false, %119 ], [ false, %109 ], [ false, %69 ], [ false, %80 ], [ false, %84 ], [ false, %74 ], [ false, %45 ], [ false, %58 ], [ false, %25 ], [ false, %35 ], [ false, %39 ], [ false, %57 ], [ false, %59 ], [ false, %29 ], [ false, %90 ], [ false, %.lr.ph ], [ false, %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit ], [ true, %.preheader.split.backedge ]
   ret i1 %.sroa.0.0
 
 23:                                               ; preds = %.lr.ph
@@ -9614,10 +9614,10 @@ _ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread: ; preds = %.preheader
   br i1 %138, label %.preheader.split.backedge, label %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread
 
 _ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit: ; preds = %61, %96, %131
-  %.sroa.0.0.shrunk.i.i = phi i1 [ %.mux.i9.i.i, %131 ], [ %.mux.i.i.i, %61 ], [ %.mux.i5.i.i, %96 ]
+  %.sroa.0.0.shrunk.i.i = phi i1 [ %.mux.i5.i.i, %96 ], [ %.mux.i.i.i, %61 ], [ %.mux.i9.i.i, %131 ]
   br i1 %.sroa.0.0.shrunk.i.i, label %.preheader.split.backedge, label %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread
 
-.preheader.split.backedge:                        ; preds = %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit, %137, %102, %67
+.preheader.split.backedge:                        ; preds = %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit, %67, %137, %102
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %_ZN4core3cmp9PartialEq2ne17h088403d36cfad069E.exit.thread, label %.lr.ph
 }

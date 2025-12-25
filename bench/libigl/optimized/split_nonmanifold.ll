@@ -2972,7 +2972,7 @@ _ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiL
   br i1 %.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit42.sink.split, label %.lr.ph
 
 _ZNSt6vectorIiSaIiEED2Ev.exit42.sink.split:       ; preds = %.loopexit, %68, %61, %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit
-  %.not56.ph = phi i1 [ true, %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit ], [ false, %68 ], [ false, %61 ], [ true, %.loopexit ]
+  %.not56.ph = phi i1 [ false, %68 ], [ true, %_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEES3_NS2_IiLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EEENKUliE_clEi.exit ], [ false, %61 ], [ true, %.loopexit ]
   tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %32) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit42
 

@@ -16392,7 +16392,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %48, %50
   br i1 %.not52, label %.critedge, label %.lr.ph.split, !llvm.loop !203
 
 .critedge:                                        ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55, %.critedge2, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55.us, %.critedge2.us, %.preheader, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit, %5
-  %.044 = phi i64 [ undef, %5 ], [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit ], [ %31, %.preheader ], [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55.us ], [ %31, %.critedge2.us ], [ %31, %.critedge2 ], [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55 ]
+  %.044 = phi i64 [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit ], [ undef, %5 ], [ %31, %.preheader ], [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55.us ], [ %31, %.critedge2.us ], [ %31, %.critedge2 ], [ %31, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit55 ]
   %58 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #34, !noalias !204
   store ptr null, ptr %58, align 8, !noalias !204
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8

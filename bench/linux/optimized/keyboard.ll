@@ -1047,7 +1047,7 @@ do_compute_shiftstate.exit.sink.split:            ; preds = %2, %6, %74
   br label %do_compute_shiftstate.exit
 
 do_compute_shiftstate.exit:                       ; preds = %68, %34, %do_compute_shiftstate.exit.sink.split, %40, %7, %2
-  %79 = phi i32 [ 0, %34 ], [ 0, %do_compute_shiftstate.exit.sink.split ], [ -22, %2 ], [ 0, %40 ], [ 0, %7 ], [ 0, %68 ]
+  %79 = phi i32 [ 0, %7 ], [ 0, %do_compute_shiftstate.exit.sink.split ], [ -22, %2 ], [ 0, %40 ], [ 0, %34 ], [ 0, %68 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @kbd_event_lock, i64 noundef %5) #19
   ret i32 %79
 }

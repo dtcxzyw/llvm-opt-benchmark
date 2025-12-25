@@ -1920,9 +1920,9 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_mul(ptr noundef readonly captures(no
   br i1 %100, label %.lr.ph125, label %.critedge2, !llvm.loop !28
 
 .critedge2:                                       ; preds = %88, %.lr.ph125, %98, %.loopexit
-  %.087.lcssa140 = phi i32 [ %14, %.loopexit ], [ %.087114, %.lr.ph125 ], [ %.087114, %98 ], [ %85, %88 ]
-  %.091.lcssa139 = phi ptr [ %25, %.loopexit ], [ %.091112, %.lr.ph125 ], [ %.091112, %98 ], [ %scevgep, %88 ]
-  %.2.lcssa = phi i32 [ %.089, %.loopexit ], [ %.2124, %.lr.ph125 ], [ 0, %98 ], [ 0, %88 ]
+  %.087.lcssa140 = phi i32 [ %.087114, %.lr.ph125 ], [ %14, %.loopexit ], [ %.087114, %98 ], [ %85, %88 ]
+  %.091.lcssa139 = phi ptr [ %.091112, %.lr.ph125 ], [ %25, %.loopexit ], [ %.091112, %98 ], [ %scevgep, %88 ]
+  %.2.lcssa = phi i32 [ %.2124, %.lr.ph125 ], [ %.089, %.loopexit ], [ 0, %98 ], [ 0, %88 ]
   %101 = icmp eq i32 %.2.lcssa, 0
   %spec.select = select i1 %101, i32 0, i32 %.087.lcssa140
   %102 = select i1 %101, i1 true, i1 %23

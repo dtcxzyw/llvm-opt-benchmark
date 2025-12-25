@@ -716,7 +716,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %140, %135, %143
   br label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread
 
 _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87: ; preds = %187, %182, %174, %168, %163, %158, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit
-  %.0 = phi ptr [ %186, %182 ], [ %188, %187 ], [ %175, %174 ], [ %165, %163 ], [ %173, %168 ], [ %162, %158 ], [ %.1, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit ]
+  %.0 = phi ptr [ %173, %168 ], [ %.1, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit ], [ %165, %163 ], [ %175, %174 ], [ %162, %158 ], [ %188, %187 ], [ %186, %182 ]
   %.not70 = icmp eq ptr %.0, null
   br i1 %.not70, label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread, label %191
 
@@ -1208,7 +1208,7 @@ _ZNK5clang15FunctionTypeLoc9getParamsEv.exit:     ; preds = %_ZN5clang8commentsL
   store i16 %472, ptr %2, align 8
   br label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread
 
-_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread: ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i39.i, %._crit_edge.i, %420, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit.i, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_29TemplateSpecializationTypeLocENS_26TemplateSpecializationTypeENS_29TemplateSpecializationLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i, %423, %176, %152, %166, %189, %118, %116, %112, %108, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit81, %62, %56, %8, %465, %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87
+_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87.thread: ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i39.i, %._crit_edge.i, %420, %423, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_29TemplateSpecializationTypeLocENS_26TemplateSpecializationTypeENS_29TemplateSpecializationLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i, %_ZNK5clang7TypeLoc17getUnqualifiedLocEv.exit.i, %176, %152, %166, %189, %118, %116, %112, %108, %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit81, %62, %56, %8, %465, %_ZNK5clang15FunctionTypeLoc9getParamsEv.exit, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit87
   %473 = load i16, ptr %2, align 8
   br label %474
 

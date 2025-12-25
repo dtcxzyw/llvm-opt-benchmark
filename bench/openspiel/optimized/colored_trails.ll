@@ -9520,7 +9520,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %88, %_ZNK10open_spi
   br label %_ZN10open_spiel14colored_trails5TradeD2Ev.exit
 
 _ZN10open_spiel14colored_trails5TradeD2Ev.exit:   ; preds = %20, %.lr.ph, %95, %_ZNSt6vectorIiSaIiEED2Ev.exit.i, %1, %7
-  %.0 = phi i1 [ %85, %95 ], [ true, %1 ], [ %85, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ true, %7 ], [ false, %.lr.ph ], [ false, %20 ]
+  %.0 = phi i1 [ %85, %_ZNSt6vectorIiSaIiEED2Ev.exit.i ], [ true, %1 ], [ %85, %95 ], [ true, %7 ], [ false, %.lr.ph ], [ false, %20 ]
   ret i1 %.0
 }
 

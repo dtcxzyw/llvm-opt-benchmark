@@ -616,7 +616,7 @@ find_table_entry_ind.exit:                        ; preds = %67, %.loopexit.spli
   br label %find_entry.exit.thread
 
 find_entry.exit.thread:                           ; preds = %18, %find_table_entry_ind.exit, %find_entry.exit, %77, %.thread, %.loopexit, %85
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %77 ], [ 1, %85 ], [ 1, %.loopexit ], [ 0, %find_entry.exit ], [ 0, %find_table_entry_ind.exit ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %77 ], [ 0, %.thread ], [ 1, %85 ], [ 1, %.loopexit ], [ 0, %find_entry.exit ], [ 0, %find_table_entry_ind.exit ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -816,7 +816,7 @@ find_table_entry_ind.exit:                        ; preds = %67, %.loopexit.spli
   br label %find_entry.exit.thread
 
 find_entry.exit.thread:                           ; preds = %18, %find_table_entry_ind.exit, %find_entry.exit, %77, %.thread, %.loopexit, %85
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %77 ], [ 1, %85 ], [ 1, %.loopexit ], [ 0, %find_entry.exit ], [ 0, %find_table_entry_ind.exit ], [ 0, %18 ]
+  %.0 = phi i32 [ 0, %77 ], [ 0, %.thread ], [ 1, %85 ], [ 1, %.loopexit ], [ 0, %find_entry.exit ], [ 0, %find_table_entry_ind.exit ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -3137,9 +3137,9 @@ set_bin.exit:                                     ; preds = %find_entry.exit108,
   br label %update_range_for_deleted.exit
 
 update_range_for_deleted.exit:                    ; preds = %find_entry.exit108, %.backedge, %.thread146, %164, %.split, %.critedge.i, %set_bin.exit, %120, %121, %26
-  %.178 = phi i64 [ %.077197, %26 ], [ %.279, %120 ], [ %.279, %121 ], [ %.279, %.split ], [ %.279, %set_bin.exit ], [ %.279, %.thread146 ], [ %.279, %.critedge.i ], [ %.279, %164 ], [ %.279, %.backedge ], [ %.279, %find_entry.exit108 ]
-  %.175 = phi ptr [ %.074198, %26 ], [ %.276, %120 ], [ %.276, %121 ], [ %.276, %.split ], [ %.276, %set_bin.exit ], [ %.276, %.thread146 ], [ %.276, %.critedge.i ], [ %.276, %164 ], [ %.276, %.backedge ], [ %.276, %find_entry.exit108 ]
-  %.1 = phi i32 [ %.071199, %26 ], [ %.2, %120 ], [ %.2, %121 ], [ 1, %.split ], [ %.2, %set_bin.exit ], [ 1, %.thread146 ], [ %.2, %.critedge.i ], [ 0, %164 ], [ 1, %.backedge ], [ 1, %find_entry.exit108 ]
+  %.178 = phi i64 [ %.077197, %26 ], [ %.279, %120 ], [ %.279, %121 ], [ %.279, %set_bin.exit ], [ %.279, %.split ], [ %.279, %.thread146 ], [ %.279, %.critedge.i ], [ %.279, %164 ], [ %.279, %.backedge ], [ %.279, %find_entry.exit108 ]
+  %.175 = phi ptr [ %.074198, %26 ], [ %.276, %120 ], [ %.276, %121 ], [ %.276, %set_bin.exit ], [ %.276, %.split ], [ %.276, %.thread146 ], [ %.276, %.critedge.i ], [ %.276, %164 ], [ %.276, %.backedge ], [ %.276, %find_entry.exit108 ]
+  %.1 = phi i32 [ %.071199, %26 ], [ %.2, %120 ], [ %.2, %121 ], [ %.2, %set_bin.exit ], [ 1, %.split ], [ 1, %.thread146 ], [ %.2, %.critedge.i ], [ 0, %164 ], [ 1, %.backedge ], [ 1, %find_entry.exit108 ]
   %227 = add i64 %.178, 1
   %228 = load i64, ptr %12, align 8, !tbaa !30
   %229 = icmp ult i64 %227, %228

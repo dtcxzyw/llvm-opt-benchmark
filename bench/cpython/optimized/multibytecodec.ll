@@ -2089,7 +2089,7 @@ Py_DECREF.exit123:                                ; preds = %226, %228, %231
   br label %Py_DECREF.exit
 
 237:                                              ; preds = %181, %.thread161, %203, %184
-  %.095 = phi ptr [ null, %184 ], [ %.1, %.thread161 ], [ %.1, %203 ], [ null, %181 ]
+  %.095 = phi ptr [ %.1, %203 ], [ %.1, %.thread161 ], [ null, %184 ], [ null, %181 ]
   %238 = load i32, ptr %155, align 8, !tbaa !15
   %.not.i.i148 = icmp sgt i32 %238, -1
   br i1 %.not.i.i148, label %239, label %Py_XDECREF.exit

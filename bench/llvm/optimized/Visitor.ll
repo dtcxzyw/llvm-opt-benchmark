@@ -2541,7 +2541,7 @@ _ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i: ; preds = %_ZNK5clang17
   br i1 %.not.i.i4.i.i, label %_ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !513
 
 _ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i: ; preds = %100, %.lr.ph.i.i.i.i, %93, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i
-  %.sroa.0.1.i.i = phi ptr [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i ], [ null, %93 ], [ null, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i ], [ %103, %100 ], [ %.sroa.0.2.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.0.1.i.i = phi ptr [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i ], [ null, %93 ], [ null, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i ], [ %.sroa.0.2.i.i, %.lr.ph.i.i.i.i ], [ %103, %100 ]
   %.0.copyload.i.i.i.i.i2.i = load i64, ptr %6, align 8
   %.not.i.i.i3.i = icmp eq i64 %.0.copyload.i.i.i.i.i2.i, 0
   br i1 %.not.i.i.i3.i, label %104, label %_ZNK5clang17ObjCInterfaceDecl5ivarsEv.exit
@@ -2838,7 +2838,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %10, %16
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !551
 
 _ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %46, %51 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %46, %51 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not25 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %46
   %53 = select i1 %.not25, i8 0, i8 2
   br label %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit
@@ -3118,7 +3118,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %14, %22
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !551
 
 _ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %72, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %67, %72 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %67, %72 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not61 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %67
   %74 = select i1 %.not61, i8 0, i8 2
   br label %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit
@@ -5444,7 +5444,7 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %293, %308, %_ZN
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !551
 
 _ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %331, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %326, %331 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %326, %331 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %333 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %326
   %334 = or i1 %.090, %333
   br label %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit
@@ -17162,7 +17162,7 @@ tailrecurse.backedge:                             ; preds = %_ZNK5clang7TypeLoc1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit, %3, %138, %135, %121, %119, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %66, %63, %61, %59, %57, %53, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26
-  %.0 = phi i1 [ %140, %138 ], [ %111, %110 ], [ %109, %108 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %137, %135 ], [ %47, %46 ], [ %49, %48 ], [ %113, %112 ], [ %52, %50 ], [ %56, %53 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %65, %63 ], [ %71, %66 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %118, %114 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %124, %121 ], [ %120, %119 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ true, %3 ], [ true, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %140, %138 ], [ %109, %108 ], [ %111, %110 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ %137, %135 ], [ %47, %46 ], [ %49, %48 ], [ %113, %112 ], [ %52, %50 ], [ %56, %53 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %65, %63 ], [ %71, %66 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %118, %114 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %124, %121 ], [ %120, %119 ], [ %99, %98 ], [ %101, %100 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ true, %3 ], [ true, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -18644,7 +18644,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %71, %67, %65, %60, %58, %56, %54, %52, %50, %48, %46, %43, %41, %39, %37, %33, %30, %28, %26, %24, %20, %18, %15, %13, %11, %9
-  %.0 = phi i1 [ %47, %46 ], [ %55, %54 ], [ %44, %43 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %47, %46 ], [ %44, %43 ], [ %55, %54 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -49055,7 +49055,7 @@ _ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread: ; preds = %169, %_ZN5c
   br i1 %.not191, label %.critedge125, label %.lr.ph208
 
 .critedge125:                                     ; preds = %.lr.ph.i, %.lr.ph.i237, %111, %.thread, %194, %.critedge133, %186, %180, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread180, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %90, %81, %.thread182, %38, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit
-  %.0 = phi i1 [ false, %38 ], [ false, %90 ], [ false, %81 ], [ true, %.critedge133 ], [ true, %186 ], [ false, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ false, %.thread182 ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ false, %.lr.ph.i237 ], [ true, %180 ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread180 ], [ false, %111 ], [ false, %194 ], [ false, %.thread ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %38 ], [ false, %90 ], [ false, %81 ], [ false, %111 ], [ true, %186 ], [ false, %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit ], [ false, %.thread182 ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread ], [ true, %.critedge133 ], [ true, %180 ], [ true, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread ], [ true, %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread180 ], [ false, %.lr.ph.i237 ], [ false, %194 ], [ false, %.thread ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -49848,7 +49848,7 @@ _ZNK5clang12RedeclarableINS_12FunctionDeclEE8DeclLink11getPreviousEPKS1_.exit: ;
   br i1 %.not, label %.thread, label %.lr.ph46
 
 .thread:                                          ; preds = %._crit_edge, %23, %21, %2
-  %.not37 = phi i1 [ false, %23 ], [ true, %2 ], [ false, %21 ], [ true, %._crit_edge ]
+  %.not37 = phi i1 [ true, %2 ], [ false, %23 ], [ false, %21 ], [ true, %._crit_edge ]
   ret i1 %.not37
 }
 

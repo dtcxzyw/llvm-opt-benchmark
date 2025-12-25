@@ -922,8 +922,8 @@ _ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit108: ; preds = %259, %_ZNSt6vec
   br label %.body113
 
 .body113:                                         ; preds = %.loopexit174, %.loopexit.split-lp175, %131, %.body.i, %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit108, %71
-  %.sroa.0146.2 = phi ptr [ %.sroa.0146.3, %131 ], [ %.sroa.0146.0.lcssa266, %71 ], [ %.sroa.0146.3, %.body.i ], [ %.sroa.0146.3, %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit108 ], [ %.sroa.0146.0204, %.loopexit174 ], [ %.sroa.0146.0204, %.loopexit.split-lp175 ]
-  %.pn63.pn.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %72, %71 ], [ %eh.lpad-body.i, %.body.i ], [ %.pn57.pn.pn.pn.pn, %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit108 ], [ %lpad.loopexit176, %.loopexit174 ], [ %lpad.loopexit.split-lp177, %.loopexit.split-lp175 ]
+  %.sroa.0146.2 = phi ptr [ %.sroa.0146.3, %.body.i ], [ %.sroa.0146.0.lcssa266, %71 ], [ %.sroa.0146.3, %131 ], [ %.sroa.0146.3, %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit108 ], [ %.sroa.0146.0204, %.loopexit174 ], [ %.sroa.0146.0204, %.loopexit.split-lp175 ]
+  %.pn63.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %72, %71 ], [ %132, %131 ], [ %.pn57.pn.pn.pn.pn, %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit108 ], [ %lpad.loopexit176, %.loopexit174 ], [ %lpad.loopexit.split-lp177, %.loopexit.split-lp175 ]
   %.not.i.i.i109 = icmp eq ptr %.sroa.0146.2, null
   br i1 %.not.i.i.i109, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit110, label %.body113.thread
 

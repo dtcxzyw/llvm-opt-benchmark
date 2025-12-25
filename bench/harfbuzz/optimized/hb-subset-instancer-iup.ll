@@ -611,7 +611,7 @@ _ZL29_iup_contour_bound_forced_set10hb_array_tIK15contour_point_tES_IKiES4_R8hb_
   %255 = call i32 @llvm.abs.i32(i32 %.078.i.i, i1 true)
   %256 = uitofp nneg i32 %255 to double
   %257 = fcmp olt double %4, %256
-  br i1 %254, label %258, label %270
+  br i1 %254, label %258, label %264
 
 258:                                              ; preds = %253
   br i1 %257, label %259, label %.critedge.i.i
@@ -621,37 +621,37 @@ _ZL29_iup_contour_bound_forced_set10hb_array_tIK15contour_point_tES_IKiES4_R8hb_
   %261 = call i32 @llvm.abs.i32(i32 %260, i1 true)
   %262 = uitofp nneg i32 %261 to double
   %263 = fcmp olt double %4, %262
-  br i1 %263, label %264, label %.critedge.i.i
+  br i1 %263, label %276, label %.critedge.i.i
 
-264:                                              ; preds = %259
-  %265 = sitofp i32 %.078.i.i to double
-  %266 = fsub double %265, %4
-  %267 = sitofp i32 %.076..077.i.i to double
-  %268 = fcmp olt double %266, %267
-  %269 = icmp slt i32 %.076..077.i.i, %.077..076.i.i
-  %not..not92.i.i = xor i1 %269, %268
-  br i1 %not..not92.i.i, label %.critedge96.i.i, label %.critedge.i.i
+264:                                              ; preds = %253
+  br i1 %257, label %265, label %.critedge.i.i
 
-270:                                              ; preds = %253
-  br i1 %257, label %271, label %.critedge.i.i
+265:                                              ; preds = %264
+  %266 = sub nsw i32 %.078.i.i, %.077..076.i.i
+  %267 = call i32 @llvm.abs.i32(i32 %266, i1 true)
+  %268 = uitofp nneg i32 %267 to double
+  %269 = fcmp olt double %4, %268
+  br i1 %269, label %270, label %.critedge.i.i
 
-271:                                              ; preds = %270
-  %272 = sub nsw i32 %.078.i.i, %.077..076.i.i
-  %273 = call i32 @llvm.abs.i32(i32 %272, i1 true)
-  %274 = uitofp nneg i32 %273 to double
-  %275 = fcmp olt double %4, %274
-  br i1 %275, label %276, label %.critedge.i.i
-
-276:                                              ; preds = %271
-  %277 = sitofp i32 %.077..076.i.i to double
-  %278 = sitofp i32 %.078.i.i to double
-  %279 = fadd double %4, %278
-  %280 = fcmp ogt double %279, %277
-  %281 = icmp slt i32 %.076..077.i.i, %.077..076.i.i
-  %not..not91.i.i = xor i1 %281, %280
+270:                                              ; preds = %265
+  %271 = sitofp i32 %.077..076.i.i to double
+  %272 = sitofp i32 %.078.i.i to double
+  %273 = fadd double %4, %272
+  %274 = fcmp ogt double %273, %271
+  %275 = icmp slt i32 %.076..077.i.i, %.077..076.i.i
+  %not..not91.i.i = xor i1 %275, %274
   br i1 %not..not91.i.i, label %.critedge96.i.i, label %.critedge.i.i
 
-.critedge96.i.i:                                  ; preds = %276, %264, %248, %243, %236
+276:                                              ; preds = %259
+  %277 = sitofp i32 %.078.i.i to double
+  %278 = fsub double %277, %4
+  %279 = sitofp i32 %.076..077.i.i to double
+  %280 = fcmp olt double %278, %279
+  %281 = icmp slt i32 %.076..077.i.i, %.077..076.i.i
+  %not..not92.i.i = xor i1 %281, %280
+  br i1 %not..not92.i.i, label %.critedge96.i.i, label %.critedge.i.i
+
+.critedge96.i.i:                                  ; preds = %276, %270, %248, %243, %236
   %282 = load i8, ptr %128, align 8, !tbaa !49, !range !28, !noundef !29
   %283 = trunc nuw i8 %282 to i1
   br i1 %283, label %284, label %285, !prof !14
@@ -664,7 +664,7 @@ _ZL29_iup_contour_bound_forced_set10hb_array_tIK15contour_point_tES_IKiES4_R8hb_
   call void @_ZN12hb_bit_set_t3addEj(ptr noundef nonnull align 8 dereferenceable(49) %122, i32 noundef %220)
   br label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit.i.i
 
-.critedge.i.i:                                    ; preds = %276, %271, %270, %264, %259, %258, %252, %248, %236, %231
+.critedge.i.i:                                    ; preds = %276, %270, %265, %264, %259, %258, %252, %248, %236, %231
   br i1 %228, label %227, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit.i.i, !llvm.loop !51
 
 _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit.i.i: ; preds = %.critedge.i.i, %285, %284
@@ -2460,7 +2460,7 @@ _ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit126: ; preds = %245, %
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %.thread.sink.split, %47, %28, %8
-  %.0 = phi i1 [ false, %.thread.sink.split ], [ false, %28 ], [ false, %8 ], [ true, %47 ], [ true, %.loopexit ]
+  %.0 = phi i1 [ true, %47 ], [ false, %28 ], [ false, %8 ], [ false, %.thread.sink.split ], [ true, %.loopexit ]
   ret i1 %.0
 }
 

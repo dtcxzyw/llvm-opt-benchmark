@@ -46201,8 +46201,8 @@ common.resume:                                    ; preds = %.body, %"_ZN4core3p
           to label %"_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..IfExpr$GT$17ha05ba156b88d1836E.exit80.i" unwind label %.loopexit147.i
 
 "_ZN4core3ptr58drop_in_place$LT$syntax..ast..generated..nodes..IfExpr$GT$17ha05ba156b88d1836E.exit.i": ; preds = %.loopexit.split-lp148.i, %.loopexit147.i
-  %595 = phi ptr [ %597, %.loopexit.split-lp148.i ], [ %.lcssa279.i, %.loopexit147.i ]
-  %.pn52.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp150.i, %.loopexit.split-lp148.i ], [ %lpad.loopexit149.i, %.loopexit147.i ]
+  %595 = phi ptr [ %.lcssa279.i, %.loopexit147.i ], [ %597, %.loopexit.split-lp148.i ]
+  %.pn52.i = phi { ptr, i32 } [ %lpad.loopexit149.i, %.loopexit147.i ], [ %lpad.loopexit.split-lp150.i, %.loopexit.split-lp148.i ]
   %596 = icmp ne ptr %595, null
   %or.cond11.i = and i1 %.not43.i, %596
   br i1 %or.cond11.i, label %707, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h6e8e990a03c9b9b1E.exit109.i"
@@ -59050,7 +59050,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i.i.i.i: ; preds = %367
   br label %.body273
 
 .body273:                                         ; preds = %353, %359, %388
-  %eh.lpad-body274 = phi { ptr, i32 } [ %389, %388 ], [ %354, %353 ], [ %354, %359 ]
+  %eh.lpad-body274 = phi { ptr, i32 } [ %389, %388 ], [ %354, %359 ], [ %354, %353 ]
   br i1 %334, label %"_ZN4core3ptr315drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$17h97d8c12ecfff8a0cE.exit", label %390
 
 390:                                              ; preds = %.body273
@@ -62694,8 +62694,8 @@ _ZN4core3ops8function6FnOnce9call_once17hdf7ec6752c51e838E.exit.i: ; preds = %11
           to label %164 unwind label %162
 
 .critedge46:                                      ; preds = %413, %418, %162, %268
-  %.123 = phi i8 [ %.2162, %413 ], [ %.2, %268 ], [ %.2162, %418 ], [ %.022, %162 ]
-  %.pn42 = phi { ptr, i32 } [ %.pn39.pn163, %413 ], [ %.pn39.pn, %268 ], [ %.pn39.pn163, %418 ], [ %163, %162 ]
+  %.123 = phi i8 [ %.2162, %418 ], [ %.2, %268 ], [ %.2162, %413 ], [ %.022, %162 ]
+  %.pn42 = phi { ptr, i32 } [ %.pn39.pn163, %418 ], [ %.pn39.pn, %268 ], [ %.pn39.pn163, %413 ], [ %163, %162 ]
   %161 = trunc nuw i8 %.123 to i1
   br i1 %161, label %.critedge46.thread179, label %common.resume
 
@@ -65854,7 +65854,7 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers25replace_if_let_with
   unreachable
 
 .body:                                            ; preds = %.loopexit349, %.loopexit.split-lp350, %273, %279
-  %.pn135 = phi { ptr, i32 } [ %.pn133, %273 ], [ %.pn133, %279 ], [ %lpad.loopexit351, %.loopexit349 ], [ %lpad.loopexit.split-lp352, %.loopexit.split-lp350 ]
+  %.pn135 = phi { ptr, i32 } [ %.pn133, %279 ], [ %.pn133, %273 ], [ %lpad.loopexit351, %.loopexit349 ], [ %lpad.loopexit.split-lp352, %.loopexit.split-lp350 ]
   %219 = icmp eq ptr %.sroa.5234.3261, null
   br i1 %219, label %"_ZN4core3ptr216drop_in_place$LT$core..iter..sources..successors..Successors$LT$syntax..ast..generated..nodes..IfExpr$C$ide_assists..handlers..replace_if_let_with_match..replace_if_let_with_match..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb3b42eefdb4ad893E.exit.thread", label %220
 

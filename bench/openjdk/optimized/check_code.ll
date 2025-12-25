@@ -7232,9 +7232,9 @@ pop_and_free.exit.loopexit:                       ; preds = %6
   br label %pop_and_free.exit
 
 pop_and_free.exit:                                ; preds = %6, %pop_and_free.exit.loopexit, %pop_and_free.exit.loopexit119, %pop_and_free.exit.loopexit99, %75, %72, %9, %11, %13, %15, %54
-  %.044 = phi i32 [ %57, %54 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %57, %72 ], [ 6, %pop_and_free.exit.loopexit119 ], [ 2, %pop_and_free.exit.loopexit ], [ 4, %pop_and_free.exit.loopexit99 ], [ %57, %75 ], [ 3, %6 ]
-  %.043 = phi i8 [ 65, %54 ], [ 73, %9 ], [ 73, %11 ], [ 73, %13 ], [ 73, %15 ], [ 65, %72 ], [ 76, %pop_and_free.exit.loopexit119 ], [ %8, %pop_and_free.exit.loopexit ], [ %8, %pop_and_free.exit.loopexit99 ], [ 65, %75 ], [ %8, %6 ]
-  %.1 = phi ptr [ %58, %54 ], [ %7, %9 ], [ %7, %11 ], [ %7, %13 ], [ %7, %15 ], [ %58, %72 ], [ %7, %pop_and_free.exit.loopexit119 ], [ %7, %pop_and_free.exit.loopexit ], [ %7, %pop_and_free.exit.loopexit99 ], [ %58, %75 ], [ %7, %6 ]
+  %.044 = phi i32 [ %57, %54 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %57, %75 ], [ 6, %pop_and_free.exit.loopexit119 ], [ 2, %pop_and_free.exit.loopexit ], [ 4, %pop_and_free.exit.loopexit99 ], [ %57, %72 ], [ 3, %6 ]
+  %.043 = phi i8 [ 65, %54 ], [ 73, %9 ], [ 73, %11 ], [ 73, %13 ], [ 73, %15 ], [ 65, %75 ], [ 76, %pop_and_free.exit.loopexit119 ], [ %8, %pop_and_free.exit.loopexit ], [ %8, %pop_and_free.exit.loopexit99 ], [ 65, %72 ], [ %8, %6 ]
+  %.1 = phi ptr [ %58, %54 ], [ %7, %9 ], [ %7, %11 ], [ %7, %13 ], [ %7, %15 ], [ %58, %75 ], [ %7, %pop_and_free.exit.loopexit119 ], [ %7, %pop_and_free.exit.loopexit ], [ %7, %pop_and_free.exit.loopexit99 ], [ %58, %72 ], [ %7, %6 ]
   store ptr %.1, ptr %1, align 8
   %76 = icmp eq i32 %.042, 0
   br i1 %76, label %84, label %77

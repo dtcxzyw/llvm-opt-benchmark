@@ -3118,7 +3118,7 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %22
   br i1 %73, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %68, !llvm.loop !91
 
 _ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit:        ; preds = %64, %66, %68, %69, %34, %46, %48, %57
-  %.042.i = phi i64 [ %smax.i, %68 ], [ %spec.select.i, %34 ], [ 0, %48 ], [ %58, %57 ], [ 0, %46 ], [ %.0.i, %69 ], [ %.043.i, %64 ], [ %.045.i.ph, %66 ]
+  %.042.i = phi i64 [ 0, %48 ], [ %spec.select.i, %34 ], [ %smax.i, %68 ], [ %58, %57 ], [ 0, %46 ], [ %.0.i, %69 ], [ %.043.i, %64 ], [ %.045.i.ph, %66 ]
   %74 = sitofp i64 %.042.i to double
   %75 = load ptr, ptr %2, align 8, !tbaa !86
   %76 = getelementptr inbounds nuw double, ptr %75, i64 %.014

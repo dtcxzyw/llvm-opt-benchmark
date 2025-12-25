@@ -389,7 +389,7 @@ _ZN16SymbolHandleBaseILb0EED2Ev.exit:             ; preds = %31
   br i1 %71, label %.lr.ph29, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge, %59, %62, %_ZN16SymbolHandleBaseILb0EED2Ev.exit, %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread
-  %.016 = phi ptr [ null, %_ZN16SymbolHandleBaseILb0EED2Ev.exit ], [ null, %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread ], [ %47, %59 ], [ %47, %62 ], [ null, %._crit_edge ]
+  %.016 = phi ptr [ %47, %59 ], [ null, %_ZN16SymbolHandleBaseILb0EED2Ev.exit.thread ], [ null, %_ZN16SymbolHandleBaseILb0EED2Ev.exit ], [ %47, %62 ], [ null, %._crit_edge ]
   ret ptr %.016
 }
 

@@ -8221,9 +8221,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %573, %_ZNSt6vectorI
   br label %_ZL17llama_decode_implR13llama_context11llama_batch.exit
 
 587:                                              ; preds = %548, %543, %541, %503, %.loopexit.split-lp.i
-  %.sroa.18.0.i = phi ptr [ %.sroa.18.5.i, %.loopexit.split-lp.i ], [ %.sroa.18.3.lcssa.i, %503 ], [ %.sroa.18.3.lcssa.i, %548 ], [ %.sroa.18.3.lcssa.i, %543 ], [ %.sroa.18.3.lcssa.i, %541 ]
-  %.sroa.8.0.i = phi ptr [ %.sroa.8.5.i, %.loopexit.split-lp.i ], [ %.sroa.8.3.lcssa.i, %503 ], [ %.sroa.8.3.lcssa.i, %548 ], [ %.sroa.8.3.lcssa.i, %543 ], [ %.sroa.8.3.lcssa.i, %541 ]
-  %.pn235.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn235.pn.pn.pn.pn.pn.i, %.loopexit.split-lp.i ], [ %504, %503 ], [ %549, %548 ], [ %544, %543 ], [ %542, %541 ]
+  %.sroa.18.0.i = phi ptr [ %.sroa.18.3.lcssa.i, %503 ], [ %.sroa.18.5.i, %.loopexit.split-lp.i ], [ %.sroa.18.3.lcssa.i, %548 ], [ %.sroa.18.3.lcssa.i, %543 ], [ %.sroa.18.3.lcssa.i, %541 ]
+  %.sroa.8.0.i = phi ptr [ %.sroa.8.3.lcssa.i, %503 ], [ %.sroa.8.5.i, %.loopexit.split-lp.i ], [ %.sroa.8.3.lcssa.i, %548 ], [ %.sroa.8.3.lcssa.i, %543 ], [ %.sroa.8.3.lcssa.i, %541 ]
+  %.pn235.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %504, %503 ], [ %.pn235.pn.pn.pn.pn.pn.i, %.loopexit.split-lp.i ], [ %549, %548 ], [ %544, %543 ], [ %542, %541 ]
   %.not.i.i.i.i350.i = icmp eq ptr %.sroa.8.0.i, null
   br i1 %.not.i.i.i.i350.i, label %_ZN22llama_kv_slot_restorerD2Ev.exit351.i, label %588
 

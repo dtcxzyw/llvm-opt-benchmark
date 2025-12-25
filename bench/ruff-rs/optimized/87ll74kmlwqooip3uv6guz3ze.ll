@@ -3625,7 +3625,7 @@ _ZN7ty_test7matcher21discard_todo_metadata17hcb370254f1553faeE.exit.i.i: ; preds
   unreachable
 
 .thread80.i:                                      ; preds = %.noexc46.i, %.noexc39.i, %390, %.noexc33.i, %"_ZN7ty_test7matcher7Matcher7matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc4727e2fc1e7d15dE.exit.i.us.thread.i.i.i", %.noexc27.i, %.noexc25.i, %.noexc24.i, %.lr.ph.split.us.split.us.i.i.i
-  %.us-phi.i.i.i = phi i64 [ %.sroa.02.017.us26.i.i.i, %.noexc39.i ], [ %.sroa.02.017.us.us38.i.i.i, %.noexc25.i ], [ %.sroa.02.017.us19.i.i.i, %390 ], [ %.sroa.02.017.us.us.i.i.i, %.noexc24.i ], [ %.sroa.02.017.us.i.i.i, %.noexc27.i ], [ 0, %.lr.ph.split.us.split.us.i.i.i ], [ %.sroa.02.017.us19.i.i.i, %"_ZN7ty_test7matcher7Matcher7matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc4727e2fc1e7d15dE.exit.i.us.thread.i.i.i" ], [ %.sroa.02.017.us19.i.i.i, %.noexc33.i ], [ %.sroa.02.017.i.i.i, %.noexc46.i ]
+  %.us-phi.i.i.i = phi i64 [ %.sroa.02.017.us.us38.i.i.i, %.noexc25.i ], [ %.sroa.02.017.us26.i.i.i, %.noexc39.i ], [ %.sroa.02.017.us19.i.i.i, %390 ], [ %.sroa.02.017.us.us.i.i.i, %.noexc24.i ], [ 0, %.lr.ph.split.us.split.us.i.i.i ], [ %.sroa.02.017.us.i.i.i, %.noexc27.i ], [ %.sroa.02.017.us19.i.i.i, %"_ZN7ty_test7matcher7Matcher7matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc4727e2fc1e7d15dE.exit.i.us.thread.i.i.i" ], [ %.sroa.02.017.us19.i.i.i, %.noexc33.i ], [ %.sroa.02.017.i.i.i, %.noexc46.i ]
   %719 = icmp samesign ult i64 %.us-phi.i.i.i, %320
   call void @llvm.assume(i1 %719)
   call void @llvm.experimental.noalias.scope.decl(metadata !436)

@@ -124896,8 +124896,8 @@ _ZN9ockam_api9cli_state9cli_state8CliState8database17hb714951e98c8270eE.exit.i.i
   br label %.body88.i.i
 
 1014:                                             ; preds = %.noexc111.i.i.i, %893, %.noexc108.i.i.i, %860
-  %.sroa.0109.0.i.i = phi i64 [ 3, %.noexc111.i.i.i ], [ 3, %893 ], [ 12, %860 ], [ 12, %.noexc108.i.i.i ]
-  %.sroa.11110.0.i.i = phi ptr [ %.sroa.5140.1.i.i.i, %.noexc111.i.i.i ], [ %.sroa.5140.1.i.i.i, %893 ], [ undef, %860 ], [ undef, %.noexc108.i.i.i ]
+  %.sroa.0109.0.i.i = phi i64 [ 12, %.noexc108.i.i.i ], [ 12, %860 ], [ 3, %893 ], [ 3, %.noexc111.i.i.i ]
+  %.sroa.11110.0.i.i = phi ptr [ undef, %.noexc108.i.i.i ], [ undef, %860 ], [ %.sroa.5140.1.i.i.i, %893 ], [ %.sroa.5140.1.i.i.i, %.noexc111.i.i.i ]
   store i8 1, ptr %733, align 1, !noalias !16678
   invoke fastcc void @"_ZN4core3ptr181drop_in_place$LT$ockam_api..cli_state..spaces..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..delete_space..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h54a0edf0ace1b81aE"(ptr noundef nonnull align 8 %732)
           to label %"_ZN4core3ptr222drop_in_place$LT$tracing..instrument..Instrumented$LT$ockam_api..cli_state..spaces..$LT$impl$u20$ockam_api..cli_state..cli_state..CliState$GT$..delete_space..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf4387d6f6df27fc5E.exit.i.i" unwind label %1016, !noalias !16638
@@ -129423,9 +129423,9 @@ _ZN9ockam_api9cli_state9cli_state8CliState8database17hb714951e98c8270eE.exit.i.i
   br label %.body61
 
 1164:                                             ; preds = %200, %555, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ockam_api..cloud..space..Space$GT$$GT$17h2bba878ff50e3788E.exit.i"
-  %.sroa.9.0 = phi i64 [ %.sroa.5301.0.copyload.i, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ockam_api..cloud..space..Space$GT$$GT$17h2bba878ff50e3788E.exit.i" ], [ undef, %555 ], [ undef, %200 ]
-  %.sroa.8.0 = phi ptr [ %.sroa.4300.0.copyload.i, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ockam_api..cloud..space..Space$GT$$GT$17h2bba878ff50e3788E.exit.i" ], [ %.sroa.6293.1.i, %555 ], [ %.sroa.0191.0.copyload.i, %200 ]
-  %.sroa.6.0 = phi ptr [ %.sroa.0299.0.copyload.i, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ockam_api..cloud..space..Space$GT$$GT$17h2bba878ff50e3788E.exit.i" ], [ null, %555 ], [ null, %200 ]
+  %.sroa.9.0 = phi i64 [ undef, %555 ], [ %.sroa.5301.0.copyload.i, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ockam_api..cloud..space..Space$GT$$GT$17h2bba878ff50e3788E.exit.i" ], [ undef, %200 ]
+  %.sroa.8.0 = phi ptr [ %.sroa.6293.1.i, %555 ], [ %.sroa.4300.0.copyload.i, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ockam_api..cloud..space..Space$GT$$GT$17h2bba878ff50e3788E.exit.i" ], [ %.sroa.0191.0.copyload.i, %200 ]
+  %.sroa.6.0 = phi ptr [ null, %555 ], [ %.sroa.0299.0.copyload.i, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$ockam_api..cloud..space..Space$GT$$GT$17h2bba878ff50e3788E.exit.i" ], [ null, %200 ]
   store i8 1, ptr %165, align 1, !noalias !16963
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10284.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3256.i)
@@ -129680,12 +129680,12 @@ define hidden void @"_ZN101_$LT$ockam_api..nodes..models..portal..CreateInlet$u2
   br label %.thread902
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %665, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit", %505, %3
-  %.0661.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ %.24685, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ], [ 1, %505 ]
-  %.0633.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ %.23656, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ], [ 1, %505 ]
-  %.0606.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ %.22628, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ], [ 1, %505 ]
-  %.0580.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ %.21601, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ], [ 1, %505 ]
-  %.0555.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ %.20575, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ], [ 1, %505 ]
-  %.0553.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ 0, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ], [ 1, %505 ]
+  %.0661.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ 1, %505 ], [ %.24685, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ]
+  %.0633.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ 1, %505 ], [ %.23656, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ]
+  %.0606.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ 1, %505 ], [ %.22628, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ]
+  %.0580.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ 1, %505 ], [ %.21601, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ]
+  %.0555.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ 1, %505 ], [ %.20575, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ]
+  %.0553.ph.ph = phi i8 [ 1, %3 ], [ 1, %665 ], [ 1, %505 ], [ 0, %"_ZN4core3ptr47drop_in_place$LT$ockam_multiaddr..MultiAddr$GT$17h4d22a4427feceaccE.exit" ]
   %lpad.loopexit.split-lp1046 = landingpad { ptr, i32 }
           cleanup
   br label %.thread902
@@ -135418,11 +135418,11 @@ define hidden void @"_ZN101_$LT$ockam_api..nodes..models..portal..InletStatus$u2
   br label %.thread781
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %623, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.exit689", %446, %3
-  %.0547.ph.ph = phi i8 [ 1, %623 ], [ %.20567, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.exit689" ], [ 1, %3 ], [ 1, %446 ]
-  %.0520.ph.ph = phi i8 [ 1, %623 ], [ %.19539, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.exit689" ], [ 1, %3 ], [ 1, %446 ]
-  %.0494.ph.ph = phi i8 [ 1, %623 ], [ %.18512, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.exit689" ], [ 1, %3 ], [ 1, %446 ]
-  %.0469.ph.ph = phi i8 [ 1, %623 ], [ %.11480, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.exit689" ], [ 1, %3 ], [ 1, %446 ]
-  %.0467.ph.ph = phi i8 [ 1, %623 ], [ 0, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.exit689" ], [ 1, %3 ], [ 1, %446 ]
+  %.0547.ph.ph = phi i8 [ %.20567, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.exit689" ], [ 1, %623 ], [ 1, %3 ], [ 1, %446 ]
+  %.0520.ph.ph = phi i8 [ %.19539, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.exit689" ], [ 1, %623 ], [ 1, %3 ], [ 1, %446 ]
+  %.0494.ph.ph = phi i8 [ %.18512, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.exit689" ], [ 1, %623 ], [ 1, %3 ], [ 1, %446 ]
+  %.0469.ph.ph = phi i8 [ %.11480, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.exit689" ], [ 1, %623 ], [ 1, %3 ], [ 1, %446 ]
+  %.0467.ph.ph = phi i8 [ 0, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.exit689" ], [ 1, %623 ], [ 1, %3 ], [ 1, %446 ]
   %lpad.loopexit.split-lp887 = landingpad { ptr, i32 }
           cleanup
   br label %.thread781

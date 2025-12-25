@@ -41080,7 +41080,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit: ; preds = 
   br label %410
 
 .loopexit.split-lp255:                            ; preds = %.noexc.i.i156, %.noexc.i.i168, %.noexc.i.i180
-  %.083.ph.ph256 = phi ptr [ %154, %.noexc.i.i180 ], [ %151, %.noexc.i.i168 ], [ %148, %.noexc.i.i156 ]
+  %.083.ph.ph256 = phi ptr [ %151, %.noexc.i.i168 ], [ %154, %.noexc.i.i180 ], [ %148, %.noexc.i.i156 ]
   %lpad.loopexit.split-lp258 = landingpad { ptr, i32 }
           cleanup
   br label %410

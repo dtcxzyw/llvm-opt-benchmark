@@ -230,7 +230,7 @@ php_dom_first_child_of_container_node.exit.i:     ; preds = %53, %51
   br label %dom_fetch_first_iteration_item.exit
 
 dom_fetch_first_iteration_item.exit:              ; preds = %php_dom_first_child_of_container_node.exit.i, %46, %43, %63
-  %.039 = phi ptr [ %62, %php_dom_first_child_of_container_node.exit.i ], [ %47, %46 ], [ %45, %43 ], [ %64, %63 ]
+  %.039 = phi ptr [ %62, %php_dom_first_child_of_container_node.exit.i ], [ %45, %43 ], [ %47, %46 ], [ %64, %63 ]
   %.not48 = icmp eq ptr %.039, null
   br i1 %.not48, label %dom_fetch_first_iteration_item.exit.thread, label %65
 

@@ -353,8 +353,8 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
   br i1 %114, label %.thread146, label %116
 
 .thread146:                                       ; preds = %17, %14, %.lr.ph200.split.us, %.preheader.us, %103, %.lr.ph200.split, %80, %.thread168, %75, %.thread135, %._crit_edge.thread
-  %.078155 = phi ptr [ %111, %._crit_edge.thread ], [ null, %80 ], [ null, %.thread168 ], [ null, %.thread135 ], [ null, %75 ], [ %85, %.lr.ph200.split.us ], [ %88, %103 ], [ %85, %.preheader.us ], [ %88, %.lr.ph200.split ], [ null, %14 ], [ null, %17 ]
-  %.088151 = phi ptr [ %.189234239, %._crit_edge.thread ], [ %76, %80 ], [ null, %.thread168 ], [ null, %.thread135 ], [ null, %75 ], [ %76, %.lr.ph200.split.us ], [ %.189233237, %103 ], [ %76, %.preheader.us ], [ %.189233237, %.lr.ph200.split ], [ null, %14 ], [ null, %17 ]
+  %.078155 = phi ptr [ %111, %._crit_edge.thread ], [ null, %80 ], [ null, %.thread168 ], [ null, %.thread135 ], [ null, %75 ], [ %88, %103 ], [ %85, %.preheader.us ], [ %85, %.lr.ph200.split.us ], [ %88, %.lr.ph200.split ], [ null, %14 ], [ null, %17 ]
+  %.088151 = phi ptr [ %.189234239, %._crit_edge.thread ], [ %76, %80 ], [ null, %.thread168 ], [ null, %.thread135 ], [ null, %75 ], [ %.189233237, %103 ], [ %76, %.preheader.us ], [ %76, %.lr.ph200.split.us ], [ %.189233237, %.lr.ph200.split ], [ null, %14 ], [ null, %17 ]
   %115 = load ptr, ptr @bio_err, align 8, !tbaa !10
   call void @ERR_print_errors(ptr noundef %115) #6
   br label %116

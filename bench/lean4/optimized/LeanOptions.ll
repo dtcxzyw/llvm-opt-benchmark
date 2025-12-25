@@ -14460,7 +14460,7 @@ lean_dec.exit:                                    ; preds = %128, %127, %125, %l
   br label %lean_dec.exit34.backedge
 
 lean_dec.exit34.backedge:                         ; preds = %132, %lean_dec.exit
-  %.032.be = phi ptr [ %131, %lean_dec.exit ], [ %133, %132 ]
+  %.032.be = phi ptr [ %133, %132 ], [ %131, %lean_dec.exit ]
   br label %lean_dec.exit34
 
 lean_dec.exit34.thread:                           ; preds = %107, %109, %110, %lean_dec.exit35, %lean_alloc_ctor.exit

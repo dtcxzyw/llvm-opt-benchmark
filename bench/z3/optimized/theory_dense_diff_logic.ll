@@ -1809,24 +1809,24 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i:     ; preds = %8, %2
   %23 = load i8, ptr %22, align 4
   %24 = and i8 %23, 1
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %26, label %31
+  br i1 %25, label %26, label %_ZeqRK8rationalS1_.exit
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load i8, ptr %27, align 4
   %29 = and i8 %28, 1
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %_ZeqRK8rationalS1_.exit, label %31
+  br i1 %30, label %31, label %_ZeqRK8rationalS1_.exit
 
-31:                                               ; preds = %26, %19
-  %32 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %3, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %37, label %_ZeqRK8rationalS1_.exit5
+31:                                               ; preds = %26
+  %32 = load i32, ptr %20, align 8, !tbaa !16
+  %33 = load i32, ptr %21, align 8, !tbaa !16
+  %34 = icmp eq i32 %32, %33
+  br i1 %34, label %37, label %_ZeqRK8rationalS1_.exit5
 
-_ZeqRK8rationalS1_.exit:                          ; preds = %26
-  %34 = load i32, ptr %20, align 8, !tbaa !16
-  %35 = load i32, ptr %21, align 8, !tbaa !16
-  %36 = icmp eq i32 %34, %35
+_ZeqRK8rationalS1_.exit:                          ; preds = %19, %26
+  %35 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %3, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %_ZeqRK8rationalS1_.exit5
 
 37:                                               ; preds = %31, %_ZeqRK8rationalS1_.exit
@@ -4367,24 +4367,24 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i:     ; preds = %45, %39
   %58 = load i8, ptr %5, align 4
   %59 = and i8 %58, 1
   %60 = icmp eq i8 %59, 0
-  br i1 %60, label %61, label %66
+  br i1 %60, label %61, label %_ZeqRK8rationalS1_.exit
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %63 = load i8, ptr %62, align 4
   %64 = and i8 %63, 1
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %_ZeqRK8rationalS1_.exit, label %66
+  br i1 %65, label %66, label %_ZeqRK8rationalS1_.exit
 
-66:                                               ; preds = %61, %56
-  %67 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %40, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %57)
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %72, label %_ZltRK8rationalS1_.exit7
+66:                                               ; preds = %61
+  %67 = load i32, ptr %4, align 8, !tbaa !16
+  %68 = load i32, ptr %57, align 8, !tbaa !16
+  %69 = icmp eq i32 %67, %68
+  br i1 %69, label %72, label %_ZltRK8rationalS1_.exit7
 
-_ZeqRK8rationalS1_.exit:                          ; preds = %61
-  %69 = load i32, ptr %4, align 8, !tbaa !16
-  %70 = load i32, ptr %57, align 8, !tbaa !16
-  %71 = icmp eq i32 %69, %70
+_ZeqRK8rationalS1_.exit:                          ; preds = %56, %61
+  %70 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %40, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %57)
+  %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %_ZltRK8rationalS1_.exit7
 
 72:                                               ; preds = %66, %_ZeqRK8rationalS1_.exit
@@ -72368,24 +72368,24 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i:       ; preds = %8, %3
   %23 = load i8, ptr %22, align 4
   %24 = and i8 %23, 1
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %26, label %31
+  br i1 %25, label %26, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %28 = load i8, ptr %27, align 4
   %29 = and i8 %28, 1
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, label %31
+  br i1 %30, label %31, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
 
-31:                                               ; preds = %26, %19
-  %32 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %37, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit6
+31:                                               ; preds = %26
+  %32 = load i32, ptr %20, align 8, !tbaa !16
+  %33 = load i32, ptr %21, align 8, !tbaa !16
+  %34 = icmp eq i32 %32, %33
+  br i1 %34, label %37, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit6
 
-_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %26
-  %34 = load i32, ptr %20, align 8, !tbaa !16
-  %35 = load i32, ptr %21, align 8, !tbaa !16
-  %36 = icmp eq i32 %34, %35
+_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %19, %26
+  %35 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit6
 
 37:                                               ; preds = %31, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
@@ -74860,24 +74860,24 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i: ; preds = %57, %43
   %72 = load i8, ptr %71, align 4
   %73 = and i8 %72, 1
   %74 = icmp eq i8 %73, 0
-  br i1 %74, label %75, label %80
+  br i1 %74, label %75, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit
 
 75:                                               ; preds = %68
   %76 = getelementptr inbounds nuw i8, ptr %51, i64 20
   %77 = load i8, ptr %76, align 4
   %78 = and i8 %77, 1
   %79 = icmp eq i8 %78, 0
-  br i1 %79, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit, label %80
+  br i1 %79, label %80, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit
 
-80:                                               ; preds = %75, %68
-  %81 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %52, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %70)
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %86, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit.thread
+80:                                               ; preds = %75
+  %81 = load i32, ptr %69, align 8, !tbaa !16
+  %82 = load i32, ptr %70, align 8, !tbaa !16
+  %83 = icmp eq i32 %81, %82
+  br i1 %83, label %86, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit.thread
 
-_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit: ; preds = %75
-  %83 = load i32, ptr %69, align 8, !tbaa !16
-  %84 = load i32, ptr %70, align 8, !tbaa !16
-  %85 = icmp eq i32 %83, %84
+_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit: ; preds = %68, %75
+  %84 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %52, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %70)
+  %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit.thread
 
 86:                                               ; preds = %80, %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit
@@ -74984,24 +74984,24 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i57: ; preds = %121, %107
   %136 = load i8, ptr %135, align 4
   %137 = and i8 %136, 1
   %138 = icmp eq i8 %137, 0
-  br i1 %138, label %139, label %144
+  br i1 %138, label %139, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit58
 
 139:                                              ; preds = %132
   %140 = getelementptr inbounds nuw i8, ptr %115, i64 20
   %141 = load i8, ptr %140, align 4
   %142 = and i8 %141, 1
   %143 = icmp eq i8 %142, 0
-  br i1 %143, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit58, label %144
+  br i1 %143, label %144, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit58
 
-144:                                              ; preds = %139, %132
-  %145 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %116, ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(16) %134)
-  %146 = icmp eq i32 %145, 0
-  br i1 %146, label %150, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit58.thread
+144:                                              ; preds = %139
+  %145 = load i32, ptr %133, align 8, !tbaa !16
+  %146 = load i32, ptr %134, align 8, !tbaa !16
+  %147 = icmp eq i32 %145, %146
+  br i1 %147, label %150, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit58.thread
 
-_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit58: ; preds = %139
-  %147 = load i32, ptr %133, align 8, !tbaa !16
-  %148 = load i32, ptr %134, align 8, !tbaa !16
-  %149 = icmp eq i32 %147, %148
+_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit58: ; preds = %132, %139
+  %148 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %116, ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(16) %134)
+  %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit58.thread
 
 150:                                              ; preds = %144, %_ZNK14core_hashtableI14int_hash_entryILin2147483648ELin2147483647EEN3smt23theory_dense_diff_logicINS2_5i_extEE14var_value_hashENS5_12var_value_eqEE6equalsERKiSA_.exit58

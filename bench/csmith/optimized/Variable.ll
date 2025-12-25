@@ -2966,7 +2966,7 @@ define dso_local noundef ptr @_ZN8Variable14CreateVariableERKNSt7__cxx1112basic_
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %26, %29
-  %.024 = phi ptr [ %10, %26 ], [ %10, %29 ], [ null, %.thread.sink.split ]
+  %.024 = phi ptr [ %10, %29 ], [ %10, %26 ], [ null, %.thread.sink.split ]
   ret ptr %.024
 }
 
@@ -11896,7 +11896,7 @@ define dso_local noundef zeroext i1 @_ZNK8Variable24is_packed_after_bitfieldEv(p
   br i1 %43, label %.loopexit, label %.lr.ph22
 
 .loopexit:                                        ; preds = %.critedge, %34, %31, %1
-  %.016 = phi i1 [ false, %1 ], [ true, %34 ], [ true, %31 ], [ false, %.critedge ]
+  %.016 = phi i1 [ true, %34 ], [ false, %1 ], [ true, %31 ], [ false, %.critedge ]
   ret i1 %.016
 }
 

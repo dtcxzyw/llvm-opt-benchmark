@@ -800,7 +800,7 @@ partition.exit:                                   ; preds = %78
   br label %92
 
 92:                                               ; preds = %86, %90
-  %.1 = phi i32 [ %.07596, %86 ], [ %91, %90 ]
+  %.1 = phi i32 [ %91, %90 ], [ %.07596, %86 ]
   %93 = icmp ult i32 %.281, %.278
   br i1 %93, label %.lr.ph, label %.thread
 

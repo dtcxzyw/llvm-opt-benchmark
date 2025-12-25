@@ -2993,7 +2993,7 @@ _ZNK12hb_hashmap_tIjjLb1EE10fetch_itemERKjj.exit.i349: ; preds = %._crit_edge.i3
   br label %.loopexit620
 
 .loopexit620:                                     ; preds = %.lr.ph.i343, %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, %_ZNK12hb_hashmap_tIjjLb1EE10fetch_itemERKjj.exit.i349, %._crit_edge.i347, %698, %695
-  %.2 = phi i32 [ %.0585648, %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit ], [ %696, %_ZNK12hb_hashmap_tIjjLb1EE10fetch_itemERKjj.exit.i349 ], [ %696, %695 ], [ %696, %._crit_edge.i347 ], [ %696, %698 ], [ %696, %.lr.ph.i343 ]
+  %.2 = phi i32 [ %.0585648, %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit ], [ %696, %_ZNK12hb_hashmap_tIjjLb1EE10fetch_itemERKjj.exit.i349 ], [ %696, %695 ], [ %696, %698 ], [ %696, %._crit_edge.i347 ], [ %696, %.lr.ph.i343 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %730 = load i16, ptr %.sroa.5423.0646, align 1, !tbaa !29
   %731 = and i16 %730, 8192
@@ -3692,7 +3692,7 @@ _ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit: ; preds = %94, %95
   br i1 %.not.i64, label %.critedge, label %.lr.ph.i58
 
 .critedge:                                        ; preds = %114, %.lr.ph41.i, %144, %131, %182, %174, %161, %103, %22, %_ZN11hb_vector_tI15contour_point_tLb0EE11alloc_exactEj.exit, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i, %3, %12, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit, %99, %._crit_edge
-  %.0 = phi i1 [ false, %144 ], [ false, %22 ], [ false, %3 ], [ true, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit ], [ false, %._crit_edge ], [ false, %99 ], [ true, %182 ], [ true, %103 ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ false, %12 ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE11alloc_exactEj.exit ], [ false, %161 ], [ false, %174 ], [ false, %131 ], [ false, %.lr.ph41.i ], [ false, %114 ]
+  %.0 = phi i1 [ true, %182 ], [ false, %22 ], [ false, %3 ], [ true, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit ], [ false, %._crit_edge ], [ false, %99 ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i ], [ false, %12 ], [ true, %103 ], [ false, %144 ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE11alloc_exactEj.exit ], [ false, %161 ], [ false, %174 ], [ false, %131 ], [ false, %.lr.ph41.i ], [ false, %114 ]
   ret i1 %.0
 }
 
@@ -6109,7 +6109,7 @@ default.unreachable:                              ; preds = %65
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph92, %.preheader76, %..loopexit77_crit_edge, %.preheader74, %..loopexit75_crit_edge, %.preheader72, %..loopexit73_crit_edge, %.preheader
-  %.161 = phi i32 [ %.06094, %.preheader74 ], [ %.06094, %.preheader72 ], [ %.06094, %.preheader76 ], [ %.06094, %.preheader ], [ %63, %..loopexit73_crit_edge ], [ %63, %..loopexit75_crit_edge ], [ %63, %..loopexit77_crit_edge ], [ %77, %.lr.ph92 ]
+  %.161 = phi i32 [ %.06094, %.preheader72 ], [ %.06094, %.preheader74 ], [ %.06094, %.preheader76 ], [ %.06094, %.preheader ], [ %63, %..loopexit73_crit_edge ], [ %63, %..loopexit75_crit_edge ], [ %63, %..loopexit77_crit_edge ], [ %77, %.lr.ph92 ]
   %123 = icmp ult i32 %.161, %7
   br i1 %123, label %34, label %.critedge, !llvm.loop !262
 

@@ -1703,8 +1703,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i19: ; preds = %._crit_edge.i
   %109 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef nonnull %14) #15, !noalias !107
   br label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
-_ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %.lr.ph.i.i38, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i19, %107, %_ZN4llvm5APIntD2Ev.exit17, %_ZN4llvm5APIntD2Ev.exit17.thread, %12, %17, %37, %35, %27, %4, %_ZNK4llvm5Value9hasOneUseEv.exit
-  %.015 = phi ptr [ %0, %4 ], [ %0, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %0, %_ZN4llvm5APIntD2Ev.exit17.thread ], [ %0, %_ZN4llvm5APIntD2Ev.exit17 ], [ %0, %35 ], [ %0, %27 ], [ %0, %12 ], [ %0, %17 ], [ %0, %37 ], [ %14, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i19 ], [ %14, %107 ], [ %14, %.lr.ph.i.i38 ]
+_ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %.lr.ph.i.i38, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i19, %107, %_ZN4llvm5APIntD2Ev.exit17, %_ZN4llvm5APIntD2Ev.exit17.thread, %12, %17, %35, %37, %27, %4, %_ZNK4llvm5Value9hasOneUseEv.exit
+  %.015 = phi ptr [ %0, %4 ], [ %0, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %0, %_ZN4llvm5APIntD2Ev.exit17.thread ], [ %0, %_ZN4llvm5APIntD2Ev.exit17 ], [ %0, %37 ], [ %0, %27 ], [ %0, %12 ], [ %0, %17 ], [ %0, %35 ], [ %14, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i19 ], [ %14, %107 ], [ %14, %.lr.ph.i.i38 ]
   ret ptr %.015
 }
 
@@ -2916,7 +2916,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i49: ; pre
   %cond.i.i50 = icmp eq i32 %163, 327
   br i1 %cond.i.i50, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12smax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread183, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12smax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread
 
-_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread232: ; preds = %136, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umin_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread229, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread
+_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread232: ; preds = %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umin_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread229, %136, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread
   %164 = getelementptr inbounds i8, ptr %1, i64 -96
   %165 = load ptr, ptr %164, align 8, !tbaa !16
   %166 = load i8, ptr %165, align 8, !tbaa !21

@@ -50553,17 +50553,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239: ; preds = %31
   %328 = load ptr, ptr %18, align 8, !tbaa !5
   %329 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %330 = icmp eq ptr %328, %329
-  br i1 %330, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i240
+  br i1 %330, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i241, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i240
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i240: ; preds = %.critedge
   %331 = load i64, ptr %329, align 8, !tbaa !14
   %332 = add i64 %331, 1
   call void @_ZdlPvm(ptr noundef %328, i64 noundef %332) #27
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i240
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br i1 %327, label %_ZN7AstNode11privateCastI9AstVarRefKP11AstNodeExprEEPT_PS_.exit, label %.critedge168
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i241
 
 333:                                              ; preds = %318
   %334 = landingpad { ptr, i32 }
@@ -50619,13 +50615,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit248: ; preds = %34
   %352 = load ptr, ptr %20, align 8, !tbaa !5
   %353 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %354 = icmp eq ptr %352, %353
-  br i1 %354, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i250, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i249
+  br i1 %354, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i249
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i249: ; preds = %.critedge164
   %355 = load i64, ptr %353, align 8, !tbaa !14
   %356 = add i64 %355, 1
   call void @_ZdlPvm(ptr noundef %352, i64 noundef %356) #27
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i250
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251: ; preds = %.critedge164, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i249
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  br i1 %351, label %_ZN7AstNode11privateCastI9AstVarRefKP11AstNodeExprEEPT_PS_.exit, label %.critedge168
 
 357:                                              ; preds = %342
   %358 = landingpad { ptr, i32 }
@@ -50646,11 +50646,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254: ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i250: ; preds = %.critedge164, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i249
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br i1 %351, label %_ZN7AstNode11privateCastI9AstVarRefKP11AstNodeExprEEPT_PS_.exit, label %.critedge168
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i241: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i240
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  br i1 %327, label %_ZN7AstNode11privateCastI9AstVarRefKP11AstNodeExprEEPT_PS_.exit, label %.critedge168
 
-_ZN7AstNode11privateCastI9AstVarRefKP11AstNodeExprEEPT_PS_.exit: ; preds = %_ZN7AstNode9privateIsI9AstVarRefKP11AstNodeExprEEbPKS_.exit, %_ZN7AstNode9privateIsI9AstVarRefKP11AstNodeExprEEbPKS_.exit, %_ZN7AstNode9privateIsI9AstVarRefKP11AstNodeExprEEbPKS_.exit, %_ZN7AstNode9privateIsI9AstVarRefKP11AstNodeExprEEbPKS_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i250
+_ZN7AstNode11privateCastI9AstVarRefKP11AstNodeExprEEPT_PS_.exit: ; preds = %_ZN7AstNode9privateIsI9AstVarRefKP11AstNodeExprEEbPKS_.exit, %_ZN7AstNode9privateIsI9AstVarRefKP11AstNodeExprEEbPKS_.exit, %_ZN7AstNode9privateIsI9AstVarRefKP11AstNodeExprEEbPKS_.exit, %_ZN7AstNode9privateIsI9AstVarRefKP11AstNodeExprEEbPKS_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i241
   %.sroa.0.0.copyload.i.i.i256 = load i16, ptr %306, align 8, !tbaa !44
   %.not388 = icmp eq i16 %.sroa.0.0.copyload.i.i.i256, 320
   br i1 %.not388, label %364, label %369
@@ -50660,7 +50660,7 @@ _ZN7AstNode11privateCastI9AstVarRefKP11AstNodeExprEEPT_PS_.exit: ; preds = %_ZN7
   store i8 2, ptr %365, align 8, !tbaa !240
   br label %369
 
-.critedge168:                                     ; preds = %_ZN7AstNode9privateIsI9AstVarRefKP11AstNodeExprEEbPKS_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i250
+.critedge168:                                     ; preds = %_ZN7AstNode9privateIsI9AstVarRefKP11AstNodeExprEEbPKS_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit251, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i241
   %366 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCode(i8 5)
   %367 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
   %368 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %367, ptr noundef nonnull @.str.640, i64 noundef 49)

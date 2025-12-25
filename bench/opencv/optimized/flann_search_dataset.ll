@@ -13312,7 +13312,7 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit141: ; preds = %.preheader.
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.thread:     ; preds = %.critedge, %.preheader.split, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit141, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit, %_ZN7cvflann12UniqueRandomC2Ei.exit, %.preheader.split.us.split.us.split.us.split
-  %.034 = phi i32 [ %50, %.preheader.split.us.split.us.split.us.split ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ %130, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ %131, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit141 ], [ %1, %.critedge ], [ 0, %.preheader.split ]
+  %.034 = phi i32 [ %50, %.preheader.split.us.split.us.split.us.split ], [ %131, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit141 ], [ %130, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ 0, %.preheader.split ], [ %1, %.critedge ]
   store i32 %.034, ptr %5, align 4, !tbaa !64
   %.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i, label %_ZN7cvflann12UniqueRandomD2Ev.exit, label %132
@@ -21348,7 +21348,7 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit141: ; preds = %.preheader.
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.thread:     ; preds = %.critedge, %.preheader.split, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit141, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit, %_ZN7cvflann12UniqueRandomC2Ei.exit, %.preheader.split.us.split.us.split.us.split
-  %.034 = phi i32 [ %50, %.preheader.split.us.split.us.split.us.split ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ %130, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ %131, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit141 ], [ %1, %.critedge ], [ 0, %.preheader.split ]
+  %.034 = phi i32 [ %50, %.preheader.split.us.split.us.split.us.split ], [ %131, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit141 ], [ %130, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ 0, %.preheader.split ], [ %1, %.critedge ]
   store i32 %.034, ptr %5, align 4, !tbaa !64
   %.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i, label %_ZN7cvflann12UniqueRandomD2Ev.exit, label %132

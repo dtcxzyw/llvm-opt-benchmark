@@ -5505,7 +5505,7 @@ _ZN10Node_Array3mapEjP4Node.exit.i:               ; preds = %187, %_ZN5Arena12Am
   br label %_ZN17BarrierSetC2State4liveEPK4Node.exit
 
 _ZN17BarrierSetC2State4liveEPK4Node.exit:         ; preds = %_ZN10Node_Array3mapEjP4Node.exit.i, %_ZNK10Node_ArrayixEj.exit.i
-  %.09.i = phi ptr [ %164, %_ZNK10Node_ArrayixEj.exit.i ], [ %.0.i.i.i, %_ZN10Node_Array3mapEjP4Node.exit.i ]
+  %.09.i = phi ptr [ %.0.i.i.i, %_ZN10Node_Array3mapEjP4Node.exit.i ], [ %164, %_ZNK10Node_ArrayixEj.exit.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.09.i, i64 88
   %192 = load i32, ptr %191, align 8
   %193 = load i32, ptr %66, align 8
@@ -5762,7 +5762,7 @@ _ZN10Node_Array3mapEjP4Node.exit.i102:            ; preds = %343, %_ZN5Arena12Am
   br label %_ZN17BarrierSetC2State4liveEPK4Node.exit104
 
 _ZN17BarrierSetC2State4liveEPK4Node.exit104:      ; preds = %_ZN10Node_Array3mapEjP4Node.exit.i102, %_ZNK10Node_ArrayixEj.exit.i103
-  %.09.i96 = phi ptr [ %320, %_ZNK10Node_ArrayixEj.exit.i103 ], [ %.0.i.i.i100, %_ZN10Node_Array3mapEjP4Node.exit.i102 ]
+  %.09.i96 = phi ptr [ %.0.i.i.i100, %_ZN10Node_Array3mapEjP4Node.exit.i102 ], [ %320, %_ZNK10Node_ArrayixEj.exit.i103 ]
   %347 = getelementptr inbounds nuw i8, ptr %.09.i96, i64 88
   %348 = load i32, ptr %347, align 8
   %349 = load i32, ptr %66, align 8

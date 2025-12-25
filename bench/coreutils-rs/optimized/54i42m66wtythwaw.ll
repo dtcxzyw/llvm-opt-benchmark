@@ -1180,8 +1180,8 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
   br label %142
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread98.i: ; preds = %98, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.i, %83, %79
-  %.292101.i = phi i64 [ %.293.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.i ], [ 0, %83 ], [ %.182.i, %79 ], [ %100, %98 ]
-  %102 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.i ], [ %86, %83 ], [ 0, %79 ], [ 0, %98 ]
+  %.292101.i = phi i64 [ %.293.i, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.i ], [ 0, %83 ], [ %100, %98 ], [ %.182.i, %79 ]
+  %102 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.i ], [ %86, %83 ], [ 0, %98 ], [ 0, %79 ]
   %103 = add nsw i64 %.sroa.074.0.copyload.i, -2
   %104 = icmp ult i64 %103, 3
   %105 = add nsw i64 %.sroa.074.0.copyload.i, -1

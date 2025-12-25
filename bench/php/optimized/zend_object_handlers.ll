@@ -3660,7 +3660,7 @@ i_zend_is_true.exit:                              ; preds = %.preheader
   %.not13.i.not = icmp eq i32 %89, 0
   br i1 %.not13.i.not, label %i_zend_is_true.exit.thread47, label %i_zend_is_true.exit.thread
 
-i_zend_is_true.exit.thread47:                     ; preds = %.preheader, %68, %67, %59, %78, %80, %57, %i_zend_is_true.exit
+i_zend_is_true.exit.thread47:                     ; preds = %.preheader, %68, %59, %67, %78, %80, %57, %i_zend_is_true.exit
   %90 = load i32, ptr %0, align 4, !tbaa !41
   %91 = icmp ne i32 %90, 0
   call void @llvm.assume(i1 %91)
@@ -7512,8 +7512,8 @@ zend_get_property_offset.exit.thread.thread:      ; preds = %zend_get_property_o
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %zend_get_property_offset.exit.thread.thread.thread, label %zend_get_property_offset.exit.thread.thread.thread208
 
-zend_get_property_offset.exit.thread.thread.thread208: ; preds = %73, %72, %zend_get_property_offset.exit.thread.thread
-  %.1146165192212 = phi ptr [ %.1146, %zend_get_property_offset.exit.thread.thread ], [ %.4.i, %72 ], [ %.4.i, %73 ]
+zend_get_property_offset.exit.thread.thread.thread208: ; preds = %72, %73, %zend_get_property_offset.exit.thread.thread
+  %.1146165192212 = phi ptr [ %.1146, %zend_get_property_offset.exit.thread.thread ], [ %.4.i, %73 ], [ %.4.i, %72 ]
   %163 = getelementptr inbounds nuw i8, ptr %.1146165192212, i64 64
   %164 = load ptr, ptr %163, align 8, !tbaa !99
   %165 = load ptr, ptr %164, align 8, !tbaa !103
@@ -7843,8 +7843,8 @@ zend_object_release.exit:                         ; preds = %294, %295, %300
   %315 = call i32 @zend_std_has_property(ptr noundef nonnull %313, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   br label %.thread181
 
-.thread181:                                       ; preds = %179, %167, %.thread186, %314, %301
-  %.0 = phi i32 [ %302, %301 ], [ %315, %314 ], [ %.2.ph, %.thread186 ], [ 0, %179 ], [ 1, %167 ]
+.thread181:                                       ; preds = %167, %179, %.thread186, %314, %301
+  %.0 = phi i32 [ %302, %301 ], [ %315, %314 ], [ %.2.ph, %.thread186 ], [ 1, %167 ], [ 0, %179 ]
   ret i32 %.0
 }
 

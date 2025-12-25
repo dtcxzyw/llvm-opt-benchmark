@@ -5872,7 +5872,7 @@ define linkonce_odr hidden void @_ZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegiste
   br i1 %.not.i.i.i.i.i.i, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %26, %20
-  %.sroa.014.021.i.ph = phi ptr [ %.0.i.i.i.i, %20 ], [ %25, %26 ]
+  %.sroa.014.021.i.ph = phi ptr [ %25, %26 ], [ %.0.i.i.i.i, %20 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %49
@@ -5954,7 +5954,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   br i1 %.not.i.i.i.i.i.i23, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit24.thread, label %.lr.ph.i16.preheader
 
 .lr.ph.i16.preheader:                             ; preds = %72, %66
-  %.sroa.014.021.i17.ph = phi ptr [ %.0.i.i.i.i11, %66 ], [ %71, %72 ]
+  %.sroa.014.021.i17.ph = phi ptr [ %71, %72 ], [ %.0.i.i.i.i11, %66 ]
   br label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %.lr.ph.i16.preheader, %93
@@ -6064,7 +6064,7 @@ _ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_
   br i1 %.not.i.i.i.i.i.i38, label %_ZZN4llvm6ShapeT9deduceImmEPKNS_19MachineRegisterInfoEENKUlNS_8RegisterEE_clES4_.exit39, label %.lr.ph.i31.preheader
 
 .lr.ph.i31.preheader:                             ; preds = %131, %125
-  %.sroa.014.021.i32.ph = phi ptr [ %.0.i.i.i.i26, %125 ], [ %130, %131 ]
+  %.sroa.014.021.i32.ph = phi ptr [ %130, %131 ], [ %.0.i.i.i.i26, %125 ]
   br label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %.lr.ph.i31.preheader, %154

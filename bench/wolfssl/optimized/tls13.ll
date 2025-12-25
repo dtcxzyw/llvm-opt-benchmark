@@ -2408,7 +2408,7 @@ define i32 @DoTls13ServerHello(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %.thread225
 
 .thread225:                                       ; preds = %.thread225.sink.split, %104, %117
-  %.4.ph = phi i32 [ -328, %104 ], [ %121, %117 ], [ -326, %.thread225.sink.split ]
+  %.4.ph = phi i32 [ %121, %117 ], [ -328, %104 ], [ -326, %.thread225.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread229
 

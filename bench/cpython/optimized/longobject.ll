@@ -3079,7 +3079,7 @@ define dso_local range(i32 -1, 1) i32 @_PyLong_AsByteArray(ptr noundef readonly 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph151, %.loopexit.sink.split, %92, %.loopexit110, %12, %88
-  %.0 = phi i32 [ -1, %12 ], [ -1, %.loopexit110 ], [ -1, %.loopexit.sink.split ], [ 0, %88 ], [ 0, %92 ], [ 0, %.lr.ph151 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %.loopexit110 ], [ 0, %92 ], [ 0, %88 ], [ -1, %.loopexit.sink.split ], [ 0, %.lr.ph151 ]
   ret i32 %.0
 }
 
@@ -15221,15 +15221,15 @@ Py_DECREF.exit314:                                ; preds = %482, %484, %487
   br label %Py_DECREF.exit312
 
 .thread453:                                       ; preds = %358, %404, %416, %345, %333, %.lr.ph547, %391, %436, %.lr.ph571, %.lr.ph577, %228, %241, %447, %178
-  %.26 = phi ptr [ %343, %345 ], [ %389, %391 ], [ %.22, %447 ], [ %.1237, %178 ], [ %.24569, %.lr.ph571 ], [ %.20, %436 ], [ %.5241, %241 ], [ %.4240574, %.lr.ph577 ], [ %226, %228 ], [ %.13545, %.lr.ph547 ], [ %.9, %333 ], [ %.11, %358 ], [ %414, %416 ], [ %.8549, %404 ]
-  %.3122 = phi i64 [ 16, %345 ], [ 16, %.lr.ph547 ], [ 16, %447 ], [ 0, %178 ], [ 16, %.lr.ph571 ], [ 16, %436 ], [ 0, %.lr.ph577 ], [ 0, %241 ], [ 0, %228 ], [ 16, %391 ], [ 16, %333 ], [ 16, %416 ], [ 16, %404 ], [ 16, %358 ]
+  %.26 = phi ptr [ %.9, %333 ], [ %389, %391 ], [ %.22, %447 ], [ %.24569, %.lr.ph571 ], [ %.1237, %178 ], [ %.20, %436 ], [ %.5241, %241 ], [ %.4240574, %.lr.ph577 ], [ %226, %228 ], [ %.13545, %.lr.ph547 ], [ %343, %345 ], [ %.11, %358 ], [ %414, %416 ], [ %.8549, %404 ]
+  %.3122 = phi i64 [ 16, %345 ], [ 16, %.lr.ph547 ], [ 16, %447 ], [ 16, %.lr.ph571 ], [ 0, %178 ], [ 16, %436 ], [ 0, %.lr.ph577 ], [ 0, %241 ], [ 0, %228 ], [ 16, %391 ], [ 16, %333 ], [ 16, %416 ], [ 16, %404 ], [ 16, %358 ]
   %.not304 = icmp eq ptr %.26, null
   br i1 %.not304, label %Py_DECREF.exit312, label %.thread470
 
 .thread470:                                       ; preds = %287, %281, %372, %440, %466, %252, %455, %275, %_Py_NewRef.exit380, %196, %187, %478, %182, %171, %162, %.thread453
-  %.3122479 = phi i64 [ %.3122, %.thread453 ], [ 16, %372 ], [ 16, %440 ], [ 1, %275 ], [ 1, %_Py_NewRef.exit380 ], [ 16, %455 ], [ 0, %196 ], [ 0, %187 ], [ %.1120, %478 ], [ 0, %182 ], [ 0, %171 ], [ 0, %162 ], [ 16, %466 ], [ 0, %252 ], [ %.1113541, %281 ], [ %.1113541, %287 ]
-  %.4235477 = phi ptr [ null, %.thread453 ], [ null, %372 ], [ null, %440 ], [ %271, %275 ], [ null, %_Py_NewRef.exit380 ], [ null, %455 ], [ null, %196 ], [ null, %187 ], [ null, %478 ], [ null, %182 ], [ null, %171 ], [ null, %162 ], [ null, %466 ], [ null, %252 ], [ %.2233, %281 ], [ %.2233, %287 ]
-  %.26476 = phi ptr [ %.26, %.thread453 ], [ %363, %372 ], [ %437, %440 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %275 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %_Py_NewRef.exit380 ], [ %452, %455 ], [ %188, %196 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %187 ], [ %.2238, %478 ], [ %179, %182 ], [ %163, %171 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %162 ], [ %463, %466 ], [ %242, %252 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %281 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %287 ]
+  %.3122479 = phi i64 [ %.3122, %.thread453 ], [ 0, %252 ], [ 16, %372 ], [ 1, %275 ], [ 1, %_Py_NewRef.exit380 ], [ 16, %455 ], [ 0, %196 ], [ 0, %187 ], [ %.1120, %478 ], [ 0, %182 ], [ 0, %171 ], [ 0, %162 ], [ 16, %466 ], [ 16, %440 ], [ %.1113541, %281 ], [ %.1113541, %287 ]
+  %.4235477 = phi ptr [ null, %.thread453 ], [ null, %252 ], [ null, %372 ], [ %271, %275 ], [ null, %_Py_NewRef.exit380 ], [ null, %455 ], [ null, %196 ], [ null, %187 ], [ null, %478 ], [ null, %182 ], [ null, %171 ], [ null, %162 ], [ null, %466 ], [ null, %440 ], [ %.2233, %281 ], [ %.2233, %287 ]
+  %.26476 = phi ptr [ %.26, %.thread453 ], [ %242, %252 ], [ %363, %372 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %275 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %_Py_NewRef.exit380 ], [ %452, %455 ], [ %188, %196 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %187 ], [ %.2238, %478 ], [ %179, %182 ], [ %163, %171 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %162 ], [ %463, %466 ], [ %437, %440 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %281 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104), %287 ]
   %488 = load i32, ptr %.26476, align 8, !tbaa !29
   %.not.i311 = icmp sgt i32 %488, -1
   br i1 %.not.i311, label %489, label %Py_DECREF.exit312

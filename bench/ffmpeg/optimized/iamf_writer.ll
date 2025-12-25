@@ -1220,7 +1220,7 @@ ff_iamf_get_param_definition.exit95:              ; preds = %.loopexit, %ff_iamf
   br label %158
 
 add_param_definition.exit.thread:                 ; preds = %.thread53.i, %.loopexit129, %.thread53.i98, %.loopexit128, %.thread50.i101, %99, %.thread50.i, %48, %._crit_edge
-  %.8 = phi i32 [ -12, %._crit_edge ], [ -12, %.thread53.i98 ], [ -22, %48 ], [ -22, %.thread50.i101 ], [ -22, %.thread50.i ], [ -22, %99 ], [ -12, %.loopexit128 ], [ -12, %.loopexit129 ], [ -12, %.thread53.i ]
+  %.8 = phi i32 [ -12, %._crit_edge ], [ -22, %.thread50.i101 ], [ -22, %48 ], [ -12, %.thread53.i98 ], [ -22, %.thread50.i ], [ -22, %99 ], [ -12, %.loopexit128 ], [ -12, %.loopexit129 ], [ -12, %.thread53.i ]
   call void @ff_iamf_free_mix_presentation(ptr noundef nonnull %4) #9
   br label %158
 

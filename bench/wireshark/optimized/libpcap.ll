@@ -965,7 +965,7 @@ libpcap_try_variant.exit:                         ; preds = %189, %.thread47.sin
   br i1 %exitcond151.not, label %.loopexit, label %209, !llvm.loop !19
 
 .loopexit:                                        ; preds = %libpcap_try_variant.exit, %202, %216, %194, %198
-  %.1 = phi i1 [ true, %198 ], [ true, %216 ], [ false, %194 ], [ false, %202 ], [ false, %libpcap_try_variant.exit ]
+  %.1 = phi i1 [ true, %198 ], [ false, %194 ], [ true, %216 ], [ false, %202 ], [ false, %libpcap_try_variant.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.1
 }

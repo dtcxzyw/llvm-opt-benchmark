@@ -4658,7 +4658,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.10712026466629435290.e
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %197, %202
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %202 ], [ %lpad.phi.i.i.i, %197 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %197 ], [ %lpad.phi.i.i.i, %202 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   br i1 %149, label %"_ZN4core3ptr427drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$..parent$GT$$C$hir..semantics..SemanticsImpl..descend_node_into_attributes$LT$syntax..ast..generated..nodes..CallExpr$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hae908070d55ed34fE.exit", label %206
 
 206:                                              ; preds = %.body
@@ -5660,7 +5660,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.10712026466629435290.e
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %197, %202
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %202 ], [ %lpad.phi.i.i.i, %197 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %197 ], [ %lpad.phi.i.i.i, %202 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   br i1 %149, label %"_ZN4core3ptr433drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$..parent$GT$$C$hir..semantics..SemanticsImpl..descend_node_into_attributes$LT$syntax..ast..generated..nodes..MethodCallExpr$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h112d24509f54aa9cE.exit", label %206
 
 206:                                              ; preds = %.body
@@ -6388,7 +6388,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.10712026466629435290.e
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %197, %202
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %202 ], [ %lpad.phi.i.i.i, %197 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %197 ], [ %lpad.phi.i.i.i, %202 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   br i1 %149, label %"_ZN4core3ptr427drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$..parent$GT$$C$hir..semantics..SemanticsImpl..descend_node_into_attributes$LT$syntax..ast..generated..nodes..IdentPat$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hce1a7ff52c3e6ac6E.exit", label %206
 
 206:                                              ; preds = %.body
@@ -7539,7 +7539,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.10712026466629435290.e
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %197, %202
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %202 ], [ %lpad.phi.i.i.i, %197 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %197 ], [ %lpad.phi.i.i.i, %202 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   br i1 %149, label %"_ZN4core3ptr430drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$..parent$GT$$C$hir..semantics..SemanticsImpl..descend_node_into_attributes$LT$syntax..ast..generated..nodes..ClosureExpr$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5bb357f8834071f7E.exit", label %206
 
 206:                                              ; preds = %.body
@@ -8280,7 +8280,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.10712026466629435290.e
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %203, %208
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %208 ], [ %lpad.phi.i.i.i, %203 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %203 ], [ %lpad.phi.i.i.i, %208 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   br i1 %150, label %"_ZN4core3ptr423drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$..parent$GT$$C$hir..semantics..SemanticsImpl..descend_node_into_attributes$LT$syntax..ast..generated..nodes..Expr$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a67091752e0e96eE.exit", label %212
 
 212:                                              ; preds = %.body
@@ -9129,7 +9129,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.10712026466629435290.e
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %197, %202
-  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %202 ], [ %lpad.phi.i.i.i, %197 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i.i.i, %197 ], [ %lpad.phi.i.i.i, %202 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   br i1 %149, label %"_ZN4core3ptr426drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$..parent$GT$$C$hir..semantics..SemanticsImpl..descend_node_into_attributes$LT$syntax..ast..generated..nodes..Variant$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h344102c49fd11aa7E.exit", label %206
 
 206:                                              ; preds = %.body
@@ -17561,7 +17561,7 @@ _ZN8smallvec10deallocate17h7b0a7a8d95259264E.exit.i: ; preds = %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 8) #41, !noalias !4165
   br label %_ZN8smallvec10infallible17hb370bc14a69ead19E.llvm.9018798831783864632.exit
 
-52:                                               ; preds = %34, %29
+52:                                               ; preds = %29, %34
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d537e0d620497b5fd4725a9c6fad5b51.160.llvm.9018798831783864632, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d537e0d620497b5fd4725a9c6fad5b51.161.llvm.9018798831783864632) #40
   unreachable
 
@@ -17693,7 +17693,7 @@ _ZN8smallvec10deallocate17h6621198a4bcd7706E.exit.i: ; preds = %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 8) #41, !noalias !4176
   br label %_ZN8smallvec10infallible17hb370bc14a69ead19E.llvm.9018798831783864632.exit
 
-52:                                               ; preds = %34, %29
+52:                                               ; preds = %29, %34
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d537e0d620497b5fd4725a9c6fad5b51.160.llvm.9018798831783864632, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d537e0d620497b5fd4725a9c6fad5b51.161.llvm.9018798831783864632) #40
   unreachable
 
@@ -17880,7 +17880,7 @@ _ZN8smallvec10deallocate17h8fc5adc161386d40E.exit.i: ; preds = %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 8) #41, !noalias !4192
   br label %_ZN8smallvec10infallible17hb370bc14a69ead19E.llvm.9018798831783864632.exit
 
-52:                                               ; preds = %34, %29
+52:                                               ; preds = %29, %34
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d537e0d620497b5fd4725a9c6fad5b51.160.llvm.9018798831783864632, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d537e0d620497b5fd4725a9c6fad5b51.161.llvm.9018798831783864632) #40
   unreachable
 
@@ -18012,7 +18012,7 @@ _ZN8smallvec10deallocate17h6d31486a91627e2eE.exit.i: ; preds = %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 8) #41, !noalias !4203
   br label %_ZN8smallvec10infallible17hb370bc14a69ead19E.llvm.9018798831783864632.exit
 
-52:                                               ; preds = %34, %29
+52:                                               ; preds = %29, %34
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d537e0d620497b5fd4725a9c6fad5b51.160.llvm.9018798831783864632, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d537e0d620497b5fd4725a9c6fad5b51.161.llvm.9018798831783864632) #40
   unreachable
 
@@ -18144,7 +18144,7 @@ _ZN8smallvec10deallocate17hfef5198b299b7b6fE.exit.i: ; preds = %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 8) #41, !noalias !4214
   br label %_ZN8smallvec10infallible17hb370bc14a69ead19E.llvm.9018798831783864632.exit
 
-52:                                               ; preds = %34, %29
+52:                                               ; preds = %29, %34
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d537e0d620497b5fd4725a9c6fad5b51.160.llvm.9018798831783864632, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d537e0d620497b5fd4725a9c6fad5b51.161.llvm.9018798831783864632) #40
   unreachable
 
@@ -18276,7 +18276,7 @@ _ZN8smallvec10deallocate17h3042ef4287f08269E.exit.i: ; preds = %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 8) #41, !noalias !4225
   br label %_ZN8smallvec10infallible17hb370bc14a69ead19E.llvm.9018798831783864632.exit
 
-52:                                               ; preds = %34, %29
+52:                                               ; preds = %29, %34
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d537e0d620497b5fd4725a9c6fad5b51.160.llvm.9018798831783864632, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d537e0d620497b5fd4725a9c6fad5b51.161.llvm.9018798831783864632) #40
   unreachable
 
@@ -18462,7 +18462,7 @@ _ZN8smallvec10deallocate17he12a1b626705b273E.exit.i: ; preds = %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 8) #41, !noalias !4241
   br label %_ZN8smallvec10infallible17hb370bc14a69ead19E.llvm.9018798831783864632.exit
 
-52:                                               ; preds = %34, %29
+52:                                               ; preds = %29, %34
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d537e0d620497b5fd4725a9c6fad5b51.160.llvm.9018798831783864632, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d537e0d620497b5fd4725a9c6fad5b51.161.llvm.9018798831783864632) #40
   unreachable
 

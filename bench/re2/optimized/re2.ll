@@ -2965,10 +2965,10 @@ if.else387:                                       ; preds = %sw.epilog
   br label %if.end388
 
 if.end388:                                        ; preds = %if.then331, %invoke.cont372, %land.lhs.true310, %land.lhs.true318, %if.else387
-  %skipped_test.0193201 = phi i1 [ false, %if.else387 ], [ true, %land.lhs.true318 ], [ true, %if.then331 ], [ true, %invoke.cont372 ], [ true, %land.lhs.true310 ]
-  %subtext1.sroa.0.0 = phi ptr [ %subtext1.sroa.0.0.copyload157, %if.else387 ], [ %subtext.sroa.0.0, %land.lhs.true318 ], [ %subtext.sroa.0.0, %if.then331 ], [ %subtext.sroa.0.0, %invoke.cont372 ], [ %subtext.sroa.0.0, %land.lhs.true310 ]
-  %subtext1.sroa.6.0 = phi i64 [ %subtext1.sroa.6.0.copyload158, %if.else387 ], [ %subtext.sroa.11.0, %land.lhs.true318 ], [ %subtext.sroa.11.0, %if.then331 ], [ %subtext.sroa.11.0, %invoke.cont372 ], [ %subtext.sroa.11.0, %land.lhs.true310 ]
-  %kind.2 = phi i32 [ 2, %if.else387 ], [ %kind.1, %land.lhs.true318 ], [ %kind.1, %if.then331 ], [ %kind.1, %invoke.cont372 ], [ %kind.1, %land.lhs.true310 ]
+  %skipped_test.0193201 = phi i1 [ false, %if.else387 ], [ true, %land.lhs.true318 ], [ true, %if.then331 ], [ true, %land.lhs.true310 ], [ true, %invoke.cont372 ]
+  %subtext1.sroa.0.0 = phi ptr [ %subtext1.sroa.0.0.copyload157, %if.else387 ], [ %subtext.sroa.0.0, %land.lhs.true318 ], [ %subtext.sroa.0.0, %if.then331 ], [ %subtext.sroa.0.0, %land.lhs.true310 ], [ %subtext.sroa.0.0, %invoke.cont372 ]
+  %subtext1.sroa.6.0 = phi i64 [ %subtext1.sroa.6.0.copyload158, %if.else387 ], [ %subtext.sroa.11.0, %land.lhs.true318 ], [ %subtext.sroa.11.0, %if.then331 ], [ %subtext.sroa.11.0, %land.lhs.true310 ], [ %subtext.sroa.11.0, %invoke.cont372 ]
+  %kind.2 = phi i32 [ 2, %if.else387 ], [ %kind.1, %land.lhs.true318 ], [ %kind.1, %if.then331 ], [ %kind.1, %land.lhs.true310 ], [ %kind.1, %invoke.cont372 ]
   br i1 %17, label %if.then392, label %if.else411
 
 if.then392:                                       ; preds = %if.end388
@@ -3002,11 +3002,11 @@ if.else411.sink.split:                            ; preds = %invoke.cont283, %in
   br label %if.else411
 
 if.else411:                                       ; preds = %if.else411.sink.split, %if.then130, %if.then190, %if.end238, %if.then138, %if.then249, %if.end388
-  %anchor.1214 = phi i32 [ 1, %if.end388 ], [ 0, %if.then130 ], [ 0, %if.then190 ], [ 0, %if.end238 ], [ 0, %if.then249 ], [ 0, %if.then138 ], [ 0, %if.else411.sink.split ]
-  %kind.2213 = phi i32 [ %kind.2, %if.end388 ], [ %.lobit, %if.then130 ], [ %.lobit, %if.then190 ], [ %.lobit, %if.end238 ], [ %.lobit, %if.then249 ], [ %.lobit, %if.then138 ], [ %.lobit, %if.else411.sink.split ]
-  %subtext1.sroa.6.0212 = phi i64 [ %subtext1.sroa.6.0, %if.end388 ], [ %subtext.sroa.11.0, %if.then130 ], [ %subtext.sroa.11.0, %if.then190 ], [ %subtext.sroa.11.0, %if.end238 ], [ %subtext.sroa.11.0, %if.then249 ], [ %subtext.sroa.11.0, %if.then138 ], [ %subtext.sroa.11.0, %if.else411.sink.split ]
-  %subtext1.sroa.0.0211 = phi ptr [ %subtext1.sroa.0.0, %if.end388 ], [ %subtext.sroa.0.0, %if.then130 ], [ %subtext.sroa.0.0, %if.then190 ], [ %subtext.sroa.0.0, %if.end238 ], [ %subtext.sroa.0.0, %if.then249 ], [ %subtext.sroa.0.0, %if.then138 ], [ %subtext.sroa.0.0, %if.else411.sink.split ]
-  %skipped_test.0193201210 = phi i1 [ %skipped_test.0193201, %if.end388 ], [ true, %if.then130 ], [ true, %if.then190 ], [ true, %if.end238 ], [ true, %if.then249 ], [ true, %if.then138 ], [ true, %if.else411.sink.split ]
+  %anchor.1214 = phi i32 [ 1, %if.end388 ], [ 0, %if.end238 ], [ 0, %if.then190 ], [ 0, %if.then130 ], [ 0, %if.then249 ], [ 0, %if.then138 ], [ 0, %if.else411.sink.split ]
+  %kind.2213 = phi i32 [ %kind.2, %if.end388 ], [ %.lobit, %if.end238 ], [ %.lobit, %if.then190 ], [ %.lobit, %if.then130 ], [ %.lobit, %if.then249 ], [ %.lobit, %if.then138 ], [ %.lobit, %if.else411.sink.split ]
+  %subtext1.sroa.6.0212 = phi i64 [ %subtext1.sroa.6.0, %if.end388 ], [ %subtext.sroa.11.0, %if.end238 ], [ %subtext.sroa.11.0, %if.then190 ], [ %subtext.sroa.11.0, %if.then130 ], [ %subtext.sroa.11.0, %if.then249 ], [ %subtext.sroa.11.0, %if.then138 ], [ %subtext.sroa.11.0, %if.else411.sink.split ]
+  %subtext1.sroa.0.0211 = phi ptr [ %subtext1.sroa.0.0, %if.end388 ], [ %subtext.sroa.0.0, %if.end238 ], [ %subtext.sroa.0.0, %if.then190 ], [ %subtext.sroa.0.0, %if.then130 ], [ %subtext.sroa.0.0, %if.then249 ], [ %subtext.sroa.0.0, %if.then138 ], [ %subtext.sroa.0.0, %if.else411.sink.split ]
+  %skipped_test.0193201210 = phi i1 [ %skipped_test.0193201, %if.end388 ], [ true, %if.end238 ], [ true, %if.then190 ], [ true, %if.then130 ], [ true, %if.then249 ], [ true, %if.then138 ], [ true, %if.else411.sink.split ]
   %cmp415.not = icmp ugt i64 %subtext1.sroa.6.0212, %20
   %or.cond220 = select i1 %cmp.i114.not224, i1 true, i1 %cmp415.not
   %62 = load ptr, ptr %prog_, align 8
@@ -3108,7 +3108,7 @@ return.sink.split:                                ; preds = %if.then445, %if.the
   br label %return
 
 return:                                           ; preds = %for.body.i, %for.body, %return.sink.split, %if.end468, %if.then440, %if.then421, %if.then397, %if.then329, %if.end290, %if.end235, %if.then188, %if.end179, %if.then137, %if.else94, %if.end79, %if.then76, %land.lhs.true57, %_ZN4absl7debian211string_view13remove_suffixEm.exit, %if.then12, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then12 ], [ false, %_ZN4absl7debian211string_view13remove_suffixEm.exit ], [ true, %for.body ], [ false, %if.then440 ], [ false, %if.then329 ], [ false, %if.then397 ], [ false, %if.then421 ], [ false, %if.then137 ], [ false, %if.else94 ], [ false, %if.then188 ], [ true, %if.end235 ], [ true, %if.end179 ], [ false, %if.end290 ], [ false, %land.lhs.true57 ], [ false, %if.then76 ], [ false, %if.end79 ], [ false, %return.sink.split ], [ true, %if.end468 ], [ false, %for.body.i ]
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then12 ], [ false, %_ZN4absl7debian211string_view13remove_suffixEm.exit ], [ true, %if.end468 ], [ false, %if.then440 ], [ false, %if.then329 ], [ false, %if.then397 ], [ false, %if.then421 ], [ false, %if.then137 ], [ false, %if.else94 ], [ false, %if.then188 ], [ true, %if.end235 ], [ true, %if.end179 ], [ false, %if.end290 ], [ false, %land.lhs.true57 ], [ false, %if.then76 ], [ false, %if.end79 ], [ true, %for.body ], [ false, %return.sink.split ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 
@@ -3290,7 +3290,7 @@ return.sink.split:                                ; preds = %invoke.cont42, %inv
   br label %return
 
 return:                                           ; preds = %for.inc, %return.sink.split, %entry, %if.else34, %if.then10
-  %cmp42 = phi i1 [ false, %return.sink.split ], [ false, %if.else34 ], [ true, %entry ], [ false, %if.then10 ], [ true, %for.inc ]
+  %cmp42 = phi i1 [ true, %entry ], [ false, %if.else34 ], [ false, %return.sink.split ], [ false, %if.then10 ], [ true, %for.inc ]
   ret i1 %cmp42
 }
 

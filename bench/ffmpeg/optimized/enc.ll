@@ -1862,7 +1862,7 @@ define internal fastcc ptr @spawn_empty_frame(ptr noundef readonly captures(none
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23, %._crit_edge.sink.split, %.preheader, %1
-  %.0 = phi ptr [ null, %._crit_edge.sink.split ], [ %3, %.preheader ], [ null, %1 ], [ %3, %23 ]
+  %.0 = phi ptr [ %3, %.preheader ], [ null, %._crit_edge.sink.split ], [ null, %1 ], [ %3, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }

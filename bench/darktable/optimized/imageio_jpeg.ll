@@ -1385,7 +1385,7 @@ marker_is_icc.exit69.thread.i:                    ; preds = %.lr.ph94.i, %148, %
   br label %read_icc_profile.exit
 
 read_icc_profile.exit:                            ; preds = %66, %67, %73, %.lr.ph86.i, %2, %._crit_edge.i, %._crit_edge87.i, %91, %._crit_edge99.i
-  %.not = phi i32 [ 0, %2 ], [ 0, %.lr.ph86.i ], [ 0, %._crit_edge.i ], [ %89, %._crit_edge99.i ], [ 0, %._crit_edge87.i ], [ 0, %91 ], [ 0, %73 ], [ 0, %67 ], [ 0, %66 ]
+  %.not = phi i32 [ 0, %2 ], [ %89, %._crit_edge99.i ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph86.i ], [ 0, %._crit_edge87.i ], [ 0, %91 ], [ 0, %73 ], [ 0, %67 ], [ 0, %66 ]
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

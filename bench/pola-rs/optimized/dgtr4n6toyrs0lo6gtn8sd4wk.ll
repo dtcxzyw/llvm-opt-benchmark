@@ -11058,7 +11058,7 @@ define hidden void @"_ZN122_$LT$polars_parquet_format..parquet_format..ColumnChu
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i.loopexit.split-lp:           ; preds = %319, %322, %602
-  %.sroa.0305.1.ph.i.ph = phi i1 [ true, %319 ], [ false, %322 ], [ true, %602 ]
+  %.sroa.0305.1.ph.i.ph = phi i1 [ false, %322 ], [ true, %319 ], [ true, %602 ]
   %lpad.loopexit.split-lp984 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -15684,7 +15684,7 @@ define hidden void @"_ZN122_$LT$polars_parquet_format..parquet_format..ColumnChu
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i.loopexit.split-lp:           ; preds = %319, %322, %602
-  %.sroa.0305.1.ph.i.ph = phi i1 [ true, %319 ], [ false, %322 ], [ true, %602 ]
+  %.sroa.0305.1.ph.i.ph = phi i1 [ false, %322 ], [ true, %319 ], [ true, %602 ]
   %lpad.loopexit.split-lp984 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
@@ -144234,17 +144234,17 @@ _ZN4core3cmp9PartialEq2ne17h553851b96a43b015E.exit.i.i.i.i.i.i: ; preds = %276
   %298 = trunc nuw i64 %228 to i1
   %299 = getelementptr inbounds nuw i8, ptr %210, i64 32
   %300 = getelementptr inbounds nuw i8, ptr %212, i64 32
-  br i1 %298, label %"_ZN80_$LT$polars_io..cloud..options..CloudOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe5f48d3fac9ba6fE.exit.i", label %301
+  br i1 %298, label %301, label %"_ZN80_$LT$polars_io..cloud..options..CloudOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe5f48d3fac9ba6fE.exit.i"
 
 301:                                              ; preds = %297
-  %302 = invoke noundef zeroext i1 @"_ZN106_$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff5fbc34d5338b3cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %299, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %300)
+  %302 = invoke noundef zeroext i1 @"_ZN117_$LT$polars_io..cloud..credential_provider..python_impl..PythonCredentialProvider$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf3249755f2fc8c1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %299, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %300)
           to label %.noexc131 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc131:                                        ; preds = %301
   br i1 %302, label %304, label %_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit.thread
 
 "_ZN80_$LT$polars_io..cloud..options..CloudOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe5f48d3fac9ba6fE.exit.i": ; preds = %297
-  %303 = invoke noundef zeroext i1 @"_ZN117_$LT$polars_io..cloud..credential_provider..python_impl..PythonCredentialProvider$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdf3249755f2fc8c1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %299, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %300)
+  %303 = invoke noundef zeroext i1 @"_ZN106_$LT$polars_io..cloud..credential_provider..CredentialProviderFunction$u20$as$u20$core..cmp..PartialEq$GT$2eq17hff5fbc34d5338b3cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %299, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %300)
           to label %.noexc132 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc132:                                        ; preds = %"_ZN80_$LT$polars_io..cloud..options..CloudOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe5f48d3fac9ba6fE.exit.i"
@@ -144488,7 +144488,7 @@ _ZN4core3cmp9PartialEq2ne17h553851b96a43b015E.exit.i.i.i.i.i.i: ; preds = %276
           to label %.noexc27 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc27:                                         ; preds = %422, %428
-  %.sroa.0.0.shrunk.i = phi i1 [ %443, %428 ], [ %.mux.i125, %422 ]
+  %.sroa.0.0.shrunk.i = phi i1 [ %.mux.i125, %422 ], [ %443, %428 ]
   br i1 %.sroa.0.0.shrunk.i, label %444, label %_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit.thread
 
 444:                                              ; preds = %.noexc27
@@ -145931,17 +145931,17 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i: ; pr
   br i1 %1289, label %_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit.thread, label %_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit.thread146
 
 _ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit: ; preds = %.invoke235, %.invoke, %458, %444, %806, %1191
-  %.sroa.0.0.i = phi i1 [ %.mux.i.i, %444 ], [ %474, %.invoke ], [ %.mux.i, %458 ], [ %1194, %1191 ], [ %815, %806 ], [ %451, %.invoke235 ]
+  %.sroa.0.0.i = phi i1 [ %815, %806 ], [ %.mux.i.i, %444 ], [ %474, %.invoke ], [ %1194, %1191 ], [ %.mux.i, %458 ], [ %451, %.invoke235 ]
   br i1 %.sroa.0.0.i, label %_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit.thread146, label %_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit.thread
 
-_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit.thread: ; preds = %1063, %1001, %1008, %.noexc82, %.noexc81, %.noexc80, %854, %865, %876, %899, %909, %864, %875, %898, %908, %916, %.noexc84, %972, %"_ZN83_$LT$polars_ops..frame..join..asof..AsOfOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67d1488db92624dE.exit.i.i", %927, %941, %965, %984, %836, %940, %964, %966, %978, %1031, %1019, %.noexc85, %.noexc83, %"_ZN85_$LT$polars_plan..dsl..options..JoinTypeOptionsIR$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2092fb2fe91027a7E.exit.i", %1052, %1051, %1050, %1029, %1000, %1037, %822, %830, %"_ZN80_$LT$polars_ops..frame..join..args..JoinArgs$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc0c56452171f159dE.exit.i", %999, %1030, %712, %718, %724, %730, %677, %683, %689, %695, %642, %648, %654, %660, %636, %671, %.noexc91, %741, %748, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i.i", %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit5.i.i", %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit7.i.i", %706, %.noexc92, %"_ZN92_$LT$polars_time..group_by..dynamic..DynamicGroupOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ad7cab8b6cba88E.exit.i", %777, %767, %615, %766, %616, %776, %566, %.noexc107, %547, %553, %.noexc106, %311, %315, %325, %326, %313, %400, %390, %261, %275, %254, %399, %.noexc130, %293, %234, %240, %252, %253, %.noexc129, %.noexc133, %"_ZN72_$LT$polars_utils..slice_enum..Slice$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbb023a409a84a87dE.exit.i", %.noexc135, %.noexc134, %295, %.noexc131, %401, %.noexc132, %.noexc126, %233, %363, %380, %389, %416, %218, %232, %"_ZN72_$LT$polars_io..options..HiveOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e0f41eb7c6b9d49E.exit.i", %338, %344, %350, %362, %379, %388, %412, %219, %1225, %1210, %1224, %1223, %1203, %1231, %1202, %1204, %1237, %1243, %1249, %1255, %1179, %1166, %1150, %1160, %1151, %1177, %573, %493, %.noexc27, %475, %567, %523, %521, %.noexc32, %.noexc35, %789, %.noexc34, %597, %1109, %1103, %529, %.noexc48, %1121, %.noexc37, %.loopexit167, %594, %522, %783, %487, %.noexc25, %481, %452, %181, %1273, %.noexc26, %180, %.noexc23, %1115, %1185, %187, %1267, %1178, %.noexc44, %1261, %_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit, %.noexc128, %276, %_ZN4core3cmp9PartialEq2ne17h553851b96a43b015E.exit.i.i.i.i.i.i, %.noexc127, %262, %267, %.noexc38, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i58, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i98, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i113
+_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit.thread: ; preds = %1063, %1001, %1008, %.noexc82, %.noexc81, %.noexc80, %854, %865, %876, %899, %909, %864, %875, %898, %908, %916, %.noexc84, %972, %"_ZN83_$LT$polars_ops..frame..join..asof..AsOfOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67d1488db92624dE.exit.i.i", %927, %941, %965, %984, %836, %940, %964, %966, %978, %1031, %1019, %.noexc85, %.noexc83, %"_ZN85_$LT$polars_plan..dsl..options..JoinTypeOptionsIR$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2092fb2fe91027a7E.exit.i", %1052, %1051, %1050, %1029, %1000, %1037, %822, %830, %"_ZN80_$LT$polars_ops..frame..join..args..JoinArgs$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc0c56452171f159dE.exit.i", %999, %1030, %712, %718, %724, %730, %677, %683, %689, %695, %642, %648, %654, %660, %636, %671, %.noexc91, %741, %748, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i.i", %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit5.i.i", %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit7.i.i", %706, %.noexc92, %"_ZN92_$LT$polars_time..group_by..dynamic..DynamicGroupOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ad7cab8b6cba88E.exit.i", %777, %767, %615, %766, %616, %776, %566, %.noexc107, %547, %553, %.noexc106, %311, %315, %325, %313, %399, %390, %261, %275, %254, %400, %.noexc130, %293, %234, %240, %252, %253, %.noexc129, %.noexc133, %"_ZN72_$LT$polars_utils..slice_enum..Slice$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbb023a409a84a87dE.exit.i", %.noexc135, %.noexc134, %326, %295, %.noexc131, %401, %.noexc132, %.noexc126, %233, %363, %380, %389, %416, %218, %232, %"_ZN72_$LT$polars_io..options..HiveOptions$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3e0f41eb7c6b9d49E.exit.i", %338, %344, %350, %362, %379, %388, %412, %219, %1225, %1210, %1224, %1223, %1203, %1231, %1202, %1204, %1237, %1243, %1249, %1255, %1179, %1166, %1150, %1160, %1151, %1177, %573, %493, %.noexc27, %475, %567, %523, %521, %.noexc32, %.noexc35, %789, %.noexc34, %597, %1109, %1103, %529, %.noexc48, %1121, %.noexc37, %.loopexit167, %594, %522, %783, %487, %.noexc25, %481, %452, %181, %1273, %.noexc26, %180, %.noexc23, %1115, %1267, %.noexc44, %1185, %1178, %187, %1261, %_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit, %.noexc128, %276, %_ZN4core3cmp9PartialEq2ne17h553851b96a43b015E.exit.i.i.i.i.i.i, %.noexc127, %262, %267, %.noexc38, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i58, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i98, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i113
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit170
 
-_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit.thread146: ; preds = %466, %464, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i58.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i98.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i113.thread, %1185, %187, %1267, %1178, %.noexc44, %1261, %_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit
+_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit.thread146: ; preds = %466, %464, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i58.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i98.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hd228e4168928316bE.exit.i113.thread, %1267, %.noexc44, %1185, %1178, %187, %1261, %_ZN11polars_plan5plans7visitor4hash12HashableEqLP8is_equal17h6b541b196702835dE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   invoke void @"_ZN11polars_plan5plans2ir6inputs44_$LT$impl$u20$polars_plan..plans..ir..IR$GT$11copy_inputs17h525403d1d2ae7905E"(ptr noundef nonnull align 16 %99, ptr noalias noundef nonnull align 8 dereferenceable(24) %14)

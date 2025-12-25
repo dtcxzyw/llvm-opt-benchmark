@@ -30945,7 +30945,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEE
   br i1 %.not150, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEEZNK4entt10basic_flowISaIjEE11setup_graphERNSA_16adjacency_matrixINSA_12directed_tagESaImEEEEUlRKT_E0_ESJ_SJ_SJ_T0_.exit.thread, label %.lr.ph, !llvm.loop !452
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairImbESt6vectorIS3_SaIS3_EEEEZNK4entt10basic_flowISaIjEE11setup_graphERNSA_16adjacency_matrixINSA_12directed_tagESaImEEEEUlRKT_E0_ESJ_SJ_SJ_T0_.exit.thread: ; preds = %.lr.ph, %.lr.ph172, %.lr.ph176, %25, %.preheader158, %.preheader156, %19
-  %.sroa.0119.5 = phi ptr [ %89, %.lr.ph172 ], [ %96, %.lr.ph176 ], [ %20, %19 ], [ %20, %25 ], [ %.sroa.0119.0179, %.preheader158 ], [ %20, %.preheader156 ], [ %148, %.lr.ph ]
+  %.sroa.0119.5 = phi ptr [ %89, %.lr.ph172 ], [ %20, %.preheader156 ], [ %20, %19 ], [ %20, %25 ], [ %.sroa.0119.0179, %.preheader158 ], [ %96, %.lr.ph176 ], [ %148, %.lr.ph ]
   %.not148 = icmp eq ptr %.sroa.0119.5, %11
   br i1 %.not148, label %._crit_edge, label %15, !llvm.loop !453
 

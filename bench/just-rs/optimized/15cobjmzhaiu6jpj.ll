@@ -27250,7 +27250,7 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   br label %"_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us102"
 
 "_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us102": ; preds = %77, %67, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i.i.us", %63, %58, %51
-  %.1.i.us = phi i8 [ %65, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i.i.us" ], [ 1, %51 ], [ %.0.i.i.i.i.us, %67 ], [ 1, %63 ], [ 1, %58 ], [ %.0.i.i.i.i.i.us, %77 ]
+  %.1.i.us = phi i8 [ %65, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i.i.us" ], [ 1, %51 ], [ %.0.i.i.i.i.i.us, %77 ], [ 1, %63 ], [ 1, %58 ], [ %.0.i.i.i.i.us, %67 ]
   switch i8 %.1.i.us, label %default.unreachable.i [
     i8 -1, label %.loopexit.loopexit.i.i.split.split.us103
     i8 0, label %.split115.us
@@ -28295,7 +28295,7 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   br label %"_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us102"
 
 "_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us102": ; preds = %77, %67, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i.i.us", %63, %58, %51
-  %.1.i.us = phi i8 [ %65, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i.i.us" ], [ 1, %51 ], [ %.0.i.i.i.i.us, %67 ], [ 1, %63 ], [ 1, %58 ], [ %.0.i.i.i.i.i.us, %77 ]
+  %.1.i.us = phi i8 [ %65, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i.i.us" ], [ 1, %51 ], [ %.0.i.i.i.i.i.us, %77 ], [ 1, %63 ], [ 1, %58 ], [ %.0.i.i.i.i.us, %67 ]
   switch i8 %.1.i.us, label %default.unreachable.i [
     i8 -1, label %.loopexit.loopexit.i.i.split.split.us103
     i8 0, label %.split115.us
@@ -28774,7 +28774,7 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   br label %"_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us102"
 
 "_ZN61_$LT$just..attribute..Attribute$u20$as$u20$core..cmp..Ord$GT$3cmp17haae29be0466a65e1E.exit.us102": ; preds = %77, %67, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i.i.us", %63, %58, %51
-  %.1.i.us = phi i8 [ %65, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i.i.us" ], [ 1, %51 ], [ %.0.i.i.i.i.us, %67 ], [ 1, %63 ], [ 1, %58 ], [ %.0.i.i.i.i.i.us, %77 ]
+  %.1.i.us = phi i8 [ %65, %"_ZN64_$LT$just..string_kind..StringKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h56c349cf5b98f2adE.exit.i.i.i.us" ], [ 1, %51 ], [ %.0.i.i.i.i.i.us, %77 ], [ 1, %63 ], [ 1, %58 ], [ %.0.i.i.i.i.us, %67 ]
   switch i8 %.1.i.us, label %default.unreachable.i [
     i8 -1, label %.loopexit.loopexit.i.i.split.split.us103
     i8 0, label %.split115.us

@@ -36922,9 +36922,9 @@ _ZN14polars_parquet5arrow4read11deserialize12nested_utils6Nested4push17h37628802
   br i1 %.not169, label %305, label %322
 
 .split312.us:                                     ; preds = %50, %..loopexit208_crit_edge.us, %.loopexit208, %307
-  %302 = phi i64 [ %42, %.loopexit208 ], [ %42, %307 ], [ %44, %50 ], [ %132, %..loopexit208_crit_edge.us ]
-  %303 = phi i64 [ %43, %.loopexit208 ], [ %43, %307 ], [ %45, %50 ], [ %133, %..loopexit208_crit_edge.us ]
-  %.us-phi313 = phi i64 [ %umax465, %.loopexit208 ], [ %.sroa.098.0285, %307 ], [ %.sroa.098.0285.us, %50 ], [ %umax465, %..loopexit208_crit_edge.us ]
+  %302 = phi i64 [ %42, %.loopexit208 ], [ %42, %307 ], [ %132, %..loopexit208_crit_edge.us ], [ %44, %50 ]
+  %303 = phi i64 [ %43, %.loopexit208 ], [ %43, %307 ], [ %133, %..loopexit208_crit_edge.us ], [ %45, %50 ]
+  %.us-phi313 = phi i64 [ %umax465, %.loopexit208 ], [ %.sroa.098.0285, %307 ], [ %umax465, %..loopexit208_crit_edge.us ], [ %.sroa.098.0285.us, %50 ]
   %304 = icmp ugt i64 %.us-phi313, %.sroa.7.1
   br i1 %304, label %315, label %311, !prof !30
 
@@ -65633,8 +65633,8 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary29encode_as_dicti
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %60
 
-.thread:                                          ; preds = %134, %142, %57, %161, %.body.thread, %.thread49
-  %.pn1336 = phi { ptr, i32 } [ %135, %134 ], [ %.pn1337, %.body.thread ], [ %105, %.thread49 ], [ %58, %57 ], [ %162, %161 ], [ %135, %142 ]
+.thread:                                          ; preds = %142, %134, %57, %161, %.body.thread, %.thread49
+  %.pn1336 = phi { ptr, i32 } [ %135, %142 ], [ %.pn1337, %.body.thread ], [ %105, %.thread49 ], [ %58, %57 ], [ %162, %161 ], [ %135, %134 ]
   resume { ptr, i32 } %.pn1336
 
 .body.thread:                                     ; preds = %75, %145, %.body26, %152, %69, %93, %.body.thread41, %.thread49

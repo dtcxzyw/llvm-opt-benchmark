@@ -67096,7 +67096,7 @@ _ZN10serde_json5value8to_value17h9ed5a30fabf54fd9E.exit.i.i.i.i.i.i: ; preds = %
   br label %116
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h3784a26c8fc0dcc7E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread.i.i", %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread11.i.i"
-  %.sroa.0.0.i.i = phi ptr [ %106, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread11.i.i" ], [ %57, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread.i.i" ]
+  %.sroa.0.0.i.i = phi ptr [ %57, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread.i.i" ], [ %106, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h531ecdb68341e8fdE.exit.thread11.i.i" ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i.i, ptr %115, align 8
   store i64 -9223372036854775803, ptr %0, align 8

@@ -20691,8 +20691,8 @@ default.unreachable505:                           ; preds = %.noexc42.i.i.i, %26
   br label %.body
 
 432:                                              ; preds = %239, %419
-  %433 = phi ptr [ %189, %239 ], [ %420, %419 ]
-  %common.ret.op.i = phi i1 [ true, %239 ], [ %common.ret.op.i27.ph.i, %419 ]
+  %433 = phi ptr [ %420, %419 ], [ %189, %239 ]
+  %common.ret.op.i = phi i1 [ %common.ret.op.i27.ph.i, %419 ], [ true, %239 ]
   store i8 1, ptr %433, align 8, !noalias !3247
   invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$oo7..is_sandboxed..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4f777aa34bf69a7aE"(ptr noundef nonnull align 8 %433)
           to label %439 unwind label %437
@@ -93808,7 +93808,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i: ; preds = %.lr
   br label %5
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread": ; preds = %57, %27, %.noexc9, %.preheader.i.i, %18
-  %.promoted.i1962 = phi i64 [ %.promoted.i1978, %27 ], [ %.promoted.i1978, %18 ], [ %.promoted.i1978, %.preheader.i.i ], [ %.promoted.i1978, %.noexc9 ], [ %25, %57 ]
+  %.promoted.i1962 = phi i64 [ %.promoted.i1978, %18 ], [ %.promoted.i1978, %27 ], [ %.promoted.i1978, %.preheader.i.i ], [ %.promoted.i1978, %.noexc9 ], [ %25, %57 ]
   %gepdiff50 = sub nsw i64 %2, %.promoted.i1962
   %30 = load i64, ptr %.sroa.55.0..sroa_idx, align 8, !alias.scope !24891, !noundef !4
   %31 = load i64, ptr %4, align 8, !alias.scope !24891, !noundef !4

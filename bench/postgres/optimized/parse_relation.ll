@@ -5480,7 +5480,7 @@ markVarForSelectPriv.exit.us:                     ; preds = %.lr.ph.i.us, %42
   br i1 %76, label %77, label %.thread
 
 .thread:                                          ; preds = %72, %67, %32, %37, %19, %.split.split, %.split.split.us
-  %.us-phi = phi ptr [ %.0.us35, %32 ], [ null, %19 ], [ null, %.split.split ], [ null, %.split.split.us ], [ %.0.us35, %37 ], [ %.0, %67 ], [ %.0, %72 ]
+  %.us-phi = phi ptr [ null, %19 ], [ %.0.us35, %32 ], [ null, %.split.split.us ], [ null, %.split.split ], [ %.0.us35, %37 ], [ %.0, %67 ], [ %.0, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.us-phi
 
@@ -6373,7 +6373,7 @@ scanNameSpaceForCTE.exit.thread72.i.thread:       ; preds = %2, %scanNameSpaceFo
   br i1 %.not63.i, label %searchRangeTableForRel.exit.thread49.thread, label %.lr.ph147.split.split.i, !llvm.loop !32
 
 .loopexit:                                        ; preds = %50, %.thread86.us149.us.i, %73, %.thread86.us.us133.i.us81, %.thread86.us.us133.i.us, %.thread86.us.us170.us.i, %98
-  %.4.i.ph = phi ptr [ %93, %.thread86.us.us170.us.i ], [ %69, %73 ], [ %116, %.thread86.us.us133.i.us ], [ %93, %98 ], [ %69, %.thread86.us.us133.i.us81 ], [ %40, %.thread86.us149.us.i ], [ %40, %50 ]
+  %.4.i.ph = phi ptr [ %69, %73 ], [ %93, %.thread86.us.us170.us.i ], [ %116, %.thread86.us.us133.i.us ], [ %93, %98 ], [ %69, %.thread86.us.us133.i.us81 ], [ %40, %.thread86.us149.us.i ], [ %40, %50 ]
   %124 = getelementptr inbounds nuw i8, ptr %.4.i.ph, i64 8
   %125 = load ptr, ptr %124, align 8
   %.not31 = icmp eq ptr %125, null

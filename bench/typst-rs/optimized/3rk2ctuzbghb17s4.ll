@@ -105163,7 +105163,7 @@ define noundef i32 @_ZN5typst4math5style11styled_char17h6bb08c724ae1549eE(ptr no
   br i1 %.0.i1.i.i, label %.thread133.thread, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
 
 _ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit: ; preds = %.thread123.thread, %80, %79, %78, %77, %76, %75, %69, %52, %114, %90, %92, %57, %55, %56, %115, %113, %94, %95, %96, %81, %71, %99, %100, %98, %97, %73, %84, %86, %88, %67, %63, %65, %101, %.thread153.thread, %125, %125, %125, %125, %126, %126, %126, %126, %.thread153, %.thread153, %.thread123
-  %.0 = phi i32 [ 8492, %63 ], [ %.sroa.44.0..sroa.34.0.i, %113 ], [ %131, %.thread153.thread ], [ %1, %125 ], [ %1, %126 ], [ %1, %.thread153 ], [ %1, %.thread123 ], [ %1, %.thread153 ], [ %1, %126 ], [ %1, %126 ], [ %1, %126 ], [ %1, %125 ], [ %1, %125 ], [ %1, %125 ], [ 8469, %78 ], [ 8459, %94 ], [ 10217, %52 ], [ 8460, %95 ], [ 8464, %96 ], [ 8462, %81 ], [ 8466, %71 ], [ 8476, %99 ], [ 8477, %75 ], [ 8493, %100 ], [ 8450, %76 ], [ 8473, %79 ], [ 8461, %69 ], [ 8475, %98 ], [ 8465, %97 ], [ 8499, %73 ], [ 8495, %84 ], [ 8458, %86 ], [ 8500, %88 ], [ 8497, %67 ], [ 8474, %80 ], [ 120485, %92 ], [ 8484, %77 ], [ 8488, %101 ], [ 8496, %65 ], [ 120484, %90 ], [ %.sroa.24.0..sroa.0.0.i, %115 ], [ 10216, %57 ], [ 10218, %55 ], [ 10219, %56 ], [ %.sroa.14.0.i, %114 ], [ %1, %.thread123.thread ]
+  %.0 = phi i32 [ 120485, %92 ], [ 120484, %90 ], [ %131, %.thread153.thread ], [ %1, %125 ], [ %1, %126 ], [ %1, %.thread153 ], [ %1, %.thread123 ], [ %1, %.thread153 ], [ %1, %126 ], [ %1, %126 ], [ %1, %126 ], [ %1, %125 ], [ %1, %125 ], [ %1, %125 ], [ 8484, %77 ], [ 8459, %94 ], [ 10217, %52 ], [ 8460, %95 ], [ 8464, %96 ], [ 8462, %81 ], [ 8466, %71 ], [ 8476, %99 ], [ 8477, %75 ], [ 8493, %100 ], [ 8450, %76 ], [ 8474, %80 ], [ 8461, %69 ], [ 8475, %98 ], [ 8465, %97 ], [ 8499, %73 ], [ 8495, %84 ], [ 8458, %86 ], [ 8500, %88 ], [ 8497, %67 ], [ 8473, %79 ], [ 8492, %63 ], [ 8496, %65 ], [ 8488, %101 ], [ 8469, %78 ], [ %.sroa.44.0..sroa.34.0.i, %113 ], [ %.sroa.24.0..sroa.0.0.i, %115 ], [ 10216, %57 ], [ 10218, %55 ], [ 10219, %56 ], [ %.sroa.14.0.i, %114 ], [ %1, %.thread123.thread ]
   ret i32 %.0
 
 102:                                              ; preds = %52
@@ -160950,7 +160950,7 @@ define void @"_ZN98_$LT$typst..introspection..locate_..LocateInput$u20$as$u20$ty
   %10 = load i8, ptr %1, align 8, !range !5244, !alias.scope !41913, !noundef !12
   %11 = and i8 %10, 29
   %switch.selectcmp.i = icmp eq i8 %11, 24
-  br i1 %switch.selectcmp.i, label %53, label %12
+  br i1 %switch.selectcmp.i, label %52, label %12
 
 12:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41916)
@@ -160960,7 +160960,7 @@ define void @"_ZN98_$LT$typst..introspection..locate_..LocateInput$u20$as$u20$ty
 14:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41919)
   %15 = icmp eq i8 %10, 29
-  br i1 %15, label %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.i", label %43
+  br i1 %15, label %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.i", label %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit"
 
 "_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.i": ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -160977,7 +160977,7 @@ define void @"_ZN98_$LT$typst..introspection..locate_..LocateInput$u20$as$u20$ty
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %27 = load ptr, ptr %26, align 8, !invariant.load !12, !noalias !41925, !nonnull !12
   %28 = invoke { ptr, ptr } %27(ptr noundef align 1 %25)
-          to label %.noexc unwind label %82
+          to label %.noexc unwind label %81
 
 .noexc:                                           ; preds = %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.i"
   %29 = extractvalue { ptr, ptr } %28, 0
@@ -160985,7 +160985,7 @@ define void @"_ZN98_$LT$typst..introspection..locate_..LocateInput$u20$as$u20$ty
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8, !invariant.load !12, !noalias !41925, !nonnull !12
   %33 = invoke noundef i128 %32(ptr noundef align 1 %29)
-          to label %.noexc54 unwind label %82
+          to label %.noexc54 unwind label %81
 
 .noexc54:                                         ; preds = %.noexc
   %34 = icmp eq i128 %33, -16582394481943294582273633036323555377
@@ -160993,7 +160993,7 @@ define void @"_ZN98_$LT$typst..introspection..locate_..LocateInput$u20$as$u20$ty
 
 35:                                               ; preds = %.noexc54
   %36 = invoke { ptr, ptr } %27(ptr noundef align 1 %25)
-          to label %.noexc55 unwind label %82
+          to label %.noexc55 unwind label %81
 
 .noexc55:                                         ; preds = %35
   %37 = extractvalue { ptr, ptr } %36, 0
@@ -161001,122 +161001,122 @@ define void @"_ZN98_$LT$typst..introspection..locate_..LocateInput$u20$as$u20$ty
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8, !invariant.load !12, !noalias !41926, !nonnull !12
   %41 = invoke noundef i128 %40(ptr noundef align 1 %37)
-          to label %.noexc56 unwind label %82
+          to label %.noexc56 unwind label %81
 
 .noexc56:                                         ; preds = %.noexc55
   %42 = icmp eq i128 %41, -62925719456258267949964892779504913042
   br i1 %42, label %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread", label %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.i.i"
 
-43:                                               ; preds = %14
-  %44 = add nsw i8 %10, -13
-  %switch.and.i.i.i.i = and i8 %44, -3
-  %switch.selectcmp.i.i.i.i = icmp eq i8 %switch.and.i.i.i.i, 0
-  br i1 %switch.selectcmp.i.i.i.i, label %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread", label %58
-
 "_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.i.i": ; preds = %.noexc56
-  %45 = invoke noundef zeroext i1 @_ZN5typst11foundations5value7Dynamic2is17h15afdaaaca95dafcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
-          to label %.noexc57 unwind label %82
+  %43 = invoke noundef zeroext i1 @_ZN5typst11foundations5value7Dynamic2is17h15afdaaaca95dafcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
+          to label %.noexc57 unwind label %81
 
 .noexc57:                                         ; preds = %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.i.i"
-  br i1 %45, label %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread", label %46
+  br i1 %43, label %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread", label %44
 
-46:                                               ; preds = %.noexc57
-  %47 = invoke { ptr, ptr } %27(ptr noundef align 1 %25)
-          to label %.noexc58 unwind label %82
+44:                                               ; preds = %.noexc57
+  %45 = invoke { ptr, ptr } %27(ptr noundef align 1 %25)
+          to label %.noexc58 unwind label %81
 
-.noexc58:                                         ; preds = %46
-  %48 = extractvalue { ptr, ptr } %47, 0
-  %49 = extractvalue { ptr, ptr } %47, 1
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %51 = load ptr, ptr %50, align 8, !invariant.load !12, !noalias !41931, !nonnull !12
-  %52 = invoke noundef i128 %51(ptr noundef align 1 %48)
-          to label %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit" unwind label %82
+.noexc58:                                         ; preds = %44
+  %46 = extractvalue { ptr, ptr } %45, 0
+  %47 = extractvalue { ptr, ptr } %45, 1
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load ptr, ptr %48, align 8, !invariant.load !12, !noalias !41931, !nonnull !12
+  %50 = invoke noundef i128 %49(ptr noundef align 1 %46)
+          to label %.noexc59 unwind label %81
 
-53:                                               ; preds = %2
+.noexc59:                                         ; preds = %.noexc58
+  %51 = icmp eq i128 %50, -16582394481943294582273633036323555377
+  br i1 %51, label %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread", label %57
+
+52:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @"_ZN5typst11foundations5value96_$LT$impl$u20$typst..foundations..cast..FromValue$u20$for$u20$typst..foundations..func..Func$GT$10from_value17hd032c7def900ad38E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %54 = load i64, ptr %9, align 8, !range !4802, !noundef !12
-  %55 = icmp eq i64 %54, 4
-  %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.031.sroa.0.0.copyload = load i64, ptr %56, align 8
+  %53 = load i64, ptr %9, align 8, !range !4802, !noundef !12
+  %54 = icmp eq i64 %53, 4
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.031.sroa.0.0.copyload = load i64, ptr %55, align 8
   %.sroa.031.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.031.sroa.5.0.copyload = load i64, ptr %.sroa.031.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %55, label %68, label %70
+  br i1 %54, label %67, label %69
 
-"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit": ; preds = %.noexc58
-  %57 = icmp eq i128 %52, -16582394481943294582273633036323555377
-  br i1 %57, label %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread", label %58
+"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit": ; preds = %14
+  %56 = add nsw i8 %10, -13
+  %switch.and.i.i.i.i = and i8 %56, -3
+  %switch.selectcmp.i.i.i.i = icmp eq i8 %switch.and.i.i.i.i, 0
+  br i1 %switch.selectcmp.i.i.i.i, label %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread", label %57
 
-58:                                               ; preds = %43, %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit"
+57:                                               ; preds = %.noexc59, %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN5typst11foundations4cast7Reflect5error17h7b04d5fd0c2d8cccE(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-          to label %62 unwind label %82
+          to label %61 unwind label %81
 
-"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread": ; preds = %.noexc56, %.noexc57, %.noexc54, %12, %43, %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit"
+"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread": ; preds = %.noexc56, %.noexc57, %.noexc54, %12, %.noexc59, %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @"_ZN103_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value17h133840f366412e64E"(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 16 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %59 = load i64, ptr %5, align 16, !range !4108, !noundef !12
-  %60 = icmp eq i64 %59, 10
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.719, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false)
-  br i1 %60, label %66, label %65
+  %58 = load i64, ptr %5, align 16, !range !4108, !noundef !12
+  %59 = icmp eq i64 %58, 10
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.719, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false)
+  br i1 %59, label %65, label %64
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i64 11, ptr %0, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br label %64
+  br label %63
 
-64:                                               ; preds = %68, %77, %79, %65, %66, %62
+63:                                               ; preds = %67, %76, %78, %64, %65, %61
   ret void
 
-65:                                               ; preds = %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread"
+64:                                               ; preds = %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread"
   %.sroa.542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.542.0..sroa_idx, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  store i64 %59, ptr %0, align 16
+  store i64 %58, ptr %0, align 16
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.427.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.719, i64 16, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  br label %64
+  br label %63
 
-66:                                               ; preds = %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread"
+65:                                               ; preds = %"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17h1e7ea3657fbd61adE.exit.thread"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.719, i64 16, i1 false)
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.719, i64 16, i1 false)
   store i64 11, ptr %0, align 16
-  br label %64
+  br label %63
 
-68:                                               ; preds = %53
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.031.sroa.0.0.copyload, ptr %69, align 8
+67:                                               ; preds = %52
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.031.sroa.0.0.copyload, ptr %68, align 8
   %.sroa.033.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.031.sroa.5.0.copyload, ptr %.sroa.033.sroa.2.0..sroa_idx, align 16
   store i64 11, ptr %0, align 16
-  br label %64
+  br label %63
 
-70:                                               ; preds = %53
+69:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.78)
-  %.not = icmp eq i64 %54, 1
-  br i1 %.not, label %71, label %79
+  %.not = icmp eq i64 %53, 1
+  br i1 %.not, label %70, label %78
 
-71:                                               ; preds = %70
+70:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %72, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %71, align 8
   %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.sroa.031.sroa.0.0.copyload, ptr %.sroa.480.0..sroa_idx, align 8
   %.sroa.480.sroa.4.0..sroa.480.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -161124,37 +161124,37 @@ define void @"_ZN98_$LT$typst..introspection..locate_..LocateInput$u20$as$u20$ty
   store i8 24, ptr %6, align 8
   call void @"_ZN103_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value17h133840f366412e64E"(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 16 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %73 = load i64, ptr %7, align 16, !range !4108, !noundef !12
-  %74 = icmp eq i64 %73, 10
-  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.037.sroa.0.0.copyload = load i64, ptr %75, align 8
+  %72 = load i64, ptr %7, align 16, !range !4108, !noundef !12
+  %73 = icmp eq i64 %72, 10
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.037.sroa.0.0.copyload = load i64, ptr %74, align 8
   %.sroa.037.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.037.sroa.5.0.copyload = load i64, ptr %.sroa.037.sroa.5.0..sroa_idx, align 16
-  br i1 %74, label %77, label %76
+  br i1 %73, label %76, label %75
 
-76:                                               ; preds = %71
+75:                                               ; preds = %70
   %.sroa.536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.536.sroa.0.0.copyload = load i64, ptr %.sroa.536.0..sroa_idx, align 8
   %.sroa.536.sroa.5.0..sroa.536.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.78, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.536.sroa.5.0..sroa.536.0..sroa_idx.sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %79
+  br label %78
 
-77:                                               ; preds = %71
+76:                                               ; preds = %70
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.037.sroa.0.0.copyload, ptr %78, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.037.sroa.0.0.copyload, ptr %77, align 8
   %.sroa.039.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.037.sroa.5.0.copyload, ptr %.sroa.039.sroa.2.0..sroa_idx, align 16
   store i64 11, ptr %0, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.78)
-  br label %64
+  br label %63
 
-79:                                               ; preds = %70, %76
-  %.sroa.6.sroa.6.sroa.0.0 = phi i64 [ %.sroa.037.sroa.5.0.copyload, %76 ], [ %.sroa.031.sroa.0.0.copyload, %70 ]
-  %.sroa.6.sroa.0.0 = phi i64 [ %.sroa.037.sroa.0.0.copyload, %76 ], [ %54, %70 ]
-  %.sroa.6.sroa.6.sroa.6.0 = phi i64 [ %.sroa.536.sroa.0.0.copyload, %76 ], [ %.sroa.031.sroa.5.0.copyload, %70 ]
-  %.sroa.05.0 = phi i64 [ %73, %76 ], [ 10, %70 ]
+78:                                               ; preds = %69, %75
+  %.sroa.6.sroa.6.sroa.0.0 = phi i64 [ %.sroa.037.sroa.5.0.copyload, %75 ], [ %.sroa.031.sroa.0.0.copyload, %69 ]
+  %.sroa.6.sroa.0.0 = phi i64 [ %.sroa.037.sroa.0.0.copyload, %75 ], [ %53, %69 ]
+  %.sroa.6.sroa.6.sroa.6.0 = phi i64 [ %.sroa.536.sroa.0.0.copyload, %75 ], [ %.sroa.031.sroa.5.0.copyload, %69 ]
+  %.sroa.05.0 = phi i64 [ %72, %75 ], [ 10, %69 ]
   store i64 %.sroa.05.0, ptr %0, align 16
   %.sroa.6.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.sroa.0.0, ptr %.sroa.6.0..sroa_idx7, align 8
@@ -161165,22 +161165,22 @@ define void @"_ZN98_$LT$typst..introspection..locate_..LocateInput$u20$as$u20$ty
   %.sroa.78.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.78.0..sroa_idx9, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.78, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.78)
-  br label %64
+  br label %63
 
-80:                                               ; preds = %82
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %81
+  %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #86
   unreachable
 
-.thread:                                          ; preds = %82
+.thread:                                          ; preds = %81
   resume { ptr, i32 } %lpad.thr_comm
 
-82:                                               ; preds = %46, %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.i.i", %.noexc55, %35, %.noexc, %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.i", %.noexc58, %58
+81:                                               ; preds = %44, %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.i.i", %.noexc55, %35, %.noexc, %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.i", %.noexc58, %57
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.11057974413330164255"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #85
-          to label %.thread unwind label %80
+          to label %.thread unwind label %79
 }
 
 ; Function Attrs: nonlazybind uwtable

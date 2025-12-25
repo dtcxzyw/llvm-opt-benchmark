@@ -1845,7 +1845,7 @@ thread-pre-split:                                 ; preds = %.loopexit135
   br label %301
 
 .loopexit:                                        ; preds = %.preheader153, %.preheader, %47, %301
-  %717 = phi i32 [ %302, %.preheader ], [ %302, %301 ], [ -12, %47 ], [ -12, %.preheader153 ]
+  %717 = phi i32 [ -12, %47 ], [ %302, %301 ], [ %302, %.preheader ], [ -12, %.preheader153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %717
 }

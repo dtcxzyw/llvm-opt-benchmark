@@ -1623,7 +1623,7 @@ _ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccess
   br label %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit
 
 _ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit: ; preds = %99, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split, %73, %146, %100
-  %.sroa.14.1 = phi i32 [ %36, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split ], [ %42, %73 ], [ %.sroa.14.0116, %100 ], [ %.sroa.14.0116, %146 ], [ %42, %99 ]
+  %.sroa.14.1 = phi i32 [ %42, %73 ], [ %36, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split ], [ %.sroa.14.0116, %100 ], [ %.sroa.14.0116, %146 ], [ %42, %99 ]
   %188 = sext i32 %.sroa.14.1 to i64
   %189 = shl nsw i64 %188, 1
   %190 = trunc i64 %189 to i32
@@ -1951,7 +1951,7 @@ _ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccess
   br label %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit
 
 _ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit: ; preds = %81, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split, %55, %128, %82
-  %.sroa.14.1 = phi i32 [ %35, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split ], [ %42, %55 ], [ %.sroa.14.0109, %82 ], [ %.sroa.14.0109, %128 ], [ %42, %81 ]
+  %.sroa.14.1 = phi i32 [ %42, %55 ], [ %35, %_ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccessE.exit.sink.split ], [ %.sroa.14.0109, %82 ], [ %.sroa.14.0109, %128 ], [ %42, %81 ]
   %170 = sext i32 %.sroa.14.1 to i64
   %171 = shl nsw i64 %170, 1
   %172 = trunc i64 %171 to i32

@@ -396,8 +396,8 @@ define range(i32 0, 2) i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %1,
   br i1 %.not29.i161.i, label %cuddZddLinearBackward.exit.i, label %.lr.ph38.i158.i, !llvm.loop !45
 
 cuddZddLinearBackward.exit.i:                     ; preds = %198, %.lr.ph38.i158.i, %161, %.lr.ph38.i143.i, %85, %.lr.ph38.i.i, %130
-  %.195.i = phi ptr [ null, %85 ], [ %132, %161 ], [ null, %130 ], [ null, %.lr.ph38.i.i ], [ %132, %.lr.ph38.i143.i ], [ %165, %.lr.ph38.i158.i ], [ %165, %198 ]
-  %.1.i = phi ptr [ %56, %85 ], [ %128, %161 ], [ %128, %130 ], [ %56, %.lr.ph38.i.i ], [ %128, %.lr.ph38.i143.i ], [ %169, %.lr.ph38.i158.i ], [ %169, %198 ]
+  %.195.i = phi ptr [ %132, %161 ], [ null, %130 ], [ null, %85 ], [ null, %.lr.ph38.i.i ], [ %132, %.lr.ph38.i143.i ], [ %165, %.lr.ph38.i158.i ], [ %165, %198 ]
+  %.1.i = phi ptr [ %128, %161 ], [ %128, %130 ], [ %56, %85 ], [ %56, %.lr.ph38.i.i ], [ %128, %.lr.ph38.i143.i ], [ %169, %.lr.ph38.i158.i ], [ %169, %198 ]
   %.not117189.i = icmp eq ptr %.1.i, null
   br i1 %.not117189.i, label %.preheader.i, label %.lr.ph.i
 
@@ -443,8 +443,8 @@ cuddZddLinearBackward.exit.i:                     ; preds = %198, %.lr.ph38.i158
   br i1 %.not118.i, label %..loopexit_crit_edge.i, label %207, !llvm.loop !50
 
 cuddZddLinearBackward.exit.thread.i:              ; preds = %167, %164, %130, %127, %90, %55, %194, %186, %181, %157, %149, %144, %116, %108, %103, %81, %73, %68
-  %.094.i = phi ptr [ %165, %194 ], [ null, %81 ], [ %132, %157 ], [ %91, %116 ], [ null, %68 ], [ null, %73 ], [ %91, %103 ], [ %91, %108 ], [ %132, %144 ], [ %132, %149 ], [ %165, %181 ], [ %165, %186 ], [ %165, %167 ], [ inttoptr (i64 -1 to ptr), %164 ], [ inttoptr (i64 -1 to ptr), %130 ], [ null, %127 ], [ inttoptr (i64 -1 to ptr), %90 ], [ null, %55 ]
-  %.093.i = phi ptr [ %169, %194 ], [ %56, %81 ], [ %128, %157 ], [ null, %116 ], [ %56, %68 ], [ %56, %73 ], [ null, %103 ], [ null, %108 ], [ %128, %144 ], [ %128, %149 ], [ %169, %181 ], [ %169, %186 ], [ inttoptr (i64 -1 to ptr), %167 ], [ null, %164 ], [ %128, %130 ], [ inttoptr (i64 -1 to ptr), %127 ], [ null, %90 ], [ inttoptr (i64 -1 to ptr), %55 ]
+  %.094.i = phi ptr [ %132, %157 ], [ null, %81 ], [ %165, %194 ], [ %91, %116 ], [ null, %68 ], [ null, %73 ], [ %91, %103 ], [ %91, %108 ], [ %132, %144 ], [ %132, %149 ], [ %165, %181 ], [ %165, %186 ], [ %165, %167 ], [ inttoptr (i64 -1 to ptr), %90 ], [ null, %127 ], [ null, %55 ], [ inttoptr (i64 -1 to ptr), %164 ], [ inttoptr (i64 -1 to ptr), %130 ]
+  %.093.i = phi ptr [ %128, %157 ], [ %56, %81 ], [ %169, %194 ], [ null, %116 ], [ %56, %68 ], [ %56, %73 ], [ null, %103 ], [ null, %108 ], [ %128, %144 ], [ %128, %149 ], [ %169, %181 ], [ %169, %186 ], [ inttoptr (i64 -1 to ptr), %167 ], [ null, %90 ], [ inttoptr (i64 -1 to ptr), %127 ], [ inttoptr (i64 -1 to ptr), %55 ], [ null, %164 ], [ %128, %130 ]
   %magicptr.i = ptrtoint ptr %.093.i to i64
   %magicptr.off.i = add i64 %magicptr.i, -1
   %switch.i = icmp ult i64 %magicptr.off.i, -2

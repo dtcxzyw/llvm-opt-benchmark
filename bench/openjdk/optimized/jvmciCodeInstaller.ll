@@ -1868,7 +1868,7 @@ _ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64: ; preds = %252, %276
   br i1 %exitcond80.not, label %.loopexit, label %212, !llvm.loop !11
 
 .loopexit:                                        ; preds = %161, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit61, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit63, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit62, %._crit_edge, %171, %165, %49
-  %.0 = phi ptr [ null, %49 ], [ %85, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64 ], [ null, %165 ], [ null, %171 ], [ %85, %._crit_edge ], [ %85, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit62 ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit63 ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit61 ], [ null, %161 ]
+  %.0 = phi ptr [ null, %49 ], [ %85, %._crit_edge ], [ null, %165 ], [ null, %171 ], [ %85, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit62 ], [ %85, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit64 ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit63 ], [ null, %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit61 ], [ null, %161 ]
   ret ptr %.0
 }
 
@@ -7429,7 +7429,7 @@ _ZN25HotSpotCompiledCodeStream7read_u4EPKc.exit146: ; preds = %336, %360
   br label %.loopexit150
 
 .loopexit150:                                     ; preds = %211, %switch.lookup, %206, %202, %294, %292, %290, %288, %286, %_ZN25HotSpotCompiledCodeStream7read_u4EPKc.exit146, %369, %.loopexit, %38, %16, %7, %297, %215
-  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %7 ], [ 4, %16 ], [ 0, %215 ], [ 2, %38 ], [ 0, %_ZN25HotSpotCompiledCodeStream7read_u4EPKc.exit146 ], [ 0, %369 ], [ 0, %294 ], [ 0, %297 ], [ 0, %286 ], [ 0, %288 ], [ 0, %290 ], [ 0, %292 ], [ 0, %202 ], [ 0, %206 ], [ 0, %switch.lookup ], [ 0, %211 ]
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %7 ], [ 4, %16 ], [ 0, %215 ], [ 2, %38 ], [ 0, %_ZN25HotSpotCompiledCodeStream7read_u4EPKc.exit146 ], [ 0, %294 ], [ 0, %369 ], [ 0, %297 ], [ 0, %286 ], [ 0, %288 ], [ 0, %290 ], [ 0, %292 ], [ 0, %202 ], [ 0, %206 ], [ 0, %switch.lookup ], [ 0, %211 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #11
   ret i32 %.0
 }

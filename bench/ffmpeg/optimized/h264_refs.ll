@@ -1118,7 +1118,7 @@ h264_fill_mbaff_ref_list.exit.sink.split:         ; preds = %pic_num_extract.exi
   br label %h264_fill_mbaff_ref_list.exit
 
 h264_fill_mbaff_ref_list.exit:                    ; preds = %418, %412, %._crit_edge.i261, %h264_fill_mbaff_ref_list.exit.sink.split, %._crit_edge379
-  %.8 = phi i32 [ 0, %._crit_edge.i261 ], [ 0, %._crit_edge379 ], [ -1094995529, %h264_fill_mbaff_ref_list.exit.sink.split ], [ -1, %412 ], [ -1, %418 ]
+  %.8 = phi i32 [ -1094995529, %h264_fill_mbaff_ref_list.exit.sink.split ], [ 0, %._crit_edge379 ], [ 0, %._crit_edge.i261 ], [ -1, %412 ], [ -1, %418 ]
   ret i32 %.8
 }
 

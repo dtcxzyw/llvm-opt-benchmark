@@ -17039,7 +17039,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_36Excl
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_36ExcludeFromExplicitInstantiationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1874
 
 _ZN5clangneENS_22specific_attr_iteratorINS_36ExcludeFromExplicitInstantiationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_36ExcludeFromExplicitInstantiationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -40461,7 +40461,7 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit:  ; preds = %77, %_ZNK5clang13CX
   br label %89
 
 89:                                               ; preds = %75, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit, %72, %70, %59, %53, %51
-  %.6.shrunk = phi i1 [ %62, %59 ], [ true, %72 ], [ true, %53 ], [ true, %51 ], [ %71, %70 ], [ %88, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ true, %75 ]
+  %.6.shrunk = phi i1 [ %62, %59 ], [ %88, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ true, %53 ], [ true, %51 ], [ %71, %70 ], [ true, %72 ], [ true, %75 ]
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.048, i64 8
   %.0.copyload.i.i.i.i.i = load i64, ptr %90, align 8
   %91 = and i64 %.0.copyload.i.i.i.i.i, -8

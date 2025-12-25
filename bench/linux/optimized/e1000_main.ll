@@ -9186,8 +9186,8 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   br label %.thread21
 
 .thread21:                                        ; preds = %93, %.lr.ph, %470, %.thread21.sink.split, %.lr.ph.preheader, %4
-  %478 = phi i32 [ 0, %.lr.ph.preheader ], [ %39, %.thread21.sink.split ], [ 0, %4 ], [ %39, %93 ], [ %465, %.lr.ph ], [ %465, %470 ]
-  %479 = phi i32 [ 0, %.lr.ph.preheader ], [ %40, %.thread21.sink.split ], [ 0, %4 ], [ %40, %93 ], [ %466, %.lr.ph ], [ %466, %470 ]
+  %478 = phi i32 [ 0, %.lr.ph.preheader ], [ %39, %.thread21.sink.split ], [ 0, %4 ], [ %39, %93 ], [ %465, %470 ], [ %465, %.lr.ph ]
+  %479 = phi i32 [ 0, %.lr.ph.preheader ], [ %40, %.thread21.sink.split ], [ 0, %4 ], [ %40, %93 ], [ %466, %470 ], [ %466, %.lr.ph ]
   %480 = phi i1 [ false, %.lr.ph.preheader ], [ true, %.thread21.sink.split ], [ false, %4 ], [ true, %470 ], [ true, %.lr.ph ], [ true, %93 ]
   %481 = phi i32 [ %10, %.lr.ph.preheader ], [ %50, %.thread21.sink.split ], [ %10, %4 ], [ %50, %470 ], [ %50, %.lr.ph ], [ %50, %93 ]
   store i32 %481, ptr %9, align 4
@@ -9671,7 +9671,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq(ptr noundef %0, ptr nound
   br label %173
 
 173:                                              ; preds = %171, %167
-  %174 = phi i32 [ %96, %167 ], [ 0, %171 ]
+  %174 = phi i32 [ 0, %171 ], [ %96, %167 ]
   %175 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %176 = load i8, ptr %175, align 4
   %177 = and i8 %176, 1

@@ -1097,8 +1097,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN12mpfx_manager6expandEv.exit
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %20 = phi ptr [ %10, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %21 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %20 = phi ptr [ %10, %thread-pre-split.i.i.preheader ], [ %.be17, %thread-pre-split.i.i.backedge ]
+  %21 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be17, %thread-pre-split.i.i.backedge ]
   %22 = icmp eq ptr %21, null
   br i1 %22, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -1222,7 +1222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %68, %27
-  %.be = phi ptr [ %71, %68 ], [ %30, %27 ]
+  %.be17 = phi ptr [ %30, %27 ], [ %71, %68 ]
   br label %thread-pre-split.i.i, !llvm.loop !23
 
 72:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i

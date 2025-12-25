@@ -5077,7 +5077,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %136, %_ZNKSt14defau
   br i1 %201, label %.thread152, label %.critedge
 
 202:                                              ; preds = %.thread, %196
-  %203 = phi i8 [ %193, %.thread ], [ %197, %196 ]
+  %203 = phi i8 [ %197, %196 ], [ %193, %.thread ]
   switch i8 %203, label %.critedge [
     i8 7, label %204
     i8 0, label %204

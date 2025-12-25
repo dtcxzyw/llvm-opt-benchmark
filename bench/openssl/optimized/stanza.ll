@@ -399,7 +399,7 @@ read_key.exit:                                    ; preds = %124
   br i1 %.not40, label %.loopexit, label %.outer
 
 .loopexit:                                        ; preds = %.outer, %126, %130, %133, %22, %.backedge, %1, %read_key.exit.thread, %55, %27, %20
-  %.0 = phi i32 [ 0, %27 ], [ 0, %read_key.exit.thread ], [ 0, %20 ], [ 0, %55 ], [ 1, %22 ], [ 1, %1 ], [ 1, %.backedge ], [ 0, %130 ], [ 0, %126 ], [ 0, %133 ], [ 1, %.outer ]
+  %.0 = phi i32 [ 0, %27 ], [ 0, %read_key.exit.thread ], [ 0, %20 ], [ 0, %55 ], [ 1, %22 ], [ 1, %1 ], [ 1, %.backedge ], [ 0, %133 ], [ 0, %126 ], [ 1, %.outer ], [ 0, %130 ]
   ret i32 %.0
 }
 

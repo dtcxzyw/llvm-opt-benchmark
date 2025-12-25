@@ -10147,7 +10147,7 @@ _ZN12_GLOBAL__N_110CFGBuilder36findConstructionContextsForArgumentsIN5clang8Call
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !909
 
 _ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %311, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %306, %311 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %306, %311 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %313 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %306
   %314 = select i1 %313, i1 %.026.i, i1 false
   br label %_ZNK5clang4Decl7hasAttrINS_11NoThrowAttrEEEbv.exit
@@ -21812,7 +21812,7 @@ _ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread: ; preds = %56, %_ZNK5cla
   br label %.critedge
 
 .critedge:                                        ; preds = %40, %43, %_ZNK5clang17ConstantArrayType10isZeroSizeEv.exit, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit, %._crit_edge, %15, %17
-  %.3 = phi i1 [ true, %17 ], [ true, %15 ], [ true, %._crit_edge ], [ true, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit ], [ %71, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread ], [ true, %_ZNK5clang17ConstantArrayType10isZeroSizeEv.exit ], [ true, %43 ], [ true, %40 ]
+  %.3 = phi i1 [ true, %17 ], [ true, %15 ], [ %71, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit.thread ], [ true, %_ZNK5clang13CXXRecordDecl13hasDefinitionEv.exit ], [ true, %._crit_edge ], [ true, %_ZNK5clang17ConstantArrayType10isZeroSizeEv.exit ], [ true, %43 ], [ true, %40 ]
   ret i1 %.3
 }
 
@@ -30122,7 +30122,7 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit:         ; preds = %118, %123
   %spec.select.i.i.i.i.not = icmp eq i16 %127, 56
   br i1 %spec.select.i.i.i.i.not, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread185
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread185: ; preds = %100, %115, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
+_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread185: ; preds = %115, %100, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !121
   %.not88 = icmp eq ptr %129, null

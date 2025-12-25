@@ -12583,15 +12583,15 @@ define internal void @sao_edge_restore_1_12(ptr noundef writeonly captures(none)
   br label %126
 
 110:                                              ; preds = %.thread240, %99
-  %111 = phi i1 [ false, %.thread240 ], [ %103, %99 ]
-  %112 = phi ptr [ %98, %.thread240 ], [ %100, %99 ]
-  %113 = phi i32 [ %.ph239, %.thread240 ], [ 0, %99 ]
-  %114 = phi i1 [ %.ph, %.thread240 ], [ true, %99 ]
-  %.0196227234249 = phi i32 [ %.0196227234.ph, %.thread240 ], [ %.0196226, %99 ]
-  %.0200225235248 = phi i32 [ %.0200225235.ph, %.thread240 ], [ %.0200224, %99 ]
-  %.0201236247 = phi i32 [ %.0201236.ph, %.thread240 ], [ %.0201, %99 ]
-  %.0198237246 = phi i32 [ %.0198237.ph, %.thread240 ], [ %.1199, %99 ]
-  %115 = phi i1 [ %.ph, %.thread240 ], [ %94, %99 ]
+  %111 = phi i1 [ %103, %99 ], [ false, %.thread240 ]
+  %112 = phi ptr [ %100, %99 ], [ %98, %.thread240 ]
+  %113 = phi i32 [ 0, %99 ], [ %.ph239, %.thread240 ]
+  %114 = phi i1 [ true, %99 ], [ %.ph, %.thread240 ]
+  %.0196227234249 = phi i32 [ %.0196226, %99 ], [ %.0196227234.ph, %.thread240 ]
+  %.0200225235248 = phi i32 [ %.0200224, %99 ], [ %.0200225235.ph, %.thread240 ]
+  %.0201236247 = phi i32 [ %.0201, %99 ], [ %.0201236.ph, %.thread240 ]
+  %.0198237246 = phi i32 [ %.1199, %99 ], [ %.0198237.ph, %.thread240 ]
+  %115 = phi i1 [ %94, %99 ], [ %.ph, %.thread240 ]
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %117 = load i8, ptr %116, align 1, !tbaa !128
   %118 = icmp eq i8 %117, 0
@@ -25308,15 +25308,15 @@ define internal void @sao_edge_restore_1_10(ptr noundef writeonly captures(none)
   br label %126
 
 110:                                              ; preds = %.thread240, %99
-  %111 = phi i1 [ false, %.thread240 ], [ %103, %99 ]
-  %112 = phi ptr [ %98, %.thread240 ], [ %100, %99 ]
-  %113 = phi i32 [ %.ph239, %.thread240 ], [ 0, %99 ]
-  %114 = phi i1 [ %.ph, %.thread240 ], [ true, %99 ]
-  %.0196227234249 = phi i32 [ %.0196227234.ph, %.thread240 ], [ %.0196226, %99 ]
-  %.0200225235248 = phi i32 [ %.0200225235.ph, %.thread240 ], [ %.0200224, %99 ]
-  %.0201236247 = phi i32 [ %.0201236.ph, %.thread240 ], [ %.0201, %99 ]
-  %.0198237246 = phi i32 [ %.0198237.ph, %.thread240 ], [ %.1199, %99 ]
-  %115 = phi i1 [ %.ph, %.thread240 ], [ %94, %99 ]
+  %111 = phi i1 [ %103, %99 ], [ false, %.thread240 ]
+  %112 = phi ptr [ %100, %99 ], [ %98, %.thread240 ]
+  %113 = phi i32 [ 0, %99 ], [ %.ph239, %.thread240 ]
+  %114 = phi i1 [ true, %99 ], [ %.ph, %.thread240 ]
+  %.0196227234249 = phi i32 [ %.0196226, %99 ], [ %.0196227234.ph, %.thread240 ]
+  %.0200225235248 = phi i32 [ %.0200224, %99 ], [ %.0200225235.ph, %.thread240 ]
+  %.0201236247 = phi i32 [ %.0201, %99 ], [ %.0201236.ph, %.thread240 ]
+  %.0198237246 = phi i32 [ %.1199, %99 ], [ %.0198237.ph, %.thread240 ]
+  %115 = phi i1 [ %94, %99 ], [ %.ph, %.thread240 ]
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %117 = load i8, ptr %116, align 1, !tbaa !128
   %118 = icmp eq i8 %117, 0
@@ -38036,15 +38036,15 @@ define internal void @sao_edge_restore_1_8(ptr noundef writeonly captures(none) 
   br label %123
 
 107:                                              ; preds = %.thread240, %95
-  %108 = phi i1 [ false, %.thread240 ], [ %99, %95 ]
-  %109 = phi ptr [ %94, %.thread240 ], [ %96, %95 ]
-  %110 = phi i32 [ %.ph239, %.thread240 ], [ 0, %95 ]
-  %111 = phi i1 [ %.ph, %.thread240 ], [ true, %95 ]
-  %.0196227234249 = phi i32 [ %.0196227234.ph, %.thread240 ], [ %.0196226, %95 ]
-  %.0200225235248 = phi i32 [ %.0200225235.ph, %.thread240 ], [ %.0200224, %95 ]
-  %.0201236247 = phi i32 [ %.0201236.ph, %.thread240 ], [ %.0201, %95 ]
-  %.0198237246 = phi i32 [ %.0198237.ph, %.thread240 ], [ %.1199, %95 ]
-  %112 = phi i1 [ %.ph, %.thread240 ], [ %88, %95 ]
+  %108 = phi i1 [ %99, %95 ], [ false, %.thread240 ]
+  %109 = phi ptr [ %96, %95 ], [ %94, %.thread240 ]
+  %110 = phi i32 [ 0, %95 ], [ %.ph239, %.thread240 ]
+  %111 = phi i1 [ true, %95 ], [ %.ph, %.thread240 ]
+  %.0196227234249 = phi i32 [ %.0196226, %95 ], [ %.0196227234.ph, %.thread240 ]
+  %.0200225235248 = phi i32 [ %.0200224, %95 ], [ %.0200225235.ph, %.thread240 ]
+  %.0201236247 = phi i32 [ %.0201, %95 ], [ %.0201236.ph, %.thread240 ]
+  %.0198237246 = phi i32 [ %.1199, %95 ], [ %.0198237.ph, %.thread240 ]
+  %112 = phi i1 [ %88, %95 ], [ %.ph, %.thread240 ]
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %114 = load i8, ptr %113, align 1, !tbaa !128
   %115 = icmp eq i8 %114, 0

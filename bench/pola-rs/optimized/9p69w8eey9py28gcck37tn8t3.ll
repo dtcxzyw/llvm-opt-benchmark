@@ -669,7 +669,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8c2124998ca56c96E.exit.i: ; preds = %.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h0be4dd8ca424c756E.exit, %143
-  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h0be4dd8ca424c756E.exit ], [ 1, %143 ]
+  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 1, %143 ], [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17h0be4dd8ca424c756E.exit ]
   %lpad.loopexit.split-lp226 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -13659,7 +13659,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8c2124998ca56c96E.exit.i: ; preds = %.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17he72f53a5a7aeeaaeE.exit, %143
-  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17he72f53a5a7aeeaaeE.exit ], [ 1, %143 ]
+  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 1, %143 ], [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17he72f53a5a7aeeaaeE.exit ]
   %lpad.loopexit.split-lp225 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -15517,7 +15517,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8c2124998ca56c96E.exit.i: ; preds = %.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17haf7677a8d704fe92E.exit, %143
-  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17haf7677a8d704fe92E.exit ], [ 1, %143 ]
+  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 1, %143 ], [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17haf7677a8d704fe92E.exit ]
   %lpad.loopexit.split-lp226 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -17381,7 +17381,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8c2124998ca56c96E.exit.i: ; preds = %.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17hf9b7ee57149efc06E.exit, %143
-  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17hf9b7ee57149efc06E.exit ], [ 1, %143 ]
+  %.sroa.02.4.ph.ph.ph.ph.ph.ph.ph.ph = phi i8 [ 1, %143 ], [ 0, %_ZN10polars_ops5frame4join9hash_join17single_keys_outer11probe_outer17hf9b7ee57149efc06E.exit ]
   %lpad.loopexit.split-lp225 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

@@ -140,8 +140,8 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_file(ptr noundef %0,
   br label %sub_0
 
 sub_0:                                            ; preds = %._crit_edge.i, %11
-  %.022 = phi ptr [ %10, %11 ], [ %5, %._crit_edge.i ]
-  %.021 = phi i32 [ %12, %11 ], [ %.pre.i, %._crit_edge.i ]
+  %.022 = phi ptr [ %5, %._crit_edge.i ], [ %10, %11 ]
+  %.021 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %12, %11 ]
   %14 = load i8, ptr %2, align 1
   %.not26 = icmp eq i8 %14, 45
   br i1 %.not26, label %hwloc_nolibxml_export_buffer.exit.tail, label %hwloc_nolibxml_export_buffer.exit.tail.thread
@@ -486,8 +486,8 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_file(ptr nounde
   br label %sub_0
 
 sub_0:                                            ; preds = %._crit_edge.i, %10
-  %.021 = phi ptr [ %9, %10 ], [ %4, %._crit_edge.i ]
-  %.020 = phi i32 [ %11, %10 ], [ %.pre.i, %._crit_edge.i ]
+  %.021 = phi ptr [ %4, %._crit_edge.i ], [ %9, %10 ]
+  %.020 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %11, %10 ]
   %13 = load i8, ptr %2, align 1
   %.not25 = icmp eq i8 %13, 45
   br i1 %.not25, label %hwloc_nolibxml_export_diff_buffer.exit.tail, label %hwloc_nolibxml_export_diff_buffer.exit.tail.thread

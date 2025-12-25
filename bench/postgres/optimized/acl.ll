@@ -2519,7 +2519,7 @@ has_privs_of_role.exit89.thread:                  ; preds = %93, %has_privs_of_r
   br i1 %exitcond137.not, label %.thread, label %.lr.ph113.split, !llvm.loop !18
 
 .thread:                                          ; preds = %56, %45, %100, %has_privs_of_role.exit89.thread, %84, %has_privs_of_role.exit89.thread.us, %36, %has_privs_of_role.exit.thread, %10
-  %.0 = phi i64 [ %.060, %36 ], [ 0, %10 ], [ %13, %has_privs_of_role.exit.thread ], [ %3, %has_privs_of_role.exit89.thread.us ], [ %.5.ph, %100 ], [ %3, %45 ], [ %.5.ph.us, %84 ], [ %99, %has_privs_of_role.exit89.thread ], [ %60, %56 ]
+  %.0 = phi i64 [ %13, %has_privs_of_role.exit.thread ], [ 0, %10 ], [ %.060, %36 ], [ %3, %has_privs_of_role.exit89.thread.us ], [ %.5.ph, %100 ], [ %3, %45 ], [ %.5.ph.us, %84 ], [ %99, %has_privs_of_role.exit89.thread ], [ %60, %56 ]
   ret i64 %.0
 }
 

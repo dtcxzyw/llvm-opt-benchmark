@@ -2211,7 +2211,7 @@ define internal fastcc range(i32 0, 2) i32 @ident_to_git(ptr noundef %0, i64 nou
   br i1 %or.cond.i, label %.preheader.i, label %.outer.backedge.i, !llvm.loop !88
 
 count_ident.exit:                                 ; preds = %.outer.backedge.i, %21, %.backedge.i, %11
-  %.0.ph.lcssa.i = phi i32 [ %.0.ph48.i, %.backedge.i ], [ %.0.ph48.i, %11 ], [ %spec.select.i, %21 ], [ %.0.ph.be.i, %.outer.backedge.i ]
+  %.0.ph.lcssa.i = phi i32 [ %.0.ph48.i, %.backedge.i ], [ %.0.ph48.i, %11 ], [ %.0.ph.be.i, %.outer.backedge.i ], [ %spec.select.i, %21 ]
   %.not62 = icmp eq i32 %.0.ph.lcssa.i, 0
   br i1 %.not62, label %strbuf_setlen.exit, label %31
 

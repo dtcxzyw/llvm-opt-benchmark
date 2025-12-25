@@ -1879,8 +1879,8 @@ _ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i: ; preds 
   br i1 %.not.i, label %.thread.i, label %.thread10.i
 
 .thread10.i:                                      ; preds = %._crit_edge.thread.i, %.loopexit26.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit78.thread35.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit58.thread29.i.i
-  %.sroa.12.2.i17.i = phi ptr [ %.sroa.12.2.i.i, %.loopexit26.i ], [ %.08.lcssa.i.i.i31, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit78.thread35.i.i ], [ %111, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit58.thread29.i.i ], [ %.010.lcssa41.i, %._crit_edge.thread.i ]
-  %.sroa.021.2.i16.i = phi ptr [ %.sroa.021.2.i.i, %.loopexit26.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit78.thread35.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit58.thread29.i.i ], [ null, %._crit_edge.thread.i ]
+  %.sroa.12.2.i17.i = phi ptr [ %.sroa.12.2.i.i, %.loopexit26.i ], [ %111, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit58.thread29.i.i ], [ %.08.lcssa.i.i.i31, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit78.thread35.i.i ], [ %.010.lcssa41.i, %._crit_edge.thread.i ]
+  %.sroa.021.2.i16.i = phi ptr [ %.sroa.021.2.i.i, %.loopexit26.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit58.thread29.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit78.thread35.i.i ], [ null, %._crit_edge.thread.i ]
   %.not.i.i.i15 = icmp ne ptr %.sroa.021.2.i16.i, null
   %204 = icmp eq ptr %.sroa.12.2.i17.i, %7
   %or.cond.i.i.i = select i1 %.not.i.i.i15, i1 true, i1 %204
@@ -1938,7 +1938,7 @@ _ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i: ; preds 
   br label %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_115raw_report_listESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_.exit
 
 .thread.i:                                        ; preds = %134, %.lr.ph.i.i.i.i.i.i63.i.i, %194, %.lr.ph.i.i.i.i.i.i26.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i, %.loopexit26.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit68.i.i
-  %.sroa.01.0.ph.i = phi ptr [ %.sroa.021.2.i.i, %.loopexit26.i ], [ %.08.lcssa.i.i.i31, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit68.i.i ], [ %.sroa.01.0.i, %194 ], [ %.sroa.01.0.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i ], [ %.sroa.01.0.i, %.lr.ph.i.i.i.i.i.i26.i ], [ %.08.lcssa.i.i.i31, %.lr.ph.i.i.i.i.i.i63.i.i ], [ %.08.lcssa.i.i.i31, %134 ]
+  %.sroa.01.0.ph.i = phi ptr [ %.sroa.021.2.i.i, %.loopexit26.i ], [ %.08.lcssa.i.i.i31, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit68.i.i ], [ %.sroa.01.0.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_115raw_report_listEEclERKS2_S5_.exit31.i ], [ %.sroa.01.0.i, %194 ], [ %.sroa.01.0.i, %.lr.ph.i.i.i.i.i.i26.i ], [ %.08.lcssa.i.i.i31, %.lr.ph.i.i.i.i.i.i63.i.i ], [ %.08.lcssa.i.i.i31, %134 ]
   %227 = load i64, ptr %49, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %227, 0
   %228 = icmp eq ptr %47, %.val8.i

@@ -2271,7 +2271,7 @@ _Py_NewRef.exit57.sink.split:                     ; preds = %_Py_NewRef.exit57.s
   br label %_Py_NewRef.exit57
 
 _Py_NewRef.exit57:                                ; preds = %_Py_NewRef.exit57.sink.split, %37, %Py_DECREF.exit55, %56, %72, %Py_DECREF.exit
-  %.1 = phi i32 [ -1, %72 ], [ -1, %Py_DECREF.exit ], [ %45, %Py_DECREF.exit55 ], [ -1, %56 ], [ -1, %37 ], [ 0, %_Py_NewRef.exit57.sink.split ]
+  %.1 = phi i32 [ -1, %72 ], [ -1, %Py_DECREF.exit ], [ -1, %56 ], [ %45, %Py_DECREF.exit55 ], [ -1, %37 ], [ 0, %_Py_NewRef.exit57.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }
@@ -2835,8 +2835,8 @@ Py_XDECREF.exit:                                  ; preds = %23, %24, %26, %29
   br label %.thread27.sink.split
 
 .thread27.sink.split:                             ; preds = %.thread27.sink.split.sink.split, %5, %30
-  %.sink = phi i32 [ 1, %5 ], [ 1, %30 ], [ 2, %.thread27.sink.split.sink.split ]
-  %.02130.ph = phi ptr [ %10, %5 ], [ %10, %30 ], [ %35, %.thread27.sink.split.sink.split ]
+  %.sink = phi i32 [ 1, %30 ], [ 1, %5 ], [ 2, %.thread27.sink.split.sink.split ]
+  %.02130.ph = phi ptr [ %10, %30 ], [ %10, %5 ], [ %35, %.thread27.sink.split.sink.split ]
   store i32 %.sink, ptr %3, align 4, !tbaa !46
   br label %.thread27
 

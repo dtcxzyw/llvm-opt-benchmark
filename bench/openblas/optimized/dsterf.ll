@@ -549,7 +549,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.outer
 
 .loopexit410:                                     ; preds = %189, %126, %277, %215, %138, %227
-  %.2 = phi i32 [ %32, %227 ], [ %32, %138 ], [ %.3, %277 ], [ %.3, %215 ], [ %.1, %126 ], [ %.1, %189 ]
+  %.2 = phi i32 [ %32, %227 ], [ %.3, %277 ], [ %32, %138 ], [ %.3, %215 ], [ %.1, %126 ], [ %.1, %189 ]
   br i1 %82, label %279, label %278
 
 278:                                              ; preds = %.loopexit410

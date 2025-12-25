@@ -1047,8 +1047,8 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit790:        ; preds = %.lr.ph1516
   br label %.loopexit1425
 
 .loopexit1425:                                    ; preds = %271, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790, %.loopexit1425.sink.split, %.preheader1426, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader
-  %288 = phi i1 [ true, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790 ], [ true, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader ], [ false, %.loopexit1425.sink.split ], [ true, %.preheader1426 ], [ true, %271 ]
-  %289 = phi i1 [ %.ph, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790 ], [ %.ph, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader ], [ %.ph1778, %.loopexit1425.sink.split ], [ false, %.preheader1426 ], [ false, %271 ]
+  %288 = phi i1 [ true, %.preheader1426 ], [ true, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader ], [ false, %.loopexit1425.sink.split ], [ true, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790 ], [ true, %271 ]
+  %289 = phi i1 [ false, %.preheader1426 ], [ %.ph, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader ], [ %.ph1778, %.loopexit1425.sink.split ], [ %.ph, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790 ], [ false, %271 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)

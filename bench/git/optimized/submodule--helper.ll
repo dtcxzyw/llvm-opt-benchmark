@@ -3096,7 +3096,7 @@ _.exit31.i.i.i:                                   ; preds = %544, %skip_prefix.e
   br label %remote_submodule_branch.exit.thread.i.i
 
 remote_submodule_branch.exit.i.i:                 ; preds = %_.exit31.i.i.i, %_.exit28.i.i.i, %_.exit25.i.i.i, %_.exit.i71.i.i
-  %.0.i69.i.i = phi i32 [ %502, %_.exit.i71.i.i ], [ %527, %_.exit25.i.i.i ], [ %535, %_.exit28.i.i.i ], [ %546, %_.exit31.i.i.i ]
+  %.0.i69.i.i = phi i32 [ %502, %_.exit.i71.i.i ], [ %546, %_.exit31.i.i.i ], [ %535, %_.exit28.i.i.i ], [ %527, %_.exit25.i.i.i ]
   %.not54.i.i = icmp eq i32 %.0.i69.i.i, 0
   br i1 %.not54.i.i, label %remote_submodule_branch.exit.remote_submodule_branch.exit.thread_crit_edge.i.i, label %.thread.i.i
 
@@ -5761,7 +5761,7 @@ prepare_submodule_summary.exit.sink.split.i:      ; preds = %145, %140
   br label %prepare_submodule_summary.exit.i
 
 prepare_submodule_summary.exit.i:                 ; preds = %207, %170, %prepare_submodule_summary.exit.sink.split.i, %153
-  %.0.i = phi i32 [ -1, %prepare_submodule_summary.exit.sink.split.i ], [ 0, %153 ], [ 0, %170 ], [ 0, %207 ]
+  %.0.i = phi i32 [ 0, %153 ], [ -1, %prepare_submodule_summary.exit.sink.split.i ], [ 0, %170 ], [ 0, %207 ]
   call void @strvec_clear(ptr noundef nonnull %7) #20
   call void @release_revisions(ptr noundef nonnull %8) #20
   %211 = getelementptr inbounds nuw i8, ptr %10, i64 12

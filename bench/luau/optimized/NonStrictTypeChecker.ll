@@ -5184,7 +5184,7 @@ _ZN4Luau11StackPusherD2Ev.exit:                   ; preds = %40, %_ZNSt6vectorIN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %29, %3, %10, %_ZN4Luau11StackPusherD2Ev.exit
-  %.sink = phi i8 [ 1, %_ZN4Luau11StackPusherD2Ev.exit ], [ 0, %3 ], [ 0, %10 ], [ 0, %29 ], [ 0, %27 ]
+  %.sink = phi i8 [ 1, %_ZN4Luau11StackPusherD2Ev.exit ], [ 0, %10 ], [ 0, %3 ], [ 0, %29 ], [ 0, %27 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %66, align 8, !tbaa !159
   ret void

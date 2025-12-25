@@ -1113,7 +1113,7 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   br label %_ZNK12_GLOBAL__N_121SecuritySyntaxChecker16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
 _ZNK12_GLOBAL__N_121SecuritySyntaxChecker16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %4, %20
-  %25 = phi i8 [ %24, %20 ], [ 1, %4 ]
+  %25 = phi i8 [ 1, %4 ], [ %24, %20 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 %25, ptr %27, align 8, !tbaa !450

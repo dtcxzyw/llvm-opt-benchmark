@@ -273,7 +273,7 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   br label %.loopexit149
 
 .loopexit149:                                     ; preds = %.loopexit, %.preheader148, %61, %31, %.loopexit149.sink.split, %7, %7, %.critedge, %21, %17, %13, %10, %4, %4
-  %.0 = phi i1 [ false, %.critedge ], [ false, %4 ], [ false, %4 ], [ false, %7 ], [ true, %.loopexit149.sink.split ], [ false, %10 ], [ false, %21 ], [ false, %13 ], [ false, %7 ], [ false, %17 ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %4 ], [ false, %4 ], [ false, %7 ], [ false, %7 ], [ false, %10 ], [ false, %17 ], [ false, %13 ], [ true, %.loopexit149.sink.split ], [ false, %21 ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
   ret i1 %.0
 }
 
@@ -1123,7 +1123,7 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   br label %.loopexit149
 
 .loopexit149:                                     ; preds = %.loopexit, %.preheader148, %61, %31, %.loopexit149.sink.split, %7, %7, %.critedge, %21, %17, %13, %10, %4, %4
-  %.0 = phi i1 [ false, %.critedge ], [ false, %4 ], [ false, %4 ], [ false, %7 ], [ true, %.loopexit149.sink.split ], [ false, %10 ], [ false, %21 ], [ false, %13 ], [ false, %7 ], [ false, %17 ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %4 ], [ false, %4 ], [ false, %7 ], [ false, %7 ], [ false, %10 ], [ false, %17 ], [ false, %13 ], [ true, %.loopexit149.sink.split ], [ false, %21 ], [ false, %31 ], [ false, %61 ], [ false, %.preheader148 ], [ false, %.loopexit ]
   ret i1 %.0
 }
 

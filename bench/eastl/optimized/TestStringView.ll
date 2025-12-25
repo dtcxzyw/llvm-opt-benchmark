@@ -2133,7 +2133,7 @@ invoke.cont.i:                                    ; preds = %while.body16.i.i
   br label %_ZNK5eastl17basic_string_viewIwE4findES1_m.exit
 
 _ZNK5eastl17basic_string_viewIwE4findES1_m.exit:  ; preds = %if.then10.i.i, %while.body7.i.i, %if.end.i.i, %invoke.cont.i
-  %retval.0.i1130 = phi i1 [ false, %if.end.i.i ], [ %cmp13.not.i.not, %invoke.cont.i ], [ false, %while.body7.i.i ], [ false, %if.then10.i.i ]
+  %retval.0.i1130 = phi i1 [ %cmp13.not.i.not, %invoke.cont.i ], [ false, %if.end.i.i ], [ false, %while.body7.i.i ], [ false, %if.then10.i.i ]
   %call462 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1130, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 336, ptr noundef nonnull @.str.137)
   br label %land.rhs.i.i1157
 
@@ -2179,7 +2179,7 @@ invoke.cont.i1177:                                ; preds = %while.body16.i.i117
   br label %_ZNK5eastl17basic_string_viewIwE4findES1_m.exit1194
 
 _ZNK5eastl17basic_string_viewIwE4findES1_m.exit1194: ; preds = %if.then10.i.i1164, %while.body7.i.i1160, %if.end.i.i1174, %invoke.cont.i1177
-  %retval.0.i1144 = phi i1 [ false, %if.end.i.i1174 ], [ %cmp13.not.i1179.not, %invoke.cont.i1177 ], [ false, %while.body7.i.i1160 ], [ false, %if.then10.i.i1164 ]
+  %retval.0.i1144 = phi i1 [ %cmp13.not.i1179.not, %invoke.cont.i1177 ], [ false, %if.end.i.i1174 ], [ false, %while.body7.i.i1160 ], [ false, %if.then10.i.i1164 ]
   %call466 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1144, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 337, ptr noundef nonnull @.str.139)
   br label %land.rhs.i.i1217
 
@@ -2225,7 +2225,7 @@ invoke.cont.i1237:                                ; preds = %while.body16.i.i123
   br label %_ZNK5eastl17basic_string_viewIwE4findEPKwm.exit1438
 
 _ZNK5eastl17basic_string_viewIwE4findEPKwm.exit1438: ; preds = %if.then10.i.i1224, %while.body7.i.i1220, %if.end.i.i1234, %invoke.cont.i1237
-  %retval.0.i1204 = phi i1 [ true, %if.end.i.i1234 ], [ %cmp13.not.i1239.not, %invoke.cont.i1237 ], [ true, %while.body7.i.i1220 ], [ true, %if.then10.i.i1224 ]
+  %retval.0.i1204 = phi i1 [ %cmp13.not.i1239.not, %invoke.cont.i1237 ], [ true, %if.end.i.i1234 ], [ true, %while.body7.i.i1220 ], [ true, %if.then10.i.i1224 ]
   %call470 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1204, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 338, ptr noundef nonnull @.str.141)
   %call474 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 344, ptr noundef nonnull @.str.143)
   %call477 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 345, ptr noundef nonnull @.str.145)
@@ -2317,7 +2317,7 @@ invoke.cont.i.i1583:                              ; preds = %while.body16.i.i.i1
   br label %_ZNK5eastl17basic_string_viewIwE4findEPKwmm.exit
 
 _ZNK5eastl17basic_string_viewIwE4findEPKwmm.exit: ; preds = %if.then10.i.i.i1570, %while.body7.i.i.i1567, %if.end.i.i.i1580, %invoke.cont.i.i1583
-  %retval.0.i.i1556 = phi i1 [ false, %if.end.i.i.i1580 ], [ %cmp13.not.i.not.i1585, %invoke.cont.i.i1583 ], [ false, %while.body7.i.i.i1567 ], [ false, %if.then10.i.i.i1570 ]
+  %retval.0.i.i1556 = phi i1 [ %cmp13.not.i.not.i1585, %invoke.cont.i.i1583 ], [ false, %if.end.i.i.i1580 ], [ false, %while.body7.i.i.i1567 ], [ false, %if.then10.i.i.i1570 ]
   %call493 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i1556, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 355, ptr noundef nonnull @.str.155)
   br label %land.rhs.i.i.i1602
 
@@ -6742,7 +6742,7 @@ invoke.cont.i:                                    ; preds = %while.body19.i.i
   br label %while.cond4.preheader.i.i1463.preheader
 
 while.cond4.preheader.i.i1463.preheader:          ; preds = %if.then11.i.i, %while.body8.i.i, %if.end.i.i, %invoke.cont.i
-  %retval.0.i1431 = phi i1 [ false, %if.end.i.i ], [ %cmp13.not.i.not, %invoke.cont.i ], [ false, %while.body8.i.i ], [ false, %if.then11.i.i ]
+  %retval.0.i1431 = phi i1 [ %cmp13.not.i.not, %invoke.cont.i ], [ false, %if.end.i.i ], [ false, %while.body8.i.i ], [ false, %if.then11.i.i ]
   %call490 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1431, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 336, ptr noundef nonnull @.str.137)
   br label %land.rhs.i.i1465
 
@@ -6788,7 +6788,7 @@ invoke.cont.i1485:                                ; preds = %while.body19.i.i147
   br label %while.cond4.preheader.i.i1529.preheader
 
 while.cond4.preheader.i.i1529.preheader:          ; preds = %if.then11.i.i1472, %while.body8.i.i1468, %if.end.i.i1482, %invoke.cont.i1485
-  %retval.0.i1452 = phi i1 [ false, %if.end.i.i1482 ], [ %cmp13.not.i1487.not, %invoke.cont.i1485 ], [ false, %while.body8.i.i1468 ], [ false, %if.then11.i.i1472 ]
+  %retval.0.i1452 = phi i1 [ %cmp13.not.i1487.not, %invoke.cont.i1485 ], [ false, %if.end.i.i1482 ], [ false, %while.body8.i.i1468 ], [ false, %if.then11.i.i1472 ]
   %call494 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1452, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 337, ptr noundef nonnull @.str.139)
   br label %land.rhs.i.i1531
 
@@ -6834,7 +6834,7 @@ invoke.cont.i1551:                                ; preds = %while.body19.i.i154
   br label %land.rhs.i.i.i.i1838.preheader
 
 land.rhs.i.i.i.i1838.preheader:                   ; preds = %if.then11.i.i1538, %while.body8.i.i1534, %if.end.i.i1548, %invoke.cont.i1551
-  %retval.0.i1518 = phi i1 [ true, %if.end.i.i1548 ], [ %cmp13.not.i1553.not, %invoke.cont.i1551 ], [ true, %while.body8.i.i1534 ], [ true, %if.then11.i.i1538 ]
+  %retval.0.i1518 = phi i1 [ %cmp13.not.i1553.not, %invoke.cont.i1551 ], [ true, %if.end.i.i1548 ], [ true, %while.body8.i.i1534 ], [ true, %if.then11.i.i1538 ]
   %call498 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1518, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 338, ptr noundef nonnull @.str.141)
   %call502 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 344, ptr noundef nonnull @.str.143)
   %call505 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 345, ptr noundef nonnull @.str.145)
@@ -6926,7 +6926,7 @@ invoke.cont.i.i1946:                              ; preds = %while.body19.i.i.i1
   br label %while.cond4.preheader.i.i.i1963.preheader
 
 while.cond4.preheader.i.i.i1963.preheader:        ; preds = %if.then11.i.i.i1933, %while.body8.i.i.i1930, %if.end.i.i.i1943, %invoke.cont.i.i1946
-  %retval.0.i.i1919 = phi i1 [ false, %if.end.i.i.i1943 ], [ %cmp13.not.i.not.i1948, %invoke.cont.i.i1946 ], [ false, %while.body8.i.i.i1930 ], [ false, %if.then11.i.i.i1933 ]
+  %retval.0.i.i1919 = phi i1 [ %cmp13.not.i.not.i1948, %invoke.cont.i.i1946 ], [ false, %if.end.i.i.i1943 ], [ false, %while.body8.i.i.i1930 ], [ false, %if.then11.i.i.i1933 ]
   %call521 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i1919, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 355, ptr noundef nonnull @.str.155)
   br label %land.rhs.i.i.i1965
 
@@ -7072,7 +7072,7 @@ invoke.cont.i.i2087:                              ; preds = %while.body19.i.i.i2
   br label %while.cond4.preheader.i.i.i2128.preheader
 
 while.cond4.preheader.i.i.i2128.preheader:        ; preds = %if.then11.i.i.i2074, %while.body8.i.i.i2071, %if.end.i.i.i2084, %invoke.cont.i.i2087
-  %retval.0.i.i2056 = phi i1 [ false, %if.end.i.i.i2084 ], [ %cmp13.not.i.not.i2089, %invoke.cont.i.i2087 ], [ false, %while.body8.i.i.i2071 ], [ false, %if.then11.i.i.i2074 ]
+  %retval.0.i.i2056 = phi i1 [ %cmp13.not.i.not.i2089, %invoke.cont.i.i2087 ], [ false, %if.end.i.i.i2084 ], [ false, %while.body8.i.i.i2071 ], [ false, %if.then11.i.i.i2074 ]
   %call531 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i2056, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 363, ptr noundef nonnull @.str.159)
   br label %land.rhs.i.i.i2130
 
@@ -9294,7 +9294,7 @@ invoke.cont.i:                                    ; preds = %while.body16.i.i
   br label %_ZNK5eastl17basic_string_viewIDiE4findES1_m.exit
 
 _ZNK5eastl17basic_string_viewIDiE4findES1_m.exit: ; preds = %if.then10.i.i, %while.body7.i.i, %if.end.i.i, %invoke.cont.i
-  %retval.0.i1130 = phi i1 [ false, %if.end.i.i ], [ %cmp13.not.i.not, %invoke.cont.i ], [ false, %while.body7.i.i ], [ false, %if.then10.i.i ]
+  %retval.0.i1130 = phi i1 [ %cmp13.not.i.not, %invoke.cont.i ], [ false, %if.end.i.i ], [ false, %while.body7.i.i ], [ false, %if.then10.i.i ]
   %call462 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1130, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 336, ptr noundef nonnull @.str.137)
   br label %land.rhs.i.i1157
 
@@ -9340,7 +9340,7 @@ invoke.cont.i1177:                                ; preds = %while.body16.i.i117
   br label %_ZNK5eastl17basic_string_viewIDiE4findES1_m.exit1194
 
 _ZNK5eastl17basic_string_viewIDiE4findES1_m.exit1194: ; preds = %if.then10.i.i1164, %while.body7.i.i1160, %if.end.i.i1174, %invoke.cont.i1177
-  %retval.0.i1144 = phi i1 [ false, %if.end.i.i1174 ], [ %cmp13.not.i1179.not, %invoke.cont.i1177 ], [ false, %while.body7.i.i1160 ], [ false, %if.then10.i.i1164 ]
+  %retval.0.i1144 = phi i1 [ %cmp13.not.i1179.not, %invoke.cont.i1177 ], [ false, %if.end.i.i1174 ], [ false, %while.body7.i.i1160 ], [ false, %if.then10.i.i1164 ]
   %call466 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1144, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 337, ptr noundef nonnull @.str.139)
   br label %land.rhs.i.i1217
 
@@ -9386,7 +9386,7 @@ invoke.cont.i1237:                                ; preds = %while.body16.i.i123
   br label %_ZNK5eastl17basic_string_viewIDiE4findEPKDim.exit1438
 
 _ZNK5eastl17basic_string_viewIDiE4findEPKDim.exit1438: ; preds = %if.then10.i.i1224, %while.body7.i.i1220, %if.end.i.i1234, %invoke.cont.i1237
-  %retval.0.i1204 = phi i1 [ true, %if.end.i.i1234 ], [ %cmp13.not.i1239.not, %invoke.cont.i1237 ], [ true, %while.body7.i.i1220 ], [ true, %if.then10.i.i1224 ]
+  %retval.0.i1204 = phi i1 [ %cmp13.not.i1239.not, %invoke.cont.i1237 ], [ true, %if.end.i.i1234 ], [ true, %while.body7.i.i1220 ], [ true, %if.then10.i.i1224 ]
   %call470 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i1204, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 338, ptr noundef nonnull @.str.141)
   %call474 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 344, ptr noundef nonnull @.str.143)
   %call477 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 345, ptr noundef nonnull @.str.145)
@@ -9478,7 +9478,7 @@ invoke.cont.i.i1583:                              ; preds = %while.body16.i.i.i1
   br label %_ZNK5eastl17basic_string_viewIDiE4findEPKDimm.exit
 
 _ZNK5eastl17basic_string_viewIDiE4findEPKDimm.exit: ; preds = %if.then10.i.i.i1570, %while.body7.i.i.i1567, %if.end.i.i.i1580, %invoke.cont.i.i1583
-  %retval.0.i.i1556 = phi i1 [ false, %if.end.i.i.i1580 ], [ %cmp13.not.i.not.i1585, %invoke.cont.i.i1583 ], [ false, %while.body7.i.i.i1567 ], [ false, %if.then10.i.i.i1570 ]
+  %retval.0.i.i1556 = phi i1 [ %cmp13.not.i.not.i1585, %invoke.cont.i.i1583 ], [ false, %if.end.i.i.i1580 ], [ false, %while.body7.i.i.i1567 ], [ false, %if.then10.i.i.i1570 ]
   %call493 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i.i1556, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.18, i32 noundef 355, ptr noundef nonnull @.str.155)
   br label %land.rhs.i.i.i1602
 

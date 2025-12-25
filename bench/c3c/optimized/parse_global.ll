@@ -4599,7 +4599,7 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %132, %59, %180, %8, %199, %195, %189, %177, %138, %118, %114, %106, %67, %55, %49, %44, %29
-  %.0127 = phi i1 [ false, %106 ], [ false, %55 ], [ false, %49 ], [ %46, %44 ], [ %31, %29 ], [ false, %67 ], [ false, %8 ], [ false, %114 ], [ false, %118 ], [ false, %177 ], [ false, %189 ], [ false, %195 ], [ false, %180 ], [ false, %138 ], [ true, %199 ], [ false, %59 ], [ false, %132 ]
+  %.0127 = phi i1 [ false, %106 ], [ false, %55 ], [ false, %49 ], [ %46, %44 ], [ %31, %29 ], [ false, %67 ], [ false, %8 ], [ false, %114 ], [ false, %118 ], [ false, %177 ], [ false, %189 ], [ false, %195 ], [ true, %199 ], [ false, %138 ], [ false, %180 ], [ false, %59 ], [ false, %132 ]
   ret i1 %.0127
 }
 
@@ -4875,7 +4875,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %95, %83, %16, %78, %6, %._crit_edge, %107, %102, %38, %30, %27
-  %.0113 = phi i1 [ true, %._crit_edge ], [ false, %38 ], [ false, %107 ], [ false, %102 ], [ false, %6 ], [ false, %78 ], [ false, %30 ], [ false, %27 ], [ false, %16 ], [ false, %83 ], [ false, %95 ]
+  %.0113 = phi i1 [ false, %30 ], [ false, %38 ], [ false, %107 ], [ false, %102 ], [ false, %6 ], [ false, %78 ], [ true, %._crit_edge ], [ false, %27 ], [ false, %16 ], [ false, %83 ], [ false, %95 ]
   ret i1 %.0113
 }
 
@@ -5890,7 +5890,7 @@ parse_doc_optreturn.exit:                         ; preds = %extend_span_with_to
   br label %12
 
 parse_contract_param.exit.thread:                 ; preds = %217, %211, %201, %124, %113, %119, %72, %45, %50, %57, %2, %253, %252, %248
-  %.0 = phi i1 [ false, %252 ], [ false, %253 ], [ true, %2 ], [ false, %124 ], [ false, %72 ], [ false, %119 ], [ false, %45 ], [ true, %248 ], [ false, %57 ], [ false, %50 ], [ false, %113 ], [ false, %201 ], [ false, %211 ], [ false, %217 ]
+  %.0 = phi i1 [ false, %252 ], [ false, %253 ], [ true, %2 ], [ false, %45 ], [ false, %72 ], [ false, %119 ], [ false, %124 ], [ true, %248 ], [ false, %57 ], [ false, %50 ], [ false, %113 ], [ false, %201 ], [ false, %211 ], [ false, %217 ]
   ret i1 %.0
 }
 

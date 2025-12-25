@@ -1834,9 +1834,9 @@ _ZL23CC_X86_Win32_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Arg
   br label %_ZL9CC_X86_32jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit
 
 _ZL23CC_X86_Win32_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE.exit.i: ; preds = %857, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i.i.i, %.critedge31.i.i.i, %789
-  %.sroa.0.0.i.i = phi i64 [ %4, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i.i.i ], [ %858, %857 ], [ %4, %.critedge31.i.i.i ], [ %4, %789 ]
-  %.sroa.01.0.copyload8.i.i = phi i16 [ %2, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i.i.i ], [ 7, %857 ], [ %2, %.critedge31.i.i.i ], [ %2, %789 ]
-  %859 = phi i32 [ %3, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i.i.i ], [ 11, %857 ], [ %3, %.critedge31.i.i.i ], [ %3, %789 ]
+  %.sroa.0.0.i.i = phi i64 [ %4, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i.i.i ], [ %858, %857 ], [ %4, %789 ], [ %4, %.critedge31.i.i.i ]
+  %.sroa.01.0.copyload8.i.i = phi i16 [ %2, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i.i.i ], [ 7, %857 ], [ %2, %789 ], [ %2, %.critedge31.i.i.i ]
+  %859 = phi i32 [ %3, %_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i.i.i ], [ 11, %857 ], [ %3, %789 ], [ %3, %.critedge31.i.i.i ]
   %860 = call fastcc noundef zeroext i1 @_ZL18CC_X86_32_FastCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyERNS_7CCStateE(i32 noundef %0, i16 %1, i16 %.sroa.01.0.copyload8.i.i, i32 noundef %859, i64 %.sroa.0.0.i.i, i64 %5, ptr noundef nonnull align 8 dereferenceable(420) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)

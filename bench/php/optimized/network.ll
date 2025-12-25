@@ -534,7 +534,7 @@ php_socket_error_str.exit51:                      ; preds = %97
   br label %108
 
 108:                                              ; preds = %.sink.split, %thread-pre-split, %97, %33, %22
-  %.0 = phi i32 [ 0, %33 ], [ -1, %22 ], [ %.030, %thread-pre-split ], [ -1, %97 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %33 ], [ -1, %22 ], [ -1, %97 ], [ %.030, %thread-pre-split ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0

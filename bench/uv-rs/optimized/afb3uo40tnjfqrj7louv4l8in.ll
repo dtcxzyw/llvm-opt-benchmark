@@ -6128,7 +6128,7 @@ _ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread: ; preds = %"_ZN91_$LT
   br label %.critedge
 
 .critedge:                                        ; preds = %48, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h161fec58d347ca69E.exit", %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit, %126, %.critedge.sink.split, %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h5647944c911324e7E.exit.i146", %44
-  %.sroa.0130.0 = phi i1 [ false, %.critedge.sink.split ], [ false, %44 ], [ false, %126 ], [ false, %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h5647944c911324e7E.exit.i146" ], [ %.not429.not, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit ], [ %.not429.not, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h161fec58d347ca69E.exit" ], [ %.not429.not, %48 ]
+  %.sroa.0130.0 = phi i1 [ false, %126 ], [ false, %44 ], [ false, %.critedge.sink.split ], [ false, %"_ZN8unscanny75_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$char$GT$7matches17h5647944c911324e7E.exit.i146" ], [ %.not429.not, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit ], [ %.not429.not, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h161fec58d347ca69E.exit" ], [ %.not429.not, %48 ]
   %.not.i151 = icmp ugt i64 %33, %36
   br i1 %.not.i151, label %128, label %107
 

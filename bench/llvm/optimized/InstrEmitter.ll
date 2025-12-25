@@ -3768,7 +3768,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %3, %20
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %157, %151
-  %.sroa.0.0.i.i.i = phi ptr [ %156, %157 ], [ %.0.i.i.i.i, %151 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %151 ], [ %156, %157 ]
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %161 = load ptr, ptr %160, align 8, !tbaa !98
   %.not.i.i.i.i.i.i.i = icmp eq ptr %161, null
@@ -3933,7 +3933,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12Den
   br i1 %.not.i.i.i.i.i.i107, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit108.thread, label %.lr.ph.i.i.i.preheader.i.i102
 
 .lr.ph.i.i.i.preheader.i.i102:                    ; preds = %247, %241
-  %.sroa.0.0.i.i.i103 = phi ptr [ %246, %247 ], [ %.0.i.i.i.i99, %241 ]
+  %.sroa.0.0.i.i.i103 = phi ptr [ %.0.i.i.i.i99, %241 ], [ %246, %247 ]
   %250 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i103, i64 24
   %251 = load ptr, ptr %250, align 8, !tbaa !98
   %.not.i.i.i.i.i.i.i104 = icmp eq ptr %251, null

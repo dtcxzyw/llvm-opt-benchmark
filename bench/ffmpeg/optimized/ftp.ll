@@ -753,8 +753,8 @@ ftp_send_command.exit.i6.i:                       ; preds = %32
   %44 = icmp eq i32 %43, 4
   br i1 %44, label %49, label %ftp_list.exit.thread
 
-ftp_list.exit.thread:                             ; preds = %31, %ftp_send_command.exit.i6.i, %32, %25, %ftp_set_dir.exit.thread, %35, %39, %42, %22, %1
-  %.0 = phi i32 [ %7, %1 ], [ %.0.i.ph, %ftp_set_dir.exit.thread ], [ %23, %22 ], [ -12, %35 ], [ 0, %42 ], [ 0, %39 ], [ -38, %25 ], [ -38, %32 ], [ -38, %ftp_send_command.exit.i6.i ], [ -38, %31 ]
+ftp_list.exit.thread:                             ; preds = %31, %ftp_send_command.exit.i6.i, %25, %32, %ftp_set_dir.exit.thread, %35, %39, %42, %22, %1
+  %.0 = phi i32 [ %7, %1 ], [ %.0.i.ph, %ftp_set_dir.exit.thread ], [ %23, %22 ], [ -12, %35 ], [ 0, %42 ], [ 0, %39 ], [ -38, %32 ], [ -38, %25 ], [ -38, %ftp_send_command.exit.i6.i ], [ -38, %31 ]
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %46 = call i32 @ffurl_closep(ptr noundef nonnull %45) #10
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16

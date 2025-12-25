@@ -8893,9 +8893,9 @@ _ZNSt10unique_ptrIN5ceres8internal9EvaluatorESt14default_deleteIS2_EED2Ev.exit19
   br label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177
 
 _ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177: ; preds = %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit175, %328, %492, %53
-  %.sroa.17.2 = phi ptr [ %.sroa.17.1, %492 ], [ %.sroa.17.0, %53 ], [ %.sroa.17.5, %328 ], [ %.sroa.17.5, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit175 ]
-  %.sroa.0240.2 = phi ptr [ %.sroa.0240.1, %492 ], [ %.sroa.0240.0, %53 ], [ %.sroa.0240.5, %328 ], [ %.sroa.0240.5, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit175 ]
-  %.pn92.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn.pn.pn, %492 ], [ %54, %53 ], [ %.pn.pn, %328 ], [ %.pn.pn, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit175 ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.1, %492 ], [ %.sroa.17.0, %53 ], [ %.sroa.17.5, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit175 ], [ %.sroa.17.5, %328 ]
+  %.sroa.0240.2 = phi ptr [ %.sroa.0240.1, %492 ], [ %.sroa.0240.0, %53 ], [ %.sroa.0240.5, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit175 ], [ %.sroa.0240.5, %328 ]
+  %.pn92.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn.pn.pn, %492 ], [ %54, %53 ], [ %.pn.pn, %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit175 ], [ %.pn.pn, %328 ]
   %.not.i.i.i198 = icmp eq ptr %.sroa.0240.2, null
   br i1 %.not.i.i.i198, label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit199, label %_ZNSt6vectorIPN5ceres8internal14ParameterBlockESaIS3_EED2Ev.exit177.thread259
 

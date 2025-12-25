@@ -798,9 +798,9 @@ define i64 @diff_attr_data(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   br label %429
 
 429:                                              ; preds = %.sink.split, %422, %425, %272
-  %.2220 = phi ptr [ null, %272 ], [ %312, %422 ], [ %312, %425 ], [ %312, %.sink.split ]
-  %.2217 = phi ptr [ null, %272 ], [ %314, %422 ], [ %314, %425 ], [ %314, %.sink.split ]
-  %.3 = phi i64 [ 0, %272 ], [ %424, %422 ], [ 0, %425 ], [ %.sink, %.sink.split ]
+  %.2220 = phi ptr [ null, %272 ], [ %312, %425 ], [ %312, %422 ], [ %312, %.sink.split ]
+  %.2217 = phi ptr [ null, %272 ], [ %314, %425 ], [ %314, %422 ], [ %314, %.sink.split ]
+  %.3 = phi i64 [ 0, %272 ], [ 0, %425 ], [ %424, %422 ], [ %.sink, %.sink.split ]
   %430 = getelementptr inbounds nuw i8, ptr %6, i64 1720
   %431 = load ptr, ptr %430, align 8, !tbaa !17
   %.not304 = icmp eq ptr %431, null

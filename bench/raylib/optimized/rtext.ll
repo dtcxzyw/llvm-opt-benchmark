@@ -11455,8 +11455,8 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
   %spec.select = select i1 %90, i32 63, i32 %89
   br label %.critedge
 
-.critedge:                                        ; preds = %79, %44, %42, %16, %77, %52, %18, %6, %30, %35, %41, %.critedge.critedge, %60, %65, %70, %76
-  %.1 = phi i32 [ 63, %30 ], [ 63, %.critedge.critedge ], [ 63, %60 ], [ %8, %6 ], [ 63, %76 ], [ 63, %70 ], [ 63, %65 ], [ 63, %41 ], [ 63, %35 ], [ %22, %18 ], [ %spec.select, %79 ], [ %51, %44 ], [ 63, %42 ], [ 63, %16 ], [ 63, %77 ], [ 63, %52 ]
+.critedge:                                        ; preds = %79, %44, %42, %16, %52, %18, %77, %6, %30, %35, %41, %.critedge.critedge, %60, %65, %70, %76
+  %.1 = phi i32 [ 63, %30 ], [ 63, %.critedge.critedge ], [ 63, %60 ], [ %8, %6 ], [ 63, %76 ], [ 63, %70 ], [ 63, %65 ], [ 63, %41 ], [ 63, %35 ], [ 63, %77 ], [ %spec.select, %79 ], [ %51, %44 ], [ 63, %42 ], [ 63, %16 ], [ 63, %52 ], [ %22, %18 ]
   ret i32 %.1
 }
 
@@ -11568,8 +11568,8 @@ define range(i32 0, 2097152) i32 @GetCodepointPrevious(ptr noundef readonly capt
   br i1 %68, label %GetCodepointNext.exit, label %GetCodepointNext.exit.thread
 
 GetCodepointNext.exit:                            ; preds = %67, %24, %47, %62
-  %.09 = phi i32 [ 4, %24 ], [ 3, %47 ], [ 2, %62 ], [ 1, %67 ]
-  %.030.i = phi i32 [ %34, %24 ], [ %54, %47 ], [ %66, %62 ], [ %7, %67 ]
+  %.09 = phi i32 [ 2, %62 ], [ 3, %47 ], [ 4, %24 ], [ 1, %67 ]
+  %.030.i = phi i32 [ %66, %62 ], [ %54, %47 ], [ %34, %24 ], [ %7, %67 ]
   %.not8 = icmp eq i32 %.030.i, 0
   br i1 %.not8, label %69, label %GetCodepointNext.exit.thread
 
@@ -13384,10 +13384,10 @@ define internal fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef nonnull
   br label %152
 
 stbtt_GetGlyphBox.exit:                           ; preds = %102, %12
-  %.036 = phi i32 [ %16, %12 ], [ %111, %102 ]
-  %.035 = phi i32 [ %19, %12 ], [ %118, %102 ]
-  %.034 = phi i32 [ %22, %12 ], [ %125, %102 ]
-  %.0 = phi i32 [ %25, %12 ], [ %132, %102 ]
+  %.036 = phi i32 [ %111, %102 ], [ %16, %12 ]
+  %.035 = phi i32 [ %118, %102 ], [ %19, %12 ]
+  %.034 = phi i32 [ %125, %102 ], [ %22, %12 ]
+  %.0 = phi i32 [ %132, %102 ], [ %25, %12 ]
   %134 = sitofp i32 %.036 to float
   %135 = tail call float @llvm.fmuladd.f32(float %134, float %2, float 0.000000e+00)
   %136 = tail call float @llvm.floor.f32(float %135)

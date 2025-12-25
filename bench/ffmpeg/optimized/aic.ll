@@ -830,8 +830,8 @@ get_ue_golomb.exit119.us.i.i:                     ; preds = %307, %291
   br i1 %exitcond.not.i.i.i, label %get_ue_golomb.exit.i.i, label %.preheader181.i, !llvm.loop !56
 
 get_ue_golomb.exit.i.i:                           ; preds = %408, %.preheader181.i, %382, %372
-  %.sroa.5.1.i = phi i32 [ %.38.i.i.i, %382 ], [ %..i.i.i, %372 ], [ %spec.select.i.i89.i.i, %.preheader181.i ], [ %spec.select.i.i89.i.i, %408 ]
-  %.0.i107.i = phi i32 [ %.1.i.i.i, %382 ], [ %381, %372 ], [ 31, %408 ], [ %.05.i.i.i, %.preheader181.i ]
+  %.sroa.5.1.i = phi i32 [ %..i.i.i, %372 ], [ %.38.i.i.i, %382 ], [ %spec.select.i.i89.i.i, %.preheader181.i ], [ %spec.select.i.i89.i.i, %408 ]
+  %.0.i107.i = phi i32 [ %381, %372 ], [ %.1.i.i.i, %382 ], [ 31, %408 ], [ %.05.i.i.i, %.preheader181.i ]
   br i1 %.not82.i.i, label %421, label %410
 
 410:                                              ; preds = %get_ue_golomb.exit.i.i
@@ -935,8 +935,8 @@ get_ue_golomb.exit.i.i:                           ; preds = %408, %.preheader181
   br i1 %exitcond.not.i107.i.i, label %get_ue_golomb.exit100.i.i, label %.preheader180.i, !llvm.loop !56
 
 get_ue_golomb.exit100.i.i:                        ; preds = %472, %.preheader180.i, %446, %436
-  %.sroa.5.4.i = phi i32 [ %.38.i96.i.i, %446 ], [ %..i99.i.i, %436 ], [ %spec.select.i.i104.i.i, %.preheader180.i ], [ %spec.select.i.i104.i.i, %472 ]
-  %.2.i.i = phi i32 [ %.1.i97.i.i, %446 ], [ %445, %436 ], [ 31, %472 ], [ %.05.i103.i.i, %.preheader180.i ]
+  %.sroa.5.4.i = phi i32 [ %..i99.i.i, %436 ], [ %.38.i96.i.i, %446 ], [ %spec.select.i.i104.i.i, %.preheader180.i ], [ %spec.select.i.i104.i.i, %472 ]
+  %.2.i.i = phi i32 [ %445, %436 ], [ %.1.i97.i.i, %446 ], [ 31, %472 ], [ %.05.i103.i.i, %.preheader180.i ]
   br i1 %.not85.i.i, label %485, label %474
 
 474:                                              ; preds = %get_ue_golomb.exit100.i.i

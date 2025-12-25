@@ -1609,7 +1609,7 @@ lpad110:                                          ; preds = %invoke.cont108
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont38, %invoke.cont29, %invoke.cont57, %invoke.cont89, %invoke.cont80, %invoke.cont111, %invoke.cont98, %invoke.cont98.preheader
-  %retval.1 = phi i1 [ %call112, %invoke.cont111 ], [ false, %invoke.cont57 ], [ false, %invoke.cont89 ], [ true, %invoke.cont98.preheader ], [ %call112, %invoke.cont98 ], [ false, %invoke.cont80 ], [ false, %invoke.cont29 ], [ false, %invoke.cont38 ]
+  %retval.1 = phi i1 [ %call112, %invoke.cont111 ], [ true, %invoke.cont98.preheader ], [ false, %invoke.cont57 ], [ false, %invoke.cont89 ], [ %call112, %invoke.cont98 ], [ false, %invoke.cont80 ], [ false, %invoke.cont29 ], [ false, %invoke.cont38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #29
   br label %return
 
@@ -2852,7 +2852,7 @@ return.sink.split:                                ; preds = %invoke.cont59, %inv
   br label %return
 
 return:                                           ; preds = %if.end76, %for.body, %for.body94, %if.end122, %for.body115, %for.body142, %return.sink.split, %for.end131
-  %retval.0 = phi i1 [ false, %for.body94 ], [ %call147, %for.body142 ], [ true, %for.end131 ], [ false, %if.end122 ], [ false, %return.sink.split ], [ false, %for.body115 ], [ false, %for.body ], [ false, %if.end76 ]
+  %retval.0 = phi i1 [ false, %for.body94 ], [ true, %for.end131 ], [ false, %if.end122 ], [ false, %return.sink.split ], [ %call147, %for.body142 ], [ false, %for.body115 ], [ false, %for.body ], [ false, %if.end76 ]
   ret i1 %retval.0
 }
 

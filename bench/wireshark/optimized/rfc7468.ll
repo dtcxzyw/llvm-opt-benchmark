@@ -220,9 +220,9 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   store i32 %34, ptr %2, align 4
   br label %35
 
-35:                                               ; preds = %33, %._crit_edge, %23
-  %36 = phi i32 [ %34, %33 ], [ %11, %._crit_edge ], [ %.pre, %23 ]
-  %.02044 = phi i8 [ %.02046, %33 ], [ %.020.lcssa, %._crit_edge ], [ %.02046, %23 ]
+35:                                               ; preds = %23, %._crit_edge, %33
+  %36 = phi i32 [ %.pre, %23 ], [ %11, %._crit_edge ], [ %34, %33 ]
+  %.02044 = phi i8 [ %.02046, %23 ], [ %.020.lcssa, %._crit_edge ], [ %.02046, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %37 = icmp eq i32 %36, 0
   %38 = trunc nuw i8 %.02044 to i1

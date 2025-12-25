@@ -15705,7 +15705,7 @@ _ZNK4decl13get_decl_kindEv.exit136.thread.i:      ; preds = %106, %128, %122, %_
   br label %_ZN12_GLOBAL__N_115th_rewriter_cfg15reduce_app_coreEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE.exit
 
 _ZN12_GLOBAL__N_115th_rewriter_cfg15reduce_app_coreEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE.exit: ; preds = %.thread147.i, %_ZNK4decl13get_decl_kindEv.exit136.thread.i, %139, %146, %152, %158, %165, %171, %178, %185, %191
-  %.0.i = phi i32 [ %193, %191 ], [ %186, %185 ], [ %99, %.thread147.i ], [ %180, %178 ], [ %134, %_ZNK4decl13get_decl_kindEv.exit136.thread.i ], [ %141, %139 ], [ %147, %146 ], [ %153, %152 ], [ %160, %158 ], [ %166, %165 ], [ %173, %171 ]
+  %.0.i = phi i32 [ %180, %178 ], [ %186, %185 ], [ %99, %.thread147.i ], [ %193, %191 ], [ %134, %_ZNK4decl13get_decl_kindEv.exit136.thread.i ], [ %141, %139 ], [ %147, %146 ], [ %153, %152 ], [ %160, %158 ], [ %166, %165 ], [ %173, %171 ]
   %.not = icmp eq i32 %.0.i, 5
   br i1 %.not, label %.thread, label %_ZN12_GLOBAL__N_115th_rewriter_cfg15reduce_app_coreEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE.exit.thread
 
@@ -16523,7 +16523,7 @@ _ZN12_GLOBAL__N_115th_rewriter_cfg5unifyEP4exprS2_RP9func_declR7obj_refIS1_11ast
   br label %_ZN12_GLOBAL__N_115th_rewriter_cfg5unifyEP4exprS2_RP9func_declR7obj_refIS1_11ast_managerES9_S9_Rb.exit.thread
 
 _ZN12_GLOBAL__N_115th_rewriter_cfg5unifyEP4exprS2_RP9func_declR7obj_refIS1_11ast_managerES9_S9_Rb.exit.thread: ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg5unifyEP4exprS2_RP9func_declR7obj_refIS1_11ast_managerES9_S9_Rb.exit.thread.sink.split, %_ZNK3app13get_family_idEv.exit.thread.i23.i, %_ZNK12_GLOBAL__N_115th_rewriter_cfg15is_arith_bv_appEP4expr.exit.thread.i, %_ZN12_GLOBAL__N_115th_rewriter_cfg5unifyEP4exprS2_RP9func_declR7obj_refIS1_11ast_managerES9_S9_Rb.exit
-  %.116 = phi i32 [ 5, %_ZNK3app13get_family_idEv.exit.thread.i23.i ], [ 5, %_ZNK12_GLOBAL__N_115th_rewriter_cfg15is_arith_bv_appEP4expr.exit.thread.i ], [ 5, %_ZN12_GLOBAL__N_115th_rewriter_cfg5unifyEP4exprS2_RP9func_declR7obj_refIS1_11ast_managerES9_S9_Rb.exit ], [ 4, %_ZN12_GLOBAL__N_115th_rewriter_cfg5unifyEP4exprS2_RP9func_declR7obj_refIS1_11ast_managerES9_S9_Rb.exit.thread.sink.split ]
+  %.116 = phi i32 [ 5, %_ZNK12_GLOBAL__N_115th_rewriter_cfg15is_arith_bv_appEP4expr.exit.thread.i ], [ 5, %_ZNK3app13get_family_idEv.exit.thread.i23.i ], [ 5, %_ZN12_GLOBAL__N_115th_rewriter_cfg5unifyEP4exprS2_RP9func_declR7obj_refIS1_11ast_managerES9_S9_Rb.exit ], [ 4, %_ZN12_GLOBAL__N_115th_rewriter_cfg5unifyEP4exprS2_RP9func_declR7obj_refIS1_11ast_managerES9_S9_Rb.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %118 = load ptr, ptr %8, align 8, !tbaa !264
   %.not.i.i = icmp eq ptr %118, null
@@ -17895,7 +17895,7 @@ _ZNK9func_decl14is_commutativeEv.exit:            ; preds = %106
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %106, %76, %118, %_ZNK9func_decl14is_commutativeEv.exit, %47, %86, %_Z9is_app_ofPK4exprPK9func_decl.exit, %16, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %106 ], [ false, %16 ], [ false, %76 ], [ false, %118 ], [ false, %_ZNK9func_decl14is_commutativeEv.exit ], [ false, %47 ], [ false, %86 ], [ false, %_Z9is_app_ofPK4exprPK9func_decl.exit ], [ true, %.critedge.sink.split ]
+  %.0 = phi i1 [ false, %7 ], [ false, %76 ], [ false, %16 ], [ false, %106 ], [ false, %118 ], [ false, %_ZNK9func_decl14is_commutativeEv.exit ], [ false, %47 ], [ false, %86 ], [ false, %_Z9is_app_ofPK4exprPK9func_decl.exit ], [ true, %.critedge.sink.split ]
   ret i1 %.0
 }
 
@@ -18133,7 +18133,7 @@ _ZNK3app13get_decl_kindEv.exit24.thread.sink.split: ; preds = %113, %106, %104, 
   br label %_ZNK3app13get_decl_kindEv.exit24.thread
 
 _ZNK3app13get_decl_kindEv.exit24.thread:          ; preds = %_ZNK3app13get_decl_kindEv.exit24.thread.sink.split, %3, %.thread, %_ZNK3app13get_decl_kindEv.exit24, %_ZNK3app13get_decl_kindEv.exit
-  %.0 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit24 ], [ false, %3 ], [ false, %.thread ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit24.thread.sink.split ]
+  %.0 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit24 ], [ false, %.thread ], [ false, %3 ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ true, %_ZNK3app13get_decl_kindEv.exit24.thread.sink.split ]
   ret i1 %.0
 }
 

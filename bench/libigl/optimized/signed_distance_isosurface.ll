@@ -83140,7 +83140,7 @@ _ZN5boost9typeindexeqINS0_14stl_type_indexESt9type_infoEEbRKT0_RKNS0_17type_inde
   br label %.critedge
 
 .critedge:                                        ; preds = %213, %_ZN5boost9typeindexeqINS0_14stl_type_indexESt9type_infoEEbRKT0_RKNS0_17type_index_facadeIT_S4_EE.exit.i.i100, %.critedge40
-  %.3 = phi i1 [ false, %.critedge40 ], [ false, %_ZN5boost9typeindexeqINS0_14stl_type_indexESt9type_infoEEbRKT0_RKNS0_17type_index_facadeIT_S4_EE.exit.i.i100 ], [ true, %213 ]
+  %.3 = phi i1 [ false, %_ZN5boost9typeindexeqINS0_14stl_type_indexESt9type_infoEEbRKT0_RKNS0_17type_index_facadeIT_S4_EE.exit.i.i100 ], [ false, %.critedge40 ], [ true, %213 ]
   %.not.i.i.i103 = icmp eq ptr %195, null
   br i1 %.not.i.i.i103, label %_ZN4CGAL6ObjectD2Ev.exit107, label %216
 
@@ -94228,7 +94228,7 @@ _ZN4CGAL8internal32Triangulation_ds_edge_iterator_3INS_30Triangulation_data_stru
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.preheader.i.i, %.preheader.i.i, %.loopexit.sink.split.sink.split, %16, %12
-  %.sink = phi ptr [ %170, %.loopexit.sink.split.sink.split ], [ %17, %16 ], [ null, %12 ], [ %23, %.preheader.i.i ], [ %23, %.preheader.i.i ]
+  %.sink = phi ptr [ %17, %16 ], [ %170, %.loopexit.sink.split.sink.split ], [ null, %12 ], [ %23, %.preheader.i.i ], [ %23, %.preheader.i.i ]
   store ptr %.sink, ptr %3, align 8, !tbaa !309
   br label %.loopexit
 
@@ -104312,7 +104312,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt
   br label %57
 
 57:                                               ; preds = %.sink.split, %28, %12, %20, %18, %43, %41, %39
-  %.sroa.021.0 = phi i64 [ -1, %41 ], [ -1, %43 ], [ -1, %12 ], [ %1, %28 ], [ -1, %39 ], [ -1, %20 ], [ -1, %18 ], [ %1, %.sink.split ]
+  %.sroa.021.0 = phi i64 [ -1, %41 ], [ -1, %20 ], [ -1, %12 ], [ %1, %28 ], [ -1, %39 ], [ -1, %43 ], [ -1, %18 ], [ %1, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert

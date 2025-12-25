@@ -18249,7 +18249,7 @@ _ZNK5clang11ObjCRuntime12isNonFragileEv.exit689:  ; preds = %2411, %2411, %.crit
   br label %2510
 
 2510:                                             ; preds = %.sink.split1071, %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit689, %2502, %2505
-  %.6 = phi ptr [ %2098, %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit689 ], [ %2098, %2502 ], [ %2098, %2505 ], [ null, %.sink.split1071 ]
+  %.6 = phi ptr [ %2098, %2505 ], [ %2098, %2502 ], [ %2098, %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit689 ], [ null, %.sink.split1071 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %.critedge474
 
@@ -21000,7 +21000,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8SelectorEvEERKS1_OT_.exit102: ;
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %434, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit63, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit69.thread233, %443, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %434 ], [ false, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit63 ], [ false, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit69.thread233 ], [ false, %443 ], [ true, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %4 ], [ false, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit63 ], [ false, %434 ], [ false, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit69.thread233 ], [ false, %443 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 

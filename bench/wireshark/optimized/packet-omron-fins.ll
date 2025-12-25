@@ -1533,7 +1533,7 @@ switch.lookup:                                    ; preds = %4
   br label %.thread
 
 36:                                               ; preds = %13, %switch.lookup
-  %.034 = phi ptr [ null, %switch.lookup ], [ %17, %13 ]
+  %.034 = phi ptr [ %17, %13 ], [ null, %switch.lookup ]
   %37 = icmp eq i32 %6, 2
   br i1 %37, label %38, label %.thread
 

@@ -4448,7 +4448,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i.i.
   br label %.thread39.i.i.i.i
 
 .thread44.loopexit.split-lp.i.i.i.i:              ; preds = %select.unfold.i.i.i.i, %.invoke91.i.i.i.i, %185, %123, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i", %107, %.invoke.i.i.i.i, %85
-  %.sroa.11.1.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.4.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.4.i.i.i.i, %185 ], [ %.us-phi67.i.i.i.i, %.invoke91.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %107 ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %123 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ]
+  %.sroa.11.1.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.4.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.4.i.i.i.i, %185 ], [ %.0.i.i.i.i.i.i.i, %107 ], [ %.us-phi67.i.i.i.i, %.invoke91.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %123 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ]
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread39.i.i.i.i
@@ -5217,7 +5217,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i.i.
   br label %.thread39.i.i.i.i
 
 .thread44.loopexit.split-lp.i.i.i.i:              ; preds = %select.unfold.i.i.i.i, %.invoke91.i.i.i.i, %185, %123, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i", %107, %.invoke.i.i.i.i, %85
-  %.sroa.11.1.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.4.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.4.i.i.i.i, %185 ], [ %.us-phi67.i.i.i.i, %.invoke91.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %107 ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %123 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ]
+  %.sroa.11.1.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.4.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.4.i.i.i.i, %185 ], [ %.0.i.i.i.i.i.i.i, %107 ], [ %.us-phi67.i.i.i.i, %.invoke91.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %123 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ]
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread39.i.i.i.i

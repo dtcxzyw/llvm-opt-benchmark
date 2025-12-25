@@ -724,7 +724,7 @@ switch.lookup:
   br label %96
 
 96:                                               ; preds = %.sink.split, %90, %94, %86
-  %.0 = phi i32 [ 0, %90 ], [ 0, %94 ], [ 0, %86 ], [ 26, %.sink.split ]
+  %.0 = phi i32 [ 0, %94 ], [ 0, %90 ], [ 0, %86 ], [ 26, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2199,7 +2199,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %228, %270, %264, %2
   br i1 %.not423, label %.split.us, label %.preheader.split.split
 
 .split.us:                                        ; preds = %551, %547, %531, %527, %507, %511, %495, %499, %488, %484
-  %.us-phi497 = phi i32 [ %.24.us, %507 ], [ %.24.us.us, %488 ], [ %.24.us498, %531 ], [ %.24.us.us509, %495 ], [ %.24.us.us, %484 ], [ %.24.us.us509, %499 ], [ %.24.us, %511 ], [ %.24.us498, %527 ], [ %.24, %547 ], [ %.24, %551 ]
+  %.us-phi497 = phi i32 [ %.24.us, %507 ], [ %.24.us498, %531 ], [ %.24.us.us, %488 ], [ %.24.us.us509, %495 ], [ %.24.us.us, %484 ], [ %.24.us.us509, %499 ], [ %.24.us, %511 ], [ %.24.us498, %527 ], [ %.24, %547 ], [ %.24, %551 ]
   %553 = load ptr, ptr %6, align 8, !tbaa !82
   call void @free(ptr noundef %553) #12
   br label %.loopexit

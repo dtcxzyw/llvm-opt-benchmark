@@ -2209,7 +2209,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_7DIScopeEE5countEPKS1_.exit.thread11.i.i: ; preds
   br label %"_ZZZN4llvm10DILocation17getMergedLocationEPS0_S1_ENK3$_0clEPKS0_S4_S1_ENKUlPNS_7DIScopeES6_E_clES6_S6_.exit.i"
 
 "_ZZZN4llvm10DILocation17getMergedLocationEPS0_S1_ENK3$_0clEPKS0_S4_S1_ENKUlPNS_7DIScopeES6_E_clES6_S6_.exit.i": ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_7DIScopeEE5countEPKS1_.exit.thread.loopexit.us.i.i, %418, %.lr.ph.i.i6.i.i, %.lr.ph.i.i6.us.i.i, %440, %_ZNK4llvm15SmallPtrSetImplIPNS_7DIScopeEE5countEPKS1_.exit.thread11.i.i, %.lr.ph23.split.us.i.i
-  %.053.i.i = phi ptr [ %.0.i.i101, %440 ], [ %.0.i.i101, %_ZNK4llvm15SmallPtrSetImplIPNS_7DIScopeEE5countEPKS1_.exit.thread11.i.i ], [ %.0821.i.i, %.lr.ph.i.i6.i.i ], [ %.0821.us.i.i, %.lr.ph.i.i6.us.i.i ], [ null, %.lr.ph23.split.us.i.i ], [ null, %418 ], [ null, %_ZNK4llvm15SmallPtrSetImplIPNS_7DIScopeEE5countEPKS1_.exit.thread.loopexit.us.i.i ]
+  %.053.i.i = phi ptr [ %.0.i.i101, %440 ], [ %.0.i.i101, %_ZNK4llvm15SmallPtrSetImplIPNS_7DIScopeEE5countEPKS1_.exit.thread11.i.i ], [ %.0821.i.i, %.lr.ph.i.i6.i.i ], [ null, %.lr.ph23.split.us.i.i ], [ %.0821.us.i.i, %.lr.ph.i.i6.us.i.i ], [ null, %418 ], [ null, %_ZNK4llvm15SmallPtrSetImplIPNS_7DIScopeEE5countEPKS1_.exit.thread.loopexit.us.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %442 = getelementptr inbounds nuw i8, ptr %283, i64 4
   %443 = load i32, ptr %442, align 4, !tbaa !102
@@ -12414,7 +12414,7 @@ _ZNK4llvm12DIExpression35getSingleLocationExpressionElementsEv.exit.sink.split: 
   br label %_ZNK4llvm12DIExpression35getSingleLocationExpressionElementsEv.exit
 
 _ZNK4llvm12DIExpression35getSingleLocationExpressionElementsEv.exit: ; preds = %_ZNK4llvm12DIExpression35getSingleLocationExpressionElementsEv.exit.sink.split, %27, %13, %18, %24, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %18 ], [ false, %13 ], [ false, %24 ], [ false, %27 ], [ true, %_ZNK4llvm12DIExpression35getSingleLocationExpressionElementsEv.exit.sink.split ]
+  %.0 = phi i1 [ false, %2 ], [ false, %27 ], [ false, %24 ], [ false, %13 ], [ false, %18 ], [ true, %_ZNK4llvm12DIExpression35getSingleLocationExpressionElementsEv.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -15514,7 +15514,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9DIArgListENS_6detail13DenseSetEmptyENS_
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9DIArgListENS_6detail13DenseSetEmptyENS_13DIArgListInfoENS4_12DenseSetPairIS3_EEEES3_S5_S6_S8_E6doFindINS_16DIArgListKeyInfoEEEPS8_RKT_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9DIArgListENS_6detail13DenseSetEmptyENS_13DIArgListInfoENS4_12DenseSetPairIS3_EEEES3_S5_S6_S8_E6doFindINS_16DIArgListKeyInfoEEEPS8_RKT_.exit: ; preds = %.split.i, %_ZN4llvm13DIArgListInfo7isEqualERKNS_16DIArgListKeyInfoEPKNS_9DIArgListE.exit.thread.i, %.split.us.i, %_ZN4llvm13DIArgListInfo7isEqualERKNS_16DIArgListKeyInfoEPKNS_9DIArgListE.exit.thread.us.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9DIArgListENS_6detail13DenseSetEmptyENS_13DIArgListInfoENS4_12DenseSetPairIS3_EEEES3_S5_S6_S8_E6doFindINS_16DIArgListKeyInfoEEEPS8_RKT_.exit.loopexit34.split.loop.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9DIArgListENS_6detail13DenseSetEmptyENS_13DIArgListInfoENS4_12DenseSetPairIS3_EEEES3_S5_S6_S8_E6doFindINS_16DIArgListKeyInfoEEEPS8_RKT_.exit.loopexit.split.loop.exit, %3
-  %.0.i = phi ptr [ null, %3 ], [ null, %.split.us.i ], [ %44, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9DIArgListENS_6detail13DenseSetEmptyENS_13DIArgListInfoENS4_12DenseSetPairIS3_EEEES3_S5_S6_S8_E6doFindINS_16DIArgListKeyInfoEEEPS8_RKT_.exit.loopexit.split.loop.exit ], [ %45, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9DIArgListENS_6detail13DenseSetEmptyENS_13DIArgListInfoENS4_12DenseSetPairIS3_EEEES3_S5_S6_S8_E6doFindINS_16DIArgListKeyInfoEEEPS8_RKT_.exit.loopexit34.split.loop.exit ], [ null, %_ZN4llvm13DIArgListInfo7isEqualERKNS_16DIArgListKeyInfoEPKNS_9DIArgListE.exit.thread.us.i ], [ null, %_ZN4llvm13DIArgListInfo7isEqualERKNS_16DIArgListKeyInfoEPKNS_9DIArgListE.exit.thread.i ], [ null, %.split.i ]
+  %.0.i = phi ptr [ null, %3 ], [ %45, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9DIArgListENS_6detail13DenseSetEmptyENS_13DIArgListInfoENS4_12DenseSetPairIS3_EEEES3_S5_S6_S8_E6doFindINS_16DIArgListKeyInfoEEEPS8_RKT_.exit.loopexit34.split.loop.exit ], [ %44, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9DIArgListENS_6detail13DenseSetEmptyENS_13DIArgListInfoENS4_12DenseSetPairIS3_EEEES3_S5_S6_S8_E6doFindINS_16DIArgListKeyInfoEEEPS8_RKT_.exit.loopexit.split.loop.exit ], [ null, %.split.us.i ], [ null, %_ZN4llvm13DIArgListInfo7isEqualERKNS_16DIArgListKeyInfoEPKNS_9DIArgListE.exit.thread.us.i ], [ null, %_ZN4llvm13DIArgListInfo7isEqualERKNS_16DIArgListKeyInfoEPKNS_9DIArgListE.exit.thread.i ], [ null, %.split.i ]
   %.not.not.i.i = icmp eq ptr %.0.i, null
   %46 = load ptr, ptr %8, align 8, !tbaa !801
   %47 = load i32, ptr %10, align 8, !tbaa !804
@@ -17462,7 +17462,7 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !851
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %21, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge110 ], [ %21, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -33225,7 +33225,7 @@ _ZN4llvm10MDNodeInfoINS_12DIExpressionEE7isEqualERKNS_13MDNodeKeyImplIS1_EEPKS1_
   br label %.thread
 
 .thread:                                          ; preds = %.split, %_ZN4llvm10MDNodeInfoINS_12DIExpressionEE7isEqualERKNS_13MDNodeKeyImplIS1_EEPKS1_.exit.thread, %.split.us, %_ZN4llvm10MDNodeInfoINS_12DIExpressionEE7isEqualERKNS_13MDNodeKeyImplIS1_EEPKS1_.exit.thread.us, %.thread.loopexit44.split.loop.exit, %.thread.loopexit.split.loop.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %.split.us ], [ %46, %.thread.loopexit.split.loop.exit ], [ %47, %.thread.loopexit44.split.loop.exit ], [ null, %_ZN4llvm10MDNodeInfoINS_12DIExpressionEE7isEqualERKNS_13MDNodeKeyImplIS1_EEPKS1_.exit.thread.us ], [ null, %_ZN4llvm10MDNodeInfoINS_12DIExpressionEE7isEqualERKNS_13MDNodeKeyImplIS1_EEPKS1_.exit.thread ], [ null, %.split ]
+  %.0 = phi ptr [ null, %2 ], [ %47, %.thread.loopexit44.split.loop.exit ], [ %46, %.thread.loopexit.split.loop.exit ], [ null, %.split.us ], [ null, %_ZN4llvm10MDNodeInfoINS_12DIExpressionEE7isEqualERKNS_13MDNodeKeyImplIS1_EEPKS1_.exit.thread.us ], [ null, %_ZN4llvm10MDNodeInfoINS_12DIExpressionEE7isEqualERKNS_13MDNodeKeyImplIS1_EEPKS1_.exit.thread ], [ null, %.split ]
   ret ptr %.0
 }
 

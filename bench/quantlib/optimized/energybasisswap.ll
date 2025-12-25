@@ -8875,8 +8875,8 @@ for.cond.cleanup799.thread:                       ; preds = %invoke.cont781, %in
   br label %invoke.cont814
 
 for.cond.cleanup799:                              ; preds = %invoke.cont792, %for.body800
-  %payLegValue.0.lcssa = phi double [ %636, %for.body800 ], [ %payLegValue.02311, %invoke.cont792 ]
-  %receiveLegValue.0.lcssa = phi double [ %637, %for.body800 ], [ %receiveLegValue.02312, %invoke.cont792 ]
+  %payLegValue.0.lcssa = phi double [ %payLegValue.02311, %invoke.cont792 ], [ %636, %for.body800 ]
+  %receiveLegValue.0.lcssa = phi double [ %receiveLegValue.02312, %invoke.cont792 ], [ %637, %for.body800 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %discountFactor)
   store double 1.000000e+00, ptr %discountFactor, align 8, !tbaa !171
   %cmp.not.i1578 = icmp eq ptr %626, null

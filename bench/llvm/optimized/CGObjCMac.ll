@@ -30024,11 +30024,11 @@ _ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVector
 default.unreachable:                              ; preds = %141
   unreachable
 
-_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit.thread: ; preds = %137, %_ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exit, %thread-pre-split, %189, %200, %147, %145, %164, %154, %166, %179, %204, %139, %_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit
-  %253 = phi ptr [ %30, %_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit ], [ %30, %139 ], [ %30, %189 ], [ %25, %_ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exit ], [ %30, %200 ], [ %30, %147 ], [ %30, %145 ], [ %30, %164 ], [ %30, %154 ], [ %30, %166 ], [ %30, %179 ], [ %30, %204 ], [ %30, %thread-pre-split ], [ %30, %137 ]
-  %254 = phi ptr [ %29, %_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit ], [ %29, %139 ], [ %29, %189 ], [ %26, %_ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exit ], [ %29, %200 ], [ %29, %147 ], [ %29, %145 ], [ %29, %164 ], [ %29, %154 ], [ %29, %166 ], [ %29, %179 ], [ %29, %204 ], [ %29, %thread-pre-split ], [ %29, %137 ]
-  %255 = phi ptr [ %28, %_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit ], [ %28, %139 ], [ %28, %189 ], [ %27, %_ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exit ], [ %28, %200 ], [ %28, %147 ], [ %28, %145 ], [ %28, %164 ], [ %28, %154 ], [ %28, %166 ], [ %28, %179 ], [ %28, %204 ], [ %28, %thread-pre-split ], [ %28, %137 ]
-  %.val105136145 = phi i64 [ %.val105.pr, %_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit ], [ %.val105.pr, %139 ], [ %.val105.pr, %189 ], [ 0, %_ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exit ], [ %.val105.pr, %200 ], [ %.val105.pr, %147 ], [ %.val105.pr, %145 ], [ %.val105.pr, %164 ], [ %.val105.pr, %154 ], [ %.val105.pr, %166 ], [ %.val105.pr, %179 ], [ %.val105.pr, %204 ], [ 0, %thread-pre-split ], [ 0, %137 ]
+_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit.thread: ; preds = %137, %_ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exit, %thread-pre-split, %189, %200, %147, %145, %164, %154, %166, %179, %139, %204, %_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit
+  %253 = phi ptr [ %30, %_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit ], [ %30, %204 ], [ %30, %189 ], [ %25, %_ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exit ], [ %30, %200 ], [ %30, %147 ], [ %30, %145 ], [ %30, %164 ], [ %30, %154 ], [ %30, %166 ], [ %30, %179 ], [ %30, %139 ], [ %30, %thread-pre-split ], [ %30, %137 ]
+  %254 = phi ptr [ %29, %_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit ], [ %29, %204 ], [ %29, %189 ], [ %26, %_ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exit ], [ %29, %200 ], [ %29, %147 ], [ %29, %145 ], [ %29, %164 ], [ %29, %154 ], [ %29, %166 ], [ %29, %179 ], [ %29, %139 ], [ %29, %thread-pre-split ], [ %29, %137 ]
+  %255 = phi ptr [ %28, %_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit ], [ %28, %204 ], [ %28, %189 ], [ %27, %_ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exit ], [ %28, %200 ], [ %28, %147 ], [ %28, %145 ], [ %28, %164 ], [ %28, %154 ], [ %28, %166 ], [ %28, %179 ], [ %28, %139 ], [ %28, %thread-pre-split ], [ %28, %137 ]
+  %.val105136145 = phi i64 [ %.val105.pr, %_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit ], [ %.val105.pr, %204 ], [ %.val105.pr, %189 ], [ 0, %_ZN4llvm14array_pod_sortIPN12_GLOBAL__N_115CGObjCCommonMac8RUN_SKIPEEEvT_S5_.exit ], [ %.val105.pr, %200 ], [ %.val105.pr, %147 ], [ %.val105.pr, %145 ], [ %.val105.pr, %164 ], [ %.val105.pr, %154 ], [ %.val105.pr, %166 ], [ %.val105.pr, %179 ], [ %.val105.pr, %139 ], [ 0, %thread-pre-split ], [ 0, %137 ]
   %256 = add i64 %.val105136145, 1
   %257 = load i64, ptr %255, align 8, !tbaa !942
   %.not.i.i.i113 = icmp ugt i64 %256, %257
@@ -38286,7 +38286,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_13DLLImportAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !2096
 
 _ZN5clangneENS_22specific_attr_iteratorINS_13DLLImportAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %39, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %34, %39 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %34, %39 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %41 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %34
   br label %_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit
 
@@ -39530,7 +39530,7 @@ _ZNK5clang4Decl7hasAttrINS_20ObjCNonLazyClassAttrEEEbv.exit.thread13: ; preds = 
   br i1 %.not.i.i.i.i.i9, label %_ZN5clangneENS_22specific_attr_iteratorINS_20ObjCNonLazyClassAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i10, label %.lr.ph.i.i.i.i.i7, !llvm.loop !2137
 
 _ZN5clangneENS_22specific_attr_iteratorINS_20ObjCNonLazyClassAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i10: ; preds = %51, %.lr.ph.i.i.i.i.i7
-  %.sroa.07.0.i.i.ph.i.i11 = phi ptr [ %.sroa.07.1.i.i.i.i8, %.lr.ph.i.i.i.i.i7 ], [ %46, %51 ]
+  %.sroa.07.0.i.i.ph.i.i11 = phi ptr [ %46, %51 ], [ %.sroa.07.1.i.i.i.i8, %.lr.ph.i.i.i.i.i7 ]
   %53 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i11, %46
   br label %_ZNK5clang4Decl7hasAttrINS_20ObjCNonLazyClassAttrEEEbv.exit12
 
@@ -41684,7 +41684,7 @@ _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread9.sink.split: ; preds
   br label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread9
 
 _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread9: ; preds = %107, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread9.sink.split, %switch.early.test, %switch.early.test, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit, %96, %_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit.thread5, %55, %_ZN4llvm11SmallStringILj64EEpLENS_9StringRefE.exit31
-  %.0 = phi ptr [ %54, %_ZN4llvm11SmallStringILj64EEpLENS_9StringRefE.exit31 ], [ %56, %55 ], [ %56, %switch.early.test ], [ %56, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread9.sink.split ], [ %56, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit ], [ %56, %switch.early.test ], [ %56, %_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit.thread5 ], [ %56, %96 ], [ %56, %107 ]
+  %.0 = phi ptr [ %54, %_ZN4llvm11SmallStringILj64EEpLENS_9StringRefE.exit31 ], [ %56, %55 ], [ %56, %switch.early.test ], [ %56, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit ], [ %56, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread9.sink.split ], [ %56, %switch.early.test ], [ %56, %_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit.thread5 ], [ %56, %96 ], [ %56, %107 ]
   %113 = load ptr, ptr %2, align 8, !tbaa !939
   %114 = icmp eq ptr %113, %5
   br i1 %114, label %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit, label %115

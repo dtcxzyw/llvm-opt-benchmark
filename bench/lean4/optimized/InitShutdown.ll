@@ -8387,8 +8387,8 @@ lean_alloc_ctor.exit2449:                         ; preds = %lean_alloc_ctor.exi
   br label %2900
 
 lean_dec.exit1971:                                ; preds = %271, %270, %268, %lean_inc.exit1909, %324, %323, %321, %lean_inc.exit1907, %238, %237, %235, %lean_inc.exit1910
-  %.11796 = phi ptr [ %223, %238 ], [ %223, %lean_inc.exit1910 ], [ %223, %235 ], [ %223, %237 ], [ %309, %lean_inc.exit1907 ], [ %309, %321 ], [ %256, %lean_inc.exit1909 ], [ %309, %323 ], [ %309, %324 ], [ %256, %268 ], [ %256, %271 ], [ %256, %270 ]
-  %.11789 = phi ptr [ inttoptr (i64 1 to ptr), %238 ], [ inttoptr (i64 1 to ptr), %lean_inc.exit1910 ], [ inttoptr (i64 1 to ptr), %235 ], [ inttoptr (i64 1 to ptr), %237 ], [ %290, %lean_inc.exit1907 ], [ %290, %321 ], [ %12, %lean_inc.exit1909 ], [ %290, %323 ], [ %290, %324 ], [ %12, %268 ], [ %12, %271 ], [ %12, %270 ]
+  %.11796 = phi ptr [ %223, %lean_inc.exit1910 ], [ %223, %238 ], [ %223, %237 ], [ %223, %235 ], [ %256, %268 ], [ %309, %323 ], [ %256, %lean_inc.exit1909 ], [ %309, %321 ], [ %309, %lean_inc.exit1907 ], [ %309, %324 ], [ %256, %271 ], [ %256, %270 ]
+  %.11789 = phi ptr [ inttoptr (i64 1 to ptr), %lean_inc.exit1910 ], [ inttoptr (i64 1 to ptr), %238 ], [ inttoptr (i64 1 to ptr), %237 ], [ inttoptr (i64 1 to ptr), %235 ], [ %12, %268 ], [ %290, %323 ], [ %12, %lean_inc.exit1909 ], [ %290, %321 ], [ %290, %lean_inc.exit1907 ], [ %290, %324 ], [ %12, %271 ], [ %12, %270 ]
   tail call void @lean_inc_heartbeat() #6
   %1610 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
   %1611 = icmp eq ptr %1610, null

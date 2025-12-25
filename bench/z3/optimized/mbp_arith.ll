@@ -1838,8 +1838,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIP4exprL
   br label %.loopexit401
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %471 = phi ptr [ %461, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %472 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %471 = phi ptr [ %461, %thread-pre-split.i.i.preheader ], [ %.be685, %thread-pre-split.i.i.backedge ]
+  %472 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be685, %thread-pre-split.i.i.backedge ]
   %473 = icmp eq ptr %472, null
   br i1 %473, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i
 
@@ -1866,7 +1866,7 @@ _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorIP4ex
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %.noexc365, %.noexc368
-  %.be = phi ptr [ %481, %.noexc365 ], [ %521, %.noexc368 ]
+  %.be685 = phi ptr [ %521, %.noexc368 ], [ %481, %.noexc365 ]
   br label %thread-pre-split.i.i, !llvm.loop !130
 
 482:                                              ; preds = %_ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i
@@ -16956,23 +16956,23 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i: ; preds = %32, %25
   %45 = load i8, ptr %44, align 4
   %46 = and i8 %45, 1
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %48, label %52
+  br i1 %47, label %48, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit
 
 48:                                               ; preds = %42
   %49 = load i8, ptr %18, align 4
   %50 = and i8 %49, 1
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit, label %52
+  br i1 %51, label %52, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit
 
-52:                                               ; preds = %48, %42
-  %53 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %27, ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit.thread
+52:                                               ; preds = %48
+  %53 = load i32, ptr %43, align 8, !tbaa !110
+  %54 = load i32, ptr %4, align 8, !tbaa !110
+  %55 = icmp eq i32 %53, %54
+  br i1 %55, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit.thread
 
-_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit: ; preds = %48
-  %55 = load i32, ptr %43, align 8, !tbaa !110
-  %56 = load i32, ptr %4, align 8, !tbaa !110
-  %57 = icmp eq i32 %55, %56
+_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit: ; preds = %42, %48
+  %56 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %27, ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %57 = icmp eq i32 %56, 0
   br i1 %57, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit.thread
 
 _ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit.thread: ; preds = %19, %36, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i, %52, %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit, %22
@@ -17040,23 +17040,23 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i28: ; preds = %75, %68
   %88 = load i8, ptr %87, align 4
   %89 = and i8 %88, 1
   %90 = icmp eq i8 %89, 0
-  br i1 %90, label %91, label %95
+  br i1 %90, label %91, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit29
 
 91:                                               ; preds = %85
   %92 = load i8, ptr %61, align 4
   %93 = and i8 %92, 1
   %94 = icmp eq i8 %93, 0
-  br i1 %94, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit29, label %95
+  br i1 %94, label %95, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit29
 
-95:                                               ; preds = %91, %85
-  %96 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %70, ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit29.thread
+95:                                               ; preds = %91
+  %96 = load i32, ptr %86, align 8, !tbaa !110
+  %97 = load i32, ptr %4, align 8, !tbaa !110
+  %98 = icmp eq i32 %96, %97
+  br i1 %98, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit29.thread
 
-_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit29: ; preds = %91
-  %98 = load i32, ptr %86, align 8, !tbaa !110
-  %99 = load i32, ptr %4, align 8, !tbaa !110
-  %100 = icmp eq i32 %98, %99
+_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit29: ; preds = %85, %91
+  %99 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %70, ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %100 = icmp eq i32 %99, 0
   br i1 %100, label %.loopexit, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit29.thread
 
 _ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit29.thread: ; preds = %62, %79, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i28, %95, %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit29, %65
@@ -17158,23 +17158,23 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i: ; preds = %43, %36
   %56 = load i8, ptr %55, align 4
   %57 = and i8 %56, 1
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %59, label %63
+  br i1 %58, label %59, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit
 
 59:                                               ; preds = %53
   %60 = load i8, ptr %29, align 4
   %61 = and i8 %60, 1
   %62 = icmp eq i8 %61, 0
-  br i1 %62, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit, label %63
+  br i1 %62, label %63, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit
 
-63:                                               ; preds = %59, %53
-  %64 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %16)
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %69, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit.thread
+63:                                               ; preds = %59
+  %64 = load i32, ptr %54, align 8, !tbaa !110
+  %65 = load i32, ptr %16, align 8, !tbaa !110
+  %66 = icmp eq i32 %64, %65
+  br i1 %66, label %69, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit.thread
 
-_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit: ; preds = %59
-  %66 = load i32, ptr %54, align 8, !tbaa !110
-  %67 = load i32, ptr %16, align 8, !tbaa !110
-  %68 = icmp eq i32 %66, %67
+_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit: ; preds = %53, %59
+  %67 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit.thread
 
 69:                                               ; preds = %63, %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit
@@ -17408,23 +17408,23 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i.i.i50: ; preds = %200, %193
   %213 = load i8, ptr %212, align 4
   %214 = and i8 %213, 1
   %215 = icmp eq i8 %214, 0
-  br i1 %215, label %216, label %220
+  br i1 %215, label %216, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit51
 
 216:                                              ; preds = %210
   %217 = load i8, ptr %186, align 4
   %218 = and i8 %217, 1
   %219 = icmp eq i8 %218, 0
-  br i1 %219, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit51, label %220
+  br i1 %219, label %220, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit51
 
-220:                                              ; preds = %216, %210
-  %221 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %195, ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull align 8 dereferenceable(16) %16)
-  %222 = icmp eq i32 %221, 0
-  br i1 %222, label %226, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit51.thread
+220:                                              ; preds = %216
+  %221 = load i32, ptr %211, align 8, !tbaa !110
+  %222 = load i32, ptr %16, align 8, !tbaa !110
+  %223 = icmp eq i32 %221, %222
+  br i1 %223, label %226, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit51.thread
 
-_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit51: ; preds = %216
-  %223 = load i32, ptr %211, align 8, !tbaa !110
-  %224 = load i32, ptr %16, align 8, !tbaa !110
-  %225 = icmp eq i32 %223, %224
+_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit51: ; preds = %210, %216
+  %224 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %195, ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %225 = icmp eq i32 %224, 0
   br i1 %225, label %226, label %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit51.thread
 
 226:                                              ; preds = %220, %_ZNK14core_hashtableI17default_map_entryI8rationalP4exprEN9table2mapIS4_NS1_9hash_procENS1_7eq_procEE15entry_hash_procENS8_13entry_eq_procEE6equalsERK9_key_dataIS1_S3_ESF_.exit51

@@ -10837,7 +10837,7 @@ _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.sink.split: ; pr
   br label %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit
 
 _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit: ; preds = %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.sink.split, %17, %36, %51, %44, %49, %_ZNK4llvm4User10getOperandEj.exit37, %32, %2, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit
-  %.0 = phi i1 [ false, %2 ], [ false, %49 ], [ false, %_ZNK4llvm4User10getOperandEj.exit37 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit ], [ false, %32 ], [ false, %44 ], [ false, %51 ], [ false, %36 ], [ false, %17 ], [ true, %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.sink.split ]
+  %.0 = phi i1 [ false, %2 ], [ false, %44 ], [ false, %_ZNK4llvm4User10getOperandEj.exit37 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit ], [ false, %32 ], [ false, %51 ], [ false, %49 ], [ false, %36 ], [ false, %17 ], [ true, %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -10948,7 +10948,7 @@ _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.sink.split: ; pr
   br label %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit
 
 _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit: ; preds = %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.sink.split, %17, %36, %51, %44, %49, %_ZNK4llvm4User10getOperandEj.exit37, %32, %2, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit
-  %.0 = phi i1 [ false, %2 ], [ false, %49 ], [ false, %_ZNK4llvm4User10getOperandEj.exit37 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit ], [ false, %32 ], [ false, %44 ], [ false, %51 ], [ false, %36 ], [ false, %17 ], [ true, %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.sink.split ]
+  %.0 = phi i1 [ false, %2 ], [ false, %44 ], [ false, %_ZNK4llvm4User10getOperandEj.exit37 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit ], [ false, %32 ], [ false, %51 ], [ false, %49 ], [ false, %36 ], [ false, %17 ], [ true, %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -11345,7 +11345,7 @@ _ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i: ; preds = %125, 
   br label %.split.split.i, !llvm.loop !573
 
 "_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us23.i", %47, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i", %31, %37, %100, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.i"
-  %.us-phi.i = phi ptr [ %.09.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i" ], [ %.09.i, %100 ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.i" ], [ %.09.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i ], [ %.09.us.i, %37 ], [ %.09.us.i, %31 ], [ %.09.us21.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i ], [ %.09.us21.i, %47 ], [ %.09.us21.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us23.i" ]
+  %.us-phi.i = phi ptr [ %.09.i, %100 ], [ %.09.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i" ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.i" ], [ %.09.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i ], [ %.09.us.i, %37 ], [ %.09.us.i, %31 ], [ %.09.us21.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i ], [ %.09.us21.i, %47 ], [ %.09.us21.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us23.i" ]
   store ptr %.sroa.0.0.copyload.i, ptr %.us-phi.i, align 8
   %.sroa.5.0..09.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
   store ptr %.sroa.5.0.copyload.i, ptr %.sroa.5.0..09.sroa_idx.i, align 8
@@ -21606,7 +21606,7 @@ _ZN4llvm16ConstraintSystem16toStrictLessThanENS_11SmallVectorIlLj8EEE.exit.sink.
   br label %_ZN4llvm16ConstraintSystem16toStrictLessThanENS_11SmallVectorIlLj8EEE.exit.i
 
 _ZN4llvm16ConstraintSystem16toStrictLessThanENS_11SmallVectorIlLj8EEE.exit.i: ; preds = %_ZN4llvm16ConstraintSystem16toStrictLessThanENS_11SmallVectorIlLj8EEE.exit.sink.split.i, %168, %_ZN4llvm11SmallVectorIlLj8EEC2ERKS1_.exit75.i
-  %181 = phi i32 [ 0, %168 ], [ 0, %_ZN4llvm11SmallVectorIlLj8EEC2ERKS1_.exit75.i ], [ %169, %_ZN4llvm16ConstraintSystem16toStrictLessThanENS_11SmallVectorIlLj8EEE.exit.sink.split.i ]
+  %181 = phi i32 [ 0, %_ZN4llvm11SmallVectorIlLj8EEC2ERKS1_.exit75.i ], [ 0, %168 ], [ %169, %_ZN4llvm16ConstraintSystem16toStrictLessThanENS_11SmallVectorIlLj8EEE.exit.sink.split.i ]
   %182 = load ptr, ptr %13, align 8, !tbaa !32
   %183 = icmp eq ptr %182, %149
   br i1 %183, label %_ZN4llvm11SmallVectorIlLj8EED2Ev.exit77.i, label %184

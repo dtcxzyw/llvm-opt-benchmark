@@ -1519,8 +1519,8 @@ avc_denied.exit:                                  ; preds = %146, %141, %132
   br i1 %203, label %.thread26, label %.thread24, !prof !41
 
 .thread24:                                        ; preds = %166, %189, %162, %200
-  %204 = phi i32 [ %202, %200 ], [ %181, %189 ], [ %158, %162 ], [ %158, %166 ]
-  %205 = phi i32 [ %201, %200 ], [ 0, %189 ], [ %153, %162 ], [ %153, %166 ]
+  %204 = phi i32 [ %202, %200 ], [ %158, %162 ], [ %181, %189 ], [ %158, %166 ]
+  %205 = phi i32 [ %201, %200 ], [ %153, %162 ], [ 0, %189 ], [ %153, %166 ]
   %206 = call i32 @slow_avc_audit(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %204, i32 noundef %205, i32 noundef %150, ptr noundef %6), !range !42
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %.thread26, label %208

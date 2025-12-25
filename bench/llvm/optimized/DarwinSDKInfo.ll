@@ -168,7 +168,7 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit.thread:   ; preds = %38, %34, %5, %_ZN4l
   store i8 1, ptr %42, align 4, !tbaa !7
   br label %145
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread17: ; preds = %36, %32, %_ZN4llvmltERKNS_12VersionTupleES2_.exit
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread17: ; preds = %32, %36, %_ZN4llvmltERKNS_12VersionTupleES2_.exit
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = trunc i64 %44 to i32
@@ -211,7 +211,7 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread:   ; preds = %63, %59, %_ZN4llvml
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %4, i64 20, i1 false)
   br label %145
 
-_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread19: ; preds = %61, %57, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
+_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread19: ; preds = %57, %61, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %68 = and i64 %13, 9223372032559808512
   %69 = icmp eq i64 %68, 0
@@ -542,9 +542,9 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit:          ; preds = %75
 _ZN4llvmltERKNS_12VersionTupleES2_.exit.thread:   ; preds = %75, %71, %_ZNK4llvm12VersionTuple9normalizeEv.exit, %_ZN4llvmltERKNS_12VersionTupleES2_.exit
   br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82: ; preds = %73, %69, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, %_ZN4llvmltERKNS_12VersionTupleES2_.exit
-  %.sroa.066.1 = phi i64 [ %48, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.066.098, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.066.098, %69 ], [ %.sroa.066.098, %73 ]
-  %.sroa.767.1 = phi i64 [ %53, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.767.099, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.767.099, %69 ], [ %.sroa.767.099, %73 ]
+_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82: ; preds = %69, %73, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread, %_ZN4llvmltERKNS_12VersionTupleES2_.exit
+  %.sroa.066.1 = phi i64 [ %48, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.066.098, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.066.098, %73 ], [ %.sroa.066.098, %69 ]
+  %.sroa.767.1 = phi i64 [ %53, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.767.099, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.767.099, %73 ], [ %.sroa.767.099, %69 ]
   %79 = trunc i64 %.sroa.063.096 to i32
   %80 = lshr i64 %.sroa.063.096, 32
   %81 = trunc nuw i64 %80 to i32
@@ -582,9 +582,9 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %95
 _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread:   ; preds = %95, %91, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread82, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
   br label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84
 
-_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84: ; preds = %93, %89, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
-  %.sroa.063.1 = phi i64 [ %48, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.063.096, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.063.096, %89 ], [ %.sroa.063.096, %93 ]
-  %.sroa.664.1 = phi i64 [ %53, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.664.097, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.664.097, %89 ], [ %.sroa.664.097, %93 ]
+_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84: ; preds = %89, %93, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
+  %.sroa.063.1 = phi i64 [ %48, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.063.096, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.063.096, %93 ], [ %.sroa.063.096, %89 ]
+  %.sroa.664.1 = phi i64 [ %53, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread ], [ %.sroa.664.097, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.664.097, %93 ], [ %.sroa.664.097, %89 ]
   %99 = load i64, ptr %9, align 8
   %100 = trunc i64 %99 to i32
   %101 = lshr i64 %99, 32
@@ -633,9 +633,9 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit28:        ; preds = %126
 _ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread: ; preds = %126, %122, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread84, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28
   br label %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86
 
-_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86: ; preds = %124, %120, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread
-  %.sroa.053.1 = phi i64 [ %99, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread ], [ %.sroa.053.094, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28 ], [ %.sroa.053.094, %120 ], [ %.sroa.053.094, %124 ]
-  %.sroa.656.1 = phi i64 [ %104, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread ], [ %.sroa.656.095, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28 ], [ %.sroa.656.095, %120 ], [ %.sroa.656.095, %124 ]
+_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread86: ; preds = %120, %124, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread
+  %.sroa.053.1 = phi i64 [ %99, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread ], [ %.sroa.053.094, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28 ], [ %.sroa.053.094, %124 ], [ %.sroa.053.094, %120 ]
+  %.sroa.656.1 = phi i64 [ %104, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28.thread ], [ %.sroa.656.095, %_ZN4llvmltERKNS_12VersionTupleES2_.exit28 ], [ %.sroa.656.095, %124 ], [ %.sroa.656.095, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre106 = load ptr, ptr %7, align 8, !tbaa !26

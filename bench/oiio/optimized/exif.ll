@@ -6938,10 +6938,10 @@ _ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread3
   br label %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit
 
 _ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit: ; preds = %7, %31, %35
-  %.sroa.58.0.i.shrunk.i = phi i32 [ 0, %7 ], [ %narrow.i, %35 ], [ %narrow.i, %31 ]
-  %.sroa.32.0.i.i = phi i64 [ 0, %7 ], [ 458752, %35 ], [ 0, %31 ]
-  %.sroa.19.0.i.i = phi i64 [ 256, %7 ], [ 512, %35 ], [ 256, %31 ]
-  %.sroa.0.0.i.i = phi i64 [ 0, %7 ], [ 7, %35 ], [ 2, %31 ]
+  %.sroa.58.0.i.shrunk.i = phi i32 [ %narrow.i, %35 ], [ 0, %7 ], [ %narrow.i, %31 ]
+  %.sroa.32.0.i.i = phi i64 [ 458752, %35 ], [ 0, %7 ], [ 0, %31 ]
+  %.sroa.19.0.i.i = phi i64 [ 512, %35 ], [ 256, %7 ], [ 256, %31 ]
+  %.sroa.0.0.i.i = phi i64 [ 7, %35 ], [ 0, %7 ], [ 2, %31 ]
   %.sroa.58.0.i.i = zext i32 %.sroa.58.0.i.shrunk.i to i64
   %.sroa.58.0.insert.ext.i.i = shl nuw i64 %.sroa.58.0.i.i, 32
   %.sroa.32.0.insert.insert.i.i = or disjoint i64 %.sroa.58.0.insert.ext.i.i, %.sroa.32.0.i.i

@@ -887,7 +887,7 @@ H5Z__check_unregister.exit:                       ; preds = %50
   br label %H5Z__check_unregister.exit.thread20
 
 H5Z__check_unregister.exit.thread20:              ; preds = %34, %H5Z__check_unregister.exit, %61, %57
-  %.1 = phi i32 [ -1, %57 ], [ 0, %H5Z__check_unregister.exit ], [ 1, %61 ], [ 0, %34 ]
+  %.1 = phi i32 [ 1, %61 ], [ 0, %H5Z__check_unregister.exit ], [ -1, %57 ], [ 0, %34 ]
   %.not25 = icmp eq i64 %28, 0
   br i1 %.not25, label %.thread, label %63
 
@@ -1006,7 +1006,7 @@ H5Z__check_unregister.exit:                       ; preds = %50
   br label %H5Z__check_unregister.exit.thread20
 
 H5Z__check_unregister.exit.thread20:              ; preds = %34, %H5Z__check_unregister.exit, %61, %57
-  %.1 = phi i32 [ -1, %57 ], [ 0, %H5Z__check_unregister.exit ], [ 1, %61 ], [ 0, %34 ]
+  %.1 = phi i32 [ 1, %61 ], [ 0, %H5Z__check_unregister.exit ], [ -1, %57 ], [ 0, %34 ]
   %.not25 = icmp eq i64 %28, 0
   br i1 %.not25, label %.thread, label %63
 
@@ -1494,7 +1494,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__prepare_prelude_callback_dcpl(
   br label %.thread69
 
 77:                                               ; preds = %73, %70
-  %.546 = phi i32 [ 0, %70 ], [ -1, %73 ]
+  %.546 = phi i32 [ -1, %73 ], [ 0, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not82 = icmp eq i64 %63, 0

@@ -2277,8 +2277,8 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %301, %295, %297, %299
-  %.0299748 = phi i32 [ 2, %301 ], [ 6, %297 ], [ 0, %299 ], [ 8, %295 ]
-  %.1301746 = phi i32 [ %.reass.reass, %301 ], [ %152, %297 ], [ %149, %299 ], [ %155, %295 ]
+  %.0299748 = phi i32 [ 0, %299 ], [ 6, %297 ], [ 2, %301 ], [ 8, %295 ]
+  %.1301746 = phi i32 [ %149, %299 ], [ %152, %297 ], [ %.reass.reass, %301 ], [ %155, %295 ]
   %.not346 = icmp eq i32 %.1301746, -1
   br i1 %.not346, label %.thread751, label %.critedge.thread
 
@@ -3608,8 +3608,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit473:                 ; preds = %825, %829
   br label %.body
 
 .body:                                            ; preds = %839, %.body369
-  %.sroa.0608.2 = phi ptr [ %.sroa.0608.3797, %839 ], [ %.sroa.0608.4, %.body369 ]
-  %.pn347.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn347.pn.pn.pn.pn.pn799, %839 ], [ %.pn347.pn.pn.pn.pn, %.body369 ]
+  %.sroa.0608.2 = phi ptr [ %.sroa.0608.4, %.body369 ], [ %.sroa.0608.3797, %839 ]
+  %.pn347.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn347.pn.pn.pn.pn, %.body369 ], [ %.pn347.pn.pn.pn.pn.pn799, %839 ]
   %.not.i.i.i484 = icmp eq ptr %.sroa.0608.2, null
   br i1 %.not.i.i.i484, label %_ZNSt6vectorIPN2cv4text6ERStatESaIS3_EED2Ev.exit485, label %846
 
@@ -21302,7 +21302,7 @@ _ZN2cv4text16haveCommonRegionERNS0_14region_tripletES2_.exit.us: ; preds = %.pre
   br i1 %exitcond31.not, label %_ZN2cv4text16haveCommonRegionERNS0_14region_tripletES2_.exit.thread, label %.preheader.us, !llvm.loop !527
 
 _ZN2cv4text16haveCommonRegionERNS0_14region_tripletES2_.exit.thread: ; preds = %._crit_edge.us, %_ZN2cv4text16haveCommonRegionERNS0_14region_tripletES2_.exit.us, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit53.i.us, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit48.i.us, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit43.i.us, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit38.i.us, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit33.i.us, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit28.i.us, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit23.i.us, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit.i.us, %.preheader.lr.ph, %2
-  %68 = phi i1 [ true, %_ZN2cv4text16haveCommonRegionERNS0_14region_tripletES2_.exit.us ], [ false, %.preheader.lr.ph ], [ false, %2 ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit23.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit28.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit33.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit38.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit43.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit48.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit53.i.us ], [ false, %._crit_edge.us ]
+  %68 = phi i1 [ false, %2 ], [ false, %.preheader.lr.ph ], [ true, %_ZN2cv4text16haveCommonRegionERNS0_14region_tripletES2_.exit.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit23.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit28.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit33.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit38.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit43.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit48.i.us ], [ true, %_ZN2cveqIiLi2ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit53.i.us ], [ false, %._crit_edge.us ]
   ret i1 %68
 }
 
@@ -36000,7 +36000,7 @@ _ZSt13move_backwardIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit: ; preds = %48, %51
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !755
 
 _ZSt11swap_rangesIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit, %10, %3
-  %.053 = phi ptr [ %0, %10 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %26, %_ZSt4moveIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit ], [ %26, %_ZSt13move_backwardIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit ], [ %26, %._crit_edge110 ], [ %26, %._crit_edge ]
+  %.053 = phi ptr [ %0, %10 ], [ %2, %3 ], [ %26, %_ZSt13move_backwardIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit ], [ %26, %_ZSt4moveIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %26, %._crit_edge110 ], [ %26, %._crit_edge ]
   ret ptr %.053
 }
 

@@ -696,7 +696,7 @@ parse_time_t_args.exit.thread:                    ; preds = %13, %2
   br label %22
 
 16:                                               ; preds = %._crit_edge.i, %11
-  %.06 = phi i64 [ %12, %11 ], [ %.pre.i, %._crit_edge.i ]
+  %.06 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = tail call ptr @__errno_location() #12
@@ -757,7 +757,7 @@ parse_time_t_args.exit.thread:                    ; preds = %13, %2
   br label %21
 
 16:                                               ; preds = %._crit_edge.i, %11
-  %.06 = phi i64 [ %12, %11 ], [ %.pre.i, %._crit_edge.i ]
+  %.06 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = call i32 @_PyTime_localtime(i64 noundef %.06, ptr noundef nonnull %5) #11
@@ -879,7 +879,7 @@ parse_time_t_args.exit.thread:                    ; preds = %13, %2
   br label %38
 
 16:                                               ; preds = %._crit_edge.i, %11
-  %.03 = phi i64 [ %12, %11 ], [ %.pre.i, %._crit_edge.i ]
+  %.03 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = call i32 @_PyTime_localtime(i64 noundef %.03, ptr noundef nonnull %5) #11

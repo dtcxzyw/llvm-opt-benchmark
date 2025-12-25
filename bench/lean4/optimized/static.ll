@@ -6897,7 +6897,7 @@ _ZL21mi_segment_visit_pageP9mi_page_sbPFbPK9mi_heap_sPK14mi_heap_area_sPvmS7_ES7
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZL21mi_segment_visit_pageP9mi_page_sbPFbPK9mi_heap_sPK14mi_heap_area_sPvmS7_ES7_.exit.us, %.critedge.us, %_ZL21mi_segment_visit_pageP9mi_page_sbPFbPK9mi_heap_sPK14mi_heap_area_sPvmS7_ES7_.exit.us.us, %.critedge.us.us, %.critedge, %106, %.critedge.us27, %81, %._crit_edge.sink.split, %5
-  %.lcssa = phi i1 [ true, %5 ], [ false, %_ZL21mi_segment_visit_pageP9mi_page_sbPFbPK9mi_heap_sPK14mi_heap_area_sPvmS7_ES7_.exit.us.us ], [ false, %._crit_edge.sink.split ], [ false, %81 ], [ false, %106 ], [ true, %.critedge.us27 ], [ true, %.critedge ], [ true, %.critedge.us.us ], [ true, %.critedge.us ], [ false, %_ZL21mi_segment_visit_pageP9mi_page_sbPFbPK9mi_heap_sPK14mi_heap_area_sPvmS7_ES7_.exit.us ]
+  %.lcssa = phi i1 [ true, %5 ], [ false, %_ZL21mi_segment_visit_pageP9mi_page_sbPFbPK9mi_heap_sPK14mi_heap_area_sPvmS7_ES7_.exit.us.us ], [ false, %._crit_edge.sink.split ], [ false, %81 ], [ false, %106 ], [ true, %.critedge.us27 ], [ true, %.critedge ], [ true, %.critedge.us.us ], [ false, %_ZL21mi_segment_visit_pageP9mi_page_sbPFbPK9mi_heap_sPK14mi_heap_area_sPvmS7_ES7_.exit.us ], [ true, %.critedge.us ]
   ret i1 %.lcssa
 }
 
@@ -7856,8 +7856,8 @@ _ZL12_mi_align_upmm.exit91.i:                     ; preds = %115, %112
   br label %_ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit
 
 _ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit:    ; preds = %122, %123, %_ZL15mi_align_up_ptrPvm.exit.i, %96
-  %.021 = phi ptr [ %105, %122 ], [ %105, %123 ], [ %74, %_ZL15mi_align_up_ptrPvm.exit.i ], [ %74, %96 ]
-  %.0.i19 = phi ptr [ %105, %122 ], [ %105, %123 ], [ %95, %_ZL15mi_align_up_ptrPvm.exit.i ], [ %95, %96 ]
+  %.021 = phi ptr [ %105, %123 ], [ %74, %96 ], [ %74, %_ZL15mi_align_up_ptrPvm.exit.i ], [ %105, %122 ]
+  %.0.i19 = phi ptr [ %105, %123 ], [ %95, %96 ], [ %95, %_ZL15mi_align_up_ptrPvm.exit.i ], [ %105, %122 ]
   %.not = icmp eq ptr %.0.i19, null
   br i1 %.not, label %_ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit.thread, label %_ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit._ZL24mi_os_prim_alloc_alignedmmbbPbS_PPv.exit.thread26_crit_edge
 
@@ -9195,7 +9195,7 @@ _Z17_mi_prim_decommitPvmPb.exit.i.i:              ; preds = %330
   br label %_Z15_mi_os_purge_exPvmbm.exit84.i
 
 _Z15_mi_os_purge_exPvmbm.exit84.i:                ; preds = %257, %_ZL12unix_madvisePvmi.exit.i.i.i, %336, %_Z17_mi_prim_decommitPvmPb.exit.i.i, %330, %_ZL17mi_align_down_ptrPvm.exit27.i.i.i.i, %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit.i.i, %293, %mi_option_is_enabled.exit.i.i, %mi_option_get.exit.i72.i, %267, %_Z14_mi_prim_resetPvm.exit.i.i, %262, %_Z17_mi_stat_increaseP15mi_stat_count_sm.exit.i102.i, %_ZL17mi_align_down_ptrPvm.exit27.i.i.i98.i, %218, %217, %_Z17_mi_prim_decommitPvmPb.exit.i116.i, %211, %_ZL17mi_align_down_ptrPvm.exit27.i.i.i113.i, %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit.i111.i, %177, %mi_option_get.exit.i74.i
-  %.0.in.i.i32 = phi i1 [ false, %267 ], [ false, %mi_option_is_enabled.exit.i.i ], [ false, %mi_option_get.exit.i74.i ], [ false, %218 ], [ false, %_ZL17mi_align_down_ptrPvm.exit27.i.i.i98.i ], [ false, %_Z17_mi_stat_increaseP15mi_stat_count_sm.exit.i102.i ], [ false, %330 ], [ false, %_Z17_mi_prim_decommitPvmPb.exit.i.i ], [ false, %262 ], [ false, %_Z14_mi_prim_resetPvm.exit.i.i ], [ true, %177 ], [ false, %mi_option_get.exit.i72.i ], [ false, %293 ], [ true, %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit.i111.i ], [ true, %_ZL17mi_align_down_ptrPvm.exit27.i.i.i113.i ], [ false, %211 ], [ false, %_Z17_mi_prim_decommitPvmPb.exit.i116.i ], [ false, %217 ], [ true, %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit.i.i ], [ true, %_ZL17mi_align_down_ptrPvm.exit27.i.i.i.i ], [ false, %336 ], [ false, %_ZL12unix_madvisePvmi.exit.i.i.i ], [ false, %257 ]
+  %.0.in.i.i32 = phi i1 [ false, %267 ], [ false, %mi_option_is_enabled.exit.i.i ], [ false, %mi_option_get.exit.i74.i ], [ false, %218 ], [ false, %_ZL17mi_align_down_ptrPvm.exit27.i.i.i98.i ], [ false, %_Z17_mi_stat_increaseP15mi_stat_count_sm.exit.i102.i ], [ false, %_Z17_mi_prim_decommitPvmPb.exit.i.i ], [ false, %330 ], [ false, %262 ], [ false, %_Z14_mi_prim_resetPvm.exit.i.i ], [ true, %177 ], [ false, %mi_option_get.exit.i72.i ], [ false, %293 ], [ true, %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit.i111.i ], [ true, %_ZL17mi_align_down_ptrPvm.exit27.i.i.i113.i ], [ false, %211 ], [ false, %_Z17_mi_prim_decommitPvmPb.exit.i116.i ], [ false, %217 ], [ true, %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit.i.i ], [ true, %_ZL17mi_align_down_ptrPvm.exit27.i.i.i.i ], [ false, %336 ], [ false, %_ZL12unix_madvisePvmi.exit.i.i.i ], [ false, %257 ]
   %337 = load ptr, ptr %64, align 8, !tbaa !151
   br i1 %117, label %338, label %_ZL15mi_bitmap_mask_mm.exit24.i.i.i.i, !prof !23
 
@@ -11701,7 +11701,7 @@ _ZL37mi_bitmap_try_find_claim_field_acrossPSt6atomicImEmmmmPm.exit: ; preds = %3
   store i64 %106, ptr %4, align 8, !tbaa !69
   br label %.critedge
 
-.loopexit:                                        ; preds = %tailrecurse.i, %46, %_ZSt39atomic_compare_exchange_strong_explicitImEbPSt6atomicIT_EPNSt15__type_identityIS1_E4typeES6_St12memory_orderS8_.exit109.thread.i, %45, %_ZL15mi_bitmap_mask_mm.exit.i, %13, %26, %_ZL15mi_bitmap_mask_mm.exit.i.i
+.loopexit:                                        ; preds = %46, %tailrecurse.i, %_ZSt39atomic_compare_exchange_strong_explicitImEbPSt6atomicIT_EPNSt15__type_identityIS1_E4typeES6_St12memory_orderS8_.exit109.thread.i, %45, %_ZL15mi_bitmap_mask_mm.exit.i, %26, %13, %_ZL15mi_bitmap_mask_mm.exit.i.i
   %107 = add nuw i64 %.01942, 1
   %108 = add i64 %spec.store.select, 1
   %exitcond.not = icmp eq i64 %107, %1
@@ -17455,8 +17455,8 @@ _ZL11mi_out_fillcmPPcS_.exit:                     ; preds = %347, %.lr.ph.prehea
   br label %_ZL17mi_out_alignrightcPcmmS_.exit
 
 _ZL17mi_out_alignrightcPcmmS_.exit:               ; preds = %_ZL11mi_out_fillcmPPcS_.exit, %_ZL7mi_outsPKcPPcS1_.exit, %354, %.preheader.preheader.i, %_ZL7mi_outccPPcS_.exit, %switch.early.test
-  %.2 = phi ptr [ %.09.lcssa.i, %_ZL11mi_out_fillcmPPcS_.exit ], [ %.fr.i, %_ZL7mi_outsPKcPPcS1_.exit ], [ %.0302342, %switch.early.test ], [ %21, %_ZL7mi_outccPPcS_.exit ], [ %.09.lcssa.i, %354 ], [ %.09.lcssa.i, %.preheader.preheader.i ]
-  %.1194 = phi ptr [ %.9, %_ZL11mi_out_fillcmPPcS_.exit ], [ %.9, %_ZL7mi_outsPKcPPcS1_.exit ], [ %18, %switch.early.test ], [ %18, %_ZL7mi_outccPPcS_.exit ], [ %.9, %354 ], [ %.9, %.preheader.preheader.i ]
+  %.2 = phi ptr [ %.09.lcssa.i, %.preheader.preheader.i ], [ %.fr.i, %_ZL7mi_outsPKcPPcS1_.exit ], [ %.0302342, %switch.early.test ], [ %21, %_ZL7mi_outccPPcS_.exit ], [ %.09.lcssa.i, %354 ], [ %.09.lcssa.i, %_ZL11mi_out_fillcmPPcS_.exit ]
+  %.1194 = phi ptr [ %.9, %.preheader.preheader.i ], [ %.9, %_ZL7mi_outsPKcPPcS1_.exit ], [ %18, %switch.early.test ], [ %18, %_ZL7mi_outccPPcS_.exit ], [ %.9, %354 ], [ %.9, %_ZL11mi_out_fillcmPPcS_.exit ]
   %.not = icmp ult ptr %.2, %10
   br i1 %.not, label %14, label %_ZL17mi_out_alignrightcPcmmS_.exit.thread325
 
@@ -23705,7 +23705,7 @@ _ZL16mi_page_set_heapP9mi_page_sP9mi_heap_s.exit.sink.split: ; preds = %89, %83
   br label %_ZL16mi_page_set_heapP9mi_page_sP9mi_heap_s.exit
 
 _ZL16mi_page_set_heapP9mi_page_sP9mi_heap_s.exit: ; preds = %.lr.ph.i, %_ZL16mi_page_set_heapP9mi_page_sP9mi_heap_s.exit.sink.split, %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit59
-  %.sink.in = phi ptr [ %1, %_ZL16mi_page_set_heapP9mi_page_sP9mi_heap_s.exit.sink.split ], [ %1, %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit59 ], [ %.01016.i, %.lr.ph.i ]
+  %.sink.in = phi ptr [ %1, %_Z17_mi_stat_decreaseP15mi_stat_count_sm.exit59 ], [ %1, %_ZL16mi_page_set_heapP9mi_page_sP9mi_heap_s.exit.sink.split ], [ %.01016.i, %.lr.ph.i ]
   %.sink = ptrtoint ptr %.sink.in to i64
   %93 = getelementptr inbounds nuw i8, ptr %.04775, i64 64
   store atomic i64 %.sink, ptr %93 release, align 8

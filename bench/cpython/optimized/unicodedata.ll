@@ -2372,7 +2372,7 @@ is_normalized_quickcheck.exit.thread.thread34.i:  ; preds = %is_normalized_quick
   br label %is_normalized_quickcheck.exit.thread.thread.i
 
 is_normalized_quickcheck.exit.thread.thread.i:    ; preds = %99, %PyUnicode_READ.exit.thread.us84.i.i, %71, %PyUnicode_READ.exit.thread.us68.i.i, %127, %_getrecord_ex.exit.i.i, %is_normalized_quickcheck.exit.thread.thread34.i, %Py_DECREF.exit.i, %is_normalized_quickcheck.exit.i
-  %.021.i = phi ptr [ %147, %Py_DECREF.exit.i ], [ @_Py_TrueStruct, %is_normalized_quickcheck.exit.thread.thread34.i ], [ @_Py_FalseStruct, %is_normalized_quickcheck.exit.i ], [ @_Py_FalseStruct, %71 ], [ @_Py_FalseStruct, %127 ], [ @_Py_FalseStruct, %_getrecord_ex.exit.i.i ], [ @_Py_FalseStruct, %PyUnicode_READ.exit.thread.us68.i.i ], [ @_Py_FalseStruct, %PyUnicode_READ.exit.thread.us84.i.i ], [ @_Py_FalseStruct, %99 ]
+  %.021.i = phi ptr [ %147, %Py_DECREF.exit.i ], [ @_Py_TrueStruct, %is_normalized_quickcheck.exit.thread.thread34.i ], [ @_Py_FalseStruct, %is_normalized_quickcheck.exit.i ], [ @_Py_FalseStruct, %127 ], [ @_Py_FalseStruct, %71 ], [ @_Py_FalseStruct, %_getrecord_ex.exit.i.i ], [ @_Py_FalseStruct, %PyUnicode_READ.exit.thread.us68.i.i ], [ @_Py_FalseStruct, %PyUnicode_READ.exit.thread.us84.i.i ], [ @_Py_FalseStruct, %99 ]
   %148 = load i32, ptr %.021.i, align 8, !tbaa !24
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %unicodedata_UCD_is_normalized_impl.exit, label %150
@@ -3277,7 +3277,7 @@ _dawg_decode_edge.exit.i:                         ; preds = %149
   br label %104
 
 .critedge:                                        ; preds = %140, %149, %_dawg_decode_varint_unsigned.exit.i.i, %99, %96, %15, %69, %65, %27, %25, %8, %5, %18, %67
-  %.0 = phi i32 [ 0, %5 ], [ 0, %69 ], [ 0, %25 ], [ 1, %67 ], [ 0, %65 ], [ 0, %15 ], [ 0, %18 ], [ 0, %8 ], [ 1, %27 ], [ 1, %99 ], [ 0, %149 ], [ 0, %96 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %140 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %69 ], [ 0, %25 ], [ 1, %67 ], [ 0, %65 ], [ 0, %15 ], [ 0, %18 ], [ 0, %8 ], [ 1, %27 ], [ 0, %96 ], [ 0, %149 ], [ 1, %99 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %140 ]
   ret i32 %.0
 }
 
@@ -3691,7 +3691,7 @@ _lookup_dawg_packed.exit.thread.sink.split:       ; preds = %._crit_edge, %169, 
   br label %_lookup_dawg_packed.exit.thread
 
 _lookup_dawg_packed.exit.thread:                  ; preds = %_dawg_match_edge.exit.i, %_dawg_match_edge.exit.thread106.i, %_dawg_decode_varint_unsigned.exit.i.i, %74, %_lookup_dawg_packed.exit.thread.sink.split, %_dawg_node_is_final.exit.i, %47, %find_syllable.exit67, %64, %._crit_edge
-  %.1 = phi i32 [ 0, %_dawg_node_is_final.exit.i ], [ 0, %._crit_edge ], [ 1, %_lookup_dawg_packed.exit.thread.sink.split ], [ 0, %64 ], [ 0, %74 ], [ 0, %find_syllable.exit67 ], [ 0, %47 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %_dawg_match_edge.exit.thread106.i ], [ 0, %_dawg_match_edge.exit.i ]
+  %.1 = phi i32 [ 0, %_dawg_node_is_final.exit.i ], [ 0, %._crit_edge ], [ 1, %_lookup_dawg_packed.exit.thread.sink.split ], [ 0, %64 ], [ 0, %47 ], [ 0, %find_syllable.exit67 ], [ 0, %74 ], [ 0, %_dawg_decode_varint_unsigned.exit.i.i ], [ 0, %_dawg_match_edge.exit.thread106.i ], [ 0, %_dawg_match_edge.exit.i ]
   ret i32 %.1
 }
 
@@ -4809,7 +4809,7 @@ _getrecord_ex.exit216:                            ; preds = %PyUnicode_READ.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %261, %.loopexit.sink.split, %_getrecord_ex.exit, %._crit_edge
-  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ null, %._crit_edge ], [ %125, %_getrecord_ex.exit ], [ %125, %261 ]
+  %.0 = phi ptr [ %125, %_getrecord_ex.exit ], [ null, %._crit_edge ], [ null, %.loopexit.sink.split ], [ %125, %261 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

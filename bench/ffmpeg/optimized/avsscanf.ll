@@ -5453,7 +5453,7 @@ store_int.exit:                                   ; preds = %309, %308, %306, %3
   br label %.loopexit500
 
 .loopexit500:                                     ; preds = %56, %fffloatscan.exit, %ffintscan.exit, %544, %751, %734, %2392, %.loopexit496, %202
-  %.2189 = phi i32 [ %.0187, %202 ], [ -1, %2392 ], [ %.0187, %.loopexit496 ], [ %.0187, %751 ], [ %.0187, %734 ], [ %.0187, %544 ], [ %.0187, %ffintscan.exit ], [ %.0187, %fffloatscan.exit ], [ %.0187, %56 ]
+  %.2189 = phi i32 [ %.0187, %202 ], [ -1, %2392 ], [ %.0187, %.loopexit496 ], [ %.0187, %734 ], [ %.0187, %751 ], [ %.0187, %544 ], [ %.0187, %ffintscan.exit ], [ %.0187, %fffloatscan.exit ], [ %.0187, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   ret i32 %.2189
 }

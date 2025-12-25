@@ -2377,7 +2377,7 @@ Py_DECREF.exit214.i:                              ; preds = %294, %291, %289
   br i1 %301, label %Py_DECREF.exit220.sink.split.i, label %_io_open_impl.exit
 
 .thread262.i:                                     ; preds = %Py_DECREF.exit214.i, %283, %268, %.thread274.i, %255, %.thread269.i, %248, %236, %Py_DECREF.exit224.i, %223, %Py_DECREF.exit226.i
-  %.0158.i = phi ptr [ %211, %.thread274.i ], [ %211, %Py_DECREF.exit226.i ], [ %211, %Py_DECREF.exit224.i ], [ %211, %268 ], [ %287, %Py_DECREF.exit214.i ], [ %270, %283 ], [ %211, %255 ], [ %211, %.thread269.i ], [ %211, %223 ], [ %211, %236 ], [ %211, %248 ]
+  %.0158.i = phi ptr [ %211, %.thread269.i ], [ %211, %255 ], [ %211, %.thread274.i ], [ %270, %283 ], [ %287, %Py_DECREF.exit214.i ], [ %211, %268 ], [ %211, %Py_DECREF.exit224.i ], [ %211, %Py_DECREF.exit226.i ], [ %211, %223 ], [ %211, %236 ], [ %211, %248 ]
   %302 = call ptr @PyErr_GetRaisedException() #5
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.0158.i, ptr %5, align 8, !tbaa !4

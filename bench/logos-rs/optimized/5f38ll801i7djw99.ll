@@ -422,10 +422,10 @@ define hidden zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp
   %27 = icmp eq i64 %3, 0
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %27, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit", label %30
+  br i1 %27, label %30, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit"
 
 30:                                               ; preds = %26
-  %31 = tail call zeroext i1 @"_ZN90_$LT$regex_syntax..hir..interval..IntervalSet$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57f76d74d12cb4f8E"(ptr nonnull align 8 %28, ptr nonnull align 8 %29)
+  %31 = tail call zeroext i1 @"_ZN90_$LT$regex_syntax..hir..interval..IntervalSet$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4b83b8bde0a54f90E"(ptr nonnull align 8 %28, ptr nonnull align 8 %29)
   br i1 %31, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread", label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 32:                                               ; preds = %12
@@ -514,7 +514,7 @@ define hidden zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp
   br i1 %96, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread", label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 "_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit": ; preds = %26
-  %97 = tail call zeroext i1 @"_ZN90_$LT$regex_syntax..hir..interval..IntervalSet$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h4b83b8bde0a54f90E"(ptr nonnull align 8 %28, ptr nonnull align 8 %29)
+  %97 = tail call zeroext i1 @"_ZN90_$LT$regex_syntax..hir..interval..IntervalSet$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h57f76d74d12cb4f8E"(ptr nonnull align 8 %28, ptr nonnull align 8 %29)
   br i1 %97, label %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread", label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
 "_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread": ; preds = %12, %30, %32, %55, %73, %77, %87, %14, %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit"
@@ -613,8 +613,8 @@ define hidden zeroext i1 @"_ZN63_$LT$regex_syntax..hir..Hir$u20$as$u20$core..cmp
   %168 = xor i1 %167, true
   br label %"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit"
 
-"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit": ; preds = %48, %44, %69, %38, %24, %61, %2, %161, %154, %150, %144, %137, %131, %125, %119, %113, %107, %103, %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread", %30, %32, %55, %73, %77, %87, %14, %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit"
-  %.sroa.0.0 = phi i1 [ false, %30 ], [ false, %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit" ], [ false, %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread" ], [ false, %14 ], [ false, %87 ], [ false, %77 ], [ false, %73 ], [ false, %55 ], [ false, %32 ], [ %168, %161 ], [ false, %154 ], [ false, %150 ], [ false, %144 ], [ false, %137 ], [ false, %131 ], [ false, %125 ], [ false, %119 ], [ false, %113 ], [ false, %107 ], [ false, %103 ], [ false, %2 ], [ false, %61 ], [ false, %24 ], [ false, %38 ], [ false, %69 ], [ false, %44 ], [ false, %48 ]
+"_ZN71_$LT$regex_syntax..hir..PropertiesI$u20$as$u20$core..cmp..PartialEq$GT$2eq17h14f7da4dcf824ceeE.exit": ; preds = %61, %69, %44, %48, %38, %24, %2, %161, %154, %150, %144, %137, %131, %125, %119, %113, %107, %103, %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread", %30, %32, %55, %73, %77, %87, %14, %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit"
+  %.sroa.0.0 = phi i1 [ false, %30 ], [ false, %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit" ], [ false, %"_ZN67_$LT$regex_syntax..hir..HirKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde583452ddf9b074E.exit.thread" ], [ false, %14 ], [ false, %87 ], [ false, %77 ], [ false, %73 ], [ false, %55 ], [ false, %32 ], [ %168, %161 ], [ false, %154 ], [ false, %150 ], [ false, %144 ], [ false, %137 ], [ false, %131 ], [ false, %125 ], [ false, %119 ], [ false, %113 ], [ false, %107 ], [ false, %103 ], [ false, %2 ], [ false, %24 ], [ false, %38 ], [ false, %48 ], [ false, %44 ], [ false, %69 ], [ false, %61 ]
   ret i1 %.sroa.0.0
 }
 

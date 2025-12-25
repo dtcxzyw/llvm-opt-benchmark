@@ -1975,12 +1975,12 @@ proto_item_set_generated.exit492:                 ; preds = %proto_item_set_gene
   br label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %322, %360, %348, %116, %..loopexit_crit_edge, %.thread496, %84, %.thread579
-  %.1435 = phi ptr [ %.0434529, %84 ], [ %.0434529, %.thread496 ], [ %.0434529, %.thread579 ], [ %.0434529, %116 ], [ %.0434529, %..loopexit_crit_edge ], [ %353, %348 ], [ null, %360 ], [ %.0434529, %322 ]
-  %.1431 = phi i32 [ %.0430530, %84 ], [ %.0430530, %.thread496 ], [ %.0430530, %.thread579 ], [ %.0430530, %116 ], [ %.0430530, %..loopexit_crit_edge ], [ %338, %348 ], [ %338, %360 ], [ %.0430530, %322 ]
-  %.1427 = phi i32 [ %.0426531, %84 ], [ %.0426531, %.thread496 ], [ %.0426531, %.thread579 ], [ %.0426531, %116 ], [ %.0426531, %..loopexit_crit_edge ], [ %327, %348 ], [ %327, %360 ], [ %.0426531, %322 ]
-  %.1425 = phi i32 [ %.0424532, %84 ], [ %.0424532, %.thread496 ], [ %.0424532, %.thread579 ], [ %.0424532, %116 ], [ %.0424532, %..loopexit_crit_edge ], [ %318, %348 ], [ %318, %360 ], [ %318, %322 ]
-  %.1420 = phi i1 [ %.0419533, %84 ], [ %.0419533, %.thread496 ], [ %.0419533, %.thread579 ], [ %.0419533, %116 ], [ %.0419533, %..loopexit_crit_edge ], [ true, %348 ], [ %.4423, %360 ], [ %.0419533, %322 ]
-  %.1 = phi i32 [ %82, %84 ], [ %.9, %.thread496 ], [ %404, %.thread579 ], [ %90, %116 ], [ %284, %..loopexit_crit_edge ], [ %339, %348 ], [ %339, %360 ], [ %.pre, %322 ]
+  %.1435 = phi ptr [ %.0434529, %116 ], [ %.0434529, %.thread579 ], [ %.0434529, %.thread496 ], [ %.0434529, %84 ], [ %.0434529, %..loopexit_crit_edge ], [ %353, %348 ], [ null, %360 ], [ %.0434529, %322 ]
+  %.1431 = phi i32 [ %.0430530, %116 ], [ %.0430530, %.thread579 ], [ %.0430530, %.thread496 ], [ %.0430530, %84 ], [ %.0430530, %..loopexit_crit_edge ], [ %338, %348 ], [ %338, %360 ], [ %.0430530, %322 ]
+  %.1427 = phi i32 [ %.0426531, %116 ], [ %.0426531, %.thread579 ], [ %.0426531, %.thread496 ], [ %.0426531, %84 ], [ %.0426531, %..loopexit_crit_edge ], [ %327, %348 ], [ %327, %360 ], [ %.0426531, %322 ]
+  %.1425 = phi i32 [ %.0424532, %116 ], [ %.0424532, %.thread579 ], [ %.0424532, %.thread496 ], [ %.0424532, %84 ], [ %.0424532, %..loopexit_crit_edge ], [ %318, %348 ], [ %318, %360 ], [ %318, %322 ]
+  %.1420 = phi i1 [ %.0419533, %116 ], [ %.0419533, %.thread579 ], [ %.0419533, %.thread496 ], [ %.0419533, %84 ], [ %.0419533, %..loopexit_crit_edge ], [ true, %348 ], [ %.4423, %360 ], [ %.0419533, %322 ]
+  %.1 = phi i32 [ %90, %116 ], [ %404, %.thread579 ], [ %.9, %.thread496 ], [ %82, %84 ], [ %284, %..loopexit_crit_edge ], [ %339, %348 ], [ %339, %360 ], [ %.pre, %322 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %.loopexit512, label %25
@@ -3312,7 +3312,7 @@ proto_item_set_generated.exit285:                 ; preds = %346, %343, %proto_i
   br label %proto_item_set_generated.exit264
 
 proto_item_set_generated.exit264:                 ; preds = %proto_item_set_generated.exit285, %.thread292, %205, %208, %211
-  %.0217 = phi ptr [ %.1295, %211 ], [ %.1295, %208 ], [ %.1295, %205 ], [ %.1295, %.thread292 ], [ %251, %proto_item_set_generated.exit285 ]
+  %.0217 = phi ptr [ %251, %proto_item_set_generated.exit285 ], [ %.1295, %205 ], [ %.1295, %208 ], [ %.1295, %.thread292 ], [ %.1295, %211 ]
   %351 = getelementptr inbounds nuw i8, ptr %.0217, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %351, i64 16, i1 false)
   br label %proto_item_set_generated.exit264.thread

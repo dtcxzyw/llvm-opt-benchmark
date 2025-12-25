@@ -5479,8 +5479,8 @@ start_ebml_master_crc32.exit.thread287:           ; preds = %85, %.loopexit294, 
   br label %539
 
 start_ebml_master_crc32.exit:                     ; preds = %344, %341, %349, %347, %312
-  %.0173 = phi i32 [ 0, %341 ], [ 0, %349 ], [ -22, %312 ], [ 0, %347 ], [ 0, %344 ]
-  %.0169 = phi i64 [ %.1170, %341 ], [ %350, %349 ], [ %36, %312 ], [ %.1170, %347 ], [ %.1170, %344 ]
+  %.0173 = phi i32 [ 0, %344 ], [ 0, %347 ], [ -22, %312 ], [ 0, %349 ], [ 0, %341 ]
+  %.0169 = phi i64 [ %.1170, %344 ], [ %.1170, %347 ], [ %36, %312 ], [ %350, %349 ], [ %.1170, %341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %351
 
@@ -7263,7 +7263,7 @@ ebml_writer_block_len.exit:                       ; preds = %38, %49
   br label %ebml_writer_master_len.exit
 
 ebml_writer_master_len.exit:                      ; preds = %._crit_edge, %ebml_writer_block_len.exit
-  %.0 = phi i32 [ %94, %._crit_edge ], [ %.0.i, %ebml_writer_block_len.exit ]
+  %.0 = phi i32 [ %.0.i, %ebml_writer_block_len.exit ], [ %94, %._crit_edge ]
   %96 = icmp slt i32 %.0, 0
   br i1 %96, label %ebml_writer_master_len.exit.thread8, label %ebml_writer_master_len.exit.thread
 
@@ -8084,7 +8084,7 @@ put_xiph_codecpriv.exit.i:                        ; preds = %.preheader.i.i, %24
   br label %mkv_assemble_native_codecprivate.exit.thread
 
 mkv_assemble_native_codecprivate.exit:            ; preds = %put_xiph_codecpriv.exit.i, %38, %49, %73, %75, %77
-  %.058.i = phi i32 [ %.mux.i.i, %49 ], [ %.017.i.i, %put_xiph_codecpriv.exit.i ], [ %39, %38 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ]
+  %.058.i = phi i32 [ %76, %75 ], [ %.017.i.i, %put_xiph_codecpriv.exit.i ], [ %39, %38 ], [ %78, %77 ], [ %.mux.i.i, %49 ], [ %74, %73 ]
   %103 = icmp slt i32 %.058.i, 0
   br i1 %103, label %mkv_assemble_native_codecprivate.exit.thread84, label %mkv_assemble_native_codecprivate.exit.thread
 
@@ -8228,8 +8228,8 @@ mkv_assemble_native_codecprivate.exit.thread:     ; preds = %85, %82, %37, %86, 
   store i32 %167, ptr %9, align 4, !tbaa !141
   br label %mkv_assemble_native_codecprivate.exit.thread84
 
-mkv_assemble_native_codecprivate.exit.thread84:   ; preds = %81, %.thread.i, %.thread88, %mkv_assemble_native_codecprivate.exit.thread, %mkv_assemble_native_codecprivate.exit, %159, %166, %145
-  %.0 = phi i32 [ %160, %159 ], [ %.058.i, %mkv_assemble_native_codecprivate.exit ], [ 0, %166 ], [ -22, %145 ], [ %164, %mkv_assemble_native_codecprivate.exit.thread ], [ -22, %.thread88 ], [ -1094995529, %.thread.i ], [ -1094995529, %81 ]
+mkv_assemble_native_codecprivate.exit.thread84:   ; preds = %.thread.i, %81, %.thread88, %mkv_assemble_native_codecprivate.exit.thread, %mkv_assemble_native_codecprivate.exit, %159, %166, %145
+  %.0 = phi i32 [ %160, %159 ], [ %.058.i, %mkv_assemble_native_codecprivate.exit ], [ 0, %166 ], [ -22, %145 ], [ %164, %mkv_assemble_native_codecprivate.exit.thread ], [ -22, %.thread88 ], [ -1094995529, %81 ], [ -1094995529, %.thread.i ]
   ret i32 %.0
 }
 

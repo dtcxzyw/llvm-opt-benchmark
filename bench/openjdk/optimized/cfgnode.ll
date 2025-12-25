@@ -7163,8 +7163,8 @@ _ZNK7PhiNode14is_diamond_phiEv.exit.thread:       ; preds = %131, %154, %96, %10
   %257 = icmp ult ptr %256, %193
   br i1 %257, label %.lr.ph77.split, label %_ZNK7PhiNode40must_wait_for_region_in_irreducible_loopEP8PhaseGVN.exit, !llvm.loop !43
 
-_ZNK7PhiNode40must_wait_for_region_in_irreducible_loopEP8PhaseGVN.exit: ; preds = %35, %.thread, %252, %.thread.us, %221, %184, %149, %145, %_ZNK7PhiNode14is_diamond_phiEv.exit.thread, %164, %169, %175, %_ZN7PhiNode11is_cmove_idEP14PhaseTransformi.exit, %_ZN7PhiNode12unique_inputEP11PhaseValuesb.exit
-  %.035 = phi ptr [ %.0.i47, %_ZN7PhiNode12unique_inputEP11PhaseValuesb.exit ], [ %0, %_ZNK7PhiNode14is_diamond_phiEv.exit.thread ], [ %143, %149 ], [ %160, %_ZN7PhiNode11is_cmove_idEP14PhaseTransformi.exit ], [ %0, %184 ], [ %0, %175 ], [ %0, %169 ], [ %0, %164 ], [ %0, %.thread.us ], [ %143, %145 ], [ %195, %221 ], [ %230, %252 ], [ %0, %.thread ], [ %0, %35 ]
+_ZNK7PhiNode40must_wait_for_region_in_irreducible_loopEP8PhaseGVN.exit: ; preds = %35, %.thread, %252, %.thread.us, %221, %184, %145, %149, %_ZNK7PhiNode14is_diamond_phiEv.exit.thread, %164, %169, %175, %_ZN7PhiNode11is_cmove_idEP14PhaseTransformi.exit, %_ZN7PhiNode12unique_inputEP11PhaseValuesb.exit
+  %.035 = phi ptr [ %.0.i47, %_ZN7PhiNode12unique_inputEP11PhaseValuesb.exit ], [ %0, %_ZNK7PhiNode14is_diamond_phiEv.exit.thread ], [ %143, %145 ], [ %160, %_ZN7PhiNode11is_cmove_idEP14PhaseTransformi.exit ], [ %0, %184 ], [ %0, %175 ], [ %0, %169 ], [ %0, %164 ], [ %0, %.thread.us ], [ %143, %149 ], [ %195, %221 ], [ %230, %252 ], [ %0, %.thread ], [ %0, %35 ]
   ret ptr %.035
 }
 
@@ -11546,7 +11546,7 @@ _ZN4Node17may_be_loop_entryEPS_.exit.thread:      ; preds = %88, %93, %86, %_ZN4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %29, %_ZN4Node17may_be_loop_entryEPS_.exit, %76, %73, %105, %._crit_edge, %23, %8, %18, %2, %._crit_edge108
-  %.0 = phi ptr [ null, %23 ], [ null, %2 ], [ null, %8 ], [ null, %_ZN4Node17may_be_loop_entryEPS_.exit ], [ %1, %._crit_edge108 ], [ null, %105 ], [ null, %18 ], [ null, %._crit_edge ], [ null, %73 ], [ null, %76 ], [ null, %29 ], [ null, %33 ]
+  %.0 = phi ptr [ null, %23 ], [ null, %2 ], [ null, %8 ], [ null, %105 ], [ null, %_ZN4Node17may_be_loop_entryEPS_.exit ], [ %1, %._crit_edge108 ], [ null, %18 ], [ null, %._crit_edge ], [ null, %73 ], [ null, %76 ], [ null, %29 ], [ null, %33 ]
   ret ptr %.0
 }
 

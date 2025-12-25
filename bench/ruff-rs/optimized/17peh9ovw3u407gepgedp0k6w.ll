@@ -4135,7 +4135,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
   br label %397
 
 "_ZN4core3num21_$LT$impl$u20$i64$GT$16from_ascii_radix17h83f233cf3954beeaE.exit": ; preds = %.preheader83.i, %126, %.preheader79.i, %154, %.preheader.i, %.preheader81.i
-  %.sroa.1659.0 = phi i64 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %159, %154 ], [ %131, %126 ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1659.0 = phi i64 [ %159, %154 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %131, %126 ], [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %.sroa.023.3.i, %.preheader83.i ]
   store i64 %.sroa.1659.0, ptr %53, align 8
   %208 = load i64, ptr %1, align 8, !range !13, !alias.scope !376, !noundef !11
   switch i64 %208, label %default.unreachable [

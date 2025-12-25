@@ -2797,7 +2797,7 @@ _ZN5serde2de9MapAccess10next_entry17h57837d98e60c6185E.exit.i: ; preds = %.noexc
   call void @"_ZN4core3ptr113drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$yara_x..types..structure..StructField$GT$$GT$17h59911d343ef6209aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12), !noalias !115
   br label %"_ZN88_$LT$indexmap..serde..IndexMapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h730c96e3a0425a1eE.exit"
 
-_ZN5serde2de9MapAccess10next_entry17h57837d98e60c6185E.exit.thread97.i.thread: ; preds = %57, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$yara_x..types..structure..StructField$GT$$GT$17h9408b1cfdcf6632aE.exit.i", %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17he631e7c666463569E.exit.i.thread"
+_ZN5serde2de9MapAccess10next_entry17h57837d98e60c6185E.exit.thread97.i.thread: ; preds = %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$yara_x..types..structure..StructField$GT$$GT$17h9408b1cfdcf6632aE.exit.i", %57, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$24with_capacity_and_hasher17he631e7c666463569E.exit.i.thread"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16.sroa.8.sroa.7.i)
   br label %.loopexit
 
@@ -3650,7 +3650,7 @@ common.resume.i:                                  ; preds = %.body.i, %43
   br label %.loopexit114.i
 
 .thread93.i:                                      ; preds = %58, %53
-  %.sroa.2.2.ph.i = phi i64 [ 0, %53 ], [ %55, %58 ]
+  %.sroa.2.2.ph.i = phi i64 [ %55, %58 ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14.i.i.sroa.6.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14.i.i.sroa.6.sroa.7.i)
   br label %70
@@ -5773,8 +5773,8 @@ define hidden void @"_ZN105_$LT$bincode..features..serde..de_borrowed..SerdeDeco
           to label %32 unwind label %50, !noalias !583
 
 _ZN5serde2de9SeqAccess12next_element17hf2d0bdbeac15a513E.exit.i: ; preds = %36, %.lr.ph.i
-  %.sroa.06.0.i = phi i8 [ 7, %36 ], [ 0, %.lr.ph.i ]
-  %.sroa.9.0.i = phi i8 [ %37, %36 ], [ undef, %.lr.ph.i ]
+  %.sroa.06.0.i = phi i8 [ 0, %.lr.ph.i ], [ 7, %36 ]
+  %.sroa.9.0.i = phi i8 [ undef, %.lr.ph.i ], [ %37, %36 ]
   store i8 %.sroa.06.0.i, ptr %0, align 8, !alias.scope !580, !noalias !616
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.9.0.i, ptr %.sroa.29.0..sroa_idx.i, align 1, !alias.scope !580, !noalias !616
@@ -33039,7 +33039,7 @@ define noundef zeroext i1 @"_ZN80_$LT$yara_x..modules..protos..elf..ELF$u20$as$u
   br i1 %.not5.i38.not, label %"_ZN84_$LT$yara_x..modules..protos..elf..Section$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he1c4ee58cad518a4E.exit.thread", label %82
 
 "_ZN84_$LT$yara_x..modules..protos..elf..Section$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he1c4ee58cad518a4E.exit.thread": ; preds = %14, %12, %9, %17, %"_ZN84_$LT$yara_x..modules..protos..elf..Section$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he1c4ee58cad518a4E.exit", %44, %41, %38, %36, %33, %30, %47, %"_ZN84_$LT$yara_x..modules..protos..elf..Segment$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he33672deff6e5964E.exit", %68, %65, %62, %60, %71, %"_ZN80_$LT$yara_x..modules..protos..elf..Sym$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hfb652d1cd6116150E.exit", %92, %89, %86, %84, %95, %"_ZN80_$LT$yara_x..modules..protos..elf..Sym$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hfb652d1cd6116150E.exit40", %82
-  %.sroa.0.0 = phi i1 [ %83, %92 ], [ false, %44 ], [ false, %68 ], [ %83, %82 ], [ %83, %"_ZN80_$LT$yara_x..modules..protos..elf..Sym$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hfb652d1cd6116150E.exit40" ], [ %83, %95 ], [ %83, %84 ], [ %83, %86 ], [ %83, %89 ], [ false, %"_ZN80_$LT$yara_x..modules..protos..elf..Sym$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hfb652d1cd6116150E.exit" ], [ false, %71 ], [ false, %60 ], [ false, %62 ], [ false, %65 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..elf..Segment$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he33672deff6e5964E.exit" ], [ false, %47 ], [ false, %30 ], [ false, %33 ], [ false, %36 ], [ false, %38 ], [ false, %41 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..elf..Section$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he1c4ee58cad518a4E.exit" ], [ false, %17 ], [ false, %9 ], [ false, %12 ], [ false, %14 ]
+  %.sroa.0.0 = phi i1 [ %83, %92 ], [ false, %68 ], [ false, %44 ], [ %83, %82 ], [ %83, %"_ZN80_$LT$yara_x..modules..protos..elf..Sym$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hfb652d1cd6116150E.exit40" ], [ %83, %95 ], [ %83, %84 ], [ %83, %86 ], [ %83, %89 ], [ false, %"_ZN80_$LT$yara_x..modules..protos..elf..Sym$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hfb652d1cd6116150E.exit" ], [ false, %71 ], [ false, %60 ], [ false, %62 ], [ false, %65 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..elf..Segment$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he33672deff6e5964E.exit" ], [ false, %47 ], [ false, %30 ], [ false, %33 ], [ false, %36 ], [ false, %38 ], [ false, %41 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..elf..Section$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he1c4ee58cad518a4E.exit" ], [ false, %17 ], [ false, %9 ], [ false, %12 ], [ false, %14 ]
   ret i1 %.sroa.0.0
 }
 

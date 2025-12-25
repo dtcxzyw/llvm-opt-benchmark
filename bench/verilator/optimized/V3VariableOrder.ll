@@ -8939,7 +8939,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP6AstVarSt6vectorIS3_SaIS3_E
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !320
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPP6AstVarSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge101, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP6AstVarSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP6AstVarSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %5, %3
-  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP6AstVarSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP6AstVarSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
+  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP6AstVarSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP6AstVarSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.024.0
 }
 

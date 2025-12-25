@@ -3331,7 +3331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit421: ; preds = %_Z
   br label %.loopexit.split-lp1331
 
 .loopexit.split-lp1331.loopexit:                  ; preds = %2108, %1936, %1934, %._crit_edge1798, %726, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407
-  %.sroa.9.9.ph.ph = phi ptr [ %.sroa.9.15, %2108 ], [ %.sroa.9.8, %1936 ], [ %.sroa.9.8, %1934 ], [ %.sroa.9.8, %._crit_edge1798 ], [ %.sroa.9.8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407 ], [ %.sroa.9.8, %726 ]
+  %.sroa.9.9.ph.ph = phi ptr [ %.sroa.9.15, %2108 ], [ %.sroa.9.8, %1936 ], [ %.sroa.9.8, %1934 ], [ %.sroa.9.8, %._crit_edge1798 ], [ %.sroa.9.8, %726 ], [ %.sroa.9.8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407 ]
   %lpad.loopexit1355 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp1331
@@ -13775,7 +13775,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   br label %64
 
 64:                                               ; preds = %.sink.split, %13, %27, %36, %20, %18, %49, %46, %44
-  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %13 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %49 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
+  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %49 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %13 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert

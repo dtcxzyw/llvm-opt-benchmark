@@ -1296,7 +1296,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_create_filters(ptr 
   br label %.loopexit
 
 61:                                               ; preds = %.thread, %32, %.lr.ph
-  %.353 = phi i64 [ %.15196, %32 ], [ %60, %.thread ], [ %.15196, %.lr.ph ]
+  %.353 = phi i64 [ %.15196, %.lr.ph ], [ %60, %.thread ], [ %.15196, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = add nuw i64 %.05895, 1
   %63 = load i64, ptr %23, align 8, !tbaa !47

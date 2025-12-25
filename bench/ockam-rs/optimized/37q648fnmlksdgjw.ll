@@ -35374,8 +35374,8 @@ define hidden void @"_ZN126_$LT$ockam_identity..identities..storage..attributes_
   br label %.thread390
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc360, %217, %197, %3
-  %51 = phi i64 [ 1, %217 ], [ 1, %.noexc360 ], [ 0, %3 ], [ %.ph, %197 ]
-  %.0322.ph.ph = phi i1 [ false, %217 ], [ false, %.noexc360 ], [ true, %3 ], [ true, %197 ]
+  %51 = phi i64 [ 1, %.noexc360 ], [ 1, %217 ], [ 0, %3 ], [ %.ph, %197 ]
+  %.0322.ph.ph = phi i1 [ false, %.noexc360 ], [ false, %217 ], [ true, %3 ], [ true, %197 ]
   %lpad.loopexit.split-lp471 = landingpad { ptr, i32 }
           cleanup
   br label %.thread390
@@ -130241,10 +130241,10 @@ define hidden void @"_ZN111_$LT$ockam_api..cloud..share..invitation..ReceivedInv
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %523, %487, %395, %3
-  %.0479.ph.ph = phi i8 [ 1, %3 ], [ 1, %523 ], [ %.20499, %487 ], [ 1, %395 ]
-  %.0457.ph.ph = phi i8 [ 1, %3 ], [ 1, %523 ], [ %.18475, %487 ], [ 1, %395 ]
-  %.0436.ph.ph = phi i8 [ 1, %3 ], [ 1, %523 ], [ %.16452, %487 ], [ 1, %395 ]
-  %.0434.ph.ph = phi i8 [ 1, %3 ], [ 1, %523 ], [ 0, %487 ], [ 1, %395 ]
+  %.0479.ph.ph = phi i8 [ 1, %395 ], [ 1, %523 ], [ 1, %3 ], [ %.20499, %487 ]
+  %.0457.ph.ph = phi i8 [ 1, %395 ], [ 1, %523 ], [ 1, %3 ], [ %.18475, %487 ]
+  %.0436.ph.ph = phi i8 [ 1, %395 ], [ 1, %523 ], [ 1, %3 ], [ %.16452, %487 ]
+  %.0434.ph.ph = phi i8 [ 1, %395 ], [ 1, %523 ], [ 1, %3 ], [ 0, %487 ]
   %lpad.loopexit.split-lp758 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -132808,10 +132808,10 @@ define hidden void @"_ZN107_$LT$ockam_api..cloud..share..invitation..SentInvitat
   br label %.thread888
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %646, %611, %495, %3
-  %.0617.ph.ph = phi i8 [ 1, %3 ], [ 1, %646 ], [ %.22639, %611 ], [ 1, %495 ]
-  %.0593.ph.ph = phi i8 [ 1, %3 ], [ 1, %646 ], [ %.20613, %611 ], [ 1, %495 ]
-  %.0570.ph.ph = phi i8 [ 1, %3 ], [ 1, %646 ], [ %.18588, %611 ], [ 1, %495 ]
-  %.0568.ph.ph = phi i8 [ 1, %3 ], [ 1, %646 ], [ 0, %611 ], [ 1, %495 ]
+  %.0617.ph.ph = phi i8 [ 1, %646 ], [ 1, %3 ], [ 1, %495 ], [ %.22639, %611 ]
+  %.0593.ph.ph = phi i8 [ 1, %646 ], [ 1, %3 ], [ 1, %495 ], [ %.20613, %611 ]
+  %.0570.ph.ph = phi i8 [ 1, %646 ], [ 1, %3 ], [ 1, %495 ], [ %.18588, %611 ]
+  %.0568.ph.ph = phi i8 [ 1, %646 ], [ 1, %3 ], [ 1, %495 ], [ 0, %611 ]
   %lpad.loopexit.split-lp965 = landingpad { ptr, i32 }
           cleanup
   br label %.thread888
@@ -135987,9 +135987,9 @@ define hidden void @"_ZN113_$LT$ockam_api..cloud..share..invitation..ServiceAcce
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %484, %462, %495, %494, %384, %375, %3
-  %.0461.ph.ph = phi i8 [ 1, %384 ], [ 1, %494 ], [ 1, %495 ], [ 1, %484 ], [ %.20481, %462 ], [ 1, %3 ], [ 1, %375 ]
-  %.0439.ph.ph = phi i8 [ 1, %384 ], [ 1, %494 ], [ 1, %495 ], [ 1, %484 ], [ %.18457, %462 ], [ 1, %3 ], [ 1, %375 ]
-  %.0437.ph.ph = phi i8 [ 1, %384 ], [ 1, %494 ], [ 1, %495 ], [ 1, %484 ], [ 0, %462 ], [ 1, %3 ], [ 1, %375 ]
+  %.0461.ph.ph = phi i8 [ 1, %494 ], [ 1, %384 ], [ %.20481, %462 ], [ 1, %484 ], [ 1, %495 ], [ 1, %3 ], [ 1, %375 ]
+  %.0439.ph.ph = phi i8 [ 1, %494 ], [ 1, %384 ], [ %.18457, %462 ], [ 1, %484 ], [ 1, %495 ], [ 1, %3 ], [ 1, %375 ]
+  %.0437.ph.ph = phi i8 [ 1, %494 ], [ 1, %384 ], [ 0, %462 ], [ 1, %484 ], [ 1, %495 ], [ 1, %3 ], [ 1, %375 ]
   %lpad.loopexit.split-lp708 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

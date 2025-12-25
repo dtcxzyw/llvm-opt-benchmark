@@ -105407,7 +105407,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
   br label %.body74.i.i.i
 
 .loopexit.split-lp.i.i.i:                         ; preds = %"_ZN4core3ptr554drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..iterator..PolarsIterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$polars_core..series..Series$GT$$GT$$C$$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..ListType$GT$$u20$as$u20$polars_ops..chunked_array..list..namespace..ListNameSpaceImpl$GT$..lst_gather..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17hcd2082fc8e86006dE.exit76.i.i.i", %101, %._crit_edge.i.i.i
-  %.sroa.06.4.ph.i.i.i = phi i1 [ true, %._crit_edge.i.i.i ], [ false, %"_ZN4core3ptr554drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..iterator..PolarsIterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$polars_core..series..Series$GT$$GT$$C$$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..ListType$GT$$u20$as$u20$polars_ops..chunked_array..list..namespace..ListNameSpaceImpl$GT$..lst_gather..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17hcd2082fc8e86006dE.exit76.i.i.i" ], [ true, %101 ]
+  %.sroa.06.4.ph.i.i.i = phi i1 [ true, %101 ], [ false, %"_ZN4core3ptr554drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..iterator..PolarsIterator$u2b$Item$u20$$u3d$$u20$core..option..Option$LT$polars_core..series..Series$GT$$GT$$C$$LT$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..ListType$GT$$u20$as$u20$polars_ops..chunked_array..list..namespace..ListNameSpaceImpl$GT$..lst_gather..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$polars_error..PolarsError$GT$$GT$$GT$17hcd2082fc8e86006dE.exit76.i.i.i" ], [ true, %._crit_edge.i.i.i ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body74.i.i.i
@@ -139910,7 +139910,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha01bab6b628c57b2E.exit.thread2.i.i.i.i.
   br label %.body.thread.i.i.i.i
 
 .body24.i.i.i.i:                                  ; preds = %.loopexit15.i.i.i.i, %272, %269
-  %eh.lpad-body25.i.i.i.i = phi { ptr, i32 } [ %270, %269 ], [ %270, %272 ], [ %lpad.loopexit17.i.i.i.i, %.loopexit15.i.i.i.i ]
+  %eh.lpad-body25.i.i.i.i = phi { ptr, i32 } [ %270, %272 ], [ %270, %269 ], [ %lpad.loopexit17.i.i.i.i, %.loopexit15.i.i.i.i ]
   %282 = load i64, ptr %14, align 8, !range !792, !noalias !23669, !noundef !8
   %283 = icmp samesign ugt i64 %282, 16
   br i1 %283, label %.body.thread.i.i.i.i, label %301
@@ -141127,7 +141127,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha01bab6b628c57b2E.exit.thread2.i.i.i.i.
   br label %.body.thread.i.i.i.i
 
 .body24.i.i.i.i:                                  ; preds = %.loopexit15.i.i.i.i, %272, %269
-  %eh.lpad-body25.i.i.i.i = phi { ptr, i32 } [ %270, %269 ], [ %270, %272 ], [ %lpad.loopexit17.i.i.i.i, %.loopexit15.i.i.i.i ]
+  %eh.lpad-body25.i.i.i.i = phi { ptr, i32 } [ %270, %272 ], [ %270, %269 ], [ %lpad.loopexit17.i.i.i.i, %.loopexit15.i.i.i.i ]
   %282 = load i64, ptr %14, align 8, !range !792, !noalias !23853, !noundef !8
   %283 = icmp samesign ugt i64 %282, 16
   br i1 %283, label %.body.thread.i.i.i.i, label %301
@@ -142333,7 +142333,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha01bab6b628c57b2E.exit.thread2.i.i.i.i.
   br label %.body.thread.i.i.i.i
 
 .body24.i.i.i10.i:                                ; preds = %.loopexit15.i.i.i.i, %266, %263
-  %eh.lpad-body25.i.i.i.i = phi { ptr, i32 } [ %264, %263 ], [ %264, %266 ], [ %lpad.loopexit17.i.i.i.i, %.loopexit15.i.i.i.i ]
+  %eh.lpad-body25.i.i.i.i = phi { ptr, i32 } [ %264, %266 ], [ %264, %263 ], [ %lpad.loopexit17.i.i.i.i, %.loopexit15.i.i.i.i ]
   %276 = load i64, ptr %14, align 8, !range !1241, !noalias !24027, !noundef !8
   %.not47.i.i.i.i = icmp eq i64 %276, -9223372036854775807
   br i1 %.not47.i.i.i.i, label %.body.thread.i.i.i.i, label %294
@@ -166433,7 +166433,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha01bab6b628c57b2E.exit.thread2.i.i.i.i.
   br label %.body.thread.i.i.i.i.i
 
 .body24.i.i.i.i.i:                                ; preds = %.loopexit15.i.i.i.i.i, %244, %241
-  %eh.lpad-body25.i.i.i.i.i = phi { ptr, i32 } [ %242, %241 ], [ %242, %244 ], [ %lpad.loopexit17.i.i.i.i.i, %.loopexit15.i.i.i.i.i ]
+  %eh.lpad-body25.i.i.i.i.i = phi { ptr, i32 } [ %242, %244 ], [ %242, %241 ], [ %lpad.loopexit17.i.i.i.i.i, %.loopexit15.i.i.i.i.i ]
   %254 = load i64, ptr %12, align 8, !range !792, !noalias !26374, !noundef !8
   %.not47.i.i.i.i.i = icmp eq i64 %254, 18
   br i1 %.not47.i.i.i.i.i, label %.body.thread.i.i.i.i.i, label %272

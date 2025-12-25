@@ -12265,7 +12265,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i: ; pre
   br i1 %.not44.i, label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.thread.i, label %.backedge1767
 
 .backedge1767:                                    ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i, %710
-  %.027.i.be = phi ptr [ %711, %710 ], [ %.138.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i ]
+  %.027.i.be = phi ptr [ %.138.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i ], [ %711, %710 ]
   br label %640
 
 _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.thread.i: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i55.i
@@ -14685,7 +14685,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i567: ; 
   br i1 %.not44.i568, label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.thread.i566, label %.backedge
 
 .backedge:                                        ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i567, %1964
-  %.027.i526.be = phi ptr [ %1965, %1964 ], [ %.138.i547, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i567 ]
+  %.027.i526.be = phi ptr [ %.138.i547, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i567 ], [ %1965, %1964 ]
   br label %1894
 
 _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.thread.i566: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i567, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i55.i564
@@ -14972,7 +14972,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i616: ; 
   br i1 %.not44.i617, label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.thread.i615, label %.backedge1759
 
 .backedge1759:                                    ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i616, %2081
-  %.027.i575.be = phi ptr [ %2082, %2081 ], [ %.138.i596, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i616 ]
+  %.027.i575.be = phi ptr [ %.138.i596, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i616 ], [ %2082, %2081 ]
   br label %2011
 
 _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.thread.i615: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i616, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i55.i613
@@ -15647,7 +15647,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i707: ; 
   br i1 %.not44.i708, label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.thread.i706, label %.preheader1211.backedge
 
 .preheader1211.backedge:                          ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i707, %2382
-  %.027.i666.be = phi ptr [ %.138.i687, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i707 ], [ %2383, %2382 ]
+  %.027.i666.be = phi ptr [ %2383, %2382 ], [ %.138.i687, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i707 ]
   br label %.preheader1211
 
 _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.thread.i706: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i707, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i55.i704
@@ -16011,7 +16011,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.thread.i
   br label %"_ZZN4llvm16MemorySSAUpdater18applyInsertUpdatesENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEERNS_13DominatorTreeEPKNS_9GraphDiffIS5_Lb0EEEENK3$_0clES5_.exit778"
 
 2564:                                             ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i775, %2545
-  %.128.i770 = phi ptr [ %2546, %2545 ], [ %.138.i755, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i775 ]
+  %.128.i770 = phi ptr [ %.138.i755, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57.i775 ], [ %2546, %2545 ]
   %.pre1325 = load ptr, ptr %0, align 8, !tbaa !24
   br label %2475
 
@@ -17291,7 +17291,7 @@ _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thre
   br i1 %.not47, label %84, label %.backedge
 
 .backedge:                                        ; preds = %82, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57
-  %.027.be = phi ptr [ %83, %82 ], [ %.138, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57 ]
+  %.027.be = phi ptr [ %.138, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getNodeEPKS1_.exit57 ], [ %83, %82 ]
   br label %9
 
 84:                                               ; preds = %82, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i50.thread

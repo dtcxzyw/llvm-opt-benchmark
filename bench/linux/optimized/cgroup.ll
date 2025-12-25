@@ -13457,7 +13457,7 @@ define internal fastcc i32 @cgroup_addrm_files(ptr noundef %0, ptr noundef %1, p
   br i1 %225, label %.loopexit, label %.split, !llvm.loop !317
 
 .loopexit:                                        ; preds = %.split14.us, %135, %.split.us, %.split, %223, %4
-  %226 = phi i32 [ 0, %4 ], [ %15, %.split ], [ %17, %.split.us ], [ %15, %223 ], [ %136, %135 ], [ %133, %.split14.us ]
+  %226 = phi i32 [ 0, %4 ], [ %15, %.split ], [ %136, %135 ], [ %15, %223 ], [ %17, %.split.us ], [ %133, %.split14.us ]
   ret i32 %226
 }
 

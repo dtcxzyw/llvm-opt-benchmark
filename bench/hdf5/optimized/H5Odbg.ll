@@ -934,7 +934,7 @@ define range(i32 -1, 1) i32 @H5O_debug(ptr noundef %0, i64 noundef %1, ptr nound
   br label %38
 
 38:                                               ; preds = %34, %31
-  %.0 = phi i32 [ 0, %31 ], [ -1, %34 ]
+  %.0 = phi i32 [ -1, %34 ], [ 0, %31 ]
   %39 = call i32 @H5O_unprotect(ptr noundef nonnull %6, ptr noundef nonnull %25, i32 noundef 0) #8
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %.thread

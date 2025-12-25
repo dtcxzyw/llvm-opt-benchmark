@@ -928,7 +928,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %dxtory_decode_v1_420.exit.thread
 
 dxtory_decode_v1_420.exit:                        ; preds = %506, %502, %498, %494, %490, %426, %184, %19, %15
-  %.0 = phi i32 [ %18, %15 ], [ %22, %19 ], [ %509, %506 ], [ %187, %184 ], [ %505, %502 ], [ %429, %426 ], [ %501, %498 ], [ %493, %490 ], [ %497, %494 ]
+  %.0 = phi i32 [ %18, %15 ], [ %22, %19 ], [ %509, %506 ], [ %187, %184 ], [ %501, %498 ], [ %429, %426 ], [ %505, %502 ], [ %493, %490 ], [ %497, %494 ]
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %dxtory_decode_v1_420.exit.thread95, label %dxtory_decode_v1_420.exit.thread
 

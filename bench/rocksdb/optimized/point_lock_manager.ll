@@ -5383,8 +5383,8 @@ _ZN7rocksdb7HashMapImNS_14TrackedTrxInfoELm128EE3GetEm.exit223: ; preds = %624
   br label %636
 
 636:                                              ; preds = %612, %_ZN7rocksdb7HashMapImNS_14TrackedTrxInfoELm128EE3GetEm.exit223
-  %.193 = phi ptr [ %634, %_ZN7rocksdb7HashMapImNS_14TrackedTrxInfoELm128EE3GetEm.exit223 ], [ null, %612 ]
-  %.190 = phi i32 [ %635, %_ZN7rocksdb7HashMapImNS_14TrackedTrxInfoELm128EE3GetEm.exit223 ], [ %.089427, %612 ]
+  %.193 = phi ptr [ null, %612 ], [ %634, %_ZN7rocksdb7HashMapImNS_14TrackedTrxInfoELm128EE3GetEm.exit223 ]
+  %.190 = phi i32 [ %.089427, %612 ], [ %635, %_ZN7rocksdb7HashMapImNS_14TrackedTrxInfoELm128EE3GetEm.exit223 ]
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %637 = load i64, ptr %41, align 8, !tbaa !310
   %.not112 = icmp sgt i64 %637, %indvars.iv.next452
@@ -7607,7 +7607,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %207, %_ZNKSt14defau
   br i1 %307, label %.noexc65, label %_ZN7rocksdb16PointLockManager9UnLockKeyEPNS_22PessimisticTransactionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13LockMapStripeEPNS_7LockMapEPNS_3EnvE.exit
 
 .noexc65:                                         ; preds = %248, %.lr.ph, %264, %271, %.lr.ph.i, %._crit_edge._crit_edge35.i, %._crit_edge._crit_edge.i, %281
-  %.sink.i.sroa.phi.sroa.speculated = phi i64 [ %.sroa.2.0.copyload.i, %._crit_edge._crit_edge35.i ], [ %.sroa.213.0.copyload.i, %._crit_edge._crit_edge.i ], [ %.sroa.14.0, %281 ], [ 0, %.lr.ph.i ], [ %265, %264 ], [ %272, %271 ], [ %257, %.lr.ph ], [ %249, %248 ]
+  %.sink.i.sroa.phi.sroa.speculated = phi i64 [ %.sroa.2.0.copyload.i, %._crit_edge._crit_edge35.i ], [ %.sroa.213.0.copyload.i, %._crit_edge._crit_edge.i ], [ %.sroa.14.0, %281 ], [ 0, %.lr.ph.i ], [ %265, %264 ], [ %272, %271 ], [ %249, %248 ], [ %257, %.lr.ph ]
   %.not42.i = icmp eq i64 %.sink.i.sroa.phi.sroa.speculated, %240
   br i1 %.not42.i, label %_ZN7rocksdb16PointLockManager9UnLockKeyEPNS_22PessimisticTransactionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13LockMapStripeEPNS_7LockMapEPNS_3EnvE.exit, label %308
 
@@ -12977,7 +12977,7 @@ define linkonce_odr void @_ZSt9__find_ifIN7rocksdb10autovectorISt4pairImNS0_14Tr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %31, %22, %14, %._crit_edge, %90, %80, %68, %56
-  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %._crit_edge ], [ %2, %90 ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
+  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %90 ], [ %2, %._crit_edge ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 16, i1 false)
   ret void
 }
@@ -13140,7 +13140,7 @@ define linkonce_odr void @_ZSt9__find_ifIN7rocksdb10autovectorISt4pairImiELm1EE1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %31, %22, %14, %._crit_edge, %90, %80, %68, %56
-  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %._crit_edge ], [ %2, %90 ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
+  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %90 ], [ %2, %._crit_edge ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 16, i1 false)
   ret void
 }
@@ -13303,7 +13303,7 @@ define linkonce_odr void @_ZSt9__find_ifIN7rocksdb10autovectorISt4pairImiELm1EE1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %31, %22, %14, %._crit_edge, %90, %80, %68, %56
-  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %._crit_edge ], [ %2, %90 ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
+  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %90 ], [ %2, %._crit_edge ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 16, i1 false)
   ret void
 }
@@ -13887,7 +13887,7 @@ define linkonce_odr void @_ZSt9__find_ifIN7rocksdb10autovectorISt4pairImiELm1EE1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %31, %22, %14, %._crit_edge, %90, %80, %68, %56
-  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %._crit_edge ], [ %2, %90 ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
+  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %90 ], [ %2, %._crit_edge ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 16, i1 false)
   ret void
 }
@@ -14144,7 +14144,7 @@ define linkonce_odr void @_ZSt9__find_ifIN7rocksdb10autovectorISt4pairImNS0_14Tr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %31, %22, %14, %._crit_edge, %90, %80, %68, %56
-  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %._crit_edge ], [ %2, %90 ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
+  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %90 ], [ %2, %._crit_edge ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 16, i1 false)
   ret void
 }
@@ -14673,7 +14673,7 @@ define linkonce_odr void @_ZSt9__find_ifIN7rocksdb10autovectorISt4pairImNS0_14Tr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %31, %22, %14, %._crit_edge, %90, %80, %68, %56
-  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %._crit_edge ], [ %2, %90 ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
+  %.sink = phi ptr [ %1, %80 ], [ %1, %68 ], [ %1, %56 ], [ %2, %90 ], [ %2, %._crit_edge ], [ %1, %14 ], [ %1, %22 ], [ %1, %31 ], [ %1, %40 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 16, i1 false)
   ret void
 }
@@ -15025,7 +15025,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %common.resume
 
 _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb8LockInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.thread: ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb8LockInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISB_Lb1EEE.exit, %.lr.ph.split.us, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb8LockInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i, %59
-  %.sroa.037.0.ph = phi ptr [ %.0.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb8LockInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i ], [ %.sroa.033.055.us, %.lr.ph.split.us ], [ %.0.us.i.i, %59 ], [ %.sroa.033.055, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb8LockInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISB_Lb1EEE.exit ]
+  %.sroa.037.0.ph = phi ptr [ %.sroa.033.055.us, %.lr.ph.split.us ], [ %.0.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb8LockInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i ], [ %.0.us.i.i, %59 ], [ %.sroa.033.055, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb8LockInfoEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISB_Lb1EEE.exit ]
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.pr.i.i.i.i.i.i.i.i = load i64, ptr %85, align 8, !tbaa !177
   %.not1.i.i.i.i.i.i.i.i = icmp eq i64 %.pr.i.i.i.i.i.i.i.i, 0
@@ -15646,7 +15646,7 @@ define linkonce_odr void @_ZSt9__find_ifIN7rocksdb10autovectorImLm8EE13iterator_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %35, %24, %14, %._crit_edge, %104, %92, %78, %64
-  %.sink = phi ptr [ %1, %92 ], [ %1, %78 ], [ %1, %64 ], [ %2, %._crit_edge ], [ %2, %104 ], [ %1, %14 ], [ %1, %24 ], [ %1, %35 ], [ %1, %46 ]
+  %.sink = phi ptr [ %1, %92 ], [ %1, %78 ], [ %1, %64 ], [ %2, %104 ], [ %2, %._crit_edge ], [ %1, %14 ], [ %1, %24 ], [ %1, %35 ], [ %1, %46 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 16, i1 false)
   ret void
 }

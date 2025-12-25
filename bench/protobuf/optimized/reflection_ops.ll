@@ -1364,7 +1364,7 @@ if.end98:                                         ; preds = %if.end11, %if.then8
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.then70, %_ZN6google8protobuf11MapIteratorD2Ev.exit76, %for.body59, %if.then89, %if.end98
-  %retval.0 = phi i1 [ false, %if.then70 ], [ true, %if.end98 ], [ false, %for.body59 ], [ false, %if.then89 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit76 ], [ false, %land.lhs.true ]
+  %retval.0 = phi i1 [ true, %if.end98 ], [ false, %if.then70 ], [ false, %for.body59 ], [ false, %if.then89 ], [ false, %_ZN6google8protobuf11MapIteratorD2Ev.exit76 ], [ false, %land.lhs.true ]
   ret i1 %retval.0
 }
 

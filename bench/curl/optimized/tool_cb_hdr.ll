@@ -676,9 +676,9 @@ parse_filename.exit:                              ; preds = %144, %143
   br i1 %.not66.i, label %.critedge5.i, label %.lr.ph100.i, !llvm.loop !69
 
 .critedge5.i:                                     ; preds = %.critedge3.i, %.critedge7.i, %.lr.ph100.i, %262
-  %.054.lcssa114.i = phi i32 [ 0, %262 ], [ %.05491.i, %.critedge7.i ], [ %.05491.i, %.lr.ph100.i ], [ %263, %.critedge3.i ]
-  %.057.lcssa113.i = phi ptr [ %254, %262 ], [ %.05789.i, %.critedge7.i ], [ %.05789.i, %.lr.ph100.i ], [ %scevgep.i, %.critedge3.i ]
-  %.156.lcssa.i = phi i64 [ 0, %262 ], [ 0, %.critedge7.i ], [ %.15699.i, %.lr.ph100.i ], [ 0, %.critedge3.i ]
+  %.054.lcssa114.i = phi i32 [ %.05491.i, %.critedge7.i ], [ 0, %262 ], [ %.05491.i, %.lr.ph100.i ], [ %263, %.critedge3.i ]
+  %.057.lcssa113.i = phi ptr [ %.05789.i, %.critedge7.i ], [ %254, %262 ], [ %.05789.i, %.lr.ph100.i ], [ %scevgep.i, %.critedge3.i ]
+  %.156.lcssa.i = phi i64 [ 0, %.critedge7.i ], [ 0, %262 ], [ %.15699.i, %.lr.ph100.i ], [ 0, %.critedge3.i ]
   %272 = call ptr @curl_url() #13
   %.not67.i = icmp eq ptr %272, null
   br i1 %.not67.i, label %302, label %273

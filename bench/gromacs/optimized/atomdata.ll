@@ -2667,7 +2667,7 @@ _ZNKRSt8optionalIN3gmx17LJCombinationRuleEE5valueEv.exit219.i: ; preds = %319
   br label %415
 
 342:                                              ; preds = %331, %326
-  %343 = phi i64 [ 0, %326 ], [ 1, %331 ]
+  %343 = phi i64 [ 1, %331 ], [ 0, %326 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %344 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %344, ptr %14, align 8, !tbaa !114

@@ -12088,7 +12088,7 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit.thread:  ; preds = %_ZNK5clang4Decl21ge
   tail call void @_ZN5clang7CodeGen15CodeGenFunction26registerGlobalDtorWithLLVMERKNS_7VarDeclEN4llvm14FunctionCalleeEPNS5_8ConstantE(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull align 8 dereferenceable(100) %2, ptr %3, ptr %4, ptr noundef %5) #22
   br label %104
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread28: ; preds = %55, %72, %_ZNK5clang7VarDecl13isStaticLocalEv.exit, %41
+_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread28: ; preds = %72, %55, %_ZNK5clang7VarDecl13isStaticLocalEv.exit, %41
   %85 = load ptr, ptr %10, align 8, !tbaa !743
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 184
   %87 = load ptr, ptr %86, align 8, !tbaa !705
@@ -17088,7 +17088,7 @@ select.unfold:                                    ; preds = %_ZNK5clang13CXXReco
   br i1 %.not23, label %_ZNK12_GLOBAL__N_113ItaniumCXXABI14isVTableHiddenEPKN5clang13CXXRecordDeclE.exit.thread, label %.lr.ph
 
 _ZNK12_GLOBAL__N_113ItaniumCXXABI14isVTableHiddenEPKN5clang13CXXRecordDeclE.exit.thread: ; preds = %27, %41, %_ZNK5clang15VTableComponent13getGlobalDeclEv.exit.i, %122, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread, %select.unfold, %134, %_ZNK12_GLOBAL__N_113ItaniumCXXABI33hasAnyUnusedVirtualInlineFunctionEPKN5clang13CXXRecordDeclE.exit, %_ZNK12_GLOBAL__N_113ItaniumCXXABI14isVTableHiddenEPKN5clang13CXXRecordDeclE.exit, %2
-  %.0 = phi i1 [ true, %select.unfold ], [ false, %2 ], [ true, %_ZNK12_GLOBAL__N_113ItaniumCXXABI33hasAnyUnusedVirtualInlineFunctionEPKN5clang13CXXRecordDeclE.exit ], [ true, %_ZNK12_GLOBAL__N_113ItaniumCXXABI14isVTableHiddenEPKN5clang13CXXRecordDeclE.exit ], [ false, %_ZNK5clang15VTableComponent13getGlobalDeclEv.exit.i ], [ true, %134 ], [ false, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread ], [ false, %122 ], [ false, %41 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %_ZNK5clang15VTableComponent13getGlobalDeclEv.exit.i ], [ false, %2 ], [ true, %_ZNK12_GLOBAL__N_113ItaniumCXXABI33hasAnyUnusedVirtualInlineFunctionEPKN5clang13CXXRecordDeclE.exit ], [ true, %_ZNK12_GLOBAL__N_113ItaniumCXXABI14isVTableHiddenEPKN5clang13CXXRecordDeclE.exit ], [ true, %134 ], [ true, %select.unfold ], [ false, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread ], [ false, %122 ], [ false, %41 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -18826,7 +18826,7 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread: ; preds = %_ZNK5clang13
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_13DLLImportAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1735
 
 _ZN5clangneENS_22specific_attr_iteratorINS_13DLLImportAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %53, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %48, %53 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %48, %53 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %55 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %48
   br label %_ZNK5clang4Decl7hasAttrINS_13DLLImportAttrEEEbv.exit
 
@@ -20944,7 +20944,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_13DLLI
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_13DLLImportAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1735
 
 _ZN5clangneENS_22specific_attr_iteratorINS_13DLLImportAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_13DLLImportAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 

@@ -3271,8 +3271,8 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef captures(address_i
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.83) #14
   br label %.loopexit
 
-141:                                              ; preds = %.thread179, %135, %139
-  %142 = phi i64 [ %132, %.thread179 ], [ %132, %135 ], [ %.pre284, %139 ]
+141:                                              ; preds = %139, %135, %.thread179
+  %142 = phi i64 [ %.pre284, %139 ], [ %132, %135 ], [ %132, %.thread179 ]
   %143 = add nuw i64 %.0111253, 1
   %144 = icmp ult i64 %143, %142
   br i1 %144, label %57, label %.loopexit

@@ -1814,7 +1814,7 @@ define range(i32 0, 2) i32 @H5FD__onion_archival_index_find(ptr noundef readonly
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %._crit_edge, %21, %15, %10, %44, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %21 ], [ 0, %15 ], [ 0, %44 ], [ 0, %._crit_edge ], [ 0, %10 ], [ 1, %._crit_edge.thread.sink.split ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %15 ], [ 0, %21 ], [ 0, %44 ], [ 0, %._crit_edge ], [ 0, %10 ], [ 1, %._crit_edge.thread.sink.split ]
   ret i32 %.0
 }
 

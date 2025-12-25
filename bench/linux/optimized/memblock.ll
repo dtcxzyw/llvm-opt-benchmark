@@ -1169,9 +1169,9 @@ define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 nound
   br label %.split70.us
 
 .split70.us:                                      ; preds = %111, %136, %97, %66, %.split.us.split.us.split.us.split.split.split, %52, %.split70.us.sink.split
-  %.us-phi72 = phi ptr [ %78, %.split.us.split.us.split.us.split.split.split ], [ %132, %136 ], [ %88, %97 ], [ %.sink336, %.split70.us.sink.split ], [ %61, %66 ], [ %42, %52 ], [ %106, %111 ]
-  %.us-phi74 = phi i32 [ %77, %.split.us.split.us.split.us.split.split.split ], [ %131, %136 ], [ %87, %97 ], [ %.us-phi74.ph, %.split70.us.sink.split ], [ %60, %66 ], [ %41, %52 ], [ %105, %111 ]
-  %.us-phi76 = phi i32 [ %18, %.split.us.split.us.split.us.split.split.split ], [ %18, %136 ], [ %90, %97 ], [ %147, %.split70.us.sink.split ], [ %63, %66 ], [ %44, %52 ], [ %108, %111 ]
+  %.us-phi72 = phi ptr [ %.sink336, %.split70.us.sink.split ], [ %132, %136 ], [ %78, %.split.us.split.us.split.us.split.split.split ], [ %88, %97 ], [ %61, %66 ], [ %42, %52 ], [ %106, %111 ]
+  %.us-phi74 = phi i32 [ %.us-phi74.ph, %.split70.us.sink.split ], [ %131, %136 ], [ %77, %.split.us.split.us.split.us.split.split.split ], [ %87, %97 ], [ %60, %66 ], [ %41, %52 ], [ %105, %111 ]
+  %.us-phi76 = phi i32 [ %147, %.split70.us.sink.split ], [ %18, %136 ], [ %18, %.split.us.split.us.split.us.split.split.split ], [ %90, %97 ], [ %63, %66 ], [ %44, %52 ], [ %108, %111 ]
   %148 = load i64, ptr %.us-phi72, align 8
   %149 = getelementptr inbounds nuw i8, ptr %.us-phi72, i64 8
   %150 = load i64, ptr %149, align 8

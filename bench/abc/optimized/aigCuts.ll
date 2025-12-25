@@ -1044,7 +1044,7 @@ define internal fastcc range(i32 0, 2) i32 @Aig_CutMergeOrdered(ptr noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %32, %.loopexit.sink.split, %.critedge._crit_edge, %102
-  %.096 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %32 ], [ 0, %.critedge._crit_edge ], [ 0, %102 ], [ 0, %54 ]
+  %.096 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %102 ], [ 0, %.critedge._crit_edge ], [ 0, %32 ], [ 0, %54 ]
   ret i32 %.096
 }
 

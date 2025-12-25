@@ -1752,7 +1752,7 @@ define range(i32 0, 2) i32 @tls13_common_post_process_record(ptr noundef capture
   br label %18
 
 18:                                               ; preds = %.sink.split, %13, %14
-  %.0 = phi i32 [ 1, %14 ], [ 1, %13 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %13 ], [ 1, %14 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2025,7 +2025,7 @@ define range(i32 0, 2) i32 @tls_set_options(ptr noundef %0, ptr noundef %1) #0 {
   br label %40
 
 40:                                               ; preds = %.sink.split, %31, %37, %35
-  %.0 = phi i32 [ 1, %31 ], [ 1, %37 ], [ 1, %35 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %35 ], [ 1, %37 ], [ 1, %31 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2618,7 +2618,7 @@ define range(i32 0, 2) i32 @tls_initialise_write_packets_default(ptr noundef wri
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.loopexit.sink.split, %7
-  %.0 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %7 ], [ 1, %8 ]
+  %.0 = phi i32 [ 1, %7 ], [ 0, %.loopexit.sink.split ], [ 1, %8 ]
   ret i32 %.0
 }
 

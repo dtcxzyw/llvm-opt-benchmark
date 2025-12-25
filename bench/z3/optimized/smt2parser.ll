@@ -22370,16 +22370,16 @@ _ZNK6vectorI9parameterLb1EjE4sizeEv.exit21:       ; preds = %55, %58
 
 72:                                               ; preds = %66
   switch i8 %68, label %_ZN4smt26parser9is_bv_numERK6symbol.exit.thread [
-    i8 98, label %_ZN4smt26parser9is_bv_numERK6symbol.exit
-    i8 104, label %73
+    i8 98, label %73
+    i8 104, label %_ZN4smt26parser9is_bv_numERK6symbol.exit
   ]
 
 73:                                               ; preds = %72
-  %74 = call noundef zeroext i1 @_ZN4smt26parser9is_bv_hexEPKc(ptr noundef nonnull align 8 dereferenceable(2176) %0, ptr noundef nonnull %67)
+  %74 = call noundef zeroext i1 @_ZN4smt26parser12is_bv_binaryEPKc(ptr noundef nonnull align 8 dereferenceable(2176) %0, ptr noundef nonnull %67)
   br i1 %74, label %76, label %_ZN4smt26parser9is_bv_numERK6symbol.exit.thread
 
 _ZN4smt26parser9is_bv_numERK6symbol.exit:         ; preds = %72
-  %75 = call noundef zeroext i1 @_ZN4smt26parser12is_bv_binaryEPKc(ptr noundef nonnull align 8 dereferenceable(2176) %0, ptr noundef nonnull %67)
+  %75 = call noundef zeroext i1 @_ZN4smt26parser9is_bv_hexEPKc(ptr noundef nonnull align 8 dereferenceable(2176) %0, ptr noundef nonnull %67)
   br i1 %75, label %76, label %_ZN4smt26parser9is_bv_numERK6symbol.exit.thread
 
 76:                                               ; preds = %70, %73, %_ZN4smt26parser9is_bv_numERK6symbol.exit

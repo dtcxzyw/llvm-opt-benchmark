@@ -227,18 +227,18 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           cleanup
   br label %.thread104
 
-.thread117.loopexit:                              ; preds = %175, %174, %66, %71, %94, %93, %142, %143
+.thread117.loopexit:                              ; preds = %142, %175, %174, %71, %94, %93, %66, %143
   %lpad.loopexit121 = landingpad { ptr, i32 }
           cleanup
   br label %.thread117
 
-.thread117.loopexit.split-lp:                     ; preds = %47, %51
+.thread117.loopexit.split-lp:                     ; preds = %51, %47
   %lpad.loopexit.split-lp122 = landingpad { ptr, i32 }
           cleanup
   br label %.thread117
 
 .loopexit:                                        ; preds = %172, %140, %91
-  %.sroa.051.1.ph.ph.ph = phi i8 [ %.sroa.051.4, %140 ], [ %.sroa.051.3, %172 ], [ %.sroa.051.5, %91 ]
+  %.sroa.051.1.ph.ph.ph = phi i8 [ %.sroa.051.5, %91 ], [ %.sroa.051.4, %140 ], [ %.sroa.051.3, %172 ]
   %lpad.loopexit125 = landingpad { ptr, i32 }
           cleanup
   br label %49

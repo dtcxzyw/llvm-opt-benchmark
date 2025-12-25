@@ -1132,7 +1132,7 @@ cli_memmem.exit.thread.loopexit:                  ; preds = %107, %113
   br label %.split.split
 
 .thread:                                          ; preds = %95, %93, %fmap_readn.exit, %85, %58, %66, %68, %fmap_readn.exit.us78, %fmap_readn.exit.us, %43, %41, %33, %cli_memmem.exit.thread61, %13
-  %.043 = phi i32 [ -1, %13 ], [ %122, %cli_memmem.exit.thread61 ], [ -1, %58 ], [ -1, %fmap_readn.exit.us ], [ -1, %33 ], [ -1, %41 ], [ -1, %43 ], [ -1, %fmap_readn.exit.us78 ], [ -1, %68 ], [ -1, %66 ], [ -1, %85 ], [ -1, %fmap_readn.exit ], [ -1, %93 ], [ -1, %95 ]
+  %.043 = phi i32 [ -1, %13 ], [ %122, %cli_memmem.exit.thread61 ], [ -1, %fmap_readn.exit.us ], [ -1, %58 ], [ -1, %33 ], [ -1, %41 ], [ -1, %43 ], [ -1, %fmap_readn.exit.us78 ], [ -1, %68 ], [ -1, %66 ], [ -1, %85 ], [ -1, %fmap_readn.exit ], [ -1, %93 ], [ -1, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.043
 }
@@ -5205,7 +5205,7 @@ get_hashtab.exit.thread.sink.split:               ; preds = %18, %17
   br label %get_hashtab.exit.thread
 
 get_hashtab.exit.thread:                          ; preds = %get_hashtab.exit.thread.sink.split, %2, %4, %7, %get_hashtab.exit, %18
-  %.0 = phi i32 [ -1, %2 ], [ -1, %4 ], [ -1, %7 ], [ 0, %18 ], [ 0, %get_hashtab.exit ], [ 0, %get_hashtab.exit.thread.sink.split ]
+  %.0 = phi i32 [ -1, %2 ], [ -1, %7 ], [ -1, %4 ], [ 0, %18 ], [ 0, %get_hashtab.exit ], [ 0, %get_hashtab.exit.thread.sink.split ]
   ret i32 %.0
 }
 

@@ -15278,9 +15278,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm8codeview24BinaryAnnotati
   br label %_ZN4llvm8codeview24BinaryAnnotationIterator23GetCompressedAnnotationERNS_8ArrayRefIhEE.exit
 
 _ZN4llvm8codeview24BinaryAnnotationIterator23GetCompressedAnnotationERNS_8ArrayRefIhEE.exit: ; preds = %11, %26, %44
-  %55 = phi ptr [ %41, %44 ], [ %23, %26 ], [ %15, %11 ]
-  %56 = phi i64 [ %40, %44 ], [ %22, %26 ], [ %14, %11 ]
-  %.0.i = phi i32 [ %54, %44 ], [ %30, %26 ], [ %16, %11 ]
+  %55 = phi ptr [ %23, %26 ], [ %41, %44 ], [ %15, %11 ]
+  %56 = phi i64 [ %22, %26 ], [ %40, %44 ], [ %14, %11 ]
+  %.0.i = phi i32 [ %30, %26 ], [ %54, %44 ], [ %16, %11 ]
   switch i32 %.0.i, label %702 [
     i32 0, label %57
     i32 1, label %58

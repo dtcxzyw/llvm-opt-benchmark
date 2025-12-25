@@ -399,7 +399,7 @@ tailrecurse:                                      ; preds = %42
   br label %FetchPortalTargetList.exit
 
 FetchPortalTargetList.exit:                       ; preds = %tailrecurse, %40, %42, %1, %23, %32, %28, %8, %11, %51
-  %.0 = phi ptr [ %36, %32 ], [ null, %28 ], [ %55, %51 ], [ %13, %11 ], [ %10, %8 ], [ %27, %23 ], [ null, %1 ], [ null, %42 ], [ null, %40 ], [ null, %tailrecurse ]
+  %.0 = phi ptr [ %13, %11 ], [ null, %28 ], [ %55, %51 ], [ %36, %32 ], [ %10, %8 ], [ %27, %23 ], [ null, %1 ], [ null, %42 ], [ null, %40 ], [ null, %tailrecurse ]
   ret ptr %.0
 }
 

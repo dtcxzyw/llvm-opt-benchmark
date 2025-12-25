@@ -7675,13 +7675,13 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %281, %160
-  %.sroa.0304.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0304.12.i, %281 ], [ 1, %160 ]
-  %.sroa.0306.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0306.12.i, %281 ], [ 1, %160 ]
-  %.sroa.0308.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0308.12.i, %281 ], [ 1, %160 ]
-  %.sroa.0310.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0310.13.i, %281 ], [ 1, %160 ]
-  %.sroa.0312.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0312.8.i, %281 ], [ 1, %160 ]
-  %.sroa.0314.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0314.8.i, %281 ], [ 1, %160 ]
-  %.sroa.0316.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0316.7.i, %281 ], [ 1, %160 ]
+  %.sroa.0304.1.ph.i = phi i8 [ %.sroa.0304.12.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
+  %.sroa.0306.1.ph.i = phi i8 [ %.sroa.0306.12.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
+  %.sroa.0308.1.ph.i = phi i8 [ %.sroa.0308.12.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
+  %.sroa.0310.1.ph.i = phi i8 [ %.sroa.0310.13.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
+  %.sroa.0312.1.ph.i = phi i8 [ %.sroa.0312.8.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
+  %.sroa.0314.1.ph.i = phi i8 [ %.sroa.0314.8.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
+  %.sroa.0316.1.ph.i = phi i8 [ %.sroa.0316.7.i, %281 ], [ 1, %160 ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -15262,9 +15262,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.loopexit.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %124, %101
-  %.sroa.0161.1.ph.i = phi i8 [ %.sroa.0161.9.i, %124 ], [ 1, %.invoke ], [ 1, %101 ]
-  %.sroa.0163.1.ph.i = phi i8 [ %.sroa.0163.10.i, %124 ], [ 1, %.invoke ], [ 1, %101 ]
-  %.sroa.0165.1.ph.i = phi i8 [ %.sroa.0165.6.i, %124 ], [ 1, %.invoke ], [ 1, %101 ]
+  %.sroa.0161.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0161.9.i, %124 ], [ 1, %101 ]
+  %.sroa.0163.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0163.10.i, %124 ], [ 1, %101 ]
+  %.sroa.0165.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0165.6.i, %124 ], [ 1, %101 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i
@@ -17357,10 +17357,10 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %134, %132, %130, %101
-  %.sroa.0202.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %101 ], [ %.sroa.0202.10.i, %132 ], [ %.sroa.0202.10.i, %134 ], [ %.sroa.0202.10.i, %130 ]
-  %.sroa.0204.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %101 ], [ %.sroa.0204.8.i, %132 ], [ %.sroa.0204.8.i, %134 ], [ %.sroa.0204.8.i, %130 ]
-  %.sroa.0206.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %101 ], [ %.sroa.0206.7.i, %132 ], [ %.sroa.0206.7.i, %134 ], [ %.sroa.0206.7.i, %130 ]
-  %.sroa.0208.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %101 ], [ %.sroa.0208.6.i, %132 ], [ %.sroa.0208.6.i, %134 ], [ %.sroa.0208.6.i, %130 ]
+  %.sroa.0202.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0202.10.i, %134 ], [ 1, %101 ], [ %.sroa.0202.10.i, %130 ], [ %.sroa.0202.10.i, %132 ]
+  %.sroa.0204.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0204.8.i, %134 ], [ 1, %101 ], [ %.sroa.0204.8.i, %130 ], [ %.sroa.0204.8.i, %132 ]
+  %.sroa.0206.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0206.7.i, %134 ], [ 1, %101 ], [ %.sroa.0206.7.i, %130 ], [ %.sroa.0206.7.i, %132 ]
+  %.sroa.0208.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0208.6.i, %134 ], [ 1, %101 ], [ %.sroa.0208.6.i, %130 ], [ %.sroa.0208.6.i, %132 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -26187,9 +26187,9 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %.noexc245.i, %99, %78
-  %.sroa.0163.1.ph.i = phi i8 [ 1, %78 ], [ 1, %.invoke ], [ %.sroa.0163.8.i, %.noexc245.i ], [ 1, %99 ]
-  %.sroa.0165.1.ph.i = phi i8 [ 1, %78 ], [ 1, %.invoke ], [ %.sroa.0165.7.i, %.noexc245.i ], [ 1, %99 ]
-  %.sroa.0167.1.ph.i = phi i8 [ 1, %78 ], [ 1, %.invoke ], [ %.sroa.0167.6.i, %.noexc245.i ], [ 1, %99 ]
+  %.sroa.0163.1.ph.i = phi i8 [ %.sroa.0163.8.i, %.noexc245.i ], [ 1, %.invoke ], [ 1, %99 ], [ 1, %78 ]
+  %.sroa.0165.1.ph.i = phi i8 [ %.sroa.0165.7.i, %.noexc245.i ], [ 1, %.invoke ], [ 1, %99 ], [ 1, %78 ]
+  %.sroa.0167.1.ph.i = phi i8 [ %.sroa.0167.6.i, %.noexc245.i ], [ 1, %.invoke ], [ 1, %99 ], [ 1, %78 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -28691,11 +28691,11 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %143, %141, %139, %110
-  %.sroa.0225.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %110 ], [ %.sroa.0225.12.i, %141 ], [ %.sroa.0225.12.i, %143 ], [ %.sroa.0225.12.i, %139 ]
-  %.sroa.0227.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %110 ], [ %.sroa.0227.13.i, %141 ], [ %.sroa.0227.13.i, %143 ], [ %.sroa.0227.13.i, %139 ]
-  %.sroa.0229.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %110 ], [ %.sroa.0229.8.i, %141 ], [ %.sroa.0229.8.i, %143 ], [ %.sroa.0229.8.i, %139 ]
-  %.sroa.0231.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %110 ], [ %.sroa.0231.7.i, %141 ], [ %.sroa.0231.7.i, %143 ], [ %.sroa.0231.7.i, %139 ]
-  %.sroa.0233.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %110 ], [ %.sroa.0233.6.i, %141 ], [ %.sroa.0233.6.i, %143 ], [ %.sroa.0233.6.i, %139 ]
+  %.sroa.0225.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0225.12.i, %143 ], [ 1, %110 ], [ %.sroa.0225.12.i, %139 ], [ %.sroa.0225.12.i, %141 ]
+  %.sroa.0227.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0227.13.i, %143 ], [ 1, %110 ], [ %.sroa.0227.13.i, %139 ], [ %.sroa.0227.13.i, %141 ]
+  %.sroa.0229.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0229.8.i, %143 ], [ 1, %110 ], [ %.sroa.0229.8.i, %139 ], [ %.sroa.0229.8.i, %141 ]
+  %.sroa.0231.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0231.7.i, %143 ], [ 1, %110 ], [ %.sroa.0231.7.i, %139 ], [ %.sroa.0231.7.i, %141 ]
+  %.sroa.0233.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0233.6.i, %143 ], [ 1, %110 ], [ %.sroa.0233.6.i, %139 ], [ %.sroa.0233.6.i, %141 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -29896,8 +29896,8 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %44
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %160, %137, %127
-  %.sroa.0210.1.ph.i = phi i8 [ 1, %127 ], [ %.sroa.0210.10.i, %160 ], [ 1, %.invoke ], [ 1, %137 ]
-  %.sroa.0212.1.ph.i = phi i8 [ 1, %127 ], [ %.sroa.0212.6.i, %160 ], [ 1, %.invoke ], [ 1, %137 ]
+  %.sroa.0210.1.ph.i = phi i8 [ 1, %137 ], [ %.sroa.0210.10.i, %160 ], [ 1, %.invoke ], [ 1, %127 ]
+  %.sroa.0212.1.ph.i = phi i8 [ 1, %137 ], [ %.sroa.0212.6.i, %160 ], [ 1, %.invoke ], [ 1, %127 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %44
@@ -31913,8 +31913,8 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   br label %.loopexit.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %109, %86
-  %.sroa.0128.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %86 ], [ %.sroa.0128.10.i, %109 ]
-  %.sroa.0130.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %86 ], [ %.sroa.0130.6.i, %109 ]
+  %.sroa.0128.1.ph.i = phi i8 [ 1, %86 ], [ 1, %.invoke ], [ %.sroa.0128.10.i, %109 ]
+  %.sroa.0130.1.ph.i = phi i8 [ 1, %86 ], [ 1, %.invoke ], [ %.sroa.0130.6.i, %109 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i

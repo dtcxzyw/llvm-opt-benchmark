@@ -267,7 +267,7 @@ copy_address.exit47.sink.split:                   ; preds = %copy_address.exit48
   br label %copy_address.exit47
 
 copy_address.exit47:                              ; preds = %copy_address.exit47.sink.split, %copy_address.exit48, %copy_address.exit
-  %.0 = phi ptr [ %42, %copy_address.exit48 ], [ %14, %copy_address.exit ], [ %.sink64, %copy_address.exit47.sink.split ]
+  %.0 = phi ptr [ %14, %copy_address.exit ], [ %42, %copy_address.exit48 ], [ %.sink64, %copy_address.exit47.sink.split ]
   %.not46 = icmp eq ptr %.0, null
   br i1 %.not46, label %copy_address.exit47.thread, label %68
 

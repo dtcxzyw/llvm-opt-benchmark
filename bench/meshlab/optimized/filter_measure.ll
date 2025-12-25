@@ -11446,7 +11446,7 @@ _ZN3vcg12DistributionIfED2Ev.exit:                ; preds = %182
   br label %219
 
 .loopexit.split-lp:                               ; preds = %51, %_ZNK19MeshLabPluginLogger3logIJffEEEvPKcDpOT_.exit, %83, %78
-  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.4, %78 ], [ %.sroa.0.4, %83 ], [ %.sroa.0.4, %_ZNK19MeshLabPluginLogger3logIJffEEEvPKcDpOT_.exit ], [ %.sroa.0.2, %51 ]
+  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.4, %83 ], [ %.sroa.0.4, %78 ], [ %.sroa.0.2, %51 ], [ %.sroa.0.4, %_ZNK19MeshLabPluginLogger3logIJffEEEvPKcDpOT_.exit ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %219
@@ -12076,7 +12076,7 @@ _ZN3vcg12DistributionIfED2Ev.exit:                ; preds = %191
   br label %228
 
 .loopexit.split-lp:                               ; preds = %60, %_ZNK19MeshLabPluginLogger3logIJffEEEvPKcDpOT_.exit, %92, %87
-  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.4, %87 ], [ %.sroa.0.4, %92 ], [ %.sroa.0.4, %_ZNK19MeshLabPluginLogger3logIJffEEEvPKcDpOT_.exit ], [ %.sroa.0.2, %60 ]
+  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.4, %87 ], [ %.sroa.0.2, %60 ], [ %.sroa.0.4, %_ZNK19MeshLabPluginLogger3logIJffEEEvPKcDpOT_.exit ], [ %.sroa.0.4, %92 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %228
@@ -22279,7 +22279,7 @@ _ZN3vcg4face13FFCorrectnessI6CFaceOEEbRT_i.exit.thread12: ; preds = %_ZNK3vcg4fa
   br i1 %.not, label %_ZN3vcg4face13FFCorrectnessI6CFaceOEEbRT_i.exit.thread, label %.lr.ph, !llvm.loop !211
 
 _ZN3vcg4face13FFCorrectnessI6CFaceOEEbRT_i.exit.thread: ; preds = %.loopexit, %19, %41, %_ZN3vcg4face13FFCorrectnessI6CFaceOEEbRT_i.exit, %_ZN3vcg4face3PosI6CFaceOE10IsManifoldEv.exit.i, %.preheader.i, %1
-  %.not19 = phi i1 [ false, %19 ], [ false, %_ZN3vcg4face3PosI6CFaceOE10IsManifoldEv.exit.i ], [ true, %1 ], [ false, %.preheader.i ], [ false, %_ZN3vcg4face13FFCorrectnessI6CFaceOEEbRT_i.exit ], [ false, %41 ], [ true, %.loopexit ]
+  %.not19 = phi i1 [ false, %_ZN3vcg4face3PosI6CFaceOE10IsManifoldEv.exit.i ], [ true, %1 ], [ false, %19 ], [ false, %.preheader.i ], [ false, %_ZN3vcg4face13FFCorrectnessI6CFaceOEEbRT_i.exit ], [ false, %41 ], [ true, %.loopexit ]
   ret i1 %.not19
 }
 

@@ -13774,8 +13774,8 @@ _ZN3vcg3tri2io11ImporterOBJI6CMeshOE12GoodObjIndexERii.exit470: ; preds = %609, 
           to label %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI6CMeshOE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit unwind label %.loopexit763
 
 _ZNSt6vectorIN3vcg3tri2io11ImporterOBJI6CMeshOE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit: ; preds = %574, %.preheader759, %598, %.preheader757, %609, %.preheader756, %581, %587, %.noexc472, %624
-  %.4313 = phi i32 [ %618, %.noexc472 ], [ %.33121078, %598 ], [ %.33121078, %609 ], [ %.33121078, %581 ], [ %618, %624 ], [ %.33121078, %587 ], [ %.33121078, %.preheader756 ], [ %.33121078, %.preheader757 ], [ %.33121078, %.preheader759 ], [ %.33121078, %574 ]
-  %.4279 = phi i32 [ %.32781079, %.noexc472 ], [ %.32781079, %598 ], [ %.32781079, %609 ], [ 9, %581 ], [ %.32781079, %624 ], [ 9, %587 ], [ %.32781079, %.preheader756 ], [ %.32781079, %.preheader757 ], [ %.32781079, %.preheader759 ], [ %.32781079, %574 ]
+  %.4313 = phi i32 [ %618, %624 ], [ %.33121078, %598 ], [ %.33121078, %581 ], [ %618, %.noexc472 ], [ %.33121078, %609 ], [ %.33121078, %587 ], [ %.33121078, %.preheader756 ], [ %.33121078, %.preheader757 ], [ %.33121078, %.preheader759 ], [ %.33121078, %574 ]
+  %.4279 = phi i32 [ %.32781079, %624 ], [ %.32781079, %598 ], [ 9, %581 ], [ %.32781079, %.noexc472 ], [ %.32781079, %609 ], [ 9, %587 ], [ %.32781079, %.preheader756 ], [ %.32781079, %.preheader757 ], [ %.32781079, %.preheader759 ], [ %.32781079, %574 ]
   %625 = add i64 %.03441076, 3
   %626 = load ptr, ptr %134, align 8
   %627 = load ptr, ptr %20, align 8
@@ -51070,7 +51070,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3
   br label %24, !llvm.loop !436
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge94, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
-  %.sroa.021.0 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %._crit_edge94 ], [ %23, %._crit_edge ]
+  %.sroa.021.0 = phi ptr [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge94 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.021.0
 }
 

@@ -2586,7 +2586,7 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread163.sink.split: ; preds = 
   br label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread163
 
 _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread163: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread163.sink.split, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, %195
-  %.sink167 = phi i8 [ 0, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ 0, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ 0, %195 ], [ 1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread163.sink.split ]
+  %.sink167 = phi i8 [ 0, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread ], [ 0, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ 0, %195 ], [ 1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread163.sink.split ]
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink167, ptr %212, align 8, !tbaa !691
   %213 = load i32, ptr %188, align 8, !tbaa !713

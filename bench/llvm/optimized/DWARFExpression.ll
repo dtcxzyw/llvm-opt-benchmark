@@ -2938,7 +2938,7 @@ _ZN4llvm15DWARFExpression8iteratorppEv.exit:      ; preds = %_ZN4llvm15DWARFExpr
   br i1 %.not3.i.not, label %_ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.thread, label %53
 
 _ZN4llvm15DWARFExpression9Operation6verifyERKS1_PNS_9DWARFUnitE.exit.thread: ; preds = %_ZN4llvm15DWARFExpression8iteratorppEv.exit, %_ZNK4llvm8DWARFDie6getTagEv.exit.i, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i, %87, %90, %_ZNK4llvm15DWARFExpression5beginEv.exit
-  %.not3.i.not18 = phi i1 [ false, %_ZNK4llvm8DWARFDie6getTagEv.exit.i ], [ true, %_ZNK4llvm15DWARFExpression5beginEv.exit ], [ false, %90 ], [ false, %87 ], [ false, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i ], [ true, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ]
+  %.not3.i.not18 = phi i1 [ true, %_ZNK4llvm15DWARFExpression5beginEv.exit ], [ false, %_ZNK4llvm8DWARFDie6getTagEv.exit.i ], [ false, %90 ], [ false, %87 ], [ false, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i ], [ true, %_ZN4llvm15DWARFExpression8iteratorppEv.exit ]
   %122 = load ptr, ptr %43, align 8, !tbaa !46
   %123 = icmp eq ptr %122, %44
   br i1 %123, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i, label %124

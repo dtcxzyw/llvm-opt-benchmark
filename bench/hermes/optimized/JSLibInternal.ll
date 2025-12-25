@@ -4998,8 +4998,8 @@ _ZN4llvh12DenseMapInfoINS_8ArrayRefIDsEEE7isEqualES2_S2_.exit44: ; preds = %_ZN4
   br label %while.body, !llvm.loop !75
 
 return:                                           ; preds = %if.end.i.i.i, %if.end.i.i.i.us102, %while.body.us87, %while.body.us54, %if.end.i.i.i.us69, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
-  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us60, %while.body.us54 ], [ %add.ptr.us93, %if.end.i.i.i.us102 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us60, %if.end.i.i.i.us69 ], [ %add.ptr.us93, %while.body.us87 ], [ %add.ptr, %if.end.i.i.i ]
-  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.then.i.us ], [ true, %while.body.us54 ], [ true, %if.end.i.i.i.us102 ], [ true, %if.then.i.us.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %if.end.i.i.i.us69 ], [ true, %while.body.us87 ], [ true, %if.end.i.i.i ]
+  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us93, %if.end.i.i.i.us102 ], [ %add.ptr.us60, %while.body.us54 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us60, %if.end.i.i.i.us69 ], [ %add.ptr.us93, %while.body.us87 ], [ %add.ptr, %if.end.i.i.i ]
+  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.end.i.i.i.us102 ], [ true, %while.body.us54 ], [ true, %if.then.i.us.us ], [ true, %if.then.i.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %if.end.i.i.i.us69 ], [ true, %while.body.us87 ], [ true, %if.end.i.i.i ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }

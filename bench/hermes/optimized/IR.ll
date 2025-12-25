@@ -10801,8 +10801,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %_ZN4llv
   br label %while.body, !llvm.loop !71
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us98, %while.body.us83, %while.body.us50, %land.rhs.i.i.us65, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
-  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
-  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.then.i.us ], [ true, %while.body.us50 ], [ true, %land.rhs.i.i.us98 ], [ true, %if.then.i.us.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
+  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
+  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %land.rhs.i.i.us98 ], [ true, %while.body.us50 ], [ true, %if.then.i.us.us ], [ true, %if.then.i.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }
@@ -12553,8 +12553,8 @@ cleanup:                                          ; preds = %if.end.i.i19, %if.t
   br label %_ZNSt10_HashtableISt6vectorIPN6hermes13LiteralStringESaIS3_EESt4pairIKS5_jESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ENS1_6Module14HashRawStringsENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 if.then.i23:                                      ; preds = %land.rhs.i.i.i, %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i
-  %38 = phi ptr [ %.fr10.i.i, %land.rhs.i.i.i.i.i.i ], [ %.fr52, %for.body.us ], [ %.fr10.i.i, %land.rhs.i.us.i.i ], [ %.fr52, %land.rhs.i.i.i ]
-  %retval.sroa.0.0.ph = phi ptr [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.050.us, %for.body.us ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.050, %land.rhs.i.i.i ]
+  %38 = phi ptr [ %.fr52, %for.body.us ], [ %.fr10.i.i, %land.rhs.i.i.i.i.i.i ], [ %.fr10.i.i, %land.rhs.i.us.i.i ], [ %.fr52, %land.rhs.i.i.i ]
+  %retval.sroa.0.0.ph = phi ptr [ %__it.sroa.0.050.us, %for.body.us ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.050, %land.rhs.i.i.i ]
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt6vectorIPN6hermes13LiteralStringESaIS6_EEjELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
@@ -13176,7 +13176,7 @@ for.cond.backedge:                                ; preds = %for.end57, %if.end3
   br label %for.cond, !llvm.loop !92
 
 return:                                           ; preds = %for.end57, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit
-  %retval.0 = phi ptr [ %__middle, %for.body.i ], [ %__last, %entry ], [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
+  %retval.0 = phi ptr [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %__last, %entry ], [ %__middle, %for.body.i ], [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
   ret ptr %retval.0
 }
 

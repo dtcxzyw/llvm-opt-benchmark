@@ -7086,7 +7086,7 @@ Of_ObjUpdateRequired.exit108:                     ; preds = %.lr.ph124, %183
   br i1 %198, label %168, label %.critedge2, !llvm.loop !172
 
 .critedge2:                                       ; preds = %Of_ObjUpdateRequired.exit108.us, %150, %195, %168, %.lr.ph.split.us, %.lr.ph.split, %114
-  %.lcssa = phi i32 [ 0, %114 ], [ %196, %195 ], [ %146, %.lr.ph.split.us ], [ %146, %.lr.ph.split ], [ %196, %168 ], [ %165, %150 ], [ %165, %Of_ObjUpdateRequired.exit108.us ]
+  %.lcssa = phi i32 [ 0, %114 ], [ %146, %.lr.ph.split ], [ %146, %.lr.ph.split.us ], [ %196, %195 ], [ %196, %168 ], [ %165, %150 ], [ %165, %Of_ObjUpdateRequired.exit108.us ]
   %199 = zext nneg i32 %.lcssa to i64
   %200 = add i64 %85, %199
   store i64 %200, ptr %76, align 8, !tbaa !122

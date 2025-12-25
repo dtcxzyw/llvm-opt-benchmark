@@ -5931,7 +5931,7 @@ define range(i32 -260, 1) i32 @wc_AesGcmEncrypt_ex(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %.preheader, label %IncCtr.exit, !llvm.loop !43
 
 IncCtr.exit:                                      ; preds = %41, %.preheader, %29, %21, %18, %17, %13, %10, %34
-  %.2 = phi i32 [ -260, %29 ], [ %37, %34 ], [ -173, %13 ], [ -173, %10 ], [ -173, %21 ], [ -173, %18 ], [ -173, %17 ], [ 0, %.preheader ], [ 0, %41 ]
+  %.2 = phi i32 [ -173, %13 ], [ %37, %34 ], [ -260, %29 ], [ -173, %10 ], [ -173, %21 ], [ -173, %18 ], [ -173, %17 ], [ 0, %.preheader ], [ 0, %41 ]
   ret i32 %.2
 }
 

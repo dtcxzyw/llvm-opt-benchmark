@@ -1424,7 +1424,7 @@ mbedtls_gcm_crypt_and_tag.exit220:                ; preds = %69
   br label %.thread244
 
 .thread244:                                       ; preds = %123, %94, %89, %118, %98, %127, %136, %137, %139
-  %.6247 = phi i32 [ 0, %137 ], [ 0, %136 ], [ %.3.ph252, %139 ], [ 0, %127 ], [ 0, %98 ], [ 0, %118 ], [ 0, %89 ], [ 0, %94 ], [ 0, %123 ]
+  %.6247 = phi i32 [ 0, %136 ], [ 0, %137 ], [ %.3.ph252, %139 ], [ 0, %127 ], [ 0, %98 ], [ 0, %118 ], [ 0, %89 ], [ 0, %94 ], [ 0, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

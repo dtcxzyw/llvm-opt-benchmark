@@ -4779,7 +4779,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc89
   %285 = and i1 %284, %283
   br i1 %285, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread211, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESaIS1_EE9push_backEOS1_.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread211: ; preds = %.noexc89, %276, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread211: ; preds = %276, %.noexc89, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %286 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22UsdPhysicsCollisionAPI16_GetStaticTfTypeEv()
           to label %.noexc90 unwind label %305
 

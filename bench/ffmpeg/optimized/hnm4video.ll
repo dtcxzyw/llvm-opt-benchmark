@@ -1448,7 +1448,7 @@ decode_interframe_v4.exit:                        ; preds = %bytestream2_get_byt
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.10.sink.i) #7
   br label %.critedge
 
-.loopexit.loopexit:                               ; preds = %.loopexit.i108, %bytestream2_get_byte.exit.i111
+.loopexit.loopexit:                               ; preds = %bytestream2_get_byte.exit.i111, %.loopexit.i108
   %.val74.pre = load ptr, ptr %5, align 8, !tbaa !4
   br label %.loopexit
 

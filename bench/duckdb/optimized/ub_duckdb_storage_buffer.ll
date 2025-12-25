@@ -12339,7 +12339,7 @@ _ZZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28Concu
   br label %_ZZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducer7dequeueIS2_EEbRT_EN5GuardD2Ev.exit.thread
 
 _ZZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducer7dequeueIS2_EEbRT_EN5GuardD2Ev.exit.thread: ; preds = %102, %105, %2, %_ZZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducer7dequeueIS2_EEbRT_EN5GuardD2Ev.exit.thread23, %_ZN6duckdb18BufferEvictionNodeD2Ev.exit.i, %94
-  %.1 = phi i1 [ false, %2 ], [ true, %_ZN6duckdb18BufferEvictionNodeD2Ev.exit.i ], [ true, %94 ], [ false, %_ZZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducer7dequeueIS2_EEbRT_EN5GuardD2Ev.exit.thread23 ], [ true, %105 ], [ true, %102 ]
+  %.1 = phi i1 [ false, %_ZZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducer7dequeueIS2_EEbRT_EN5GuardD2Ev.exit.thread23 ], [ true, %_ZN6duckdb18BufferEvictionNodeD2Ev.exit.i ], [ true, %94 ], [ false, %2 ], [ true, %105 ], [ true, %102 ]
   ret i1 %.1
 }
 

@@ -15350,9 +15350,9 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.3421199298475542611.exit60.i: 
   br label %265
 
 .invoke665:                                       ; preds = %467, %406, %413, %418, %"_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17h550cce08e2f839a8E.exit.i40", %.noexc50, %463, %322
-  %368 = phi ptr [ @anon.118df5f38d093105bc282afba1d7eb24.26, %.noexc50 ], [ @anon.118df5f38d093105bc282afba1d7eb24.43, %322 ], [ @anon.118df5f38d093105bc282afba1d7eb24.26, %463 ], [ @anon.118df5f38d093105bc282afba1d7eb24.26, %"_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17h550cce08e2f839a8E.exit.i40" ], [ @anon.118df5f38d093105bc282afba1d7eb24.26, %418 ], [ @anon.118df5f38d093105bc282afba1d7eb24.26, %413 ], [ @anon.118df5f38d093105bc282afba1d7eb24.26, %406 ], [ @anon.118df5f38d093105bc282afba1d7eb24.31, %467 ]
-  %369 = phi i64 [ 40, %.noexc50 ], [ 39, %322 ], [ 40, %463 ], [ 40, %"_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17h550cce08e2f839a8E.exit.i40" ], [ 40, %418 ], [ 40, %413 ], [ 40, %406 ], [ 34, %467 ]
-  %370 = phi ptr [ @anon.118df5f38d093105bc282afba1d7eb24.30, %.noexc50 ], [ @anon.118df5f38d093105bc282afba1d7eb24.44, %322 ], [ @anon.118df5f38d093105bc282afba1d7eb24.30, %463 ], [ @anon.118df5f38d093105bc282afba1d7eb24.39, %"_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17h550cce08e2f839a8E.exit.i40" ], [ @anon.118df5f38d093105bc282afba1d7eb24.39, %418 ], [ @anon.118df5f38d093105bc282afba1d7eb24.39, %413 ], [ @anon.118df5f38d093105bc282afba1d7eb24.39, %406 ], [ @anon.118df5f38d093105bc282afba1d7eb24.32, %467 ]
+  %368 = phi ptr [ @anon.118df5f38d093105bc282afba1d7eb24.26, %.noexc50 ], [ @anon.118df5f38d093105bc282afba1d7eb24.43, %322 ], [ @anon.118df5f38d093105bc282afba1d7eb24.26, %463 ], [ @anon.118df5f38d093105bc282afba1d7eb24.26, %"_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17h550cce08e2f839a8E.exit.i40" ], [ @anon.118df5f38d093105bc282afba1d7eb24.26, %418 ], [ @anon.118df5f38d093105bc282afba1d7eb24.26, %413 ], [ @anon.118df5f38d093105bc282afba1d7eb24.31, %467 ], [ @anon.118df5f38d093105bc282afba1d7eb24.26, %406 ]
+  %369 = phi i64 [ 40, %.noexc50 ], [ 39, %322 ], [ 40, %463 ], [ 40, %"_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17h550cce08e2f839a8E.exit.i40" ], [ 40, %418 ], [ 40, %413 ], [ 34, %467 ], [ 40, %406 ]
+  %370 = phi ptr [ @anon.118df5f38d093105bc282afba1d7eb24.30, %.noexc50 ], [ @anon.118df5f38d093105bc282afba1d7eb24.44, %322 ], [ @anon.118df5f38d093105bc282afba1d7eb24.30, %463 ], [ @anon.118df5f38d093105bc282afba1d7eb24.39, %"_ZN2tt6buffer18Cursor$LT$Span$GT$10token_tree17h550cce08e2f839a8E.exit.i40" ], [ @anon.118df5f38d093105bc282afba1d7eb24.39, %418 ], [ @anon.118df5f38d093105bc282afba1d7eb24.39, %413 ], [ @anon.118df5f38d093105bc282afba1d7eb24.32, %467 ], [ @anon.118df5f38d093105bc282afba1d7eb24.39, %406 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %368, i64 noundef %369, ptr noalias noundef readonly align 8 dereferenceable(24) %370) #42
           to label %.cont666 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -26857,7 +26857,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.4743249442795103037.ex
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %201, %207, %221, %226
-  %eh.lpad-body = phi { ptr, i32 } [ %202, %207 ], [ %lpad.phi.i.i.i, %226 ], [ %202, %201 ], [ %lpad.phi.i.i.i, %221 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %202, %207 ], [ %202, %201 ], [ %lpad.phi.i.i.i, %226 ], [ %lpad.phi.i.i.i, %221 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   br i1 %155, label %"_ZN4core3ptr446drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$..parent$GT$$C$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$$RF$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$..original_syntax_node_rooted..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2caa55830113679aE.exit", label %229
 
 229:                                              ; preds = %.body

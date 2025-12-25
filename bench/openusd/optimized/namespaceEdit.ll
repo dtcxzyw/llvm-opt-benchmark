@@ -8211,7 +8211,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit388: ; preds = %_ZN32pxrIn
   br label %.loopexit414
 
 .loopexit414:                                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit388, %899, %.loopexit414.sink.split, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16SdfNamespaceEditESaIS1_EE5clearEv.exit, %211, %190, %163, %143
-  %.not406476 = phi i1 [ false, %143 ], [ false, %211 ], [ false, %.loopexit414.sink.split ], [ false, %190 ], [ true, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16SdfNamespaceEditESaIS1_EE5clearEv.exit ], [ false, %163 ], [ true, %899 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit388 ]
+  %.not406476 = phi i1 [ false, %143 ], [ false, %211 ], [ true, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16SdfNamespaceEditESaIS1_EE5clearEv.exit ], [ false, %190 ], [ false, %.loopexit414.sink.split ], [ false, %163 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit388 ], [ true, %899 ]
   %917 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %918 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %919 = load ptr, ptr %918, align 8

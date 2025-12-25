@@ -4006,8 +4006,8 @@ _ZNKSt6vectorI9aiColor4tIfESaIS1_EE12_M_check_lenEmPKc.exit.i293: ; preds = %419
   br i1 %exitcond485.not, label %.loopexit, label %.lr.ph463, !llvm.loop !43
 
 .loopexit:                                        ; preds = %348, %.lr.ph463, %186, %.lr.ph469
-  %.sroa.44.2 = phi ptr [ %422, %.lr.ph463 ], [ %257, %.lr.ph469 ], [ %.sroa.44.3, %186 ], [ %338, %348 ]
-  %.sroa.0339.2 = phi ptr [ %421, %.lr.ph463 ], [ %256, %.lr.ph469 ], [ %.sroa.0339.3, %186 ], [ %337, %348 ]
+  %.sroa.44.2 = phi ptr [ %422, %.lr.ph463 ], [ %.sroa.44.3, %186 ], [ %257, %.lr.ph469 ], [ %338, %348 ]
+  %.sroa.0339.2 = phi ptr [ %421, %.lr.ph463 ], [ %.sroa.0339.3, %186 ], [ %256, %.lr.ph469 ], [ %337, %348 ]
   %.not439470 = icmp eq ptr %.sroa.0339.2, %.sroa.44.2
   br i1 %.not439470, label %._crit_edge474, label %.lr.ph473
 

@@ -641,9 +641,9 @@ define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly capt
   %106 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Dextend, i32 noundef 281, i64 noundef %104, i64 noundef %105, ptr noundef nonnull @.str.21) #4
   br label %.thread53
 
-.thread53:                                        ; preds = %94, %103, %98, %71, %78
-  %.062 = phi i1 [ true, %71 ], [ true, %78 ], [ false, %98 ], [ true, %103 ], [ true, %94 ]
-  %.03560 = phi i32 [ -1, %71 ], [ -1, %78 ], [ 0, %98 ], [ -1, %103 ], [ -1, %94 ]
+.thread53:                                        ; preds = %94, %103, %98, %78, %71
+  %.062 = phi i1 [ true, %78 ], [ true, %71 ], [ false, %98 ], [ true, %94 ], [ true, %103 ]
+  %.03560 = phi i32 [ -1, %78 ], [ -1, %71 ], [ 0, %98 ], [ -1, %94 ], [ -1, %103 ]
   %107 = call i32 @H5I_dec_app_ref(i64 noundef %62) #4
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %.thread84, label %114, !prof !14

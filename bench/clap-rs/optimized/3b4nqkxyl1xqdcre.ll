@@ -1058,7 +1058,7 @@ _ZN4core3str11validations15next_code_point17h89bb77f6a1195837E.exit.thread.i.i.i
   br label %.loopexit
 
 "_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h88233494dd37c41aE.exit.thread": ; preds = %.thread.i.i.i, %171, %59, %16, %.backedge.sink.split.i.us, %.backedge.i.us, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split"
-  %.0116 = phi i64 [ %.0156, %171 ], [ %.0.us, %.backedge.sink.split.i.us ], [ %.0.us, %.backedge.i.us ], [ %.0.us, %59 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split" ], [ %.0.us, %16 ], [ %.0156, %.thread.i.i.i ]
+  %.0116 = phi i64 [ %.0156, %171 ], [ %.0.us, %.backedge.sink.split.i.us ], [ %.0.us, %59 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split" ], [ %.0.us, %.backedge.i.us ], [ %.0.us, %16 ], [ %.0156, %.thread.i.i.i ]
   %185 = sub i64 %2, %.0116
   %186 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !213, !noalias !220, !noundef !12
   %187 = load i64, ptr %5, align 8, !alias.scope !213, !noalias !220, !noundef !12
@@ -5805,7 +5805,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate18arg_next_line_help17ha603
   br label %_ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d3fab815fE.exit
 
 _ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d3fab815fE.exit: ; preds = %.backedge.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h001f3bbeca8d20d6E.exit.i.i.i.i", %.backedge.i.us10.i.i, %.backedge.i.us.i.us.i, %.backedge.i.us.i.i, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit.sink.split.i", %87
-  %.lcssa.i.i8.i = phi i1 [ false, %.backedge.i.us.i.i ], [ false, %87 ], [ false, %.backedge.i.us.i.us.i ], [ false, %.backedge.i.us10.i.i ], [ true, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit.sink.split.i" ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h001f3bbeca8d20d6E.exit.i.i.i.i" ], [ false, %.backedge.i.i.i ]
+  %.lcssa.i.i8.i = phi i1 [ false, %.backedge.i.us.i.i ], [ false, %87 ], [ false, %.backedge.i.us.i.us.i ], [ false, %.backedge.i.us10.i.i ], [ true, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit.sink.split.i" ], [ false, %.backedge.i.i.i ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h001f3bbeca8d20d6E.exit.i.i.i.i" ]
   %161 = load ptr, ptr %42, align 8, !nonnull !12, !noundef !12
   %162 = load i64, ptr %43, align 8, !noundef !12
   %.idx66 = mul nsw i64 %162, 40

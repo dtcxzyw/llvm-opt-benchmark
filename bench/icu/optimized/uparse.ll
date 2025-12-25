@@ -470,7 +470,7 @@ define i32 @u_parseCodePoints(ptr noundef %0, ptr noundef writeonly captures(add
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %15, %.loopexit.sink.split, %4
-  %.026 = phi i32 [ 0, %.loopexit.sink.split ], [ 0, %4 ], [ %.0.ph, %15 ], [ %.0.ph, %15 ]
+  %.026 = phi i32 [ 0, %4 ], [ 0, %.loopexit.sink.split ], [ %.0.ph, %15 ], [ %.0.ph, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.026
 }
@@ -604,7 +604,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   br i1 %.not65, label %.backedge, label %48
 
 .backedge:                                        ; preds = %44, %49, %54
-  %.0.be = phi i32 [ %63, %54 ], [ %51, %49 ], [ %47, %44 ]
+  %.0.be = phi i32 [ %51, %49 ], [ %63, %54 ], [ %47, %44 ]
   br label %18, !llvm.loop !23
 
 48:                                               ; preds = %44

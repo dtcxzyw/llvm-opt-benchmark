@@ -970,7 +970,7 @@ get_indev.exit86:                                 ; preds = %.lr.ph.i79, %57, %5
   br label %.critedge76
 
 .critedge76:                                      ; preds = %10, %19, %22, %.loopexit, %62, %67, %get_indev.exit86, %get_indev.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %62 ], [ false, %.loopexit ], [ false, %get_indev.exit ], [ false, %get_indev.exit86 ], [ true, %67 ], [ false, %22 ], [ false, %19 ], [ false, %10 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %get_indev.exit ], [ false, %.loopexit ], [ true, %62 ], [ false, %get_indev.exit86 ], [ true, %67 ], [ false, %22 ], [ false, %19 ], [ false, %10 ]
   ret i1 %.0
 }
 

@@ -2424,7 +2424,7 @@ define dso_local noundef range(i32 0, 2) i32 @__neigh_event_send(ptr noundef %0,
   br label %176
 
 176:                                              ; preds = %165, %93, %89
-  %177 = phi i32 [ 1, %93 ], [ 1, %165 ], [ 0, %89 ]
+  %177 = phi i32 [ 1, %165 ], [ 1, %93 ], [ 0, %89 ]
   br i1 %91, label %.thread12, label %178
 
 178:                                              ; preds = %176

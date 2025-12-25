@@ -204,7 +204,7 @@ lv_fs_get_drv.exit.thread.sink.split:             ; preds = %47, %40
   br label %lv_fs_get_drv.exit.thread
 
 lv_fs_get_drv.exit.thread:                        ; preds = %16, %lv_fs_get_drv.exit.thread.sink.split, %lv_fs_resolve_path.exit, %31, %20, %22, %33, %3
-  %.0 = phi i32 [ 11, %3 ], [ 0, %33 ], [ 12, %31 ], [ 1, %20 ], [ 0, %lv_fs_get_drv.exit.thread.sink.split ], [ 9, %22 ], [ 3, %lv_fs_resolve_path.exit ], [ 3, %16 ]
+  %.0 = phi i32 [ 11, %3 ], [ 0, %33 ], [ 12, %31 ], [ 1, %20 ], [ 3, %lv_fs_resolve_path.exit ], [ 9, %22 ], [ 0, %lv_fs_get_drv.exit.thread.sink.split ], [ 3, %16 ]
   ret i32 %.0
 }
 

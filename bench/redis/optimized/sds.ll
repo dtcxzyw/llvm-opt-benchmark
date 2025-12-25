@@ -5615,10 +5615,10 @@ sdssetlen.exit.i123:                              ; preds = %351, %348, %345, %3
   br label %sdscatlen.exit
 
 sdscatlen.exit:                                   ; preds = %306, %sdssetlen.exit.i123, %sdslen.exit.i121, %sdssetlen.exit.i118, %sdslen.exit.i116, %sdssetlen.exit.i113, %sdslen.exit.i111, %sdssetlen.exit.i108, %sdslen.exit.i106, %sdssetlen.exit.i103, %sdslen.exit.i101, %sdssetlen.exit.i, %sdslen.exit.i, %307
-  %.374 = phi ptr [ %.273146, %sdssetlen.exit.i123 ], [ %41, %sdssetlen.exit.i ], [ %.273146, %307 ], [ %31, %sdssetlen.exit.i103 ], [ %.273146, %sdssetlen.exit.i108 ], [ %.273146, %sdslen.exit.i121 ], [ %204, %sdssetlen.exit.i113 ], [ %.273146, %sdssetlen.exit.i118 ], [ %.273146, %sdslen.exit.i116 ], [ %41, %sdslen.exit.i ], [ %204, %sdslen.exit.i111 ], [ %.273146, %sdslen.exit.i106 ], [ %31, %sdslen.exit.i101 ], [ %.273146, %306 ]
-  %.4 = phi ptr [ %331, %sdssetlen.exit.i123 ], [ %75, %sdssetlen.exit.i ], [ %.270147, %307 ], [ %124, %sdssetlen.exit.i103 ], [ %177, %sdssetlen.exit.i108 ], [ null, %sdslen.exit.i121 ], [ %230, %sdssetlen.exit.i113 ], [ %283, %sdssetlen.exit.i118 ], [ null, %sdslen.exit.i116 ], [ null, %sdslen.exit.i ], [ null, %sdslen.exit.i111 ], [ null, %sdslen.exit.i106 ], [ null, %sdslen.exit.i101 ], [ %.270147, %306 ]
-  %.165 = phi i32 [ 0, %sdssetlen.exit.i123 ], [ 1, %sdssetlen.exit.i ], [ 0, %307 ], [ 1, %sdssetlen.exit.i103 ], [ 1, %sdssetlen.exit.i108 ], [ 0, %sdslen.exit.i121 ], [ 0, %sdssetlen.exit.i113 ], [ 0, %sdssetlen.exit.i118 ], [ 0, %sdslen.exit.i116 ], [ 1, %sdslen.exit.i ], [ 0, %sdslen.exit.i111 ], [ 1, %sdslen.exit.i106 ], [ 1, %sdslen.exit.i101 ], [ 1, %306 ]
-  %.163 = phi i32 [ 0, %sdssetlen.exit.i123 ], [ %.062149, %sdssetlen.exit.i ], [ 1, %307 ], [ %.062149, %sdssetlen.exit.i103 ], [ %.062149, %sdssetlen.exit.i108 ], [ 0, %sdslen.exit.i121 ], [ 1, %sdssetlen.exit.i113 ], [ 1, %sdssetlen.exit.i118 ], [ 1, %sdslen.exit.i116 ], [ %.062149, %sdslen.exit.i ], [ 1, %sdslen.exit.i111 ], [ %.062149, %sdslen.exit.i106 ], [ %.062149, %sdslen.exit.i101 ], [ 0, %306 ]
+  %.374 = phi ptr [ %.273146, %sdslen.exit.i121 ], [ %41, %sdssetlen.exit.i ], [ %.273146, %307 ], [ %31, %sdssetlen.exit.i103 ], [ %.273146, %sdssetlen.exit.i108 ], [ %.273146, %sdssetlen.exit.i123 ], [ %204, %sdssetlen.exit.i113 ], [ %.273146, %sdssetlen.exit.i118 ], [ %41, %sdslen.exit.i ], [ %.273146, %sdslen.exit.i116 ], [ %31, %sdslen.exit.i101 ], [ %.273146, %sdslen.exit.i106 ], [ %204, %sdslen.exit.i111 ], [ %.273146, %306 ]
+  %.4 = phi ptr [ null, %sdslen.exit.i121 ], [ %75, %sdssetlen.exit.i ], [ %.270147, %307 ], [ %124, %sdssetlen.exit.i103 ], [ %177, %sdssetlen.exit.i108 ], [ %331, %sdssetlen.exit.i123 ], [ %230, %sdssetlen.exit.i113 ], [ %283, %sdssetlen.exit.i118 ], [ null, %sdslen.exit.i ], [ null, %sdslen.exit.i116 ], [ null, %sdslen.exit.i101 ], [ null, %sdslen.exit.i106 ], [ null, %sdslen.exit.i111 ], [ %.270147, %306 ]
+  %.165 = phi i32 [ 0, %sdslen.exit.i121 ], [ 1, %sdssetlen.exit.i ], [ 0, %307 ], [ 1, %sdssetlen.exit.i103 ], [ 1, %sdssetlen.exit.i108 ], [ 0, %sdssetlen.exit.i123 ], [ 0, %sdssetlen.exit.i113 ], [ 0, %sdssetlen.exit.i118 ], [ 1, %sdslen.exit.i ], [ 0, %sdslen.exit.i116 ], [ 1, %sdslen.exit.i101 ], [ 1, %sdslen.exit.i106 ], [ 0, %sdslen.exit.i111 ], [ 1, %306 ]
+  %.163 = phi i32 [ 0, %sdslen.exit.i121 ], [ %.062149, %sdssetlen.exit.i ], [ 1, %307 ], [ %.062149, %sdssetlen.exit.i103 ], [ %.062149, %sdssetlen.exit.i108 ], [ 0, %sdssetlen.exit.i123 ], [ 1, %sdssetlen.exit.i113 ], [ 1, %sdssetlen.exit.i118 ], [ %.062149, %sdslen.exit.i ], [ 1, %sdslen.exit.i116 ], [ %.062149, %sdslen.exit.i101 ], [ %.062149, %sdslen.exit.i106 ], [ 1, %sdslen.exit.i111 ], [ 0, %306 ]
   %354 = load i8, ptr %.374, align 1, !tbaa !13
   %.not96 = icmp ne i8 %354, 0
   %spec.select.idx = zext i1 %.not96 to i64
@@ -6729,8 +6729,8 @@ sdsfree.exit63:                                   ; preds = %sdscat.exit60, %swi
   br label %sdscat.exit
 
 sdscat.exit:                                      ; preds = %sdssetlen.exit.i.i53, %sdslen.exit.i.i51, %sdsfree.exit63
-  %.136 = phi ptr [ %229, %sdsfree.exit63 ], [ %116, %sdssetlen.exit.i.i53 ], [ %116, %sdslen.exit.i.i51 ]
-  %.2 = phi ptr [ %201, %sdsfree.exit63 ], [ %139, %sdssetlen.exit.i.i53 ], [ null, %sdslen.exit.i.i51 ]
+  %.136 = phi ptr [ %116, %sdssetlen.exit.i.i53 ], [ %229, %sdsfree.exit63 ], [ %116, %sdslen.exit.i.i51 ]
+  %.2 = phi ptr [ %139, %sdssetlen.exit.i.i53 ], [ %201, %sdsfree.exit63 ], [ null, %sdslen.exit.i.i51 ]
   %230 = load i8, ptr %.136, align 1, !tbaa !13
   %.not = icmp eq i8 %230, 0
   br i1 %.not, label %sdsfree.exit66, label %.lr.ph

@@ -47118,8 +47118,8 @@ _ZN12_GLOBAL__N_16Parser15find_single_capINS_12PortWidthDefEEEPKT_RKSt6vectorINS
   br label %.invoke3024
 
 .invoke3024:                                      ; preds = %.preheader17.i28.i, %.preheader17.i.i, %1634, %1663, %.invoke3024.sink.split
-  %1631 = phi ptr [ @.str.136, %.invoke3024.sink.split ], [ @.str.137, %1634 ], [ @.str.137, %1663 ], [ @.str.137, %.preheader17.i.i ], [ @.str.137, %.preheader17.i28.i ]
-  %1632 = phi i32 [ %1630, %.invoke3024.sink.split ], [ %.pre.i.i, %1634 ], [ %.pre.i29.i, %1663 ], [ %.pre.i.i, %.preheader17.i.i ], [ %.pre.i29.i, %.preheader17.i28.i ]
+  %1631 = phi ptr [ @.str.137, %1663 ], [ @.str.137, %1634 ], [ @.str.136, %.invoke3024.sink.split ], [ @.str.137, %.preheader17.i.i ], [ @.str.137, %.preheader17.i28.i ]
+  %1632 = phi i32 [ %.pre.i29.i, %1663 ], [ %.pre.i.i, %1634 ], [ %1630, %.invoke3024.sink.split ], [ %.pre.i.i, %.preheader17.i.i ], [ %.pre.i29.i, %.preheader17.i28.i ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull %1631, ptr noundef %.val.i, i32 noundef %.val17.i, i32 noundef %1632) #29
           to label %.cont3025 unwind label %.loopexit.split-lp1732.loopexit.split-lp.loopexit.split-lp
 

@@ -1987,9 +1987,9 @@ define hidden void @_ZN14regex_automata3dfa8remapper8Remapper5remap17hfc7c57eb38
   br i1 %94, label %98, label %.invoke, !prof !81
 
 .invoke:                                          ; preds = %92, %.lr.ph, %.preheader, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i", %35, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i"
-  %95 = phi i64 [ %42, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ %86, %.preheader ], [ %57, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ %37, %35 ], [ %.sroa.01.047, %.lr.ph ], [ %.sroa.01.047, %92 ]
-  %96 = phi i64 [ %.val20, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ %.val18, %.preheader ], [ %.val2090, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ %20, %35 ], [ %.val18, %.lr.ph ], [ %93, %92 ]
-  %97 = phi ptr [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.40, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.38, %.preheader ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.40, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.33, %35 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.37, %.lr.ph ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.39, %92 ]
+  %95 = phi i64 [ %86, %.preheader ], [ %57, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ %42, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ %37, %35 ], [ %.sroa.01.047, %.lr.ph ], [ %.sroa.01.047, %92 ]
+  %96 = phi i64 [ %.val18, %.preheader ], [ %.val2090, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ %.val20, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ %20, %35 ], [ %.val18, %.lr.ph ], [ %93, %92 ]
+  %97 = phi ptr [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.38, %.preheader ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.40, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit.i.i" ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.40, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h61991ac3d4195e44E.exit.us.i.i" ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.33, %35 ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.37, %.lr.ph ], [ @anon.15285cd795f513bdaa4bdcfb2bbacd31.39, %92 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %95, i64 noundef %96, ptr noalias noundef readonly align 8 dereferenceable(24) %97) #23
           to label %.cont unwind label %26
 
@@ -3225,7 +3225,7 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
   br label %56
 
 56:                                               ; preds = %.sink.split, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i", %4, %31, %30
-  %.sink = phi i64 [ 0, %31 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 0, %4 ], [ 0, %30 ], [ 1, %.sink.split ]
+  %.sink = phi i64 [ 0, %31 ], [ 0, %30 ], [ 0, %4 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 1, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -3326,7 +3326,7 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
   br label %51
 
 51:                                               ; preds = %.sink.split, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i", %4, %29, %28
-  %.sink = phi i64 [ 0, %29 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 0, %4 ], [ 0, %28 ], [ 1, %.sink.split ]
+  %.sink = phi i64 [ 0, %29 ], [ 0, %28 ], [ 0, %4 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 1, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -3917,7 +3917,7 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
   br label %46
 
 46:                                               ; preds = %.sink.split, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i", %4, %27, %26
-  %.sink = phi i64 [ 0, %27 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 0, %4 ], [ 0, %26 ], [ 1, %.sink.split ]
+  %.sink = phi i64 [ 0, %27 ], [ 0, %26 ], [ 0, %4 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.12769474248840661535.exit.i" ], [ 1, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -7458,7 +7458,7 @@ common.resume:                                    ; preds = %79, %627, %78
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke779, %.invoke777, %.invoke, %105, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit", %124, %141, %.critedge.i, %._crit_edge, %208, %212
-  %.2.ph = phi i1 [ true, %._crit_edge ], [ true, %.invoke779 ], [ true, %105 ], [ true, %.invoke ], [ false, %212 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit" ], [ true, %141 ], [ true, %.critedge.i ], [ true, %124 ], [ true, %.invoke777 ], [ false, %208 ]
+  %.2.ph = phi i1 [ true, %105 ], [ true, %._crit_edge ], [ true, %.invoke ], [ true, %.invoke777 ], [ false, %212 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit" ], [ true, %141 ], [ true, %.critedge.i ], [ true, %.invoke779 ], [ true, %124 ], [ false, %208 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

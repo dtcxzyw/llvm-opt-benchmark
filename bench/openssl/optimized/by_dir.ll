@@ -361,8 +361,8 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject_ex(ptr noundef %0, i32 
   br i1 %114, label %.split.split, label %.thread
 
 .thread:                                          ; preds = %.split.split, %.lr.ph188, %.split.us, %.lr.ph191, %.split.split.us, %.split.us.preheader, %.split.split.us.preheader
-  %.1164 = phi ptr [ null, %.split.us.preheader ], [ %.1.ph, %.split.split.us.preheader ], [ %.1.ph, %.lr.ph191 ], [ null, %.lr.ph188 ], [ %.1.ph, %.split.split.us ], [ null, %.split.us ], [ null, %.split.split ]
-  %.us-phi = phi i32 [ 0, %.split.us.preheader ], [ %.1101.ph, %.split.split.us.preheader ], [ %100, %.split.split.us ], [ %.2102.us187, %.lr.ph188 ], [ %.2102.us142190, %.lr.ph191 ], [ %80, %.split.us ], [ %spec.select, %.split.split ]
+  %.1164 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ null, %.lr.ph188 ], [ %.1.ph, %.lr.ph191 ], [ %.1.ph, %.split.split.us ], [ null, %.split.us ], [ null, %.split.split ]
+  %.us-phi = phi i32 [ %.1101.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.2102.us187, %.lr.ph188 ], [ %100, %.split.split.us ], [ %.2102.us142190, %.lr.ph191 ], [ %80, %.split.us ], [ %spec.select, %.split.split ]
   %116 = icmp sgt i32 %.us-phi, 0
   br i1 %116, label %117, label %.thread129
 

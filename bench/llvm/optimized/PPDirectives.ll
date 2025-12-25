@@ -5022,7 +5022,7 @@ _ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit: ; preds = %82
   br i1 %85, label %.critedge, label %16
 
 .critedge:                                        ; preds = %82, %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit, %16, %._crit_edge, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %.critedge95, %3, %75, %.split.us
-  %.sroa.054.5 = phi ptr [ %spec.select, %75 ], [ null, %.split.us ], [ null, %3 ], [ null, %82 ], [ null, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ], [ null, %16 ], [ null, %._crit_edge ], [ null, %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit ], [ %33, %.critedge95 ]
+  %.sroa.054.5 = phi ptr [ null, %.split.us ], [ %spec.select, %75 ], [ null, %3 ], [ null, %82 ], [ null, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ], [ null, %16 ], [ null, %._crit_edge ], [ null, %_ZNK5clang13SourceManager13getIncludeLocENS_6FileIDE.exit ], [ %33, %.critedge95 ]
   ret ptr %.sroa.054.5
 }
 

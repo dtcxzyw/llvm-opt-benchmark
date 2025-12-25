@@ -3663,17 +3663,17 @@ define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableIP11lean_objectS1_16mi
   %29 = icmp eq i32 %22, 250
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br i1 %29, label %32, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit
+  br i1 %29, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31)
-  %34 = icmp eq i32 %33, 0
+  %33 = add i64 %18, -8
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %30, ptr nonnull %31, i64 %33)
+  %34 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %34, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit: ; preds = %28
-  %35 = add i64 %18, -8
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %30, ptr nonnull %31, i64 %35)
-  %36 = icmp eq i32 %bcmp.i.i.i.i, 0
+  %35 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %36 = icmp eq i32 %35, 0
   br i1 %36, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread: ; preds = %25, %20, %14, %11, %32, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_equalsERKS2_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit
@@ -3950,17 +3950,17 @@ define linkonce_odr hidden noundef ptr @_ZNKSt10_HashtableIP11lean_objectS1_16mi
   %29 = icmp eq i32 %22, 250
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br i1 %29, label %32, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit
+  br i1 %29, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31)
-  %34 = icmp eq i32 %33, 0
+  %33 = add i64 %18, -8
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %30, ptr nonnull %31, i64 %33)
+  %34 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %34, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit: ; preds = %28
-  %35 = add i64 %18, -8
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %30, ptr nonnull %31, i64 %35)
-  %36 = icmp eq i32 %bcmp.i.i.i.i, 0
+  %35 = tail call noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %36 = icmp eq i32 %35, 0
   br i1 %36, label %.loopexit, label %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit.thread: ; preds = %25, %20, %14, %11, %32, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_equals_trIS2_EEbRKT_mRKNS_16_Hash_node_valueIS2_Lb1EEE.exit

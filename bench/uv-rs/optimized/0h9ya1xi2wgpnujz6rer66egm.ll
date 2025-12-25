@@ -15409,8 +15409,8 @@ switch.lookup:                                    ; preds = %110
   br label %333
 
 333:                                              ; preds = %328, %324
-  %.sroa.8.0 = phi i64 [ %327, %324 ], [ %332, %328 ]
-  %.sroa.04.0 = phi ptr [ inttoptr (i64 1 to ptr), %324 ], [ %330, %328 ]
+  %.sroa.8.0 = phi i64 [ %332, %328 ], [ %327, %324 ]
+  %.sroa.04.0 = phi ptr [ %330, %328 ], [ inttoptr (i64 1 to ptr), %324 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2719
   store i64 0, ptr %14, align 8, !noalias !2719
   store i64 %.sroa.8.0, ptr %.sroa.49.0..sroa_idx.i, align 8, !noalias !2719

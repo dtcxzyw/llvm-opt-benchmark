@@ -1080,7 +1080,7 @@ select.unfold:                                    ; preds = %25, %22
 .thread33:                                        ; preds = %110
   %118 = load volatile ptr, ptr %10, align 8
   %119 = icmp eq ptr %118, %10
-  br i1 %119, label %.thread40.thread, label %120
+  br i1 %119, label %.thread49, label %120
 
 120:                                              ; preds = %.thread33
   br i1 %81, label %121, label %137
@@ -1121,13 +1121,13 @@ select.unfold:                                    ; preds = %25, %22
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %141 = load i16, ptr %140, align 4
   %142 = icmp eq i16 %141, 3
-  br i1 %142, label %143, label %.thread40.thread
+  br i1 %142, label %143, label %.thread49
 
 143:                                              ; preds = %137
   %144 = load ptr, ptr %10, align 8
   %145 = getelementptr i8, ptr %144, i64 -8
   %146 = icmp eq ptr %144, %10
-  br i1 %146, label %.thread40.thread, label %147
+  br i1 %146, label %.thread49, label %147
 
 147:                                              ; preds = %143
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -1143,7 +1143,7 @@ select.unfold:                                    ; preds = %25, %22
 149:                                              ; preds = %152, %147
   %150 = call ptr @mas_find(ptr noundef nonnull %8, i64 noundef %109) #19
   %151 = icmp eq ptr %150, null
-  br i1 %151, label %.thread40.thread, label %152
+  br i1 %151, label %.thread49, label %152
 
 152:                                              ; preds = %149
   %153 = call i64 @page_address_in_vma(ptr noundef %145, ptr noundef nonnull %150) #19
@@ -1163,13 +1163,7 @@ select.unfold:                                    ; preds = %25, %22
   %163 = and i32 %162, 255
   br label %164
 
-.thread48:                                        ; preds = %116, %.thread32
-  %.ph46 = phi i64 [ %96, %116 ], [ 0, %.thread32 ]
-  %.ph47 = phi i64 [ %117, %116 ], [ %96, %.thread32 ]
-  call fastcc void @mmap_write_unlock(ptr noundef %37)
-  br label %181
-
-164:                                              ; preds = %155, %159
+164:                                              ; preds = %159, %155
   %165 = phi i32 [ %163, %159 ], [ 0, %155 ]
   %166 = call ptr @get_vma_policy(ptr noundef nonnull %150, i64 noundef %153, i32 noundef %165, ptr noundef nonnull %139)
   call fastcc void @mpol_cond_put(ptr noundef %166)
@@ -1180,26 +1174,32 @@ select.unfold:                                    ; preds = %25, %22
   %171 = load i64, ptr %139, align 8
   %172 = sub i64 %171, %170
   store i64 %172, ptr %139, align 8
-  br label %.thread40.thread
+  br label %.thread49
 
-.thread40.thread:                                 ; preds = %149, %137, %.thread33, %143, %164
-  %173 = phi ptr [ %80, %.thread33 ], [ %138, %164 ], [ %138, %143 ], [ %138, %137 ], [ %138, %149 ]
+.thread48:                                        ; preds = %116, %.thread32
+  %.ph46 = phi i64 [ %96, %116 ], [ 0, %.thread32 ]
+  %.ph47 = phi i64 [ %117, %116 ], [ %96, %.thread32 ]
+  call fastcc void @mmap_write_unlock(ptr noundef %37)
+  br label %181
+
+.thread49:                                        ; preds = %149, %137, %.thread33, %143, %164
+  %173 = phi ptr [ %138, %143 ], [ %80, %.thread33 ], [ %138, %164 ], [ %138, %137 ], [ %138, %149 ]
   call fastcc void @mmap_write_unlock(ptr noundef %37)
   %174 = load volatile ptr, ptr %10, align 8
   %175 = icmp eq ptr %174, %10
   br i1 %175, label %181, label %176
 
-176:                                              ; preds = %.thread40.thread
+176:                                              ; preds = %.thread49
   %177 = ptrtoint ptr %9 to i64
   %178 = call i32 @migrate_pages(ptr noundef nonnull %10, ptr noundef nonnull @alloc_migration_target_by_mpol, ptr noundef null, i64 noundef %177, i32 noundef 2, i32 noundef 4, ptr noundef null) #19
   %179 = sext i32 %178 to i64
   %180 = or i64 %96, %179
   br label %181
 
-181:                                              ; preds = %.thread48, %176, %.thread40.thread
-  %182 = phi ptr [ %80, %.thread48 ], [ %173, %.thread40.thread ], [ %173, %176 ]
-  %183 = phi i64 [ %.ph47, %.thread48 ], [ 0, %.thread40.thread ], [ 0, %176 ]
-  %184 = phi i64 [ %.ph46, %.thread48 ], [ %96, %.thread40.thread ], [ %180, %176 ]
+181:                                              ; preds = %.thread48, %176, %.thread49
+  %182 = phi ptr [ %80, %.thread48 ], [ %173, %.thread49 ], [ %173, %176 ]
+  %183 = phi i64 [ %.ph47, %.thread48 ], [ 0, %.thread49 ], [ 0, %176 ]
+  %184 = phi i64 [ %.ph46, %.thread48 ], [ %96, %.thread49 ], [ %180, %176 ]
   %185 = icmp eq i64 %184, 0
   %186 = and i64 %83, 1
   %187 = icmp eq i64 %186, 0

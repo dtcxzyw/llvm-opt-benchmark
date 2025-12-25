@@ -2526,7 +2526,7 @@ switch.lookup:                                    ; preds = %95
   br label %98
 
 98:                                               ; preds = %switch.lookup, %91, %75, %95
-  %.shrunk = phi i1 [ %switch.selectcmp, %91 ], [ false, %75 ], [ %switch.masked, %switch.lookup ], [ false, %95 ]
+  %.shrunk = phi i1 [ %switch.masked, %switch.lookup ], [ false, %95 ], [ false, %75 ], [ %switch.selectcmp, %91 ]
   %99 = zext i1 %.shrunk to i32
   %100 = getelementptr inbounds nuw i8, ptr %74, i64 32
   store i32 %99, ptr %100, align 8
@@ -3048,7 +3048,7 @@ switch.lookup:                                    ; preds = %62
   br label %65
 
 65:                                               ; preds = %switch.lookup, %58, %62
-  %.shrunk = phi i1 [ %switch.selectcmp, %58 ], [ %switch.masked, %switch.lookup ], [ false, %62 ]
+  %.shrunk = phi i1 [ %switch.masked, %switch.lookup ], [ false, %62 ], [ %switch.selectcmp, %58 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %67 = load i32, ptr %66, align 8
   %.not183235 = icmp sgt i32 %67, 0
@@ -3099,7 +3099,7 @@ switch.lookup330:                                 ; preds = %80
   br label %83
 
 83:                                               ; preds = %switch.lookup330, %76, %80
-  %.shrunk315 = phi i1 [ %switch.selectcmp314, %76 ], [ %switch.masked334, %switch.lookup330 ], [ false, %80 ]
+  %.shrunk315 = phi i1 [ %switch.masked334, %switch.lookup330 ], [ false, %80 ], [ %switch.selectcmp314, %76 ]
   %84 = xor i1 %.shrunk315, %.shrunk
   br i1 %84, label %85, label %.thread214
 
@@ -3516,7 +3516,7 @@ switch.lookup462:                                 ; preds = %131
   br label %134
 
 134:                                              ; preds = %switch.lookup462, %127, %131
-  %.shrunk = phi i1 [ %switch.selectcmp, %127 ], [ %switch.masked, %switch.lookup462 ], [ false, %131 ]
+  %.shrunk = phi i1 [ %switch.masked, %switch.lookup462 ], [ false, %131 ], [ %switch.selectcmp, %127 ]
   %135 = xor i1 %.shrunk, %.1
   br i1 %135, label %136, label %.thread338
 
@@ -3526,7 +3526,7 @@ switch.lookup462:                                 ; preds = %131
   br i1 %exitcond402.not, label %.thread338, label %121, !llvm.loop !25
 
 .thread338:                                       ; preds = %73, %68, %98, %111, %136, %134, %.thread335, %88
-  %.3204 = phi i32 [ %123, %134 ], [ 372645892, %68 ], [ %113, %111 ], [ %.pre, %88 ], [ %100, %98 ], [ %117, %.thread335 ], [ %117, %136 ], [ 376840196, %73 ]
+  %.3204 = phi i32 [ %123, %134 ], [ 372645892, %68 ], [ %113, %111 ], [ %100, %98 ], [ %.pre, %88 ], [ %117, %.thread335 ], [ %117, %136 ], [ 376840196, %73 ]
   %137 = call i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef %1) #15
   %138 = icmp eq i32 %137, 301991168
   %139 = and i32 %137, 992
@@ -13057,7 +13057,7 @@ QueueCmdGeometry.exit360.sink.split:              ; preds = %320, %332
   br label %QueueCmdGeometry.exit360
 
 QueueCmdGeometry.exit360:                         ; preds = %.thread, %318, %QueueCmdGeometry.exit360.sink.split, %SDL_GetTextureSize_REAL.exit, %332, %330, %._crit_edge
-  %.4 = phi i1 [ true, %._crit_edge ], [ false, %330 ], [ true, %SDL_GetTextureSize_REAL.exit ], [ true, %332 ], [ false, %QueueCmdGeometry.exit360.sink.split ], [ false, %318 ], [ true, %.thread ]
+  %.4 = phi i1 [ true, %._crit_edge ], [ false, %330 ], [ true, %SDL_GetTextureSize_REAL.exit ], [ true, %332 ], [ false, %QueueCmdGeometry.exit360.sink.split ], [ true, %.thread ], [ false, %318 ]
   %338 = call zeroext i1 @SDL_SetRenderDrawBlendMode_REAL(ptr noundef %0, i32 noundef %.0374)
   %339 = call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 2) #15
   br i1 %339, label %342, label %340

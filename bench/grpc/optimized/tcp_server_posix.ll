@@ -7231,7 +7231,7 @@ define internal void @_ZL7on_readPvN4absl12lts_202407226StatusE(ptr noundef %0, 
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 25
   br label %.backedge
 
-.critedge198:                                     ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %51, %.critedge130
+.critedge198:                                     ; preds = %.critedge130, %51, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.backedge.backedge
 

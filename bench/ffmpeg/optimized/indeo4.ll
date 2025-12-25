@@ -2012,9 +2012,9 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   br label %306
 
 306:                                              ; preds = %.sink.split338, %254, %228
-  %307 = phi i32 [ %294, %254 ], [ %226, %228 ], [ %226, %.sink.split338 ]
-  %.3206.us = phi i32 [ %278, %254 ], [ %.1204266.us, %228 ], [ %.1204266.us, %.sink.split338 ]
-  %.3.us = phi i32 [ %299, %254 ], [ %.1201267.us, %228 ], [ %.1201267.us, %.sink.split338 ]
+  %307 = phi i32 [ %226, %228 ], [ %294, %254 ], [ %226, %.sink.split338 ]
+  %.3206.us = phi i32 [ %.1204266.us, %228 ], [ %278, %254 ], [ %.1204266.us, %.sink.split338 ]
+  %.3.us = phi i32 [ %.1201267.us, %228 ], [ %299, %254 ], [ %.1201267.us, %.sink.split338 ]
   %308 = icmp eq i8 %.sink, 2
   br i1 %308, label %309, label %365
 

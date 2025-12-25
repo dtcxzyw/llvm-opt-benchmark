@@ -3336,7 +3336,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_111MatchAndRefEPKSt5arrayImLm2EERKNS0_11Clo
   br i1 %exitcond, label %40, label %.preheader, !prof !141, !llvm.loop !142
 
 .thread118:                                       ; preds = %30, %72, %71, %95, %100
-  %.5 = phi ptr [ null, %72 ], [ %76, %100 ], [ null, %71 ], [ %76, %95 ], [ %24, %30 ]
+  %.5 = phi ptr [ %76, %95 ], [ %76, %100 ], [ null, %71 ], [ null, %72 ], [ %24, %30 ]
   ret ptr %.5
 }
 

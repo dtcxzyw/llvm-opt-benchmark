@@ -288,7 +288,7 @@ tls_write_records_multiblock_int.exit:            ; preds = %tls_write_records_m
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %108
 
-.loopexit12:                                      ; preds = %.lr.ph.i, %12, %17, %33, %29, %._crit_edge.i, %37, %40, %3, %43
+.loopexit12:                                      ; preds = %.lr.ph.i, %12, %17, %33, %29, %._crit_edge.i, %43, %40, %3, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %107 = tail call i32 @tls_write_records_default(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3

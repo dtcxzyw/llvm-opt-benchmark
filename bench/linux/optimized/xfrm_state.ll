@@ -7597,7 +7597,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   br i1 %.not, label %.thread, label %35
 
 35:                                               ; preds = %32, %27
-  %36 = phi ptr [ %34, %32 ], [ %29, %27 ]
+  %36 = phi ptr [ %29, %27 ], [ %34, %32 ]
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread, label %40
 
@@ -7651,7 +7651,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   br i1 %.not20, label %.thread24, label %60
 
 60:                                               ; preds = %57, %52
-  %61 = phi ptr [ %59, %57 ], [ %54, %52 ]
+  %61 = phi ptr [ %54, %52 ], [ %59, %57 ]
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.thread24, label %65
 
@@ -7881,7 +7881,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   br i1 %.not22, label %.thread38, label %160
 
 160:                                              ; preds = %157, %152
-  %161 = phi ptr [ %159, %157 ], [ %154, %152 ]
+  %161 = phi ptr [ %154, %152 ], [ %159, %157 ]
   %162 = icmp eq ptr %161, null
   br i1 %162, label %.thread38, label %165
 

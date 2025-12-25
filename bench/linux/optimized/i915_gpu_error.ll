@@ -5706,7 +5706,7 @@ define internal fastcc noundef zeroext i1 @__i915_error_grow(ptr noundef capture
   br label %.thread4
 
 .thread4:                                         ; preds = %.thread4.sink.split, %65, %71, %4, %2
-  %77 = phi i1 [ true, %65 ], [ true, %71 ], [ false, %2 ], [ true, %4 ], [ false, %.thread4.sink.split ]
+  %77 = phi i1 [ true, %71 ], [ true, %65 ], [ false, %2 ], [ true, %4 ], [ false, %.thread4.sink.split ]
   ret i1 %77
 }
 
@@ -6024,8 +6024,8 @@ define internal fastcc void @intel_gpu_error_print_vma(ptr noundef captures(none
   store i32 -12, ptr %21, align 8
   br label %__i915_error_grow.exit
 
-157:                                              ; preds = %._crit_edge, %147, %152
-  %158 = phi ptr [ %.pre, %._crit_edge ], [ %150, %147 ], [ %155, %152 ]
+157:                                              ; preds = %._crit_edge, %152, %147
+  %158 = phi ptr [ %.pre, %._crit_edge ], [ %155, %152 ], [ %150, %147 ]
   %159 = load i64, ptr %43, align 8
   %160 = getelementptr i8, ptr %158, i64 %159
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %160, ptr nonnull align 1 %87, i64 %92, i1 false)

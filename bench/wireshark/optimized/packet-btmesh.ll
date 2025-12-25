@@ -12356,7 +12356,7 @@ find_column_properties_idx.exit.thread:           ; preds = %45, %54, %find_btme
   br label %83
 
 83:                                               ; preds = %29, %34, %72, %68, %find_column_properties_idx.exit.thread, %79
-  %.3 = phi i32 [ %82, %79 ], [ %78, %find_column_properties_idx.exit.thread ], [ %38, %34 ], [ %33, %29 ], [ %71, %68 ], [ %75, %72 ]
+  %.3 = phi i32 [ %82, %79 ], [ %78, %find_column_properties_idx.exit.thread ], [ %38, %34 ], [ %33, %29 ], [ %75, %72 ], [ %71, %68 ]
   %84 = sub i32 %.3, %2
   ret i32 %84
 }

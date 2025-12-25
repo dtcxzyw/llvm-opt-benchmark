@@ -7050,7 +7050,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit215: ; pre
   br label %648
 
 648:                                              ; preds = %.sink.split, %5, %28
-  %.sroa.0.1 = phi i32 [ 0, %28 ], [ 0, %5 ], [ 1, %.sink.split ]
+  %.sroa.0.1 = phi i32 [ 0, %5 ], [ 0, %28 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.sroa.0.1
 
@@ -8709,7 +8709,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode31Brotl
   br label %.thread76
 
 .thread87.loopexit.split-lp:                      ; preds = %.invoke179, %.invoke, %64, %74, %43, %67, %51, %88, %259, %232, %241
-  %.sroa.032.2.ph.ph = phi i1 [ true, %241 ], [ true, %74 ], [ true, %43 ], [ true, %.invoke179 ], [ true, %232 ], [ true, %67 ], [ true, %51 ], [ true, %88 ], [ true, %64 ], [ true, %.invoke ], [ false, %259 ]
+  %.sroa.032.2.ph.ph = phi i1 [ true, %43 ], [ true, %74 ], [ true, %241 ], [ true, %.invoke179 ], [ true, %232 ], [ true, %67 ], [ false, %259 ], [ true, %88 ], [ true, %64 ], [ true, %.invoke ], [ true, %51 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread76

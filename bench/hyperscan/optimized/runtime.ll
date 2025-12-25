@@ -701,7 +701,7 @@ rvermUnalign.exit:                                ; preds = %91, %95
   br label %rvermicelliExec.exit
 
 rvermicelliExec.exit:                             ; preds = %.preheader, %61, %rvermSearchAligned.exit, %.thread, %rvermUnalign.exit
-  %.0.i35 = phi ptr [ %77, %.thread ], [ %90, %rvermSearchAligned.exit ], [ %103, %rvermUnalign.exit ], [ %.046.i, %61 ], [ %.046.i, %.preheader ]
+  %.0.i35 = phi ptr [ %90, %rvermSearchAligned.exit ], [ %77, %.thread ], [ %103, %rvermUnalign.exit ], [ %.046.i, %61 ], [ %.046.i, %.preheader ]
   %104 = ptrtoint ptr %.0.i35 to i64
   %105 = sub i64 %51, %59
   %106 = add i64 %105, %104
@@ -821,7 +821,7 @@ rvermUnalignNocase.exit:                          ; preds = %154, %159
   br label %rvermicelliExec.exit50
 
 rvermicelliExec.exit50:                           ; preds = %.preheader163, %121, %rvermSearchAlignedNocase.exit, %.thread100, %rvermUnalignNocase.exit
-  %.0.i42 = phi ptr [ %139, %.thread100 ], [ %153, %rvermSearchAlignedNocase.exit ], [ %167, %rvermUnalignNocase.exit ], [ %.046.i48, %121 ], [ %.046.i48, %.preheader163 ]
+  %.0.i42 = phi ptr [ %153, %rvermSearchAlignedNocase.exit ], [ %139, %.thread100 ], [ %167, %rvermUnalignNocase.exit ], [ %.046.i48, %121 ], [ %.046.i48, %.preheader163 ]
   %168 = ptrtoint ptr %.0.i42 to i64
   %169 = sub i64 %111, %119
   %170 = add i64 %169, %168

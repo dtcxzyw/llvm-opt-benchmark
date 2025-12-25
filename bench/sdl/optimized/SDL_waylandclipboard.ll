@@ -309,7 +309,7 @@ define hidden ptr @Wayland_GetPrimarySelectionText(ptr noundef readonly captures
   br i1 %exitcond.not, label %.thread, label %16, !llvm.loop !3
 
 28:                                               ; preds = %14, %21
-  %.014 = phi ptr [ %25, %21 ], [ %15, %14 ]
+  %.014 = phi ptr [ %15, %14 ], [ %25, %21 ]
   %.not20 = icmp eq ptr %.014, null
   br i1 %.not20, label %.thread, label %30
 

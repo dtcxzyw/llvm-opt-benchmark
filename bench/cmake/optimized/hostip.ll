@@ -968,8 +968,8 @@ get_localhost.exit:                               ; preds = %89, %94, %get_local
   br label %153
 
 153:                                              ; preds = %136, %152, %151, %140
-  %.pre = phi ptr [ null, %136 ], [ %141, %140 ], [ %.pre.pre, %151 ], [ %146, %152 ]
-  %.279 = phi i32 [ %.077, %136 ], [ %., %140 ], [ %.077, %151 ], [ 0, %152 ]
+  %.pre = phi ptr [ %141, %140 ], [ null, %136 ], [ %146, %152 ], [ %.pre.pre, %151 ]
+  %.279 = phi i32 [ %., %140 ], [ %.077, %136 ], [ 0, %152 ], [ %.077, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %154
@@ -1692,7 +1692,7 @@ create_hostcache_id.exit:                         ; preds = %21
   br label %.thread232
 
 .thread232:                                       ; preds = %56, %69, %66, %59, %._crit_edge, %.thread232.loopexit, %97, %102, %106
-  %.0151238 = phi ptr [ %.1152263, %.thread232.loopexit ], [ %.1152263, %106 ], [ %.1152263, %102 ], [ %.1152263, %97 ], [ null, %._crit_edge ], [ null, %59 ], [ null, %66 ], [ null, %69 ], [ null, %56 ]
+  %.0151238 = phi ptr [ %.1152263, %106 ], [ %.1152263, %.thread232.loopexit ], [ %.1152263, %102 ], [ %.1152263, %97 ], [ null, %._crit_edge ], [ null, %59 ], [ null, %66 ], [ null, %69 ], [ null, %56 ]
   %112 = load ptr, ptr %.0132268, align 8, !tbaa !134
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %112) #11
   br label %.loopexit

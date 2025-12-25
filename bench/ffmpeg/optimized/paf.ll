@@ -485,7 +485,7 @@ define internal i32 @read_packet(ptr noundef readonly captures(none) %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %88, %69, %59, %.loopexit.sink.split, %109, %._crit_edge, %16, %11, %2
-  %.073 = phi i32 [ %139, %.loopexit.sink.split ], [ -541478725, %2 ], [ -541478725, %11 ], [ -1094995529, %._crit_edge ], [ %19, %16 ], [ %111, %109 ], [ -1094995529, %59 ], [ -1094995529, %69 ], [ -1094995529, %88 ]
+  %.073 = phi i32 [ -1094995529, %._crit_edge ], [ -541478725, %2 ], [ -541478725, %11 ], [ %139, %.loopexit.sink.split ], [ %19, %16 ], [ %111, %109 ], [ -1094995529, %59 ], [ -1094995529, %69 ], [ -1094995529, %88 ]
   ret i32 %.073
 }
 

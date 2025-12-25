@@ -2736,7 +2736,7 @@ if.then306:                                       ; preds = %if.end304
   %spec.store.select257 = select i1 %or.cond7256, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %mul309
   br i1 %invert, label %if.end380, label %if.then371
 
-sw.bb311:                                         ; preds = %if.then176, %if.else182
+sw.bb311:                                         ; preds = %if.else182, %if.then176
   %call312 = tail call noundef x86_fp80 @_ZN5boost4math6detail18igamma_temme_largeIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_RKT0_PKSt17integral_constantIiLi64EE(x86_fp80 noundef %a, x86_fp80 noundef %x, ptr noundef nonnull align 1 dereferenceable(1) %pol, ptr noundef null)
   %cmp313 = fcmp oge x86_fp80 %x, %a
   %invert.addr.4237 = xor i1 %invert, %cmp313

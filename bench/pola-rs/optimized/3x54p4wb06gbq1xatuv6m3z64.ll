@@ -18494,7 +18494,7 @@ common.resume.i.i:                                ; preds = %400, %395, %107
           to label %common.resume.i.i unwind label %146, !noalias !4094
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h093229665230a66bE.exit.i.thread": ; preds = %77, %89, %63, %88
-  %.sroa.0.0.copyload.ph.i.i = phi i8 [ 39, %63 ], [ %84, %88 ], [ 39, %89 ], [ 39, %77 ]
+  %.sroa.0.0.copyload.ph.i.i = phi i8 [ %84, %88 ], [ 39, %63 ], [ 39, %89 ], [ 39, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.012.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(71) %.sroa.4.i.i.i, ptr noundef nonnull align 1 dereferenceable(71) %.sroa.2.0..sroa_idx.i.i.i, i64 71, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(136) %.sroa.4.72..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.7.0..sroa_idx.i.i, i64 136, i1 false)
@@ -21030,7 +21030,7 @@ _ZN9hashbrown3map9make_hash17h488f6f91236d201bE.exit.i.i.i.i: ; preds = %"_ZN62_
   br i1 %.not.i.i, label %174, label %.loopexit.i
 
 .loopexit.sink.split.i:                           ; preds = %44, %33, %157, %40, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a33e35817ead088E.exit.thread10.i"
-  %storemerge.i.i13.ph.i = phi i8 [ 33, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a33e35817ead088E.exit.thread10.i" ], [ 0, %40 ], [ 0, %157 ], [ 0, %33 ], [ 0, %44 ]
+  %storemerge.i.i13.ph.i = phi i8 [ 33, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8a33e35817ead088E.exit.thread10.i" ], [ 0, %157 ], [ 0, %40 ], [ 0, %33 ], [ 0, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4652
   br label %.loopexit.i
 

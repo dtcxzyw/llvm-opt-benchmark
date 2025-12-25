@@ -2545,7 +2545,7 @@ _ZL33areNonOverlapSameBaseLoadAndStorePKN4llvm5ValueEPNS_4TypeES2_S4_RKNS_10Data
   br label %.thread71.sink.split
 
 .thread:                                          ; preds = %224, %_ZL33areNonOverlapSameBaseLoadAndStorePKN4llvm5ValueEPNS_4TypeES2_S4_RKNS_10DataLayoutE.exit, %80, %228, %231, %54
-  %.144 = phi i32 [ %66, %228 ], [ %.04388, %54 ], [ %66, %231 ], [ %66, %80 ], [ %66, %_ZL33areNonOverlapSameBaseLoadAndStorePKN4llvm5ValueEPNS_4TypeES2_S4_RKNS_10DataLayoutE.exit ], [ %66, %224 ]
+  %.144 = phi i32 [ %66, %231 ], [ %.04388, %54 ], [ %66, %228 ], [ %66, %80 ], [ %66, %_ZL33areNonOverlapSameBaseLoadAndStorePKN4llvm5ValueEPNS_4TypeES2_S4_RKNS_10DataLayoutE.exit ], [ %66, %224 ]
   %235 = load ptr, ptr %28, align 8, !tbaa !133
   %236 = load ptr, ptr %4, align 8, !tbaa !195
   %.not78 = icmp eq ptr %236, %235
@@ -2561,7 +2561,7 @@ _ZL33areNonOverlapSameBaseLoadAndStorePKN4llvm5ValueEPNS_4TypeES2_S4_RKNS_10Data
   br label %.thread71
 
 .thread71:                                        ; preds = %.thread, %68, %65, %.thread71.sink.split, %9
-  %.5 = phi ptr [ null, %9 ], [ null, %.thread71.sink.split ], [ null, %65 ], [ %70, %68 ], [ null, %.thread ]
+  %.5 = phi ptr [ null, %9 ], [ null, %.thread71.sink.split ], [ %70, %68 ], [ null, %65 ], [ null, %.thread ]
   ret ptr %.5
 }
 
@@ -3057,7 +3057,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %49, %.loopexit.sink.split, %19
-  %.4 = phi ptr [ %.4.ph, %.loopexit.sink.split ], [ null, %19 ], [ null, %49 ], [ null, %29 ]
+  %.4 = phi ptr [ null, %19 ], [ %.4.ph, %.loopexit.sink.split ], [ null, %49 ], [ null, %29 ]
   %63 = load ptr, ptr %5, align 8, !tbaa !123
   %64 = icmp eq ptr %63, %23
   br i1 %64, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj6EED2Ev.exit, label %65
@@ -3388,7 +3388,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm29isDereferenceableReadOnlyLoopEPNS
   br i1 %.not, label %.thread, label %.lr.ph61
 
 .thread:                                          ; preds = %._crit_edge, %17, %19, %21, %15, %5
-  %.not53 = phi i1 [ false, %17 ], [ true, %5 ], [ false, %15 ], [ false, %21 ], [ false, %19 ], [ true, %._crit_edge ]
+  %.not53 = phi i1 [ true, %5 ], [ false, %17 ], [ false, %15 ], [ false, %21 ], [ false, %19 ], [ true, %._crit_edge ]
   ret i1 %.not53
 }
 

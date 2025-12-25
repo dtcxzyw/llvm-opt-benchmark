@@ -8141,8 +8141,8 @@ Py_DECREF.exit107.sink.split.i:                   ; preds = %187, %136
   br label %Py_DECREF.exit107.i
 
 Py_DECREF.exit107.i:                              ; preds = %textiowrapper_get_decoded_chars.exit133.i, %169, %163, %158, %Py_DECREF.exit107.sink.split.i, %Py_XDECREF.exit, %.loopexit.thread192.i, %textiowrapper_get_decoded_chars.exit.i, %109, %Py_DECREF.exit109.i, %68
-  %221 = phi ptr [ null, %68 ], [ null, %Py_DECREF.exit109.i ], [ null, %109 ], [ null, %Py_DECREF.exit107.sink.split.i ], [ %154, %158 ], [ null, %Py_XDECREF.exit ], [ %203, %.loopexit.thread192.i ], [ null, %textiowrapper_get_decoded_chars.exit.i ], [ %154, %163 ], [ null, %textiowrapper_get_decoded_chars.exit133.i ], [ %154, %169 ]
-  %.078.i = phi ptr [ null, %68 ], [ null, %Py_DECREF.exit109.i ], [ null, %109 ], [ %.078.ph.i, %Py_DECREF.exit107.sink.split.i ], [ %.279.ph157.i, %158 ], [ %.279.ph156195.i, %Py_XDECREF.exit ], [ %.279.ph156195.i, %.loopexit.thread192.i ], [ null, %textiowrapper_get_decoded_chars.exit.i ], [ null, %163 ], [ %.380.i, %textiowrapper_get_decoded_chars.exit133.i ], [ %.380.i, %169 ]
+  %221 = phi ptr [ null, %68 ], [ null, %Py_DECREF.exit109.i ], [ null, %109 ], [ null, %Py_DECREF.exit107.sink.split.i ], [ %154, %158 ], [ null, %Py_XDECREF.exit ], [ %203, %.loopexit.thread192.i ], [ null, %textiowrapper_get_decoded_chars.exit.i ], [ %154, %163 ], [ %154, %169 ], [ null, %textiowrapper_get_decoded_chars.exit133.i ]
+  %.078.i = phi ptr [ null, %68 ], [ null, %Py_DECREF.exit109.i ], [ null, %109 ], [ %.078.ph.i, %Py_DECREF.exit107.sink.split.i ], [ %.279.ph157.i, %158 ], [ %.279.ph156195.i, %Py_XDECREF.exit ], [ %.279.ph156195.i, %.loopexit.thread192.i ], [ null, %textiowrapper_get_decoded_chars.exit.i ], [ null, %163 ], [ %.380.i, %169 ], [ %.380.i, %textiowrapper_get_decoded_chars.exit133.i ]
   call fastcc void @Py_XDECREF(ptr noundef %221)
   call fastcc void @Py_XDECREF(ptr noundef %.078.i)
   br label %_io_TextIOWrapper_read_impl.exit

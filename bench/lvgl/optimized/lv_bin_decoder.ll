@@ -387,7 +387,7 @@ get_decoder_data.exit170:                         ; preds = %85, %91
   br label %.thread184
 
 127:                                              ; preds = %get_decoder_data.exit166, %69, %42, %38
-  %.3120 = phi i32 [ %84, %get_decoder_data.exit166 ], [ %70, %69 ], [ %39, %38 ], [ %43, %42 ]
+  %.3120 = phi i32 [ %70, %69 ], [ %39, %38 ], [ %43, %42 ], [ %84, %get_decoder_data.exit166 ]
   %.not153.not = icmp eq i32 %.3120, 0
   br i1 %.not153.not, label %.thread, label %.thread184
 

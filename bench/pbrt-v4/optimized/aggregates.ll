@@ -7709,8 +7709,8 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.threa
   br label %.backedge
 
 .backedge:                                        ; preds = %147, %132, %139
-  %.054.be = phi i32 [ %138, %132 ], [ %151, %147 ], [ %145, %139 ]
-  %.051.be = phi i32 [ %134, %132 ], [ %148, %147 ], [ %142, %139 ]
+  %.054.be = phi i32 [ %138, %132 ], [ %145, %139 ], [ %151, %147 ]
+  %.051.be = phi i32 [ %134, %132 ], [ %142, %139 ], [ %148, %147 ]
   br label %46
 
 .loopexit:                                        ; preds = %._crit_edge, %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread
@@ -7939,8 +7939,8 @@ _ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.threa
   br label %.backedge
 
 .backedge:                                        ; preds = %113, %98, %105
-  %.049.be = phi i32 [ %104, %98 ], [ %117, %113 ], [ %111, %105 ]
-  %.046.be = phi i32 [ %100, %98 ], [ %114, %113 ], [ %108, %105 ]
+  %.049.be = phi i32 [ %104, %98 ], [ %111, %105 ], [ %117, %113 ]
+  %.046.be = phi i32 [ %100, %98 ], [ %108, %105 ], [ %114, %113 ]
   br label %29
 
 .thread65:                                        ; preds = %_ZNK4pbrt7Bounds3IfE10IntersectPENS_6Point3IfEENS_7Vector3IfEEfS5_PKi.exit.thread, %._crit_edge, %79
@@ -11045,8 +11045,8 @@ _ZNK4pbrt6Tuple3INS_7Vector3EfEixEi.exit:         ; preds = %94, %95, %96
   br i1 %.not, label %.thread122, label %48, !llvm.loop !403
 
 .thread122:                                       ; preds = %119, %.critedge, %56, %.critedge98, %39
-  %.sink185.shrunk = phi i32 [ %49, %.critedge98 ], [ 0, %39 ], [ %49, %56 ], [ %49, %.critedge ], [ %49, %119 ]
-  %.8 = phi i1 [ true, %.critedge98 ], [ false, %39 ], [ false, %.critedge ], [ true, %56 ], [ false, %119 ]
+  %.sink185.shrunk = phi i32 [ 0, %39 ], [ %49, %.critedge98 ], [ %49, %56 ], [ %49, %.critedge ], [ %49, %119 ]
+  %.8 = phi i1 [ false, %39 ], [ true, %.critedge98 ], [ false, %.critedge ], [ true, %56 ], [ false, %119 ]
   %.sink185 = zext i32 %.sink185.shrunk to i64
   %120 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL14kdNodesVisitedE)
   %121 = load i64, ptr %120, align 8, !tbaa !49

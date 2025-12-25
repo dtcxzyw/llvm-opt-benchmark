@@ -11589,7 +11589,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17ha861af1d70299a3aE.exit.thread.
   br label %.critedge283.i
 
 .loopexit.split-lp.loopexit.loopexit.split-lp.i:  ; preds = %909, %683, %666, %635, %631, %628, %624, %610
-  %.sroa.063.1.ph.ph.ph.i = phi i1 [ true, %635 ], [ true, %631 ], [ true, %666 ], [ true, %683 ], [ true, %610 ], [ true, %628 ], [ true, %624 ], [ false, %909 ]
+  %.sroa.063.1.ph.ph.ph.i = phi i1 [ true, %635 ], [ true, %631 ], [ true, %666 ], [ true, %683 ], [ true, %610 ], [ true, %624 ], [ true, %628 ], [ false, %909 ]
   %lpad.loopexit.split-lp921.i = landingpad { ptr, i32 }
           cleanup
   br label %.critedge283.i
@@ -11867,7 +11867,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i: ; preds = %.
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.preheader.i.i.i, %.noexc541.i, %706, %697, %._crit_edge.i.i.i.loopexit45.split.loop.exit356
-  %.sroa.4.1.i.i = phi i64 [ %689, %697 ], [ %.mux.i.le, %._crit_edge.i.i.i.loopexit45.split.loop.exit356 ], [ %689, %706 ], [ %689, %.noexc541.i ], [ %689, %.preheader.i.i.i ]
+  %.sroa.4.1.i.i = phi i64 [ %.mux.i.le, %._crit_edge.i.i.i.loopexit45.split.loop.exit356 ], [ %689, %697 ], [ %689, %706 ], [ %689, %.noexc541.i ], [ %689, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !2008
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h12104dffd206eb60E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, i64 noundef %.sroa.4.1.i.i, i1 noundef zeroext false)
           to label %.noexc454.i unwind label %.thread832.loopexit.split-lp.loopexit.i, !noalias !1572

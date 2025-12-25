@@ -63,7 +63,7 @@ define ptr @EC_KEY_new_by_curve_name_ex(ptr noundef %0, ptr noundef %1, i32 noun
   br label %17
 
 17:                                               ; preds = %.sink.split, %10, %14, %3
-  %.0 = phi ptr [ null, %3 ], [ %4, %10 ], [ %4, %14 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %4, %14 ], [ %4, %10 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -174,7 +174,7 @@ define ptr @EC_KEY_new_by_curve_name(i32 noundef %0) local_unnamed_addr #0 {
   br label %EC_KEY_new_by_curve_name_ex.exit
 
 EC_KEY_new_by_curve_name_ex.exit:                 ; preds = %1, %8, %12, %.sink.split.i
-  %.0.i = phi ptr [ null, %1 ], [ %2, %8 ], [ %2, %12 ], [ null, %.sink.split.i ]
+  %.0.i = phi ptr [ null, %1 ], [ %2, %12 ], [ %2, %8 ], [ null, %.sink.split.i ]
   ret ptr %.0.i
 }
 

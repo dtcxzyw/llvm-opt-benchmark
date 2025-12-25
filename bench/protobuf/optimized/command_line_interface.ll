@@ -5997,7 +5997,7 @@ lpad361:                                          ; preds = %invoke.cont360
   br label %ehcleanup371
 
 cleanup370:                                       ; preds = %cleanup196, %invoke.cont234, %invoke.cont222, %for.inc353, %for.cond335.preheader, %if.end329, %if.then332, %if.end318, %land.lhs.true324, %invoke.cont313, %invoke.cont261, %invoke.cont253, %invoke.cont246, %cleanup305, %invoke.cont364
-  %retval.8 = phi i32 [ 0, %for.cond335.preheader ], [ 1, %invoke.cont234 ], [ 0, %if.end329 ], [ 1, %invoke.cont313 ], [ 1, %if.end318 ], [ 1, %invoke.cont364 ], [ 1, %cleanup305 ], [ 1, %invoke.cont261 ], [ 1, %invoke.cont253 ], [ 1, %invoke.cont246 ], [ 1, %land.lhs.true324 ], [ 0, %if.then332 ], [ 0, %for.inc353 ], [ 1, %invoke.cont222 ], [ 1, %cleanup196 ]
+  %retval.8 = phi i32 [ 0, %for.cond335.preheader ], [ 0, %if.end329 ], [ 1, %invoke.cont234 ], [ 1, %invoke.cont313 ], [ 1, %if.end318 ], [ 1, %invoke.cont364 ], [ 1, %cleanup305 ], [ 1, %invoke.cont261 ], [ 1, %invoke.cont253 ], [ 1, %invoke.cont246 ], [ 1, %land.lhs.true324 ], [ 0, %if.then332 ], [ 0, %for.inc353 ], [ 1, %invoke.cont222 ], [ 1, %cleanup196 ]
   call void @_ZN4absl12lts_2023080213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplESt14default_deleteISD_EENS0_18container_internal10StringHashENSH_8StringEqESaISt4pairIKS7_SG_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_directories) #31
   br label %cleanup372
 
@@ -8631,7 +8631,7 @@ for.end91.sink.split:                             ; preds = %if.then35, %if.then
   br label %for.end91
 
 for.end91:                                        ; preds = %for.inc89, %for.body16, %for.end84, %for.inc83.thread, %for.end91.sink.split, %if.end
-  %cmp.i9.not65 = phi i1 [ false, %for.end91.sink.split ], [ false, %for.inc83.thread ], [ true, %if.end ], [ false, %for.body16 ], [ true, %for.inc89 ], [ false, %for.end84 ]
+  %cmp.i9.not65 = phi i1 [ false, %for.end91.sink.split ], [ false, %for.inc83.thread ], [ true, %if.end ], [ false, %for.end84 ], [ true, %for.inc89 ], [ false, %for.body16 ]
   call void @_ZN6google8protobuf14DescriptorPool27ClearUnusedImportTrackFilesEv(ptr noundef nonnull align 8 dereferenceable(96) %descriptor_pool)
   ret i1 %cmp.i9.not65
 }
@@ -9039,8 +9039,8 @@ cleanup130.sink.split:                            ; preds = %invoke.cont46, %inv
   br label %cleanup130
 
 cleanup130:                                       ; preds = %cleanup130.sink.split, %invoke.cont120, %invoke.cont105, %invoke.cont85, %invoke.cont112
-  %plugin_name.sink = phi ptr [ %parameters60, %invoke.cont120 ], [ %parameters60, %invoke.cont112 ], [ %parameters60, %invoke.cont105 ], [ %parameters60, %invoke.cont85 ], [ %plugin_name, %cleanup130.sink.split ]
-  %retval.1 = phi i1 [ false, %invoke.cont120 ], [ true, %invoke.cont112 ], [ false, %invoke.cont105 ], [ false, %invoke.cont85 ], [ %call47, %cleanup130.sink.split ]
+  %plugin_name.sink = phi ptr [ %parameters60, %invoke.cont105 ], [ %parameters60, %invoke.cont112 ], [ %parameters60, %invoke.cont120 ], [ %parameters60, %invoke.cont85 ], [ %plugin_name, %cleanup130.sink.split ]
+  %retval.1 = phi i1 [ false, %invoke.cont105 ], [ true, %invoke.cont112 ], [ false, %invoke.cont120 ], [ false, %invoke.cont85 ], [ %call47, %cleanup130.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %plugin_name.sink) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error) #31
   ret i1 %retval.1
@@ -14937,7 +14937,7 @@ return.sink.split:                                ; preds = %return.sink.split.s
   br label %return
 
 return:                                           ; preds = %for.inc, %for.inc.us, %return.sink.split, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ true, %for.inc.us ], [ false, %return.sink.split ], [ true, %if.end ], [ true, %for.inc ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %if.end ], [ false, %return.sink.split ], [ true, %for.inc.us ], [ true, %for.inc ]
   ret i1 %retval.0
 }
 
@@ -17526,7 +17526,7 @@ for.body11:                                       ; preds = %for.body11, %for.bo
   br i1 %or.cond, label %return, label %for.body11, !llvm.loop !272
 
 return:                                           ; preds = %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i, %for.body11, %for.cond8.preheader
-  %retval.0 = phi i1 [ %call13, %for.body11 ], [ false, %for.cond8.preheader ], [ true, %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i ]
+  %retval.0 = phi i1 [ false, %for.cond8.preheader ], [ %call13, %for.body11 ], [ true, %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i ]
   ret i1 %retval.0
 }
 

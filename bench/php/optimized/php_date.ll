@@ -17294,9 +17294,9 @@ zend_parse_arg_double.exit167:                    ; preds = %63
   br label %151
 
 .critedge:                                        ; preds = %zend_parse_arg_double.exit167, %.thread240, %44, %53, %62
-  %.1186 = phi i1 [ %.3188196, %.thread240 ], [ %.3188196, %53 ], [ %.3188196, %62 ], [ true, %44 ], [ %.3188196, %zend_parse_arg_double.exit167 ]
-  %.1182 = phi i1 [ %.3184199, %.thread240 ], [ true, %53 ], [ %.3184199, %62 ], [ true, %44 ], [ %.3184199, %zend_parse_arg_double.exit167 ]
-  %.1178 = phi i1 [ %.2179, %.thread240 ], [ true, %53 ], [ true, %62 ], [ true, %44 ], [ false, %zend_parse_arg_double.exit167 ]
+  %.1186 = phi i1 [ %.3188196, %.thread240 ], [ %.3188196, %62 ], [ %.3188196, %53 ], [ true, %44 ], [ %.3188196, %zend_parse_arg_double.exit167 ]
+  %.1182 = phi i1 [ %.3184199, %.thread240 ], [ %.3184199, %62 ], [ true, %53 ], [ true, %44 ], [ %.3184199, %zend_parse_arg_double.exit167 ]
+  %.1178 = phi i1 [ %.2179, %.thread240 ], [ true, %62 ], [ true, %53 ], [ true, %44 ], [ false, %zend_parse_arg_double.exit167 ]
   br i1 %.3193, label %.critedge.thread, label %73
 
 .thread:                                          ; preds = %35, %26

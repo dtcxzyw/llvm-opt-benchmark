@@ -65538,9 +65538,9 @@ thread-pre-split:                                 ; preds = %.invoke825, %"_ZN4c
           to label %185 unwind label %.loopexit.split-lp275.loopexit
 
 .body181:                                         ; preds = %.loopexit274, %.loopexit.split-lp275.loopexit.split-lp, %.loopexit.split-lp275.loopexit, %734, %737, %506, %509
-  %.sroa.025.0.lpad-body115 = phi i1 [ true, %737 ], [ true, %506 ], [ true, %509 ], [ true, %734 ], [ true, %.loopexit274 ], [ %.sroa.025.0.ph.ph, %.loopexit.split-lp275.loopexit ], [ %.sroa.025.0.ph.ph280, %.loopexit.split-lp275.loopexit.split-lp ]
-  %.sroa.023.0.lpad-body116 = phi i1 [ true, %737 ], [ true, %506 ], [ true, %509 ], [ true, %734 ], [ true, %.loopexit274 ], [ %.sroa.023.0.ph.ph, %.loopexit.split-lp275.loopexit ], [ %.sroa.025.0.ph.ph280, %.loopexit.split-lp275.loopexit.split-lp ]
-  %eh.lpad-body117 = phi { ptr, i32 } [ %735, %737 ], [ %507, %506 ], [ %507, %509 ], [ %735, %734 ], [ %lpad.loopexit276, %.loopexit274 ], [ %lpad.loopexit282, %.loopexit.split-lp275.loopexit ], [ %lpad.loopexit.split-lp283, %.loopexit.split-lp275.loopexit.split-lp ]
+  %.sroa.025.0.lpad-body115 = phi i1 [ true, %509 ], [ true, %506 ], [ true, %737 ], [ true, %734 ], [ true, %.loopexit274 ], [ %.sroa.025.0.ph.ph, %.loopexit.split-lp275.loopexit ], [ %.sroa.025.0.ph.ph280, %.loopexit.split-lp275.loopexit.split-lp ]
+  %.sroa.023.0.lpad-body116 = phi i1 [ true, %509 ], [ true, %506 ], [ true, %737 ], [ true, %734 ], [ true, %.loopexit274 ], [ %.sroa.023.0.ph.ph, %.loopexit.split-lp275.loopexit ], [ %.sroa.025.0.ph.ph280, %.loopexit.split-lp275.loopexit.split-lp ]
+  %eh.lpad-body117 = phi { ptr, i32 } [ %507, %509 ], [ %507, %506 ], [ %735, %737 ], [ %735, %734 ], [ %lpad.loopexit276, %.loopexit274 ], [ %lpad.loopexit282, %.loopexit.split-lp275.loopexit ], [ %lpad.loopexit.split-lp283, %.loopexit.split-lp275.loopexit.split-lp ]
   %183 = load i64, ptr %50, align 8, !range !671
   %184 = icmp eq i64 %183, 1
   %or.cond5 = select i1 %.sroa.023.0.lpad-body116, i1 %184, i1 false

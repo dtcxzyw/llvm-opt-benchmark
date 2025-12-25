@@ -3506,7 +3506,7 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   br i1 %90, label %141, label %.thread137
 
 140:                                              ; preds = %._crit_edge, %130
-  %.282 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %134, %130 ]
+  %.282 = phi i32 [ %134, %130 ], [ %.5.lcssa, %._crit_edge ]
   br i1 %90, label %141, label %.thread137
 
 141:                                              ; preds = %136, %140

@@ -3393,7 +3393,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc1d58637b155714cE.exit.i: ; preds = %_Z
   invoke void %91(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef align 1 %82, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
           to label %92 unwind label %108
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread18: ; preds = %27, %12, %34, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread18: ; preds = %12, %34, %27, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
   store i64 0, ptr %0, align 8
   br label %106
 
@@ -3699,8 +3699,8 @@ _ZN4core3ops8function6FnOnce9call_once17hc1d58637b155714cE.exit.i: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread19
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread19: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit, %33, %11, %26, %105
-  %.sroa.0.0 = phi i1 [ %91, %105 ], [ false, %26 ], [ false, %11 ], [ false, %33 ], [ false, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit ]
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread19: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit, %26, %33, %11, %105
+  %.sroa.0.0 = phi i1 [ %91, %105 ], [ false, %11 ], [ false, %33 ], [ false, %26 ], [ false, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.sroa.0.0
 
@@ -9436,7 +9436,7 @@ _ZN4core3str7pattern15ReverseSearcher16next_reject_back17he074219437f7be41E.exit
   br label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17he074219437f7be41E.exit
 
 _ZN4core3str7pattern15ReverseSearcher16next_reject_back17he074219437f7be41E.exit: ; preds = %67, %37, %41, %82, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17he074219437f7be41E.exit.sink.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us47.us.preheader, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us, %.lr.ph.split.split.i.us.us.us.preheader, %.lr.ph.split.us.split.i, %.split.us.i, %.split.i
-  %.sroa.0.0 = phi i64 [ 0, %.lr.ph.split.us.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ 0, %.split.us.i ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ 0, %.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.sroa.0.0.ph, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17he074219437f7be41E.exit.sink.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.lcssa7083, %41 ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ %.lcssa7083, %82 ], [ %.lcssa7083, %37 ], [ 0, %67 ]
+  %.sroa.0.0 = phi i64 [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us ], [ 0, %.lr.ph.split.us.split.i ], [ 0, %.split.us.i ], [ %.fr.i.i, %.lr.ph.split.split.i.us.us.us.preheader ], [ 0, %.split.i ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.us47.us.preheader ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split ], [ %.sroa.0.0.ph, %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17he074219437f7be41E.exit.sink.split ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split ], [ %.lcssa7083, %41 ], [ %.fr.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us ], [ %.lcssa7083, %82 ], [ %.lcssa7083, %37 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %115 = insertvalue { ptr, i64 } poison, ptr %0, 0
   %116 = insertvalue { ptr, i64 } %115, i64 %.sroa.0.0, 1
@@ -32458,8 +32458,8 @@ _ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h725929
   br label %._crit_edge.i.i.i.i.i
 
 89:                                               ; preds = %87, %86, %85, %84, %82, %81, %80, %78
-  %.sroa.11.0.i.i.i.i = phi i64 [ 10, %87 ], [ 4, %78 ], [ 15, %80 ], [ 10, %81 ], [ 3, %82 ], [ 4, %86 ], [ 13, %84 ], [ 22, %85 ]
-  %.sroa.01.0.i.i.i.i = phi ptr [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_917h720007bbe6c7f623E, %87 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_017h852d13fd8cc4342aE, %78 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_217he281acb422c8d601E, %80 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_317h2e164551ac96bdf8E, %81 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_417h9087c19be5b1ebe3E, %82 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_817he34d68886706652bE, %86 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_617h063852d6eb924d4cE, %84 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_717hae24286b795f5472E, %85 ]
+  %.sroa.11.0.i.i.i.i = phi i64 [ 10, %87 ], [ 4, %86 ], [ 15, %80 ], [ 10, %81 ], [ 3, %82 ], [ 4, %78 ], [ 13, %84 ], [ 22, %85 ]
+  %.sroa.01.0.i.i.i.i = phi ptr [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_917h720007bbe6c7f623E, %87 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_817he34d68886706652bE, %86 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_217he281acb422c8d601E, %80 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_317h2e164551ac96bdf8E, %81 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_417h9087c19be5b1ebe3E, %82 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_017h852d13fd8cc4342aE, %78 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_617h063852d6eb924d4cE, %84 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_717hae24286b795f5472E, %85 ]
   %90 = trunc i32 %spec.select.i25.i to i8
   br label %.lr.ph.i.i.i.i.i
 

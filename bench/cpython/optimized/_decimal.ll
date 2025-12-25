@@ -1419,8 +1419,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread37
 
-current_context.exit.thread37:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i39 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread37:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i39 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = load i32, ptr %.0.i39, align 8, !tbaa !38
   %.not.i = icmp sgt i32 %50, -1
@@ -1980,7 +1980,7 @@ context_setstatus_list.exit.sink.split:           ; preds = %33, %83, %89, %123,
   br label %context_setstatus_list.exit
 
 context_setstatus_list.exit:                      ; preds = %exception_as_flag.exit.i.i, %exception_as_flag.exit.i.i92, %context_setstatus_list.exit.sink.split, %148, %list_as_flags.exit.i95, %108, %list_as_flags.exit.i, %66, %57, %49, %41, %getround.exit.i, %13, %context_settraps_list.exit, %151, %list_as_flags.exit.thread.i77
-  %.034 = phi i32 [ -1, %exception_as_flag.exit.i.i92 ], [ 0, %context_settraps_list.exit ], [ -1, %13 ], [ -1, %148 ], [ -1, %41 ], [ -1, %49 ], [ -1, %57 ], [ -1, %66 ], [ 0, %list_as_flags.exit.thread.i77 ], [ 0, %151 ], [ -1, %list_as_flags.exit.i95 ], [ -1, %getround.exit.i ], [ -1, %108 ], [ -1, %list_as_flags.exit.i ], [ -1, %context_setstatus_list.exit.sink.split ], [ -1, %exception_as_flag.exit.i.i ]
+  %.034 = phi i32 [ -1, %exception_as_flag.exit.i.i92 ], [ 0, %context_settraps_list.exit ], [ -1, %13 ], [ -1, %list_as_flags.exit.i95 ], [ -1, %41 ], [ -1, %49 ], [ -1, %57 ], [ -1, %66 ], [ 0, %list_as_flags.exit.thread.i77 ], [ 0, %151 ], [ -1, %context_setstatus_list.exit.sink.split ], [ -1, %getround.exit.i ], [ -1, %list_as_flags.exit.i ], [ -1, %108 ], [ -1, %148 ], [ -1, %exception_as_flag.exit.i.i ]
   ret i32 %.034
 }
 
@@ -2284,7 +2284,7 @@ define internal fastcc i32 @dict_as_flags(ptr noundef readonly captures(none) %0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %27, %.loopexit.sink.split, %8, %16
-  %.0 = phi i32 [ 65536, %16 ], [ 32768, %.loopexit.sink.split ], [ 0, %8 ], [ %.1, %27 ], [ 65536, %18 ]
+  %.0 = phi i32 [ 0, %8 ], [ 65536, %16 ], [ 32768, %.loopexit.sink.split ], [ 65536, %18 ], [ %.1, %27 ]
   ret i32 %.0
 }
 
@@ -3084,10 +3084,10 @@ Py_DECREF.exit283:                                ; preds = %371, %368, %366
   %.not272 = icmp eq ptr %.1238, null
   br i1 %.not272, label %Py_DECREF.exit279.thread413, label %Py_DECREF.exit283.thread401
 
-Py_DECREF.exit283.thread401:                      ; preds = %125, %129, %Py_DECREF.exit299, %146, %149, %Py_DECREF.exit283
-  %.1238353363.ph408 = phi ptr [ %.1238, %Py_DECREF.exit283 ], [ %123, %149 ], [ %123, %146 ], [ %123, %Py_DECREF.exit299 ], [ %123, %129 ], [ %123, %125 ]
-  %.1240352364.ph407 = phi ptr [ null, %Py_DECREF.exit283 ], [ %144, %149 ], [ %144, %146 ], [ null, %Py_DECREF.exit299 ], [ null, %129 ], [ null, %125 ]
-  %.1242351365.ph406 = phi ptr [ null, %Py_DECREF.exit283 ], [ %147, %149 ], [ null, %146 ], [ null, %Py_DECREF.exit299 ], [ null, %129 ], [ null, %125 ]
+Py_DECREF.exit283.thread401:                      ; preds = %125, %149, %146, %Py_DECREF.exit299, %129, %Py_DECREF.exit283
+  %.1238353363.ph408 = phi ptr [ %.1238, %Py_DECREF.exit283 ], [ %123, %129 ], [ %123, %Py_DECREF.exit299 ], [ %123, %146 ], [ %123, %149 ], [ %123, %125 ]
+  %.1240352364.ph407 = phi ptr [ null, %Py_DECREF.exit283 ], [ null, %129 ], [ null, %Py_DECREF.exit299 ], [ %144, %146 ], [ %144, %149 ], [ null, %125 ]
+  %.1242351365.ph406 = phi ptr [ null, %Py_DECREF.exit283 ], [ null, %129 ], [ null, %Py_DECREF.exit299 ], [ null, %146 ], [ %147, %149 ], [ null, %125 ]
   %383 = load i32, ptr %.1238353363.ph408, align 8, !tbaa !38
   %.not.i280 = icmp sgt i32 %383, -1
   br i1 %.not.i280, label %384, label %Py_DECREF.exit281
@@ -3337,8 +3337,8 @@ current_context.exit:                             ; preds = %38
   call void @_Py_Dealloc(ptr noundef nonnull %29) #14
   br label %current_context.exit.thread16
 
-current_context.exit.thread16:                    ; preds = %36, %38, %10, %current_context.exit
-  %.0.i18 = phi ptr [ %18, %current_context.exit ], [ %18, %36 ], [ %18, %38 ], [ %11, %10 ]
+current_context.exit.thread16:                    ; preds = %38, %36, %10, %current_context.exit
+  %.0.i18 = phi ptr [ %18, %current_context.exit ], [ %18, %38 ], [ %18, %36 ], [ %11, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %41 = load i32, ptr %.0.i18, align 8, !tbaa !38
   %.not.i = icmp sgt i32 %41, -1
@@ -3644,8 +3644,8 @@ current_context.exit:                             ; preds = %39
   call void @_Py_Dealloc(ptr noundef nonnull %30) #14
   br label %current_context.exit.thread15
 
-current_context.exit.thread15:                    ; preds = %37, %39, %11, %current_context.exit
-  %.0.i17 = phi ptr [ %19, %current_context.exit ], [ %19, %37 ], [ %19, %39 ], [ %12, %11 ]
+current_context.exit.thread15:                    ; preds = %39, %37, %11, %current_context.exit
+  %.0.i17 = phi ptr [ %19, %current_context.exit ], [ %19, %39 ], [ %19, %37 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = load i32, ptr %.0.i17, align 8, !tbaa !38
   %.not.i = icmp sgt i32 %42, -1
@@ -3832,8 +3832,8 @@ current_context.exit:                             ; preds = %53
   call void @_Py_Dealloc(ptr noundef nonnull %44) #14
   br label %current_context.exit.thread59
 
-current_context.exit.thread59:                    ; preds = %51, %53, %25, %current_context.exit
-  %.0.i61 = phi ptr [ %33, %current_context.exit ], [ %33, %51 ], [ %33, %53 ], [ %26, %25 ]
+current_context.exit.thread59:                    ; preds = %53, %51, %25, %current_context.exit
+  %.0.i61 = phi ptr [ %33, %current_context.exit ], [ %33, %53 ], [ %33, %51 ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %56 = load i32, ptr %.0.i61, align 8, !tbaa !38
   %.not.i34 = icmp sgt i32 %56, -1
@@ -4287,8 +4287,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread18
 
-current_context.exit.thread18:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i20 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread18:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i20 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %.0.i20, ptr %8, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i20, align 8, !tbaa !38
@@ -4659,8 +4659,8 @@ current_context.exit:                             ; preds = %52
   call void @_Py_Dealloc(ptr noundef nonnull %43) #14
   br label %current_context.exit.thread70
 
-current_context.exit.thread70:                    ; preds = %50, %52, %24, %current_context.exit
-  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %50 ], [ %32, %52 ], [ %25, %24 ]
+current_context.exit.thread70:                    ; preds = %52, %50, %24, %current_context.exit
+  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %52 ], [ %32, %50 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load i32, ptr %.0.i72, align 8, !tbaa !38
   %.not.i31 = icmp sgt i32 %55, -1
@@ -5025,8 +5025,8 @@ current_context.exit:                             ; preds = %52
   call void @_Py_Dealloc(ptr noundef nonnull %43) #14
   br label %current_context.exit.thread70
 
-current_context.exit.thread70:                    ; preds = %50, %52, %24, %current_context.exit
-  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %50 ], [ %32, %52 ], [ %25, %24 ]
+current_context.exit.thread70:                    ; preds = %52, %50, %24, %current_context.exit
+  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %52 ], [ %32, %50 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load i32, ptr %.0.i72, align 8, !tbaa !38
   %.not.i31 = icmp sgt i32 %55, -1
@@ -5391,8 +5391,8 @@ current_context.exit:                             ; preds = %52
   call void @_Py_Dealloc(ptr noundef nonnull %43) #14
   br label %current_context.exit.thread70
 
-current_context.exit.thread70:                    ; preds = %50, %52, %24, %current_context.exit
-  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %50 ], [ %32, %52 ], [ %25, %24 ]
+current_context.exit.thread70:                    ; preds = %52, %50, %24, %current_context.exit
+  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %52 ], [ %32, %50 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load i32, ptr %.0.i72, align 8, !tbaa !38
   %.not.i31 = icmp sgt i32 %55, -1
@@ -5757,8 +5757,8 @@ current_context.exit:                             ; preds = %52
   call void @_Py_Dealloc(ptr noundef nonnull %43) #14
   br label %current_context.exit.thread70
 
-current_context.exit.thread70:                    ; preds = %50, %52, %24, %current_context.exit
-  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %50 ], [ %32, %52 ], [ %25, %24 ]
+current_context.exit.thread70:                    ; preds = %52, %50, %24, %current_context.exit
+  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %52 ], [ %32, %50 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load i32, ptr %.0.i72, align 8, !tbaa !38
   %.not.i31 = icmp sgt i32 %55, -1
@@ -6123,8 +6123,8 @@ current_context.exit:                             ; preds = %52
   call void @_Py_Dealloc(ptr noundef nonnull %43) #14
   br label %current_context.exit.thread104
 
-current_context.exit.thread104:                   ; preds = %50, %52, %24, %current_context.exit
-  %.0.i106 = phi ptr [ %32, %current_context.exit ], [ %32, %50 ], [ %32, %52 ], [ %25, %24 ]
+current_context.exit.thread104:                   ; preds = %52, %50, %24, %current_context.exit
+  %.0.i106 = phi ptr [ %32, %current_context.exit ], [ %32, %52 ], [ %32, %50 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load i32, ptr %.0.i106, align 8, !tbaa !38
   %.not.i55 = icmp sgt i32 %55, -1
@@ -6607,8 +6607,8 @@ current_context.exit:                             ; preds = %53
   call void @_Py_Dealloc(ptr noundef nonnull %44) #14
   br label %current_context.exit.thread114
 
-current_context.exit.thread114:                   ; preds = %51, %53, %25, %current_context.exit
-  %.0.i116 = phi ptr [ %33, %current_context.exit ], [ %33, %51 ], [ %33, %53 ], [ %26, %25 ]
+current_context.exit.thread114:                   ; preds = %53, %51, %25, %current_context.exit
+  %.0.i116 = phi ptr [ %33, %current_context.exit ], [ %33, %53 ], [ %33, %51 ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %56 = load i32, ptr %.0.i116, align 8, !tbaa !38
   %.not.i47 = icmp sgt i32 %56, -1
@@ -7070,8 +7070,8 @@ current_context.exit:                             ; preds = %39
   call void @_Py_Dealloc(ptr noundef nonnull %30) #14
   br label %current_context.exit.thread22
 
-current_context.exit.thread22:                    ; preds = %37, %39, %11, %current_context.exit
-  %.0.i24 = phi ptr [ %19, %current_context.exit ], [ %19, %37 ], [ %19, %39 ], [ %12, %11 ]
+current_context.exit.thread22:                    ; preds = %39, %37, %11, %current_context.exit
+  %.0.i24 = phi ptr [ %19, %current_context.exit ], [ %19, %39 ], [ %19, %37 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = load i32, ptr %.0.i24, align 8, !tbaa !38
   %.not.i15 = icmp sgt i32 %42, -1
@@ -7230,8 +7230,8 @@ current_context.exit:                             ; preds = %39
   call void @_Py_Dealloc(ptr noundef nonnull %30) #14
   br label %current_context.exit.thread22
 
-current_context.exit.thread22:                    ; preds = %37, %39, %11, %current_context.exit
-  %.0.i24 = phi ptr [ %19, %current_context.exit ], [ %19, %37 ], [ %19, %39 ], [ %12, %11 ]
+current_context.exit.thread22:                    ; preds = %39, %37, %11, %current_context.exit
+  %.0.i24 = phi ptr [ %19, %current_context.exit ], [ %19, %39 ], [ %19, %37 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = load i32, ptr %.0.i24, align 8, !tbaa !38
   %.not.i15 = icmp sgt i32 %42, -1
@@ -7390,8 +7390,8 @@ current_context.exit:                             ; preds = %39
   call void @_Py_Dealloc(ptr noundef nonnull %30) #14
   br label %current_context.exit.thread22
 
-current_context.exit.thread22:                    ; preds = %37, %39, %11, %current_context.exit
-  %.0.i24 = phi ptr [ %19, %current_context.exit ], [ %19, %37 ], [ %19, %39 ], [ %12, %11 ]
+current_context.exit.thread22:                    ; preds = %39, %37, %11, %current_context.exit
+  %.0.i24 = phi ptr [ %19, %current_context.exit ], [ %19, %39 ], [ %19, %37 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = load i32, ptr %.0.i24, align 8, !tbaa !38
   %.not.i15 = icmp sgt i32 %42, -1
@@ -7556,8 +7556,8 @@ current_context.exit:                             ; preds = %38
   call void @_Py_Dealloc(ptr noundef nonnull %29) #14
   br label %current_context.exit.thread11
 
-current_context.exit.thread11:                    ; preds = %36, %38, %10, %current_context.exit
-  %.0.i13 = phi ptr [ %18, %current_context.exit ], [ %18, %36 ], [ %18, %38 ], [ %11, %10 ]
+current_context.exit.thread11:                    ; preds = %38, %36, %10, %current_context.exit
+  %.0.i13 = phi ptr [ %18, %current_context.exit ], [ %18, %38 ], [ %18, %36 ], [ %11, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %41 = load i32, ptr %.0.i13, align 8, !tbaa !38
   %.not.i = icmp sgt i32 %41, -1
@@ -7759,8 +7759,8 @@ current_context.exit:                             ; preds = %52
   call void @_Py_Dealloc(ptr noundef nonnull %43) #14
   br label %current_context.exit.thread70
 
-current_context.exit.thread70:                    ; preds = %50, %52, %24, %current_context.exit
-  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %50 ], [ %32, %52 ], [ %25, %24 ]
+current_context.exit.thread70:                    ; preds = %52, %50, %24, %current_context.exit
+  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %52 ], [ %32, %50 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load i32, ptr %.0.i72, align 8, !tbaa !38
   %.not.i31 = icmp sgt i32 %55, -1
@@ -8125,8 +8125,8 @@ current_context.exit:                             ; preds = %52
   call void @_Py_Dealloc(ptr noundef nonnull %43) #14
   br label %current_context.exit.thread70
 
-current_context.exit.thread70:                    ; preds = %50, %52, %24, %current_context.exit
-  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %50 ], [ %32, %52 ], [ %25, %24 ]
+current_context.exit.thread70:                    ; preds = %52, %50, %24, %current_context.exit
+  %.0.i72 = phi ptr [ %32, %current_context.exit ], [ %32, %52 ], [ %32, %50 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load i32, ptr %.0.i72, align 8, !tbaa !38
   %.not.i31 = icmp sgt i32 %55, -1
@@ -9444,8 +9444,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread26
 
-current_context.exit.thread26:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread26:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i28, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i28, align 8, !tbaa !38
@@ -9639,8 +9639,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread26
 
-current_context.exit.thread26:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread26:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i28, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i28, align 8, !tbaa !38
@@ -9834,8 +9834,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread26
 
-current_context.exit.thread26:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread26:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i28, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i28, align 8, !tbaa !38
@@ -10029,8 +10029,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread26
 
-current_context.exit.thread26:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread26:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i28, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i28, align 8, !tbaa !38
@@ -10224,8 +10224,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread26
 
-current_context.exit.thread26:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread26:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i28, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i28, align 8, !tbaa !38
@@ -10419,8 +10419,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread26
 
-current_context.exit.thread26:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread26:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i28, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i28, align 8, !tbaa !38
@@ -10619,8 +10619,8 @@ current_context.exit:                             ; preds = %49
   call void @_Py_Dealloc(ptr noundef nonnull %40) #14
   br label %current_context.exit.thread37
 
-current_context.exit.thread37:                    ; preds = %47, %49, %21, %current_context.exit
-  %.0.i39 = phi ptr [ %29, %current_context.exit ], [ %29, %47 ], [ %29, %49 ], [ %22, %21 ]
+current_context.exit.thread37:                    ; preds = %49, %47, %21, %current_context.exit
+  %.0.i39 = phi ptr [ %29, %current_context.exit ], [ %29, %49 ], [ %29, %47 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i39, ptr %6, align 8, !tbaa !39
   %52 = load i32, ptr %.0.i39, align 8, !tbaa !38
@@ -10886,8 +10886,8 @@ current_context.exit:                             ; preds = %49
   call void @_Py_Dealloc(ptr noundef nonnull %40) #14
   br label %current_context.exit.thread37
 
-current_context.exit.thread37:                    ; preds = %47, %49, %21, %current_context.exit
-  %.0.i39 = phi ptr [ %29, %current_context.exit ], [ %29, %47 ], [ %29, %49 ], [ %22, %21 ]
+current_context.exit.thread37:                    ; preds = %49, %47, %21, %current_context.exit
+  %.0.i39 = phi ptr [ %29, %current_context.exit ], [ %29, %49 ], [ %29, %47 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i39, ptr %6, align 8, !tbaa !39
   %52 = load i32, ptr %.0.i39, align 8, !tbaa !38
@@ -11148,8 +11148,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread26
 
-current_context.exit.thread26:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread26:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i28, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i28, align 8, !tbaa !38
@@ -11345,8 +11345,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -11715,8 +11715,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -12085,8 +12085,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -12455,8 +12455,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -12825,8 +12825,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -13195,8 +13195,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -13565,8 +13565,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -13940,8 +13940,8 @@ current_context.exit:                             ; preds = %50
   call void @_Py_Dealloc(ptr noundef nonnull %41) #14
   br label %current_context.exit.thread76
 
-current_context.exit.thread76:                    ; preds = %48, %50, %22, %current_context.exit
-  %.0.i78 = phi ptr [ %30, %current_context.exit ], [ %30, %48 ], [ %30, %50 ], [ %23, %22 ]
+current_context.exit.thread76:                    ; preds = %50, %48, %22, %current_context.exit
+  %.0.i78 = phi ptr [ %30, %current_context.exit ], [ %30, %50 ], [ %30, %48 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i78, ptr %6, align 8, !tbaa !39
   %53 = load i32, ptr %.0.i78, align 8, !tbaa !38
@@ -14381,8 +14381,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -14753,8 +14753,8 @@ current_context.exit:                             ; preds = %49
   call void @_Py_Dealloc(ptr noundef nonnull %40) #14
   br label %current_context.exit.thread97
 
-current_context.exit.thread97:                    ; preds = %47, %49, %21, %current_context.exit
-  %.0.i99 = phi ptr [ %29, %current_context.exit ], [ %29, %47 ], [ %29, %49 ], [ %22, %21 ]
+current_context.exit.thread97:                    ; preds = %49, %47, %21, %current_context.exit
+  %.0.i99 = phi ptr [ %29, %current_context.exit ], [ %29, %49 ], [ %29, %47 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i99, ptr %7, align 8, !tbaa !39
   %52 = load i32, ptr %.0.i99, align 8, !tbaa !38
@@ -15461,8 +15461,8 @@ current_context.exit:                             ; preds = %46
   call void @_Py_Dealloc(ptr noundef nonnull %37) #14
   br label %current_context.exit.thread16
 
-current_context.exit.thread16:                    ; preds = %44, %46, %18, %current_context.exit
-  %.0.i18 = phi ptr [ %26, %current_context.exit ], [ %26, %44 ], [ %26, %46 ], [ %19, %18 ]
+current_context.exit.thread16:                    ; preds = %46, %44, %18, %current_context.exit
+  %.0.i18 = phi ptr [ %26, %current_context.exit ], [ %26, %46 ], [ %26, %44 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i18, ptr %5, align 8, !tbaa !39
   %49 = load i32, ptr %.0.i18, align 8, !tbaa !38
@@ -15627,8 +15627,8 @@ current_context.exit:                             ; preds = %46
   call void @_Py_Dealloc(ptr noundef nonnull %37) #14
   br label %current_context.exit.thread16
 
-current_context.exit.thread16:                    ; preds = %44, %46, %18, %current_context.exit
-  %.0.i18 = phi ptr [ %26, %current_context.exit ], [ %26, %44 ], [ %26, %46 ], [ %19, %18 ]
+current_context.exit.thread16:                    ; preds = %46, %44, %18, %current_context.exit
+  %.0.i18 = phi ptr [ %26, %current_context.exit ], [ %26, %46 ], [ %26, %44 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i18, ptr %5, align 8, !tbaa !39
   %49 = load i32, ptr %.0.i18, align 8, !tbaa !38
@@ -16029,8 +16029,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread26
 
-current_context.exit.thread26:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread26:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i28, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i28, align 8, !tbaa !38
@@ -16224,8 +16224,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread26
 
-current_context.exit.thread26:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread26:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i28 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i28, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i28, align 8, !tbaa !38
@@ -16416,8 +16416,8 @@ current_context.exit:                             ; preds = %46
   call void @_Py_Dealloc(ptr noundef nonnull %37) #14
   br label %current_context.exit.thread16
 
-current_context.exit.thread16:                    ; preds = %44, %46, %18, %current_context.exit
-  %.0.i18 = phi ptr [ %26, %current_context.exit ], [ %26, %44 ], [ %26, %46 ], [ %19, %18 ]
+current_context.exit.thread16:                    ; preds = %46, %44, %18, %current_context.exit
+  %.0.i18 = phi ptr [ %26, %current_context.exit ], [ %26, %46 ], [ %26, %44 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i18, ptr %5, align 8, !tbaa !39
   %49 = load i32, ptr %.0.i18, align 8, !tbaa !38
@@ -16564,8 +16564,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread19
 
-current_context.exit.thread19:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i21 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread19:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i21 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i21, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i21, align 8, !tbaa !38
@@ -16754,8 +16754,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread60
 
-current_context.exit.thread60:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i62 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread60:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i62 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i62, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i62, align 8, !tbaa !38
@@ -17096,8 +17096,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread60
 
-current_context.exit.thread60:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i62 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread60:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i62 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i62, ptr %5, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i62, align 8, !tbaa !38
@@ -17441,8 +17441,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread66
 
-current_context.exit.thread66:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i68 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread66:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i68 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i68, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i68, align 8, !tbaa !38
@@ -17806,8 +17806,8 @@ current_context.exit:                             ; preds = %47
   call void @_Py_Dealloc(ptr noundef nonnull %38) #14
   br label %current_context.exit.thread50
 
-current_context.exit.thread50:                    ; preds = %45, %47, %19, %current_context.exit
-  %.0.i52 = phi ptr [ %27, %current_context.exit ], [ %27, %45 ], [ %27, %47 ], [ %20, %19 ]
+current_context.exit.thread50:                    ; preds = %47, %45, %19, %current_context.exit
+  %.0.i52 = phi ptr [ %27, %current_context.exit ], [ %27, %47 ], [ %27, %45 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i52, ptr %6, align 8, !tbaa !39
   %50 = load i32, ptr %.0.i52, align 8, !tbaa !38
@@ -18116,8 +18116,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -18486,8 +18486,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -18856,8 +18856,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -19226,8 +19226,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -19596,8 +19596,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -19966,8 +19966,8 @@ current_context.exit:                             ; preds = %48
   call void @_Py_Dealloc(ptr noundef nonnull %39) #14
   br label %current_context.exit.thread65
 
-current_context.exit.thread65:                    ; preds = %46, %48, %20, %current_context.exit
-  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %46 ], [ %28, %48 ], [ %21, %20 ]
+current_context.exit.thread65:                    ; preds = %48, %46, %20, %current_context.exit
+  %.0.i67 = phi ptr [ %28, %current_context.exit ], [ %28, %48 ], [ %28, %46 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i67, ptr %6, align 8, !tbaa !39
   %51 = load i32, ptr %.0.i67, align 8, !tbaa !38
@@ -20316,8 +20316,8 @@ current_context.exit:                             ; preds = %38
   call void @_Py_Dealloc(ptr noundef nonnull %29) #14
   br label %current_context.exit.thread28
 
-current_context.exit.thread28:                    ; preds = %36, %38, %10, %current_context.exit
-  %.0.i30 = phi ptr [ %18, %current_context.exit ], [ %18, %36 ], [ %18, %38 ], [ %11, %10 ]
+current_context.exit.thread28:                    ; preds = %38, %36, %10, %current_context.exit
+  %.0.i30 = phi ptr [ %18, %current_context.exit ], [ %18, %38 ], [ %18, %36 ], [ %11, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = load i32, ptr %.0.i30, align 8, !tbaa !38
   %.not.i22 = icmp sgt i32 %41, -1
@@ -20445,8 +20445,8 @@ current_context.exit:                             ; preds = %38
   call void @_Py_Dealloc(ptr noundef nonnull %29) #14
   br label %current_context.exit.thread31
 
-current_context.exit.thread31:                    ; preds = %36, %38, %10, %current_context.exit
-  %.0.i33 = phi ptr [ %18, %current_context.exit ], [ %18, %36 ], [ %18, %38 ], [ %11, %10 ]
+current_context.exit.thread31:                    ; preds = %38, %36, %10, %current_context.exit
+  %.0.i33 = phi ptr [ %18, %current_context.exit ], [ %18, %38 ], [ %18, %36 ], [ %11, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = load i32, ptr %.0.i33, align 8, !tbaa !38
   %.not.i22 = icmp sgt i32 %41, -1
@@ -20873,8 +20873,8 @@ current_context.exit:                             ; preds = %49
   call void @_Py_Dealloc(ptr noundef nonnull %40) #14
   br label %current_context.exit.thread136
 
-current_context.exit.thread136:                   ; preds = %47, %49, %21, %current_context.exit
-  %.0.i138 = phi ptr [ %29, %current_context.exit ], [ %29, %47 ], [ %29, %49 ], [ %22, %21 ]
+current_context.exit.thread136:                   ; preds = %49, %47, %21, %current_context.exit
+  %.0.i138 = phi ptr [ %29, %current_context.exit ], [ %29, %49 ], [ %29, %47 ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %52 = load i32, ptr %.0.i138, align 8, !tbaa !38
   %.not.i114 = icmp sgt i32 %52, -1
@@ -21137,11 +21137,11 @@ Py_DECREF.exit101:                                ; preds = %128
   %165 = call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef nonnull %121, ptr noundef nonnull %129) #14
   br label %Py_DECREF.exit101.thread152
 
-Py_DECREF.exit101.thread152:                      ; preds = %Py_DECREF.exit105, %98, %128, %Py_DECREF.exit101
-  %.047161 = phi ptr [ %165, %Py_DECREF.exit101 ], [ null, %128 ], [ null, %98 ], [ null, %Py_DECREF.exit105 ]
-  %.071160 = phi ptr [ %104, %Py_DECREF.exit101 ], [ %104, %128 ], [ %96, %98 ], [ %104, %Py_DECREF.exit105 ]
-  %.073159 = phi ptr [ %121, %Py_DECREF.exit101 ], [ %121, %128 ], [ %87, %98 ], [ null, %Py_DECREF.exit105 ]
-  %.075158 = phi ptr [ %129, %Py_DECREF.exit101 ], [ null, %128 ], [ null, %98 ], [ null, %Py_DECREF.exit105 ]
+Py_DECREF.exit101.thread152:                      ; preds = %98, %128, %Py_DECREF.exit105, %Py_DECREF.exit101
+  %.047161 = phi ptr [ %165, %Py_DECREF.exit101 ], [ null, %Py_DECREF.exit105 ], [ null, %128 ], [ null, %98 ]
+  %.071160 = phi ptr [ %104, %Py_DECREF.exit101 ], [ %104, %Py_DECREF.exit105 ], [ %104, %128 ], [ %96, %98 ]
+  %.073159 = phi ptr [ %121, %Py_DECREF.exit101 ], [ null, %Py_DECREF.exit105 ], [ %121, %128 ], [ %87, %98 ]
+  %.075158 = phi ptr [ %129, %Py_DECREF.exit101 ], [ null, %Py_DECREF.exit105 ], [ null, %128 ], [ null, %98 ]
   %166 = load i32, ptr %.071160, align 8, !tbaa !38
   %.not.i.i = icmp sgt i32 %166, -1
   br i1 %.not.i.i, label %167, label %Py_XDECREF.exit
@@ -21323,8 +21323,8 @@ current_context.exit:                             ; preds = %46
   call void @_Py_Dealloc(ptr noundef nonnull %37) #14
   br label %current_context.exit.thread90
 
-current_context.exit.thread90:                    ; preds = %44, %46, %18, %current_context.exit
-  %.0.i92 = phi ptr [ %26, %current_context.exit ], [ %26, %44 ], [ %26, %46 ], [ %19, %18 ]
+current_context.exit.thread90:                    ; preds = %46, %44, %18, %current_context.exit
+  %.0.i92 = phi ptr [ %26, %current_context.exit ], [ %26, %46 ], [ %26, %44 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load i32, ptr %.0.i92, align 8, !tbaa !38
   %.not.i = icmp sgt i32 %49, -1
@@ -21908,8 +21908,8 @@ current_context.exit:                             ; preds = %43
   call void @_Py_Dealloc(ptr noundef nonnull %34) #14
   br label %current_context.exit.thread34
 
-current_context.exit.thread34:                    ; preds = %41, %43, %15, %current_context.exit
-  %.0.i36 = phi ptr [ %23, %current_context.exit ], [ %23, %41 ], [ %23, %43 ], [ %16, %15 ]
+current_context.exit.thread34:                    ; preds = %43, %41, %15, %current_context.exit
+  %.0.i36 = phi ptr [ %23, %current_context.exit ], [ %23, %43 ], [ %23, %41 ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = load i32, ptr %.0.i36, align 8, !tbaa !38
   %.not.i25 = icmp sgt i32 %46, -1
@@ -22129,8 +22129,8 @@ current_context.exit:                             ; preds = %39
   call void @_Py_Dealloc(ptr noundef nonnull %30) #14
   br label %current_context.exit.thread11
 
-current_context.exit.thread11:                    ; preds = %37, %39, %11, %current_context.exit
-  %.0.i13 = phi ptr [ %19, %current_context.exit ], [ %19, %37 ], [ %19, %39 ], [ %12, %11 ]
+current_context.exit.thread11:                    ; preds = %39, %37, %11, %current_context.exit
+  %.0.i13 = phi ptr [ %19, %current_context.exit ], [ %19, %39 ], [ %19, %37 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = load i32, ptr %.0.i13, align 8, !tbaa !38
   %.not.i = icmp sgt i32 %42, -1
@@ -22238,8 +22238,8 @@ current_context.exit:                             ; preds = %39
   call void @_Py_Dealloc(ptr noundef nonnull %30) #14
   br label %current_context.exit.thread11
 
-current_context.exit.thread11:                    ; preds = %37, %39, %11, %current_context.exit
-  %.0.i13 = phi ptr [ %19, %current_context.exit ], [ %19, %37 ], [ %19, %39 ], [ %12, %11 ]
+current_context.exit.thread11:                    ; preds = %39, %37, %11, %current_context.exit
+  %.0.i13 = phi ptr [ %19, %current_context.exit ], [ %19, %39 ], [ %19, %37 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = load i32, ptr %.0.i13, align 8, !tbaa !38
   %.not.i = icmp sgt i32 %42, -1
@@ -22347,8 +22347,8 @@ current_context.exit:                             ; preds = %39
   call void @_Py_Dealloc(ptr noundef nonnull %30) #14
   br label %current_context.exit.thread11
 
-current_context.exit.thread11:                    ; preds = %37, %39, %11, %current_context.exit
-  %.0.i13 = phi ptr [ %19, %current_context.exit ], [ %19, %37 ], [ %19, %39 ], [ %12, %11 ]
+current_context.exit.thread11:                    ; preds = %39, %37, %11, %current_context.exit
+  %.0.i13 = phi ptr [ %19, %current_context.exit ], [ %19, %39 ], [ %19, %37 ], [ %12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = load i32, ptr %.0.i13, align 8, !tbaa !38
   %.not.i = icmp sgt i32 %42, -1
@@ -23687,7 +23687,7 @@ sequence_as_tuple.exit.thread:                    ; preds = %62, %59, %sequence_
   call void @_Py_Dealloc(ptr noundef nonnull %.0.i107) #14
   br label %Py_XDECREF.exit
 
-.thread118:                                       ; preds = %.thread110, %123, %79, %72, %.split132.us, %.split.us
+.thread118:                                       ; preds = %.thread110, %123, %79, %72, %.split.us, %.split132.us
   %131 = load i32, ptr %.0.i107, align 8, !tbaa !38
   %.not.i.i103 = icmp sgt i32 %131, -1
   br i1 %.not.i.i103, label %132, label %Py_XDECREF.exit104

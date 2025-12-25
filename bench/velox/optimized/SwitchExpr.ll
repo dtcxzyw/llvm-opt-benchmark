@@ -4345,7 +4345,7 @@ if.end52:                                         ; preds = %if.end45, %for.end3
   br label %return
 
 return:                                           ; preds = %for.body, %if.end29, %for.body15, %if.end45, %if.then38, %if.end52
-  %.sink = phi i8 [ 1, %if.end52 ], [ 0, %if.then38 ], [ 0, %if.end45 ], [ 0, %if.end29 ], [ 0, %for.body15 ], [ 0, %for.body ]
+  %.sink = phi i8 [ 1, %if.end52 ], [ 0, %if.then38 ], [ 0, %if.end29 ], [ 0, %if.end45 ], [ 0, %for.body15 ], [ 0, %for.body ]
   %propagatesNulls_53 = getelementptr inbounds nuw i8, ptr %this, i64 248
   store i8 %.sink, ptr %propagatesNulls_53, align 8
   ret void

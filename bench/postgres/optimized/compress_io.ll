@@ -207,7 +207,7 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
   tail call void @InitCompressFileHandleNone(ptr noundef %33, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #9
   br label %InitCompressFileHandle.exit
 
-34:                                               ; preds = %22, %hasSuffix.exit
+34:                                               ; preds = %hasSuffix.exit, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 8
   %.sroa.12.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %3, i64 4

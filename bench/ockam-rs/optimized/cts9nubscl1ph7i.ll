@@ -38690,7 +38690,7 @@ define hidden void @"_ZN102_$LT$ockam_identity..models..credential..Credential$u
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %151, %130, %113, %3
-  %.0154.ph.ph = phi i1 [ true, %151 ], [ false, %130 ], [ true, %3 ], [ true, %113 ]
+  %.0154.ph.ph = phi i1 [ false, %130 ], [ true, %151 ], [ true, %3 ], [ true, %113 ]
   %lpad.loopexit.split-lp283 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -40178,8 +40178,8 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
   br label %.thread412
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc381, %232, %204, %3
-  %56 = phi i64 [ 1, %232 ], [ 1, %.noexc381 ], [ 0, %3 ], [ %196, %204 ]
-  %.0334.ph.ph = phi i1 [ false, %232 ], [ false, %.noexc381 ], [ true, %3 ], [ true, %204 ]
+  %56 = phi i64 [ 1, %.noexc381 ], [ 1, %232 ], [ 0, %3 ], [ %196, %204 ]
+  %.0334.ph.ph = phi i1 [ false, %.noexc381 ], [ false, %232 ], [ true, %3 ], [ true, %204 ]
   %lpad.loopexit.split-lp492 = landingpad { ptr, i32 }
           cleanup
   br label %.thread412

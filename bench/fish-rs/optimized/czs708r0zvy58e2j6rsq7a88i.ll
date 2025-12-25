@@ -1687,8 +1687,8 @@ define hidden { i64, i64 } @"_ZN109_$LT$alloc..collections..vec_deque..iter..Ite
   br i1 %33, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h1f7959917324569cE.exit10, label %.lr.ph.i4
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h1f7959917324569cE.exit10: ; preds = %.lr.ph.i, %10, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha890965a1b8e4031E.exit.i7", %.lr.ph.i4, %26, %.loopexit
-  %.pn14 = phi i64 [ %22, %.lr.ph.i4 ], [ undef, %.loopexit ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha890965a1b8e4031E.exit.i7" ], [ %22, %26 ], [ %6, %10 ], [ %6, %.lr.ph.i ]
-  %.sroa.0.0 = phi i64 [ 1, %.lr.ph.i4 ], [ 0, %.loopexit ], [ 0, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha890965a1b8e4031E.exit.i7" ], [ 1, %26 ], [ 1, %10 ], [ 1, %.lr.ph.i ]
+  %.pn14 = phi i64 [ undef, %.loopexit ], [ %22, %.lr.ph.i4 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha890965a1b8e4031E.exit.i7" ], [ %22, %26 ], [ %6, %10 ], [ %6, %.lr.ph.i ]
+  %.sroa.0.0 = phi i64 [ 0, %.loopexit ], [ 1, %.lr.ph.i4 ], [ 0, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17ha890965a1b8e4031E.exit.i7" ], [ 1, %26 ], [ 1, %10 ], [ 1, %.lr.ph.i ]
   %34 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %35 = insertvalue { i64, i64 } %34, i64 %.pn14, 1
   ret { i64, i64 } %35

@@ -1417,7 +1417,7 @@ _ZL19ucbuf_isCharNewLineDs.exit73.thread:         ; preds = %63, %63, %63, %63, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %_ZL19ucbuf_isCharNewLineDs.exit, %_ZL19ucbuf_isCharNewLineDs.exit73.preheader, %_ZL19ucbuf_isCharNewLineDs.exit73.thread, %55, %_ZL19ucbuf_isCharNewLineDs.exit.thread, %33, %23
-  %.057 = phi ptr [ %5, %_ZL19ucbuf_isCharNewLineDs.exit73.thread ], [ null, %23 ], [ null, %_ZL19ucbuf_isCharNewLineDs.exit73.preheader ], [ %35, %33 ], [ %43, %_ZL19ucbuf_isCharNewLineDs.exit.thread ], [ %5, %55 ], [ null, %_ZL19ucbuf_isCharNewLineDs.exit ], [ null, %24 ]
+  %.057 = phi ptr [ %5, %_ZL19ucbuf_isCharNewLineDs.exit73.thread ], [ null, %23 ], [ %5, %55 ], [ %35, %33 ], [ %43, %_ZL19ucbuf_isCharNewLineDs.exit.thread ], [ null, %_ZL19ucbuf_isCharNewLineDs.exit73.preheader ], [ null, %_ZL19ucbuf_isCharNewLineDs.exit ], [ null, %24 ]
   ret ptr %.057
 }
 

@@ -678,7 +678,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %185, %81, %.thread, %177, %202, %204, %70
-  %.2 = phi i32 [ 2, %70 ], [ %.071.ph, %202 ], [ 2, %.thread ], [ 2, %204 ], [ 2, %177 ], [ 2, %81 ], [ 2, %185 ]
+  %.2 = phi i32 [ 2, %70 ], [ 2, %204 ], [ 2, %.thread ], [ %.071.ph, %202 ], [ 2, %177 ], [ 2, %81 ], [ 2, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

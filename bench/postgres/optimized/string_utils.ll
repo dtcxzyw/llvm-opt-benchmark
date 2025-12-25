@@ -968,7 +968,7 @@ define dso_local noundef zeroext i1 @parsePGArray(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %27, %33, %.preheader, %46, %14, %3, %7, %9, %49
-  %.042 = phi i1 [ true, %49 ], [ false, %3 ], [ false, %14 ], [ false, %33 ], [ false, %27 ], [ false, %46 ], [ false, %7 ], [ false, %9 ], [ false, %.preheader ], [ false, %22 ]
+  %.042 = phi i1 [ true, %49 ], [ false, %3 ], [ false, %14 ], [ false, %33 ], [ false, %27 ], [ false, %7 ], [ false, %46 ], [ false, %9 ], [ false, %.preheader ], [ false, %22 ]
   ret i1 %.042
 }
 

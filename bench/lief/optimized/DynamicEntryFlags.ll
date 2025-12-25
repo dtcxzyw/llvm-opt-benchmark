@@ -220,32 +220,32 @@ thread-pre-split:                                 ; preds = %_ZNSt6vectorIN4LIEF
   %.011.ptr = getelementptr inbounds nuw i8, ptr @_ZGRN4LIEF3ELFL8DF_FLAGSE_, i64 %.011.idx40
   %16 = load i64, ptr %.011.ptr, align 8, !tbaa !11
   %17 = icmp eq i64 %12, 30
-  br i1 %17, label %18, label %20
+  br i1 %17, label %18, label %23
 
 18:                                               ; preds = %11
   %19 = icmp ugt i64 %16, 4294967295
-  br i1 %19, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit, label %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit
+  br i1 %19, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit, label %20
 
-20:                                               ; preds = %11
-  %21 = icmp ne i64 %12, 1879048187
-  %22 = icmp ult i64 %16, 4294967296
-  %or.cond.i = or i1 %22, %21
-  br i1 %or.cond.i, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit, label %23
-
-23:                                               ; preds = %20
-  %24 = add i64 %16, -4294967296
-  %25 = load i64, ptr %8, align 8, !tbaa !10
-  %26 = and i64 %25, %24
-  %.not31 = icmp eq i64 %26, 0
-  br i1 %.not31, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit, label %29
-
-_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit: ; preds = %18
-  %27 = load i64, ptr %8, align 8, !tbaa !10
-  %28 = and i64 %27, %16
-  %.not32 = icmp eq i64 %28, 0
+20:                                               ; preds = %18
+  %21 = load i64, ptr %8, align 8, !tbaa !10
+  %22 = and i64 %21, %16
+  %.not32 = icmp eq i64 %22, 0
   br i1 %.not32, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit, label %29
 
-29:                                               ; preds = %23, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit
+23:                                               ; preds = %11
+  %24 = icmp ne i64 %12, 1879048187
+  %25 = icmp ult i64 %16, 4294967296
+  %or.cond.i = or i1 %25, %24
+  br i1 %or.cond.i, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit, label %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit
+
+_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit: ; preds = %23
+  %26 = add i64 %16, -4294967296
+  %27 = load i64, ptr %8, align 8, !tbaa !10
+  %28 = and i64 %27, %26
+  %.not31 = icmp eq i64 %28, 0
+  br i1 %.not31, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit, label %29
+
+29:                                               ; preds = %20, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit
   %.not.i = icmp eq ptr %14, %13
   br i1 %.not.i, label %32, label %30
 
@@ -302,10 +302,10 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS
   store ptr %50, ptr %10, align 8, !tbaa !16
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit
 
-_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit: ; preds = %18, %20, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %30, %23, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit
-  %51 = phi ptr [ %13, %18 ], [ %13, %20 ], [ %50, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %13, %30 ], [ %13, %23 ], [ %13, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit ]
-  %52 = phi ptr [ %14, %18 ], [ %14, %20 ], [ %48, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %31, %30 ], [ %14, %23 ], [ %14, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit ]
-  %53 = phi ptr [ %15, %18 ], [ %15, %20 ], [ %44, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %15, %30 ], [ %15, %23 ], [ %15, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit ]
+_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit: ; preds = %18, %23, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %30, %20, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit
+  %51 = phi ptr [ %13, %18 ], [ %13, %23 ], [ %50, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %13, %30 ], [ %13, %20 ], [ %13, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit ]
+  %52 = phi ptr [ %14, %18 ], [ %14, %23 ], [ %48, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %31, %30 ], [ %14, %20 ], [ %14, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit ]
+  %53 = phi ptr [ %15, %18 ], [ %15, %23 ], [ %44, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %15, %30 ], [ %15, %20 ], [ %15, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit ]
   %.011.add = add nuw nsw i64 %.011.idx40, 8
   %.not12 = icmp eq i64 %.011.add, 40
   br i1 %.not12, label %.sink.split, label %thread-pre-split
@@ -323,32 +323,32 @@ thread-pre-split60:                               ; preds = %_ZNSt6vectorIN4LIEF
   %.010.ptr = getelementptr inbounds nuw i8, ptr @_ZGRN4LIEF3ELFL10DF_FLAGS_1E_, i64 %.010.idx36
   %59 = load i64, ptr %.010.ptr, align 8, !tbaa !11
   %60 = icmp eq i64 %55, 30
-  br i1 %60, label %61, label %63
+  br i1 %60, label %61, label %66
 
 61:                                               ; preds = %54
   %62 = icmp ugt i64 %59, 4294967295
-  br i1 %62, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23, label %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15
+  br i1 %62, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23, label %63
 
-63:                                               ; preds = %54
-  %64 = icmp ne i64 %55, 1879048187
-  %65 = icmp ult i64 %59, 4294967296
-  %or.cond.i13 = or i1 %65, %64
-  br i1 %or.cond.i13, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23, label %66
-
-66:                                               ; preds = %63
-  %67 = add i64 %59, -4294967296
-  %68 = load i64, ptr %5, align 8, !tbaa !10
-  %69 = and i64 %68, %67
-  %.not29 = icmp eq i64 %69, 0
-  br i1 %.not29, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23, label %72
-
-_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15: ; preds = %61
-  %70 = load i64, ptr %5, align 8, !tbaa !10
-  %71 = and i64 %70, %59
-  %.not30 = icmp eq i64 %71, 0
+63:                                               ; preds = %61
+  %64 = load i64, ptr %5, align 8, !tbaa !10
+  %65 = and i64 %64, %59
+  %.not30 = icmp eq i64 %65, 0
   br i1 %.not30, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23, label %72
 
-72:                                               ; preds = %66, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15
+66:                                               ; preds = %54
+  %67 = icmp ne i64 %55, 1879048187
+  %68 = icmp ult i64 %59, 4294967296
+  %or.cond.i13 = or i1 %68, %67
+  br i1 %or.cond.i13, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23, label %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15
+
+_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15: ; preds = %66
+  %69 = add i64 %59, -4294967296
+  %70 = load i64, ptr %5, align 8, !tbaa !10
+  %71 = and i64 %70, %69
+  %.not29 = icmp eq i64 %71, 0
+  br i1 %.not29, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23, label %72
+
+72:                                               ; preds = %63, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15
   %.not.i16 = icmp eq ptr %57, %56
   br i1 %.not.i16, label %75, label %73
 
@@ -405,10 +405,10 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS
   store ptr %93, ptr %7, align 8, !tbaa !16
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23
 
-_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23: ; preds = %61, %63, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i22, %73, %66, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15
-  %94 = phi ptr [ %56, %61 ], [ %56, %63 ], [ %93, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i22 ], [ %56, %73 ], [ %56, %66 ], [ %56, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15 ]
-  %95 = phi ptr [ %57, %61 ], [ %57, %63 ], [ %91, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i22 ], [ %74, %73 ], [ %57, %66 ], [ %57, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15 ]
-  %96 = phi ptr [ %58, %61 ], [ %58, %63 ], [ %87, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i22 ], [ %58, %73 ], [ %58, %66 ], [ %58, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15 ]
+_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23: ; preds = %61, %66, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i22, %73, %63, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15
+  %94 = phi ptr [ %56, %61 ], [ %56, %66 ], [ %93, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i22 ], [ %56, %73 ], [ %56, %63 ], [ %56, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15 ]
+  %95 = phi ptr [ %57, %61 ], [ %57, %66 ], [ %91, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i22 ], [ %74, %73 ], [ %57, %63 ], [ %57, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15 ]
+  %96 = phi ptr [ %58, %61 ], [ %58, %66 ], [ %87, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i22 ], [ %58, %73 ], [ %58, %63 ], [ %58, %_ZNK4LIEF3ELF17DynamicEntryFlags3hasENS1_4FLAGE.exit15 ]
   %.010.add = add nuw nsw i64 %.010.idx36, 8
   %.not = icmp eq i64 %.010.add, 240
   br i1 %.not, label %.sink.split, label %thread-pre-split60

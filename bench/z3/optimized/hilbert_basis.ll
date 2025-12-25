@@ -7054,7 +7054,7 @@ _ZN6vectorIN13hilbert_basis8offset_tELb0EjE4backEv.exit.i103: ; preds = %_ZNK6ve
   br label %.body
 
 _ZN13hilbert_basis12alloc_vectorEv.exit128:       ; preds = %366, %376, %379, %436, %430, %416, %_ZNK13hilbert_basis8get_signENS_8offset_tE.exit31.i, %.preheader.i.i, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.i.i125, %_ZN6vectorI13checked_int64ILb1EELb1EjE3endEv.exit.i.i.i113, %517, %.lr.ph.preheader.i.i122, %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE4backEv.exit.i103, %442
-  %.sroa.0192.3 = phi i32 [ %.0.i16.i.i119.ph, %.lr.ph.preheader.i.i122 ], [ %.sroa.0192.2, %442 ], [ %.sroa.0192.2, %436 ], [ %527, %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE4backEv.exit.i103 ], [ 0, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.i.i125 ], [ %466, %_ZN6vectorI13checked_int64ILb1EELb1EjE3endEv.exit.i.i.i113 ], [ %.0.i16.i.i119.ph, %517 ], [ %.sroa.0192.2, %.preheader.i.i ], [ %.sroa.0192.2, %376 ], [ %.sroa.0192.2, %416 ], [ %.sroa.0192.2, %_ZNK13hilbert_basis8get_signENS_8offset_tE.exit31.i ], [ %.sroa.0192.2, %430 ], [ %.sroa.0192.2, %379 ], [ %.sroa.0192.2, %366 ]
+  %.sroa.0192.3 = phi i32 [ %.0.i16.i.i119.ph, %.lr.ph.preheader.i.i122 ], [ %.sroa.0192.2, %442 ], [ %.sroa.0192.2, %436 ], [ %527, %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE4backEv.exit.i103 ], [ 0, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.i.i125 ], [ %466, %_ZN6vectorI13checked_int64ILb1EELb1EjE3endEv.exit.i.i.i113 ], [ %.0.i16.i.i119.ph, %517 ], [ %.sroa.0192.2, %.preheader.i.i ], [ %.sroa.0192.2, %416 ], [ %.sroa.0192.2, %376 ], [ %.sroa.0192.2, %_ZNK13hilbert_basis8get_signENS_8offset_tE.exit31.i ], [ %.sroa.0192.2, %430 ], [ %.sroa.0192.2, %379 ], [ %.sroa.0192.2, %366 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %_ZN13hilbert_basis11is_subsumedENS_8offset_tE.exit, !llvm.loop !188
 
@@ -14158,7 +14158,7 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit33.i:   ; preds = %.lr.ph, %_ZNK6vecto
   br i1 %exitcond.not.i, label %.loopexit28, label %.lr.ph.i, !llvm.loop !187
 
 .loopexit28:                                      ; preds = %73, %.split.i, %.critedge.i, %36, %.split.i.us43, %.critedge.i.us49
-  %94 = phi i64 [ %indvars.iv72, %.critedge.i.us49 ], [ %indvars.iv72, %36 ], [ %indvars.iv, %.critedge.i ], [ %indvars.iv72, %.split.i.us43 ], [ %indvars.iv, %.split.i ], [ %indvars.iv, %73 ]
+  %94 = phi i64 [ %indvars.iv, %.critedge.i ], [ %indvars.iv72, %.critedge.i.us49 ], [ %indvars.iv72, %36 ], [ %indvars.iv72, %.split.i.us43 ], [ %indvars.iv, %.split.i ], [ %indvars.iv, %73 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !91
   %97 = getelementptr inbounds nuw %class.checked_int64, ptr %96, i64 %5

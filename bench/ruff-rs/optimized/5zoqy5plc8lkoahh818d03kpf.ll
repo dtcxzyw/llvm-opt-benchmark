@@ -1747,6 +1747,10 @@ tailrecurse.i.i.i:                                ; preds = %.lr.ph.i, %32
   %48 = tail call noundef zeroext i1 @_ZN20ruff_python_semantic5model13SemanticModel19has_builtin_binding17h174d49fd5fa315f1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %1, ptr noalias noundef nonnull readonly align 1 %46, i64 noundef %47), !noalias !183
   br i1 %48, label %_ZN20ruff_python_semantic7analyze5class26expr_might_be_typevar_like17hc7300a5dba1c28a0E.exit.backedge.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he0dab80cb173071aE.exit"
 
+_ZN20ruff_python_semantic7analyze5class26expr_might_be_typevar_like17hc7300a5dba1c28a0E.exit.backedge.i: ; preds = %tailrecurse.i.i.i, %49, %44
+  %.not.not.not.i.not.not.i.i = icmp eq ptr %29, %27
+  br i1 %.not.not.not.i.not.not.i.i, label %.backedge.i, label %.lr.ph.i
+
 49:                                               ; preds = %38
   %50 = extractvalue { ptr, i64 } %39, 0
   %51 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { i32, [5 x i32] }, { i32, i32 }, i32, i32, i16, i8, i8, [4 x i8] }, ptr %50, i64 %42
@@ -1754,10 +1758,6 @@ tailrecurse.i.i.i:                                ; preds = %.lr.ph.i, %32
   tail call void @llvm.assume(i1 %52), !noalias !189
   %53 = tail call noundef zeroext i1 @_ZN20ruff_python_semantic7analyze6typing16is_type_var_like17hf31feb547b384114E(ptr noalias noundef readonly align 8 dereferenceable(72) %51, ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %1), !noalias !183
   br i1 %53, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he0dab80cb173071aE.exit", label %_ZN20ruff_python_semantic7analyze5class26expr_might_be_typevar_like17hc7300a5dba1c28a0E.exit.backedge.i
-
-_ZN20ruff_python_semantic7analyze5class26expr_might_be_typevar_like17hc7300a5dba1c28a0E.exit.backedge.i: ; preds = %tailrecurse.i.i.i, %49, %44
-  %.not.not.not.i.not.not.i.i = icmp eq ptr %29, %27
-  br i1 %.not.not.not.i.not.not.i.i, label %.backedge.i, label %.lr.ph.i
 
 54:                                               ; preds = %38
   tail call void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %42, i64 noundef %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fe6f6513998b0ff6093ff781cda9ab33.4) #16, !noalias !183
@@ -1819,7 +1819,7 @@ _ZN20ruff_python_semantic7analyze5class26expr_might_be_typevar_like17hc7300a5dba
   br i1 %.not25.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he0dab80cb173071aE.exit", label %12
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he0dab80cb173071aE.exit": ; preds = %55, %.backedge.i, %_ZN20ruff_python_semantic7analyze5class26expr_might_be_typevar_like17hc7300a5dba1c28a0E.exit, %70, %tailrecurse.i.i, %49, %44, %.lr.ph.i, %tailrecurse.i.i.i, %5, %2
-  %.sroa.0.0 = phi i1 [ true, %2 ], [ true, %tailrecurse.i.i.i ], [ false, %5 ], [ true, %49 ], [ true, %tailrecurse.i.i ], [ true, %.lr.ph.i ], [ true, %44 ], [ true, %_ZN20ruff_python_semantic7analyze5class26expr_might_be_typevar_like17hc7300a5dba1c28a0E.exit ], [ false, %.backedge.i ], [ true, %70 ], [ true, %55 ]
+  %.sroa.0.0 = phi i1 [ true, %2 ], [ false, %5 ], [ true, %49 ], [ true, %tailrecurse.i.i ], [ true, %tailrecurse.i.i.i ], [ true, %.lr.ph.i ], [ true, %44 ], [ true, %_ZN20ruff_python_semantic7analyze5class26expr_might_be_typevar_like17hc7300a5dba1c28a0E.exit ], [ true, %70 ], [ false, %.backedge.i ], [ true, %55 ]
   ret i1 %.sroa.0.0
 }
 
@@ -1903,7 +1903,7 @@ switch.lookup384:                                 ; preds = %"_ZN91_$LT$core..sl
   br label %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit
 
 _ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit: ; preds = %9, %switch.lookup473, %188, %switch.lookup467, %switch.lookup461, %switch.lookup455, %switch.lookup408, %158, %switch.lookup402, %switch.lookup396, %switch.lookup390, %switch.lookup384, %148, %switch.lookup379, %switch.lookup373, %switch.lookup367, %136, %switch.lookup361, %switch.lookup355, %switch.lookup349, %43, %switch.lookup307, %switch.lookup301, %switch.lookup, %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit, %129, %36, %92, %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit", %190, %187, %160, %157, %155, %153, %.loopexit, %150, %147, %145, %143, %141, %138, %135, %45, %42, %177, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit", %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40
-  %.sroa.0.1 = phi i8 [ %.sroa.0.0.ph138, %157 ], [ 4, %136 ], [ %.sroa.0.0.i38, %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40 ], [ %switch.masked377, %switch.lookup373 ], [ %switch.masked365, %switch.lookup361 ], [ %switch.masked383, %switch.lookup379 ], [ %.sroa.0.0.ph138, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit" ], [ %switch.masked477, %switch.lookup473 ], [ %switch.masked465, %switch.lookup461 ], [ %switch.masked406, %switch.lookup402 ], [ %.sroa.0.0.mux, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit" ], [ %switch.masked311, %switch.lookup307 ], [ %switch.masked471, %switch.lookup467 ], [ %.sroa.0.0.i56, %177 ], [ %switch.masked412, %switch.lookup408 ], [ 4, %150 ], [ 4, %15 ], [ %switch.masked388, %switch.lookup384 ], [ %switch.masked371, %switch.lookup367 ], [ %.sroa.0.0.i62, %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit ], [ %27, %145 ], [ 4, %45 ], [ %41, %36 ], [ %.sroa.0.0.ph138, %42 ], [ 4, %160 ], [ %switch.masked, %switch.lookup ], [ 4, %148 ], [ 4, %158 ], [ %switch.masked305, %switch.lookup301 ], [ %switch.masked459, %switch.lookup455 ], [ %.sroa.0.0.i29, %.loopexit ], [ %.sroa.0.0.ph138, %147 ], [ %spec.select, %92 ], [ 4, %188 ], [ %.sroa.0.0.i56, %187 ], [ 4, %190 ], [ %switch.masked394, %switch.lookup390 ], [ 4, %138 ], [ %134, %129 ], [ %.sroa.0.0.i38, %135 ], [ 4, %43 ], [ %switch.masked353, %switch.lookup349 ], [ %.sroa.0.0.ph138, %153 ], [ %switch.masked400, %switch.lookup396 ], [ %switch.masked359, %switch.lookup355 ], [ %.sroa.0.0.i29, %155 ], [ %27, %141 ], [ %.sroa.0.0.ph138, %143 ], [ %.sroa.0.0.ph138, %9 ]
+  %.sroa.0.1 = phi i8 [ %.sroa.0.0.ph138, %157 ], [ 4, %136 ], [ %.sroa.0.0.i38, %_ZN20ruff_python_semantic7analyze8terminal8Terminal8and_then17h4d4330929e0ac235E.exit40 ], [ %switch.masked377, %switch.lookup373 ], [ %switch.masked365, %switch.lookup361 ], [ %switch.masked383, %switch.lookup379 ], [ %.sroa.0.0.ph138, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfcb38562d5924de3E.exit" ], [ %switch.masked477, %switch.lookup473 ], [ 4, %188 ], [ %switch.masked406, %switch.lookup402 ], [ %.sroa.0.0.mux, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hba20706092f6f1e3E.exit" ], [ %switch.masked311, %switch.lookup307 ], [ %switch.masked471, %switch.lookup467 ], [ %.sroa.0.0.i56, %177 ], [ 4, %150 ], [ %switch.masked412, %switch.lookup408 ], [ %switch.masked465, %switch.lookup461 ], [ %switch.masked388, %switch.lookup384 ], [ %switch.masked371, %switch.lookup367 ], [ %.sroa.0.0.i62, %_ZN20ruff_python_semantic7analyze8terminal8Terminal6branch17h586139eaf8e9cfc0E.exit ], [ %27, %145 ], [ 4, %45 ], [ %41, %36 ], [ %.sroa.0.0.ph138, %42 ], [ 4, %160 ], [ %switch.masked, %switch.lookup ], [ 4, %148 ], [ 4, %158 ], [ %switch.masked305, %switch.lookup301 ], [ %switch.masked459, %switch.lookup455 ], [ %.sroa.0.0.i29, %.loopexit ], [ %.sroa.0.0.ph138, %147 ], [ %spec.select, %92 ], [ 4, %15 ], [ %.sroa.0.0.i56, %187 ], [ 4, %190 ], [ %switch.masked394, %switch.lookup390 ], [ 4, %138 ], [ %134, %129 ], [ %.sroa.0.0.i38, %135 ], [ 4, %43 ], [ %switch.masked353, %switch.lookup349 ], [ %.sroa.0.0.ph138, %153 ], [ %switch.masked400, %switch.lookup396 ], [ %switch.masked359, %switch.lookup355 ], [ %.sroa.0.0.i29, %155 ], [ %27, %141 ], [ %.sroa.0.0.ph138, %143 ], [ %.sroa.0.0.ph138, %9 ]
   %14 = icmp eq ptr %.sroa.027.1133, %4
   %.sroa.027.1.idx128 = select i1 %14, i64 0, i64 120
   %.sroa.027.1129 = getelementptr inbounds nuw i8, ptr %.sroa.027.1133, i64 %.sroa.027.1.idx128
@@ -4043,7 +4043,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit: ; preds 
   br label %163
 
 163:                                              ; preds = %.sink.split, %134, %139, %143, %147, %154, %158
-  %.sink = phi i8 [ 3, %134 ], [ 3, %139 ], [ 3, %143 ], [ 3, %147 ], [ 3, %154 ], [ 3, %158 ], [ 0, %.sink.split ]
+  %.sink = phi i8 [ 3, %154 ], [ 3, %147 ], [ 3, %143 ], [ 3, %139 ], [ 3, %134 ], [ 3, %158 ], [ 0, %.sink.split ]
   store i8 %.sink, ptr %0, align 8
   call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -4144,7 +4144,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit: ; preds 
   br label %206
 
 206:                                              ; preds = %.sink.split203, %184, %189, %196
-  %.sink197 = phi i8 [ 3, %184 ], [ 3, %189 ], [ 3, %196 ], [ 0, %.sink.split203 ]
+  %.sink197 = phi i8 [ 3, %189 ], [ 3, %184 ], [ 3, %196 ], [ 0, %.sink.split203 ]
   store i8 %.sink197, ptr %0, align 8
   call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -4219,7 +4219,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h131157ed433eb793E.exit: ; preds 
   br label %237
 
 237:                                              ; preds = %.sink.split206, %220, %225, %229, %234
-  %.sink198 = phi i8 [ 3, %220 ], [ 3, %225 ], [ 3, %234 ], [ 3, %229 ], [ 0, %.sink.split206 ]
+  %.sink198 = phi i8 [ 3, %225 ], [ 3, %220 ], [ 3, %234 ], [ 3, %229 ], [ 0, %.sink.split206 ]
   store i8 %.sink198, ptr %0, align 8
   call fastcc void @"_ZN4core3ptr162drop_in_place$LT$$LP$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$C$ruff_python_semantic..analyze..type_inference..ResolvedPythonType$RP$$GT$17h185dfc50e769fbefE"(ptr noalias noundef align 8 dereferenceable(80) %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

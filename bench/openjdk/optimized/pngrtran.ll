@@ -1257,8 +1257,8 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   br i1 %exitcond592.not, label %.thread434, label %.preheader441.split, !llvm.loop !47
 
 .thread434:                                       ; preds = %._crit_edge490, %.split.thread, %.split.us.us.split.thread, %.split.us.us.split.us.us.thread, %189, %372, %322, %230, %201
-  %.2381437 = phi ptr [ %.1380, %.split.us.us.split.us.us.thread ], [ %.1380, %.split.thread ], [ null, %201 ], [ %.1380, %.split.us.us.split.thread ], [ %.1380, %230 ], [ %.1380, %322 ], [ %.1380, %372 ], [ null, %189 ], [ null, %._crit_edge490 ]
-  %.1372 = phi i32 [ %.6.us.us, %.split.us.us.split.us.us.thread ], [ %.6, %.split.thread ], [ %.0371504, %201 ], [ %.6.us, %.split.us.us.split.thread ], [ %.5.us.us.us.us, %230 ], [ %.5.us.us, %322 ], [ %.5, %372 ], [ %.0371504, %189 ], [ %.0371504, %._crit_edge490 ]
+  %.2381437 = phi ptr [ %.1380, %.split.thread ], [ %.1380, %230 ], [ null, %201 ], [ %.1380, %.split.us.us.split.us.us.thread ], [ %.1380, %.split.us.us.split.thread ], [ %.1380, %322 ], [ %.1380, %372 ], [ null, %189 ], [ null, %._crit_edge490 ]
+  %.1372 = phi i32 [ %.6, %.split.thread ], [ %.5.us.us.us.us, %230 ], [ %.0371504, %201 ], [ %.6.us.us, %.split.us.us.split.us.us.thread ], [ %.6.us, %.split.us.us.split.thread ], [ %.5.us.us, %322 ], [ %.5, %372 ], [ %.0371504, %189 ], [ %.0371504, %._crit_edge490 ]
   br label %375
 
 375:                                              ; preds = %.thread434, %.loopexit439

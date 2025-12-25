@@ -21142,7 +21142,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator22findUnwindDestinati
   br label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.us176
 
 _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.us176: ; preds = %39, %32, %.lr.ph86.split.us167
-  %.1.us177 = phi ptr [ %35, %39 ], [ %.03985.us168, %.lr.ph86.split.us167 ], [ %35, %32 ]
+  %.1.us177 = phi ptr [ %.03985.us168, %.lr.ph86.split.us167 ], [ %35, %39 ], [ %35, %32 ]
   %.not.us178 = icmp eq ptr %.1.us177, null
   br i1 %.not.us178, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread75, label %.lr.ph86.split.us167
 
@@ -21259,7 +21259,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_17MachineBasicBlockENS_17BranchProbability
   br label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.us.us
 
 _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.us.us: ; preds = %88, %81, %.lr.ph86.split.us.split.us
-  %.1.us.us = phi ptr [ %84, %88 ], [ %.03985.us.us, %.lr.ph86.split.us.split.us ], [ %84, %81 ]
+  %.1.us.us = phi ptr [ %.03985.us.us, %.lr.ph86.split.us.split.us ], [ %84, %88 ], [ %84, %81 ]
   %.not.us.us = icmp eq ptr %.1.us.us, null
   br i1 %.not.us.us, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread75, label %.lr.ph86.split.us.split.us
 
@@ -21378,7 +21378,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_17MachineBasicBlockENS_17BranchProbability
   br label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.us
 
 _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.us: ; preds = %144, %137, %.lr.ph86.split.us.split
-  %.1.us = phi ptr [ %140, %144 ], [ %.03985.us, %.lr.ph86.split.us.split ], [ %140, %137 ]
+  %.1.us = phi ptr [ %.03985.us, %.lr.ph86.split.us.split ], [ %140, %144 ], [ %140, %137 ]
   %.not.us = icmp eq ptr %.1.us, null
   br i1 %.not.us, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread75, label %.lr.ph86.split.us.split
 
@@ -21632,7 +21632,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_17MachineBasicBlockENS_17BranchProbability
   br label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit
 
 _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit: ; preds = %.lr.ph86.split, %265, %272
-  %.1 = phi ptr [ %268, %272 ], [ %.03985, %.lr.ph86.split ], [ %268, %265 ]
+  %.1 = phi ptr [ %.03985, %.lr.ph86.split ], [ %268, %272 ], [ %268, %265 ]
   %.not = icmp eq ptr %.1, null
   br i1 %.not, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread75, label %.lr.ph86.split
 
@@ -34539,7 +34539,7 @@ _ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit.sink.split: ; p
   br label %_ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit
 
 _ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit: ; preds = %_ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit.sink.split, %15, %34, %49, %42, %47, %_ZNK4llvm4User10getOperandEj.exit37, %30, %2, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit
-  %.0 = phi i1 [ false, %2 ], [ false, %47 ], [ false, %_ZNK4llvm4User10getOperandEj.exit37 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit ], [ false, %30 ], [ false, %42 ], [ false, %49 ], [ false, %34 ], [ false, %15 ], [ true, %_ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit.sink.split ]
+  %.0 = phi i1 [ false, %2 ], [ false, %42 ], [ false, %_ZNK4llvm4User10getOperandEj.exit37 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit ], [ false, %30 ], [ false, %49 ], [ false, %47 ], [ false, %34 ], [ false, %15 ], [ true, %_ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -34647,7 +34647,7 @@ _ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit.sink.split: ; p
   br label %_ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit
 
 _ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit: ; preds = %_ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit.sink.split, %15, %34, %49, %42, %47, %_ZNK4llvm4User10getOperandEj.exit37, %30, %2, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit
-  %.0 = phi i1 [ false, %2 ], [ false, %47 ], [ false, %_ZNK4llvm4User10getOperandEj.exit37 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit ], [ false, %30 ], [ false, %42 ], [ false, %49 ], [ false, %34 ], [ false, %15 ], [ true, %_ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit.sink.split ]
+  %.0 = phi i1 [ false, %2 ], [ false, %42 ], [ false, %_ZNK4llvm4User10getOperandEj.exit37 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit ], [ false, %30 ], [ false, %49 ], [ false, %47 ], [ false, %34 ], [ false, %15 ], [ true, %_ZN4llvm12PatternMatch7bind_tyIKNS_5ValueEE5matchIS2_EEbPT_.exit.sink.split ]
   ret i1 %.0
 }
 

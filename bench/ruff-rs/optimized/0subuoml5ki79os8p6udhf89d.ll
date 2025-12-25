@@ -8678,7 +8678,7 @@ _ZN21ruff_python_formatter6string9docstring15CodeExampleKind4code17h647eefb0f93d
   br label %.thread
 
 .thread261.loopexit.split-lp.loopexit:            ; preds = %521, %386, %388, %135, %.noexc, %140, %.noexc105, %.noexc106, %.noexc107, %.noexc108, %.noexc109, %.noexc110, %.noexc111, %159, %229, %233
-  %.sroa.034.0.ph.ph.ph = phi i1 [ true, %233 ], [ true, %229 ], [ true, %386 ], [ false, %521 ], [ true, %159 ], [ true, %.noexc111 ], [ true, %.noexc110 ], [ true, %.noexc109 ], [ true, %.noexc108 ], [ true, %.noexc107 ], [ true, %.noexc106 ], [ true, %.noexc105 ], [ true, %140 ], [ true, %.noexc ], [ true, %135 ], [ true, %388 ]
+  %.sroa.034.0.ph.ph.ph = phi i1 [ true, %233 ], [ true, %229 ], [ false, %521 ], [ true, %386 ], [ true, %159 ], [ true, %.noexc111 ], [ true, %.noexc110 ], [ true, %.noexc109 ], [ true, %.noexc108 ], [ true, %.noexc107 ], [ true, %.noexc106 ], [ true, %.noexc105 ], [ true, %140 ], [ true, %.noexc ], [ true, %135 ], [ true, %388 ]
   %lpad.loopexit358 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -8772,10 +8772,10 @@ default.unreachable4.i:                           ; preds = %420
   br label %_ZN21ruff_python_formatter6string9docstring11Indentation7columns17h32fa77e805cc49ccE.exit
 
 429:                                              ; preds = %523, %492
-  %.sroa.028.2 = phi i1 [ %.sroa.028.4, %492 ], [ %.sroa.028.5, %523 ]
-  %.sroa.034.4 = phi i1 [ false, %492 ], [ true, %523 ]
-  %.sroa.036.4 = phi i1 [ true, %492 ], [ false, %523 ]
-  %.pn95 = phi { ptr, i32 } [ %.pn83, %492 ], [ %.pn73, %523 ]
+  %.sroa.028.2 = phi i1 [ %.sroa.028.5, %523 ], [ %.sroa.028.4, %492 ]
+  %.sroa.034.4 = phi i1 [ true, %523 ], [ false, %492 ]
+  %.sroa.036.4 = phi i1 [ false, %523 ], [ true, %492 ]
+  %.pn95 = phi { ptr, i32 } [ %.pn73, %523 ], [ %.pn83, %492 ]
   br i1 %.sroa.028.2, label %553, label %.thread
 
 .thread286.loopexit:                              ; preds = %504, %535, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56b963c49faac316E.exit.thread"

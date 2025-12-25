@@ -3620,7 +3620,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit82:             ; preds = %115
   br label %SDL_BlitSurfaceUnchecked_REAL.exit.thread
 
 SDL_BlitSurfaceUnchecked_REAL.exit.thread:        ; preds = %SDL_BlitSurfaceUnchecked_REAL.exit78, %.critedge, %SDL_BlitSurfaceUnchecked_REAL.exit78.us, %70, %SDL_BlitSurfaceUnchecked_REAL.exit.us, %81, %106, %SDL_BlitSurfaceUnchecked_REAL.exit80, %115, %SDL_BlitSurfaceUnchecked_REAL.exit82, %121
-  %.4 = phi i1 [ true, %121 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit82 ], [ false, %106 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit78.us ], [ false, %115 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit.us ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit80 ], [ false, %81 ], [ false, %70 ], [ false, %.critedge ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit78 ]
+  %.4 = phi i1 [ true, %121 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit82 ], [ false, %115 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit78.us ], [ false, %106 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit.us ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit80 ], [ false, %81 ], [ false, %70 ], [ false, %.critedge ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %122

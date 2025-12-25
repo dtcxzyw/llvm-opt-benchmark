@@ -2059,7 +2059,7 @@ define internal fastcc i32 @__i915_ttm_get_pages(ptr noundef %0, ptr noundef %1)
   br label %.thread3
 
 .thread3:                                         ; preds = %2, %.thread3.fold.split, %.thread4, %42, %20, %10, %9, %.thread
-  %43 = phi i32 [ 0, %42 ], [ %38, %.thread4 ], [ -11, %2 ], [ -11, %.thread ], [ -6, %9 ], [ %8, %10 ], [ %23, %20 ], [ %7, %.thread3.fold.split ]
+  %43 = phi i32 [ 0, %42 ], [ %38, %.thread4 ], [ %8, %10 ], [ -6, %9 ], [ -11, %.thread ], [ -11, %2 ], [ %23, %20 ], [ %7, %.thread3.fold.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %43
 }

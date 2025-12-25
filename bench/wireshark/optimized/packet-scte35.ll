@@ -1252,8 +1252,8 @@ dissect_scte35_splice_descriptor.exit.thread:     ; preds = %72, %79, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-dissect_scte35_splice_descriptor.exit.thread112:  ; preds = %98, %76, %88
-  %.ph = phi i32 [ %97, %88 ], [ 10, %76 ], [ 11, %98 ]
+dissect_scte35_splice_descriptor.exit.thread112:  ; preds = %88, %76, %98
+  %.ph = phi i32 [ 11, %98 ], [ 10, %76 ], [ %97, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %175
 

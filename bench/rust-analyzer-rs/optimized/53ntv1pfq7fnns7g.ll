@@ -2845,9 +2845,9 @@ _ZN4core3ops8function6FnOnce9call_once17h77d147f27911d413E.exit.i9.i.i.i.i.i.i.i
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89576634539f0471E.exit.i.i.i.i.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89576634539f0471E.exit.i.i.i.i.i": ; preds = %147, %_ZN4core3ops8function6FnOnce9call_once17h77d147f27911d413E.exit.i9.i.i.i.i.i.i.i.i.i.i.i, %106
-  %.sroa.7.0.i.i.i.i.i = phi i32 [ %.sroa.8.1.i.i.i.i.i.i.i.i, %147 ], [ %.sroa.8.1.i.i.i.i.i.i.i.i.i.i.i.i, %106 ], [ %.sroa.8.1.i12.i.i.i.i.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h77d147f27911d413E.exit.i9.i.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.6.0.i.i.i.i.i = phi i64 [ %.sroa.6.1.i.i.i.i.i.i.i.i, %147 ], [ %.sroa.6.1.i.i.i.i.i.i.i.i.i.i.i.i, %106 ], [ %.sroa.6.1.i15.i.i.i.i.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h77d147f27911d413E.exit.i9.i.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.0.05.i.i.i.i.i = phi i32 [ %.sroa.0.1.i.i.i.i.i.i.i.i, %147 ], [ %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i.i, %106 ], [ %.sroa.0.1.i14.i.i.i.i.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h77d147f27911d413E.exit.i9.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.7.0.i.i.i.i.i = phi i32 [ %.sroa.8.1.i.i.i.i.i.i.i.i.i.i.i.i, %106 ], [ %.sroa.8.1.i12.i.i.i.i.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h77d147f27911d413E.exit.i9.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.8.1.i.i.i.i.i.i.i.i, %147 ]
+  %.sroa.6.0.i.i.i.i.i = phi i64 [ %.sroa.6.1.i.i.i.i.i.i.i.i.i.i.i.i, %106 ], [ %.sroa.6.1.i15.i.i.i.i.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h77d147f27911d413E.exit.i9.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.6.1.i.i.i.i.i.i.i.i, %147 ]
+  %.sroa.0.05.i.i.i.i.i = phi i32 [ %.sroa.0.1.i.i.i.i.i.i.i.i.i.i.i.i, %106 ], [ %.sroa.0.1.i14.i.i.i.i.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h77d147f27911d413E.exit.i9.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i.i.i.i, %147 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1153)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1156)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1159

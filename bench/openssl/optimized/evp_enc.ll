@@ -167,7 +167,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %24
   br label %54
 
 54:                                               ; preds = %.sink.split, %37, %1
-  %.0 = phi i32 [ 0, %37 ], [ 1, %1 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 1, %1 ], [ 0, %37 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -3494,7 +3494,7 @@ define i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br label %.thread
 
 149:                                              ; preds = %84, %68, %63
-  %.3 = phi i32 [ %.286, %84 ], [ %.084, %63 ], [ %.185, %68 ]
+  %.3 = phi i32 [ %.286, %84 ], [ %.185, %68 ], [ %.084, %63 ]
   %.not = icmp eq i32 %.3, 0
   br i1 %.not, label %.thread100, label %.thread
 

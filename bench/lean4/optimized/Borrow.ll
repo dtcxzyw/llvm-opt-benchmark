@@ -32258,7 +32258,7 @@ lean_alloc_ctor.exit153:                          ; preds = %209
   br i1 %.not163, label %220, label %lean_dec.exit.backedge
 
 lean_dec.exit.backedge:                           ; preds = %217, %223, %225, %226, %57, %lean_dec.exit91
-  %.074.be = phi ptr [ %60, %lean_dec.exit91 ], [ %28, %57 ], [ %153, %217 ], [ %153, %223 ], [ %153, %225 ], [ %153, %226 ]
+  %.074.be = phi ptr [ %60, %lean_dec.exit91 ], [ %28, %57 ], [ %153, %225 ], [ %153, %223 ], [ %153, %217 ], [ %153, %226 ]
   br label %lean_dec.exit
 
 220:                                              ; preds = %217

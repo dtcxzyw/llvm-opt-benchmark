@@ -2599,7 +2599,7 @@ lmcs_derive_lut.exit.i:                           ; preds = %1380
   br i1 %exitcond.not.i, label %decode_frame_ps.exit, label %1387, !llvm.loop !254
 
 decode_frame_ps.exit:                             ; preds = %1139, %1147, %1174, %1182, %1387, %decode_ps.exit, %1030, %lmcs_derive_lut.exit.thread.i
-  %.035.i = phi i32 [ -1094995529, %1030 ], [ 0, %1387 ], [ %.0.i.ph.i, %lmcs_derive_lut.exit.thread.i ], [ -1094995529, %decode_ps.exit ], [ -1094995529, %1174 ], [ -1094995529, %1182 ], [ -1094995529, %1147 ], [ -1094995529, %1139 ]
+  %.035.i = phi i32 [ -1094995529, %1030 ], [ -1094995529, %1174 ], [ %.0.i.ph.i, %lmcs_derive_lut.exit.thread.i ], [ -1094995529, %decode_ps.exit ], [ 0, %1387 ], [ -1094995529, %1182 ], [ -1094995529, %1147 ], [ -1094995529, %1139 ]
   %1391 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1392 = getelementptr inbounds nuw i8, ptr %1, i64 892
   %1393 = load i32, ptr %1392, align 4, !tbaa !27

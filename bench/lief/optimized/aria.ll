@@ -1520,7 +1520,7 @@ mbedtls_aria_crypt_cbc.exit102:                   ; preds = %.lr.ph60.i
   br i1 %exitcond138.not, label %.loopexit198.preheader, label %.loopexit200.backedge
 
 .loopexit200.backedge:                            ; preds = %53, %.thread184
-  %indvars.iv135.be = phi i64 [ %indvars.iv.next136185, %.thread184 ], [ %indvars.iv.next136, %53 ]
+  %indvars.iv135.be = phi i64 [ %indvars.iv.next136, %53 ], [ %indvars.iv.next136185, %.thread184 ]
   br label %.loopexit200, !llvm.loop !25
 
 .thread184:                                       ; preds = %52
@@ -1655,7 +1655,7 @@ mbedtls_aria_crypt_cfb128.exit105:                ; preds = %84
   br i1 %exitcond142.not, label %.loopexit196.preheader, label %.loopexit198.backedge
 
 .loopexit198.backedge:                            ; preds = %96, %.thread188
-  %indvars.iv139.be = phi i64 [ %indvars.iv.next140189, %.thread188 ], [ %indvars.iv.next140, %96 ]
+  %indvars.iv139.be = phi i64 [ %indvars.iv.next140, %96 ], [ %indvars.iv.next140189, %.thread188 ]
   br label %.loopexit198, !llvm.loop !26
 
 .thread188:                                       ; preds = %95
@@ -1816,7 +1816,7 @@ mbedtls_aria_crypt_ctr.exit123:                   ; preds = %.loopexit.i116
   br i1 %exitcond146.not, label %.loopexit, label %.loopexit196.backedge
 
 .loopexit196.backedge:                            ; preds = %152, %.thread192
-  %indvars.iv143.be = phi i64 [ %indvars.iv.next144193, %.thread192 ], [ %indvars.iv.next144, %152 ]
+  %indvars.iv143.be = phi i64 [ %indvars.iv.next144, %152 ], [ %indvars.iv.next144193, %.thread192 ]
   br label %.loopexit196, !llvm.loop !27
 
 .thread192:                                       ; preds = %151

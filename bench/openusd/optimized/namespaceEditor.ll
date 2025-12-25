@@ -5202,7 +5202,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit53.thread: ; preds = %
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %15) #13
   br label %540
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit53.thread89: ; preds = %.noexc52, %308, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit53
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit53.thread89: ; preds = %308, %.noexc52, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit53
   %352 = load ptr, ptr %303, align 8
   %.not.i.i56 = icmp eq ptr %352, null
   br i1 %.not.i.i56, label %357, label %353
@@ -7625,7 +7625,7 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i6.i
   br i1 %.not12.not.i.i, label %.lr.ph.i6.i, label %.loopexit148
 
 .loopexit148:                                     ; preds = %select.unfold.i.i, %.lr.ph.i6.i, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableISt6vectorINS_7SdfPathESaIS2_EEE4findERKS2_.exit.i
-  %.sroa.0.0.i5.i = phi ptr [ %124, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableISt6vectorINS_7SdfPathESaIS2_EEE4findERKS2_.exit.i ], [ %131, %.lr.ph.i6.i ], [ null, %select.unfold.i.i ]
+  %.sroa.0.0.i5.i = phi ptr [ %124, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableISt6vectorINS_7SdfPathESaIS2_EEE4findERKS2_.exit.i ], [ null, %select.unfold.i.i ], [ %131, %.lr.ph.i6.i ]
   %.not162 = icmp eq ptr %.09.i.i, %.sroa.0.0.i5.i
   br i1 %.not162, label %._crit_edge180, label %.lr.ph.preheader
 

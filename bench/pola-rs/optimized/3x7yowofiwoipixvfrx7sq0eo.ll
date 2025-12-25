@@ -38716,8 +38716,8 @@ define void @"_ZN103_$LT$polars_expr..expressions..gather..GatherExpr$u20$as$u20
           to label %120 unwind label %118
 
 .critedge166:                                     ; preds = %701, %705, %673, %678, %118
-  %.sroa.082.1 = phi i8 [ %.sroa.082.0, %118 ], [ %.sroa.082.3.ph, %701 ], [ %.sroa.082.4, %673 ], [ %.sroa.082.4, %678 ], [ %.sroa.082.3.ph, %705 ]
-  %.pn163 = phi { ptr, i32 } [ %119, %118 ], [ %.pn161.ph, %701 ], [ %674, %673 ], [ %674, %678 ], [ %.pn161.ph, %705 ]
+  %.sroa.082.1 = phi i8 [ %.sroa.082.0, %118 ], [ %.sroa.082.3.ph, %705 ], [ %.sroa.082.4, %673 ], [ %.sroa.082.4, %678 ], [ %.sroa.082.3.ph, %701 ]
+  %.pn163 = phi { ptr, i32 } [ %119, %118 ], [ %.pn161.ph, %705 ], [ %674, %673 ], [ %674, %678 ], [ %.pn161.ph, %701 ]
   %117 = trunc nuw i8 %.sroa.082.1 to i1
   br i1 %117, label %706, label %.critedge166.thread
 

@@ -2188,7 +2188,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.critedge165
 
 .critedge165:                                     ; preds = %90, %88, %122, %123, %.critedge8, %209, %64
-  %.1139 = phi i32 [ -1, %122 ], [ -1, %64 ], [ 1, %.critedge8 ], [ 1, %209 ], [ -1, %123 ], [ -1, %88 ], [ -1, %90 ]
+  %.1139 = phi i32 [ 1, %209 ], [ -1, %64 ], [ 1, %.critedge8 ], [ -1, %122 ], [ -1, %123 ], [ -1, %88 ], [ -1, %90 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   ret i32 %.1139

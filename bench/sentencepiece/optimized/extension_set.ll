@@ -11631,7 +11631,7 @@ _ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit: ; p
   br i1 %.not, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread, label %.lr.ph, !llvm.loop !167
 
 _ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread: ; preds = %58, %62, %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit, %.lr.ph.i, %13, %.lr.ph34, %15, %6
-  %.3 = phi i1 [ true, %15 ], [ false, %.lr.ph.i ], [ true, %6 ], [ %12, %13 ], [ %12, %.lr.ph34 ], [ false, %58 ], [ false, %62 ], [ true, %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit ]
+  %.3 = phi i1 [ false, %.lr.ph.i ], [ true, %15 ], [ true, %6 ], [ %12, %13 ], [ %12, %.lr.ph34 ], [ false, %58 ], [ false, %62 ], [ true, %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit ]
   ret i1 %.3
 }
 
@@ -21802,7 +21802,7 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %121, %1
   br label %.loopexit196
 
 .loopexit:                                        ; preds = %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, %108, %94, %84, %73, %63, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, %164, %159, %154, %149, %144, %139, %134
-  %.0 = phi i64 [ %83, %73 ], [ %167, %164 ], [ %163, %159 ], [ %93, %84 ], [ %107, %94 ], [ %120, %108 ], [ %62, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %72, %63 ], [ %138, %134 ], [ %143, %139 ], [ %148, %144 ], [ %153, %149 ], [ %158, %154 ], [ %133, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit ]
+  %.0 = phi i64 [ %167, %164 ], [ %83, %73 ], [ %163, %159 ], [ %93, %84 ], [ %107, %94 ], [ %120, %108 ], [ %62, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %72, %63 ], [ %138, %134 ], [ %143, %139 ], [ %148, %144 ], [ %153, %149 ], [ %158, %154 ], [ %133, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit ]
   %179 = trunc i64 %.0 to i32
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %179, ptr %180, align 4, !tbaa !233

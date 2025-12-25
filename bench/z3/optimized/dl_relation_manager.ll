@@ -3066,7 +3066,7 @@ _ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i: ;
   br label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit
 
 _ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit: ; preds = %104, %106, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i
-  %112 = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i ], [ null, %104 ], [ %107, %106 ]
+  %112 = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i ], [ %107, %106 ], [ null, %104 ]
   %113 = getelementptr inbounds nuw i8, ptr %84, i64 40
   store ptr %112, ptr %113, align 8, !tbaa !35
   %114 = getelementptr inbounds nuw i8, ptr %84, i64 48
@@ -3165,7 +3165,7 @@ _ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18:
   br label %_ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit19
 
 _ZN7datalog18check_table_pluginC2ERNS_16relation_managerERK6symbolS5_.exit19: ; preds = %153, %155, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18
-  %161 = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18 ], [ null, %153 ], [ %156, %155 ]
+  %161 = phi ptr [ null, %_ZN7datalog16relation_manager16get_table_pluginERK6symbol.exit12.sink.split.i18 ], [ %156, %155 ], [ null, %153 ]
   %162 = getelementptr inbounds nuw i8, ptr %133, i64 40
   store ptr %161, ptr %162, align 8, !tbaa !35
   %163 = getelementptr inbounds nuw i8, ptr %133, i64 48

@@ -597,7 +597,7 @@ define range(i32 0, 2) i32 @evp_keymgmt_util_cache_keydata(ptr noundef captures(
   br label %23
 
 23:                                               ; preds = %.sink.split, %4, %19, %12, %9
-  %.0 = phi i32 [ 1, %4 ], [ 0, %9 ], [ 0, %12 ], [ 1, %19 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %19 ], [ 0, %9 ], [ 0, %12 ], [ 1, %4 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

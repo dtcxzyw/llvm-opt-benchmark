@@ -2448,10 +2448,10 @@ _ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i.i: ; preds
   br label %_ZN4Luau8TypePackD2Ev.exit34
 
 .critedge:                                        ; preds = %22, %31, %80, %78
-  %.sroa.19.095 = phi ptr [ %.sroa.19.0.lcssa129, %80 ], [ %.sroa.19.0.lcssa129, %78 ], [ %.sroa.19.0100, %31 ], [ %.sroa.19.0100, %22 ]
-  %.sroa.047.084 = phi ptr [ %.sroa.047.0.lcssa131, %80 ], [ %.sroa.047.0.lcssa131, %78 ], [ %.sroa.047.0102, %31 ], [ %.sroa.047.0102, %22 ]
-  %.sroa.059.0 = phi ptr [ %77, %80 ], [ %77, %78 ], [ undef, %31 ], [ undef, %22 ]
-  %.sroa.2.3 = phi i8 [ 1, %80 ], [ 1, %78 ], [ 0, %31 ], [ 0, %22 ]
+  %.sroa.19.095 = phi ptr [ %.sroa.19.0.lcssa129, %78 ], [ %.sroa.19.0.lcssa129, %80 ], [ %.sroa.19.0100, %31 ], [ %.sroa.19.0100, %22 ]
+  %.sroa.047.084 = phi ptr [ %.sroa.047.0.lcssa131, %78 ], [ %.sroa.047.0.lcssa131, %80 ], [ %.sroa.047.0102, %31 ], [ %.sroa.047.0102, %22 ]
+  %.sroa.059.0 = phi ptr [ %77, %78 ], [ %77, %80 ], [ undef, %31 ], [ undef, %22 ]
+  %.sroa.2.3 = phi i8 [ 1, %78 ], [ 1, %80 ], [ 0, %31 ], [ 0, %22 ]
   %.not.i.i.i35 = icmp eq ptr %.sroa.047.084, null
   br i1 %.not.i.i.i35, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, label %95
 
@@ -3311,9 +3311,9 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Lua
   br label %311
 
 .body:                                            ; preds = %211, %286, %284, %134
-  %.sroa.14.4 = phi ptr [ %.sroa.14.2, %134 ], [ %.sroa.14.1, %284 ], [ %.sroa.14.1, %211 ], [ %.sroa.14.1, %286 ]
-  %.sroa.084.4 = phi ptr [ %.sroa.084.2, %134 ], [ %.sroa.084.1, %284 ], [ %.sroa.084.1, %211 ], [ %.sroa.084.1, %286 ]
-  %.pn38.pn.pn = phi { ptr, i32 } [ %.pn38.pn, %134 ], [ %285, %284 ], [ %212, %211 ], [ %285, %286 ]
+  %.sroa.14.4 = phi ptr [ %.sroa.14.2, %134 ], [ %.sroa.14.1, %286 ], [ %.sroa.14.1, %211 ], [ %.sroa.14.1, %284 ]
+  %.sroa.084.4 = phi ptr [ %.sroa.084.2, %134 ], [ %.sroa.084.1, %286 ], [ %.sroa.084.1, %211 ], [ %.sroa.084.1, %284 ]
+  %.pn38.pn.pn = phi { ptr, i32 } [ %.pn38.pn, %134 ], [ %285, %286 ], [ %212, %211 ], [ %285, %284 ]
   %.not.i.i.i75 = icmp eq ptr %.sroa.084.4, null
   br i1 %.not.i.i.i75, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit76, label %.body..body.thread_crit_edge
 
@@ -4838,8 +4838,8 @@ _ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split: ; preds 
   br label %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread
 
 _ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %56, %54, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split, %10, %2, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit, %37, %_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread
-  %.sroa.3.1 = phi i8 [ 1, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split ], [ 0, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit ], [ 0, %2 ], [ 0, %_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ 0, %10 ], [ 0, %37 ], [ 0, %54 ], [ 0, %56 ]
-  %.sroa.0.1 = phi ptr [ %60, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split ], [ undef, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit ], [ undef, %2 ], [ undef, %_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ undef, %10 ], [ undef, %37 ], [ undef, %54 ], [ undef, %56 ]
+  %.sroa.3.1 = phi i8 [ 0, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit ], [ 1, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split ], [ 0, %2 ], [ 0, %_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ 0, %10 ], [ 0, %37 ], [ 0, %54 ], [ 0, %56 ]
+  %.sroa.0.1 = phi ptr [ undef, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit ], [ %60, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split ], [ undef, %2 ], [ undef, %_ZN4Luau3getINS_24TypeFunctionInstanceTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ undef, %10 ], [ undef, %37 ], [ undef, %54 ], [ undef, %56 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -8087,7 +8087,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12visit_detail7hasSeen
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %42, !llvm.loop !284
 
 .loopexit.i.i:                                    ; preds = %48, %46, %.thread, %.thread12
-  %51 = phi ptr [ %31, %.thread12 ], [ %10, %.thread ], [ %10, %46 ], [ %10, %48 ]
+  %51 = phi ptr [ %10, %.thread ], [ %31, %.thread12 ], [ %10, %46 ], [ %10, %48 ]
   tail call void @_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.pre.i = load i64, ptr %51, align 8, !tbaa !283
   br label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i

@@ -2476,7 +2476,7 @@ define dso_local i32 @fib_table_lookup(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread23
 
 .thread23:                                        ; preds = %.loopexit, %362, %372, %385, %389
-  %.ph = phi i32 [ %347, %362 ], [ %347, %372 ], [ %347, %385 ], [ %347, %389 ], [ %290, %.loopexit ]
+  %.ph = phi i32 [ %347, %389 ], [ %347, %385 ], [ %347, %372 ], [ %347, %362 ], [ %290, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 

@@ -77,7 +77,7 @@ define hidden zeroext range(i8 0, 2) i8 @verifyClassname(ptr noundef %0, i8 noun
   br label %skip_over_field_signature.exit
 
 skip_over_field_signature.exit:                   ; preds = %27, %11, %23, %15, %13, %31
-  %.0 = phi ptr [ %32, %31 ], [ null, %15 ], [ %14, %13 ], [ %spec.select.i, %23 ], [ null, %11 ], [ null, %27 ]
+  %.0 = phi ptr [ %32, %31 ], [ %spec.select.i, %23 ], [ %14, %13 ], [ null, %15 ], [ null, %11 ], [ null, %27 ]
   %.not16 = icmp ne ptr %.0, null
   %33 = ptrtoint ptr %.0 to i64
   %34 = ptrtoint ptr %0 to i64
@@ -302,7 +302,7 @@ define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr noundef captures
   br label %next_utf2unicode.exit
 
 next_utf2unicode.exit:                            ; preds = %5, %15, %7, %11
-  %.0.i = phi i64 [ %spec.select, %7 ], [ 1, %11 ], [ %spec.select9, %15 ], [ 1, %5 ]
+  %.0.i = phi i64 [ %spec.select9, %15 ], [ 1, %11 ], [ %spec.select, %7 ], [ 1, %5 ]
   %19 = getelementptr inbounds nuw i8, ptr %.0710, i64 %.0.i
   br label %2, !llvm.loop !9
 
@@ -365,7 +365,7 @@ define hidden void @fixClassname(ptr noundef captures(none) %0) local_unnamed_ad
   br label %next_utf2unicode.exit
 
 next_utf2unicode.exit:                            ; preds = %3, %13, %5, %9
-  %.0.i = phi i64 [ %spec.select, %5 ], [ 1, %9 ], [ %spec.select5, %13 ], [ 1, %3 ]
+  %.0.i = phi i64 [ %spec.select5, %13 ], [ 1, %9 ], [ %spec.select, %5 ], [ 1, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %.036, i64 %.0.i
   br label %.backedge.backedge
 

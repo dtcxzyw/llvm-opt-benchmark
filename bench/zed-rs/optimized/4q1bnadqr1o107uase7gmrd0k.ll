@@ -104695,8 +104695,8 @@ _ZN4gpui4view7AnyView8downcast17h32f391484c1d0277E.exit.i.i.i: ; preds = %.noexc
   unreachable
 
 377:                                              ; preds = %373, %48, %260, %265, %269, %.body39.i, %.thread.i, %369, %346, %351, %355
-  %.pn.ph = phi { ptr, i32 } [ %49, %48 ], [ %374, %373 ], [ %261, %260 ], [ %.pn12.i, %.body39.i ], [ %.pn104777.i, %369 ], [ %.pn8.i, %.thread.i ], [ %261, %269 ], [ %261, %265 ], [ %347, %346 ], [ %347, %351 ], [ %347, %355 ]
-  %.sroa.02.1.ph = phi i1 [ true, %48 ], [ false, %373 ], [ false, %260 ], [ false, %.body39.i ], [ false, %369 ], [ false, %.thread.i ], [ false, %269 ], [ false, %265 ], [ false, %346 ], [ false, %351 ], [ false, %355 ]
+  %.pn.ph = phi { ptr, i32 } [ %49, %48 ], [ %374, %373 ], [ %261, %265 ], [ %.pn12.i, %.body39.i ], [ %.pn104777.i, %369 ], [ %.pn8.i, %.thread.i ], [ %261, %269 ], [ %261, %260 ], [ %347, %346 ], [ %347, %351 ], [ %347, %355 ]
+  %.sroa.02.1.ph = phi i1 [ true, %48 ], [ false, %373 ], [ false, %265 ], [ false, %.body39.i ], [ false, %369 ], [ false, %.thread.i ], [ false, %269 ], [ false, %260 ], [ false, %346 ], [ false, %351 ], [ false, %355 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$gpui..app..entity_map..Lease$LT$workspace..pane..Pane$GT$$GT$17h9327b0f8be0e0785E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #33
           to label %38 unwind label %375
 

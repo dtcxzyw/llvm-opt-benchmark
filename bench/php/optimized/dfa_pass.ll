@@ -3381,7 +3381,7 @@ compress_block.exit:                              ; preds = %23, %compress_block
     i8 0, label %take_successor_1.exit
   ]
 
-take_successor_0.exit:                            ; preds = %527, %542, %484, %499, %.thread506, %223, %209, %134, %120, %67
+take_successor_0.exit:                            ; preds = %542, %527, %499, %484, %.thread506, %223, %209, %134, %120, %67
   %79 = load ptr, ptr %54, align 8, !tbaa !109
   %80 = load i32, ptr %79, align 4, !tbaa !38
   %81 = icmp eq i32 %80, %.0363.lcssa
@@ -4501,7 +4501,7 @@ take_successor_1.exit410:                         ; preds = %414, %432
   br label %take_successor_1.exit
 
 take_successor_1.exit:                            ; preds = %._crit_edge, %543, %561, %465, %483, %242, %224, %119, %101, %67, %take_successor_1.exit410, %302, %195, %82
-  %.3 = phi i32 [ %89, %82 ], [ %.0535, %67 ], [ %196, %195 ], [ %106, %119 ], [ %303, %302 ], [ %419, %take_successor_1.exit410 ], [ %229, %242 ], [ %470, %483 ], [ %594, %._crit_edge ], [ %106, %101 ], [ %229, %224 ], [ %470, %465 ], [ %548, %561 ], [ %548, %543 ]
+  %.3 = phi i32 [ %89, %82 ], [ %.0535, %67 ], [ %196, %195 ], [ %106, %119 ], [ %303, %302 ], [ %419, %take_successor_1.exit410 ], [ %229, %242 ], [ %470, %483 ], [ %594, %._crit_edge ], [ %106, %101 ], [ %229, %224 ], [ %470, %465 ], [ %548, %543 ], [ %548, %561 ]
   %.promoted.i463 = load i32, ptr %65, align 8, !tbaa !107
   %.not8.i464 = icmp eq i32 %.promoted.i463, 0
   br i1 %.not8.i464, label %compress_block.exit472, label %.lr.ph.i465
@@ -5106,7 +5106,7 @@ zend_ssa_next_use.exit:                           ; preds = %49, %44
   br label %.thread
 
 .thread:                                          ; preds = %74, %66, %82, %112, %126, %122, %98, %4, %19, %25, %30, %36, %40, %zend_ssa_next_use.exit, %61, %55, %55, %55, %55, %55
-  %.2 = phi i1 [ false, %4 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %61 ], [ false, %zend_ssa_next_use.exit ], [ false, %40 ], [ false, %36 ], [ false, %30 ], [ false, %25 ], [ false, %19 ], [ true, %98 ], [ true, %122 ], [ true, %112 ], [ true, %126 ], [ false, %82 ], [ false, %66 ], [ false, %74 ]
+  %.2 = phi i1 [ false, %4 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %55 ], [ false, %61 ], [ false, %zend_ssa_next_use.exit ], [ false, %40 ], [ false, %36 ], [ false, %30 ], [ false, %25 ], [ false, %19 ], [ true, %122 ], [ true, %98 ], [ true, %112 ], [ true, %126 ], [ false, %82 ], [ false, %66 ], [ false, %74 ]
   ret i1 %.2
 }
 

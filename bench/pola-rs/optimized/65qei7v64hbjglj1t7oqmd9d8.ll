@@ -35704,8 +35704,8 @@ define noundef zeroext i1 @"_ZN12polars_arrow6bitmap10bitmap_ops90_$LT$impl$u20$
 
 "_ZN122_$LT$polars_arrow..bitmap..utils..chunk_iterator..BitChunks$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c354859e8092c7eE.exit12": ; preds = %142, %.split.split, %115, %.split.split.us, %88, %.split.us.split, %64, %.split.us.split.us
   %.us-phi = phi ptr [ %107, %115 ], [ %80, %88 ], [ %56, %64 ], [ %56, %.split.us.split.us ], [ %80, %.split.us.split ], [ %107, %.split.split.us ], [ %134, %.split.split ], [ %134, %142 ]
-  %.us-phi60 = phi ptr [ %108, %.split.split.us ], [ %90, %88 ], [ %66, %64 ], [ %57, %.split.us.split.us ], [ %81, %.split.us.split ], [ %117, %115 ], [ %144, %142 ], [ %135, %.split.split ]
-  %.us-phi61 = phi i64 [ %109, %.split.split.us ], [ %52, %88 ], [ %52, %64 ], [ %58, %.split.us.split.us ], [ %82, %.split.us.split ], [ %52, %115 ], [ %52, %142 ], [ %136, %.split.split ]
+  %.us-phi60 = phi ptr [ %117, %115 ], [ %90, %88 ], [ %66, %64 ], [ %57, %.split.us.split.us ], [ %81, %.split.us.split ], [ %108, %.split.split.us ], [ %144, %142 ], [ %135, %.split.split ]
+  %.us-phi61 = phi i64 [ %52, %115 ], [ %52, %88 ], [ %52, %64 ], [ %58, %.split.us.split.us ], [ %82, %.split.us.split ], [ %109, %.split.split.us ], [ %52, %142 ], [ %136, %.split.split ]
   store i64 %.us-phi61, ptr %25, align 8
   store ptr %.us-phi60, ptr %4, align 8
   store ptr %.us-phi, ptr %3, align 8

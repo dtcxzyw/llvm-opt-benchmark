@@ -190,7 +190,7 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; 
   br label %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit.thread"
 
 "_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit.thread": ; preds = %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i", %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit.thread.sink.split", %._crit_edge.i
-  %.0.i9.i9 = phi i1 [ true, %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit.thread.sink.split" ], [ false, %._crit_edge.i ], [ false, %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i" ]
+  %.0.i9.i9 = phi i1 [ false, %._crit_edge.i ], [ true, %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit.thread.sink.split" ], [ false, %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i" ]
   ret i1 %.0.i9.i9
 }
 

@@ -358,7 +358,7 @@ _ZN8smallvec10deallocate17h3032643b6bcf32c6E.exit.i: ; preds = %43
   tail call void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %23) #18
   unreachable
 
-48:                                               ; preds = %30, %27, %25, %22
+48:                                               ; preds = %30, %22, %25, %27
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f28676bfa5d7cf5083108750d26dc31f.17, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f28676bfa5d7cf5083108750d26dc31f.18) #18
   unreachable
 

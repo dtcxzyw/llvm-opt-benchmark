@@ -115,7 +115,7 @@ Tru_ManReadOne.exit29.us:                         ; preds = %Tru_ManEqual.exit.u
   br i1 %exitcond.not.i25.us, label %Tru_ManEqual.exit.thread, label %.lr.ph.i21.us, !llvm.loop !27
 
 Tru_ManEqual.exit.thread:                         ; preds = %Tru_ManEqual.exit.us, %Tru_ManReadOne.exit29.us, %53, %Tru_ManHash.exit, %.lr.ph, %Tru_ManReadOne.exit
-  %.034 = phi ptr [ %20, %.lr.ph ], [ %20, %Tru_ManReadOne.exit ], [ %.037.us, %53 ], [ %20, %Tru_ManHash.exit ], [ %40, %Tru_ManReadOne.exit29.us ], [ %40, %Tru_ManEqual.exit.us ]
+  %.034 = phi ptr [ %20, %.lr.ph ], [ %20, %Tru_ManReadOne.exit ], [ %20, %Tru_ManHash.exit ], [ %.037.us, %53 ], [ %40, %Tru_ManReadOne.exit29.us ], [ %40, %Tru_ManEqual.exit.us ]
   ret ptr %.034
 }
 
@@ -268,7 +268,7 @@ Tru_ManReadOne.exit29.us.i:                       ; preds = %Tru_ManEqual.exit.u
   br i1 %exitcond.not.i25.us.i, label %Tru_ManLookup.exit, label %.lr.ph.i21.us.i, !llvm.loop !27
 
 Tru_ManLookup.exit:                               ; preds = %Tru_ManEqual.exit.us.i, %Tru_ManReadOne.exit29.us.i, %69, %Tru_ManHash.exit.i, %Tru_ManReadOne.exit.i, %.lr.ph.i
-  %.034.i = phi ptr [ %42, %.lr.ph.i ], [ %42, %Tru_ManReadOne.exit.i ], [ %.037.us.i, %69 ], [ %42, %Tru_ManHash.exit.i ], [ %60, %Tru_ManReadOne.exit29.us.i ], [ %60, %Tru_ManEqual.exit.us.i ]
+  %.034.i = phi ptr [ %42, %.lr.ph.i ], [ %42, %Tru_ManReadOne.exit.i ], [ %42, %Tru_ManHash.exit.i ], [ %.037.us.i, %69 ], [ %60, %Tru_ManReadOne.exit29.us.i ], [ %60, %Tru_ManEqual.exit.us.i ]
   %70 = load i32, ptr %26, align 8, !tbaa !30
   store i32 %70, ptr %.034.i, align 4, !tbaa !16
   %.not.i35 = icmp eq i32 %.02746, 0

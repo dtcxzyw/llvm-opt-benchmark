@@ -45964,8 +45964,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread119
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread119: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread119: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_8pxr_half4halfEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -46806,7 +46806,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_8pxr_half4halfEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -47635,8 +47635,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %6, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread104
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread104: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %32 ], [ %1, %30 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread104: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %30 ], [ %1, %32 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %45 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetIfEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
   br i1 %45, label %52, label %46
 
@@ -48380,7 +48380,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayIfEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -49207,8 +49207,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %6, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread104
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread104: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %32 ], [ %1, %30 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread104: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %30 ], [ %1, %32 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %45 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetIdEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
   br i1 %45, label %52, label %46
 
@@ -49952,7 +49952,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIdEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayIdEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -50785,8 +50785,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread116
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread116: ; preds = %37, %35, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %37 ], [ %1, %35 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread116: ; preds = %35, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %35 ], [ %1, %37 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   store double 0.000000e+00, ptr %13, align 8
   %50 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_11SdfTimeCodeEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %13, double %.sroa.017.0.copyload)
   br i1 %50, label %57, label %51
@@ -51644,8 +51644,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %14, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread120
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread120: ; preds = %40, %38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %40 ], [ %1, %38 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread120: ; preds = %38, %40, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %38 ], [ %1, %40 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
   %53 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_11SdfTimeCodeEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %16, double %.sroa.017.0.copyload)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7VtArrayINS_11SdfTimeCodeEEEEEbPT_NS_11UsdTimeCodeE.exit unwind label %367
@@ -52807,8 +52807,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_10GfMatrix2dEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -53605,7 +53605,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_10GfMatrix2dEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -54436,8 +54436,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_10GfMatrix3dEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -55234,7 +55234,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_10GfMatrix3dEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -56065,8 +56065,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_10GfMatrix4dEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -56863,7 +56863,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_10GfMatrix4dEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -57696,8 +57696,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread116
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread116: ; preds = %37, %35, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %37 ], [ %1, %35 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread116: ; preds = %35, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %35 ], [ %1, %37 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %50 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfQuathEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %13, double %.sroa.017.0.copyload)
   br i1 %50, label %57, label %51
 
@@ -58582,7 +58582,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfQuathEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -59417,8 +59417,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %11, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %39, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %39 ], [ %1, %37 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %37, %39, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %37 ], [ %1, %39 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %52 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfQuatfEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14, double %.sroa.017.0.copyload)
   br i1 %52, label %59, label %53
 
@@ -60261,7 +60261,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfQuatfEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -61092,8 +61092,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfQuatdEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -61938,7 +61938,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfQuatdEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -62771,8 +62771,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %37, %35, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %37 ], [ %1, %35 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %35, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %35 ], [ %1, %37 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %50 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec2hEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %13, double %.sroa.017.0.copyload)
   br i1 %50, label %57, label %51
 
@@ -63600,7 +63600,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec2hEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -64433,8 +64433,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %37, %35, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %37 ], [ %1, %35 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %35, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %35 ], [ %1, %37 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %50 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec2fEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %13, double %.sroa.017.0.copyload)
   br i1 %50, label %57, label %51
 
@@ -65233,7 +65233,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec2fEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -66068,8 +66068,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %11, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %39, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %39 ], [ %1, %37 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %37, %39, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %37 ], [ %1, %39 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %52 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec2dEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14, double %.sroa.017.0.copyload)
   br i1 %52, label %59, label %53
 
@@ -66875,7 +66875,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec2dEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -67708,8 +67708,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %37, %35, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %37 ], [ %1, %35 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %35, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %35 ], [ %1, %37 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %50 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec3hEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %13, double %.sroa.017.0.copyload)
   br i1 %50, label %57, label %51
 
@@ -68565,7 +68565,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec3hEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -69400,8 +69400,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %11, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread115
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread115: ; preds = %38, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %38 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread115: ; preds = %36, %38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %38 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %51 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec3fEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14, double %.sroa.017.0.copyload)
   br i1 %51, label %58, label %52
 
@@ -70227,7 +70227,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec3fEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -71058,8 +71058,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec3dEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -71887,7 +71887,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec3dEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -72720,8 +72720,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %37, %35, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %37 ], [ %1, %35 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %35, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %35 ], [ %1, %37 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %50 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec4hEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %13, double %.sroa.017.0.copyload)
   br i1 %50, label %57, label %51
 
@@ -73605,7 +73605,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec4hEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -74440,8 +74440,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %11, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %39, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %39 ], [ %1, %37 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %37, %39, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %37 ], [ %1, %39 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %52 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec4fEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14, double %.sroa.017.0.copyload)
   br i1 %52, label %59, label %53
 
@@ -75283,7 +75283,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec4fEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -76114,8 +76114,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec4dEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -76959,7 +76959,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec4dEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -77786,8 +77786,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %6, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread102
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread102: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %32 ], [ %1, %30 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread102: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %30 ], [ %1, %32 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %45 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetIbEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
   br i1 %45, label %52, label %46
 
@@ -78535,7 +78535,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayIbEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -79366,8 +79366,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetIhEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -80179,7 +80179,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIhEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayIhEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -81010,8 +81010,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetIiEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -81823,7 +81823,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayIiEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -82654,8 +82654,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetIjEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -83467,7 +83467,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayIjEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -84298,8 +84298,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetIlEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -85111,7 +85111,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayIlEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -85942,8 +85942,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread117: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %49 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetImEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
   br i1 %49, label %56, label %50
 
@@ -86755,7 +86755,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayImEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayImEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -87581,7 +87581,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread102
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread102: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread102: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -88373,7 +88373,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -89204,8 +89204,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread118
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread118: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %34 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread118: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %34 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   store ptr null, ptr %12, align 8
   %49 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7TfTokenEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7TfTokenEEEbPT_NS_11UsdTimeCodeE.exit unwind label %335
@@ -90068,7 +90068,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7TfTokenEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -90898,7 +90898,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %48 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %11, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread118
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread118: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread118: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12)
   %.sroa.017.0.copyload = load double, ptr %10, align 8
   %49 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_12SdfAssetPathEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, double %.sroa.017.0.copyload)
@@ -91825,8 +91825,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %14, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread120
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread120: ; preds = %40, %38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %40 ], [ %1, %38 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread120: ; preds = %38, %40, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %38 ], [ %1, %40 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
   %53 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_12SdfAssetPathEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %16, double %.sroa.017.0.copyload)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7VtArrayINS_12SdfAssetPathEEEEEbPT_NS_11UsdTimeCodeE.exit unwind label %372
@@ -92962,7 +92962,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %52 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %15, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread129
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread129: ; preds = %40, %38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread129: ; preds = %38, %40, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %16, i8 0, i64 72, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %53) #21
@@ -94601,8 +94601,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %10, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %37, %35, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %37 ], [ %1, %35 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread113: ; preds = %35, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %35 ], [ %1, %37 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %50 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec2iEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %13, double %.sroa.017.0.copyload)
   br i1 %50, label %57, label %51
 
@@ -95401,7 +95401,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec2iEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -96236,8 +96236,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %11, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread115
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread115: ; preds = %38, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %38 ], [ %1, %36 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread115: ; preds = %36, %38, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %36 ], [ %1, %38 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %51 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec3iEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14, double %.sroa.017.0.copyload)
   br i1 %51, label %58, label %52
 
@@ -97063,7 +97063,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec3iEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)
@@ -97898,8 +97898,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %.sroa.017.0.copyload.pre = load double, ptr %11, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %39, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
-  %.sroa.017.0.copyload = phi double [ %1, %39 ], [ %1, %37 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread114: ; preds = %37, %39, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+  %.sroa.017.0.copyload = phi double [ %1, %37 ], [ %1, %39 ], [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit ], [ %.sroa.017.0.copyload.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread ]
   %52 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7GfVec4iEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %14, double %.sroa.017.0.copyload)
   br i1 %52, label %59, label %53
 
@@ -98741,7 +98741,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread: ; preds 
   %44 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %7, ptr noundef nonnull @.str.211, ptr noundef null)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread100: ; preds = %30, %32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7IsValidEv.exit.thread
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %.sroa.017.0.copyload = load double, ptr %6, align 8
   %45 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7GfVec4iEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %8, double %.sroa.017.0.copyload)

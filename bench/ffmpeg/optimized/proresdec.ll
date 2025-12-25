@@ -1676,7 +1676,7 @@ decode_ac_coeffs.exit.i:                          ; preds = %382, %269, %decode_
   %424 = icmp ult i32 %422, %423
   br i1 %424, label %409, label %.loopexit194, !llvm.loop !93
 
-decode_slice_luma.exit.thread:                    ; preds = %208, %302, %358, %160, %327
+decode_slice_luma.exit.thread:                    ; preds = %208, %302, %358, %327, %160
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %505
 
@@ -2324,7 +2324,7 @@ decode_ac_coeffs.exit:                            ; preds = %145, %258, %decode_
   br i1 %296, label %.preheader, label %decode_dc_coeffs.exit.thread, !llvm.loop !102
 
 decode_dc_coeffs.exit.thread:                     ; preds = %84, %178, %234, %293, %decode_ac_coeffs.exit, %203, %36
-  %.0 = phi i32 [ 0, %decode_ac_coeffs.exit ], [ -1094995529, %178 ], [ -1094995529, %36 ], [ -1094995529, %203 ], [ 0, %293 ], [ -1094995529, %234 ], [ -1094995529, %84 ]
+  %.0 = phi i32 [ 0, %decode_ac_coeffs.exit ], [ -1094995529, %203 ], [ -1094995529, %36 ], [ -1094995529, %178 ], [ 0, %293 ], [ -1094995529, %234 ], [ -1094995529, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }

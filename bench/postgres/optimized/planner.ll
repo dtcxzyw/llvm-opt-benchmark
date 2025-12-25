@@ -7106,7 +7106,7 @@ define dso_local i32 @plan_create_index_workers(i32 noundef %0, i32 noundef %1) 
   br i1 %68, label %62, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %66, %62, %55, %10, %44, %47, %53
-  %.043 = phi i32 [ 0, %10 ], [ %., %53 ], [ 0, %44 ], [ 0, %47 ], [ %59, %55 ], [ 0, %66 ], [ %.147, %62 ]
+  %.043 = phi i32 [ 0, %44 ], [ %., %53 ], [ 0, %10 ], [ 0, %47 ], [ %59, %55 ], [ 0, %66 ], [ %.147, %62 ]
   call void @index_close(ptr noundef %38, i32 noundef 0) #11
   call void @table_close(ptr noundef %37, i32 noundef 0) #11
   br label %69
@@ -10950,8 +10950,8 @@ list_length.exit275:                              ; preds = %list_length.exit273
   br i1 %273, label %.lr.ph373, label %.critedge257
 
 .critedge257:                                     ; preds = %270, %.lr.ph344, %list_length.exit275, %242, %.lr.ph359, %.critedge255, %193, %239, %list_length.exit273, %183
-  %.0222 = phi ptr [ %186, %183 ], [ %186, %list_length.exit273 ], [ %186, %239 ], [ %186, %.critedge255 ], [ %186, %193 ], [ %186, %242 ], [ %186, %.lr.ph359 ], [ %186, %.lr.ph344 ], [ %186, %list_length.exit275 ], [ %.4226, %270 ]
-  %.0214 = phi ptr [ null, %183 ], [ null, %list_length.exit273 ], [ null, %239 ], [ null, %.critedge255 ], [ null, %193 ], [ %246, %242 ], [ %246, %.lr.ph359 ], [ null, %.lr.ph344 ], [ null, %list_length.exit275 ], [ %.4, %270 ]
+  %.0222 = phi ptr [ %186, %183 ], [ %186, %list_length.exit273 ], [ %186, %239 ], [ %186, %193 ], [ %186, %.critedge255 ], [ %186, %242 ], [ %186, %.lr.ph359 ], [ %186, %.lr.ph344 ], [ %186, %list_length.exit275 ], [ %.4226, %270 ]
+  %.0214 = phi ptr [ null, %183 ], [ null, %list_length.exit273 ], [ null, %239 ], [ null, %193 ], [ null, %.critedge255 ], [ %246, %242 ], [ %246, %.lr.ph359 ], [ null, %.lr.ph344 ], [ null, %list_length.exit275 ], [ %.4, %270 ]
   %274 = icmp eq ptr %.0214, null
   %275 = icmp ne ptr %.0222, null
   %or.cond = select i1 %274, i1 %275, i1 false
@@ -11416,7 +11416,7 @@ define internal fastcc ptr @get_useful_pathkeys_for_distinct(ptr noundef readonl
   br i1 %12, label %.lr.ph51, label %.split.us.thread
 
 .split.us:                                        ; preds = %23, %.lr.ph51, %26
-  %.us-phi54 = phi ptr [ %.13850, %.lr.ph51 ], [ %.13850, %23 ], [ %27, %26 ]
+  %.us-phi54 = phi ptr [ %.13850, %23 ], [ %.13850, %.lr.ph51 ], [ %27, %26 ]
   %13 = icmp eq ptr %.us-phi54, null
   br i1 %13, label %.split.us.thread, label %list_length.exit
 

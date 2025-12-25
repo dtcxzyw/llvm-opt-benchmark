@@ -515,7 +515,7 @@ If_CutSortInputPins.exit:                         ; preds = %100, %.critedge.i
   br i1 %exitcond214.not, label %.critedge, label %184, !llvm.loop !51
 
 .critedge:                                        ; preds = %22, %16, %.lr.ph146, %123, %117, %142, %136, %170, %163, %184, %190, %.preheader132, %If_CutSortInputPins.exit, %.preheader129, %.preheader127, %.preheader125, %.preheader
-  %.1 = phi float [ %195, %190 ], [ 0xC415AF1D80000000, %.preheader129 ], [ 0xC415AF1D80000000, %If_CutSortInputPins.exit ], [ 0xC415AF1D80000000, %.preheader132 ], [ %116, %.lr.ph146 ], [ 0xC415AF1D80000000, %.preheader ], [ %.4155, %136 ], [ 0xC415AF1D80000000, %.preheader125 ], [ %.3149, %117 ], [ 0xC415AF1D80000000, %.preheader127 ], [ %.5161, %163 ], [ %.6167, %184 ], [ %183, %170 ], [ %152, %142 ], [ %129, %123 ], [ %31, %22 ], [ %.0135, %16 ]
+  %.1 = phi float [ %116, %.lr.ph146 ], [ %195, %190 ], [ 0xC415AF1D80000000, %If_CutSortInputPins.exit ], [ 0xC415AF1D80000000, %.preheader129 ], [ 0xC415AF1D80000000, %.preheader132 ], [ 0xC415AF1D80000000, %.preheader ], [ %.4155, %136 ], [ 0xC415AF1D80000000, %.preheader125 ], [ %.3149, %117 ], [ 0xC415AF1D80000000, %.preheader127 ], [ %.5161, %163 ], [ %.6167, %184 ], [ %183, %170 ], [ %152, %142 ], [ %129, %123 ], [ %31, %22 ], [ %.0135, %16 ]
   ret float %.1
 }
 

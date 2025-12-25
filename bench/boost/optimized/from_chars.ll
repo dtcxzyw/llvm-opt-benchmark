@@ -2439,8 +2439,8 @@ _ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit52
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %32, %3, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47, %19, %22, %.lr.ph._crit_edge, %62
-  %.sroa.7.0 = phi i32 [ 0, %19 ], [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 22, %3 ], [ 22, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ 0, %22 ], [ 0, %32 ], [ 0, %36 ]
-  %.sroa.0.2 = phi ptr [ %20, %19 ], [ %63, %62 ], [ %28, %.lr.ph._crit_edge ], [ %0, %3 ], [ %0, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ %20, %22 ], [ %20, %32 ], [ %20, %36 ]
+  %.sroa.7.0 = phi i32 [ 0, %19 ], [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 22, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ 22, %3 ], [ 0, %22 ], [ 0, %32 ], [ 0, %36 ]
+  %.sroa.0.2 = phi ptr [ %20, %19 ], [ %63, %62 ], [ %28, %.lr.ph._crit_edge ], [ %0, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ %0, %3 ], [ %20, %22 ], [ %20, %32 ], [ %20, %36 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -6429,8 +6429,8 @@ _ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit52
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %32, %3, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47, %19, %22, %.lr.ph._crit_edge, %62
-  %.sroa.7.0 = phi i32 [ 0, %19 ], [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 22, %3 ], [ 22, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ 0, %22 ], [ 0, %32 ], [ 0, %36 ]
-  %.sroa.0.2 = phi ptr [ %20, %19 ], [ %63, %62 ], [ %28, %.lr.ph._crit_edge ], [ %0, %3 ], [ %0, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ %20, %22 ], [ %20, %32 ], [ %20, %36 ]
+  %.sroa.7.0 = phi i32 [ 0, %19 ], [ 0, %62 ], [ 0, %.lr.ph._crit_edge ], [ 22, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ 22, %3 ], [ 0, %22 ], [ 0, %32 ], [ 0, %36 ]
+  %.sroa.0.2 = phi ptr [ %20, %19 ], [ %63, %62 ], [ %28, %.lr.ph._crit_edge ], [ %0, %_ZN5boost8charconv6detail10fast_float21fastfloat_strncasecmpIcEEbPKT_S6_m.exit47 ], [ %0, %3 ], [ %20, %22 ], [ %20, %32 ], [ %20, %36 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert

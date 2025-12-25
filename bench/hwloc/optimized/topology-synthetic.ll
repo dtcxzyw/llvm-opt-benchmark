@@ -474,7 +474,7 @@ hwloc__export_synthetic_update_status.exit.thread.sink.split: ; preds = %87, %88
   br label %hwloc__export_synthetic_update_status.exit.thread
 
 hwloc__export_synthetic_update_status.exit.thread: ; preds = %152, %127, %140, %hwloc__export_synthetic_update_status.exit.thread.sink.split, %117, %105, %92
-  %.0 = phi i32 [ -1, %hwloc__export_synthetic_update_status.exit.thread.sink.split ], [ -1, %92 ], [ -1, %105 ], [ %.1, %117 ], [ -1, %140 ], [ %.4126, %152 ], [ -1, %127 ]
+  %.0 = phi i32 [ -1, %hwloc__export_synthetic_update_status.exit.thread.sink.split ], [ -1, %92 ], [ -1, %105 ], [ %.1, %117 ], [ -1, %140 ], [ -1, %127 ], [ %.4126, %152 ]
   ret i32 %.0
 }
 
@@ -2822,7 +2822,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull
   br label %.thread353
 
 38:                                               ; preds = %34, %28
-  %.1 = phi ptr [ %25, %28 ], [ %35, %34 ]
+  %.1 = phi ptr [ %35, %34 ], [ %25, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = add nuw i64 %.0215435, 1
   %exitcond472.not = icmp eq i64 %39, %2

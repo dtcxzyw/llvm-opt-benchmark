@@ -4375,7 +4375,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h955c
   br label %32
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %119, %101, %.invoke.i
-  %.1143.ph.i = phi i8 [ 1, %.invoke ], [ %.6.i, %119 ], [ 1, %.invoke.i ], [ 1, %101 ]
+  %.1143.ph.i = phi i8 [ 1, %101 ], [ %.6.i, %119 ], [ 1, %.invoke.i ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %32

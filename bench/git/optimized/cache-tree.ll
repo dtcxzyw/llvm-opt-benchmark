@@ -1254,13 +1254,13 @@ must_check_existence.exit.thread:                 ; preds = %173
   br label %213
 
 213:                                              ; preds = %200, %197, %205, %194
-  %.2149 = phi i32 [ %.3150, %200 ], [ %.3150, %205 ], [ 1, %197 ], [ %.3150, %194 ]
+  %.2149 = phi i32 [ 1, %197 ], [ %.3150, %205 ], [ %.3150, %200 ], [ %.3150, %194 ]
   %214 = icmp slt i32 %.6159, %2
   br i1 %214, label %114, label %.thread217
 
-.thread217:                                       ; preds = %213, %114, %121, %discard_unused_subtrees.exit
-  %.3156.lcssa = phi i32 [ 0, %discard_unused_subtrees.exit ], [ %.3156238, %121 ], [ %.3156238, %114 ], [ %.6159, %213 ]
-  %.0147.lcssa = phi i32 [ 0, %discard_unused_subtrees.exit ], [ %.0147239, %121 ], [ %.0147239, %114 ], [ %.2149, %213 ]
+.thread217:                                       ; preds = %213, %121, %114, %discard_unused_subtrees.exit
+  %.3156.lcssa = phi i32 [ 0, %discard_unused_subtrees.exit ], [ %.3156238, %114 ], [ %.3156238, %121 ], [ %.6159, %213 ]
+  %.0147.lcssa = phi i32 [ 0, %discard_unused_subtrees.exit ], [ %.0147239, %114 ], [ %.0147239, %121 ], [ %.2149, %213 ]
   %.not192 = icmp eq i32 %13, 0
   br i1 %.not192, label %231, label %215
 
@@ -1889,8 +1889,8 @@ write_index_as_tree_internal.exit:                ; preds = %21, %.preheader.i.i
   %72 = call i32 @write_locked_index(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1) #19
   br label %write_index_as_tree_internal.exit.thread
 
-write_index_as_tree_internal.exit.thread:         ; preds = %find_subtree.exit.i.i, %cache_tree_subtree_pos.exit.i.i.i, %cache_tree_find.exit.i, %25, %.thread19, %5, %write_index_as_tree_internal.exit, %71
-  %.0 = phi i32 [ 0, %71 ], [ 0, %write_index_as_tree_internal.exit ], [ -1, %5 ], [ -3, %cache_tree_find.exit.i ], [ -3, %25 ], [ -2, %.thread19 ], [ -3, %cache_tree_subtree_pos.exit.i.i.i ], [ -3, %find_subtree.exit.i.i ]
+write_index_as_tree_internal.exit.thread:         ; preds = %cache_tree_subtree_pos.exit.i.i.i, %find_subtree.exit.i.i, %cache_tree_find.exit.i, %25, %.thread19, %5, %write_index_as_tree_internal.exit, %71
+  %.0 = phi i32 [ 0, %71 ], [ 0, %write_index_as_tree_internal.exit ], [ -1, %5 ], [ -3, %cache_tree_find.exit.i ], [ -3, %25 ], [ -2, %.thread19 ], [ -3, %find_subtree.exit.i.i ], [ -3, %cache_tree_subtree_pos.exit.i.i.i ]
   %73 = call i32 @delete_tempfile(ptr noundef nonnull %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

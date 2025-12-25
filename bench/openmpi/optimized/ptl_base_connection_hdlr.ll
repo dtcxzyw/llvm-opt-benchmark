@@ -1333,8 +1333,8 @@ pmix_obj_run_destructors.exit685:                 ; preds = %.lr.ph.i682, %633
   br label %.thread853
 
 .thread853:                                       ; preds = %334, %347, %338, %336, %pmix_obj_update.exit677, %646, %644
-  %.0861 = phi ptr [ %357, %644 ], [ %357, %pmix_obj_update.exit677 ], [ %357, %646 ], [ null, %336 ], [ null, %338 ], [ null, %347 ], [ null, %334 ]
-  %.0490860 = phi ptr [ %.0490, %644 ], [ %.0490, %pmix_obj_update.exit677 ], [ %.0490, %646 ], [ %calloc, %336 ], [ %calloc, %338 ], [ %calloc, %347 ], [ %calloc, %334 ]
+  %.0861 = phi ptr [ %357, %644 ], [ %357, %pmix_obj_update.exit677 ], [ %357, %646 ], [ null, %338 ], [ null, %336 ], [ null, %347 ], [ null, %334 ]
+  %.0490860 = phi ptr [ %.0490, %644 ], [ %.0490, %pmix_obj_update.exit677 ], [ %.0490, %646 ], [ %calloc, %338 ], [ %calloc, %336 ], [ %calloc, %347 ], [ %calloc, %334 ]
   %.not635 = icmp eq ptr %.0490860, null
   br i1 %.not635, label %647, label %.thread853.thread
 
@@ -1416,7 +1416,7 @@ pmix_obj_run_destructors.exit691:                 ; preds = %.lr.ph.i688, %663
   call void @free(ptr noundef nonnull %.0861867) #17
   br label %.thread882
 
-.thread882:                                       ; preds = %20, %30, %pmix_obj_update.exit678, %676, %674, %649
+.thread882:                                       ; preds = %30, %20, %pmix_obj_update.exit678, %676, %674, %649
   %677 = load i32, ptr %21, align 4, !tbaa !21
   %678 = icmp sgt i32 %677, -1
   br i1 %678, label %679, label %683

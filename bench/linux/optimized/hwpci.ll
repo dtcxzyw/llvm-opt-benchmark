@@ -160,7 +160,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   br label %87
 
 85:                                               ; preds = %77, %74, %66, %46
-  %86 = phi i32 [ %51, %46 ], [ %67, %66 ], [ %80, %77 ], [ %75, %74 ]
+  %86 = phi i32 [ %67, %66 ], [ %51, %46 ], [ %80, %77 ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

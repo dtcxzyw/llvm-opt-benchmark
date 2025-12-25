@@ -320,7 +320,7 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_clear_fd(ptr noundef captures(none) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %2
-  %.021 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %2 ], [ 0, %.backedge ]
+  %.021 = phi i32 [ 0, %2 ], [ 1, %.loopexit.sink.split ], [ 0, %.backedge ]
   ret i32 %.021
 }
 

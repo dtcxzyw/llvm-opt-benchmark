@@ -10353,7 +10353,7 @@ define hidden void @"_ZN18alacritty_terminal4grid13Grid$LT$T$GT$14clear_viewport
   br label %"_ZN91_$LT$alacritty_terminal..term..cell..Cell$u20$as$u20$alacritty_terminal..grid..GridCell$GT$8is_empty17h1d85d5ad76ad92ecE.exit"
 
 "_ZN91_$LT$alacritty_terminal..term..cell..Cell$u20$as$u20$alacritty_terminal..grid..GridCell$GT$8is_empty17h1d85d5ad76ad92ecE.exit": ; preds = %65, %68
-  %.sroa.0.0.i = phi i1 [ false, %65 ], [ %71, %68 ]
+  %.sroa.0.0.i = phi i1 [ %71, %68 ], [ false, %65 ]
   %72 = icmp slt i32 %.sroa.8.1, 0
   %or.cond = or i1 %72, %.sroa.0.0.i
   br i1 %or.cond, label %"_ZN115_$LT$alacritty_terminal..grid..GridIterator$LT$T$GT$$u20$as$u20$alacritty_terminal..grid..BidirectionalIterator$GT$4prev17h22a72cc74396a609E.exit.thread", label %24

@@ -8704,7 +8704,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   %spec.select778 = select i1 %6, i64 0, i64 %2
   br label %.thread750
 
-.thread756:                                       ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread741, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit229, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread, %1928, %1600, %1930, %1601
+.thread756:                                       ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread741, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit229, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread, %1930, %1928, %1600, %1601
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not107 = icmp eq i64 %indvars.iv.next, %498
   br i1 %.not107, label %.thread768.loopexit, label %500, !llvm.loop !1300
@@ -9944,7 +9944,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit99:    ; preds = %86
   br label %.backedge
 
 .thread109:                                       ; preds = %86, %83, %_ZNK5clang8QualType15getObjCLifetimeEv.exit99, %74, %68, %65, %10, %15, %103, %99, %42, %50, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i, %60, %16, %28, %_ZNK5clang8QualType15getObjCLifetimeEv.exit, %41
-  %.2 = phi i1 [ true, %103 ], [ false, %99 ], [ false, %42 ], [ false, %16 ], [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i ], [ false, %28 ], [ true, %41 ], [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit ], [ true, %60 ], [ false, %50 ], [ false, %15 ], [ false, %10 ], [ false, %65 ], [ false, %68 ], [ false, %74 ], [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit99 ], [ false, %83 ], [ false, %86 ]
+  %.2 = phi i1 [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i ], [ true, %103 ], [ false, %42 ], [ false, %16 ], [ false, %99 ], [ false, %28 ], [ true, %41 ], [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit ], [ true, %60 ], [ false, %50 ], [ false, %15 ], [ false, %10 ], [ false, %65 ], [ false, %68 ], [ false, %74 ], [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit99 ], [ false, %83 ], [ false, %86 ]
   ret i1 %.2
 }
 
@@ -26085,7 +26085,7 @@ _ZN5clang16hasFunctionProtoEPKNS_4DeclE.exit:     ; preds = %.thread35
   br label %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit
 
 _ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit: ; preds = %144, %141, %131
-  %147 = phi i32 [ %136, %131 ], [ %143, %141 ], [ %146, %144 ]
+  %147 = phi i32 [ %143, %141 ], [ %136, %131 ], [ %146, %144 ]
   %.not2139 = icmp eq i32 %147, 0
   br i1 %.not2139, label %._crit_edge, label %.lr.ph.preheader
 

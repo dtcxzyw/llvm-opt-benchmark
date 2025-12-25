@@ -1887,9 +1887,9 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESa
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit210
 
 775:                                              ; preds = %211, %262, %264, %305, %773, %725, %210, %204, %.loopexit.split-lp258, %.loopexit257
-  %.sroa.26.2 = phi ptr [ %.sroa.26.7, %211 ], [ %.sroa.13.1425, %264 ], [ %.sroa.26.1424, %262 ], [ %.sroa.26.0, %204 ], [ %.sroa.26.0, %305 ], [ %.sroa.26.5, %773 ], [ %.sroa.26.0, %210 ], [ %.sroa.26.0, %725 ], [ %.sroa.26.0, %.loopexit257 ], [ %.sroa.26.0, %.loopexit.split-lp258 ]
-  %.sroa.0227.2 = phi ptr [ %.sroa.0227.7, %211 ], [ %.sroa.0227.1426, %264 ], [ %.sroa.0227.1426, %262 ], [ %.sroa.0227.0, %204 ], [ %.sroa.0227.0, %305 ], [ %.sroa.0227.5, %773 ], [ %.sroa.0227.0, %210 ], [ %.sroa.0227.0, %725 ], [ %.sroa.0227.0, %.loopexit257 ], [ %.sroa.0227.0, %.loopexit.split-lp258 ]
-  %.pn65.pn.pn.pn.pn = phi { ptr, i32 } [ %212, %211 ], [ %lpad.phi, %264 ], [ %263, %262 ], [ %205, %204 ], [ %306, %305 ], [ %774, %773 ], [ %.pn61, %210 ], [ %.pn53.pn.pn.pn.pn.pn.pn, %725 ], [ %lpad.loopexit259, %.loopexit257 ], [ %lpad.loopexit.split-lp260, %.loopexit.split-lp258 ]
+  %.sroa.26.2 = phi ptr [ %.sroa.26.1424, %262 ], [ %.sroa.13.1425, %264 ], [ %.sroa.26.7, %211 ], [ %.sroa.26.0, %204 ], [ %.sroa.26.0, %305 ], [ %.sroa.26.5, %773 ], [ %.sroa.26.0, %210 ], [ %.sroa.26.0, %725 ], [ %.sroa.26.0, %.loopexit257 ], [ %.sroa.26.0, %.loopexit.split-lp258 ]
+  %.sroa.0227.2 = phi ptr [ %.sroa.0227.1426, %262 ], [ %.sroa.0227.1426, %264 ], [ %.sroa.0227.7, %211 ], [ %.sroa.0227.0, %204 ], [ %.sroa.0227.0, %305 ], [ %.sroa.0227.5, %773 ], [ %.sroa.0227.0, %210 ], [ %.sroa.0227.0, %725 ], [ %.sroa.0227.0, %.loopexit257 ], [ %.sroa.0227.0, %.loopexit.split-lp258 ]
+  %.pn65.pn.pn.pn.pn = phi { ptr, i32 } [ %263, %262 ], [ %lpad.phi, %264 ], [ %212, %211 ], [ %205, %204 ], [ %306, %305 ], [ %774, %773 ], [ %.pn61, %210 ], [ %.pn53.pn.pn.pn.pn.pn.pn, %725 ], [ %lpad.loopexit259, %.loopexit257 ], [ %lpad.loopexit.split-lp260, %.loopexit.split-lp258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %776 = ptrtoint ptr %.sroa.26.2 to i64
   %777 = ptrtoint ptr %.sroa.0227.2 to i64

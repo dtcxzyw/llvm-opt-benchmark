@@ -15079,8 +15079,8 @@ define hidden { i64, ptr } @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$L
   br i1 %55, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hb369e038329157a1E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h909c7027f34d99d8E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hb369e038329157a1E.exit.thread": ; preds = %6, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h909c7027f34d99d8E.exit", %49, %26, %24, %36
-  %.sroa.8.1 = phi i64 [ %42, %36 ], [ %54, %49 ], [ %25, %24 ], [ %12, %26 ], [ %.sroa.012.071, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h909c7027f34d99d8E.exit" ], [ 0, %6 ]
-  %.sroa.0.1 = phi i64 [ %40, %36 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h909c7027f34d99d8E.exit" ], [ 1, %24 ], [ 0, %26 ], [ 0, %49 ], [ 0, %6 ]
+  %.sroa.8.1 = phi i64 [ %25, %24 ], [ %54, %49 ], [ %42, %36 ], [ %12, %26 ], [ %.sroa.012.071, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h909c7027f34d99d8E.exit" ], [ 0, %6 ]
+  %.sroa.0.1 = phi i64 [ 1, %24 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h909c7027f34d99d8E.exit" ], [ %40, %36 ], [ 0, %26 ], [ 0, %49 ], [ 0, %6 ]
   %56 = inttoptr i64 %.sroa.8.1 to ptr
   %57 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %58 = insertvalue { i64, ptr } %57, ptr %56, 1

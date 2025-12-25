@@ -4161,7 +4161,7 @@ ssl_has_cert.exit.thread.i:                       ; preds = %.ssl_has_cert.exit.
   br i1 %118, label %.lr.ph.i, label %ssl_version_cmp.exit44, !llvm.loop !222
 
 is_tls13_capable.exit.thread:                     ; preds = %.thread52.us, %65, %72, %78, %80, %75, %82, %110, %111
-  %119 = phi ptr [ %61, %65 ], [ %61, %110 ], [ %61, %111 ], [ %61, %82 ], [ %61, %75 ], [ %61, %80 ], [ %61, %78 ], [ %61, %72 ], [ %39, %.thread52.us ]
+  %119 = phi ptr [ %61, %110 ], [ %61, %65 ], [ %61, %111 ], [ %61, %82 ], [ %61, %75 ], [ %61, %80 ], [ %61, %78 ], [ %61, %72 ], [ %39, %.thread52.us ]
   %.not36 = icmp eq ptr %2, null
   br i1 %.not36, label %.critedge, label %120
 
@@ -4392,7 +4392,7 @@ define range(i32 0, 2) i32 @ssl_set_version_bound(i32 noundef %0, i32 noundef %1
   br label %14
 
 14:                                               ; preds = %.sink.split, %9, %.thread, %12, %13
-  %.0 = phi i32 [ 1, %.thread ], [ 0, %9 ], [ 1, %13 ], [ 1, %12 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 1, %12 ], [ 0, %9 ], [ 1, %13 ], [ 1, %.thread ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

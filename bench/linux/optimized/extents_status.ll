@@ -1690,7 +1690,7 @@ define dso_local void @ext4_es_insert_extent(ptr noundef %0, i32 noundef %1, i32
   br label %.thread116
 
 .thread116:                                       ; preds = %662, %698, %251, %376, %412, %.thread116.sink.split, %.thread141, %.thread114
-  %704 = phi ptr [ %110, %376 ], [ %558, %.thread141 ], [ %.ph, %.thread116.sink.split ], [ %558, %698 ], [ %110, %251 ], [ %110, %412 ], [ %110, %.thread114 ], [ %558, %662 ]
+  %704 = phi ptr [ %110, %376 ], [ %558, %.thread141 ], [ %110, %412 ], [ %558, %698 ], [ %.ph, %.thread116.sink.split ], [ %110, %251 ], [ %110, %.thread114 ], [ %558, %662 ]
   %.not = icmp eq ptr %704, null
   br i1 %.not, label %.thread146, label %705
 
@@ -2424,7 +2424,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %.not17 = icmp eq i64 %55, 2305843009213693952
   br i1 %.not17, label %.critedge12, label %.critedge
 
-.critedge12:                                      ; preds = %51, %43, %54
+.critedge12:                                      ; preds = %43, %51, %54
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 28
@@ -2600,7 +2600,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %.not = icmp eq i64 %164, 2305843009213693952
   br i1 %.not, label %.critedge16, label %.critedge
 
-.critedge16:                                      ; preds = %160, %152, %163
+.critedge16:                                      ; preds = %152, %160, %163
   %165 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %166 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %167 = getelementptr inbounds nuw i8, ptr %12, i64 32

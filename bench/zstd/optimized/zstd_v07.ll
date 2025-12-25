@@ -1876,7 +1876,7 @@ BITv07_reloadDStream.exit198:                     ; preds = %501, %497, %503
   br label %FSEv07_decompress_usingDTable_generic.exit
 
 FSEv07_decompress_usingDTable_generic.exit:       ; preds = %BITv07_reloadDStream.exit93, %223, %BITv07_reloadDStream.exit198, %478, %.preheader402, %.preheader, %311, %261, %264, %61, %11, %14, %513, %BITv07_initDStream.exit106, %257, %BITv07_initDStream.exit
-  %.0 = phi i64 [ -1, %14 ], [ %3, %BITv07_initDStream.exit ], [ %260, %257 ], [ -70, %.preheader ], [ -1, %311 ], [ %3, %BITv07_initDStream.exit106 ], [ %516, %513 ], [ -1, %264 ], [ -72, %261 ], [ -1, %61 ], [ -72, %11 ], [ -70, %.preheader402 ], [ -70, %BITv07_reloadDStream.exit198 ], [ -70, %478 ], [ -70, %223 ], [ -70, %BITv07_reloadDStream.exit93 ]
+  %.0 = phi i64 [ -1, %14 ], [ %3, %BITv07_initDStream.exit ], [ %260, %257 ], [ -1, %311 ], [ -70, %.preheader ], [ %3, %BITv07_initDStream.exit106 ], [ %516, %513 ], [ -72, %261 ], [ -1, %264 ], [ -1, %61 ], [ -72, %11 ], [ -70, %BITv07_reloadDStream.exit198 ], [ -70, %.preheader402 ], [ -70, %478 ], [ -70, %223 ], [ -70, %BITv07_reloadDStream.exit93 ]
   ret i64 %.0
 }
 
@@ -5531,7 +5531,7 @@ default.unreachable:                              ; preds = %60, %47
   br label %.thread94
 
 .thread94:                                        ; preds = %.thread94.sink.split, %36, %31, %75, %6, %9, %3, %14
-  %.0 = phi i64 [ %30, %14 ], [ 5, %3 ], [ -14, %36 ], [ 8, %9 ], [ -10, %6 ], [ -14, %31 ], [ -14, %75 ], [ 0, %.thread94.sink.split ]
+  %.0 = phi i64 [ %30, %14 ], [ 5, %3 ], [ -14, %31 ], [ 8, %9 ], [ -10, %6 ], [ -14, %36 ], [ -14, %75 ], [ 0, %.thread94.sink.split ]
   ret i64 %.0
 }
 

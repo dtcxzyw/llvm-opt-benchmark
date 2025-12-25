@@ -3837,7 +3837,7 @@ vnc_raw_encoding.exit.i.i:                        ; preds = %1428, %.lr.ph.i173.
   br label %vnc_server_framebuffer_update.exit.i
 
 vnc_server_framebuffer_update.exit.i:             ; preds = %vnc_raw_encoding.exit.i.i, %1438, %1434, %1366, %1355, %1336, %1314, %1266, %1241, %1237, %vnc_get_bytes_per_pixel.exit.i170.i.i, %1202, %1193, %1168, %1153, %1136, %1095, %1065, %1044, %1030, %1002, %vnc_get_bytes_per_pixel.exit.i163.i.i, %816, %812, %vnc_get_bytes_per_pixel.exit.i153.i.i, %vnc_get_bytes_per_pixel.exit.i.i.i, %720, %1411, %1407, %951, %948, %936, %924, %912, %871, %1548, %1546, %1542, %1540, %1534, %1531, %1518, %1488, %1466
-  %.1.i = phi i32 [ %.0.i41, %1548 ], [ %1547, %1546 ], [ 1, %871 ], [ %.0.i41, %1518 ], [ %1522, %1531 ], [ %1541, %1540 ], [ %.0.i41, %1542 ], [ %1539, %1534 ], [ 3, %1466 ], [ %1490, %1488 ], [ %1415, %1411 ], [ %961, %951 ], [ 3, %948 ], [ %860, %936 ], [ %860, %924 ], [ %913, %912 ], [ 2, %1407 ], [ 1, %1136 ], [ %1315, %1314 ], [ %1341, %1336 ], [ %823, %816 ], [ 4, %vnc_get_bytes_per_pixel.exit.i153.i.i ], [ %813, %812 ], [ 20, %1366 ], [ %1356, %1355 ], [ %771, %vnc_get_bytes_per_pixel.exit.i.i.i ], [ %1047, %1044 ], [ %1223, %vnc_get_bytes_per_pixel.exit.i170.i.i ], [ %1035, %1030 ], [ 4, %vnc_get_bytes_per_pixel.exit.i163.i.i ], [ %1007, %1002 ], [ 1, %1065 ], [ 3, %1095 ], [ 6, %1237 ], [ %1278, %1266 ], [ 16, %1434 ], [ %1252, %1241 ], [ %1440, %1438 ], [ 1, %1153 ], [ %.1.i.i, %vnc_raw_encoding.exit.i.i ], [ %.0.i54.i, %1168 ], [ 12, %720 ], [ %1203, %1202 ], [ %1191, %1193 ]
+  %.1.i = phi i32 [ %.0.i41, %1548 ], [ %1547, %1546 ], [ 1, %871 ], [ %.0.i41, %1518 ], [ %1539, %1534 ], [ %1541, %1540 ], [ %.0.i41, %1542 ], [ %1490, %1488 ], [ %1522, %1531 ], [ 3, %1466 ], [ %1415, %1411 ], [ %961, %951 ], [ 3, %948 ], [ %860, %936 ], [ %860, %924 ], [ %913, %912 ], [ 2, %1407 ], [ 1, %1136 ], [ %1315, %1314 ], [ %1341, %1336 ], [ %823, %816 ], [ 4, %vnc_get_bytes_per_pixel.exit.i153.i.i ], [ %813, %812 ], [ 20, %1366 ], [ %1356, %1355 ], [ %771, %vnc_get_bytes_per_pixel.exit.i.i.i ], [ %1047, %1044 ], [ %1223, %vnc_get_bytes_per_pixel.exit.i170.i.i ], [ %1035, %1030 ], [ 4, %vnc_get_bytes_per_pixel.exit.i163.i.i ], [ %1007, %1002 ], [ 1, %1065 ], [ 3, %1095 ], [ 6, %1237 ], [ %1278, %1266 ], [ 16, %1434 ], [ %1252, %1241 ], [ %.0.i54.i, %1168 ], [ 1, %1153 ], [ %1440, %1438 ], [ %.1.i.i, %vnc_raw_encoding.exit.i.i ], [ 12, %720 ], [ %1191, %1193 ], [ %1203, %1202 ]
   %1551 = icmp sgt i32 %.1.i, 0
   %1552 = load i8, ptr @vnc_preference_desegment, align 1, !range !6
   %1553 = trunc nuw i8 %1552 to i1
@@ -3858,7 +3858,7 @@ vnc_server_framebuffer_update.exit.i:             ; preds = %vnc_raw_encoding.ex
   br label %vnc_client_to_server.exit
 
 vnc_server_framebuffer_update.exit.thread.i:      ; preds = %.lr.ph.i.i48, %724, %716, %1554, %vnc_server_framebuffer_update.exit.i, %1529, %1494, %1486, %718, %711
-  %.162.i = phi i32 [ %.1.i, %vnc_server_framebuffer_update.exit.i ], [ %.1.i, %1554 ], [ 0, %724 ], [ 0, %711 ], [ 0, %718 ], [ 0, %1529 ], [ 0, %1494 ], [ 0, %1486 ], [ 0, %716 ], [ 0, %.lr.ph.i.i48 ]
+  %.162.i = phi i32 [ %.1.i, %vnc_server_framebuffer_update.exit.i ], [ %.1.i, %1554 ], [ 0, %724 ], [ 0, %711 ], [ 0, %718 ], [ 0, %1494 ], [ 0, %1529 ], [ 0, %1486 ], [ 0, %716 ], [ 0, %.lr.ph.i.i48 ]
   %1560 = load i32, ptr %6, align 4
   %1561 = call i32 @tvb_reported_length(ptr noundef %0)
   %1562 = icmp ult i32 %1560, %1561

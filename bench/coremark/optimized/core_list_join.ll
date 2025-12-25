@@ -184,7 +184,7 @@ define dso_local zeroext i16 @core_bench_list(ptr noundef %0, i16 noundef signex
   br i1 %.not.i, label %core_list_find.exit, label %.lr.ph.i, !llvm.loop !34
 
 core_list_find.exit:                              ; preds = %.lr.ph.i, %20, %.lr.ph27.i, %13
-  %.0.i = phi ptr [ %.01426.i, %.lr.ph27.i ], [ null, %13 ], [ %.122.i, %.lr.ph.i ], [ null, %20 ]
+  %.0.i = phi ptr [ %.01426.i, %.lr.ph27.i ], [ null, %13 ], [ null, %20 ], [ %.122.i, %.lr.ph.i ]
   br i1 %.not1625.i, label %.lr.ph.i65, label %core_list_reverse.exit
 
 .lr.ph.i65:                                       ; preds = %core_list_find.exit, %.lr.ph.i65

@@ -5066,8 +5066,8 @@ select.unfold:                                    ; preds = %select.unfold.backe
   br i1 %265, label %_ZN12duckdb_minizL16tdefl_find_matchEPNS_16tdefl_compressorEjjjPjS2_.exit, label %.lr.ph297, !llvm.loop !167
 
 _ZN12duckdb_minizL16tdefl_find_matchEPNS_16tdefl_compressorEjjjPjS2_.exit: ; preds = %252, %239, %263, %236, %169, %174, %192, %196, %214, %218, %.preheader, %._crit_edge, %150, %135
-  %.0242 = phi i32 [ %spec.select267, %._crit_edge ], [ 0, %135 ], [ 0, %150 ], [ %.2244324, %236 ], [ 0, %.preheader ], [ %.2244324, %218 ], [ %.2244324, %214 ], [ %.2244324, %196 ], [ %.2244324, %192 ], [ %.2244324, %174 ], [ %.2244324, %169 ], [ %.2244324, %239 ], [ %.3245, %263 ], [ %.086.i, %252 ]
-  %.0238 = phi i32 [ %spec.select268, %._crit_edge ], [ %spec.select, %135 ], [ %spec.select, %150 ], [ %.2325, %236 ], [ %spec.select, %.preheader ], [ %.2325, %218 ], [ %.2325, %214 ], [ %.2325, %196 ], [ %.2325, %192 ], [ %.2325, %174 ], [ %.2325, %169 ], [ %.2325, %239 ], [ %.3240, %263 ], [ %129, %252 ]
+  %.0242 = phi i32 [ %spec.select267, %._crit_edge ], [ 0, %135 ], [ 0, %150 ], [ 0, %.preheader ], [ %.2244324, %236 ], [ %.2244324, %218 ], [ %.2244324, %214 ], [ %.2244324, %196 ], [ %.2244324, %192 ], [ %.2244324, %174 ], [ %.2244324, %169 ], [ %.3245, %263 ], [ %.2244324, %239 ], [ %.086.i, %252 ]
+  %.0238 = phi i32 [ %spec.select268, %._crit_edge ], [ %spec.select, %135 ], [ %spec.select, %150 ], [ %spec.select, %.preheader ], [ %.2325, %236 ], [ %.2325, %218 ], [ %.2325, %214 ], [ %.2325, %196 ], [ %.2325, %192 ], [ %.2325, %174 ], [ %.2325, %169 ], [ %.3240, %263 ], [ %.2325, %239 ], [ %129, %252 ]
   %266 = icmp eq i32 %.0238, 3
   %267 = icmp ugt i32 %.0242, 8191
   %or.cond = select i1 %266, i1 %267, i1 false
@@ -15509,7 +15509,7 @@ _ZN12duckdb_minizL22mz_zip_array_push_backEPNS_14mz_zip_archiveEPNS_12mz_zip_arr
   br label %.thread34
 
 .thread34:                                        ; preds = %._crit_edge41, %.thread34.sink.split, %22
-  %.0 = phi i32 [ 0, %.thread34.sink.split ], [ 1, %22 ], [ 1, %._crit_edge41 ]
+  %.0 = phi i32 [ 1, %22 ], [ 0, %.thread34.sink.split ], [ 1, %._crit_edge41 ]
   ret i32 %.0
 }
 

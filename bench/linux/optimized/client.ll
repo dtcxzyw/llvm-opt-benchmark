@@ -852,8 +852,8 @@ define dso_local ptr @nfs_get_client(ptr noundef %0) #0 align 16 {
   %153 = icmp eq ptr %152, %35
   br i1 %153, label %.thread15, label %.lr.ph, !llvm.loop !23
 
-154:                                              ; preds = %64, %150, %146, %145
-  %.ph = phi ptr [ %45, %145 ], [ %45, %146 ], [ %45, %150 ], [ %66, %64 ]
+154:                                              ; preds = %64, %146, %150, %145
+  %.ph = phi ptr [ %45, %145 ], [ %45, %150 ], [ %45, %146 ], [ %66, %64 ]
   %155 = icmp eq ptr %.ph, null
   br i1 %155, label %.thread15, label %156
 

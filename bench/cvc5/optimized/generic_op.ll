@@ -5648,7 +5648,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit69:             ; preds = %.critedge40
   br label %.loopexit
 
 .loopexit:                                        ; preds = %214, %.loopexit.sink.split, %2
-  %.not7794 = phi i1 [ false, %.loopexit.sink.split ], [ true, %2 ], [ true, %214 ]
+  %.not7794 = phi i1 [ true, %2 ], [ false, %.loopexit.sink.split ], [ true, %214 ]
   ret i1 %.not7794
 }
 

@@ -1578,7 +1578,7 @@ ProcessCubic.exit:                                ; preds = %ProcessCubic.exit.l
   br label %.loopexit
 
 .loopexit:                                        ; preds = %279, %160, %144, %118, %49, %._crit_edge, %544
-  %.0192 = phi i8 [ 1, %._crit_edge ], [ 1, %544 ], [ 1, %49 ], [ 0, %118 ], [ 0, %144 ], [ 0, %160 ], [ 0, %279 ]
+  %.0192 = phi i8 [ 1, %544 ], [ 1, %._crit_edge ], [ 1, %49 ], [ 0, %118 ], [ 0, %144 ], [ 0, %160 ], [ 0, %279 ]
   ret i8 %.0192
 }
 

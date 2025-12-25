@@ -113,13 +113,13 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %_ZN5ArrayIhEC2Em.exit.outer.backedge
 
-_ZN5ArrayIhEC2Em.exit.outer.backedge:             ; preds = %38, %44
-  %.sroa.0226.0.ph.be = phi ptr [ null, %44 ], [ %42, %38 ]
-  br label %_ZN5ArrayIhEC2Em.exit.outer
-
 44:                                               ; preds = %38
   invoke void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
           to label %_ZN5ArrayIhEC2Em.exit.outer.backedge unwind label %.loopexit364.loopexit.split-lp
+
+_ZN5ArrayIhEC2Em.exit.outer.backedge:             ; preds = %44, %38
+  %.sroa.0226.0.ph.be = phi ptr [ %42, %38 ], [ null, %44 ]
+  br label %_ZN5ArrayIhEC2Em.exit.outer
 
 45:                                               ; preds = %28
   %46 = landingpad { ptr, i32 }

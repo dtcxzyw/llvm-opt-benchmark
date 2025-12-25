@@ -39,7 +39,7 @@ define range(i32 0, 2) i32 @ossl_ffc_params_validate_unverifiable_g(ptr noundef 
   br label %21
 
 21:                                               ; preds = %.sink.split, %16, %14
-  %.0 = phi i32 [ 1, %16 ], [ 0, %14 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 1, %16 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

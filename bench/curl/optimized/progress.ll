@@ -634,7 +634,7 @@ define hidden void @Curl_pgrsTimeWas(ptr noundef captures(none) %0, i32 noundef 
   br label %.thread
 
 50:                                               ; preds = %25, %27, %29, %31, %37, %40
-  %.0 = phi ptr [ %41, %40 ], [ %38, %37 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ]
+  %.0 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %38, %37 ], [ %41, %40 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2912
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 2920

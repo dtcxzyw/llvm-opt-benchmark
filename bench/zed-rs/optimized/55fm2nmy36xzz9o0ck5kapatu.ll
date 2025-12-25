@@ -523,7 +523,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i.i: ; preds = 
   br label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i"
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i": ; preds = %.preheader.i.i.i.i, %.noexc11, %69, %60, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.loopexit21.split.loop.exit27"
-  %.sroa.4.0.i.i = phi i64 [ %2, %60 ], [ %spec.select, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.loopexit21.split.loop.exit27" ], [ %2, %69 ], [ %2, %.noexc11 ], [ %2, %.preheader.i.i.i.i ]
+  %.sroa.4.0.i.i = phi i64 [ %spec.select, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i.loopexit21.split.loop.exit27" ], [ %2, %60 ], [ %2, %69 ], [ %2, %.noexc11 ], [ %2, %.preheader.i.i.i.i ]
   switch i64 %.sroa.4.0.i.i, label %104 [
     i64 3, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h58f410895c42e2c5E.exit.i"
     i64 9, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h58f410895c42e2c5E.exit9.i"

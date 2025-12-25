@@ -3139,7 +3139,7 @@ ZSTD_overlapCopy8.exit189.i:                      ; preds = %928, %907
   br i1 %949, label %945, label %ZSTD_execSequenceSplitLitBuffer.exit.i, !llvm.loop !96
 
 ZSTD_execSequenceSplitLitBuffer.exit.i:           ; preds = %945, %.preheader594.i, %900, %846, %.preheader591.i, %801, %865, %890, %895, %ZSTD_overlapCopy8.exit189.i, %941, %766, %791, %796, %ZSTD_overlapCopy8.exit186.i, %842
-  %950 = phi i64 [ %759, %846 ], [ %767, %766 ], [ %759, %801 ], [ %759, %791 ], [ %759, %ZSTD_overlapCopy8.exit186.i ], [ %856, %.preheader594.i ], [ %759, %796 ], [ %759, %.preheader591.i ], [ %759, %842 ], [ %866, %865 ], [ %856, %941 ], [ %856, %890 ], [ %856, %ZSTD_overlapCopy8.exit189.i ], [ %856, %900 ], [ %856, %895 ], [ %856, %945 ]
+  %950 = phi i64 [ %759, %846 ], [ %767, %766 ], [ %856, %941 ], [ %759, %791 ], [ %759, %ZSTD_overlapCopy8.exit186.i ], [ %856, %.preheader594.i ], [ %759, %796 ], [ %759, %.preheader591.i ], [ %759, %842 ], [ %866, %865 ], [ %759, %801 ], [ %856, %890 ], [ %856, %ZSTD_overlapCopy8.exit189.i ], [ %856, %900 ], [ %856, %895 ], [ %856, %945 ]
   %951 = icmp ult i64 %950, -119
   br i1 %951, label %952, label %.thread555.i
 
@@ -3921,7 +3921,7 @@ ZSTD_overlapCopy8.exit187.i:                      ; preds = %1289, %1268
   br i1 %1310, label %1306, label %ZSTD_execSequenceSplitLitBuffer.exit60.i, !llvm.loop !96
 
 ZSTD_execSequenceSplitLitBuffer.exit60.i:         ; preds = %1306, %.preheader584.i, %1261, %1210, %.preheader581.i, %1165, %1226, %1251, %1256, %ZSTD_overlapCopy8.exit187.i, %1302, %1130, %1155, %1160, %ZSTD_overlapCopy8.exit.i, %1206
-  %1311 = phi i64 [ %1123, %1210 ], [ %1131, %1130 ], [ %1123, %1165 ], [ %1123, %1155 ], [ %1123, %ZSTD_overlapCopy8.exit.i ], [ %1217, %.preheader584.i ], [ %1123, %1160 ], [ %1123, %.preheader581.i ], [ %1123, %1206 ], [ %1227, %1226 ], [ %1217, %1302 ], [ %1217, %1251 ], [ %1217, %ZSTD_overlapCopy8.exit187.i ], [ %1217, %1261 ], [ %1217, %1256 ], [ %1217, %1306 ]
+  %1311 = phi i64 [ %1123, %1210 ], [ %1131, %1130 ], [ %1217, %1302 ], [ %1123, %1155 ], [ %1123, %ZSTD_overlapCopy8.exit.i ], [ %1217, %.preheader584.i ], [ %1123, %1160 ], [ %1123, %.preheader581.i ], [ %1123, %1206 ], [ %1227, %1226 ], [ %1123, %1165 ], [ %1217, %1251 ], [ %1217, %ZSTD_overlapCopy8.exit187.i ], [ %1217, %1261 ], [ %1217, %1256 ], [ %1217, %1306 ]
   %1312 = icmp ult i64 %1311, -119
   %1313 = getelementptr inbounds nuw i8, ptr %.7209.i623.i, i64 %1311
   br i1 %1312, label %1314, label %.thread555.i
@@ -6134,7 +6134,7 @@ BIT_reloadDStream.exit.i.i:                       ; preds = %BIT_reloadDStream.e
   br i1 %exitcond392.not.i, label %BIT_reloadDStream.exit195.i.i, label %BIT_reloadDStream.exit.i.i, !llvm.loop !121
 
 BIT_reloadDStream.exit195.i.thread303.i:          ; preds = %ZSTD_execSequenceSplitLitBuffer.exit.i.i, %ZSTD_execSequence.exit.i.i, %1146, %ZSTD_execSequence.exit.i.thread.i, %ZSTD_execSequence.exit235.i.i, %ZSTD_execSequence.exit235.i.thread.i, %671, %._crit_edge.i, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i, %BIT_initDStream.exit.i, %87, %39, %32
-  %.1.i.ph.i = phi i64 [ -20, %ZSTD_execSequence.exit235.i.thread.i ], [ -70, %671 ], [ %.0.i232.i.i, %ZSTD_execSequence.exit235.i.i ], [ -20, %32 ], [ -20, %ZSTD_execSequence.exit.i.thread.i ], [ -20, %87 ], [ -20, %BIT_initDStream.exit.i ], [ %.0.i228.i.i, %ZSTD_execSequence.exit.i.i ], [ -20, %1146 ], [ -20, %39 ], [ -20, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i ], [ -20, %._crit_edge.i ], [ %.0.i238.i.i, %ZSTD_execSequenceSplitLitBuffer.exit.i.i ]
+  %.1.i.ph.i = phi i64 [ -20, %ZSTD_execSequence.exit235.i.thread.i ], [ %.0.i232.i.i, %ZSTD_execSequence.exit235.i.i ], [ -70, %671 ], [ -20, %32 ], [ -20, %ZSTD_execSequence.exit.i.thread.i ], [ -20, %87 ], [ -20, %BIT_initDStream.exit.i ], [ %.0.i228.i.i, %ZSTD_execSequence.exit.i.i ], [ -20, %1146 ], [ -20, %39 ], [ -20, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i ], [ -20, %._crit_edge.i ], [ %.0.i238.i.i, %ZSTD_execSequenceSplitLitBuffer.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ZSTD_decompressSequencesSplitLitBuffer_default.exit
 

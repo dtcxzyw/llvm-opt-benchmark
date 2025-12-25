@@ -4629,7 +4629,7 @@ Vec_IntPush.exit271:                              ; preds = %.Vec_IntGrow.exit10
   br label %315
 
 Vec_StrFreeP.exit:                                ; preds = %327, %.critedge6, %407, %227, %223, %Vec_StrFreeP.exit239, %Vec_StrFreeP.exit236, %Vec_StrPush.exit221, %Vec_StrPush.exit
-  %.0304 = phi ptr [ %53, %Vec_StrPush.exit ], [ null, %407 ], [ %53, %Vec_StrPush.exit221 ], [ null, %Vec_StrFreeP.exit239 ], [ null, %227 ], [ null, %223 ], [ null, %Vec_StrFreeP.exit236 ], [ %53, %.critedge6 ], [ %53, %327 ]
+  %.0304 = phi ptr [ %53, %Vec_StrPush.exit ], [ null, %223 ], [ %53, %Vec_StrPush.exit221 ], [ null, %Vec_StrFreeP.exit239 ], [ null, %227 ], [ null, %407 ], [ null, %Vec_StrFreeP.exit236 ], [ %53, %.critedge6 ], [ %53, %327 ]
   %495 = load ptr, ptr %20, align 8, !tbaa !29
   %.not.i272 = icmp eq ptr %495, null
   br i1 %.not.i272, label %Vec_IntFree.exit, label %496
@@ -6045,7 +6045,7 @@ Vec_IntPush.exit283:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %527, label %.preheader, label %.loopexit307, !llvm.loop !147
 
 .loopexit307:                                     ; preds = %143, %.loopexit, %524, %322, %423, %.preheader308, %Vec_StrPush.exit
-  %.0162 = phi i32 [ %.1163342, %322 ], [ 0, %Vec_StrPush.exit ], [ 0, %.preheader308 ], [ %525, %524 ], [ %.1163342, %423 ], [ %.1163342, %.loopexit ], [ %146, %143 ]
+  %.0162 = phi i32 [ 0, %.preheader308 ], [ 0, %Vec_StrPush.exit ], [ %.1163342, %322 ], [ %.1163342, %.loopexit ], [ %.1163342, %423 ], [ %525, %524 ], [ %146, %143 ]
   %528 = load ptr, ptr %57, align 8, !tbaa !29
   %.not.i284 = icmp eq ptr %528, null
   br i1 %.not.i284, label %Vec_IntFree.exit, label %529
@@ -7444,7 +7444,7 @@ Vec_IntPush.exit279:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %523, label %.preheader, label %.loopexit303, !llvm.loop !155
 
 .loopexit303:                                     ; preds = %139, %.loopexit, %520, %318, %419, %.preheader304, %Vec_StrPush.exit
-  %.0159 = phi i32 [ %.1160338, %318 ], [ 0, %Vec_StrPush.exit ], [ 0, %.preheader304 ], [ %521, %520 ], [ %.1160338, %419 ], [ %.1160338, %.loopexit ], [ %142, %139 ]
+  %.0159 = phi i32 [ 0, %.preheader304 ], [ 0, %Vec_StrPush.exit ], [ %.1160338, %318 ], [ %.1160338, %.loopexit ], [ %.1160338, %419 ], [ %521, %520 ], [ %142, %139 ]
   %524 = load ptr, ptr %54, align 8, !tbaa !29
   %.not.i280 = icmp eq ptr %524, null
   br i1 %.not.i280, label %Vec_IntFree.exit, label %525
@@ -8619,7 +8619,7 @@ Vec_IntPush.exit243:                              ; preds = %Vec_IntPush.exit243
   br i1 %423, label %.preheader, label %.loopexit263, !llvm.loop !162
 
 .loopexit263:                                     ; preds = %119, %.loopexit, %420, %257, %326, %.preheader264, %Vec_StrPush.exit
-  %.0145 = phi i32 [ %.1146293, %257 ], [ 0, %Vec_StrPush.exit ], [ 0, %.preheader264 ], [ %421, %420 ], [ %.1146293, %326 ], [ %.1146293, %.loopexit ], [ %122, %119 ]
+  %.0145 = phi i32 [ 0, %.preheader264 ], [ 0, %Vec_StrPush.exit ], [ %.1146293, %257 ], [ %.1146293, %.loopexit ], [ %.1146293, %326 ], [ %421, %420 ], [ %122, %119 ]
   %424 = load ptr, ptr %36, align 8, !tbaa !29
   %.not.i244 = icmp eq ptr %424, null
   br i1 %.not.i244, label %Vec_IntFree.exit, label %425
@@ -9735,7 +9735,7 @@ Vec_IntPush.exit244:                              ; preds = %Vec_IntPush.exit244
   br i1 %424, label %.preheader, label %.loopexit264, !llvm.loop !169
 
 .loopexit264:                                     ; preds = %119, %.loopexit, %421, %256, %325, %.preheader265, %Vec_StrPush.exit
-  %.0146 = phi i32 [ %.1147294, %256 ], [ 0, %Vec_StrPush.exit ], [ 0, %.preheader265 ], [ %422, %421 ], [ %.1147294, %325 ], [ %.1147294, %.loopexit ], [ %121, %119 ]
+  %.0146 = phi i32 [ 0, %.preheader265 ], [ 0, %Vec_StrPush.exit ], [ %.1147294, %256 ], [ %.1147294, %.loopexit ], [ %.1147294, %325 ], [ %422, %421 ], [ %121, %119 ]
   %425 = load ptr, ptr %33, align 8, !tbaa !29
   %.not.i245 = icmp eq ptr %425, null
   br i1 %.not.i245, label %Vec_IntFree.exit, label %426

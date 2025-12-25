@@ -1106,7 +1106,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ipv6_clear_mutable_options
   br i1 %82, label %11, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %75, %51, %11, %30, %28, %2
-  %83 = phi i32 [ 0, %2 ], [ -22, %30 ], [ -22, %28 ], [ -22, %51 ], [ 0, %75 ], [ 0, %11 ]
+  %83 = phi i32 [ 0, %2 ], [ -22, %30 ], [ -22, %28 ], [ -22, %51 ], [ 0, %11 ], [ 0, %75 ]
   ret i32 %83
 }
 

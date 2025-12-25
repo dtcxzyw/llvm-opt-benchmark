@@ -473,7 +473,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i48: ; pre
   br i1 %.not25.i50, label %.loopexit.i51, label %.lr.ph.i42
 
 _ZL16getLastNonPseudoRN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit68: ; preds = %.loopexit.i51, %_ZL18getBBFallenThroughPN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit.i34, %.lr.ph.i42, %42, %_ZL18getBBFallenThroughPN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit.thread21.i67
-  %.4.i52 = phi ptr [ null, %42 ], [ null, %_ZL18getBBFallenThroughPN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit.thread21.i67 ], [ %.sroa.016.031.i43, %.lr.ph.i42 ], [ null, %_ZL18getBBFallenThroughPN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit.i34 ], [ null, %.loopexit.i51 ]
+  %.4.i52 = phi ptr [ null, %_ZL18getBBFallenThroughPN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit.thread21.i67 ], [ null, %42 ], [ %.sroa.016.031.i43, %.lr.ph.i42 ], [ null, %_ZL18getBBFallenThroughPN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit.i34 ], [ null, %.loopexit.i51 ]
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.082.099, i64 56
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.082.099, i64 48
   %.sroa.026.042.i = load ptr, ptr %106, align 8, !tbaa !356
@@ -568,20 +568,20 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i: ; preds = %121
   %146 = and i32 %143, 4
   %147 = icmp ne i32 %146, 0
   %or.cond.i.i3.i = or i1 %145, %147
-  br i1 %or.cond.i.i3.i, label %148, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit
+  br i1 %or.cond.i.i3.i, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit, label %148
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %.01447.i, i64 16
-  %150 = load ptr, ptr %149, align 8, !tbaa !343
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  %152 = load i64, ptr %151, align 8, !tbaa !354
-  %153 = and i64 %152, 1048576
-  %.not85 = icmp eq i64 %153, 0
-  br i1 %.not85, label %_ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE9push_backERKS2_.exit.i, label %_ZL28isFirstInstructionInSequencePN4llvm12MachineInstrE.exit.thread.i
+  %149 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.01447.i, i64 noundef 1048576, i32 noundef 1) #15
+  br i1 %149, label %_ZL28isFirstInstructionInSequencePN4llvm12MachineInstrE.exit.thread.i, label %_ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE9push_backERKS2_.exit.i
 
 _ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit: ; preds = %142
-  %154 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.01447.i, i64 noundef 1048576, i32 noundef 1) #15
-  br i1 %154, label %_ZL28isFirstInstructionInSequencePN4llvm12MachineInstrE.exit.thread.i, label %_ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE9push_backERKS2_.exit.i
+  %150 = getelementptr inbounds nuw i8, ptr %.01447.i, i64 16
+  %151 = load ptr, ptr %150, align 8, !tbaa !343
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  %153 = load i64, ptr %152, align 8, !tbaa !354
+  %154 = and i64 %153, 1048576
+  %.not85 = icmp eq i64 %154, 0
+  br i1 %.not85, label %_ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE9push_backERKS2_.exit.i, label %_ZL28isFirstInstructionInSequencePN4llvm12MachineInstrE.exit.thread.i
 
 _ZL28isFirstInstructionInSequencePN4llvm12MachineInstrE.exit.thread.i: ; preds = %115, %136, %128, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i, %148, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit, %110
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.026.049.i, i64 68

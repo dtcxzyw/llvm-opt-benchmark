@@ -4128,7 +4128,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i: ; preds = %188
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #17, !noalias !566
   unreachable
 
-common.resume:                                    ; preds = %.body510, %.body496, %.body366, %.body366.thread, %.thread921, %1313, %.thread895, %1206, %.body400, %.body433, %.body, %.body306, %1348, %1352, %1245, %1241, %594, %.body524, %383, %.body29.i, %.thread701, %498, %502, %453, %457, %.critedge79.i, %345, %350, %325, %330
+common.resume:                                    ; preds = %.body510, %.body496, %.body366, %.body366.thread, %.thread921, %1313, %.thread895, %1206, %.body400, %.body433, %.body, %.body306, %1352, %1245, %1348, %1241, %594, %.body524, %383, %.body29.i, %.thread701, %498, %502, %453, %457, %.critedge79.i, %345, %350, %325, %330
   %common.resume.op = phi { ptr, i32 } [ %.pn6.i, %594 ], [ %326, %325 ], [ %346, %345 ], [ %.pn75.i471, %.critedge79.i ], [ %454, %453 ], [ %499, %498 ], [ %424, %.body524 ], [ %326, %330 ], [ %346, %350 ], [ %454, %457 ], [ %499, %502 ], [ %eh.lpad-body30.i, %.body29.i ], [ %eh.lpad-body25.i, %.thread701 ], [ %1349, %1352 ], [ %384, %383 ], [ %.pn292, %.body366 ], [ %.pn292935, %.body366.thread ], [ %.pn281, %1206 ], [ %.pn283898, %.thread895 ], [ %.pn288, %1313 ], [ %.pn290924, %.thread921 ], [ %.pn285, %.body306 ], [ %1207, %.body400 ], [ %.pn278, %.body ], [ %1314, %.body433 ], [ %1242, %1241 ], [ %1349, %1348 ], [ %1242, %1245 ], [ %1226, %.body496 ], [ %1333, %.body510 ]
   resume { ptr, i32 } %common.resume.op
 
@@ -5118,8 +5118,8 @@ _ZN3syn4expr7parsing9atom_expr17h42ad26974faa1e7fE.exit: ; preds = %_ZN3syn4expr
   br label %.critedge
 
 .body366:                                         ; preds = %.loopexit.split-lp, %1104, %.body334
-  %.2218 = phi i8 [ %.6, %1104 ], [ %.6, %.body334 ], [ %.1217.ph, %.loopexit.split-lp ]
-  %.pn292 = phi { ptr, i32 } [ %.pn276, %1104 ], [ %.pn276, %.body334 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.2218 = phi i8 [ %.6, %.body334 ], [ %.6, %1104 ], [ %.1217.ph, %.loopexit.split-lp ]
+  %.pn292 = phi { ptr, i32 } [ %.pn276, %.body334 ], [ %.pn276, %1104 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %674 = trunc nuw i8 %.2218 to i1
   br i1 %674, label %.body366.thread, label %common.resume
 
@@ -5134,7 +5134,7 @@ _ZN3syn4expr7parsing9atom_expr17h42ad26974faa1e7fE.exit: ; preds = %_ZN3syn4expr
   br label %.body366.thread
 
 .loopexit.split-lp:                               ; preds = %1103, %1249, %1356
-  %.1217.ph = phi i8 [ 0, %1249 ], [ %.10, %1103 ], [ 0, %1356 ]
+  %.1217.ph = phi i8 [ %.10, %1103 ], [ 0, %1249 ], [ 0, %1356 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body366
@@ -8696,8 +8696,8 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i118: ; preds = %102,
           to label %.thread unwind label %173
 
 .body130:                                         ; preds = %233, %238, %.thread
-  %.2 = phi i1 [ %.1174, %.thread ], [ %.6215, %233 ], [ %.6215, %238 ]
-  %.pn108 = phi { ptr, i32 } [ %.pn106175, %.thread ], [ %234, %233 ], [ %234, %238 ]
+  %.2 = phi i1 [ %.1174, %.thread ], [ %.6215, %238 ], [ %.6215, %233 ]
+  %.pn108 = phi { ptr, i32 } [ %.pn106175, %.thread ], [ %234, %238 ], [ %234, %233 ]
   br i1 %.2, label %261, label %common.resume
 
 230:                                              ; preds = %243

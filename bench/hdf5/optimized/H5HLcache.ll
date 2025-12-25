@@ -275,7 +275,7 @@ define internal ptr @H5HL__cache_prefix_deserialize(ptr noundef %0, i64 noundef 
   br label %93
 
 93:                                               ; preds = %82, %73, %66, %33, %86, %89, %75, %78, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %78 ], [ null, %75 ], [ null, %89 ], [ null, %86 ], [ null, %82 ], [ %27, %33 ], [ %27, %66 ], [ %27, %73 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %78 ], [ null, %75 ], [ null, %89 ], [ null, %86 ], [ null, %82 ], [ %27, %73 ], [ %27, %66 ], [ %27, %33 ]
   ret ptr %.0
 }
 

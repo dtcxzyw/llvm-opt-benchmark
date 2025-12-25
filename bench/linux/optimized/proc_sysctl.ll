@@ -2030,7 +2030,7 @@ define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captur
   br i1 %121, label %._crit_edge19, label %.thread11, !llvm.loop !26
 
 .thread11:                                        ; preds = %63, %68, %59, %57, %52, %.thread12, %._crit_edge19, %.lr.ph18, %7, %3
-  %122 = phi i1 [ true, %7 ], [ true, %3 ], [ true, %.thread12 ], [ false, %.lr.ph18 ], [ false, %52 ], [ true, %._crit_edge19 ], [ false, %57 ], [ false, %59 ], [ false, %68 ], [ false, %63 ]
+  %122 = phi i1 [ true, %7 ], [ true, %3 ], [ false, %.lr.ph18 ], [ false, %52 ], [ true, %.thread12 ], [ true, %._crit_edge19 ], [ false, %57 ], [ false, %59 ], [ false, %68 ], [ false, %63 ]
   ret i1 %122
 }
 

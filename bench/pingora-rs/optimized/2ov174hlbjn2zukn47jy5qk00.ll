@@ -5535,7 +5535,7 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17h4b945eecf2c
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.thread78:                                        ; preds = %.loopexit119, %.loopexit.split-lp, %112, %83
+.thread78:                                        ; preds = %.loopexit119, %.loopexit.split-lp, %83, %112
   %.sroa.025.285 = phi i1 [ true, %112 ], [ false, %83 ], [ false, %.loopexit119 ], [ %.sroa.025.1.ph88.ph, %.loopexit.split-lp ]
   %.sroa.026.284 = phi i1 [ true, %112 ], [ false, %83 ], [ false, %.loopexit119 ], [ %.sroa.026.1.ph87.ph, %.loopexit.split-lp ]
   %.pn83 = phi { ptr, i32 } [ %113, %112 ], [ %84, %83 ], [ %lpad.loopexit, %.loopexit119 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]

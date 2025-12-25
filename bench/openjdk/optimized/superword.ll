@@ -10869,7 +10869,7 @@ _ZNK9SuperWord19is_marked_reductionEPK4Node.exit97.thread: ; preds = %228, %303,
   br label %_ZNK9SuperWord8get_packEPK4Node.exit.thread
 
 _ZNK9SuperWord8get_packEPK4Node.exit.thread:      ; preds = %.lr.ph, %.lr.ph.i, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit97.thread, %.lr.ph136, %337, %341, %.lr.ph139, %361, %365, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i, %379, %385, %370, %376, %_ZNK9SuperWord8get_packEPK4Node.exit94, %_ZNK7PackSet28same_inputs_at_index_or_nullEPK9Node_Listi.exit, %105, %_ZNK9SuperWord8get_packEPK4Node.exit, %99, %388
-  %.0 = phi i1 [ false, %_ZNK9SuperWord8get_packEPK4Node.exit94 ], [ false, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit97.thread ], [ false, %_ZNK9SuperWord8get_packEPK4Node.exit ], [ false, %105 ], [ false, %.lr.ph139 ], [ false, %.lr.ph.i ], [ false, %.lr.ph136 ], [ false, %370 ], [ true, %388 ], [ false, %99 ], [ false, %_ZNK7PackSet28same_inputs_at_index_or_nullEPK9Node_Listi.exit ], [ false, %385 ], [ false, %376 ], [ false, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i ], [ false, %379 ], [ false, %365 ], [ false, %361 ], [ false, %341 ], [ false, %337 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %_ZNK9SuperWord8get_packEPK4Node.exit94 ], [ false, %.lr.ph.i ], [ false, %_ZNK9SuperWord8get_packEPK4Node.exit ], [ false, %105 ], [ false, %.lr.ph136 ], [ false, %376 ], [ false, %379 ], [ false, %370 ], [ true, %388 ], [ false, %99 ], [ false, %_ZNK7PackSet28same_inputs_at_index_or_nullEPK9Node_Listi.exit ], [ false, %385 ], [ false, %_ZNK9SuperWord19is_marked_reductionEPK4Node.exit97.thread ], [ false, %_ZNK5VLoop5in_bbEPK4Node.exit.i.i ], [ false, %.lr.ph139 ], [ false, %365 ], [ false, %361 ], [ false, %341 ], [ false, %337 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -14018,7 +14018,7 @@ _ZNK9SuperWord8get_packEPK4Node.exit48:           ; preds = %_ZNK5VLoop5in_bbEPK
   br label %.loopexit
 
 .loopexit:                                        ; preds = %207, %.loopexit.loopexit84.split.loop.exit89, %.loopexit.loopexit84.split.loop.exit91, %.loopexit.loopexit, %_ZNK9SuperWord9reductionEPK4NodeS2_.exit
-  %.0 = phi i32 [ 0, %_ZNK9SuperWord9reductionEPK4NodeS2_.exit ], [ %209, %.loopexit.loopexit ], [ %211, %.loopexit.loopexit84.split.loop.exit91 ], [ %210, %.loopexit.loopexit84.split.loop.exit89 ], [ 0, %207 ]
+  %.0 = phi i32 [ %209, %.loopexit.loopexit ], [ 0, %_ZNK9SuperWord9reductionEPK4NodeS2_.exit ], [ %211, %.loopexit.loopexit84.split.loop.exit91 ], [ %210, %.loopexit.loopexit84.split.loop.exit89 ], [ 0, %207 ]
   ret i32 %.0
 }
 

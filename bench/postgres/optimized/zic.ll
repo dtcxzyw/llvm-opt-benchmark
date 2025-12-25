@@ -616,7 +616,7 @@ timerange_option.exit:                            ; preds = %170
   br label %.preheader90.backedge
 
 .preheader90.backedge:                            ; preds = %timerange_option.exit, %66, %75, %74, %178, %126, %125, %118, %114, %112, %99, %89, %79
-  %.0.be = phi i1 [ true, %timerange_option.exit ], [ %.0, %178 ], [ %.0, %66 ], [ %.0, %74 ], [ %.0, %75 ], [ %.0, %79 ], [ %.0, %89 ], [ %.0, %99 ], [ %.0, %112 ], [ %.0, %114 ], [ %.0, %118 ], [ %.0, %125 ], [ %.0, %126 ]
+  %.0.be = phi i1 [ %.0, %178 ], [ true, %timerange_option.exit ], [ %.0, %66 ], [ %.0, %74 ], [ %.0, %75 ], [ %.0, %79 ], [ %.0, %89 ], [ %.0, %99 ], [ %.0, %112 ], [ %.0, %114 ], [ %.0, %118 ], [ %.0, %125 ], [ %.0, %126 ]
   br label %.preheader90, !llvm.loop !6
 
 173:                                              ; preds = %137, %156, %145, %170, %152
@@ -1884,7 +1884,7 @@ stringoffset.exit140.i.i:                         ; preds = %741, %736, %731
   br label %stringzone.exit.i
 
 stringzone.exit.i:                                ; preds = %589, %587, %767, %766, %757, %746, %698, %697, %657, %.thread147.i.i, %656, %._crit_edge697.i
-  %.0102.i.i = phi i32 [ -1, %697 ], [ 0, %698 ], [ -1, %._crit_edge697.i ], [ -1, %657 ], [ -1, %.thread147.i.i ], [ -1, %757 ], [ -1, %766 ], [ %spec.select126.i.i, %767 ], [ -1, %746 ], [ -1, %656 ], [ -1, %587 ], [ -1, %589 ]
+  %.0102.i.i = phi i32 [ -1, %697 ], [ -1, %657 ], [ -1, %._crit_edge697.i ], [ 0, %698 ], [ -1, %.thread147.i.i ], [ -1, %757 ], [ -1, %766 ], [ %spec.select126.i.i, %767 ], [ -1, %746 ], [ -1, %656 ], [ -1, %587 ], [ -1, %589 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %768 = icmp slt i32 %.0102.i.i, 0
@@ -2551,9 +2551,6 @@ abbroffset.exit.i.i:                              ; preds = %1074, %1073, %1052
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.preheader.i.outer.backedge
 
-.preheader.i.outer.backedge:                      ; preds = %abbroffset.exit.i.i, %1080, %1083
-  br label %.preheader.i.outer
-
 1076:                                             ; preds = %oadd.exit364.i
   %1077 = getelementptr inbounds nuw i8, ptr %1018, i64 74
   %1078 = load i8, ptr %1077, align 2, !range !17, !noundef !18
@@ -2564,6 +2561,9 @@ abbroffset.exit.i.i:                              ; preds = %1074, %1073, %1052
   %1081 = getelementptr inbounds nuw i8, ptr %1042, i64 1
   %1082 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %477, ptr noundef nonnull dereferenceable(1) %1081) #26
   br label %.preheader.i.outer.backedge
+
+.preheader.i.outer.backedge:                      ; preds = %1080, %1083, %abbroffset.exit.i.i
+  br label %.preheader.i.outer
 
 1083:                                             ; preds = %1076
   %1084 = ptrtoint ptr %1042 to i64

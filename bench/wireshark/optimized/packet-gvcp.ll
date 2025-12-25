@@ -1313,8 +1313,8 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %147 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %146, i64 noundef 24) #7
   br label %.thread315
 
-.thread315:                                       ; preds = %126, %130, %112, %.thread311
-  %.5 = phi ptr [ %147, %.thread311 ], [ %104, %112 ], [ %125, %130 ], [ %125, %126 ]
+.thread315:                                       ; preds = %130, %126, %112, %.thread311
+  %.5 = phi ptr [ %147, %.thread311 ], [ %104, %112 ], [ %125, %126 ], [ %125, %130 ]
   %148 = load i32, ptr @ett_gvcp, align 4
   %149 = tail call ptr @proto_item_add_subtree(ptr noundef %.sink, i32 noundef %148)
   br i1 %12, label %150, label %192

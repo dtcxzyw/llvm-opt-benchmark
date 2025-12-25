@@ -9530,7 +9530,7 @@ opj_t1_enc_is_term_pass.exit.i:                   ; preds = %2534, %2529
   br label %opj_t1_encode_cblk.exit
 
 opj_t1_encode_cblk.exit:                          ; preds = %2592, %._crit_edge409.i, %2564, %.loopexit.sink.split.i
-  %.0.i = phi double [ %2525, %._crit_edge409.i ], [ 0.000000e+00, %.loopexit.sink.split.i ], [ %2525, %2564 ], [ %2525, %2592 ]
+  %.0.i = phi double [ %2525, %2564 ], [ 0.000000e+00, %.loopexit.sink.split.i ], [ %2525, %._crit_edge409.i ], [ %2525, %2592 ]
   %2597 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %2598 = load ptr, ptr %2597, align 8, !tbaa !199
   %.not178 = icmp eq ptr %2598, null

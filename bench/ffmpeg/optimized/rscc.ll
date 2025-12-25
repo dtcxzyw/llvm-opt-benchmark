@@ -561,8 +561,8 @@ bytestream2_get_byte.exit247:                     ; preds = %196
   br label %314
 
 bytestream2_get_byte.exit247.thread:              ; preds = %162, %175, %163, %187, %bytestream2_get_byte.exit247
-  %202 = phi ptr [ %198, %bytestream2_get_byte.exit247 ], [ %188, %187 ], [ %164, %163 ], [ %176, %175 ], [ %86, %162 ]
-  %.0199266 = phi i32 [ %199, %bytestream2_get_byte.exit247 ], [ %195, %187 ], [ %166, %163 ], [ %178, %175 ], [ 0, %162 ]
+  %202 = phi ptr [ %198, %bytestream2_get_byte.exit247 ], [ %176, %175 ], [ %164, %163 ], [ %188, %187 ], [ %86, %162 ]
+  %.0199266 = phi i32 [ %199, %bytestream2_get_byte.exit247 ], [ %178, %175 ], [ %166, %163 ], [ %195, %187 ], [ 0, %162 ]
   %203 = icmp eq i32 %138, %.0199266
   br i1 %203, label %204, label %bytestream2_get_byte.exit247.thread.thread
 

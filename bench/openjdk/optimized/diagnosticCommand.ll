@@ -5146,7 +5146,7 @@ define hidden void @_ZN12EventLogDCmd7executeE10DCmdSourceP10JavaThread(ptr noun
   br label %31
 
 31:                                               ; preds = %26, %22, %18, %17, %12
-  %32 = phi i32 [ %16, %12 ], [ %30, %26 ], [ 10, %18 ], [ 10, %17 ], [ 16, %22 ]
+  %32 = phi i32 [ %30, %26 ], [ %16, %12 ], [ 10, %18 ], [ 10, %17 ], [ 16, %22 ]
   %33 = tail call ptr @__errno_location() #19
   store i32 0, ptr %33, align 4
   %34 = call i64 @strtoll(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef %32) #17

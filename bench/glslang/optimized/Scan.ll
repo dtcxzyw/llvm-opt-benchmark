@@ -1865,7 +1865,7 @@ _ZN7glslang13TInputScanner4peekEv.exit39.thread:  ; preds = %69, %60, %_ZN7glsla
   br label %_ZN7glslang13TInputScanner4peekEv.exit.thread
 
 _ZN7glslang13TInputScanner4peekEv.exit.thread:    ; preds = %17, %_ZN7glslang13TInputScanner3getEv.exit148, %428, %.preheader, %6, %344, %_ZN7glslang13TInputScanner4peekEv.exit, %_ZN7glslang13TInputScanner4peekEv.exit39.thread
-  %.027 = phi i1 [ false, %_ZN7glslang13TInputScanner4peekEv.exit39.thread ], [ false, %_ZN7glslang13TInputScanner4peekEv.exit ], [ true, %344 ], [ true, %_ZN7glslang13TInputScanner3getEv.exit148 ], [ false, %6 ], [ true, %.preheader ], [ true, %428 ], [ false, %17 ]
+  %.027 = phi i1 [ false, %_ZN7glslang13TInputScanner4peekEv.exit39.thread ], [ false, %_ZN7glslang13TInputScanner4peekEv.exit ], [ true, %344 ], [ false, %6 ], [ true, %_ZN7glslang13TInputScanner3getEv.exit148 ], [ true, %.preheader ], [ true, %428 ], [ false, %17 ]
   ret i1 %.027
 }
 

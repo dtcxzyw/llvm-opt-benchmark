@@ -8855,7 +8855,7 @@ populate_array_assign_ndims.exit.thread.sink.split: ; preds = %22, %10
   br label %populate_array_assign_ndims.exit.thread
 
 populate_array_assign_ndims.exit.thread:          ; preds = %19, %populate_array_assign_ndims.exit.thread.sink.split, %22
-  %.0 = phi i32 [ 23, %populate_array_assign_ndims.exit.thread.sink.split ], [ 0, %22 ], [ 0, %19 ]
+  %.0 = phi i32 [ 0, %22 ], [ 23, %populate_array_assign_ndims.exit.thread.sink.split ], [ 0, %19 ]
   ret i32 %.0
 }
 

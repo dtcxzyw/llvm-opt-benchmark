@@ -5031,7 +5031,7 @@ define internal range(i32 0, 2) i32 @dt_control_merge_hdr_process(ptr noundef re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.loopexit.sink.split, %.preheader239.lr.ph, %99
-  %.0202 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %.preheader239.lr.ph ], [ 0, %99 ], [ 0, %._crit_edge.us ]
+  %.0202 = phi i32 [ 0, %99 ], [ 0, %.preheader239.lr.ph ], [ 1, %.loopexit.sink.split ], [ 0, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0202
 }
@@ -6677,9 +6677,9 @@ _control_import_image_insitu.exit:                ; preds = %157, %_collection_u
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_collection_update.exit
 
-_collection_update.exit.thread129:                ; preds = %148, %134
-  %.188.ph = phi double [ %145, %148 ], [ %.087142175, %134 ]
-  %.185.ph = phi double [ %.286, %148 ], [ %.084143174, %134 ]
+_collection_update.exit.thread129:                ; preds = %134, %148
+  %.188.ph = phi double [ %.087142175, %134 ], [ %145, %148 ]
+  %.185.ph = phi double [ %.084143174, %134 ], [ %.286, %148 ]
   %177 = add i32 %.0151167, 1
   br label %_collection_update.exit.thread
 

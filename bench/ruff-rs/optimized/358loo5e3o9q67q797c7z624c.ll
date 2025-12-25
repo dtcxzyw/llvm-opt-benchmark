@@ -19176,8 +19176,8 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17hc136889a5cda7203E.exit.thread382"
 
 .loopexit:                                        ; preds = %315, %321, %.lr.ph23.i, %311
-  %.sroa.0.0.lcssa33.i = phi ptr [ %254, %311 ], [ %.sroa.0.015.i, %321 ], [ %.sroa.0.015.i, %.lr.ph23.i ], [ %scevgep.i, %315 ]
-  %.sroa.78.0.lcssa.i = phi i64 [ 0, %311 ], [ 0, %321 ], [ %.sroa.78.021.i, %.lr.ph23.i ], [ 0, %315 ]
+  %.sroa.0.0.lcssa33.i = phi ptr [ %.sroa.0.015.i, %321 ], [ %254, %311 ], [ %.sroa.0.015.i, %.lr.ph23.i ], [ %scevgep.i, %315 ]
+  %.sroa.78.0.lcssa.i = phi i64 [ 0, %321 ], [ 0, %311 ], [ %.sroa.78.021.i, %.lr.ph23.i ], [ 0, %315 ]
   store ptr %.sroa.0.0.lcssa33.i, ptr %39, align 8
   %322 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %.sroa.78.0.lcssa.i, ptr %322, align 8

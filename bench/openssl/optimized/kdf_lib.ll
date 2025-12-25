@@ -165,7 +165,7 @@ EVP_KDF_CTX_free.exit:                            ; preds = %19
   br label %31
 
 31:                                               ; preds = %.sink.split, %19, %12, %1, %3, %7
-  %.0 = phi ptr [ %13, %19 ], [ null, %1 ], [ null, %3 ], [ null, %12 ], [ null, %7 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ null, %1 ], [ %13, %19 ], [ null, %12 ], [ null, %7 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 

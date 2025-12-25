@@ -2633,7 +2633,7 @@ _Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %.preheader86,
   br i1 %.not8.i, label %tailrecurse.i.i, label %.preheader86.backedge
 
 .preheader86.backedge:                            ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.thread, %72
-  %.05695.be = phi ptr [ %60, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.thread ], [ %73, %72 ]
+  %.05695.be = phi ptr [ %73, %72 ], [ %60, %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.thread ]
   br label %.preheader86, !llvm.loop !21
 
 tailrecurse.i.i:                                  ; preds = %_Z12GetGhostFlagPK7OctNodeI12TreeNodeDataE.exit.thread, %65
@@ -26874,7 +26874,7 @@ _ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.
   %.not26 = select i1 %48, i1 %49, i1 false
   br i1 %.not26, label %.critedge14, label %.critedge
 
-.critedge14:                                      ; preds = %26, %_ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.exit, %47
+.critedge14:                                      ; preds = %_ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.exit, %26, %47
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %51, null
@@ -75529,7 +75529,7 @@ _ZSt27__uninitialized_default_n_aIPSt6vectorIxSaIxEEmS2_ET_S4_T0_RSaIT1_E.exit.i
   br i1 %562, label %.invoke, label %_ZNKSt6vectorIS_IxSaIxEESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 .invoke:                                          ; preds = %803, %561, %.lr.ph705, %410, %518, %229, %343, %767, %730, %681, %632
-  %563 = phi ptr [ @.str, %.lr.ph705 ], [ @.str.71, %229 ], [ @.str.71, %343 ], [ @.str.71, %410 ], [ @.str.71, %518 ], [ @.str.71, %767 ], [ @.str.71, %632 ], [ @.str.71, %681 ], [ @.str.71, %730 ], [ @.str.9, %561 ], [ @.str.71, %803 ]
+  %563 = phi ptr [ @.str, %.lr.ph705 ], [ @.str.71, %229 ], [ @.str.71, %767 ], [ @.str.71, %518 ], [ @.str.71, %410 ], [ @.str.71, %343 ], [ @.str.71, %632 ], [ @.str.71, %681 ], [ @.str.71, %730 ], [ @.str.71, %803 ], [ @.str.9, %561 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %563) #48
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

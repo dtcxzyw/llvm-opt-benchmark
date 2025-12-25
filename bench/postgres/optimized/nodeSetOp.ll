@@ -654,7 +654,7 @@ set_output_count.exit.thread.i:                   ; preds = %229, %226, %222
   br label %239
 
 set_output_count.exit.i:                          ; preds = %229, %225
-  %.sink.i.i = phi i64 [ %231, %229 ], [ %..i.i, %225 ]
+  %.sink.i.i = phi i64 [ %..i.i, %225 ], [ %231, %229 ]
   store i64 %.sink.i.i, ptr %10, align 8
   %237 = icmp sgt i64 %.sink.i.i, 0
   br i1 %237, label %.thread65.loopexit.i, label %239

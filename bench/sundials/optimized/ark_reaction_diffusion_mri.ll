@@ -364,7 +364,7 @@ check_retval.exit20:                              ; preds = %check_retval.exit20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %check_retval.exit20, %.loopexit.sink.split, %check_retval.exit20.preheader
-  %.017 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %check_retval.exit20.preheader ], [ 0, %check_retval.exit20 ]
+  %.017 = phi i32 [ 0, %check_retval.exit20.preheader ], [ 1, %.loopexit.sink.split ], [ 0, %check_retval.exit20 ]
   ret i32 %.017
 }
 

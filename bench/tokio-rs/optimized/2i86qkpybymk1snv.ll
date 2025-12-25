@@ -8076,8 +8076,8 @@ _ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit: ; preds
   br label %.thread235
 
 .thread246.loopexit.split-lp:                     ; preds = %146, %194, %140, %"_ZN5tokio4sync6notify8Notified13poll_notified28_$u7b$$u7b$closure$u7d$$u7d$17hae86bc2a2c2dbe9bE.exit"
-  %.sroa.0164.1.ph.ph.ph = phi ptr [ %141, %146 ], [ %141, %140 ], [ %.sroa.0164.4, %"_ZN5tokio4sync6notify8Notified13poll_notified28_$u7b$$u7b$closure$u7d$$u7d$17hae86bc2a2c2dbe9bE.exit" ], [ %.sroa.0164.4, %194 ]
-  %.sroa.17.2.ph.ph.ph = phi ptr [ %142, %146 ], [ %142, %140 ], [ %.sroa.17.5, %"_ZN5tokio4sync6notify8Notified13poll_notified28_$u7b$$u7b$closure$u7d$$u7d$17hae86bc2a2c2dbe9bE.exit" ], [ %.sroa.17.5, %194 ]
+  %.sroa.0164.1.ph.ph.ph = phi ptr [ %141, %140 ], [ %141, %146 ], [ %.sroa.0164.4, %"_ZN5tokio4sync6notify8Notified13poll_notified28_$u7b$$u7b$closure$u7d$$u7d$17hae86bc2a2c2dbe9bE.exit" ], [ %.sroa.0164.4, %194 ]
+  %.sroa.17.2.ph.ph.ph = phi ptr [ %142, %140 ], [ %142, %146 ], [ %.sroa.17.5, %"_ZN5tokio4sync6notify8Notified13poll_notified28_$u7b$$u7b$closure$u7d$$u7d$17hae86bc2a2c2dbe9bE.exit" ], [ %.sroa.17.5, %194 ]
   %lpad.loopexit.split-lp254 = landingpad { ptr, i32 }
           cleanup
   br label %.thread235

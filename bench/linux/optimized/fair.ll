@@ -7060,7 +7060,7 @@ select_idle_core.exit75:                          ; preds = %.thread.i72
   br label %990
 
 .thread106:                                       ; preds = %819, %select_idle_core.exit, %953, %select_idle_core.exit75, %.loopexit, %978, %984
-  %987 = phi i32 [ %.6, %.loopexit ], [ %.6, %984 ], [ %.6, %978 ], [ %869, %953 ], [ %869, %select_idle_core.exit75 ], [ %730, %select_idle_core.exit ], [ %730, %819 ]
+  %987 = phi i32 [ %.6, %978 ], [ %.6, %984 ], [ %.6, %.loopexit ], [ %869, %953 ], [ %869, %select_idle_core.exit75 ], [ %730, %select_idle_core.exit ], [ %730, %819 ]
   %988 = load i32, ptr @nr_cpu_ids, align 4
   %989 = icmp ult i32 %987, %988
   br i1 %989, label %996, label %990

@@ -2265,7 +2265,7 @@ Scl_CellPinTime.exit.thread.sink.split:           ; preds = %27, %32
   br label %Scl_CellPinTime.exit.thread
 
 Scl_CellPinTime.exit.thread:                      ; preds = %Scl_CellPinTime.exit.thread.sink.split, %6, %Scl_CellPinTime.exit
-  %.0 = phi i32 [ 0, %6 ], [ 0, %Scl_CellPinTime.exit ], [ 1, %Scl_CellPinTime.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %Scl_CellPinTime.exit ], [ 0, %6 ], [ 1, %Scl_CellPinTime.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3580,7 +3580,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %.lr.ph.i
   %.pre53 = sext i32 %.pre to i64
   br label %80
 
-Abc_SclComputeParametersPin.exit.thread:          ; preds = %.lr.ph.i, %Scl_CellPinTime.exit.i
+Abc_SclComputeParametersPin.exit.thread:          ; preds = %Scl_CellPinTime.exit.i, %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

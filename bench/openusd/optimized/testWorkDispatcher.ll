@@ -1360,7 +1360,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit36:        ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
   br label %109
 
-.thread72:                                        ; preds = %37, %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit.i
+.thread72:                                        ; preds = %_ZNKSt6vectorIS_IiSaIiEESaIS1_EE12_M_check_lenEmPKc.exit.i, %37
   %lpad.thr_comm70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
@@ -1377,8 +1377,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit36:        ; preds = %_ZNSt6vectorIiSaIiE
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %89, %55
-  %.sroa.0.0.ph.ph.ph.ph = phi ptr [ %.sroa.0.2, %89 ], [ %.sroa.0.196, %55 ]
-  %.sroa.10.0.ph.ph.ph.ph = phi ptr [ %.sroa.10.2, %89 ], [ %.sroa.10.198, %55 ]
+  %.sroa.0.0.ph.ph.ph.ph = phi ptr [ %.sroa.0.196, %55 ], [ %.sroa.0.2, %89 ]
+  %.sroa.10.0.ph.ph.ph.ph = phi ptr [ %.sroa.10.198, %55 ], [ %.sroa.10.2, %89 ]
   %lpad.loopexit.split-lp83 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

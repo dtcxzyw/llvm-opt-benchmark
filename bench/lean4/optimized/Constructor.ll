@@ -1745,8 +1745,8 @@ lean_alloc_ctor.exit483:                          ; preds = %lean_dec.exit274
   br label %lean_inc.exit300.thread
 
 lean_dec.exit242:                                 ; preds = %lean_dec.exit232, %lean_dec.exit254, %lean_alloc_ctor.exit475
-  %.2210 = phi ptr [ %227, %lean_alloc_ctor.exit475 ], [ %254, %lean_dec.exit254 ], [ %254, %lean_dec.exit232 ]
-  %.2202 = phi ptr [ %243, %lean_alloc_ctor.exit475 ], [ %455, %lean_dec.exit254 ], [ %271, %lean_dec.exit232 ]
+  %.2210 = phi ptr [ %227, %lean_alloc_ctor.exit475 ], [ %254, %lean_dec.exit232 ], [ %254, %lean_dec.exit254 ]
+  %.2202 = phi ptr [ %243, %lean_alloc_ctor.exit475 ], [ %271, %lean_dec.exit232 ], [ %455, %lean_dec.exit254 ]
   %614 = ptrtoint ptr %.2202 to i64
   %615 = and i64 %614, 1
   %.not.i484 = icmp eq i64 %615, 0

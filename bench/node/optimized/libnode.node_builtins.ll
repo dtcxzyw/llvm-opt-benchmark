@@ -2898,7 +2898,7 @@ if.end.i:                                         ; preds = %if.end127
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end127, %if.end.i
-  %retval.sroa.0.0 = phi ptr [ null, %if.end127 ], [ %call31.i, %if.end.i ]
+  %retval.sroa.0.0 = phi ptr [ %call31.i, %if.end.i ], [ null, %if.end127 ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i54) #27
   br label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EED2Ev.exit
 

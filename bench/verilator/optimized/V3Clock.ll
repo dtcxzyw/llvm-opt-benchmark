@@ -1697,7 +1697,7 @@ _ZN7AstNode11privateCastI13AstBasicDTypeP12AstNodeDTypeEEPT_PS_.exit.thread: ; p
   br label %_ZN6AstXorC2EP8FileLineP11AstNodeExprS3_.exit
 
 _ZN6AstXorC2EP8FileLineP11AstNodeExprS3_.exit:    ; preds = %39, %43, %_ZN7AstNode11privateCastI13AstBasicDTypeP12AstNodeDTypeEEPT_PS_.exit.thread
-  %.128 = phi ptr [ %50, %_ZN7AstNode11privateCastI13AstBasicDTypeP12AstNodeDTypeEEPT_PS_.exit.thread ], [ %35, %43 ], [ %35, %39 ]
+  %.128 = phi ptr [ %50, %_ZN7AstNode11privateCastI13AstBasicDTypeP12AstNodeDTypeEEPT_PS_.exit.thread ], [ %35, %39 ], [ %35, %43 ]
   %51 = call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #27
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %53 = load ptr, ptr %52, align 8, !tbaa !110

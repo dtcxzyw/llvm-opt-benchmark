@@ -3746,8 +3746,8 @@ _ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit52: ; preds = %.lr.ph.i48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %32, %3, %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47, %19, %22, %.lr.ph._crit_edge, %62
-  %.sroa.0.0 = phi ptr [ %28, %.lr.ph._crit_edge ], [ %0, %3 ], [ %0, %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47 ], [ %20, %22 ], [ %20, %19 ], [ %63, %62 ], [ %20, %32 ], [ %20, %36 ]
-  %.sroa.6.0 = phi i32 [ 0, %.lr.ph._crit_edge ], [ 22, %3 ], [ 22, %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47 ], [ 0, %22 ], [ 0, %19 ], [ 0, %62 ], [ 0, %32 ], [ 0, %36 ]
+  %.sroa.0.0 = phi ptr [ %28, %.lr.ph._crit_edge ], [ %0, %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47 ], [ %0, %3 ], [ %20, %22 ], [ %20, %19 ], [ %63, %62 ], [ %20, %32 ], [ %20, %36 ]
+  %.sroa.6.0 = phi i32 [ 0, %.lr.ph._crit_edge ], [ 22, %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47 ], [ 22, %3 ], [ 0, %22 ], [ 0, %19 ], [ 0, %62 ], [ 0, %32 ], [ 0, %36 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.6.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -5588,7 +5588,7 @@ _ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.t
   br i1 %.not.i34, label %_ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit, label %113, !llvm.loop !65
 
 _ZN10fast_float8stackvecILt62EE10try_extendENS_4spanImEE.exit: ; preds = %.lr.ph.split, %.critedge.i.i.us, %66, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us, %119, %113, %.loopexit, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit
-  %.0 = phi i1 [ false, %.critedge.i.i.us ], [ true, %.loopexit ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit ], [ true, %119 ], [ true, %113 ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us ], [ false, %66 ], [ false, %.lr.ph.split ]
+  %.0 = phi i1 [ true, %119 ], [ true, %.loopexit ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit ], [ false, %.critedge.i.i.us ], [ true, %113 ], [ false, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.us ], [ false, %66 ], [ false, %.lr.ph.split ]
   ret i1 %.0
 }
 
@@ -6640,8 +6640,8 @@ _ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit52: ; preds = %.lr.ph.i48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %32, %3, %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47, %19, %22, %.lr.ph._crit_edge, %62
-  %.sroa.0.0 = phi ptr [ %28, %.lr.ph._crit_edge ], [ %0, %3 ], [ %0, %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47 ], [ %20, %22 ], [ %20, %19 ], [ %63, %62 ], [ %20, %32 ], [ %20, %36 ]
-  %.sroa.6.0 = phi i32 [ 0, %.lr.ph._crit_edge ], [ 22, %3 ], [ 22, %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47 ], [ 0, %22 ], [ 0, %19 ], [ 0, %62 ], [ 0, %32 ], [ 0, %36 ]
+  %.sroa.0.0 = phi ptr [ %28, %.lr.ph._crit_edge ], [ %0, %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47 ], [ %0, %3 ], [ %20, %22 ], [ %20, %19 ], [ %63, %62 ], [ %20, %32 ], [ %20, %36 ]
+  %.sroa.6.0 = phi i32 [ 0, %.lr.ph._crit_edge ], [ 22, %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47 ], [ 22, %3 ], [ 0, %22 ], [ 0, %19 ], [ 0, %62 ], [ 0, %32 ], [ 0, %36 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.6.0, 1
   ret { ptr, i32 } %.fca.1.insert

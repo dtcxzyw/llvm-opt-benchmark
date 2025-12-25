@@ -3569,7 +3569,7 @@ _ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathList
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %53, %42, %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.exit
-  %.0 = phi ptr [ %55, %53 ], [ %.0.i, %42 ], [ %.0.i, %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.exit ]
+  %.0 = phi ptr [ %.0.i, %_ZL21find_first_module_cpeP11ModuleEntryPK13GrowableArrayIP19ModuleClassPathListE.exit ], [ %.0.i, %42 ], [ %55, %53 ]
   %.not2845 = icmp eq ptr %.0, null
   br i1 %.not2845, label %._crit_edge, label %.lr.ph
 
@@ -4082,7 +4082,7 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread
 
 _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread: ; preds = %.thread57, %_ZL18string_starts_withPKcS0_.exit, %.thread57.us, %_ZL18string_starts_withPKcS0_.exit.us, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit98, %25, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit, %.critedge
-  %.1 = phi i16 [ -1, %.critedge ], [ 0, %25 ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ 0, %.thread57.us ], [ %144, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94 ], [ %141, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit98 ], [ %140, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit ], [ %142, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit ], [ %143, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92 ], [ 0, %_ZL18string_starts_withPKcS0_.exit.us ], [ 0, %_ZL18string_starts_withPKcS0_.exit ], [ 0, %.thread57 ]
+  %.1 = phi i16 [ -1, %.critedge ], [ 0, %25 ], [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ %144, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit94 ], [ 0, %.thread57.us ], [ %141, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit98 ], [ %140, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit.split.loop.exit ], [ %142, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit ], [ %143, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit86.split.loop.exit92 ], [ 0, %_ZL18string_starts_withPKcS0_.exit.us ], [ 0, %_ZL18string_starts_withPKcS0_.exit ], [ 0, %.thread57 ]
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %146 = load ptr, ptr %145, align 8
   %147 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %146) #21

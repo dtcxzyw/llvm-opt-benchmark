@@ -76356,7 +76356,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   br label %211
 
 211:                                              ; preds = %.sink.split, %178, %182
-  %.028 = phi i1 [ true, %178 ], [ true, %182 ], [ false, %.sink.split ]
+  %.028 = phi i1 [ true, %182 ], [ true, %178 ], [ false, %.sink.split ]
   ret i1 %.028
 }
 
@@ -77738,7 +77738,7 @@ _ZNK9rapidjson8internal18GenericRegexSearchINS0_12GenericRegexINS_4UTF8IcEENS_12
   br i1 %.not34, label %.thread49.loopexit, label %.lr.ph, !llvm.loop !612
 
 .critedge:                                        ; preds = %.thread49.loopexit, %147, %38, %.thread49.loopexit.us.us, %91, %.thread49.loopexit.us, %.lr.ph60.split.us, %.lr.ph60.split, %_ZN9rapidjson8internal13DecodedStreamINS_19GenericStringStreamINS_4UTF8IcEEEES4_EC2ERS5_.exit
-  %.026.lcssa = phi i8 [ %27, %_ZN9rapidjson8internal13DecodedStreamINS_19GenericStringStreamINS_4UTF8IcEEEES4_EC2ERS5_.exit ], [ %.329.us.us.us, %.thread49.loopexit.us ], [ 0, %38 ], [ %27, %.lr.ph60.split.us ], [ %27, %.lr.ph60.split ], [ 0, %91 ], [ 0, %.thread49.loopexit.us.us ], [ 0, %147 ], [ %.329, %.thread49.loopexit ]
+  %.026.lcssa = phi i8 [ %27, %_ZN9rapidjson8internal13DecodedStreamINS_19GenericStringStreamINS_4UTF8IcEEEES4_EC2ERS5_.exit ], [ %27, %.lr.ph60.split ], [ 0, %38 ], [ %27, %.lr.ph60.split.us ], [ %.329.us.us.us, %.thread49.loopexit.us ], [ 0, %91 ], [ 0, %.thread49.loopexit.us.us ], [ 0, %147 ], [ %.329, %.thread49.loopexit ]
   %198 = trunc nuw i8 %.026.lcssa to i1
   br label %.loopexit
 
@@ -78442,7 +78442,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   br label %228
 
 228:                                              ; preds = %.sink.split, %124, %._crit_edge72
-  %.0 = phi i1 [ true, %124 ], [ true, %._crit_edge72 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %._crit_edge72 ], [ true, %124 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

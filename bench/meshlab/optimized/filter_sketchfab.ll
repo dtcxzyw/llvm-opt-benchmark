@@ -6705,8 +6705,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL21tdefl_compress_normalP1
   br i1 %.not447, label %.outer.outer, label %.loopexit, !llvm.loop !96
 
 .loopexit:                                        ; preds = %260, %214, %163, %170, %166, %186, %182, %202, %198, %._crit_edge, %.critedge462, %151, %136
-  %.1400 = phi i32 [ %.0348.ph.ph, %214 ], [ %..0399, %._crit_edge ], [ %246, %.critedge462 ], [ %spec.select, %136 ], [ %spec.select, %151 ], [ %.0348.ph.ph, %198 ], [ %.0348.ph.ph, %202 ], [ %.0348.ph.ph, %182 ], [ %.0348.ph.ph, %186 ], [ %.0348.ph.ph, %166 ], [ %.0348.ph.ph, %170 ], [ %.0348.ph.ph, %163 ], [ %261, %260 ]
-  %.0395 = phi i32 [ %.1396.ph.ph, %214 ], [ %.461, %._crit_edge ], [ %.0, %.critedge462 ], [ 0, %136 ], [ 0, %151 ], [ %.1396.ph.ph, %198 ], [ %.1396.ph.ph, %202 ], [ %.1396.ph.ph, %182 ], [ %.1396.ph.ph, %186 ], [ %.1396.ph.ph, %166 ], [ %.1396.ph.ph, %170 ], [ %.1396.ph.ph, %163 ], [ %.0, %260 ]
+  %.1400 = phi i32 [ %246, %.critedge462 ], [ %..0399, %._crit_edge ], [ %.0348.ph.ph, %214 ], [ %spec.select, %136 ], [ %spec.select, %151 ], [ %.0348.ph.ph, %198 ], [ %.0348.ph.ph, %202 ], [ %.0348.ph.ph, %182 ], [ %.0348.ph.ph, %186 ], [ %.0348.ph.ph, %166 ], [ %.0348.ph.ph, %170 ], [ %.0348.ph.ph, %163 ], [ %261, %260 ]
+  %.0395 = phi i32 [ %.0, %.critedge462 ], [ %.461, %._crit_edge ], [ %.1396.ph.ph, %214 ], [ 0, %136 ], [ 0, %151 ], [ %.1396.ph.ph, %198 ], [ %.1396.ph.ph, %202 ], [ %.1396.ph.ph, %182 ], [ %.1396.ph.ph, %186 ], [ %.1396.ph.ph, %166 ], [ %.1396.ph.ph, %170 ], [ %.1396.ph.ph, %163 ], [ %.0, %260 ]
   %262 = icmp eq i32 %.1400, 3
   %263 = icmp ugt i32 %.0395, 8191
   %or.cond = select i1 %262, i1 %263, i1 false
@@ -11173,7 +11173,7 @@ _ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit: ; 
   br label %_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191
 
 _ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit191: ; preds = %35, %31, %.critedge, %186, %177, %172, %167, %160, %.lr.ph218, %142, %8, %78, %117, %96, %.loopexit, %207, %131, %62, %57, %54, %41, %25, %2
-  %.0145 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 0, %117 ], [ 0, %25 ], [ 1, %.loopexit ], [ 0, %54 ], [ 0, %57 ], [ 0, %96 ], [ 0, %131 ], [ 0, %78 ], [ 1, %207 ], [ 0, %41 ], [ 0, %62 ], [ 0, %186 ], [ 0, %142 ], [ 0, %.lr.ph218 ], [ 0, %160 ], [ 0, %167 ], [ 0, %172 ], [ 0, %177 ], [ 0, %.critedge ], [ 0, %31 ], [ 0, %35 ]
+  %.0145 = phi i32 [ 0, %78 ], [ 0, %2 ], [ 0, %117 ], [ 0, %25 ], [ 1, %.loopexit ], [ 0, %54 ], [ 0, %57 ], [ 0, %96 ], [ 0, %131 ], [ 0, %62 ], [ 0, %8 ], [ 0, %41 ], [ 1, %207 ], [ 0, %186 ], [ 0, %142 ], [ 0, %.lr.ph218 ], [ 0, %160 ], [ 0, %167 ], [ 0, %172 ], [ 0, %177 ], [ 0, %.critedge ], [ 0, %31 ], [ 0, %35 ]
   ret i32 %.0145
 }
 
@@ -13749,8 +13749,8 @@ mz_zip_reader_is_file_a_directory.exit.thread:    ; preds = %15, %16, %19, %22, 
   br label %.thread
 
 .thread:                                          ; preds = %118, %.lr.ph.split, %103, %.lr.ph.split.us, %159, %157, %141, %110, %124, %171, %.thread191, %168
-  %.0121189 = phi ptr [ %.0121198, %.thread191 ], [ %129, %168 ], [ %.0121198202, %171 ], [ null, %110 ], [ null, %103 ], [ null, %124 ], [ %129, %159 ], [ %129, %141 ], [ %129, %157 ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ], [ null, %118 ]
-  %.2.shrunk = phi i1 [ true, %.thread191 ], [ false, %168 ], [ %or.cond, %171 ], [ %.not165, %110 ], [ false, %103 ], [ false, %124 ], [ false, %159 ], [ false, %141 ], [ false, %157 ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %118 ]
+  %.0121189 = phi ptr [ %.0121198, %.thread191 ], [ %129, %168 ], [ %.0121198202, %171 ], [ null, %110 ], [ null, %124 ], [ %129, %159 ], [ null, %103 ], [ %129, %141 ], [ %129, %157 ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ], [ null, %118 ]
+  %.2.shrunk = phi i1 [ true, %.thread191 ], [ false, %168 ], [ %or.cond, %171 ], [ %.not165, %110 ], [ false, %124 ], [ false, %159 ], [ false, %103 ], [ false, %141 ], [ false, %157 ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %118 ]
   %176 = load ptr, ptr %79, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 104
   %178 = load ptr, ptr %177, align 8

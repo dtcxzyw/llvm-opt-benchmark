@@ -763,7 +763,7 @@ if.end110.i:                                      ; preds = %for.body.i, %if.end
   br label %inet_pton6.exit
 
 inet_pton6.exit:                                  ; preds = %if.then29.i, %if.end25.i, %if.else.i21, %if.then18.i, %if.then.i23, %land.lhs.true.i, %inet_pton4.exit.thread.i, %if.then68.i, %if.then88.i, %if.end106.i, %if.end110.i
-  %retval.0.i19 = phi i32 [ -22, %if.end106.i ], [ -22, %if.then.i23 ], [ -22, %inet_pton4.exit.thread.i ], [ 0, %if.end110.i ], [ -22, %if.then88.i ], [ -22, %land.lhs.true.i ], [ -22, %if.then68.i ], [ -22, %if.then18.i ], [ -22, %if.end25.i ], [ -22, %if.else.i21 ], [ -22, %if.then29.i ]
+  %retval.0.i19 = phi i32 [ -22, %if.end106.i ], [ -22, %if.then.i23 ], [ -22, %if.then88.i ], [ 0, %if.end110.i ], [ -22, %inet_pton4.exit.thread.i ], [ -22, %land.lhs.true.i ], [ -22, %if.then68.i ], [ -22, %if.then18.i ], [ -22, %if.end25.i ], [ -22, %if.else.i21 ], [ -22, %if.then29.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i13)
   br label %return
 

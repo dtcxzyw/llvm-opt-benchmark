@@ -503,8 +503,8 @@ define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_is_canonical(ptr 
   br label %extract_min_max.exit
 
 extract_min_max.exit:                             ; preds = %26, %23
-  %.180 = phi ptr [ %29, %26 ], [ %25, %23 ]
-  %.078 = phi ptr [ %31, %26 ], [ %25, %23 ]
+  %.180 = phi ptr [ %25, %23 ], [ %29, %26 ]
+  %.078 = phi ptr [ %25, %23 ], [ %31, %26 ]
   %.not.i53 = icmp eq ptr %20, null
   br i1 %.not.i53, label %.thread, label %32, !prof !18
 
@@ -529,8 +529,8 @@ extract_min_max.exit:                             ; preds = %26, %23
   br label %extract_min_max.exit57
 
 extract_min_max.exit57:                           ; preds = %37, %34
-  %.177 = phi ptr [ %40, %37 ], [ %36, %34 ]
-  %.075 = phi ptr [ %42, %37 ], [ %36, %34 ]
+  %.177 = phi ptr [ %36, %34 ], [ %40, %37 ]
+  %.075 = phi ptr [ %36, %34 ], [ %42, %37 ]
   %43 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.180, ptr noundef %.177) #6
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %.thread, label %45
@@ -715,8 +715,8 @@ define internal fastcc range(i32 0, 2) i32 @ASIdentifierChoice_canonize(ptr noun
   br label %extract_min_max.exit
 
 extract_min_max.exit:                             ; preds = %26, %23
-  %.1107 = phi ptr [ %29, %26 ], [ %25, %23 ]
-  %.0105 = phi ptr [ %31, %26 ], [ %25, %23 ]
+  %.1107 = phi ptr [ %25, %23 ], [ %29, %26 ]
+  %.0105 = phi ptr [ %25, %23 ], [ %31, %26 ]
   %.not.i75 = icmp eq ptr %20, null
   br i1 %.not.i75, label %.thread, label %32, !prof !18
 
@@ -741,8 +741,8 @@ extract_min_max.exit:                             ; preds = %26, %23
   br label %extract_min_max.exit79
 
 extract_min_max.exit79:                           ; preds = %37, %34
-  %.1104 = phi ptr [ %40, %37 ], [ %36, %34 ]
-  %.0102 = phi ptr [ %42, %37 ], [ %36, %34 ]
+  %.1104 = phi ptr [ %36, %34 ], [ %40, %37 ]
+  %.0102 = phi ptr [ %36, %34 ], [ %42, %37 ]
   %43 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.1107, ptr noundef %.1104) #6
   %44 = icmp slt i32 %43, 1
   br i1 %44, label %45, label %.thread, !prof !26
@@ -1379,8 +1379,8 @@ define internal fastcc range(i32 0, 2) i32 @asid_contains(ptr noundef %0, ptr no
   br label %extract_min_max.exit
 
 extract_min_max.exit:                             ; preds = %16, %19
-  %.2 = phi ptr [ %22, %19 ], [ %18, %16 ]
-  %.129 = phi ptr [ %24, %19 ], [ %18, %16 ]
+  %.2 = phi ptr [ %18, %16 ], [ %22, %19 ]
+  %.129 = phi ptr [ %18, %16 ], [ %24, %19 ]
   %25 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #6
   %.not1848 = icmp slt i32 %.01452, %25
   br i1 %.not1848, label %.lr.ph, label %extract_min_max.exit.thread
@@ -1412,8 +1412,8 @@ extract_min_max.exit:                             ; preds = %16, %19
   br label %extract_min_max.exit24
 
 extract_min_max.exit24:                           ; preds = %32, %29
-  %.3 = phi ptr [ %35, %32 ], [ %31, %29 ]
-  %.234 = phi ptr [ %37, %32 ], [ %31, %29 ]
+  %.3 = phi ptr [ %31, %29 ], [ %35, %32 ]
+  %.234 = phi ptr [ %31, %29 ], [ %37, %32 ]
   %38 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %.234, ptr noundef %.129) #6
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %43, label %40
@@ -1430,7 +1430,7 @@ extract_min_max.exit24:                           ; preds = %32, %29
   br i1 %.not18, label %.lr.ph, label %extract_min_max.exit.thread
 
 extract_min_max.exit.thread:                      ; preds = %40, %9, %.lr.ph54, %14, %extract_min_max.exit, %43, %.lr.ph, %27, %.preheader, %5, %2
-  %.015 = phi i32 [ 0, %5 ], [ 1, %2 ], [ 1, %.preheader ], [ 0, %43 ], [ 0, %27 ], [ 0, %.lr.ph ], [ 1, %9 ], [ 0, %.lr.ph54 ], [ 0, %40 ], [ 0, %14 ], [ 0, %extract_min_max.exit ]
+  %.015 = phi i32 [ 0, %5 ], [ 1, %2 ], [ 1, %.preheader ], [ 0, %43 ], [ 0, %27 ], [ 0, %.lr.ph ], [ 1, %9 ], [ 0, %.lr.ph54 ], [ 0, %extract_min_max.exit ], [ 0, %40 ], [ 0, %14 ]
   ret i32 %.015
 }
 
@@ -1934,7 +1934,7 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %143, %126, %111, %92, %X509v3_asid_is_canonical.exit220.thread, %70, %71, %80, %.thread237, %112, %.thread253, %144, %160, %X509v3_asid_is_canonical.exit.thread, %7, %172, %17, %28, %161, %168, %._crit_edge.thread, %175, %150, %151, %61, %62, %.critedge, %.critedge.thread222
-  %.0165 = phi i32 [ 0, %150 ], [ 0, %.critedge ], [ 0, %61 ], [ 0, %.critedge.thread222 ], [ 0, %62 ], [ 0, %151 ], [ 0, %160 ], [ 0, %X509v3_asid_is_canonical.exit.thread ], [ 0, %7 ], [ 0, %28 ], [ %.3151.lcssa335, %._crit_edge.thread ], [ 0, %161 ], [ %181, %175 ], [ 1, %17 ], [ %.15.mux, %172 ], [ %.15, %168 ], [ 0, %144 ], [ 0, %.thread253 ], [ 0, %112 ], [ 0, %.thread237 ], [ 0, %80 ], [ 0, %71 ], [ 0, %70 ], [ 0, %X509v3_asid_is_canonical.exit220.thread ], [ 0, %92 ], [ 0, %111 ], [ 0, %126 ], [ 0, %143 ]
+  %.0165 = phi i32 [ 0, %150 ], [ 0, %.critedge ], [ 0, %61 ], [ 0, %.critedge.thread222 ], [ 0, %62 ], [ 0, %151 ], [ 0, %161 ], [ %.3151.lcssa335, %._crit_edge.thread ], [ 0, %28 ], [ 0, %160 ], [ 0, %7 ], [ 0, %X509v3_asid_is_canonical.exit.thread ], [ %181, %175 ], [ 1, %17 ], [ %.15.mux, %172 ], [ %.15, %168 ], [ 0, %144 ], [ 0, %.thread253 ], [ 0, %112 ], [ 0, %.thread237 ], [ 0, %80 ], [ 0, %71 ], [ 0, %70 ], [ 0, %X509v3_asid_is_canonical.exit220.thread ], [ 0, %92 ], [ 0, %111 ], [ 0, %126 ], [ 0, %143 ]
   ret i32 %.0165
 }
 

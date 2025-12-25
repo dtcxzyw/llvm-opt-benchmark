@@ -8782,8 +8782,8 @@ _ZN4LuauL10tyvarIndexEPKNS_4TypeE.exit334:        ; preds = %_ZN4Luau3getINS_11B
           cleanup
   br label %431
 
-_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %426, %414, %55, %.thread.i, %280, %_ZN4LuauL10tyvarIndexEPKNS_4TypeE.exit, %194, %199, %277, %.noexc283, %.thread370, %91, %46, %75, %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit284, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit273, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit265.thread
-  %.0 = phi i32 [ 0, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit265.thread ], [ %149, %.thread370 ], [ 0, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit273 ], [ 2, %.thread.i ], [ 0, %91 ], [ %.12, %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit284 ], [ 0, %55 ], [ 0, %75 ], [ 2, %46 ], [ 0, %280 ], [ 0, %_ZN4LuauL10tyvarIndexEPKNS_4TypeE.exit ], [ 0, %194 ], [ 0, %199 ], [ %.9, %277 ], [ 0, %.noexc283 ], [ %425, %426 ], [ 0, %414 ]
+_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %426, %414, %55, %.thread.i, %280, %_ZN4LuauL10tyvarIndexEPKNS_4TypeE.exit, %194, %199, %277, %.thread370, %91, %.noexc283, %46, %75, %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit284, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit273, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit265.thread
+  %.0 = phi i32 [ 0, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit265.thread ], [ 0, %91 ], [ 0, %_ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit273 ], [ 2, %.thread.i ], [ 0, %.noexc283 ], [ %.12, %_ZN4Luau3SetIPKNS_4TypeENS_16DenseHashPointerEE5eraseERKS3_.exit284 ], [ 0, %55 ], [ 0, %75 ], [ 2, %46 ], [ 0, %_ZN4LuauL10tyvarIndexEPKNS_4TypeE.exit ], [ 0, %194 ], [ 0, %199 ], [ %.9, %277 ], [ 0, %280 ], [ %149, %.thread370 ], [ %425, %426 ], [ 0, %414 ]
   %429 = load i32, ptr %21, align 4, !tbaa !4
   %430 = add nsw i32 %429, -1
   store i32 %430, ptr %21, align 4, !tbaa !4
@@ -18906,8 +18906,8 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
   br label %.critedge74
 
 .critedge74:                                      ; preds = %.critedge74.sink.split, %127, %101, %144
-  %.sroa.0110.2 = phi ptr [ %135, %127 ], [ undef, %144 ], [ %92, %101 ], [ undef, %.critedge74.sink.split ]
-  %.sroa.7111.2 = phi i8 [ 1, %127 ], [ 0, %144 ], [ 1, %101 ], [ 0, %.critedge74.sink.split ]
+  %.sroa.0110.2 = phi ptr [ undef, %144 ], [ %135, %127 ], [ %92, %101 ], [ undef, %.critedge74.sink.split ]
+  %.sroa.7111.2 = phi i8 [ 0, %144 ], [ 1, %127 ], [ 1, %101 ], [ 0, %.critedge74.sink.split ]
   %154 = load i8, ptr %5, align 1, !tbaa !32, !range !34, !noundef !35
   %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %156
@@ -33959,8 +33959,8 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backEOS3_.exit165: ; preds = %_ZNSt6vec
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit171
 
 .body:                                            ; preds = %.loopexit596, %.loopexit.split-lp597, %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEED2Ev.exit4.i
-  %.sroa.23.4 = phi ptr [ %.sroa.23.3719, %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEED2Ev.exit4.i ], [ %.sroa.14.2721, %.loopexit.split-lp597 ], [ %.sroa.14.2721, %.loopexit596 ]
-  %.pn = phi { ptr, i32 } [ %191, %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEED2Ev.exit4.i ], [ %lpad.loopexit.split-lp599, %.loopexit.split-lp597 ], [ %lpad.loopexit598, %.loopexit596 ]
+  %.sroa.23.4 = phi ptr [ %.sroa.23.3719, %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEED2Ev.exit4.i ], [ %.sroa.14.2721, %.loopexit596 ], [ %.sroa.14.2721, %.loopexit.split-lp597 ]
+  %.pn = phi { ptr, i32 } [ %191, %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorIS5_EENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_12NoRefineTypeENS_24TypeFunctionInstanceTypeEEED2Ev.exit4.i ], [ %lpad.loopexit598, %.loopexit596 ], [ %lpad.loopexit.split-lp599, %.loopexit.split-lp597 ]
   %.not.i.i.i170 = icmp eq ptr %.sroa.0467.3720, null
   br i1 %.not.i.i.i170, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit171, label %251
 

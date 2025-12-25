@@ -598,7 +598,7 @@ mmbit_get_flat_block.exit71:                      ; preds = %261, %264, %267, %2
   br label %.backedge
 
 mmbit_iterate.exit24:                             ; preds = %305, %192, %.thread93, %245, %282
-  %.011.i23 = phi i32 [ %250, %245 ], [ %285, %282 ], [ %237, %.thread93 ], [ %194, %192 ], [ %309, %305 ]
+  %.011.i23 = phi i32 [ %237, %.thread93 ], [ %285, %282 ], [ %250, %245 ], [ %194, %192 ], [ %309, %305 ]
   %.not = icmp eq i32 %.011.i23, -1
   br i1 %.not, label %._crit_edge128, label %151
 }

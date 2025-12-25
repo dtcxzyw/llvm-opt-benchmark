@@ -1127,14 +1127,14 @@ check_cref.exit.thread.i:                         ; preds = %check_cref.exit.i, 
   br i1 %cond.i.i.i.i, label %vm_env_cref.exit, label %vm_env_cref.exit.thread
 
 vm_env_cref.exit:                                 ; preds = %45, %31
-  %.val.i.i.i.pn = phi ptr [ %.val.i11.i, %31 ], [ %.val.i.i.i, %45 ]
-  %.0.i.in = getelementptr inbounds nuw i8, ptr %.val.i.i.i.pn, i64 16
+  %.val.i11.i.pn = phi ptr [ %.val.i11.i, %31 ], [ %.val.i.i.i, %45 ]
+  %.0.i.in = getelementptr inbounds nuw i8, ptr %.val.i11.i.pn, i64 16
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !26
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %vm_env_cref.exit.thread, label %vm_env_cref.exit.thread6
 
-vm_env_cref.exit.thread6:                         ; preds = %6, %check_cref.exit.i, %39, %25, %vm_env_cref.exit
-  %.0.i9 = phi ptr [ %.0.i, %vm_env_cref.exit ], [ %26, %25 ], [ %40, %39 ], [ %17, %check_cref.exit.i ], [ %7, %6 ]
+vm_env_cref.exit.thread6:                         ; preds = %check_cref.exit.i, %6, %39, %25, %vm_env_cref.exit
+  %.0.i9 = phi ptr [ %.0.i, %vm_env_cref.exit ], [ %26, %25 ], [ %40, %39 ], [ %7, %6 ], [ %17, %check_cref.exit.i ]
   ret ptr %.0.i9
 
 vm_env_cref.exit.thread:                          ; preds = %35, %39, %25, %._crit_edge.i, %31, %45, %vm_env_cref.exit
@@ -3794,7 +3794,7 @@ VM_EP_LEP.exit:                                   ; preds = %.lr.ph.i, %88
   br i1 %cond.i.i, label %rb_vm_frame_method_entry.exit, label %211
 
 rb_vm_frame_method_entry.exit:                    ; preds = %105, %127, %117
-  %.0.i58 = phi ptr [ %118, %117 ], [ %128, %127 ], [ %106, %105 ]
+  %.0.i58 = phi ptr [ %128, %127 ], [ %118, %117 ], [ %106, %105 ]
   %131 = getelementptr inbounds nuw i8, ptr %.0.i58, i64 8
   %132 = load i64, ptr %131, align 8, !tbaa !187
   %133 = inttoptr i64 %132 to ptr
@@ -5065,7 +5065,7 @@ vm_search_method_fastpath.exit:                   ; preds = %66, %70
   unreachable
 
 rb_vm_frame_method_entry.exit.i:                  ; preds = %81, %103, %93
-  %.0.i71.i = phi ptr [ %94, %93 ], [ %104, %103 ], [ %82, %81 ]
+  %.0.i71.i = phi ptr [ %104, %103 ], [ %94, %93 ], [ %82, %81 ]
   %108 = getelementptr i8, ptr %.0.i71.i, i64 8
   %.val70.i = load i64, ptr %108, align 8, !tbaa !187
   %109 = inttoptr i64 %.val70.i to ptr
@@ -5824,14 +5824,14 @@ check_cref.exit.thread.i:                         ; preds = %check_cref.exit.i, 
   br i1 %cond.i.i.i.i, label %vm_env_cref.exit, label %vm_to_proc.exit
 
 vm_env_cref.exit:                                 ; preds = %101, %87
-  %.val.i.i.i.pn = phi ptr [ %.val.i11.i, %87 ], [ %.val.i.i.i, %101 ]
-  %.0.i43.in = getelementptr inbounds nuw i8, ptr %.val.i.i.i.pn, i64 16
+  %.val.i11.i.pn = phi ptr [ %.val.i11.i, %87 ], [ %.val.i.i.i, %101 ]
+  %.0.i43.in = getelementptr inbounds nuw i8, ptr %.val.i11.i.pn, i64 16
   %.0.i43 = load ptr, ptr %.0.i43.in, align 8, !tbaa !26
   %.not40 = icmp eq ptr %.0.i43, null
   br i1 %.not40, label %vm_to_proc.exit, label %vm_env_cref.exit.thread10
 
-vm_env_cref.exit.thread10:                        ; preds = %62, %check_cref.exit.i, %95, %81, %vm_env_cref.exit
-  %.0.i4313 = phi ptr [ %.0.i43, %vm_env_cref.exit ], [ %82, %81 ], [ %96, %95 ], [ %73, %check_cref.exit.i ], [ %63, %62 ]
+vm_env_cref.exit.thread10:                        ; preds = %check_cref.exit.i, %62, %95, %81, %vm_env_cref.exit
+  %.0.i4313 = phi ptr [ %.0.i43, %vm_env_cref.exit ], [ %82, %81 ], [ %96, %95 ], [ %63, %62 ], [ %73, %check_cref.exit.i ]
   %105 = getelementptr inbounds nuw i8, ptr %.0.i4313, i64 8
   %106 = load i64, ptr %105, align 8, !tbaa !25
   %107 = icmp eq i64 %106, 4
@@ -13220,7 +13220,7 @@ rb_float_value_inline.exit35.i:                   ; preds = %2780
   br label %vm_opt_plus.exit
 
 vm_opt_plus.exit:                                 ; preds = %2802, %2698, %2703, %2757, %2816, %2830
-  %.0.i2564 = phi i64 [ %2706, %2703 ], [ %2702, %2698 ], [ %2803, %2802 ], [ %2758, %2757 ], [ %2817, %2816 ], [ %2831, %2830 ]
+  %.0.i2564 = phi i64 [ %2706, %2703 ], [ %2702, %2698 ], [ %2758, %2757 ], [ %2803, %2802 ], [ %2817, %2816 ], [ %2831, %2830 ]
   %2832 = icmp eq i64 %.0.i2564, 36
   br i1 %2832, label %vm_objtostring.exit.thread, label %vm_opt_plus.exit.vm_opt_plus.exit.thread2819_crit_edge
 
@@ -13228,9 +13228,9 @@ vm_opt_plus.exit.vm_opt_plus.exit.thread2819_crit_edge: ; preds = %vm_opt_plus.e
   %.pre3112 = load ptr, ptr %2685, align 8, !tbaa !93
   br label %vm_opt_plus.exit.thread2819
 
-vm_opt_plus.exit.thread2819:                      ; preds = %vm_opt_plus.exit.vm_opt_plus.exit.thread2819_crit_edge, %2751, %2796, %2755, %2800
-  %2833 = phi ptr [ %.pre3112, %vm_opt_plus.exit.vm_opt_plus.exit.thread2819_crit_edge ], [ %2686, %2751 ], [ %2686, %2796 ], [ %2686, %2755 ], [ %2686, %2800 ]
-  %.0.i25642821 = phi i64 [ %.0.i2564, %vm_opt_plus.exit.vm_opt_plus.exit.thread2819_crit_edge ], [ %2754, %2751 ], [ %2799, %2796 ], [ -9223372036854775806, %2755 ], [ -9223372036854775806, %2800 ]
+vm_opt_plus.exit.thread2819:                      ; preds = %vm_opt_plus.exit.vm_opt_plus.exit.thread2819_crit_edge, %2800, %2796, %2755, %2751
+  %2833 = phi ptr [ %.pre3112, %vm_opt_plus.exit.vm_opt_plus.exit.thread2819_crit_edge ], [ %2686, %2800 ], [ %2686, %2796 ], [ %2686, %2755 ], [ %2686, %2751 ]
+  %.0.i25642821 = phi i64 [ %.0.i2564, %vm_opt_plus.exit.vm_opt_plus.exit.thread2819_crit_edge ], [ -9223372036854775806, %2800 ], [ %2799, %2796 ], [ -9223372036854775806, %2755 ], [ %2754, %2751 ]
   %2834 = getelementptr i8, ptr %2833, i64 -8
   store ptr %2834, ptr %2685, align 8, !tbaa !93
   %2835 = getelementptr i8, ptr %2833, i64 -16
@@ -13430,7 +13430,7 @@ rb_float_value_inline.exit25.i:                   ; preds = %2932
   br label %vm_opt_minus.exit
 
 vm_opt_minus.exit:                                ; preds = %2954, %2850, %2855, %2909
-  %.0.i2571 = phi i64 [ %2858, %2855 ], [ %2854, %2850 ], [ %2955, %2954 ], [ %2910, %2909 ]
+  %.0.i2571 = phi i64 [ %2858, %2855 ], [ %2854, %2850 ], [ %2910, %2909 ], [ %2955, %2954 ]
   %2956 = icmp eq i64 %.0.i2571, 36
   br i1 %2956, label %vm_objtostring.exit.thread, label %vm_opt_minus.exit.vm_opt_minus.exit.thread2824_crit_edge
 
@@ -13438,9 +13438,9 @@ vm_opt_minus.exit.vm_opt_minus.exit.thread2824_crit_edge: ; preds = %vm_opt_minu
   %.pre3111 = load ptr, ptr %2837, align 8, !tbaa !93
   br label %vm_opt_minus.exit.thread2824
 
-vm_opt_minus.exit.thread2824:                     ; preds = %vm_opt_minus.exit.vm_opt_minus.exit.thread2824_crit_edge, %2903, %2948, %2907, %2952
-  %2957 = phi ptr [ %.pre3111, %vm_opt_minus.exit.vm_opt_minus.exit.thread2824_crit_edge ], [ %2838, %2903 ], [ %2838, %2948 ], [ %2838, %2907 ], [ %2838, %2952 ]
-  %.0.i25712826 = phi i64 [ %.0.i2571, %vm_opt_minus.exit.vm_opt_minus.exit.thread2824_crit_edge ], [ %2906, %2903 ], [ %2951, %2948 ], [ -9223372036854775806, %2907 ], [ -9223372036854775806, %2952 ]
+vm_opt_minus.exit.thread2824:                     ; preds = %vm_opt_minus.exit.vm_opt_minus.exit.thread2824_crit_edge, %2952, %2948, %2907, %2903
+  %2957 = phi ptr [ %.pre3111, %vm_opt_minus.exit.vm_opt_minus.exit.thread2824_crit_edge ], [ %2838, %2952 ], [ %2838, %2948 ], [ %2838, %2907 ], [ %2838, %2903 ]
+  %.0.i25712826 = phi i64 [ %.0.i2571, %vm_opt_minus.exit.vm_opt_minus.exit.thread2824_crit_edge ], [ -9223372036854775806, %2952 ], [ %2951, %2948 ], [ -9223372036854775806, %2907 ], [ %2906, %2903 ]
   %2958 = getelementptr i8, ptr %2957, i64 -8
   store ptr %2958, ptr %2837, align 8, !tbaa !93
   %2959 = getelementptr i8, ptr %2957, i64 -16
@@ -13649,7 +13649,7 @@ rb_float_value_inline.exit24.i:                   ; preds = %3060
   br label %vm_opt_mult.exit
 
 vm_opt_mult.exit:                                 ; preds = %3082, %2985, %3037
-  %.0.i2578 = phi i64 [ %3038, %3037 ], [ %2986, %2985 ], [ %3083, %3082 ]
+  %.0.i2578 = phi i64 [ %3083, %3082 ], [ %2986, %2985 ], [ %3038, %3037 ]
   %3084 = icmp eq i64 %.0.i2578, 36
   br i1 %3084, label %vm_objtostring.exit.thread, label %vm_opt_mult.exit.vm_opt_mult.exit.thread2829_crit_edge
 
@@ -13657,9 +13657,9 @@ vm_opt_mult.exit.vm_opt_mult.exit.thread2829_crit_edge: ; preds = %vm_opt_mult.e
   %.pre3110 = load ptr, ptr %2961, align 8, !tbaa !93
   br label %vm_opt_mult.exit.thread2829
 
-vm_opt_mult.exit.thread2829:                      ; preds = %vm_opt_mult.exit.vm_opt_mult.exit.thread2829_crit_edge, %2982, %3031, %3076, %3035, %3080
-  %3085 = phi ptr [ %.pre3110, %vm_opt_mult.exit.vm_opt_mult.exit.thread2829_crit_edge ], [ %2962, %2982 ], [ %2962, %3031 ], [ %2962, %3076 ], [ %2962, %3035 ], [ %2962, %3080 ]
-  %.0.i25782831 = phi i64 [ %.0.i2578, %vm_opt_mult.exit.vm_opt_mult.exit.thread2829_crit_edge ], [ %2984, %2982 ], [ %3034, %3031 ], [ %3079, %3076 ], [ -9223372036854775806, %3035 ], [ -9223372036854775806, %3080 ]
+vm_opt_mult.exit.thread2829:                      ; preds = %vm_opt_mult.exit.vm_opt_mult.exit.thread2829_crit_edge, %2982, %3080, %3076, %3035, %3031
+  %3085 = phi ptr [ %.pre3110, %vm_opt_mult.exit.vm_opt_mult.exit.thread2829_crit_edge ], [ %2962, %2982 ], [ %2962, %3080 ], [ %2962, %3076 ], [ %2962, %3035 ], [ %2962, %3031 ]
+  %.0.i25782831 = phi i64 [ %.0.i2578, %vm_opt_mult.exit.vm_opt_mult.exit.thread2829_crit_edge ], [ %2984, %2982 ], [ -9223372036854775806, %3080 ], [ %3079, %3076 ], [ -9223372036854775806, %3035 ], [ %3034, %3031 ]
   %3086 = getelementptr i8, ptr %3085, i64 -8
   store ptr %3086, ptr %2961, align 8, !tbaa !93
   %3087 = getelementptr i8, ptr %3085, i64 -16
@@ -13784,7 +13784,7 @@ vm_opt_div.exit.thread2833:                       ; preds = %3115, %3117, %3119
   br label %vm_opt_div.exit
 
 vm_opt_div.exit:                                  ; preds = %3109, %3132, %3159
-  %.0.i2587 = phi i64 [ %3160, %3159 ], [ %3133, %3132 ], [ %3110, %3109 ]
+  %.0.i2587 = phi i64 [ %3110, %3109 ], [ %3133, %3132 ], [ %3160, %3159 ]
   %3161 = icmp eq i64 %.0.i2587, 36
   br i1 %3161, label %vm_objtostring.exit.thread, label %vm_opt_div.exit._crit_edge
 
@@ -14013,8 +14013,8 @@ vm_opt_mod.exit:                                  ; preds = %rb_float_value_inli
   %3293 = icmp eq i64 %3292, 36
   br i1 %3293, label %vm_objtostring.exit.thread, label %vm_opt_mod.exit.thread2838
 
-vm_opt_mod.exit.thread2838:                       ; preds = %3196, %3243, %3286, %3247, %3183, %3290, %vm_opt_mod.exit
-  %.0.i25902840 = phi i64 [ %3292, %vm_opt_mod.exit ], [ %3198, %3196 ], [ %3246, %3243 ], [ %3289, %3286 ], [ -9223372036854775806, %3247 ], [ 1, %3183 ], [ -9223372036854775806, %3290 ]
+vm_opt_mod.exit.thread2838:                       ; preds = %3290, %3286, %3247, %3243, %3183, %3196, %vm_opt_mod.exit
+  %.0.i25902840 = phi i64 [ %3292, %vm_opt_mod.exit ], [ -9223372036854775806, %3290 ], [ %3289, %3286 ], [ -9223372036854775806, %3247 ], [ %3246, %3243 ], [ 1, %3183 ], [ %3198, %3196 ]
   %3294 = load ptr, ptr %3167, align 8, !tbaa !93
   %3295 = getelementptr i8, ptr %3294, i64 -8
   store ptr %3295, ptr %3167, align 8, !tbaa !93
@@ -15004,9 +15004,9 @@ vm_opt_aref.exit.thread:                          ; preds = %3850, %3804, %3847,
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
   br label %vm_objtostring.exit.thread
 
-vm_opt_aref.exit.thread2852:                      ; preds = %vm_opt_aref.exit.vm_opt_aref.exit.thread2852_crit_edge, %3838, %rb_array_const_ptr.exit.i.i, %3841
-  %3857 = phi ptr [ %.pre3108, %vm_opt_aref.exit.vm_opt_aref.exit.thread2852_crit_edge ], [ %3791, %3841 ], [ %3791, %rb_array_const_ptr.exit.i.i ], [ %3791, %3838 ]
-  %.0.i26782854 = phi i64 [ %.0.i2678, %vm_opt_aref.exit.vm_opt_aref.exit.thread2852_crit_edge ], [ 4, %3841 ], [ 4, %rb_array_const_ptr.exit.i.i ], [ 4, %3838 ]
+vm_opt_aref.exit.thread2852:                      ; preds = %vm_opt_aref.exit.vm_opt_aref.exit.thread2852_crit_edge, %3841, %rb_array_const_ptr.exit.i.i, %3838
+  %3857 = phi ptr [ %.pre3108, %vm_opt_aref.exit.vm_opt_aref.exit.thread2852_crit_edge ], [ %3791, %3838 ], [ %3791, %rb_array_const_ptr.exit.i.i ], [ %3791, %3841 ]
+  %.0.i26782854 = phi i64 [ %.0.i2678, %vm_opt_aref.exit.vm_opt_aref.exit.thread2852_crit_edge ], [ 4, %3838 ], [ 4, %rb_array_const_ptr.exit.i.i ], [ 4, %3841 ]
   %3858 = getelementptr i8, ptr %3857, i64 -8
   store ptr %3858, ptr %3790, align 8, !tbaa !93
   %3859 = getelementptr i8, ptr %3857, i64 -16
@@ -28558,7 +28558,7 @@ vm_env_cref.exit.sink.split:                      ; preds = %112, %98, %50, %36
   br label %vm_env_cref.exit
 
 vm_env_cref.exit:                                 ; preds = %check_cref.exit.i, %11, %check_cref.exit.i31, %73, %vm_env_cref.exit.sink.split, %106, %92, %44, %30
-  %.0 = phi ptr [ %93, %92 ], [ %107, %106 ], [ %31, %30 ], [ %117, %vm_env_cref.exit.sink.split ], [ %74, %73 ], [ %45, %44 ], [ %84, %check_cref.exit.i31 ], [ %22, %check_cref.exit.i ], [ %12, %11 ]
+  %.0 = phi ptr [ %107, %106 ], [ %45, %44 ], [ %31, %30 ], [ %93, %92 ], [ %117, %vm_env_cref.exit.sink.split ], [ %74, %73 ], [ %84, %check_cref.exit.i31 ], [ %12, %11 ], [ %22, %check_cref.exit.i ]
   %118 = icmp ult ptr %.0, inttoptr (i64 2 to ptr)
   br i1 %118, label %vm_env_cref.exit.thread, label %119
 
@@ -30194,7 +30194,7 @@ define hidden range(i32 0, 2) i32 @rb_dtrace_setup(ptr noundef readonly captures
   br i1 %cond.i.i.i.i, label %rb_ec_frame_method_id_and_class.exit, label %rb_ec_frame_method_id_and_class.exit.thread
 
 rb_ec_frame_method_id_and_class.exit:             ; preds = %17, %29, %39
-  %.0.i.i.i = phi ptr [ %30, %29 ], [ %40, %39 ], [ %18, %17 ]
+  %.0.i.i.i = phi ptr [ %40, %39 ], [ %30, %29 ], [ %18, %17 ]
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !101
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -30411,7 +30411,7 @@ define hidden range(i32 0, 2) i32 @rb_ec_frame_method_id_and_class(ptr noundef r
   br i1 %cond.i.i.i, label %rb_vm_frame_method_entry.exit.i, label %rb_vm_control_frame_id_and_class.exit
 
 rb_vm_frame_method_entry.exit.i:                  ; preds = %13, %35, %25
-  %.0.i.i = phi ptr [ %26, %25 ], [ %36, %35 ], [ %14, %13 ]
+  %.0.i.i = phi ptr [ %36, %35 ], [ %26, %25 ], [ %14, %13 ]
   %.not15.i = icmp eq ptr %1, null
   br i1 %.not15.i, label %44, label %39
 
@@ -34786,7 +34786,7 @@ define hidden range(i32 0, 2) i32 @rb_vm_control_frame_id_and_class(ptr noundef 
   br i1 %cond.i.i, label %rb_vm_frame_method_entry.exit, label %rb_vm_frame_method_entry.exit.thread
 
 rb_vm_frame_method_entry.exit:                    ; preds = %11, %33, %23
-  %.0.i = phi ptr [ %24, %23 ], [ %34, %33 ], [ %12, %11 ]
+  %.0.i = phi ptr [ %34, %33 ], [ %24, %23 ], [ %12, %11 ]
   %.not15 = icmp eq ptr %1, null
   br i1 %.not15, label %42, label %37
 
@@ -34892,7 +34892,7 @@ define dso_local range(i32 0, 2) i32 @rb_frame_method_id_and_class(ptr noundef w
   br i1 %cond.i.i.i.i, label %rb_vm_frame_method_entry.exit.i.i, label %rb_ec_frame_method_id_and_class.exit
 
 rb_vm_frame_method_entry.exit.i.i:                ; preds = %13, %35, %25
-  %.0.i.i.i = phi ptr [ %26, %25 ], [ %36, %35 ], [ %14, %13 ]
+  %.0.i.i.i = phi ptr [ %36, %35 ], [ %26, %25 ], [ %14, %13 ]
   %.not15.i.i = icmp eq ptr %0, null
   br i1 %.not15.i.i, label %44, label %39
 
@@ -40044,7 +40044,7 @@ current_method_entry.exit.i:                      ; preds = %442, %440, %431, %4
   br i1 %cond.i.i.i, label %rb_vm_frame_method_entry.exit.i, label %.thread.i
 
 rb_vm_frame_method_entry.exit.i:                  ; preds = %451, %473, %463
-  %.0.i63.i = phi ptr [ %464, %463 ], [ %474, %473 ], [ %452, %451 ]
+  %.0.i63.i = phi ptr [ %474, %473 ], [ %464, %463 ], [ %452, %451 ]
   %477 = getelementptr inbounds nuw i8, ptr %.0.i63.i, i64 16
   %478 = load ptr, ptr %477, align 8, !tbaa !101
   %479 = tail call i32 @rb_method_definition_eq(ptr noundef nonnull %423, ptr noundef %478)
@@ -61307,7 +61307,7 @@ rb_vm_pop_frame.exit270:                          ; preds = %.thread, %132
   br label %376
 
 142:                                              ; preds = %90, %79
-  %.0215 = phi ptr [ null, %79 ], [ %.val262, %90 ]
+  %.0215 = phi ptr [ %.val262, %90 ], [ null, %79 ]
   switch i32 %.0198, label %.thread300 [
     i32 6, label %143
     i32 4, label %161
@@ -61788,9 +61788,9 @@ vm_push_frame.exit:                               ; preds = %.lr.ph.i, %.prehead
   store i64 4, ptr %356, align 8, !tbaa !62
   br label %376
 
-.thread316:                                       ; preds = %184, %160, %261, %.preheader, %switch.early.test.thread, %.preheader373, %.preheader372, %187, %161, %143, %.loopexit
-  %.0215306325 = phi ptr [ %.0215306, %.loopexit ], [ %.0215307.fr, %187 ], [ %.0215, %143 ], [ %.0215, %.preheader372 ], [ %.0215, %161 ], [ %.0215, %.preheader373 ], [ %.0215307.fr, %261 ], [ %.0215, %160 ], [ %.0215307.fr, %switch.early.test.thread ], [ %.0215307.fr, %.preheader ], [ %.0215, %184 ]
-  %.1199311324 = phi i32 [ %.1199311, %.loopexit ], [ %.1199312, %187 ], [ 6, %143 ], [ 6, %.preheader372 ], [ 4, %161 ], [ 4, %.preheader373 ], [ %.1199312, %261 ], [ 6, %160 ], [ %.1199312, %switch.early.test.thread ], [ %.1199312, %.preheader ], [ 4, %184 ]
+.thread316:                                       ; preds = %184, %160, %261, %switch.early.test.thread, %.preheader, %.preheader373, %.preheader372, %187, %161, %143, %.loopexit
+  %.0215306325 = phi ptr [ %.0215306, %.loopexit ], [ %.0215307.fr, %187 ], [ %.0215, %143 ], [ %.0215, %.preheader372 ], [ %.0215, %161 ], [ %.0215, %.preheader373 ], [ %.0215307.fr, %261 ], [ %.0215, %160 ], [ %.0215307.fr, %.preheader ], [ %.0215307.fr, %switch.early.test.thread ], [ %.0215, %184 ]
+  %.1199311324 = phi i32 [ %.1199311, %.loopexit ], [ %.1199312, %187 ], [ 6, %143 ], [ 6, %.preheader372 ], [ 4, %161 ], [ 4, %.preheader373 ], [ %.1199312, %261 ], [ 6, %160 ], [ %.1199312, %.preheader ], [ %.1199312, %switch.early.test.thread ], [ 4, %184 ]
   %357 = icmp eq ptr %27, %.0215306325
   call fastcc void @hook_before_rewind(ptr noundef %0, i1 noundef zeroext %357, i32 noundef %.1199311324, ptr noundef %6)
   %358 = load ptr, ptr %7, align 8, !tbaa !66

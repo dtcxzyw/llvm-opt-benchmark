@@ -564,8 +564,8 @@ _ZN8QuantLib5ArrayD2Ev.exit190:                   ; preds = %_ZN8QuantLib5ArrayD
   ret void
 
 ehcleanup256:                                     ; preds = %lpad104, %lpad199, %_ZN8QuantLib5ArrayD2Ev.exit173, %lpad18
-  %diffGradient.sroa.0.1 = phi ptr [ null, %lpad18 ], [ %16, %lpad104 ], [ %16, %lpad199 ], [ %16, %_ZN8QuantLib5ArrayD2Ev.exit173 ]
-  %.pn65 = phi { ptr, i32 } [ %20, %lpad18 ], [ %39, %lpad104 ], [ %88, %lpad199 ], [ %100, %_ZN8QuantLib5ArrayD2Ev.exit173 ]
+  %diffGradient.sroa.0.1 = phi ptr [ %16, %lpad199 ], [ %16, %lpad104 ], [ null, %lpad18 ], [ %16, %_ZN8QuantLib5ArrayD2Ev.exit173 ]
+  %.pn65 = phi { ptr, i32 } [ %88, %lpad199 ], [ %39, %lpad104 ], [ %20, %lpad18 ], [ %100, %_ZN8QuantLib5ArrayD2Ev.exit173 ]
   %cmp.not.i.i191 = icmp eq ptr %diffGradientWithHessianApplied.sroa.0.0, null
   br i1 %cmp.not.i.i191, label %ehcleanup257, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i192
 

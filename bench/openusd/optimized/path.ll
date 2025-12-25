@@ -6176,8 +6176,8 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeESaIS3_EE9push_b
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %352, %319, %377, %372
-  %.sroa.18.1.ph.ph = phi ptr [ %.sroa.18.3, %372 ], [ %.sroa.8.1, %352 ], [ %.sroa.18.3, %377 ], [ %.sroa.18.0142, %319 ]
-  %.sroa.0104.1.ph.ph = phi ptr [ %.sroa.0104.3, %372 ], [ %.sroa.0104.3, %352 ], [ %.sroa.0104.3, %377 ], [ %.sroa.0104.0143, %319 ]
+  %.sroa.18.1.ph.ph = phi ptr [ %.sroa.18.3, %372 ], [ %.sroa.8.1, %352 ], [ %.sroa.18.0142, %319 ], [ %.sroa.18.3, %377 ]
+  %.sroa.0104.1.ph.ph = phi ptr [ %.sroa.0104.3, %372 ], [ %.sroa.0104.3, %352 ], [ %.sroa.0104.0143, %319 ], [ %.sroa.0104.3, %377 ]
   %lpad.loopexit.split-lp124 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -22464,7 +22464,7 @@ define linkonce_odr ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_itera
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit: ; preds = %16
   br i1 %35, label %112, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.loopexit
 
-112:                                              ; preds = %15, %79, %110, %49, %62, %64, %108, %95, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit
+112:                                              ; preds = %15, %79, %95, %49, %62, %64, %108, %110, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.062.181, i64 8
   %.0.copyload.i.i.i = load i64, ptr %113, align 4
   %.0.copyload.i6.i.i = load i64, ptr %2, align 4
@@ -22474,8 +22474,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v
   %117 = trunc nuw i64 %116 to i32
   br i1 %114, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.loopexit, label %.lr.ph, !llvm.loop !339
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.loopexit: ; preds = %14, %112, %15, %79, %110, %49, %62, %64, %108, %95, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit
-  %.sroa.062.1.lcssa.ph = phi ptr [ %.sroa.062.181, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit ], [ %.sroa.062.181, %95 ], [ %.sroa.062.181, %108 ], [ %.sroa.062.181, %64 ], [ %.sroa.062.181, %62 ], [ %.sroa.062.181, %49 ], [ %.sroa.062.181, %110 ], [ %.sroa.062.181, %79 ], [ %.sroa.062.181, %15 ], [ %113, %112 ], [ %.sroa.062.181, %14 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread.loopexit: ; preds = %14, %112, %15, %79, %95, %49, %62, %64, %108, %110, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit
+  %.sroa.062.1.lcssa.ph = phi ptr [ %.sroa.062.181, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit ], [ %.sroa.062.181, %110 ], [ %.sroa.062.181, %108 ], [ %.sroa.062.181, %64 ], [ %.sroa.062.181, %62 ], [ %.sroa.062.181, %49 ], [ %.sroa.062.181, %95 ], [ %.sroa.062.181, %79 ], [ %.sroa.062.181, %15 ], [ %113, %112 ], [ %.sroa.062.181, %14 ]
   %.0.copyload.i.i.i8103.pre = load i64, ptr %2, align 4
   %118 = trunc i64 %.0.copyload.i.i.i8103.pre to i32
   %119 = lshr i64 %.0.copyload.i.i.i8103.pre, 32
@@ -22701,7 +22701,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13: ; preds = %131
   br i1 %150, label %227, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13.thread
 
-227:                                              ; preds = %130, %194, %225, %164, %177, %179, %223, %210, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13
+227:                                              ; preds = %130, %194, %210, %164, %177, %179, %223, %225, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13
   %.sroa.0.1 = getelementptr inbounds i8, ptr %.sroa.0.1106, i64 -8
   %.0.copyload.i.i.i8 = load i64, ptr %2, align 4
   %.0.copyload.i6.i.i9 = load i64, ptr %.sroa.0.1, align 4
@@ -22711,9 +22711,9 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v
   %231 = trunc nuw i64 %230 to i32
   br i1 %228, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13.thread, label %.lr.ph108, !llvm.loop !340
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13, %210, %223, %179, %177, %164, %225, %194, %130, %227, %129, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread
-  %.sroa.0.0.pn.lcssa = phi ptr [ %.sroa.0.0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread ], [ %.sroa.0.0.pn105, %129 ], [ %.sroa.0.1106, %227 ], [ %.sroa.0.0.pn105, %130 ], [ %.sroa.0.0.pn105, %194 ], [ %.sroa.0.0.pn105, %225 ], [ %.sroa.0.0.pn105, %164 ], [ %.sroa.0.0.pn105, %177 ], [ %.sroa.0.0.pn105, %179 ], [ %.sroa.0.0.pn105, %223 ], [ %.sroa.0.0.pn105, %210 ], [ %.sroa.0.0.pn105, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13 ]
-  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.1102, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread ], [ %.sroa.0.1106, %129 ], [ %.sroa.0.1, %227 ], [ %.sroa.0.1106, %130 ], [ %.sroa.0.1106, %194 ], [ %.sroa.0.1106, %225 ], [ %.sroa.0.1106, %164 ], [ %.sroa.0.1106, %177 ], [ %.sroa.0.1106, %179 ], [ %.sroa.0.1106, %223 ], [ %.sroa.0.1106, %210 ], [ %.sroa.0.1106, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13.thread: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13, %225, %223, %179, %177, %164, %210, %194, %130, %227, %129, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread
+  %.sroa.0.0.pn.lcssa = phi ptr [ %.sroa.0.0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread ], [ %.sroa.0.0.pn105, %129 ], [ %.sroa.0.1106, %227 ], [ %.sroa.0.0.pn105, %130 ], [ %.sroa.0.0.pn105, %194 ], [ %.sroa.0.0.pn105, %210 ], [ %.sroa.0.0.pn105, %164 ], [ %.sroa.0.0.pn105, %177 ], [ %.sroa.0.0.pn105, %179 ], [ %.sroa.0.0.pn105, %223 ], [ %.sroa.0.0.pn105, %225 ], [ %.sroa.0.0.pn105, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13 ]
+  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.1102, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit.thread ], [ %.sroa.0.1106, %129 ], [ %.sroa.0.1, %227 ], [ %.sroa.0.1106, %130 ], [ %.sroa.0.1106, %194 ], [ %.sroa.0.1106, %210 ], [ %.sroa.0.1106, %164 ], [ %.sroa.0.1106, %177 ], [ %.sroa.0.1106, %179 ], [ %.sroa.0.1106, %223 ], [ %.sroa.0.1106, %225 ], [ %.sroa.0.1106, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit13 ]
   %232 = icmp ult ptr %.sroa.062.1.lcssa, %.sroa.0.1.lcssa
   br i1 %232, label %234, label %233
 

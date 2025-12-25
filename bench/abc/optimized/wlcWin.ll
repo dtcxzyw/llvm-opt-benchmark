@@ -329,7 +329,7 @@ Wlc_ObjHasArithm_rec.exit.thread:                 ; preds = %tailrecurse.i
   br i1 %exitcond40.not, label %.critedge, label %Wlc_ObjFaninId.exit, !llvm.loop !26
 
 .critedge:                                        ; preds = %Wlc_ObjHasArithm_rec.exit.thread.us29, %tailrecurse.i.us20, %tailrecurse.i.us20, %tailrecurse.i.us20, %tailrecurse.i.us20, %Wlc_ObjHasArithm_rec.exit.thread, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %Wlc_ObjHasArithm_rec.exit.thread.us, %tailrecurse.i.us, %tailrecurse.i.us, %tailrecurse.i.us, %tailrecurse.i.us, %2
-  %.08 = phi i32 [ 0, %2 ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i.us ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us29 ]
+  %.08 = phi i32 [ 1, %tailrecurse.i.us20 ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread ], [ 0, %2 ], [ 1, %tailrecurse.i ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i.us ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 1, %tailrecurse.i.us20 ], [ 0, %Wlc_ObjHasArithm_rec.exit.thread.us29 ]
   ret i32 %.08
 }
 

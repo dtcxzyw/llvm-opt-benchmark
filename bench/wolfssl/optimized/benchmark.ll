@@ -5544,9 +5544,9 @@ bench_async_handle.exit47:                        ; preds = %87
   br i1 %.not, label %bench_async_handle.exit.thread, label %80, !llvm.loop !123
 
 bench_async_handle.exit.thread:                   ; preds = %bench_async_handle.exit42, %._crit_edge, %.preheader93, %._crit_edge122, %87, %.preheader
-  %.474 = phi i32 [ %46, %.preheader93 ], [ %.878.lcssa, %._crit_edge122 ], [ %85, %.preheader ], [ %88, %87 ], [ %52, %._crit_edge ], [ %52, %bench_async_handle.exit42 ]
-  %.168 = phi i32 [ %.067, %.preheader93 ], [ %93, %._crit_edge122 ], [ %.269, %87 ], [ %.269, %.preheader ], [ %51, %._crit_edge ], [ %51, %bench_async_handle.exit42 ]
-  %.0 = phi double [ %31, %.preheader93 ], [ %70, %._crit_edge122 ], [ %70, %87 ], [ %70, %.preheader ], [ %31, %._crit_edge ], [ %31, %bench_async_handle.exit42 ]
+  %.474 = phi i32 [ %46, %.preheader93 ], [ %85, %.preheader ], [ %.878.lcssa, %._crit_edge122 ], [ %88, %87 ], [ %52, %._crit_edge ], [ %52, %bench_async_handle.exit42 ]
+  %.168 = phi i32 [ %.067, %.preheader93 ], [ %.269, %87 ], [ %93, %._crit_edge122 ], [ %.269, %.preheader ], [ %51, %._crit_edge ], [ %51, %bench_async_handle.exit42 ]
+  %.0 = phi double [ %31, %.preheader93 ], [ %70, %87 ], [ %70, %._crit_edge122 ], [ %70, %.preheader ], [ %31, %._crit_edge ], [ %31, %bench_async_handle.exit42 ]
   %95 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %.168, i32 noundef %95, double noundef %.0, i32 noundef %.474)
   br label %96
@@ -7404,8 +7404,8 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge163
 
 .critedge163:                                     ; preds = %.critedge5.thread, %.critedge5, %.critedge7, %.critedge9, %.critedge11, %.critedge163.loopexit, %144, %141, %32, %27, %39, %48, %61, %67, %73, %81, %94, %101, %85, %76, %70, %64, %58, %42, %36
-  %.1105 = phi i32 [ %26, %32 ], [ %26, %27 ], [ %.0104222, %144 ], [ %.0104222, %36 ], [ %.0104222, %39 ], [ %.0104222, %42 ], [ %49, %48 ], [ %.0104222, %.critedge163.loopexit ], [ %.0104222, %58 ], [ %.0104222, %61 ], [ %.0104222, %64 ], [ %.0104222, %67 ], [ %.0104222, %70 ], [ %.0104222, %73 ], [ %.0104222, %76 ], [ %.0104222, %81 ], [ %86, %85 ], [ %.0104222, %.critedge11 ], [ %95, %94 ], [ %.0104222, %141 ], [ %102, %101 ], [ %.0104222, %.critedge9 ], [ %.0104222, %.critedge7 ], [ %.0104222, %.critedge5 ], [ %.0104222, %.critedge5.thread ]
-  %.1103 = phi ptr [ %9, %32 ], [ %9, %27 ], [ %.0102223, %144 ], [ %.0102223, %36 ], [ %.0102223, %39 ], [ %.0102223, %42 ], [ %9, %48 ], [ %.0102223, %.critedge163.loopexit ], [ %.0102223, %58 ], [ %.0102223, %61 ], [ %.0102223, %64 ], [ %.0102223, %67 ], [ %.0102223, %70 ], [ %.0102223, %73 ], [ %.0102223, %76 ], [ %.0102223, %81 ], [ %9, %85 ], [ %.0102223, %.critedge11 ], [ %9, %94 ], [ %.0102223, %141 ], [ %9, %101 ], [ %.0102223, %.critedge9 ], [ %.0102223, %.critedge7 ], [ %.0102223, %.critedge5 ], [ %.0102223, %.critedge5.thread ]
+  %.1105 = phi i32 [ %26, %32 ], [ %26, %27 ], [ %.0104222, %144 ], [ %.0104222, %36 ], [ %.0104222, %39 ], [ %.0104222, %42 ], [ %49, %48 ], [ %.0104222, %141 ], [ %.0104222, %58 ], [ %.0104222, %61 ], [ %.0104222, %64 ], [ %.0104222, %67 ], [ %.0104222, %70 ], [ %.0104222, %73 ], [ %.0104222, %76 ], [ %.0104222, %81 ], [ %86, %85 ], [ %.0104222, %.critedge11 ], [ %95, %94 ], [ %.0104222, %.critedge163.loopexit ], [ %102, %101 ], [ %.0104222, %.critedge9 ], [ %.0104222, %.critedge7 ], [ %.0104222, %.critedge5 ], [ %.0104222, %.critedge5.thread ]
+  %.1103 = phi ptr [ %9, %32 ], [ %9, %27 ], [ %.0102223, %144 ], [ %.0102223, %36 ], [ %.0102223, %39 ], [ %.0102223, %42 ], [ %9, %48 ], [ %.0102223, %141 ], [ %.0102223, %58 ], [ %.0102223, %61 ], [ %.0102223, %64 ], [ %.0102223, %67 ], [ %.0102223, %70 ], [ %.0102223, %73 ], [ %.0102223, %76 ], [ %.0102223, %81 ], [ %9, %85 ], [ %.0102223, %.critedge11 ], [ %9, %94 ], [ %.0102223, %.critedge163.loopexit ], [ %9, %101 ], [ %.0102223, %.critedge9 ], [ %.0102223, %.critedge7 ], [ %.0102223, %.critedge5 ], [ %.0102223, %.critedge5.thread ]
   %152 = add nsw i32 %.1105, -1
   %153 = getelementptr inbounds nuw i8, ptr %.1103, i64 8
   %154 = icmp sgt i32 %.1105, 2

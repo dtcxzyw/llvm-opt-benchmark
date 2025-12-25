@@ -1125,8 +1125,8 @@ ssl_conf_check.exit:                              ; preds = %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   br label %ssl_conf_check.exit.thread
 
-ssl_conf_check.exit.thread:                       ; preds = %18, %mbedtls_ssl_conf_is_hybrid_tls12_tls13.exit.thread.i.i, %10, %25, %35, %37
-  %.0 = phi i32 [ 0, %35 ], [ %.035, %37 ], [ -28800, %18 ], [ -24192, %mbedtls_ssl_conf_is_hybrid_tls12_tls13.exit.thread.i.i ], [ -28800, %10 ], [ -29696, %25 ]
+ssl_conf_check.exit.thread:                       ; preds = %mbedtls_ssl_conf_is_hybrid_tls12_tls13.exit.thread.i.i, %18, %10, %25, %35, %37
+  %.0 = phi i32 [ 0, %35 ], [ %.035, %37 ], [ -24192, %mbedtls_ssl_conf_is_hybrid_tls12_tls13.exit.thread.i.i ], [ -28800, %18 ], [ -28800, %10 ], [ -29696, %25 ]
   ret i32 %.0
 }
 

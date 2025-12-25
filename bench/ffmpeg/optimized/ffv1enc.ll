@@ -12353,7 +12353,7 @@ encode_float32_rgb_frame.exit.sink.split:         ; preds = %2171, %2164
   br label %encode_float32_rgb_frame.exit
 
 encode_float32_rgb_frame.exit:                    ; preds = %._crit_edge92.i, %encode_float32_rgb_frame.exit.sink.split, %2075
-  %.3.i = phi i32 [ -1094995529, %encode_float32_rgb_frame.exit.sink.split ], [ 0, %2075 ], [ 0, %._crit_edge92.i ]
+  %.3.i = phi i32 [ 0, %2075 ], [ -1094995529, %encode_float32_rgb_frame.exit.sink.split ], [ 0, %._crit_edge92.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -23567,7 +23567,7 @@ encode_line32.exit.sink.split:                    ; preds = %1674, %1667, %231, 
   br label %encode_line32.exit
 
 encode_line32.exit:                               ; preds = %._crit_edge880, %encode_line32.exit.sink.split, %7
-  %.3 = phi i32 [ -1094995529, %encode_line32.exit.sink.split ], [ 0, %7 ], [ 0, %._crit_edge880 ]
+  %.3 = phi i32 [ 0, %7 ], [ -1094995529, %encode_line32.exit.sink.split ], [ 0, %._crit_edge880 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -29213,7 +29213,7 @@ encode_line.exit.sink.split:                      ; preds = %1711, %1704, %256, 
   br label %encode_line.exit
 
 encode_line.exit:                                 ; preds = %._crit_edge895, %encode_line.exit.sink.split, %7
-  %.3 = phi i32 [ -1094995529, %encode_line.exit.sink.split ], [ 0, %7 ], [ 0, %._crit_edge895 ]
+  %.3 = phi i32 [ 0, %7 ], [ -1094995529, %encode_line.exit.sink.split ], [ 0, %._crit_edge895 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

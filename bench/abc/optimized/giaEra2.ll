@@ -3631,7 +3631,7 @@ Gia_StaAreDisjoint.exit122:                       ; preds = %159, %217, %Gia_Sta
   br i1 %233, label %.lr.ph211, label %.critedge2, !llvm.loop !96
 
 .critedge2:                                       ; preds = %.critedge, %Gia_StaAreDisjoint.exit122, %.lr.ph211, %195, %189, %.thread167, %84, %78, %.thread
-  %.070 = phi i32 [ 0, %.thread167 ], [ 0, %195 ], [ 0, %84 ], [ 0, %189 ], [ 0, %78 ], [ 0, %.thread ], [ 1, %Gia_StaAreDisjoint.exit122 ], [ 1, %.lr.ph211 ], [ 1, %.critedge ]
+  %.070 = phi i32 [ 0, %78 ], [ 0, %195 ], [ 0, %84 ], [ 0, %189 ], [ 0, %.thread167 ], [ 0, %.thread ], [ 1, %Gia_StaAreDisjoint.exit122 ], [ 1, %.lr.ph211 ], [ 1, %.critedge ]
   ret i32 %.070
 }
 

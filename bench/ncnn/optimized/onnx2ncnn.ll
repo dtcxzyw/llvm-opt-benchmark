@@ -4919,8 +4919,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit149.thread.i:        ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit151.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit151.i:               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit149.thread.i, %_ZNSt6vectorIiSaIiEED2Ev.exit149.i, %1612, %1602, %1598, %1588, %1573, %_ZNSt6vectorIiSaIiEED2Ev.exit.i3373
-  %1827 = phi i32 [ %1826, %_ZNSt6vectorIiSaIiEED2Ev.exit149.thread.i ], [ %1476, %_ZNSt6vectorIiSaIiEED2Ev.exit.i3373 ], [ %1476, %1612 ], [ %1476, %1573 ], [ %1476, %_ZNSt6vectorIiSaIiEED2Ev.exit149.i ], [ %1476, %1588 ], [ %1476, %1598 ], [ %1476, %1602 ]
-  %.3.i3374 = phi i32 [ %.5288.i, %_ZNSt6vectorIiSaIiEED2Ev.exit149.thread.i ], [ %.0392.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i3373 ], [ %.0392.i, %1612 ], [ %.0392.i, %1573 ], [ %.0392.i, %_ZNSt6vectorIiSaIiEED2Ev.exit149.i ], [ %.0392.i, %1588 ], [ %.0392.i, %1598 ], [ %.0392.i, %1602 ]
+  %1827 = phi i32 [ %1476, %_ZNSt6vectorIiSaIiEED2Ev.exit149.i ], [ %1476, %_ZNSt6vectorIiSaIiEED2Ev.exit.i3373 ], [ %1476, %1612 ], [ %1476, %1573 ], [ %1826, %_ZNSt6vectorIiSaIiEED2Ev.exit149.thread.i ], [ %1476, %1588 ], [ %1476, %1598 ], [ %1476, %1602 ]
+  %.3.i3374 = phi i32 [ %.0392.i, %_ZNSt6vectorIiSaIiEED2Ev.exit149.i ], [ %.0392.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i3373 ], [ %.0392.i, %1612 ], [ %.0392.i, %1573 ], [ %.5288.i, %_ZNSt6vectorIiSaIiEED2Ev.exit149.thread.i ], [ %.0392.i, %1588 ], [ %.0392.i, %1598 ], [ %.0392.i, %1602 ]
   %.not.i.i.i152.i = icmp eq ptr %.sroa.0231.2.i, null
   br i1 %.not.i.i.i152.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit153.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit151.thread317.i
 
@@ -9216,8 +9216,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit218.i:               ; preds = %3997, %_ZNSt6vector
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit220.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit220.i:               ; preds = %.lr.ph.i3797, %.thread.i3784, %3998, %3773, %3741, %3733
-  %3999 = phi ptr [ %.pre476.i, %3733 ], [ %.pre476.i, %3741 ], [ %.pre476.i, %3773 ], [ %.pre475.i, %.thread.i3784 ], [ %.pre476.i, %3998 ], [ %.pre476.i, %.lr.ph.i3797 ]
-  %.6.i = phi i32 [ %.0424.i, %3733 ], [ %.0424.i, %3741 ], [ %.0424.i, %3773 ], [ %.8287.i, %.thread.i3784 ], [ %.0424.i, %3998 ], [ %.0424.i, %.lr.ph.i3797 ]
+  %3999 = phi ptr [ %.pre476.i, %3733 ], [ %.pre476.i, %3741 ], [ %.pre475.i, %.thread.i3784 ], [ %.pre476.i, %3773 ], [ %.pre476.i, %3998 ], [ %.pre476.i, %.lr.ph.i3797 ]
+  %.6.i = phi i32 [ %.0424.i, %3733 ], [ %.0424.i, %3741 ], [ %.8287.i, %.thread.i3784 ], [ %.0424.i, %3773 ], [ %.0424.i, %3998 ], [ %.0424.i, %.lr.ph.i3797 ]
   %.not.i.i.i221.i = icmp eq ptr %3999, null
   br i1 %.not.i.i.i221.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit222.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit220.thread.i
 
@@ -32637,8 +32637,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit899:                 ; preds = %1211, %.thread1950
   br label %1214
 
 1214:                                             ; preds = %599, %601, %604, %584, %590, %_ZNSt6vectorIiSaIiEED2Ev.exit899
-  %1215 = phi ptr [ %.pre1882, %_ZNSt6vectorIiSaIiEED2Ev.exit899 ], [ %.pre1883, %584 ], [ %.pre1883, %590 ], [ %.pre1883, %599 ], [ %.pre1883, %601 ], [ %.pre1883, %604 ]
-  %.5 = phi i32 [ %.61954, %_ZNSt6vectorIiSaIiEED2Ev.exit899 ], [ %.01695, %584 ], [ %.01695, %590 ], [ %.01695, %599 ], [ %.01695, %601 ], [ %.01695, %604 ]
+  %1215 = phi ptr [ %.pre1882, %_ZNSt6vectorIiSaIiEED2Ev.exit899 ], [ %.pre1883, %584 ], [ %.pre1883, %590 ], [ %.pre1883, %604 ], [ %.pre1883, %601 ], [ %.pre1883, %599 ]
+  %.5 = phi i32 [ %.61954, %_ZNSt6vectorIiSaIiEED2Ev.exit899 ], [ %.01695, %584 ], [ %.01695, %590 ], [ %.01695, %604 ], [ %.01695, %601 ], [ %.01695, %599 ]
   %.not.i.i.i900 = icmp eq ptr %1215, null
   br i1 %.not.i.i.i900, label %_ZNSt6vectorIiSaIiEED2Ev.exit901, label %.thread1956
 
@@ -34742,8 +34742,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit1019:                ; preds = %2288, %.thread1967
   br label %2291
 
 2291:                                             ; preds = %1729, %1731, %1734, %1714, %1720, %_ZNSt6vectorIiSaIiEED2Ev.exit1019
-  %2292 = phi ptr [ %.pre1885, %_ZNSt6vectorIiSaIiEED2Ev.exit1019 ], [ %.pre1886, %1714 ], [ %.pre1886, %1720 ], [ %.pre1886, %1729 ], [ %.pre1886, %1731 ], [ %.pre1886, %1734 ]
-  %.5694 = phi i32 [ %.66951971, %_ZNSt6vectorIiSaIiEED2Ev.exit1019 ], [ %.06891696, %1714 ], [ %.06891696, %1720 ], [ %.06891696, %1729 ], [ %.06891696, %1731 ], [ %.06891696, %1734 ]
+  %2292 = phi ptr [ %.pre1885, %_ZNSt6vectorIiSaIiEED2Ev.exit1019 ], [ %.pre1886, %1714 ], [ %.pre1886, %1720 ], [ %.pre1886, %1734 ], [ %.pre1886, %1731 ], [ %.pre1886, %1729 ]
+  %.5694 = phi i32 [ %.66951971, %_ZNSt6vectorIiSaIiEED2Ev.exit1019 ], [ %.06891696, %1714 ], [ %.06891696, %1720 ], [ %.06891696, %1734 ], [ %.06891696, %1731 ], [ %.06891696, %1729 ]
   %.not.i.i.i1020 = icmp eq ptr %2292, null
   br i1 %.not.i.i.i1020, label %_ZNSt6vectorIiSaIiEED2Ev.exit1021, label %.thread1973
 

@@ -2207,7 +2207,7 @@ av_opt_child_next.exit:                           ; preds = %.preheader
   br label %av_opt_next.exit
 
 av_opt_next.exit:                                 ; preds = %27, %52, %54, %56, %57, %33, %36, %38, %.thread89.split.us, %22, %.split.us, %79, %78, %9, %6
-  %.046 = phi ptr [ null, %9 ], [ %.us-phi, %.split.us ], [ %21, %22 ], [ null, %33 ], [ null, %6 ], [ %.us-phi, %78 ], [ %.us-phi, %79 ], [ null, %52 ], [ null, %.thread89.split.us ], [ null, %38 ], [ null, %36 ], [ null, %57 ], [ null, %56 ], [ null, %54 ], [ %28, %27 ]
+  %.046 = phi ptr [ null, %9 ], [ %.us-phi, %.split.us ], [ %21, %22 ], [ null, %52 ], [ null, %6 ], [ %.us-phi, %78 ], [ %.us-phi, %79 ], [ null, %.thread89.split.us ], [ null, %33 ], [ null, %38 ], [ null, %36 ], [ null, %57 ], [ null, %56 ], [ null, %54 ], [ %28, %27 ]
   ret ptr %.046
 }
 
@@ -2949,7 +2949,7 @@ get_number.exit:                                  ; preds = %4, %10, %14
   br label %67
 
 49:                                               ; preds = %36, %39
-  %.013.ph = phi double [ %38, %36 ], [ %40, %39 ]
+  %.013.ph = phi double [ %40, %39 ], [ %38, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %50 = fcmp nsz oeq double %.013.ph, 1.000000e+00
   br i1 %50, label %.thread31, label %55
@@ -5254,8 +5254,8 @@ av_opt_find2.exit:                                ; preds = %17
   %25 = getelementptr inbounds i8, ptr %1, i64 %24
   br label %av_opt_find2.exit.thread
 
-av_opt_find2.exit.thread:                         ; preds = %7, %10, %12, %3, %av_opt_find2.exit, %21
-  %.0 = phi ptr [ %25, %21 ], [ null, %av_opt_find2.exit ], [ null, %3 ], [ null, %12 ], [ null, %10 ], [ null, %7 ]
+av_opt_find2.exit.thread:                         ; preds = %7, %12, %10, %3, %av_opt_find2.exit, %21
+  %.0 = phi ptr [ %25, %21 ], [ null, %av_opt_find2.exit ], [ null, %3 ], [ null, %10 ], [ null, %12 ], [ null, %7 ]
   ret ptr %.0
 }
 

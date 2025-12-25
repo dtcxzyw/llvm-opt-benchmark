@@ -917,7 +917,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %._crit_edg
   br label %.thread135
 
 .thread135:                                       ; preds = %120, %119, %56, %55, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, %.lr.ph182.split.us.split, %._crit_edge.us, %.lr.ph176.us.us, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.us, %.lr.ph182.split.us.split.us, %.thread149
-  %.4.shrunk = phi i1 [ %235, %.thread149 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ false, %.lr.ph182.split.us.split ], [ %178, %.lr.ph176.us.us ], [ %.0.lcssa.us190, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.us ], [ false, %.lr.ph182.split.us.split.us ], [ false, %._crit_edge.us ], [ false, %55 ], [ true, %120 ], [ true, %56 ], [ false, %119 ]
+  %.4.shrunk = phi i1 [ %235, %.thread149 ], [ %178, %.lr.ph176.us.us ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ false, %.lr.ph182.split.us.split ], [ %.0.lcssa.us190, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.us ], [ false, %.lr.ph182.split.us.split.us ], [ false, %._crit_edge.us ], [ false, %55 ], [ true, %120 ], [ false, %119 ], [ true, %56 ]
   %.4 = zext i1 %.4.shrunk to i32
   ret i32 %.4
 }

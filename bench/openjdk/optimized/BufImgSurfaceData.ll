@@ -443,7 +443,7 @@ define internal range(i32 -1, 1) i32 @BufImg_Lock(ptr noundef %0, ptr noundef %1
   br i1 %62, label %.preheader43.i.i, label %calculatePrimaryColorsApproximation.exit.i, !llvm.loop !9
 
 calculatePrimaryColorsApproximation.exit.i:       ; preds = %.split50.us.i.i, %128, %110, %93, %77, %126, %.preheader.split.split.i.i, %112, %.preheader.split.split.us.i.i, %95, %.preheader.split.us.us.split.i.i, %79, %.preheader.split.us.us.split.us.i.i
-  %.0.i.i = phi i32 [ 0, %112 ], [ 0, %79 ], [ 0, %128 ], [ 0, %95 ], [ 0, %126 ], [ 0, %93 ], [ 0, %.preheader.split.us.us.split.us.i.i ], [ 0, %.preheader.split.us.us.split.i.i ], [ 0, %.preheader.split.split.us.i.i ], [ 0, %.preheader.split.split.i.i ], [ 0, %77 ], [ 0, %110 ], [ 1, %.split50.us.i.i ]
+  %.0.i.i = phi i32 [ 0, %128 ], [ 0, %79 ], [ 0, %93 ], [ 0, %126 ], [ 0, %95 ], [ 0, %112 ], [ 0, %.preheader.split.us.us.split.us.i.i ], [ 0, %.preheader.split.us.us.split.i.i ], [ 0, %.preheader.split.split.us.i.i ], [ 0, %.preheader.split.split.i.i ], [ 0, %77 ], [ 0, %110 ], [ 1, %.split50.us.i.i ]
   %130 = getelementptr inbounds nuw i8, ptr %35, i64 84
   store i32 %.0.i.i, ptr %130, align 4
   %131 = icmp eq i8 %42, 1

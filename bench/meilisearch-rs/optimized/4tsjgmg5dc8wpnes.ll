@@ -4349,7 +4349,7 @@ default.unreachable:                              ; preds = %99, %73
   br label %121
 
 118:                                              ; preds = %115, %89
-  %.sroa.12.0.in = phi i64 [ %.sroa.2.0.copyload.i.i.i.i, %89 ], [ %.sroa.234.0.copyload.i.i.i.i, %115 ]
+  %.sroa.12.0.in = phi i64 [ %.sroa.234.0.copyload.i.i.i.i, %115 ], [ %.sroa.2.0.copyload.i.i.i.i, %89 ]
   %.sroa.12.0 = trunc nsw i64 %.sroa.12.0.in to i8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %119, align 1
@@ -4689,7 +4689,7 @@ default.unreachable:                              ; preds = %99, %73
   br label %121
 
 118:                                              ; preds = %115, %89
-  %.sroa.12.0.in = phi i64 [ %.sroa.2.0.copyload.i.i.i.i, %89 ], [ %.sroa.233.0.copyload.i.i.i.i, %115 ]
+  %.sroa.12.0.in = phi i64 [ %.sroa.233.0.copyload.i.i.i.i, %115 ], [ %.sroa.2.0.copyload.i.i.i.i, %89 ]
   %.sroa.12.0 = trunc nuw i64 %.sroa.12.0.in to i8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %119, align 1
@@ -5193,7 +5193,7 @@ default.unreachable:                              ; preds = %99, %73
   br label %121
 
 118:                                              ; preds = %115, %89
-  %.sroa.12.0.in = phi i64 [ %.sroa.2.0.copyload.i.i.i.i, %89 ], [ %.sroa.233.0.copyload.i.i.i.i, %115 ]
+  %.sroa.12.0.in = phi i64 [ %.sroa.233.0.copyload.i.i.i.i, %115 ], [ %.sroa.2.0.copyload.i.i.i.i, %89 ]
   %.sroa.12.0 = trunc nsw i64 %.sroa.12.0.in to i32
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %119, align 4
@@ -5697,7 +5697,7 @@ default.unreachable:                              ; preds = %99, %73
   br label %121
 
 118:                                              ; preds = %115, %89
-  %.sroa.12.0.in = phi i64 [ %.sroa.2.0.copyload.i.i.i.i, %89 ], [ %.sroa.232.0.copyload.i.i.i.i, %115 ]
+  %.sroa.12.0.in = phi i64 [ %.sroa.232.0.copyload.i.i.i.i, %115 ], [ %.sroa.2.0.copyload.i.i.i.i, %89 ]
   %.sroa.12.0 = trunc nuw i64 %.sroa.12.0.in to i32
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %119, align 4
@@ -6037,7 +6037,7 @@ default.unreachable:                              ; preds = %99, %73
   br label %121
 
 118:                                              ; preds = %115, %89
-  %.sroa.12.0.in = phi i64 [ %.sroa.2.0.copyload.i.i.i.i, %89 ], [ %.sroa.233.0.copyload.i.i.i.i, %115 ]
+  %.sroa.12.0.in = phi i64 [ %.sroa.233.0.copyload.i.i.i.i, %115 ], [ %.sroa.2.0.copyload.i.i.i.i, %89 ]
   %.sroa.12.0 = trunc nuw i64 %.sroa.12.0.in to i16
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 1, ptr %119, align 2
@@ -9323,10 +9323,10 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %.invoke3730, %862, %794, %.loopexit.i.i.i387.i, %769, %.loopexit.i.i.i374.i, %747, %.loopexit.i.i.i367.i, %724, %.loopexit.i.i.i358.i, %694, %.loopexit.i.i.i349.i, %647, %.loopexit.i.i.i328.i, %616, %.loopexit.i.i.i320.i, %603, %.invoke.i, %595, %.loopexit116.i.i.i.i.i.i.i, %580, %.loopexit117.i.i.i.i.i.i.i, %549, %529, %508, %501, %492, %485, %476, %469, %.loopexit122.i.i.i.i.i.i.i, %446, %.loopexit.i.i.i.i, %405, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h7862d188472c60e1E.exit19.i.i.thread.i", %395, %.loopexit.i.i.i62, %.loopexit28.i.i.i
-  %.sroa.0183.1.ph.ph.i = phi i8 [ 1, %.loopexit.i.i.i358.i ], [ 1, %694 ], [ 1, %724 ], [ 1, %.loopexit.i.i.i349.i ], [ 1, %.invoke3730 ], [ 1, %603 ], [ 1, %405 ], [ 1, %.loopexit28.i.i.i ], [ 1, %.loopexit.i.i.i62 ], [ 1, %395 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h7862d188472c60e1E.exit19.i.i.thread.i" ], [ %.sroa.0183.8.i, %862 ], [ 1, %647 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %446 ], [ 1, %.loopexit122.i.i.i.i.i.i.i ], [ 1, %469 ], [ 1, %476 ], [ 1, %485 ], [ 1, %492 ], [ 1, %501 ], [ 1, %508 ], [ 1, %794 ], [ 1, %.loopexit.i.i.i387.i ], [ 1, %769 ], [ 1, %529 ], [ 1, %.loopexit.i.i.i374.i ], [ 1, %.loopexit.i.i.i367.i ], [ 1, %549 ], [ 1, %.loopexit117.i.i.i.i.i.i.i ], [ 1, %747 ], [ 1, %580 ], [ 1, %.loopexit116.i.i.i.i.i.i.i ], [ 1, %595 ], [ 1, %.invoke.i ], [ 1, %.loopexit.i.i.i320.i ], [ 1, %616 ], [ 1, %.loopexit.i.i.i328.i ]
-  %.sroa.0185.1.ph.ph.i = phi i8 [ 1, %.loopexit.i.i.i358.i ], [ 1, %694 ], [ 1, %724 ], [ 1, %.loopexit.i.i.i349.i ], [ 1, %.invoke3730 ], [ 1, %603 ], [ 1, %405 ], [ 1, %.loopexit28.i.i.i ], [ 1, %.loopexit.i.i.i62 ], [ 1, %395 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h7862d188472c60e1E.exit19.i.i.thread.i" ], [ %.sroa.0185.9.i, %862 ], [ 1, %647 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %446 ], [ 1, %.loopexit122.i.i.i.i.i.i.i ], [ 1, %469 ], [ 1, %476 ], [ 1, %485 ], [ 1, %492 ], [ 1, %501 ], [ 1, %508 ], [ 1, %794 ], [ 1, %.loopexit.i.i.i387.i ], [ 1, %769 ], [ 1, %529 ], [ 1, %.loopexit.i.i.i374.i ], [ 1, %.loopexit.i.i.i367.i ], [ 1, %549 ], [ 1, %.loopexit117.i.i.i.i.i.i.i ], [ 1, %747 ], [ 1, %580 ], [ 1, %.loopexit116.i.i.i.i.i.i.i ], [ 1, %595 ], [ 1, %.invoke.i ], [ 1, %.loopexit.i.i.i320.i ], [ 1, %616 ], [ 1, %.loopexit.i.i.i328.i ]
-  %.sroa.0187.1.ph.ph.i = phi i8 [ 1, %.loopexit.i.i.i358.i ], [ 1, %694 ], [ 1, %724 ], [ 1, %.loopexit.i.i.i349.i ], [ 1, %.invoke3730 ], [ 1, %603 ], [ 1, %405 ], [ 1, %.loopexit28.i.i.i ], [ 1, %.loopexit.i.i.i62 ], [ 1, %395 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h7862d188472c60e1E.exit19.i.i.thread.i" ], [ %.sroa.0187.6.i, %862 ], [ 1, %647 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %446 ], [ 1, %.loopexit122.i.i.i.i.i.i.i ], [ 1, %469 ], [ 1, %476 ], [ 1, %485 ], [ 1, %492 ], [ 1, %501 ], [ 1, %508 ], [ 1, %794 ], [ 1, %.loopexit.i.i.i387.i ], [ 1, %769 ], [ 1, %529 ], [ 1, %.loopexit.i.i.i374.i ], [ 1, %.loopexit.i.i.i367.i ], [ 1, %549 ], [ 1, %.loopexit117.i.i.i.i.i.i.i ], [ 1, %747 ], [ 1, %580 ], [ 1, %.loopexit116.i.i.i.i.i.i.i ], [ 1, %595 ], [ 1, %.invoke.i ], [ 1, %.loopexit.i.i.i320.i ], [ 1, %616 ], [ 1, %.loopexit.i.i.i328.i ]
-  %.sroa.0189.1.ph.ph.i = phi i8 [ 1, %.loopexit.i.i.i358.i ], [ 1, %694 ], [ 1, %724 ], [ 1, %.loopexit.i.i.i349.i ], [ 1, %.invoke3730 ], [ 1, %603 ], [ 1, %405 ], [ 1, %.loopexit28.i.i.i ], [ 1, %.loopexit.i.i.i62 ], [ 1, %395 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h7862d188472c60e1E.exit19.i.i.thread.i" ], [ %.sroa.0189.6.i, %862 ], [ 1, %647 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %446 ], [ 1, %.loopexit122.i.i.i.i.i.i.i ], [ 1, %469 ], [ 1, %476 ], [ 1, %485 ], [ 1, %492 ], [ 1, %501 ], [ 1, %508 ], [ 1, %794 ], [ 1, %.loopexit.i.i.i387.i ], [ 1, %769 ], [ 1, %529 ], [ 1, %.loopexit.i.i.i374.i ], [ 1, %.loopexit.i.i.i367.i ], [ 1, %549 ], [ 1, %.loopexit117.i.i.i.i.i.i.i ], [ 1, %747 ], [ 1, %580 ], [ 1, %.loopexit116.i.i.i.i.i.i.i ], [ 1, %595 ], [ 1, %.invoke.i ], [ 1, %.loopexit.i.i.i320.i ], [ 1, %616 ], [ 1, %.loopexit.i.i.i328.i ]
+  %.sroa.0183.1.ph.ph.i = phi i8 [ 1, %.loopexit.i.i.i358.i ], [ 1, %647 ], [ 1, %724 ], [ %.sroa.0183.8.i, %862 ], [ 1, %.invoke3730 ], [ 1, %603 ], [ 1, %405 ], [ 1, %.loopexit28.i.i.i ], [ 1, %.loopexit.i.i.i62 ], [ 1, %395 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h7862d188472c60e1E.exit19.i.i.thread.i" ], [ 1, %.loopexit.i.i.i349.i ], [ 1, %694 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %446 ], [ 1, %.loopexit122.i.i.i.i.i.i.i ], [ 1, %469 ], [ 1, %476 ], [ 1, %485 ], [ 1, %492 ], [ 1, %501 ], [ 1, %508 ], [ 1, %747 ], [ 1, %.loopexit.i.i.i374.i ], [ 1, %769 ], [ 1, %529 ], [ 1, %.loopexit.i.i.i387.i ], [ 1, %.loopexit.i.i.i367.i ], [ 1, %549 ], [ 1, %.loopexit117.i.i.i.i.i.i.i ], [ 1, %794 ], [ 1, %580 ], [ 1, %.loopexit116.i.i.i.i.i.i.i ], [ 1, %595 ], [ 1, %.invoke.i ], [ 1, %.loopexit.i.i.i320.i ], [ 1, %616 ], [ 1, %.loopexit.i.i.i328.i ]
+  %.sroa.0185.1.ph.ph.i = phi i8 [ 1, %.loopexit.i.i.i358.i ], [ 1, %647 ], [ 1, %724 ], [ %.sroa.0185.9.i, %862 ], [ 1, %.invoke3730 ], [ 1, %603 ], [ 1, %405 ], [ 1, %.loopexit28.i.i.i ], [ 1, %.loopexit.i.i.i62 ], [ 1, %395 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h7862d188472c60e1E.exit19.i.i.thread.i" ], [ 1, %.loopexit.i.i.i349.i ], [ 1, %694 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %446 ], [ 1, %.loopexit122.i.i.i.i.i.i.i ], [ 1, %469 ], [ 1, %476 ], [ 1, %485 ], [ 1, %492 ], [ 1, %501 ], [ 1, %508 ], [ 1, %747 ], [ 1, %.loopexit.i.i.i374.i ], [ 1, %769 ], [ 1, %529 ], [ 1, %.loopexit.i.i.i387.i ], [ 1, %.loopexit.i.i.i367.i ], [ 1, %549 ], [ 1, %.loopexit117.i.i.i.i.i.i.i ], [ 1, %794 ], [ 1, %580 ], [ 1, %.loopexit116.i.i.i.i.i.i.i ], [ 1, %595 ], [ 1, %.invoke.i ], [ 1, %.loopexit.i.i.i320.i ], [ 1, %616 ], [ 1, %.loopexit.i.i.i328.i ]
+  %.sroa.0187.1.ph.ph.i = phi i8 [ 1, %.loopexit.i.i.i358.i ], [ 1, %647 ], [ 1, %724 ], [ %.sroa.0187.6.i, %862 ], [ 1, %.invoke3730 ], [ 1, %603 ], [ 1, %405 ], [ 1, %.loopexit28.i.i.i ], [ 1, %.loopexit.i.i.i62 ], [ 1, %395 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h7862d188472c60e1E.exit19.i.i.thread.i" ], [ 1, %.loopexit.i.i.i349.i ], [ 1, %694 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %446 ], [ 1, %.loopexit122.i.i.i.i.i.i.i ], [ 1, %469 ], [ 1, %476 ], [ 1, %485 ], [ 1, %492 ], [ 1, %501 ], [ 1, %508 ], [ 1, %747 ], [ 1, %.loopexit.i.i.i374.i ], [ 1, %769 ], [ 1, %529 ], [ 1, %.loopexit.i.i.i387.i ], [ 1, %.loopexit.i.i.i367.i ], [ 1, %549 ], [ 1, %.loopexit117.i.i.i.i.i.i.i ], [ 1, %794 ], [ 1, %580 ], [ 1, %.loopexit116.i.i.i.i.i.i.i ], [ 1, %595 ], [ 1, %.invoke.i ], [ 1, %.loopexit.i.i.i320.i ], [ 1, %616 ], [ 1, %.loopexit.i.i.i328.i ]
+  %.sroa.0189.1.ph.ph.i = phi i8 [ 1, %.loopexit.i.i.i358.i ], [ 1, %647 ], [ 1, %724 ], [ %.sroa.0189.6.i, %862 ], [ 1, %.invoke3730 ], [ 1, %603 ], [ 1, %405 ], [ 1, %.loopexit28.i.i.i ], [ 1, %.loopexit.i.i.i62 ], [ 1, %395 ], [ 1, %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h7862d188472c60e1E.exit19.i.i.thread.i" ], [ 1, %.loopexit.i.i.i349.i ], [ 1, %694 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %446 ], [ 1, %.loopexit122.i.i.i.i.i.i.i ], [ 1, %469 ], [ 1, %476 ], [ 1, %485 ], [ 1, %492 ], [ 1, %501 ], [ 1, %508 ], [ 1, %747 ], [ 1, %.loopexit.i.i.i374.i ], [ 1, %769 ], [ 1, %529 ], [ 1, %.loopexit.i.i.i387.i ], [ 1, %.loopexit.i.i.i367.i ], [ 1, %549 ], [ 1, %.loopexit117.i.i.i.i.i.i.i ], [ 1, %794 ], [ 1, %580 ], [ 1, %.loopexit116.i.i.i.i.i.i.i ], [ 1, %595 ], [ 1, %.invoke.i ], [ 1, %.loopexit.i.i.i320.i ], [ 1, %616 ], [ 1, %.loopexit.i.i.i328.i ]
   %lpad.loopexit.split-lp483.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i

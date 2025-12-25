@@ -14729,7 +14729,7 @@ _ZN7AstNode11privateCastI17AstPackArrayDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i.i:
   br i1 %or.cond.i.i, label %_ZN7AstNode9privateIsI13AstBasicDTypePK12AstNodeDTypeEEbPKS_.exit.i, label %_ZNK12AstNodeDType12similarDTypeEPKS_.exit.thread81.i.backedge
 
 _ZNK12AstNodeDType12similarDTypeEPKS_.exit.thread81.i.backedge: ; preds = %30, %_ZN7AstNode11privateCastI17AstPackArrayDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i.i
-  %.0.i37.i.be = phi ptr [ %31, %30 ], [ %29, %_ZN7AstNode11privateCastI17AstPackArrayDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i.i ]
+  %.0.i37.i.be = phi ptr [ %29, %_ZN7AstNode11privateCastI17AstPackArrayDTypePK12AstNodeDTypeEEPKT_PKS_.exit.i.i ], [ %31, %30 ]
   br label %_ZNK12AstNodeDType12similarDTypeEPKS_.exit.thread81.i, !llvm.loop !333
 
 _ZN7AstNode9privateIsI13AstBasicDTypePK12AstNodeDTypeEEbPKS_.exit.i: ; preds = %30

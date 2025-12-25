@@ -588,7 +588,7 @@ doComplexReport.exit:                             ; preds = %.lr.ph308, %301, %d
   br label %nfaExecMcClellan8_Bi.exit
 
 nfaExecMcClellan8_Bi.exit:                        ; preds = %59, %113, %204, %189, %210, %281, %266, %287, %doComplexReport.exit, %doComplexReport.exit22
-  %.0.shrunk = phi i1 [ false, %210 ], [ %.not16.i, %doComplexReport.exit22 ], [ false, %287 ], [ %.not16.i15, %doComplexReport.exit ], [ false, %113 ], [ false, %204 ], [ false, %281 ], [ false, %266 ], [ false, %189 ], [ false, %59 ]
+  %.0.shrunk = phi i1 [ false, %287 ], [ %.not16.i, %doComplexReport.exit22 ], [ false, %204 ], [ %.not16.i15, %doComplexReport.exit ], [ false, %210 ], [ false, %113 ], [ false, %281 ], [ false, %266 ], [ false, %189 ], [ false, %59 ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -2987,7 +2987,7 @@ mcclellanExec16_i.exit:                           ; preds = %608, %869, %872, %8
   br i1 %or.cond1184, label %nfaExecMcClellan16_Bi.exit, label %.lr.ph863
 
 nfaExecMcClellan16_Bi.exit:                       ; preds = %.lr.ph818, %.lr.ph863, %572, %1177, %1168, %1164, %doComplexReport.exit130.i.thread, %563, %559, %.loopexit725
-  %.0.shrunk = phi i1 [ true, %1177 ], [ %.not19.i, %.loopexit725 ], [ true, %559 ], [ true, %563 ], [ true, %1168 ], [ %.not19.i17, %doComplexReport.exit130.i.thread ], [ true, %1164 ], [ true, %572 ], [ true, %.lr.ph863 ], [ true, %.lr.ph818 ]
+  %.0.shrunk = phi i1 [ true, %1168 ], [ %.not19.i, %.loopexit725 ], [ true, %559 ], [ true, %563 ], [ true, %1177 ], [ %.not19.i17, %doComplexReport.exit130.i.thread ], [ true, %1164 ], [ true, %.lr.ph863 ], [ true, %572 ], [ true, %.lr.ph818 ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -4378,7 +4378,7 @@ nfaExecMcClellan8_inAccept.exit.sink.split:       ; preds = %62, %36, %.thread48
   br label %nfaExecMcClellan8_inAccept.exit
 
 nfaExecMcClellan8_inAccept.exit:                  ; preds = %148, %.lr.ph.i.i, %nfaExecMcClellan8_inAccept.exit.sink.split, %142, %136, %129, %nfaExecMcClellan8_Q2i.exit
-  %.0 = phi i8 [ 1, %142 ], [ 1, %136 ], [ 0, %nfaExecMcClellan8_inAccept.exit.sink.split ], [ 0, %nfaExecMcClellan8_Q2i.exit ], [ 1, %129 ], [ 2, %.lr.ph.i.i ], [ %128, %148 ]
+  %.0 = phi i8 [ 1, %142 ], [ 1, %136 ], [ 0, %nfaExecMcClellan8_inAccept.exit.sink.split ], [ 0, %nfaExecMcClellan8_Q2i.exit ], [ 1, %129 ], [ %128, %148 ], [ 2, %.lr.ph.i.i ]
   ret i8 %.0
 }
 
@@ -4643,7 +4643,7 @@ nfaExecMcClellan16_inAccept.exit.sink.split:      ; preds = %62, %36, %.thread47
   br label %nfaExecMcClellan16_inAccept.exit
 
 nfaExecMcClellan16_inAccept.exit:                 ; preds = %138, %.lr.ph.i.i, %nfaExecMcClellan16_inAccept.exit.sink.split, %132, %126, %123, %nfaExecMcClellan16_Q2i.exit
-  %.0 = phi i8 [ 1, %132 ], [ 1, %126 ], [ 0, %nfaExecMcClellan16_inAccept.exit.sink.split ], [ 0, %nfaExecMcClellan16_Q2i.exit ], [ 1, %123 ], [ 2, %.lr.ph.i.i ], [ %116, %138 ]
+  %.0 = phi i8 [ 1, %132 ], [ 1, %126 ], [ 0, %nfaExecMcClellan16_inAccept.exit.sink.split ], [ 0, %nfaExecMcClellan16_Q2i.exit ], [ 1, %123 ], [ %116, %138 ], [ 2, %.lr.ph.i.i ]
   ret i8 %.0
 }
 
@@ -7358,7 +7358,7 @@ doComplexReport.exit.i:                           ; preds = %909, %1073, %1153, 
   br label %mcclellanExec16_i.exit
 
 mcclellanExec16_i.exit:                           ; preds = %doNormal16.exit114, %64, %565, %854, %839, %602, %860, %1148, %1133, %1154, %866, %869, %882, %.loopexit.loopexit, %303, %306, %320, %.loopexit702.loopexit, %575, %36
-  %.1 = phi i32 [ %.0, %1154 ], [ %.0, %36 ], [ %.0, %854 ], [ %867, %866 ], [ %.0, %575 ], [ %.0, %565 ], [ %1161, %.loopexit.loopexit ], [ %.0, %860 ], [ %.0, %1148 ], [ %321, %320 ], [ 0, %306 ], [ %304, %303 ], [ %574, %.loopexit702.loopexit ], [ %883, %882 ], [ 0, %869 ], [ %.0, %1133 ], [ %.0, %839 ], [ 0, %602 ], [ 0, %64 ], [ %.0, %doNormal16.exit114 ]
+  %.1 = phi i32 [ %1161, %.loopexit.loopexit ], [ %.0, %36 ], [ %.0, %565 ], [ %867, %866 ], [ %.0, %575 ], [ 0, %602 ], [ %.0, %1154 ], [ %.0, %860 ], [ %.0, %1148 ], [ %321, %320 ], [ 0, %306 ], [ %304, %303 ], [ %574, %.loopexit702.loopexit ], [ %883, %882 ], [ 0, %869 ], [ %.0, %1133 ], [ %.0, %839 ], [ %.0, %854 ], [ 0, %64 ], [ %.0, %doNormal16.exit114 ]
   %1162 = trunc nuw i32 %.1 to i16
   store i16 %1162, ptr %1, align 1
   ret void
@@ -8011,7 +8011,7 @@ doComplexReport.exit.i:                           ; preds = %219, %doNormal8.exi
   br label %mcclellanExec8_i.exit
 
 mcclellanExec8_i.exit:                            ; preds = %106, %79, %74, %69, %219, %178, %173, %168, %.thread94, %8
-  %.0.i = phi i8 [ 1, %8 ], [ 1, %.thread94 ], [ 0, %178 ], [ 0, %69 ], [ 0, %168 ], [ 0, %79 ], [ 0, %219 ], [ 0, %173 ], [ 0, %74 ], [ 0, %106 ]
+  %.0.i = phi i8 [ 1, %8 ], [ 1, %.thread94 ], [ 0, %79 ], [ 0, %178 ], [ 0, %168 ], [ 0, %219 ], [ 0, %69 ], [ 0, %173 ], [ 0, %74 ], [ 0, %106 ]
   ret i8 %.0.i
 }
 
@@ -9498,7 +9498,7 @@ doComplexReport.exit.i:                           ; preds = %356, %520, %605, %5
   br label %mcclellanExec16_i.exit
 
 mcclellanExec16_i.exit:                           ; preds = %299, %284, %277, %305, %600, %585, %578, %606, %.loopexit, %9
-  %.0.i = phi i8 [ 1, %9 ], [ 0, %600 ], [ 1, %.loopexit ], [ 0, %606 ], [ 0, %305 ], [ 0, %578 ], [ 0, %585 ], [ 0, %277 ], [ 0, %284 ], [ 0, %299 ]
+  %.0.i = phi i8 [ 1, %9 ], [ 0, %600 ], [ 1, %.loopexit ], [ 0, %305 ], [ 0, %606 ], [ 0, %578 ], [ 0, %585 ], [ 0, %277 ], [ 0, %284 ], [ 0, %299 ]
   ret i8 %.0.i
 }
 

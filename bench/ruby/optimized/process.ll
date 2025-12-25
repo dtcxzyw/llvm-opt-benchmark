@@ -4981,8 +4981,8 @@ stdfd_clear_nonblock.exit:                        ; preds = %set_blocking.exit.i
   store i32 %568, ptr %577, align 4, !tbaa !60
   br label %run_exec_pgroup.exit.thread
 
-run_exec_pgroup.exit.thread:                      ; preds = %272, %RARRAY_AREF.exit30.i, %491, %488, %432, %429, %334, %327, %382, %371, %341, %383, %372, %.thread324.i, %342, %303, %294, %282, %285, %393, %394, %.sink.split.i231.i, %.sink.split.i.i, %30, %33, %run_exec_rlimit.exit, %544, %541, %531, %528, %518, %515, %stdfd_clear_nonblock.exit
-  %.0 = phi i32 [ -1, %30 ], [ -1, %544 ], [ -1, %run_exec_rlimit.exit ], [ -1, %RARRAY_AREF.exit30.i ], [ -1, %432 ], [ -1, %518 ], [ -1, %531 ], [ 0, %stdfd_clear_nonblock.exit ], [ -1, %515 ], [ -1, %528 ], [ -1, %541 ], [ -1, %33 ], [ -1, %.sink.split.i.i ], [ -1, %.sink.split.i231.i ], [ -1, %394 ], [ -1, %393 ], [ -1, %285 ], [ -1, %282 ], [ -1, %294 ], [ -1, %303 ], [ -1, %342 ], [ -1, %.thread324.i ], [ -1, %372 ], [ -1, %383 ], [ -1, %341 ], [ -1, %371 ], [ -1, %382 ], [ -1, %327 ], [ -1, %334 ], [ -1, %429 ], [ -1, %488 ], [ -1, %491 ], [ -1, %272 ]
+run_exec_pgroup.exit.thread:                      ; preds = %272, %RARRAY_AREF.exit30.i, %491, %488, %429, %432, %334, %327, %382, %371, %341, %383, %372, %.thread324.i, %342, %303, %294, %282, %285, %393, %394, %.sink.split.i231.i, %.sink.split.i.i, %30, %33, %run_exec_rlimit.exit, %544, %541, %531, %528, %518, %515, %stdfd_clear_nonblock.exit
+  %.0 = phi i32 [ -1, %30 ], [ -1, %544 ], [ -1, %run_exec_rlimit.exit ], [ -1, %RARRAY_AREF.exit30.i ], [ -1, %429 ], [ -1, %518 ], [ -1, %531 ], [ 0, %stdfd_clear_nonblock.exit ], [ -1, %515 ], [ -1, %528 ], [ -1, %541 ], [ -1, %33 ], [ -1, %.sink.split.i.i ], [ -1, %.sink.split.i231.i ], [ -1, %394 ], [ -1, %393 ], [ -1, %285 ], [ -1, %282 ], [ -1, %294 ], [ -1, %303 ], [ -1, %342 ], [ -1, %.thread324.i ], [ -1, %372 ], [ -1, %383 ], [ -1, %341 ], [ -1, %371 ], [ -1, %382 ], [ -1, %327 ], [ -1, %334 ], [ -1, %432 ], [ -1, %488 ], [ -1, %491 ], [ -1, %272 ]
   ret i32 %.0
 }
 

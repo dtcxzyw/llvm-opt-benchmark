@@ -1672,7 +1672,7 @@ _ZN8QuantLibleERKNS_6PeriodES2_.exit:             ; preds = %invoke.cont110
   br label %cleanup.action
 
 cleanup.action:                                   ; preds = %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i194, %invoke.cont105, %_ZN8QuantLibleERKNS_6PeriodES2_.exit, %if.end.i.i.i200
-  %79 = phi i1 [ false, %if.end.i.i.i200 ], [ %lnot.i212, %_ZN8QuantLibleERKNS_6PeriodES2_.exit ], [ false, %invoke.cont105 ], [ false, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i194 ]
+  %79 = phi i1 [ %lnot.i212, %_ZN8QuantLibleERKNS_6PeriodES2_.exit ], [ false, %invoke.cont105 ], [ false, %if.end.i.i.i200 ], [ false, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i194 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp108)
   %pn.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp99, i64 8
   %80 = load ptr, ptr %pn.i.i, align 8, !tbaa !37
@@ -3568,7 +3568,7 @@ if.end.i.i.i711:                                  ; preds = %land.rhs.i.i709
   br label %cleanup.action392
 
 cleanup.action392:                                ; preds = %invoke.cont385, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i705, %land.rhs.i.i709, %if.end.i.i.i711
-  %369 = phi i1 [ false, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i705 ], [ true, %land.rhs.i.i709 ], [ %cmp.i.i5.mux.i700, %invoke.cont385 ], [ %368, %if.end.i.i.i711 ]
+  %369 = phi i1 [ true, %land.rhs.i.i709 ], [ false, %_ZNK8QuantLib8Currency4nameB5cxx11Ev.exit11.i705 ], [ %368, %if.end.i.i.i711 ], [ %cmp.i.i5.mux.i700, %invoke.cont385 ]
   %pn.i.i722 = getelementptr inbounds nuw i8, ptr %ref.tmp382, i64 8
   %370 = load ptr, ptr %pn.i.i722, align 8, !tbaa !37
   %cmp.not.i.i.i723 = icmp eq ptr %370, null

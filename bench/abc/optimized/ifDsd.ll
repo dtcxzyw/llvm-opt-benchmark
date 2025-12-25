@@ -8744,7 +8744,7 @@ tailrecurse:                                      ; preds = %21, %2
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %12, %.lr.ph, %17, %tailrecurse, %.critedge.loopexit61, %.preheader
-  %.0 = phi i32 [ 1, %.critedge.loopexit61 ], [ 0, %17 ], [ 0, %.preheader ], [ 0, %tailrecurse ], [ 0, %.lr.ph ], [ 0, %12 ], [ 1, %15 ]
+  %.0 = phi i32 [ 1, %.critedge.loopexit61 ], [ 0, %.preheader ], [ 0, %17 ], [ 0, %tailrecurse ], [ 0, %.lr.ph ], [ 0, %12 ], [ 1, %15 ]
   ret i32 %.0
 }
 

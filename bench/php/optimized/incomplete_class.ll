@@ -158,7 +158,7 @@ define dso_local ptr @php_lookup_class_name(ptr noundef readonly captures(none) 
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %6, %4, %1, %10, %15
-  %.1 = phi ptr [ %11, %10 ], [ %11, %15 ], [ null, %1 ], [ null, %4 ], [ null, %6 ]
+  %.1 = phi ptr [ %11, %15 ], [ %11, %10 ], [ null, %1 ], [ null, %4 ], [ null, %6 ]
   ret ptr %.1
 }
 

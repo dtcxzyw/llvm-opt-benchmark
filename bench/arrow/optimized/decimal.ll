@@ -10700,7 +10700,7 @@ _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split: ; preds = %35, %
   br label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread
 
 _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread: ; preds = %30, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, %15, %56, %52, %.critedge, %38, %5
-  %.022 = phi i1 [ false, %38 ], [ true, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split ], [ false, %5 ], [ false, %56 ], [ false, %.critedge ], [ false, %15 ], [ false, %52 ], [ false, %30 ]
+  %.022 = phi i1 [ false, %38 ], [ false, %15 ], [ false, %5 ], [ false, %56 ], [ false, %.critedge ], [ true, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split ], [ false, %52 ], [ false, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.022
 }

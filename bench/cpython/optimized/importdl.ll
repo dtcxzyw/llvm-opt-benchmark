@@ -1194,7 +1194,7 @@ get_encoded_name.exit.thread:                     ; preds = %61, %Py_DECREF.exit
   call void @_Py_ext_module_loader_info_clear(ptr noundef nonnull %5)
   br label %90
 
-get_encoded_name.exit.thread17:                   ; preds = %Py_DECREF.exit39.i, %52, %get_encoded_name.exit
+get_encoded_name.exit.thread17:                   ; preds = %52, %Py_DECREF.exit39.i, %get_encoded_name.exit
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %43, ptr %67, align 8, !tbaa !27
   %68 = tail call ptr @PyUnicode_AsUTF8(ptr noundef nonnull %1) #6

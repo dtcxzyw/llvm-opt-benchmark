@@ -21015,7 +21015,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h7c586a875
   br label %76
 
 .loopexit.split-lp:                               ; preds = %111, %72, %.loopexit143, %120, %125, %134
-  %.sroa.03.0.ph = phi i8 [ 1, %72 ], [ %.sroa.03.2, %120 ], [ %.sroa.03.2, %.loopexit143 ], [ %.sroa.03.2, %111 ], [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %134 ]
+  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %120 ], [ 1, %72 ], [ %.sroa.03.2, %.loopexit143 ], [ %.sroa.03.2, %111 ], [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %134 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %76
@@ -21635,8 +21635,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h7c586a875
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hea7a4adb55459e42E.exit"
 
 .body.thread:                                     ; preds = %.body.thread.i, %205, %201, %.body.thread111
-  %eh.lpad-body107 = phi { ptr, i32 } [ %lpad.thr_comm109, %.body.thread111 ], [ %202, %205 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %202, %201 ]
-  %.sroa.05.2.lpad-body106 = phi i1 [ %.sroa.05.2.ph, %.body.thread111 ], [ false, %205 ], [ false, %.body.thread.i ], [ false, %201 ]
+  %eh.lpad-body107 = phi { ptr, i32 } [ %lpad.thr_comm109, %.body.thread111 ], [ %202, %201 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %202, %205 ]
+  %.sroa.05.2.lpad-body106 = phi i1 [ %.sroa.05.2.ph, %.body.thread111 ], [ false, %201 ], [ false, %.body.thread.i ], [ false, %205 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #58
           to label %166 unwind label %160
 
@@ -21897,7 +21897,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hca618b0b4
   br label %76
 
 .loopexit.split-lp:                               ; preds = %111, %72, %.loopexit143, %120, %125, %134
-  %.sroa.03.0.ph = phi i8 [ 1, %72 ], [ %.sroa.03.2, %120 ], [ %.sroa.03.2, %.loopexit143 ], [ %.sroa.03.2, %111 ], [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %134 ]
+  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %120 ], [ 1, %72 ], [ %.sroa.03.2, %.loopexit143 ], [ %.sroa.03.2, %111 ], [ %.sroa.03.2, %125 ], [ %.sroa.03.2, %134 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %76
@@ -22517,8 +22517,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hca618b0b4
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hea7a4adb55459e42E.exit"
 
 .body.thread:                                     ; preds = %.body.thread.i, %205, %201, %.body.thread111
-  %eh.lpad-body107 = phi { ptr, i32 } [ %lpad.thr_comm109, %.body.thread111 ], [ %202, %205 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %202, %201 ]
-  %.sroa.05.2.lpad-body106 = phi i1 [ %.sroa.05.2.ph, %.body.thread111 ], [ false, %205 ], [ false, %.body.thread.i ], [ false, %201 ]
+  %eh.lpad-body107 = phi { ptr, i32 } [ %lpad.thr_comm109, %.body.thread111 ], [ %202, %201 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %202, %205 ]
+  %.sroa.05.2.lpad-body106 = phi i1 [ %.sroa.05.2.ph, %.body.thread111 ], [ false, %201 ], [ false, %.body.thread.i ], [ false, %205 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34) #58
           to label %166 unwind label %160
 

@@ -8601,7 +8601,7 @@ php_valid_var_name.exit.thread:                   ; preds = %.preheader, %75, %z
   br label %zend_string_release_ex.exit98
 
 zend_string_release_ex.exit98:                    ; preds = %24, %29, %php_valid_var_name.exit.thread, %169
-  %.168 = phi i64 [ %.269, %169 ], [ %.067129, %24 ], [ %.269, %php_valid_var_name.exit.thread ], [ %.067129, %29 ]
+  %.168 = phi i64 [ %.269, %php_valid_var_name.exit.thread ], [ %.067129, %24 ], [ %.269, %169 ], [ %.067129, %29 ]
   %170 = add i32 %.085125, -1
   %.not = icmp eq i32 %170, 0
   br i1 %.not, label %.loopexit, label %11

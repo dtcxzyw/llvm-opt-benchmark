@@ -3711,7 +3711,7 @@ isYUV.exit28.i:                                   ; preds = %14
   %33 = load i64, ptr %32, align 8, !tbaa !27
   %34 = and i64 %33, 16
   %.not3.i19.i = icmp eq i64 %34, 0
-  br i1 %.not3.i19.i, label %isSwappedChroma.exit, label %35
+  br i1 %.not3.i19.i, label %isPlanarYUV.exit20.i.thread, label %35
 
 35:                                               ; preds = %31
   %36 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %0) #9
@@ -3728,13 +3728,13 @@ isYUV.exit28.i:                                   ; preds = %14
   %40 = load i64, ptr %39, align 8, !tbaa !27
   %41 = and i64 %40, 32
   %.not3.i22.i = icmp eq i64 %41, 0
-  br i1 %.not3.i22.i, label %isPlanarYUV.exit20.i, label %isSwappedChroma.exit
+  br i1 %.not3.i22.i, label %isPlanarYUV.exit20.i, label %isPlanarYUV.exit20.i.thread
 
 isPlanarYUV.exit20.i:                             ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %43 = load i8, ptr %42, align 8, !tbaa !29
   %44 = icmp ult i8 %43, 2
-  br i1 %44, label %isSwappedChroma.exit, label %45
+  br i1 %44, label %isPlanarYUV.exit20.i.thread, label %45
 
 45:                                               ; preds = %isPlanarYUV.exit20.i
   %46 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %0) #9
@@ -3761,7 +3761,7 @@ isPlanarYUV.exit20.i:                             ; preds = %38
   %53 = load i64, ptr %52, align 8, !tbaa !27
   %54 = and i64 %53, 16
   %.not3.i.i = icmp eq i64 %54, 0
-  br i1 %.not3.i.i, label %isSemiPlanarYUV.exit.i.thread, label %55
+  br i1 %.not3.i.i, label %isSwappedChroma.exit, label %55
 
 55:                                               ; preds = %51
   %56 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %0) #9
@@ -3778,13 +3778,13 @@ isPlanarYUV.exit20.i:                             ; preds = %38
   %60 = load i64, ptr %59, align 8, !tbaa !27
   %61 = and i64 %60, 32
   %.not3.i24.i = icmp eq i64 %61, 0
-  br i1 %.not3.i24.i, label %isPlanarYUV.exit.i, label %isSemiPlanarYUV.exit.i.thread
+  br i1 %.not3.i24.i, label %isPlanarYUV.exit.i, label %isSwappedChroma.exit
 
 isPlanarYUV.exit.i:                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %63 = load i8, ptr %62, align 8, !tbaa !29
   %64 = icmp ult i8 %63, 2
-  br i1 %64, label %isSemiPlanarYUV.exit.i.thread, label %isSemiPlanarYUV.exit.i
+  br i1 %64, label %isSwappedChroma.exit, label %isSemiPlanarYUV.exit.i
 
 isSemiPlanarYUV.exit.i:                           ; preds = %isPlanarYUV.exit.i
   %65 = getelementptr inbounds nuw i8, ptr %46, i64 44
@@ -3792,25 +3792,25 @@ isSemiPlanarYUV.exit.i:                           ; preds = %isPlanarYUV.exit.i
   %67 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %68 = load i32, ptr %67, align 8, !tbaa !30
   %.not73 = icmp eq i32 %66, %68
-  br i1 %.not73, label %isSwappedChroma.exit, label %isSemiPlanarYUV.exit.i.thread
+  br i1 %.not73, label %isPlanarYUV.exit20.i.thread, label %isSwappedChroma.exit
 
-isSemiPlanarYUV.exit.i.thread:                    ; preds = %58, %51, %isPlanarYUV.exit.i, %isSemiPlanarYUV.exit.i
-  %69 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  %70 = load i32, ptr %69, align 4, !tbaa !30
-  %71 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %72 = load i32, ptr %71, align 8, !tbaa !30
+isPlanarYUV.exit20.i.thread:                      ; preds = %38, %31, %isSemiPlanarYUV.exit.i, %isPlanarYUV.exit20.i
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 52
+  %70 = load i32, ptr %69, align 4, !tbaa !69
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %72 = load i32, ptr %71, align 8, !tbaa !69
   %73 = icmp sgt i32 %70, %72
   br i1 %73, label %.preheader74, label %.preheader
 
-isSwappedChroma.exit:                             ; preds = %isPlanarYUV.exit20.i, %isSemiPlanarYUV.exit.i, %31, %38
-  %74 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  %75 = load i32, ptr %74, align 4, !tbaa !69
-  %76 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %77 = load i32, ptr %76, align 8, !tbaa !69
+isSwappedChroma.exit:                             ; preds = %isSemiPlanarYUV.exit.i, %isPlanarYUV.exit.i, %51, %58
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 44
+  %75 = load i32, ptr %74, align 4, !tbaa !30
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %77 = load i32, ptr %76, align 8, !tbaa !30
   %78 = icmp sgt i32 %75, %77
   br i1 %78, label %.preheader74, label %.preheader
 
-.preheader74:                                     ; preds = %isSemiPlanarYUV.exit.i.thread, %isSwappedChroma.exit
+.preheader74:                                     ; preds = %isPlanarYUV.exit20.i.thread, %isSwappedChroma.exit
   %79 = icmp sgt i32 %7, 0
   br i1 %79, label %.lr.ph81, label %.loopexit
 
@@ -3885,7 +3885,7 @@ isSwappedChroma.exit:                             ; preds = %isPlanarYUV.exit20.
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
   br i1 %exitcond107.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !71
 
-.preheader:                                       ; preds = %isSemiPlanarYUV.exit.i.thread, %isYUV.exit28.i, %25, %27, %14, %isSwappedChroma.exit
+.preheader:                                       ; preds = %isPlanarYUV.exit20.i.thread, %isYUV.exit28.i, %25, %27, %14, %isSwappedChroma.exit
   %121 = icmp sgt i32 %7, 0
   br i1 %121, label %.lr.ph87, label %.loopexit
 

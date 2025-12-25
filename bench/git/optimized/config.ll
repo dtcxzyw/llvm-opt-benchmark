@@ -3874,7 +3874,7 @@ get_next_char.exit29.thread.sink.split.i.i.i:     ; preds = %.thread.thread.i31.
   br label %get_next_char.exit29.thread.i.i.i
 
 get_next_char.exit29.thread.i.i.i:                ; preds = %get_next_char.exit29.thread.sink.split.i.i.i, %259, %.thread.thread.i31.i.i.i, %237, %.thread.thread.i25.i.i.i
-  %.017.i.i.i = phi i32 [ %243, %259 ], [ %221, %237 ], [ 13, %.thread.thread.i31.i.i.i ], [ 13, %.thread.thread.i25.i.i.i ], [ 0, %get_next_char.exit29.thread.sink.split.i.i.i ]
+  %.017.i.i.i = phi i32 [ 13, %.thread.thread.i31.i.i.i ], [ %221, %237 ], [ %243, %259 ], [ 13, %.thread.thread.i25.i.i.i ], [ 0, %get_next_char.exit29.thread.sink.split.i.i.i ]
   %263 = load i64, ptr %12, align 8, !tbaa !7
   %.not.i.i36.i.i.i = icmp eq i64 %263, 0
   br i1 %.not.i.i36.i.i.i, label %strbuf_avail.exit.thread.i41.i.i.i, label %strbuf_avail.exit.i37.i.i.i
@@ -4181,7 +4181,7 @@ strbuf_addch.exit137.i:                           ; preds = %strbuf_avail.exit.t
   br label %get_next_char.exit.thread.i.i.preheader
 
 get_next_char.exit.thread.i.i.preheader:          ; preds = %381, %get_next_char.exit.i151.i, %378, %374
-  %.024.i.i.ph = phi i32 [ 0, %374 ], [ 10, %378 ], [ %.019.i.ph.i152.i, %get_next_char.exit.i151.i ], [ %.019.i.ph.i152.i, %381 ]
+  %.024.i.i.ph = phi i32 [ 10, %378 ], [ 0, %374 ], [ %.019.i.ph.i152.i, %get_next_char.exit.i151.i ], [ %.019.i.ph.i152.i, %381 ]
   br label %get_next_char.exit.thread.i.i
 
 375:                                              ; preds = %.thread.i.i164.i
@@ -4647,9 +4647,9 @@ strbuf_addch.exit75.i.i.i:                        ; preds = %strbuf_avail.exit.t
   br label %strbuf_setlen.exit.i.i.i.backedge
 
 strbuf_setlen.exit.i.i.i.backedge:                ; preds = %strbuf_addch.exit75.i.i.i, %518, %strbuf_addch.exit65.i.i.i, %502, %.thread87.i.i.i, %479, %479, %strbuf_addch.exit.i.i142.i, %468, %get_next_char.exit.thread82.i.i.i
-  %.038.i.i.i.be = phi i32 [ %.038.i.i.i, %502 ], [ 0, %468 ], [ 0, %479 ], [ %.038.i.i.i, %.thread87.i.i.i ], [ %.038.i.i.i, %get_next_char.exit.thread82.i.i.i ], [ 0, %strbuf_addch.exit.i.i142.i ], [ 0, %479 ], [ %.038.i.i.i, %strbuf_addch.exit65.i.i.i ], [ %519, %518 ], [ %.038.i.i.i, %strbuf_addch.exit75.i.i.i ]
-  %.not.i36.i.i.be = phi i1 [ true, %502 ], [ true, %468 ], [ false, %479 ], [ true, %.thread87.i.i.i ], [ false, %get_next_char.exit.thread82.i.i.i ], [ true, %strbuf_addch.exit.i.i142.i ], [ false, %479 ], [ true, %strbuf_addch.exit65.i.i.i ], [ true, %518 ], [ true, %strbuf_addch.exit75.i.i.i ]
-  %.035.i.i.i.be = phi i64 [ 0, %502 ], [ %spec.select.i38.i.i, %468 ], [ %.035.i.i.i, %479 ], [ 0, %.thread87.i.i.i ], [ %.035.i.i.i, %get_next_char.exit.thread82.i.i.i ], [ %spec.select.i38.i.i, %strbuf_addch.exit.i.i142.i ], [ %.035.i.i.i, %479 ], [ 0, %strbuf_addch.exit65.i.i.i ], [ 0, %518 ], [ 0, %strbuf_addch.exit75.i.i.i ]
+  %.038.i.i.i.be = phi i32 [ 0, %468 ], [ %.038.i.i.i, %502 ], [ 0, %479 ], [ %.038.i.i.i, %.thread87.i.i.i ], [ %.038.i.i.i, %get_next_char.exit.thread82.i.i.i ], [ 0, %strbuf_addch.exit.i.i142.i ], [ 0, %479 ], [ %.038.i.i.i, %strbuf_addch.exit65.i.i.i ], [ %519, %518 ], [ %.038.i.i.i, %strbuf_addch.exit75.i.i.i ]
+  %.not.i36.i.i.be = phi i1 [ true, %468 ], [ true, %502 ], [ false, %479 ], [ true, %.thread87.i.i.i ], [ false, %get_next_char.exit.thread82.i.i.i ], [ true, %strbuf_addch.exit.i.i142.i ], [ false, %479 ], [ true, %strbuf_addch.exit65.i.i.i ], [ true, %518 ], [ true, %strbuf_addch.exit75.i.i.i ]
+  %.035.i.i.i.be = phi i64 [ %spec.select.i38.i.i, %468 ], [ 0, %502 ], [ %.035.i.i.i, %479 ], [ 0, %.thread87.i.i.i ], [ %.035.i.i.i, %get_next_char.exit.thread82.i.i.i ], [ %spec.select.i38.i.i, %strbuf_addch.exit.i.i142.i ], [ %.035.i.i.i, %479 ], [ 0, %strbuf_addch.exit65.i.i.i ], [ 0, %518 ], [ 0, %strbuf_addch.exit75.i.i.i ]
   br label %strbuf_setlen.exit.i.i.i
 
 parse_value.exit.i.i:                             ; preds = %458, %451
@@ -4688,8 +4688,8 @@ do_event.exit.i.backedge:                         ; preds = %get_value.exit.i, %
   br label %get_base_var.exit.thread.i
 
 get_base_var.exit.thread.i:                       ; preds = %323, %get_base_var.exit.i, %286, %211, %67, %294, %get_next_char.exit.i.i, %.loopexit.i, %.thread74.i.i.i, %289, %.thread80.i.i.i, %.loopexit276.i, %.thread.thread.i47.i.i.i, %166, %162
-  %.sroa.20.1.ph.i = phi i64 [ %.sroa.20.6.ph.i, %294 ], [ %.sroa.20.6.ph.i, %.thread74.i.i.i ], [ %.sroa.20.7.ph.i, %.loopexit.i ], [ %.sroa.20.6.ph.i, %166 ], [ %.sroa.20.6.ph.i, %.thread.thread.i47.i.i.i ], [ %.sroa.20.6.ph.i, %.thread80.i.i.i ], [ %.sroa.20.6.ph.i, %289 ], [ %.sroa.20.6.ph.i, %.loopexit276.i ], [ %.sroa.20.6.ph.i, %162 ], [ %.sroa.20.6.ph.i, %get_next_char.exit.i.i ], [ %.sroa.20.0.i, %323 ], [ %.sroa.20.6.ph.i, %286 ], [ %.sroa.20.6.ph.i, %211 ], [ %.sroa.20.0.i, %67 ], [ %.sroa.20.6.ph.i, %get_base_var.exit.i ]
-  %.sroa.0.1.ph.i = phi i32 [ %.sroa.0.6.ph.i, %294 ], [ %.sroa.0.6.ph.i, %.thread74.i.i.i ], [ %.sroa.0.7.ph.i, %.loopexit.i ], [ %.sroa.0.6.ph.i, %166 ], [ %.sroa.0.6.ph.i, %.thread.thread.i47.i.i.i ], [ %.sroa.0.6.ph.i, %.thread80.i.i.i ], [ %.sroa.0.6.ph.i, %289 ], [ %.sroa.0.6.ph.i, %.loopexit276.i ], [ %.sroa.0.6.ph.i, %162 ], [ %.sroa.0.6.ph.i, %get_next_char.exit.i.i ], [ %.sroa.0.0.i, %323 ], [ %.sroa.0.6.ph.i, %286 ], [ %.sroa.0.6.ph.i, %211 ], [ %.sroa.0.0.i, %67 ], [ %.sroa.0.6.ph.i, %get_base_var.exit.i ]
+  %.sroa.20.1.ph.i = phi i64 [ %.sroa.20.6.ph.i, %294 ], [ %.sroa.20.6.ph.i, %.thread74.i.i.i ], [ %.sroa.20.7.ph.i, %.loopexit.i ], [ %.sroa.20.6.ph.i, %166 ], [ %.sroa.20.6.ph.i, %.thread.thread.i47.i.i.i ], [ %.sroa.20.6.ph.i, %.thread80.i.i.i ], [ %.sroa.20.6.ph.i, %289 ], [ %.sroa.20.6.ph.i, %.loopexit276.i ], [ %.sroa.20.6.ph.i, %162 ], [ %.sroa.20.6.ph.i, %get_next_char.exit.i.i ], [ %.sroa.20.0.i, %323 ], [ %.sroa.20.6.ph.i, %286 ], [ %.sroa.20.6.ph.i, %211 ], [ %.sroa.20.6.ph.i, %get_base_var.exit.i ], [ %.sroa.20.0.i, %67 ]
+  %.sroa.0.1.ph.i = phi i32 [ %.sroa.0.6.ph.i, %294 ], [ %.sroa.0.6.ph.i, %.thread74.i.i.i ], [ %.sroa.0.7.ph.i, %.loopexit.i ], [ %.sroa.0.6.ph.i, %166 ], [ %.sroa.0.6.ph.i, %.thread.thread.i47.i.i.i ], [ %.sroa.0.6.ph.i, %.thread80.i.i.i ], [ %.sroa.0.6.ph.i, %289 ], [ %.sroa.0.6.ph.i, %.loopexit276.i ], [ %.sroa.0.6.ph.i, %162 ], [ %.sroa.0.6.ph.i, %get_next_char.exit.i.i ], [ %.sroa.0.0.i, %323 ], [ %.sroa.0.6.ph.i, %286 ], [ %.sroa.0.6.ph.i, %211 ], [ %.sroa.0.6.ph.i, %get_base_var.exit.i ], [ %.sroa.0.0.i, %67 ]
   br i1 %.not.i95.i, label %547, label %537
 
 537:                                              ; preds = %get_base_var.exit.thread.i
@@ -7450,7 +7450,7 @@ define dso_local range(i32 -1, 2) i32 @repo_config_get_expiry_in_days(ptr nounde
   br label %19
 
 19:                                               ; preds = %.sink.split, %15, %4
-  %.0 = phi i32 [ -1, %15 ], [ 1, %4 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %4 ], [ -1, %15 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -8139,7 +8139,7 @@ _.exit173:                                        ; preds = %150, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %repo_config_clear.exit
 
-.thread193:                                       ; preds = %244, %239, %236, %.thread181
+.thread193:                                       ; preds = %.thread181, %236, %239, %244
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -8831,7 +8831,7 @@ define internal noundef i32 @store_aux(ptr noundef %0, ptr noundef %1, ptr readn
   br label %matches.exit
 
 matches.exit:                                     ; preds = %17, %23, %26
-  %.0.i = phi i32 [ %29, %26 ], [ %19, %17 ], [ %25, %23 ]
+  %.0.i = phi i32 [ %25, %23 ], [ %19, %17 ], [ %29, %26 ]
   %.not51 = icmp eq i32 %.0.i, 0
   br i1 %.not51, label %matches.exit.thread, label %matches.exit.thread64
 
@@ -8990,7 +8990,7 @@ _.exit:                                           ; preds = %37, %39
   br label %matches.exit61
 
 matches.exit61:                                   ; preds = %100, %106, %109
-  %.0.i56 = phi i32 [ %112, %109 ], [ %102, %100 ], [ %108, %106 ]
+  %.0.i56 = phi i32 [ %108, %106 ], [ %102, %100 ], [ %112, %109 ]
   %.not50 = icmp eq i32 %.0.i56, 0
   br i1 %.not50, label %matches.exit.thread, label %matches.exit61.matches.exit61.thread69_crit_edge
 
@@ -9603,10 +9603,10 @@ section_name_match.exit:                          ; preds = %.preheader.i121, %1
   %.not98 = icmp eq i32 %.071190, 0
   br i1 %.not98, label %.thread140, label %187, !llvm.loop !172
 
-.thread140:                                       ; preds = %117, %172, %170, %167, %section_name_match.exit, %.critedge.i, %strbuf_setlen.exit, %145, %.critedge.thread
-  %.058146 = phi ptr [ %71, %.critedge.thread ], [ %71, %172 ], [ %71, %section_name_match.exit ], [ %169, %167 ], [ %171, %170 ], [ %71, %.critedge.i ], [ %71, %strbuf_setlen.exit ], [ %71, %145 ], [ %71, %117 ]
-  %.5145 = phi i32 [ %.3191, %.critedge.thread ], [ %157, %172 ], [ %.3191, %section_name_match.exit ], [ %157, %167 ], [ %157, %170 ], [ %.3191, %.critedge.i ], [ %.3191, %strbuf_setlen.exit ], [ %.3191, %145 ], [ %.3191, %117 ]
-  %173 = phi i1 [ true, %.critedge.thread ], [ false, %172 ], [ false, %section_name_match.exit ], [ false, %167 ], [ false, %170 ], [ false, %.critedge.i ], [ false, %strbuf_setlen.exit ], [ false, %145 ], [ false, %117 ]
+.thread140:                                       ; preds = %117, %172, %170, %167, %section_name_match.exit, %145, %strbuf_setlen.exit, %.critedge.i, %.critedge.thread
+  %.058146 = phi ptr [ %71, %.critedge.thread ], [ %71, %172 ], [ %71, %section_name_match.exit ], [ %169, %167 ], [ %171, %170 ], [ %71, %145 ], [ %71, %strbuf_setlen.exit ], [ %71, %.critedge.i ], [ %71, %117 ]
+  %.5145 = phi i32 [ %.3191, %.critedge.thread ], [ %157, %172 ], [ %.3191, %section_name_match.exit ], [ %157, %167 ], [ %157, %170 ], [ %.3191, %145 ], [ %.3191, %strbuf_setlen.exit ], [ %.3191, %.critedge.i ], [ %.3191, %117 ]
+  %173 = phi i1 [ true, %.critedge.thread ], [ false, %172 ], [ false, %section_name_match.exit ], [ false, %167 ], [ false, %170 ], [ false, %145 ], [ false, %strbuf_setlen.exit ], [ false, %.critedge.i ], [ false, %117 ]
   %174 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.058146) #30
   %175 = load i64, ptr %60, align 8
   %176 = icmp ne i64 %175, 0

@@ -3995,7 +3995,7 @@ switch.lookup:                                    ; preds = %1030, %1034
   br label %1428
 
 1428:                                             ; preds = %.sink.split270, %1312, %1271
-  %1429 = phi i32 [ -19, %1271 ], [ -12, %1312 ], [ %.ph271, %.sink.split270 ]
+  %1429 = phi i32 [ -12, %1312 ], [ -19, %1271 ], [ %.ph271, %.sink.split270 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %2544
 
@@ -24630,7 +24630,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %246, label %250, label %247
 
-.sink.split:                                      ; preds = %236, %39, %51, %62, %59, %.thread28
+.sink.split:                                      ; preds = %62, %39, %51, %236, %59, %.thread28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %247
@@ -29952,7 +29952,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @tg3_run_loopback(ptr nound
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %.loopexit, %290, %310, %313, %315, %322, %327, %346, %.loopexit11.sink.split, %280, %.loopexit13, %21
-  %357 = phi i32 [ 0, %280 ], [ -5, %346 ], [ -12, %21 ], [ -5, %.loopexit13 ], [ -5, %.loopexit11.sink.split ], [ -5, %313 ], [ 0, %.loopexit ], [ -5, %327 ], [ -5, %290 ], [ -5, %322 ], [ -5, %310 ], [ -5, %315 ]
+  %357 = phi i32 [ 0, %280 ], [ -5, %346 ], [ -12, %21 ], [ -5, %.loopexit13 ], [ -5, %.loopexit11.sink.split ], [ -5, %315 ], [ 0, %.loopexit ], [ -5, %327 ], [ -5, %290 ], [ -5, %322 ], [ -5, %310 ], [ -5, %313 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %357
@@ -39764,7 +39764,7 @@ define internal fastcc void @tg3_get_5720_nvram_info(ptr noundef %0) unnamed_add
   br label %.thread
 
 .thread:                                          ; preds = %16, %.thread.fold.split, %29
-  %35 = phi i1 [ true, %16 ], [ false, %29 ], [ %34, %.thread.fold.split ]
+  %35 = phi i1 [ false, %29 ], [ true, %16 ], [ %34, %.thread.fold.split ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 5204
   store i32 31, ptr %36, align 4
   %37 = getelementptr i8, ptr %0, i64 4681

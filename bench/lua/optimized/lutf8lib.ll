@@ -179,8 +179,8 @@ u_posrelat.exit.thread:                           ; preds = %12, %u_posrelat.exi
   br i1 %62, label %58, label %.loopexit62
 
 .critedge:                                        ; preds = %.loopexit62, %.critedge2, %.critedge2.thread, %.preheader63
-  %.044 = phi i64 [ %53, %.critedge2 ], [ %.24667, %.preheader63 ], [ %47, %.critedge2.thread ], [ %.246, %.loopexit62 ]
-  %.2 = phi i64 [ %49, %.critedge2 ], [ %.056, %.preheader63 ], [ 0, %.critedge2.thread ], [ %59, %.loopexit62 ]
+  %.044 = phi i64 [ %47, %.critedge2.thread ], [ %53, %.critedge2 ], [ %.24667, %.preheader63 ], [ %.246, %.loopexit62 ]
+  %.2 = phi i64 [ 0, %.critedge2.thread ], [ %49, %.critedge2 ], [ %.056, %.preheader63 ], [ %59, %.loopexit62 ]
   %.not = icmp eq i64 %.044, 0
   br i1 %.not, label %.critedge.thread, label %.critedge.thread96
 
@@ -453,7 +453,7 @@ u_posrelat.exit42:                                ; preds = %u_posrelat.exit, %1
   br i1 %112, label %.lr.ph.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %101, %._crit_edge.i, %.lr.ph.i, %._crit_edge.i.us, %64, %71, %.lr.ph.i.us, %32
-  %.str.11.sink = phi ptr [ @.str.10, %32 ], [ @.str.11, %.lr.ph.i ], [ @.str.11, %.lr.ph.i.us ], [ @.str.11, %._crit_edge.i.us ], [ @.str.11, %71 ], [ @.str.11, %64 ], [ @.str.11, %._crit_edge.i ], [ @.str.11, %101 ]
+  %.str.11.sink = phi ptr [ @.str.10, %32 ], [ @.str.11, %.lr.ph.i.us ], [ @.str.11, %.lr.ph.i ], [ @.str.11, %._crit_edge.i.us ], [ @.str.11, %71 ], [ @.str.11, %64 ], [ @.str.11, %._crit_edge.i ], [ @.str.11, %101 ]
   %113 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull %.str.11.sink) #3
   br label %.loopexit
 

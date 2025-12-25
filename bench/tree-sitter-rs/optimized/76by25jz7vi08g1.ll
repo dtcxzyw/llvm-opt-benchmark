@@ -1007,8 +1007,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %238
 
 .loopexit.split-lp:                               ; preds = %.invoke, %250, %266, %274, %281, %270
-  %240 = phi ptr [ %.ph, %274 ], [ null, %281 ], [ %.ph, %.invoke ], [ %.ph, %266 ], [ null, %270 ], [ %.ph, %250 ]
-  %.1.i22.ph = phi i8 [ 1, %274 ], [ 0, %281 ], [ 1, %.invoke ], [ 1, %266 ], [ 1, %270 ], [ 1, %250 ]
+  %240 = phi ptr [ %.ph, %274 ], [ null, %281 ], [ null, %270 ], [ %.ph, %266 ], [ %.ph, %.invoke ], [ %.ph, %250 ]
+  %.1.i22.ph = phi i8 [ 1, %274 ], [ 0, %281 ], [ 1, %270 ], [ 1, %266 ], [ 1, %.invoke ], [ 1, %250 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %238
@@ -10890,8 +10890,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %238
 
 .loopexit.split-lp:                               ; preds = %.invoke, %250, %266, %274, %281, %270
-  %240 = phi ptr [ %.ph, %274 ], [ null, %281 ], [ %.ph, %.invoke ], [ %.ph, %266 ], [ null, %270 ], [ %.ph, %250 ]
-  %.1.i22.ph = phi i8 [ 1, %274 ], [ 0, %281 ], [ 1, %.invoke ], [ 1, %266 ], [ 1, %270 ], [ 1, %250 ]
+  %240 = phi ptr [ %.ph, %274 ], [ null, %281 ], [ null, %270 ], [ %.ph, %266 ], [ %.ph, %.invoke ], [ %.ph, %250 ]
+  %.1.i22.ph = phi i8 [ 1, %274 ], [ 0, %281 ], [ 1, %270 ], [ 1, %266 ], [ 1, %.invoke ], [ 1, %250 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %238
@@ -12868,8 +12868,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %238
 
 .loopexit.split-lp:                               ; preds = %.invoke, %250, %266, %274, %281, %270
-  %240 = phi ptr [ %.ph, %274 ], [ null, %281 ], [ %.ph, %.invoke ], [ %.ph, %266 ], [ null, %270 ], [ %.ph, %250 ]
-  %.1.i22.ph = phi i8 [ 1, %274 ], [ 0, %281 ], [ 1, %.invoke ], [ 1, %266 ], [ 1, %270 ], [ 1, %250 ]
+  %240 = phi ptr [ %.ph, %274 ], [ null, %281 ], [ null, %270 ], [ %.ph, %266 ], [ %.ph, %.invoke ], [ %.ph, %250 ]
+  %.1.i22.ph = phi i8 [ 1, %274 ], [ 0, %281 ], [ 1, %270 ], [ 1, %266 ], [ 1, %.invoke ], [ 1, %250 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %238
@@ -13984,8 +13984,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %235
 
 .loopexit.split-lp:                               ; preds = %.invoke, %247, %264, %272, %279, %268
-  %237 = phi ptr [ %.ph, %272 ], [ null, %279 ], [ %.ph, %.invoke ], [ %.ph, %264 ], [ null, %268 ], [ %.ph, %247 ]
-  %.1.i22.ph = phi i8 [ 1, %272 ], [ 0, %279 ], [ 1, %.invoke ], [ 1, %264 ], [ 1, %268 ], [ 1, %247 ]
+  %237 = phi ptr [ %.ph, %272 ], [ null, %279 ], [ null, %268 ], [ %.ph, %264 ], [ %.ph, %.invoke ], [ %.ph, %247 ]
+  %.1.i22.ph = phi i8 [ 1, %272 ], [ 0, %279 ], [ 1, %268 ], [ 1, %264 ], [ 1, %.invoke ], [ 1, %247 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %235
@@ -23469,7 +23469,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd8cde145b9f03369E.exit: ; preds = %23, 
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h71c1dadf76ffcc20E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19)
           to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h85db3c6c5e588c85E.exit.thread" unwind label %136
 
-"_ZN4core3ptr150drop_in_place$LT$ctrlc..set_handler_inner$LT$tree_sitter_cli..util..cancel_on_signal..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9ce87758aec07bfaE.exit": ; preds = %126, %131, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h85db3c6c5e588c85E.exit.thread", %166, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h85db3c6c5e588c85E.exit"
+"_ZN4core3ptr150drop_in_place$LT$ctrlc..set_handler_inner$LT$tree_sitter_cli..util..cancel_on_signal..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9ce87758aec07bfaE.exit": ; preds = %131, %126, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h85db3c6c5e588c85E.exit.thread", %166, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h85db3c6c5e588c85E.exit"
   %.pn58119130 = phi { ptr, i32 } [ %.pn58119140, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h85db3c6c5e588c85E.exit.thread" ], [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h85db3c6c5e588c85E.exit" ], [ %.pn58119140, %166 ], [ %127, %126 ], [ %127, %131 ]
   resume { ptr, i32 } %.pn58119130
 
@@ -40056,10 +40056,10 @@ define internal fastcc noundef zeroext i1 @_ZN15tree_sitter_cli8generate15prepar
   unreachable
 
 .body167:                                         ; preds = %196, %176, %124
-  %.1119 = phi i1 [ %.0118, %124 ], [ true, %196 ], [ true, %176 ]
-  %.1109 = phi i8 [ %.0108, %124 ], [ %.2110, %196 ], [ 0, %176 ]
-  %.1107 = phi i8 [ %.0106, %124 ], [ 0, %196 ], [ 1, %176 ]
-  %.pn144 = phi { ptr, i32 } [ %125, %124 ], [ %197, %196 ], [ %177, %176 ]
+  %.1119 = phi i1 [ true, %196 ], [ %.0118, %124 ], [ true, %176 ]
+  %.1109 = phi i8 [ %.2110, %196 ], [ %.0108, %124 ], [ 0, %176 ]
+  %.1107 = phi i8 [ 0, %196 ], [ %.0106, %124 ], [ 1, %176 ]
+  %.pn144 = phi { ptr, i32 } [ %197, %196 ], [ %125, %124 ], [ %177, %176 ]
   br i1 %131, label %405, label %.body167.thread
 
 124:                                              ; preds = %347, %344, %326, %323, %251, %232, %229, %160, %307, %213

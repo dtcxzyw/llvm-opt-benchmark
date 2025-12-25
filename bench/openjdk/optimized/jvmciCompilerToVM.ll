@@ -12883,7 +12883,7 @@ _ZN14JVMCITraceMarkC2EPKc.exit:                   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN10JNIHandles7resolveEP8_jobject.exit
 
 _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %81, %77, %73
-  %83 = phi ptr [ %82, %81 ], [ %80, %77 ], [ %76, %73 ]
+  %83 = phi ptr [ %80, %77 ], [ %82, %81 ], [ %76, %73 ]
   %84 = icmp eq ptr %83, null
   br i1 %84, label %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, label %85
 

@@ -5302,7 +5302,7 @@ pmix20_bfrop_unpack_value.exit.thread:            ; preds = %39, %33, %31
   br i1 %exitcond.not, label %pmix20_bfrop_unpack_value.exit, label %.lr.ph, !llvm.loop !128
 
 pmix20_bfrop_unpack_value.exit:                   ; preds = %28, %pmix20_bfrop_unpack_value.exit.thread, %42, %.lr.ph.i, %16
-  %.0 = phi i32 [ 0, %16 ], [ %41, %.lr.ph.i ], [ %43, %42 ], [ %30, %28 ], [ 0, %pmix20_bfrop_unpack_value.exit.thread ]
+  %.0 = phi i32 [ 0, %16 ], [ %43, %42 ], [ %41, %.lr.ph.i ], [ %30, %28 ], [ 0, %pmix20_bfrop_unpack_value.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

@@ -6273,7 +6273,7 @@ _ZN3std2fs8metadata17hae664d0c052e3406E.exit.thread.i.i: ; preds = %298
   br label %_ZN5uu_rm11prompt_file17ha30d99f3f8621299E.exit.thread.sink.split
 
 _ZN5uu_rm11prompt_file17ha30d99f3f8621299E.exit:  ; preds = %146, %340, %344
-  %.0.i = phi i1 [ %147, %146 ], [ %398, %344 ], [ %341, %340 ]
+  %.0.i = phi i1 [ %341, %340 ], [ %398, %344 ], [ %147, %146 ]
   br i1 %.0.i, label %_ZN5uu_rm11prompt_file17ha30d99f3f8621299E.exit.thread, label %463
 
 _ZN5uu_rm11prompt_file17ha30d99f3f8621299E.exit.thread.sink.split: ; preds = %.thread, %.thread3

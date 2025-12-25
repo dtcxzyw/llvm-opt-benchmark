@@ -7736,7 +7736,7 @@ _ZN12uv_workspace9workspace9Workspace4venv33from_project_environment_variable17h
   br label %100
 
 _ZN12uv_workspace9workspace9Workspace4venv33from_project_environment_variable17haac3a2d83bb8d575E.exit: ; preds = %94, %95
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload165, %95 ], [ %.sroa.0.0.copyload166, %94 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload166, %94 ], [ %.sroa.0.0.copyload165, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !1101
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !1101
   %99 = icmp eq i64 %.sroa.0.0, -9223372036854775808

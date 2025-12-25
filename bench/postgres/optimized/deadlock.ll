@@ -948,7 +948,7 @@ ExpandConstraints.exit:                           ; preds = %TopoSort.exit.i
   br label %ExpandConstraints.exit.thread
 
 ExpandConstraints.exit.thread:                    ; preds = %.preheader.i.i, %152, %203, %194, %211, %._crit_edge, %1
-  %.09 = phi i32 [ -1, %1 ], [ %.010.lcssa, %._crit_edge ], [ -1, %152 ], [ -1, %203 ], [ %spec.select, %211 ], [ -1, %194 ], [ -1, %.preheader.i.i ]
+  %.09 = phi i32 [ -1, %1 ], [ %.010.lcssa, %._crit_edge ], [ -1, %203 ], [ -1, %152 ], [ %spec.select, %211 ], [ -1, %194 ], [ -1, %.preheader.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.09
 }
@@ -1348,7 +1348,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   br label %.thread181
 
 .thread181:                                       ; preds = %123, %135, %75, %89, %.loopexit, %66, %138, %90, %.critedge, %5
-  %.0 = phi i1 [ true, %138 ], [ true, %.critedge ], [ false, %5 ], [ true, %90 ], [ false, %66 ], [ false, %.loopexit ], [ false, %75 ], [ false, %89 ], [ false, %135 ], [ false, %123 ]
+  %.0 = phi i1 [ true, %138 ], [ true, %.critedge ], [ false, %5 ], [ true, %90 ], [ false, %66 ], [ false, %75 ], [ false, %.loopexit ], [ false, %89 ], [ false, %135 ], [ false, %123 ]
   ret i1 %.0
 }
 

@@ -4924,7 +4924,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZN11ast_manager6mk
   br label %.body
 
 .critedge:                                        ; preds = %_ZNK6vectorIP3appLb0EjE5emptyEv.exit, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit44, %225, %_ZN22symmetry_reduce_tactic3imp12select_constERK10ptr_vectorI3appES5_.exit, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit10.i, %147, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit.i, %.preheader, %.noexc40, %_ZN22symmetry_reduce_tactic3imp25invariant_by_permutationsEP4exprR10ptr_vectorI3appE.exit
-  %.120 = phi i32 [ %.22192, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit.i ], [ %.019100, %.noexc40 ], [ %.019100, %_ZN22symmetry_reduce_tactic3imp25invariant_by_permutationsEP4exprR10ptr_vectorI3appE.exit ], [ %.019100, %.preheader ], [ %.22192, %_ZNK6vectorIP3appLb0EjE5emptyEv.exit ], [ %.22192, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit44 ], [ %195, %225 ], [ %.22192, %_ZN22symmetry_reduce_tactic3imp12select_constERK10ptr_vectorI3appES5_.exit ], [ %.22192, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit10.i ], [ %.22192, %147 ], [ %.22192, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit ]
+  %.120 = phi i32 [ %.019100, %_ZN22symmetry_reduce_tactic3imp25invariant_by_permutationsEP4exprR10ptr_vectorI3appE.exit ], [ %.019100, %.noexc40 ], [ %.22192, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit.i ], [ %.019100, %.preheader ], [ %.22192, %_ZNK6vectorIP3appLb0EjE5emptyEv.exit ], [ %.22192, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit44 ], [ %195, %225 ], [ %.22192, %_ZN22symmetry_reduce_tactic3imp12select_constERK10ptr_vectorI3appES5_.exit ], [ %.22192, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit10.i ], [ %.22192, %147 ], [ %.22192, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %233 = load ptr, ptr %6, align 8, !tbaa !213
   %234 = icmp eq ptr %233, null
@@ -15780,7 +15780,7 @@ _ZNK6vectorIP3appLb0EjE8containsERKS1_.exit41:    ; preds = %.lr.ph.i37
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK6vectorIP3appLb0EjE3endEv.exit.i, %58, %49, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit41, %45, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %.lr.ph.split, %34, %73, %20, %.critedge32.loopexit, %.lr.ph, %9, %4, %_ZNK11ast_manager5is_orEPK4expr.exit
-  %.0 = phi i1 [ false, %_ZNK11ast_manager5is_orEPK4expr.exit ], [ false, %73 ], [ false, %.lr.ph ], [ false, %4 ], [ false, %9 ], [ false, %20 ], [ %80, %.critedge32.loopexit ], [ false, %34 ], [ false, %.lr.ph.split ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %45 ], [ false, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit41 ], [ false, %49 ], [ false, %58 ], [ false, %_ZNK6vectorIP3appLb0EjE3endEv.exit.i ]
+  %.0 = phi i1 [ false, %_ZNK11ast_manager5is_orEPK4expr.exit ], [ false, %73 ], [ false, %9 ], [ false, %.lr.ph ], [ false, %4 ], [ false, %20 ], [ %80, %.critedge32.loopexit ], [ false, %34 ], [ false, %.lr.ph.split ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %45 ], [ false, %_ZNK6vectorIP3appLb0EjE8containsERKS1_.exit41 ], [ false, %49 ], [ false, %58 ], [ false, %_ZNK6vectorIP3appLb0EjE3endEv.exit.i ]
   ret i1 %.0
 }
 

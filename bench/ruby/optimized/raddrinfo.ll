@@ -1193,8 +1193,8 @@ rb_getaddrinfo.exit:                              ; preds = %163, %allocate_geta
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread66
 
-.thread72:                                        ; preds = %rb_getaddrinfo.exit, %rb_getaddrinfo.exit.thread, %.thread78
-  %.02976 = phi i32 [ -2, %.thread78 ], [ %.026.i, %rb_getaddrinfo.exit ], [ -10, %rb_getaddrinfo.exit.thread ]
+.thread72:                                        ; preds = %rb_getaddrinfo.exit.thread, %rb_getaddrinfo.exit, %.thread78
+  %.02976 = phi i32 [ -2, %.thread78 ], [ -10, %rb_getaddrinfo.exit.thread ], [ %.026.i, %rb_getaddrinfo.exit ]
   %.not43 = icmp eq ptr %15, null
   br i1 %.not43, label %179, label %171
 
@@ -1258,7 +1258,7 @@ define internal fastcc range(i32 -4, 1) i32 @numeric_getaddrinfo(ptr noundef %0,
   br label %parse_numeric_port.exit
 
 parse_numeric_port.exit:                          ; preds = %17, %7
-  %.0 = phi i16 [ 0, %7 ], [ %19, %17 ]
+  %.0 = phi i16 [ %19, %17 ], [ 0, %7 ]
   %.not101 = icmp eq ptr %2, null
   br i1 %.not101, label %.thread116, label %20
 
@@ -6379,8 +6379,8 @@ rbimpl_RB_TYPE_P_fastpath.exit22.thread:          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %50
 
 50:                                               ; preds = %.sink.split, %44, %rbimpl_RB_TYPE_P_fastpath.exit22.thread, %7
-  %51 = phi i64 [ %1, %7 ], [ %1, %rbimpl_RB_TYPE_P_fastpath.exit22.thread ], [ %1, %44 ], [ 4, %.sink.split ]
-  %.0 = phi i64 [ %0, %7 ], [ %.1, %rbimpl_RB_TYPE_P_fastpath.exit22.thread ], [ %.1, %44 ], [ %.1, %.sink.split ]
+  %51 = phi i64 [ %1, %rbimpl_RB_TYPE_P_fastpath.exit22.thread ], [ %1, %7 ], [ %1, %44 ], [ 4, %.sink.split ]
+  %.0 = phi i64 [ %.1, %rbimpl_RB_TYPE_P_fastpath.exit22.thread ], [ %0, %7 ], [ %.1, %44 ], [ %.1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %52
@@ -6459,7 +6459,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   br label %.thread
 
 91:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread, %80, %87, %75
-  %.115 = phi i64 [ %76, %75 ], [ %.014, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %88, %87 ], [ %.014, %80 ]
+  %.115 = phi i64 [ %76, %75 ], [ %.014, %80 ], [ %88, %87 ], [ %.014, %rbimpl_RB_TYPE_P_fastpath.exit.thread ]
   %92 = icmp eq i64 %.115, 4
   br i1 %92, label %93, label %.thread
 

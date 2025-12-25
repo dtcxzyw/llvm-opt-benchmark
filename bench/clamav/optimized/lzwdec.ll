@@ -304,8 +304,8 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
   br label %131
 
 131:                                              ; preds = %124, %128
-  %.0290.lcssa899910 = phi i64 [ 257, %124 ], [ %130, %128 ]
-  %.2276 = phi i32 [ 1, %124 ], [ -3, %128 ]
+  %.0290.lcssa899910 = phi i64 [ %130, %128 ], [ 257, %124 ]
+  %.2276 = phi i32 [ -3, %128 ], [ 1, %124 ]
   %132 = getelementptr inbounds nuw %struct.code_ent, ptr %86, i64 %.0290.lcssa899910
   br label %.loopexit
 

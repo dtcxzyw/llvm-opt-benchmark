@@ -1109,7 +1109,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5F_get_access_plist(ptr noundef
   br label %305
 
 305:                                              ; preds = %262, %275, %291, %301, %295, %.thread119
-  %.0 = phi i64 [ %30, %295 ], [ %30, %.thread119 ], [ -1, %301 ], [ -1, %291 ], [ -1, %275 ], [ -1, %262 ]
+  %.0 = phi i64 [ %30, %.thread119 ], [ %30, %295 ], [ -1, %262 ], [ -1, %275 ], [ -1, %291 ], [ -1, %301 ]
   %306 = load i64, ptr %3, align 8, !tbaa !48
   %307 = load ptr, ptr %257, align 8, !tbaa !50
   %308 = call i32 @H5FD_free_driver_info(i64 noundef %306, ptr noundef %307) #22
@@ -1621,7 +1621,7 @@ define range(i32 -1, 1) i32 @H5F_prefix_open_file(i1 noundef zeroext %0, ptr nou
   br i1 %.not124, label %H5F__getenv_prefix_name.exit, label %.thread148
 
 H5F__getenv_prefix_name.exit:                     ; preds = %103, %84, %74
-  %.1135139 = phi ptr [ %85, %84 ], [ %.0134185, %74 ], [ %.1135.ph211, %103 ]
+  %.1135139 = phi ptr [ %.0134185, %74 ], [ %85, %84 ], [ %.1135.ph211, %103 ]
   %.not120 = icmp eq ptr %.1135139, null
   br i1 %.not120, label %.thread148, label %.preheader
 
@@ -7040,7 +7040,7 @@ define range(i32 -1, 1) i32 @H5F__start_swmr_write(ptr noundef %0) local_unnamed
   %336 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F__start_swmr_write, i32 noundef 4003, i64 noundef %334, i64 noundef %335, ptr noundef nonnull @.str.181) #22
   br label %337
 
-337:                                              ; preds = %288, %333, %318, %311, %304, %297
+337:                                              ; preds = %333, %288, %297, %304, %311, %318
   %338 = load ptr, ptr %16, align 8, !tbaa !15
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 88
   %340 = load i64, ptr %339, align 8, !tbaa !114

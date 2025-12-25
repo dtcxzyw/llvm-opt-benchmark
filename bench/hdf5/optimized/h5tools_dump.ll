@@ -6491,7 +6491,7 @@ define range(i32 -1, 1) i32 @h5tools_dump_dset(ptr readnone captures(none) %0, p
   br label %.thread189.i
 
 .thread189.i:                                     ; preds = %319, %315, %307, %304, %302, %146, %.loopexit193.i, %106, %102, %94, %87, %83, %75
-  %.10.i = phi i32 [ %.9.i, %302 ], [ %.9.i, %304 ], [ -1, %315 ], [ -1, %319 ], [ -1, %307 ], [ -1, %102 ], [ -1, %106 ], [ -1, %94 ], [ -1, %87 ], [ -1, %75 ], [ 0, %.loopexit193.i ], [ -1, %83 ], [ 0, %146 ]
+  %.10.i = phi i32 [ %.9.i, %302 ], [ %.9.i, %304 ], [ -1, %315 ], [ -1, %319 ], [ -1, %307 ], [ -1, %102 ], [ -1, %106 ], [ -1, %94 ], [ -1, %87 ], [ -1, %75 ], [ -1, %83 ], [ 0, %.loopexit193.i ], [ 0, %146 ]
   %323 = icmp sgt i64 %54, -1
   br i1 %323, label %324, label %h5tools_dump_simple_dset.exit
 
@@ -8268,7 +8268,7 @@ define range(i32 -1, 1) i32 @h5tools_print_enum(ptr noundef %0, ptr noundef %1, 
   br i1 %exitcond220.not, label %.loopexit201, label %.lr.ph206.split, !llvm.loop !140
 
 .loopexit201:                                     ; preds = %.lr.ph206.split, %.loopexit.us, %179, %183, %171, %159, %163, %151, %135, %139, %127
-  %.1122 = phi i32 [ -1, %135 ], [ -1, %179 ], [ -1, %127 ], [ -1, %159 ], [ -1, %183 ], [ -1, %171 ], [ -1, %163 ], [ -1, %151 ], [ -1, %139 ], [ 0, %.loopexit.us ], [ 0, %.lr.ph206.split ]
+  %.1122 = phi i32 [ -1, %135 ], [ -1, %179 ], [ -1, %183 ], [ -1, %159 ], [ -1, %127 ], [ -1, %139 ], [ -1, %151 ], [ -1, %163 ], [ -1, %171 ], [ 0, %.loopexit.us ], [ 0, %.lr.ph206.split ]
   %.not213 = icmp eq i32 %9, 0
   br i1 %.not213, label %._crit_edge210, label %.lr.ph209
 
@@ -8329,13 +8329,13 @@ define range(i32 -1, 1) i32 @h5tools_print_enum(ptr noundef %0, ptr noundef %1, 
   %fputc164 = call i32 @fputc(i32 10, ptr %249)
   br label %.thread176.thread193
 
-.thread176.thread193:                             ; preds = %42, %30, %38, %242, %246, %234, %.thread176.thread
-  %.11 = phi i32 [ -1, %30 ], [ %.1122174182191, %.thread176.thread ], [ -1, %234 ], [ -1, %246 ], [ -1, %242 ], [ -1, %42 ], [ -1, %38 ]
+.thread176.thread193:                             ; preds = %38, %30, %42, %242, %246, %234, %.thread176.thread
+  %.11 = phi i32 [ -1, %38 ], [ %.1122174182191, %.thread176.thread ], [ -1, %234 ], [ -1, %246 ], [ -1, %242 ], [ -1, %42 ], [ -1, %30 ]
   %250 = icmp eq i32 %9, 0
   br i1 %250, label %.thread176.thread193.thread, label %252
 
-.thread176.thread193.thread:                      ; preds = %19, %11, %23, %.thread176.thread193
-  %.11200 = phi i32 [ %.11, %.thread176.thread193 ], [ -1, %23 ], [ -1, %11 ], [ -1, %19 ]
+.thread176.thread193.thread:                      ; preds = %23, %11, %19, %.thread176.thread193
+  %.11200 = phi i32 [ %.11, %.thread176.thread193 ], [ -1, %19 ], [ -1, %11 ], [ -1, %23 ]
   %251 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %1, ptr noundef nonnull @.str.206) #12
   br label %252
 

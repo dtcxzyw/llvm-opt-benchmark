@@ -3689,7 +3689,7 @@ rb_float_new_inline.exit78:                       ; preds = %rb_type.exit.thread
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %range_values.exit, %234, %238, %240, %185, %178, %175, %137, %141, %143, %range_values.exit.thread84, %rb_type.exit, %rb_float_new_inline.exit78, %195
-  %.0 = phi i64 [ 0, %range_values.exit.thread84 ], [ %140, %137 ], [ %243, %rb_float_new_inline.exit78 ], [ %16, %range_values.exit ], [ %196, %195 ], [ %166, %185 ], [ %166, %rb_type.exit ], [ -9223372036854775806, %141 ], [ %144, %143 ], [ %177, %175 ], [ %179, %178 ], [ -9223372036854775806, %238 ], [ %241, %240 ], [ %237, %234 ]
+  %.0 = phi i64 [ 0, %range_values.exit.thread84 ], [ -9223372036854775806, %141 ], [ %243, %rb_float_new_inline.exit78 ], [ %16, %range_values.exit ], [ %196, %195 ], [ %166, %185 ], [ %166, %rb_type.exit ], [ %140, %137 ], [ %144, %143 ], [ %177, %175 ], [ %179, %178 ], [ -9223372036854775806, %238 ], [ %241, %240 ], [ %237, %234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

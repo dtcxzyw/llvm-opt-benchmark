@@ -12767,8 +12767,8 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   br label %43
 
 "_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hed24176631357cabE.llvm.3021571406010367114.exit": ; preds = %.loopexit37.i.i.i, %37
-  %.sroa.72.0 = phi ptr [ undef, %37 ], [ %40, %.loopexit37.i.i.i ]
-  %.sroa.0.0 = phi i8 [ 2, %37 ], [ %.val1.i.i.i.i.i.i, %.loopexit37.i.i.i ]
+  %.sroa.72.0 = phi ptr [ %40, %.loopexit37.i.i.i ], [ undef, %37 ]
+  %.sroa.0.0 = phi i8 [ %.val1.i.i.i.i.i.i, %.loopexit37.i.i.i ], [ 2, %37 ]
   store i8 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.72.0, ptr %.sroa.5.0..sroa_idx, align 8
@@ -12880,8 +12880,8 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   br label %48
 
 47:                                               ; preds = %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i", %40
-  %.sroa.7.0 = phi ptr [ null, %40 ], [ %42, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i" ]
-  %.sroa.5.0 = phi i64 [ undef, %40 ], [ %.sroa.09.0.insert.ext.le.i.i.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i" ]
+  %.sroa.7.0 = phi ptr [ %42, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i" ], [ null, %40 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.09.0.insert.ext.le.i.i.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i" ], [ undef, %40 ]
   store i64 %.sroa.5.0, ptr %0, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0, ptr %.sroa.44.0..sroa_idx, align 8
@@ -29837,8 +29837,8 @@ define hidden { ptr, i64 } @"_ZN4obkv17KvReader$LT$K$GT$3get17h4ab114ed8342d2baE
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4f983b13000dce07E.llvm.3021571406010367114.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4f983b13000dce07E.llvm.3021571406010367114.exit": ; preds = %16, %.split.us, %31, %.split, %.loopexit37.i.i.i.i, %.split24.us
-  %.sroa.019.0 = phi ptr [ %39, %.loopexit37.i.i.i.i ], [ null, %.split24.us ], [ null, %31 ], [ null, %.split ], [ null, %.split.us ], [ null, %16 ]
-  %.sroa.8.0 = phi i64 [ %.us-phi26, %.loopexit37.i.i.i.i ], [ undef, %.split24.us ], [ %35, %31 ], [ undef, %.split ], [ undef, %.split.us ], [ undef, %16 ]
+  %.sroa.019.0 = phi ptr [ null, %.split24.us ], [ %39, %.loopexit37.i.i.i.i ], [ null, %.split ], [ null, %31 ], [ null, %.split.us ], [ null, %16 ]
+  %.sroa.8.0 = phi i64 [ undef, %.split24.us ], [ %.us-phi26, %.loopexit37.i.i.i.i ], [ undef, %.split ], [ %35, %31 ], [ undef, %.split.us ], [ undef, %16 ]
   %40 = insertvalue { ptr, i64 } poison, ptr %.sroa.019.0, 0
   %41 = insertvalue { ptr, i64 } %40, i64 %.sroa.8.0, 1
   ret { ptr, i64 } %41
@@ -29902,8 +29902,8 @@ define hidden { ptr, i64 } @"_ZN4obkv17KvReader$LT$K$GT$3get17hf4395cb8837a0031E
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h98929a87ee7e7d0eE.llvm.3021571406010367114.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h98929a87ee7e7d0eE.llvm.3021571406010367114.exit": ; preds = %29, %21, %7, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i.i", %20
-  %.sroa.3.019 = phi ptr [ %31, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i.i" ], [ null, %20 ], [ null, %7 ], [ null, %21 ], [ null, %29 ]
-  %.sroa.718.0 = phi i64 [ %25, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i.i" ], [ undef, %20 ], [ %25, %29 ], [ undef, %21 ], [ undef, %7 ]
+  %.sroa.3.019 = phi ptr [ null, %20 ], [ %31, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i.i" ], [ null, %7 ], [ null, %21 ], [ null, %29 ]
+  %.sroa.718.0 = phi i64 [ undef, %20 ], [ %25, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h57899964646f9c87E.exit.i.loopexit.i.i.i.i" ], [ %25, %29 ], [ undef, %21 ], [ undef, %7 ]
   %32 = insertvalue { ptr, i64 } poison, ptr %.sroa.3.019, 0
   %33 = insertvalue { ptr, i64 } %32, i64 %.sroa.718.0, 1
   ret { ptr, i64 } %33

@@ -946,7 +946,7 @@ parser_skip_inner_list.exit.sink.split:           ; preds = %34, %32
   br label %parser_skip_inner_list.exit
 
 parser_skip_inner_list.exit:                      ; preds = %.preheader, %parser_skip_inner_list.exit.thread, %16, %parser_skip_inner_list.exit.sink.split, %13, %parser_discard_ows.exit.i, %11, %34, %parser_discard_sp.exit, %parser_next_key_or_item.exit
-  %.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -1, %34 ], [ 0, %parser_skip_inner_list.exit.sink.split ], [ -1, %16 ], [ -2, %parser_discard_sp.exit ], [ -2, %parser_discard_ows.exit.i ], [ %6, %parser_skip_inner_list.exit.thread ], [ -1, %11 ], [ -1, %13 ], [ %5, %.preheader ]
+  %.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -1, %34 ], [ 0, %parser_skip_inner_list.exit.sink.split ], [ -2, %parser_discard_ows.exit.i ], [ -2, %parser_discard_sp.exit ], [ -1, %16 ], [ %6, %parser_skip_inner_list.exit.thread ], [ -1, %11 ], [ -1, %13 ], [ %5, %.preheader ]
   ret i32 %.0
 }
 

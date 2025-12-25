@@ -4382,7 +4382,7 @@ switch_buffer.exit219.i.i:                        ; preds = %1928, %1923, %1921
   br label %.thread292.i.i
 
 .thread292.i.i:                                   ; preds = %.thread292.sink.split.i.i, %1999, %1998, %1995
-  %.9.i.i = phi i32 [ %.6.i.i, %1995 ], [ %.6.i.i, %1998 ], [ %.6.i.i, %1999 ], [ 0, %.thread292.sink.split.i.i ]
+  %.9.i.i = phi i32 [ %.6.i.i, %1998 ], [ %.6.i.i, %1995 ], [ %.6.i.i, %1999 ], [ 0, %.thread292.sink.split.i.i ]
   %2003 = sext i32 %.9.i.i to i64
   %2004 = getelementptr inbounds i32, ptr %1553, i64 %2003
   %2005 = sub nsw i32 576, %.9.i.i

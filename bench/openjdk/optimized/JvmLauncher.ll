@@ -2792,7 +2792,7 @@ _ZNK12_GLOBAL__N_113JliLaunchData20initJvmlLauncherDataEP16JvmlLauncherDatai.exi
   br label %_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlLauncherDataEP16JvmlLauncherDatai.exit
 
 _ZNK12_GLOBAL__N_113JliLaunchData20initJvmlLauncherDataEP16JvmlLauncherDatai.exit: ; preds = %_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlLauncherDataEP16JvmlLauncherDatai.exit.sink.split, %.noexc, %5
-  %.0 = phi i32 [ %4, %.noexc ], [ %4, %5 ], [ -1, %_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlLauncherDataEP16JvmlLauncherDatai.exit.sink.split ]
+  %.0 = phi i32 [ %4, %5 ], [ %4, %.noexc ], [ -1, %_ZNK12_GLOBAL__N_113JliLaunchData20initJvmlLauncherDataEP16JvmlLauncherDatai.exit.sink.split ]
   ret i32 %.0
 
 24:                                               ; preds = %22, %20

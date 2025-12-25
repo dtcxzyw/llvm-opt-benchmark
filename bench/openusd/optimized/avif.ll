@@ -2137,7 +2137,7 @@ define internal fastcc range(i32 0, 2) i32 @avifCropRectIsValid(ptr noundef read
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %33, %26, %32
-  %.0 = phi i32 [ 1, %26 ], [ 1, %32 ], [ 1, %33 ], [ 0, %.thread.sink.split ]
+  %.0 = phi i32 [ 1, %26 ], [ 1, %33 ], [ 1, %32 ], [ 0, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -2202,7 +2202,7 @@ avifCropRectIsValid.exit:                         ; preds = %6, %12, %16, %22, %
   tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull %.str.63.sink.i) #14
   br label %89
 
-39:                                               ; preds = %29, %35, %36
+39:                                               ; preds = %29, %36, %35
   %40 = or i32 %3, %2
   %or.cond.not = icmp sgt i32 %40, -1
   br i1 %or.cond.not, label %42, label %41

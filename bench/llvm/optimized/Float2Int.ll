@@ -4192,7 +4192,7 @@ select.unfold91:                                  ; preds = %225, %select.unfold
   br i1 %.not98, label %.critedge, label %select.unfold91, !llvm.loop !271
 
 .critedge:                                        ; preds = %.lr.ph, %select.unfold91, %.loopexit.i.i45.loopexit, %.lr.ph.split, %.lr.ph.i.i.i.i, %23, %225, %201, %select.unfold._crit_edge, %205, %220, %203
-  %.1 = phi i1 [ %.0132, %203 ], [ %.0132, %220 ], [ %.0132, %205 ], [ %.0132, %201 ], [ true, %225 ], [ %.0132, %select.unfold._crit_edge ], [ %.0132, %.loopexit.i.i45.loopexit ], [ true, %select.unfold91 ], [ %.0132, %23 ], [ %.0132, %.lr.ph.i.i.i.i ], [ %.0132, %.lr.ph.split ], [ %.0132, %.lr.ph ]
+  %.1 = phi i1 [ %.0132, %203 ], [ %.0132, %220 ], [ %.0132, %205 ], [ %.0132, %201 ], [ true, %225 ], [ %.0132, %select.unfold._crit_edge ], [ %.0132, %.loopexit.i.i45.loopexit ], [ %.0132, %23 ], [ true, %select.unfold91 ], [ %.0132, %.lr.ph.i.i.i.i ], [ %.0132, %.lr.ph.split ], [ %.0132, %.lr.ph ]
   %237 = load i32, ptr %14, align 8, !tbaa !99
   %238 = icmp ugt i32 %237, 64
   br i1 %238, label %239, label %_ZN4llvm5APIntD2Ev.exit.i50

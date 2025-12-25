@@ -585,7 +585,7 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   unreachable
 
 objectNamesToOids.exit:                           ; preds = %._crit_edge.us.i, %.lr.ph83.i, %.lr.ph.i63, %38, %88, %.lr.ph114.i, %.lr.ph126.i, %.lr.ph138.i, %.lr.ph54.split.i, %.lr.ph54.split.us59.split.i, %.lr.ph54.split.us.split.i, %92, %.lr.ph54.split.us67.i, %.lr.ph106.i, %65, %.lr.ph118.i, %53, %.lr.ph130.i, %.preheader.i, %.lr.ph.i, %.preheader88.i
-  %.0.lcssa.i.sink = phi ptr [ %49, %.lr.ph138.i ], [ %.5.us101.i, %38 ], [ %126, %.lr.ph83.i ], [ %.5.i, %88 ], [ null, %.preheader.i ], [ null, %.lr.ph130.i ], [ null, %53 ], [ null, %.lr.ph118.i ], [ null, %65 ], [ null, %.lr.ph106.i ], [ null, %.preheader88.i ], [ null, %.lr.ph.i ], [ %115, %.lr.ph.i63 ], [ null, %92 ], [ %61, %.lr.ph126.i ], [ null, %.lr.ph54.split.us59.split.i ], [ null, %.lr.ph54.split.us.split.i ], [ null, %.lr.ph54.split.i ], [ %74, %.lr.ph114.i ], [ null, %.lr.ph54.split.us67.i ], [ %.2.lcssa.us.i, %._crit_edge.us.i ]
+  %.0.lcssa.i.sink = phi ptr [ %49, %.lr.ph138.i ], [ %.5.i, %88 ], [ %126, %.lr.ph83.i ], [ %.5.us101.i, %38 ], [ null, %.preheader.i ], [ null, %.lr.ph130.i ], [ null, %53 ], [ null, %.lr.ph118.i ], [ null, %65 ], [ null, %.lr.ph106.i ], [ null, %.preheader88.i ], [ null, %.lr.ph.i ], [ %115, %.lr.ph.i63 ], [ null, %92 ], [ %61, %.lr.ph126.i ], [ null, %.lr.ph54.split.us59.split.i ], [ null, %.lr.ph54.split.us.split.i ], [ null, %.lr.ph54.split.i ], [ %74, %.lr.ph114.i ], [ null, %.lr.ph54.split.us67.i ], [ %.2.lcssa.us.i, %._crit_edge.us.i ]
   %171 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.0.lcssa.i.sink, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %4, i64 32

@@ -17942,8 +17942,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit136:                 ; preds = %324, %326
   br label %327
 
 327:                                              ; preds = %.loopexit191, %.loopexit.split-lp192, %_ZNSt6vectorIiSaIiEED2Ev.exit136
-  %328 = phi ptr [ %221, %.loopexit.split-lp192 ], [ %.pre320, %_ZNSt6vectorIiSaIiEED2Ev.exit136 ], [ %221, %.loopexit191 ]
-  %.pn72 = phi { ptr, i32 } [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ], [ %.pn70, %_ZNSt6vectorIiSaIiEED2Ev.exit136 ], [ %lpad.loopexit193, %.loopexit191 ]
+  %328 = phi ptr [ %221, %.loopexit191 ], [ %.pre320, %_ZNSt6vectorIiSaIiEED2Ev.exit136 ], [ %221, %.loopexit.split-lp192 ]
+  %.pn72 = phi { ptr, i32 } [ %lpad.loopexit193, %.loopexit191 ], [ %.pn70, %_ZNSt6vectorIiSaIiEED2Ev.exit136 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
   %.not.i.i.i137 = icmp eq ptr %328, null
   br i1 %.not.i.i.i137, label %_ZNSt6vectorIiSaIiEED2Ev.exit138, label %329
 

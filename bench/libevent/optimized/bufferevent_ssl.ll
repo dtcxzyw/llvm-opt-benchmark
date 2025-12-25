@@ -2239,7 +2239,7 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
   br label %.thread
 
 .thread:                                          ; preds = %19, %.split.us, %86
-  %.172 = phi i32 [ %87, %86 ], [ %.071.us, %.split.us ], [ %.071.us, %19 ]
+  %.172 = phi i32 [ %.071.us, %.split.us ], [ %87, %86 ], [ %.071.us, %19 ]
   %.074.ph121 = trunc i64 %indvars.iv to i32
   %.not89 = icmp eq i64 %.070.us, 0
   br i1 %.not89, label %.thread.thread, label %88
@@ -2749,8 +2749,8 @@ split:                                            ; preds = %7, %bufferevent_tri
   br i1 %.not49, label %.split, label %.critedge
 
 .critedge:                                        ; preds = %61, %.split, %55, %57, %.critedge2.thread.thread, %51, %46, %44, %.split.us.split, %.critedge2.us.us, %39, %37, %.split.us.split.us
-  %67 = phi ptr [ %30, %51 ], [ %34, %.critedge2.us.us ], [ %34, %.split.us.split.us ], [ %34, %37 ], [ %34, %39 ], [ %30, %.split.us.split ], [ %30, %44 ], [ %30, %46 ], [ %30, %.critedge2.thread.thread ], [ %30, %57 ], [ %30, %55 ], [ %30, %.split ], [ %30, %61 ]
-  %68 = phi ptr [ %29, %51 ], [ %33, %.critedge2.us.us ], [ %33, %.split.us.split.us ], [ %33, %37 ], [ %33, %39 ], [ %29, %.split.us.split ], [ %29, %44 ], [ %29, %46 ], [ %29, %.critedge2.thread.thread ], [ %29, %57 ], [ %29, %55 ], [ %29, %.split ], [ %29, %61 ]
+  %67 = phi ptr [ %34, %.critedge2.us.us ], [ %30, %51 ], [ %34, %.split.us.split.us ], [ %34, %37 ], [ %34, %39 ], [ %30, %.split.us.split ], [ %30, %44 ], [ %30, %46 ], [ %30, %.critedge2.thread.thread ], [ %30, %57 ], [ %30, %55 ], [ %30, %.split ], [ %30, %61 ]
+  %68 = phi ptr [ %33, %.critedge2.us.us ], [ %29, %51 ], [ %33, %.split.us.split.us ], [ %33, %37 ], [ %33, %39 ], [ %29, %.split.us.split ], [ %29, %44 ], [ %29, %46 ], [ %29, %.critedge2.thread.thread ], [ %29, %57 ], [ %29, %55 ], [ %29, %.split ], [ %29, %61 ]
   %69 = load ptr, ptr %21, align 8
   %.not50 = icmp eq ptr %69, null
   br i1 %.not50, label %70, label %80

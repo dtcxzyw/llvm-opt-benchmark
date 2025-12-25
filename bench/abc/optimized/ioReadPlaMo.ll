@@ -2775,8 +2775,8 @@ Mop_ManCheckDist1.exit.thread.sink.split:         ; preds = %132, %Vec_IntGrow.e
   br label %Mop_ManCheckDist1.exit.thread
 
 Mop_ManCheckDist1.exit.thread:                    ; preds = %41, %36, %.lr.ph.i108, %Mop_ManCheckDist1.exit.thread.sink.split, %25, %Mop_ManCheckDist1.exit, %.lr.ph147
-  %.val94192 = phi ptr [ %.val94, %.lr.ph147 ], [ %.val94, %Mop_ManCheckDist1.exit ], [ %.val94, %.lr.ph.i108 ], [ %.val94, %25 ], [ %.val96, %Mop_ManCheckDist1.exit.thread.sink.split ], [ %.val94, %36 ], [ %.val94, %41 ]
-  %.4 = phi i32 [ %.175144, %.lr.ph147 ], [ %.175144, %Mop_ManCheckDist1.exit ], [ %.175144, %.lr.ph.i108 ], [ %.175144, %25 ], [ %139, %Mop_ManCheckDist1.exit.thread.sink.split ], [ %.175144, %36 ], [ %.175144, %41 ]
+  %.val94192 = phi ptr [ %.val94, %.lr.ph147 ], [ %.val94, %Mop_ManCheckDist1.exit ], [ %.val94, %25 ], [ %.val94, %.lr.ph.i108 ], [ %.val96, %Mop_ManCheckDist1.exit.thread.sink.split ], [ %.val94, %36 ], [ %.val94, %41 ]
+  %.4 = phi i32 [ %.175144, %.lr.ph147 ], [ %.175144, %Mop_ManCheckDist1.exit ], [ %.175144, %25 ], [ %.175144, %.lr.ph.i108 ], [ %139, %Mop_ManCheckDist1.exit.thread.sink.split ], [ %.175144, %36 ], [ %.175144, %41 ]
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %.val92 = load i32, ptr %4, align 4, !tbaa !21
   %140 = trunc nuw i64 %indvars.iv.next179 to i32

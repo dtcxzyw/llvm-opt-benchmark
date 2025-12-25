@@ -2213,7 +2213,7 @@ define internal noundef zeroext i1 @dissect_zbee_nwk_heur_gp(ptr noundef %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %17, %20, %14, %10, %6, %4
-  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ false, %6 ], [ false, %20 ], [ false, %17 ], [ false, %14 ], [ true, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ false, %6 ], [ false, %17 ], [ false, %20 ], [ false, %14 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 

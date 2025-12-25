@@ -3781,13 +3781,13 @@ _ZN4jiff3fmt7rfc95576Parser26parse_time_zone_annotation17h727192fcb24b259aE.exit
   br label %.lr.ph
 
 _ZN4jiff3fmt7rfc95576Parser26parse_time_zone_annotation17h727192fcb24b259aE.exit.thread: ; preds = %123, %89
-  %.sroa.17.8..sroa.17.8..sroa.17.16..sroa.721.0.copyload43 = phi i32 [ %81, %89 ], [ %128, %123 ]
-  %.sroa.17.0..sroa.17.0..sroa.17.8..sroa.620.0.copyload = phi ptr [ %79, %89 ], [ %.sroa.17.0..sroa.17.0..sroa.17.0..sroa.17.8..sroa.620.0.copyload.pre, %123 ]
-  %.sroa.0.160 = phi i8 [ 0, %89 ], [ 1, %123 ]
-  %.sroa.1645.058 = phi i32 [ undef, %89 ], [ %101, %123 ]
-  %.sroa.29.057 = phi i32 [ %82, %89 ], [ undef, %123 ]
-  %.sroa.31.156 = phi ptr [ %83, %89 ], [ %125, %123 ]
-  %.sroa.36.155 = phi i64 [ %.cast.i, %89 ], [ %124, %123 ]
+  %.sroa.17.8..sroa.17.8..sroa.17.16..sroa.721.0.copyload43 = phi i32 [ %128, %123 ], [ %81, %89 ]
+  %.sroa.17.0..sroa.17.0..sroa.17.8..sroa.620.0.copyload = phi ptr [ %.sroa.17.0..sroa.17.0..sroa.17.0..sroa.17.8..sroa.620.0.copyload.pre, %123 ], [ %79, %89 ]
+  %.sroa.0.160 = phi i8 [ 1, %123 ], [ 0, %89 ]
+  %.sroa.1645.058 = phi i32 [ %101, %123 ], [ undef, %89 ]
+  %.sroa.29.057 = phi i32 [ undef, %123 ], [ %82, %89 ]
+  %.sroa.31.156 = phi ptr [ %125, %123 ], [ %83, %89 ]
+  %.sroa.36.155 = phi i64 [ %124, %123 ], [ %.cast.i, %89 ]
   %.sroa.13.059 = zext i1 %43 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.17)
   %129 = icmp eq i64 %.sroa.36.155, 0

@@ -4537,7 +4537,7 @@ _ZL12parseRegMaskjRbS_RjRi.exit.i:                ; preds = %287, %279, %269, %2
   %spec.select394.i = select i1 %.not371.i, i32 %spec.select382.i, i32 %425
   br label %_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit
 
-_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit.thread387: ; preds = %408, %397, %375, %395, %359, %369, %365, %355, %353, %352, %350, %349, %338, %398, %368, %406, %334, %334, %334, %334, %334, %334, %334, %334, %334, %334, %.thread477.i, %304, %309, %319, %412, %415
+_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit.thread387: ; preds = %408, %397, %375, %395, %359, %369, %365, %355, %353, %352, %350, %349, %338, %398, %368, %406, %334, %334, %334, %334, %334, %334, %334, %334, %334, %334, %415, %304, %309, %319, %412, %.thread477.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit.thread
 

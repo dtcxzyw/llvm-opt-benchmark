@@ -1090,8 +1090,8 @@ _ZN12_GLOBAL__N_112gatherPointsERKSt6vectorINS_10ApproxItemESaIS1_EE.exit: ; pre
   br label %.body
 
 .body:                                            ; preds = %405, %403, %402, %306
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %405 ], [ %.sroa.0.0, %403 ], [ %.sroa.0.6, %306 ], [ %.sroa.0.0, %402 ]
-  %.pn = phi { ptr, i32 } [ %406, %405 ], [ %.pn.i131, %403 ], [ %307, %306 ], [ %.pn.i131, %402 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %402 ], [ %.sroa.0.0, %403 ], [ %.sroa.0.6, %306 ], [ %.sroa.0.0, %405 ]
+  %.pn = phi { ptr, i32 } [ %.pn.i131, %402 ], [ %.pn.i131, %403 ], [ %307, %306 ], [ %406, %405 ]
   %.not.i.i.i142 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i142, label %common.resume, label %.body.thread
 

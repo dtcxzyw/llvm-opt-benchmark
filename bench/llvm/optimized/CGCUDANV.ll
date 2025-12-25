@@ -3135,7 +3135,7 @@ _ZNK5clang4Decl7hasAttrINS_14HIPManagedAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i
   br i1 %.not.i.i.i.i.i48, label %_ZN5clangneENS_22specific_attr_iteratorINS_16CUDAConstantAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i49, label %.lr.ph.i.i.i.i.i46, !llvm.loop !1206
 
 _ZN5clangneENS_22specific_attr_iteratorINS_16CUDAConstantAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i49: ; preds = %115, %.lr.ph.i.i.i.i.i46
-  %.sroa.07.0.i.i.ph.i.i50 = phi ptr [ %.sroa.07.1.i.i.i.i47, %.lr.ph.i.i.i.i.i46 ], [ %110, %115 ]
+  %.sroa.07.0.i.i.ph.i.i50 = phi ptr [ %110, %115 ], [ %.sroa.07.1.i.i.i.i47, %.lr.ph.i.i.i.i.i46 ]
   %.not142 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i50, %110
   %117 = select i1 %.not142, i8 0, i8 8
   br label %_ZNK5clang4Decl7hasAttrINS_16CUDAConstantAttrEEEbv.exit51
@@ -5474,7 +5474,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i: ; preds 
   br label %.split.split.split, !llvm.loop !1312
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEPNS_11GlobalValueENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E6doFindIS2_EEPS9_RKT_.exit: ; preds = %68, %59, %.split.split.split.us, %.split.split.us.split, %50, %42, %.split.us.split.split.us, %35, %27, %.split.us.split.us, %28
-  %.0.i = phi ptr [ %57, %59 ], [ %48, %.split.split.us.split ], [ %41, %42 ], [ %26, %27 ], [ %34, %.split.us.split.split.us ], [ %26, %28 ], [ %26, %.split.us.split.us ], [ %34, %35 ], [ %48, %50 ], [ %57, %.split.split.split.us ], [ %66, %68 ]
+  %.0.i = phi ptr [ %48, %.split.split.us.split ], [ %57, %59 ], [ %41, %42 ], [ %34, %.split.us.split.split.us ], [ %26, %27 ], [ %26, %28 ], [ %26, %.split.us.split.us ], [ %34, %35 ], [ %48, %50 ], [ %57, %.split.split.split.us ], [ %66, %68 ]
   %74 = load ptr, ptr %11, align 8, !tbaa !736
   %75 = load i32, ptr %16, align 8, !tbaa !737
   %76 = zext i32 %75 to i64

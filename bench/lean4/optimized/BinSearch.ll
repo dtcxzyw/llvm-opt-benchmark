@@ -552,9 +552,6 @@ lean_nat_lt.exit:                                 ; preds = %186
   %187 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.1.i203, ptr noundef %.077) #4
   br i1 %187, label %lean_dec.exit103.thread219, label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %lean_nat_lt.exit, %lean_nat_lt.exit.thread, %lean_nat_lt.exit.thread217
-  br label %.outer
-
 lean_nat_lt.exit.thread217:                       ; preds = %lean_dec.exit102
   %188 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.1.i203, ptr noundef %.077) #4
   br i1 %188, label %189, label %.outer.backedge
@@ -562,6 +559,9 @@ lean_nat_lt.exit.thread217:                       ; preds = %lean_dec.exit102
 lean_nat_lt.exit.thread:                          ; preds = %186
   %.not237 = icmp ult ptr %.1.i203, %.077
   br i1 %.not237, label %lean_dec.exit104, label %.outer.backedge
+
+.outer.backedge:                                  ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %lean_nat_lt.exit.thread217
+  br label %.outer
 
 189:                                              ; preds = %lean_nat_lt.exit.thread217
   %190 = load i32, ptr %.1.i203, align 4, !tbaa !4
@@ -6439,8 +6439,8 @@ lean_nat_eq.exit.thread:                          ; preds = %283
   br i1 %.not231, label %lean_dec.exit105, label %lean_dec.exit108.backedge
 
 lean_dec.exit108.backedge:                        ; preds = %lean_nat_eq.exit.thread, %286, %289, %291, %292, %266, %270, %272, %273
-  %.095.be = phi ptr [ %.095, %286 ], [ %.1.i214, %266 ], [ %.095, %291 ], [ %.095, %289 ], [ %.1.i214, %273 ], [ %.1.i214, %272 ], [ %.1.i214, %270 ], [ %.095, %292 ], [ %.095, %lean_nat_eq.exit.thread ]
-  %.092.be = phi ptr [ %.1.i214, %286 ], [ %.092, %266 ], [ %.1.i214, %291 ], [ %.1.i214, %289 ], [ %.092, %273 ], [ %.092, %272 ], [ %.092, %270 ], [ %.1.i214, %292 ], [ %.1.i214, %lean_nat_eq.exit.thread ]
+  %.095.be = phi ptr [ %.095, %289 ], [ %.1.i214, %266 ], [ %.095, %291 ], [ %.095, %286 ], [ %.1.i214, %273 ], [ %.1.i214, %272 ], [ %.1.i214, %270 ], [ %.095, %292 ], [ %.095, %lean_nat_eq.exit.thread ]
+  %.092.be = phi ptr [ %.1.i214, %289 ], [ %.092, %266 ], [ %.1.i214, %291 ], [ %.1.i214, %286 ], [ %.092, %273 ], [ %.092, %272 ], [ %.092, %270 ], [ %.1.i214, %292 ], [ %.1.i214, %lean_nat_eq.exit.thread ]
   br label %lean_dec.exit108
 
 286:                                              ; preds = %lean_nat_eq.exit

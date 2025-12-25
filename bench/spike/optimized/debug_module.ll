@@ -775,7 +775,7 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr noundef nonnull rea
   br label %54
 
 54:                                               ; preds = %.sink.split, %39, %43
-  %.0 = phi i1 [ false, %39 ], [ false, %43 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %43 ], [ false, %39 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

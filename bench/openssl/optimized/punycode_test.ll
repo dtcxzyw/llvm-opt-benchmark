@@ -231,8 +231,8 @@ define internal range(i32 0, 2) i32 @test_dotted_overflow() #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %13, %49, %44, %32, %39, %28, %23
-  %.019 = phi ptr [ %30, %28 ], [ %30, %32 ], [ null, %23 ], [ %30, %49 ], [ %30, %44 ], [ %30, %39 ], [ null, %13 ], [ null, %18 ]
-  %.0 = phi i32 [ 0, %28 ], [ 0, %32 ], [ 0, %23 ], [ %spec.select, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %13 ], [ 0, %18 ]
+  %.019 = phi ptr [ %30, %32 ], [ %30, %28 ], [ null, %23 ], [ %30, %49 ], [ %30, %44 ], [ %30, %39 ], [ null, %13 ], [ null, %18 ]
+  %.0 = phi i32 [ 0, %32 ], [ 0, %28 ], [ 0, %23 ], [ %spec.select, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %13 ], [ 0, %18 ]
   call void @WPACKET_cleanup(ptr noundef nonnull %1) #6
   call void @BUF_MEM_free(ptr noundef %2) #6
   call void @CRYPTO_free(ptr noundef %.019, ptr noundef nonnull @.str.5, i32 noundef 282) #6

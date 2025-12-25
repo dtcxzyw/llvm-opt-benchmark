@@ -3535,7 +3535,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction34ShouldS
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_35DisableSanitizerInstrumentationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1298
 
 _ZN5clangneENS_22specific_attr_iteratorINS_35DisableSanitizerInstrumentationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %19, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %14, %19 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %14, %19 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %21 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %14
   br label %_ZNK5clang4Decl7hasAttrINS_35DisableSanitizerInstrumentationAttrEEEbv.exit
 
@@ -6936,7 +6936,7 @@ _ZL21matchesStlAllocatorFnPKN5clang4DeclERKNS_10ASTContextE.exit: ; preds = %108
   %.not2501 = icmp eq i64 %1090, 0
   br i1 %.not2501, label %_ZN5clang13SanitizerMaskaNERKS0_.exit1741, label %_ZL21matchesStlAllocatorFnPKN5clang4DeclERKNS_10ASTContextE.exit.thread2434
 
-_ZL21matchesStlAllocatorFnPKN5clang4DeclERKNS_10ASTContextE.exit.thread2434: ; preds = %_ZL21matchesStlAllocatorFnPKN5clang4DeclERKNS_10ASTContextE.exit, %1084, %1060
+_ZL21matchesStlAllocatorFnPKN5clang4DeclERKNS_10ASTContextE.exit.thread2434: ; preds = %_ZL21matchesStlAllocatorFnPKN5clang4DeclERKNS_10ASTContextE.exit, %1060, %1084
   %1091 = load i64, ptr %63, align 8, !tbaa !845
   %1092 = and i64 %1091, -4503599627370497
   store i64 %1092, ptr %63, align 8, !tbaa !845

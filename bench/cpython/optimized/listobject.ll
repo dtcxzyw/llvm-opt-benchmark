@@ -2913,8 +2913,8 @@ count_run.exit:                                   ; preds = %170, %266, %267, %s
   %269 = icmp slt i64 %.068.i, 0
   br i1 %269, label %found_new_run.exit.thread285, label %count_run.exit.thread277
 
-count_run.exit.thread277:                         ; preds = %181, %._crit_edge.thread182.i, %count_run.exit
-  %.068.i279 = phi i64 [ %.068.i, %count_run.exit ], [ %.069141.i, %181 ], [ 1, %._crit_edge.thread182.i ]
+count_run.exit.thread277:                         ; preds = %._crit_edge.thread182.i, %181, %count_run.exit
+  %.068.i279 = phi i64 [ %.068.i, %count_run.exit ], [ 1, %._crit_edge.thread182.i ], [ %.069141.i, %181 ]
   %270 = icmp slt i64 %.068.i279, %157
   br i1 %270, label %271, label %binarysort.exit.thread
 
@@ -3170,8 +3170,8 @@ found_new_run.exit:                               ; preds = %binarysort.exit.thr
   br i1 %393, label %.preheader455, label %found_new_run.exit.thread285, !llvm.loop !158
 
 found_new_run.exit.thread285:                     ; preds = %175, %count_run.exit, %.lr.ph.i211, %221, %195, %.lr.ph158.i, %363, %297, %276, %.preheader455, %391, %merge_init.exit
-  %394 = phi i1 [ false, %.lr.ph.i211 ], [ false, %221 ], [ true, %merge_init.exit ], [ false, %.lr.ph158.i ], [ %379, %.preheader455 ], [ false, %363 ], [ false, %276 ], [ false, %297 ], [ %379, %391 ], [ false, %195 ], [ false, %count_run.exit ], [ false, %175 ]
-  %.1153 = phi ptr [ null, %.lr.ph.i211 ], [ null, %221 ], [ @_Py_NoneStruct, %merge_init.exit ], [ null, %.lr.ph158.i ], [ @_Py_NoneStruct, %.preheader455 ], [ null, %363 ], [ null, %276 ], [ null, %297 ], [ null, %391 ], [ null, %195 ], [ null, %count_run.exit ], [ null, %175 ]
+  %394 = phi i1 [ false, %.lr.ph.i211 ], [ false, %221 ], [ true, %merge_init.exit ], [ false, %297 ], [ %379, %.preheader455 ], [ false, %.lr.ph158.i ], [ false, %276 ], [ false, %363 ], [ %379, %391 ], [ false, %195 ], [ false, %count_run.exit ], [ false, %175 ]
+  %.1153 = phi ptr [ null, %.lr.ph.i211 ], [ null, %221 ], [ @_Py_NoneStruct, %merge_init.exit ], [ null, %297 ], [ @_Py_NoneStruct, %.preheader455 ], [ null, %.lr.ph158.i ], [ null, %276 ], [ null, %363 ], [ null, %391 ], [ null, %195 ], [ null, %count_run.exit ], [ null, %175 ]
   %395 = icmp sgt i64 %.val192, 0
   %or.cond453 = select i1 %123, i1 %395, i1 false
   br i1 %or.cond453, label %.lr.ph342, label %._crit_edge343.thread
@@ -5423,7 +5423,7 @@ _Py_NewRef.exit.i:                                ; preds = %59, %.lr.ph.i
   br label %list_extend_fast.exit
 
 list_extend_fast.exit:                            ; preds = %_Py_NewRef.exit.i, %4, %51, %.loopexit.sink.split.i
-  %.0.i = phi i32 [ 0, %4 ], [ -1, %.loopexit.sink.split.i ], [ 0, %51 ], [ 0, %_Py_NewRef.exit.i ]
+  %.0.i = phi i32 [ 0, %4 ], [ 0, %51 ], [ -1, %.loopexit.sink.split.i ], [ 0, %_Py_NewRef.exit.i ]
   %64 = load i32, ptr %3, align 8, !tbaa !32
   %.not.i = icmp sgt i32 %64, -1
   br i1 %.not.i, label %65, label %Py_DECREF.exit
@@ -6779,12 +6779,12 @@ sortslice_copy_incr.exit149.i:                    ; preds = %245, %241
   br label %109
 
 .thread220.i:                                     ; preds = %sortslice_copy_incr.exit118.i, %116, %sortslice_advance.exit145.i, %230, %197, %sortslice_copy_incr.exit129.i, %177, %142, %.lr.ph113.i.i, %166, %.lr.ph.i.i, %219
-  %.sroa.16.8.i = phi ptr [ %.sroa.16.6.i, %.lr.ph113.i.i ], [ %.sroa.16.7.i, %.lr.ph.i.i ], [ %.sroa.16.7.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.16.6.i, %166 ], [ %.sroa.16.7.i, %219 ], [ %.sroa.16.7.i, %sortslice_advance.exit145.i ], [ %.sroa.16.6.i, %142 ], [ %.sroa.16.7.i, %230 ], [ %.sroa.16.6.i, %177 ], [ %.sroa.16.7.i, %197 ], [ %.sroa.16.2.i.ph, %116 ], [ %.sroa.16.2.i.ph, %sortslice_copy_incr.exit118.i ]
-  %.sroa.0194.8.i = phi ptr [ %.sroa.0194.6.i, %.lr.ph113.i.i ], [ %.sroa.0194.7.i, %.lr.ph.i.i ], [ %.sroa.0194.7.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.0194.6.i, %166 ], [ %.sroa.0194.7.i, %219 ], [ %.sroa.0194.7.i, %sortslice_advance.exit145.i ], [ %.sroa.0194.6.i, %142 ], [ %.sroa.0194.7.i, %230 ], [ %.sroa.0194.6.i, %177 ], [ %.sroa.0194.7.i, %197 ], [ %.sroa.0194.2.i.ph, %116 ], [ %.sroa.0194.2.i.ph, %sortslice_copy_incr.exit118.i ]
-  %.sroa.22.9.i = phi ptr [ %.sroa.22.6.i, %.lr.ph113.i.i ], [ %.sroa.22.14.i, %.lr.ph.i.i ], [ %.sroa.22.14.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.22.6.i, %166 ], [ %.sroa.22.14.i, %219 ], [ %.sroa.22.15.i, %sortslice_advance.exit145.i ], [ %.sroa.22.6.i, %142 ], [ %.sroa.22.14.i, %230 ], [ %.sroa.22.6.i, %177 ], [ %.sroa.22.14.i, %197 ], [ %.sroa.22.11.i, %sortslice_copy_incr.exit118.i ], [ %.sroa.22.2.i, %116 ]
-  %.sroa.0.9.i = phi ptr [ %.sroa.0.6.i, %.lr.ph113.i.i ], [ %190, %.lr.ph.i.i ], [ %190, %sortslice_copy_incr.exit129.i ], [ %.sroa.0.6.i, %166 ], [ %190, %219 ], [ %236, %sortslice_advance.exit145.i ], [ %.sroa.0.6.i, %142 ], [ %190, %230 ], [ %.sroa.0.6.i, %177 ], [ %190, %197 ], [ %121, %sortslice_copy_incr.exit118.i ], [ %.sroa.0.2.i, %116 ]
-  %.8.i52 = phi i64 [ %.683.i, %.lr.ph113.i.i ], [ %.784.i, %.lr.ph.i.i ], [ %.784.i, %sortslice_copy_incr.exit129.i ], [ %.683.i, %166 ], [ %.784.i, %219 ], [ %.784.i, %sortslice_advance.exit145.i ], [ %.683.i, %142 ], [ %.784.i, %230 ], [ %.683.i, %177 ], [ %.784.i, %197 ], [ %.279.i.ph, %116 ], [ %.279.i.ph, %sortslice_copy_incr.exit118.i ]
-  %.073.i = phi i64 [ -1, %.lr.ph113.i.i ], [ -1, %.lr.ph.i.i ], [ 0, %sortslice_copy_incr.exit129.i ], [ -1, %166 ], [ -1, %219 ], [ 0, %sortslice_advance.exit145.i ], [ -1, %142 ], [ -1, %230 ], [ -1, %177 ], [ -1, %197 ], [ 0, %sortslice_copy_incr.exit118.i ], [ -1, %116 ]
+  %.sroa.16.8.i = phi ptr [ %.sroa.16.6.i, %166 ], [ %.sroa.16.7.i, %219 ], [ %.sroa.16.7.i, %.lr.ph.i.i ], [ %.sroa.16.6.i, %.lr.ph113.i.i ], [ %.sroa.16.7.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.16.7.i, %sortslice_advance.exit145.i ], [ %.sroa.16.6.i, %142 ], [ %.sroa.16.7.i, %230 ], [ %.sroa.16.6.i, %177 ], [ %.sroa.16.7.i, %197 ], [ %.sroa.16.2.i.ph, %116 ], [ %.sroa.16.2.i.ph, %sortslice_copy_incr.exit118.i ]
+  %.sroa.0194.8.i = phi ptr [ %.sroa.0194.6.i, %166 ], [ %.sroa.0194.7.i, %219 ], [ %.sroa.0194.7.i, %.lr.ph.i.i ], [ %.sroa.0194.6.i, %.lr.ph113.i.i ], [ %.sroa.0194.7.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.0194.7.i, %sortslice_advance.exit145.i ], [ %.sroa.0194.6.i, %142 ], [ %.sroa.0194.7.i, %230 ], [ %.sroa.0194.6.i, %177 ], [ %.sroa.0194.7.i, %197 ], [ %.sroa.0194.2.i.ph, %116 ], [ %.sroa.0194.2.i.ph, %sortslice_copy_incr.exit118.i ]
+  %.sroa.22.9.i = phi ptr [ %.sroa.22.6.i, %166 ], [ %.sroa.22.14.i, %219 ], [ %.sroa.22.14.i, %.lr.ph.i.i ], [ %.sroa.22.6.i, %.lr.ph113.i.i ], [ %.sroa.22.14.i, %sortslice_copy_incr.exit129.i ], [ %.sroa.22.15.i, %sortslice_advance.exit145.i ], [ %.sroa.22.6.i, %142 ], [ %.sroa.22.14.i, %230 ], [ %.sroa.22.6.i, %177 ], [ %.sroa.22.14.i, %197 ], [ %.sroa.22.2.i, %116 ], [ %.sroa.22.11.i, %sortslice_copy_incr.exit118.i ]
+  %.sroa.0.9.i = phi ptr [ %.sroa.0.6.i, %166 ], [ %190, %219 ], [ %190, %.lr.ph.i.i ], [ %.sroa.0.6.i, %.lr.ph113.i.i ], [ %190, %sortslice_copy_incr.exit129.i ], [ %236, %sortslice_advance.exit145.i ], [ %.sroa.0.6.i, %142 ], [ %190, %230 ], [ %.sroa.0.6.i, %177 ], [ %190, %197 ], [ %.sroa.0.2.i, %116 ], [ %121, %sortslice_copy_incr.exit118.i ]
+  %.8.i52 = phi i64 [ %.683.i, %166 ], [ %.784.i, %219 ], [ %.784.i, %.lr.ph.i.i ], [ %.683.i, %.lr.ph113.i.i ], [ %.784.i, %sortslice_copy_incr.exit129.i ], [ %.784.i, %sortslice_advance.exit145.i ], [ %.683.i, %142 ], [ %.784.i, %230 ], [ %.683.i, %177 ], [ %.784.i, %197 ], [ %.279.i.ph, %116 ], [ %.279.i.ph, %sortslice_copy_incr.exit118.i ]
+  %.073.i = phi i64 [ -1, %166 ], [ -1, %219 ], [ -1, %.lr.ph.i.i ], [ -1, %.lr.ph113.i.i ], [ 0, %sortslice_copy_incr.exit129.i ], [ 0, %sortslice_advance.exit145.i ], [ -1, %142 ], [ -1, %230 ], [ -1, %177 ], [ -1, %197 ], [ -1, %116 ], [ 0, %sortslice_copy_incr.exit118.i ]
   %.not111.i = icmp eq i64 %.8.i52, 0
   br i1 %.not111.i, label %merge_lo.exit, label %.thread220..thread277_crit_edge.i
 
@@ -7286,10 +7286,10 @@ sortslice_copy_decr.exit153.i:                    ; preds = %431, %427
   br label %312
 
 .thread245.i:                                     ; preds = %sortslice_copy_decr.exit136.i, %319, %345, %sortslice_copy_decr.exit153.i, %409, %sortslice_memmove.exit.i, %gallop_right.exit105, %.lr.ph.i, %373
-  %.397239.i = phi i64 [ %.6100.i, %sortslice_memmove.exit.i ], [ %.6100.i, %373 ], [ %.6100.i, %.lr.ph.i ], [ %.6100.i, %345 ], [ %.7101.i, %sortslice_copy_decr.exit153.i ], [ %407, %409 ], [ %.6100.i, %gallop_right.exit105 ], [ %.296.i.ph, %319 ], [ %.296.i.ph, %sortslice_copy_decr.exit136.i ]
-  %.sroa.0165.3237.i = phi ptr [ %388, %sortslice_memmove.exit.i ], [ %.sroa.0165.6.i, %373 ], [ %.sroa.0165.6.i, %.lr.ph.i ], [ %.sroa.0165.6.i, %345 ], [ %430, %sortslice_copy_decr.exit153.i ], [ %402, %409 ], [ %.sroa.0165.6.i, %gallop_right.exit105 ], [ %.sroa.0165.2.i, %319 ], [ %324, %sortslice_copy_decr.exit136.i ]
-  %.sroa.26.3235.i = phi ptr [ %spec.select277.i, %sortslice_memmove.exit.i ], [ %.sroa.26.6.i, %373 ], [ %.sroa.26.6.i, %.lr.ph.i ], [ %.sroa.26.6.i, %345 ], [ %.sroa.26.16.i, %sortslice_copy_decr.exit153.i ], [ %.sroa.26.14.i, %409 ], [ %.sroa.26.6.i, %gallop_right.exit105 ], [ %.sroa.26.2.i, %319 ], [ %.sroa.26.11.i, %sortslice_copy_decr.exit136.i ]
-  %.089.i = phi i64 [ 0, %sortslice_memmove.exit.i ], [ -1, %373 ], [ -1, %.lr.ph.i ], [ -1, %345 ], [ 0, %sortslice_copy_decr.exit153.i ], [ -1, %409 ], [ -1, %gallop_right.exit105 ], [ -1, %319 ], [ 0, %sortslice_copy_decr.exit136.i ]
+  %.397239.i = phi i64 [ %.6100.i, %373 ], [ %.6100.i, %sortslice_memmove.exit.i ], [ %.6100.i, %.lr.ph.i ], [ %.6100.i, %345 ], [ %.7101.i, %sortslice_copy_decr.exit153.i ], [ %407, %409 ], [ %.6100.i, %gallop_right.exit105 ], [ %.296.i.ph, %319 ], [ %.296.i.ph, %sortslice_copy_decr.exit136.i ]
+  %.sroa.0165.3237.i = phi ptr [ %.sroa.0165.6.i, %373 ], [ %388, %sortslice_memmove.exit.i ], [ %.sroa.0165.6.i, %.lr.ph.i ], [ %.sroa.0165.6.i, %345 ], [ %430, %sortslice_copy_decr.exit153.i ], [ %402, %409 ], [ %.sroa.0165.6.i, %gallop_right.exit105 ], [ %.sroa.0165.2.i, %319 ], [ %324, %sortslice_copy_decr.exit136.i ]
+  %.sroa.26.3235.i = phi ptr [ %.sroa.26.6.i, %373 ], [ %spec.select277.i, %sortslice_memmove.exit.i ], [ %.sroa.26.6.i, %.lr.ph.i ], [ %.sroa.26.6.i, %345 ], [ %.sroa.26.16.i, %sortslice_copy_decr.exit153.i ], [ %.sroa.26.14.i, %409 ], [ %.sroa.26.6.i, %gallop_right.exit105 ], [ %.sroa.26.2.i, %319 ], [ %.sroa.26.11.i, %sortslice_copy_decr.exit136.i ]
+  %.089.i = phi i64 [ -1, %373 ], [ 0, %sortslice_memmove.exit.i ], [ -1, %.lr.ph.i ], [ -1, %345 ], [ 0, %sortslice_copy_decr.exit153.i ], [ -1, %409 ], [ -1, %gallop_right.exit105 ], [ -1, %319 ], [ 0, %sortslice_copy_decr.exit136.i ]
   %.not126.i = icmp eq i64 %.397239.i, 0
   br i1 %.not126.i, label %merge_lo.exit, label %443
 

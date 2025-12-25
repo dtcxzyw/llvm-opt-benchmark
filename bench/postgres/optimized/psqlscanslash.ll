@@ -1445,7 +1445,7 @@ yy_get_previous_state.exit429:                    ; preds = %yy_get_next_buffer.
   br label %.loopexit1090
 
 .loopexit1090:                                    ; preds = %344, %123, %.sink.split
-  %.0 = phi i32 [ 1, %123 ], [ 1, %.sink.split ], [ 0, %344 ]
+  %.0 = phi i32 [ 1, %.sink.split ], [ 1, %123 ], [ 0, %344 ]
   %669 = load i32, ptr %80, align 4
   %670 = add i32 %669, -1
   %671 = sdiv i32 %670, 2
@@ -2751,7 +2751,7 @@ slash_yy_delete_buffer.exit.i:                    ; preds = %32, %.critedge.i.i
   br label %slash_yypop_buffer_state.exit
 
 slash_yypop_buffer_state.exit:                    ; preds = %26, %44, %47
-  %56 = phi ptr [ %43, %47 ], [ %25, %26 ], [ %43, %44 ]
+  %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

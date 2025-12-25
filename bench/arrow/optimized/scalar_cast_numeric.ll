@@ -134029,7 +134029,7 @@ _ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split: ; preds = %30, %
   br label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread
 
 _ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread: ; preds = %26, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split, %56, %48, %62, %58, %.critedge, %14, %68, %65, %33, %5
-  %.022 = phi i1 [ false, %33 ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split ], [ false, %5 ], [ false, %68 ], [ false, %56 ], [ false, %48 ], [ false, %65 ], [ false, %14 ], [ false, %.critedge ], [ false, %58 ], [ false, %62 ], [ false, %26 ]
+  %.022 = phi i1 [ false, %33 ], [ false, %48 ], [ false, %5 ], [ false, %68 ], [ false, %56 ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split ], [ false, %65 ], [ false, %14 ], [ false, %.critedge ], [ false, %58 ], [ false, %62 ], [ false, %26 ]
   ret i1 %.022
 }
 
@@ -141295,7 +141295,7 @@ thread-pre-split:                                 ; preds = %7
   br i1 %.not76.i, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal13ParseUnsignedEPKcmPt.exit, !prof !2509
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPt.exit:    ; preds = %89, %82, %72, %63, %55
-  %.133 = phi i16 [ %71, %72 ], [ %81, %82 ], [ %54, %55 ], [ %62, %63 ], [ %.75.i, %89 ]
+  %.133 = phi i16 [ %54, %55 ], [ %81, %82 ], [ %71, %72 ], [ %62, %63 ], [ %.75.i, %89 ]
   br i1 %44, label %93, label %96
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPt.exit.thread38: ; preds = %48
@@ -141320,7 +141320,7 @@ _ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread.sink.split: ; preds = %37, %
   br label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread
 
 _ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread: ; preds = %31, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread.sink.split, %83, %56, %64, %73, %89, %85, %.critedge, %14, %96, %93, %40, %5
-  %.022 = phi i1 [ false, %40 ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread.sink.split ], [ false, %5 ], [ false, %96 ], [ false, %83 ], [ false, %56 ], [ false, %93 ], [ false, %14 ], [ false, %.critedge ], [ false, %85 ], [ false, %89 ], [ false, %73 ], [ false, %64 ], [ false, %31 ]
+  %.022 = phi i1 [ false, %40 ], [ false, %56 ], [ false, %5 ], [ false, %96 ], [ false, %83 ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.thread.sink.split ], [ false, %93 ], [ false, %14 ], [ false, %.critedge ], [ false, %85 ], [ false, %89 ], [ false, %73 ], [ false, %64 ], [ false, %31 ]
   ret i1 %.022
 }
 
@@ -148358,7 +148358,7 @@ _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split: ; preds = %35, %
   br label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread
 
 _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread: ; preds = %30, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, %15, %56, %52, %.critedge, %38, %5
-  %.022 = phi i1 [ false, %38 ], [ true, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split ], [ false, %5 ], [ false, %56 ], [ false, %.critedge ], [ false, %15 ], [ false, %52 ], [ false, %30 ]
+  %.022 = phi i1 [ false, %38 ], [ false, %15 ], [ false, %5 ], [ false, %56 ], [ false, %.critedge ], [ true, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split ], [ false, %52 ], [ false, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.022
 }
@@ -155511,7 +155511,7 @@ _ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread.sink.split: ; preds = %31, %
   br label %_ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread
 
 _ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread: ; preds = %27, %_ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread.sink.split, %15, %52, %48, %.critedge, %34, %5
-  %.022 = phi i1 [ false, %34 ], [ true, %_ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread.sink.split ], [ false, %5 ], [ false, %52 ], [ false, %.critedge ], [ false, %15 ], [ false, %48 ], [ false, %27 ]
+  %.022 = phi i1 [ false, %34 ], [ false, %15 ], [ false, %5 ], [ false, %52 ], [ false, %.critedge ], [ true, %_ZN5arrow8internal8ParseHexImEEbPKcmPT_.exit.thread.sink.split ], [ false, %48 ], [ false, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.022
 }
@@ -162838,7 +162838,7 @@ _ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.sink.split: ; preds = %31, %36, %42
   br label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit
 
 _ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit:     ; preds = %27, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.sink.split, %57, %53, %51, %43, %.critedge, %15, %5
-  %.0 = phi i1 [ false, %53 ], [ false, %5 ], [ false, %15 ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.sink.split ], [ false, %.critedge ], [ false, %51 ], [ false, %57 ], [ false, %43 ], [ false, %27 ]
+  %.0 = phi i1 [ false, %53 ], [ false, %5 ], [ false, %15 ], [ false, %51 ], [ false, %.critedge ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.sink.split ], [ false, %57 ], [ false, %43 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -169892,7 +169892,7 @@ _ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split: ; preds = %38, %43, %50
   br label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit
 
 _ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit:     ; preds = %32, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split, %84, %80, %78, %68, %59, %51, %.critedge, %15, %5
-  %.0 = phi i1 [ false, %80 ], [ false, %5 ], [ false, %15 ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split ], [ false, %.critedge ], [ false, %78 ], [ false, %84 ], [ false, %68 ], [ false, %59 ], [ false, %51 ], [ false, %32 ]
+  %.0 = phi i1 [ false, %80 ], [ false, %5 ], [ false, %15 ], [ false, %78 ], [ false, %.critedge ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split ], [ false, %84 ], [ false, %68 ], [ false, %59 ], [ false, %51 ], [ false, %32 ]
   ret i1 %.0
 }
 
@@ -176998,7 +176998,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i: ; pre
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %100, %105, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i, %193, %186, %176, %167, %158, %149, %140, %131, %122, %113, %.critedge.i.i.i.i.i.i
-  %.0100108.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ %.146.i.i.i.i.i, %193 ], [ 0, %105 ], [ %185, %186 ], [ 0, %.critedge.i.i.i.i.i.i ], [ %112, %113 ], [ %121, %122 ], [ %130, %131 ], [ %139, %140 ], [ %148, %149 ], [ %157, %158 ], [ %166, %167 ], [ %175, %176 ], [ %.2.i.i.i.i.i.i.i, %100 ]
+  %.0100108.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ 0, %.critedge.i.i.i.i.i.i ], [ 0, %105 ], [ %112, %113 ], [ %.146.i.i.i.i.i, %193 ], [ %185, %186 ], [ %175, %176 ], [ %166, %167 ], [ %157, %158 ], [ %148, %149 ], [ %139, %140 ], [ %130, %131 ], [ %121, %122 ], [ %.2.i.i.i.i.i.i.i, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %266 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.0100108.i.i.i.i, ptr %.3, align 4, !tbaa !143
@@ -177503,7 +177503,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i: ; p
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit35.i.i.i.i: ; preds = %330, %335, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i, %423, %416, %406, %397, %388, %379, %370, %361, %352, %343, %.critedge.i.i58.i.i.i.i
-  %.098115.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i ], [ %.146.i90.i.i.i.i, %423 ], [ 0, %335 ], [ %415, %416 ], [ 0, %.critedge.i.i58.i.i.i.i ], [ %342, %343 ], [ %351, %352 ], [ %360, %361 ], [ %369, %370 ], [ %378, %379 ], [ %387, %388 ], [ %396, %397 ], [ %405, %406 ], [ %.2.i.i.i70.i.i.i.i, %330 ]
+  %.098115.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i ], [ 0, %.critedge.i.i58.i.i.i.i ], [ 0, %335 ], [ %342, %343 ], [ %.146.i90.i.i.i.i, %423 ], [ %415, %416 ], [ %405, %406 ], [ %396, %397 ], [ %387, %388 ], [ %378, %379 ], [ %369, %370 ], [ %360, %361 ], [ %351, %352 ], [ %.2.i.i.i70.i.i.i.i, %330 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %496
 
@@ -178127,7 +178127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i: ; pre
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %98, %103, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i, %190, %183, %173, %164, %155, %146, %137, %128, %119, %110
-  %.0100108.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ %.146.i.i.i.i.i, %190 ], [ 0, %103 ], [ %182, %183 ], [ %109, %110 ], [ %118, %119 ], [ %127, %128 ], [ %136, %137 ], [ %145, %146 ], [ %154, %155 ], [ %163, %164 ], [ %172, %173 ], [ %.2.i.i.i.i.i.i.i, %98 ]
+  %.0100108.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ %118, %119 ], [ 0, %103 ], [ %109, %110 ], [ %127, %128 ], [ %.146.i.i.i.i.i, %190 ], [ %182, %183 ], [ %172, %173 ], [ %163, %164 ], [ %154, %155 ], [ %145, %146 ], [ %136, %137 ], [ %.2.i.i.i.i.i.i.i, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %263 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.0100108.i.i.i.i, ptr %.3, align 4, !tbaa !143
@@ -178626,7 +178626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i26.i.i.i.i: ; p
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit35.i.i.i.i: ; preds = %325, %330, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i, %417, %410, %400, %391, %382, %373, %364, %355, %346, %337
-  %.098115.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i ], [ %.146.i90.i.i.i.i, %417 ], [ 0, %330 ], [ %409, %410 ], [ %336, %337 ], [ %345, %346 ], [ %354, %355 ], [ %363, %364 ], [ %372, %373 ], [ %381, %382 ], [ %390, %391 ], [ %399, %400 ], [ %.2.i.i.i70.i.i.i.i, %325 ]
+  %.098115.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit42.i.i.i.i ], [ %345, %346 ], [ 0, %330 ], [ %336, %337 ], [ %354, %355 ], [ %.146.i90.i.i.i.i, %417 ], [ %409, %410 ], [ %399, %400 ], [ %390, %391 ], [ %381, %382 ], [ %372, %373 ], [ %363, %364 ], [ %.2.i.i.i70.i.i.i.i, %325 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %490
 
@@ -179289,7 +179289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i.i.i: ; pre
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i: ; preds = %115, %120, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i, %208, %201, %191, %182, %173, %164, %155, %146, %137, %128, %.critedge.i.i.i.i.i.i
-  %.0101109.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ %.146.i.i.i.i.i, %208 ], [ 0, %120 ], [ %200, %201 ], [ 0, %.critedge.i.i.i.i.i.i ], [ %127, %128 ], [ %136, %137 ], [ %145, %146 ], [ %154, %155 ], [ %163, %164 ], [ %172, %173 ], [ %181, %182 ], [ %190, %191 ], [ %.2.i.i.i.i.i.i.i, %115 ]
+  %.0101109.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i ], [ 0, %.critedge.i.i.i.i.i.i ], [ 0, %120 ], [ %127, %128 ], [ %.146.i.i.i.i.i, %208 ], [ %200, %201 ], [ %190, %191 ], [ %181, %182 ], [ %172, %173 ], [ %163, %164 ], [ %154, %155 ], [ %145, %146 ], [ %136, %137 ], [ %.2.i.i.i.i.i.i.i, %115 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %281 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i32 %.0101109.i.i.i.i, ptr %.3, align 4, !tbaa !143
@@ -179816,7 +179816,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i27.i.i.i.i: ; p
   br label %.body
 
 _ZNK5arrow7compute8internal11ParseStringINS_10UInt32TypeEE4CallIjSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.exit36.i.i.i.i: ; preds = %360, %365, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit43.i.i.i.i, %453, %446, %436, %427, %418, %409, %400, %391, %382, %373, %.critedge.i.i59.i.i.i.i
-  %.099116.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit43.i.i.i.i ], [ %.146.i91.i.i.i.i, %453 ], [ 0, %365 ], [ %445, %446 ], [ 0, %.critedge.i.i59.i.i.i.i ], [ %372, %373 ], [ %381, %382 ], [ %390, %391 ], [ %399, %400 ], [ %408, %409 ], [ %417, %418 ], [ %426, %427 ], [ %435, %436 ], [ %.2.i.i.i71.i.i.i.i, %360 ]
+  %.099116.i.i.i.i = phi i32 [ 0, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit43.i.i.i.i ], [ 0, %.critedge.i.i59.i.i.i.i ], [ 0, %365 ], [ %372, %373 ], [ %.146.i91.i.i.i.i, %453 ], [ %445, %446 ], [ %435, %436 ], [ %426, %427 ], [ %417, %418 ], [ %408, %409 ], [ %399, %400 ], [ %390, %391 ], [ %381, %382 ], [ %.2.i.i.i71.i.i.i.i, %360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %526
 

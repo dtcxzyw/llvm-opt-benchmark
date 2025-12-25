@@ -3148,7 +3148,7 @@ ma_ffs_32.exit:                                   ; preds = %.preheader, %16
   br i1 %7, label %.preheader59, label %.thread54
 
 .thread54:                                        ; preds = %.preheader59, %._crit_edge, %52, %24, %30, %2
-  %.0 = phi i32 [ -2, %2 ], [ -4, %24 ], [ 0, %30 ], [ -4, %52 ], [ -4, %._crit_edge ], [ -4, %.preheader59 ]
+  %.0 = phi i32 [ -2, %2 ], [ 0, %30 ], [ -4, %24 ], [ -4, %52 ], [ -4, %._crit_edge ], [ -4, %.preheader59 ]
   ret i32 %.0
 }
 
@@ -13207,7 +13207,7 @@ define internal fastcc void @ma_device__read_frames_from_client(ptr noundef %0, 
   br label %ma_data_converter_get_required_input_frame_count.exit
 
 ma_data_converter_get_required_input_frame_count.exit: ; preds = %94, %99
-  %.1 = phi i64 [ %spec.select, %99 ], [ %98, %94 ]
+  %.1 = phi i64 [ %98, %94 ], [ %spec.select, %99 ]
   %.not78 = icmp eq i64 %.1, 0
   br i1 %.not78, label %ma_data_converter_get_required_input_frame_count.exit.thread, label %100
 
@@ -20761,7 +20761,7 @@ ma_lpf_process_pcm_frame_s16.exit:                ; preds = %ma_biquad_process_p
   br i1 %266, label %177, label %.critedge
 
 .critedge:                                        ; preds = %ma_lpf_process_pcm_frame_s16.exit, %ma_lpf_process_pcm_frame_f32.exit, %.lr.ph111.split, %18, %ma_lpf2_process_pcm_frames.exit, %.lr.ph113, %79, %.preheader89, %.preheader86, %.lr.ph111, %.preheader, %.thread, %4
-  %.059 = phi i32 [ 0, %.preheader86 ], [ -2, %4 ], [ -3, %.thread ], [ 0, %79 ], [ -2, %.lr.ph111 ], [ -2, %.lr.ph111.split ], [ 0, %.preheader ], [ 0, %.preheader89 ], [ 0, %ma_lpf_process_pcm_frame_f32.exit ], [ -2, %.lr.ph113 ], [ %86, %ma_lpf2_process_pcm_frames.exit ], [ -2, %18 ], [ 0, %ma_lpf_process_pcm_frame_s16.exit ]
+  %.059 = phi i32 [ 0, %79 ], [ -2, %4 ], [ -3, %.thread ], [ 0, %.preheader86 ], [ -2, %.lr.ph111 ], [ -2, %.lr.ph111.split ], [ 0, %.preheader ], [ 0, %.preheader89 ], [ 0, %ma_lpf_process_pcm_frame_f32.exit ], [ -2, %.lr.ph113 ], [ %86, %ma_lpf2_process_pcm_frames.exit ], [ -2, %18 ], [ 0, %ma_lpf_process_pcm_frame_s16.exit ]
   ret i32 %.059
 }
 
@@ -23184,7 +23184,7 @@ ma_biquad_process_pcm_frame_s16.exit:             ; preds = %230
   br i1 %266, label %179, label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge135, %.lr.ph141.split, %18, %ma_hpf2_process_pcm_frames.exit, %.lr.ph143, %79, %.preheader117, %.preheader114, %.lr.ph141, %.preheader, %.thread, %4
-  %.092 = phi i32 [ 0, %.preheader114 ], [ -2, %4 ], [ -3, %.thread ], [ 0, %79 ], [ -2, %.lr.ph141 ], [ -2, %.lr.ph141.split ], [ 0, %.preheader ], [ 0, %.preheader117 ], [ 0, %._crit_edge135 ], [ -2, %.lr.ph143 ], [ %86, %ma_hpf2_process_pcm_frames.exit ], [ -2, %18 ], [ 0, %._crit_edge ]
+  %.092 = phi i32 [ 0, %79 ], [ -2, %4 ], [ -3, %.thread ], [ 0, %.preheader114 ], [ -2, %.lr.ph141 ], [ -2, %.lr.ph141.split ], [ 0, %.preheader ], [ 0, %.preheader117 ], [ 0, %._crit_edge135 ], [ -2, %.lr.ph143 ], [ %86, %ma_hpf2_process_pcm_frames.exit ], [ -2, %18 ], [ 0, %._crit_edge ]
   ret i32 %.092
 }
 
@@ -35130,8 +35130,8 @@ ma_lpf_process_pcm_frame_f32.exit.i31.i:          ; preds = %ma_biquad_process_p
   br i1 %exitcond133.not.i.i58, label %.sink.split, label %.preheader76.i.i18
 
 .sink.split:                                      ; preds = %653, %._crit_edge85.i.i23, %503, %._crit_edge91.i.i87, %345, %._crit_edge85.i.i, %180, %._crit_edge91.i.i, %505, %355, %182, %17
-  %storemerge52.i59.sink = phi i64 [ %.2.lcssa.i.i, %180 ], [ %.2.lcssa.i.i89, %503 ], [ 0, %17 ], [ 0, %182 ], [ 0, %355 ], [ %.2.lcssa.i15.i, %345 ], [ 0, %505 ], [ %.2.lcssa.i.i, %._crit_edge91.i.i ], [ %.2.lcssa.i15.i, %._crit_edge85.i.i ], [ %.2.lcssa.i.i89, %._crit_edge91.i.i87 ], [ %.2.lcssa.i15.i25, %._crit_edge85.i.i23 ], [ %.2.lcssa.i15.i25, %653 ]
-  %storemerge.i60.sink = phi i64 [ %16, %180 ], [ %354, %503 ], [ 0, %17 ], [ 0, %182 ], [ 0, %355 ], [ %16, %345 ], [ 0, %505 ], [ %.05899.i.i, %._crit_edge91.i.i ], [ %.058100.i.i, %._crit_edge85.i.i ], [ %.05899.i.i83, %._crit_edge91.i.i87 ], [ %354, %653 ], [ %.058100.i.i19, %._crit_edge85.i.i23 ]
+  %storemerge52.i59.sink = phi i64 [ %.2.lcssa.i15.i, %345 ], [ 0, %182 ], [ 0, %17 ], [ 0, %355 ], [ %.2.lcssa.i.i89, %503 ], [ %.2.lcssa.i.i, %180 ], [ 0, %505 ], [ %.2.lcssa.i.i, %._crit_edge91.i.i ], [ %.2.lcssa.i15.i, %._crit_edge85.i.i ], [ %.2.lcssa.i.i89, %._crit_edge91.i.i87 ], [ %.2.lcssa.i15.i25, %._crit_edge85.i.i23 ], [ %.2.lcssa.i15.i25, %653 ]
+  %storemerge.i60.sink = phi i64 [ %16, %345 ], [ 0, %182 ], [ 0, %17 ], [ 0, %355 ], [ %.05899.i.i83, %._crit_edge91.i.i87 ], [ %16, %180 ], [ 0, %505 ], [ %.05899.i.i, %._crit_edge91.i.i ], [ %.058100.i.i, %._crit_edge85.i.i ], [ %354, %503 ], [ %354, %653 ], [ %.058100.i.i19, %._crit_edge85.i.i23 ]
   store i64 %storemerge52.i59.sink, ptr %2, align 8
   store i64 %storemerge.i60.sink, ptr %4, align 8
   br label %655
@@ -56015,12 +56015,12 @@ drwav__seek_forward.exit731.thread922:            ; preds = %831, %drwav__seek_f
   br label %.backedge
 
 844:                                              ; preds = %drwav__seek_forward.exit715.thread, %drwav__seek_forward.exit706.thread, %drwav__seek_forward.exit655.thread
-  %845 = phi i64 [ %776, %drwav__seek_forward.exit706.thread ], [ %542, %drwav__seek_forward.exit655.thread ], [ %824, %drwav__seek_forward.exit715.thread ]
-  %.5403 = phi i32 [ %.11409, %drwav__seek_forward.exit706.thread ], [ %.7405, %drwav__seek_forward.exit655.thread ], [ %.13411, %drwav__seek_forward.exit715.thread ]
-  %.1396 = phi i64 [ %.2397, %drwav__seek_forward.exit706.thread ], [ %.0395, %drwav__seek_forward.exit655.thread ], [ %.0395, %drwav__seek_forward.exit715.thread ]
-  %.1383 = phi i8 [ %.0382, %drwav__seek_forward.exit706.thread ], [ %.0382, %drwav__seek_forward.exit655.thread ], [ 1, %drwav__seek_forward.exit715.thread ]
-  %.1381 = phi i8 [ 1, %drwav__seek_forward.exit706.thread ], [ 1, %drwav__seek_forward.exit655.thread ], [ %.0380, %drwav__seek_forward.exit715.thread ]
-  %.3374 = phi i64 [ %.2373, %drwav__seek_forward.exit706.thread ], [ %.2373, %drwav__seek_forward.exit655.thread ], [ %.5376, %drwav__seek_forward.exit715.thread ]
+  %845 = phi i64 [ %824, %drwav__seek_forward.exit715.thread ], [ %542, %drwav__seek_forward.exit655.thread ], [ %776, %drwav__seek_forward.exit706.thread ]
+  %.5403 = phi i32 [ %.13411, %drwav__seek_forward.exit715.thread ], [ %.7405, %drwav__seek_forward.exit655.thread ], [ %.11409, %drwav__seek_forward.exit706.thread ]
+  %.1396 = phi i64 [ %.0395, %drwav__seek_forward.exit715.thread ], [ %.0395, %drwav__seek_forward.exit655.thread ], [ %.2397, %drwav__seek_forward.exit706.thread ]
+  %.1383 = phi i8 [ 1, %drwav__seek_forward.exit715.thread ], [ %.0382, %drwav__seek_forward.exit655.thread ], [ %.0382, %drwav__seek_forward.exit706.thread ]
+  %.1381 = phi i8 [ %.0380, %drwav__seek_forward.exit715.thread ], [ 1, %drwav__seek_forward.exit655.thread ], [ 1, %drwav__seek_forward.exit706.thread ]
+  %.3374 = phi i64 [ %.5376, %drwav__seek_forward.exit715.thread ], [ %.2373, %drwav__seek_forward.exit655.thread ], [ %.2373, %drwav__seek_forward.exit706.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   switch i32 %.5403, label %drwav_free.exit743 [
     i32 6, label %.backedge
@@ -93152,7 +93152,7 @@ define internal void @OnSendAudioDataToDevice(ptr noundef readonly captures(none
   br label %ma_data_converter_get_required_input_frame_count.exit.i
 
 ma_data_converter_get_required_input_frame_count.exit.i: ; preds = %75, %71
-  %76 = phi i64 [ %62, %75 ], [ %.pre.i, %71 ]
+  %76 = phi i64 [ %.pre.i, %71 ], [ %62, %75 ]
   %77 = icmp ugt i64 %76, %57
   br i1 %77, label %78, label %ma_data_converter_get_required_input_frame_count.exit.thread.i
 
@@ -93328,8 +93328,8 @@ StopAudioBufferInLockedState.exit.i.i:            ; preds = %154, %136
   br i1 %169, label %StopAudioBufferInLockedState.exit.thread.i.i, label %.thread.i.i
 
 StopAudioBufferInLockedState.exit.thread.i.i:     ; preds = %StopAudioBufferInLockedState.exit.i.i, %StopAudioBufferInLockedState.exit.i.us.i, %165, %IsAudioBufferPlayingInLockedState.exit.i.i.i, %.split34.us.i, %.split.i, %.split.us.i
-  %170 = phi i1 [ %107, %.split34.us.i ], [ %107, %IsAudioBufferPlayingInLockedState.exit.i.i.i ], [ %107, %165 ], [ true, %.split.us.i ], [ false, %.split.i ], [ true, %StopAudioBufferInLockedState.exit.i.us.i ], [ false, %StopAudioBufferInLockedState.exit.i.i ]
-  %.178.i.i = phi i32 [ %.us-phi35.i, %.split34.us.i ], [ %.us-phi35.i, %IsAudioBufferPlayingInLockedState.exit.i.i.i ], [ %.us-phi35.i, %165 ], [ 0, %.split.us.i ], [ 0, %.split.i ], [ %123, %StopAudioBufferInLockedState.exit.i.us.i ], [ %153, %StopAudioBufferInLockedState.exit.i.i ]
+  %170 = phi i1 [ %107, %IsAudioBufferPlayingInLockedState.exit.i.i.i ], [ %107, %.split34.us.i ], [ %107, %165 ], [ true, %.split.us.i ], [ false, %.split.i ], [ true, %StopAudioBufferInLockedState.exit.i.us.i ], [ false, %StopAudioBufferInLockedState.exit.i.i ]
+  %.178.i.i = phi i32 [ %.us-phi35.i, %IsAudioBufferPlayingInLockedState.exit.i.i.i ], [ %.us-phi35.i, %.split34.us.i ], [ %.us-phi35.i, %165 ], [ 0, %.split.us.i ], [ 0, %.split.i ], [ %123, %StopAudioBufferInLockedState.exit.i.us.i ], [ %153, %StopAudioBufferInLockedState.exit.i.i ]
   %.not88.i.i = icmp eq i32 %.178.i.i, %84
   br i1 %.not88.i.i, label %StopAudioBufferInLockedState.exit.thread.i.thread.i, label %171
 
@@ -112339,8 +112339,8 @@ drwav__write_or_count.exit887:                    ; preds = %drwav__write_or_cou
   br label %702
 
 702:                                              ; preds = %drwav__write_or_count.exit887, %drwav__write_or_count_byte.exit875, %drwav__write_or_count_byte.exit831
-  %.14 = phi i64 [ %680, %drwav__write_or_count_byte.exit875 ], [ %629, %drwav__write_or_count_byte.exit831 ], [ %701, %drwav__write_or_count.exit887 ]
-  %.0417 = phi i32 [ %spec.select473987990993996999100210051008101210161019, %drwav__write_or_count_byte.exit875 ], [ %628, %drwav__write_or_count_byte.exit831 ], [ %687, %drwav__write_or_count.exit887 ]
+  %.14 = phi i64 [ %701, %drwav__write_or_count.exit887 ], [ %629, %drwav__write_or_count_byte.exit831 ], [ %680, %drwav__write_or_count_byte.exit875 ]
+  %.0417 = phi i32 [ %687, %drwav__write_or_count.exit887 ], [ %628, %drwav__write_or_count_byte.exit831 ], [ %spec.select473987990993996999100210051008101210161019, %drwav__write_or_count_byte.exit875 ]
   %703 = and i32 %.0417, 1
   %.not457 = icmp eq i32 %703, 0
   br i1 %.not457, label %.thread1023, label %705
@@ -113160,7 +113160,7 @@ get_bits.exit66:                                  ; preds = %173, %.get_bits.exi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %27, %6, %157, %ilog.exit, %233, %50
-  %.0 = phi i32 [ 0, %157 ], [ 0, %50 ], [ 1, %233 ], [ 0, %ilog.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 1, %233 ], [ 0, %50 ], [ 0, %157 ], [ 0, %ilog.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -115476,8 +115476,8 @@ prep_huffman.exit.i375.us.us:                     ; preds = %380, %next_segment.
   br label %codebook_decode_scalar_raw.exit.us.us
 
 codebook_decode_scalar_raw.exit.us.us:            ; preds = %539, %502
-  %.sink.i.us.us = phi i32 [ %541, %539 ], [ %509, %502 ]
-  %.0.ph.i377.us.us = phi i32 [ %.2.i.us.us, %539 ], [ %503, %502 ]
+  %.sink.i.us.us = phi i32 [ %509, %502 ], [ %541, %539 ]
+  %.0.ph.i377.us.us = phi i32 [ %503, %502 ], [ %.2.i.us.us, %539 ]
   store i32 %.sink.i.us.us, ptr %82, align 8
   %542 = icmp slt i32 %.0.ph.i377.us.us, 0
   br i1 %542, label %.thread.i, label %codebook_decode_start.exit.us.us
@@ -116200,8 +116200,8 @@ prep_huffman.exit.i402.us.us.us.us:               ; preds = %757, %next_segment.
   br label %codebook_decode_scalar_raw.exit434.us.us.us.us
 
 codebook_decode_scalar_raw.exit434.us.us.us.us:   ; preds = %865, %828
-  %.sink.i407.us.us.us.us = phi i32 [ %867, %865 ], [ %835, %828 ]
-  %.0.ph.i408.us.us.us.us = phi i32 [ %.2.i424.us.us.us.us, %865 ], [ %829, %828 ]
+  %.sink.i407.us.us.us.us = phi i32 [ %835, %828 ], [ %867, %865 ]
+  %.0.ph.i408.us.us.us.us = phi i32 [ %829, %828 ], [ %.2.i424.us.us.us.us, %865 ]
   store i32 %.sink.i407.us.us.us.us, ptr %82, align 8
   %868 = icmp slt i32 %.0.ph.i408.us.us.us.us, 0
   br i1 %868, label %.thread.i365, label %codebook_decode_start.exit374.us.us.us.us

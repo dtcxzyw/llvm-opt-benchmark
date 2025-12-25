@@ -905,8 +905,8 @@ define internal void @put_lines_bits(ptr noundef readonly captures(none) %0, i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge.loopexit, %7
-  %57 = phi i32 [ %9, %7 ], [ %.pre, %.critedge.loopexit ], [ %9, %.lr.ph ]
-  %.lcssa = phi i32 [ %13, %7 ], [ %55, %.critedge.loopexit ], [ %13, %.lr.ph ]
+  %57 = phi i32 [ %9, %7 ], [ %9, %.lr.ph ], [ %.pre, %.critedge.loopexit ]
+  %.lcssa = phi i32 [ %13, %7 ], [ %13, %.lr.ph ], [ %55, %.critedge.loopexit ]
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %8, align 4, !tbaa !49
   %.not = icmp slt i32 %58, %1

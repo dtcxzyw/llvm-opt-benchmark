@@ -4147,7 +4147,7 @@ _ZN3ue2L13has_self_loopEtRKNS_7raw_dfaE.exit65.thread.i: ; preds = %109, %94, %8
   br label %72, !llvm.loop !194
 
 .thread81.i:                                      ; preds = %_ZNSt13unordered_setItSt4hashItESt8equal_toItESaItEE6insertERKt.exit.i, %.thread.i, %.thread.us.i, %105
-  %.6.i = phi i16 [ %91, %105 ], [ 0, %.thread.i ], [ 0, %.thread.us.i ], [ 0, %_ZNSt13unordered_setItSt4hashItESt8equal_toItESaItEE6insertERKt.exit.i ]
+  %.6.i = phi i16 [ 0, %.thread.us.i ], [ 0, %.thread.i ], [ %91, %105 ], [ 0, %_ZNSt13unordered_setItSt4hashItESt8equal_toItESaItEE6insertERKt.exit.i ]
   %155 = load ptr, ptr %68, align 8
   %.not5.i.i.i.i.i = icmp eq ptr %155, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableIttSaItENSt8__detail9_IdentityESt8equal_toItESt4hashItENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i

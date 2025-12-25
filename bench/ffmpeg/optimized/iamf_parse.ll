@@ -829,7 +829,7 @@ ff_iamf_get_codec_config.exit.thread.i:           ; preds = %ff_iamf_get_codec_c
   br label %audio_element_obu.exit
 
 .thread197.i:                                     ; preds = %200, %182, %250, %242, %238, %236, %257, %252, %233, %227, %170, %163, %161, %155, %ff_iamf_get_codec_config.exit.thread.i, %135, %120
-  %.0132199.i = phi i32 [ -1094995529, %236 ], [ -1094995529, %227 ], [ -1094995529, %ff_iamf_get_codec_config.exit.thread.i ], [ -1094995529, %135 ], [ -12, %155 ], [ -12, %161 ], [ -12, %163 ], [ %121, %120 ], [ %258, %257 ], [ -12, %170 ], [ %253, %252 ], [ -1094995529, %233 ], [ %.7.i, %250 ], [ -1094995529, %242 ], [ -1094995529, %238 ], [ -12, %182 ], [ -12, %200 ]
+  %.0132199.i = phi i32 [ -1094995529, %227 ], [ -1094995529, %236 ], [ -1094995529, %ff_iamf_get_codec_config.exit.thread.i ], [ -1094995529, %135 ], [ -12, %155 ], [ -12, %161 ], [ -12, %163 ], [ %121, %120 ], [ %258, %257 ], [ -12, %170 ], [ %253, %252 ], [ -1094995529, %233 ], [ %.7.i, %250 ], [ -1094995529, %242 ], [ -1094995529, %238 ], [ -12, %182 ], [ -12, %200 ]
   call void @av_free(ptr noundef nonnull %119) #10
   call void @ff_iamf_free_audio_element(ptr noundef nonnull %10) #10
   br label %audio_element_obu.exit

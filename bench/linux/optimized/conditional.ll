@@ -995,7 +995,7 @@ thread-pre-split17:                               ; preds = %76
   br label %.thread21, !llvm.loop !16
 
 .thread21:                                        ; preds = %.lr.ph30, %thread-pre-split, %thread-pre-split13, %87, %.preheader24, %thread-pre-split10, %.preheader22, %.preheader, %16, %..thread21.loopexit26_crit_edge, %2, %7
-  %112 = phi i32 [ -22, %2 ], [ 0, %7 ], [ %85, %.preheader22 ], [ -22, %thread-pre-split10 ], [ 0, %..thread21.loopexit26_crit_edge ], [ %110, %.preheader ], [ -22, %16 ], [ -22, %.preheader24 ], [ -22, %87 ], [ -22, %thread-pre-split13 ], [ -22, %thread-pre-split ], [ -22, %.lr.ph30 ]
+  %112 = phi i32 [ -22, %2 ], [ 0, %7 ], [ 0, %..thread21.loopexit26_crit_edge ], [ -22, %thread-pre-split10 ], [ -22, %16 ], [ %110, %.preheader ], [ %85, %.preheader22 ], [ -22, %.preheader24 ], [ -22, %87 ], [ -22, %thread-pre-split13 ], [ -22, %thread-pre-split ], [ -22, %.lr.ph30 ]
   ret i32 %112
 }
 

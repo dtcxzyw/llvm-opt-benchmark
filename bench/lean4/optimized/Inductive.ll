@@ -19243,8 +19243,8 @@ lean_dec.exit:                                    ; preds = %1077, %1076, %1074,
   unreachable
 
 1081:                                             ; preds = %lean_array_uset.exit707, %lean_array_uset.exit757, %lean_array_uset.exit659
-  %.1333 = phi ptr [ %855, %lean_array_uset.exit757 ], [ %615, %lean_array_uset.exit707 ], [ %401, %lean_array_uset.exit659 ]
-  %.1325 = phi ptr [ %.0.i.i754, %lean_array_uset.exit757 ], [ %.0.i.i704, %lean_array_uset.exit707 ], [ %.0.i.i656, %lean_array_uset.exit659 ]
+  %.1333 = phi ptr [ %401, %lean_array_uset.exit659 ], [ %615, %lean_array_uset.exit707 ], [ %855, %lean_array_uset.exit757 ]
+  %.1325 = phi ptr [ %.0.i.i656, %lean_array_uset.exit659 ], [ %.0.i.i704, %lean_array_uset.exit707 ], [ %.0.i.i754, %lean_array_uset.exit757 ]
   %.1317 = add nuw i64 %.0316929, 1
   %exitcond.not = icmp eq i64 %.1317, %2
   br i1 %exitcond.not, label %._crit_edge, label %106
@@ -35894,8 +35894,8 @@ lean_alloc_ctor.exit1546:                         ; preds = %1821
   br label %2490
 
 lean_dec.exit976:                                 ; preds = %lean_dec.exit973, %1604, %1606, %1607, %lean_dec.exit975, %1550, %1552, %1553
-  %.1815 = phi ptr [ %1529, %lean_dec.exit975 ], [ %1583, %lean_dec.exit973 ], [ %1583, %1604 ], [ %1583, %1606 ], [ %1583, %1607 ], [ %1529, %1553 ], [ %1529, %1552 ], [ %1529, %1550 ]
-  %.1813.in.in = phi i64 [ %1520, %lean_dec.exit975 ], [ %1574, %lean_dec.exit973 ], [ %1574, %1604 ], [ %1574, %1606 ], [ %1574, %1607 ], [ %1520, %1553 ], [ %1520, %1552 ], [ %1520, %1550 ]
+  %.1815 = phi ptr [ %1529, %lean_dec.exit975 ], [ %1583, %1607 ], [ %1583, %1606 ], [ %1583, %1604 ], [ %1583, %lean_dec.exit973 ], [ %1529, %1553 ], [ %1529, %1552 ], [ %1529, %1550 ]
+  %.1813.in.in = phi i64 [ %1520, %lean_dec.exit975 ], [ %1574, %1607 ], [ %1574, %1606 ], [ %1574, %1604 ], [ %1574, %lean_dec.exit973 ], [ %1520, %1553 ], [ %1520, %1552 ], [ %1520, %1550 ]
   %.1813.in = lshr i64 %.1813.in.in, 1
   %.1813 = trunc i64 %.1813.in to i8
   %1829 = icmp eq i8 %.1813, 0
@@ -37274,8 +37274,8 @@ lean_alloc_ctor.exit1639:                         ; preds = %2345
   br label %2490
 
 lean_dec.exit953:                                 ; preds = %lean_dec.exit950, %2134, %2136, %2137, %lean_dec.exit952, %2080, %2082, %2083
-  %.1827 = phi ptr [ %2059, %lean_dec.exit952 ], [ %2113, %lean_dec.exit950 ], [ %2113, %2134 ], [ %2113, %2136 ], [ %2113, %2137 ], [ %2059, %2083 ], [ %2059, %2082 ], [ %2059, %2080 ]
-  %.1825.in.in = phi i64 [ %2050, %lean_dec.exit952 ], [ %2104, %lean_dec.exit950 ], [ %2104, %2134 ], [ %2104, %2136 ], [ %2104, %2137 ], [ %2050, %2083 ], [ %2050, %2082 ], [ %2050, %2080 ]
+  %.1827 = phi ptr [ %2059, %lean_dec.exit952 ], [ %2113, %2137 ], [ %2113, %2136 ], [ %2113, %2134 ], [ %2113, %lean_dec.exit950 ], [ %2059, %2083 ], [ %2059, %2082 ], [ %2059, %2080 ]
+  %.1825.in.in = phi i64 [ %2050, %lean_dec.exit952 ], [ %2104, %2137 ], [ %2104, %2136 ], [ %2104, %2134 ], [ %2104, %lean_dec.exit950 ], [ %2050, %2083 ], [ %2050, %2082 ], [ %2050, %2080 ]
   %.1825.in = lshr i64 %.1825.in.in, 1
   %2353 = and i64 %.1825.in.in, 510
   %2354 = icmp eq i64 %2353, 0

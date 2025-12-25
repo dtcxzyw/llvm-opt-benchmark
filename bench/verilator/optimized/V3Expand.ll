@@ -10830,7 +10830,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %256, %_ZNKSt7__cxx1
   br label %306
 
 _ZN13ExpandVisitor12doExpandWideEP7AstNode.exit.thread: ; preds = %_ZNK7AstNode10widthWordsEv.exit, %90, %_ZNK7AstNode10widthWordsEv.exit100, %_ZN8V3NumberD2Ev.exit, %79, %125, %21, %36
-  %.0.i146 = phi i1 [ true, %125 ], [ false, %21 ], [ false, %36 ], [ true, %79 ], [ true, %_ZNK7AstNode10widthWordsEv.exit100 ], [ true, %_ZN8V3NumberD2Ev.exit ], [ true, %90 ], [ true, %_ZNK7AstNode10widthWordsEv.exit ]
+  %.0.i146 = phi i1 [ false, %21 ], [ true, %125 ], [ false, %36 ], [ true, %_ZNK7AstNode10widthWordsEv.exit100 ], [ true, %79 ], [ true, %_ZN8V3NumberD2Ev.exit ], [ true, %90 ], [ true, %_ZNK7AstNode10widthWordsEv.exit ]
   ret i1 %.0.i146
 
 306:                                              ; preds = %274, %305, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88

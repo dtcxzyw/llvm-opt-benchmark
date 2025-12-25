@@ -5127,8 +5127,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h99dbebd00
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85ba91e30d69ab9E.exit"
 
 .body.thread:                                     ; preds = %.body.thread.i, %188, %184, %.body.thread113
-  %eh.lpad-body109 = phi { ptr, i32 } [ %lpad.thr_comm111, %.body.thread113 ], [ %185, %188 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %185, %184 ]
-  %.sroa.05.2.lpad-body108 = phi i1 [ %.sroa.05.2.ph, %.body.thread113 ], [ false, %188 ], [ false, %.body.thread.i ], [ false, %184 ]
+  %eh.lpad-body109 = phi { ptr, i32 } [ %lpad.thr_comm111, %.body.thread113 ], [ %185, %184 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %185, %188 ]
+  %.sroa.05.2.lpad-body108 = phi i1 [ %.sroa.05.2.ph, %.body.thread113 ], [ false, %184 ], [ false, %.body.thread.i ], [ false, %188 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4bb9012c6e739e7fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #26
           to label %156 unwind label %150
 
@@ -6036,8 +6036,8 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hd8cc2899d
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hb85ba91e30d69ab9E.exit"
 
 .body.thread:                                     ; preds = %.body.thread.i, %188, %184, %.body.thread113
-  %eh.lpad-body109 = phi { ptr, i32 } [ %lpad.thr_comm111, %.body.thread113 ], [ %185, %188 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %185, %184 ]
-  %.sroa.05.2.lpad-body108 = phi i1 [ %.sroa.05.2.ph, %.body.thread113 ], [ false, %188 ], [ false, %.body.thread.i ], [ false, %184 ]
+  %eh.lpad-body109 = phi { ptr, i32 } [ %lpad.thr_comm111, %.body.thread113 ], [ %185, %184 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %185, %188 ]
+  %.sroa.05.2.lpad-body108 = phi i1 [ %.sroa.05.2.ph, %.body.thread113 ], [ false, %184 ], [ false, %.body.thread.i ], [ false, %188 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4bb9012c6e739e7fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #26
           to label %156 unwind label %150
 
@@ -10622,7 +10622,7 @@ _ZN9uv_pep5086marker5parse25parse_marker_key_op_value17hb751d8b7fa04ae96E.exit.t
   br label %.body.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %467, %431, %356, %353, %.noexc144.i, %345, %.noexc142.i, %.noexc141.i, %327, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.thread.i.i, %280, %275, %262, %241, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6565719fc1a0fd6E.exit.thread.i.i", %_ZN9uv_pep5086cursor6Cursor10take_while17haa7dd32ed1fec4a4E.exit.i.i, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread.i.i, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread66.i.i, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.i.i, %188, %186
-  %.sroa.053.0.ph.ph.i = phi i1 [ true, %353 ], [ true, %.noexc144.i ], [ true, %186 ], [ true, %188 ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.i.i ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread66.i.i ], [ true, %345 ], [ true, %.noexc142.i ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread.i.i ], [ true, %356 ], [ true, %431 ], [ false, %467 ], [ true, %_ZN9uv_pep5086cursor6Cursor10take_while17haa7dd32ed1fec4a4E.exit.i.i ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6565719fc1a0fd6E.exit.thread.i.i" ], [ true, %241 ], [ true, %262 ], [ true, %275 ], [ true, %280 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.thread.i.i ], [ true, %327 ], [ true, %.noexc141.i ]
+  %.sroa.053.0.ph.ph.i = phi i1 [ true, %353 ], [ true, %.noexc144.i ], [ true, %186 ], [ true, %188 ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.i.i ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread66.i.i ], [ true, %.noexc142.i ], [ true, %345 ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread.i.i ], [ false, %467 ], [ true, %431 ], [ true, %356 ], [ true, %_ZN9uv_pep5086cursor6Cursor10take_while17haa7dd32ed1fec4a4E.exit.i.i ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6565719fc1a0fd6E.exit.thread.i.i" ], [ true, %241 ], [ true, %262 ], [ true, %275 ], [ true, %280 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.thread.i.i ], [ true, %327 ], [ true, %.noexc141.i ]
   %lpad.loopexit.split-lp262.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -12378,7 +12378,7 @@ _ZN9uv_pep5086marker5parse25parse_marker_key_op_value17h983bfa7ff4e62e39E.exit.t
   br label %.body.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %467, %431, %356, %353, %.noexc144.i, %345, %.noexc142.i, %.noexc141.i, %327, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.thread.i.i, %280, %275, %262, %241, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6565719fc1a0fd6E.exit.thread.i.i", %_ZN9uv_pep5086cursor6Cursor10take_while17h30ab6b84d190a204E.exit.i.i, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread.i.i, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread66.i.i, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.i.i, %188, %186
-  %.sroa.053.0.ph.ph.i = phi i1 [ true, %353 ], [ true, %.noexc144.i ], [ true, %186 ], [ true, %188 ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.i.i ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread66.i.i ], [ true, %345 ], [ true, %.noexc142.i ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread.i.i ], [ true, %356 ], [ true, %431 ], [ false, %467 ], [ true, %_ZN9uv_pep5086cursor6Cursor10take_while17h30ab6b84d190a204E.exit.i.i ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6565719fc1a0fd6E.exit.thread.i.i" ], [ true, %241 ], [ true, %262 ], [ true, %275 ], [ true, %280 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.thread.i.i ], [ true, %327 ], [ true, %.noexc141.i ]
+  %.sroa.053.0.ph.ph.i = phi i1 [ true, %353 ], [ true, %.noexc144.i ], [ true, %186 ], [ true, %188 ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.i.i ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread66.i.i ], [ true, %.noexc142.i ], [ true, %345 ], [ true, %_ZN4core3ops8function6FnOnce9call_once17h0883929376c48824E.exit.thread.i.i ], [ false, %467 ], [ true, %431 ], [ true, %356 ], [ true, %_ZN9uv_pep5086cursor6Cursor10take_while17h30ab6b84d190a204E.exit.i.i ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6565719fc1a0fd6E.exit.thread.i.i" ], [ true, %241 ], [ true, %262 ], [ true, %275 ], [ true, %280 ], [ true, %_ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.thread.i.i ], [ true, %327 ], [ true, %.noexc141.i ]
   %lpad.loopexit.split-lp262.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i

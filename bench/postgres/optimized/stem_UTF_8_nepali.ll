@@ -334,8 +334,8 @@ r_remove_category_3.exit:                         ; preds = %94
   store i32 %101, ptr %2, align 8
   br label %.thread110
 
-.thread110:                                       ; preds = %86, %91, %r_remove_category_3.exit, %23, %12, %.loopexit
-  %.1 = phi i32 [ 1, %.loopexit ], [ %13, %12 ], [ %26, %23 ], [ %92, %91 ], [ %87, %86 ], [ %..4, %r_remove_category_3.exit ]
+.thread110:                                       ; preds = %91, %86, %r_remove_category_3.exit, %23, %12, %.loopexit
+  %.1 = phi i32 [ 1, %.loopexit ], [ %13, %12 ], [ %26, %23 ], [ %87, %86 ], [ %92, %91 ], [ %..4, %r_remove_category_3.exit ]
   ret i32 %.1
 }
 

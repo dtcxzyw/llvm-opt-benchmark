@@ -310,7 +310,7 @@ define internal range(i32 -2147483648, 1) i32 @seq_read_packet(ptr noundef reado
   br label %85
 
 85:                                               ; preds = %.sink.split, %69, %65, %26, %17, %9
-  %.0 = phi i32 [ -5, %26 ], [ -5, %65 ], [ %77, %69 ], [ %20, %17 ], [ %10, %9 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -5, %26 ], [ -5, %65 ], [ %20, %17 ], [ %77, %69 ], [ %10, %9 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

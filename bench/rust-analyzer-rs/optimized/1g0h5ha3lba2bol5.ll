@@ -4871,7 +4871,7 @@ define hidden noundef ptr @"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$11try_to_node17
   br label %.body
 
 .body:                                            ; preds = %81, %86, %96
-  %eh.lpad-body = phi { ptr, i32 } [ %97, %96 ], [ %lpad.phi.i.i, %81 ], [ %lpad.phi.i.i, %86 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %97, %96 ], [ %lpad.phi.i.i, %86 ], [ %lpad.phi.i.i, %81 ]
   %98 = icmp eq ptr %.sroa.4.2, null
   br i1 %98, label %"_ZN4core3ptr246drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..ast..SyntaxNodePtr$LT$syntax..syntax_node..RustLanguage$GT$..try_to_node..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h154f5cea60c181d5E.exit", label %99
 
@@ -15861,9 +15861,9 @@ _ZN4core3ops8function6FnOnce9call_once17hc468883bc175475aE.exit.i: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !2852
   br i1 %.not, label %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit.thread", label %.thread456
 
-.thread456:                                       ; preds = %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit", %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit.i", %134, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit219.i", %227, %203
-  %.sroa.0.3455 = phi i8 [ %.sroa.0.2, %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit" ], [ 3, %203 ], [ 3, %227 ], [ %switch.masked726, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit219.i" ], [ 3, %134 ], [ %.sroa.0.0437, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit.i" ]
-  %.sroa.18385.3454 = phi i32 [ %.sroa.18385.2, %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit" ], [ %204, %203 ], [ %228, %227 ], [ %.sroa.464.0.i, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit219.i" ], [ %135, %134 ], [ %.sroa.18385.0, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit.i" ]
+.thread456:                                       ; preds = %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit", %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit.i", %203, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit219.i", %227, %134
+  %.sroa.0.3455 = phi i8 [ %.sroa.0.2, %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit" ], [ 3, %134 ], [ 3, %227 ], [ %switch.masked726, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit219.i" ], [ 3, %203 ], [ %.sroa.0.0437, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit.i" ]
+  %.sroa.18385.3454 = phi i32 [ %.sroa.18385.2, %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit" ], [ %135, %134 ], [ %228, %227 ], [ %.sroa.464.0.i, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit219.i" ], [ %204, %203 ], [ %.sroa.18385.0, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit.i" ]
   store i8 %.sroa.0.3455, ptr %0, align 4
   %.sroa.18385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.18385.3454, ptr %.sroa.18385.0..sroa_idx, align 4
@@ -20098,8 +20098,8 @@ define internal fastcc { i32, i32 } @_ZN3hir15source_analyzer16scope_for_offset1
   resume { ptr, i32 } %.pn.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 "_ZN3hir15source_analyzer16scope_for_offset28_$u7b$$u7b$closure$u7d$$u7d$17hbd816153c37cff06E.exit.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %160, %155, %43
-  %.sroa.0.sroa.5.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %153, %155 ], [ %.sroa.0.sroa.5.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i, %43 ], [ %153, %160 ]
-  %.sroa.0.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %155 ], [ %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i, %43 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %160 ]
+  %.sroa.0.sroa.5.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %153, %160 ], [ %.sroa.0.sroa.5.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i, %43 ], [ %153, %155 ]
+  %.sroa.0.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %160 ], [ %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i.i.i.i, %43 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %155 ]
   %163 = load i32, ptr %20, align 4, !noalias !4100, !noundef !4
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ule i32 %.sroa.0.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i, %163
   %switch16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ule i32 %163, %.sroa.0.sroa.5.0.i.i.i.i.i.i.i.i.i.i.i.i

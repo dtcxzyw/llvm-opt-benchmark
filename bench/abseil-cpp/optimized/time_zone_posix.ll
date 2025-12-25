@@ -372,7 +372,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit53: ; preds = %.
   br label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit.thread
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit.thread: ; preds = %.lr.ph, %22, %48, %50, %69, %71, %62, %._crit_edge.i48, %41, %._crit_edge.i34, %13, %._crit_edge.i, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit53, %5
-  %.0 = phi ptr [ null, %5 ], [ %.120, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit53 ], [ null, %48 ], [ null, %69 ], [ null, %._crit_edge.i ], [ null, %13 ], [ null, %._crit_edge.i48 ], [ null, %._crit_edge.i34 ], [ null, %41 ], [ null, %62 ], [ null, %71 ], [ null, %50 ], [ null, %22 ], [ null, %.lr.ph ]
+  %.0 = phi ptr [ null, %5 ], [ %.120, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit53 ], [ null, %62 ], [ null, %._crit_edge.i48 ], [ null, %._crit_edge.i ], [ null, %13 ], [ null, %69 ], [ null, %._crit_edge.i34 ], [ null, %41 ], [ null, %48 ], [ null, %71 ], [ null, %50 ], [ null, %22 ], [ null, %.lr.ph ]
   ret ptr %.0
 }
 
@@ -635,8 +635,8 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79: ; preds = %.
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread104
 
-.thread104:                                       ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit, %4, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit65, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79, %98
-  %.0107 = phi ptr [ %55, %98 ], [ %.025.lcssa.i.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit ], [ %0, %4 ], [ %.025.lcssa.i62.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit65 ], [ %.025.lcssa.i48.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51 ], [ %.025.lcssa.i76.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79 ]
+.thread104:                                       ; preds = %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79, %4, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit65, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51, %98
+  %.0107 = phi ptr [ %55, %98 ], [ %.025.lcssa.i.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit ], [ %.025.lcssa.i76.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79 ], [ %0, %4 ], [ %.025.lcssa.i62.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit65 ], [ %.025.lcssa.i48.ptr, %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit51 ]
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 7200, ptr %106, align 8, !tbaa !27
   %107 = load i8, ptr %.0107, align 1, !tbaa !12
@@ -649,7 +649,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79: ; preds = %.
   br label %.thread
 
 .thread:                                          ; preds = %63, %65, %16, %18, %38, %40, %84, %86, %78, %._crit_edge.i74, %56, %._crit_edge.i60, %31, %._crit_edge.i46, %9, %._crit_edge.i, %2, %.thread108, %.thread104, %109
-  %.3 = phi ptr [ %111, %109 ], [ %.0107, %.thread104 ], [ null, %.thread108 ], [ null, %2 ], [ null, %._crit_edge.i ], [ null, %9 ], [ null, %38 ], [ null, %._crit_edge.i74 ], [ null, %._crit_edge.i46 ], [ null, %31 ], [ null, %84 ], [ null, %78 ], [ null, %._crit_edge.i60 ], [ null, %56 ], [ null, %16 ], [ null, %86 ], [ null, %40 ], [ null, %18 ], [ null, %65 ], [ null, %63 ]
+  %.3 = phi ptr [ %111, %109 ], [ %.0107, %.thread104 ], [ null, %.thread108 ], [ null, %2 ], [ null, %._crit_edge.i ], [ null, %9 ], [ null, %._crit_edge.i74 ], [ null, %16 ], [ null, %._crit_edge.i46 ], [ null, %31 ], [ null, %78 ], [ null, %84 ], [ null, %._crit_edge.i60 ], [ null, %56 ], [ null, %38 ], [ null, %86 ], [ null, %40 ], [ null, %18 ], [ null, %65 ], [ null, %63 ]
   ret ptr %.3
 }
 

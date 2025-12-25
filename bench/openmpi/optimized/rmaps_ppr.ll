@@ -922,13 +922,13 @@ pmix_obj_run_destructors.exit358:                 ; preds = %.lr.ph.i355, %409
   br i1 %426, label %.lr.ph, label %.critedge15, !llvm.loop !88
 
 .critedge15:                                      ; preds = %423, %.lr.ph, %.preheader, %pmix_obj_update.exit324, %378, %376, %339
-  %.6 = phi i32 [ %.5473, %339 ], [ %353, %pmix_obj_update.exit324 ], [ %353, %378 ], [ %353, %376 ], [ %.5473, %.preheader ], [ %353, %423 ], [ %.7468, %.lr.ph ]
+  %.6 = phi i32 [ %.5473, %339 ], [ %353, %378 ], [ %353, %pmix_obj_update.exit324 ], [ %353, %376 ], [ %.5473, %.preheader ], [ %353, %423 ], [ %.7468, %.lr.ph ]
   %427 = add nuw i32 %.0260472, 1
   %exitcond.not = icmp eq i32 %427, %319
   br i1 %exitcond.not, label %.critedge, label %336, !llvm.loop !89
 
 .critedge:                                        ; preds = %336, %.critedge15, %310, %.lr.ph476, %.preheader387, %pmix_obj_update.exit, %265, %263
-  %.4 = phi i32 [ %.3474, %.lr.ph476 ], [ %240, %pmix_obj_update.exit ], [ %240, %265 ], [ %240, %263 ], [ %.0256483, %.preheader387 ], [ %240, %310 ], [ %.6, %.critedge15 ], [ %.5473, %336 ]
+  %.4 = phi i32 [ %240, %263 ], [ %240, %265 ], [ %240, %pmix_obj_update.exit ], [ %.3474, %.lr.ph476 ], [ %.0256483, %.preheader387 ], [ %240, %310 ], [ %.6, %.critedge15 ], [ %.5473, %336 ]
   store i16 %7, ptr %6, align 4, !tbaa !8
   %428 = load i32, ptr %204, align 8, !tbaa !63
   %429 = icmp eq i32 %.4, %428

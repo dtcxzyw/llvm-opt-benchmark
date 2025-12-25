@@ -1862,8 +1862,8 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %if.end24, !llvm.loop !123
 
 if.end24:                                         ; preds = %if.end.loopexit, %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.body.us24, %lor.lhs.false.i.i.i.i.us, %if.end3.i.i.i.i.us, %if.end.loopexit.us, %for.inc.i.i.us, %for.inc.i.i.us.us, %for.body.us.us.us
-  %i.sroa.0.012216 = phi ptr [ %i.sroa.0.0122.us25, %lor.lhs.false.i.i.i.i.us ], [ %i.sroa.0.0122, %if.end3.i.i.i.i ], [ %i.sroa.0.0122.us25, %for.body.us24 ], [ %i.sroa.0.0122.us, %for.inc.i.i.us ], [ %i.sroa.0.0122.us, %if.end.loopexit.us ], [ %1, %for.body.us.us.us ], [ %i.sroa.0.0122.us.us, %for.inc.i.i.us.us ], [ %i.sroa.0.0122.us25, %if.end3.i.i.i.i.us ], [ %i.sroa.0.0122, %lor.lhs.false.i.i.i.i ], [ %i.sroa.0.0122, %if.end.loopexit ]
-  %68 = phi ptr [ %32, %lor.lhs.false.i.i.i.i.us ], [ %45, %if.end3.i.i.i.i ], [ %32, %for.body.us24 ], [ %16, %for.inc.i.i.us ], [ %16, %if.end.loopexit.us ], [ %8, %for.body.us.us.us ], [ %9, %for.inc.i.i.us.us ], [ %32, %if.end3.i.i.i.i.us ], [ %45, %lor.lhs.false.i.i.i.i ], [ %45, %if.end.loopexit ]
+  %i.sroa.0.012216 = phi ptr [ %1, %for.body.us.us.us ], [ %i.sroa.0.0122.us, %for.inc.i.i.us ], [ %i.sroa.0.0122.us25, %for.body.us24 ], [ %i.sroa.0.0122.us, %if.end.loopexit.us ], [ %i.sroa.0.0122, %if.end3.i.i.i.i ], [ %i.sroa.0.0122.us25, %lor.lhs.false.i.i.i.i.us ], [ %i.sroa.0.0122.us.us, %for.inc.i.i.us.us ], [ %i.sroa.0.0122.us25, %if.end3.i.i.i.i.us ], [ %i.sroa.0.0122, %lor.lhs.false.i.i.i.i ], [ %i.sroa.0.0122, %if.end.loopexit ]
+  %68 = phi ptr [ %8, %for.body.us.us.us ], [ %16, %for.inc.i.i.us ], [ %32, %for.body.us24 ], [ %16, %if.end.loopexit.us ], [ %45, %if.end3.i.i.i.i ], [ %32, %lor.lhs.false.i.i.i.i.us ], [ %9, %for.inc.i.i.us.us ], [ %32, %if.end3.i.i.i.i.us ], [ %45, %lor.lhs.false.i.i.i.i ], [ %45, %if.end.loopexit ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %i.sroa.0.012216 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

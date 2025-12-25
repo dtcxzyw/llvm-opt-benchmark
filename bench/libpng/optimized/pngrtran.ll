@@ -1249,8 +1249,8 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   br i1 %exitcond607.not, label %.thread450, label %.preheader457.split, !llvm.loop !81
 
 .thread450:                                       ; preds = %._crit_edge505, %.split.thread, %.split.us.us.split.thread, %.split.us.us.split.us.us.thread, %191, %374, %324, %232, %203
-  %.2389453 = phi ptr [ %.1388, %.split.us.us.split.us.us.thread ], [ %.1388, %.split.thread ], [ null, %203 ], [ %.1388, %.split.us.us.split.thread ], [ %.1388, %232 ], [ %.1388, %324 ], [ %.1388, %374 ], [ null, %191 ], [ null, %._crit_edge505 ]
-  %.1383 = phi i32 [ %.6.us.us, %.split.us.us.split.us.us.thread ], [ %.6, %.split.thread ], [ %.0382519, %203 ], [ %.6.us, %.split.us.us.split.thread ], [ %.5.us.us.us.us, %232 ], [ %.5.us.us, %324 ], [ %.5, %374 ], [ %.0382519, %191 ], [ %.0382519, %._crit_edge505 ]
+  %.2389453 = phi ptr [ %.1388, %.split.thread ], [ %.1388, %232 ], [ null, %203 ], [ %.1388, %.split.us.us.split.us.us.thread ], [ %.1388, %.split.us.us.split.thread ], [ %.1388, %324 ], [ %.1388, %374 ], [ null, %191 ], [ null, %._crit_edge505 ]
+  %.1383 = phi i32 [ %.6, %.split.thread ], [ %.5.us.us.us.us, %232 ], [ %.0382519, %203 ], [ %.6.us.us, %.split.us.us.split.us.us.thread ], [ %.6.us, %.split.us.us.split.thread ], [ %.5.us.us, %324 ], [ %.5, %374 ], [ %.0382519, %191 ], [ %.0382519, %._crit_edge505 ]
   br label %377
 
 377:                                              ; preds = %.thread450, %.loopexit455

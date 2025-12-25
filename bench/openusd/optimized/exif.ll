@@ -174,7 +174,7 @@ avifGetExifTiffHeaderOffset.exit.sink.split:      ; preds = %58, %.preheader, %5
   br label %avifGetExifTiffHeaderOffset.exit
 
 avifGetExifTiffHeaderOffset.exit:                 ; preds = %15, %.lr.ph, %35, %37, %39, %41, %avifGetExifTiffHeaderOffset.exit.sink.split, %3, %29, %20, %27
-  %.0 = phi i32 [ 0, %avifGetExifTiffHeaderOffset.exit.sink.split ], [ 17, %.lr.ph ], [ 17, %29 ], [ 17, %3 ], [ 17, %20 ], [ 17, %27 ], [ 17, %41 ], [ 17, %39 ], [ 17, %37 ], [ 17, %35 ], [ 17, %15 ]
+  %.0 = phi i32 [ 17, %3 ], [ 0, %avifGetExifTiffHeaderOffset.exit.sink.split ], [ 17, %29 ], [ 17, %.lr.ph ], [ 17, %20 ], [ 17, %27 ], [ 17, %41 ], [ 17, %39 ], [ 17, %37 ], [ 17, %35 ], [ 17, %15 ]
   ret i32 %.0
 }
 

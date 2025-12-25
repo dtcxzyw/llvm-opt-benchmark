@@ -3086,7 +3086,7 @@ define internal fastcc ptr @avifItemPropertyDedupCreate() unnamed_addr #1 {
   br label %9
 
 9:                                                ; preds = %.sink.split, %5, %0
-  %.0 = phi ptr [ %1, %5 ], [ null, %0 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %0 ], [ %1, %5 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 

@@ -1903,7 +1903,7 @@ _ZNK17scoped_ptr_vectorI10cond_macroE3endEv.exit: ; preds = %2
   br i1 %.not.not, label %.critedge20, label %24
 
 .critedge20:                                      ; preds = %.critedge18, %.preheader.i.i, %42, %53, %56, %2, %_ZNK17scoped_ptr_vectorI10cond_macroE3endEv.exit
-  %.not27 = phi i1 [ true, %53 ], [ false, %_ZNK17scoped_ptr_vectorI10cond_macroE3endEv.exit ], [ false, %2 ], [ true, %42 ], [ true, %56 ], [ false, %.critedge18 ], [ true, %.preheader.i.i ]
+  %.not27 = phi i1 [ false, %2 ], [ false, %_ZNK17scoped_ptr_vectorI10cond_macroE3endEv.exit ], [ true, %53 ], [ true, %42 ], [ true, %56 ], [ true, %.preheader.i.i ], [ false, %.critedge18 ]
   ret i1 %.not27
 }
 
@@ -8430,7 +8430,7 @@ _ZN6vectorIP10quantifierLb0EjE9push_backERKS1_.exit.i: ; preds = %.noexc, %50
   br i1 %66, label %.lr.ph54, label %.critedge
 
 .critedge:                                        ; preds = %_ZN6vectorIP10quantifierLb0EjE9push_backERKS1_.exit.i, %_ZNK6vectorIP10quantifierLb0EjE4sizeEv.exit.i.preheader, %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit, %35
-  %.0.ph = phi i1 [ false, %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit ], [ true, %35 ], [ false, %_ZNK6vectorIP10quantifierLb0EjE4sizeEv.exit.i.preheader ], [ false, %_ZN6vectorIP10quantifierLb0EjE9push_backERKS1_.exit.i ]
+  %.0.ph = phi i1 [ true, %35 ], [ false, %_ZNK6vectorIP10quantifierLb0EjE5emptyEv.exit ], [ false, %_ZNK6vectorIP10quantifierLb0EjE4sizeEv.exit.i.preheader ], [ false, %_ZN6vectorIP10quantifierLb0EjE9push_backERKS1_.exit.i ]
   %67 = getelementptr inbounds i8, ptr %7, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %67)
           to label %_ZN6vectorIP10quantifierLb0EjED2Ev.exit unwind label %68

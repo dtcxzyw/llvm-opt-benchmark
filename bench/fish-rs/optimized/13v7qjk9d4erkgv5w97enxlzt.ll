@@ -26079,7 +26079,7 @@ thread-pre-split.i.i:                             ; preds = %215
   br i1 %.not75.i.i, label %.loopexit359.i, label %.lr.ph101.i.i
 
 .loopexit359.i:                                   ; preds = %.preheader83.i.i, %248, %.preheader79.i.i, %276
-  %.sroa.14226.3.i = phi i64 [ %281, %276 ], [ %253, %248 ], [ %.sroa.023.0.i.i, %.preheader79.i.i ], [ %.sroa.023.3.i.i, %.preheader83.i.i ]
+  %.sroa.14226.3.i = phi i64 [ %281, %276 ], [ %.sroa.023.0.i.i, %.preheader79.i.i ], [ %253, %248 ], [ %.sroa.023.3.i.i, %.preheader83.i.i ]
   %282 = icmp sgt i64 %.sroa.14226.3.i, -1
   br i1 %282, label %.thread335.i, label %283
 
@@ -26089,7 +26089,7 @@ thread-pre-split.i.i:                             ; preds = %215
           to label %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !1859
 
 .thread335.i:                                     ; preds = %239, %237, %228, %.lr.ph.i.i, %267, %265, %256, %.lr.ph101.i.i, %.loopexit359.i, %.preheader.i.i, %.preheader81.i.i, %216, %216, %215, %210
-  %286 = phi i64 [ %.sroa.14226.3.i, %.loopexit359.i ], [ 0, %210 ], [ 0, %267 ], [ 0, %.preheader.i.i ], [ %214, %215 ], [ 0, %.lr.ph101.i.i ], [ 0, %216 ], [ 0, %216 ], [ 0, %.lr.ph.i.i ], [ 0, %.preheader81.i.i ], [ 0, %256 ], [ 0, %265 ], [ 0, %228 ], [ 0, %237 ], [ 0, %239 ]
+  %286 = phi i64 [ %.sroa.14226.3.i, %.loopexit359.i ], [ 0, %210 ], [ 0, %267 ], [ 0, %216 ], [ %214, %215 ], [ 0, %.lr.ph101.i.i ], [ 0, %.preheader81.i.i ], [ 0, %216 ], [ 0, %.lr.ph.i.i ], [ 0, %.preheader.i.i ], [ 0, %256 ], [ 0, %265 ], [ 0, %228 ], [ 0, %237 ], [ 0, %239 ]
   %287 = invoke { i64, i32 } @"_ZN91_$LT$std..time..SystemTime$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17hafff6683169fe9dbE"(i64 noundef 0, i32 noundef 0, i64 noundef %286, i32 noundef 0)
           to label %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !1859
 
@@ -26100,10 +26100,10 @@ _ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i: ; preds = %
   br label %.thread320.i
 
 .thread320.i:                                     ; preds = %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h6c59e2e84bbdadadE.exit194.i", %322, %.loopexit.i, %_ZN4fish7history4file9read_line17h0e7324bbe94892b5E.exit175.i, %300, %293, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i, %203, %198
-  %.sroa.3.1.i = phi i32 [ %289, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i ], [ %.sroa.3.0.i130, %300 ], [ %.sroa.3.0.i130, %198 ], [ %.sroa.3.0.i130, %293 ], [ %.sroa.3.0.i130, %203 ], [ %.sroa.3.0.i130, %_ZN4fish7history4file9read_line17h0e7324bbe94892b5E.exit175.i ], [ %.sroa.3.0.i130, %.loopexit.i ], [ %.sroa.3.0.i130, %322 ], [ %.sroa.3.0.i130, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h6c59e2e84bbdadadE.exit194.i" ]
-  %.sroa.018.1.i = phi i64 [ %288, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i ], [ %.sroa.018.0.i131, %300 ], [ %.sroa.018.0.i131, %198 ], [ %.sroa.018.0.i131, %293 ], [ %.sroa.018.0.i131, %203 ], [ %.sroa.018.0.i131, %_ZN4fish7history4file9read_line17h0e7324bbe94892b5E.exit175.i ], [ %.sroa.018.0.i131, %.loopexit.i ], [ %.sroa.018.0.i131, %322 ], [ %.sroa.018.0.i131, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h6c59e2e84bbdadadE.exit194.i" ]
-  %.sroa.10.1.i = phi i64 [ %199, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i ], [ %.sroa.10.2494.i, %300 ], [ %199, %198 ], [ %199, %293 ], [ %199, %203 ], [ %.sroa.10.2494.i, %322 ], [ %.sroa.10.2494.i, %.loopexit.i ], [ %.sroa.10.2494.i, %_ZN4fish7history4file9read_line17h0e7324bbe94892b5E.exit175.i ], [ 0, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h6c59e2e84bbdadadE.exit194.i" ]
-  %.sroa.0.1.i = phi ptr [ %200, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i ], [ %.sroa.0.2495.i, %300 ], [ %200, %198 ], [ %200, %293 ], [ %200, %203 ], [ %.sroa.0.2495.i, %322 ], [ %.sroa.0.2495.i, %.loopexit.i ], [ %.sroa.0.2495.i, %_ZN4fish7history4file9read_line17h0e7324bbe94892b5E.exit175.i ], [ %327, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h6c59e2e84bbdadadE.exit194.i" ]
+  %.sroa.3.1.i = phi i32 [ %289, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i ], [ %.sroa.3.0.i130, %203 ], [ %.sroa.3.0.i130, %198 ], [ %.sroa.3.0.i130, %293 ], [ %.sroa.3.0.i130, %300 ], [ %.sroa.3.0.i130, %_ZN4fish7history4file9read_line17h0e7324bbe94892b5E.exit175.i ], [ %.sroa.3.0.i130, %.loopexit.i ], [ %.sroa.3.0.i130, %322 ], [ %.sroa.3.0.i130, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h6c59e2e84bbdadadE.exit194.i" ]
+  %.sroa.018.1.i = phi i64 [ %288, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i ], [ %.sroa.018.0.i131, %203 ], [ %.sroa.018.0.i131, %198 ], [ %.sroa.018.0.i131, %293 ], [ %.sroa.018.0.i131, %300 ], [ %.sroa.018.0.i131, %_ZN4fish7history4file9read_line17h0e7324bbe94892b5E.exit175.i ], [ %.sroa.018.0.i131, %.loopexit.i ], [ %.sroa.018.0.i131, %322 ], [ %.sroa.018.0.i131, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h6c59e2e84bbdadadE.exit194.i" ]
+  %.sroa.10.1.i = phi i64 [ %199, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i ], [ %199, %203 ], [ %199, %198 ], [ %199, %293 ], [ %.sroa.10.2494.i, %300 ], [ %.sroa.10.2494.i, %322 ], [ %.sroa.10.2494.i, %.loopexit.i ], [ %.sroa.10.2494.i, %_ZN4fish7history4file9read_line17h0e7324bbe94892b5E.exit175.i ], [ 0, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h6c59e2e84bbdadadE.exit194.i" ]
+  %.sroa.0.1.i = phi ptr [ %200, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i ], [ %200, %203 ], [ %200, %198 ], [ %200, %293 ], [ %.sroa.0.2495.i, %300 ], [ %.sroa.0.2495.i, %322 ], [ %.sroa.0.2495.i, %.loopexit.i ], [ %.sroa.0.2495.i, %_ZN4fish7history4file9read_line17h0e7324bbe94892b5E.exit175.i ], [ %327, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h6c59e2e84bbdadadE.exit194.i" ]
   %290 = load i64, ptr %16, align 8, !range !227, !alias.scope !2000, !noalias !1927, !noundef !17
   %291 = icmp eq i64 %290, -9223372036854775808
   br i1 %291, label %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h6c59e2e84bbdadadE.exit166.i", label %292
@@ -27148,7 +27148,7 @@ thread-pre-split.i.i.i:                           ; preds = %217
   br i1 %.not75.i.i.i, label %.loopexit.i101.i, label %.lr.ph101.i.i.i
 
 .loopexit.i101.i:                                 ; preds = %.preheader83.i.i.i, %250, %.preheader79.i.i.i, %278
-  %.sroa.1519.0.i.i = phi i64 [ %283, %278 ], [ %255, %250 ], [ %.sroa.023.0.i.i.i, %.preheader79.i.i.i ], [ %.sroa.023.3.i.i.i, %.preheader83.i.i.i ]
+  %.sroa.1519.0.i.i = phi i64 [ %283, %278 ], [ %.sroa.023.0.i.i.i, %.preheader79.i.i.i ], [ %255, %250 ], [ %.sroa.023.3.i.i.i, %.preheader83.i.i.i ]
   %284 = icmp sgt i64 %.sroa.1519.0.i.i, -1
   br i1 %284, label %.loopexit.thread.i.i, label %285
 
@@ -27158,7 +27158,7 @@ thread-pre-split.i.i.i:                           ; preds = %217
   br label %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i.i
 
 .loopexit.thread.i.i:                             ; preds = %.loopexit.i101.i, %.preheader.i.i.i, %.preheader81.i.i.i
-  %.sroa.1519.059.i.i = phi i64 [ %.sroa.1519.0.i.i, %.loopexit.i101.i ], [ 0, %.preheader81.i.i.i ], [ 0, %.preheader.i.i.i ]
+  %.sroa.1519.059.i.i = phi i64 [ %.sroa.1519.0.i.i, %.loopexit.i101.i ], [ 0, %.preheader.i.i.i ], [ 0, %.preheader81.i.i.i ]
   %288 = call { i64, i32 } @"_ZN91_$LT$std..time..SystemTime$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17hafff6683169fe9dbE"(i64 noundef 0, i32 noundef 0, i64 noundef %.sroa.1519.059.i.i, i32 noundef 0), !noalias !2063
   br label %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i.i
 
@@ -27169,8 +27169,8 @@ _ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i.i: ; preds =
   br label %_ZN4fish7history4file15parse_timestamp17h67f890bb6f5ad6c8E.exit.i
 
 _ZN4fish7history4file15parse_timestamp17h67f890bb6f5ad6c8E.exit.i: ; preds = %241, %239, %230, %.lr.ph.i.i102.i, %269, %267, %258, %.lr.ph101.i.i.i, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i.i, %218, %218, %217, %_ZN4fish7history4file10trim_start17h88cb4ef539c001b5E.exit18.i.i, %_ZN4fish7history4file10trim_start17h88cb4ef539c001b5E.exit.i.i
-  %.sroa.5.0.i99.i = phi i32 [ %290, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i.i ], [ 1000000000, %_ZN4fish7history4file10trim_start17h88cb4ef539c001b5E.exit.i.i ], [ 1000000000, %_ZN4fish7history4file10trim_start17h88cb4ef539c001b5E.exit18.i.i ], [ 1000000000, %269 ], [ 1000000000, %.lr.ph101.i.i.i ], [ 1000000000, %217 ], [ 1000000000, %.lr.ph.i.i102.i ], [ 1000000000, %218 ], [ 1000000000, %218 ], [ 1000000000, %258 ], [ 1000000000, %267 ], [ 1000000000, %230 ], [ 1000000000, %239 ], [ 1000000000, %241 ]
-  %.sroa.0.0.i100.i = phi i64 [ %289, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i.i ], [ undef, %_ZN4fish7history4file10trim_start17h88cb4ef539c001b5E.exit.i.i ], [ undef, %_ZN4fish7history4file10trim_start17h88cb4ef539c001b5E.exit18.i.i ], [ undef, %269 ], [ undef, %.lr.ph101.i.i.i ], [ undef, %217 ], [ undef, %.lr.ph.i.i102.i ], [ undef, %218 ], [ undef, %218 ], [ undef, %258 ], [ undef, %267 ], [ undef, %230 ], [ undef, %239 ], [ undef, %241 ]
+  %.sroa.5.0.i99.i = phi i32 [ %290, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i.i ], [ 1000000000, %_ZN4fish7history4file10trim_start17h88cb4ef539c001b5E.exit.i.i ], [ 1000000000, %_ZN4fish7history4file10trim_start17h88cb4ef539c001b5E.exit18.i.i ], [ 1000000000, %269 ], [ 1000000000, %218 ], [ 1000000000, %217 ], [ 1000000000, %.lr.ph101.i.i.i ], [ 1000000000, %.lr.ph.i.i102.i ], [ 1000000000, %218 ], [ 1000000000, %258 ], [ 1000000000, %267 ], [ 1000000000, %230 ], [ 1000000000, %239 ], [ 1000000000, %241 ]
+  %.sroa.0.0.i100.i = phi i64 [ %289, %_ZN4fish7history4file17time_from_seconds17hfc7826c3beb7ba01E.exit.i.i ], [ undef, %_ZN4fish7history4file10trim_start17h88cb4ef539c001b5E.exit.i.i ], [ undef, %_ZN4fish7history4file10trim_start17h88cb4ef539c001b5E.exit18.i.i ], [ undef, %269 ], [ undef, %218 ], [ undef, %217 ], [ undef, %.lr.ph101.i.i.i ], [ undef, %.lr.ph.i.i102.i ], [ undef, %218 ], [ undef, %258 ], [ undef, %267 ], [ undef, %230 ], [ undef, %239 ], [ undef, %241 ]
   %.not77.i = icmp eq i32 %.sroa.5.0.i99.i, 1000000000
   br i1 %.not77.i, label %.preheader.i, label %291
 
@@ -49563,7 +49563,7 @@ _ZN4fish4proc28generate_process_exit_events17h38826617743ef048E.exit: ; preds = 
   br label %.thread130
 
 .thread135.loopexit.split-lp.loopexit.split-lp:   ; preds = %.invoke252, %340, %336, %334, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d06c288399ab568E.exit.thread", %._crit_edge207, %302
-  %.sroa.09.2.ph.ph.ph = phi i1 [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d06c288399ab568E.exit.thread" ], [ false, %334 ], [ true, %.invoke252 ], [ true, %302 ], [ true, %._crit_edge207 ], [ false, %340 ], [ false, %336 ]
+  %.sroa.09.2.ph.ph.ph = phi i1 [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d06c288399ab568E.exit.thread" ], [ false, %334 ], [ true, %.invoke252 ], [ true, %302 ], [ true, %._crit_edge207 ], [ false, %336 ], [ false, %340 ]
   %lpad.loopexit.split-lp152 = landingpad { ptr, i32 }
           cleanup
   br label %.thread130

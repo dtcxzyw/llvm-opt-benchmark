@@ -2226,7 +2226,7 @@ switch.lookup279:                                 ; preds = %117
   br label %.critedge135
 
 .critedge135:                                     ; preds = %tailrecurse.backedge, %.lr.ph174, %105, %101, %.critedge135.sink.split, %.lr.ph177, %5, %2, %78, %83, %51, %60, %55, %74, %90, %97, %.critedge
-  %.0 = phi i32 [ 0, %97 ], [ 0, %2 ], [ 0, %.lr.ph177 ], [ 0, %105 ], [ 0, %5 ], [ %.0.ph, %.critedge135.sink.split ], [ 2, %90 ], [ 0, %.critedge ], [ 0, %101 ], [ 0, %51 ], [ %58, %60 ], [ 2, %55 ], [ 0, %83 ], [ 0, %74 ], [ 0, %78 ], [ 0, %.lr.ph174 ], [ 0, %tailrecurse.backedge ]
+  %.0 = phi i32 [ 0, %97 ], [ 0, %2 ], [ 0, %5 ], [ 0, %101 ], [ 0, %.lr.ph177 ], [ 2, %90 ], [ %.0.ph, %.critedge135.sink.split ], [ 0, %.critedge ], [ 0, %105 ], [ 0, %51 ], [ %58, %60 ], [ 2, %55 ], [ 0, %83 ], [ 0, %74 ], [ 0, %78 ], [ 0, %.lr.ph174 ], [ 0, %tailrecurse.backedge ]
   ret i32 %.0
 }
 

@@ -689,7 +689,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEE9get_countEv.exit.i6.i
   br label %.noexc
 
 .noexc:                                           ; preds = %151, %142
-  %.03.i22 = phi i32 [ %147, %142 ], [ %156, %151 ]
+  %.03.i22 = phi i32 [ %156, %151 ], [ %147, %142 ]
   switch i32 %.03.i22, label %.noexc.thread [
     i32 256, label %157
     i32 14, label %158
@@ -1228,7 +1228,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   br label %.noexc
 
 .noexc:                                           ; preds = %147, %138
-  %.03.i27 = phi i32 [ %143, %138 ], [ %152, %147 ]
+  %.03.i27 = phi i32 [ %152, %147 ], [ %143, %138 ]
   switch i32 %.03.i27, label %.noexc.thread [
     i32 256, label %153
     i32 14, label %154
@@ -1940,7 +1940,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3CFF16cs_interpreter_tINS_20cf
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit: ; preds = %11, %20
-  %.03.i = phi i32 [ %16, %11 ], [ %25, %20 ]
+  %.03.i = phi i32 [ %25, %20 ], [ %16, %11 ]
   %26 = load ptr, ptr %0, align 8
   switch i32 %.03.i, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread [
     i32 256, label %27

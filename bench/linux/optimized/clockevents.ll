@@ -1177,7 +1177,7 @@ define internal void @__clockevents_unbind(ptr noundef captures(none) %0) #0 ali
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %7, %40
-  %48 = phi i32 [ 0, %.thread.sink.split ], [ -16, %7 ], [ -16, %40 ]
+  %48 = phi i32 [ -16, %7 ], [ 0, %.thread.sink.split ], [ -16, %40 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %48, ptr %49, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @clockevents_lock) #11

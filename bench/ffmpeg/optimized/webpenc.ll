@@ -58,7 +58,7 @@ define internal range(i32 -1094995529, 1) i32 @webp_write_packet(ptr noundef rea
   br label %is_animated_webp_packet.exit
 
 is_animated_webp_packet.exit:                     ; preds = %.thread.i, %21
-  %.011.i = phi i32 [ 1, %21 ], [ 0, %.thread.i ]
+  %.011.i = phi i32 [ 0, %.thread.i ], [ 1, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %27 = load i32, ptr %26, align 8, !tbaa !31
   %28 = or i32 %27, %.011.i

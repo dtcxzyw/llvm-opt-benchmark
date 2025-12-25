@@ -1385,8 +1385,8 @@ define range(i32 -1, 1) i32 @H5Dclose_async(ptr noundef %0, ptr noundef %1, i32 
   br label %76
 
 76:                                               ; preds = %65, %67, %72, %61
-  %.027 = phi i32 [ 0, %65 ], [ 0, %67 ], [ -1, %72 ], [ -1, %61 ]
-  %.0 = phi i1 [ false, %65 ], [ false, %67 ], [ true, %72 ], [ true, %61 ]
+  %.027 = phi i32 [ 0, %65 ], [ -1, %61 ], [ -1, %72 ], [ 0, %67 ]
+  %.0 = phi i1 [ false, %65 ], [ true, %61 ], [ true, %72 ], [ false, %67 ]
   %.not35 = icmp eq ptr %.130, null
   br i1 %.not35, label %85, label %77
 
@@ -4273,8 +4273,8 @@ define range(i32 -1, -2147483648) i32 @H5Dscatter(ptr noundef readonly captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %96, %.preheader, %109, %118, %124, %129, %135, %142, %.thread
-  %146 = phi i1 [ true, %109 ], [ true, %.thread ], [ true, %118 ], [ true, %142 ], [ true, %135 ], [ true, %129 ], [ true, %124 ], [ false, %.preheader ], [ false, %96 ]
-  %.052 = phi i32 [ -1, %109 ], [ -1, %.thread ], [ -1, %118 ], [ -1, %142 ], [ -1, %135 ], [ -1, %129 ], [ -1, %124 ], [ 0, %.preheader ], [ %101, %96 ]
+  %146 = phi i1 [ true, %118 ], [ true, %.thread ], [ true, %142 ], [ true, %109 ], [ true, %124 ], [ true, %129 ], [ true, %135 ], [ false, %.preheader ], [ false, %96 ]
+  %.052 = phi i32 [ -1, %118 ], [ -1, %.thread ], [ -1, %142 ], [ -1, %109 ], [ -1, %124 ], [ -1, %129 ], [ -1, %135 ], [ 0, %.preheader ], [ %101, %96 ]
   %147 = call i32 @H5S_select_iter_release(ptr noundef nonnull %84) #7
   %148 = icmp slt i32 %147, 0
   br i1 %148, label %149, label %.thread78, !prof !14
@@ -4587,8 +4587,8 @@ define range(i32 -1, -2147483648) i32 @H5Dgather(i64 noundef %0, ptr noundef %1,
   br i1 %151, label %.lr.ph.split, label %.loopexit, !llvm.loop !40
 
 .loopexit:                                        ; preds = %149, %.lr.ph150, %.preheader, %.split.us, %145, %.thread
-  %152 = phi i1 [ true, %.split.us ], [ true, %.thread ], [ true, %145 ], [ false, %.preheader ], [ false, %.lr.ph150 ], [ false, %149 ]
-  %.063 = phi i32 [ -1, %.split.us ], [ -1, %.thread ], [ -1, %145 ], [ 0, %.preheader ], [ 0, %.lr.ph150 ], [ %137, %149 ]
+  %152 = phi i1 [ true, %.thread ], [ true, %145 ], [ true, %.split.us ], [ false, %.preheader ], [ false, %.lr.ph150 ], [ false, %149 ]
+  %.063 = phi i32 [ -1, %.thread ], [ -1, %145 ], [ -1, %.split.us ], [ 0, %.preheader ], [ 0, %.lr.ph150 ], [ %137, %149 ]
   %153 = call i32 @H5S_select_iter_release(ptr noundef nonnull %104) #7
   %154 = icmp slt i32 %153, 0
   br i1 %154, label %155, label %.thread90, !prof !14

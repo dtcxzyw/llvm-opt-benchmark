@@ -11764,8 +11764,8 @@ lean_dec_ref.exit628:                             ; preds = %1223, %1222, %1220,
   unreachable
 
 1230:                                             ; preds = %lean_dec.exit420, %lean_dec.exit407, %lean_alloc_ctor.exit820
-  %.1349 = phi ptr [ %1087, %lean_alloc_ctor.exit820 ], [ %630, %lean_dec.exit407 ], [ %380, %lean_dec.exit420 ]
-  %.1344 = phi ptr [ %1104, %lean_alloc_ctor.exit820 ], [ %.03431110, %lean_dec.exit407 ], [ %.03431110, %lean_dec.exit420 ]
+  %.1349 = phi ptr [ %630, %lean_dec.exit407 ], [ %380, %lean_dec.exit420 ], [ %1087, %lean_alloc_ctor.exit820 ]
+  %.1344 = phi ptr [ %.03431110, %lean_dec.exit407 ], [ %.03431110, %lean_dec.exit420 ], [ %1104, %lean_alloc_ctor.exit820 ]
   %.1335 = add nuw i64 %.03341111, 1
   %exitcond.not = icmp eq i64 %.1335, %6
   br i1 %exitcond.not, label %._crit_edge, label %94

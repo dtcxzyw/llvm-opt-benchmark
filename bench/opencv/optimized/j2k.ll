@@ -550,7 +550,7 @@ opj_j2k_get_default_thread_count.exit:            ; preds = %15, %18, %20, %24, 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %opj_j2k_get_default_thread_count.exit, %34, %0
-  %.0 = phi ptr [ null, %0 ], [ %1, %opj_j2k_get_default_thread_count.exit ], [ %1, %34 ], [ null, %.thread.sink.split ]
+  %.0 = phi ptr [ null, %0 ], [ %1, %34 ], [ %1, %opj_j2k_get_default_thread_count.exit ], [ null, %.thread.sink.split ]
   ret ptr %.0
 }
 
@@ -3294,7 +3294,7 @@ default.unreachable:                              ; preds = %217
   br label %258
 
 258:                                              ; preds = %.sink.split387, %244, %252, %254, %248, %233, %239, %237, %226, %228, %222, %220, %218
-  %.20 = phi i32 [ %.19, %252 ], [ %.19, %218 ], [ %.19, %248 ], [ %.19, %220 ], [ %.19, %244 ], [ %.19, %222 ], [ %.19, %239 ], [ %.19, %226 ], [ %.19, %237 ], [ %.19, %254 ], [ %.19, %233 ], [ %.19, %228 ], [ 0, %.sink.split387 ]
+  %.20 = phi i32 [ %.19, %233 ], [ %.19, %218 ], [ %.19, %239 ], [ %.19, %220 ], [ %.19, %237 ], [ %.19, %222 ], [ %.19, %244 ], [ %.19, %226 ], [ %.19, %252 ], [ %.19, %254 ], [ %.19, %248 ], [ %.19, %228 ], [ 0, %.sink.split387 ]
   %259 = load i32, ptr %12, align 8, !tbaa !49
   %260 = icmp eq i32 %259, 1
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 5628
@@ -6411,7 +6411,7 @@ opj_j2k_get_default_thread_count.exit:            ; preds = %33, %36, %38, %42, 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %opj_j2k_get_default_thread_count.exit, %52, %0
-  %.0 = phi ptr [ null, %0 ], [ %1, %opj_j2k_get_default_thread_count.exit ], [ %1, %52 ], [ null, %.thread.sink.split ]
+  %.0 = phi ptr [ null, %0 ], [ %1, %52 ], [ %1, %opj_j2k_get_default_thread_count.exit ], [ null, %.thread.sink.split ]
   ret ptr %.0
 }
 
@@ -8236,7 +8236,7 @@ define hidden range(i32 0, 2) i32 @opj_j2k_encoder_set_extra_options(ptr noundef
   br label %.loopexit50
 
 .loopexit50:                                      ; preds = %.loopexit, %.loopexit50.sink.split, %.preheader49, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %.loopexit50.sink.split ], [ 1, %.preheader49 ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 1, %3 ], [ 1, %.preheader49 ], [ 0, %.loopexit50.sink.split ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -10453,7 +10453,7 @@ define internal range(i32 0, 2) i32 @opj_j2k_copy_default_tcp_and_create_tcd(ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %48, %44, %61, %122, %._crit_edge132, %126
-  %.098 = phi i32 [ 0, %61 ], [ 1, %122 ], [ 0, %126 ], [ 0, %._crit_edge132 ], [ 0, %44 ], [ 0, %48 ], [ 0, %._crit_edge ]
+  %.098 = phi i32 [ 0, %._crit_edge132 ], [ 1, %122 ], [ 0, %126 ], [ 0, %61 ], [ 0, %44 ], [ 0, %48 ], [ 0, %._crit_edge ]
   ret i32 %.098
 }
 
@@ -11813,7 +11813,7 @@ opj_j2k_copy_tile_quantization_parameters.exit.sink.split: ; preds = %4
   br label %opj_j2k_copy_tile_quantization_parameters.exit
 
 opj_j2k_copy_tile_quantization_parameters.exit:   ; preds = %34, %opj_j2k_copy_tile_quantization_parameters.exit.sink.split, %22
-  %.0 = phi i32 [ 0, %opj_j2k_copy_tile_quantization_parameters.exit.sink.split ], [ 1, %22 ], [ 1, %34 ]
+  %.0 = phi i32 [ 1, %22 ], [ 0, %opj_j2k_copy_tile_quantization_parameters.exit.sink.split ], [ 1, %34 ]
   ret i32 %.0
 }
 
@@ -15349,7 +15349,7 @@ opj_j2k_tcp_data_destroy.exit:                    ; preds = %291, %285, %261, %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %249, %236, %60, %.preheader, %.loopexit181, %58, %47, %247
-  %.1 = phi i32 [ 0, %58 ], [ 1, %.preheader ], [ %312, %.loopexit181 ], [ 0, %47 ], [ 0, %247 ], [ 1, %60 ], [ 0, %236 ], [ 0, %249 ]
+  %.1 = phi i32 [ 0, %58 ], [ 0, %47 ], [ %312, %.loopexit181 ], [ 1, %.preheader ], [ 0, %247 ], [ 1, %60 ], [ 0, %236 ], [ 0, %249 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

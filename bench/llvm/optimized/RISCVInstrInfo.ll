@@ -15224,7 +15224,7 @@ define dso_local void @_ZNK4llvm14RISCVInstrInfo15isCopyInstrImplERKNS_12Machine
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %13, %28, %23, %16, %44, %32, %39
-  %.sink = phi i8 [ 0, %13 ], [ 0, %28 ], [ 0, %23 ], [ 0, %39 ], [ 0, %32 ], [ 0, %44 ], [ 0, %16 ], [ 1, %.critedge.sink.split ]
+  %.sink = phi i8 [ 0, %23 ], [ 0, %28 ], [ 0, %13 ], [ 0, %39 ], [ 0, %32 ], [ 0, %44 ], [ 0, %16 ], [ 1, %.critedge.sink.split ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %50, align 8, !tbaa !704
   ret void
@@ -17984,7 +17984,7 @@ _ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit: ; preds = %262
   br label %.critedge189
 
 .critedge189:                                     ; preds = %.critedge189.sink.split, %262, %277, %269, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit
-  %.7 = phi i1 [ true, %262 ], [ true, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit ], [ true, %269 ], [ true, %277 ], [ false, %.critedge189.sink.split ]
+  %.7 = phi i1 [ true, %262 ], [ true, %277 ], [ true, %269 ], [ true, %_ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit ], [ false, %.critedge189.sink.split ]
   ret i1 %.7
 }
 

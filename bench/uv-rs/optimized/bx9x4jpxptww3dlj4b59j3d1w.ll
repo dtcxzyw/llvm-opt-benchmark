@@ -5120,7 +5120,7 @@ define hidden void @"_ZN183_$LT$uv_distribution_types..index.._..$LT$impl$u20$se
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke, %235, %287, %346, %357, %368, %410, %459, %500, %573
-  %.sroa.0163.1.ph = phi i8 [ 1, %500 ], [ 1, %459 ], [ 1, %.invoke ], [ 1, %410 ], [ %.sroa.0163.6, %573 ], [ 1, %368 ], [ 1, %235 ], [ 1, %357 ], [ 1, %287 ], [ 1, %346 ]
+  %.sroa.0163.1.ph = phi i8 [ 1, %500 ], [ 1, %459 ], [ 1, %235 ], [ 1, %410 ], [ %.sroa.0163.6, %573 ], [ 1, %368 ], [ 1, %.invoke ], [ 1, %357 ], [ 1, %287 ], [ 1, %346 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -7468,10 +7468,10 @@ define hidden void @"_ZN201_$LT$uv_distribution_types..requirement.._..$LT$impl$
   br label %.body
 
 .loopexit.split-lp397:                            ; preds = %147, %163, %174, %222, %280, %177, %225, %292, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit"
-  %.sroa.0347.0855 = phi ptr [ %.sroa.0347.0.ph, %222 ], [ %.sroa.0347.0.ph, %174 ], [ %.sroa.0347.0.ph, %225 ], [ %.sroa.0347.0.ph, %163 ], [ %.sroa.0347.0.ph, %280 ], [ %.sroa.0347.0.ph, %147 ], [ null, %177 ], [ %.sroa.0347.0.ph, %292 ], [ %.sroa.0347.0.ph, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit" ]
-  %.sroa.0117.1.ph = phi i8 [ 1, %222 ], [ 1, %174 ], [ 1, %225 ], [ 1, %163 ], [ 1, %280 ], [ 1, %147 ], [ 1, %177 ], [ 1, %292 ], [ %.sroa.0117.7, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit" ]
-  %.sroa.0119.1.ph = phi i8 [ 1, %222 ], [ 1, %174 ], [ 1, %225 ], [ 1, %163 ], [ 1, %280 ], [ 1, %147 ], [ 1, %177 ], [ 1, %292 ], [ %.sroa.0119.7, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit" ]
-  %.sroa.0121.1.ph = phi i8 [ 1, %222 ], [ 1, %174 ], [ 1, %225 ], [ 1, %163 ], [ 1, %280 ], [ 1, %147 ], [ 1, %177 ], [ 1, %292 ], [ %.sroa.0121.6, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit" ]
+  %.sroa.0347.0855 = phi ptr [ %.sroa.0347.0.ph, %225 ], [ %.sroa.0347.0.ph, %174 ], [ %.sroa.0347.0.ph, %280 ], [ %.sroa.0347.0.ph, %163 ], [ %.sroa.0347.0.ph, %222 ], [ %.sroa.0347.0.ph, %147 ], [ null, %177 ], [ %.sroa.0347.0.ph, %292 ], [ %.sroa.0347.0.ph, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit" ]
+  %.sroa.0117.1.ph = phi i8 [ 1, %225 ], [ 1, %174 ], [ 1, %280 ], [ 1, %163 ], [ 1, %222 ], [ 1, %147 ], [ 1, %177 ], [ 1, %292 ], [ %.sroa.0117.7, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit" ]
+  %.sroa.0119.1.ph = phi i8 [ 1, %225 ], [ 1, %174 ], [ 1, %280 ], [ 1, %163 ], [ 1, %222 ], [ 1, %147 ], [ 1, %177 ], [ 1, %292 ], [ %.sroa.0119.7, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit" ]
+  %.sroa.0121.1.ph = phi i8 [ 1, %225 ], [ 1, %174 ], [ 1, %280 ], [ 1, %163 ], [ 1, %222 ], [ 1, %147 ], [ 1, %177 ], [ 1, %292 ], [ %.sroa.0121.6, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$$GT$17hef066d36ed9303a2E.exit" ]
   %lpad.loopexit.split-lp399 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -18603,11 +18603,11 @@ define hidden void @"_ZN156_$LT$uv_tool..tool.._..$LT$impl$u20$serde..de..Deseri
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke, %198, %247, %262, %277, %292, %341, %386, %495
-  %.sroa.0167.1.ph = phi i8 [ 1, %341 ], [ 1, %386 ], [ 1, %292 ], [ 1, %.invoke ], [ 1, %277 ], [ %.sroa.0167.6, %495 ], [ 1, %262 ], [ 1, %198 ], [ 1, %247 ]
-  %.sroa.0169.1.ph = phi i8 [ 1, %341 ], [ 1, %386 ], [ 1, %292 ], [ 1, %.invoke ], [ 1, %277 ], [ %.sroa.0169.6, %495 ], [ 1, %262 ], [ 1, %198 ], [ 1, %247 ]
-  %.sroa.0171.1.ph = phi i8 [ 1, %341 ], [ 1, %386 ], [ 1, %292 ], [ 1, %.invoke ], [ 1, %277 ], [ %.sroa.0171.6, %495 ], [ 1, %262 ], [ 1, %198 ], [ 1, %247 ]
-  %.sroa.0173.1.ph = phi i8 [ 1, %341 ], [ 1, %386 ], [ 1, %292 ], [ 1, %.invoke ], [ 1, %277 ], [ %.sroa.0173.6, %495 ], [ 1, %262 ], [ 1, %198 ], [ 1, %247 ]
-  %.sroa.0175.1.ph = phi i8 [ 1, %341 ], [ 1, %386 ], [ 1, %292 ], [ 1, %.invoke ], [ 1, %277 ], [ %.sroa.0175.6, %495 ], [ 1, %262 ], [ 1, %198 ], [ 1, %247 ]
+  %.sroa.0167.1.ph = phi i8 [ 1, %341 ], [ 1, %.invoke ], [ 1, %292 ], [ %.sroa.0167.6, %495 ], [ 1, %277 ], [ 1, %198 ], [ 1, %262 ], [ 1, %386 ], [ 1, %247 ]
+  %.sroa.0169.1.ph = phi i8 [ 1, %341 ], [ 1, %.invoke ], [ 1, %292 ], [ %.sroa.0169.6, %495 ], [ 1, %277 ], [ 1, %198 ], [ 1, %262 ], [ 1, %386 ], [ 1, %247 ]
+  %.sroa.0171.1.ph = phi i8 [ 1, %341 ], [ 1, %.invoke ], [ 1, %292 ], [ %.sroa.0171.6, %495 ], [ 1, %277 ], [ 1, %198 ], [ 1, %262 ], [ 1, %386 ], [ 1, %247 ]
+  %.sroa.0173.1.ph = phi i8 [ 1, %341 ], [ 1, %.invoke ], [ 1, %292 ], [ %.sroa.0173.6, %495 ], [ 1, %277 ], [ 1, %198 ], [ 1, %262 ], [ 1, %386 ], [ 1, %247 ]
+  %.sroa.0175.1.ph = phi i8 [ 1, %341 ], [ 1, %.invoke ], [ 1, %292 ], [ %.sroa.0175.6, %495 ], [ 1, %277 ], [ 1, %198 ], [ 1, %262 ], [ 1, %386 ], [ 1, %247 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -20800,7 +20800,7 @@ define hidden void @"_ZN162_$LT$uv_tool..tool.._..$LT$impl$u20$serde..de..Deseri
   br label %.body
 
 .loopexit.split-lp158:                            ; preds = %.invoke, %115, %167, %219, %238, %242
-  %.sroa.046.1.ph = phi i8 [ 1, %.invoke ], [ %.sroa.046.6, %242 ], [ 1, %167 ], [ %.sroa.046.6, %238 ], [ 1, %115 ], [ 1, %219 ]
+  %.sroa.046.1.ph = phi i8 [ %.sroa.046.6, %238 ], [ %.sroa.046.6, %242 ], [ 1, %167 ], [ 1, %.invoke ], [ 1, %115 ], [ 1, %219 ]
   %lpad.loopexit.split-lp160 = landingpad { ptr, i32 }
           cleanup
   br label %.body

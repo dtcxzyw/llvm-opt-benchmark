@@ -3484,7 +3484,7 @@ switch.lookup:                                    ; preds = %.split1.i
   br label %_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread4
 
 _ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread4: ; preds = %switch.lookup, %12, %_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread4.fold.split, %13, %11, %11, %15
-  %.0.i6 = phi i8 [ 4, %13 ], [ %switch.masked, %switch.lookup ], [ 1, %15 ], [ 2, %12 ], [ 0, %11 ], [ 0, %11 ], [ 3, %_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread4.fold.split ]
+  %.0.i6 = phi i8 [ 4, %13 ], [ 2, %12 ], [ 1, %15 ], [ %switch.masked, %switch.lookup ], [ 0, %11 ], [ 0, %11 ], [ 3, %_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread4.fold.split ]
   ret i8 %.0.i6
 }
 
@@ -14052,7 +14052,7 @@ switch.lookup22:                                  ; preds = %114
   br label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ext_mode17h2b53f6ebaedf61c1E.exit"
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8ext_mode17h2b53f6ebaedf61c1E.exit": ; preds = %117, %switch.lookup22, %119, %121
-  %.0.i6.i = phi i8 [ 4, %121 ], [ %switch.masked, %switch.lookup22 ], [ %spec.select23, %117 ], [ %spec.select6, %119 ]
+  %.0.i6.i = phi i8 [ 4, %121 ], [ %spec.select6, %119 ], [ %spec.select23, %117 ], [ %switch.masked, %switch.lookup22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code26constructor_put_in_gpr_mem17he362d1565d61fc34E(ptr noalias noundef align 4 captures(none) dereferenceable(16) %7, ptr noalias noundef align 8 dereferenceable(16) %0, i32 noundef %1)
   %.val17 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4

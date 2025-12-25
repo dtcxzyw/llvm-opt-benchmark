@@ -999,7 +999,7 @@ Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exitthre
   call void @_Py_Dealloc(ptr noundef nonnull %.sink.i) #7
   br label %.loopexit286
 
-.loopexit286:                                     ; preds = %Py_XDECREF.exit.i, %307, %371, %331, %375, %360, %373, %310, %312, %333, %335, %362, %364, %.critedge109.sink.split.i
+.loopexit286:                                     ; preds = %Py_XDECREF.exit.i, %307, %373, %371, %375, %331, %360, %310, %312, %333, %335, %362, %364, %.critedge109.sink.split.i
   %378 = getelementptr inbounds nuw i8, ptr %78, i64 56
   %379 = load ptr, ptr %378, align 8, !tbaa !53
   %380 = call ptr (ptr, ptr, ...) @_PyErr_FormatFromCause(ptr noundef %379, ptr noundef nonnull @.str.1) #7
@@ -1237,7 +1237,7 @@ Py_DECREF.exit:                                   ; preds = %bind_parameters.exi
   call void @_Py_Dealloc(ptr noundef nonnull %136) #7
   br label %Py_XDECREF.exit242.thread271
 
-Py_XDECREF.exit242.thread271:                     ; preds = %481, %478, %Py_DECREF.exit, %._crit_edge, %463, %473, %476, %Py_XDECREF.exit, %125, %Py_DECREF.exit191, %83
+Py_XDECREF.exit242.thread271:                     ; preds = %481, %478, %Py_DECREF.exit, %._crit_edge, %463, %473, %476, %83, %Py_XDECREF.exit, %Py_DECREF.exit191, %125
   %482 = load i32, ptr %.1130, align 8, !tbaa !13
   %.not.i.i244 = icmp sgt i32 %482, -1
   br i1 %.not.i.i244, label %483, label %Py_XDECREF.exit246
@@ -2167,7 +2167,7 @@ _Py_NewRef.exit.thread130.i:                      ; preds = %49
   br label %Py_DECREF.exit120.i
 
 _Py_NewRef.exit.i:                                ; preds = %.thread142.i, %147, %145, %141, %85, %79, %69, %66, %63
-  %.4.i = phi ptr [ %64, %66 ], [ %163, %.thread142.i ], [ %84, %79 ], [ %90, %85 ], [ %148, %147 ], [ %142, %141 ], [ %64, %63 ], [ %64, %69 ], [ %146, %145 ]
+  %.4.i = phi ptr [ %64, %66 ], [ %163, %.thread142.i ], [ %84, %79 ], [ %90, %85 ], [ %142, %141 ], [ %148, %147 ], [ %64, %63 ], [ %64, %69 ], [ %146, %145 ]
   %.not113.i = icmp eq ptr %.4.i, null
   br i1 %.not113.i, label %Py_DECREF.exit120.i, label %_Py_NewRef.exit.thread146.i
 

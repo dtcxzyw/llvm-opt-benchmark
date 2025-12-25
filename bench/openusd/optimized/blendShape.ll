@@ -2938,7 +2938,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %23 = and i1 %22, %21
   br i1 %23, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread10, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread10: ; preds = %.noexc, %14, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread10: ; preds = %14, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__21UsdSkelInbetweenShape19_GetNamespacePrefixEv()
           to label %25 unwind label %83
 
@@ -3170,7 +3170,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %23 = and i1 %22, %21
   br i1 %23, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread10, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread10: ; preds = %.noexc, %14, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread10: ; preds = %14, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__21UsdSkelInbetweenShape19_GetNamespacePrefixEv()
           to label %25 unwind label %83
 
@@ -3363,7 +3363,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendSh
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %.loopexit.sink.split, %4, %15, %13
-  %20 = phi i1 [ false, %.loopexit.sink.split ], [ false, %15 ], [ true, %4 ], [ false, %13 ], [ true, %17 ]
+  %20 = phi i1 [ true, %4 ], [ false, %15 ], [ false, %.loopexit.sink.split ], [ false, %13 ], [ true, %17 ]
   ret i1 %20
 }
 

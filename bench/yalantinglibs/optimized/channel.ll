@@ -62098,7 +62098,7 @@ return.sink.split:                                ; preds = %_ZNSt10error_codeC2
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16
-  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -63240,7 +63240,7 @@ return.sink.split:                                ; preds = %_ZNSt10error_codeC2
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16
-  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -69871,7 +69871,7 @@ return.sink.split:                                ; preds = %acquire.i69.i.i26, 
   br label %return
 
 return:                                           ; preds = %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit50, %for.inc25, %return.sink.split, %entry, %if.end14, %for.end, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit
-  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit ], [ true, %return.sink.split ], [ false, %for.end ], [ false, %if.end14 ], [ true, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit50 ], [ false, %for.inc25 ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit ], [ true, %return.sink.split ], [ false, %for.end ], [ false, %if.end14 ], [ false, %for.inc25 ], [ true, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit50 ]
   ret i1 %retval.0
 }
 
@@ -74779,7 +74779,7 @@ if.end34:                                         ; preds = %if.end3.i.i, %lor.l
           to label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7coro_io11client_poolIN7cinatra16coro_http_clientENS9_15io_context_poolEEEEESaISG_ENSt8__detail10_Select1stESt8equal_toIvENS9_12client_poolsISC_SD_E11string_hashENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad
 
 cleanup:                                          ; preds = %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i
-  %retval.sroa.0.0.ph = phi ptr [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.034.us, %for.body.us ]
+  %retval.sroa.0.0.ph = phi ptr [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.034.us, %for.body.us ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7coro_io11client_poolIN7cinatra16coro_http_clientENS9_15io_context_poolEEEEESaISG_ENSt8__detail10_Select1stESt8equal_toIvENS9_12client_poolsISC_SD_E11string_hashENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %if.then.i
 
@@ -75611,8 +75611,8 @@ lpad:                                             ; preds = %if.end25
   resume { ptr, i32 } %28
 
 return:                                           ; preds = %land.rhs.i.i.i, %for.body.us, %land.rhs.i.i.i.i.i.i, %land.rhs.i.us.i.i, %if.end25
-  %retval.sroa.0.0 = phi ptr [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %call28, %if.end25 ], [ %__it.sroa.0.031.us, %for.body.us ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.031, %land.rhs.i.i.i ]
-  %retval.sroa.4.0 = phi i8 [ 0, %land.rhs.i.i.i.i.i.i ], [ 1, %if.end25 ], [ 0, %for.body.us ], [ 0, %land.rhs.i.us.i.i ], [ 0, %land.rhs.i.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %__p.0.i.i, %land.rhs.i.i.i.i.i.i ], [ %__it.sroa.0.031.us, %for.body.us ], [ %call28, %if.end25 ], [ %__p.0.us.i.i, %land.rhs.i.us.i.i ], [ %__it.sroa.0.031, %land.rhs.i.i.i ]
+  %retval.sroa.4.0 = phi i8 [ 0, %land.rhs.i.i.i.i.i.i ], [ 0, %for.body.us ], [ 1, %if.end25 ], [ 0, %land.rhs.i.us.i.i ], [ 0, %land.rhs.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.0, 1
   ret { ptr, i8 } %.fca.1.insert

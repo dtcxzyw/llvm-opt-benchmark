@@ -6983,7 +6983,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit514:        ; preds = %523
   br label %620
 
 620:                                              ; preds = %605, %616, %612
-  %.0462 = phi ptr [ %619, %616 ], [ %615, %612 ], [ %609, %605 ]
+  %.0462 = phi ptr [ %609, %605 ], [ %615, %612 ], [ %619, %616 ]
   %621 = icmp eq ptr %.0462, null
   br i1 %621, label %tailrecurse.backedge, label %622
 
@@ -9518,7 +9518,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit266.thread: ; preds = %_ZNK6icu_7713Unic
   br label %475
 
 475:                                              ; preds = %.thread323, %365, %389, %470, %381, %353, %73, %70
-  %.0182 = phi ptr [ %.1183, %365 ], [ null, %70 ], [ %62, %73 ], [ %.1183, %389 ], [ %.1183, %353 ], [ %.1183, %.thread323 ], [ %.1183, %381 ], [ %.1183, %470 ]
+  %.0182 = phi ptr [ %.1183, %389 ], [ null, %70 ], [ %62, %73 ], [ %.1183, %365 ], [ %.1183, %353 ], [ %.1183, %.thread323 ], [ %.1183, %381 ], [ %.1183, %470 ]
   %476 = load i32, ptr %5, align 4, !tbaa !13
   %477 = icmp sgt i32 %476, 0
   %.not246 = icmp eq ptr %.0187, %2

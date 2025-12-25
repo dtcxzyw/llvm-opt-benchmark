@@ -918,8 +918,8 @@ model64_init.exit71.i:                            ; preds = %130
   %363 = load i32, ptr %10, align 8, !tbaa !52
   br label %.thread175
 
-.thread175:                                       ; preds = %.thread.i94.i, %.thread.i84.i, %.thread.i74.i, %.thread.i114.i, %.thread.i104.i, %206, %168, %148, %225, %187, %73, %.thread.i.i, %275, %271, %262, %269, %260, %337, %331, %333, %.thread, %362
-  %.1 = phi i32 [ -1094995529, %337 ], [ %363, %362 ], [ %236, %.thread ], [ -1094995529, %275 ], [ -12, %73 ], [ -1094995529, %333 ], [ -1094995529, %331 ], [ -1094995529, %260 ], [ -1094995529, %269 ], [ -1094995529, %262 ], [ -1094995529, %271 ], [ -12, %.thread.i.i ], [ -12, %187 ], [ -12, %225 ], [ -12, %148 ], [ -12, %168 ], [ -12, %206 ], [ -12, %.thread.i104.i ], [ -12, %.thread.i114.i ], [ -12, %.thread.i74.i ], [ -12, %.thread.i84.i ], [ -12, %.thread.i94.i ]
+.thread175:                                       ; preds = %.thread.i94.i, %.thread.i84.i, %.thread.i74.i, %.thread.i114.i, %206, %.thread.i104.i, %168, %148, %225, %187, %73, %.thread.i.i, %275, %271, %262, %269, %260, %337, %331, %333, %.thread, %362
+  %.1 = phi i32 [ -1094995529, %337 ], [ %363, %362 ], [ %236, %.thread ], [ -1094995529, %275 ], [ -12, %73 ], [ -1094995529, %333 ], [ -1094995529, %331 ], [ -1094995529, %260 ], [ -1094995529, %269 ], [ -1094995529, %262 ], [ -1094995529, %271 ], [ -12, %.thread.i.i ], [ -12, %187 ], [ -12, %225 ], [ -12, %148 ], [ -12, %168 ], [ -12, %.thread.i104.i ], [ -12, %206 ], [ -12, %.thread.i114.i ], [ -12, %.thread.i74.i ], [ -12, %.thread.i84.i ], [ -12, %.thread.i94.i ]
   ret i32 %.1
 }
 
@@ -2898,7 +2898,7 @@ ac_update.exit98.i:                               ; preds = %563, %558
   br label %mdl64_decode.exit
 
 mdl64_decode.exit:                                ; preds = %ac_update.exit98.i, %462, %230
-  %.4 = phi i32 [ 0, %230 ], [ %spec.select.i165, %462 ], [ %spec.select79.i, %ac_update.exit98.i ]
+  %.4 = phi i32 [ %spec.select79.i, %ac_update.exit98.i ], [ %spec.select.i165, %462 ], [ 0, %230 ]
   %584 = add nsw i64 %indvars.iv359, -1
   %585 = getelementptr inbounds i32, ptr %174, i64 %584
   br i1 %.not305, label %._crit_edge281, label %.lr.ph

@@ -2022,8 +2022,8 @@ _ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit:
   %or.cond23.i.i = or i1 %cmp27.i.i, %cmp32.i.i
   br i1 %or.cond23.i.i, label %lor.end, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %lor.rhs.i, %lor.lhs.false10.i.i, %land.lhs.true11.i.i, %land.lhs.true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit, %for.body22
-  %l.0 = phi ptr [ %add.ptr.i113, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ null, %for.body22 ], [ %add.ptr.i113, %land.lhs.true ], [ %add.ptr.i113, %land.lhs.true11.i.i ], [ %add.ptr.i113, %lor.lhs.false10.i.i ], [ %add.ptr.i113, %lor.rhs.i ]
+lor.lhs.false:                                    ; preds = %land.lhs.true11.i.i, %lor.lhs.false10.i.i, %lor.rhs.i, %land.lhs.true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit, %for.body22
+  %l.0 = phi ptr [ %add.ptr.i113, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ null, %for.body22 ], [ %add.ptr.i113, %land.lhs.true ], [ %add.ptr.i113, %lor.rhs.i ], [ %add.ptr.i113, %lor.lhs.false10.i.i ], [ %add.ptr.i113, %land.lhs.true11.i.i ]
   br i1 %cmp33, label %land.lhs.true34, label %lor.lhs.false40
 
 land.lhs.true34:                                  ; preds = %lor.lhs.false
@@ -3159,8 +3159,8 @@ _ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit:
   %or.cond23.i.i = or i1 %cmp27.i.i, %cmp32.i.i
   br i1 %or.cond23.i.i, label %lor.end, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %lor.rhs.i, %lor.lhs.false10.i.i, %land.lhs.true11.i.i, %land.lhs.true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit, %for.body22
-  %l.0 = phi ptr [ %add.ptr.i113, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ null, %for.body22 ], [ %add.ptr.i113, %land.lhs.true ], [ %add.ptr.i113, %land.lhs.true11.i.i ], [ %add.ptr.i113, %lor.lhs.false10.i.i ], [ %add.ptr.i113, %lor.rhs.i ]
+lor.lhs.false:                                    ; preds = %land.lhs.true11.i.i, %lor.lhs.false10.i.i, %lor.rhs.i, %land.lhs.true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit, %for.body22
+  %l.0 = phi ptr [ %add.ptr.i113, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ null, %for.body22 ], [ %add.ptr.i113, %land.lhs.true ], [ %add.ptr.i113, %lor.rhs.i ], [ %add.ptr.i113, %lor.lhs.false10.i.i ], [ %add.ptr.i113, %land.lhs.true11.i.i ]
   br i1 %cmp33, label %land.lhs.true34, label %lor.lhs.false40
 
 land.lhs.true34:                                  ; preds = %lor.lhs.false

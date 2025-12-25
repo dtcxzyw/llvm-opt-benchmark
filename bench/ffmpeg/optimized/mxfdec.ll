@@ -772,7 +772,7 @@ mxf_is_partition_pack_key.exit.thread:            ; preds = %mxf_is_partition_pa
   br label %mxf_parse_handle_partition_or_eof.exit.thread
 
 mxf_parse_handle_partition_or_eof.exit.thread:    ; preds = %217, %208, %136, %mxf_parse_handle_essence.exit, %mxf_parse_handle_essence.exit.thread201, %mxf_parse_handle_partition_or_eof.exit, %223, %205
-  %.284 = phi i64 [ %.082336, %223 ], [ %.082336, %205 ], [ %.082336, %mxf_parse_handle_partition_or_eof.exit ], [ %.082336, %136 ], [ %spec.select, %mxf_parse_handle_essence.exit ], [ %spec.select, %mxf_parse_handle_essence.exit.thread201 ], [ %.082336, %208 ], [ %.082336, %217 ]
+  %.284 = phi i64 [ %.082336, %223 ], [ %.082336, %205 ], [ %spec.select, %mxf_parse_handle_essence.exit ], [ %.082336, %136 ], [ %.082336, %mxf_parse_handle_partition_or_eof.exit ], [ %spec.select, %mxf_parse_handle_essence.exit.thread201 ], [ %.082336, %208 ], [ %.082336, %217 ]
   %259 = load ptr, ptr %20, align 8, !tbaa !37
   %260 = call i32 @avio_feof(ptr noundef %259) #15
   %.not94 = icmp eq i32 %260, 0
@@ -3765,7 +3765,7 @@ parse_ffv1_sub_descriptor.exit.thread.i:          ; preds = %parse_ffv1_sub_desc
   br i1 %1594, label %.lr.ph1039.i, label %mxf_parse_structural_metadata.exit, !llvm.loop !214
 
 .loopexit1266.i:                                  ; preds = %1359, %1349, %650, %637, %mxf_add_metadata_stream.exit.i, %.loopexit942.i
-  %.2449.ph.ph.i = phi i32 [ -12, %mxf_add_metadata_stream.exit.i ], [ -1094995529, %.loopexit942.i ], [ -12, %650 ], [ -1094995529, %637 ], [ -12, %1349 ], [ -12, %1359 ]
+  %.2449.ph.ph.i = phi i32 [ -1094995529, %.loopexit942.i ], [ -12, %mxf_add_metadata_stream.exit.i ], [ -12, %650 ], [ -1094995529, %637 ], [ -12, %1349 ], [ -12, %1359 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread222
 
@@ -4716,7 +4716,7 @@ mxf_compute_ptses_fake_index.exit.i:              ; preds = %._crit_edge166.i.i,
   br i1 %2058, label %.lr.ph231.i, label %mxf_compute_index_tables.exit.loopexit, !llvm.loop !260
 
 mxf_compute_index_tables.exit.thread228:          ; preds = %2015, %2009, %1785, %1749, %1757, %mxf_compute_ptses_fake_index.exit.thread.i
-  %.1.i150.ph = phi i32 [ -12, %1785 ], [ -1094995529, %1749 ], [ -12, %mxf_compute_ptses_fake_index.exit.thread.i ], [ -12, %1757 ], [ -1094995529, %2009 ], [ -1094995529, %2015 ]
+  %.1.i150.ph = phi i32 [ -1094995529, %1749 ], [ -12, %1785 ], [ -12, %mxf_compute_ptses_fake_index.exit.thread.i ], [ -12, %1757 ], [ -1094995529, %2009 ], [ -1094995529, %2015 ]
   %2059 = load ptr, ptr %4, align 8, !tbaa !215
   call void @av_free(ptr noundef %2059) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

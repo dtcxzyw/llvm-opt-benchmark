@@ -2597,7 +2597,7 @@ switch.early.test104:                             ; preds = %114
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.split.split.us, %41, %switch.early.test104.us, %49, %switch.early.test.us, %75, %switch.early.test104.us125, %66, %.lr.ph.split.split.split.us, %101, %.lr.ph.split.split.split, %90, %switch.early.test, %switch.early.test104, %112, %.lr.ph.split.us, %6, %13, %.critedge105
-  %.097 = phi i32 [ -22, %6 ], [ %122, %.critedge105 ], [ -22, %13 ], [ -22, %101 ], [ -22, %.lr.ph.split.us ], [ -22, %75 ], [ -22, %112 ], [ -22, %switch.early.test104 ], [ -22, %switch.early.test ], [ -22, %90 ], [ -22, %.lr.ph.split.split.split ], [ -22, %.lr.ph.split.split.split.us ], [ -22, %66 ], [ -22, %switch.early.test104.us125 ], [ -22, %switch.early.test.us ], [ -22, %49 ], [ -22, %switch.early.test104.us ], [ -22, %41 ], [ -22, %.lr.ph.split.split.us ]
+  %.097 = phi i32 [ -22, %6 ], [ %122, %.critedge105 ], [ -22, %13 ], [ -22, %75 ], [ -22, %101 ], [ -22, %.lr.ph.split.us ], [ -22, %112 ], [ -22, %switch.early.test104 ], [ -22, %switch.early.test ], [ -22, %90 ], [ -22, %.lr.ph.split.split.split ], [ -22, %.lr.ph.split.split.split.us ], [ -22, %66 ], [ -22, %switch.early.test104.us125 ], [ -22, %switch.early.test.us ], [ -22, %49 ], [ -22, %switch.early.test104.us ], [ -22, %41 ], [ -22, %.lr.ph.split.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.097
 }

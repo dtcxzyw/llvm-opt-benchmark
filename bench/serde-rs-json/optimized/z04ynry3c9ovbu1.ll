@@ -1253,7 +1253,7 @@ _ZN4core3str11validations15next_code_point17h4bec607ff0ad6e55E.exit.thread.i.i.i
   br label %.loopexit
 
 "_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h00178e3998ce88a3E.exit.thread": ; preds = %.thread.i.i.i, %174, %61, %18, %.backedge.sink.split.i.us, %.backedge.i.us, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split"
-  %.0160 = phi i64 [ %.0200, %174 ], [ %.0.us, %.backedge.sink.split.i.us ], [ %.0.us, %.backedge.i.us ], [ %.0.us, %61 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split" ], [ %.0.us, %18 ], [ %.0200, %.thread.i.i.i ]
+  %.0160 = phi i64 [ %.0200, %174 ], [ %.0.us, %.backedge.sink.split.i.us ], [ %.0.us, %61 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split" ], [ %.0.us, %.backedge.i.us ], [ %.0.us, %18 ], [ %.0200, %.thread.i.i.i ]
   %188 = sub i64 %2, %.0160
   %189 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !196, !noalias !203, !noundef !4
   %190 = load i64, ptr %7, align 8, !alias.scope !196, !noalias !203, !noundef !4

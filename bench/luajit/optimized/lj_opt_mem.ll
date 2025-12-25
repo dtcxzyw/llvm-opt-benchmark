@@ -185,7 +185,7 @@ aa_table.exit.thread.i:                           ; preds = %93, %80, %67, %58
   br i1 %96, label %58, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %30, %14, %42, %aa_table.exit.thread.i, %78, %64, %90, %._crit_edge
-  %.2 = phi i32 [ 0, %78 ], [ 0, %42 ], [ 1, %._crit_edge ], [ 0, %90 ], [ 1, %aa_table.exit.thread.i ], [ 0, %64 ], [ 0, %14 ], [ 0, %30 ]
+  %.2 = phi i32 [ 0, %78 ], [ 1, %._crit_edge ], [ 0, %42 ], [ 0, %90 ], [ 1, %aa_table.exit.thread.i ], [ 0, %64 ], [ 0, %14 ], [ 0, %30 ]
   ret i32 %.2
 }
 
@@ -2179,7 +2179,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
   br label %84
 
 .thread42:                                        ; preds = %36, %48, %62, %74, %._crit_edge
-  %.229.in = phi i16 [ %3, %._crit_edge ], [ %3, %74 ], [ %.030.in57, %62 ], [ %.030.in57.us, %48 ], [ %.030.in57.us, %36 ]
+  %.229.in = phi i16 [ %3, %._crit_edge ], [ %.030.in57, %62 ], [ %3, %74 ], [ %.030.in57.us, %48 ], [ %.030.in57.us, %36 ]
   %.229 = zext i16 %.229.in to i32
   %83 = tail call i32 @lj_opt_cselim(ptr noundef %0, i32 noundef %.229) #6
   br label %84
@@ -3442,7 +3442,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
   br label %.thread59
 
 .thread59:                                        ; preds = %73, %77, %26, %90, %.thread59.sink.split, %.preheader
-  %.4.shrunk = phi i32 [ 0, %.preheader ], [ 0, %90 ], [ %97, %.thread59.sink.split ], [ 0, %26 ], [ 0, %77 ], [ 0, %73 ]
+  %.4.shrunk = phi i32 [ 0, %.preheader ], [ %97, %.thread59.sink.split ], [ 0, %90 ], [ 0, %26 ], [ 0, %77 ], [ 0, %73 ]
   ret i32 %.4.shrunk
 }
 

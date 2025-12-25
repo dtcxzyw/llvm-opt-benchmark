@@ -3147,8 +3147,8 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
   br label %.outer
 
 .loopexit:                                        ; preds = %29, %32, %41, %26, %14, %19
-  %.1.ph62 = phi i8 [ %.1.ph.us, %19 ], [ %.1.ph.us, %26 ], [ %.1.ph, %41 ], [ %.1.ph.us, %14 ], [ %.1.ph, %32 ], [ %.1.ph, %29 ]
-  %.139 = phi ptr [ %.3.us, %19 ], [ %.038.ph.us, %26 ], [ %.3, %41 ], [ %.038.ph.us, %14 ], [ %.038.ph, %32 ], [ %.038.ph, %29 ]
+  %.1.ph62 = phi i8 [ %.1.ph, %41 ], [ %.1.ph.us, %19 ], [ %.1.ph.us, %26 ], [ %.1.ph.us, %14 ], [ %.1.ph, %32 ], [ %.1.ph, %29 ]
+  %.139 = phi ptr [ %.3, %41 ], [ %.3.us, %19 ], [ %.038.ph.us, %26 ], [ %.038.ph.us, %14 ], [ %.038.ph, %32 ], [ %.038.ph, %29 ]
   %48 = icmp eq ptr %.139, %0
   br i1 %48, label %.sink.split, label %50
 

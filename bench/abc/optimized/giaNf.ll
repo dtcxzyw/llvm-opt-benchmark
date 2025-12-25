@@ -13714,7 +13714,7 @@ tailrecurse.backedge:                             ; preds = %33, %41
   br i1 %57, label %.lr.ph, label %.critedge, !llvm.loop !289
 
 .critedge:                                        ; preds = %15, %Gia_ObjIsAndNotBuf.exit, %13, %12, %49, %.preheader, %32
-  %.039 = phi i32 [ %.1, %49 ], [ 0, %32 ], [ 1, %.preheader ], [ 1, %12 ], [ 1, %13 ], [ 1, %Gia_ObjIsAndNotBuf.exit ], [ 1, %15 ]
+  %.039 = phi i32 [ 0, %32 ], [ %.1, %49 ], [ 1, %.preheader ], [ 1, %12 ], [ 1, %13 ], [ 1, %Gia_ObjIsAndNotBuf.exit ], [ 1, %15 ]
   ret i32 %.039
 }
 

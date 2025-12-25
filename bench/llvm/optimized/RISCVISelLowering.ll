@@ -46408,7 +46408,7 @@ _ZL28lowerVECTOR_SHUFFLEAsVSlide1RKN4llvm5SDLocENS_3MVTENS_7SDValueES4_NS_8Array
   br label %1106
 
 _ZL28lowerVECTOR_SHUFFLEAsVSlide1RKN4llvm5SDLocENS_3MVTENS_7SDValueES4_NS_8ArrayRefIiEERKNS_14RISCVSubtargetERNS_12SelectionDAGE.exit: ; preds = %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit.i1145, %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit180.i
-  %.pn1835 = phi { ptr, i32 } [ %1075, %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit.i1145 ], [ %1103, %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit180.i ]
+  %.pn1835 = phi { ptr, i32 } [ %1103, %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit180.i ], [ %1075, %_ZL25convertFromScalableVectorN4llvm3EVTENS_7SDValueERNS_12SelectionDAGERKNS_14RISCVSubtargetE.exit.i1145 ]
   %.sroa.085.3.i = extractvalue { ptr, i32 } %.pn1835, 0
   %.sroa.11.3.i = extractvalue { ptr, i32 } %.pn1835, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
@@ -69153,7 +69153,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj8EEC2INS_5SDUseEvEENS_8ArrayRefIT_EE.exit: ;
   br label %217
 
 217:                                              ; preds = %210, %215
-  %.pn537 = phi { ptr, i32 } [ %212, %210 ], [ %216, %215 ]
+  %.pn537 = phi { ptr, i32 } [ %216, %215 ], [ %212, %210 ]
   %.sroa.0426.0 = extractvalue { ptr, i32 } %.pn537, 0
   %.not539 = icmp eq ptr %.sroa.0426.0, null
   br i1 %.not539, label %.thread, label %237
@@ -89729,8 +89729,8 @@ _ZN4llvm5SDLocD2Ev.exit96:                        ; preds = %_ZN4llvm5SDLocC2EPK
   br label %.critedge48
 
 .critedge48:                                      ; preds = %.preheader, %"_ZZL21combineTruncOfSraSextPN4llvm6SDNodeERNS_12SelectionDAGEENK3$_0clENS_7SDValueE.exit", %36, %53, %55, %_ZN4llvm5SDLocD2Ev.exit96, %_ZNK4llvm3EVTneES0_.exit69.thread, %.critedge, %_ZNK4llvm3EVTneES0_.exit69, %57, %63, %65, %68, %21, %.critedge46, %26, %17
-  %.sroa.12.0 = phi i32 [ 0, %21 ], [ 0, %17 ], [ 0, %26 ], [ 0, %.critedge46 ], [ 0, %.critedge ], [ 0, %_ZNK4llvm3EVTneES0_.exit69.thread ], [ 0, %_ZNK4llvm3EVTneES0_.exit69 ], [ %.fca.1.extract, %_ZN4llvm5SDLocD2Ev.exit96 ], [ 0, %55 ], [ 0, %57 ], [ 0, %68 ], [ 0, %65 ], [ 0, %63 ], [ 0, %53 ], [ 0, %36 ], [ 0, %"_ZZL21combineTruncOfSraSextPN4llvm6SDNodeERNS_12SelectionDAGEENK3$_0clENS_7SDValueE.exit" ], [ 0, %.preheader ]
-  %.sroa.0141.0 = phi ptr [ null, %21 ], [ null, %17 ], [ null, %26 ], [ null, %.critedge46 ], [ null, %.critedge ], [ null, %_ZNK4llvm3EVTneES0_.exit69.thread ], [ null, %_ZNK4llvm3EVTneES0_.exit69 ], [ %.fca.0.extract, %_ZN4llvm5SDLocD2Ev.exit96 ], [ null, %55 ], [ null, %57 ], [ null, %68 ], [ null, %65 ], [ null, %63 ], [ null, %53 ], [ null, %36 ], [ null, %"_ZZL21combineTruncOfSraSextPN4llvm6SDNodeERNS_12SelectionDAGEENK3$_0clENS_7SDValueE.exit" ], [ null, %.preheader ]
+  %.sroa.12.0 = phi i32 [ 0, %21 ], [ 0, %17 ], [ 0, %26 ], [ 0, %.critedge46 ], [ %.fca.1.extract, %_ZN4llvm5SDLocD2Ev.exit96 ], [ 0, %_ZNK4llvm3EVTneES0_.exit69.thread ], [ 0, %_ZNK4llvm3EVTneES0_.exit69 ], [ 0, %.critedge ], [ 0, %55 ], [ 0, %57 ], [ 0, %68 ], [ 0, %65 ], [ 0, %63 ], [ 0, %53 ], [ 0, %36 ], [ 0, %"_ZZL21combineTruncOfSraSextPN4llvm6SDNodeERNS_12SelectionDAGEENK3$_0clENS_7SDValueE.exit" ], [ 0, %.preheader ]
+  %.sroa.0141.0 = phi ptr [ null, %21 ], [ null, %17 ], [ null, %26 ], [ null, %.critedge46 ], [ %.fca.0.extract, %_ZN4llvm5SDLocD2Ev.exit96 ], [ null, %_ZNK4llvm3EVTneES0_.exit69.thread ], [ null, %_ZNK4llvm3EVTneES0_.exit69 ], [ null, %.critedge ], [ null, %55 ], [ null, %57 ], [ null, %68 ], [ null, %65 ], [ null, %63 ], [ null, %53 ], [ null, %36 ], [ null, %"_ZZL21combineTruncOfSraSextPN4llvm6SDNodeERNS_12SelectionDAGEENK3$_0clENS_7SDValueE.exit" ], [ null, %.preheader ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0141.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.12.0, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -95532,8 +95532,8 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.critedge,
   br label %_ZNK4llvm9BitVector3allEv.exit
 
 _ZNK4llvm9BitVector3allEv.exit:                   ; preds = %.lr.ph5, %82, %125, %.lr.ph, %129, %._crit_edge.i
-  %136 = phi ptr [ %121, %125 ], [ %121, %129 ], [ %121, %._crit_edge.i ], [ %67, %.lr.ph ], [ %115, %82 ], [ %90, %.lr.ph5 ]
-  %.4 = phi i1 [ false, %125 ], [ %135, %129 ], [ true, %._crit_edge.i ], [ false, %.lr.ph ], [ false, %82 ], [ false, %.lr.ph5 ]
+  %136 = phi ptr [ %121, %._crit_edge.i ], [ %121, %129 ], [ %121, %125 ], [ %67, %.lr.ph ], [ %115, %82 ], [ %90, %.lr.ph5 ]
+  %.4 = phi i1 [ true, %._crit_edge.i ], [ %135, %129 ], [ false, %125 ], [ false, %.lr.ph ], [ false, %82 ], [ false, %.lr.ph5 ]
   %137 = icmp eq ptr %136, %62
   br i1 %137, label %_ZN4llvm9BitVectorD2Ev.exit, label %138
 
@@ -101828,16 +101828,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm9KnownBitsD
 118:                                              ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i, %113
   %119 = load i32, ptr %70, align 8, !tbaa !323
   %120 = icmp ult i32 %119, 65
-  br i1 %120, label %_ZNK4llvm9KnownBits9isUnknownEv.exit, label %121
+  br i1 %120, label %121, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
 
 121:                                              ; preds = %118
-  %122 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %69) #39
-  %123 = icmp eq i32 %122, %119
+  %122 = load i64, ptr %69, align 8, !tbaa !273
+  %123 = icmp eq i64 %122, 0
   br i1 %123, label %_ZN4llvm5APInt12clearAllBitsEv.exit, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %118
-  %124 = load i64, ptr %69, align 8, !tbaa !273
-  %125 = icmp eq i64 %124, 0
+  %124 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %69) #39
+  %125 = icmp eq i32 %124, %119
   br i1 %125, label %_ZN4llvm5APInt12clearAllBitsEv.exit, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit.thread:      ; preds = %113, %_ZNK4llvm5APInt6isZeroEv.exit.i, %121, %_ZNK4llvm9KnownBits9isUnknownEv.exit
@@ -118484,7 +118484,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit.i: ; preds = %86, %79
   br label %.critedge
 
 .critedge:                                        ; preds = %100, %.critedge.sink.split, %64, %60, %.critedge47, %52, %101, %20, %40, %17
-  %.0 = phi i1 [ false, %20 ], [ false, %40 ], [ true, %.critedge.sink.split ], [ false, %17 ], [ false, %52 ], [ false, %64 ], [ false, %101 ], [ false, %.critedge47 ], [ false, %60 ], [ false, %100 ]
+  %.0 = phi i1 [ false, %20 ], [ false, %40 ], [ false, %64 ], [ false, %17 ], [ false, %52 ], [ true, %.critedge.sink.split ], [ false, %101 ], [ false, %.critedge47 ], [ false, %60 ], [ false, %100 ]
   ret i1 %.0
 }
 
@@ -119034,7 +119034,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %150
   br label %.critedge70
 
 .critedge70:                                      ; preds = %147, %146, %150, %_ZN4llvm5APIntD2Ev.exit, %155, %158
-  %159 = phi i1 [ %152, %_ZN4llvm5APIntD2Ev.exit ], [ %152, %158 ], [ %152, %155 ], [ %152, %150 ], [ false, %146 ], [ %149, %147 ]
+  %159 = phi i1 [ %152, %_ZN4llvm5APIntD2Ev.exit ], [ %152, %158 ], [ %152, %155 ], [ %152, %150 ], [ %149, %147 ], [ false, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.pre205 = load i32, ptr %115, align 8, !tbaa !323
   %160 = icmp ugt i32 %.pre205, 64
@@ -121283,7 +121283,7 @@ _ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit: ; preds 
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread, label %.critedge
 
-_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread: ; preds = %_ZNK4llvm3EVT13getScalarTypeEv.exit, %_ZNK4llvm3EVT13getScalarTypeEv.exit, %_ZNK4llvm3EVT13getScalarTypeEv.exit, %23, %51, %33, %39, %45, %29, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit
+_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread: ; preds = %_ZNK4llvm3EVT13getScalarTypeEv.exit, %_ZNK4llvm3EVT13getScalarTypeEv.exit, %_ZNK4llvm3EVT13getScalarTypeEv.exit, %23, %29, %33, %39, %45, %51, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit
   %62 = load ptr, ptr %1, align 8, !tbaa !359
   %63 = tail call noundef zeroext i1 @_ZNK4llvm18TargetLoweringBase30allowsMemoryAccessForAlignmentERNS_11LLVMContextERKNS_10DataLayoutENS_3EVTEjNS_5AlignENS_17MachineMemOperand5FlagsEPj(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(496) %5, i16 %8, ptr %9, i32 noundef %4, i8 %3, i16 noundef zeroext 0, ptr noundef null) #37
   br i1 %63, label %64, label %.critedge
@@ -121373,8 +121373,8 @@ _ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit: ; preds = %switch.lookup, %
   %.3 = select i1 %98, i1 true, i1 %100
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK4llvm3EVT13getScalarTypeEv.exit, %6, %51, %33, %39, %45, %29, %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, %72, %78, %68, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread ], [ %.3, %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit ], [ false, %72 ], [ false, %78 ], [ false, %68 ], [ false, %51 ], [ false, %6 ], [ false, %29 ], [ false, %45 ], [ false, %39 ], [ false, %33 ], [ false, %_ZNK4llvm3EVT13getScalarTypeEv.exit ]
+.critedge:                                        ; preds = %_ZNK4llvm3EVT13getScalarTypeEv.exit, %6, %29, %33, %39, %45, %51, %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, %72, %78, %68, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
+  %.0 = phi i1 [ false, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit ], [ false, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread ], [ %.3, %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit ], [ false, %72 ], [ false, %78 ], [ false, %68 ], [ false, %29 ], [ false, %6 ], [ false, %51 ], [ false, %45 ], [ false, %39 ], [ false, %33 ], [ false, %_ZNK4llvm3EVT13getScalarTypeEv.exit ]
   ret i1 %.0
 }
 
@@ -121607,7 +121607,7 @@ _ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit: ; preds 
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread, label %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread9
 
-_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread: ; preds = %_ZNK4llvm3EVT13getScalarTypeEv.exit, %_ZNK4llvm3EVT13getScalarTypeEv.exit, %_ZNK4llvm3EVT13getScalarTypeEv.exit, %32, %56, %41, %46, %51, %37, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit
+_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread: ; preds = %_ZNK4llvm3EVT13getScalarTypeEv.exit, %_ZNK4llvm3EVT13getScalarTypeEv.exit, %_ZNK4llvm3EVT13getScalarTypeEv.exit, %32, %37, %41, %46, %51, %56, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit
   %65 = load ptr, ptr %8, align 8, !tbaa !215
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 314
   %67 = load i8, ptr %66, align 2, !tbaa !1541, !range !56, !noundef !57
@@ -121642,8 +121642,8 @@ _ZNK4llvm3EVT12getStoreSizeEv.exit:               ; preds = %_ZNK4llvm19RISCVTar
 79:                                               ; preds = %.critedge, %_ZNK4llvm3EVT12getStoreSizeEv.exit
   br label %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread9
 
-_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread9: ; preds = %_ZNK4llvm3EVT8isVectorEv.exit.i, %79, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit, %_ZNK4llvm3EVT12getStoreSizeEv.exit, %37, %51, %46, %41, %56, %_ZNK4llvm3EVT13getScalarTypeEv.exit, %17, %4
-  %.0 = phi i1 [ false, %17 ], [ false, %4 ], [ true, %79 ], [ false, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit ], [ false, %_ZNK4llvm3EVT12getStoreSizeEv.exit ], [ false, %56 ], [ false, %37 ], [ false, %51 ], [ false, %46 ], [ false, %41 ], [ false, %_ZNK4llvm3EVT13getScalarTypeEv.exit ], [ false, %_ZNK4llvm3EVT8isVectorEv.exit.i ]
+_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread9: ; preds = %_ZNK4llvm3EVT8isVectorEv.exit.i, %79, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit, %_ZNK4llvm3EVT12getStoreSizeEv.exit, %56, %51, %46, %41, %37, %_ZNK4llvm3EVT13getScalarTypeEv.exit, %17, %4
+  %.0 = phi i1 [ false, %17 ], [ false, %4 ], [ true, %79 ], [ false, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit ], [ false, %_ZNK4llvm3EVT12getStoreSizeEv.exit ], [ false, %37 ], [ false, %56 ], [ false, %51 ], [ false, %46 ], [ false, %41 ], [ false, %_ZNK4llvm3EVT13getScalarTypeEv.exit ], [ false, %_ZNK4llvm3EVT8isVectorEv.exit.i ]
   ret i1 %.0
 }
 

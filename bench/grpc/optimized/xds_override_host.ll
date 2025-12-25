@@ -17150,7 +17150,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i.i.i.i.i.i:   ; preds = %49, %47
   br label %_ZN9grpc_coremiENS_9TimestampENS_8DurationE.exit.i.i.i.i.i.i
 
 _ZN9grpc_coremiENS_9TimestampENS_8DurationE.exit.i.i.i.i.i.i: ; preds = %68, %62, %.noexc17.i.i.i.i.i
-  %.0.i.i.i.i.i.i.i.i = phi i64 [ 9223372036854775807, %62 ], [ 9223372036854775807, %.noexc17.i.i.i.i.i ], [ %69, %68 ]
+  %.0.i.i.i.i.i.i.i.i = phi i64 [ %69, %68 ], [ 9223372036854775807, %.noexc17.i.i.i.i.i ], [ 9223372036854775807, %62 ]
   %70 = load i64, ptr %48, align 8, !tbaa !603
   %71 = icmp slt i64 %70, %.0.i.i.i.i.i.i.i.i
   br i1 %71, label %72, label %_ZN9grpc_coremiENS_9TimestampENS_8DurationE.exit.thread.i.i.i.i.i.i

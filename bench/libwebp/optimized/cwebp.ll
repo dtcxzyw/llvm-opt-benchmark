@@ -1434,7 +1434,7 @@ sub_1954:                                         ; preds = %.tail947, %sub_1949
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1216
 
-.thread812:                                       ; preds = %137, %238, %273, %488, %494
+.thread812:                                       ; preds = %273, %238, %137, %488, %494
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1210
 

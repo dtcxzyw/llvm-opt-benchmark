@@ -2768,7 +2768,7 @@ define internal range(i32 0, 2) i32 @isup_calls_packet(ptr noundef %0, ptr nound
   br label %62
 
 62:                                               ; preds = %61, %._crit_edge, %53, %30, %37, %26, %21
-  %.2142 = phi i8 [ %.0140185, %21 ], [ %.0140185, %37 ], [ %.0140185, %30 ], [ %.0140185, %26 ], [ %.0140185, %53 ], [ %.0140185, %._crit_edge ], [ %.3.ph, %61 ]
+  %.2142 = phi i8 [ %.0140185, %21 ], [ %.0140185, %37 ], [ %.0140185, %30 ], [ %.0140185, %26 ], [ %.0140185, %._crit_edge ], [ %.0140185, %53 ], [ %.3.ph, %61 ]
   %63 = getelementptr inbounds nuw i8, ptr %.0144184, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not151 = icmp eq ptr %64, null
@@ -3731,7 +3731,7 @@ copy_address.exit:                                ; preds = %255, %273
   br label %348
 
 348:                                              ; preds = %340, %346, %313
-  %.1231 = phi ptr [ %347, %346 ], [ %318, %313 ], [ %345, %340 ]
+  %.1231 = phi ptr [ %345, %340 ], [ %318, %313 ], [ %347, %346 ]
   %.not252 = icmp eq ptr %.1231, null
   br i1 %.not252, label %.thread284, label %352
 
@@ -7403,8 +7403,8 @@ copy_address.exit434:                             ; preds = %copy_address.exit43
   br label %372
 
 372:                                              ; preds = %.sink.split, %361, %127
-  %.3 = phi ptr [ %.1389, %127 ], [ %.4, %361 ], [ %.4, %.sink.split ]
-  %.1 = phi ptr [ %.0, %127 ], [ %.2, %361 ], [ %.2, %.sink.split ]
+  %.3 = phi ptr [ %.4, %361 ], [ %.1389, %127 ], [ %.4, %.sink.split ]
+  %.1 = phi ptr [ %.2, %361 ], [ %.0, %127 ], [ %.2, %.sink.split ]
   %373 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %374 = load i32, ptr %373, align 4
   %375 = icmp eq i32 %374, 1

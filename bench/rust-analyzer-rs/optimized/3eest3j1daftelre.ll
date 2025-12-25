@@ -8194,8 +8194,8 @@ define internal noundef zeroext i1 @"_ZN68_$LT$rowan..api..SyntaxNode$LT$L$GT$$u
   br i1 %exitcond.not, label %91, label %92
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit": ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit
-  %.sroa.2.0.copyload.i187 = phi i64 [ %.sroa.2.0.copyload.i188, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.2.0.copyload.i.lcssa182, %.loopexit.split-lp.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp128, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit127, %.loopexit.split-lp.loopexit ]
+  %.sroa.2.0.copyload.i187 = phi i64 [ %.sroa.2.0.copyload.i.lcssa182, %.loopexit.split-lp.loopexit ], [ %.sroa.2.0.copyload.i188, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit127, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp128, %.loopexit.split-lp.loopexit.split-lp ]
   %89 = icmp eq i64 %.sroa.2.0.copyload.i187, 0
   br i1 %89, label %158, label %.thread90
 
@@ -32291,8 +32291,8 @@ define noundef zeroext i1 @_ZN3hir9semantics13SemanticsImpl16is_inside_unsafe17h
   br i1 %216, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hbbabb8d3e63cf4d7E.exitthread-pre-split", label %217
 
 217:                                              ; preds = %213, %209, %205, %152
-  %.sroa.14.0 = phi i32 [ %141, %209 ], [ %194, %205 ], [ %105, %152 ], [ %71, %213 ]
-  %.sroa.0.0 = phi i32 [ 1, %209 ], [ 0, %205 ], [ 2, %152 ], [ 4, %213 ]
+  %.sroa.14.0 = phi i32 [ %141, %209 ], [ %105, %152 ], [ %194, %205 ], [ %71, %213 ]
+  %.sroa.0.0 = phi i32 [ 1, %209 ], [ 2, %152 ], [ 0, %205 ], [ 4, %213 ]
   %218 = load i64, ptr %12, align 8, !range !765, !noundef !17
   %.not = icmp eq i64 %218, 17
   br i1 %.not, label %221, label %219

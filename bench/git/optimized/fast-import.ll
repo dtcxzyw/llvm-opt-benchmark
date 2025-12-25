@@ -9869,7 +9869,7 @@ oidclr.exit63:                                    ; preds = %83, %.split.loop.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %68, %.loopexit.sink.split, %16, %45, %37
-  %.046 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %16 ], [ 1, %37 ], [ 0, %45 ], [ 0, %68 ]
+  %.046 = phi i32 [ 0, %16 ], [ 1, %.loopexit.sink.split ], [ 1, %37 ], [ 0, %45 ], [ 0, %68 ]
   ret i32 %.046
 }
 

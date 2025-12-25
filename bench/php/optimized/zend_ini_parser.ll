@@ -1478,12 +1478,12 @@ zend_string_release.exit:                         ; preds = %410, %409, %zend_st
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %.thread393, %.lr.ph, %.loopexit449, %.thread386
-  %.4379 = phi ptr [ %.1377, %.loopexit449 ], [ %.0376, %.thread386 ], [ %.1377, %.lr.ph ], [ %9, %.thread393 ], [ %9, %37 ]
-  %.6275 = phi ptr [ %.1270, %.loopexit449 ], [ %.5274, %.thread386 ], [ %.1270, %.lr.ph ], [ %.1270, %.thread393 ], [ %30, %37 ]
-  %.7267 = phi ptr [ %.2262, %.loopexit449 ], [ %.5265, %.thread386 ], [ %557, %.lr.ph ], [ %.2262, %.thread393 ], [ %38, %37 ]
-  %.7254 = phi ptr [ %.2249, %.loopexit449 ], [ %.5252, %.thread386 ], [ %556, %.lr.ph ], [ %.2249, %.thread393 ], [ %40, %37 ]
-  %.0245 = phi i32 [ 1, %.loopexit449 ], [ 2, %.thread386 ], [ 1, %.lr.ph ], [ 0, %.thread393 ], [ 1, %37 ]
-  %.9 = phi i32 [ %.7, %.loopexit449 ], [ %.3, %.thread386 ], [ %.7, %.lr.ph ], [ %.0225, %.thread393 ], [ %.0225, %37 ]
+  %.4379 = phi ptr [ %.0376, %.thread386 ], [ %.1377, %.loopexit449 ], [ %.1377, %.lr.ph ], [ %9, %.thread393 ], [ %9, %37 ]
+  %.6275 = phi ptr [ %.5274, %.thread386 ], [ %.1270, %.loopexit449 ], [ %.1270, %.lr.ph ], [ %.1270, %.thread393 ], [ %30, %37 ]
+  %.7267 = phi ptr [ %.5265, %.thread386 ], [ %.2262, %.loopexit449 ], [ %557, %.lr.ph ], [ %.2262, %.thread393 ], [ %38, %37 ]
+  %.7254 = phi ptr [ %.5252, %.thread386 ], [ %.2249, %.loopexit449 ], [ %556, %.lr.ph ], [ %.2249, %.thread393 ], [ %40, %37 ]
+  %.0245 = phi i32 [ 2, %.thread386 ], [ 1, %.loopexit449 ], [ 1, %.lr.ph ], [ 0, %.thread393 ], [ 1, %37 ]
+  %.9 = phi i32 [ %.3, %.thread386 ], [ %.7, %.loopexit449 ], [ %.7, %.lr.ph ], [ %.0225, %.thread393 ], [ %.0225, %37 ]
   %.not300 = icmp eq i32 %.9, -2
   br i1 %.not300, label %568, label %561
 

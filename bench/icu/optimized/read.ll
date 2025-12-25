@@ -354,7 +354,7 @@ unescape.exit165.thread.sink.split.i:             ; preds = %134, %134, %134, %1
   br label %getStringToken.exit
 
 getStringToken.exit:                              ; preds = %34, %74, %82, %86, %unescape.exit165.i, %102, %isWhitespace.exit.thread.i, %107, %unescape.exit168.i, %128, %37, %40, %unescape.exit.i, %68, %20, %23, %unescape.exit165.thread.sink.split.i
-  %.0152.i = phi i32 [ 0, %unescape.exit165.thread.sink.split.i ], [ 6, %20 ], [ 6, %unescape.exit168.i ], [ 6, %23 ], [ 5, %37 ], [ 6, %unescape.exit.i ], [ 6, %40 ], [ 6, %68 ], [ 0, %107 ], [ 6, %128 ], [ 6, %unescape.exit165.i ], [ 0, %isWhitespace.exit.thread.i ], [ 6, %82 ], [ 6, %102 ], [ 6, %34 ], [ 6, %86 ], [ 6, %74 ]
+  %.0152.i = phi i32 [ 0, %unescape.exit165.thread.sink.split.i ], [ 6, %20 ], [ 6, %unescape.exit168.i ], [ 6, %23 ], [ 5, %37 ], [ 6, %unescape.exit.i ], [ 6, %40 ], [ 6, %68 ], [ 0, %107 ], [ 6, %128 ], [ 6, %unescape.exit165.i ], [ 0, %isWhitespace.exit.thread.i ], [ 6, %82 ], [ 6, %102 ], [ 6, %86 ], [ 6, %34 ], [ 6, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %135 = load i32, ptr @lineCount, align 4, !tbaa !4
   store i32 %135, ptr %2, align 4, !tbaa !4

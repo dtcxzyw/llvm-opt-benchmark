@@ -21897,7 +21897,7 @@ _ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder30record_re
   br label %.thread1158
 
 1163:                                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf700d06581afeeefE.exit497.thread", %1234
-  %.sroa.0125.2.ph = phi i1 [ false, %1234 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf700d06581afeeefE.exit497.thread" ]
+  %.sroa.0125.2.ph = phi i1 [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf700d06581afeeefE.exit497.thread" ], [ false, %1234 ]
   %lpad.thr_comm.split-lp1173 = landingpad { ptr, i32 }
           cleanup
   br label %.thread1150
@@ -41763,7 +41763,7 @@ define hidden void @_ZN18ty_python_semantic5types4call4bind7Binding16match_param
   br label %.body95.thread
 
 .loopexit.split-lp:                               ; preds = %124, %142
-  %.sroa.048.4.ph = phi i1 [ false, %142 ], [ true, %124 ]
+  %.sroa.048.4.ph = phi i1 [ true, %124 ], [ false, %142 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body95

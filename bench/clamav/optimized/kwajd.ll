@@ -1493,7 +1493,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   br i1 %.not424, label %106, label %lzh_read_input.exit
 
 lzh_read_input.exit:                              ; preds = %._crit_edge, %17, %.loopexit494, %.loopexit489, %.loopexit485, %._crit_edge613, %.loopexit477, %.loopexit473, %108, %.preheader492, %145, %.preheader487, %186, %.preheader483, %227, %248, %266, %.preheader475, %346, %.loopexit, %309, %.preheader, %.preheader497, %97, %92, %85, %80, %73, %68, %61, %56, %49, %45
-  %.0388 = phi i32 [ 3, %17 ], [ 8, %.preheader475 ], [ 0, %.preheader497 ], [ %48, %45 ], [ 8, %49 ], [ %60, %56 ], [ 8, %61 ], [ %72, %68 ], [ 8, %73 ], [ %84, %80 ], [ 8, %85 ], [ %96, %92 ], [ 8, %97 ], [ 4, %346 ], [ %310, %309 ], [ 8, %.preheader492 ], [ 8, %.preheader487 ], [ %109, %108 ], [ 8, %.preheader483 ], [ 8, %.preheader ], [ %267, %266 ], [ %146, %145 ], [ 4, %248 ], [ %187, %186 ], [ %228, %227 ], [ 0, %.loopexit494 ], [ 0, %.loopexit ], [ 0, %.loopexit473 ], [ 0, %.loopexit477 ], [ 0, %._crit_edge613 ], [ 0, %.loopexit485 ], [ 0, %.loopexit489 ], [ 0, %._crit_edge ]
+  %.0388 = phi i32 [ 3, %17 ], [ %228, %227 ], [ 0, %.preheader497 ], [ %48, %45 ], [ 8, %49 ], [ %60, %56 ], [ 8, %61 ], [ %72, %68 ], [ 8, %73 ], [ %84, %80 ], [ 8, %85 ], [ %96, %92 ], [ 8, %97 ], [ 4, %346 ], [ %310, %309 ], [ %267, %266 ], [ 0, %.loopexit494 ], [ %109, %108 ], [ 8, %.preheader ], [ 8, %.preheader483 ], [ 8, %.preheader475 ], [ %146, %145 ], [ 4, %248 ], [ %187, %186 ], [ 8, %.preheader492 ], [ 8, %.preheader487 ], [ 0, %.loopexit ], [ 0, %.loopexit473 ], [ 0, %.loopexit477 ], [ 0, %._crit_edge613 ], [ 0, %.loopexit485 ], [ 0, %.loopexit489 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0388
 }
@@ -2311,7 +2311,7 @@ define internal fastcc range(i32 0, 4) i32 @lzh_read_lens(ptr noundef nonnull %0
   br label %lzh_read_input.exit
 
 lzh_read_input.exit:                              ; preds = %._crit_edge, %269, %163, %._crit_edge473, %._crit_edge463, %199, %232, %37, %._crit_edge559, %117, %89, %72, %99, %130, %._crit_edge453, %._crit_edge489, %.loopexit
-  %.0251 = phi i32 [ 0, %.loopexit ], [ 3, %232 ], [ 0, %._crit_edge473 ], [ 0, %._crit_edge489 ], [ 0, %._crit_edge559 ], [ 3, %199 ], [ 3, %269 ], [ 3, %163 ], [ 0, %._crit_edge453 ], [ 3, %37 ], [ 3, %72 ], [ 3, %99 ], [ 0, %89 ], [ 0, %117 ], [ 3, %130 ], [ 0, %._crit_edge463 ], [ 0, %._crit_edge ]
+  %.0251 = phi i32 [ 0, %.loopexit ], [ 3, %163 ], [ 0, %._crit_edge473 ], [ 0, %._crit_edge489 ], [ 0, %._crit_edge453 ], [ 3, %199 ], [ 3, %269 ], [ 3, %37 ], [ 3, %232 ], [ 3, %130 ], [ 3, %72 ], [ 3, %99 ], [ 0, %89 ], [ 0, %117 ], [ 0, %._crit_edge559 ], [ 0, %._crit_edge463 ], [ 0, %._crit_edge ]
   ret i32 %.0251
 }
 

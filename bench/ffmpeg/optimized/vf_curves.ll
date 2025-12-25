@@ -285,7 +285,7 @@ parse_psfile.exit.thread:                         ; preds = %19
   br i1 %exitcond68.not.i, label %parse_psfile.exit, label %38, !llvm.loop !34
 
 parse_psfile.exit:                                ; preds = %38, %75, %79, %.lr.ph.i.preheader, %.lr.ph, %.lr.phthread-pre-split.i, %23, %26, %31
-  %.029.i = phi i32 [ -1094995529, %.lr.ph ], [ -1094995529, %23 ], [ -1094995529, %26 ], [ %21, %31 ], [ -1094995529, %.lr.phthread-pre-split.i ], [ %21, %79 ], [ -1094995529, %38 ], [ -12, %75 ], [ -1094995529, %.lr.ph.i.preheader ]
+  %.029.i = phi i32 [ %21, %31 ], [ -1094995529, %23 ], [ -1094995529, %26 ], [ -1094995529, %.lr.ph ], [ -1094995529, %.lr.phthread-pre-split.i ], [ -12, %75 ], [ -1094995529, %38 ], [ -1094995529, %.lr.ph.i.preheader ], [ %21, %79 ]
   %80 = call i32 @av_bprint_finalize(ptr noundef nonnull %4, ptr noundef null) #13
   %81 = load ptr, ptr %2, align 8, !tbaa !22
   %82 = load i64, ptr %3, align 8, !tbaa !27

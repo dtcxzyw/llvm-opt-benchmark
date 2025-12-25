@@ -28083,7 +28083,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph53, %55
   br i1 %or.cond, label %.thread, label %.lr.ph53
 
 .thread:                                          ; preds = %.lr.ph, %30, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit, %._crit_edge, %1, %5
-  %.0 = phi i1 [ %61, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ true, %1 ], [ true, %5 ], [ false, %._crit_edge ], [ true, %30 ], [ true, %.lr.ph ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ true, %1 ], [ true, %5 ], [ %61, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ], [ true, %30 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -35900,7 +35900,7 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5cla
   br label %"_ZZL20CheckNoDoubleVectorsPN5clang4SemaEPNS_8CallExprEENK3$_0clENS_8QualTypeE.exit"
 
 "_ZZL20CheckNoDoubleVectorsPN5clang4SemaEPNS_8CallExprEENK3$_0clENS_8QualTypeE.exit": ; preds = %9, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.i, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread.i, %29
-  %33 = phi i1 [ %32, %29 ], [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread.i ], [ false, %9 ], [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.i ]
+  %33 = phi i1 [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread.i ], [ %32, %29 ], [ false, %9 ], [ false, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.i ]
   ret i1 %33
 }
 

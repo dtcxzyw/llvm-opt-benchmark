@@ -21445,7 +21445,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %1604
   br label %.critedge
 
 .critedge:                                        ; preds = %74, %.preheader646, %1154, %1202, %701, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit574, %1221, %1266, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit474, %532, %623, %644, %664, %960, %974, %993, %1008, %1020, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit535, %1123, %1170, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit558, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit567, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, %1601, %745, %730, %846, %832, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit526, %762, %904, %889, %869, %943, %928, %1102, %1084, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit580, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit586, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit592, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit
-  %.0 = phi i1 [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ false, %1266 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit586 ], [ false, %1123 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit558 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit567 ], [ false, %1020 ], [ false, %1084 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit574 ], [ false, %1154 ], [ false, %1170 ], [ false, %1202 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit592 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit474 ], [ false, %532 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit535 ], [ false, %928 ], [ false, %623 ], [ false, %644 ], [ false, %664 ], [ true, %1601 ], [ false, %701 ], [ false, %730 ], [ false, %762 ], [ false, %869 ], [ false, %960 ], [ false, %974 ], [ false, %993 ], [ false, %1008 ], [ false, %1221 ], [ true, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit ], [ false, %745 ], [ false, %846 ], [ false, %832 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit526 ], [ false, %904 ], [ false, %889 ], [ false, %943 ], [ false, %1102 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit580 ], [ true, %.preheader646 ], [ true, %74 ]
+  %.0 = phi i1 [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit586 ], [ false, %1266 ], [ false, %1123 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit558 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit567 ], [ false, %1020 ], [ false, %1084 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit574 ], [ false, %1154 ], [ false, %1170 ], [ false, %1202 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit592 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit468 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit474 ], [ false, %532 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeEl.exit535 ], [ false, %928 ], [ false, %623 ], [ false, %644 ], [ false, %664 ], [ true, %1601 ], [ false, %701 ], [ false, %730 ], [ false, %762 ], [ false, %869 ], [ false, %960 ], [ false, %974 ], [ false, %993 ], [ false, %1008 ], [ false, %1221 ], [ true, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit ], [ false, %745 ], [ false, %846 ], [ false, %832 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit526 ], [ false, %904 ], [ false, %889 ], [ false, %943 ], [ false, %1102 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit580 ], [ true, %.preheader646 ], [ true, %74 ]
   ret i1 %.0
 }
 
@@ -36248,7 +36248,7 @@ _ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex
   br label %.backedge
 
 common.ret220:                                    ; preds = %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE15get_repeat_typeEPNS0_14re_syntax_baseE.exit.thread65, %2, %.backedge, %3, %3, %3, %52, %.loopexit186, %54, %18, %60, %.outer.backedge, %68
-  %common.ret220.op = phi i32 [ %.3, %68 ], [ -1, %3 ], [ -1, %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE15get_repeat_typeEPNS0_14re_syntax_baseE.exit.thread65 ], [ -1, %2 ], [ -1, %.backedge ], [ -1, %3 ], [ -1, %3 ], [ %.048.ph101, %18 ], [ -1, %60 ], [ -1, %52 ], [ -1, %54 ], [ -1, %.loopexit186 ], [ -1, %.outer.backedge ]
+  %common.ret220.op = phi i32 [ %.3, %68 ], [ -1, %3 ], [ -1, %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE15get_repeat_typeEPNS0_14re_syntax_baseE.exit.thread65 ], [ -1, %2 ], [ -1, %.backedge ], [ -1, %3 ], [ -1, %3 ], [ %.048.ph101, %18 ], [ -1, %60 ], [ -1, %.outer.backedge ], [ -1, %54 ], [ -1, %.loopexit186 ], [ -1, %52 ]
   ret i32 %common.ret220.op
 
 68:                                               ; preds = %3
@@ -36266,7 +36266,7 @@ common.ret220:                                    ; preds = %_ZN5boost13re_detai
   br label %common.ret220
 
 .loopexit:                                        ; preds = %5, %3, %18, %64, %25, %21
-  %.149 = phi i32 [ %65, %64 ], [ %26, %25 ], [ %.048.ph101, %18 ], [ %24, %21 ], [ %.048.ph101, %3 ], [ %.048.ph101, %5 ]
+  %.149 = phi i32 [ %26, %25 ], [ %65, %64 ], [ %.048.ph101, %18 ], [ %24, %21 ], [ %.048.ph101, %3 ], [ %.048.ph101, %5 ]
   %77 = getelementptr inbounds nuw i8, ptr %.04699, i64 8
   br label %.outer.backedge
 
@@ -56665,7 +56665,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %1909
   br label %.critedge
 
 .critedge:                                        ; preds = %.backedge1079, %_ZNK5boost16cpp_regex_traitsIwE11syntax_typeEw.exit457, %1359, %1424, %._crit_edge1125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit898, %1451, %1515, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit528, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit546, %598, %697, %724, %753, %1084, %._crit_edge1131, %._crit_edge1128, %1149, %1173, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit703, %1318, %1381, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit858, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit879, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit, %1906, %._crit_edge1121, %818, %._crit_edge1111, %939, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670, %864, %._crit_edge, %1009, %993, %._crit_edge1134, %1050, %1287, %1261, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit916, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit934, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit952, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit
-  %.0 = phi i1 [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ false, %1515 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit934 ], [ false, %1318 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit858 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit879 ], [ false, %1173 ], [ false, %1261 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit898 ], [ false, %1359 ], [ false, %1381 ], [ false, %1424 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit952 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit528 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit546 ], [ false, %598 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit703 ], [ false, %1050 ], [ false, %697 ], [ false, %724 ], [ false, %753 ], [ true, %1906 ], [ false, %._crit_edge1125 ], [ false, %818 ], [ false, %864 ], [ false, %993 ], [ false, %1084 ], [ false, %._crit_edge1131 ], [ false, %._crit_edge1128 ], [ false, %1149 ], [ false, %1451 ], [ true, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit ], [ false, %._crit_edge1121 ], [ false, %._crit_edge1111 ], [ false, %939 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670 ], [ false, %._crit_edge ], [ false, %1009 ], [ false, %._crit_edge1134 ], [ false, %1287 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit916 ], [ true, %_ZNK5boost16cpp_regex_traitsIwE11syntax_typeEw.exit457 ], [ true, %.backedge1079 ]
+  %.0 = phi i1 [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit934 ], [ false, %1515 ], [ false, %1318 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit858 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit879 ], [ false, %1173 ], [ false, %1261 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit898 ], [ false, %1359 ], [ false, %1381 ], [ false, %1424 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit952 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit522 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit528 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit546 ], [ false, %598 ], [ false, %_ZN5boost13re_detail_50018basic_regex_parserIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE4failENS_15regex_constants10error_typeEl.exit703 ], [ false, %1050 ], [ false, %697 ], [ false, %724 ], [ false, %753 ], [ true, %1906 ], [ false, %._crit_edge1125 ], [ false, %818 ], [ false, %864 ], [ false, %993 ], [ false, %1084 ], [ false, %._crit_edge1131 ], [ false, %._crit_edge1128 ], [ false, %1149 ], [ false, %1451 ], [ true, %_ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit ], [ false, %._crit_edge1121 ], [ false, %._crit_edge1111 ], [ false, %939 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670 ], [ false, %._crit_edge ], [ false, %1009 ], [ false, %._crit_edge1134 ], [ false, %1287 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit916 ], [ true, %_ZNK5boost16cpp_regex_traitsIwE11syntax_typeEw.exit457 ], [ true, %.backedge1079 ]
   ret i1 %.0
 }
 
@@ -71815,7 +71815,7 @@ _ZN5boost13re_detail_50019basic_regex_creatorIwNS_12regex_traitsIwNS_16cpp_regex
   br label %.backedge
 
 common.ret220:                                    ; preds = %_ZN5boost13re_detail_50019basic_regex_creatorIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE15get_repeat_typeEPNS0_14re_syntax_baseE.exit.thread65, %2, %.backedge, %3, %3, %3, %52, %.loopexit186, %54, %18, %60, %.outer.backedge, %68
-  %common.ret220.op = phi i32 [ %.3, %68 ], [ -1, %3 ], [ -1, %_ZN5boost13re_detail_50019basic_regex_creatorIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE15get_repeat_typeEPNS0_14re_syntax_baseE.exit.thread65 ], [ -1, %2 ], [ -1, %.backedge ], [ -1, %3 ], [ -1, %3 ], [ %.048.ph101, %18 ], [ -1, %60 ], [ -1, %52 ], [ -1, %54 ], [ -1, %.loopexit186 ], [ -1, %.outer.backedge ]
+  %common.ret220.op = phi i32 [ %.3, %68 ], [ -1, %3 ], [ -1, %_ZN5boost13re_detail_50019basic_regex_creatorIwNS_12regex_traitsIwNS_16cpp_regex_traitsIwEEEEE15get_repeat_typeEPNS0_14re_syntax_baseE.exit.thread65 ], [ -1, %2 ], [ -1, %.backedge ], [ -1, %3 ], [ -1, %3 ], [ %.048.ph101, %18 ], [ -1, %60 ], [ -1, %.outer.backedge ], [ -1, %54 ], [ -1, %.loopexit186 ], [ -1, %52 ]
   ret i32 %common.ret220.op
 
 68:                                               ; preds = %3
@@ -71833,7 +71833,7 @@ common.ret220:                                    ; preds = %_ZN5boost13re_detai
   br label %common.ret220
 
 .loopexit:                                        ; preds = %5, %3, %18, %64, %25, %21
-  %.149 = phi i32 [ %65, %64 ], [ %26, %25 ], [ %.048.ph101, %18 ], [ %24, %21 ], [ %.048.ph101, %3 ], [ %.048.ph101, %5 ]
+  %.149 = phi i32 [ %26, %25 ], [ %65, %64 ], [ %.048.ph101, %18 ], [ %24, %21 ], [ %.048.ph101, %3 ], [ %.048.ph101, %5 ]
   %77 = getelementptr inbounds nuw i8, ptr %.04699, i64 8
   br label %.outer.backedge
 
@@ -77472,7 +77472,7 @@ _ZN5boost13re_detail_50012is_separatorIcEEbT_.exit.sink.split: ; preds = %26, %2
   br label %_ZN5boost13re_detail_50012is_separatorIcEEbT_.exit
 
 _ZN5boost13re_detail_50012is_separatorIcEEbT_.exit: ; preds = %_ZN5boost13re_detail_50012is_separatorIcEEbT_.exit.sink.split, %22, %26, %23, %15, %12
-  %.0 = phi i1 [ false, %26 ], [ false, %12 ], [ false, %15 ], [ false, %23 ], [ false, %22 ], [ true, %_ZN5boost13re_detail_50012is_separatorIcEEbT_.exit.sink.split ]
+  %.0 = phi i1 [ false, %22 ], [ false, %12 ], [ false, %15 ], [ false, %23 ], [ false, %26 ], [ true, %_ZN5boost13re_detail_50012is_separatorIcEEbT_.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -77531,7 +77531,7 @@ _ZN5boost13re_detail_50012is_separatorIcEEbT_.exit.sink.split: ; preds = %21, %1
   br label %_ZN5boost13re_detail_50012is_separatorIcEEbT_.exit
 
 _ZN5boost13re_detail_50012is_separatorIcEEbT_.exit: ; preds = %_ZN5boost13re_detail_50012is_separatorIcEEbT_.exit.sink.split, %16, %10, %21, %8
-  %.04 = phi i1 [ false, %16 ], [ false, %21 ], [ false, %10 ], [ false, %8 ], [ true, %_ZN5boost13re_detail_50012is_separatorIcEEbT_.exit.sink.split ]
+  %.04 = phi i1 [ false, %21 ], [ false, %16 ], [ false, %10 ], [ false, %8 ], [ true, %_ZN5boost13re_detail_50012is_separatorIcEEbT_.exit.sink.split ]
   ret i1 %.04
 }
 
@@ -89213,7 +89213,7 @@ _ZN5boost13re_detail_50012is_separatorIwEEbT_.exit.sink.split: ; preds = %27, %2
   br label %_ZN5boost13re_detail_50012is_separatorIwEEbT_.exit
 
 _ZN5boost13re_detail_50012is_separatorIwEEbT_.exit: ; preds = %_ZN5boost13re_detail_50012is_separatorIwEEbT_.exit.sink.split, %28, %23, %24, %15, %12
-  %.0 = phi i1 [ false, %28 ], [ false, %12 ], [ false, %15 ], [ false, %24 ], [ false, %23 ], [ true, %_ZN5boost13re_detail_50012is_separatorIwEEbT_.exit.sink.split ]
+  %.0 = phi i1 [ false, %23 ], [ false, %12 ], [ false, %15 ], [ false, %24 ], [ false, %28 ], [ true, %_ZN5boost13re_detail_50012is_separatorIwEEbT_.exit.sink.split ]
   ret i1 %.0
 }
 
@@ -89280,7 +89280,7 @@ _ZN5boost13re_detail_50012is_separatorIwEEbT_.exit.sink.split: ; preds = %22, %1
   br label %_ZN5boost13re_detail_50012is_separatorIwEEbT_.exit
 
 _ZN5boost13re_detail_50012is_separatorIwEEbT_.exit: ; preds = %_ZN5boost13re_detail_50012is_separatorIwEEbT_.exit.sink.split, %17, %12, %22, %8
-  %.04 = phi i1 [ false, %17 ], [ false, %22 ], [ false, %12 ], [ false, %8 ], [ true, %_ZN5boost13re_detail_50012is_separatorIwEEbT_.exit.sink.split ]
+  %.04 = phi i1 [ false, %22 ], [ false, %17 ], [ false, %12 ], [ false, %8 ], [ true, %_ZN5boost13re_detail_50012is_separatorIwEEbT_.exit.sink.split ]
   ret i1 %.04
 }
 

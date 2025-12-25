@@ -7820,7 +7820,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i: ; preds 
   br label %.split.split.split, !llvm.loop !513
 
 .split71.us:                                      ; preds = %68, %.split.split.split.us, %59, %50, %48, %.split.split.us, %41, %34, %.split.us.split.split.us, %27, %.split.us.split.us, %26
-  %.us-phi = phi ptr [ %47, %50 ], [ %57, %.split.split.split.us ], [ %40, %41 ], [ %25, %27 ], [ %33, %34 ], [ %25, %26 ], [ %25, %.split.us.split.us ], [ %33, %.split.us.split.split.us ], [ %47, %.split.split.us ], [ %47, %48 ], [ %57, %59 ], [ %66, %68 ]
+  %.us-phi = phi ptr [ %47, %50 ], [ %25, %27 ], [ %40, %41 ], [ %57, %.split.split.split.us ], [ %33, %34 ], [ %25, %26 ], [ %25, %.split.us.split.us ], [ %33, %.split.us.split.split.us ], [ %47, %.split.split.us ], [ %47, %48 ], [ %57, %59 ], [ %66, %68 ]
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #28, !noalias !508
   %74 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
   %75 = load i32, ptr %74, align 8, !tbaa !223, !noalias !508

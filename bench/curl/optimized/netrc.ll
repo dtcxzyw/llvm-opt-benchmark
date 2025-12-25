@@ -537,8 +537,8 @@ select.unfold317:                                 ; preds = %122, %119
   br label %131
 
 select.unfold318.sink.split:                      ; preds = %79, %85, %.preheader354, %44, %.critedge246, %53, %.thread263
-  %.8196349.ph = phi ptr [ %.1189406.ph.ph, %53 ], [ %.1189406.ph.ph, %.thread263 ], [ %.1189406.ph.ph, %.preheader354 ], [ %.1189406.ph.ph, %.critedge246 ], [ %.1189406.ph.ph, %44 ], [ null, %79 ], [ %.1189406.ph.ph, %85 ]
-  %.8205.ph.ph = phi ptr [ %.1198405.ph.ph, %53 ], [ %.1198405.ph.ph, %.thread263 ], [ %.1198405.ph.ph, %.preheader354 ], [ %.1198405.ph.ph, %.critedge246 ], [ %.1198405.ph.ph, %44 ], [ %.1198405.ph.ph, %79 ], [ null, %85 ]
+  %.8196349.ph = phi ptr [ %.1189406.ph.ph, %.preheader354 ], [ %.1189406.ph.ph, %.thread263 ], [ %.1189406.ph.ph, %53 ], [ %.1189406.ph.ph, %.critedge246 ], [ %.1189406.ph.ph, %44 ], [ null, %79 ], [ %.1189406.ph.ph, %85 ]
+  %.8205.ph.ph = phi ptr [ %.1198405.ph.ph, %.preheader354 ], [ %.1198405.ph.ph, %.thread263 ], [ %.1198405.ph.ph, %53 ], [ %.1198405.ph.ph, %.critedge246 ], [ %.1198405.ph.ph, %44 ], [ %.1198405.ph.ph, %79 ], [ null, %85 ]
   call void @Curl_dyn_free(ptr noundef nonnull %7) #6
   br label %select.unfold318
 

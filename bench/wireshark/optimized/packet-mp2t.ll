@@ -1067,7 +1067,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %287, %284, %276
   br label %detect_cc_drops.exit.i
 
 detect_cc_drops.exit.i:                           ; preds = %296, %293, %proto_item_set_generated.exit.i.i, %275
-  %.062.i.i = phi i32 [ %.198.i.i, %296 ], [ %.198.i.i, %293 ], [ %.092.i.i, %275 ], [ %.198.i.i, %proto_item_set_generated.exit.i.i ]
+  %.062.i.i = phi i32 [ %.198.i.i, %293 ], [ %.198.i.i, %296 ], [ %.092.i.i, %275 ], [ %.198.i.i, %proto_item_set_generated.exit.i.i ]
   %.not.i = icmp eq i32 %.062.i.i, 0
   br i1 %.not.i, label %detect_cc_drops.exit.thread.i, label %300
 

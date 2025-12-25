@@ -1659,7 +1659,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h445ab02256748139E.exit.i.i.u
   br label %.lr.ph.i.i.split.us.i
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h8e35086b21404670E.exit.thread.i.i.us.i": ; preds = %100, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h769ba5236623401fE.exit.i.i.us.i"
-  %.sroa.18.3.us.i = phi i32 [ 0, %100 ], [ %.sroa.18.0.us.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h769ba5236623401fE.exit.i.i.us.i" ]
+  %.sroa.18.3.us.i = phi i32 [ %.sroa.18.0.us.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h769ba5236623401fE.exit.i.i.us.i" ], [ 0, %100 ]
   %.not.i.i.i9.i.i.us.i = icmp eq i32 %.sroa.34.0.us.i.ph, 0
   %or.cond.us.i = select i1 %.not41.i.i.i, i1 true, i1 %.not.i.i.i9.i.i.us.i
   br i1 %or.cond.us.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h620c59acdfefc648E.exit.i", label %108
@@ -2759,7 +2759,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h445ab02256748139E.exit.i.i.u
   br label %.lr.ph.i.i.split.us.i
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h21ee2f48ef7a6bbcE.exit.thread.i.i.us.i": ; preds = %100, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h769ba5236623401fE.exit.i.i.us.i"
-  %.sroa.18.3.us.i = phi i32 [ 0, %100 ], [ %.sroa.18.0.us.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h769ba5236623401fE.exit.i.i.us.i" ]
+  %.sroa.18.3.us.i = phi i32 [ %.sroa.18.0.us.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h769ba5236623401fE.exit.i.i.us.i" ], [ 0, %100 ]
   %.not.i.i.i9.i.i.us.i = icmp eq i32 %.sroa.34.0.us.i.ph, 0
   %or.cond.us.i = select i1 %.not41.i.i.i, i1 true, i1 %.not.i.i.i9.i.i.us.i
   br i1 %or.cond.us.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hbdb473dc7702ed52E.exit.i", label %108

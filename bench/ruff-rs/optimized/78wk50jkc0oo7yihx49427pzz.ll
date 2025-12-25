@@ -5225,7 +5225,7 @@ _ZN10ty_project7Project4root17h8597ec7cc0508c6cE.exit: ; preds = %.noexc
   br label %393
 
 315:                                              ; preds = %388, %378, %364
-  %.sroa.029.3.ph.ph = phi i8 [ 1, %364 ], [ 0, %378 ], [ 0, %388 ]
+  %.sroa.029.3.ph.ph = phi i8 [ 1, %364 ], [ 0, %388 ], [ 0, %378 ]
   %lpad.thr_comm.split-lp97 = landingpad { ptr, i32 }
           cleanup
   br i1 %362, label %403, label %393

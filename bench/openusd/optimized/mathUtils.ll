@@ -235,7 +235,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21: ; p
   br i1 %or.cond53, label %.split.split, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
 _ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21, %92, %.preheader.i, %78, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
-  %.0 = phi double [ %7, %75 ], [ %51, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38 ], [ -1.000000e+00, %78 ], [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread ], [ %85, %92 ], [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ %85, %.preheader.i ], [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ]
+  %.0 = phi double [ %7, %75 ], [ %85, %92 ], [ -1.000000e+00, %78 ], [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread ], [ %51, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38 ], [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ %85, %.preheader.i ], [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ]
   ret double %.0
 }
 

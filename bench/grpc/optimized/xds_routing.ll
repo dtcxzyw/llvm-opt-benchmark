@@ -605,8 +605,8 @@ _ZN9grpc_core12_GLOBAL__N_111DomainMatchENS0_9MatchTypeESt17basic_string_viewIcS
   br i1 %150, label %20, label %.thread69, !llvm.loop !22
 
 .thread69:                                        ; preds = %._crit_edge, %140, %3
-  %.sroa.053.1 = phi i64 [ %storemerge125, %140 ], [ undef, %3 ], [ %.sroa.053.2.lcssa, %._crit_edge ]
-  %.sroa.254.1 = phi i8 [ 1, %140 ], [ 0, %3 ], [ %.sroa.254.2.lcssa, %._crit_edge ]
+  %.sroa.053.1 = phi i64 [ undef, %3 ], [ %storemerge125, %140 ], [ %.sroa.053.2.lcssa, %._crit_edge ]
+  %.sroa.254.1 = phi i8 [ 0, %3 ], [ 1, %140 ], [ %.sroa.254.2.lcssa, %._crit_edge ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.053.1, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.254.1, 1
   ret { i64, i8 } %.fca.1.insert

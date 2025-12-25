@@ -2088,7 +2088,7 @@ _ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit48.i: ; preds = %38
   br label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.exit
 
 _ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.exit: ; preds = %.critedge.i, %7, %9, %12, %.critedge43.sink.split.i
-  %.032.i = phi i1 [ true, %.critedge43.sink.split.i ], [ false, %12 ], [ false, %7 ], [ false, %9 ], [ false, %.critedge.i ]
+  %.032.i = phi i1 [ false, %9 ], [ false, %7 ], [ false, %12 ], [ true, %.critedge43.sink.split.i ], [ false, %.critedge.i ]
   ret i1 %.032.i
 }
 
@@ -6282,7 +6282,7 @@ _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %48, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !163
 
 _ZSt11swap_rangesIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

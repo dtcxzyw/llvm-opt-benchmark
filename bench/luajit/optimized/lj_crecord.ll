@@ -4795,7 +4795,7 @@ crec_arith_meta.exit.thread.sink.split:           ; preds = %546, %crec_arith_in
   br label %crec_arith_meta.exit.thread
 
 crec_arith_meta.exit.thread:                      ; preds = %crec_arith_meta.exit.thread.sink.split, %545, %546, %crec_arith_ptr.exit, %crec_arith_int64.exit
-  %.0150 = phi i32 [ 16809982, %546 ], [ %388, %crec_arith_int64.exit ], [ %470, %crec_arith_ptr.exit ], [ 16809982, %545 ], [ 33587197, %crec_arith_meta.exit.thread.sink.split ]
+  %.0150 = phi i32 [ 16809982, %545 ], [ %388, %crec_arith_int64.exit ], [ %470, %crec_arith_ptr.exit ], [ 16809982, %546 ], [ 33587197, %crec_arith_meta.exit.thread.sink.split ]
   %562 = load ptr, ptr %17, align 8, !tbaa !4
   store i32 %.0150, ptr %562, align 4, !tbaa !27
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 372

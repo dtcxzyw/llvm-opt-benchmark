@@ -170,7 +170,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
   br label %77
 
 77:                                               ; preds = %75, %.sink.split, %69
-  %78 = phi i32 [ %70, %69 ], [ %70, %75 ], [ %74, %.sink.split ]
+  %78 = phi i32 [ %70, %75 ], [ %70, %69 ], [ %74, %.sink.split ]
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %.loopexit, label %69, !llvm.loop !32

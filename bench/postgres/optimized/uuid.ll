@@ -99,7 +99,7 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
   br label %54
 
 46:                                               ; preds = %41, %34
-  %.2.i = phi ptr [ %spec.select30.i, %41 ], [ %38, %34 ]
+  %.2.i = phi ptr [ %38, %34 ], [ %spec.select30.i, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16

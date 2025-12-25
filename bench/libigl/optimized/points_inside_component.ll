@@ -123259,8 +123259,8 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   ret void
 
 .body:                                            ; preds = %.preheader.i.i.i.i.i7, %.preheader.i.i.i.i.i15, %22, %31
-  %.0.lpad-body = phi ptr [ %.ptr32, %31 ], [ %.ptr32, %.preheader.i.i.i.i.i15 ], [ %.ptr26, %22 ], [ %.ptr26, %.preheader.i.i.i.i.i7 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %32, %.preheader.i.i.i.i.i15 ], [ %23, %22 ], [ %23, %.preheader.i.i.i.i.i7 ]
+  %.0.lpad-body = phi ptr [ %.ptr32, %.preheader.i.i.i.i.i15 ], [ %.ptr32, %31 ], [ %.ptr26, %22 ], [ %.ptr26, %.preheader.i.i.i.i.i7 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %32, %.preheader.i.i.i.i.i15 ], [ %32, %31 ], [ %23, %22 ], [ %23, %.preheader.i.i.i.i.i7 ]
   br label %35
 
 35:                                               ; preds = %.body, %35
@@ -124515,8 +124515,8 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianINS_9cpp_floatEEEEC2ERKS4_.exit34: ; preds
   ret void
 
 .body:                                            ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit.i.i.i.i.i13, %_ZN4CGAL9cpp_floatD2Ev.exit.i.i.i.i.i28, %97, %149
-  %.0.lpad-body = phi ptr [ %.ptr47, %149 ], [ %.ptr47, %_ZN4CGAL9cpp_floatD2Ev.exit.i.i.i.i.i28 ], [ %.ptr40, %97 ], [ %.ptr40, %_ZN4CGAL9cpp_floatD2Ev.exit.i.i.i.i.i13 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %150, %149 ], [ %150, %_ZN4CGAL9cpp_floatD2Ev.exit.i.i.i.i.i28 ], [ %98, %97 ], [ %98, %_ZN4CGAL9cpp_floatD2Ev.exit.i.i.i.i.i13 ]
+  %.0.lpad-body = phi ptr [ %.ptr47, %_ZN4CGAL9cpp_floatD2Ev.exit.i.i.i.i.i28 ], [ %.ptr47, %149 ], [ %.ptr40, %97 ], [ %.ptr40, %_ZN4CGAL9cpp_floatD2Ev.exit.i.i.i.i.i13 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %150, %_ZN4CGAL9cpp_floatD2Ev.exit.i.i.i.i.i28 ], [ %150, %149 ], [ %98, %97 ], [ %98, %_ZN4CGAL9cpp_floatD2Ev.exit.i.i.i.i.i13 ]
   br label %164
 
 164:                                              ; preds = %.body, %164

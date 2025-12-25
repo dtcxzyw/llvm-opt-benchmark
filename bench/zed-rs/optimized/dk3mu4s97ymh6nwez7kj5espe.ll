@@ -1039,7 +1039,7 @@ _ZN5serde2de10EnumAccess7variant17hea9ccdf3ef4cae44E.exit.i: ; preds = %47
           cleanup
   br label %.body.thread
 
-.body.thread82:                                   ; preds = %188, %146, %.body.i, %197, %.body.thread, %.body.thread
+.body.thread82:                                   ; preds = %.body.i, %188, %146, %197, %.body.thread, %.body.thread
   %.pn1278 = phi { ptr, i32 } [ %.pn1279, %197 ], [ %.pn1279, %.body.thread ], [ %.pn1279, %.body.thread ], [ %147, %146 ], [ %180, %.body.i ], [ %180, %188 ]
   resume { ptr, i32 } %.pn1278
 
@@ -50066,7 +50066,7 @@ select.unfold177:                                 ; preds = %._crit_edge.i.i65, 
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %196, %.loopexit247, %320, %359, %364, %486
-  %.sroa.03.0.ph = phi i8 [ 1, %196 ], [ %.sroa.03.2, %359 ], [ %.sroa.03.2, %.loopexit247 ], [ %.sroa.03.2, %320 ], [ %.sroa.03.2, %364 ], [ %.sroa.03.2, %486 ]
+  %.sroa.03.0.ph = phi i8 [ %.sroa.03.2, %359 ], [ 1, %196 ], [ %.sroa.03.2, %.loopexit247 ], [ %.sroa.03.2, %320 ], [ %.sroa.03.2, %364 ], [ %.sroa.03.2, %486 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -51213,8 +51213,8 @@ select.unfold177:                                 ; preds = %._crit_edge.i.i65, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5c206fc60c22985eE.exit"
 
 .body141.thread:                                  ; preds = %.body.thread.i, %557, %553, %.body141.thread196
-  %eh.lpad-body142192 = phi { ptr, i32 } [ %lpad.thr_comm194, %.body141.thread196 ], [ %554, %557 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %554, %553 ]
-  %.sroa.05.2.lpad-body191 = phi i1 [ %.sroa.05.2.ph, %.body141.thread196 ], [ false, %557 ], [ false, %.body.thread.i ], [ false, %553 ]
+  %eh.lpad-body142192 = phi { ptr, i32 } [ %lpad.thr_comm194, %.body141.thread196 ], [ %554, %553 ], [ %eh.lpad-body253849.i, %.body.thread.i ], [ %554, %557 ]
+  %.sroa.05.2.lpad-body191 = phi i1 [ %.sroa.05.2.ph, %.body141.thread196 ], [ false, %553 ], [ false, %.body.thread.i ], [ false, %557 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he40884d72c03433dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #55
           to label %518 unwind label %512
 

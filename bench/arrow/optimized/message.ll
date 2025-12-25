@@ -10422,8 +10422,8 @@ _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %_ZN5arrow6StatusD2E
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %33
 
-_ZN5arrow6StatusD2Ev.exit.thread159:              ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i, %_ZN5arrow6StatusD2Ev.exit23.i.i, %_ZN5arrow6StatusD2Ev.exit19.i.i
-  %.ph = phi ptr [ %51, %_ZN5arrow6StatusD2Ev.exit19.i.i ], [ %60, %_ZN5arrow6StatusD2Ev.exit23.i.i ], [ %45, %_ZN5arrow6StatusD2Ev.exit.i.i ]
+_ZN5arrow6StatusD2Ev.exit.thread159:              ; preds = %_ZN5arrow6StatusD2Ev.exit19.i.i, %_ZN5arrow6StatusD2Ev.exit23.i.i, %_ZN5arrow6StatusD2Ev.exit.i.i
+  %.ph = phi ptr [ %45, %_ZN5arrow6StatusD2Ev.exit.i.i ], [ %60, %_ZN5arrow6StatusD2Ev.exit23.i.i ], [ %51, %_ZN5arrow6StatusD2Ev.exit19.i.i ]
   store ptr %.ph, ptr %0, align 8, !tbaa !28, !alias.scope !593
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge73.thread

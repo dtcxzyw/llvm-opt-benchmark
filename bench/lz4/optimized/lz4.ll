@@ -5898,8 +5898,8 @@ LZ4_wildCopy8.exit:                               ; preds = %519
   br i1 %526, label %LZ4_wildCopy8.exit.thread, label %.lr.ph, !prof !33
 
 LZ4_wildCopy8.exit.thread:                        ; preds = %.critedge8.i72, %524, %LZ4_wildCopy8.exit.preheader, %340, %500, %LZ4_wildCopy8.exit
-  %.2426.i57.ph = phi ptr [ %.1425.i37328, %340 ], [ %.8432.i90, %500 ], [ %.8432.i90, %LZ4_wildCopy8.exit ], [ %.8432.i90, %524 ], [ %.1425.i37328, %LZ4_wildCopy8.exit.preheader ], [ %.1425.i37328, %.critedge8.i72 ]
-  %.2422.i58.ph = phi ptr [ %.1421.i38329.fr, %340 ], [ %.9.i89, %500 ], [ %.9.i89, %LZ4_wildCopy8.exit ], [ %.9.i89, %524 ], [ %.1421.i38329.fr, %LZ4_wildCopy8.exit.preheader ], [ %.1421.i38329.fr, %.critedge8.i72 ]
+  %.2426.i57.ph = phi ptr [ %.8432.i90, %500 ], [ %.1425.i37328, %340 ], [ %.8432.i90, %LZ4_wildCopy8.exit ], [ %.8432.i90, %524 ], [ %.1425.i37328, %.critedge8.i72 ], [ %.1425.i37328, %LZ4_wildCopy8.exit.preheader ]
+  %.2422.i58.ph = phi ptr [ %.9.i89, %500 ], [ %.1421.i38329.fr, %340 ], [ %.9.i89, %LZ4_wildCopy8.exit ], [ %.9.i89, %524 ], [ %.1421.i38329.fr, %.critedge8.i72 ], [ %.1421.i38329.fr, %LZ4_wildCopy8.exit.preheader ]
   %527 = ptrtoint ptr %303 to i64
   %528 = ptrtoint ptr %.2422.i58.ph to i64
   %529 = sub i64 %527, %528
@@ -7549,8 +7549,8 @@ LZ4_count.exit787:                                ; preds = %.thread986, %448, %
   br i1 %659, label %.preheader1434, label %.critedge8.i226, !llvm.loop !20
 
 .critedge8.i226:                                  ; preds = %654, %.preheader1434, %643, %640
-  %.8478.i227 = phi ptr [ %.7477.i.le, %640 ], [ %.7477.i.le, %643 ], [ %650, %.preheader1434 ], [ %650, %654 ]
-  %.4407.i228 = phi ptr [ %.0487.i1961633, %640 ], [ %.0487.i1961633, %643 ], [ %649, %.preheader1434 ], [ %649, %654 ]
+  %.8478.i227 = phi ptr [ %.7477.i.le, %643 ], [ %.7477.i.le, %640 ], [ %650, %.preheader1434 ], [ %650, %654 ]
+  %.4407.i228 = phi ptr [ %.0487.i1961633, %643 ], [ %.0487.i1961633, %640 ], [ %649, %.preheader1434 ], [ %649, %654 ]
   %660 = ptrtoint ptr %.4407.i228 to i64
   %661 = ptrtoint ptr %.1421.i1931681.fr to i64
   %662 = sub i64 %660, %661
@@ -8328,8 +8328,8 @@ LZ4_count.exit765:                                ; preds = %.thread1072, %816, 
   br i1 %1047, label %.preheader1438, label %.critedge8.i302, !llvm.loop !20
 
 .critedge8.i302:                                  ; preds = %1042, %.preheader1438, %1031, %1028
-  %.8478.i303 = phi ptr [ %.7477.i275, %1028 ], [ %.7477.i275, %1031 ], [ %1038, %.preheader1438 ], [ %1038, %1042 ]
-  %.4407.i304 = phi ptr [ %.0487.i2681573, %1028 ], [ %.0487.i2681573, %1031 ], [ %1037, %.preheader1438 ], [ %1037, %1042 ]
+  %.8478.i303 = phi ptr [ %.7477.i275, %1031 ], [ %.7477.i275, %1028 ], [ %1038, %.preheader1438 ], [ %1038, %1042 ]
+  %.4407.i304 = phi ptr [ %.0487.i2681573, %1031 ], [ %.0487.i2681573, %1028 ], [ %1037, %.preheader1438 ], [ %1037, %1042 ]
   %.4407.i304.fr = freeze ptr %.4407.i304
   %1048 = ptrtoint ptr %.4407.i304.fr to i64
   %1049 = ptrtoint ptr %.1421.i2651617.fr to i64
@@ -9109,8 +9109,8 @@ LZ4_count.exit699:                                ; preds = %.thread1168, %1204,
   br i1 %1433, label %.preheader1426, label %.critedge8.i385, !llvm.loop !20
 
 .critedge8.i385:                                  ; preds = %1428, %.preheader1426, %1417, %1414
-  %.8478.i386 = phi ptr [ %.7477.i357.le, %1414 ], [ %.7477.i357.le, %1417 ], [ %1424, %.preheader1426 ], [ %1424, %1428 ]
-  %.4407.i387 = phi ptr [ %.0487.i3501759, %1414 ], [ %.0487.i3501759, %1417 ], [ %1423, %.preheader1426 ], [ %1423, %1428 ]
+  %.8478.i386 = phi ptr [ %.7477.i357.le, %1417 ], [ %.7477.i357.le, %1414 ], [ %1424, %.preheader1426 ], [ %1424, %1428 ]
+  %.4407.i387 = phi ptr [ %.0487.i3501759, %1417 ], [ %.0487.i3501759, %1414 ], [ %1423, %.preheader1426 ], [ %1423, %1428 ]
   %1434 = ptrtoint ptr %.4407.i387 to i64
   %1435 = ptrtoint ptr %.1421.i3471807.fr to i64
   %1436 = sub i64 %1434, %1435
@@ -9866,8 +9866,8 @@ LZ4_count.exit633:                                ; preds = %.thread1260, %1590,
   br i1 %1804, label %.preheader1430, label %.critedge8.i469, !llvm.loop !20
 
 .critedge8.i469:                                  ; preds = %1799, %.preheader1430, %1788, %1785
-  %.8478.i470 = phi ptr [ %.7477.i441.le, %1785 ], [ %.7477.i441.le, %1788 ], [ %1795, %.preheader1430 ], [ %1795, %1799 ]
-  %.4407.i471 = phi ptr [ %.0487.i4341696, %1785 ], [ %.0487.i4341696, %1788 ], [ %1794, %.preheader1430 ], [ %1794, %1799 ]
+  %.8478.i470 = phi ptr [ %.7477.i441.le, %1788 ], [ %.7477.i441.le, %1785 ], [ %1795, %.preheader1430 ], [ %1795, %1799 ]
+  %.4407.i471 = phi ptr [ %.0487.i4341696, %1788 ], [ %.0487.i4341696, %1785 ], [ %1794, %.preheader1430 ], [ %1794, %1799 ]
   %1805 = ptrtoint ptr %.4407.i471 to i64
   %1806 = ptrtoint ptr %.1421.i4311744.fr to i64
   %1807 = sub i64 %1805, %1806
@@ -10686,8 +10686,8 @@ LZ4_renormDictT.exit:                             ; preds = %.LZ4_renormDictT.ex
   br i1 %108, label %.preheader, label %.critedge8.i, !llvm.loop !20
 
 .critedge8.i:                                     ; preds = %103, %.preheader, %92, %89
-  %.8478.i = phi ptr [ %.7477.i.le, %89 ], [ %.7477.i.le, %92 ], [ %99, %.preheader ], [ %99, %103 ]
-  %.4407.i = phi ptr [ %.0487.i503, %89 ], [ %.0487.i503, %92 ], [ %98, %.preheader ], [ %98, %103 ]
+  %.8478.i = phi ptr [ %.7477.i.le, %92 ], [ %.7477.i.le, %89 ], [ %99, %.preheader ], [ %99, %103 ]
+  %.4407.i = phi ptr [ %.0487.i503, %92 ], [ %.0487.i503, %89 ], [ %98, %.preheader ], [ %98, %103 ]
   %109 = ptrtoint ptr %.4407.i to i64
   %110 = ptrtoint ptr %.1421.i551.fr to i64
   %111 = sub i64 %109, %110
@@ -11410,8 +11410,8 @@ LZ4_compress_generic_validated.exit:              ; preds = %._crit_edge560, %37
   br i1 %452, label %.preheader404, label %.critedge8.i67, !llvm.loop !20
 
 .critedge8.i67:                                   ; preds = %447, %.preheader404, %436, %433
-  %.8478.i68 = phi ptr [ %.7477.i40.le, %433 ], [ %.7477.i40.le, %436 ], [ %443, %.preheader404 ], [ %443, %447 ]
-  %.4407.i69 = phi ptr [ %.0487.i33445, %433 ], [ %.0487.i33445, %436 ], [ %442, %.preheader404 ], [ %442, %447 ]
+  %.8478.i68 = phi ptr [ %.7477.i40.le, %436 ], [ %.7477.i40.le, %433 ], [ %443, %.preheader404 ], [ %443, %447 ]
+  %.4407.i69 = phi ptr [ %.0487.i33445, %436 ], [ %.0487.i33445, %433 ], [ %442, %.preheader404 ], [ %442, %447 ]
   %453 = ptrtoint ptr %.4407.i69 to i64
   %454 = ptrtoint ptr %.1421.i30488.fr to i64
   %455 = sub i64 %453, %454
@@ -18029,7 +18029,7 @@ LZ4_decompress_fast_extDict.exit:                 ; preds = %193
   br label %LZ4_decompress_fast.exit.thread
 
 LZ4_decompress_fast.exit.thread:                  ; preds = %183, %211, %208, %._crit_edge.i71, %101, %129, %126, %._crit_edge, %26, %51, %._crit_edge.i, %111, %193, %36, %71, %239, %157, %LZ4_decompress_fast_extDict.exit, %LZ4_decompress_unsafe_generic.exit, %LZ4_decompress_fast.exit
-  %.044 = phi i32 [ %155, %LZ4_decompress_unsafe_generic.exit ], [ %237, %LZ4_decompress_fast_extDict.exit ], [ %69, %LZ4_decompress_fast.exit ], [ %69, %71 ], [ %155, %157 ], [ %237, %239 ], [ -1, %26 ], [ -1, %111 ], [ -1, %36 ], [ -1, %193 ], [ -1, %101 ], [ -1, %._crit_edge.i ], [ -1, %51 ], [ -1, %._crit_edge ], [ -1, %126 ], [ -1, %129 ], [ -1, %._crit_edge.i71 ], [ -1, %208 ], [ -1, %211 ], [ -1, %183 ]
+  %.044 = phi i32 [ %155, %LZ4_decompress_unsafe_generic.exit ], [ %237, %LZ4_decompress_fast_extDict.exit ], [ %69, %LZ4_decompress_fast.exit ], [ %69, %71 ], [ %155, %157 ], [ %237, %239 ], [ -1, %101 ], [ -1, %193 ], [ -1, %36 ], [ -1, %26 ], [ -1, %111 ], [ -1, %._crit_edge.i ], [ -1, %51 ], [ -1, %._crit_edge ], [ -1, %126 ], [ -1, %129 ], [ -1, %._crit_edge.i71 ], [ -1, %208 ], [ -1, %211 ], [ -1, %183 ]
   ret i32 %.044
 }
 

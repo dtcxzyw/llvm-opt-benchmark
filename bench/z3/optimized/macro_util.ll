@@ -3253,7 +3253,7 @@ _ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread.sink.split: ; preds = %110, 
   br label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
 _ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread: ; preds = %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread.sink.split, %50, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %_ZNK11ast_manager11is_uninterpEPK4sort.exit, %44, %_Z9is_groundPK4expr.exit.thread, %10, %5, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %21, %82, %_Z9is_groundPK4expr.exit10
-  %.0 = phi i1 [ false, %_Z9is_groundPK4expr.exit10 ], [ false, %82 ], [ false, %_Z9is_groundPK4expr.exit.thread ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %10 ], [ false, %50 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %44 ], [ false, %21 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %5 ], [ true, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %_Z9is_groundPK4expr.exit10 ], [ false, %82 ], [ false, %_Z9is_groundPK4expr.exit.thread ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %10 ], [ false, %50 ], [ false, %44 ], [ false, %_ZNK11ast_manager11is_uninterpEPK4sort.exit ], [ false, %21 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %5 ], [ true, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -3565,7 +3565,7 @@ _ZNK10macro_util12is_forbiddenEP9func_decl.exit37.sink.split: ; preds = %153, %1
   br label %_ZNK10macro_util12is_forbiddenEP9func_decl.exit37
 
 _ZNK10macro_util12is_forbiddenEP9func_decl.exit37: ; preds = %119, %130, %_ZNK10macro_util12is_forbiddenEP9func_decl.exit37.sink.split, %23, %13, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i, %34, %5, %_ZNK11ast_manager6is_iffEPK4exprRPS0_S4_.exit, %.loopexit, %_ZNK10macro_util12is_forbiddenEP9func_decl.exit, %_Z9is_forallPK3ast.exit
-  %.0 = phi i1 [ false, %23 ], [ false, %_Z9is_forallPK3ast.exit ], [ false, %_ZNK11ast_manager6is_iffEPK4exprRPS0_S4_.exit ], [ false, %130 ], [ false, %13 ], [ false, %.loopexit ], [ false, %5 ], [ false, %_ZNK10macro_util12is_forbiddenEP9func_decl.exit ], [ true, %_ZNK10macro_util12is_forbiddenEP9func_decl.exit37.sink.split ], [ false, %34 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i ], [ false, %119 ]
+  %.0 = phi i1 [ false, %23 ], [ false, %_Z9is_forallPK3ast.exit ], [ false, %_ZNK11ast_manager6is_iffEPK4exprRPS0_S4_.exit ], [ false, %13 ], [ false, %130 ], [ false, %.loopexit ], [ false, %5 ], [ false, %_ZNK10macro_util12is_forbiddenEP9func_decl.exit ], [ true, %_ZNK10macro_util12is_forbiddenEP9func_decl.exit37.sink.split ], [ false, %34 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i ], [ false, %119 ]
   ret i1 %.0
 }
 

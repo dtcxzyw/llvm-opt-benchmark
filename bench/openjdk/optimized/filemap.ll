@@ -4110,7 +4110,7 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit: ; preds = %138, %141
   br label %.loopexit
 
 .loopexit:                                        ; preds = %69, %51, %90, %91, %93, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit
-  %.0 = phi i1 [ false, %90 ], [ false, %91 ], [ true, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ false, %93 ], [ false, %51 ], [ false, %69 ]
+  %.0 = phi i1 [ false, %91 ], [ false, %90 ], [ true, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ false, %93 ], [ false, %51 ], [ false, %69 ]
   ret i1 %.0
 }
 

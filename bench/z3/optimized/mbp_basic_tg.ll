@@ -1084,7 +1084,7 @@ _ZN3mbp10term_graph6add_eqEP4exprS2_.exit232:     ; preds = %325
   br i1 %.not.i.i237, label %.lr.ph.preheader._crit_edge, label %.lr.ph486
 
 _ZNK11ast_manager6is_andEPK4expr.exit.thread:     ; preds = %.critedge137, %359, %.critedge, %346, %264, %350, %334, %_ZN3mbp10term_graph6add_eqEP4exprS2_.exit180, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217, %_ZNK11ast_manager6is_andEPK4expr.exit
-  %.4104 = phi i1 [ %.3103, %_ZNK11ast_manager6is_andEPK4expr.exit ], [ %.3103, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217 ], [ %.3103, %_ZN3mbp10term_graph6add_eqEP4exprS2_.exit180 ], [ true, %.critedge ], [ true, %334 ], [ true, %350 ], [ %.3103, %264 ], [ true, %346 ], [ true, %359 ], [ true, %.critedge137 ]
+  %.4104 = phi i1 [ %.3103, %_ZNK11ast_manager6is_andEPK4expr.exit ], [ %.3103, %_Z6all_ofI3appSt8functionIFbP4exprEEEbRKT_RKT0_.exit217 ], [ %.3103, %264 ], [ %.3103, %_ZN3mbp10term_graph6add_eqEP4exprS2_.exit180 ], [ true, %334 ], [ true, %.critedge ], [ true, %350 ], [ true, %346 ], [ true, %359 ], [ true, %.critedge137 ]
   %363 = load i8, ptr %25, align 8, !tbaa !10, !range !31, !noundef !32
   %364 = trunc nuw i8 %363 to i1
   br i1 %364, label %365, label %_ZN12mbp_basic_tg4impl7is_seenEP4expr.exit

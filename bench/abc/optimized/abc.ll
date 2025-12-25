@@ -19912,10 +19912,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAllExact(ptr readnone captures(n
   br label %.thread98
 
 .thread98:                                        ; preds = %.thread98.sink.split, %99, %118, %96
-  %124 = phi i32 [ 1, %99 ], [ 1, %96 ], [ %22, %118 ], [ 1, %.thread98.sink.split ]
-  %125 = phi i32 [ 3, %99 ], [ 3, %96 ], [ %30, %118 ], [ 3, %.thread98.sink.split ]
-  %126 = phi i32 [ 0, %99 ], [ %21, %96 ], [ %21, %118 ], [ %.sink, %.thread98.sink.split ]
-  %127 = phi i32 [ %28, %99 ], [ %28, %96 ], [ %29, %118 ], [ %28, %.thread98.sink.split ]
+  %124 = phi i32 [ 1, %99 ], [ %22, %118 ], [ 1, %96 ], [ 1, %.thread98.sink.split ]
+  %125 = phi i32 [ 3, %99 ], [ %30, %118 ], [ 3, %96 ], [ 3, %.thread98.sink.split ]
+  %126 = phi i32 [ 0, %99 ], [ %21, %118 ], [ %21, %96 ], [ %.sink, %.thread98.sink.split ]
+  %127 = phi i32 [ %28, %99 ], [ %29, %118 ], [ %28, %96 ], [ %28, %.thread98.sink.split ]
   %128 = add nsw i32 %125, -1
   %129 = mul nsw i32 %128, %126
   %130 = add nsw i32 %129, 1
@@ -23351,7 +23351,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCone(ptr noundef %0, i32 noundef
   %90 = tail call ptr @Abc_NtkMakeOnePo(ptr noundef nonnull %4, i32 noundef %.060.ph209, i32 noundef %.0) #35
   br label %.thread
 
-91:                                               ; preds = %87, %85
+91:                                               ; preds = %85, %87
   %.070.ph105 = phi ptr [ %88, %87 ], [ %86, %85 ]
   %92 = getelementptr i8, ptr %76, i64 20
   %.069.val = load i32, ptr %92, align 4
@@ -55773,7 +55773,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Strash(ptr noundef captures(
   br label %143
 
 143:                                              ; preds = %85, %95, %137, %140, %141, %102, %105, %93, %77
-  %.096 = phi ptr [ %81, %77 ], [ %86, %85 ], [ %94, %93 ], [ %96, %95 ], [ %103, %102 ], [ %103, %105 ], [ %142, %141 ], [ %138, %140 ], [ %138, %137 ]
+  %.096 = phi ptr [ %81, %77 ], [ %86, %85 ], [ %94, %93 ], [ %96, %95 ], [ %103, %102 ], [ %103, %105 ], [ %138, %140 ], [ %142, %141 ], [ %138, %137 ]
   %.not144 = icmp eq i32 %.0105, 0
   br i1 %.not144, label %._crit_edge, label %.thread163
 
@@ -70422,7 +70422,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If2(ptr noundef %0, i32 noun
   br label %155
 
 .loopexitthread-pre-split:                        ; preds = %34, %17, %21, %30, %33, %45
-  %.1.ph = phi i32 [ %.0, %45 ], [ %.0, %21 ], [ %.0, %33 ], [ %27, %30 ], [ %.0, %17 ], [ %.0, %34 ]
+  %.1.ph = phi i32 [ %.0, %21 ], [ %.0, %45 ], [ %.0, %33 ], [ %27, %30 ], [ %.0, %17 ], [ %.0, %34 ]
   %.pr = load i32, ptr %15, align 4, !tbaa !1118
   br label %.loopexit
 

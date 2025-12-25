@@ -372,7 +372,7 @@ define internal i32 @dissect_soupbintcp_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   br label %121
 
 121:                                              ; preds = %118, %71, %71, %71, %71, %71, %70
-  %.0115.i = phi ptr [ %75, %118 ], [ null, %70 ], [ %75, %71 ], [ %75, %71 ], [ %75, %71 ], [ %75, %71 ], [ %75, %71 ]
+  %.0115.i = phi ptr [ %75, %118 ], [ %75, %71 ], [ %75, %71 ], [ %75, %71 ], [ %75, %71 ], [ null, %70 ], [ %75, %71 ]
   switch i8 %10, label %dissect_soupbintcp_common.exit [
     i8 85, label %122
     i8 83, label %122

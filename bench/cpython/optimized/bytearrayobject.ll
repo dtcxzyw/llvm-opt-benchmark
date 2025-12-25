@@ -7834,7 +7834,7 @@ split.i118.i.i:                                   ; preds = %306, %._crit_edge.i
   br label %bytearray_replace_impl.exit
 
 bytearray_replace_impl.exit:                      ; preds = %228, %.lr.ph.i88.i.i, %198, %193, %split.i118.i.i, %294, %292, %return_self.exit.i124.i.i, %split.i104.i.i, %257, %255, %return_self.exit.i106.i.i, %PyByteArray_AS_STRING.exit47.i.i.i, %212, %return_self.exit.i91.i.i, %PyByteArray_AS_STRING.exit40.i.i.i, %178, %return_self.exit.i80.i.i, %._crit_edge.i69.i.i, %143, %return_self.exit.i71.i.i, %split.i.i.i, %116, %return_self.exit.i.i.i, %.loopexit.i.i.i, %65, %63, %return_self.exit58.i.i, %return_self.exit54.i.i, %return_self.exit.i.i, %Py_DECREF.exit.thread, %12, %9, %7
-  %.020 = phi ptr [ null, %9 ], [ null, %12 ], [ null, %Py_DECREF.exit.thread ], [ null, %7 ], [ %39, %return_self.exit.i.i ], [ %57, %return_self.exit58.i.i ], [ %48, %return_self.exit54.i.i ], [ null, %65 ], [ null, %116 ], [ null, %143 ], [ null, %294 ], [ %179, %198 ], [ null, %257 ], [ null, %63 ], [ %68, %.loopexit.i.i.i ], [ %115, %return_self.exit.i.i.i ], [ %118, %split.i.i.i ], [ %142, %return_self.exit.i71.i.i ], [ %146, %._crit_edge.i69.i.i ], [ %177, %return_self.exit.i80.i.i ], [ null, %178 ], [ %179, %PyByteArray_AS_STRING.exit40.i.i.i ], [ %297, %split.i118.i.i ], [ %211, %return_self.exit.i91.i.i ], [ null, %212 ], [ %213, %PyByteArray_AS_STRING.exit47.i.i.i ], [ null, %292 ], [ %249, %return_self.exit.i106.i.i ], [ null, %255 ], [ %260, %split.i104.i.i ], [ %286, %return_self.exit.i124.i.i ], [ %179, %193 ], [ %213, %.lr.ph.i88.i.i ], [ %213, %228 ]
+  %.020 = phi ptr [ null, %9 ], [ null, %12 ], [ null, %Py_DECREF.exit.thread ], [ null, %7 ], [ %39, %return_self.exit.i.i ], [ %57, %return_self.exit58.i.i ], [ %48, %return_self.exit54.i.i ], [ null, %65 ], [ null, %116 ], [ null, %143 ], [ %297, %split.i118.i.i ], [ null, %292 ], [ null, %257 ], [ null, %63 ], [ %68, %.loopexit.i.i.i ], [ %115, %return_self.exit.i.i.i ], [ %118, %split.i.i.i ], [ %142, %return_self.exit.i71.i.i ], [ %146, %._crit_edge.i69.i.i ], [ %177, %return_self.exit.i80.i.i ], [ null, %178 ], [ %179, %PyByteArray_AS_STRING.exit40.i.i.i ], [ null, %294 ], [ %211, %return_self.exit.i91.i.i ], [ null, %212 ], [ %213, %PyByteArray_AS_STRING.exit47.i.i.i ], [ %179, %198 ], [ %249, %return_self.exit.i106.i.i ], [ null, %255 ], [ %260, %split.i104.i.i ], [ %286, %return_self.exit.i124.i.i ], [ %179, %193 ], [ %213, %.lr.ph.i88.i.i ], [ %213, %228 ]
   %316 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %317 = load ptr, ptr %316, align 8, !tbaa !146
   %.not26 = icmp eq ptr %317, null
@@ -9298,8 +9298,8 @@ Py_DECREF.exit65.i.i:                             ; preds = %283, %280, %279, %2
   br i1 %or.cond.i.i, label %fastsearch.exit.thread.i.i, label %.lr.ph.split.i.i, !llvm.loop !174
 
 fastsearch.exit.thread.i.i:                       ; preds = %Py_DECREF.exit65.i.i, %fastsearch.exit.loopexit.i.i, %.preheader56.i.i.i.i, %246, %225, %.lr.ph.i23.i, %.preheader.i22.i
-  %.05316.i.i = phi i64 [ %.05337.i.i, %246 ], [ %.val.i, %.lr.ph.i23.i ], [ %.val.i, %.preheader.i22.i ], [ %.05337.i.i, %225 ], [ %.05337.i.i, %.preheader56.i.i.i.i ], [ %.05337.i.i, %fastsearch.exit.loopexit.i.i ], [ %.15065.us.i.i.i.i, %Py_DECREF.exit65.i.i ]
-  %.05111.i.i = phi i64 [ %.05138.i.i, %246 ], [ 0, %.lr.ph.i23.i ], [ 0, %.preheader.i22.i ], [ %.05138.i.i, %225 ], [ %.05138.i.i, %.preheader56.i.i.i.i ], [ %.05138.i.i, %fastsearch.exit.loopexit.i.i ], [ %284, %Py_DECREF.exit65.i.i ]
+  %.05316.i.i = phi i64 [ %.val.i, %.preheader.i22.i ], [ %.val.i, %.lr.ph.i23.i ], [ %.05337.i.i, %246 ], [ %.05337.i.i, %225 ], [ %.05337.i.i, %.preheader56.i.i.i.i ], [ %.15065.us.i.i.i.i, %Py_DECREF.exit65.i.i ], [ %.05337.i.i, %fastsearch.exit.loopexit.i.i ]
+  %.05111.i.i = phi i64 [ 0, %.preheader.i22.i ], [ 0, %.lr.ph.i23.i ], [ %.05138.i.i, %246 ], [ %.05138.i.i, %225 ], [ %.05138.i.i, %.preheader56.i.i.i.i ], [ %284, %Py_DECREF.exit65.i.i ], [ %.05138.i.i, %fastsearch.exit.loopexit.i.i ]
   %287 = call ptr @PyByteArray_FromStringAndSize(ptr noundef readonly %.0.i.i, i64 noundef %.05316.i.i)
   %288 = icmp eq ptr %287, null
   br i1 %288, label %Py_DECREF.exit67.i.i, label %289
@@ -12329,7 +12329,7 @@ define internal fastcc i64 @stringlib__two_way(ptr noundef %0, i64 noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %.backedge, %.preheader180, %58, %.preheader175, %.thread167.us231, %.preheader175.us215, %104, %.preheader175.us, %.preheader182, %71, %.preheader177._crit_edge, %.thread170
-  %.4 = phi i64 [ -1, %.thread167.us231 ], [ -1, %.preheader175 ], [ -1, %71 ], [ %139, %.thread170 ], [ %70, %.preheader177._crit_edge ], [ -1, %104 ], [ -1, %.preheader182 ], [ -1, %58 ], [ -1, %.preheader175.us ], [ -1, %.preheader175.us215 ], [ -1, %.preheader180 ], [ -1, %.backedge ]
+  %.4 = phi i64 [ -1, %.thread167.us231 ], [ -1, %58 ], [ -1, %71 ], [ %139, %.thread170 ], [ %70, %.preheader177._crit_edge ], [ -1, %.preheader175 ], [ -1, %.preheader182 ], [ -1, %104 ], [ -1, %.preheader175.us ], [ -1, %.preheader175.us215 ], [ -1, %.preheader180 ], [ -1, %.backedge ]
   ret i64 %.4
 }
 

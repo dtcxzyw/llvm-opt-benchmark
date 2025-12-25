@@ -286,13 +286,13 @@ define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %.thread, %.critedge.sink.split, %.loopexit282.split.us, %26
-  %.3243 = phi i8 [ 1, %.critedge.sink.split ], [ %.1241, %.loopexit282.split.us ], [ %16, %26 ], [ %.1241, %.thread ], [ %.1241, %31 ]
-  %.3231 = phi i8 [ %.3231.ph, %.critedge.sink.split ], [ 0, %.loopexit282.split.us ], [ %18, %26 ], [ 0, %.thread ], [ 0, %31 ]
-  %.3221 = phi i8 [ %.8226388.us, %.critedge.sink.split ], [ %.1219, %.loopexit282.split.us ], [ %24, %26 ], [ %.1219, %.thread ], [ %.1219, %31 ]
-  %.3212 = phi i8 [ %.8217, %.critedge.sink.split ], [ %.1210, %.loopexit282.split.us ], [ %20, %26 ], [ %.1210, %.thread ], [ %.1210, %31 ]
-  %.3203 = phi i8 [ %.3203.ph, %.critedge.sink.split ], [ %.1201, %.loopexit282.split.us ], [ %22, %26 ], [ %.1201, %.thread ], [ %.1201, %31 ]
-  %.7197 = phi ptr [ %.12, %.critedge.sink.split ], [ %.1191, %.loopexit282.split.us ], [ %12, %26 ], [ %.2192418, %31 ], [ %.3193, %.thread ]
-  %.4 = phi ptr [ %187, %.critedge.sink.split ], [ %.1, %.loopexit282.split.us ], [ %8, %26 ], [ %.2419, %31 ], [ %35, %.thread ]
+  %.3243 = phi i8 [ %.1241, %.loopexit282.split.us ], [ 1, %.critedge.sink.split ], [ %16, %26 ], [ %.1241, %.thread ], [ %.1241, %31 ]
+  %.3231 = phi i8 [ 0, %.loopexit282.split.us ], [ %.3231.ph, %.critedge.sink.split ], [ %18, %26 ], [ 0, %.thread ], [ 0, %31 ]
+  %.3221 = phi i8 [ %.1219, %.loopexit282.split.us ], [ %.8226388.us, %.critedge.sink.split ], [ %24, %26 ], [ %.1219, %.thread ], [ %.1219, %31 ]
+  %.3212 = phi i8 [ %.1210, %.loopexit282.split.us ], [ %.8217, %.critedge.sink.split ], [ %20, %26 ], [ %.1210, %.thread ], [ %.1210, %31 ]
+  %.3203 = phi i8 [ %.1201, %.loopexit282.split.us ], [ %.3203.ph, %.critedge.sink.split ], [ %22, %26 ], [ %.1201, %.thread ], [ %.1201, %31 ]
+  %.7197 = phi ptr [ %.1191, %.loopexit282.split.us ], [ %.12, %.critedge.sink.split ], [ %12, %26 ], [ %.2192418, %31 ], [ %.3193, %.thread ]
+  %.4 = phi ptr [ %.1, %.loopexit282.split.us ], [ %187, %.critedge.sink.split ], [ %8, %26 ], [ %.2419, %31 ], [ %35, %.thread ]
   %65 = icmp ult ptr %.4, %10
   br i1 %65, label %.lr.ph431, label %.loopexit
 
@@ -868,16 +868,16 @@ define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP1
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.thread, %.critedge.sink.split, %.loopexit386.split.us, %27
-  %.8329 = phi ptr [ %.1322, %.loopexit386.split.us ], [ %.16, %.critedge.sink.split ], [ %16, %27 ], [ %.3324, %.thread ], [ %.2323551, %32 ]
+  %.8329 = phi ptr [ %.1322, %.loopexit386.split.us ], [ %.16, %.critedge.sink.split ], [ %16, %27 ], [ %.2323551, %32 ], [ %.3324, %.thread ]
   %.3318 = phi i8 [ %.1316, %.loopexit386.split.us ], [ 1, %.critedge.sink.split ], [ %18, %27 ], [ %.1316, %.thread ], [ %.1316, %32 ]
   %.3306 = phi i8 [ 0, %.loopexit386.split.us ], [ %.3306.ph, %.critedge.sink.split ], [ %20, %27 ], [ 0, %.thread ], [ 0, %32 ]
   %.3296 = phi i8 [ %.1294, %.loopexit386.split.us ], [ %.8301516.us, %.critedge.sink.split ], [ %26, %27 ], [ %.1294, %.thread ], [ %.1294, %32 ]
   %.3287 = phi i8 [ %.1285, %.loopexit386.split.us ], [ %.8292, %.critedge.sink.split ], [ %22, %27 ], [ %.1285, %.thread ], [ %.1285, %32 ]
   %.3278 = phi i8 [ %.1276, %.loopexit386.split.us ], [ %.3278.ph, %.critedge.sink.split ], [ %24, %27 ], [ %.1276, %.thread ], [ %.1276, %32 ]
-  %.3271 = phi i32 [ %.1269, %.loopexit386.split.us ], [ %.5273, %.critedge.sink.split ], [ -1, %27 ], [ %37, %.thread ], [ %.2270552, %32 ]
-  %.3262 = phi i32 [ %.1269, %.loopexit386.split.us ], [ %226, %.critedge.sink.split ], [ 0, %27 ], [ %37, %.thread ], [ %.2270552, %32 ]
-  %.7256 = phi ptr [ %.1250, %.loopexit386.split.us ], [ %.12, %.critedge.sink.split ], [ %12, %27 ], [ %.3252, %.thread ], [ %.2251553, %32 ]
-  %.4 = phi ptr [ %.1, %.loopexit386.split.us ], [ %224, %.critedge.sink.split ], [ %8, %27 ], [ %36, %.thread ], [ %.2554, %32 ]
+  %.3271 = phi i32 [ %.1269, %.loopexit386.split.us ], [ %.5273, %.critedge.sink.split ], [ -1, %27 ], [ %.2270552, %32 ], [ %37, %.thread ]
+  %.3262 = phi i32 [ %.1269, %.loopexit386.split.us ], [ %226, %.critedge.sink.split ], [ 0, %27 ], [ %.2270552, %32 ], [ %37, %.thread ]
+  %.7256 = phi ptr [ %.1250, %.loopexit386.split.us ], [ %.12, %.critedge.sink.split ], [ %12, %27 ], [ %.2251553, %32 ], [ %.3252, %.thread ]
+  %.4 = phi ptr [ %.1, %.loopexit386.split.us ], [ %224, %.critedge.sink.split ], [ %8, %27 ], [ %.2554, %32 ], [ %36, %.thread ]
   %80 = icmp ult ptr %.4, %10
   br i1 %80, label %.lr.ph571, label %.loopexit
 

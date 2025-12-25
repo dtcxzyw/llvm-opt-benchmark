@@ -614,9 +614,9 @@ skipspaces.exit108.i:                             ; preds = %140
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.backedge.i, %.loopexit.sink.split.i, %181, %.lr.ph135.i
-  %.184.i = phi i64 [ %108, %.loopexit.sink.split.i ], [ %.083132.i, %.lr.ph135.i ], [ %108, %181 ], [ %108, %.backedge.i ]
-  %.180.i = phi i64 [ %.382.i, %.loopexit.sink.split.i ], [ %.079133.i, %.lr.ph135.i ], [ %.382.i, %181 ], [ %.382.i, %.backedge.i ]
-  %.1.i = phi ptr [ %.2.i, %.loopexit.sink.split.i ], [ %.075134.i, %.lr.ph135.i ], [ %.2.i, %181 ], [ %.2.i, %.backedge.i ]
+  %.184.i = phi i64 [ %108, %181 ], [ %.083132.i, %.lr.ph135.i ], [ %108, %.loopexit.sink.split.i ], [ %108, %.backedge.i ]
+  %.180.i = phi i64 [ %.382.i, %181 ], [ %.079133.i, %.lr.ph135.i ], [ %.382.i, %.loopexit.sink.split.i ], [ %.382.i, %.backedge.i ]
+  %.1.i = phi ptr [ %.2.i, %181 ], [ %.075134.i, %.lr.ph135.i ], [ %.2.i, %.loopexit.sink.split.i ], [ %.2.i, %.backedge.i ]
   %205 = load ptr, ptr @stdin, align 8, !tbaa !25
   %206 = call i32 @strbuf_getline(ptr noundef nonnull %17, ptr noundef %205) #19
   %.not96.i = icmp eq i32 %206, -1

@@ -4123,7 +4123,7 @@ _ZL10lastL_R_ALP5UBiDi.exit.loopexit286:          ; preds = %ubidi_getCustomized
   br label %_ZL10lastL_R_ALP5UBiDi.exit
 
 _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomizedClass_77.exit.i, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit286, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit, %68, %46
-  %.0 = phi i8 [ %3, %46 ], [ %3, %68 ], [ %3, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit ], [ 1, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit286 ], [ 0, %ubidi_getCustomizedClass_77.exit.i ]
+  %.0 = phi i8 [ %3, %46 ], [ %3, %68 ], [ 1, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit286 ], [ %3, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit ], [ 0, %ubidi_getCustomizedClass_77.exit.i ]
   %112 = getelementptr inbounds i8, ptr %8, i64 %53
   %113 = load i8, ptr %112, align 1, !tbaa !59
   %114 = icmp eq i8 %113, 22

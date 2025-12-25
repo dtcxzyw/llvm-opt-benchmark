@@ -107,7 +107,7 @@ tonumeral.exit.sink.split:                        ; preds = %8, %10, %11, %12, %
   br label %tonumeral.exit
 
 tonumeral.exit:                                   ; preds = %tonumeral.exit.sink.split, %8, %28, %27, %3
-  %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 1, %28 ], [ 1, %27 ], [ 1, %tonumeral.exit.sink.split ]
+  %.0 = phi i32 [ 1, %28 ], [ 0, %3 ], [ 0, %8 ], [ 1, %27 ], [ 1, %tonumeral.exit.sink.split ]
   ret i32 %.0
 }
 

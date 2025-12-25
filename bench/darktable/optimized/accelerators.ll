@@ -9801,8 +9801,8 @@ _shortcut_is_speed.exit.thread:                   ; preds = %98, %101, %105, %10
   br label %195
 
 195:                                              ; preds = %184, %192, %179
-  %.3144 = phi ptr [ %.2143, %179 ], [ %194, %192 ], [ %.2143, %184 ]
-  %.4132 = phi i32 [ %.3131, %179 ], [ %.3131, %192 ], [ %190, %184 ]
+  %.3144 = phi ptr [ %.2143, %179 ], [ %.2143, %184 ], [ %194, %192 ]
+  %.4132 = phi i32 [ %.3131, %179 ], [ %190, %184 ], [ %.3131, %192 ]
   %196 = tail call i32 @g_sequence_iter_is_end(ptr noundef %49) #25
   %.not171 = icmp eq i32 %196, 0
   br i1 %.not171, label %197, label %.critedge6

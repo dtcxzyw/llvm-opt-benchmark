@@ -2144,8 +2144,8 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   ret void
 
 159:                                              ; preds = %.loopexit87, %.loopexit.split-lp88, %.loopexit85, %.loopexit.split-lp
-  %160 = phi ptr [ %158, %.loopexit.split-lp88 ], [ %17, %.loopexit.split-lp ], [ %155, %.loopexit87 ], [ %17, %.loopexit85 ]
-  %.pn49 = phi { ptr, i32 } [ %lpad.loopexit.split-lp90, %.loopexit.split-lp88 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit89, %.loopexit87 ], [ %lpad.loopexit, %.loopexit85 ]
+  %160 = phi ptr [ %155, %.loopexit87 ], [ %17, %.loopexit.split-lp ], [ %158, %.loopexit.split-lp88 ], [ %17, %.loopexit85 ]
+  %.pn49 = phi { ptr, i32 } [ %lpad.loopexit89, %.loopexit87 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp90, %.loopexit.split-lp88 ], [ %lpad.loopexit, %.loopexit85 ]
   %.not.i.i.i71 = icmp eq ptr %160, null
   br i1 %.not.i.i.i71, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit, label %161
 

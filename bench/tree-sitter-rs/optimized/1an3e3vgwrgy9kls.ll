@@ -15834,7 +15834,7 @@ define hidden noundef i64 @_ZN15tree_sitter_cli8generate3nfa12CharacterSet13add_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h548af11fd43cc3fdE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17he118142a201a4f27E.exit", %.loopexit.sink.split, %37
-  %.045 = phi i64 [ %.045.ph, %.loopexit.sink.split ], [ %.055, %37 ], [ %.055, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17he118142a201a4f27E.exit" ], [ %.055, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h548af11fd43cc3fdE.exit" ]
+  %.045 = phi i64 [ %.055, %37 ], [ %.045.ph, %.loopexit.sink.split ], [ %.055, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17he118142a201a4f27E.exit" ], [ %.055, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h548af11fd43cc3fdE.exit" ]
   ret i64 %.045
 
 23:                                               ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hc5aa8f13f1d9a52eE.llvm.13013766950239737229.exit"
@@ -22580,8 +22580,8 @@ _ZN15tree_sitter_cli8generate3nfa12CharacterSet6negate17hec108d611d451727E.exit1
   br i1 %212, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h548af11fd43cc3fdE.exit.i", label %_ZN15tree_sitter_cli8generate3nfa12CharacterSet13add_int_range17h4e58423f81986a60E.llvm.13013766950239737229.exit
 
 _ZN15tree_sitter_cli8generate3nfa12CharacterSet13add_int_range17h4e58423f81986a60E.llvm.13013766950239737229.exit: ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h548af11fd43cc3fdE.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17he118142a201a4f27E.exit.i114", %.loopexit.sink.split.i, %197
-  %213 = phi i64 [ %182, %.loopexit.sink.split.i ], [ %164, %197 ], [ %205, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h548af11fd43cc3fdE.exit.i" ], [ %211, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17he118142a201a4f27E.exit.i114" ]
-  %.045.i = phi i64 [ %.045.ph.i, %.loopexit.sink.split.i ], [ %.055.i, %197 ], [ %.055.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17he118142a201a4f27E.exit.i114" ], [ %.055.i, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h548af11fd43cc3fdE.exit.i" ]
+  %213 = phi i64 [ %164, %197 ], [ %182, %.loopexit.sink.split.i ], [ %205, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h548af11fd43cc3fdE.exit.i" ], [ %211, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17he118142a201a4f27E.exit.i114" ]
+  %.045.i = phi i64 [ %.055.i, %197 ], [ %.045.ph.i, %.loopexit.sink.split.i ], [ %.055.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17he118142a201a4f27E.exit.i114" ], [ %.055.i, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h548af11fd43cc3fdE.exit.i" ]
   %214 = icmp eq ptr %165, %161
   br i1 %214, label %._crit_edge, label %.lr.ph
 
@@ -24721,7 +24721,7 @@ _ZN3std4path4Path4join17ha272842609f60636E.exit456: ; preds = %306
   br label %.thread549
 
 347:                                              ; preds = %359, %360, %343, %361
-  %.0307.ph = phi i1 [ false, %361 ], [ false, %359 ], [ false, %360 ], [ true, %343 ]
+  %.0307.ph = phi i1 [ false, %360 ], [ false, %359 ], [ false, %361 ], [ true, %343 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread533
@@ -29061,7 +29061,7 @@ _ZN4core3str11validations15next_code_point17ha5afdba8b28ac17aE.exit.thread.i.i.i
   br label %.loopexit.i133
 
 "_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17ha0ccfa26ccd34522E.exit.thread.i": ; preds = %.thread.i.i.i.i, %529, %418, %375, %.backedge.sink.split.i.us.i, %.backedge.i.us.i, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split.i"
-  %.0116.i = phi i64 [ %.0.us.i, %.backedge.sink.split.i.us.i ], [ %.0156.i, %529 ], [ %.0.us.i, %418 ], [ %.0.us.i, %.backedge.i.us.i ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split.i" ], [ %.0.us.i, %375 ], [ %.0156.i, %.thread.i.i.i.i ]
+  %.0116.i = phi i64 [ %.0.us.i, %.backedge.sink.split.i.us.i ], [ %.0156.i, %529 ], [ %.0.us.i, %.backedge.i.us.i ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h78b00b8caf976411E.exit.split.i" ], [ %.0.us.i, %418 ], [ %.0.us.i, %375 ], [ %.0156.i, %.thread.i.i.i.i ]
   %543 = sub i64 %356, %.0116.i
   %544 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !6685, !noalias !6692, !noundef !9
   %545 = load i64, ptr %38, align 8, !alias.scope !6685, !noalias !6692, !noundef !9

@@ -460,7 +460,7 @@ define float @Nwk_NodeComputeArrival(ptr noundef readonly captures(none) %0, i32
   br i1 %exitcond139.not, label %.critedge.thread, label %110, !llvm.loop !46
 
 .critedge:                                        ; preds = %55, %.preheader101, %39, %.preheader
-  %.val90 = phi i32 [ %.val92, %39 ], [ %.val92, %.preheader101 ], [ %.val92, %55 ], [ %18, %.preheader ]
+  %.val90 = phi i32 [ %.val92, %.preheader101 ], [ %.val92, %39 ], [ %.val92, %55 ], [ %18, %.preheader ]
   %.val90.fr = freeze i32 %.val90
   %119 = icmp eq i32 %.val90.fr, 0
   br i1 %119, label %120, label %.critedge.thread
@@ -819,7 +819,7 @@ Nwk_ManWhereIsPin.exit:                           ; preds = %123, %76, %._crit_e
   br i1 %162, label %137, label %.critedge, !llvm.loop !51
 
 .critedge:                                        ; preds = %74, %132, %137, %155, %53, %43, %22, %24, %.preheader129, %.preheader127, %.preheader125, %.preheader, %10
-  %.081 = phi float [ %.val104, %10 ], [ %.8, %155 ], [ 1.000000e+09, %.preheader127 ], [ 1.000000e+09, %.preheader129 ], [ 1.000000e+09, %.preheader ], [ %.380142, %43 ], [ 1.000000e+09, %.preheader125 ], [ %.178, %24 ], [ %.077148, %22 ], [ %.4, %53 ], [ %.7136, %137 ], [ %.5132, %74 ], [ %.6, %132 ]
+  %.081 = phi float [ %.val104, %10 ], [ 1.000000e+09, %.preheader127 ], [ %.8, %155 ], [ 1.000000e+09, %.preheader129 ], [ 1.000000e+09, %.preheader ], [ %.380142, %43 ], [ 1.000000e+09, %.preheader125 ], [ %.178, %24 ], [ %.077148, %22 ], [ %.4, %53 ], [ %.7136, %137 ], [ %.5132, %74 ], [ %.6, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret float %.081
@@ -1102,7 +1102,7 @@ define float @Nwk_NodePropagateRequired(ptr noundef readonly captures(none) %0, 
   br label %.critedge, !llvm.loop !54
 
 .critedge:                                        ; preds = %96, %111, %39, %46, %24, %17, %.lr.ph, %..critedge.loopexit148_crit_edge153, %.lr.ph99, %..critedge.loopexit147_crit_edge159, %53, %.preheader, %32, %9
-  %.062 = phi float [ 0.000000e+00, %53 ], [ %11, %9 ], [ %35, %32 ], [ 0.000000e+00, %.preheader ], [ %35, %39 ], [ %11, %24 ], [ %117, %111 ], [ 0.000000e+00, %.lr.ph ], [ %101, %..critedge.loopexit148_crit_edge153 ], [ %117, %..critedge.loopexit147_crit_edge159 ], [ 0.000000e+00, %.lr.ph99 ], [ %11, %17 ], [ %35, %46 ], [ %101, %96 ]
+  %.062 = phi float [ %11, %9 ], [ 0.000000e+00, %53 ], [ %35, %32 ], [ 0.000000e+00, %.preheader ], [ %101, %..critedge.loopexit148_crit_edge153 ], [ 0.000000e+00, %.lr.ph ], [ %11, %24 ], [ %35, %39 ], [ %117, %111 ], [ 0.000000e+00, %.lr.ph99 ], [ %117, %..critedge.loopexit147_crit_edge159 ], [ %11, %17 ], [ %35, %46 ], [ %101, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret float %.062

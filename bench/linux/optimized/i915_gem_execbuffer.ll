@@ -1954,7 +1954,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
   br label %.thread43
 
 .thread43:                                        ; preds = %168, %65, %115, %117, %.thread41, %.loopexit, %118, %.thread35
-  %.ph55 = phi ptr [ %110, %115 ], [ %35, %.thread35 ], [ %110, %118 ], [ %35, %65 ], [ %108, %.thread41 ], [ %173, %.loopexit ], [ %110, %117 ], [ %110, %168 ]
+  %.ph55 = phi ptr [ %110, %115 ], [ %35, %.thread35 ], [ %110, %118 ], [ %35, %65 ], [ %173, %.loopexit ], [ %108, %.thread41 ], [ %110, %117 ], [ %110, %168 ]
   %174 = icmp ugt ptr %.ph55, inttoptr (i64 -4096 to ptr)
   br i1 %174, label %.thread58.loopexit, label %177
 

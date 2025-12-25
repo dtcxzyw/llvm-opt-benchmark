@@ -1002,7 +1002,7 @@ for.end467.i:                                     ; preds = %for.inc465.i, %for.
   br label %_ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIcEEPFiPKcmPvNS0_18WriteFunctionStateEEcEEiT0_S8_PKT1_P13__va_list_tag.exit
 
 _ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIcEEPFiPKcmPvNS0_18WriteFunctionStateEEcEEiT0_S8_PKT1_P13__va_list_tag.exit: ; preds = %if.else.i, %if.end38.i, %if.then61.i, %for.body119.i, %if.then347.i, %sw.epilog431.i, %if.else452.i, %for.body443.i, %for.end467.i
-  %retval.0.i = phi i32 [ -1, %for.body119.i ], [ %nWriteCountSum.0.lcssa.i, %for.end467.i ], [ -1, %if.then347.i ], [ -1, %for.body443.i ], [ -1, %if.else452.i ], [ -1, %sw.epilog431.i ], [ -1, %if.then61.i ], [ -1, %if.end38.i ], [ -1, %if.else.i ]
+  %retval.0.i = phi i32 [ %nWriteCountSum.0.lcssa.i, %for.end467.i ], [ -1, %if.then347.i ], [ -1, %for.body119.i ], [ -1, %for.body443.i ], [ -1, %if.else452.i ], [ -1, %sw.epilog431.i ], [ -1, %if.then61.i ], [ -1, %if.end38.i ], [ -1, %if.else.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %arguments.addr.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %spans.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %spanArgOrder.i)
@@ -2205,7 +2205,7 @@ for.end468.i:                                     ; preds = %for.inc466.i, %for.
   br label %_ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIDsEEPFiPKDsmPvNS0_18WriteFunctionStateEEDsEEiT0_S8_PKT1_P13__va_list_tag.exit
 
 _ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIDsEEPFiPKDsmPvNS0_18WriteFunctionStateEEDsEEiT0_S8_PKT1_P13__va_list_tag.exit: ; preds = %if.else.i, %if.end38.i, %if.then61.i, %for.body119.i, %if.then347.i, %sw.epilog431.i, %if.else452.i, %for.body443.i, %for.end468.i
-  %retval.0.i = phi i32 [ -1, %for.body119.i ], [ %nWriteCountSum.0.lcssa.i, %for.end468.i ], [ -1, %if.then347.i ], [ -1, %for.body443.i ], [ -1, %if.else452.i ], [ -1, %sw.epilog431.i ], [ -1, %if.then61.i ], [ -1, %if.end38.i ], [ -1, %if.else.i ]
+  %retval.0.i = phi i32 [ %nWriteCountSum.0.lcssa.i, %for.end468.i ], [ -1, %if.then347.i ], [ -1, %for.body119.i ], [ -1, %for.body443.i ], [ -1, %if.else452.i ], [ -1, %sw.epilog431.i ], [ -1, %if.then61.i ], [ -1, %if.end38.i ], [ -1, %if.else.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %arguments.addr.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %spans.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %spanArgOrder.i)
@@ -3403,7 +3403,7 @@ for.end459.i:                                     ; preds = %for.inc457.i, %for.
   br label %_ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIDiEEPFiPKDimPvNS0_18WriteFunctionStateEEDiEEiT0_S8_PKT1_P13__va_list_tag.exit
 
 _ZN2EA4StdC12SprintfLocal8InternalL12OVprintfCoreINS1_4SpanIDiEEPFiPKDimPvNS0_18WriteFunctionStateEEDiEEiT0_S8_PKT1_P13__va_list_tag.exit: ; preds = %if.else.i, %if.end34.i, %if.then56.i, %for.body113.i, %if.then338.i, %sw.epilog422.i, %if.else443.i, %for.body434.i, %for.end459.i
-  %retval.0.i = phi i32 [ -1, %for.body113.i ], [ %nWriteCountSum.0.lcssa.i, %for.end459.i ], [ -1, %if.then338.i ], [ -1, %for.body434.i ], [ -1, %if.else443.i ], [ -1, %sw.epilog422.i ], [ -1, %if.then56.i ], [ -1, %if.end34.i ], [ -1, %if.else.i ]
+  %retval.0.i = phi i32 [ %nWriteCountSum.0.lcssa.i, %for.end459.i ], [ -1, %if.then338.i ], [ -1, %for.body113.i ], [ -1, %for.body434.i ], [ -1, %if.else443.i ], [ -1, %sw.epilog422.i ], [ -1, %if.then56.i ], [ -1, %if.end34.i ], [ -1, %if.else.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %arguments.addr.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %spans.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %spanArgOrder.i)

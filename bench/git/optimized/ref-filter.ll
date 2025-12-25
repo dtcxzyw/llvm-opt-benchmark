@@ -4810,7 +4810,7 @@ err_bad_arg.exit:                                 ; preds = %.loopexit, %132
   br i1 %.not13, label %.thread41, label %.lr.ph119
 
 .thread41:                                        ; preds = %.thread36, %.lr.ph.preheader, %4, %_.exit58.i, %_.exit47.i, %err_bad_arg.exit, %describe_atom_option_parser.exit.thread31
-  %.2 = phi i32 [ -1, %_.exit58.i ], [ -1, %_.exit47.i ], [ -1, %describe_atom_option_parser.exit.thread31 ], [ -1, %err_bad_arg.exit ], [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ 0, %.thread36 ]
+  %.2 = phi i32 [ -1, %_.exit47.i ], [ -1, %_.exit58.i ], [ -1, %describe_atom_option_parser.exit.thread31 ], [ -1, %err_bad_arg.exit ], [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ 0, %.thread36 ]
   ret i32 %.2
 }
 

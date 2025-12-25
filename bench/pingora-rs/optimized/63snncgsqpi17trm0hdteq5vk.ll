@@ -8047,7 +8047,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h9470e8526edcced8E.exit.i: ;
           to label %256 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !260
 
 .thread92.i:                                      ; preds = %260, %259, %258
-  %.sroa.026.5.ph.ph.i = phi i1 [ false, %260 ], [ true, %258 ], [ false, %259 ]
+  %.sroa.026.5.ph.ph.i = phi i1 [ false, %259 ], [ true, %258 ], [ false, %260 ]
   %lpad.thr_comm86.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread78.thread.i
@@ -8388,8 +8388,8 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h9470e8526edcced8E.exit.i: ;
   br label %.thread450.i.i
 
 363:                                              ; preds = %431, %430, %._crit_edge874.i.i
-  %.sroa.0191.11.ph.i.i = phi i8 [ 1, %430 ], [ 0, %431 ], [ 1, %._crit_edge874.i.i ]
-  %.sroa.0190.10.ph.i.i = phi i8 [ 0, %430 ], [ 0, %431 ], [ 1, %._crit_edge874.i.i ]
+  %.sroa.0191.11.ph.i.i = phi i8 [ 1, %._crit_edge874.i.i ], [ 0, %431 ], [ 1, %430 ]
+  %.sroa.0190.10.ph.i.i = phi i8 [ 1, %._crit_edge874.i.i ], [ 0, %431 ], [ 0, %430 ]
   %lpad.thr_comm.split-lp464.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread437.i.i
@@ -9170,9 +9170,9 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h196f578f145a4e42E.exit2
   br label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %715, %713, %705, %682, %.lr.ph.i111._crit_edge.i, %.lr.ph810.i.i, %657, %655, %650, %640, %.lr.ph817.i.i, %628, %623, %693, %.lr.ph.i, %.invoke.i.loopexit1002.split.loop.exit1157.i
-  %637 = phi i64 [ 64, %.lr.ph817.i.i ], [ %626, %623 ], [ %umax.le.i, %.invoke.i.loopexit1002.split.loop.exit1157.i ], [ %.sroa.041.0808.i.i, %.lr.ph.i ], [ %.sroa.041.0808.i.i, %682 ], [ %.sroa.0103.4802.i520.i, %693 ], [ %629, %628 ], [ %643, %640 ], [ %643, %650 ], [ %.sroa.034.1814.i.i, %655 ], [ %662, %657 ], [ %.sroa.041.0808.i.i, %.lr.ph810.i.i ], [ %.sroa.041.0808.i.i, %.lr.ph.i111._crit_edge.i ], [ %.sroa.0.0799.i.i, %705 ], [ %711, %715 ], [ %.sroa.0136.0798.i.i, %713 ]
-  %638 = phi i64 [ 64, %.lr.ph817.i.i ], [ 64, %623 ], [ %271, %.invoke.i.loopexit1002.split.loop.exit1157.i ], [ %.val324.i.i, %.lr.ph.i ], [ %.val406.i.i, %.lr.ph.i111._crit_edge.i ], [ %136, %693 ], [ %263, %628 ], [ %.val408.i.i, %640 ], [ 64, %650 ], [ %.val340.i.i, %655 ], [ 64, %657 ], [ %.val330.i.i, %.lr.ph810.i.i ], [ %.val322.i.i, %682 ], [ %271, %705 ], [ %217, %715 ], [ %217, %713 ]
-  %639 = phi ptr [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.171, %.lr.ph817.i.i ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.169, %623 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.180, %.invoke.i.loopexit1002.split.loop.exit1157.i ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.186, %.lr.ph.i ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.181, %.lr.ph.i111._crit_edge.i ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.187, %693 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.170, %628 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.172, %640 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.175, %650 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.176, %655 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.178, %657 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.179, %.lr.ph810.i.i ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.182, %682 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.188, %705 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.190, %715 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.189, %713 ]
+  %637 = phi i64 [ 64, %.lr.ph817.i.i ], [ %.sroa.041.0808.i.i, %.lr.ph.i ], [ %626, %623 ], [ %umax.le.i, %.invoke.i.loopexit1002.split.loop.exit1157.i ], [ %.sroa.041.0808.i.i, %682 ], [ %.sroa.0103.4802.i520.i, %693 ], [ %629, %628 ], [ %643, %640 ], [ %643, %650 ], [ %.sroa.034.1814.i.i, %655 ], [ %662, %657 ], [ %.sroa.041.0808.i.i, %.lr.ph810.i.i ], [ %.sroa.041.0808.i.i, %.lr.ph.i111._crit_edge.i ], [ %.sroa.0136.0798.i.i, %713 ], [ %711, %715 ], [ %.sroa.0.0799.i.i, %705 ]
+  %638 = phi i64 [ 64, %.lr.ph817.i.i ], [ %.val324.i.i, %.lr.ph.i ], [ 64, %623 ], [ %271, %.invoke.i.loopexit1002.split.loop.exit1157.i ], [ %.val406.i.i, %.lr.ph.i111._crit_edge.i ], [ %136, %693 ], [ %263, %628 ], [ %.val408.i.i, %640 ], [ 64, %650 ], [ %.val340.i.i, %655 ], [ 64, %657 ], [ %.val330.i.i, %.lr.ph810.i.i ], [ %.val322.i.i, %682 ], [ %217, %713 ], [ %217, %715 ], [ %271, %705 ]
+  %639 = phi ptr [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.171, %.lr.ph817.i.i ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.186, %.lr.ph.i ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.169, %623 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.180, %.invoke.i.loopexit1002.split.loop.exit1157.i ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.181, %.lr.ph.i111._crit_edge.i ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.187, %693 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.170, %628 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.172, %640 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.175, %650 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.176, %655 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.178, %657 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.179, %.lr.ph810.i.i ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.182, %682 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.189, %713 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.190, %715 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.188, %705 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %637, i64 noundef %638, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %639) #18
           to label %.cont.i.i unwind label %.thread446.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !298
 
@@ -10588,7 +10588,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h8c3c9009db553577E.exit.i: ;
           to label %1138 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i140, !noalias !449
 
 .thread92.i270:                                   ; preds = %1142, %1141, %1140
-  %.sroa.026.5.ph.ph.i271 = phi i1 [ false, %1142 ], [ true, %1140 ], [ false, %1141 ]
+  %.sroa.026.5.ph.ph.i271 = phi i1 [ false, %1141 ], [ true, %1140 ], [ false, %1142 ]
   %lpad.thr_comm86.i272 = landingpad { ptr, i32 }
           cleanup
   br label %.thread78.thread.i77
@@ -10929,8 +10929,8 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h8c3c9009db553577E.exit.i: ;
   br label %.thread450.i.i402
 
 1245:                                             ; preds = %1313, %1312, %._crit_edge874.i.i462
-  %.sroa.0191.11.ph.i.i465 = phi i8 [ 1, %1312 ], [ 0, %1313 ], [ 1, %._crit_edge874.i.i462 ]
-  %.sroa.0190.10.ph.i.i466 = phi i8 [ 0, %1312 ], [ 0, %1313 ], [ 1, %._crit_edge874.i.i462 ]
+  %.sroa.0191.11.ph.i.i465 = phi i8 [ 1, %._crit_edge874.i.i462 ], [ 0, %1313 ], [ 1, %1312 ]
+  %.sroa.0190.10.ph.i.i466 = phi i8 [ 1, %._crit_edge874.i.i462 ], [ 0, %1313 ], [ 0, %1312 ]
   %lpad.thr_comm.split-lp464.i.i467 = landingpad { ptr, i32 }
           cleanup
   br label %.thread437.i.i379
@@ -11711,9 +11711,9 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h8e6f50bb6efdc9deE.exit2
   br label %.invoke.i.i295
 
 .invoke.i.i295:                                   ; preds = %1597, %1595, %1587, %1564, %.lr.ph.i111._crit_edge.i332, %.lr.ph810.i.i319, %1539, %1537, %1532, %1522, %.lr.ph817.i.i345, %1510, %1505, %1575, %.lr.ph.i326, %.invoke.i.loopexit1002.split.loop.exit1157.i322
-  %1519 = phi i64 [ 64, %.lr.ph817.i.i345 ], [ %1508, %1505 ], [ %umax.le.i323, %.invoke.i.loopexit1002.split.loop.exit1157.i322 ], [ %.sroa.041.0808.i.i320, %.lr.ph.i326 ], [ %.sroa.041.0808.i.i320, %1564 ], [ %.sroa.0103.4802.i520.i327, %1575 ], [ %1511, %1510 ], [ %1525, %1522 ], [ %1525, %1532 ], [ %.sroa.034.1814.i.i347, %1537 ], [ %1544, %1539 ], [ %.sroa.041.0808.i.i320, %.lr.ph810.i.i319 ], [ %.sroa.041.0808.i.i320, %.lr.ph.i111._crit_edge.i332 ], [ %.sroa.0.0799.i.i293, %1587 ], [ %1593, %1597 ], [ %.sroa.0136.0798.i.i294, %1595 ]
-  %1520 = phi i64 [ 64, %.lr.ph817.i.i345 ], [ 64, %1505 ], [ %1153, %.invoke.i.loopexit1002.split.loop.exit1157.i322 ], [ %.val390.i.i, %.lr.ph.i326 ], [ %.val406.i.i334, %.lr.ph.i111._crit_edge.i332 ], [ %1020, %1575 ], [ %1145, %1510 ], [ %.val408.i.i351, %1522 ], [ 64, %1532 ], [ %.val322.i.i352, %1537 ], [ 64, %1539 ], [ %.val396.i.i, %.lr.ph810.i.i319 ], [ %.val388.i.i, %1564 ], [ %1153, %1587 ], [ %1099, %1597 ], [ %1099, %1595 ]
-  %1521 = phi ptr [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.171, %.lr.ph817.i.i345 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.169, %1505 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.180, %.invoke.i.loopexit1002.split.loop.exit1157.i322 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.186, %.lr.ph.i326 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.181, %.lr.ph.i111._crit_edge.i332 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.187, %1575 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.170, %1510 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.172, %1522 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.175, %1532 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.176, %1537 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.178, %1539 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.179, %.lr.ph810.i.i319 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.182, %1564 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.188, %1587 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.190, %1597 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.189, %1595 ]
+  %1519 = phi i64 [ 64, %.lr.ph817.i.i345 ], [ %.sroa.041.0808.i.i320, %.lr.ph.i326 ], [ %1508, %1505 ], [ %umax.le.i323, %.invoke.i.loopexit1002.split.loop.exit1157.i322 ], [ %.sroa.041.0808.i.i320, %1564 ], [ %.sroa.0103.4802.i520.i327, %1575 ], [ %1511, %1510 ], [ %1525, %1522 ], [ %1525, %1532 ], [ %.sroa.034.1814.i.i347, %1537 ], [ %1544, %1539 ], [ %.sroa.041.0808.i.i320, %.lr.ph810.i.i319 ], [ %.sroa.041.0808.i.i320, %.lr.ph.i111._crit_edge.i332 ], [ %.sroa.0136.0798.i.i294, %1595 ], [ %1593, %1597 ], [ %.sroa.0.0799.i.i293, %1587 ]
+  %1520 = phi i64 [ 64, %.lr.ph817.i.i345 ], [ %.val390.i.i, %.lr.ph.i326 ], [ 64, %1505 ], [ %1153, %.invoke.i.loopexit1002.split.loop.exit1157.i322 ], [ %.val406.i.i334, %.lr.ph.i111._crit_edge.i332 ], [ %1020, %1575 ], [ %1145, %1510 ], [ %.val408.i.i351, %1522 ], [ 64, %1532 ], [ %.val322.i.i352, %1537 ], [ 64, %1539 ], [ %.val396.i.i, %.lr.ph810.i.i319 ], [ %.val388.i.i, %1564 ], [ %1099, %1595 ], [ %1099, %1597 ], [ %1153, %1587 ]
+  %1521 = phi ptr [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.171, %.lr.ph817.i.i345 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.186, %.lr.ph.i326 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.169, %1505 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.180, %.invoke.i.loopexit1002.split.loop.exit1157.i322 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.181, %.lr.ph.i111._crit_edge.i332 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.187, %1575 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.170, %1510 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.172, %1522 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.175, %1532 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.176, %1537 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.178, %1539 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.179, %.lr.ph810.i.i319 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.182, %1564 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.189, %1595 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.190, %1597 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.188, %1587 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %1519, i64 noundef %1520, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1521) #18
           to label %.cont.i.i302 unwind label %.thread446.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i296, !noalias !487
 
@@ -13124,7 +13124,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h3573ab36b94fb891E.exit.i: ;
           to label %2017 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i630, !noalias !637
 
 .thread92.i761:                                   ; preds = %2021, %2020, %2019
-  %.sroa.026.5.ph.ph.i762 = phi i1 [ false, %2021 ], [ true, %2019 ], [ false, %2020 ]
+  %.sroa.026.5.ph.ph.i762 = phi i1 [ false, %2020 ], [ true, %2019 ], [ false, %2021 ]
   %lpad.thr_comm86.i763 = landingpad { ptr, i32 }
           cleanup
   br label %.thread78.thread.i567
@@ -13465,8 +13465,8 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h3573ab36b94fb891E.exit.i: ;
   br label %.thread450.i.i911
 
 2124:                                             ; preds = %2192, %2191, %._crit_edge874.i.i981
-  %.sroa.0191.11.ph.i.i984 = phi i8 [ 1, %2191 ], [ 0, %2192 ], [ 1, %._crit_edge874.i.i981 ]
-  %.sroa.0190.10.ph.i.i985 = phi i8 [ 0, %2191 ], [ 0, %2192 ], [ 1, %._crit_edge874.i.i981 ]
+  %.sroa.0191.11.ph.i.i984 = phi i8 [ 1, %._crit_edge874.i.i981 ], [ 0, %2192 ], [ 1, %2191 ]
+  %.sroa.0190.10.ph.i.i985 = phi i8 [ 1, %._crit_edge874.i.i981 ], [ 0, %2192 ], [ 0, %2191 ]
   %lpad.thr_comm.split-lp464.i.i986 = landingpad { ptr, i32 }
           cleanup
   br label %.thread437.i.i888
@@ -14247,9 +14247,9 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hbd5292ca2d7f4f70E.exit2
   br label %.invoke.i.i786
 
 .invoke.i.i786:                                   ; preds = %2476, %2474, %2466, %2443, %.lr.ph.i111._crit_edge.i827, %.lr.ph810.i.i810, %2418, %2416, %2411, %2401, %.lr.ph817.i.i846, %2389, %2384, %2454, %.lr.ph.i819, %.invoke.i.loopexit1002.split.loop.exit1157.i815
-  %2398 = phi i64 [ 64, %.lr.ph817.i.i846 ], [ %2387, %2384 ], [ %umax.le.i816, %.invoke.i.loopexit1002.split.loop.exit1157.i815 ], [ %.sroa.041.0808.i.i811, %.lr.ph.i819 ], [ %.sroa.041.0808.i.i811, %2443 ], [ %.sroa.0103.4802.i520.i820, %2454 ], [ %2390, %2389 ], [ %2404, %2401 ], [ %2404, %2411 ], [ %.sroa.034.1814.i.i848, %2416 ], [ %2423, %2418 ], [ %.sroa.041.0808.i.i811, %.lr.ph810.i.i810 ], [ %.sroa.041.0808.i.i811, %.lr.ph.i111._crit_edge.i827 ], [ %.sroa.0.0799.i.i784, %2466 ], [ %2472, %2476 ], [ %.sroa.0136.0798.i.i785, %2474 ]
-  %2399 = phi i64 [ 64, %.lr.ph817.i.i846 ], [ 64, %2384 ], [ %2032, %.invoke.i.loopexit1002.split.loop.exit1157.i815 ], [ %.val390.i.i822, %.lr.ph.i819 ], [ %.val406.i.i829, %.lr.ph.i111._crit_edge.i827 ], [ %1900, %2454 ], [ %2024, %2389 ], [ %.val408.i.i852, %2401 ], [ 64, %2411 ], [ %.val322.i.i855, %2416 ], [ 64, %2418 ], [ %.val396.i.i813, %.lr.ph810.i.i810 ], [ %.val388.i.i833, %2443 ], [ %2032, %2466 ], [ %1978, %2476 ], [ %1978, %2474 ]
-  %2400 = phi ptr [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.171, %.lr.ph817.i.i846 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.169, %2384 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.180, %.invoke.i.loopexit1002.split.loop.exit1157.i815 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.186, %.lr.ph.i819 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.181, %.lr.ph.i111._crit_edge.i827 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.187, %2454 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.170, %2389 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.172, %2401 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.175, %2411 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.176, %2416 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.178, %2418 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.179, %.lr.ph810.i.i810 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.182, %2443 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.188, %2466 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.190, %2476 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.189, %2474 ]
+  %2398 = phi i64 [ 64, %.lr.ph817.i.i846 ], [ %.sroa.041.0808.i.i811, %.lr.ph.i819 ], [ %2387, %2384 ], [ %umax.le.i816, %.invoke.i.loopexit1002.split.loop.exit1157.i815 ], [ %.sroa.041.0808.i.i811, %2443 ], [ %.sroa.0103.4802.i520.i820, %2454 ], [ %2390, %2389 ], [ %2404, %2401 ], [ %2404, %2411 ], [ %.sroa.034.1814.i.i848, %2416 ], [ %2423, %2418 ], [ %.sroa.041.0808.i.i811, %.lr.ph810.i.i810 ], [ %.sroa.041.0808.i.i811, %.lr.ph.i111._crit_edge.i827 ], [ %.sroa.0136.0798.i.i785, %2474 ], [ %2472, %2476 ], [ %.sroa.0.0799.i.i784, %2466 ]
+  %2399 = phi i64 [ 64, %.lr.ph817.i.i846 ], [ %.val390.i.i822, %.lr.ph.i819 ], [ 64, %2384 ], [ %2032, %.invoke.i.loopexit1002.split.loop.exit1157.i815 ], [ %.val406.i.i829, %.lr.ph.i111._crit_edge.i827 ], [ %1900, %2454 ], [ %2024, %2389 ], [ %.val408.i.i852, %2401 ], [ 64, %2411 ], [ %.val322.i.i855, %2416 ], [ 64, %2418 ], [ %.val396.i.i813, %.lr.ph810.i.i810 ], [ %.val388.i.i833, %2443 ], [ %1978, %2474 ], [ %1978, %2476 ], [ %2032, %2466 ]
+  %2400 = phi ptr [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.171, %.lr.ph817.i.i846 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.186, %.lr.ph.i819 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.169, %2384 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.180, %.invoke.i.loopexit1002.split.loop.exit1157.i815 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.181, %.lr.ph.i111._crit_edge.i827 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.187, %2454 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.170, %2389 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.172, %2401 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.175, %2411 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.176, %2416 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.178, %2418 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.179, %.lr.ph810.i.i810 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.182, %2443 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.189, %2474 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.190, %2476 ], [ @anon.14565fd8bf24fc52b307f6d9f637eb2a.188, %2466 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %2398, i64 noundef %2399, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2400) #18
           to label %.cont.i.i793 unwind label %.thread446.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i787, !noalias !675
 

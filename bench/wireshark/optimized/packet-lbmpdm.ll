@@ -1076,7 +1076,7 @@ dissect_segment_data.exit.sink.split:             ; preds = %112, %127, %417
   br label %dissect_segment_data.exit
 
 dissect_segment_data.exit:                        ; preds = %410, %220, %153, %dissect_segment_data.exit.sink.split, %297, %.preheader.i92, %.preheader.i
-  %.sroa.10101.1 = phi ptr [ %.sroa.10101.0107, %153 ], [ %204, %220 ], [ %.sroa.10101.0107, %dissect_segment_data.exit.sink.split ], [ %.sroa.10101.0107, %297 ], [ %.sroa.10101.0107, %.preheader.i ], [ %204, %.preheader.i92 ], [ %.sroa.10101.0107, %410 ]
+  %.sroa.10101.1 = phi ptr [ %.sroa.10101.0107, %297 ], [ %204, %220 ], [ %.sroa.10101.0107, %dissect_segment_data.exit.sink.split ], [ %.sroa.10101.0107, %153 ], [ %.sroa.10101.0107, %.preheader.i ], [ %204, %.preheader.i92 ], [ %.sroa.10101.0107, %410 ]
   %435 = add i32 %111, %.1108
   %436 = sub i32 %.086109, %111
   %437 = add i32 %111, %.085110

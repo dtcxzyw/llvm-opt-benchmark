@@ -4863,7 +4863,7 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread46
 
 .thread46:                                        ; preds = %572, %.loopexit49, %517, %570, %497, %491, %485, %480, %588, %.loopexit50
-  %589 = phi i32 [ %580, %.loopexit50 ], [ %585, %588 ], [ -22, %517 ], [ -22, %480 ], [ -22, %485 ], [ -22, %570 ], [ -22, %497 ], [ -22, %491 ], [ -12, %.loopexit49 ], [ -12, %572 ]
+  %589 = phi i32 [ %580, %.loopexit50 ], [ %585, %588 ], [ -22, %517 ], [ -22, %485 ], [ -22, %480 ], [ -22, %570 ], [ -22, %497 ], [ -22, %491 ], [ -12, %.loopexit49 ], [ -12, %572 ]
   %590 = tail call ptr @rb_first(ptr noundef nonnull %462) #24
   %591 = icmp eq ptr %590, null
   br i1 %591, label %.loopexit, label %.preheader
@@ -7718,7 +7718,7 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %157, %103, %206, %.critedge71, %160, %152, %130, %93, %.preheader, %271, %.split96.us, %.thread77, %633, %629, %616, %611, %.thread79, %511, %508, %475, %464
-  %636 = phi i32 [ %.ph76, %.thread77 ], [ %.us-phi97, %.split96.us ], [ -12, %475 ], [ -12, %464 ], [ %509, %511 ], [ 0, %508 ], [ -12, %.thread79 ], [ %612, %611 ], [ %612, %616 ], [ %612, %629 ], [ %612, %633 ], [ %311, %.preheader ], [ 0, %271 ], [ -22, %93 ], [ -22, %130 ], [ -22, %152 ], [ -22, %160 ], [ -22, %.critedge71 ], [ -22, %206 ], [ -22, %103 ], [ -22, %157 ]
+  %636 = phi i32 [ %.ph76, %.thread77 ], [ %.us-phi97, %.split96.us ], [ -12, %475 ], [ -12, %464 ], [ %509, %511 ], [ 0, %508 ], [ -12, %.thread79 ], [ %612, %611 ], [ %612, %616 ], [ %612, %629 ], [ %612, %633 ], [ 0, %271 ], [ %311, %.preheader ], [ -22, %93 ], [ -22, %130 ], [ -22, %152 ], [ -22, %160 ], [ -22, %.critedge71 ], [ -22, %206 ], [ -22, %103 ], [ -22, %157 ]
   ret i32 %636
 }
 
@@ -9047,7 +9047,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   br label %.thread31
 
 .thread31:                                        ; preds = %70, %62, %41, %12, %107, %.loopexit, %.loopexit34, %95, %.split1, %100, %45, %8
-  %262 = phi i32 [ 0, %41 ], [ 0, %100 ], [ -22, %45 ], [ 0, %8 ], [ %261, %.loopexit ], [ -22, %107 ], [ %131, %.split1 ], [ %93, %95 ], [ -12, %.loopexit34 ], [ %19, %12 ], [ -22, %62 ], [ -22, %70 ]
+  %262 = phi i32 [ -12, %.loopexit34 ], [ 0, %100 ], [ -22, %45 ], [ 0, %8 ], [ %261, %.loopexit ], [ -22, %107 ], [ %131, %.split1 ], [ %93, %95 ], [ 0, %41 ], [ %19, %12 ], [ -22, %62 ], [ -22, %70 ]
   ret i32 %262
 }
 

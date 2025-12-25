@@ -1252,7 +1252,7 @@ append_tokens.exit.i:                             ; preds = %free_token.exit.i, 
   br label %handle_df.exit.thread.i
 
 handle_df.exit.thread.i:                          ; preds = %185, %183, %178, %175, %172, %.preheader.i90.i, %append_tokens.exit.i, %handle_df.exit.i, %378, %375, %371, %367, %365, %349, %347, %344, %340, %321, %318, %138
-  %.2236.i = phi i64 [ %.2.i, %handle_df.exit.i ], [ %.2.i, %append_tokens.exit.i ], [ %.072148.i, %365 ], [ %.072148.i, %318 ], [ %.072148.i, %367 ], [ %.072148.i, %321 ], [ %.072148.i, %340 ], [ %.072148.i, %344 ], [ %.1.i, %138 ], [ %.072148.i, %378 ], [ %.072148.i, %375 ], [ %.072148.i, %371 ], [ %.072148.i, %349 ], [ %.072148.i, %347 ], [ %.1.i, %.preheader.i90.i ], [ %.1.i, %172 ], [ %.1.i, %175 ], [ %.1.i, %178 ], [ %.1.i, %183 ], [ %.1.i, %185 ]
+  %.2236.i = phi i64 [ %.2.i, %handle_df.exit.i ], [ %.2.i, %append_tokens.exit.i ], [ %.072148.i, %344 ], [ %.072148.i, %340 ], [ %.072148.i, %321 ], [ %.072148.i, %367 ], [ %.072148.i, %318 ], [ %.072148.i, %365 ], [ %.1.i, %138 ], [ %.072148.i, %378 ], [ %.072148.i, %375 ], [ %.072148.i, %371 ], [ %.072148.i, %349 ], [ %.072148.i, %347 ], [ %.1.i, %.preheader.i90.i ], [ %.1.i, %172 ], [ %.1.i, %175 ], [ %.1.i, %178 ], [ %.1.i, %183 ], [ %.1.i, %185 ]
   %479 = load ptr, ptr %8, align 8, !tbaa !25
   %480 = getelementptr inbounds nuw %struct.token, ptr %479, i64 %.2236.i
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 8
@@ -1789,7 +1789,7 @@ yylex.exit.thread.thread172:                      ; preds = %textbuf_clean.exit.
   unreachable
 
 yylex.exit:                                       ; preds = %parseOperator.exit.i, %parseOperator.exit112.i, %177, %179, %181, %183, %185, %187, %189, %203
-  %.0.i = phi i32 [ %132, %parseOperator.exit.i ], [ %176, %parseOperator.exit112.i ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %204, %203 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ]
+  %.0.i = phi i32 [ %132, %parseOperator.exit.i ], [ %176, %parseOperator.exit112.i ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %204, %203 ], [ %188, %187 ], [ %190, %189 ], [ %186, %185 ]
   %.not100 = icmp eq i32 %.0.i, 0
   br i1 %.not100, label %yylex.exit.thread138, label %yylex.exit.thread
 

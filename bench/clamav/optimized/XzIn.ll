@@ -749,7 +749,7 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %0, ptr noundef %1,
   br label %Xz_ReadIndex2.exit
 
 Xz_ReadIndex2.exit:                               ; preds = %58, %52, %.preheader.i, %61, %.critedge.i, %65, %34, %18, %16, %14, %11
-  %.020 = phi i32 [ %12, %11 ], [ 16, %.critedge.i ], [ 16, %14 ], [ 16, %18 ], [ 16, %61 ], [ 2, %34 ], [ %67, %65 ], [ 16, %16 ], [ 16, %.preheader.i ], [ 16, %52 ], [ 16, %58 ]
+  %.020 = phi i32 [ %12, %11 ], [ 16, %.critedge.i ], [ 16, %14 ], [ 16, %18 ], [ 2, %34 ], [ 16, %61 ], [ %67, %65 ], [ 16, %16 ], [ 16, %.preheader.i ], [ 16, %52 ], [ 16, %58 ]
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !21
   call void %69(ptr noundef nonnull %3, ptr noundef nonnull %9) #9

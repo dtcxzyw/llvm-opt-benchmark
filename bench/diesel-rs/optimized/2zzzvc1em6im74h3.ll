@@ -4507,7 +4507,7 @@ _ZN6chrono6format10formatting14write_hundreds17h4281177c9451098aE.exit.i: ; pred
 _ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit: ; preds = %.invoke
   br i1 %786, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread, label %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread237
 
-_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread237: ; preds = %.noexc193, %.noexc194, %.noexc37.thread, %.noexc30, %.noexc25, %.noexc26, %.noexc27, %.noexc28, %.noexc48, %.noexc39, %.noexc40, %.noexc38, %.noexc116, %.noexc37, %.noexc44, %567, %.noexc45, %.noexc49, %.noexc50, %.noexc31, %.noexc32, %.noexc33, %.noexc34, %.noexc35, %.noexc36, %.noexc41, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h6df651ed30efb638E.exit294.i", %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h6df651ed30efb638E.exit.i", %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit
+_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread237: ; preds = %.noexc193, %.noexc194, %.noexc37.thread, %.noexc30, %.noexc25, %.noexc26, %.noexc27, %.noexc28, %.noexc116, %.noexc50, %.noexc39, %.noexc45, %.noexc48, %.noexc37, %567, %.noexc49, %.noexc38, %.noexc40, %.noexc44, %.noexc36, %.noexc35, %.noexc34, %.noexc33, %.noexc41, %.noexc32, %.noexc31, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h6df651ed30efb638E.exit294.i", %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h6df651ed30efb638E.exit.i", %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !543)
   %965 = load i8, ptr %83, align 8, !range !107, !alias.scope !543, !noundef !4
   switch i8 %965, label %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h03df872deac1ed40E.exit" [
@@ -4531,7 +4531,7 @@ _ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread237: 
   %969 = icmp eq i64 %.val3.i, 0
   br i1 %969, label %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h03df872deac1ed40E.exit", label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.exit.sink.split.i"
 
-_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread: ; preds = %.noexc193, %.noexc194, %.noexc30, %.noexc25, %.noexc26, %.noexc27, %.noexc28, %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit, %.noexc50, %.noexc49, %.noexc45, %567, %.noexc44, %.noexc37, %.noexc116, %.noexc38, %.noexc40, %.noexc39, %.noexc48, %503, %502, %501, %500, %499, %498, %497, %496, %495, %494, %493, %492, %491, %490, %489, %488, %487, %486, %485, %484
+_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit.thread: ; preds = %.noexc193, %.noexc194, %.noexc30, %.noexc25, %.noexc26, %.noexc27, %.noexc28, %_ZN6chrono6format10formatting12format_inner17h676de4db6b32ca9cE.exit, %.noexc44, %.noexc40, %.noexc38, %.noexc49, %567, %.noexc37, %.noexc48, %.noexc45, %.noexc39, %.noexc50, %.noexc116, %503, %502, %501, %500, %499, %498, %497, %496, %495, %494, %493, %492, %491, %490, %489, %488, %487, %486, %485, %484
   %.pr.pre.pre = load i8, ptr %83, align 8, !alias.scope !546
   call void @llvm.experimental.noalias.scope.decl(metadata !546)
   switch i8 %.pr.pre.pre, label %"_ZN4core3ptr41drop_in_place$LT$chrono..format..Item$GT$17h03df872deac1ed40E.exit56" [

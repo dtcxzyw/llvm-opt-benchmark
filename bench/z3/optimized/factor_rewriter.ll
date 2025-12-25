@@ -4197,7 +4197,7 @@ _ZN7obj_refI4expr11ast_managerEaSERKS2_.exit53.sink.split: ; preds = %_ZN7obj_re
   br label %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit53
 
 _ZN7obj_refI4expr11ast_managerEaSERKS2_.exit53:   ; preds = %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit53.sink.split, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i78, %210, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i48, %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit, %100
-  %222 = phi ptr [ %83, %100 ], [ %127, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i78 ], [ %127, %210 ], [ %127, %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit ], [ %127, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i48 ], [ %127, %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit53.sink.split ]
+  %222 = phi ptr [ %127, %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit ], [ %127, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i78 ], [ %127, %210 ], [ %83, %100 ], [ %127, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i48 ], [ %127, %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit53.sink.split ]
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0120, i64 16
   %.not1.i.i = icmp eq ptr %223, %17
   br i1 %.not1.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE8iteratorppEv.exit, label %.lr.ph.i.i

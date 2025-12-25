@@ -1315,7 +1315,7 @@ Vec_PtrPushUnique.exit69.sink.split:              ; preds = %Vec_PtrPush.exit.i5
   br label %Vec_PtrPushUnique.exit69
 
 Vec_PtrPushUnique.exit69:                         ; preds = %103, %170, %53, %Vec_PtrPushUnique.exit69.sink.split, %88, %88, %134, %90, %84
-  %.0 = phi i32 [ 0, %134 ], [ 0, %90 ], [ 0, %84 ], [ 1, %53 ], [ 0, %88 ], [ 1, %170 ], [ 0, %88 ], [ 1, %Vec_PtrPushUnique.exit69.sink.split ], [ 1, %103 ]
+  %.0 = phi i32 [ 0, %134 ], [ 0, %90 ], [ 0, %84 ], [ 1, %170 ], [ 0, %88 ], [ 1, %53 ], [ 0, %88 ], [ 1, %Vec_PtrPushUnique.exit69.sink.split ], [ 1, %103 ]
   ret i32 %.0
 }
 

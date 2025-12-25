@@ -1492,12 +1492,12 @@ ComputeNextQ.exit:                                ; preds = %199, %203, %205
   br label %222
 
 222:                                              ; preds = %197, %ComputeNextQ.exit, %185, %ResetSideInfo.exit
-  %.sroa.25.1 = phi double [ %.sroa.21.0, %ComputeNextQ.exit ], [ %.sroa.25.0175, %ResetSideInfo.exit ], [ %.sroa.25.0175, %185 ], [ %.sroa.25.0175, %197 ]
-  %.sroa.14.1 = phi float [ %.sroa.9.0177, %ComputeNextQ.exit ], [ %.sroa.14.0176, %ResetSideInfo.exit ], [ %.sroa.14.0176, %185 ], [ %.sroa.14.0176, %197 ]
-  %.sroa.9.1 = phi float [ %221, %ComputeNextQ.exit ], [ %.sroa.9.0177, %ResetSideInfo.exit ], [ %.sroa.9.0177, %185 ], [ %.sroa.9.0177, %197 ]
-  %.sroa.5.1 = phi float [ %216, %ComputeNextQ.exit ], [ %.sroa.5.0178, %ResetSideInfo.exit ], [ %.sroa.5.0178, %185 ], [ %.sroa.5.0178, %197 ]
-  %.sroa.0.1 = phi i32 [ 0, %ComputeNextQ.exit ], [ %.sroa.0.0179, %ResetSideInfo.exit ], [ %.sroa.0.0179, %185 ], [ %.sroa.0.0179, %197 ]
-  %.183 = phi i32 [ %91, %ComputeNextQ.exit ], [ %.082181, %ResetSideInfo.exit ], [ %.082181, %185 ], [ %91, %197 ]
+  %.sroa.25.1 = phi double [ %.sroa.25.0175, %197 ], [ %.sroa.25.0175, %ResetSideInfo.exit ], [ %.sroa.25.0175, %185 ], [ %.sroa.21.0, %ComputeNextQ.exit ]
+  %.sroa.14.1 = phi float [ %.sroa.14.0176, %197 ], [ %.sroa.14.0176, %ResetSideInfo.exit ], [ %.sroa.14.0176, %185 ], [ %.sroa.9.0177, %ComputeNextQ.exit ]
+  %.sroa.9.1 = phi float [ %.sroa.9.0177, %197 ], [ %.sroa.9.0177, %ResetSideInfo.exit ], [ %.sroa.9.0177, %185 ], [ %221, %ComputeNextQ.exit ]
+  %.sroa.5.1 = phi float [ %.sroa.5.0178, %197 ], [ %.sroa.5.0178, %ResetSideInfo.exit ], [ %.sroa.5.0178, %185 ], [ %216, %ComputeNextQ.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0179, %197 ], [ %.sroa.0.0179, %ResetSideInfo.exit ], [ %.sroa.0.0179, %185 ], [ 0, %ComputeNextQ.exit ]
+  %.183 = phi i32 [ %91, %197 ], [ %.082181, %ResetSideInfo.exit ], [ %.082181, %185 ], [ %91, %ComputeNextQ.exit ]
   %223 = icmp sgt i32 %.183, 0
   br i1 %223, label %90, label %.critedge.thread150
 

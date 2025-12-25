@@ -930,7 +930,7 @@ if.end120:                                        ; preds = %if.then112, %sw.bb1
   br i1 %tobool123.not, label %Loop.outer.backedge, label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end120, %if.end88, %Next, %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit, %_ZNK3re211SparseArrayIPNS_3NFA6ThreadEE9has_indexEi.exit, %if.end9, %invoke.cont32
-  %nstk.0.be = phi i32 [ %nstk.1.ph, %if.end88 ], [ %nstk.1.ph, %invoke.cont32 ], [ %nstk.1.ph, %if.end9 ], [ %nstk.1.ph, %_ZNK3re211SparseArrayIPNS_3NFA6ThreadEE9has_indexEi.exit ], [ %nstk.1.ph, %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit ], [ %nstk.1.ph, %Next ], [ %nstk.6, %if.end120 ]
+  %nstk.0.be = phi i32 [ %nstk.1.ph, %invoke.cont32 ], [ %nstk.1.ph, %if.end88 ], [ %nstk.1.ph, %if.end9 ], [ %nstk.1.ph, %_ZNK3re211SparseArrayIPNS_3NFA6ThreadEE9has_indexEi.exit ], [ %nstk.1.ph, %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit ], [ %nstk.1.ph, %Next ], [ %nstk.6, %if.end120 ]
   %cmp2 = icmp sgt i32 %nstk.0.be, 0
   br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !12
 
@@ -1976,7 +1976,7 @@ if.then165:                                       ; preds = %if.end163
   br label %for.end169
 
 for.end169:                                       ; preds = %if.end112, %sw.bb108, %invoke.cont95, %if.then165
-  %runq.1.ph = phi ptr [ %nextq.0, %sw.bb108 ], [ %runq.0, %if.then165 ], [ %nextq.0, %invoke.cont95 ], [ %nextq.0, %if.end112 ]
+  %runq.1.ph = phi ptr [ %nextq.0, %invoke.cont95 ], [ %runq.0, %if.then165 ], [ %nextq.0, %sw.bb108 ], [ %nextq.0, %if.end112 ]
   %.pr = load i32, ptr %runq.1.ph, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runq.1.ph, i64 32
   %cmp173.not133 = icmp eq i32 %.pr, 0
@@ -2059,7 +2059,7 @@ return.sink.split:                                ; preds = %invoke.cont53, %_ZN
   br label %return
 
 return:                                           ; preds = %_ZN4absl7debian211string_viewC2EPKcm.exit, %return.sink.split, %for.end181, %if.end19, %land.lhs.true30, %entry
-  %retval.0 = phi i1 [ %tobool183, %for.end181 ], [ false, %return.sink.split ], [ false, %entry ], [ false, %if.end19 ], [ false, %land.lhs.true30 ], [ true, %_ZN4absl7debian211string_viewC2EPKcm.exit ]
+  %retval.0 = phi i1 [ %tobool183, %for.end181 ], [ false, %land.lhs.true30 ], [ false, %entry ], [ false, %if.end19 ], [ false, %return.sink.split ], [ true, %_ZN4absl7debian211string_viewC2EPKcm.exit ]
   ret i1 %retval.0
 }
 

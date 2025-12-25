@@ -2373,7 +2373,7 @@ _ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit: ; preds = %17
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit
 
 _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %174, %166, %134, %_ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit
-  %.2 = phi i32 [ %138, %134 ], [ %186, %_ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit ], [ %176, %174 ], [ %170, %166 ]
+  %.2 = phi i32 [ %170, %166 ], [ %186, %_ZNK6icu_7720CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit ], [ %176, %174 ], [ %138, %134 ]
   %191 = and i32 %.2, 192
   %.not = icmp eq i32 %191, 192
   br i1 %.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !131

@@ -13875,7 +13875,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i: ; preds = %.lr
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %456
-  %.sroa.017.0.ph.ph225 = phi i8 [ 1, %.invoke ], [ %.sroa.017.3, %456 ]
+  %.sroa.017.0.ph.ph225 = phi i8 [ %.sroa.017.3, %456 ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp227 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -13917,7 +13917,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.exit.i: ; preds = %38
   br label %397
 
 .loopexit.split-lp216:                            ; preds = %433, %435, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit", %451, %453, %463, %465, %468, %470, %440, %444, %446, %449
-  %.sroa.017.2.ph = phi i8 [ 0, %440 ], [ 1, %433 ], [ 1, %435 ], [ 0, %449 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit" ], [ 0, %451 ], [ 0, %453 ], [ 0, %444 ], [ 1, %463 ], [ 1, %465 ], [ 0, %446 ], [ 1, %468 ], [ 1, %470 ]
+  %.sroa.017.2.ph = phi i8 [ 0, %440 ], [ 1, %433 ], [ 1, %435 ], [ 0, %449 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit" ], [ 0, %451 ], [ 0, %453 ], [ 0, %446 ], [ 1, %463 ], [ 1, %465 ], [ 0, %444 ], [ 1, %468 ], [ 1, %470 ]
   %lpad.loopexit.split-lp218 = landingpad { ptr, i32 }
           cleanup
   br label %397
@@ -15034,7 +15034,7 @@ define hidden void @_ZN8async_io6driver8block_on17he434a172389efbe4E(ptr dead_on
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %302
-  %.sroa.017.0.ph.ph174 = phi i8 [ 1, %.invoke ], [ %.sroa.017.3, %302 ]
+  %.sroa.017.0.ph.ph174 = phi i8 [ %.sroa.017.3, %302 ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp176 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -15076,7 +15076,7 @@ _ZN4core3ops8function6FnOnce9call_once17h239df4181534843eE.exit.i: ; preds = %23
   br label %243
 
 .loopexit.split-lp170:                            ; preds = %279, %281, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit", %297, %299, %309, %311, %314, %316, %286, %290, %292, %295
-  %.sroa.017.2.ph = phi i8 [ 0, %286 ], [ 1, %279 ], [ 1, %281 ], [ 0, %295 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit" ], [ 0, %297 ], [ 0, %299 ], [ 0, %290 ], [ 1, %309 ], [ 1, %311 ], [ 0, %292 ], [ 1, %314 ], [ 1, %316 ]
+  %.sroa.017.2.ph = phi i8 [ 0, %286 ], [ 1, %279 ], [ 1, %281 ], [ 0, %295 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h67f0abf55a1ae6c7E.exit" ], [ 0, %297 ], [ 0, %299 ], [ 0, %292 ], [ 1, %309 ], [ 1, %311 ], [ 0, %290 ], [ 1, %314 ], [ 1, %316 ]
   %lpad.loopexit.split-lp172 = landingpad { ptr, i32 }
           cleanup
   br label %243

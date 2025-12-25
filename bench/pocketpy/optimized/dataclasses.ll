@@ -2184,7 +2184,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4pkpy12NameDictImplIPNS_8PyObjectEE3d
   br i1 %61, label %_ZN4pkpy13SmallNameDictIPNS_8PyObjectEE3delENS_7StrNameE.exit, label %.lr.ph35.i, !llvm.loop !19
 
 _ZN4pkpy13SmallNameDictIPNS_8PyObjectEE3delENS_7StrNameE.exit: ; preds = %.lr.ph, %51, %.lr.ph35.i, %8, %.lr.ph.i._crit_edge, %18, %13
-  %62 = phi i1 [ true, %13 ], [ false, %8 ], [ true, %.lr.ph.i._crit_edge ], [ true, %51 ], [ false, %18 ], [ true, %.lr.ph35.i ], [ false, %.lr.ph ]
+  %62 = phi i1 [ true, %13 ], [ false, %8 ], [ true, %.lr.ph.i._crit_edge ], [ false, %18 ], [ true, %51 ], [ true, %.lr.ph35.i ], [ false, %.lr.ph ]
   ret i1 %62
 }
 

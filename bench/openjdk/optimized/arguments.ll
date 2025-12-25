@@ -2449,7 +2449,7 @@ define internal fastcc noundef zeroext i1 @_ZL16set_numeric_flagP7JVMFlagPKc13JV
   br label %38
 
 38:                                               ; preds = %33, %29, %25, %24, %19
-  %39 = phi i32 [ %23, %19 ], [ %37, %33 ], [ 10, %25 ], [ 10, %24 ], [ 16, %29 ]
+  %39 = phi i32 [ %37, %33 ], [ %23, %19 ], [ 10, %25 ], [ 10, %24 ], [ 16, %29 ]
   %40 = tail call ptr @__errno_location() #33
   store i32 0, ptr %40, align 4
   %41 = call i64 @strtoll(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef %39) #32
@@ -2600,7 +2600,7 @@ _ZL13parse_integerIiEbPKcPT_.exit:                ; preds = %50, %63
   br label %102
 
 102:                                              ; preds = %97, %93, %89, %88, %83
-  %103 = phi i32 [ %87, %83 ], [ %101, %97 ], [ 10, %89 ], [ 10, %88 ], [ 16, %93 ]
+  %103 = phi i32 [ %101, %97 ], [ %87, %83 ], [ 10, %89 ], [ 10, %88 ], [ 16, %93 ]
   %104 = tail call ptr @__errno_location() #33
   store i32 0, ptr %104, align 4
   %105 = call i64 @strtoll(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef %103) #32

@@ -3317,8 +3317,8 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %73, %52, %52, %.loopexit.sink.split, %56, %69, %69, %.critedge2, %48, %48
-  %.076.sink = phi i32 [ %79, %.loopexit.sink.split ], [ 21, %52 ], [ 19, %.critedge2 ], [ 20, %48 ], [ 20, %48 ], [ 20, %69 ], [ 20, %69 ], [ 19, %56 ], [ 21, %52 ], [ 21, %73 ], [ 21, %73 ]
-  %80 = phi ptr [ %.ph, %.loopexit.sink.split ], [ %40, %52 ], [ %40, %.critedge2 ], [ %40, %48 ], [ %40, %48 ], [ %61, %69 ], [ %61, %69 ], [ %61, %56 ], [ %40, %52 ], [ %61, %73 ], [ %61, %73 ]
+  %.076.sink = phi i32 [ 20, %69 ], [ 20, %69 ], [ 19, %.critedge2 ], [ 20, %48 ], [ 20, %48 ], [ %79, %.loopexit.sink.split ], [ 21, %52 ], [ 19, %56 ], [ 21, %52 ], [ 21, %73 ], [ 21, %73 ]
+  %80 = phi ptr [ %61, %69 ], [ %61, %69 ], [ %40, %.critedge2 ], [ %40, %48 ], [ %40, %48 ], [ %.ph, %.loopexit.sink.split ], [ %40, %52 ], [ %61, %56 ], [ %40, %52 ], [ %61, %73 ], [ %61, %73 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.076.sink, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -3776,7 +3776,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %43
 
 .thread:                                          ; preds = %43, %43, %27, %39, %39
-  %.066.ph = phi i32 [ 19, %27 ], [ 20, %39 ], [ 20, %39 ], [ 21, %43 ], [ 21, %43 ]
+  %.066.ph = phi i32 [ 20, %39 ], [ 19, %27 ], [ 20, %39 ], [ 21, %43 ], [ 21, %43 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.066.ph, ptr %47, align 4
   br label %57

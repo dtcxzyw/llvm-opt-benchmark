@@ -399,7 +399,7 @@ define hidden range(i32 0, 2) i32 @opj_t2_encode_packets(ptr noundef readonly ca
   br i1 %.not164, label %.sink.split, label %.lr.ph.split, !llvm.loop !51
 
 .sink.split:                                      ; preds = %188, %132, %128, %108, %104, %93, %.thread181, %._crit_edge, %38, %47, %.preheader190, %80, %73, %64
-  %.0.ph = phi i32 [ 1, %.preheader190 ], [ 0, %._crit_edge ], [ 0, %73 ], [ 0, %64 ], [ 1, %80 ], [ 0, %93 ], [ 0, %47 ], [ 0, %108 ], [ 1, %.thread181 ], [ 0, %38 ], [ 1, %104 ], [ 1, %128 ], [ 1, %188 ], [ 0, %132 ]
+  %.0.ph = phi i32 [ 1, %.preheader190 ], [ 1, %80 ], [ 0, %73 ], [ 0, %64 ], [ 0, %._crit_edge ], [ 0, %108 ], [ 0, %47 ], [ 0, %93 ], [ 1, %.thread181 ], [ 0, %38 ], [ 1, %104 ], [ 1, %128 ], [ 1, %188 ], [ 0, %132 ]
   tail call void @opj_pi_destroy(ptr noundef nonnull %35, i32 noundef %34) #6
   br label %190
 
@@ -1965,8 +1965,8 @@ opj_t2_skip_packet_data.exit.i:                   ; preds = %._crit_edge.i.i145
   br label %opj_t2_skip_packet.exit
 
 opj_t2_skip_packet.exit:                          ; preds = %260, %.loopexit.i
-  %.pre300 = phi i32 [ %.pre300.pre303, %260 ], [ %.pre300.pre, %.loopexit.i ]
-  %.2 = phi i32 [ %261, %260 ], [ %350, %.loopexit.i ]
+  %.pre300 = phi i32 [ %.pre300.pre, %.loopexit.i ], [ %.pre300.pre303, %260 ]
+  %.2 = phi i32 [ %350, %.loopexit.i ], [ %261, %260 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre306 = zext i32 %.pre300 to i64

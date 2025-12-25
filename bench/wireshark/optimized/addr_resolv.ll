@@ -963,7 +963,7 @@ fgetline.exit:                                    ; preds = %fgetline.exit.lr.ph
   br i1 %.not.i18, label %fgetline.exit.thread, label %fgetline.exit.lr.ph, !llvm.loop !15
 
 fgetline.exit.thread:                             ; preds = %.outer, %fgetline.exit, %.backedge, %.outer.us, %fgetline.exit.us, %.backedge.us, %.preheader
-  %.0.ph.lcssa = phi i1 [ true, %.outer.us ], [ %.0.ph22.us, %fgetline.exit.us ], [ false, %.preheader ], [ %.0.ph22, %fgetline.exit ], [ %.0.ph22.us, %.backedge.us ], [ %.0.ph22, %.backedge ], [ true, %.outer ]
+  %.0.ph.lcssa = phi i1 [ %.0.ph22, %fgetline.exit ], [ true, %.outer.us ], [ false, %.preheader ], [ %.0.ph22.us, %fgetline.exit.us ], [ %.0.ph22.us, %.backedge.us ], [ %.0.ph22, %.backedge ], [ true, %.outer ]
   %53 = call i32 @fclose(ptr noundef nonnull %5)
   br label %54
 

@@ -1503,7 +1503,7 @@ H5C_validate_resize_config.exit:                  ; preds = %78, %61
   br label %181
 
 181:                                              ; preds = %.sink.split, %173, %149, %153, %133, %137
-  %182 = phi i8 [ 1, %173 ], [ 1, %137 ], [ 1, %149 ], [ 1, %153 ], [ 1, %133 ], [ 0, %.sink.split ]
+  %182 = phi i8 [ 1, %173 ], [ 1, %133 ], [ 1, %149 ], [ 1, %153 ], [ 1, %137 ], [ 0, %.sink.split ]
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %184 = load i64, ptr %183, align 8, !tbaa !161
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 48

@@ -2737,7 +2737,7 @@ ucm_mappingType.exit:                             ; preds = %59
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %89, %.thread18.i, %85, %75, %79
-  %.146 = phi i8 [ %.04561, %.thread18.i ], [ %.04561, %89 ], [ %.04561, %85 ], [ %.04561, %79 ], [ %.04561, %75 ], [ 1, %.thread.sink.split ]
+  %.146 = phi i8 [ %.04561, %85 ], [ %.04561, %89 ], [ %.04561, %.thread18.i ], [ %.04561, %79 ], [ %.04561, %75 ], [ 1, %.thread.sink.split ]
   %112 = getelementptr inbounds nuw i8, ptr %.04859, i64 12
   %113 = icmp ult ptr %112, %8
   br i1 %113, label %15, label %._crit_edge, !llvm.loop !62

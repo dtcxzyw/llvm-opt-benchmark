@@ -2242,7 +2242,7 @@ cms_env_encrypt_content_key.exit.i:               ; preds = %.lr.ph.i.i
   br label %cms_EnvelopedData_Decryption_init_bio.exit
 
 cms_EnvelopedData_Decryption_init_bio.exit:       ; preds = %33, %39, %43, %.sink.split.i
-  %.0.i5 = phi ptr [ null, %33 ], [ %10, %39 ], [ %10, %43 ], [ null, %.sink.split.i ]
+  %.0.i5 = phi ptr [ null, %33 ], [ %10, %43 ], [ %10, %39 ], [ null, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %cms_EnvelopedData_Encryption_init_bio.exit
 
@@ -2558,7 +2558,7 @@ cms_env_set_originfo_version.exit:                ; preds = %27, %4, %.preheader
   br i1 %58, label %59, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph.i, %.critedge.i, %.lr.ph, %.lr.ph, %57, %54, %._crit_edge
-  %.sink = phi i32 [ 0, %57 ], [ 4, %.critedge.i ], [ 2, %54 ], [ 3, %.lr.ph ], [ 2, %._crit_edge ], [ 3, %.lr.ph ], [ %17, %.lr.ph.i ]
+  %.sink = phi i32 [ 2, %._crit_edge ], [ 4, %.critedge.i ], [ 2, %54 ], [ 3, %.lr.ph ], [ 0, %57 ], [ 3, %.lr.ph ], [ %17, %.lr.ph.i ]
   store i32 %.sink, ptr %0, align 8, !tbaa !64
   br label %59
 

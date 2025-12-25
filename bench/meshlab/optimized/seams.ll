@@ -10904,7 +10904,7 @@ _ZN3vcg4edge8VEStarVEI8SeamEdgeEEvPKNT_10VertexTypeERSt6vectorIPS3_SaIS8_EE.exit
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke747, %.noexc3.i.i, %.noexc.i.i, %202
-  %.sroa.0233.5.ph.ph = phi ptr [ %.sroa.0233.8613, %.invoke747 ], [ %.sroa.0233.8613, %.noexc.i.i ], [ %.sroa.0233.8613, %.noexc3.i.i ], [ %.sroa.0233.6, %202 ]
+  %.sroa.0233.5.ph.ph = phi ptr [ %.sroa.0233.6, %202 ], [ %.sroa.0233.8613, %.noexc.i.i ], [ %.sroa.0233.8613, %.noexc3.i.i ], [ %.sroa.0233.8613, %.invoke747 ]
   %lpad.loopexit.split-lp293 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

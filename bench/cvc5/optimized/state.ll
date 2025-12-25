@@ -3400,9 +3400,9 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %5
   br label %.body
 
 .body:                                            ; preds = %.loopexit213, %.loopexit.split-lp214, %157, %377, %492, %546, %510, %508, %568, %353, %348, %234
-  %.sroa.21.1 = phi ptr [ %.sroa.21.2, %377 ], [ %.sroa.21.9, %492 ], [ %.sroa.21.0323, %234 ], [ %.sroa.21.6188, %546 ], [ %.sroa.21.0.lcssa, %157 ], [ %.sroa.21.3, %568 ], [ %.sroa.21.7.lcssa, %510 ], [ %.sroa.21.2, %353 ], [ %.sroa.21.2, %348 ], [ %.sroa.21.7.lcssa, %508 ], [ %.sroa.21.0323.lcssa422, %.loopexit213 ], [ %.sroa.11.0325, %.loopexit.split-lp214 ]
-  %.sroa.0158.1 = phi ptr [ %.sroa.0158.2, %377 ], [ %.sroa.0158.9, %492 ], [ %.sroa.0158.0326, %234 ], [ %.sroa.0158.6192, %546 ], [ %.sroa.0158.0.lcssa, %157 ], [ %.sroa.0158.3, %568 ], [ %.sroa.0158.7.lcssa, %510 ], [ %.sroa.0158.2, %353 ], [ %.sroa.0158.2, %348 ], [ %.sroa.0158.7.lcssa, %508 ], [ %.sroa.0158.0326, %.loopexit213 ], [ %.sroa.0158.0326, %.loopexit.split-lp214 ]
-  %.pn54.pn = phi { ptr, i32 } [ %378, %377 ], [ %.pn46.pn.pn, %492 ], [ %235, %234 ], [ %.pn40, %546 ], [ %158, %157 ], [ %569, %568 ], [ %511, %510 ], [ %.pn38, %353 ], [ %.pn36, %348 ], [ %509, %508 ], [ %lpad.loopexit215, %.loopexit213 ], [ %lpad.loopexit.split-lp216, %.loopexit.split-lp214 ]
+  %.sroa.21.1 = phi ptr [ %.sroa.21.2, %377 ], [ %.sroa.21.9, %492 ], [ %.sroa.21.0323, %234 ], [ %.sroa.21.6188, %546 ], [ %.sroa.21.0.lcssa, %157 ], [ %.sroa.21.3, %568 ], [ %.sroa.21.7.lcssa, %508 ], [ %.sroa.21.2, %353 ], [ %.sroa.21.2, %348 ], [ %.sroa.21.7.lcssa, %510 ], [ %.sroa.21.0323.lcssa422, %.loopexit213 ], [ %.sroa.11.0325, %.loopexit.split-lp214 ]
+  %.sroa.0158.1 = phi ptr [ %.sroa.0158.2, %377 ], [ %.sroa.0158.9, %492 ], [ %.sroa.0158.0326, %234 ], [ %.sroa.0158.6192, %546 ], [ %.sroa.0158.0.lcssa, %157 ], [ %.sroa.0158.3, %568 ], [ %.sroa.0158.7.lcssa, %508 ], [ %.sroa.0158.2, %353 ], [ %.sroa.0158.2, %348 ], [ %.sroa.0158.7.lcssa, %510 ], [ %.sroa.0158.0326, %.loopexit213 ], [ %.sroa.0158.0326, %.loopexit.split-lp214 ]
+  %.pn54.pn = phi { ptr, i32 } [ %378, %377 ], [ %.pn46.pn.pn, %492 ], [ %235, %234 ], [ %.pn40, %546 ], [ %158, %157 ], [ %569, %568 ], [ %509, %508 ], [ %.pn38, %353 ], [ %.pn36, %348 ], [ %511, %510 ], [ %lpad.loopexit215, %.loopexit213 ], [ %lpad.loopexit.split-lp216, %.loopexit.split-lp214 ]
   %.not.i.i.i134 = icmp eq ptr %.sroa.0158.1, null
   br i1 %.not.i.i.i134, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit135, label %.body.thread198
 

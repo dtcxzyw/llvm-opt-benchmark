@@ -1364,7 +1364,7 @@ if.else.i:                                        ; preds = %if.end23.i.i
   br i1 %cmp27.i.not.i, label %if.end5.i, label %uv__signal_tree_s_RB_INSERT.exit
 
 if.end5.i:                                        ; preds = %if.else.i, %if.end23.i.i, %if.end18.i.i, %if.end14.i.i, %if.end11.i.i, %if.end6.i.i, %if.end.i.i, %while.body.i
-  %.sink.i = phi i64 [ 112, %if.end14.i.i ], [ 112, %if.end23.i.i ], [ 112, %while.body.i ], [ 112, %if.end6.i.i ], [ 120, %if.end11.i.i ], [ 120, %if.end.i.i ], [ 120, %if.end18.i.i ], [ 120, %if.else.i ]
+  %.sink.i = phi i64 [ 112, %if.end14.i.i ], [ 112, %if.end23.i.i ], [ 112, %while.body.i ], [ 112, %if.end6.i.i ], [ 120, %if.end18.i.i ], [ 120, %if.end.i.i ], [ 120, %if.end11.i.i ], [ 120, %if.else.i ]
   %rbe_right.i = getelementptr inbounds nuw i8, ptr %tmp.013.i, i64 %.sink.i
   %tmp.0.i = load ptr, ptr %rbe_right.i, align 8
   %tobool.not.i42 = icmp eq ptr %tmp.0.i, null

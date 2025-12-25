@@ -481,8 +481,8 @@ _ZL11findNextEscPKcS0_.exit:                      ; preds = %.lr.ph.i91, %98, %9
   br label %.loopexit100
 
 .loopexit:                                        ; preds = %85, %.lr.ph, %.preheader99, %89, %_ZL11findNextEscPKcS0_.exit, %90
-  %.384 = phi ptr [ %.081131, %90 ], [ %.283125, %89 ], [ %110, %_ZL11findNextEscPKcS0_.exit ], [ %.081131, %.preheader99 ], [ %88, %85 ], [ %.283125, %.lr.ph ]
-  %.6 = phi ptr [ %.2, %90 ], [ %.5126, %89 ], [ %109, %_ZL11findNextEscPKcS0_.exit ], [ %.2, %.preheader99 ], [ %86, %85 ], [ %.5126, %.lr.ph ]
+  %.384 = phi ptr [ %110, %_ZL11findNextEscPKcS0_.exit ], [ %.283125, %89 ], [ %.081131, %90 ], [ %.081131, %.preheader99 ], [ %88, %85 ], [ %.283125, %.lr.ph ]
+  %.6 = phi ptr [ %109, %_ZL11findNextEscPKcS0_.exit ], [ %.5126, %89 ], [ %.2, %90 ], [ %.2, %.preheader99 ], [ %86, %85 ], [ %.5126, %.lr.ph ]
   %129 = icmp ult ptr %.6, %9
   br i1 %129, label %25, label %.loopexit100, !llvm.loop !44
 

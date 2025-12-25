@@ -3255,7 +3255,7 @@ define internal zeroext i1 @check_simple_rowfilter_expr_walker(ptr noundef %0, p
   br i1 %40, label %select.unfold, label %.critedge
 
 select.unfold:                                    ; preds = %27, %4, %35, %38, %14, %10, %6, %33, %.thread
-  %.2.ph = phi ptr [ @.str.31, %4 ], [ @.str.29, %6 ], [ @.str.34, %35 ], [ @.str.30, %10 ], [ @.str.33, %33 ], [ @.str.30, %14 ], [ @.str.32, %.thread ], [ @.str.34, %38 ], [ @.str.30, %27 ]
+  %.2.ph = phi ptr [ @.str.31, %4 ], [ @.str.30, %10 ], [ @.str.34, %35 ], [ @.str.29, %6 ], [ @.str.33, %33 ], [ @.str.30, %14 ], [ @.str.32, %.thread ], [ @.str.34, %38 ], [ @.str.30, %27 ]
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %42 = tail call i32 @errcode(i32 noundef 1088) #7
   %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35) #7

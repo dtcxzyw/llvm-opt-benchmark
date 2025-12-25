@@ -21212,8 +21212,8 @@ common.resume.i:                                  ; preds = %.loopexit.split-lp.
   br label %60
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hee7dcf8510bffa32E.exit.i": ; preds = %96, %85, %.split.us.i.i.i
-  %.sroa.9.0.i = phi i64 [ %95, %96 ], [ %.us-phi.i.i.i, %.split.us.i.i.i ], [ %77, %85 ]
-  %.sroa.1155.0.i = phi ptr [ %98, %96 ], [ %83, %.split.us.i.i.i ], [ %87, %85 ]
+  %.sroa.9.0.i = phi i64 [ %77, %85 ], [ %.us-phi.i.i.i, %.split.us.i.i.i ], [ %95, %96 ]
+  %.sroa.1155.0.i = phi ptr [ %87, %85 ], [ %83, %.split.us.i.i.i ], [ %98, %96 ]
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !3626, !noalias !3651
   %.sroa.286.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i, ptr %.sroa.286.0..sroa_idx.i, align 8, !alias.scope !3626, !noalias !3651
@@ -23762,8 +23762,8 @@ common.resume.i:                                  ; preds = %.loopexit.split-lp.
   br label %60
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3d19f613c4e52cf1E.exit.i": ; preds = %96, %85, %.split.us.i.i.i
-  %.sroa.9.0.i = phi i64 [ %95, %96 ], [ %.us-phi.i.i.i, %.split.us.i.i.i ], [ %77, %85 ]
-  %.sroa.1155.0.i = phi ptr [ %98, %96 ], [ %83, %.split.us.i.i.i ], [ %87, %85 ]
+  %.sroa.9.0.i = phi i64 [ %77, %85 ], [ %.us-phi.i.i.i, %.split.us.i.i.i ], [ %95, %96 ]
+  %.sroa.1155.0.i = phi ptr [ %87, %85 ], [ %83, %.split.us.i.i.i ], [ %98, %96 ]
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !4290, !noalias !4315
   %.sroa.286.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i, ptr %.sroa.286.0..sroa_idx.i, align 8, !alias.scope !4290, !noalias !4315
@@ -26130,8 +26130,8 @@ common.resume.i:                                  ; preds = %.loopexit.split-lp.
   br label %60
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hddb0e497f2a7601dE.exit.i": ; preds = %96, %85, %.split.us.i.i.i
-  %.sroa.9.0.i = phi i64 [ %95, %96 ], [ %.us-phi.i.i.i, %.split.us.i.i.i ], [ %77, %85 ]
-  %.sroa.1155.0.i = phi ptr [ %98, %96 ], [ %83, %.split.us.i.i.i ], [ %87, %85 ]
+  %.sroa.9.0.i = phi i64 [ %77, %85 ], [ %.us-phi.i.i.i, %.split.us.i.i.i ], [ %95, %96 ]
+  %.sroa.1155.0.i = phi ptr [ %87, %85 ], [ %83, %.split.us.i.i.i ], [ %98, %96 ]
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !4924, !noalias !4949
   %.sroa.286.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i, ptr %.sroa.286.0..sroa_idx.i, align 8, !alias.scope !4924, !noalias !4949
@@ -59246,8 +59246,8 @@ common.resume.i.i.i:                              ; preds = %.loopexit.split-lp.
   br label %61
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17ha446317b738d32a1E.exit.i.i.i": ; preds = %93, %83, %.split.us.i.i.i.i.i
-  %.sroa.9.0.i.i.i = phi i64 [ %92, %93 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %76, %83 ]
-  %.sroa.1155.0.i.i.i = phi ptr [ %95, %93 ], [ %81, %.split.us.i.i.i.i.i ], [ %85, %83 ]
+  %.sroa.9.0.i.i.i = phi i64 [ %76, %83 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %92, %93 ]
+  %.sroa.1155.0.i.i.i = phi ptr [ %85, %83 ], [ %81, %.split.us.i.i.i.i.i ], [ %95, %93 ]
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !11284, !noalias !11285
   %.sroa.286.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i.i.i, ptr %.sroa.286.0..sroa_idx.i.i.i, align 8, !alias.scope !11284, !noalias !11285
@@ -60167,8 +60167,8 @@ common.resume.i.i.i:                              ; preds = %.loopexit.split-lp.
   br label %61
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h4d050e6f7e004856E.exit.i.i.i": ; preds = %93, %83, %.split.us.i.i.i.i.i
-  %.sroa.9.0.i.i.i = phi i64 [ %92, %93 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %76, %83 ]
-  %.sroa.1155.0.i.i.i = phi ptr [ %95, %93 ], [ %81, %.split.us.i.i.i.i.i ], [ %85, %83 ]
+  %.sroa.9.0.i.i.i = phi i64 [ %76, %83 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %92, %93 ]
+  %.sroa.1155.0.i.i.i = phi ptr [ %85, %83 ], [ %81, %.split.us.i.i.i.i.i ], [ %95, %93 ]
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !11539, !noalias !11540
   %.sroa.286.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i.i.i, ptr %.sroa.286.0..sroa_idx.i.i.i, align 8, !alias.scope !11539, !noalias !11540
@@ -60525,8 +60525,8 @@ common.resume.i.i.i:                              ; preds = %.loopexit.split-lp.
   br label %61
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h57f04ccd31a743a7E.exit.i.i.i": ; preds = %93, %83, %.split.us.i.i.i.i.i
-  %.sroa.9.0.i.i.i = phi i64 [ %92, %93 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %76, %83 ]
-  %.sroa.1155.0.i.i.i = phi ptr [ %95, %93 ], [ %81, %.split.us.i.i.i.i.i ], [ %85, %83 ]
+  %.sroa.9.0.i.i.i = phi i64 [ %76, %83 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %92, %93 ]
+  %.sroa.1155.0.i.i.i = phi ptr [ %85, %83 ], [ %81, %.split.us.i.i.i.i.i ], [ %95, %93 ]
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !11651, !noalias !11652
   %.sroa.286.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i.i.i, ptr %.sroa.286.0..sroa_idx.i.i.i, align 8, !alias.scope !11651, !noalias !11652
@@ -80837,8 +80837,8 @@ common.resume.i.i.i:                              ; preds = %.loopexit.split-lp.
   br label %70
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h7f8860b4b0d28829E.exit.i.i.i": ; preds = %102, %92, %.split.us.i.i.i.i.i
-  %.sroa.9.0.i.i.i = phi i64 [ %101, %102 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %85, %92 ]
-  %.sroa.1155.0.i.i.i = phi ptr [ %104, %102 ], [ %90, %.split.us.i.i.i.i.i ], [ %94, %92 ]
+  %.sroa.9.0.i.i.i = phi i64 [ %85, %92 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %101, %102 ]
+  %.sroa.1155.0.i.i.i = phi ptr [ %94, %92 ], [ %90, %.split.us.i.i.i.i.i ], [ %104, %102 ]
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !15729, !noalias !15730
   %.sroa.286.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i.i.i, ptr %.sroa.286.0..sroa_idx.i.i.i, align 8, !alias.scope !15729, !noalias !15730
@@ -83103,8 +83103,8 @@ common.resume.i.i.i:                              ; preds = %.loopexit.split-lp.
   br label %70
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17haa9e9da0a80655e8E.exit.i.i.i": ; preds = %102, %92, %.split.us.i.i.i.i.i
-  %.sroa.9.0.i.i.i = phi i64 [ %101, %102 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %85, %92 ]
-  %.sroa.1155.0.i.i.i = phi ptr [ %104, %102 ], [ %90, %.split.us.i.i.i.i.i ], [ %94, %92 ]
+  %.sroa.9.0.i.i.i = phi i64 [ %85, %92 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %101, %102 ]
+  %.sroa.1155.0.i.i.i = phi ptr [ %94, %92 ], [ %90, %.split.us.i.i.i.i.i ], [ %104, %102 ]
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !16176, !noalias !16177
   %.sroa.286.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i.i.i, ptr %.sroa.286.0..sroa_idx.i.i.i, align 8, !alias.scope !16176, !noalias !16177
@@ -90296,8 +90296,8 @@ common.resume.i.i.i:                              ; preds = %.loopexit.split-lp.
   br label %70
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8586eb1a8b68b081E.exit.i.i.i": ; preds = %102, %92, %.split.us.i.i.i.i.i
-  %.sroa.9.0.i.i.i = phi i64 [ %101, %102 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %85, %92 ]
-  %.sroa.1155.0.i.i.i = phi ptr [ %104, %102 ], [ %90, %.split.us.i.i.i.i.i ], [ %94, %92 ]
+  %.sroa.9.0.i.i.i = phi i64 [ %85, %92 ], [ %.us-phi.i.i.i.i.i, %.split.us.i.i.i.i.i ], [ %101, %102 ]
+  %.sroa.1155.0.i.i.i = phi ptr [ %94, %92 ], [ %90, %.split.us.i.i.i.i.i ], [ %104, %102 ]
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !17753, !noalias !17754
   %.sroa.286.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.9.0.i.i.i, ptr %.sroa.286.0..sroa_idx.i.i.i, align 8, !alias.scope !17753, !noalias !17754

@@ -648,7 +648,7 @@ define dso_local void @reserve_bootmem_region(i64 noundef %0, i64 noundef %1, i3
   br label %67
 
 67:                                               ; preds = %64, %56
-  %68 = phi i32 [ %66, %64 ], [ %57, %56 ]
+  %68 = phi i32 [ %57, %56 ], [ %66, %64 ]
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.thread, label %70
 

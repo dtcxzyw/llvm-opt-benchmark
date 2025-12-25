@@ -3824,7 +3824,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %83 = and i1 %82, %81
   br i1 %83, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread32, label %.critedge
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread32: ; preds = %.noexc, %74, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread32: ; preds = %74, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__16UsdShadeMaterial16_GetStaticTfTypeEv()
           to label %.noexc7 unwind label %.loopexit
 
@@ -4062,7 +4062,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20.thread: ; preds = %
 181:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20.thread
   br i1 %180, label %.critedge6, label %182
 
-.critedge6:                                       ; preds = %.noexc19, %166, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20, %181
+.critedge6:                                       ; preds = %166, %.noexc19, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20, %181
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexProxy14MarkSprimDirtyERKNS_7SdfPathEj(ptr noundef nonnull align 8 dereferenceable(184) %4, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef %3)
           to label %182 unwind label %.loopexit.split-lp
 
@@ -4654,7 +4654,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %37
           cleanup
   br label %509
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread129: ; preds = %.noexc, %43, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread129: ; preds = %43, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %61 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter25_GetSceneMaterialsEnabledEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %62 unwind label %59
 

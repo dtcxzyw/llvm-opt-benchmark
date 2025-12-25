@@ -8148,7 +8148,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7aaa088d063f853aE.exit.i: ; preds = %_Z
   invoke void %92(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef align 1 %83, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
           to label %93 unwind label %174
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread25: ; preds = %28, %21, %35, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit.thread25: ; preds = %21, %35, %28, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
   store i64 0, ptr %0, align 8
   br label %173
 
@@ -29848,7 +29848,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h638
   br label %.loopexit
 
 .critedge21:                                      ; preds = %182, %76, %32, %.sink.split.i.us, %116, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17he345b7ccb11aa88fE.exit.split"
-  %.sroa.07.0162 = phi i64 [ %.sroa.07.0.us, %76 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17he345b7ccb11aa88fE.exit.split" ], [ %.sroa.07.0.us, %116 ], [ %.sroa.07.0.us, %.sink.split.i.us ], [ %.sroa.07.0.us, %32 ], [ %.sroa.07.0.us198, %182 ]
+  %.sroa.07.0162 = phi i64 [ %.sroa.07.0.us, %76 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17he345b7ccb11aa88fE.exit.split" ], [ %.sroa.07.0.us, %.sink.split.i.us ], [ %.sroa.07.0.us, %116 ], [ %.sroa.07.0.us, %32 ], [ %.sroa.07.0.us198, %182 ]
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.07.0162
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hefa4ec546e7ff036E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %191, ptr noundef nonnull %192, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0bb29a53de908bccc74361d8340ca66a.84)

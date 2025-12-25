@@ -1039,7 +1039,7 @@ bytestream2_get_byte.exit:                        ; preds = %81, %82
   br i1 %125, label %.lr.ph65, label %.thread, !llvm.loop !82
 
 .thread:                                          ; preds = %.loopexit4, %98, %95, %5, %.loopexit4.loopexit, %.preheader3
-  %.2 = phi i32 [ %.15513, %.preheader3 ], [ %116, %.loopexit4.loopexit ], [ -1094995529, %5 ], [ -1094995529, %98 ], [ -1094995529, %95 ], [ -1094995529, %.loopexit4 ]
+  %.2 = phi i32 [ %116, %.loopexit4.loopexit ], [ %.15513, %.preheader3 ], [ -1094995529, %98 ], [ -1094995529, %5 ], [ -1094995529, %95 ], [ -1094995529, %.loopexit4 ]
   ret i32 %.2
 }
 

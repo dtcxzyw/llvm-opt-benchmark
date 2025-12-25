@@ -15151,8 +15151,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.critedge184
 
 .critedge184:                                     ; preds = %..critedge184_crit_edge, %119, %121
-  %124 = phi ptr [ %.pre326, %119 ], [ %.pre326, %121 ], [ %.pre325, %..critedge184_crit_edge ]
-  %125 = phi i1 [ true, %119 ], [ %123, %121 ], [ false, %..critedge184_crit_edge ]
+  %124 = phi ptr [ %.pre326, %119 ], [ %.pre325, %..critedge184_crit_edge ], [ %.pre326, %121 ]
+  %125 = phi i1 [ true, %119 ], [ false, %..critedge184_crit_edge ], [ %123, %121 ]
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %127 = icmp eq ptr %124, %126
   br i1 %127, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

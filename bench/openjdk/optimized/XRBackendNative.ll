@@ -248,8 +248,8 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
   br label %.critedge4.i
 
 .critedge4.i:                                     ; preds = %101, %.lr.ph70.i, %.critedge4.sink.split.i, %96, %92, %78, %.preheader.i
-  %105 = phi i1 [ true, %.critedge4.sink.split.i ], [ true, %92 ], [ false, %.preheader.i ], [ true, %96 ], [ false, %78 ], [ false, %.lr.ph70.i ], [ false, %101 ]
-  %.1.i = phi i8 [ %.1.ph.i, %.critedge4.sink.split.i ], [ 0, %92 ], [ 1, %.preheader.i ], [ 1, %96 ], [ 1, %78 ], [ 1, %.lr.ph70.i ], [ 1, %101 ]
+  %105 = phi i1 [ false, %.preheader.i ], [ true, %92 ], [ true, %.critedge4.sink.split.i ], [ true, %96 ], [ false, %78 ], [ false, %.lr.ph70.i ], [ false, %101 ]
+  %.1.i = phi i8 [ 1, %.preheader.i ], [ 0, %92 ], [ %.1.ph.i, %.critedge4.sink.split.i ], [ 1, %96 ], [ 1, %78 ], [ 1, %.lr.ph70.i ], [ 1, %101 ]
   %106 = call i32 @fclose(ptr noundef nonnull %69)
   br label %.critedge63.i
 

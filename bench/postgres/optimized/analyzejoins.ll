@@ -363,8 +363,8 @@ query_supports_distinctness.exit.i.i:             ; preds = %60
   %206 = call ptr @lappend(ptr noundef %.0629097.i, ptr noundef nonnull %167) #6
   br label %clause_sides_match_join.exit.thread
 
-clause_sides_match_join.exit.thread:              ; preds = %197, %200, %204, %183, %179, %175, %171, %.lr.ph98.i
-  %.163.i = phi ptr [ %.0629097.i, %179 ], [ %.0629097.i, %.lr.ph98.i ], [ %.0629097.i, %171 ], [ %206, %204 ], [ %.0629097.i, %175 ], [ %.0629097.i, %183 ], [ %.0629097.i, %200 ], [ %.0629097.i, %197 ]
+clause_sides_match_join.exit.thread:              ; preds = %200, %197, %204, %183, %179, %175, %171, %.lr.ph98.i
+  %.163.i = phi ptr [ %.0629097.i, %179 ], [ %.0629097.i, %.lr.ph98.i ], [ %.0629097.i, %171 ], [ %206, %204 ], [ %.0629097.i, %175 ], [ %.0629097.i, %183 ], [ %.0629097.i, %197 ], [ %.0629097.i, %200 ]
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
   %207 = load i32, ptr %160, align 4
   %208 = sext i32 %207 to i64
@@ -1218,7 +1218,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   br i1 %201, label %.lr.ph217, label %.thread144
 
 .thread144:                                       ; preds = %18, %74, %select.unfold, %195, %distinct_col_search.exit139, %182, %184, %select.unfold.us, %61, %.preheader173, %.preheader, %list_head.exit, %.lr.ph188.split.split, %.lr.ph188.split.us.split, %129, %distinct_col_search.exit125.thread.thread, %120, %124, %113, %distinct_col_search.exit.thread.thread, %119
-  %.0 = phi i1 [ false, %distinct_col_search.exit.thread.thread ], [ true, %.preheader ], [ false, %182 ], [ true, %list_head.exit ], [ false, %119 ], [ true, %113 ], [ false, %129 ], [ true, %120 ], [ true, %124 ], [ true, %.lr.ph188.split.split ], [ false, %distinct_col_search.exit125.thread.thread ], [ true, %.preheader173 ], [ true, %74 ], [ %155, %select.unfold.us ], [ false, %61 ], [ true, %.lr.ph188.split.us.split ], [ false, %distinct_col_search.exit139 ], [ false, %184 ], [ true, %select.unfold ], [ false, %195 ], [ true, %18 ]
+  %.0 = phi i1 [ false, %distinct_col_search.exit.thread.thread ], [ true, %.preheader ], [ true, %74 ], [ true, %list_head.exit ], [ false, %119 ], [ true, %113 ], [ false, %129 ], [ true, %120 ], [ true, %124 ], [ true, %.lr.ph188.split.split ], [ false, %distinct_col_search.exit125.thread.thread ], [ %155, %select.unfold.us ], [ true, %.preheader173 ], [ false, %182 ], [ false, %61 ], [ true, %.lr.ph188.split.us.split ], [ false, %195 ], [ false, %184 ], [ false, %distinct_col_search.exit139 ], [ true, %select.unfold ], [ true, %18 ]
   ret i1 %.0
 }
 
@@ -1505,7 +1505,7 @@ query_supports_distinctness.exit.i:               ; preds = %41
   br label %clause_sides_match_join.exit.thread.us.i
 
 clause_sides_match_join.exit.thread.us.i:         ; preds = %151, %147, %144, %131, %.lr.ph.split.us.i
-  %.1.us.i = phi ptr [ %.026.us.i, %.lr.ph.split.us.i ], [ %.026.us.i, %144 ], [ %153, %151 ], [ %.026.us.i, %147 ], [ %.026.us.i, %131 ]
+  %.1.us.i = phi ptr [ %.026.us.i, %.lr.ph.split.us.i ], [ %.026.us.i, %147 ], [ %153, %151 ], [ %.026.us.i, %144 ], [ %.026.us.i, %131 ]
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %154 = load i32, ptr %119, align 4
   %155 = sext i32 %154 to i64
@@ -1573,7 +1573,7 @@ clause_sides_match_join.exit.thread.us.i:         ; preds = %151, %147, %144, %1
   br label %clause_sides_match_join.exit.thread.i
 
 clause_sides_match_join.exit.thread.i:            ; preds = %190, %186, %183, %170, %166, %162, %.lr.ph.split.i
-  %.1.i = phi ptr [ %.026.i, %166 ], [ %.026.i, %.lr.ph.split.i ], [ %192, %190 ], [ %.026.i, %162 ], [ %.026.i, %170 ], [ %.026.i, %186 ], [ %.026.i, %183 ]
+  %.1.i = phi ptr [ %.026.i, %166 ], [ %.026.i, %.lr.ph.split.i ], [ %192, %190 ], [ %.026.i, %162 ], [ %.026.i, %170 ], [ %.026.i, %183 ], [ %.026.i, %186 ]
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %193 = load i32, ptr %119, align 4
   %194 = sext i32 %193 to i64

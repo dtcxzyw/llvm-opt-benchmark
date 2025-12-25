@@ -1716,20 +1716,20 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit106.i: ; p
   %256 = and i32 %253, 4
   %257 = icmp ne i32 %256, 0
   %or.cond.i.i.i.i = or i1 %255, %257
-  br i1 %or.cond.i.i.i.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.i, label %258
+  br i1 %or.cond.i.i.i.i, label %258, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.i
 
 258:                                              ; preds = %251
-  %259 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %242, i64 noundef 128, i32 noundef 1) #23, !noalias !336
-  br i1 %259, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread196.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread.i
+  %259 = getelementptr inbounds nuw i8, ptr %242, i64 16
+  %260 = load ptr, ptr %259, align 8, !tbaa !396, !noalias !336
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 16
+  %262 = load i64, ptr %261, align 8, !tbaa !397, !noalias !336
+  %263 = and i64 %262, 128
+  %.not198.i = icmp eq i64 %263, 0
+  br i1 %.not198.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread196.i
 
 _ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.i: ; preds = %251
-  %260 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  %261 = load ptr, ptr %260, align 8, !tbaa !396, !noalias !336
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  %263 = load i64, ptr %262, align 8, !tbaa !397, !noalias !336
-  %264 = and i64 %263, 128
-  %.not198.i = icmp eq i64 %264, 0
-  br i1 %.not198.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread196.i
+  %264 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %242, i64 noundef 128, i32 noundef 1) #23, !noalias !336
+  br i1 %264, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread196.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread.i
 
 _ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread196.i: ; preds = %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.i, %258, %243
   %265 = load ptr, ptr %24, align 8, !tbaa !399, !noalias !336
@@ -11249,20 +11249,20 @@ _ZN4llvm14ImmutableGraphIPNS_12MachineInstrEiE7EdgeSetC2ERKS3_b.exit: ; preds = 
   %62 = and i32 %59, 4
   %63 = icmp ne i32 %62, 0
   %or.cond.i.i.i.i = or i1 %61, %63
-  br i1 %or.cond.i.i.i.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.i, label %64
+  br i1 %or.cond.i.i.i.i, label %64, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.i
 
 64:                                               ; preds = %57
-  %65 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %48, i64 noundef 128, i32 noundef 1) #23
-  br i1 %65, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread82.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread.i
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %66 = load ptr, ptr %65, align 8, !tbaa !396
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %68 = load i64, ptr %67, align 8, !tbaa !397
+  %69 = and i64 %68, 128
+  %.not84.i = icmp eq i64 %69, 0
+  br i1 %.not84.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread82.i
 
 _ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.i: ; preds = %57
-  %66 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !396
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %69 = load i64, ptr %68, align 8, !tbaa !397
-  %70 = and i64 %69, 128
-  %.not84.i = icmp eq i64 %70, 0
-  br i1 %.not84.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread82.i
+  %70 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %48, i64 noundef 128, i32 noundef 1) #23
+  br i1 %70, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread82.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread.i
 
 _ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread82.i: ; preds = %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.i, %64, %49
   %71 = load ptr, ptr %8, align 8, !tbaa !549
@@ -12383,20 +12383,20 @@ _ZN4llvm17MachineBasicBlock4backEv.exit:          ; preds = %85, %_ZNK4llvm14ili
   %132 = and i32 %129, 4
   %133 = icmp ne i32 %132, 0
   %or.cond.i.i.i = or i1 %131, %133
-  br i1 %or.cond.i.i.i, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit, label %134
+  br i1 %or.cond.i.i.i, label %134, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit
 
 134:                                              ; preds = %127
-  %135 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.06.0, i64 noundef 128, i32 noundef 1) #23
-  br i1 %135, label %.critedge, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 16
+  %136 = load ptr, ptr %135, align 8, !tbaa !396
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %138 = load i64, ptr %137, align 8, !tbaa !397
+  %139 = and i64 %138, 128
+  %.not25 = icmp eq i64 %139, 0
+  br i1 %.not25, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread, label %.critedge
 
 _ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit: ; preds = %127
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 16
-  %137 = load ptr, ptr %136, align 8, !tbaa !396
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %139 = load i64, ptr %138, align 8, !tbaa !397
-  %140 = and i64 %139, 128
-  %.not25 = icmp eq i64 %140, 0
-  br i1 %.not25, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread, label %.critedge
+  %140 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.06.0, i64 noundef 128, i32 noundef 1) #23
+  br i1 %140, label %.critedge, label %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread
 
 _ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit.thread: ; preds = %123, %118, %134, %_ZNK12_GLOBAL__N_138X86LoadValueInjectionLoadHardeningPass7isFenceEPKN4llvm12MachineInstrE.exit, %_ZN4llvm17MachineBasicBlock4backEv.exit
   %.not60 = icmp eq ptr %.053, null

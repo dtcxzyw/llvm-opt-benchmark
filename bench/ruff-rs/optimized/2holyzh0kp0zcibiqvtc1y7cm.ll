@@ -3101,8 +3101,8 @@ _ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h725929
   br label %._crit_edge.i.i.i.i.i
 
 769:                                              ; preds = %767, %766, %765, %764, %762, %761, %760, %758
-  %.sroa.11.0.i.i.i.i = phi i64 [ 10, %767 ], [ 4, %758 ], [ 15, %760 ], [ 10, %761 ], [ 3, %762 ], [ 4, %766 ], [ 13, %764 ], [ 22, %765 ]
-  %.sroa.01.0.i.i.i.i = phi ptr [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_917h720007bbe6c7f623E, %767 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_017h852d13fd8cc4342aE, %758 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_217he281acb422c8d601E, %760 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_317h2e164551ac96bdf8E, %761 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_417h9087c19be5b1ebe3E, %762 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_817he34d68886706652bE, %766 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_617h063852d6eb924d4cE, %764 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_717hae24286b795f5472E, %765 ]
+  %.sroa.11.0.i.i.i.i = phi i64 [ 10, %767 ], [ 4, %766 ], [ 15, %760 ], [ 10, %761 ], [ 3, %762 ], [ 4, %758 ], [ 13, %764 ], [ 22, %765 ]
+  %.sroa.01.0.i.i.i.i = phi ptr [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_917h720007bbe6c7f623E, %767 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_817he34d68886706652bE, %766 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_217he281acb422c8d601E, %760 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_317h2e164551ac96bdf8E, %761 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_417h9087c19be5b1ebe3E, %762 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_017h852d13fd8cc4342aE, %758 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_617h063852d6eb924d4cE, %764 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_717hae24286b795f5472E, %765 ]
   %770 = trunc i32 %spec.select.i25.i to i8
   br label %.lr.ph.i.i.i.i.i
 
@@ -3771,7 +3771,7 @@ _ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h725929
   br i1 %962, label %969, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %1061, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c79b9d0d6020dddE.exit", %960
-  %963 = phi i64 [ %.pr528.pre841, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c79b9d0d6020dddE.exit" ], [ %.pr528.pre841, %960 ], [ %.pr528.pre, %1061 ]
+  %963 = phi i64 [ %.pr528.pre, %1061 ], [ %.pr528.pre841, %960 ], [ %.pr528.pre841, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0c79b9d0d6020dddE.exit" ]
   %964 = icmp ult i64 %963, 576460752303423488
   call void @llvm.assume(i1 %964)
   %965 = icmp eq i64 %963, 0
@@ -6969,8 +6969,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha84315aa74c06525E.exit.i.i.i.i.i.i
   br label %.loopexit.split-lp36.i
 
 .loopexit.split-lp36.loopexit.split-lp.i:         ; preds = %502, %230, %229, %228, %219, %194
-  %.sroa.052.2.ph.ph.i = phi i8 [ 1, %228 ], [ 1, %229 ], [ 1, %219 ], [ 0, %230 ], [ 1, %194 ], [ 0, %502 ]
-  %.sroa.053.4.ph.ph.i = phi i8 [ 1, %228 ], [ 1, %229 ], [ 1, %219 ], [ 1, %230 ], [ 1, %194 ], [ 0, %502 ]
+  %.sroa.052.2.ph.ph.i = phi i8 [ 1, %228 ], [ 1, %229 ], [ 1, %219 ], [ 0, %502 ], [ 1, %194 ], [ 0, %230 ]
+  %.sroa.053.4.ph.ph.i = phi i8 [ 1, %228 ], [ 1, %229 ], [ 1, %219 ], [ 0, %502 ], [ 1, %194 ], [ 1, %230 ]
   %lpad.loopexit.split-lp42.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp36.i

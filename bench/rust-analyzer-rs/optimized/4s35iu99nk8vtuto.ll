@@ -5517,8 +5517,8 @@ _ZN6syntax10validation19validate_range_expr17h75da4e809c8e8fd5E.exit: ; preds = 
           to label %_ZN6syntax3ast9generated5nodes11PathSegment16coloncolon_token17h3f411437e7ce2d8aE.exit.i unwind label %1139, !noalias !1483
 
 .body.i368:                                       ; preds = %1538, %.body82.i, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit62.i"
-  %.3432.i = phi i8 [ %.228.i, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit62.i" ], [ %.7.lpad-body.i, %.body82.i ], [ %.7.lpad-body.i, %1538 ]
-  %.pn431.i = phi { ptr, i32 } [ %1247, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit62.i" ], [ %eh.lpad-body83.i, %.body82.i ], [ %eh.lpad-body83.i, %1538 ]
+  %.3432.i = phi i8 [ %.228.i, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit62.i" ], [ %.7.lpad-body.i, %1538 ], [ %.7.lpad-body.i, %.body82.i ]
+  %.pn431.i = phi { ptr, i32 } [ %1247, %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h178068cb8b3cb747E.exit62.i" ], [ %eh.lpad-body83.i, %1538 ], [ %eh.lpad-body83.i, %.body82.i ]
   %1138 = trunc nuw i8 %.3432.i to i1
   br i1 %1138, label %.body.thread.i, label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h67851934f51d7188E.exit109.i"
 
@@ -6111,9 +6111,9 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i.i.i.i.i: ; p
   unreachable
 
 .body.i.i:                                        ; preds = %1372, %.body56.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.loopexit.i.i, %.loopexit223.i.i
-  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.5.ph.i.i, %.body56.i.i ], [ %.sroa.0.5.ph.i.i, %1372 ], [ %.val.i.i.i.i.i.i.i.i.i, %.loopexit223.i.i ], [ %.sroa.0.5.ph.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ], [ %.sroa.0.5.ph.i.i, %.loopexit.split-lp.loopexit.loopexit.i.i ], [ %.sroa.0.5.ph.i.i, %.loopexit.split-lp.loopexit.loopexit.split-lp.i.i ]
-  %.4.i.i = phi ptr [ %.6.i.i, %.body56.i.i ], [ %.6.i.i, %1372 ], [ %.2.ph.i.i, %.loopexit223.i.i ], [ %.2.ph.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ], [ %.2.ph.i.i, %.loopexit.split-lp.loopexit.loopexit.i.i ], [ %.9.i.i, %.loopexit.split-lp.loopexit.loopexit.split-lp.i.i ]
-  %.pn35.i.i = phi { ptr, i32 } [ %.pn33.i.i, %.body56.i.i ], [ %.pn33.i.i, %1372 ], [ %lpad.loopexit.i.i, %.loopexit223.i.i ], [ %lpad.loopexit.split-lp234.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ], [ %lpad.loopexit238.i.i, %.loopexit.split-lp.loopexit.loopexit.i.i ], [ %lpad.loopexit.split-lp239.i.i, %.loopexit.split-lp.loopexit.loopexit.split-lp.i.i ]
+  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.5.ph.i.i, %1372 ], [ %.sroa.0.5.ph.i.i, %.body56.i.i ], [ %.val.i.i.i.i.i.i.i.i.i, %.loopexit223.i.i ], [ %.sroa.0.5.ph.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ], [ %.sroa.0.5.ph.i.i, %.loopexit.split-lp.loopexit.loopexit.i.i ], [ %.sroa.0.5.ph.i.i, %.loopexit.split-lp.loopexit.loopexit.split-lp.i.i ]
+  %.4.i.i = phi ptr [ %.6.i.i, %1372 ], [ %.6.i.i, %.body56.i.i ], [ %.2.ph.i.i, %.loopexit223.i.i ], [ %.2.ph.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ], [ %.2.ph.i.i, %.loopexit.split-lp.loopexit.loopexit.i.i ], [ %.9.i.i, %.loopexit.split-lp.loopexit.loopexit.split-lp.i.i ]
+  %.pn35.i.i = phi { ptr, i32 } [ %.pn33.i.i, %1372 ], [ %.pn33.i.i, %.body56.i.i ], [ %lpad.loopexit.i.i, %.loopexit223.i.i ], [ %lpad.loopexit.split-lp234.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ], [ %lpad.loopexit238.i.i, %.loopexit.split-lp.loopexit.loopexit.i.i ], [ %lpad.loopexit.split-lp239.i.i, %.loopexit.split-lp.loopexit.loopexit.split-lp.i.i ]
   %1352 = icmp eq ptr %.sroa.0.2.i.i, null
   br i1 %1352, label %"_ZN4core3ptr355drop_in_place$LT$core..iter..adapters..skip..Skip$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$$GT$17h485d59135969e137E.exit.i.i", label %1353
 
@@ -10697,7 +10697,7 @@ default.unreachable22:                            ; preds = %1
   br label %"_ZN6syntax3ast8expr_ext59_$LT$impl$u20$syntax..ast..generated..nodes..PrefixExpr$GT$8op_token17hc1fd1d7b20e758cfE.exit"
 
 "_ZN6syntax3ast8expr_ext59_$LT$impl$u20$syntax..ast..generated..nodes..PrefixExpr$GT$8op_token17hc1fd1d7b20e758cfE.exit": ; preds = %56, %90, %88, %85, %82, %79, %76, %73, %53, %50, %47, %44, %41, %38, %35, %28, %21, %12, %9, %6
-  %.0 = phi ptr [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %87, %85 ], [ %23, %21 ], [ %81, %79 ], [ %30, %28 ], [ %91, %90 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %89, %88 ], [ %84, %82 ], [ %75, %73 ], [ %78, %76 ], [ %60, %56 ]
+  %.0 = phi ptr [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %87, %85 ], [ %23, %21 ], [ %81, %79 ], [ %30, %28 ], [ %89, %88 ], [ %37, %35 ], [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ %91, %90 ], [ %84, %82 ], [ %75, %73 ], [ %78, %76 ], [ %60, %56 ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %"_ZN6syntax3ast8expr_ext59_$LT$impl$u20$syntax..ast..generated..nodes..PrefixExpr$GT$8op_token17hc1fd1d7b20e758cfE.exit.thread", label %"_ZN6syntax3ast8expr_ext59_$LT$impl$u20$syntax..ast..generated..nodes..PrefixExpr$GT$8op_token17hc1fd1d7b20e758cfE.exit.thread16"
 

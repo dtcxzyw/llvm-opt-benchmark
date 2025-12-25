@@ -2921,7 +2921,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit118:              ; preds = %349, %_ZNSt7__cxx11
   %552 = trunc i8 %.069 to i1
   br i1 %552, label %_ZN4llvm11raw_ostreamlsEPKc.exit118.thread195, label %.thread
 
-_ZN4llvm11raw_ostreamlsEPKc.exit118.thread195:    ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %389, %_ZN4llvm11raw_ostreamlsEPKc.exit118
+_ZN4llvm11raw_ostreamlsEPKc.exit118.thread195:    ; preds = %389, %_ZN4llvm11raw_ostreamlsEc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit118
   %553 = load ptr, ptr %7, align 8, !tbaa !521
   %554 = load i64, ptr %22, align 8, !tbaa !84
   %555 = icmp samesign eq i64 %23, %554

@@ -1560,7 +1560,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
   br label %40
 
 40:                                               ; preds = %32, %27, %22, %38
-  %.130 = phi ptr [ %39, %38 ], [ null, %27 ], [ %.02945, %22 ], [ null, %32 ]
+  %.130 = phi ptr [ null, %27 ], [ %39, %38 ], [ %.02945, %22 ], [ null, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %6, align 4, !tbaa !56
   %42 = sext i32 %41 to i64

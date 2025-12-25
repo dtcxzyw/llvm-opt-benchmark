@@ -248,7 +248,7 @@ Io_ReadBlifNetwork.exit.thread:                   ; preds = %5, %42
   br i1 %87, label %.split.us.i, label %.lr.ph
 
 .split.us.i:                                      ; preds = %.lr.ph.backedge.i, %.lr.ph, %61, %65, %.lr.ph.preheader.i, %.split32.us.i, %81, %.split32.us.thread.i, %69
-  %.us-phi.i = phi ptr [ %71, %.split32.us.thread.i ], [ %71, %.split32.us.i ], [ null, %81 ], [ null, %69 ], [ %71, %.lr.ph.preheader.i ], [ %71, %65 ], [ %71, %61 ], [ %71, %.lr.ph ], [ %71, %.lr.ph.backedge.i ]
+  %.us-phi.i = phi ptr [ %71, %.split32.us.thread.i ], [ %71, %.split32.us.i ], [ null, %69 ], [ null, %81 ], [ %71, %.lr.ph.preheader.i ], [ %71, %65 ], [ %71, %61 ], [ %71, %.lr.ph ], [ %71, %.lr.ph.backedge.i ]
   %88 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 1152
   %89 = load i32, ptr %88, align 8, !tbaa !42
   %.not30.i = icmp eq i32 %89, 0

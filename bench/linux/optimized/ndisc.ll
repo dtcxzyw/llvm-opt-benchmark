@@ -2853,7 +2853,7 @@ __neigh_lookup.exit.thread:                       ; preds = %259, %__neigh_looku
   br label %275
 
 275:                                              ; preds = %271, %__neigh_lookup.exit.thread, %264, %241
-  %276 = phi i32 [ 2, %241 ], [ 2, %__neigh_lookup.exit.thread ], [ 1, %271 ], [ 1, %264 ]
+  %276 = phi i32 [ 2, %241 ], [ 2, %__neigh_lookup.exit.thread ], [ 1, %264 ], [ 1, %271 ]
   %277 = icmp eq ptr %239, null
   br i1 %277, label %.thread25, label %.thread24
 
@@ -2900,7 +2900,7 @@ __neigh_lookup.exit.thread:                       ; preds = %259, %__neigh_looku
   br label %ndisc_parse_options.exit.thread
 
 ndisc_parse_options.exit.thread:                  ; preds = %53, %56, %292, %294, %283, %285, %44, %.thread20, %295, %286, %158, %101, %36, %30, %1
-  %296 = phi i32 [ 2, %158 ], [ 2, %.thread20 ], [ 4, %1 ], [ 2, %30 ], [ 2, %36 ], [ %287, %295 ], [ 2, %101 ], [ %287, %292 ], [ %278, %286 ], [ %278, %283 ], [ 80, %44 ], [ %287, %294 ], [ %278, %285 ], [ 80, %56 ], [ 80, %53 ]
+  %296 = phi i32 [ 2, %158 ], [ 2, %.thread20 ], [ 4, %1 ], [ 2, %30 ], [ 2, %36 ], [ %287, %295 ], [ 2, %101 ], [ %287, %294 ], [ %278, %286 ], [ %278, %283 ], [ 80, %44 ], [ %287, %292 ], [ %278, %285 ], [ 80, %56 ], [ 80, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %296
 }
@@ -3272,7 +3272,7 @@ ndisc_parse_options.exit:                         ; preds = %58
   br label %ndisc_parse_options.exit.thread
 
 ndisc_parse_options.exit.thread:                  ; preds = %58, %61, %32, %177, %181, %163, %165, %49, %236, %186, %166, %143, %106, %45, %27, %1
-  %238 = phi i32 [ 2, %143 ], [ 4, %1 ], [ 2, %27 ], [ 2, %32 ], [ 2, %45 ], [ 2, %163 ], [ 2, %106 ], [ %237, %236 ], [ 2, %186 ], [ 2, %177 ], [ 2, %166 ], [ 80, %49 ], [ 2, %181 ], [ 2, %165 ], [ 80, %61 ], [ 80, %58 ]
+  %238 = phi i32 [ 2, %143 ], [ 4, %1 ], [ 2, %27 ], [ 2, %32 ], [ 2, %45 ], [ 2, %163 ], [ 2, %106 ], [ %237, %236 ], [ 2, %186 ], [ 2, %181 ], [ 2, %166 ], [ 80, %49 ], [ 2, %177 ], [ 2, %165 ], [ 80, %61 ], [ 80, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %238
 }
@@ -4010,7 +4010,7 @@ ndisc_parse_options.exit:                         ; preds = %50
   br label %308
 
 308:                                              ; preds = %296, %287, %282, %265
-  %309 = phi i8 [ %283, %282 ], [ %129, %265 ], [ 1, %296 ], [ %283, %287 ]
+  %309 = phi i8 [ 1, %296 ], [ %129, %265 ], [ %283, %282 ], [ %283, %287 ]
   %310 = icmp eq ptr %267, null
   br i1 %310, label %.thread58, label %.thread62
 
@@ -4365,7 +4365,7 @@ ndisc_parse_options.exit:                         ; preds = %50
   %.not = icmp eq i32 %546, 0
   br i1 %.not, label %.backedge, label %.critedge
 
-.backedge:                                        ; preds = %539, %542, %545
+.backedge:                                        ; preds = %542, %539, %545
   %547 = getelementptr inbounds nuw i8, ptr %537, i64 1
   %548 = load i8, ptr %547, align 1
   %549 = zext i8 %548 to i64
@@ -4473,7 +4473,7 @@ ndisc_parse_options.exit:                         ; preds = %50
   br label %ndisc_parse_options.exit.thread
 
 ndisc_parse_options.exit.thread:                  ; preds = %50, %53, %589, %591, %44, %592, %.thread74, %226, %208, %205, %182, %40, %37, %26, %24, %1
-  %593 = phi i32 [ %570, %592 ], [ 2, %226 ], [ 2, %182 ], [ 2, %1 ], [ 4, %24 ], [ 2, %26 ], [ 2, %40 ], [ 2, %37 ], [ %570, %589 ], [ 2, %208 ], [ 2, %205 ], [ %570, %.thread74 ], [ 80, %44 ], [ %570, %591 ], [ 80, %53 ], [ 80, %50 ]
+  %593 = phi i32 [ %570, %592 ], [ 2, %226 ], [ 2, %182 ], [ 2, %1 ], [ 4, %24 ], [ 2, %26 ], [ 2, %40 ], [ 2, %37 ], [ %570, %591 ], [ 2, %208 ], [ 2, %205 ], [ %570, %.thread74 ], [ 80, %44 ], [ %570, %589 ], [ 80, %53 ], [ 80, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %593
 }

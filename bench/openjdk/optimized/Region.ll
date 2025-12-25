@@ -312,7 +312,7 @@ define i32 @Region_CountIterationRects(ptr noundef readonly captures(none) %0) l
   br i1 %43, label %.lr.ph, label %.loopexit44, !llvm.loop !6
 
 .loopexit44:                                      ; preds = %.loopexit, %.lr.ph, %14, %10, %1, %5
-  %.035 = phi i32 [ 1, %10 ], [ 0, %1 ], [ 0, %5 ], [ 0, %14 ], [ %.237, %.loopexit ], [ %.13645, %.lr.ph ]
+  %.035 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 1, %10 ], [ 0, %14 ], [ %.237, %.loopexit ], [ %.13645, %.lr.ph ]
   ret i32 %.035
 }
 
@@ -635,7 +635,7 @@ Region_StartIteration.exit:                       ; preds = %25, %52
   br i1 %96, label %.lr.ph.i, label %Region_CountIterationRects.exit, !llvm.loop !6
 
 Region_CountIterationRects.exit:                  ; preds = %.lr.ph.i, %.loopexit.i, %68
-  %.035.i = phi i32 [ %.mux, %68 ], [ %.237.i, %.loopexit.i ], [ %.13645.i, %.lr.ph.i ]
+  %.035.i = phi i32 [ %.mux, %68 ], [ %.13645.i, %.lr.ph.i ], [ %.237.i, %.loopexit.i ]
   %97 = sext i32 %.035.i to i64
   %98 = zext i32 %7 to i64
   %99 = icmp ugt i64 %97, %98

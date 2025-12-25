@@ -821,7 +821,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   br i1 %467, label %.thread, label %61, !llvm.loop !17
 
 .thread:                                          ; preds = %.preheader59, %462, %.critedge32, %.loopexit57, %.critedge34, %1
-  %468 = phi i32 [ -19, %1 ], [ 0, %.loopexit57 ], [ -19, %462 ], [ 0, %.critedge34 ], [ -19, %.critedge32 ], [ -19, %.preheader59 ]
+  %468 = phi i32 [ -19, %1 ], [ 0, %.loopexit57 ], [ 0, %.critedge34 ], [ -19, %462 ], [ -19, %.critedge32 ], [ -19, %.preheader59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %468
 }

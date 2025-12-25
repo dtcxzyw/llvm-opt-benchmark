@@ -3283,7 +3283,7 @@ fdt_num_mem_rsv.exit:                             ; preds = %.fdt_num_mem_rsv.ex
   br i1 %115, label %fdt_num_mem_rsv.exit.thread, label %.lr.ph
 
 fdt_num_mem_rsv.exit.thread:                      ; preds = %.split.i, %92, %fdt_num_mem_rsv.exit, %101, %104, %.lr.ph, %fdt_num_mem_rsv.exit.preheader, %100, %9, %7, %2, %110
-  %.0 = phi i32 [ %111, %110 ], [ -8, %2 ], [ %8, %7 ], [ -8, %9 ], [ %90, %fdt_num_mem_rsv.exit.preheader ], [ %., %100 ], [ -13, %.lr.ph ], [ -11, %104 ], [ %114, %fdt_num_mem_rsv.exit ], [ -11, %101 ], [ -8, %92 ], [ -8, %.split.i ]
+  %.0 = phi i32 [ %111, %110 ], [ -8, %2 ], [ %8, %7 ], [ -8, %9 ], [ %., %100 ], [ %90, %fdt_num_mem_rsv.exit.preheader ], [ -13, %.lr.ph ], [ -11, %104 ], [ %114, %fdt_num_mem_rsv.exit ], [ -11, %101 ], [ -8, %92 ], [ -8, %.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

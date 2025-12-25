@@ -3672,7 +3672,7 @@ _ZL13mayHaveParentPc.exit108.i:                   ; preds = %78
   br i1 %.not104.us.i, label %.critedge.i, label %.lr.ph127.i
 
 .critedge.i:                                      ; preds = %.lr.ph127.i, %.lr.ph.split.us.i, %.thread.thread.i, %107, %.thread.i, %85, %82, %62
-  %.069.ph.i = phi ptr [ %43, %62 ], [ %.5116.i, %107 ], [ %71, %85 ], [ %87, %.thread.thread.i ], [ %.6147.i, %.lr.ph.split.us.i ], [ %.5116.i, %.thread.i ], [ %71, %82 ], [ %.6147.i, %.lr.ph127.i ]
+  %.069.ph.i = phi ptr [ %71, %85 ], [ %.5116.i, %107 ], [ %43, %62 ], [ %87, %.thread.thread.i ], [ %.6147.i, %.lr.ph.split.us.i ], [ %.5116.i, %.thread.i ], [ %71, %82 ], [ %.6147.i, %.lr.ph127.i ]
   %.pr154.i = load i32, ptr %4, align 4, !tbaa !13
   %120 = icmp sgt i32 %.pr154.i, 0
   br i1 %120, label %.critedge.thread.i, label %121
@@ -8075,7 +8075,7 @@ _ZL10chopLocalePc.exit:                           ; preds = %91, %93, %115, %.th
   br label %246
 
 246:                                              ; preds = %244, %241
-  %247 = phi i1 [ true, %241 ], [ %245, %244 ]
+  %247 = phi i1 [ %245, %244 ], [ true, %241 ]
   %248 = and i1 %55, %247
   br i1 %248, label %44, label %._crit_edge, !llvm.loop !108
 

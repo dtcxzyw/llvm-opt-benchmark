@@ -707,7 +707,7 @@ define internal fastcc noundef zeroext i1 @get_object_type(ptr noundef %0, i32 n
   br label %.thread51
 
 .thread51:                                        ; preds = %.thread51.sink.split, %.thread46, %13, %16, %4, %7, %3, %27, %24, %30, %33
-  %.0 = phi i1 [ false, %30 ], [ false, %3 ], [ false, %33 ], [ false, %.thread46 ], [ false, %13 ], [ false, %16 ], [ false, %7 ], [ false, %4 ], [ false, %27 ], [ false, %24 ], [ true, %.thread51.sink.split ]
+  %.0 = phi i1 [ false, %30 ], [ false, %3 ], [ false, %33 ], [ false, %7 ], [ false, %16 ], [ false, %13 ], [ false, %.thread46 ], [ false, %24 ], [ false, %27 ], [ false, %4 ], [ true, %.thread51.sink.split ]
   ret i1 %.0
 }
 

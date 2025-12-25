@@ -5825,7 +5825,7 @@ _ZN11quinn_proto8endpoint8Endpoint14cids_exhausted17hc771a0d18a2ee089E.exit.thre
   call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %.critedge
 
-.critedge413:                                     ; preds = %.thread474, %1237
+.critedge413:                                     ; preds = %1237, %.thread474
   call void @llvm.lifetime.end.p0(ptr nonnull %165)
   br label %1443
 

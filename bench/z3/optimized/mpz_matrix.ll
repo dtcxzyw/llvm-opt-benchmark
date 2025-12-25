@@ -2593,7 +2593,7 @@ _ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit: ; preds = %_ZN18mpz_matr
   br i1 %150, label %.preheader115, label %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge, !llvm.loop !67
 
 _ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit._crit_edge: ; preds = %149, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit
-  %.1 = phi i32 [ %141, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit ], [ %.2.ph, %149 ]
+  %.1 = phi i32 [ %.2.ph, %149 ], [ %141, %_ZN18mpz_matrix_manager9swap_rowsER10mpz_matrixjj.exit ]
   %151 = zext i32 %.1 to i64
   %.idx = shl nuw nsw i64 %151, 2
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx

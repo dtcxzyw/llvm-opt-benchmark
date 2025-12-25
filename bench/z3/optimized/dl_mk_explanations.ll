@@ -1115,7 +1115,7 @@ define hidden noalias noundef ptr @_ZN7datalog27explanation_relation_plugin11mk_
   br label %18
 
 18:                                               ; preds = %.sink.split, %4, %9
-  %.0 = phi ptr [ null, %4 ], [ null, %9 ], [ %16, %.sink.split ]
+  %.0 = phi ptr [ null, %9 ], [ null, %4 ], [ %16, %.sink.split ]
   ret ptr %.0
 }
 

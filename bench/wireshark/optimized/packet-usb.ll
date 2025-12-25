@@ -7486,7 +7486,7 @@ dissect_usb_endpoint_companion_descriptor.exit.i: ; preds = %477, %468
   br label %505
 
 505:                                              ; preds = %491, %489, %dissect_usb_endpoint_companion_descriptor.exit.i, %408, %406, %dissect_usb_interface_descriptor.exit.i
-  %.2.i = phi i32 [ %.0.i.i, %dissect_usb_endpoint_companion_descriptor.exit.i ], [ %436, %408 ], [ %407, %406 ], [ %490, %489 ], [ %503, %491 ], [ %spec.select.i.i, %dissect_usb_interface_descriptor.exit.i ]
+  %.2.i = phi i32 [ %407, %406 ], [ %436, %408 ], [ %.0.i.i, %dissect_usb_endpoint_companion_descriptor.exit.i ], [ %490, %489 ], [ %503, %491 ], [ %spec.select.i.i, %dissect_usb_interface_descriptor.exit.i ]
   %506 = sub i32 %.2.i, %3
   %507 = icmp slt i32 %506, %244
   br i1 %507, label %252, label %dissect_usb_configuration_descriptor.exit

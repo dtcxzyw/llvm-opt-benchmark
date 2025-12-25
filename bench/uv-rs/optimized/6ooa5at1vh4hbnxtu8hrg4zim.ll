@@ -2038,7 +2038,7 @@ common.resume.i:                                  ; preds = %260, %.body.i.i
   br label %.loopexit.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %483, %366, %322, %.sink.split.i.us.i.i.i, %425, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hba17f5cd1071aaf8E.exit.split.i.i.i"
-  %.sroa.07.0117.i.i.i = phi i64 [ %.sroa.07.0.us.i.i.i, %366 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hba17f5cd1071aaf8E.exit.split.i.i.i" ], [ %.sroa.07.0.us.i.i.i, %425 ], [ %.sroa.07.0.us.i.i.i, %.sink.split.i.us.i.i.i ], [ %.sroa.07.0.us.i.i.i, %322 ], [ %.sroa.07.0153.i.i.i, %483 ]
+  %.sroa.07.0117.i.i.i = phi i64 [ %.sroa.07.0.us.i.i.i, %366 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hba17f5cd1071aaf8E.exit.split.i.i.i" ], [ %.sroa.07.0.us.i.i.i, %.sink.split.i.us.i.i.i ], [ %.sroa.07.0.us.i.i.i, %425 ], [ %.sroa.07.0.us.i.i.i, %322 ], [ %.sroa.07.0153.i.i.i, %483 ]
   %gepdiff72.i.i.i = sub nsw i64 %300, %.sroa.07.0117.i.i.i
   %498 = load i64, ptr %.sroa.515.0..sroa_idx.i.i22.i, align 8, !alias.scope !414, !noalias !357, !noundef !7
   %499 = load i64, ptr %11, align 8, !range !55, !alias.scope !414, !noalias !357, !noundef !7

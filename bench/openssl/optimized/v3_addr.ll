@@ -1499,7 +1499,7 @@ range_should_be_prefix.exit.thread:               ; preds = %130, %117, %.crited
   br i1 %157, label %.lr.ph116, label %.critedge75, !llvm.loop !40
 
 .critedge75:                                      ; preds = %12, %17, %19, %.critedge77, %54, %148, %56, %.thread97, %146, %152, %.lr.ph116, %52, %71, %.critedge, %69, %77, %74, %range_should_be_prefix.exit, %64, %.preheader105, %1
-  %.0 = phi i32 [ 0, %52 ], [ 0, %71 ], [ 1, %1 ], [ 1, %.preheader105 ], [ 0, %64 ], [ 0, %range_should_be_prefix.exit ], [ 0, %74 ], [ 0, %77 ], [ 0, %69 ], [ 0, %.critedge ], [ 0, %146 ], [ 0, %.thread97 ], [ 0, %56 ], [ 0, %148 ], [ 0, %152 ], [ 0, %54 ], [ 1, %.critedge77 ], [ 0, %.lr.ph116 ], [ 0, %19 ], [ 0, %17 ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %52 ], [ 1, %1 ], [ 1, %.preheader105 ], [ 0, %71 ], [ 0, %64 ], [ 0, %range_should_be_prefix.exit ], [ 0, %74 ], [ 0, %77 ], [ 0, %69 ], [ 0, %.critedge ], [ 0, %146 ], [ 0, %.thread97 ], [ 0, %56 ], [ 0, %148 ], [ 0, %54 ], [ 1, %.critedge77 ], [ 0, %.lr.ph116 ], [ 0, %152 ], [ 0, %19 ], [ 0, %17 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2708,7 +2708,7 @@ define internal fastcc range(i32 0, 2) i32 @addr_contains(ptr noundef %0, ptr no
   br i1 %.not22, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %19, %28, %15, %.preheader, %31, %.lr.ph, %.preheader24, %10, %3
-  %.019 = phi i32 [ 1, %.preheader24 ], [ 1, %3 ], [ 0, %10 ], [ 0, %31 ], [ 0, %.lr.ph ], [ 0, %19 ], [ 0, %28 ], [ 1, %15 ], [ 0, %.preheader ]
+  %.019 = phi i32 [ 0, %10 ], [ 1, %3 ], [ 1, %.preheader24 ], [ 0, %31 ], [ 0, %.lr.ph ], [ 1, %15 ], [ 0, %28 ], [ 0, %.preheader ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3129,8 +3129,8 @@ X509v3_addr_get_afi.exit:                         ; preds = %112
   br i1 %183, label %.lr.ph238.split, label %.critedge165, !llvm.loop !101
 
 .critedge165:                                     ; preds = %94, %93, %73, %72, %52, %53, %132, %100, %98, %131, %.lr.ph232, %.critedge173, %.lr.ph238.split, %177, %.critedge173.us, %.lr.ph238.split.us, %161, %.preheader, %24, %._crit_edge, %37, %38, %25
-  %.0138 = phi i32 [ 0, %38 ], [ 0, %37 ], [ 0, %.lr.ph232 ], [ 0, %161 ], [ 0, %132 ], [ 1, %._crit_edge ], [ 0, %24 ], [ 0, %25 ], [ 1, %.preheader ], [ 0, %177 ], [ 1, %.critedge173.us ], [ 0, %.lr.ph238.split.us ], [ 0, %.lr.ph238.split ], [ 1, %.critedge173 ], [ 0, %131 ], [ 0, %98 ], [ 0, %100 ], [ 0, %53 ], [ 0, %52 ], [ 0, %72 ], [ 0, %73 ], [ 0, %93 ], [ 0, %94 ]
-  %.0126 = phi ptr [ null, %38 ], [ null, %37 ], [ %35, %.lr.ph232 ], [ %35, %.critedge173.us ], [ %35, %132 ], [ %35, %._crit_edge ], [ null, %24 ], [ null, %25 ], [ %35, %.preheader ], [ %35, %.critedge173 ], [ %35, %161 ], [ %35, %.lr.ph238.split.us ], [ %35, %177 ], [ %35, %.lr.ph238.split ], [ %35, %131 ], [ %35, %98 ], [ %35, %100 ], [ %35, %53 ], [ %35, %52 ], [ %35, %72 ], [ %35, %73 ], [ %35, %93 ], [ %35, %94 ]
+  %.0138 = phi i32 [ 0, %38 ], [ 0, %37 ], [ 1, %._crit_edge ], [ 0, %132 ], [ 1, %.preheader ], [ 0, %177 ], [ 0, %24 ], [ 0, %25 ], [ 0, %.lr.ph232 ], [ 0, %161 ], [ 1, %.critedge173.us ], [ 0, %.lr.ph238.split.us ], [ 0, %.lr.ph238.split ], [ 1, %.critedge173 ], [ 0, %131 ], [ 0, %98 ], [ 0, %100 ], [ 0, %53 ], [ 0, %52 ], [ 0, %72 ], [ 0, %73 ], [ 0, %93 ], [ 0, %94 ]
+  %.0126 = phi ptr [ null, %38 ], [ null, %37 ], [ %35, %._crit_edge ], [ %35, %132 ], [ %35, %.preheader ], [ %35, %.critedge173 ], [ null, %24 ], [ null, %25 ], [ %35, %.lr.ph232 ], [ %35, %.critedge173.us ], [ %35, %161 ], [ %35, %.lr.ph238.split.us ], [ %35, %177 ], [ %35, %.lr.ph238.split ], [ %35, %131 ], [ %35, %98 ], [ %35, %100 ], [ %35, %53 ], [ %35, %52 ], [ %35, %72 ], [ %35, %73 ], [ %35, %93 ], [ %35, %94 ]
   tail call void @OPENSSL_sk_free(ptr noundef %.0126) #15
   br label %.critedge.thread
 

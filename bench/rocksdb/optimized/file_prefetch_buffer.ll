@@ -5571,8 +5571,8 @@ _ZN7rocksdb18FilePrefetchBuffer11UpdateStatsEbm.exit91: ; preds = %.invoke, %298
   br label %_ZN7rocksdb6StatusD2Ev.exit132
 
 485:                                              ; preds = %177, %484, %302, %233
-  %486 = phi ptr [ %107, %302 ], [ %107, %233 ], [ %107, %177 ], [ %.pre144, %484 ]
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %303, %302 ], [ %234, %233 ], [ %178, %177 ], [ %.pn, %484 ]
+  %486 = phi ptr [ %107, %233 ], [ %107, %302 ], [ %107, %177 ], [ %.pre144, %484 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %234, %233 ], [ %303, %302 ], [ %178, %177 ], [ %.pn, %484 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not.i.i130 = icmp eq ptr %486, null

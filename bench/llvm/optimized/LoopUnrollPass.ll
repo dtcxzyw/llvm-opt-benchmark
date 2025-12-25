@@ -2815,24 +2815,24 @@ _ZL21hasUnrollEnablePragmaPKN4llvm4LoopE.exit:    ; preds = %_ZL22unrollCountPra
 96:                                               ; preds = %93, %.thread.i, %91
   %97 = icmp ne i32 %8, 0
   %or.cond.i = and i1 %97, %spec.select.i.i
-  br i1 %or.cond.i, label %.thread6.i, label %98
+  br i1 %or.cond.i, label %98, label %.thread6.i
 
 98:                                               ; preds = %96
-  %.not19.i = xor i1 %97, true
-  %99 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %100 = load i32, ptr %99, align 4
-  %.fr.i = freeze i32 %100
-  %101 = add i32 %9, -1
-  %102 = icmp ult i32 %101, %.fr.i
-  %103 = and i1 %102, %.not19.i
-  %or.cond24.not.i = and i1 %spec.select.i.i228, %103
-  br i1 %or.cond24.not.i, label %.thread6.thread.i, label %.critedge301
-
-.thread6.i:                                       ; preds = %96
-  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL29PragmaUnrollFullMaxIterations, i64 120), align 8, !tbaa !56
-  %.fr18.i = freeze i32 %104
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL29PragmaUnrollFullMaxIterations, i64 120), align 8, !tbaa !56
+  %.fr18.i = freeze i32 %99
   %.not.i229 = icmp ugt i32 %8, %.fr18.i
   br i1 %.not.i229, label %.critedge301, label %.thread6.thread.i
+
+.thread6.i:                                       ; preds = %96
+  %.not19.i = xor i1 %97, true
+  %100 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %101 = load i32, ptr %100, align 4
+  %.fr.i = freeze i32 %101
+  %102 = add i32 %9, -1
+  %103 = icmp ult i32 %102, %.fr.i
+  %104 = and i1 %103, %.not19.i
+  %or.cond24.not.i = and i1 %spec.select.i.i228, %104
+  br i1 %or.cond24.not.i, label %.thread6.thread.i, label %.critedge301
 
 .thread6.thread.i.thread:                         ; preds = %.thread.i, %73, %93, %92
   %.sroa.0.016.i.ph = phi i32 [ %74, %73 ], [ %.0.i, %92 ], [ %.0.i, %.thread.i ], [ %.0.i, %93 ]
@@ -2841,7 +2841,7 @@ _ZL21hasUnrollEnablePragmaPKN4llvm4LoopE.exit:    ; preds = %_ZL22unrollCountPra
   br label %107
 
 .thread6.thread.i:                                ; preds = %.thread6.i, %98
-  %.sroa.0.016.i = phi i32 [ %9, %98 ], [ %8, %.thread6.i ]
+  %.sroa.0.016.i = phi i32 [ %8, %98 ], [ %9, %.thread6.i ]
   %106 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 %.sroa.0.016.i, ptr %106, align 4, !tbaa !76
   %or.cond9 = or i1 %28, %61
@@ -3278,7 +3278,7 @@ condstore.split:                                  ; preds = %279, %.critedge
   br label %286
 
 286:                                              ; preds = %285, %condstore.split, %224, %197, %200, %194, %115, %137, %125, %233, %211, %205, %140, %66
-  %.0 = phi i1 [ true, %66 ], [ %spec.select, %140 ], [ false, %205 ], [ %spec.select, %115 ], [ false, %233 ], [ %spec.select, %197 ], [ false, %211 ], [ false, %224 ], [ %spec.select, %137 ], [ %spec.select, %125 ], [ %spec.select, %200 ], [ %spec.select, %194 ], [ %spec.select, %condstore.split ], [ %spec.select, %285 ]
+  %.0 = phi i1 [ true, %66 ], [ %spec.select, %140 ], [ false, %205 ], [ %spec.select, %115 ], [ false, %233 ], [ %spec.select, %197 ], [ false, %211 ], [ %spec.select, %200 ], [ %spec.select, %137 ], [ %spec.select, %125 ], [ false, %224 ], [ %spec.select, %194 ], [ %spec.select, %condstore.split ], [ %spec.select, %285 ]
   ret i1 %.0
 }
 
@@ -11709,8 +11709,8 @@ define linkonce_odr hidden { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16Case
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %28, %20, %13, %70, %60, %49, %78
-  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %0, %70 ], [ %0, %49 ], [ %2, %78 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
-  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %.sroa.15.2, %70 ], [ %.sroa.15.0.lcssa, %49 ], [ %3, %78 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
+  %.sroa.014.0.in.sroa.speculated = phi ptr [ %0, %60 ], [ %2, %78 ], [ %0, %70 ], [ %0, %49 ], [ %0, %13 ], [ %0, %20 ], [ %0, %28 ], [ %0, %36 ]
+  %.sroa.9.0 = phi i64 [ %.sroa.15.1, %60 ], [ %3, %78 ], [ %.sroa.15.2, %70 ], [ %.sroa.15.0.lcssa, %49 ], [ %37, %36 ], [ %29, %28 ], [ %21, %20 ], [ %.sroa.15.076, %13 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.014.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { ptr, i64 } %.fca.1.insert

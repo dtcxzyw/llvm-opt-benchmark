@@ -608,7 +608,7 @@ define hidden noundef ptr @_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimizatio
   br i1 %or.cond28, label %.loopexit, label %3, !llvm.loop !9
 
 .loopexit:                                        ; preds = %21, %3, %13, %20
-  %.0 = phi ptr [ %4, %13 ], [ null, %20 ], [ null, %3 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %20 ], [ %4, %13 ], [ null, %3 ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -709,7 +709,7 @@ _ZNK8ProjNode13other_if_projEv.exit:              ; preds = %27, %51
   br i1 %or.cond28.i, label %_ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE.exit, label %_ZNK8ProjNode13other_if_projEv.exit, !llvm.loop !9
 
 _ZNK8ProjNode21is_uncommon_trap_projEN14Deoptimization11DeoptReasonE.exit: ; preds = %51, %_ZNK8ProjNode13other_if_projEv.exit, %50, %43, %2, %10
-  %.0 = phi ptr [ null, %2 ], [ null, %10 ], [ %34, %43 ], [ null, %50 ], [ null, %_ZNK8ProjNode13other_if_projEv.exit ], [ null, %51 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %10 ], [ null, %50 ], [ %34, %43 ], [ null, %_ZNK8ProjNode13other_if_projEv.exit ], [ null, %51 ]
   ret ptr %.0
 }
 

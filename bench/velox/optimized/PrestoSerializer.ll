@@ -16960,8 +16960,8 @@ lpad10.loopexit:                                  ; preds = %invoke.cont51, %_ZN
   br label %lpad10
 
 lpad10.loopexit.split-lp:                         ; preds = %if.end20, %invoke.cont27, %invoke.cont32, %if.then59, %invoke.cont60, %call.i163.noexc, %if.then.i170
-  %innerScatter.sroa.0.1.ph = phi ptr [ %innerScatter.sroa.0.2, %if.end20 ], [ %innerScatter.sroa.0.0, %if.then59 ], [ %innerScatter.sroa.0.0, %invoke.cont60 ], [ %innerScatter.sroa.0.0, %call.i163.noexc ], [ %innerScatter.sroa.0.0, %if.then.i170 ], [ %innerScatter.sroa.0.2, %invoke.cont32 ], [ %innerScatter.sroa.0.2, %invoke.cont27 ]
-  %childIncomingNullsVector.sroa.0.1.ph = phi ptr [ %childIncomingNullsVector.sroa.0.2, %if.end20 ], [ %childIncomingNullsVector.sroa.0.0, %if.then59 ], [ %childIncomingNullsVector.sroa.0.0, %invoke.cont60 ], [ %childIncomingNullsVector.sroa.0.0, %call.i163.noexc ], [ %childIncomingNullsVector.sroa.0.0, %if.then.i170 ], [ %childIncomingNullsVector.sroa.0.5, %invoke.cont32 ], [ %childIncomingNullsVector.sroa.0.5, %invoke.cont27 ]
+  %innerScatter.sroa.0.1.ph = phi ptr [ %innerScatter.sroa.0.2, %if.end20 ], [ %innerScatter.sroa.0.0, %if.then59 ], [ %innerScatter.sroa.0.0, %invoke.cont60 ], [ %innerScatter.sroa.0.0, %call.i163.noexc ], [ %innerScatter.sroa.0.0, %if.then.i170 ], [ %innerScatter.sroa.0.2, %invoke.cont27 ], [ %innerScatter.sroa.0.2, %invoke.cont32 ]
+  %childIncomingNullsVector.sroa.0.1.ph = phi ptr [ %childIncomingNullsVector.sroa.0.2, %if.end20 ], [ %childIncomingNullsVector.sroa.0.0, %if.then59 ], [ %childIncomingNullsVector.sroa.0.0, %invoke.cont60 ], [ %childIncomingNullsVector.sroa.0.0, %call.i163.noexc ], [ %childIncomingNullsVector.sroa.0.0, %if.then.i170 ], [ %childIncomingNullsVector.sroa.0.5, %invoke.cont27 ], [ %childIncomingNullsVector.sroa.0.5, %invoke.cont32 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad10
@@ -33845,7 +33845,7 @@ lpad.i313.loopexit:                               ; preds = %for.body11.i, %_ZNK
   br label %lpad.i313
 
 lpad.i313.loopexit.split-lp:                      ; preds = %invoke.cont33.i320, %if.then.i.i.i547
-  %childRanges.i307.sroa.0.0.ph.ph = phi ptr [ %childRanges.i307.sroa.0.21056, %if.then.i.i.i547 ], [ %childRanges.i307.sroa.0.1.lcssa, %invoke.cont33.i320 ]
+  %childRanges.i307.sroa.0.0.ph.ph = phi ptr [ %childRanges.i307.sroa.0.1.lcssa, %invoke.cont33.i320 ], [ %childRanges.i307.sroa.0.21056, %if.then.i.i.i547 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i313
@@ -34167,7 +34167,7 @@ lpad.i340.loopexit:                               ; preds = %for.body11.i362, %_
   br label %lpad.i340
 
 lpad.i340.loopexit.split-lp:                      ; preds = %invoke.cont33.i349, %invoke.cont39.i, %if.then.i.i.i689
-  %childRanges.i334.sroa.0.0.ph.ph = phi ptr [ %childRanges.i334.sroa.0.21037, %if.then.i.i.i689 ], [ %childRanges.i334.sroa.0.1.lcssa, %invoke.cont33.i349 ], [ %childRanges.i334.sroa.0.1.lcssa, %invoke.cont39.i ]
+  %childRanges.i334.sroa.0.0.ph.ph = phi ptr [ %childRanges.i334.sroa.0.1.lcssa, %invoke.cont33.i349 ], [ %childRanges.i334.sroa.0.21037, %if.then.i.i.i689 ], [ %childRanges.i334.sroa.0.1.lcssa, %invoke.cont39.i ]
   %lpad.loopexit.split-lp995 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.i340

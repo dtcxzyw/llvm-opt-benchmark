@@ -4574,7 +4574,7 @@ read_bits_16.exit.i36:                            ; preds = %308
   br label %.thread153.i
 
 .thread153.i:                                     ; preds = %.lr.ph180.preheader.i, %.thread153.loopexit.i, %298
-  %.5.i = phi i32 [ %369, %.thread153.loopexit.i ], [ %302, %298 ], [ %367, %.lr.ph180.preheader.i ]
+  %.5.i = phi i32 [ %302, %298 ], [ %369, %.thread153.loopexit.i ], [ %367, %.lr.ph180.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %370 = icmp slt i32 %.5.i, 430
   br i1 %370, label %292, label %parse_tables.exit, !llvm.loop !110
@@ -6074,7 +6074,7 @@ do_uncompress_file.exit:                          ; preds = %process_block.exit,
   br i1 %.not, label %19, label %do_uncompress_file.exit.thread
 
 do_uncompress_file.exit.thread:                   ; preds = %do_uncompress_file.exit, %232, %parse_block_header.exit.i, %105, %901, %917, %._crit_edge, %.lr.ph, %skip_base_block.exit65.thread100, %168, %.lr.ph418, %795, %139, %parse_tables.exit.thread, %116, %162, %.split._crit_edge, %151, %decode_number.exit, %.thread231.i.i, %.thread218.i.i, %.thread234.i.i, %.thread214.i.i, %push_window_data.exit.i, %cdeque_pop_front.exit.i, %1125, %954, %1119, %push_window_data.exit, %52
-  %.036.i192 = phi i32 [ -30, %skip_base_block.exit65.thread100 ], [ -30, %1125 ], [ -30, %954 ], [ -30, %1119 ], [ 0, %push_window_data.exit ], [ -30, %._crit_edge ], [ -30, %52 ], [ -30, %parse_tables.exit.thread ], [ -30, %795 ], [ 0, %cdeque_pop_front.exit.i ], [ 0, %push_window_data.exit.i ], [ -30, %.thread214.i.i ], [ -30, %.thread234.i.i ], [ -30, %.thread218.i.i ], [ -30, %.thread231.i.i ], [ 1, %decode_number.exit ], [ -30, %.lr.ph ], [ -30, %151 ], [ -30, %.split._crit_edge ], [ 1, %168 ], [ -30, %116 ], [ -30, %139 ], [ -30, %162 ], [ 1, %.lr.ph418 ], [ 1, %232 ], [ 1, %parse_block_header.exit.i ], [ 1, %105 ], [ 1, %917 ], [ -30, %901 ], [ %.036.i, %do_uncompress_file.exit ]
+  %.036.i192 = phi i32 [ -30, %901 ], [ -30, %1125 ], [ -30, %954 ], [ -30, %1119 ], [ 0, %push_window_data.exit ], [ -30, %795 ], [ -30, %52 ], [ -30, %parse_tables.exit.thread ], [ -30, %skip_base_block.exit65.thread100 ], [ 0, %cdeque_pop_front.exit.i ], [ 0, %push_window_data.exit.i ], [ -30, %.thread214.i.i ], [ -30, %.thread234.i.i ], [ -30, %.thread218.i.i ], [ -30, %.thread231.i.i ], [ 1, %decode_number.exit ], [ -30, %.lr.ph ], [ -30, %151 ], [ -30, %.split._crit_edge ], [ 1, %168 ], [ -30, %139 ], [ -30, %116 ], [ -30, %162 ], [ 1, %.lr.ph418 ], [ 1, %232 ], [ 1, %parse_block_header.exit.i ], [ 1, %105 ], [ -30, %._crit_edge ], [ 1, %917 ], [ %.036.i, %do_uncompress_file.exit ]
   ret i32 %.036.i192
 }
 

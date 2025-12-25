@@ -1961,7 +1961,7 @@ iallocztm.exit.i.thread:                          ; preds = %178, %arena_get.exi
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %iallocztm.exit.i.thread, %.thread241, %211, %247, %sz_s2u.exit.i
-  %.0.i30 = phi ptr [ %221, %247 ], [ %251, %iallocztm.exit.i.thread ], [ %.0.i22.i.ph, %.thread241 ], [ %.131.i.i, %211 ], [ %243, %sz_s2u.exit.i ]
+  %.0.i30 = phi ptr [ %243, %sz_s2u.exit.i ], [ %251, %iallocztm.exit.i.thread ], [ %.0.i22.i.ph, %.thread241 ], [ %.131.i.i, %211 ], [ %221, %247 ]
   %252 = icmp eq ptr %.0.i30, null
   br i1 %252, label %aligned_usize_get.exit.i12.thread, label %253, !prof !138
 
@@ -3381,7 +3381,7 @@ iallocztm.exit.i.thread:                          ; preds = %190, %arena_get.exi
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %iallocztm.exit.i.thread, %.thread247, %cache_bin_alloc_impl.exit.i.thread, %254, %sz_s2u.exit.i
-  %.0.i32 = phi ptr [ %231, %254 ], [ %259, %iallocztm.exit.i.thread ], [ %.0.i22.i.ph, %.thread247 ], [ %.131.i.i, %cache_bin_alloc_impl.exit.i.thread ], [ %253, %sz_s2u.exit.i ]
+  %.0.i32 = phi ptr [ %253, %sz_s2u.exit.i ], [ %259, %iallocztm.exit.i.thread ], [ %.0.i22.i.ph, %.thread247 ], [ %.131.i.i, %cache_bin_alloc_impl.exit.i.thread ], [ %231, %254 ]
   %260 = icmp eq ptr %.0.i32, null
   br i1 %260, label %aligned_usize_get.exit.i14.thread, label %261, !prof !138
 
@@ -5025,7 +5025,7 @@ sz_s2u.exit.i55:                                  ; preds = %193, %195
   br label %imalloc_no_sample.exit77
 
 imalloc_no_sample.exit77:                         ; preds = %212, %.thread233, %167, %208, %sz_s2u.exit.i55, %ipallocztm.exit82
-  %.0.i45 = phi ptr [ %178, %208 ], [ %132, %ipallocztm.exit82 ], [ %213, %212 ], [ %.0.i22.i69.ph, %.thread233 ], [ %.131.i.i72, %167 ], [ %203, %sz_s2u.exit.i55 ]
+  %.0.i45 = phi ptr [ %203, %sz_s2u.exit.i55 ], [ %132, %ipallocztm.exit82 ], [ %213, %212 ], [ %.0.i22.i69.ph, %.thread233 ], [ %.131.i.i72, %167 ], [ %178, %208 ]
   %214 = icmp eq ptr %.0.i45, null
   br i1 %214, label %imalloc.exit, label %215, !prof !165
 
@@ -5461,7 +5461,7 @@ sz_s2u.exit.i:                                    ; preds = %407, %409
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %426, %.thread277, %381, %422, %sz_s2u.exit.i, %ipallocztm.exit
-  %.0.i39 = phi ptr [ %392, %422 ], [ %346, %ipallocztm.exit ], [ %427, %426 ], [ %.0.i22.i.ph, %.thread277 ], [ %.131.i.i, %381 ], [ %417, %sz_s2u.exit.i ]
+  %.0.i39 = phi ptr [ %417, %sz_s2u.exit.i ], [ %346, %ipallocztm.exit ], [ %427, %426 ], [ %.0.i22.i.ph, %.thread277 ], [ %.131.i.i, %381 ], [ %392, %422 ]
   %428 = icmp eq ptr %.0.i39, null
   br i1 %428, label %aligned_usize_get.exit.i21.thread, label %429, !prof !138
 
@@ -5844,7 +5844,7 @@ sz_s2u_compute.exit29.i62:                        ; preds = %154, %152
   br label %aligned_usize_get.exit
 
 aligned_usize_get.exit:                           ; preds = %.thread99, %sz_s2u.exit25.i71, %105, %115
-  %storemerge.i = phi i64 [ %..0.i66, %.thread99 ], [ %112, %105 ], [ %122, %115 ], [ %.0.i24.i72, %sz_s2u.exit25.i71 ]
+  %storemerge.i = phi i64 [ %.0.i24.i72, %sz_s2u.exit25.i71 ], [ %112, %105 ], [ %122, %115 ], [ %..0.i66, %.thread99 ]
   %170 = add i64 %storemerge.i, -8070450532247928833
   %spec.select.i44 = icmp ult i64 %170, -8070450532247928832
   br i1 %spec.select.i44, label %arena_get_from_ind.exit, label %tsdn_witness_tsdp_get.exit.i
@@ -6718,7 +6718,7 @@ iallocztm.exit.i.thread:                          ; preds = %189, %arena_get.exi
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %iallocztm.exit.i.thread, %.thread255, %222, %258, %sz_s2u.exit.i
-  %.0.i43 = phi ptr [ %232, %258 ], [ %262, %iallocztm.exit.i.thread ], [ %.0.i22.i.ph, %.thread255 ], [ %.131.i.i, %222 ], [ %254, %sz_s2u.exit.i ]
+  %.0.i43 = phi ptr [ %254, %sz_s2u.exit.i ], [ %262, %iallocztm.exit.i.thread ], [ %.0.i22.i.ph, %.thread255 ], [ %.131.i.i, %222 ], [ %232, %258 ]
   %263 = icmp eq ptr %.0.i43, null
   br i1 %263, label %aligned_usize_get.exit.i25.thread, label %264, !prof !173
 
@@ -9285,7 +9285,7 @@ sz_s2u_compute.exit29.i:                          ; preds = %71, %69
   br label %aligned_usize_get.exit
 
 aligned_usize_get.exit:                           ; preds = %.thread143, %sz_s2u.exit25.i, %22, %32
-  %storemerge.i = phi i64 [ %..0.i, %.thread143 ], [ %29, %22 ], [ %39, %32 ], [ %.0.i24.i, %sz_s2u.exit25.i ]
+  %storemerge.i = phi i64 [ %.0.i24.i, %sz_s2u.exit25.i ], [ %29, %22 ], [ %39, %32 ], [ %..0.i, %.thread143 ]
   %87 = add i64 %storemerge.i, -8070450532247928833
   %spec.select.i116 = icmp ult i64 %87, -8070450532247928832
   br i1 %spec.select.i116, label %.critedge, label %88

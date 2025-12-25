@@ -1699,7 +1699,7 @@ define internal fastcc range(i32 0, 2) i32 @get_selector_style_prop(ptr noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %40, %37, %.lr.ph63, %28, %.critedge.sink.split, %.preheader, %21, %32, %.thread, %4
-  %.040 = phi i32 [ 1, %4 ], [ 0, %32 ], [ 1, %.lr.ph63 ], [ 0, %37 ], [ 1, %.critedge.sink.split ], [ 0, %.thread ], [ 0, %.preheader ], [ 0, %21 ], [ 0, %28 ], [ 0, %40 ]
+  %.040 = phi i32 [ 1, %4 ], [ 0, %32 ], [ 0, %37 ], [ 1, %.lr.ph63 ], [ 1, %.critedge.sink.split ], [ 0, %.thread ], [ 0, %.preheader ], [ 0, %21 ], [ 0, %28 ], [ 0, %40 ]
   ret i32 %.040
 }
 
@@ -4012,8 +4012,8 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   br label %.thread95
 
 .thread95:                                        ; preds = %98, %.lr.ph119, %..thread95_crit_edge, %94, %85, %77, %73, %64
-  %106 = phi i16 [ %65, %64 ], [ %65, %73 ], [ %65, %77 ], [ %.pre, %..thread95_crit_edge ], [ %65, %.lr.ph119 ], [ %65, %94 ], [ %65, %85 ], [ %65, %98 ]
-  %.151 = phi i32 [ %.050122, %64 ], [ %.050122, %73 ], [ %.050122, %77 ], [ %79, %..thread95_crit_edge ], [ %.050122, %.lr.ph119 ], [ %.050122, %94 ], [ %.050122, %85 ], [ %.050122, %98 ]
+  %106 = phi i16 [ %65, %64 ], [ %65, %73 ], [ %65, %77 ], [ %.pre, %..thread95_crit_edge ], [ %65, %94 ], [ %65, %.lr.ph119 ], [ %65, %85 ], [ %65, %98 ]
+  %.151 = phi i32 [ %.050122, %64 ], [ %.050122, %73 ], [ %.050122, %77 ], [ %79, %..thread95_crit_edge ], [ %.050122, %94 ], [ %.050122, %.lr.ph119 ], [ %.050122, %85 ], [ %.050122, %98 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %107 = lshr i16 %106, 4
   %108 = and i16 %107, 63

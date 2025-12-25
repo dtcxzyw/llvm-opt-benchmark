@@ -59324,7 +59324,7 @@ default.unreachable:                              ; preds = %199
   br label %_ZN6search14project_search13ProjectSearch10cursor_mut17h8bfd89b8170e4c63E.exit.i.i
 
 .body8.i.i:                                       ; preds = %217, %213, %209, %206
-  %.pn.i.i = phi { ptr, i32 } [ %207, %206 ], [ %210, %209 ], [ %210, %213 ], [ %210, %217 ]
+  %.pn.i.i = phi { ptr, i32 } [ %207, %206 ], [ %210, %217 ], [ %210, %213 ], [ %210, %209 ]
   %205 = load i64, ptr %8, align 8, !range !1061, !noalias !12003, !noundef !4
   %.not.i.i27 = icmp eq i64 %205, -9223372036854775808
   br i1 %.not.i.i27, label %.body.i, label %239

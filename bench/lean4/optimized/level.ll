@@ -4959,8 +4959,8 @@ _ZN4lean11is_explicitERKNS_5levelE.exit140:       ; preds = %_ZN4lean4kindERKNS_
   br label %658
 
 .critedge:                                        ; preds = %_ZN4lean11is_explicitERKNS_5levelE.exit140, %_ZN4lean4kindERKNS_5levelE.exit.i133, %_ZN4lean4kindERKNS_5levelE.exit.i133, %_ZN4lean4kindERKNS_5levelE.exit.i133, %_ZN4lean4kindERKNS_5levelE.exit.i133, %_ZN4lean11is_explicitERKNS_5levelE.exit
-  %.170301 = phi i32 [ %.170304, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ 0, %_ZN4lean11is_explicitERKNS_5levelE.exit ], [ %.170304, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %.170304, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %.170304, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %209, %_ZN4lean11is_explicitERKNS_5levelE.exit140 ]
-  %230 = phi i32 [ %209, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ 1, %_ZN4lean11is_explicitERKNS_5levelE.exit ], [ %209, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %209, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %209, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %225, %_ZN4lean11is_explicitERKNS_5levelE.exit140 ]
+  %.170301 = phi i32 [ 0, %_ZN4lean11is_explicitERKNS_5levelE.exit ], [ %.170304, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %.170304, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %.170304, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %.170304, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %209, %_ZN4lean11is_explicitERKNS_5levelE.exit140 ]
+  %230 = phi i32 [ 1, %_ZN4lean11is_explicitERKNS_5levelE.exit ], [ %209, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %209, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %209, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %209, %_ZN4lean4kindERKNS_5levelE.exit.i133 ], [ %225, %_ZN4lean11is_explicitERKNS_5levelE.exit140 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %231 = zext i32 %.170301 to i64
   %232 = getelementptr inbounds nuw %"class.lean::level", ptr %195, i64 %231

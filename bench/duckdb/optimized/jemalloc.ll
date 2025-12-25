@@ -1811,7 +1811,7 @@ sz_s2u.exit.i:                                    ; preds = %sz_s2u_compute.exit
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.thread254, %218, %265, %sz_s2u.exit.i
-  %.0.i30 = phi ptr [ %230, %265 ], [ %269, %.critedge.i.i ], [ %.0.i24.i.ph, %.thread254 ], [ %.132.i.i, %218 ], [ %261, %sz_s2u.exit.i ]
+  %.0.i30 = phi ptr [ %261, %sz_s2u.exit.i ], [ %269, %.critedge.i.i ], [ %.0.i24.i.ph, %.thread254 ], [ %.132.i.i, %218 ], [ %230, %265 ]
   %270 = icmp eq ptr %.0.i30, null
   br i1 %270, label %aligned_usize_get.exit.i12.thread, label %271, !prof !136
 
@@ -3282,7 +3282,7 @@ sz_s2u.exit.i:                                    ; preds = %sz_s2u_compute.exit
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.thread260, %cache_bin_alloc_impl.exit.i.thread, %274, %sz_s2u.exit.i
-  %.0.i32 = phi ptr [ %241, %274 ], [ %279, %.critedge.i.i ], [ %.0.i24.i.ph, %.thread260 ], [ %.132.i.i, %cache_bin_alloc_impl.exit.i.thread ], [ %273, %sz_s2u.exit.i ]
+  %.0.i32 = phi ptr [ %273, %sz_s2u.exit.i ], [ %279, %.critedge.i.i ], [ %.0.i24.i.ph, %.thread260 ], [ %.132.i.i, %cache_bin_alloc_impl.exit.i.thread ], [ %241, %274 ]
   %280 = icmp eq ptr %.0.i32, null
   br i1 %280, label %aligned_usize_get.exit.i14.thread, label %281, !prof !136
 
@@ -4780,7 +4780,7 @@ sz_s2u.exit.i58:                                  ; preds = %203, %205, %195
   br label %imalloc_no_sample.exit77
 
 imalloc_no_sample.exit77:                         ; preds = %.critedge.i.i48, %.thread246, %165, %218, %sz_s2u.exit.i58, %ipallocztm_explicit_slab.exit82
-  %.0.i45 = phi ptr [ %178, %218 ], [ %133, %ipallocztm_explicit_slab.exit82 ], [ %222, %.critedge.i.i48 ], [ %.0.i24.i69.ph, %.thread246 ], [ %.132.i.i72, %165 ], [ %213, %sz_s2u.exit.i58 ]
+  %.0.i45 = phi ptr [ %213, %sz_s2u.exit.i58 ], [ %133, %ipallocztm_explicit_slab.exit82 ], [ %222, %.critedge.i.i48 ], [ %.0.i24.i69.ph, %.thread246 ], [ %.132.i.i72, %165 ], [ %178, %218 ]
   %223 = icmp eq ptr %.0.i45, null
   br i1 %223, label %imalloc.exit, label %224, !prof !164
 
@@ -5234,7 +5234,7 @@ sz_s2u.exit.i:                                    ; preds = %426, %428, %418
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.thread290, %388, %441, %sz_s2u.exit.i, %ipallocztm_explicit_slab.exit
-  %.0.i39 = phi ptr [ %401, %441 ], [ %356, %ipallocztm_explicit_slab.exit ], [ %445, %.critedge.i.i ], [ %.0.i24.i.ph, %.thread290 ], [ %.132.i.i, %388 ], [ %436, %sz_s2u.exit.i ]
+  %.0.i39 = phi ptr [ %436, %sz_s2u.exit.i ], [ %356, %ipallocztm_explicit_slab.exit ], [ %445, %.critedge.i.i ], [ %.0.i24.i.ph, %.thread290 ], [ %.132.i.i, %388 ], [ %401, %441 ]
   %446 = icmp eq ptr %.0.i39, null
   br i1 %446, label %aligned_usize_get.exit.i21.thread, label %447, !prof !136
 
@@ -5616,7 +5616,7 @@ sz_s2u_compute.exit29.i63:                        ; preds = %154, %152
   br label %aligned_usize_get.exit
 
 aligned_usize_get.exit:                           ; preds = %.thread107, %sz_s2u.exit25.i72, %105, %115
-  %storemerge.i = phi i64 [ %..0.i67, %.thread107 ], [ %112, %105 ], [ %122, %115 ], [ %.0.i24.i73, %sz_s2u.exit25.i72 ]
+  %storemerge.i = phi i64 [ %.0.i24.i73, %sz_s2u.exit25.i72 ], [ %112, %105 ], [ %122, %115 ], [ %..0.i67, %.thread107 ]
   %170 = add i64 %storemerge.i, -8070450532247928833
   %spec.select.i45 = icmp ult i64 %170, -8070450532247928832
   br i1 %spec.select.i45, label %arena_get_from_ind.exit, label %tsdn_witness_tsdp_get.exit.i
@@ -6548,7 +6548,7 @@ sz_s2u.exit.i:                                    ; preds = %sz_s2u_compute.exit
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.thread268, %229, %276, %sz_s2u.exit.i
-  %.0.i43 = phi ptr [ %241, %276 ], [ %280, %.critedge.i.i ], [ %.0.i24.i.ph, %.thread268 ], [ %.132.i.i, %229 ], [ %272, %sz_s2u.exit.i ]
+  %.0.i43 = phi ptr [ %272, %sz_s2u.exit.i ], [ %280, %.critedge.i.i ], [ %.0.i24.i.ph, %.thread268 ], [ %.132.i.i, %229 ], [ %241, %276 ]
   %281 = icmp eq ptr %.0.i43, null
   br i1 %281, label %aligned_usize_get.exit.i25.thread, label %282, !prof !172
 
@@ -9025,7 +9025,7 @@ sz_s2u_compute.exit29.i:                          ; preds = %71, %69
   br label %aligned_usize_get.exit
 
 aligned_usize_get.exit:                           ; preds = %.thread155, %sz_s2u.exit25.i, %22, %32
-  %storemerge.i = phi i64 [ %..0.i, %.thread155 ], [ %29, %22 ], [ %39, %32 ], [ %.0.i24.i, %sz_s2u.exit25.i ]
+  %storemerge.i = phi i64 [ %.0.i24.i, %sz_s2u.exit25.i ], [ %29, %22 ], [ %39, %32 ], [ %..0.i, %.thread155 ]
   %87 = add i64 %storemerge.i, -8070450532247928833
   %spec.select.i124 = icmp ult i64 %87, -8070450532247928832
   br i1 %spec.select.i124, label %.critedge, label %88

@@ -4146,8 +4146,8 @@ define dso_local noundef ptr @phpdbg_load_module_or_extension(ptr noundef captur
   %127 = call i32 @dlclose(ptr noundef nonnull %29) #26
   br label %.thread100
 
-.thread100:                                       ; preds = %114, %111, %81, %71, %.thread, %30, %24
-  %.069 = phi ptr [ null, %24 ], [ @.str.142, %81 ], [ null, %.thread ], [ null, %30 ], [ @.str.142, %71 ], [ @.str.148, %111 ], [ @.str.148, %114 ]
+.thread100:                                       ; preds = %114, %111, %71, %81, %.thread, %30, %24
+  %.069 = phi ptr [ null, %24 ], [ @.str.142, %71 ], [ null, %.thread ], [ null, %30 ], [ @.str.142, %81 ], [ @.str.148, %111 ], [ @.str.148, %114 ]
   ret ptr %.069
 }
 

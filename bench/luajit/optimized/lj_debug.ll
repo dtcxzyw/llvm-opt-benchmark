@@ -638,7 +638,7 @@ lj_debug_uvname.exit:                             ; preds = %131, %.split105.us,
   br label %.lr.ph, !llvm.loop !33
 
 .thread67:                                        ; preds = %88, %debug_varname.exit, %82, %133, %29, %debug_varname.exit.us.loopexit, %35, %31, %debug_varname.exit.us.preheader, %123, %119, %.split98.us, %lj_debug_uvname.exit, %.loopexit
-  %.1 = phi ptr [ @.str.1, %.loopexit ], [ @.str.5, %lj_debug_uvname.exit ], [ @.str.2, %.split98.us ], [ @.str.3, %119 ], [ @.str.4, %123 ], [ null, %82 ], [ null, %29 ], [ null, %35 ], [ null, %debug_varname.exit.us.preheader ], [ null, %31 ], [ null, %debug_varname.exit.us.loopexit ], [ null, %133 ], [ null, %debug_varname.exit ], [ null, %88 ]
+  %.1 = phi ptr [ @.str.1, %.loopexit ], [ @.str.5, %lj_debug_uvname.exit ], [ @.str.2, %.split98.us ], [ @.str.3, %119 ], [ @.str.4, %123 ], [ null, %29 ], [ null, %debug_varname.exit.us.preheader ], [ null, %82 ], [ null, %35 ], [ null, %31 ], [ null, %debug_varname.exit.us.loopexit ], [ null, %133 ], [ null, %debug_varname.exit ], [ null, %88 ]
   ret ptr %.1
 }
 

@@ -6981,7 +6981,7 @@ ff_vvc_round_mv.exit:                             ; preds = %ff_vvc_round_mv.exi
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %.critedge, label %ff_vvc_round_mv.exit, !llvm.loop !232
 
-affine_mvp_candidate.exit.thread:                 ; preds = %199, %197, %158, %156, %103, %check_available.exit
+affine_mvp_candidate.exit.thread:                 ; preds = %197, %199, %156, %158, %103, %check_available.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %40, !llvm.loop !233

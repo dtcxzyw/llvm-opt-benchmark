@@ -10171,9 +10171,9 @@ Abc_TtFindFirstBit2.exit.us:                      ; preds = %124, %98
   br i1 %189, label %161, label %.critedge, !llvm.loop !219
 
 .critedge:                                        ; preds = %161, %183, %73, %150, %.lr.ph125.split.us, %.lr.ph125.split, %Abc_TtIsConst0.exit
-  %.sroa.7.0.lcssa = phi i32 [ 0, %Abc_TtIsConst0.exit ], [ %.sroa.7.1.us, %73 ], [ 0, %.lr.ph125.split.us ], [ 0, %.lr.ph125.split ], [ %.sroa.7.1.us, %150 ], [ 0, %183 ], [ 0, %161 ]
-  %.sroa.0.0.lcssa = phi i32 [ 0, %Abc_TtIsConst0.exit ], [ %.sroa.0.1.us, %73 ], [ 0, %.lr.ph125.split.us ], [ 0, %.lr.ph125.split ], [ %.sroa.0.1.us, %150 ], [ %.sroa.0.1, %183 ], [ %.sroa.0.1, %161 ]
-  %.val.lcssa = phi i32 [ %.val120, %Abc_TtIsConst0.exit ], [ %.val.us, %73 ], [ %.val120, %.lr.ph125.split.us ], [ %.val120, %.lr.ph125.split ], [ %.val.us, %150 ], [ %.val, %183 ], [ %.val, %161 ]
+  %.sroa.7.0.lcssa = phi i32 [ 0, %Abc_TtIsConst0.exit ], [ 0, %.lr.ph125.split.us ], [ 0, %.lr.ph125.split ], [ %.sroa.7.1.us, %73 ], [ %.sroa.7.1.us, %150 ], [ 0, %183 ], [ 0, %161 ]
+  %.sroa.0.0.lcssa = phi i32 [ 0, %Abc_TtIsConst0.exit ], [ 0, %.lr.ph125.split.us ], [ 0, %.lr.ph125.split ], [ %.sroa.0.1.us, %73 ], [ %.sroa.0.1.us, %150 ], [ %.sroa.0.1, %183 ], [ %.sroa.0.1, %161 ]
+  %.val.lcssa = phi i32 [ %.val120, %Abc_TtIsConst0.exit ], [ %.val120, %.lr.ph125.split.us ], [ %.val120, %.lr.ph125.split ], [ %.val.us, %73 ], [ %.val.us, %150 ], [ %.val, %183 ], [ %.val, %161 ]
   %190 = add i32 %.sroa.0.0.lcssa, %.sroa.7.0.lcssa
   %191 = sub i32 %.val.lcssa, %190
   %192 = load ptr, ptr %0, align 8, !tbaa !68

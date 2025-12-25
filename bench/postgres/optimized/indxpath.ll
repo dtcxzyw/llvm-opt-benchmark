@@ -2677,7 +2677,7 @@ get_rightop.exit:                                 ; preds = %209, %208, %204, %l
   br i1 %263, label %.lr.ph390, label %.thread162
 
 .thread162:                                       ; preds = %.lr.ph240.split, %.lr.ph240.split.us.split.split, %._crit_edge.split.us.split.split.us.us.us.thread, %88, %70, %.lr.ph240.split.preheader, %.lr.ph240.split.us.split.split.preheader, %.lr.ph240.split.us.split.split.us.preheader, %42, %.lr.ph240.split.us.split.us.split.split, %.lr.ph240.split.us.split.us.split.us.split, %260, %.split273.us, %.critedge, %6
-  %.0 = phi i1 [ false, %.critedge ], [ false, %6 ], [ true, %260 ], [ true, %.split273.us ], [ false, %.lr.ph240.split.us.split.us.split.us.split ], [ false, %.lr.ph240.split.us.split.split.preheader ], [ false, %42 ], [ false, %.lr.ph240.split.us.split.us.split.split ], [ false, %.lr.ph240.split.us.split.split.us.preheader ], [ false, %.lr.ph240.split.preheader ], [ false, %.lr.ph240.split.us.split.split ], [ false, %70 ], [ false, %88 ], [ false, %._crit_edge.split.us.split.split.us.us.us.thread ], [ false, %.lr.ph240.split ]
+  %.0 = phi i1 [ false, %.critedge ], [ false, %6 ], [ true, %.split273.us ], [ true, %260 ], [ false, %.lr.ph240.split.us.split.us.split.us.split ], [ false, %.lr.ph240.split.us.split.split.preheader ], [ false, %42 ], [ false, %.lr.ph240.split.us.split.us.split.split ], [ false, %.lr.ph240.split.us.split.split.us.preheader ], [ false, %.lr.ph240.split.preheader ], [ false, %.lr.ph240.split.us.split.split ], [ false, %70 ], [ false, %88 ], [ false, %._crit_edge.split.us.split.split.us.us.us.thread ], [ false, %.lr.ph240.split ]
   ret i1 %.0
 }
 
@@ -5453,7 +5453,7 @@ list_length.exit179.thread.i.i:                   ; preds = %list_length.exit179
   br label %match_clause_to_indexcol.exit.thread40
 
 match_clause_to_indexcol.exit:                    ; preds = %106, %.thread.i.i, %.split.i.i
-  %.0.i = phi ptr [ %109, %106 ], [ %137, %.thread.i.i ], [ %157, %.split.i.i ]
+  %.0.i = phi ptr [ %157, %.split.i.i ], [ %137, %.thread.i.i ], [ %109, %106 ]
   %.not33 = icmp eq ptr %.0.i, null
   br i1 %.not33, label %match_clause_to_indexcol.exit.thread, label %match_clause_to_indexcol.exit.thread40.loopexit
 
@@ -5462,9 +5462,9 @@ match_clause_to_indexcol.exit.thread40.loopexit:  ; preds = %match_clause_to_ind
   %644 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv169
   br label %match_clause_to_indexcol.exit.thread40
 
-match_clause_to_indexcol.exit.thread40:           ; preds = %match_clause_to_indexcol.exit.thread40.loopexit, %124, %96, %195, %expand_indexqual_rowcompare.exit.i.i, %597, %634
-  %645 = phi ptr [ %598, %597 ], [ %125, %124 ], [ %97, %96 ], [ %196, %195 ], [ %258, %expand_indexqual_rowcompare.exit.i.i ], [ %635, %634 ], [ %644, %match_clause_to_indexcol.exit.thread40.loopexit ]
-  %.0.i43 = phi ptr [ %610, %597 ], [ %127, %124 ], [ %98, %96 ], [ %197, %195 ], [ %259, %expand_indexqual_rowcompare.exit.i.i ], [ %636, %634 ], [ %.0.i43.ph, %match_clause_to_indexcol.exit.thread40.loopexit ]
+match_clause_to_indexcol.exit.thread40:           ; preds = %match_clause_to_indexcol.exit.thread40.loopexit, %597, %expand_indexqual_rowcompare.exit.i.i, %195, %96, %124, %634
+  %645 = phi ptr [ %635, %634 ], [ %598, %597 ], [ %258, %expand_indexqual_rowcompare.exit.i.i ], [ %196, %195 ], [ %97, %96 ], [ %125, %124 ], [ %644, %match_clause_to_indexcol.exit.thread40.loopexit ]
+  %.0.i43 = phi ptr [ %636, %634 ], [ %610, %597 ], [ %259, %expand_indexqual_rowcompare.exit.i.i ], [ %197, %195 ], [ %98, %96 ], [ %127, %124 ], [ %.0.i43.ph, %match_clause_to_indexcol.exit.thread40.loopexit ]
   %646 = load ptr, ptr %645, align 8
   %647 = call ptr @lappend(ptr noundef %646, ptr noundef nonnull %.0.i43) #7
   store ptr %647, ptr %645, align 8

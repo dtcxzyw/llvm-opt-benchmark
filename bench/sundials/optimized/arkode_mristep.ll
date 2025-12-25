@@ -2094,7 +2094,7 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   br label %.loopexit
 
 199:                                              ; preds = %192, %196, %193
-  %.5 = phi i32 [ %195, %193 ], [ %191, %192 ], [ %198, %196 ]
+  %.5 = phi i32 [ %198, %196 ], [ %191, %192 ], [ %195, %193 ]
   %.not279 = icmp eq i32 %.5, 0
   br i1 %.not279, label %.thread379, label %.loopexit
 
@@ -2462,7 +2462,7 @@ mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
   br label %.loopexit
 
 392:                                              ; preds = %387, %390, %388
-  %.11 = phi i32 [ %389, %388 ], [ %386, %387 ], [ %391, %390 ]
+  %.11 = phi i32 [ %391, %390 ], [ %386, %387 ], [ %389, %388 ]
   %.not265 = icmp eq i32 %.11, 0
   br i1 %.not265, label %.thread394, label %.loopexit
 
@@ -2559,7 +2559,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
   br label %.loopexit
 
 440:                                              ; preds = %435, %438, %436
-  %.12 = phi i32 [ %437, %436 ], [ %434, %435 ], [ %439, %438 ]
+  %.12 = phi i32 [ %439, %438 ], [ %434, %435 ], [ %437, %436 ]
   %.not269 = icmp eq i32 %.12, 0
   br i1 %.not269, label %.thread406, label %.loopexit
 
@@ -4014,7 +4014,7 @@ switch.lookup58:                                  ; preds = %38
   br label %46
 
 46:                                               ; preds = %switch.lookup58, %switch.lookup54, %switch.lookup50, %switch.lookup48, %switch.lookup46, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup48 ], [ %switch.offset, %switch.lookup ], [ %switch.load60, %switch.lookup58 ], [ %switch.load56, %switch.lookup54 ], [ %switch.offset47, %switch.lookup46 ], [ %switch.load52, %switch.lookup50 ]
+  %.0 = phi i32 [ %switch.offset, %switch.lookup ], [ %switch.load52, %switch.lookup50 ], [ %switch.load60, %switch.lookup58 ], [ %switch.load56, %switch.lookup54 ], [ %switch.offset47, %switch.lookup46 ], [ %switch.load, %switch.lookup48 ]
   %47 = tail call ptr @MRIStepCoupling_LoadTable(i32 noundef %.0) #14
   store ptr %47, ptr %9, align 8, !tbaa !125
   %48 = icmp eq ptr %47, null

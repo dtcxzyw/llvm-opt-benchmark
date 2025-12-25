@@ -984,7 +984,7 @@ define internal fastcc ptr @xas_create(ptr noundef captures(none) %0, i1 noundef
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %87, %221, %325, %269, %.critedge.thread.sink.split, %201, %184, %.critedge
-  %331 = phi ptr [ null, %.critedge ], [ null, %184 ], [ %205, %201 ], [ null, %.critedge.thread.sink.split ], [ %327, %325 ], [ %218, %269 ], [ null, %221 ], [ null, %87 ]
+  %331 = phi ptr [ null, %.critedge ], [ null, %184 ], [ %205, %201 ], [ %327, %325 ], [ null, %.critedge.thread.sink.split ], [ %218, %269 ], [ null, %221 ], [ null, %87 ]
   ret ptr %331
 }
 
@@ -3383,8 +3383,8 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #1 align 16 {
   br i1 %81, label %xas_load.exit, label %.split6.us.i.thread21
 
 xas_load.exit:                                    ; preds = %.split6.us.i, %.split6.us.i.thread21, %.split.us.i, %46, %31, %45, %53
-  %.sroa.134.4 = phi ptr [ %.sroa.134.2, %53 ], [ %68, %.split.us.i ], [ inttoptr (i64 1 to ptr), %45 ], [ %.sroa.134.0, %31 ], [ inttoptr (i64 1 to ptr), %46 ], [ %68, %.split6.us.i.thread21 ], [ %68, %.split6.us.i ]
-  %109 = phi ptr [ %54, %53 ], [ %87, %.split.us.i ], [ null, %45 ], [ null, %31 ], [ null, %46 ], [ %60, %.split6.us.i.thread21 ], [ %75, %.split6.us.i ]
+  %.sroa.134.4 = phi ptr [ %.sroa.134.2, %53 ], [ %.sroa.134.0, %31 ], [ inttoptr (i64 1 to ptr), %45 ], [ %68, %.split.us.i ], [ inttoptr (i64 1 to ptr), %46 ], [ %68, %.split6.us.i.thread21 ], [ %68, %.split6.us.i ]
+  %109 = phi ptr [ %54, %53 ], [ null, %31 ], [ null, %45 ], [ %87, %.split.us.i ], [ null, %46 ], [ %60, %.split6.us.i.thread21 ], [ %75, %.split6.us.i ]
   %110 = icmp eq ptr %109, inttoptr (i64 1030 to ptr)
   %111 = select i1 %110, ptr null, ptr %109
   %112 = ptrtoint ptr %111 to i64

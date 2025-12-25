@@ -16661,8 +16661,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   br label %.thread53
 
 .thread53:                                        ; preds = %.thread53.sink.split, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4f9c5043194a29cfE.exit", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4f9c5043194a29cfE.exit.thread", %27, %.thread
-  %.sroa.5.0 = phi ptr [ %.sroa.52.0, %27 ], [ %.sroa.625.0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4f9c5043194a29cfE.exit" ], [ %22, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4f9c5043194a29cfE.exit.thread" ], [ %35, %.thread ], [ %35, %.thread53.sink.split ]
-  %.sroa.0.0 = phi i64 [ %.sroa.01.0, %27 ], [ %16, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4f9c5043194a29cfE.exit" ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4f9c5043194a29cfE.exit.thread" ], [ %33, %.thread ], [ %33, %.thread53.sink.split ]
+  %.sroa.5.0 = phi ptr [ %.sroa.52.0, %27 ], [ %22, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4f9c5043194a29cfE.exit.thread" ], [ %.sroa.625.0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4f9c5043194a29cfE.exit" ], [ %35, %.thread ], [ %35, %.thread53.sink.split ]
+  %.sroa.0.0 = phi i64 [ %.sroa.01.0, %27 ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4f9c5043194a29cfE.exit.thread" ], [ %16, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h4f9c5043194a29cfE.exit" ], [ %33, %.thread ], [ %33, %.thread53.sink.split ]
   %29 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %30 = insertvalue { i64, ptr } %29, ptr %.sroa.5.0, 1
   ret { i64, ptr } %30
@@ -17725,7 +17725,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
   invoke void %90(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef align 1 %81, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
           to label %91 unwind label %182
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread23: ; preds = %29, %14, %36, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread23: ; preds = %14, %36, %29, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
   store i64 0, ptr %0, align 8
   br label %181
 
@@ -52179,8 +52179,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h73cdded2771db6ecE.exit.thread.
   call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %.promoted.i.i.i.i.sink.i.i15.i, i64 noundef %.sroa.5.sroa.0.114.i, i64 noundef 0, i64 noundef %50, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.879c592214345ca999bafaa324406990.112) #33
   unreachable
 
-60:                                               ; preds = %39, %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", %37, %55, %53
-  %.sroa.3.0.i.ph = phi i64 [ %50, %53 ], [ %50, %55 ], [ 0, %37 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i" ], [ %.sroa.5.sroa.0.114.i, %39 ]
+60:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i", %39, %37, %55, %53
+  %.sroa.3.0.i.ph = phi i64 [ %50, %53 ], [ %50, %55 ], [ 0, %37 ], [ %.sroa.5.sroa.0.114.i, %39 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h87f5c82dc7935c50E.exit.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %.promoted.i.i.i.i.sink.i.i15.i, ptr %18, align 8
   %61 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -66969,8 +66969,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h8add2c5d00cb5db3E.exit.sink.spli
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h8add2c5d00cb5db3E.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h8add2c5d00cb5db3E.exit: ; preds = %tailrecurse.outer, %tailrecurse, %10, %18, %95, %71, %31, %47, %_ZN4core4iter6traits8iterator8Iterator6reduce17h8add2c5d00cb5db3E.exit.sink.split, %78, %54, %1, %86, %62, %.thread
-  %accumulator.tr.ph116 = phi i8 [ %accumulator.tr.ph126, %54 ], [ %accumulator.tr.ph126, %95 ], [ %accumulator.tr.ph126, %86 ], [ %accumulator.tr.ph126, %.thread ], [ %accumulator.tr.ph126, %71 ], [ %accumulator.tr.ph126, %47 ], [ %accumulator.tr.ph126, %31 ], [ %accumulator.tr.ph126, %78 ], [ %accumulator.tr.ph126, %tailrecurse ], [ %accumulator.tr.ph126, %62 ], [ %accumulator.tr.ph126, %_ZN4core4iter6traits8iterator8Iterator6reduce17h8add2c5d00cb5db3E.exit.sink.split ], [ -1, %1 ], [ %accumulator.tr.ph126, %18 ], [ %accumulator.tr.ph126, %10 ], [ %.sroa.0.0.sroa.speculated.i, %tailrecurse.outer ]
-  %.sroa.0.0 = phi i8 [ 2, %54 ], [ %.sroa.0.0.i.i.i40, %95 ], [ %88, %86 ], [ %39, %.thread ], [ %.sroa.0.0.i.i.i39, %71 ], [ %51, %47 ], [ 2, %31 ], [ 2, %78 ], [ 2, %tailrecurse ], [ %64, %62 ], [ %..i19, %_ZN4core4iter6traits8iterator8Iterator6reduce17h8add2c5d00cb5db3E.exit.sink.split ], [ 2, %1 ], [ 0, %10 ], [ 0, %18 ], [ 2, %tailrecurse.outer ]
+  %accumulator.tr.ph116 = phi i8 [ %accumulator.tr.ph126, %54 ], [ %accumulator.tr.ph126, %95 ], [ %accumulator.tr.ph126, %86 ], [ %accumulator.tr.ph126, %.thread ], [ %accumulator.tr.ph126, %71 ], [ -1, %1 ], [ %accumulator.tr.ph126, %31 ], [ %accumulator.tr.ph126, %78 ], [ %accumulator.tr.ph126, %tailrecurse ], [ %accumulator.tr.ph126, %62 ], [ %accumulator.tr.ph126, %_ZN4core4iter6traits8iterator8Iterator6reduce17h8add2c5d00cb5db3E.exit.sink.split ], [ %accumulator.tr.ph126, %47 ], [ %accumulator.tr.ph126, %18 ], [ %accumulator.tr.ph126, %10 ], [ %.sroa.0.0.sroa.speculated.i, %tailrecurse.outer ]
+  %.sroa.0.0 = phi i8 [ 2, %54 ], [ %.sroa.0.0.i.i.i40, %95 ], [ %88, %86 ], [ %39, %.thread ], [ %.sroa.0.0.i.i.i39, %71 ], [ 2, %1 ], [ 2, %31 ], [ 2, %78 ], [ 2, %tailrecurse ], [ %64, %62 ], [ %..i19, %_ZN4core4iter6traits8iterator8Iterator6reduce17h8add2c5d00cb5db3E.exit.sink.split ], [ %51, %47 ], [ 0, %10 ], [ 0, %18 ], [ 2, %tailrecurse.outer ]
   %accumulator.ret.tr = tail call noundef range(i8 0, 3) i8 @llvm.umin.i8(i8 range(i8 0, 3) %accumulator.tr.ph116, i8 range(i8 0, 3) %.sroa.0.0)
   ret i8 %accumulator.ret.tr
 
@@ -68462,7 +68462,7 @@ define hidden void @_ZN11ruff_linter5rules8pyflakes5rules15unused_variable28matc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %3
-  %storemerge = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %3 ], [ 0, %.backedge ]
+  %storemerge = phi i32 [ 0, %3 ], [ 1, %.loopexit.sink.split ], [ 0, %.backedge ]
   store i32 %storemerge, ptr %0, align 4
   ret void
 }
@@ -73655,7 +73655,7 @@ default.unreachable:                              ; preds = %.thread142, %134
   br label %"_ZN166_$LT$ruff_linter..rules..pyupgrade..rules..native_literals..LiteralType$u20$as$u20$core..convert..TryFrom$LT$ruff_python_ast..expression..LiteralExpressionRef$GT$$GT$8try_from17ha558b5e5c24bdbc4E.exit"
 
 "_ZN166_$LT$ruff_linter..rules..pyupgrade..rules..native_literals..LiteralType$u20$as$u20$core..convert..TryFrom$LT$ruff_python_ast..expression..LiteralExpressionRef$GT$$GT$8try_from17ha558b5e5c24bdbc4E.exit": ; preds = %134, %137, %.thread142, %140, %141
-  %.sroa.01.0.i = phi i8 [ 2, %.thread142 ], [ 1, %137 ], [ 0, %134 ], [ 3, %141 ], [ 4, %140 ]
+  %.sroa.01.0.i = phi i8 [ 4, %140 ], [ 1, %137 ], [ 0, %134 ], [ 3, %141 ], [ 2, %.thread142 ]
   %.not53 = icmp eq i8 %.sroa.01.0.i, %.sroa.0.0.i.ph
   br i1 %.not53, label %151, label %"_ZN113_$LT$ruff_linter..rules..pyupgrade..rules..native_literals..LiteralType$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1519088a500c691eE.exit"
 

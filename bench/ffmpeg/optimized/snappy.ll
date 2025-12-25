@@ -428,7 +428,7 @@ snappy_literal.exit:                              ; preds = %167, %145, %123, %9
   br i1 %171, label %33, label %snappy_literal.exit.thread, !llvm.loop !19
 
 snappy_literal.exit.thread:                       ; preds = %19, %bytestream2_get_byte.exit.i.i, %bytestream2_get_le32.exit.i56, %bytestream2_get_le16.exit.i, %bytestream2_get_byte.exit.i, %bytestream2_get_le32.exit.i, %33, %snappy_literal.exit, %bytestream2_get_levarint.exit.i, %decode_len.exit
-  %.0 = phi i32 [ -1094995529, %bytestream2_get_le32.exit.i56 ], [ -1397118274, %decode_len.exit ], [ -1094995529, %bytestream2_get_levarint.exit.i ], [ -1094995529, %bytestream2_get_le16.exit.i ], [ -1094995529, %bytestream2_get_byte.exit.i ], [ -1094995529, %bytestream2_get_le32.exit.i ], [ 0, %33 ], [ %.043, %snappy_literal.exit ], [ -1094995529, %bytestream2_get_byte.exit.i.i ], [ -1094995529, %19 ]
+  %.0 = phi i32 [ -1094995529, %bytestream2_get_levarint.exit.i ], [ -1397118274, %decode_len.exit ], [ -1094995529, %bytestream2_get_le32.exit.i56 ], [ -1094995529, %bytestream2_get_le16.exit.i ], [ -1094995529, %bytestream2_get_byte.exit.i ], [ -1094995529, %bytestream2_get_le32.exit.i ], [ 0, %33 ], [ %.043, %snappy_literal.exit ], [ -1094995529, %bytestream2_get_byte.exit.i.i ], [ -1094995529, %19 ]
   ret i32 %.0
 }
 

@@ -2470,7 +2470,7 @@ _ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit.threa
   br label %65
 
 _ZN12_GLOBAL__N_112filename_posEN4llvm9StringRefENS0_3sys4path5StyleE.exit: ; preds = %_ZNK4llvm9StringRef12find_last_ofEcm.exit, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.i, %63
-  %.010.i = phi i64 [ %40, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ %64, %63 ], [ %40, %_ZNK4llvm9StringRef12find_last_ofEcm.exit ]
+  %.010.i = phi i64 [ %40, %_ZNK4llvm9StringRef12find_last_ofEcm.exit ], [ %64, %63 ], [ %40, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not9 = icmp ult i64 %35, %.010.i
   br i1 %.not9, label %_ZNK4llvm9StringRef12find_last_ofEcm.exit.thread, label %65
@@ -4218,7 +4218,7 @@ _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit: ; preds = %30
   br label %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.thread
 
 _ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit.thread: ; preds = %38, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit, %34, %36, %30, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit
-  %.0 = phi i1 [ true, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit ], [ true, %30 ], [ %41, %38 ], [ false, %36 ], [ false, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ], [ false, %34 ]
+  %.0 = phi i1 [ true, %_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE.exit ], [ true, %30 ], [ %41, %38 ], [ false, %36 ], [ false, %34 ], [ false, %_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit ]
   %42 = icmp eq ptr %28, %4
   br i1 %42, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %43
 

@@ -3548,8 +3548,8 @@ Curl_setup_conn.exit:                             ; preds = %887, %904, %.thread
   br label %909
 
 909:                                              ; preds = %create_conn.exit.thread, %Curl_setup_conn.exit, %create_conn.exit
-  %.127 = phi ptr [ %.1, %create_conn.exit ], [ %.1.ph, %create_conn.exit.thread ], [ %.1, %Curl_setup_conn.exit ]
-  %.0 = phi i32 [ %.0194.i, %create_conn.exit ], [ %.0194.i.ph, %create_conn.exit.thread ], [ %.0.i, %Curl_setup_conn.exit ]
+  %.127 = phi ptr [ %.1, %create_conn.exit ], [ %.1, %Curl_setup_conn.exit ], [ %.1.ph, %create_conn.exit.thread ]
+  %.0 = phi i32 [ %.0194.i, %create_conn.exit ], [ %.0.i, %Curl_setup_conn.exit ], [ %.0194.i.ph, %create_conn.exit.thread ]
   %910 = icmp eq i32 %.0, 89
   br i1 %910, label %.thread33, label %911
 
@@ -4572,8 +4572,8 @@ parse_connect_to_string.exit.thread70:            ; preds = %120, %119
   %or.cond.not38 = and i1 %165, %164
   br i1 %or.cond.not38, label %15, label %.critedge, !llvm.loop !280
 
-.critedge:                                        ; preds = %159, %19, %50, %154, %158, %149, %147, %.thread88, %3, %parse_connect_to_string.exit.thread70
-  %.029 = phi i32 [ %.389.i.i.ph, %parse_connect_to_string.exit.thread70 ], [ 0, %3 ], [ 0, %149 ], [ 0, %158 ], [ 0, %154 ], [ 0, %.thread88 ], [ 0, %147 ], [ 27, %19 ], [ 0, %159 ], [ 27, %50 ]
+.critedge:                                        ; preds = %159, %50, %19, %154, %158, %149, %147, %.thread88, %3, %parse_connect_to_string.exit.thread70
+  %.029 = phi i32 [ %.389.i.i.ph, %parse_connect_to_string.exit.thread70 ], [ 0, %3 ], [ 0, %149 ], [ 0, %158 ], [ 0, %154 ], [ 0, %.thread88 ], [ 0, %147 ], [ 27, %50 ], [ 0, %159 ], [ 27, %19 ]
   ret i32 %.029
 }
 

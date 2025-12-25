@@ -4577,8 +4577,8 @@ PyUnicode_READ.exit185.i:                         ; preds = %643, %639, %635
   br i1 %exitcond.not, label %.thread.i, label %.lr.ph.i, !llvm.loop !62
 
 .critedge2.i:                                     ; preds = %PyUnicode_READ.exit185.i, %PyUnicode_READ.exit183.i, %620, %PyUnicode_READ.exit181.i, %PyUnicode_READ.exit179.i, %PyUnicode_READ.exit177.i, %.critedge.i
-  %.not152.i = phi i1 [ true, %.critedge.i ], [ true, %PyUnicode_READ.exit177.i ], [ true, %PyUnicode_READ.exit179.i ], [ true, %PyUnicode_READ.exit181.i ], [ false, %620 ], [ false, %PyUnicode_READ.exit183.i ], [ false, %PyUnicode_READ.exit185.i ]
-  %.3.i = phi i64 [ %.2.i, %.critedge.i ], [ %.2.i, %PyUnicode_READ.exit177.i ], [ %.2.i, %PyUnicode_READ.exit179.i ], [ %.2.i, %PyUnicode_READ.exit181.i ], [ %621, %620 ], [ %.4226.i, %PyUnicode_READ.exit183.i ], [ %.4226.i, %PyUnicode_READ.exit185.i ]
+  %.not152.i = phi i1 [ true, %PyUnicode_READ.exit179.i ], [ true, %PyUnicode_READ.exit177.i ], [ true, %.critedge.i ], [ true, %PyUnicode_READ.exit181.i ], [ false, %620 ], [ false, %PyUnicode_READ.exit183.i ], [ false, %PyUnicode_READ.exit185.i ]
+  %.3.i = phi i64 [ %.2.i, %PyUnicode_READ.exit179.i ], [ %.2.i, %PyUnicode_READ.exit177.i ], [ %.2.i, %.critedge.i ], [ %.2.i, %PyUnicode_READ.exit181.i ], [ %621, %620 ], [ %.4226.i, %PyUnicode_READ.exit183.i ], [ %.4226.i, %PyUnicode_READ.exit185.i ]
   %649 = icmp slt i64 %.3.i, %477
   br i1 %649, label %650, label %761
 
@@ -8614,7 +8614,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %18, %PyObject_TypeC
   br label %Py_DECREF.exit44
 
 _Py_NewRef.exit:                                  ; preds = %39, %37, %35, %31, %52
-  %.037 = phi ptr [ %54, %52 ], [ %38, %37 ], [ %36, %35 ], [ %32, %31 ], [ %41, %39 ]
+  %.037 = phi ptr [ %54, %52 ], [ %38, %37 ], [ %32, %31 ], [ %36, %35 ], [ %41, %39 ]
   %63 = icmp eq ptr %.037, null
   br i1 %63, label %Py_DECREF.exit44, label %_Py_NewRef.exit.thread
 

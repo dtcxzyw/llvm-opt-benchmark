@@ -938,7 +938,7 @@ ApplySortComparator.exit.i.i:                     ; preds = %499, %492
   br label %.thread195.thread.i.i
 
 .thread195.thread.i.i:                            ; preds = %.thread189.i.i, %ApplySortComparator.exit.i.i, %499, %.loopexit287.i.i, %.thread189.thread.i.i, %488, %484, %375, %374
-  %.0123.i.i = phi i1 [ true, %374 ], [ false, %375 ], [ false, %484 ], [ %504, %.loopexit287.i.i ], [ true, %.thread189.thread.i.i ], [ false, %488 ], [ false, %499 ], [ false, %ApplySortComparator.exit.i.i ], [ true, %.thread189.i.i ]
+  %.0123.i.i = phi i1 [ true, %374 ], [ false, %375 ], [ false, %484 ], [ %504, %.loopexit287.i.i ], [ true, %.thread189.thread.i.i ], [ false, %488 ], [ false, %499 ], [ true, %.thread189.i.i ], [ false, %ApplySortComparator.exit.i.i ]
   %505 = icmp eq ptr %.0.i.i16, null
   br i1 %505, label %506, label %539
 

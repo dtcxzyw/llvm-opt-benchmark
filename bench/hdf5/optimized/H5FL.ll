@@ -696,7 +696,7 @@ H5FL__reg_init.exit.thread:                       ; preds = %16, %22, %10
   br label %68
 
 H5FL__malloc.exit:                                ; preds = %53, %50
-  %.0.i14 = phi ptr [ %51, %50 ], [ %55, %53 ]
+  %.0.i14 = phi ptr [ %55, %53 ], [ %51, %50 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !20
   %67 = add i32 %66, 1
@@ -1050,7 +1050,7 @@ H5FL__blk_create_list.exit:                       ; preds = %27, %87, %86, %75, 
   br label %120
 
 H5FL__malloc.exit:                                ; preds = %100, %97
-  %.0.i32 = phi ptr [ %98, %97 ], [ %102, %100 ]
+  %.0.i32 = phi ptr [ %102, %100 ], [ %98, %97 ]
   %112 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %113 = load i32, ptr %112, align 8, !tbaa !102
   %114 = add i32 %113, 1
@@ -1856,8 +1856,8 @@ H5FL__arr_init.exit:                              ; preds = %31, %.preheader.i
   br label %93
 
 H5FL__malloc.exit:                                ; preds = %.H5FL__malloc.exit_crit_edge, %68
-  %83 = phi ptr [ %44, %68 ], [ %.pre32, %.H5FL__malloc.exit_crit_edge ]
-  %.0.i29 = phi ptr [ %69, %68 ], [ %73, %.H5FL__malloc.exit_crit_edge ]
+  %83 = phi ptr [ %.pre32, %.H5FL__malloc.exit_crit_edge ], [ %44, %68 ]
+  %.0.i29 = phi ptr [ %73, %.H5FL__malloc.exit_crit_edge ], [ %69, %68 ]
   %84 = getelementptr inbounds nuw %struct.H5FL_arr_node_t, ptr %83, i64 %1
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 8, !tbaa !115

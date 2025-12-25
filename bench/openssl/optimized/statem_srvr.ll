@@ -399,7 +399,7 @@ received_client_cert.exit.thread:                 ; preds = %90, %received_clien
   tail call void @BIO_set_flags(ptr noundef %128, i32 noundef 9) #12
   br label %129
 
-.thread:                                          ; preds = %57, %55, %46, %44, %41, %received_client_cert.exit.thread.i, %31, %33, %26, %20, %13, %119, %104, %98, %72, %122
+.thread:                                          ; preds = %57, %55, %13, %20, %26, %33, %31, %received_client_cert.exit.thread.i, %41, %44, %46, %119, %104, %98, %72, %122
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 339, ptr noundef nonnull @__func__.ossl_statem_server_read_transition) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 10, i32 noundef 244, ptr noundef null) #12

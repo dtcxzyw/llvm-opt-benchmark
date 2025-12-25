@@ -23824,7 +23824,7 @@ _ZN11realclosure7manager3imp22eval_sign_at_minus_infEjPKPNS_5valueE.exit.i: ; pr
   br label %_ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i
 
 _ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i: ; preds = %101, %105
-  %.0.i47.i = phi i32 [ %spec.select.i.i46.i, %105 ], [ %104, %101 ]
+  %.0.i47.i = phi i32 [ %104, %101 ], [ %spec.select.i.i46.i, %105 ]
   %111 = icmp ne i32 %.0.i47.i, %.029.i108164
   %112 = icmp ne i32 %.029.i108164, 0
   %or.cond.i111 = and i1 %112, %111
@@ -23887,7 +23887,7 @@ _ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i.thread: ; 
   br label %_ZN11realclosure7manager3imp21eval_sign_at_plus_infEjPKPNS_5valueE.exit.i
 
 _ZN11realclosure7manager3imp21eval_sign_at_plus_infEjPKPNS_5valueE.exit.i: ; preds = %131, %135
-  %.0.i.i = phi i32 [ %spec.select.i.i.i, %135 ], [ %134, %131 ]
+  %.0.i.i = phi i32 [ %134, %131 ], [ %spec.select.i.i.i, %135 ]
   %141 = icmp ne i32 %.0.i.i, %.029.i118167
   %142 = icmp ne i32 %.029.i118167, 0
   %or.cond.i121 = and i1 %142, %141
@@ -24539,24 +24539,24 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i:       ; preds = %50, %41
   %65 = load i8, ptr %64, align 4
   %66 = and i8 %65, 1
   %67 = icmp eq i8 %66, 0
-  br i1 %67, label %68, label %73
+  br i1 %67, label %68, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
 
 68:                                               ; preds = %61
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %70 = load i8, ptr %69, align 4
   %71 = and i8 %70, 1
   %72 = icmp eq i8 %71, 0
-  br i1 %72, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit, label %73
+  br i1 %72, label %73, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
 
-73:                                               ; preds = %68, %61
-  %74 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %43, ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %63)
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit28, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
+73:                                               ; preds = %68
+  %74 = load i32, ptr %62, align 8, !tbaa !58
+  %75 = load i32, ptr %63, align 8, !tbaa !58
+  %76 = icmp eq i32 %74, %75
+  br i1 %76, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit28, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
-_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %68
-  %76 = load i32, ptr %62, align 8, !tbaa !58
-  %77 = load i32, ptr %63, align 8, !tbaa !58
-  %78 = icmp eq i32 %76, %77
+_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit:         ; preds = %61, %68
+  %77 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %43, ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %63)
+  %78 = icmp eq i32 %77, 0
   br i1 %78, label %_ZN11realclosure7manager3imp4signEPNS_5valueE.exit28, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %55, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i, %73, %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit
@@ -36827,9 +36827,9 @@ _ZN11realclosure7manager3imp26save_interval_if_too_smallEPNS_5valueEj.exit: ; pr
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
   %260 = load i32, ptr %259, align 4
   %261 = and i32 %260, 3
-  switch i32 %261, label %263 [
+  switch i32 %261, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit [
     i32 0, label %262
-    i32 1, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit
+    i32 1, label %263
   ]
 
 262:                                              ; preds = %256
@@ -36837,11 +36837,11 @@ _ZN11realclosure7manager3imp26save_interval_if_too_smallEPNS_5valueEj.exit: ; pr
   br label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread
 
 263:                                              ; preds = %256
-  %264 = call noundef zeroext i1 @_ZN11realclosure7manager3imp25refine_algebraic_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %52, i32 noundef %.0)
+  %264 = call noundef zeroext i1 @_ZN11realclosure7manager3imp29refine_infinitesimal_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %52, i32 noundef %.0)
   br i1 %264, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread, label %266
 
 _ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit: ; preds = %256
-  %265 = call noundef zeroext i1 @_ZN11realclosure7manager3imp29refine_infinitesimal_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %52, i32 noundef %.0)
+  %265 = call noundef zeroext i1 @_ZN11realclosure7manager3imp25refine_algebraic_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %52, i32 noundef %.0)
   br i1 %265, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread, label %266
 
 _ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread: ; preds = %262, %128, %255, %_ZN11realclosure7manager3imp9magnitudeERKNS_11mpbq_config8intervalE.exit, %263, %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit, %.lr.ph
@@ -37291,9 +37291,9 @@ _ZN11realclosure7manager3imp26save_interval_if_too_smallEPNS_5valueEj.exit59: ; 
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 4
   %481 = load i32, ptr %480, align 4
   %482 = and i32 %481, 3
-  switch i32 %482, label %484 [
+  switch i32 %482, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit33 [
     i32 0, label %483
-    i32 1, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit33
+    i32 1, label %484
   ]
 
 483:                                              ; preds = %477
@@ -37301,11 +37301,11 @@ _ZN11realclosure7manager3imp26save_interval_if_too_smallEPNS_5valueEj.exit59: ; 
   br label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit33.thread
 
 484:                                              ; preds = %477
-  %485 = call noundef zeroext i1 @_ZN11realclosure7manager3imp25refine_algebraic_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %273, i32 noundef %.0)
+  %485 = call noundef zeroext i1 @_ZN11realclosure7manager3imp29refine_infinitesimal_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %273, i32 noundef %.0)
   br i1 %485, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit33.thread, label %487
 
 _ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit33: ; preds = %477
-  %486 = call noundef zeroext i1 @_ZN11realclosure7manager3imp29refine_infinitesimal_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %273, i32 noundef %.0)
+  %486 = call noundef zeroext i1 @_ZN11realclosure7manager3imp25refine_algebraic_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %273, i32 noundef %.0)
   br i1 %486, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit33.thread, label %487
 
 _ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit33.thread: ; preds = %483, %349, %476, %_ZN11realclosure7manager3imp9magnitudeERKNS_11mpbq_config8intervalE.exit64, %484, %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit33, %.lr.ph90
@@ -38710,9 +38710,9 @@ _ZN11realclosure7manager3imp9magnitudeERKNS_11mpbq_config8intervalE.exit: ; pred
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %119, 3
-  switch i32 %120, label %122 [
+  switch i32 %120, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit [
     i32 0, label %121
-    i32 1, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit
+    i32 1, label %122
   ]
 
 121:                                              ; preds = %115
@@ -38720,11 +38720,11 @@ _ZN11realclosure7manager3imp9magnitudeERKNS_11mpbq_config8intervalE.exit: ; pred
   br label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread
 
 122:                                              ; preds = %115
-  %123 = call noundef zeroext i1 @_ZN11realclosure7manager3imp25refine_algebraic_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %31, i32 noundef %.0)
+  %123 = call noundef zeroext i1 @_ZN11realclosure7manager3imp29refine_infinitesimal_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %31, i32 noundef %.0)
   br i1 %123, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread, label %_ZN11realclosure7manager3imp22refine_coeffs_intervalERK9ptr_arrayINS_5valueEEj.exit.thread
 
 _ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit: ; preds = %115
-  %124 = call noundef zeroext i1 @_ZN11realclosure7manager3imp29refine_infinitesimal_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %31, i32 noundef %.0)
+  %124 = call noundef zeroext i1 @_ZN11realclosure7manager3imp25refine_algebraic_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %31, i32 noundef %.0)
   br i1 %124, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread, label %_ZN11realclosure7manager3imp22refine_coeffs_intervalERK9ptr_arrayINS_5valueEEj.exit.thread
 
 _ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread: ; preds = %121, %107, %114, %_ZN11realclosure7manager3imp9magnitudeERKNS_11mpbq_config8intervalE.exit, %122, %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit, %.lr.ph
@@ -43219,7 +43219,7 @@ _ZN11realclosure7manager3imp22eval_sign_at_minus_infEjPKPNS_5valueE.exit.i: ; pr
   br label %_ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i62
 
 _ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i62: ; preds = %101, %105
-  %.0.i47.i63 = phi i32 [ %spec.select.i.i46.i61, %105 ], [ %104, %101 ]
+  %.0.i47.i63 = phi i32 [ %104, %101 ], [ %spec.select.i.i46.i61, %105 ]
   %111 = icmp ne i32 %.0.i47.i63, %.029.i54127
   %112 = icmp ne i32 %.029.i54127, 0
   %or.cond.i64 = and i1 %112, %111
@@ -43343,7 +43343,7 @@ _ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i62.thread: 
   br label %_ZN11realclosure7manager3imp21eval_sign_at_plus_infEjPKPNS_5valueE.exit.i
 
 _ZN11realclosure7manager3imp21eval_sign_at_plus_infEjPKPNS_5valueE.exit.i: ; preds = %156, %160
-  %.0.i.i = phi i32 [ %spec.select.i.i.i, %160 ], [ %159, %156 ]
+  %.0.i.i = phi i32 [ %159, %156 ], [ %spec.select.i.i.i, %160 ]
   %166 = icmp ne i32 %.0.i.i, %.029.i33130
   %167 = icmp ne i32 %.029.i33130, 0
   %or.cond.i36 = and i1 %167, %166
@@ -43421,7 +43421,7 @@ _ZN11realclosure7manager3imp21eval_sign_at_plus_infEjPKPNS_5valueE.exit.i.thread
   br label %_ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i
 
 _ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i: ; preds = %193, %197
-  %.0.i47.i = phi i32 [ %spec.select.i.i46.i, %197 ], [ %196, %193 ]
+  %.0.i47.i = phi i32 [ %196, %193 ], [ %spec.select.i.i46.i, %197 ]
   %203 = icmp ne i32 %.0.i47.i, %.029.i23136
   %204 = icmp ne i32 %.029.i23136, 0
   %or.cond.i26 = and i1 %204, %203
@@ -43985,7 +43985,7 @@ _ZN11realclosure7manager3imp22eval_sign_at_minus_infEjPKPNS_5valueE.exit.i: ; pr
   br label %_ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i
 
 _ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i: ; preds = %93, %97
-  %.0.i47.i = phi i32 [ %spec.select.i.i46.i, %97 ], [ %96, %93 ]
+  %.0.i47.i = phi i32 [ %96, %93 ], [ %spec.select.i.i46.i, %97 ]
   %103 = icmp ne i32 %.0.i47.i, %.029.i948
   %104 = icmp ne i32 %.029.i948, 0
   %or.cond.i12 = and i1 %104, %103
@@ -44118,7 +44118,7 @@ define linkonce_odr hidden noundef i32 @_ZN11realclosure7manager3imp24sign_varia
   br label %_ZN11realclosure7manager3imp21eval_sign_at_plus_infEjPKPNS_5valueE.exit.i
 
 _ZN11realclosure7manager3imp21eval_sign_at_plus_infEjPKPNS_5valueE.exit.i: ; preds = %34, %38
-  %.0.i.i = phi i32 [ %spec.select.i.i.i, %38 ], [ %37, %34 ]
+  %.0.i.i = phi i32 [ %37, %34 ], [ %spec.select.i.i.i, %38 ]
   %44 = icmp ne i32 %.0.i.i, %.029.i41
   %45 = icmp ne i32 %.029.i41, 0
   %or.cond.i = and i1 %45, %44
@@ -44200,7 +44200,7 @@ _ZN11realclosure7manager3imp21eval_sign_at_plus_infEjPKPNS_5valueE.exit.i.thread
   br label %_ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i
 
 _ZN11realclosure7manager3imp17eval_sign_at_zeroEjPKPNS_5valueE.exit.i: ; preds = %76, %80
-  %.0.i47.i = phi i32 [ %spec.select.i.i46.i, %80 ], [ %79, %76 ]
+  %.0.i47.i = phi i32 [ %79, %76 ], [ %spec.select.i.i46.i, %80 ]
   %86 = icmp ne i32 %.0.i47.i, %.029.i947
   %87 = icmp ne i32 %.029.i947, 0
   %or.cond.i12 = and i1 %87, %86
@@ -47585,9 +47585,9 @@ _ZN11realclosure7manager3imp26save_interval_if_too_smallEPNS_5valueEj.exit: ; pr
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 4
   %271 = load i32, ptr %270, align 4
   %272 = and i32 %271, 3
-  switch i32 %272, label %274 [
+  switch i32 %272, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit [
     i32 0, label %273
-    i32 1, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit
+    i32 1, label %274
   ]
 
 273:                                              ; preds = %267
@@ -47595,11 +47595,11 @@ _ZN11realclosure7manager3imp26save_interval_if_too_smallEPNS_5valueEj.exit: ; pr
   br label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread
 
 274:                                              ; preds = %267
-  %275 = call noundef zeroext i1 @_ZN11realclosure7manager3imp25refine_algebraic_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %63, i32 noundef %.148)
+  %275 = call noundef zeroext i1 @_ZN11realclosure7manager3imp29refine_infinitesimal_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %63, i32 noundef %.148)
   br i1 %275, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread, label %277
 
 _ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit: ; preds = %267
-  %276 = call noundef zeroext i1 @_ZN11realclosure7manager3imp29refine_infinitesimal_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %63, i32 noundef %.148)
+  %276 = call noundef zeroext i1 @_ZN11realclosure7manager3imp25refine_algebraic_intervalEPNS_23rational_function_valueEj(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull %63, i32 noundef %.148)
   br i1 %276, label %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread, label %277
 
 _ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit.thread: ; preds = %273, %139, %266, %_ZN11realclosure7manager3imp9magnitudeERKNS_11mpbq_config8intervalE.exit, %274, %_ZN11realclosure7manager3imp15refine_intervalEPNS_5valueEj.exit, %.lr.ph

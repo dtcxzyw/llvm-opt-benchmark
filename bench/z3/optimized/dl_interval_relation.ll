@@ -8304,8 +8304,8 @@ _ZN8rationalpLERKS_.exit.sink.split:              ; preds = %107, %102
   br label %_ZN8rationalpLERKS_.exit
 
 _ZN8rationalpLERKS_.exit:                         ; preds = %_ZN8rationalpLERKS_.exit.sink.split, %115, %113, %117, %107
-  %121 = phi ptr [ %110, %115 ], [ %110, %113 ], [ %110, %117 ], [ %68, %107 ], [ %68, %_ZN8rationalpLERKS_.exit.sink.split ]
-  %.3 = phi i1 [ true, %115 ], [ false, %113 ], [ true, %117 ], [ false, %107 ], [ true, %_ZN8rationalpLERKS_.exit.sink.split ]
+  %121 = phi ptr [ %110, %117 ], [ %110, %113 ], [ %110, %115 ], [ %68, %107 ], [ %68, %_ZN8rationalpLERKS_.exit.sink.split ]
+  %.3 = phi i1 [ true, %117 ], [ false, %113 ], [ true, %115 ], [ false, %107 ], [ true, %_ZN8rationalpLERKS_.exit.sink.split ]
   %122 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !28
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %122, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc.i unwind label %123
@@ -8326,7 +8326,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %57, %47, %44, %.preheader, %_ZN8rationalD2Ev.exit, %18, %21, %15
-  %.0 = phi i1 [ true, %15 ], [ false, %18 ], [ true, %21 ], [ %50, %47 ], [ %.3, %_ZN8rationalD2Ev.exit ], [ true, %.preheader ], [ %50, %44 ], [ false, %57 ], [ false, %tailrecurse ]
+  %.0 = phi i1 [ true, %15 ], [ false, %18 ], [ true, %21 ], [ true, %.preheader ], [ %.3, %_ZN8rationalD2Ev.exit ], [ %50, %47 ], [ %50, %44 ], [ false, %57 ], [ false, %tailrecurse ]
   ret i1 %.0
 }
 

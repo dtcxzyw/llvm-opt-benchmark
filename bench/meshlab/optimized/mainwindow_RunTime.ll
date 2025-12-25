@@ -16262,7 +16262,7 @@ _ZN6GLArea4LogfIJxEEEviPKcDpOT_.exit:             ; preds = %_ZN11GLLogStream4lo
   br label %1116
 
 1116:                                             ; preds = %.sink.split, %1114, %_ZN7QStringD2Ev.exit281
-  %.1 = phi i1 [ true, %1114 ], [ false, %_ZN7QStringD2Ev.exit281 ], [ false, %.sink.split ]
+  %.1 = phi i1 [ false, %_ZN7QStringD2Ev.exit281 ], [ true, %1114 ], [ false, %.sink.split ]
   %1117 = load ptr, ptr %7, align 8
   %1118 = load atomic i32, ptr %1117 monotonic, align 4
   switch i32 %1118, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i801 [

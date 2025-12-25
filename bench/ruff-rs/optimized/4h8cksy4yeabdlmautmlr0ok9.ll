@@ -4877,7 +4877,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %39, %81, %225, %54, %59, %86, %90, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i, %101, %105, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i49, %165, %170, %218, %223
-  %.sroa.07.2.ph.ph.ph = phi i1 [ false, %90 ], [ false, %86 ], [ false, %101 ], [ false, %105 ], [ false, %81 ], [ false, %54 ], [ false, %165 ], [ false, %218 ], [ false, %225 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i49 ], [ true, %39 ], [ false, %223 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i ], [ false, %59 ], [ false, %170 ]
+  %.sroa.07.2.ph.ph.ph = phi i1 [ false, %90 ], [ false, %86 ], [ false, %165 ], [ false, %105 ], [ false, %81 ], [ false, %54 ], [ false, %101 ], [ false, %218 ], [ false, %225 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i49 ], [ true, %39 ], [ false, %223 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i ], [ false, %59 ], [ false, %170 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5483,7 +5483,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %39, %81, %227, %54, %59, %86, %90, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i, %101, %105, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i44, %165, %170, %219, %224
-  %.sroa.04.2.ph.ph.ph = phi i1 [ false, %90 ], [ false, %86 ], [ false, %101 ], [ false, %105 ], [ false, %81 ], [ false, %54 ], [ false, %165 ], [ false, %219 ], [ false, %227 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i44 ], [ true, %39 ], [ false, %224 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i ], [ false, %59 ], [ false, %170 ]
+  %.sroa.04.2.ph.ph.ph = phi i1 [ false, %90 ], [ false, %86 ], [ false, %165 ], [ false, %105 ], [ false, %81 ], [ false, %54 ], [ false, %101 ], [ false, %219 ], [ false, %227 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i44 ], [ true, %39 ], [ false, %224 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i ], [ false, %59 ], [ false, %170 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -7250,7 +7250,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %39, %81, %54, %59, %86, %90, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i, %101, %105, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i56, %165, %170, %220, %225
-  %.sroa.019.2.ph.ph.ph = phi i1 [ false, %90 ], [ false, %86 ], [ false, %101 ], [ false, %105 ], [ false, %81 ], [ false, %54 ], [ false, %165 ], [ false, %220 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i56 ], [ true, %39 ], [ false, %225 ], [ false, %.invoke ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i ], [ false, %59 ], [ false, %170 ]
+  %.sroa.019.2.ph.ph.ph = phi i1 [ false, %90 ], [ false, %86 ], [ false, %165 ], [ false, %105 ], [ false, %81 ], [ false, %54 ], [ false, %101 ], [ false, %220 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i56 ], [ true, %39 ], [ false, %225 ], [ false, %.invoke ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i ], [ false, %59 ], [ false, %170 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -7871,7 +7871,7 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %39, %81, %54, %59, %86, %90, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i, %101, %105, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i63, %165, %170, %220, %225
-  %.sroa.026.2.ph.ph.ph = phi i1 [ false, %90 ], [ false, %86 ], [ false, %101 ], [ false, %105 ], [ false, %81 ], [ false, %54 ], [ false, %165 ], [ false, %220 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i63 ], [ true, %39 ], [ false, %225 ], [ false, %.invoke ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i ], [ false, %59 ], [ false, %170 ]
+  %.sroa.026.2.ph.ph.ph = phi i1 [ false, %90 ], [ false, %86 ], [ false, %165 ], [ false, %105 ], [ false, %81 ], [ false, %54 ], [ false, %101 ], [ false, %220 ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i63 ], [ true, %39 ], [ false, %225 ], [ false, %.invoke ], [ false, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i ], [ false, %59 ], [ false, %170 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

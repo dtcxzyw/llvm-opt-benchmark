@@ -3103,7 +3103,7 @@ define internal fastcc i32 @_controller_index() unnamed_addr #5 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge, %.thread, %37
-  %.013 = phi i32 [ 0, %37 ], [ -1, %._crit_edge ], [ -1, %.thread ], [ %38, %.loopexit.loopexit ]
+  %.013 = phi i32 [ 0, %37 ], [ -1, %.thread ], [ -1, %._crit_edge ], [ %38, %.loopexit.loopexit ]
   ret i32 %.013
 }
 

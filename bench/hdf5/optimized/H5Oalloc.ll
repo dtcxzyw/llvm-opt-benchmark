@@ -3884,7 +3884,7 @@ H5O__move_cont.exit.thread.i:                     ; preds = %.thread.i
   %708 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__move_msgs_forward, i32 noundef 1912, i64 noundef %706, i64 noundef %707, ptr noundef nonnull @.str.35) #7
   br label %.loopexit49
 
-.loopexit49:                                      ; preds = %21, %705, %702, %701, %.thread463.i, %91, %455
+.loopexit49:                                      ; preds = %21, %705, %702, %701, %91, %.thread463.i, %455
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %709 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !26

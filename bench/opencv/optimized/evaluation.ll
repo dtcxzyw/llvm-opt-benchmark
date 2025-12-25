@@ -2107,7 +2107,7 @@ _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIP4SIdxSt6vectorIS2_SaIS2_EEEENS2_1
   br label %_ZNSt6vectorI4SIdxSaIS0_EED2Ev.exit81.i
 
 _ZL30computeOneToOneMatchedOverlapsRKSt6vectorI16EllipticKeyPointSaIS0_EES4_bRS_I4SIdxSaIS5_EEf.exit.i: ; preds = %._crit_edge.i.i.i.i, %._crit_edge133.i.i, %._crit_edge128.i.i
-  %.sroa.15.9.i = phi ptr [ %375, %._crit_edge.i.i.i.i ], [ %.sroa.15.5.i, %._crit_edge133.i.i ], [ %.sroa.0.3.i, %._crit_edge128.i.i ]
+  %.sroa.15.9.i = phi ptr [ %.sroa.15.5.i, %._crit_edge133.i.i ], [ %375, %._crit_edge.i.i.i.i ], [ %.sroa.0.3.i, %._crit_edge128.i.i ]
   store i32 -1, ptr %6, align 4, !tbaa !7
   store float -1.000000e+00, ptr %5, align 4, !tbaa !75
   %386 = icmp eq ptr %.sroa.0.3.i, %.sroa.15.9.i

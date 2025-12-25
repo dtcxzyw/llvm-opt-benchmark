@@ -640,7 +640,7 @@ Amap_LibertyItem.exit14:                          ; preds = %Amap_LibertyPinFunc
   br i1 %.not, label %Amap_LibertyPinFunction.exit, label %12, !llvm.loop !26
 
 Amap_LibertyPinFunction.exit:                     ; preds = %Amap_LibertyPinFunction.exit.thread, %Amap_LibertyItem.exit14, %.lr.ph.i, %2, %Amap_LibertyItem.exit
-  %.019 = phi ptr [ %.021, %.lr.ph.i ], [ null, %Amap_LibertyItem.exit ], [ null, %2 ], [ null, %Amap_LibertyItem.exit14 ], [ null, %Amap_LibertyPinFunction.exit.thread ]
+  %.019 = phi ptr [ null, %2 ], [ null, %Amap_LibertyItem.exit ], [ %.021, %.lr.ph.i ], [ null, %Amap_LibertyItem.exit14 ], [ null, %Amap_LibertyPinFunction.exit.thread ]
   ret ptr %.019
 }
 

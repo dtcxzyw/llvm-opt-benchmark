@@ -112557,8 +112557,8 @@ lean_alloc_ctor.exit267:                          ; preds = %lean_inc.exit
   br label %374
 
 374:                                              ; preds = %lean_inc.exit161, %lean_alloc_ctor.exit267
-  %.1144 = phi ptr [ %327, %lean_alloc_ctor.exit267 ], [ %159, %lean_inc.exit161 ]
-  %.1140 = phi ptr [ %368, %lean_alloc_ctor.exit267 ], [ %.0139321, %lean_inc.exit161 ]
+  %.1144 = phi ptr [ %159, %lean_inc.exit161 ], [ %327, %lean_alloc_ctor.exit267 ]
+  %.1140 = phi ptr [ %.0139321, %lean_inc.exit161 ], [ %368, %lean_alloc_ctor.exit267 ]
   %.1135 = add nuw i64 %.0134322, 1
   %exitcond.not = icmp eq i64 %.1135, %6
   br i1 %exitcond.not, label %._crit_edge, label %35
@@ -132096,8 +132096,8 @@ lean_alloc_ctor.exit267:                          ; preds = %lean_inc.exit
   br label %374
 
 374:                                              ; preds = %lean_inc.exit161, %lean_alloc_ctor.exit267
-  %.1144 = phi ptr [ %327, %lean_alloc_ctor.exit267 ], [ %159, %lean_inc.exit161 ]
-  %.1140 = phi ptr [ %368, %lean_alloc_ctor.exit267 ], [ %.0139321, %lean_inc.exit161 ]
+  %.1144 = phi ptr [ %159, %lean_inc.exit161 ], [ %327, %lean_alloc_ctor.exit267 ]
+  %.1140 = phi ptr [ %.0139321, %lean_inc.exit161 ], [ %368, %lean_alloc_ctor.exit267 ]
   %.1135 = add nuw i64 %.0134322, 1
   %exitcond.not = icmp eq i64 %.1135, %6
   br i1 %exitcond.not, label %._crit_edge, label %35
@@ -213691,7 +213691,7 @@ lean_dec.exit124:                                 ; preds = %234, %233, %231, %l
   br label %lean_dec.exit128.backedge
 
 lean_dec.exit128.backedge:                        ; preds = %238, %242, %187, %191, %248, %250, %251, %197, %199, %200
-  %.0102.be = phi ptr [ %245, %251 ], [ %245, %250 ], [ %245, %248 ], [ %194, %200 ], [ %190, %187 ], [ %194, %199 ], [ %194, %197 ], [ %192, %191 ], [ %243, %242 ], [ %241, %238 ]
+  %.0102.be = phi ptr [ %190, %187 ], [ %245, %248 ], [ %245, %250 ], [ %194, %200 ], [ %245, %251 ], [ %194, %199 ], [ %194, %197 ], [ %192, %191 ], [ %243, %242 ], [ %241, %238 ]
   br label %lean_dec.exit128
 
 242:                                              ; preds = %235
@@ -214804,7 +214804,7 @@ lean_dec.exit48:                                  ; preds = %110, %109, %107, %l
   br label %lean_dec.exit53.backedge
 
 lean_dec.exit53.backedge:                         ; preds = %115, %119, %83, %87, %125, %127, %128, %93, %95, %96
-  %.036.be = phi ptr [ %122, %128 ], [ %122, %127 ], [ %90, %96 ], [ %122, %125 ], [ %86, %83 ], [ %90, %95 ], [ %90, %93 ], [ %88, %87 ], [ %120, %119 ], [ %118, %115 ]
+  %.036.be = phi ptr [ %122, %128 ], [ %90, %95 ], [ %90, %96 ], [ %86, %83 ], [ %122, %125 ], [ %122, %127 ], [ %90, %93 ], [ %88, %87 ], [ %120, %119 ], [ %118, %115 ]
   br label %lean_dec.exit53
 
 119:                                              ; preds = %112

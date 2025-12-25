@@ -801,8 +801,8 @@ sub_164:                                          ; preds = %.tail, %sub_1
   br i1 %.not141267.i, label %.lr.ph270.i, label %.loopexit.i
 
 .thread329.i:                                     ; preds = %496, %490, %443
-  %.1334.i = phi i64 [ %.2.i, %496 ], [ %.4.i, %443 ], [ %.2.i, %490 ]
-  %.299333.i = phi i64 [ 0, %496 ], [ 0, %443 ], [ %451, %490 ]
+  %.1334.i = phi i64 [ %.2.i, %496 ], [ %.2.i, %490 ], [ %.4.i, %443 ]
+  %.299333.i = phi i64 [ 0, %496 ], [ %451, %490 ], [ 0, %443 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %264 = load volatile i32, ptr @time_to_abort, align 4
   %.not141.i = icmp eq i32 %264, 0

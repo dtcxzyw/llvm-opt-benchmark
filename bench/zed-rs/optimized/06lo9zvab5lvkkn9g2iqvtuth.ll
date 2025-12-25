@@ -4182,11 +4182,11 @@ _ZN3std3env3var17ha16d19cbd80262f4E.exit.i:       ; preds = %158
   br label %427
 
 421:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0823b015823d2af7E.exit137.sink.split.i", %376
-  %422 = phi ptr [ %381, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0823b015823d2af7E.exit137.sink.split.i" ], [ %321, %376 ]
-  %423 = phi ptr [ %382, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0823b015823d2af7E.exit137.sink.split.i" ], [ %322, %376 ]
-  %.sroa.081.0 = phi i64 [ %.sroa.0228.2.ph.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0823b015823d2af7E.exit137.sink.split.i" ], [ %.sroa.0228.4.i, %376 ]
-  %.sroa.982.0 = phi ptr [ %.sroa.8229.2.ph.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0823b015823d2af7E.exit137.sink.split.i" ], [ %.sroa.8229.4.i, %376 ]
-  %.sroa.1083.sroa.0.0 = phi i64 [ %.sroa.15.i.sroa.0.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0823b015823d2af7E.exit137.sink.split.i" ], [ %.sroa.15.i.sroa.0.0, %376 ]
+  %422 = phi ptr [ %321, %376 ], [ %381, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0823b015823d2af7E.exit137.sink.split.i" ]
+  %423 = phi ptr [ %322, %376 ], [ %382, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0823b015823d2af7E.exit137.sink.split.i" ]
+  %.sroa.081.0 = phi i64 [ %.sroa.0228.4.i, %376 ], [ %.sroa.0228.2.ph.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0823b015823d2af7E.exit137.sink.split.i" ]
+  %.sroa.982.0 = phi ptr [ %.sroa.8229.4.i, %376 ], [ %.sroa.8229.2.ph.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0823b015823d2af7E.exit137.sink.split.i" ]
+  %.sroa.1083.sroa.0.0 = phi i64 [ %.sroa.15.i.sroa.0.0, %376 ], [ %.sroa.15.i.sroa.0.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0823b015823d2af7E.exit137.sink.split.i" ]
   store i8 1, ptr %422, align 1, !noalias !796
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5193.i)

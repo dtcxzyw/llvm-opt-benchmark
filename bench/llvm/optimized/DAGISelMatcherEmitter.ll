@@ -13845,7 +13845,7 @@ _ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit: ; preds = %48, %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !443
 
 _ZSt11swap_rangesIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 
@@ -20523,7 +20523,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit950:              ; preds = %2181, %2183
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %2232, %2228, %.thread1152.thread, %.thread1151.thread, %2212, %2213, %2217, %2221, %.thread1151, %2243, %2239, %.thread1152, %_ZN4llvm11raw_ostreamlsEPKc.exit950
-  %.0525 = phi i1 [ false, %.thread1151 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit950 ], [ false, %.thread1151.thread ], [ false, %2239 ], [ false, %2232 ], [ false, %2243 ], [ false, %.thread1152 ], [ false, %2228 ], [ false, %.thread1152.thread ], [ false, %2212 ], [ false, %2221 ], [ false, %2217 ], [ false, %2213 ], [ true, %.critedge.sink.split ]
+  %.0525 = phi i1 [ false, %.thread1151 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit950 ], [ false, %.thread1151.thread ], [ false, %2239 ], [ false, %2212 ], [ false, %2243 ], [ false, %.thread1152 ], [ false, %.thread1152.thread ], [ false, %2228 ], [ false, %2232 ], [ false, %2221 ], [ false, %2217 ], [ false, %2213 ], [ true, %.critedge.sink.split ]
   %2248 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2249 = load ptr, ptr %2248, align 8, !tbaa !616
   %2250 = load ptr, ptr %2173, align 8, !tbaa !57

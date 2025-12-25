@@ -4563,8 +4563,8 @@ _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78: ; preds = %567, 
   br i1 %.154, label %46, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit
 
 _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit: ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78, %59, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exitthread-pre-split_crit_edge
-  %572 = phi ptr [ %.pr.i73, %59 ], [ %.pr215.pre, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exitthread-pre-split_crit_edge ], [ %.pr.i73291, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78 ]
-  %.0 = phi i1 [ true, %59 ], [ true, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exitthread-pre-split_crit_edge ], [ %.3, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78 ]
+  %572 = phi ptr [ %.pr215.pre, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exitthread-pre-split_crit_edge ], [ %.pr.i73, %59 ], [ %.pr.i73291, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78 ]
+  %.0 = phi i1 [ true, %._ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exitthread-pre-split_crit_edge ], [ true, %59 ], [ %.3, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit78 ]
   %.not.i.i172 = icmp eq ptr %572, null
   br i1 %.not.i.i172, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit174, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEaSERKS3_.exit.thread
 
@@ -10099,9 +10099,9 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %60
   store ptr %61, ptr %65, align 8, !tbaa !305
   br label %96
 
-_ZN7datalog25mk_interp_tail_simplifier14normalizer_cfg14match_arg_pairEP4exprRSt4pairIS3_S3_Eb.exit.thread: ; preds = %_ZNK11ast_manager5is_orEPK4expr.exit.i.i, %51, %39, %23, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i, %35, %40, %24, %.thread55
-  %.0.i53 = phi i1 [ true, %.thread55 ], [ false, %24 ], [ false, %40 ], [ false, %35 ], [ false, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i ], [ false, %23 ], [ false, %39 ], [ false, %51 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit.i.i ]
-  %.337 = phi i32 [ %.02869, %.thread55 ], [ %.03467, %24 ], [ %.03467, %40 ], [ %.03467, %35 ], [ %.03467, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i ], [ %.03467, %23 ], [ %.03467, %39 ], [ %.03467, %51 ], [ %.03467, %_ZNK11ast_manager5is_orEPK4expr.exit.i.i ]
+_ZN7datalog25mk_interp_tail_simplifier14normalizer_cfg14match_arg_pairEP4exprRSt4pairIS3_S3_Eb.exit.thread: ; preds = %_ZNK11ast_manager5is_orEPK4expr.exit.i.i, %51, %40, %23, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i, %35, %39, %24, %.thread55
+  %.0.i53 = phi i1 [ true, %.thread55 ], [ false, %24 ], [ false, %39 ], [ false, %35 ], [ false, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i ], [ false, %23 ], [ false, %40 ], [ false, %51 ], [ false, %_ZNK11ast_manager5is_orEPK4expr.exit.i.i ]
+  %.337 = phi i32 [ %.02869, %.thread55 ], [ %.03467, %24 ], [ %.03467, %39 ], [ %.03467, %35 ], [ %.03467, %_ZNK11ast_manager6is_andEPK4expr.exit.i.i ], [ %.03467, %23 ], [ %.03467, %40 ], [ %.03467, %51 ], [ %.03467, %_ZNK11ast_manager5is_orEPK4expr.exit.i.i ]
   %80 = zext i32 %.02869 to i64
   %.not = icmp eq i64 %indvars.iv, %80
   br i1 %.not, label %94, label %_ZN11ast_manager7inc_refEP3ast.exit.i43

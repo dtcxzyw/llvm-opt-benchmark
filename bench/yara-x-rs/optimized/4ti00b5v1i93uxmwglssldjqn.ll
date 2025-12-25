@@ -6314,7 +6314,7 @@ _ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit92.i.i.i: ; preds = %77
   br i1 %133, label %"_ZN63_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hee6c3d7b02845178E.exit", label %.loopexit.i.i.i
 
 "_ZN63_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hee6c3d7b02845178E.exit": ; preds = %79, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit70.i.i.i, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit87.i.i.i, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit92.i.i.i, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit75.i.i.i, %2, %._crit_edge.i.i.i
-  %.sroa.0.0.i.i.i = phi i1 [ true, %2 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit75.i.i.i ], [ %76, %._crit_edge.i.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit92.i.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit87.i.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit70.i.i.i ], [ true, %79 ]
+  %.sroa.0.0.i.i.i = phi i1 [ true, %2 ], [ %76, %._crit_edge.i.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit75.i.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit92.i.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit87.i.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h698142d355d1673aE.exit70.i.i.i ], [ true, %79 ]
   ret i1 %.sroa.0.0.i.i.i
 }
 

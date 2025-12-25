@@ -3489,8 +3489,8 @@ _ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit23.i.i.i: ; preds = %12
   br i1 %.not.i.i122.i, label %_ZN3ue211flat_detail9flat_baseIPNS_12_GLOBAL__N_110VertexInfoENS2_16VertexInfoPtrCmpESaIS4_EED2Ev.exit.i.i.i.i.i.i.i.i.i, label %.thread10.i.i.i
 
 .thread10.i.i.i:                                  ; preds = %.loopexit26.i.i.i, %._crit_edge.thread.i.i.i, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit58.thread35.i.i.i.i, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit38.thread29.i.i.i.i
-  %.sroa.12.2.i17.i.i.i = phi ptr [ %.sroa.12.2.i.i.i.i, %.loopexit26.i.i.i ], [ %.08.lcssa.i.i.i27.i.i, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit58.thread35.i.i.i.i ], [ %1201, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit38.thread29.i.i.i.i ], [ %.010.lcssa41.i.i.i, %._crit_edge.thread.i.i.i ]
-  %.sroa.021.2.i16.i.i.i = phi ptr [ %.sroa.021.2.i.i.i.i, %.loopexit26.i.i.i ], [ null, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit58.thread35.i.i.i.i ], [ null, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit38.thread29.i.i.i.i ], [ null, %._crit_edge.thread.i.i.i ]
+  %.sroa.12.2.i17.i.i.i = phi ptr [ %.sroa.12.2.i.i.i.i, %.loopexit26.i.i.i ], [ %1201, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit38.thread29.i.i.i.i ], [ %.08.lcssa.i.i.i27.i.i, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit58.thread35.i.i.i.i ], [ %.010.lcssa41.i.i.i, %._crit_edge.thread.i.i.i ]
+  %.sroa.021.2.i16.i.i.i = phi ptr [ %.sroa.021.2.i.i.i.i, %.loopexit26.i.i.i ], [ null, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit38.thread29.i.i.i.i ], [ null, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit58.thread35.i.i.i.i ], [ null, %._crit_edge.thread.i.i.i ]
   %.not.i.i.i11.i.i43 = icmp ne ptr %.sroa.021.2.i16.i.i.i, null
   %1301 = icmp eq ptr %.sroa.12.2.i17.i.i.i, %924
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i11.i.i43, i1 true, i1 %1301
@@ -3547,7 +3547,7 @@ _ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit23.i.i.i: ; preds = %12
   br label %.loopexit.i44
 
 _ZN3ue211flat_detail9flat_baseIPNS_12_GLOBAL__N_110VertexInfoENS2_16VertexInfoPtrCmpESaIS4_EED2Ev.exit.i.i.i.i.i.i.i.i.i: ; preds = %1226, %.lr.ph.i.i.i.i.i43.i.i.i.i, %1291, %.lr.ph.i.i.i.i.i18.i.i.i, %.loopexit26.i.i.i, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit23.i.i.i, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit48.i.i.i.i
-  %.sroa.01.0.ph.i.i.i = phi ptr [ %.sroa.021.2.i.i.i.i, %.loopexit26.i.i.i ], [ %.08.lcssa.i.i.i27.i.i, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit48.i.i.i.i ], [ %.sroa.01.0.i.i.i, %1291 ], [ %.sroa.01.0.i.i.i, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit23.i.i.i ], [ %.sroa.01.0.i.i.i, %.lr.ph.i.i.i.i.i18.i.i.i ], [ %.08.lcssa.i.i.i27.i.i, %.lr.ph.i.i.i.i.i43.i.i.i.i ], [ %.08.lcssa.i.i.i27.i.i, %1226 ]
+  %.sroa.01.0.ph.i.i.i = phi ptr [ %.sroa.021.2.i.i.i.i, %.loopexit26.i.i.i ], [ %.08.lcssa.i.i.i27.i.i, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit48.i.i.i.i ], [ %.sroa.01.0.i.i.i, %_ZNKSt4lessIN3ue28flat_setIjS_IjESaIjEEEEclERKS4_S7_.exit23.i.i.i ], [ %.sroa.01.0.i.i.i, %1291 ], [ %.sroa.01.0.i.i.i, %.lr.ph.i.i.i.i.i18.i.i.i ], [ %.08.lcssa.i.i.i27.i.i, %.lr.ph.i.i.i.i.i43.i.i.i.i ], [ %.08.lcssa.i.i.i27.i.i, %1226 ]
   %1325 = icmp eq ptr %1123, %.val8.i.i.i
   br i1 %1325, label %_ZNSt8_Rb_treeIN3ue28flat_setIjSt4lessIjESaIjEEESt4pairIKS5_NS1_IPNS0_12_GLOBAL__N_110VertexInfoENS8_16VertexInfoPtrCmpESaISA_EEEESt10_Select1stISE_ES2_IS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit.i.i.i.i, label %1326
 

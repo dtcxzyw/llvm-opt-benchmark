@@ -1134,7 +1134,7 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   br label %bad_area_access_error.exit
 
 .thread9.split:                                   ; preds = %.split.split.split.us, %216, %215, %211, %202, %.split.split, %180
-  %.split23 = phi ptr [ %178, %180 ], [ %178, %.split.split ], [ %188, %216 ], [ %188, %202 ], [ %188, %211 ], [ %188, %215 ], [ %251, %.split.split.split.us ]
+  %.split23 = phi ptr [ %178, %180 ], [ %188, %216 ], [ %178, %.split.split ], [ %188, %202 ], [ %188, %211 ], [ %188, %215 ], [ %251, %.split.split.split.us ]
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 516, i32 16, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 104)) #14
           to label %287 [label %287, label %326], !srcloc !14
 
@@ -2008,76 +2008,76 @@ define internal fastcc range(i32 0, 2) i32 @is_prefetch(ptr noundef %0, i64 noun
   %47 = add i8 %44, 16
   %48 = lshr i8 %47, 4
   switch i8 %48, label %.thread3 [
-    i8 3, label %49
-    i8 4, label %49
-    i8 5, label %70
-    i8 7, label %52
-    i8 0, label %55
-    i8 1, label %60
+    i8 3, label %73
+    i8 4, label %73
+    i8 5, label %49
+    i8 7, label %55
+    i8 0, label %58
+    i8 1, label %63
   ]
 
-49:                                               ; preds = %43, %43
-  %50 = and i8 %44, 7
-  %51 = icmp eq i8 %50, 6
+49:                                               ; preds = %43
+  %50 = load i64, ptr %25, align 8
+  %51 = and i64 %50, 3
+  %52 = icmp eq i64 %51, 0
+  %53 = icmp eq i64 %50, 51
+  %54 = or i1 %53, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.old = icmp ult ptr %45, %21
-  %or.cond12 = select i1 %51, i1 %.old, i1 false
+  %or.cond12 = select i1 %54, i1 %.old, i1 false
   br i1 %or.cond12, label %.lr.ph.backedge, label %.loopexit
 
-52:                                               ; preds = %43
-  %53 = and i8 %44, 12
-  %54 = icmp eq i8 %53, 4
+55:                                               ; preds = %43
+  %56 = and i8 %44, 12
+  %57 = icmp eq i8 %56, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.old.old = icmp ult ptr %45, %21
-  %or.cond13 = select i1 %54, i1 %.old.old, i1 false
+  %or.cond13 = select i1 %57, i1 %.old.old, i1 false
   br i1 %or.cond13, label %.lr.ph.backedge, label %.loopexit
 
-55:                                               ; preds = %43
-  %56 = icmp eq i8 %46, 0
-  %57 = and i8 %44, 14
-  %58 = icmp eq i8 %57, 2
-  %59 = or i1 %56, %58
+58:                                               ; preds = %43
+  %59 = icmp eq i8 %46, 0
+  %60 = and i8 %44, 14
+  %61 = icmp eq i8 %60, 2
+  %62 = or i1 %59, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.old.old.old = icmp ult ptr %45, %21
-  %or.cond14 = select i1 %59, i1 %.old.old.old, i1 false
+  %or.cond14 = select i1 %62, i1 %.old.old.old, i1 false
   br i1 %or.cond14, label %.lr.ph.backedge, label %.loopexit
 
-60:                                               ; preds = %43
-  %61 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %3, ptr noundef %45, i64 noundef 1) #14
-  %62 = icmp eq i64 %61, 0
-  %63 = icmp eq i8 %46, 15
-  %or.cond = and i1 %63, %62
-  br i1 %or.cond, label %64, label %.thread3
+63:                                               ; preds = %43
+  %64 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %3, ptr noundef %45, i64 noundef 1) #14
+  %65 = icmp eq i64 %64, 0
+  %66 = icmp eq i8 %46, 15
+  %or.cond = and i1 %66, %65
+  br i1 %or.cond, label %67, label %.thread3
 
-64:                                               ; preds = %60
-  %65 = load i8, ptr %3, align 1
-  %66 = icmp eq i8 %65, 13
-  %67 = icmp eq i8 %65, 24
-  %68 = or i1 %66, %67
-  %69 = zext i1 %68 to i32
+67:                                               ; preds = %63
+  %68 = load i8, ptr %3, align 1
+  %69 = icmp eq i8 %68, 13
+  %70 = icmp eq i8 %68, 24
+  %71 = or i1 %69, %70
+  %72 = zext i1 %71 to i32
   br label %.thread3
 
-.thread3:                                         ; preds = %43, %60, %64
-  %.ph = phi i32 [ %69, %64 ], [ 0, %60 ], [ 0, %43 ]
+.thread3:                                         ; preds = %43, %63, %67
+  %.ph = phi i32 [ %72, %67 ], [ 0, %63 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit.sink.split
 
-70:                                               ; preds = %43
-  %71 = load i64, ptr %25, align 8
-  %72 = and i64 %71, 3
-  %73 = icmp eq i64 %72, 0
-  %74 = icmp eq i64 %71, 51
-  %75 = or i1 %74, %73
+73:                                               ; preds = %43, %43
+  %74 = and i8 %44, 7
+  %75 = icmp eq i8 %74, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %76 = icmp ult ptr %45, %21
   %or.cond11 = select i1 %75, i1 %76, i1 false
   br i1 %or.cond11, label %.lr.ph.backedge, label %.loopexit
 
-.lr.ph.backedge:                                  ; preds = %70, %49, %52, %55
+.lr.ph.backedge:                                  ; preds = %73, %49, %55, %58
   br label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %31, %40, %.thread3
@@ -2085,8 +2085,8 @@ define internal fastcc range(i32 0, 2) i32 @is_prefetch(ptr noundef %0, i64 noun
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %70, %49, %52, %55, %.loopexit.sink.split, %16
-  %77 = phi i32 [ %.ph26, %.loopexit.sink.split ], [ 0, %16 ], [ 0, %55 ], [ 0, %52 ], [ 0, %49 ], [ 0, %70 ]
+.loopexit:                                        ; preds = %73, %49, %55, %58, %.loopexit.sink.split, %16
+  %77 = phi i32 [ 0, %16 ], [ %.ph26, %.loopexit.sink.split ], [ 0, %58 ], [ 0, %55 ], [ 0, %49 ], [ 0, %73 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !65
   %78 = load i32, ptr %22, align 4
   %79 = add i32 %78, -1

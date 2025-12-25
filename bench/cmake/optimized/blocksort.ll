@@ -1460,9 +1460,6 @@ define internal fastcc void @fallbackSort(ptr noundef captures(none) %0, ptr nou
 .preheader191.preheader:                          ; preds = %.lr.ph260, %69
   br label %.preheader191.outer
 
-.preheader191.outer.backedge:                     ; preds = %335, %fallbackQSort3.exit
-  br label %.preheader191.outer
-
 .preheader191.outer:                              ; preds = %.preheader191.outer.backedge, %.preheader191.preheader
   %.0156.ph = phi i32 [ 0, %.preheader191.preheader ], [ %.6163, %.preheader191.outer.backedge ]
   %.0148.ph = phi i32 [ 0, %.preheader191.preheader ], [ %144, %.preheader191.outer.backedge ]
@@ -1994,6 +1991,9 @@ fallbackQSort3.exit:                              ; preds = %.outer191.backedge.
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not178.not266.not = icmp sgt i32 %.2159, %.6163
   br i1 %.not178.not266.not, label %.preheader191.outer.backedge, label %.lr.ph269.preheader
+
+.preheader191.outer.backedge:                     ; preds = %335, %fallbackQSort3.exit
+  br label %.preheader191.outer
 
 .lr.ph269.preheader:                              ; preds = %fallbackQSort3.exit
   %320 = sext i32 %140 to i64

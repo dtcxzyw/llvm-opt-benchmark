@@ -400,7 +400,7 @@ define dso_local noundef ptr @rb_econv_open(ptr noundef %0, ptr noundef %1, i32 
   br label %decorator_names.exit
 
 decorator_names.exit:                             ; preds = %44, %42
-  %.025.i = phi i32 [ %.5.i, %42 ], [ %45, %44 ]
+  %.025.i = phi i32 [ %45, %44 ], [ %.5.i, %42 ]
   %48 = and i32 %2, 255
   %49 = load i8, ptr %0, align 1, !tbaa !27
   %.not.i18 = icmp eq i8 %49, 0
@@ -5400,7 +5400,7 @@ define internal i64 @econv_s_search_convpath(i32 noundef %0, ptr noundef readonl
   br label %decorator_names.exit.i
 
 decorator_names.exit.i:                           ; preds = %70, %68
-  %.025.i.i = phi i32 [ %.5.i.i, %68 ], [ %71, %70 ]
+  %.025.i.i = phi i32 [ %71, %70 ], [ %.5.i.i, %68 ]
   %74 = inttoptr i64 %22 to ptr
   %75 = load i64, ptr %74, align 8, !tbaa !33
   %76 = and i64 %75, 8192

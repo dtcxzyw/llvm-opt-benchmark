@@ -2123,7 +2123,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
   br label %.thread238.thread
 
 .thread238:                                       ; preds = %303, %306, %315, %._crit_edge
-  %.2192.ph = phi i32 [ %.0190.lcssa, %._crit_edge ], [ %.3193, %315 ], [ %.3193, %306 ], [ %.3193, %303 ]
+  %.2192.ph = phi i32 [ %.3193, %315 ], [ %.0190.lcssa, %._crit_edge ], [ %.3193, %306 ], [ %.3193, %303 ]
   %.pr = load i32, ptr %3, align 4, !tbaa !13
   %335 = icmp sgt i32 %.pr, 0
   br i1 %335, label %.thread238.thread, label %336
@@ -10572,7 +10572,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1262: ;
   br label %3474
 
 3474:                                             ; preds = %3463, %3468
-  %.2755 = phi i64 [ %3473, %3468 ], [ %3467, %3463 ]
+  %.2755 = phi i64 [ %3467, %3463 ], [ %3473, %3468 ]
   %3475 = load i64, ptr %78, align 8, !tbaa !69
   %.not936 = icmp slt i64 %.2755, %3475
   br i1 %.not936, label %.lr.ph1429, label %._crit_edge1430
@@ -10845,7 +10845,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1289.thread:  ; preds = %3595, %3592, %3586
   br label %3612
 
 3612:                                             ; preds = %3601, %3606
-  %.2743 = phi i64 [ %3611, %3606 ], [ %3605, %3601 ]
+  %.2743 = phi i64 [ %3605, %3601 ], [ %3611, %3606 ]
   %3613 = load i64, ptr %78, align 8, !tbaa !69
   %.not933 = icmp slt i64 %.2743, %3613
   br i1 %.not933, label %3567, label %.thread1385.sink.split

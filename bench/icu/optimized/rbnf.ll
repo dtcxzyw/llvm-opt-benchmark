@@ -290,7 +290,7 @@ _ZN6icu_77L5streqEPKDsS1_.exit62:                 ; preds = %84
   br i1 %exitcond120.not, label %.thread84, label %.lr.ph108.split, !llvm.loop !9
 
 .thread84:                                        ; preds = %24, %_ZN6icu_77L5streqEPKDsS1_.exit, %.critedge98.preheader, %84, %_ZN6icu_77L5streqEPKDsS1_.exit62, %.critedge98._crit_edge.us, %52, %_ZN6icu_77L5streqEPKDsS1_.exit62.us, %_ZN6icu_77L5streqEPKDsS1_.exit65.us, %65, %.preheader, %.critedge, %5, %2, %3
-  %.040 = phi i1 [ false, %_ZN6icu_77L5streqEPKDsS1_.exit65.us ], [ false, %.critedge ], [ true, %3 ], [ true, %.preheader ], [ false, %5 ], [ false, %2 ], [ true, %.critedge98._crit_edge.us ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62 ], [ false, %65 ], [ false, %52 ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62.us ], [ false, %84 ], [ true, %.critedge98.preheader ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit ], [ false, %24 ]
+  %.040 = phi i1 [ true, %.critedge98._crit_edge.us ], [ false, %.critedge ], [ true, %3 ], [ true, %.preheader ], [ false, %5 ], [ false, %2 ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit65.us ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62 ], [ false, %65 ], [ false, %52 ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit62.us ], [ false, %84 ], [ true, %.critedge98.preheader ], [ false, %_ZN6icu_77L5streqEPKDsS1_.exit ], [ false, %24 ]
   ret i1 %.040
 }
 

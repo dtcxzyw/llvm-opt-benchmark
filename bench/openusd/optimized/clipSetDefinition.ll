@@ -1435,7 +1435,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINSt7__cxx1112basic_stri
   br label %.noexc115.i
 
 .noexc115.i:                                      ; preds = %423, %417
-  %425 = phi ptr [ %422, %417 ], [ %424, %423 ]
+  %425 = phi ptr [ %424, %423 ], [ %422, %417 ]
   %.not16.i.i = icmp eq ptr %425, null
   br i1 %.not16.i.i, label %.noexc115.i.thread, label %426
 
@@ -4960,7 +4960,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread2.i378
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L8_GetInfoIdEEPKT_RKNS_12VtDictionaryERKNS_7TfTokenE.exit388 unwind label %.loopexit581
 
 _ZN32pxrInternal_v0_24__pxrReserved__L8_GetInfoIdEEPKT_RKNS_12VtDictionaryERKNS_7TfTokenE.exit388: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread2.i378, %1836
-  %1842 = phi ptr [ %1841, %1836 ], [ %1822, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread2.i378 ]
+  %1842 = phi ptr [ %1822, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread2.i378 ], [ %1841, %1836 ]
   %1843 = icmp ne ptr %1736, null
   %1844 = icmp ne ptr %1789, null
   %or.cond = and i1 %1843, %1844

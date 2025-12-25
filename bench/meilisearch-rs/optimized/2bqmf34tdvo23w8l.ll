@@ -11779,7 +11779,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h3d00f6ed3a31b8d9E.exit: ; preds = 
   br label %.split.us
 
 .split.us:                                        ; preds = %5, %.preheader.split, %.preheader.split.us, %.split.us.loopexit18, %.split.us.loopexit15, %.split.us.loopexit, %23
-  %.sroa.02.1 = phi i64 [ %9, %.split.us.loopexit ], [ %16, %.split.us.loopexit15 ], [ %.sroa.02.0, %23 ], [ %6, %.split.us.loopexit18 ], [ 3, %.preheader.split ], [ 3, %.preheader.split.us ], [ 3, %5 ]
+  %.sroa.02.1 = phi i64 [ 3, %.preheader.split ], [ %9, %.split.us.loopexit ], [ %.sroa.02.0, %23 ], [ %6, %.split.us.loopexit18 ], [ %16, %.split.us.loopexit15 ], [ 3, %.preheader.split.us ], [ 3, %5 ]
   ret i64 %.sroa.02.1
 }
 

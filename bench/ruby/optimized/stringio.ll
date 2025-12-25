@@ -3779,8 +3779,8 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   br label %detect_bom.exit
 
 detect_bom.exit:                                  ; preds = %22, %30, %48, %50, %66
-  %.011 = phi i64 [ 4, %66 ], [ 2, %50 ], [ 4, %48 ], [ 3, %22 ], [ 2, %30 ]
-  %.0.i = phi i32 [ %67, %66 ], [ %51, %50 ], [ %49, %48 ], [ %23, %22 ], [ %31, %30 ]
+  %.011 = phi i64 [ 4, %66 ], [ 4, %48 ], [ 2, %30 ], [ 3, %22 ], [ 2, %50 ]
+  %.0.i = phi i32 [ %67, %66 ], [ %49, %48 ], [ %31, %30 ], [ %23, %22 ], [ %51, %50 ]
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %detect_bom.exit.thread, label %68
 

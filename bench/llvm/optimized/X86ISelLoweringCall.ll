@@ -8498,7 +8498,7 @@ _ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread.i.i: ; preds = %_ZNK4llvm12
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_3MVTELb1EE9push_backES1_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseINS_3MVTELb1EE9push_backES1_.exit.i.i: ; preds = %711, %709, %707, %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread.i.i, %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.i.i
-  %.sroa.067.0.i.i = phi i16 [ %spec.select, %711 ], [ 120, %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread.i.i ], [ 115, %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.i.i ], [ 115, %709 ], [ %708, %707 ]
+  %.sroa.067.0.i.i = phi i16 [ %spec.select, %711 ], [ 120, %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.thread.i.i ], [ 115, %_ZNK4llvm12X86Subtarget13useAVX512RegsEv.exit.i.i ], [ %708, %707 ], [ 115, %709 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %713 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %713, ptr %17, align 8, !tbaa !767
@@ -13763,7 +13763,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit256:       ; preds = %216
   br label %.critedge234
 
 .critedge234:                                     ; preds = %_ZNK4llvm11CCValAssign8isRegLocEv.exit, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit, %.lr.ph289, %218, %60, %59, %59, %59, %59, %59, %59, %switch.early.test, %switch.early.test, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit, %246, %241, %244, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread, %34, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit, %.critedge274, %.loopexit, %138, %135, %80, %41, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %34 ], [ false, %41 ], [ %47, %switch.early.test ], [ false, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit ], [ false, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit ], [ false, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread ], [ false, %80 ], [ false, %244 ], [ false, %.critedge274 ], [ false, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit ], [ false, %135 ], [ false, %138 ], [ false, %218 ], [ false, %.loopexit ], [ true, %246 ], [ false, %241 ], [ %47, %switch.early.test ], [ %47, %59 ], [ false, %60 ], [ %47, %59 ], [ %47, %59 ], [ %47, %59 ], [ %47, %59 ], [ %47, %59 ], [ false, %.lr.ph289 ], [ false, %_ZNK4llvm11CCValAssign8isRegLocEv.exit ]
+  %.0 = phi i1 [ false, %5 ], [ false, %34 ], [ false, %41 ], [ %47, %switch.early.test ], [ %47, %switch.early.test ], [ false, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit ], [ false, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread ], [ false, %80 ], [ false, %244 ], [ false, %.critedge274 ], [ false, %_ZN4llvm11SmallVectorINS_11CCValAssignELj16EED2Ev.exit ], [ false, %135 ], [ false, %138 ], [ false, %218 ], [ false, %.loopexit ], [ true, %246 ], [ false, %241 ], [ false, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit ], [ %47, %59 ], [ false, %60 ], [ %47, %59 ], [ %47, %59 ], [ %47, %59 ], [ %47, %59 ], [ %47, %59 ], [ false, %.lr.ph289 ], [ false, %_ZNK4llvm11CCValAssign8isRegLocEv.exit ]
   ret i1 %.0
 }
 

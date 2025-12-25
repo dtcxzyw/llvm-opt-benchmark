@@ -7524,8 +7524,8 @@ define hidden void @evdns_tree_SPLAY_MINMAX(ptr noundef captures(none) %0, i32 n
   br i1 %38, label %.split43.us, label %.lr.ph
 
 .split43.us:                                      ; preds = %31, %.lr.ph, %.lr.ph53, %15, %.split.split, %.split.us
-  %39 = phi ptr [ %20, %.split.split ], [ %17, %15 ], [ %5, %.split.us ], [ %8, %.lr.ph53 ], [ %24, %.lr.ph ], [ %35, %31 ]
-  %.us-phi = phi ptr [ %3, %.split.split ], [ %3, %.lr.ph53 ], [ %3, %.split.us ], [ %3, %15 ], [ %.03747, %.lr.ph ], [ %33, %31 ]
+  %39 = phi ptr [ %20, %.split.split ], [ %17, %15 ], [ %5, %.split.us ], [ %8, %.lr.ph53 ], [ %35, %31 ], [ %24, %.lr.ph ]
+  %.us-phi = phi ptr [ %3, %.split.split ], [ %3, %.lr.ph53 ], [ %3, %.split.us ], [ %3, %15 ], [ %33, %31 ], [ %.03747, %.lr.ph ]
   %.us-phi44 = phi ptr [ %3, %.split.split ], [ %16, %15 ], [ %3, %.split.us ], [ %.0.us52, %.lr.ph53 ], [ %3, %.lr.ph ], [ %3, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load ptr, ptr %39, align 8
@@ -11209,10 +11209,10 @@ select.unfold.i283:                               ; preds = %108, %91
   br label %.thread324
 
 .thread324:                                       ; preds = %168, %219, %188, %.thread312, %226, %235, %175
-  %238 = phi ptr [ %135, %235 ], [ %135, %226 ], [ %135, %188 ], [ %135, %175 ], [ %206, %.thread312 ], [ %135, %168 ], [ %135, %219 ]
-  %239 = phi i8 [ %136, %235 ], [ 1, %226 ], [ %136, %188 ], [ 1, %175 ], [ %136, %.thread312 ], [ %136, %168 ], [ %136, %219 ]
-  %240 = phi i32 [ %137, %235 ], [ %234, %226 ], [ %137, %188 ], [ %183, %175 ], [ %137, %.thread312 ], [ %137, %168 ], [ %137, %219 ]
-  %.2327 = phi i32 [ %.0203384, %235 ], [ %227, %226 ], [ %.0203384, %188 ], [ %176, %175 ], [ %.0203384, %.thread312 ], [ %.0203384, %168 ], [ %.0203384, %219 ]
+  %238 = phi ptr [ %135, %226 ], [ %135, %235 ], [ %135, %188 ], [ %206, %.thread312 ], [ %135, %175 ], [ %135, %168 ], [ %135, %219 ]
+  %239 = phi i8 [ 1, %226 ], [ %136, %235 ], [ %136, %188 ], [ %136, %.thread312 ], [ 1, %175 ], [ %136, %168 ], [ %136, %219 ]
+  %240 = phi i32 [ %234, %226 ], [ %137, %235 ], [ %137, %188 ], [ %137, %.thread312 ], [ %183, %175 ], [ %137, %168 ], [ %137, %219 ]
+  %.2327 = phi i32 [ %227, %226 ], [ %.0203384, %235 ], [ %.0203384, %188 ], [ %.0203384, %.thread312 ], [ %176, %175 ], [ %.0203384, %168 ], [ %.0203384, %219 ]
   %241 = add nuw nsw i32 %.1207383, 1
   %exitcond443.not = icmp eq i32 %241, %128
   br i1 %exitcond443.not, label %.loopexit356, label %134, !llvm.loop !49
@@ -11386,7 +11386,7 @@ name_parse.exit.thread:                           ; preds = %290, %287, %284, %2
   br label %.thread342
 
 .thread342:                                       ; preds = %.thread346, %name_parse.exit.thread
-  %308 = phi ptr [ %306, %name_parse.exit.thread ], [ %307, %.thread346 ]
+  %308 = phi ptr [ %307, %.thread346 ], [ %306, %name_parse.exit.thread ]
   %.not257 = icmp eq ptr %308, null
   br i1 %.not257, label %request_find_from_trans_id.exit.thread, label %request_find_from_trans_id.exit.thread.sink.split
 

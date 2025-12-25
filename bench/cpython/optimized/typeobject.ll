@@ -4933,8 +4933,8 @@ PyType_IsSubtype.exit51.thread:                   ; preds = %72, %PyType_IsSubty
   br label %.critedge
 
 PyType_IsSubtype.exit.thread56:                   ; preds = %.lr.ph.i.i, %.preheader.i.i, %.lr.ph.i.i45, %.preheader.i.i48, %PyType_IsSubtype.exit, %51, %PyType_IsSubtype.exit51
-  %.132 = phi ptr [ %52, %PyType_IsSubtype.exit51 ], [ %.03175, %PyType_IsSubtype.exit ], [ %52, %51 ], [ %52, %.lr.ph.i.i45 ], [ %.03175, %.preheader.i.i ], [ %52, %.preheader.i.i48 ], [ %.03175, %.lr.ph.i.i ]
-  %.128 = phi ptr [ %8, %PyType_IsSubtype.exit51 ], [ %.02776, %PyType_IsSubtype.exit ], [ %8, %51 ], [ %8, %.lr.ph.i.i45 ], [ %.02776, %.preheader.i.i ], [ %8, %.preheader.i.i48 ], [ %.02776, %.lr.ph.i.i ]
+  %.132 = phi ptr [ %52, %PyType_IsSubtype.exit51 ], [ %52, %51 ], [ %.03175, %PyType_IsSubtype.exit ], [ %52, %.lr.ph.i.i45 ], [ %.03175, %.preheader.i.i ], [ %52, %.preheader.i.i48 ], [ %.03175, %.lr.ph.i.i ]
+  %.128 = phi ptr [ %8, %PyType_IsSubtype.exit51 ], [ %8, %51 ], [ %.02776, %PyType_IsSubtype.exit ], [ %8, %.lr.ph.i.i45 ], [ %.02776, %.preheader.i.i ], [ %8, %.preheader.i.i48 ], [ %.02776, %.lr.ph.i.i ]
   %86 = add nuw nsw i64 %.02677, 1
   %exitcond.not = icmp eq i64 %86, %.val40
   br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !276
@@ -8689,7 +8689,7 @@ define internal range(i32 -1, 1) i32 @type_init(ptr readnone captures(none) %0, 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %5, %._crit_edge, %._crit_edge
-  %.0 = phi i32 [ 0, %5 ], [ 0, %._crit_edge ], [ 0, %._crit_edge ], [ -1, %.thread.sink.split ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %5 ], [ 0, %._crit_edge ], [ -1, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -9428,7 +9428,7 @@ type_new_slots.exit.i.i.sink.split:               ; preds = %141, %138, %135
   br label %type_new_slots.exit.i.i
 
 type_new_slots.exit.i.i:                          ; preds = %type_new_slots.exit.i.i.sink.split, %.loopexit.i.i, %type_new_copy_slots.exit.i.i.i.i, %191, %.loopexit.i.i.i.i.i, %type_new_visit_slots.exit.i.i.i.i
-  %.sroa.38.2 = phi ptr [ %.sroa.38.0, %.loopexit.i.i.i.i.i ], [ %.sroa.38.1, %.loopexit.i.i ], [ %.sroa.38.0, %191 ], [ %.sroa.38.0, %type_new_copy_slots.exit.i.i.i.i ], [ %.sroa.38.0, %type_new_visit_slots.exit.i.i.i.i ], [ %.sroa.38.0, %type_new_slots.exit.i.i.sink.split ]
+  %.sroa.38.2 = phi ptr [ %.sroa.38.0, %type_new_copy_slots.exit.i.i.i.i ], [ %.sroa.38.1, %.loopexit.i.i ], [ %.sroa.38.0, %191 ], [ %.sroa.38.0, %.loopexit.i.i.i.i.i ], [ %.sroa.38.0, %type_new_visit_slots.exit.i.i.i.i ], [ %.sroa.38.0, %type_new_slots.exit.i.i.sink.split ]
   %.not.i15.i = icmp eq ptr %.sroa.38.2, null
   br i1 %.not.i15.i, label %Py_DECREF.exit.i.i.thread, label %type_new_slots.exit.i.i.thread
 
@@ -14974,7 +14974,7 @@ lookup_tp_dict.exit.i70:                          ; preds = %1649, %1633
   tail call fastcc void @stop_readying(ptr noundef nonnull %0)
   br label %stop_readying.exit
 
-type_ready_set_dict.exit:                         ; preds = %305, %309, %300, %.lr.ph.i5.i, %.lr.ph.i13.i, %Py_DECREF.exit.i.i, %.lr.ph.i24.i, %Py_DECREF.exit.i27.i, %overrides_hash.exit.i.i, %1668, %1623, %1613, %1604, %321, %Py_DECREF.exit.i40.i, %lookup_tp_dict.exit.i33.i, %470, %317, %318, %_PyType_DocWithoutSignature.exit.i.i, %208, %206, %add_tp_new_wrapper.exit.i, %PyType_Ready.exit, %1654, %lookup_tp_dict.exit.i70, %144, %161, %136, %48, %type_ready_pre_checks.exit.thread, %1675, %1672
+type_ready_set_dict.exit:                         ; preds = %305, %309, %300, %.lr.ph.i5.i, %.lr.ph.i13.i, %Py_DECREF.exit.i.i, %.lr.ph.i24.i, %Py_DECREF.exit.i27.i, %overrides_hash.exit.i.i, %1668, %1623, %1613, %1604, %321, %Py_DECREF.exit.i40.i, %lookup_tp_dict.exit.i33.i, %470, %318, %_PyType_DocWithoutSignature.exit.i.i, %317, %208, %206, %add_tp_new_wrapper.exit.i, %PyType_Ready.exit, %1654, %lookup_tp_dict.exit.i70, %144, %161, %136, %48, %type_ready_pre_checks.exit.thread, %1675, %1672
   %1681 = load i64, ptr %3, align 8, !tbaa !108
   %1682 = and i64 %1681, 2
   %.not.i73 = icmp eq i64 %1682, 0
@@ -23634,7 +23634,7 @@ Py_DECREF.exit18.sink.split.i:                    ; preds = %92, %65
   call void @_Py_Dealloc(ptr noundef nonnull %.sink.i) #24
   br label %_PyType_GetSlotNames.exit.thread
 
-_PyType_GetSlotNames.exit.thread:                 ; preds = %70, %Py_DECREF.exit16.i, %lookup_tp_dict.exit.i, %import_copyreg.exit.i, %56, %65, %88, %92, %Py_DECREF.exit18.sink.split.i
+_PyType_GetSlotNames.exit.thread:                 ; preds = %Py_DECREF.exit16.i, %lookup_tp_dict.exit.i, %import_copyreg.exit.i, %70, %56, %65, %88, %92, %Py_DECREF.exit18.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %95 = load i32, ptr %.066, align 8, !tbaa !102
   %.not.i128 = icmp sgt i32 %95, -1
@@ -23651,7 +23651,7 @@ _PyType_GetSlotNames.exit.thread:                 ; preds = %70, %Py_DECREF.exit
   br label %.critedge97
 
 _PyType_GetSlotNames.exit.thread163:              ; preds = %84, %52, %51, %83
-  %.0.i165 = phi ptr [ @_Py_NoneStruct, %51 ], [ @_Py_NoneStruct, %83 ], [ %81, %84 ], [ %50, %52 ]
+  %.0.i165 = phi ptr [ @_Py_NoneStruct, %51 ], [ @_Py_NoneStruct, %83 ], [ %50, %52 ], [ %81, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not, label %.critedge, label %100
 

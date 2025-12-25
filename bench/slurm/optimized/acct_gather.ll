@@ -1032,7 +1032,7 @@ acct_gather_parse_freq.exit.thread19:             ; preds = %20, %11, %acct_gath
   br i1 %45, label %acct_gather_parse_freq.exit16.thread, label %acct_gather_parse_freq.exit16
 
 acct_gather_parse_freq.exit16:                    ; preds = %41, %32
-  %.015.i13 = phi i32 [ %46, %41 ], [ %36, %32 ]
+  %.015.i13 = phi i32 [ %36, %32 ], [ %46, %41 ]
   switch i32 %.015.i13, label %49 [
     i32 -1, label %acct_gather_parse_freq.exit16.thread
     i32 0, label %47
@@ -1057,7 +1057,7 @@ acct_gather_parse_freq.exit16.thread.sink.split:  ; preds = %47, %52
   br label %acct_gather_parse_freq.exit16.thread
 
 acct_gather_parse_freq.exit16.thread:             ; preds = %acct_gather_parse_freq.exit16.thread.sink.split, %41, %39, %49, %acct_gather_parse_freq.exit16, %28
-  %.0 = phi i32 [ 0, %28 ], [ 0, %39 ], [ 0, %41 ], [ 0, %acct_gather_parse_freq.exit16 ], [ 0, %49 ], [ 1, %acct_gather_parse_freq.exit16.thread.sink.split ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %41 ], [ 0, %39 ], [ 0, %acct_gather_parse_freq.exit16 ], [ 0, %49 ], [ 1, %acct_gather_parse_freq.exit16.thread.sink.split ]
   ret i32 %.0
 }
 

@@ -134,7 +134,7 @@ define dso_local noundef zeroext i1 @Curl_meets_timecondition(ptr noundef %0, i6
   br label %38
 
 38:                                               ; preds = %.sink.split, %11, %23, %2, %4
-  %.0 = phi i1 [ true, %11 ], [ true, %23 ], [ true, %2 ], [ true, %4 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %23 ], [ true, %11 ], [ true, %2 ], [ true, %4 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -406,7 +406,7 @@ xfer_recv_shutdown.exit.i.i:                      ; preds = %88
   br label %102
 
 xfer_recv_resp.exit.i:                            ; preds = %100, %81
-  %.023.i.i = phi i64 [ %.pre.i.i, %100 ], [ %.pr.i.i, %81 ]
+  %.023.i.i = phi i64 [ %.pr.i.i, %81 ], [ %.pre.i.i, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %101 = icmp slt i64 %.023.i.i, 0
   br i1 %101, label %.loopexit, label %106
@@ -665,7 +665,7 @@ data_pending.exit.i._crit_edge:                   ; preds = %data_pending.exit.i
   br label %.loopexit
 
 sendrecv_dl.exit:                                 ; preds = %102, %.thread123.i, %Curl_xfer_write_resp.exit.i, %21
-  %.0113.i = phi i32 [ %24, %21 ], [ %phi.call.i, %Curl_xfer_write_resp.exit.i ], [ %131, %.thread123.i ], [ %.5.ph.i, %102 ]
+  %.0113.i = phi i32 [ %24, %21 ], [ %131, %.thread123.i ], [ %phi.call.i, %Curl_xfer_write_resp.exit.i ], [ %.5.ph.i, %102 ]
   %216 = load ptr, ptr %5, align 8, !tbaa !101
   call void @Curl_multi_xfer_buf_release(ptr noundef nonnull %0, ptr noundef %216) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

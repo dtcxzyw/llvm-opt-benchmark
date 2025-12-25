@@ -2292,7 +2292,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br label %.thread508
 
 481:                                              ; preds = %237, %278, %.loopexit527, %.loopexit541, %.loopexit537, %.loopexit, %267
-  %.0447 = phi i64 [ %479, %.loopexit541 ], [ %446, %.loopexit537 ], [ %252, %237 ], [ %269, %267 ], [ %280, %278 ], [ %360, %.loopexit ], [ %425, %.loopexit527 ]
+  %.0447 = phi i64 [ %446, %.loopexit537 ], [ %479, %.loopexit541 ], [ %252, %237 ], [ %269, %267 ], [ %280, %278 ], [ %360, %.loopexit ], [ %425, %.loopexit527 ]
   %.not497 = icmp eq i64 %.0447, 0
   br i1 %.not497, label %.thread508, label %482
 

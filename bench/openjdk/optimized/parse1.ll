@@ -5365,7 +5365,7 @@ _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread: ; preds = %443, %457, %_ZNK5P
   br label %485
 
 485:                                              ; preds = %406, %406, %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread, %405
-  %.1 = phi ptr [ %.080, %405 ], [ %.080, %406 ], [ %484, %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread ], [ %.080, %406 ]
+  %.1 = phi ptr [ %.080, %406 ], [ %.080, %405 ], [ %484, %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread ], [ %.080, %406 ]
   %.not87 = icmp eq ptr %.1, null
   br i1 %.not87, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit136, label %.thread149
 

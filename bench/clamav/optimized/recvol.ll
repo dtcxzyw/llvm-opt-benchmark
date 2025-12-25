@@ -3272,10 +3272,10 @@ _ZN5ArrayI10RecVolItemE3AddEm.exit.i:             ; preds = %149, %139
   call void %162(ptr noundef nonnull align 8 dereferenceable(57108) %54) #15
   br label %.thread.backedge
 
-.thread381:                                       ; preds = %158, %.loopexit, %82, %77
-  %.1173387 = phi i64 [ %.3175, %82 ], [ %.3175, %77 ], [ %.0172.ph, %.loopexit ], [ %.0172.ph, %158 ]
-  %.0207386 = phi i32 [ %66, %82 ], [ %66, %77 ], [ %116, %.loopexit ], [ %116, %158 ]
-  %.1385 = phi i32 [ %78, %82 ], [ %78, %77 ], [ %.0370.ph, %.loopexit ], [ %.0370.ph, %158 ]
+.thread381:                                       ; preds = %158, %.loopexit, %77, %82
+  %.1173387 = phi i64 [ %.3175, %77 ], [ %.3175, %82 ], [ %.0172.ph, %.loopexit ], [ %.0172.ph, %158 ]
+  %.0207386 = phi i32 [ %66, %77 ], [ %66, %82 ], [ %116, %.loopexit ], [ %116, %158 ]
+  %.1385 = phi i32 [ %78, %77 ], [ %78, %82 ], [ %.0370.ph, %.loopexit ], [ %.0370.ph, %158 ]
   %163 = zext nneg i32 %.0207386 to i64
   %164 = load i64, ptr %46, align 8, !tbaa !148
   %165 = icmp ugt i64 %164, %163

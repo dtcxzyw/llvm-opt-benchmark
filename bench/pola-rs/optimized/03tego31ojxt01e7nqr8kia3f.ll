@@ -59920,8 +59920,8 @@ define hidden void @_ZN14polars_compute22find_validity_mismatch39find_validity_m
   br i1 %90, label %84, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %84, %86, %66, %58
-  %91 = phi i64 [ %63, %58 ], [ %63, %66 ], [ %80, %86 ], [ %80, %84 ]
-  %.sroa.0.1.us = phi i64 [ %.sroa.0.0.us, %58 ], [ %.sroa.0.0.us, %66 ], [ %umax, %84 ], [ %.sroa.0.2.us, %86 ]
+  %91 = phi i64 [ %63, %66 ], [ %63, %58 ], [ %80, %86 ], [ %80, %84 ]
+  %.sroa.0.1.us = phi i64 [ %.sroa.0.0.us, %66 ], [ %.sroa.0.0.us, %58 ], [ %umax, %84 ], [ %.sroa.0.2.us, %86 ]
   %92 = icmp eq i64 %.sroa.0.1.us, %91
   br i1 %92, label %"_ZN130_$LT$polars_utils..itertools..enumerate_idx..EnumerateIdx$LT$I$C$IdxType$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a3c05088d543f25E.exit", label %.split.us
 
@@ -60151,8 +60151,8 @@ define hidden void @_ZN14polars_compute22find_validity_mismatch39find_validity_m
   br i1 %93, label %87, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %87, %89, %68, %60
-  %94 = phi i64 [ %65, %60 ], [ %65, %68 ], [ %83, %89 ], [ %83, %87 ]
-  %.sroa.0.1.us = phi i64 [ %.sroa.0.0.us, %60 ], [ %.sroa.0.0.us, %68 ], [ %umax, %87 ], [ %.sroa.0.2.us, %89 ]
+  %94 = phi i64 [ %65, %68 ], [ %65, %60 ], [ %83, %89 ], [ %83, %87 ]
+  %.sroa.0.1.us = phi i64 [ %.sroa.0.0.us, %68 ], [ %.sroa.0.0.us, %60 ], [ %umax, %87 ], [ %.sroa.0.2.us, %89 ]
   %95 = icmp eq i64 %.sroa.0.1.us, %94
   br i1 %95, label %"_ZN130_$LT$polars_utils..itertools..enumerate_idx..EnumerateIdx$LT$I$C$IdxType$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h475c7d2f1cc3f84eE.exit", label %.split.us
 
@@ -65862,7 +65862,7 @@ thread-pre-split:                                 ; preds = %181
   br label %153
 
 .loopexit.split-lp:                               ; preds = %152, %._crit_edge, %171, %174, %175, %164
-  %.sroa.025.5.ph = phi i1 [ true, %171 ], [ false, %174 ], [ false, %175 ], [ true, %164 ], [ true, %._crit_edge ], [ true, %152 ]
+  %.sroa.025.5.ph = phi i1 [ true, %171 ], [ false, %174 ], [ false, %175 ], [ true, %164 ], [ true, %152 ], [ true, %._crit_edge ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %153
@@ -66553,7 +66553,7 @@ thread-pre-split:                                 ; preds = %177
   br label %149
 
 .loopexit.split-lp:                               ; preds = %148, %._crit_edge, %167, %170, %171, %160
-  %.sroa.025.5.ph = phi i1 [ true, %167 ], [ false, %170 ], [ false, %171 ], [ true, %160 ], [ true, %._crit_edge ], [ true, %148 ]
+  %.sroa.025.5.ph = phi i1 [ true, %167 ], [ false, %170 ], [ false, %171 ], [ true, %160 ], [ true, %148 ], [ true, %._crit_edge ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %149

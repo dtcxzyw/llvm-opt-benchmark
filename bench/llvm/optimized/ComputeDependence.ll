@@ -608,7 +608,7 @@ _ZNK5clang22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4Att
   br label %50
 
 .thread:                                          ; preds = %58, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit, %63, %56, %27, %25, %17, %32, %6
-  %.0 = phi i8 [ %16, %6 ], [ %spec.select, %17 ], [ %spec.select, %32 ], [ %.2, %56 ], [ %spec.select, %25 ], [ %spec.select, %27 ], [ %.2, %63 ], [ %.2, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ %.2, %58 ]
+  %.0 = phi i8 [ %16, %6 ], [ %spec.select, %17 ], [ %spec.select, %32 ], [ %.2, %63 ], [ %spec.select, %25 ], [ %spec.select, %27 ], [ %.2, %56 ], [ %.2, %_ZN5clangneENS_22specific_attr_iteratorINS_11AlignedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit ], [ %.2, %58 ]
   ret i8 %.0
 }
 

@@ -1362,7 +1362,7 @@ _ZNSt6vectorIhSaIhEE6assignIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_
   br label %_ZNSt6vectorIhSaIhEE6assignIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvEEvT_SD_.exit
 
 _ZNSt6vectorIhSaIhEE6assignIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvEEvT_SD_.exit: ; preds = %.critedge, %_ZNSt6vectorIhSaIhEE6assignIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvEEvT_SD_.exit.sink.split, %_ZNSt6vectorIhSaIhEE7reserveEm.exit, %23, %8
-  %.016 = phi i1 [ true, %23 ], [ false, %_ZNSt6vectorIhSaIhEE6assignIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvEEvT_SD_.exit.sink.split ], [ false, %8 ], [ true, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ], [ true, %.critedge ]
+  %.016 = phi i1 [ true, %23 ], [ true, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIhSaIhEE6assignIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvEEvT_SD_.exit.sink.split ], [ true, %.critedge ]
   %109 = load ptr, ptr %4, align 8, !tbaa !39
   %110 = icmp eq ptr %109, %5
   br i1 %110, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

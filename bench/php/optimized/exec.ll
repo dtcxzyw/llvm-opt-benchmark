@@ -377,7 +377,7 @@ strip_trailing_whitespace.exit:                   ; preds = %.critedge.i, %123
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph107, %.loopexit.sink.split, %.preheader
-  %.2 = phi ptr [ %.0.ph.lcssa, %.loopexit.sink.split ], [ %11, %.preheader ], [ %11, %.lr.ph107 ]
+  %.2 = phi ptr [ %11, %.preheader ], [ %.0.ph.lcssa, %.loopexit.sink.split ], [ %11, %.lr.ph107 ]
   %140 = call i32 @_php_stream_free(ptr noundef %10, i32 noundef 3) #11
   call void @_efree(ptr noundef %.2) #11
   br label %141

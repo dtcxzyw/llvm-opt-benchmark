@@ -7994,7 +7994,7 @@ _ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor9VisitBodyEPKN5clang4StmtE.exit: ; 
   br i1 %51, label %.thread56, label %42
 
 .thread56:                                        ; preds = %16, %19, %42, %45, %.preheader, %.loopexit, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor9VisitBodyEPKN5clang4StmtE.exit
-  %.2 = phi i1 [ %51, %42 ], [ true, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor9VisitBodyEPKN5clang4StmtE.exit ], [ false, %.loopexit ], [ false, %.preheader ], [ %51, %45 ], [ false, %19 ], [ false, %16 ]
+  %.2 = phi i1 [ false, %.loopexit ], [ true, %_ZN12_GLOBAL__N_126DerefFuncDeleteExprVisitor9VisitBodyEPKN5clang4StmtE.exit ], [ false, %.preheader ], [ %51, %42 ], [ %51, %45 ], [ false, %19 ], [ false, %16 ]
   ret i1 %.2
 }
 

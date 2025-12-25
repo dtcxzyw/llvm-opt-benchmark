@@ -43288,7 +43288,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hd45b8ed7053684f5E.exit.i: ; pre
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %722
-  %.sroa.017.0.ph.ph234 = phi i8 [ 1, %.invoke ], [ %.sroa.017.3, %722 ]
+  %.sroa.017.0.ph.ph234 = phi i8 [ %.sroa.017.3, %722 ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp236 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -43330,7 +43330,7 @@ _ZN4core3ops8function6FnOnce9call_once17hfded081684e3fdbeE.exit.i: ; preds = %65
   br label %663
 
 .loopexit.split-lp215:                            ; preds = %699, %701, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h5d24ac007a1b265bE.exit", %717, %719, %729, %731, %734, %736, %706, %710, %712, %715
-  %.sroa.017.2.ph = phi i8 [ 0, %706 ], [ 1, %699 ], [ 1, %701 ], [ 0, %715 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h5d24ac007a1b265bE.exit" ], [ 0, %717 ], [ 0, %719 ], [ 0, %710 ], [ 1, %729 ], [ 1, %731 ], [ 0, %712 ], [ 1, %734 ], [ 1, %736 ]
+  %.sroa.017.2.ph = phi i8 [ 0, %706 ], [ 1, %699 ], [ 1, %701 ], [ 0, %715 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h5d24ac007a1b265bE.exit" ], [ 0, %717 ], [ 0, %719 ], [ 0, %712 ], [ 1, %729 ], [ 1, %731 ], [ 0, %710 ], [ 1, %734 ], [ 1, %736 ]
   %lpad.loopexit.split-lp217 = landingpad { ptr, i32 }
           cleanup
   br label %663

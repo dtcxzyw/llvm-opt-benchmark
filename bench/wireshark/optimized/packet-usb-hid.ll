@@ -7058,7 +7058,7 @@ define internal fastcc noalias ptr @get_usage_page_item_string(ptr noundef %0, i
   br label %77
 
 75:                                               ; preds = %26, %20, %53, %3
-  %.0 = phi ptr [ @.str.307, %3 ], [ @.str.308, %53 ], [ @.str.304, %20 ], [ @.str.305, %26 ]
+  %.0 = phi ptr [ @.str.307, %3 ], [ @.str.304, %20 ], [ @.str.308, %53 ], [ @.str.305, %26 ]
   %76 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %2)
   br label %79
 

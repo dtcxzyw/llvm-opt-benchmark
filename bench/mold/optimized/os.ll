@@ -696,8 +696,8 @@ _mi_align_up.exit91.i:                            ; preds = %109, %106
   br label %mi_os_prim_alloc_aligned.exit
 
 mi_os_prim_alloc_aligned.exit:                    ; preds = %116, %117, %mi_align_up_ptr.exit.i, %90
-  %.021 = phi ptr [ %99, %116 ], [ %99, %117 ], [ %.pr.i, %mi_align_up_ptr.exit.i ], [ %.pr.i, %90 ]
-  %.0.i19 = phi ptr [ %99, %116 ], [ %99, %117 ], [ %89, %mi_align_up_ptr.exit.i ], [ %89, %90 ]
+  %.021 = phi ptr [ %99, %116 ], [ %99, %117 ], [ %.pr.i, %90 ], [ %.pr.i, %mi_align_up_ptr.exit.i ]
+  %.0.i19 = phi ptr [ %99, %116 ], [ %99, %117 ], [ %89, %90 ], [ %89, %mi_align_up_ptr.exit.i ]
   %.not = icmp eq ptr %.0.i19, null
   br i1 %.not, label %mi_os_prim_alloc_aligned.exit.thread, label %mi_os_prim_alloc_aligned.exit.mi_os_prim_alloc_aligned.exit.thread26_crit_edge
 

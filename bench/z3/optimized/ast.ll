@@ -22888,7 +22888,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %_ZN11ast_manager6mk
   br label %209
 
 .loopexit:                                        ; preds = %134, %146, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit, %111
-  %.069 = phi ptr [ %113, %111 ], [ %149, %146 ], [ %.0.i.i, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit ], [ %138, %134 ]
+  %.069 = phi ptr [ %113, %111 ], [ %.0.i.i, %_ZN6bufferIP4exprLb0ELj16EED2Ev.exit ], [ %149, %146 ], [ %138, %134 ]
   %206 = icmp eq ptr %.069, null
   br i1 %206, label %.thread131, label %208
 
@@ -34801,7 +34801,7 @@ _ZNK11ast_manager13is_complementEPK4exprS2_.exit: ; preds = %_ZNK11ast_manager6i
   %75 = icmp eq ptr %74, %17
   br i1 %75, label %._crit_edge.thread, label %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread241
 
-_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread241: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i7.i, %62, %57, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit
+_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread241: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i7.i, %57, %62, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not408 = icmp samesign ult i64 %indvars.iv.next, %24
   br i1 %.not408, label %29, label %.critedge, !llvm.loop !518
@@ -35314,7 +35314,7 @@ _ZNK11ast_manager13is_complementEPK4exprS2_.exit177: ; preds = %_ZNK11ast_manage
   %323 = icmp eq ptr %322, %.fr277
   br i1 %323, label %.thread247, label %_ZNK11ast_manager13is_complementEPK4exprS2_.exit177.thread244
 
-_ZNK11ast_manager13is_complementEPK4exprS2_.exit177.thread244: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i7.i173, %310, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.thread.i170, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit177
+_ZNK11ast_manager13is_complementEPK4exprS2_.exit177.thread244: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i7.i173, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.thread.i170, %310, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit177
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
   %exitcond303.not = icmp eq i64 %indvars.iv.next300, %wide.trip.count302
   br i1 %exitcond303.not, label %._crit_edge258, label %.lr.ph257.split.split, !llvm.loop !519

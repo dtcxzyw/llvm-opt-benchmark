@@ -501,8 +501,8 @@ get_ftp_result.exit185:                           ; preds = %85, %.backedge.i183
   br label %zend_string_release.exit
 
 195:                                              ; preds = %.thread192.thread, %._crit_edge, %.thread192, %106, %124, %get_ftp_result.exit, %141, %122
-  %196 = phi ptr [ %.pre207, %get_ftp_result.exit ], [ %.pre207, %141 ], [ %.pre207, %.thread192.thread ], [ %.pre207, %.thread192 ], [ %.pre, %._crit_edge ], [ %.pre207, %124 ], [ %.pre207, %106 ], [ %.pre207, %122 ]
-  %.0129 = phi i32 [ %61, %get_ftp_result.exit ], [ %139, %141 ], [ %94, %.thread192.thread ], [ %94, %.thread192 ], [ 0, %._crit_edge ], [ %.1130, %124 ], [ %94, %106 ], [ %94, %122 ]
+  %196 = phi ptr [ %.pre207, %get_ftp_result.exit ], [ %.pre207, %141 ], [ %.pre207, %122 ], [ %.pre, %._crit_edge ], [ %.pre207, %.thread192 ], [ %.pre207, %124 ], [ %.pre207, %106 ], [ %.pre207, %.thread192.thread ]
+  %.0129 = phi i32 [ %61, %get_ftp_result.exit ], [ %139, %141 ], [ %94, %122 ], [ 0, %._crit_edge ], [ %94, %.thread192 ], [ %.1130, %124 ], [ %94, %106 ], [ %94, %.thread192.thread ]
   %.not170 = icmp eq ptr %196, null
   br i1 %.not170, label %198, label %.thread225
 
@@ -1211,7 +1211,7 @@ get_ftp_result.exit223:                           ; preds = %258, %.backedge.i22
   %or.cond11 = icmp ult i32 %268, -100
   br i1 %or.cond11, label %.thread9, label %.thread53
 
-.thread53:                                        ; preds = %314, %312, %311, %315
+.thread53:                                        ; preds = %314, %311, %312, %315
   %.not170 = icmp eq ptr %6, null
   br i1 %.not170, label %317, label %316
 
@@ -1243,7 +1243,7 @@ get_ftp_result.exit223:                           ; preds = %258, %.backedge.i22
   store ptr %11, ptr %5, align 8, !tbaa !4
   br label %.thread
 
-.thread14:                                        ; preds = %36, %153
+.thread14:                                        ; preds = %153, %36
   call void @php_url_free(ptr noundef nonnull %11) #17
   br label %.thread
 
@@ -2322,7 +2322,7 @@ get_ftp_result.exit70:                            ; preds = %83, %.backedge.i68,
   br label %109
 
 109:                                              ; preds = %.sink.split, %56, %46, %get_ftp_result.exit, %6
-  %.046 = phi i32 [ %44, %get_ftp_result.exit ], [ %44, %56 ], [ 0, %6 ], [ %44, %46 ], [ %92, %.sink.split ]
+  %.046 = phi i32 [ %44, %get_ftp_result.exit ], [ %44, %56 ], [ %44, %46 ], [ 0, %6 ], [ %92, %.sink.split ]
   %110 = load ptr, ptr %8, align 8, !tbaa !4
   %.not58 = icmp eq ptr %110, null
   br i1 %.not58, label %112, label %111

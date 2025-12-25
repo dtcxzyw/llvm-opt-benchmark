@@ -3000,7 +3000,7 @@ type_flatten.exit196:                             ; preds = %1357
   br label %.backedge
 
 .backedge:                                        ; preds = %1394, %1388
-  %.0.i189.in.be = phi ptr [ %1395, %1394 ], [ %1393, %1388 ]
+  %.0.i189.in.be = phi ptr [ %1393, %1388 ], [ %1395, %1394 ]
   br label %1384
 
 1396:                                             ; preds = %1384

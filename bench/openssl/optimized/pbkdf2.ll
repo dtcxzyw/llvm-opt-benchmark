@@ -476,8 +476,8 @@ define internal range(i32 0, 2) i32 @kdf_pbkdf2_derive(ptr noundef %0, ptr nound
   br i1 %.not72.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %113, %111, %109, %107, %.lr.ph.split.i, %._crit_edge12.us.i, %75, %73, %71, %.lr.ph.split.us.i, %82, %80, %.lr.ph11.split.us32.i, %91, %89, %.lr.ph11.split.us.us.i, %.preheader6.i, %54, %51
-  %.062.i = phi i32 [ 0, %54 ], [ 0, %82 ], [ 0, %51 ], [ 0, %73 ], [ 0, %91 ], [ 1, %.preheader6.i ], [ 0, %.lr.ph11.split.us.us.i ], [ 0, %89 ], [ 0, %.lr.ph11.split.us32.i ], [ 0, %80 ], [ 0, %.lr.ph.split.us.i ], [ 0, %71 ], [ 1, %._crit_edge12.us.i ], [ 0, %75 ], [ 0, %111 ], [ 0, %109 ], [ 0, %107 ], [ 0, %.lr.ph.split.i ], [ 1, %113 ]
-  %.059.i = phi ptr [ null, %54 ], [ %56, %82 ], [ null, %51 ], [ %56, %._crit_edge12.us.i ], [ %56, %91 ], [ %56, %.preheader6.i ], [ %56, %.lr.ph11.split.us.us.i ], [ %56, %89 ], [ %56, %.lr.ph11.split.us32.i ], [ %56, %80 ], [ %56, %.lr.ph.split.us.i ], [ %56, %71 ], [ %56, %73 ], [ %56, %75 ], [ %56, %.lr.ph.split.i ], [ %56, %107 ], [ %56, %109 ], [ %56, %111 ], [ %56, %113 ]
+  %.062.i = phi i32 [ 0, %54 ], [ 0, %82 ], [ 0, %51 ], [ 0, %91 ], [ 1, %.preheader6.i ], [ 0, %71 ], [ 0, %.lr.ph11.split.us.us.i ], [ 0, %89 ], [ 0, %.lr.ph11.split.us32.i ], [ 0, %80 ], [ 0, %.lr.ph.split.us.i ], [ 1, %._crit_edge12.us.i ], [ 0, %73 ], [ 0, %75 ], [ 1, %113 ], [ 0, %109 ], [ 0, %111 ], [ 0, %107 ], [ 0, %.lr.ph.split.i ]
+  %.059.i = phi ptr [ null, %54 ], [ %56, %82 ], [ null, %51 ], [ %56, %91 ], [ %56, %.preheader6.i ], [ %56, %._crit_edge12.us.i ], [ %56, %.lr.ph11.split.us.us.i ], [ %56, %89 ], [ %56, %.lr.ph11.split.us32.i ], [ %56, %80 ], [ %56, %.lr.ph.split.us.i ], [ %56, %71 ], [ %56, %73 ], [ %56, %75 ], [ %56, %.lr.ph.split.i ], [ %56, %107 ], [ %56, %109 ], [ %56, %111 ], [ %56, %113 ]
   call void @HMAC_CTX_free(ptr noundef %.059.i) #7
   call void @HMAC_CTX_free(ptr noundef nonnull %49) #7
   br label %pbkdf2_derive.exit

@@ -2597,7 +2597,7 @@ fastgetattr.exit92:                               ; preds = %362
   br label %387
 
 387:                                              ; preds = %376, %369, %fastgetattr.exit92
-  %.2.i.i = phi i32 [ %386, %376 ], [ %.046.i.i, %fastgetattr.exit92 ], [ %.046.i.i, %369 ]
+  %.2.i.i = phi i32 [ %.046.i.i, %fastgetattr.exit92 ], [ %386, %376 ], [ %.046.i.i, %369 ]
   %388 = call ptr @systable_getnext(ptr noundef %304) #14
   %.not.i.i = icmp eq ptr %388, null
   br i1 %.not.i.i, label %.loopexit.i.i, label %307
@@ -2837,7 +2837,7 @@ fastgetattr.exit:                                 ; preds = %501
   br label %519
 
 519:                                              ; preds = %512, %508, %fastgetattr.exit, %428
-  %.2.i94.i = phi i32 [ %518, %512 ], [ %.056.i.i, %428 ], [ %.056.i.i, %fastgetattr.exit ], [ %.056.i.i, %508 ]
+  %.2.i94.i = phi i32 [ %.056.i.i, %fastgetattr.exit ], [ %.056.i.i, %428 ], [ %518, %512 ], [ %.056.i.i, %508 ]
   %520 = call ptr @systable_getnext(ptr noundef %425) #14
   %.not.i95.i = icmp eq ptr %520, null
   br i1 %.not.i95.i, label %.loopexit.i96.i, label %428
@@ -5776,7 +5776,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   br label %.preheader
 
 .thread277:                                       ; preds = %21, %29, %37, %39, %._crit_edge, %83, %87, %.preheader, %108, %110, %115, %133, %137, %140, %144, %147, %151, %154, %158, %161, %.lr.ph, %68, %.lr.ph316, %177
-  %.2.ph = phi ptr [ %.3, %.lr.ph ], [ %.3, %.lr.ph316 ], [ %.3, %177 ], [ %.3, %68 ], [ %.3, %158 ], [ %.3, %154 ], [ %.3, %151 ], [ %.3, %147 ], [ %.3, %144 ], [ %.3, %140 ], [ %.3, %137 ], [ %.3, %133 ], [ %.3, %115 ], [ %.3, %110 ], [ %.3, %108 ], [ %.3, %161 ], [ %.1, %21 ], [ %.3, %29 ], [ %.3, %37 ], [ %.1, %.preheader ], [ %.3, %39 ], [ %.3, %._crit_edge ], [ %.3, %83 ], [ %.3, %87 ]
+  %.2.ph = phi ptr [ %.3, %.lr.ph316 ], [ %.3, %.lr.ph ], [ %.3, %177 ], [ %.3, %68 ], [ %.3, %158 ], [ %.3, %154 ], [ %.3, %151 ], [ %.3, %147 ], [ %.3, %144 ], [ %.3, %140 ], [ %.3, %137 ], [ %.3, %133 ], [ %.3, %115 ], [ %.3, %110 ], [ %.3, %108 ], [ %.3, %161 ], [ %.1, %21 ], [ %.3, %29 ], [ %.3, %37 ], [ %.1, %.preheader ], [ %.3, %39 ], [ %.3, %87 ], [ %.3, %._crit_edge ], [ %.3, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %275
 

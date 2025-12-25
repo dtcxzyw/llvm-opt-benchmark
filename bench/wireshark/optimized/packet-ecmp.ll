@@ -3643,8 +3643,8 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %45, %31, %58
-  %.058.lcssa = phi i16 [ %.159.us, %31 ], [ %.159, %58 ], [ %.159.us79, %45 ]
-  %.1.lcssa = phi i32 [ %24, %31 ], [ %51, %58 ], [ %38, %45 ]
+  %.058.lcssa = phi i16 [ %.159, %58 ], [ %.159.us, %31 ], [ %.159.us79, %45 ]
+  %.1.lcssa = phi i32 [ %51, %58 ], [ %24, %31 ], [ %38, %45 ]
   %.not = icmp eq i16 %.058.lcssa, 0
   br i1 %.not, label %._crit_edge.thread, label %60
 

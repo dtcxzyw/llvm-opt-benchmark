@@ -336,7 +336,7 @@ getivgen.exit.thread.sink.split:                  ; preds = %64, %54, %58, %61, 
   br label %getivgen.exit.thread
 
 getivgen.exit.thread:                             ; preds = %25, %38, %70, %66, %98, %.critedge, %78, %73, %getivgen.exit.thread.sink.split, %2
-  %.1 = phi i32 [ 1, %2 ], [ 0, %getivgen.exit.thread.sink.split ], [ 0, %73 ], [ 0, %66 ], [ 0, %25 ], [ 0, %70 ], [ 0, %98 ], [ 0, %38 ], [ 1, %.critedge ], [ 0, %78 ]
+  %.1 = phi i32 [ 0, %getivgen.exit.thread.sink.split ], [ 1, %2 ], [ 0, %73 ], [ 0, %78 ], [ 1, %.critedge ], [ 0, %38 ], [ 0, %98 ], [ 0, %70 ], [ 0, %25 ], [ 0, %66 ]
   ret i32 %.1
 }
 
@@ -609,16 +609,16 @@ setivinv.exit:                                    ; preds = %115
   %.not37 = icmp eq ptr %.pr, null
   br i1 %.not37, label %ossl_param_is_empty.exit.thread, label %19, !llvm.loop !38
 
-ossl_param_is_empty.exit.thread.sink.split:       ; preds = %86, %88, %96, %74, %42, %33, %31, %24, %27, %22, %69
-  %.sink63 = phi i32 [ 301, %69 ], [ 309, %74 ], [ 296, %42 ], [ 283, %33 ], [ 279, %31 ], [ 271, %24 ], [ 267, %22 ], [ 271, %27 ], [ 313, %96 ], [ 313, %88 ], [ 313, %86 ]
-  %.sink = phi i32 [ 108, %69 ], [ 103, %74 ], [ 103, %42 ], [ 109, %33 ], [ 103, %31 ], [ 110, %24 ], [ 103, %22 ], [ 110, %27 ], [ 103, %96 ], [ 103, %88 ], [ 103, %86 ]
+ossl_param_is_empty.exit.thread.sink.split:       ; preds = %86, %96, %88, %74, %42, %33, %31, %24, %27, %22, %69
+  %.sink63 = phi i32 [ 301, %69 ], [ 309, %74 ], [ 296, %42 ], [ 283, %33 ], [ 279, %31 ], [ 271, %24 ], [ 267, %22 ], [ 271, %27 ], [ 313, %88 ], [ 313, %96 ], [ 313, %86 ]
+  %.sink = phi i32 [ 108, %69 ], [ 103, %74 ], [ 103, %42 ], [ 109, %33 ], [ 103, %31 ], [ 110, %24 ], [ 103, %22 ], [ 110, %27 ], [ 103, %88 ], [ 103, %96 ], [ 103, %86 ]
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink63, ptr noundef nonnull @__func__.ossl_gcm_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #5
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %115, %112, %127, %105, %109, %ossl_param_is_empty.exit.thread.sink.split, %2, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %2 ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ], [ 1, %ossl_param_is_empty.exit ], [ 0, %105 ], [ 0, %109 ], [ 1, %127 ], [ 0, %112 ], [ 0, %115 ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ], [ 0, %109 ], [ 0, %105 ], [ 0, %115 ], [ 0, %112 ], [ 1, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

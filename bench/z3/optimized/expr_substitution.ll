@@ -1562,7 +1562,7 @@ _ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i:   ; preds = %58, %69
   br label %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit
 
 _ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit:      ; preds = %24, %38, %35, %63, %77, %74, %.preheader.i.i.i, %_ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i, %.preheader.i.i.i12, %.loopexit
-  %80 = phi i1 [ true, %_ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i ], [ true, %.loopexit ], [ true, %.preheader.i.i.i12 ], [ true, %77 ], [ false, %38 ], [ true, %63 ], [ false, %.preheader.i.i.i ], [ true, %74 ], [ false, %35 ], [ false, %24 ]
+  %80 = phi i1 [ true, %_ZNK7obj_mapI4exprP3appE9find_coreEPS0_.exit.i ], [ true, %.loopexit ], [ true, %.preheader.i.i.i12 ], [ false, %38 ], [ true, %63 ], [ true, %77 ], [ false, %.preheader.i.i.i ], [ true, %74 ], [ false, %35 ], [ false, %24 ]
   ret i1 %80
 }
 
@@ -1820,7 +1820,7 @@ _ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configE
   br label %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit
 
 _ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit: ; preds = %25, %39, %36, %102, %116, %113, %.preheader.i.i.i, %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE9find_coreEPS0_.exit.i, %.preheader.i.i.i32, %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit
-  %119 = phi i1 [ true, %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE9find_coreEPS0_.exit.i ], [ true, %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit ], [ true, %.preheader.i.i.i32 ], [ true, %116 ], [ false, %39 ], [ true, %102 ], [ false, %.preheader.i.i.i ], [ true, %113 ], [ false, %36 ], [ false, %25 ]
+  %119 = phi i1 [ true, %_ZNK7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE9find_coreEPS0_.exit.i ], [ true, %_ZNK7obj_mapI4exprP3appE4findEPS0_RS2_.exit ], [ true, %.preheader.i.i.i32 ], [ false, %39 ], [ true, %102 ], [ true, %116 ], [ false, %.preheader.i.i.i ], [ true, %113 ], [ false, %36 ], [ false, %25 ]
   ret i1 %119
 }
 

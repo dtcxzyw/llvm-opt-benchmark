@@ -2920,7 +2920,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN10polars_row8variable6binary10enco
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %57
-  %.sroa.02.0 = phi i64 [ 1, %.loopexit.sink.split ], [ %22, %57 ], [ %22, %.lr.ph ]
+  %.sroa.02.0 = phi i64 [ %22, %57 ], [ 1, %.loopexit.sink.split ], [ %22, %.lr.ph ]
   ret i64 %.sroa.02.0
 
 14:                                               ; preds = %10

@@ -1823,7 +1823,7 @@ parse_queue.exit.thread.i:                        ; preds = %756
   br label %parse_queue.exit.i
 
 parse_queue.exit.i:                               ; preds = %739, %735, %797, %.thread180.i, %791, %790, %.thread.i61, %750, %749, %748
-  %.1.i60 = phi i32 [ %.2.i59, %.thread180.i ], [ %.0116203.i, %750 ], [ %.2.i59, %797 ], [ %.2.i59, %790 ], [ %.2.i59, %791 ], [ %.0116203.i, %749 ], [ %.2.i59, %.thread.i61 ], [ %.0116203.i, %748 ], [ %.0116203.i, %735 ], [ %.0116203.i, %739 ]
+  %.1.i60 = phi i32 [ %.0116203.i, %749 ], [ %.0116203.i, %750 ], [ %.2.i59, %797 ], [ %.2.i59, %790 ], [ %.2.i59, %791 ], [ %.2.i59, %.thread180.i ], [ %.2.i59, %.thread.i61 ], [ %.0116203.i, %748 ], [ %.0116203.i, %735 ], [ %.0116203.i, %739 ]
   %798 = call fastcc i32 @recv_line(ptr noundef %574, ptr noundef %9)
   %.not159.i = icmp eq i32 %798, 0
   br i1 %.not159.i, label %parse_stats.exit, label %711

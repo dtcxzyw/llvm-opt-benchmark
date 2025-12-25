@@ -5383,8 +5383,8 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br label %.thread48
 
 .thread48:                                        ; preds = %786, %.critedge33.us, %416, %.critedge33.us.us, %785, %782, %.thread45, %.split95.us, %668, %593, %577
-  %803 = phi i32 [ %487, %668 ], [ %487, %593 ], [ %487, %577 ], [ %339, %.split95.us ], [ %487, %.thread45 ], [ %473, %785 ], [ %.us-phi90, %782 ], [ %339, %.critedge33.us ], [ %272, %.critedge33.us.us ], [ %339, %416 ], [ %473, %786 ]
-  %804 = phi i64 [ %495, %668 ], [ %495, %593 ], [ %495, %577 ], [ %337, %.split95.us ], [ %495, %.thread45 ], [ %471, %785 ], [ %.us-phi89, %782 ], [ %337, %.critedge33.us ], [ %298, %.critedge33.us.us ], [ %337, %416 ], [ %471, %786 ]
+  %803 = phi i32 [ %487, %668 ], [ %487, %593 ], [ %487, %577 ], [ %339, %.split95.us ], [ %487, %.thread45 ], [ %.us-phi90, %782 ], [ %473, %785 ], [ %339, %.critedge33.us ], [ %272, %.critedge33.us.us ], [ %339, %416 ], [ %473, %786 ]
+  %804 = phi i64 [ %495, %668 ], [ %495, %593 ], [ %495, %577 ], [ %337, %.split95.us ], [ %495, %.thread45 ], [ %.us-phi89, %782 ], [ %471, %785 ], [ %337, %.critedge33.us ], [ %298, %.critedge33.us.us ], [ %337, %416 ], [ %471, %786 ]
   %805 = load i8, ptr %13, align 1, !range !73, !noundef !74
   %806 = icmp ne i8 %805, 0
   call fastcc void @net_zcopy_put_abort(ptr noundef %252, i1 noundef zeroext %806)

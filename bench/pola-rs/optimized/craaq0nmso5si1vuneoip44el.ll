@@ -30747,7 +30747,7 @@ _ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.thread16.i.i.i.i: ; preds 
   br i1 %or.cond36.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h4475b76ba6a86d96E.exit, label %.lr.ph.i.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h4475b76ba6a86d96E.exit: ; preds = %87, %77, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.i.i.i.i, %.preheader.i.i.i.i.i, %65
-  %.sroa.0.039.i = phi i64 [ %.sroa.0.043.i, %77 ], [ %.sroa.0.043.i, %65 ], [ %.sroa.0.043.i, %.preheader.i.i.i.i.i ], [ %.sroa.0.043.i, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.i.i.i.i ], [ %88, %87 ]
+  %.sroa.0.039.i = phi i64 [ %.sroa.0.043.i, %65 ], [ %.sroa.0.043.i, %77 ], [ %.sroa.0.043.i, %.preheader.i.i.i.i.i ], [ %.sroa.0.043.i, %_ZN4core5slice6memchr6memchr17hf042c2b2d8451469E.exit.i.i.i.i ], [ %88, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %93 = icmp ugt i64 %.sroa.0.039.i, 1
   br i1 %93, label %96, label %94, !prof !404
@@ -31352,7 +31352,7 @@ thread-pre-split.i:                               ; preds = %268
           to label %605 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 "_ZN4core3num21_$LT$impl$u20$i64$GT$16from_ascii_radix17h7378919d283c9302E.exit": ; preds = %.preheader83.i, %303, %.preheader79.i, %331, %.preheader81.i, %.preheader.i
-  %.sroa.15212.2 = phi i64 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %336, %331 ], [ %308, %303 ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.15212.2 = phi i64 [ %336, %331 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %308, %303 ], [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %.sroa.023.3.i, %.preheader83.i ]
   br label %340
 
 340:                                              ; preds = %401, %"_ZN4core3num21_$LT$impl$u20$i64$GT$16from_ascii_radix17h7378919d283c9302E.exit"
@@ -34844,7 +34844,7 @@ _ZN11polars_time7windows8duration8Duration7is_zero17hcc201fad1599ea27E.exit.thre
   br label %40
 
 40:                                               ; preds = %.sink.split, %20, %24, %28
-  %.sink = phi i64 [ 17, %20 ], [ 17, %24 ], [ 17, %28 ], [ 4, %.sink.split ]
+  %.sink = phi i64 [ 17, %28 ], [ 17, %24 ], [ 17, %20 ], [ 4, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

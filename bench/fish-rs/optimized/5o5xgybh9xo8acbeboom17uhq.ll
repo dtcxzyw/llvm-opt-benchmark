@@ -11630,7 +11630,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   br label %204
 
 204:                                              ; preds = %.sink.split, %.critedge131, %.critedge129, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.thread", %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit142", %40, %43
-  %.sink = phi i64 [ 1, %.critedge131 ], [ 1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.thread" ], [ 1, %40 ], [ 1, %.critedge129 ], [ 1, %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit142" ], [ 1, %43 ], [ 0, %.sink.split ]
+  %.sink = phi i64 [ 1, %40 ], [ 1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit163.thread" ], [ 1, %.critedge131 ], [ 1, %.critedge129 ], [ 1, %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit142" ], [ 1, %43 ], [ 0, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -12274,7 +12274,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hecc78b506b4094a5
   br label %192
 
 192:                                              ; preds = %.sink.split335, %49, %46, %45, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h9c3bb14af98a86cdE.exit162.thread", %.critedge129, %.critedge131
-  %.sink.sink = phi i64 [ 1, %46 ], [ 1, %45 ], [ 1, %.critedge129 ], [ 1, %.critedge131 ], [ 1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h9c3bb14af98a86cdE.exit162.thread" ], [ 1, %49 ], [ 0, %.sink.split335 ]
+  %.sink.sink = phi i64 [ 1, %46 ], [ 1, %45 ], [ 1, %.critedge129 ], [ 1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h9c3bb14af98a86cdE.exit162.thread" ], [ 1, %.critedge131 ], [ 1, %49 ], [ 0, %.sink.split335 ]
   store i64 %.sink.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret void
@@ -12695,7 +12695,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hfba05d7a798fc08e
   br label %149
 
 149:                                              ; preds = %.sink.split283, %20, %17, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5307ff8b65e70daE.exit142", %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h6691b8ff23af4bc9E.exit162.thread", %.critedge129, %.critedge131
-  %.sink.sink = phi i64 [ 1, %17 ], [ 1, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5307ff8b65e70daE.exit142" ], [ 1, %.critedge129 ], [ 1, %.critedge131 ], [ 1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h6691b8ff23af4bc9E.exit162.thread" ], [ 1, %20 ], [ 0, %.sink.split283 ]
+  %.sink.sink = phi i64 [ 1, %17 ], [ 1, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5307ff8b65e70daE.exit142" ], [ 1, %.critedge129 ], [ 1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h6691b8ff23af4bc9E.exit162.thread" ], [ 1, %.critedge131 ], [ 1, %20 ], [ 0, %.sink.split283 ]
   store i64 %.sink.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

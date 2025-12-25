@@ -19816,7 +19816,7 @@ _ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit: ; preds = %_ZN9a
   store i32 0, ptr %0, align 4
   br label %_ZN6chrono5naive4date9NaiveDate16and_hms_nano_opt17h94b88aab9e14be15E.exit
 
-340:                                              ; preds = %112, %114, %117, %121, %125, %128, %132, %136, %140, %144, %148, %152, %180, %176, %172, %168, %164, %160, %156
+340:                                              ; preds = %152, %148, %144, %140, %136, %132, %128, %125, %121, %117, %114, %112, %180, %176, %172, %168, %164, %160, %156
   store i32 0, ptr %0, align 4
   br label %_ZN6chrono5naive4date9NaiveDate16and_hms_nano_opt17h94b88aab9e14be15E.exit
 

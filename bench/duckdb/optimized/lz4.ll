@@ -3751,7 +3751,7 @@ _ZN10duckdb_lz4L27LZ4_decompress_fast_extDictEPKcPciPKvm.exit: ; preds = %193
   br label %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread
 
 _ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit.thread: ; preds = %183, %208, %211, %._crit_edge.i.i66, %101, %129, %126, %._crit_edge.i, %26, %51, %._crit_edge.i.i, %193, %111, %36, %71, %239, %157, %_ZN10duckdb_lz4L27LZ4_decompress_fast_extDictEPKcPciPKvm.exit, %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit, %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit
-  %.044 = phi i32 [ %155, %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit ], [ %237, %_ZN10duckdb_lz4L27LZ4_decompress_fast_extDictEPKcPciPKvm.exit ], [ %69, %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit ], [ %69, %71 ], [ %155, %157 ], [ %237, %239 ], [ -1, %101 ], [ -1, %26 ], [ -1, %36 ], [ -1, %193 ], [ -1, %111 ], [ -1, %._crit_edge.i.i ], [ -1, %51 ], [ -1, %._crit_edge.i ], [ -1, %126 ], [ -1, %129 ], [ -1, %._crit_edge.i.i66 ], [ -1, %211 ], [ -1, %208 ], [ -1, %183 ]
+  %.044 = phi i32 [ %155, %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit ], [ %237, %_ZN10duckdb_lz4L27LZ4_decompress_fast_extDictEPKcPciPKvm.exit ], [ %69, %_ZN10duckdb_lz419LZ4_decompress_fastEPKcPci.exit ], [ %69, %71 ], [ %155, %157 ], [ %237, %239 ], [ -1, %101 ], [ -1, %111 ], [ -1, %36 ], [ -1, %193 ], [ -1, %26 ], [ -1, %._crit_edge.i.i ], [ -1, %51 ], [ -1, %._crit_edge.i ], [ -1, %126 ], [ -1, %129 ], [ -1, %._crit_edge.i.i66 ], [ -1, %211 ], [ -1, %208 ], [ -1, %183 ]
   ret i32 %.044
 }
 
@@ -4115,7 +4115,7 @@ _ZN10duckdb_lz425read_long_length_no_checkEPPKh.exit109.i.i: ; preds = %.prehead
   br label %_ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit
 
 _ZN10duckdb_lz4L29LZ4_decompress_unsafe_genericEPKhPhimS1_m.exit: ; preds = %._crit_edge.i.i, %121, %118, %93, %._crit_edge.i, %55, %30, %144, %103, %70, %40
-  %.0 = phi i32 [ -1, %._crit_edge.i ], [ -1, %40 ], [ %74, %70 ], [ %148, %144 ], [ -1, %103 ], [ -1, %30 ], [ -1, %55 ], [ -1, %93 ], [ -1, %118 ], [ -1, %121 ], [ -1, %._crit_edge.i.i ]
+  %.0 = phi i32 [ -1, %._crit_edge.i ], [ -1, %40 ], [ %74, %70 ], [ -1, %103 ], [ %148, %144 ], [ -1, %30 ], [ -1, %55 ], [ -1, %93 ], [ -1, %118 ], [ -1, %121 ], [ -1, %._crit_edge.i.i ]
   ret i32 %.0
 }
 

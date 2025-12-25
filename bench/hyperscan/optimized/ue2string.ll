@@ -195,7 +195,7 @@ _ZN3ue23cmpEPKcS1_mb.exit37.thread45:             ; preds = %_ZN3ue23cmpEPKcS1_m
   br i1 %.not, label %.critedge, label %_ZN3ue23cmpEPKcS1_mb.exit37, !llvm.loop !8
 
 .critedge:                                        ; preds = %_ZN3ue23cmpEPKcS1_mb.exit, %21, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45, %_ZN3ue23cmpEPKcS1_mb.exit37, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us, %37, %.lr.ph.split.us, %.preheader
-  %.025 = phi i64 [ 0, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us ], [ %.161.us, %37 ], [ %.055.us, %21 ], [ %.161, %_ZN3ue23cmpEPKcS1_mb.exit37 ], [ 0, %.preheader ], [ %7, %.lr.ph.split.us ], [ 0, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45 ], [ %.055, %_ZN3ue23cmpEPKcS1_mb.exit ]
+  %.025 = phi i64 [ %.161.us, %37 ], [ 0, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45.loopexit.us ], [ %.055.us, %21 ], [ %.161, %_ZN3ue23cmpEPKcS1_mb.exit37 ], [ 0, %.preheader ], [ %7, %.lr.ph.split.us ], [ 0, %_ZN3ue23cmpEPKcS1_mb.exit37.thread45 ], [ %.055, %_ZN3ue23cmpEPKcS1_mb.exit ]
   ret i64 %.025
 }
 

@@ -12766,8 +12766,8 @@ _ZN7rocksdb22ReadRangeDelAggregatorD2Ev.exit:     ; preds = %241
   br label %_ZN7rocksdb6StatusD2Ev.exit82
 
 .body:                                            ; preds = %219, %89, %136, %124, %122
-  %247 = phi ptr [ %234, %219 ], [ %62, %89 ], [ %62, %124 ], [ %62, %122 ], [ %62, %136 ]
-  %.pn60 = phi { ptr, i32 } [ %220, %219 ], [ %90, %89 ], [ %125, %124 ], [ %123, %122 ], [ %125, %136 ]
+  %247 = phi ptr [ %234, %219 ], [ %62, %89 ], [ %62, %122 ], [ %62, %124 ], [ %62, %136 ]
+  %.pn60 = phi { ptr, i32 } [ %220, %219 ], [ %90, %89 ], [ %123, %122 ], [ %125, %124 ], [ %125, %136 ]
   call void @_ZN7rocksdb22ReadRangeDelAggregatorD2Ev(ptr noundef nonnull align 8 dereferenceable(720) %13) #44
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not.i.i80 = icmp eq ptr %247, null
@@ -29970,7 +29970,7 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i.i.i.i.i.i: ; 
   br i1 %.not.i.i.i, label %"_ZNSt3mapIPN7rocksdb11InternalKeyEPNS0_12FileMetaDataEZNKS0_18VersionStorageInfo20EstimateLiveDataSizeEvE3$_0SaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit", label %_ZTWN7rocksdb10perf_levelE.exit.i.i.i.i.i.i.i, !llvm.loop !1488
 
 "_ZNSt3mapIPN7rocksdb11InternalKeyEPNS0_12FileMetaDataEZNKS0_18VersionStorageInfo20EstimateLiveDataSizeEvE3$_0SaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit": ; preds = %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.i.i.i", %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.us35.i.i.i", %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.us.i.i.i", %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.us.us.i.i.i"
-  %storemerge = phi ptr [ %.19.us37.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.us35.i.i.i" ], [ %.19.us.us.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.us.us.i.i.i" ], [ %.19.us.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.us.i.i.i" ], [ %.19.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.i.i.i" ]
+  %storemerge = phi ptr [ %.19.us.us.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.us.us.i.i.i" ], [ %.19.us37.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.us35.i.i.i" ], [ %.19.us.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.us.i.i.i" ], [ %.19.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit.thread16.i.i.i" ]
   %165 = icmp eq ptr %storemerge, %20
   br i1 %165, label %"_ZNSt3mapIPN7rocksdb11InternalKeyEPNS0_12FileMetaDataEZNKS0_18VersionStorageInfo20EstimateLiveDataSizeEvE3$_0SaISt4pairIKS2_S4_EEE11lower_boundERS8_.exit.thread", label %166
 
@@ -30501,8 +30501,8 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i.i.i69.i.i.i: 
   br i1 %.not.i.i, label %.thread.i.i, label %.thread11.i.i
 
 .thread11.i.i:                                    ; preds = %375, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit76.thread.i.i.i", %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit56.thread.i.i.i"
-  %.sroa.12.0.i18.i.i = phi ptr [ %.sroa.12.0.i.i.i, %375 ], [ %spec.select115.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit76.thread.i.i.i" ], [ %spec.select113.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit56.thread.i.i.i" ]
-  %.sroa.097.0.i17.i.i = phi ptr [ %.sroa.097.0.i.i.i, %375 ], [ %spec.select114.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit76.thread.i.i.i" ], [ %spec.select.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit56.thread.i.i.i" ]
+  %.sroa.12.0.i18.i.i = phi ptr [ %.sroa.12.0.i.i.i, %375 ], [ %spec.select113.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit56.thread.i.i.i" ], [ %spec.select115.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit76.thread.i.i.i" ]
+  %.sroa.097.0.i17.i.i = phi ptr [ %.sroa.097.0.i.i.i, %375 ], [ %spec.select.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit56.thread.i.i.i" ], [ %spec.select114.i.i.i, %"_ZZNK7rocksdb18VersionStorageInfo20EstimateLiveDataSizeEvENK3$_0clEPNS_11InternalKeyES3_.exit76.thread.i.i.i" ]
   %.not.i.i.i.i50 = icmp ne ptr %.sroa.097.0.i17.i.i, null
   %376 = icmp eq ptr %.sroa.12.0.i18.i.i, %20
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i50, i1 true, i1 %376
@@ -41857,8 +41857,8 @@ _ZNSt13unordered_mapIjN7rocksdb10VersionSet14MutableCFStateESt4hashIjESt8equal_t
   br label %.critedge431.thread
 
 .body:                                            ; preds = %2057, %2132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i829, %2020, %1881, %_ZN7rocksdb10autovectorIPKNS0_ImLm8EEELm8EE5clearEv.exit.i787, %1855, %1858, %1801, %1785, %914, %2374, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit889, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit820, %1732
-  %.sroa.221078.0 = phi ptr [ %.sroa.221078.1.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i829 ], [ %.sroa.221078.1.ph, %2374 ], [ %.sroa.221078.2, %1732 ], [ %.sroa.221078.1.ph, %1881 ], [ %.sroa.221078.1.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit889 ], [ %.sroa.221078.1.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit820 ], [ %.sroa.221078.1.ph, %1855 ], [ %.sroa.221078.1.ph, %914 ], [ %.sroa.221078.1.ph, %1801 ], [ %.sroa.221078.1.ph, %1858 ], [ %.sroa.221078.1.ph, %2020 ], [ %.sroa.221078.1.ph, %2132 ], [ %.sroa.221078.1.ph, %_ZN7rocksdb10autovectorIPKNS0_ImLm8EEELm8EE5clearEv.exit.i787 ], [ %.sroa.221078.1.ph, %1785 ], [ %.sroa.221078.1.ph, %2057 ]
-  %.pn417 = phi { ptr, i32 } [ %2058, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i829 ], [ %2375, %2374 ], [ %.pn376.pn.pn, %1732 ], [ %1875, %1881 ], [ %.pn399.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit889 ], [ %.pn387, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit820 ], [ %1856, %1855 ], [ %915, %914 ], [ %1802, %1801 ], [ %1856, %1858 ], [ %2021, %2020 ], [ %2133, %2132 ], [ %1875, %_ZN7rocksdb10autovectorIPKNS0_ImLm8EEELm8EE5clearEv.exit.i787 ], [ %1786, %1785 ], [ %2058, %2057 ]
+  %.sroa.221078.0 = phi ptr [ %.sroa.221078.1.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i829 ], [ %.sroa.221078.1.ph, %2374 ], [ %.sroa.221078.2, %1732 ], [ %.sroa.221078.1.ph, %1881 ], [ %.sroa.221078.1.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit889 ], [ %.sroa.221078.1.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit820 ], [ %.sroa.221078.1.ph, %1855 ], [ %.sroa.221078.1.ph, %914 ], [ %.sroa.221078.1.ph, %1801 ], [ %.sroa.221078.1.ph, %_ZN7rocksdb10autovectorIPKNS0_ImLm8EEELm8EE5clearEv.exit.i787 ], [ %.sroa.221078.1.ph, %2132 ], [ %.sroa.221078.1.ph, %2020 ], [ %.sroa.221078.1.ph, %1858 ], [ %.sroa.221078.1.ph, %1785 ], [ %.sroa.221078.1.ph, %2057 ]
+  %.pn417 = phi { ptr, i32 } [ %2058, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i829 ], [ %2375, %2374 ], [ %.pn376.pn.pn, %1732 ], [ %1875, %1881 ], [ %.pn399.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit889 ], [ %.pn387, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit820 ], [ %1856, %1855 ], [ %915, %914 ], [ %1802, %1801 ], [ %1875, %_ZN7rocksdb10autovectorIPKNS0_ImLm8EEELm8EE5clearEv.exit.i787 ], [ %2133, %2132 ], [ %2021, %2020 ], [ %1856, %1858 ], [ %1786, %1785 ], [ %2058, %2057 ]
   call void @_ZNSt10unique_ptrIN7rocksdb3log6WriterESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #44
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %.not.i.i919 = icmp eq ptr %.sroa.221078.0, null
@@ -55254,8 +55254,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %_Z
   ret void
 
 268:                                              ; preds = %.split.us, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118
-  %269 = phi ptr [ %177, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ], [ %.us-phi, %.split.us ]
-  %.pn87 = phi { ptr, i32 } [ %.pn80.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ], [ %.us-phi179, %.split.us ]
+  %269 = phi ptr [ %.us-phi, %.split.us ], [ %177, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ]
+  %.pn87 = phi { ptr, i32 } [ %.us-phi179, %.split.us ], [ %.pn80.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ]
   %.not.i.i122 = icmp eq ptr %269, null
   br i1 %.not.i.i122, label %_ZN7rocksdb6StatusD2Ev.exit124, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i123
 
@@ -72566,7 +72566,7 @@ _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82: ; preds = %230, %234
   br label %.critedge3
 
 .critedge3:                                       ; preds = %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82, %252, %247
-  %.2 = phi i64 [ %254, %252 ], [ %251, %247 ], [ %.041136173, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82 ]
+  %.2 = phi i64 [ %251, %247 ], [ %254, %252 ], [ %.041136173, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82 ]
   %.not113 = icmp eq i64 %244, %.pre
   br i1 %.not113, label %.loopexit170, label %74
 
@@ -88452,7 +88452,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   resume { ptr, i32 } %73
 
 _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN7rocksdb15TablePropertiesEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISE_Lb1EEE.exit.thread: ; preds = %.lr.ph.split.us, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN7rocksdb15TablePropertiesEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISE_Lb1EEE.exit.i.i, %48
-  %.sroa.036.0.ph = phi ptr [ %.0.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN7rocksdb15TablePropertiesEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISE_Lb1EEE.exit.i.i ], [ %.0.us.i.i, %48 ], [ %.sroa.032.054.us, %.lr.ph.split.us ]
+  %.sroa.036.0.ph = phi ptr [ %.0.us.i.i, %48 ], [ %.0.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN7rocksdb15TablePropertiesEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISE_Lb1EEE.exit.i.i ], [ %.sroa.032.054.us, %.lr.ph.split.us ]
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIKN7rocksdb15TablePropertiesEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10shared_ptrIKN7rocksdb15TablePropertiesEEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISE_Lb1EEE.exit.thread.thread
 

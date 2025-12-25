@@ -9359,7 +9359,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit207: ; preds = %_ZNK4llvm7CCS
   br label %.thread533
 
 .thread510:                                       ; preds = %426, %84, %85, %.thread428, %.thread438, %.thread448, %.thread458, %.thread468, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i204
-  %.sroa.0.0.copyload357408423433443453463473 = phi i16 [ %.sroa.0.0.copyload357408423433443453463474, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i204 ], [ %.sroa.0.0.copyload359, %84 ], [ %.sroa.0.0.copyload359, %85 ], [ %.sroa.0.0.copyload359, %.thread468 ], [ %.sroa.0.0.copyload359, %.thread458 ], [ %.sroa.0.0.copyload359, %.thread448 ], [ %.sroa.0.0.copyload359, %.thread438 ], [ %.sroa.0.0.copyload359, %.thread428 ], [ %.sroa.0.0.copyload357408423433443453463474, %426 ]
+  %.sroa.0.0.copyload357408423433443453463473 = phi i16 [ %.sroa.0.0.copyload359, %85 ], [ %.sroa.0.0.copyload359, %84 ], [ %.sroa.0.0.copyload357408423433443453463474, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i204 ], [ %.sroa.0.0.copyload359, %.thread468 ], [ %.sroa.0.0.copyload359, %.thread458 ], [ %.sroa.0.0.copyload359, %.thread448 ], [ %.sroa.0.0.copyload359, %.thread438 ], [ %.sroa.0.0.copyload359, %.thread428 ], [ %.sroa.0.0.copyload357408423433443453463474, %426 ]
   switch i16 %.sroa.0.0.copyload357408423433443453463473, label %.thread523 [
     i16 15, label %.lr.ph.i.i216
     i16 78, label %.lr.ph.i.i216

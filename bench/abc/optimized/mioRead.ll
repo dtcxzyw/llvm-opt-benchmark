@@ -314,7 +314,7 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
   br label %28
 
 28:                                               ; preds = %16, %.sink.split.i, %24, %22, %.thread.i, %19
-  %.131.idx8.i = phi i64 [ %.030.idx.i, %16 ], [ %.131.idx714.i, %.thread.i ], [ 0, %19 ], [ %.131.idx714.i, %22 ], [ %.131.idx714.i, %24 ], [ %.131.idx714.i, %.sink.split.i ]
+  %.131.idx8.i = phi i64 [ %.030.idx.i, %16 ], [ %.131.idx714.i, %.thread.i ], [ %.131.idx714.i, %24 ], [ %.131.idx714.i, %22 ], [ 0, %19 ], [ %.131.idx714.i, %.sink.split.i ]
   %.131.add.i = add nuw nsw i64 %.131.idx8.i, 1
   br label %16, !llvm.loop !34
 
@@ -684,9 +684,9 @@ Mio_LibraryReadGate.exit.thread88.i:              ; preds = %147, %102, %Abc_Uti
   br i1 %.not132150.i, label %.critedge.i, label %.lr.ph134.lr.ph.i, !llvm.loop !64
 
 .critedge.i:                                      ; preds = %.outer.outer.i, %.outer.i, %.backedge97.i, %34, %.backedge.i, %40
-  %.051.ph.ph127.i = phi i32 [ %.051.ph.ph164.i, %.outer.i ], [ %.051.ph.ph164.i, %.backedge97.i ], [ %.051.ph.ph164.i, %.backedge.i ], [ %.051.ph.ph164.i, %40 ], [ %.051.ph.ph164.i, %34 ], [ %.152.i, %.outer.outer.i ]
-  %.053.ph119.i = phi i32 [ %169, %.outer.i ], [ %.053.ph153.i, %.backedge97.i ], [ %.053.ph153.i, %.backedge.i ], [ %.053.ph153.i, %40 ], [ %.053.ph153.i, %34 ], [ %.154.i, %.outer.outer.i ]
-  %.185.i = phi ptr [ null, %.outer.i ], [ null, %.backedge97.i ], [ null, %.backedge.i ], [ %.2128.i, %40 ], [ %.084133.i, %34 ], [ null, %.outer.outer.i ]
+  %.051.ph.ph127.i = phi i32 [ %.051.ph.ph164.i, %.backedge97.i ], [ %.051.ph.ph164.i, %.backedge.i ], [ %.051.ph.ph164.i, %.outer.i ], [ %.051.ph.ph164.i, %40 ], [ %.051.ph.ph164.i, %34 ], [ %.152.i, %.outer.outer.i ]
+  %.053.ph119.i = phi i32 [ %.053.ph153.i, %.backedge97.i ], [ %.053.ph153.i, %.backedge.i ], [ %169, %.outer.i ], [ %.053.ph153.i, %40 ], [ %.053.ph153.i, %34 ], [ %.154.i, %.outer.outer.i ]
+  %.185.i = phi ptr [ null, %.backedge97.i ], [ null, %.backedge.i ], [ null, %.outer.i ], [ %.2128.i, %40 ], [ %.084133.i, %34 ], [ null, %.outer.outer.i ]
   %184 = icmp eq i32 %.053.ph119.i, 0
   br i1 %184, label %.critedge.thread.i, label %185
 

@@ -1153,7 +1153,7 @@ _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit: ; preds = %34
   br label %.backedge
 
 .backedge:                                        ; preds = %56, %61, %69
-  %.sroa.023.0.be = phi i64 [ %59, %56 ], [ %.sroa.0.0.copyload.i.i, %61 ], [ %.sroa.0.0.copyload.i29.i, %69 ]
+  %.sroa.023.0.be = phi i64 [ %.sroa.0.0.copyload.i.i, %61 ], [ %59, %56 ], [ %.sroa.0.0.copyload.i29.i, %69 ]
   br label %6
 
 .critedge.i:                                      ; preds = %12, %11

@@ -1114,11 +1114,11 @@ SetupSupportedGroups.exit:                        ; preds = %168, %169
   br i1 %.not235, label %.critedge, label %202
 
 .critedge:                                        ; preds = %202, %.thread, %170, %179, %SetupSupportedGroups.exit, %124, %123, %106, %ShowCiphers.exit, %mygetopt.exit.thread256
-  %.0193343 = phi i32 [ %.0193417, %123 ], [ %.0193417, %mygetopt.exit.thread256 ], [ %.0193417, %ShowCiphers.exit ], [ %.0193417, %106 ], [ %.0193342699, %SetupSupportedGroups.exit ], [ %.0193342700, %124 ], [ %.0193342699, %170 ], [ 1, %179 ], [ %.0193342699, %.thread ], [ %.0193342699, %202 ]
-  %.0183306 = phi i32 [ %.0183421, %123 ], [ %.0183421, %mygetopt.exit.thread256 ], [ %.0183421, %ShowCiphers.exit ], [ %.0183421, %106 ], [ %.0183305707, %SetupSupportedGroups.exit ], [ %.0183305708, %124 ], [ %.0183305707, %170 ], [ 0, %179 ], [ %.0183305707, %.thread ], [ %.0183305707, %202 ]
-  %.0176 = phi ptr [ null, %123 ], [ null, %mygetopt.exit.thread256 ], [ null, %ShowCiphers.exit ], [ null, %106 ], [ %.1177, %SetupSupportedGroups.exit ], [ null, %124 ], [ %.1177, %170 ], [ %.1177, %179 ], [ %.1177, %.thread ], [ %.1177, %202 ]
-  %.0169 = phi ptr [ null, %123 ], [ null, %mygetopt.exit.thread256 ], [ null, %ShowCiphers.exit ], [ null, %106 ], [ null, %SetupSupportedGroups.exit ], [ null, %124 ], [ null, %170 ], [ %174, %179 ], [ %174, %.thread ], [ %174, %202 ]
-  %.0 = phi i32 [ 2, %123 ], [ 0, %mygetopt.exit.thread256 ], [ 0, %ShowCiphers.exit ], [ 2, %106 ], [ 0, %SetupSupportedGroups.exit ], [ 0, %124 ], [ -125, %170 ], [ -1, %179 ], [ %.2490, %202 ], [ %.4, %.thread ]
+  %.0193343 = phi i32 [ %.0193417, %123 ], [ %.0193417, %mygetopt.exit.thread256 ], [ %.0193417, %ShowCiphers.exit ], [ %.0193417, %106 ], [ %.0193342699, %SetupSupportedGroups.exit ], [ %.0193342700, %124 ], [ 1, %179 ], [ %.0193342699, %170 ], [ %.0193342699, %.thread ], [ %.0193342699, %202 ]
+  %.0183306 = phi i32 [ %.0183421, %123 ], [ %.0183421, %mygetopt.exit.thread256 ], [ %.0183421, %ShowCiphers.exit ], [ %.0183421, %106 ], [ %.0183305707, %SetupSupportedGroups.exit ], [ %.0183305708, %124 ], [ 0, %179 ], [ %.0183305707, %170 ], [ %.0183305707, %.thread ], [ %.0183305707, %202 ]
+  %.0176 = phi ptr [ null, %123 ], [ null, %mygetopt.exit.thread256 ], [ null, %ShowCiphers.exit ], [ null, %106 ], [ %.1177, %SetupSupportedGroups.exit ], [ null, %124 ], [ %.1177, %179 ], [ %.1177, %170 ], [ %.1177, %.thread ], [ %.1177, %202 ]
+  %.0169 = phi ptr [ null, %123 ], [ null, %mygetopt.exit.thread256 ], [ null, %ShowCiphers.exit ], [ null, %106 ], [ null, %SetupSupportedGroups.exit ], [ null, %124 ], [ %174, %179 ], [ null, %170 ], [ %174, %.thread ], [ %174, %202 ]
+  %.0 = phi i32 [ 2, %123 ], [ 0, %mygetopt.exit.thread256 ], [ 0, %ShowCiphers.exit ], [ 2, %106 ], [ 0, %SetupSupportedGroups.exit ], [ 0, %124 ], [ -1, %179 ], [ -125, %170 ], [ %.2490, %202 ], [ %.4, %.thread ]
   %383 = icmp eq i32 %.0193343, 0
   %384 = icmp ne i32 %.0183306, 0
   %or.cond7 = or i1 %383, %384

@@ -3953,7 +3953,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %883
   br label %.loopexit985
 
 .split.us:                                        ; preds = %.preheader984, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %.preheader984.us, %768
-  %.us-phi1056 = phi i64 [ %.21001052, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.21001052.us, %.preheader984.us ], [ %.21001052.us, %768 ], [ %.21001052, %.preheader984 ]
+  %.us-phi1056 = phi i64 [ %.21001052.us, %.preheader984.us ], [ %.21001052, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ], [ %.21001052.us, %768 ], [ %.21001052, %.preheader984 ]
   br i1 %2, label %1418, label %922
 
 922:                                              ; preds = %.split.us

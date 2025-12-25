@@ -869,7 +869,7 @@ define hidden noundef zeroext i1 @phar_archive_delref(ptr noundef %0) local_unna
   br label %41
 
 41:                                               ; preds = %.sink.split, %32, %19, %35, %13, %1
-  %.0 = phi i1 [ true, %13 ], [ false, %1 ], [ true, %35 ], [ false, %32 ], [ false, %19 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ true, %13 ], [ false, %1 ], [ true, %35 ], [ false, %19 ], [ false, %32 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

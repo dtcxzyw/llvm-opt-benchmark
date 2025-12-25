@@ -6358,12 +6358,12 @@ Abc_Clock.exit283:                                ; preds = %.thread291, %254
   br label %.loopexit
 
 .loopexit:                                        ; preds = %263, %.loopexit.sink.split, %Sfm_DecMffcAreaReal.exit, %141, %135, %110
-  %.1223 = phi ptr [ %.0222337, %.loopexit.sink.split ], [ %.0222337, %110 ], [ %.0222337, %Sfm_DecMffcAreaReal.exit ], [ %.0222337, %135 ], [ %.0222337, %141 ], [ %.5227, %263 ]
-  %.1214 = phi ptr [ %.0213338, %.loopexit.sink.split ], [ %.0213338, %110 ], [ %.0213338, %Sfm_DecMffcAreaReal.exit ], [ %.0213338, %135 ], [ %.0213338, %141 ], [ %.5218, %263 ]
-  %.1205 = phi ptr [ %.0204339, %.loopexit.sink.split ], [ %.0204339, %110 ], [ %.0204339, %Sfm_DecMffcAreaReal.exit ], [ %.0204339, %135 ], [ %.0204339, %141 ], [ %.5209, %263 ]
-  %.1196 = phi ptr [ %.0195340, %.loopexit.sink.split ], [ %.0195340, %110 ], [ %.0195340, %Sfm_DecMffcAreaReal.exit ], [ %.0195340, %135 ], [ %.0195340, %141 ], [ %.5200, %263 ]
-  %.1187 = phi i32 [ %.0186341, %.loopexit.sink.split ], [ %.0186341, %110 ], [ %.0186341, %Sfm_DecMffcAreaReal.exit ], [ %.0186341, %135 ], [ %.0186341, %141 ], [ %.5191, %263 ]
-  %.1 = phi i32 [ %72, %.loopexit.sink.split ], [ %72, %110 ], [ %72, %Sfm_DecMffcAreaReal.exit ], [ %72, %135 ], [ %72, %141 ], [ %.3, %263 ]
+  %.1223 = phi ptr [ %.0222337, %141 ], [ %.0222337, %110 ], [ %.0222337, %Sfm_DecMffcAreaReal.exit ], [ %.0222337, %135 ], [ %.0222337, %.loopexit.sink.split ], [ %.5227, %263 ]
+  %.1214 = phi ptr [ %.0213338, %141 ], [ %.0213338, %110 ], [ %.0213338, %Sfm_DecMffcAreaReal.exit ], [ %.0213338, %135 ], [ %.0213338, %.loopexit.sink.split ], [ %.5218, %263 ]
+  %.1205 = phi ptr [ %.0204339, %141 ], [ %.0204339, %110 ], [ %.0204339, %Sfm_DecMffcAreaReal.exit ], [ %.0204339, %135 ], [ %.0204339, %.loopexit.sink.split ], [ %.5209, %263 ]
+  %.1196 = phi ptr [ %.0195340, %141 ], [ %.0195340, %110 ], [ %.0195340, %Sfm_DecMffcAreaReal.exit ], [ %.0195340, %135 ], [ %.0195340, %.loopexit.sink.split ], [ %.5200, %263 ]
+  %.1187 = phi i32 [ %.0186341, %141 ], [ %.0186341, %110 ], [ %.0186341, %Sfm_DecMffcAreaReal.exit ], [ %.0186341, %135 ], [ %.0186341, %.loopexit.sink.split ], [ %.5191, %263 ]
+  %.1 = phi i32 [ %72, %141 ], [ %72, %110 ], [ %72, %Sfm_DecMffcAreaReal.exit ], [ %72, %135 ], [ %72, %.loopexit.sink.split ], [ %.3, %263 ]
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond353.not = icmp eq i64 %indvar.next, %wide.trip.count352
   br i1 %exitcond353.not, label %268, label %64, !llvm.loop !217

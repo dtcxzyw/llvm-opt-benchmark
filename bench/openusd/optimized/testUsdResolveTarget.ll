@@ -1487,7 +1487,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   br label %472
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread7371: ; preds = %462, %.noexc1847
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread7371: ; preds = %.noexc1847, %462
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   br label %474
 
@@ -1640,7 +1640,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit1866.thread: ; preds =
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br label %522
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit1866.thread7375: ; preds = %512, %.noexc1865
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit1866.thread7375: ; preds = %.noexc1865, %512
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br label %524
 
@@ -5044,7 +5044,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2043.thread: ; preds =
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %1830
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2043.thread7383: ; preds = %1820, %.noexc2042
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2043.thread7383: ; preds = %.noexc2042, %1820
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %_ZNSt6vectorISt4pairIdfESaIS1_EEC2ERKS3_.exit.i
 
@@ -6589,7 +6589,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2564.thread: ; preds =
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %2532
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2564.thread7387: ; preds = %2522, %.noexc2563
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit2564.thread7387: ; preds = %.noexc2563, %2522
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %2534
 
@@ -8648,7 +8648,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3239.thread: ; preds =
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %3333
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3239.thread7391: ; preds = %3323, %.noexc3238
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3239.thread7391: ; preds = %.noexc3238, %3323
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %3335
 
@@ -10543,7 +10543,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3888.thread: ; preds =
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4101
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3888.thread7395: ; preds = %4091, %.noexc3887
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit3888.thread7395: ; preds = %.noexc3887, %4091
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4103
 
@@ -14443,7 +14443,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit4533.thread: ; preds =
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %5831
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit4533.thread7400: ; preds = %5821, %.noexc4532
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit4533.thread7400: ; preds = %.noexc4532, %5821
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %5833
 

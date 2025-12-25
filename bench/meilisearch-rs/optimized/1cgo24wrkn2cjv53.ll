@@ -39159,7 +39159,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$
           to label %.sink.split.i unwind label %44
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %.noexc26, %.noexc24, %.noexc22
-  %.sroa.0.0.ph.i = phi i8 [ 0, %.noexc24 ], [ 0, %.noexc22 ], [ 0, %.noexc26 ], [ 1, %.sink.split.sink.split.i ]
+  %.sroa.0.0.ph.i = phi i8 [ 0, %.noexc24 ], [ 0, %.noexc26 ], [ 0, %.noexc22 ], [ 1, %.sink.split.sink.split.i ]
   store i8 0, ptr %4, align 1, !noalias !12982
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h42988c60d3cdfb97E.exit"
 

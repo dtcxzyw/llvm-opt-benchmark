@@ -5219,7 +5219,7 @@ define hidden void @get_bluetooth_uuid(ptr dead_on_unwind noalias writable write
   br label %91
 
 91:                                               ; preds = %.sink.split, %11, %25
-  %.0 = phi i8 [ 16, %25 ], [ 4, %11 ], [ 2, %.sink.split ]
+  %.0 = phi i8 [ 4, %11 ], [ 16, %25 ], [ 2, %.sink.split ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %.0, ptr %92, align 2
   br label %93

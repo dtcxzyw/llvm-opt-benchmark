@@ -272,7 +272,7 @@ _ZNSt6vectorImSaImEED2Ev.exit82:                  ; preds = %93, %_ZNSt6vectorIm
   br label %137
 
 .critedge:                                        ; preds = %122, %121, %.lr.ph119, %128
-  %134 = phi i32 [ %109, %.lr.ph119 ], [ %.pr.pre, %128 ], [ %115, %121 ], [ %115, %122 ]
+  %134 = phi i32 [ %.pr.pre, %128 ], [ %109, %.lr.ph119 ], [ %115, %121 ], [ %115, %122 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %135, align 8, !tbaa !57
   %136 = icmp eq i32 %134, 1

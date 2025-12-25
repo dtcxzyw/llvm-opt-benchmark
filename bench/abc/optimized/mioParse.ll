@@ -1729,8 +1729,8 @@ Vec_PtrPush.exit230:                              ; preds = %.Vec_PtrGrow.exit11
   br label %496
 
 .preheader.sink.split:                            ; preds = %281, %Vec_IntGrow.exit.i199, %.Vec_IntGrow.exit10_crit_edge.i194, %258, %Vec_IntGrow.exit.i192, %.Vec_IntGrow.exit10_crit_edge.i187, %235, %Vec_IntGrow.exit.i185, %.Vec_IntGrow.exit10_crit_edge.i180
-  %.sink584 = phi ptr [ %247, %Vec_IntGrow.exit.i192 ], [ %224, %Vec_IntGrow.exit.i185 ], [ %.pre.i182, %.Vec_IntGrow.exit10_crit_edge.i180 ], [ %236, %235 ], [ %.pre.i189, %.Vec_IntGrow.exit10_crit_edge.i187 ], [ %259, %258 ], [ %.pre.i196, %.Vec_IntGrow.exit10_crit_edge.i194 ], [ %282, %281 ], [ %270, %Vec_IntGrow.exit.i199 ]
-  %.sink582 = phi i32 [ 7, %Vec_IntGrow.exit.i192 ], [ 9, %Vec_IntGrow.exit.i185 ], [ 9, %.Vec_IntGrow.exit10_crit_edge.i180 ], [ 9, %235 ], [ 7, %.Vec_IntGrow.exit10_crit_edge.i187 ], [ 7, %258 ], [ 8, %.Vec_IntGrow.exit10_crit_edge.i194 ], [ 8, %281 ], [ 8, %Vec_IntGrow.exit.i199 ]
+  %.sink584 = phi ptr [ %224, %Vec_IntGrow.exit.i185 ], [ %247, %Vec_IntGrow.exit.i192 ], [ %.pre.i182, %.Vec_IntGrow.exit10_crit_edge.i180 ], [ %236, %235 ], [ %.pre.i189, %.Vec_IntGrow.exit10_crit_edge.i187 ], [ %259, %258 ], [ %.pre.i196, %.Vec_IntGrow.exit10_crit_edge.i194 ], [ %282, %281 ], [ %270, %Vec_IntGrow.exit.i199 ]
+  %.sink582 = phi i32 [ 9, %Vec_IntGrow.exit.i185 ], [ 7, %Vec_IntGrow.exit.i192 ], [ 9, %.Vec_IntGrow.exit10_crit_edge.i180 ], [ 9, %235 ], [ 7, %.Vec_IntGrow.exit10_crit_edge.i187 ], [ 7, %258 ], [ 8, %.Vec_IntGrow.exit10_crit_edge.i194 ], [ 8, %281 ], [ 8, %Vec_IntGrow.exit.i199 ]
   %481 = load i32, ptr %210, align 4, !tbaa !15
   %482 = add nsw i32 %481, 1
   store i32 %482, ptr %210, align 4, !tbaa !15

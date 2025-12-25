@@ -2575,7 +2575,7 @@ equal_nocase.exit76.i:                            ; preds = %138, %equal_nocase.
   br i1 %.not53.i, label %equal_nocase.exit, label %.lr.ph.i28, !llvm.loop !76
 
 equal_nocase.exit:                                ; preds = %117, %.lr.ph.i.i27, %133, %.lr.ph.i65.i, %167, %163, %98, %93, %.lr.ph.i24, %159, %156, %150, %145, %102, %.preheader.i, %skip_prefix.exit.i
-  %.021 = phi i32 [ 0, %93 ], [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %163 ], [ 1, %159 ], [ 0, %102 ], [ 0, %133 ], [ 0, %145 ], [ 0, %150 ], [ 1, %156 ], [ 1, %98 ], [ 0, %.lr.ph.i24 ], [ 1, %167 ], [ 0, %.lr.ph.i65.i ], [ 0, %.lr.ph.i.i27 ], [ 0, %117 ]
+  %.021 = phi i32 [ 1, %159 ], [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %133 ], [ 0, %163 ], [ 0, %102 ], [ 0, %93 ], [ 0, %145 ], [ 0, %150 ], [ 1, %156 ], [ 1, %98 ], [ 0, %.lr.ph.i24 ], [ 1, %167 ], [ 0, %.lr.ph.i65.i ], [ 0, %.lr.ph.i.i27 ], [ 0, %117 ]
   ret i32 %.021
 }
 

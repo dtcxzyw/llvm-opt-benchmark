@@ -270,7 +270,7 @@ define range(i32 0, 2) i32 @tls1_clear(ptr noundef %0) local_unnamed_addr #2 {
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %6, %1, %.thread16, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %.thread16 ], [ 0, %6 ], [ 0, %1 ], [ 1, %.thread.sink.split ]
+  %.0 = phi i32 [ 0, %8 ], [ 0, %.thread16 ], [ 0, %1 ], [ 0, %6 ], [ 1, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -1135,7 +1135,7 @@ define range(i32 0, 2) i32 @tls1_get0_implemented_groups(i32 noundef %0, i32 nou
   br i1 %exitcond83.not, label %.loopexit, label %.lr.ph65.split, !llvm.loop !149
 
 .loopexit:                                        ; preds = %.lr.ph.split.us.split.us, %16, %27, %30, %39, %42, %59, %56, %.lr.ph65.split, %86, %74, %78, %._crit_edge
-  %.040 = phi i32 [ 0, %74 ], [ 0, %39 ], [ 1, %._crit_edge ], [ 1, %86 ], [ 0, %59 ], [ 0, %27 ], [ 1, %78 ], [ 0, %.lr.ph65.split ], [ 0, %56 ], [ 0, %42 ], [ 0, %30 ], [ 0, %16 ], [ 0, %.lr.ph.split.us.split.us ]
+  %.040 = phi i32 [ 0, %27 ], [ 0, %39 ], [ 1, %._crit_edge ], [ 0, %74 ], [ 1, %86 ], [ 0, %59 ], [ 1, %78 ], [ 0, %.lr.ph65.split ], [ 0, %56 ], [ 0, %42 ], [ 0, %30 ], [ 0, %16 ], [ 0, %.lr.ph.split.us.split.us ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %10, ptr noundef nonnull @free_wrapper) #14
   br label %88
 
@@ -5481,7 +5481,7 @@ tls1_lookup_sigalg.exit:                          ; preds = %19
   br label %tls1_lookup_sigalg.exit.thread
 
 tls1_lookup_sigalg.exit.thread:                   ; preds = %22, %32, %39, %45, %19, %.lr.ph.split, %tls1_lookup_sigalg.exit, %30
-  %.123.ph = phi i32 [ 1, %30 ], [ 1, %39 ], [ %.02244, %19 ], [ 1, %32 ], [ %48, %45 ], [ %.02244, %tls1_lookup_sigalg.exit ], [ %.02244, %.lr.ph.split ], [ %.02244, %22 ]
+  %.123.ph = phi i32 [ 1, %30 ], [ 1, %39 ], [ 1, %32 ], [ %.02244, %19 ], [ %48, %45 ], [ %.02244, %tls1_lookup_sigalg.exit ], [ %.02244, %.lr.ph.split ], [ %.02244, %22 ]
   %49 = add nuw i64 %.02543, 1
   %exitcond.not = icmp eq i64 %49, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.backedge
@@ -10172,7 +10172,7 @@ tls1_group_name2id.exit:                          ; preds = %99, %104
   br label %.critedge227
 
 .critedge227:                                     ; preds = %18, %17, %16, %.critedge8, %.critedge8, %112, %123, %140, %170, %.lr.ph311, %120, %.preheader235, %160, %78, %63, %._crit_edge312, %190, %._crit_edge308, %87, %.critedge, %31, %28, %42, %8
-  %.0 = phi i32 [ 0, %8 ], [ 1, %.preheader235 ], [ -1, %28 ], [ %50, %42 ], [ 0, %78 ], [ 1, %160 ], [ 1, %190 ], [ 1, %._crit_edge308 ], [ 1, %170 ], [ 0, %31 ], [ 0, %63 ], [ -1, %87 ], [ 1, %140 ], [ -1, %.critedge ], [ %spec.select, %120 ], [ 1, %._crit_edge312 ], [ %spec.select, %112 ], [ %spec.select, %123 ], [ 1, %.lr.ph311 ], [ -1, %.critedge8 ], [ -1, %.critedge8 ], [ -1, %16 ], [ -1, %17 ], [ -1, %18 ]
+  %.0 = phi i32 [ 0, %8 ], [ 1, %140 ], [ -1, %28 ], [ %50, %42 ], [ 0, %78 ], [ 1, %._crit_edge308 ], [ 1, %190 ], [ 1, %160 ], [ 1, %.preheader235 ], [ 0, %31 ], [ 0, %63 ], [ -1, %87 ], [ 1, %170 ], [ -1, %.critedge ], [ %spec.select, %120 ], [ 1, %._crit_edge312 ], [ %spec.select, %112 ], [ %spec.select, %123 ], [ 1, %.lr.ph311 ], [ -1, %.critedge8 ], [ -1, %.critedge8 ], [ -1, %16 ], [ -1, %17 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

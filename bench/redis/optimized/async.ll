@@ -1400,7 +1400,7 @@ __redisRunPushCallback.exit:                      ; preds = %redisIsSubscribeRep
   %cond = icmp eq i32 %110, 0
   br i1 %cond, label %19, label %._crit_edge.thread
 
-redisIsSubscribeReply.exit.thread90:              ; preds = %96, %82, %64, %redisIsSubscribeReply.exit
+redisIsSubscribeReply.exit.thread90:              ; preds = %82, %96, %64, %redisIsSubscribeReply.exit
   %111 = load ptr, ptr %6, align 8, !tbaa !73
   %.not.i38 = icmp eq ptr %111, null
   br i1 %.not.i38, label %__redisShiftCallback.exit, label %112

@@ -1527,7 +1527,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr noundef r
   br label %39
 
 39:                                               ; preds = %.sink.split, %31, %24, %23, %18, %4
-  %.0 = phi i32 [ 0, %18 ], [ 0, %4 ], [ 0, %23 ], [ 0, %31 ], [ 0, %24 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %31 ], [ 0, %4 ], [ 0, %23 ], [ 0, %18 ], [ 0, %24 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

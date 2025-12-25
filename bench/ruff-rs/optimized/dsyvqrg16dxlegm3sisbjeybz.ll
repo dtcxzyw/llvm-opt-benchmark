@@ -5841,7 +5841,7 @@ _ZN8smallvec10deallocate17hd959756a4b554867E.exit.i: ; preds = %45
   tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %23) #26
   unreachable
 
-50:                                               ; preds = %31, %27, %25, %21
+50:                                               ; preds = %31, %21, %25, %27
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.e6d9093eeb5a55edbd3b05bba56bfe26.98, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e6d9093eeb5a55edbd3b05bba56bfe26.99) #26
   unreachable
 
@@ -6023,7 +6023,7 @@ _ZN8smallvec10deallocate17h228047d5a5eb88d6E.exit.i: ; preds = %45
   tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %23) #26
   unreachable
 
-50:                                               ; preds = %31, %27, %25, %21
+50:                                               ; preds = %31, %21, %25, %27
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.e6d9093eeb5a55edbd3b05bba56bfe26.98, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e6d9093eeb5a55edbd3b05bba56bfe26.99) #26
   unreachable
 

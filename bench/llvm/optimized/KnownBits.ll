@@ -1240,16 +1240,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm9KnownBitsC
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !3
   %54 = icmp ult i32 %53, 65
-  br i1 %54, label %_ZNK4llvm9KnownBits9isUnknownEv.exit, label %55
+  br i1 %54, label %55, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
 
 55:                                               ; preds = %48
-  %56 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %51) #14
-  %57 = icmp eq i32 %56, %53
+  %56 = load i64, ptr %51, align 8, !tbaa !8
+  %57 = icmp eq i64 %56, 0
   br i1 %57, label %60, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %48
-  %58 = load i64, ptr %51, align 8, !tbaa !8
-  %59 = icmp eq i64 %58, 0
+  %58 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %51) #14
+  %59 = icmp eq i32 %58, %53
   br i1 %59, label %60, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 60:                                               ; preds = %55, %_ZNK4llvm9KnownBits9isUnknownEv.exit
@@ -1273,16 +1273,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i45:                ; preds = %60
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %72 = load i32, ptr %71, align 8, !tbaa !3
   %73 = icmp ult i32 %72, 65
-  br i1 %73, label %_ZNK4llvm9KnownBits9isUnknownEv.exit46, label %74
+  br i1 %73, label %74, label %_ZNK4llvm9KnownBits9isUnknownEv.exit46
 
 74:                                               ; preds = %69
-  %75 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %70) #14
-  %76 = icmp eq i32 %75, %72
+  %75 = load i64, ptr %70, align 8, !tbaa !8
+  %76 = icmp eq i64 %75, 0
   br i1 %76, label %_ZN4llvm9KnownBits10setAllZeroEv.exit, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit46:           ; preds = %69
-  %77 = load i64, ptr %70, align 8, !tbaa !8
-  %78 = icmp eq i64 %77, 0
+  %77 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %70) #14
+  %78 = icmp eq i32 %77, %72
   br i1 %78, label %_ZN4llvm9KnownBits10setAllZeroEv.exit, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit.thread:      ; preds = %64, %_ZNK4llvm5APInt6isZeroEv.exit.i45, %74, %55, %_ZNK4llvm9KnownBits9isUnknownEv.exit46, %_ZNK4llvm9KnownBits9isUnknownEv.exit
@@ -1309,16 +1309,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i47._crit_edge:     ; preds = %_ZNK4llvm5APInt6isZ
   %86 = phi i32 [ %.pre156, %_ZNK4llvm5APInt6isZeroEv.exit.i47._crit_edge ], [ %53, %79 ]
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %88 = icmp ult i32 %86, 65
-  br i1 %88, label %_ZNK4llvm9KnownBits9isUnknownEv.exit48, label %89
+  br i1 %88, label %89, label %_ZNK4llvm9KnownBits9isUnknownEv.exit48
 
 89:                                               ; preds = %84
-  %90 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %87) #14
-  %91 = icmp eq i32 %90, %86
+  %90 = load i64, ptr %87, align 8, !tbaa !8
+  %91 = icmp eq i64 %90, 0
   br i1 %91, label %183, label %_ZNK4llvm9KnownBits9isUnknownEv.exit48.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit48:           ; preds = %84
-  %92 = load i64, ptr %87, align 8, !tbaa !8
-  %93 = icmp eq i64 %92, 0
+  %92 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %87) #14
+  %93 = icmp eq i32 %92, %86
   br i1 %93, label %183, label %_ZNK4llvm9KnownBits9isUnknownEv.exit48.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit48.thread:    ; preds = %42, %79, %_ZNK4llvm5APInt6isZeroEv.exit.i47, %89, %_ZNK4llvm9KnownBits9isUnknownEv.exit48
@@ -1343,16 +1343,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i49:                ; preds = %_ZNK4llvm9KnownBits
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %106 = load i32, ptr %105, align 8, !tbaa !3
   %107 = icmp ult i32 %106, 65
-  br i1 %107, label %_ZNK4llvm9KnownBits9isUnknownEv.exit50, label %108
+  br i1 %107, label %108, label %_ZNK4llvm9KnownBits9isUnknownEv.exit50
 
 108:                                              ; preds = %103
-  %109 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %104) #14
-  %110 = icmp eq i32 %109, %106
+  %109 = load i64, ptr %104, align 8, !tbaa !8
+  %110 = icmp eq i64 %109, 0
   br i1 %110, label %183, label %_ZNK4llvm9KnownBits9isUnknownEv.exit50.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit50:           ; preds = %103
-  %111 = load i64, ptr %104, align 8, !tbaa !8
-  %112 = icmp eq i64 %111, 0
+  %111 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %104) #14
+  %112 = icmp eq i32 %111, %106
   br i1 %112, label %183, label %_ZNK4llvm9KnownBits9isUnknownEv.exit50.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit50.thread:    ; preds = %108, %_ZNK4llvm9KnownBits9isUnknownEv.exit50
@@ -5602,16 +5602,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm5APIntD2Ev.
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = load i32, ptr %54, align 8, !tbaa !3
   %56 = icmp ult i32 %55, 65
-  br i1 %56, label %_ZNK4llvm9KnownBits9isUnknownEv.exit, label %57
+  br i1 %56, label %57, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
 
 57:                                               ; preds = %52
-  %58 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %53) #14
-  %59 = icmp eq i32 %58, %55
+  %58 = load i64, ptr %53, align 8, !tbaa !8
+  %59 = icmp eq i64 %58, 0
   br i1 %59, label %62, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %52
-  %60 = load i64, ptr %53, align 8, !tbaa !8
-  %61 = icmp eq i64 %60, 0
+  %60 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %53) #14
+  %61 = icmp eq i32 %60, %55
   br i1 %61, label %62, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 62:                                               ; preds = %57, %_ZNK4llvm9KnownBits9isUnknownEv.exit
@@ -6462,16 +6462,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i78:                ; preds = %_ZN4llvm9KnownBitsD
 486:                                              ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i78, %481
   %487 = load i32, ptr %23, align 8, !tbaa !3
   %488 = icmp ult i32 %487, 65
-  br i1 %488, label %_ZNK4llvm9KnownBits9isUnknownEv.exit79, label %489
+  br i1 %488, label %489, label %_ZNK4llvm9KnownBits9isUnknownEv.exit79
 
 489:                                              ; preds = %486
-  %490 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %22) #14
-  %491 = icmp eq i32 %490, %487
+  %490 = load i64, ptr %22, align 8, !tbaa !8
+  %491 = icmp eq i64 %490, 0
   br i1 %491, label %._crit_edge, label %_ZNK4llvm9KnownBits9isUnknownEv.exit79.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit79:           ; preds = %486
-  %492 = load i64, ptr %22, align 8, !tbaa !8
-  %493 = icmp eq i64 %492, 0
+  %492 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %22) #14
+  %493 = icmp eq i32 %492, %487
   br i1 %493, label %._crit_edge, label %_ZNK4llvm9KnownBits9isUnknownEv.exit79.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit79.thread:    ; preds = %481, %_ZNK4llvm5APInt6isZeroEv.exit.i78, %489, %_ZNK4llvm9KnownBits9isUnknownEv.exit79, %379
@@ -6692,16 +6692,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm5APIntD2Ev.
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %50 = load i32, ptr %49, align 8, !tbaa !3
   %51 = icmp ult i32 %50, 65
-  br i1 %51, label %_ZNK4llvm9KnownBits9isUnknownEv.exit, label %52
+  br i1 %51, label %52, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
 
 52:                                               ; preds = %47
-  %53 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %48) #14
-  %54 = icmp eq i32 %53, %50
+  %53 = load i64, ptr %48, align 8, !tbaa !8
+  %54 = icmp eq i64 %53, 0
   br i1 %54, label %57, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %47
-  %55 = load i64, ptr %48, align 8, !tbaa !8
-  %56 = icmp eq i64 %55, 0
+  %55 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %48) #14
+  %56 = icmp eq i32 %55, %50
   br i1 %56, label %57, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 57:                                               ; preds = %52, %_ZNK4llvm9KnownBits9isUnknownEv.exit
@@ -7292,16 +7292,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i46:                ; preds = %_ZN4llvm9KnownBitsD
 327:                                              ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i46, %322
   %328 = load i32, ptr %18, align 8, !tbaa !3
   %329 = icmp ult i32 %328, 65
-  br i1 %329, label %_ZNK4llvm9KnownBits9isUnknownEv.exit47, label %330
+  br i1 %329, label %330, label %_ZNK4llvm9KnownBits9isUnknownEv.exit47
 
 330:                                              ; preds = %327
-  %331 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %17) #14
-  %332 = icmp eq i32 %331, %328
+  %331 = load i64, ptr %17, align 8, !tbaa !8
+  %332 = icmp eq i64 %331, 0
   br i1 %332, label %._crit_edge, label %_ZNK4llvm9KnownBits9isUnknownEv.exit47.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit47:           ; preds = %327
-  %333 = load i64, ptr %17, align 8, !tbaa !8
-  %334 = icmp eq i64 %333, 0
+  %333 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %17) #14
+  %334 = icmp eq i32 %333, %328
   br i1 %334, label %._crit_edge, label %_ZNK4llvm9KnownBits9isUnknownEv.exit47.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit47.thread:    ; preds = %322, %_ZNK4llvm5APInt6isZeroEv.exit.i46, %330, %_ZNK4llvm9KnownBits9isUnknownEv.exit47, %237
@@ -7520,16 +7520,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm5APIntD2Ev.
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %50 = load i32, ptr %49, align 8, !tbaa !3
   %51 = icmp ult i32 %50, 65
-  br i1 %51, label %_ZNK4llvm9KnownBits9isUnknownEv.exit, label %52
+  br i1 %51, label %52, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
 
 52:                                               ; preds = %47
-  %53 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %48) #14
-  %54 = icmp eq i32 %53, %50
+  %53 = load i64, ptr %48, align 8, !tbaa !8
+  %54 = icmp eq i64 %53, 0
   br i1 %54, label %57, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %47
-  %55 = load i64, ptr %48, align 8, !tbaa !8
-  %56 = icmp eq i64 %55, 0
+  %55 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %48) #14
+  %56 = icmp eq i32 %55, %50
   br i1 %56, label %57, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 57:                                               ; preds = %52, %_ZNK4llvm9KnownBits9isUnknownEv.exit
@@ -8155,16 +8155,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i56:                ; preds = %_ZN4llvm9KnownBitsD
 349:                                              ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i56, %344
   %350 = load i32, ptr %18, align 8, !tbaa !3
   %351 = icmp ult i32 %350, 65
-  br i1 %351, label %_ZNK4llvm9KnownBits9isUnknownEv.exit57, label %352
+  br i1 %351, label %352, label %_ZNK4llvm9KnownBits9isUnknownEv.exit57
 
 352:                                              ; preds = %349
-  %353 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %17) #14
-  %354 = icmp eq i32 %353, %350
+  %353 = load i64, ptr %17, align 8, !tbaa !8
+  %354 = icmp eq i64 %353, 0
   br i1 %354, label %._crit_edge, label %_ZNK4llvm9KnownBits9isUnknownEv.exit57.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit57:           ; preds = %349
-  %355 = load i64, ptr %17, align 8, !tbaa !8
-  %356 = icmp eq i64 %355, 0
+  %355 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %17) #14
+  %356 = icmp eq i32 %355, %350
   br i1 %356, label %._crit_edge, label %_ZNK4llvm9KnownBits9isUnknownEv.exit57.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit57.thread:    ; preds = %344, %_ZNK4llvm5APInt6isZeroEv.exit.i56, %352, %_ZNK4llvm9KnownBits9isUnknownEv.exit57, %262

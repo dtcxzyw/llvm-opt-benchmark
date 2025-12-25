@@ -2255,8 +2255,8 @@ _ZN6icu_7712_GLOBAL__N_19getBucketERKNS_7UVectorEi.exit355: ; preds = %.lr.ph572
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit356
 
 _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %359, %.critedge299, %129, %217, %441, %438, %348, %.critedge297, %461, %.thread653, %407, %374, %408, %389, %375, %.thread459
-  %.sroa.0371.2 = phi ptr [ null, %461 ], [ %37, %375 ], [ %37, %.thread459 ], [ %37, %408 ], [ %37, %389 ], [ null, %407 ], [ null, %374 ], [ %37, %.thread653 ], [ %37, %.critedge297 ], [ %37, %348 ], [ %37, %441 ], [ %37, %438 ], [ %37, %217 ], [ %37, %129 ], [ %37, %.critedge299 ], [ %37, %359 ]
-  %.12 = phi ptr [ %459, %461 ], [ null, %375 ], [ null, %.thread459 ], [ null, %408 ], [ null, %389 ], [ %405, %407 ], [ %372, %374 ], [ null, %.thread653 ], [ null, %.critedge297 ], [ null, %348 ], [ null, %441 ], [ null, %438 ], [ null, %217 ], [ null, %129 ], [ null, %.critedge299 ], [ null, %359 ]
+  %.sroa.0371.2 = phi ptr [ null, %461 ], [ %37, %375 ], [ %37, %.thread459 ], [ %37, %408 ], [ %37, %389 ], [ null, %407 ], [ null, %374 ], [ %37, %.thread653 ], [ %37, %438 ], [ %37, %348 ], [ %37, %441 ], [ %37, %.critedge297 ], [ %37, %217 ], [ %37, %129 ], [ %37, %.critedge299 ], [ %37, %359 ]
+  %.12 = phi ptr [ %459, %461 ], [ null, %375 ], [ null, %.thread459 ], [ null, %408 ], [ null, %389 ], [ %405, %407 ], [ %372, %374 ], [ null, %.thread653 ], [ null, %438 ], [ null, %348 ], [ null, %441 ], [ null, %.critedge297 ], [ null, %217 ], [ null, %129 ], [ null, %.critedge299 ], [ null, %359 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEEC2EPS2_R10UErrorCode.exit.thread

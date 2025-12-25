@@ -1231,9 +1231,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.thread: ; preds = %11, %_ZNK6icu_771
   br label %.loopexit
 
 .loopexit:                                        ; preds = %116, %.split.split, %170, %178, %56, %.split.us, %.split161.us.loopexit, %.loopexit.loopexit196, %.split181.us
-  %204 = phi i32 [ %105, %.loopexit.loopexit196 ], [ %198, %.split181.us ], [ %47, %56 ], [ %159, %.split.split ], [ %47, %.split161.us.loopexit ], [ %47, %.split.us ], [ %159, %178 ], [ %159, %170 ], [ %105, %116 ]
-  %.0113154 = phi i32 [ 0, %.loopexit.loopexit196 ], [ 0, %.split181.us ], [ %.0113155.us, %56 ], [ 0, %.split.split ], [ %.0113155.us, %.split161.us.loopexit ], [ %.0113155.us, %.split.us ], [ 0, %178 ], [ 0, %170 ], [ 0, %116 ]
-  %.1111 = phi i32 [ %203, %.loopexit.loopexit196 ], [ %199, %.split181.us ], [ %52, %56 ], [ %163, %.split.split ], [ %182, %.split161.us.loopexit ], [ %52, %.split.us ], [ 4, %178 ], [ %163, %170 ], [ 4, %116 ]
+  %204 = phi i32 [ %198, %.split181.us ], [ %105, %.loopexit.loopexit196 ], [ %47, %56 ], [ %159, %.split.split ], [ %47, %.split161.us.loopexit ], [ %47, %.split.us ], [ %159, %178 ], [ %159, %170 ], [ %105, %116 ]
+  %.0113154 = phi i32 [ 0, %.split181.us ], [ 0, %.loopexit.loopexit196 ], [ %.0113155.us, %56 ], [ 0, %.split.split ], [ %.0113155.us, %.split161.us.loopexit ], [ %.0113155.us, %.split.us ], [ 0, %178 ], [ 0, %170 ], [ 0, %116 ]
+  %.1111 = phi i32 [ %199, %.split181.us ], [ %203, %.loopexit.loopexit196 ], [ %52, %56 ], [ %163, %170 ], [ %182, %.split161.us.loopexit ], [ %52, %.split.us ], [ 4, %178 ], [ %163, %.split.split ], [ 4, %116 ]
   %205 = load i32, ptr %5, align 4, !tbaa !26
   %206 = or i32 %205, %204
   store i32 %206, ptr %5, align 4, !tbaa !26
@@ -1798,8 +1798,8 @@ define void @_ZNK6icu_775UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS
   br i1 %.not149, label %.split183.us, label %.split.split, !llvm.loop !34
 
 .split180.us:                                     ; preds = %111, %.split.split.us, %114, %182, %.split.split, %185, %177, %.split.us, %55, %81
-  %.us-phi = phi i32 [ %170, %182 ], [ %51, %.split.us ], [ %51, %81 ], [ %51, %55 ], [ %170, %.split.split ], [ 3, %185 ], [ %170, %177 ], [ 3, %114 ], [ %108, %.split.split.us ], [ %108, %111 ]
-  %.us-phi181 = phi i32 [ 0, %182 ], [ %.0118178.us, %.split.us ], [ %.0118178.us, %81 ], [ %.0118178.us, %55 ], [ 0, %177 ], [ 0, %185 ], [ 0, %.split.split ], [ 0, %114 ], [ 0, %.split.split.us ], [ 0, %111 ]
+  %.us-phi = phi i32 [ %51, %.split.us ], [ %170, %182 ], [ %51, %81 ], [ %51, %55 ], [ %170, %.split.split ], [ 3, %185 ], [ %170, %177 ], [ %108, %111 ], [ %108, %.split.split.us ], [ 3, %114 ]
+  %.us-phi181 = phi i32 [ %.0118178.us, %.split.us ], [ 0, %182 ], [ %.0118178.us, %81 ], [ %.0118178.us, %55 ], [ 0, %177 ], [ 0, %185 ], [ 0, %.split.split ], [ 0, %114 ], [ 0, %.split.split.us ], [ 0, %111 ]
   %205 = load i32, ptr %45, align 4, !tbaa !29
   %206 = load i32, ptr %6, align 4, !tbaa !26
   %207 = or i32 %206, %205
@@ -2305,11 +2305,11 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit128:   ; preds = %124, %118, %79, %96
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit124
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit124:   ; preds = %93, %90, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128
-  %.2107 = phi ptr [ %.3108, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ null, %90 ], [ %spec.select146, %93 ], [ %.0.i118, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
-  %.2104 = phi i32 [ %.0102139, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %87, %90 ], [ %87, %93 ], [ %76, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
-  %.2101 = phi i32 [ %127, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %.099140, %90 ], [ %.099140, %93 ], [ %78, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
-  %.198 = phi i8 [ %.097142, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ 0, %90 ], [ 0, %93 ], [ %.097142, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
-  %.296 = phi i32 [ %.094143, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %.094143, %90 ], [ %.094143, %93 ], [ %78, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
+  %.2107 = phi ptr [ %.3108, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %spec.select146, %93 ], [ null, %90 ], [ %.0.i118, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
+  %.2104 = phi i32 [ %.0102139, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %87, %93 ], [ %87, %90 ], [ %76, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
+  %.2101 = phi i32 [ %127, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %.099140, %93 ], [ %.099140, %90 ], [ %78, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
+  %.198 = phi i8 [ %.097142, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ 0, %93 ], [ 0, %90 ], [ %.097142, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
+  %.296 = phi i32 [ %.094143, %_ZNK6icu_7713UnicodeString9getBufferEv.exit128 ], [ %.094143, %93 ], [ %.094143, %90 ], [ %78, %_ZNK6icu_7713UnicodeString9getBufferEv.exit120 ]
   %128 = icmp slt i32 %.2101, %.2104
   br i1 %128, label %57, label %._crit_edge
 
@@ -3200,7 +3200,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit283:   ; preds = %245, %242, %247
   br label %344
 
 344:                                              ; preds = %.sink.split, %334, %342
-  %.6 = phi i32 [ %343, %342 ], [ %.0212, %334 ], [ %.0212, %.sink.split ]
+  %.6 = phi i32 [ %.0212, %334 ], [ %343, %342 ], [ %.0212, %.sink.split ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN6icu_77L12replaceLabelERNS_13UnicodeStringEiiRKS0_iR10UErrorCode.exit
@@ -4054,8 +4054,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_775UTS4617isLabelOkContextJEP
   br i1 %or.cond, label %59, label %.thread98
 
 56:                                               ; preds = %46, %38
-  %.268 = phi i32 [ %54, %46 ], [ %43, %38 ]
-  %.262 = phi i32 [ %47, %46 ], [ %39, %38 ]
+  %.268 = phi i32 [ %43, %38 ], [ %54, %46 ]
+  %.262 = phi i32 [ %39, %38 ], [ %47, %46 ]
   %57 = tail call i32 @ubidi_getJoiningType_77(i32 noundef %.268)
   %58 = icmp eq i32 %57, 5
   br i1 %58, label %.lr.ph, label %._crit_edge
@@ -4138,7 +4138,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_775UTS4617isLabelOkContextJEP
   br i1 %exitcond.not, label %.thread98, label %6, !llvm.loop !44
 
 .thread98:                                        ; preds = %.thread95, %9, %98, %83, %._crit_edge, %.lr.ph, %81, %62, %3
-  %104 = phi i8 [ 0, %81 ], [ 0, %.lr.ph ], [ 1, %3 ], [ 0, %62 ], [ 0, %98 ], [ 0, %9 ], [ 1, %.thread95 ], [ 0, %83 ], [ 0, %._crit_edge ]
+  %104 = phi i8 [ 1, %3 ], [ 0, %.lr.ph ], [ 0, %81 ], [ 0, %62 ], [ 0, %98 ], [ 0, %9 ], [ 1, %.thread95 ], [ 0, %._crit_edge ], [ 0, %83 ]
   ret i8 %104
 }
 

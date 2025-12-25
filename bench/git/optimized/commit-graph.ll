@@ -1430,7 +1430,7 @@ _.exit58:                                         ; preds = %.thread, %118
   br i1 %122, label %24, label %.lr.ph.i59.preheader, !llvm.loop !119
 
 .thread87:                                        ; preds = %24, %_.exit, %_.exit58
-  %.not50 = phi i32 [ 1, %_.exit58 ], [ 1, %_.exit ], [ 0, %24 ]
+  %.not50 = phi i32 [ 1, %_.exit ], [ 1, %_.exit58 ], [ 0, %24 ]
   %.not16.i = icmp eq ptr %.0130, null
   br i1 %.not16.i, label %validate_mixed_bloom_settings.exit, label %.lr.ph.i59.preheader
 
@@ -3632,7 +3632,7 @@ strbuf_setlen.exit.i:                             ; preds = %240, %238
   br label %.thread.i
 
 .thread.i:                                        ; preds = %256, %.thread.sink.split.i, %228
-  %.not166 = phi i1 [ false, %.thread.sink.split.i ], [ true, %228 ], [ true, %256 ]
+  %.not166 = phi i1 [ true, %228 ], [ false, %.thread.sink.split.i ], [ true, %256 ]
   %265 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !47
   %.not4.i.i.i = icmp eq i32 %265, 0
   br i1 %.not4.i.i.i, label %fill_oids_from_packs.exit, label %266

@@ -566,8 +566,8 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   br i1 %.not29.i156.i, label %ddLinearAndSiftingBackward.exit.i, label %.lr.ph38.i153.i, !llvm.loop !52
 
 ddLinearAndSiftingBackward.exit.i:                ; preds = %232, %.lr.ph38.i153.i, %195, %.lr.ph38.i138.i, %119, %.lr.ph38.i.i, %164
-  %.190.i = phi ptr [ null, %119 ], [ %166, %195 ], [ null, %164 ], [ null, %.lr.ph38.i.i ], [ %166, %.lr.ph38.i138.i ], [ %199, %.lr.ph38.i153.i ], [ %199, %232 ]
-  %.1.i = phi ptr [ %90, %119 ], [ %162, %195 ], [ %162, %164 ], [ %90, %.lr.ph38.i.i ], [ %162, %.lr.ph38.i138.i ], [ %203, %.lr.ph38.i153.i ], [ %203, %232 ]
+  %.190.i = phi ptr [ %166, %195 ], [ null, %164 ], [ null, %119 ], [ null, %.lr.ph38.i.i ], [ %166, %.lr.ph38.i138.i ], [ %199, %.lr.ph38.i153.i ], [ %199, %232 ]
+  %.1.i = phi ptr [ %162, %195 ], [ %162, %164 ], [ %90, %119 ], [ %90, %.lr.ph38.i.i ], [ %162, %.lr.ph38.i138.i ], [ %203, %.lr.ph38.i153.i ], [ %203, %232 ]
   %.not112186.i = icmp eq ptr %.1.i, null
   br i1 %.not112186.i, label %.preheader.i67, label %.lr.ph188.i
 
@@ -613,8 +613,8 @@ ddLinearAndSiftingBackward.exit.i:                ; preds = %232, %.lr.ph38.i153
   br i1 %.not113.i, label %..loopexit_crit_edge.i, label %241, !llvm.loop !57
 
 ddLinearAndSiftingBackward.exit.thread.i:         ; preds = %164, %228, %220, %215, %191, %183, %178, %115, %107, %102
-  %.089.i = phi ptr [ %166, %191 ], [ null, %115 ], [ %199, %228 ], [ null, %102 ], [ null, %107 ], [ %166, %178 ], [ %166, %183 ], [ %199, %215 ], [ %199, %220 ], [ inttoptr (i64 -1 to ptr), %164 ]
-  %.088.i = phi ptr [ %162, %191 ], [ %90, %115 ], [ %203, %228 ], [ %90, %102 ], [ %90, %107 ], [ %162, %178 ], [ %162, %183 ], [ %203, %215 ], [ %203, %220 ], [ %162, %164 ]
+  %.089.i = phi ptr [ null, %115 ], [ %166, %191 ], [ %199, %228 ], [ null, %102 ], [ null, %107 ], [ %166, %178 ], [ %166, %183 ], [ %199, %215 ], [ %199, %220 ], [ inttoptr (i64 -1 to ptr), %164 ]
+  %.088.i = phi ptr [ %90, %115 ], [ %162, %191 ], [ %203, %228 ], [ %90, %102 ], [ %90, %107 ], [ %162, %178 ], [ %162, %183 ], [ %203, %215 ], [ %203, %220 ], [ %162, %164 ]
   %.not114180.i = icmp eq ptr %.088.i, null
   br i1 %.not114180.i, label %.preheader172.i, label %.lr.ph.i
 

@@ -4870,8 +4870,8 @@ define internal noundef zeroext i1 @"_ZN68_$LT$rowan..api..SyntaxNode$LT$L$GT$$u
   br i1 %exitcond.not, label %91, label %92
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h1b667276882acad3E.exit": ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit
-  %.sroa.2.0.copyload.i187 = phi i64 [ %.sroa.2.0.copyload.i188, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.2.0.copyload.i.lcssa182, %.loopexit.split-lp.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp128, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit127, %.loopexit.split-lp.loopexit ]
+  %.sroa.2.0.copyload.i187 = phi i64 [ %.sroa.2.0.copyload.i.lcssa182, %.loopexit.split-lp.loopexit ], [ %.sroa.2.0.copyload.i188, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit127, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp128, %.loopexit.split-lp.loopexit.split-lp ]
   %89 = icmp eq i64 %.sroa.2.0.copyload.i187, 0
   br i1 %89, label %158, label %.thread90
 

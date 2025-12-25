@@ -4777,7 +4777,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hls_append_segment(ptr nou
   br label %sls_flags_filename_process.exit
 
 sls_flags_filename_process.exit:                  ; preds = %91, %74, %58
-  %.5.i = phi i32 [ -12, %58 ], [ -22, %91 ], [ -22, %74 ]
+  %.5.i = phi i32 [ -12, %58 ], [ -22, %74 ], [ -22, %91 ]
   call void @av_freep(ptr noundef nonnull %14) #17
   br label %299
 

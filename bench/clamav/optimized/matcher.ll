@@ -464,7 +464,7 @@ define internal fastcc i32 @matcher_run(ptr noundef %0, ptr noundef %1, i32 noun
   br label %.thread208
 
 134:                                              ; preds = %131, %116
-  %.4 = phi i32 [ %119, %116 ], [ %133, %131 ]
+  %.4 = phi i32 [ %133, %131 ], [ %119, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %135 = icmp eq i32 %.4, 1
   br i1 %135, label %136, label %.thread208

@@ -653,7 +653,7 @@ opus_rc_tell_frac.exit663:                        ; preds = %134
   br label %.split
 
 .critedge:                                        ; preds = %146, %opus_rc_tell_frac.exit663, %150, %opus_rc_tell_frac.exit663.us, %104, %108
-  %.us-phi = phi i32 [ %.1533.us, %opus_rc_tell_frac.exit663.us ], [ %.1533.us, %108 ], [ %.1533.us, %104 ], [ %86, %150 ], [ %.1533, %opus_rc_tell_frac.exit663 ], [ %.1533, %146 ]
+  %.us-phi = phi i32 [ %.1533.us, %opus_rc_tell_frac.exit663.us ], [ %.1533.us, %108 ], [ %.1533.us, %104 ], [ %.1533, %146 ], [ %.1533, %opus_rc_tell_frac.exit663 ], [ %86, %150 ]
   %155 = load i32, ptr %81, align 4, !tbaa !33
   %.not638 = icmp eq i32 %155, 0
   %156 = tail call i32 @llvm.smax.i32(i32 %.0548721, i32 3)

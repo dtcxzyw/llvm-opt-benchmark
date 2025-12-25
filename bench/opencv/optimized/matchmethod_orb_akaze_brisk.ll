@@ -3574,9 +3574,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
   br label %.body525
 
 .loopexit.split-lp802:                            ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit, %1271, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.17.7.ph = phi ptr [ %.sroa.17.1998, %1271 ], [ %.sroa.17.15, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.17.1998, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ]
-  %.sroa.11.7.ph = phi ptr [ %.sroa.11.11007, %1271 ], [ %.sroa.11.15, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.11.11007, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ]
-  %.sroa.0765.8.ph = phi ptr [ %.sroa.0765.21016, %1271 ], [ %.sroa.0765.17, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.0765.21016, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ]
+  %.sroa.17.7.ph = phi ptr [ %.sroa.17.1998, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.17.15, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.17.1998, %1271 ]
+  %.sroa.11.7.ph = phi ptr [ %.sroa.11.11007, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.11.15, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.11.11007, %1271 ]
+  %.sroa.0765.8.ph = phi ptr [ %.sroa.0765.21016, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0765.17, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ %.sroa.0765.21016, %1271 ]
   %lpad.loopexit.split-lp804 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN2cv9ExceptionE

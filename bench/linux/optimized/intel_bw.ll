@@ -1352,7 +1352,7 @@ define dso_local i32 @intel_bw_calc_min_cdclk(ptr noundef %0, ptr noundef writeo
   br i1 %237, label %.loopexit, label %193, !llvm.loop !26
 
 .loopexit:                                        ; preds = %234, %228, %219, %213
-  %238 = phi i1 [ %195, %219 ], [ %195, %213 ], [ %236, %234 ], [ %195, %228 ]
+  %238 = phi i1 [ %195, %219 ], [ %195, %213 ], [ %195, %228 ], [ %236, %234 ]
   br i1 %238, label %239, label %242
 
 239:                                              ; preds = %.loopexit

@@ -20936,7 +20936,7 @@ lean_dec.exit602:                                 ; preds = %1451, %1450, %1448,
   br label %lean_dec.exit662
 
 1460:                                             ; preds = %lean_alloc_ctor.exit1055, %lean_dec.exit609
-  %.0524.ph = phi ptr [ %1375, %lean_alloc_ctor.exit1055 ], [ %1323, %lean_dec.exit609 ]
+  %.0524.ph = phi ptr [ %1323, %lean_dec.exit609 ], [ %1375, %lean_alloc_ctor.exit1055 ]
   %1461 = ptrtoint ptr %4 to i64
   %1462 = and i64 %1461, 1
   %.not1115 = icmp eq i64 %1462, 0

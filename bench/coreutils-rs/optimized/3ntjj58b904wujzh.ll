@@ -1264,9 +1264,9 @@ _ZN9uu_numfmt6format13remove_suffix17h37d1f30eca7f8922E.exit.thread.i: ; preds =
   br label %274
 
 _ZN9uu_numfmt6format13remove_suffix17h37d1f30eca7f8922E.exit.i: ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i, %230, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i
-  %.sroa.44.0.i = phi i64 [ %.sroa.44.0.copyload22.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ %.sroa.44.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ], [ %.sroa.44.0.copyload20.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ], [ 45, %230 ]
-  %.sroa.25.0.i = phi i64 [ %.sroa.25.0.copyload16.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ %.sroa.25.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ], [ %.sroa.25.0.copyload14.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ], [ %235, %230 ]
-  %.sroa.09.0.i = phi i64 [ %.sroa.09.0.copyload11.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ %.sroa.09.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ], [ %.sroa.09.0.copyload10.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ], [ %232, %230 ]
+  %.sroa.44.0.i = phi i64 [ %.sroa.44.0.copyload22.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ %.sroa.44.0.copyload20.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ], [ %.sroa.44.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ], [ 45, %230 ]
+  %.sroa.25.0.i = phi i64 [ %.sroa.25.0.copyload16.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ %.sroa.25.0.copyload14.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ], [ %.sroa.25.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ], [ %235, %230 ]
+  %.sroa.09.0.i = phi i64 [ %.sroa.09.0.copyload11.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i27.i ], [ %.sroa.09.0.copyload10.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit35.i.i ], [ %.sroa.09.0.copyload.i, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit40.i.i ], [ %232, %230 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !93
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !93
   call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !93

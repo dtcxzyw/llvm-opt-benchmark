@@ -2580,8 +2580,8 @@ _ZN3ue28containsISt3mapItNS_11AccelSchemeESt4lessItESaISt4pairIKtS2_EEEEEbRKT_RK
   br label %._crit_edge310
 
 ._crit_edge310:                                   ; preds = %.lr.ph309, %._crit_edge310.loopexit315
-  %269 = phi i64 [ %.pre320, %.lr.ph309 ], [ %.pre321, %._crit_edge310.loopexit315 ]
-  %.2110.lcssa = phi i16 [ %.1109, %.lr.ph309 ], [ %.3111, %._crit_edge310.loopexit315 ]
+  %269 = phi i64 [ %.pre321, %._crit_edge310.loopexit315 ], [ %.pre320, %.lr.ph309 ]
+  %.2110.lcssa = phi i16 [ %.3111, %._crit_edge310.loopexit315 ], [ %.1109, %.lr.ph309 ]
   %270 = icmp ugt i64 %269, 5
   %or.cond = select i1 %270, i1 %.0104.lcssa, i1 false
   br i1 %or.cond, label %271, label %._crit_edge310.thread

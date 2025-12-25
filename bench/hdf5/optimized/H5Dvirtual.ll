@@ -1099,7 +1099,7 @@ define internal range(i32 -1, 1) i32 @H5D__virtual_flush(ptr noundef readonly ca
   br label %.loopexit31
 
 .loopexit31:                                      ; preds = %.loopexit, %.loopexit31.sink.split, %8, %1
-  %.0 = phi i32 [ -1, %.loopexit31.sink.split ], [ 0, %8 ], [ 0, %1 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ 0, %8 ], [ -1, %.loopexit31.sink.split ], [ 0, %1 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 
@@ -5203,7 +5203,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_refresh_source_dsets(ptr noundef reado
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.loopexit.sink.split, %8, %1
-  %.027 = phi i32 [ -1, %.loopexit.sink.split ], [ 0, %8 ], [ 0, %1 ], [ 0, %.thread ]
+  %.027 = phi i32 [ 0, %8 ], [ -1, %.loopexit.sink.split ], [ 0, %1 ], [ 0, %.thread ]
   ret i32 %.027
 }
 

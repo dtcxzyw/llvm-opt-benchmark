@@ -5987,7 +5987,7 @@ _ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit: ; pred
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit.thread, label %_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit.thread10
 
-_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit.thread10: ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i7.i, %_ZNK17arith_recognizers7is_realEPK4expr.exit.thread.i, %_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit
+_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit.thread10: ; preds = %_ZNK17arith_recognizers7is_realEPK4expr.exit.thread.i, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i7.i, %_ZNK12_GLOBAL__N_124is_non_qfauflira_functor15compatible_sortEP3app.exit
   %43 = tail call ptr @__cxa_allocate_exception(i64 8) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_124is_non_qfauflira_functor5foundE, i64 16), ptr %43, align 8, !tbaa !8
   tail call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTIN12_GLOBAL__N_124is_non_qfauflira_functor5foundE, ptr nonnull @_ZNSt9exceptionD2Ev) #24

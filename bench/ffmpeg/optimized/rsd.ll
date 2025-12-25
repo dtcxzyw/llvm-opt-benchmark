@@ -229,7 +229,7 @@ define internal range(i32 -2147483648, 1) i32 @rsd_read_header(ptr noundef %0) #
   br label %95
 
 95:                                               ; preds = %93, %58, %53
-  %.0101 = phi i32 [ %94, %93 ], [ %59, %58 ], [ %.1102, %53 ]
+  %.0101 = phi i32 [ %94, %93 ], [ %.1102, %53 ], [ %59, %58 ]
   %96 = icmp slt i32 %.0101, 0
   br i1 %96, label %.loopexit, label %.thread
 

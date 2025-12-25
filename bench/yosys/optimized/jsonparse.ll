@@ -16963,7 +16963,7 @@ _ZNSt6vectorIPN5Yosys8JsonNodeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17
   ]
 
 .invoke:                                          ; preds = %13, %20, %17, %199, %160
-  %200 = phi ptr [ @.str.85, %20 ], [ @.str.84, %199 ], [ @.str.84, %160 ], [ @.str.85, %17 ], [ @.str.84, %13 ]
+  %200 = phi ptr [ @.str.85, %20 ], [ @.str.84, %160 ], [ @.str.84, %199 ], [ @.str.85, %17 ], [ @.str.84, %13 ]
   invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull %200) #26
           to label %.cont unwind label %.loopexit.split-lp197.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

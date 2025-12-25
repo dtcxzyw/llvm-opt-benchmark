@@ -5223,11 +5223,11 @@ define ptr @Wlc_ReadSmtBuffer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.preheader.i, %.preheader.i, %.critedge5.i, %22, %20, %12, %10, %8
-  %.348.i = phi ptr [ %.04568.i, %20 ], [ %.247.lcssa.i, %.critedge5.i ], [ %.04568.i, %10 ], [ %.04568.i, %8 ], [ %.04568.i, %12 ], [ %.04568.i, %22 ], [ %.146.i, %.preheader.i ], [ %.146.i, %.preheader.i ]
-  %.144.i = phi i32 [ %.04369.i, %20 ], [ %.04369.i, %.critedge5.i ], [ %.04369.i, %10 ], [ %spec.select.i, %8 ], [ %.04369.i, %12 ], [ %.04369.i, %22 ], [ %.04369.i, %.preheader.i ], [ %.04369.i, %.preheader.i ]
-  %.142.i = phi i32 [ %.04170.i, %20 ], [ %.04170.i, %.critedge5.i ], [ %spec.select58.i, %10 ], [ %.04170.i, %8 ], [ %.04170.i, %12 ], [ %.04170.i, %22 ], [ %.04170.i, %.preheader.i ], [ %.04170.i, %.preheader.i ]
-  %.140.i = phi i32 [ %.03971.i, %20 ], [ 0, %.critedge5.i ], [ %spec.select59.i, %10 ], [ %spec.select57.i, %8 ], [ %13, %12 ], [ %.03971.i, %22 ], [ 0, %.preheader.i ], [ 0, %.preheader.i ]
-  %.3.i = phi i32 [ %.072.i, %20 ], [ %.1.lcssa.i, %.critedge5.i ], [ %.072.i, %10 ], [ %.072.i, %8 ], [ %.072.i, %12 ], [ %.072.i, %22 ], [ %.072.i, %.preheader.i ], [ %.072.i, %.preheader.i ]
+  %.348.i = phi ptr [ %.247.lcssa.i, %.critedge5.i ], [ %.04568.i, %20 ], [ %.04568.i, %10 ], [ %.04568.i, %8 ], [ %.04568.i, %12 ], [ %.04568.i, %22 ], [ %.146.i, %.preheader.i ], [ %.146.i, %.preheader.i ]
+  %.144.i = phi i32 [ %.04369.i, %.critedge5.i ], [ %.04369.i, %20 ], [ %.04369.i, %10 ], [ %spec.select.i, %8 ], [ %.04369.i, %12 ], [ %.04369.i, %22 ], [ %.04369.i, %.preheader.i ], [ %.04369.i, %.preheader.i ]
+  %.142.i = phi i32 [ %.04170.i, %.critedge5.i ], [ %.04170.i, %20 ], [ %spec.select58.i, %10 ], [ %.04170.i, %8 ], [ %.04170.i, %12 ], [ %.04170.i, %22 ], [ %.04170.i, %.preheader.i ], [ %.04170.i, %.preheader.i ]
+  %.140.i = phi i32 [ 0, %.critedge5.i ], [ %.03971.i, %20 ], [ %spec.select59.i, %10 ], [ %spec.select57.i, %8 ], [ %13, %12 ], [ %.03971.i, %22 ], [ 0, %.preheader.i ], [ 0, %.preheader.i ]
+  %.3.i = phi i32 [ %.1.lcssa.i, %.critedge5.i ], [ %.072.i, %20 ], [ %.072.i, %10 ], [ %.072.i, %8 ], [ %.072.i, %12 ], [ %.072.i, %22 ], [ %.072.i, %.preheader.i ], [ %.072.i, %.preheader.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.348.i, i64 1
   %36 = icmp ult ptr %35, %2
   br i1 %36, label %.lr.ph73.i, label %._crit_edge.i, !llvm.loop !79

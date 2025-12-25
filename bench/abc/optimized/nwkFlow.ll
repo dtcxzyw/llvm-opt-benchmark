@@ -166,7 +166,7 @@ define range(i32 0, 2) i32 @Nwk_ManPushForwardFast_rec(ptr noundef %0, ptr nound
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %19, %.critedge.sink.split, %.preheader, %5, %2
-  %.018 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %.critedge.sink.split ], [ 0, %.preheader ], [ 0, %19 ], [ 0, %15 ]
+  %.018 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %.preheader ], [ 1, %.critedge.sink.split ], [ 0, %19 ], [ 0, %15 ]
   ret i32 %.018
 }
 
@@ -236,7 +236,7 @@ define range(i32 0, 2) i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %0, ptr noun
   br label %.critedge
 
 .critedge:                                        ; preds = %14, %18, %.critedge.sink.split, %.preheader, %5, %2
-  %.017 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %.critedge.sink.split ], [ 0, %.preheader ], [ 0, %18 ], [ 0, %14 ]
+  %.017 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 0, %.preheader ], [ 1, %.critedge.sink.split ], [ 0, %18 ], [ 0, %14 ]
   ret i32 %.017
 }
 

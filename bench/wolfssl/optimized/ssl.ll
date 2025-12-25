@@ -7905,8 +7905,8 @@ ProcessBufferResetSuites.exit:                    ; preds = %150, %419, %421, %4
   %spec.select144 = select i1 %495, i32 0, i32 %.4.fr
   br label %.thread134
 
-.thread134:                                       ; preds = %ProcessBufferResetSuites.exit, %468, %475, %433, %440, %466, %ProcessBufferCertTypes.exit.thread122, %34, %ProcessBufferPrivateKey.exit, %473, %438
-  %496 = phi i32 [ 1, %468 ], [ %spec.store.select17, %34 ], [ 0, %473 ], [ 0, %438 ], [ %spec.select144, %ProcessBufferResetSuites.exit ], [ -463, %ProcessBufferPrivateKey.exit ], [ 1, %ProcessBufferCertTypes.exit.thread122 ], [ 1, %466 ], [ 1, %440 ], [ 1, %433 ], [ 1, %475 ]
+.thread134:                                       ; preds = %ProcessBufferResetSuites.exit, %468, %475, %433, %440, %466, %ProcessBufferCertTypes.exit.thread122, %34, %ProcessBufferPrivateKey.exit, %438, %473
+  %496 = phi i32 [ 1, %468 ], [ %spec.store.select17, %34 ], [ 0, %438 ], [ 0, %473 ], [ %spec.select144, %ProcessBufferResetSuites.exit ], [ -463, %ProcessBufferPrivateKey.exit ], [ 1, %ProcessBufferCertTypes.exit.thread122 ], [ 1, %466 ], [ 1, %440 ], [ 1, %433 ], [ 1, %475 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)

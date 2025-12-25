@@ -21290,9 +21290,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %138, %217, %215, %2
   ret void
 
 960:                                              ; preds = %198, %955
-  %.sroa.28.1 = phi ptr [ %200, %198 ], [ %.sroa.28.2, %955 ]
-  %.sroa.0297.1 = phi ptr [ %189, %198 ], [ %.sroa.0297.2, %955 ]
-  %.pn103 = phi { ptr, i32 } [ %199, %198 ], [ %.pn101, %955 ]
+  %.sroa.28.1 = phi ptr [ %.sroa.28.2, %955 ], [ %200, %198 ]
+  %.sroa.0297.1 = phi ptr [ %.sroa.0297.2, %955 ], [ %189, %198 ]
+  %.pn103 = phi { ptr, i32 } [ %.pn101, %955 ], [ %199, %198 ]
   %961 = ptrtoint ptr %.sroa.28.1 to i64
   %962 = ptrtoint ptr %.sroa.0297.1 to i64
   %963 = sub i64 %961, %962

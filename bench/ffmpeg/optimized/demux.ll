@@ -2441,7 +2441,7 @@ av_ts_make_string.exit264:                        ; preds = %128, %129
   br label %211
 
 211:                                              ; preds = %.thread354, %208, %210
-  %.2194 = phi i32 [ %.3195, %208 ], [ 0, %210 ], [ %.3195, %.thread354 ]
+  %.2194 = phi i32 [ 0, %210 ], [ %.3195, %208 ], [ %.3195, %.thread354 ]
   %.not = icmp eq i32 %.2194, 0
   br i1 %.not, label %23, label %.critedge.thread283
 
@@ -4902,14 +4902,14 @@ extract_extradata_check.exit.thread810:           ; preds = %extract_extradata_c
   %685 = icmp eq i32 %677, 3
   %686 = getelementptr inbounds nuw i8, ptr %634, i64 392
   %687 = load i32, ptr %686, align 8, !tbaa !222
-  br i1 %685, label %has_decode_delay_been_guessed.exit, label %688
+  br i1 %685, label %688, label %has_decode_delay_been_guessed.exit
 
 688:                                              ; preds = %684
-  %689 = icmp sgt i32 %687, 19
+  %689 = icmp sgt i32 %687, 17
   br i1 %689, label %has_decode_delay_been_guessed.exit.thread, label %691
 
 has_decode_delay_been_guessed.exit:               ; preds = %684
-  %690 = icmp sgt i32 %687, 17
+  %690 = icmp sgt i32 %687, 19
   br i1 %690, label %has_decode_delay_been_guessed.exit.thread, label %691
 
 691:                                              ; preds = %.thread.i, %688, %has_decode_delay_been_guessed.exit
@@ -6685,7 +6685,7 @@ compute_chapters_end.exit.thread:                 ; preds = %1516, %compute_chap
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.37, i64 noundef %1545, i64 noundef %1547, i32 noundef %1549, i32 noundef %.0552) #16
   br label %1551
 
-1550:                                             ; preds = %398, %608, %424
+1550:                                             ; preds = %424, %608, %398
   %.3.ph828 = phi i32 [ %399, %398 ], [ %609, %608 ], [ %427, %424 ]
   call void @av_packet_unref(ptr noundef %16) #16
   br label %compute_chapters_end.exit.threadthread-pre-split
@@ -6951,7 +6951,7 @@ determinable_frame_size.exit.thread:              ; preds = %16, %13
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %10, %56, %12, %36, %35, %62, %65, %68, %74, %72, %77, %71, %55, %44, %40, %34, %30, %26, %determinable_frame_size.exit, %11
-  %.0 = phi i32 [ 0, %77 ], [ 1, %12 ], [ 0, %determinable_frame_size.exit ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %11 ], [ 0, %44 ], [ 0, %55 ], [ 0, %40 ], [ 0, %71 ], [ 1, %10 ], [ 1, %35 ], [ 1, %62 ], [ 1, %65 ], [ 1, %68 ], [ 1, %74 ], [ 1, %72 ], [ 1, %36 ], [ 1, %56 ], [ 0, %.thread.sink.split ]
+  %.0 = phi i32 [ 0, %77 ], [ 1, %12 ], [ 0, %determinable_frame_size.exit ], [ 0, %34 ], [ 0, %30 ], [ 0, %26 ], [ 0, %11 ], [ 0, %44 ], [ 0, %55 ], [ 0, %40 ], [ 0, %71 ], [ 1, %10 ], [ 1, %56 ], [ 1, %36 ], [ 1, %72 ], [ 1, %74 ], [ 1, %68 ], [ 1, %65 ], [ 1, %62 ], [ 1, %35 ], [ 0, %.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -7353,14 +7353,14 @@ define internal fastcc i32 @try_decode_frame(ptr noundef %0, ptr noundef %1, ptr
 
 102:                                              ; preds = %98
   %103 = icmp eq i32 %96, 3
-  br i1 %103, label %has_decode_delay_been_guessed.exit, label %104
+  br i1 %103, label %104, label %has_decode_delay_been_guessed.exit
 
 104:                                              ; preds = %102
-  %105 = icmp sgt i32 %.pre142, 19
+  %105 = icmp sgt i32 %.pre142, 17
   br i1 %105, label %has_decode_delay_been_guessed.exit.thread, label %.critedge5
 
 has_decode_delay_been_guessed.exit:               ; preds = %102
-  %106 = icmp sgt i32 %.pre142, 17
+  %106 = icmp sgt i32 %.pre142, 19
   br i1 %106, label %has_decode_delay_been_guessed.exit.thread, label %.critedge5
 
 has_decode_delay_been_guessed.exit.thread:        ; preds = %.thread.i, %104, %92, %86, %82, %has_decode_delay_been_guessed.exit
@@ -9028,14 +9028,14 @@ av_ts_make_string.exit307:                        ; preds = %334, %335
   %458 = icmp eq i32 %450, 3
   %459 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %460 = load i32, ptr %459, align 8, !tbaa !222
-  br i1 %458, label %has_decode_delay_been_guessed.exit, label %461
+  br i1 %458, label %461, label %has_decode_delay_been_guessed.exit
 
 461:                                              ; preds = %457
-  %462 = icmp sgt i32 %460, 19
+  %462 = icmp sgt i32 %460, 17
   br i1 %462, label %has_decode_delay_been_guessed.exit.thread, label %516
 
 has_decode_delay_been_guessed.exit:               ; preds = %457
-  %463 = icmp sgt i32 %460, 17
+  %463 = icmp sgt i32 %460, 19
   br i1 %463, label %has_decode_delay_been_guessed.exit.thread, label %516
 
 464:                                              ; preds = %.lr.ph
@@ -9575,14 +9575,14 @@ define internal fastcc void @update_initial_timestamps(ptr noundef readonly capt
   %64 = icmp eq i32 %56, 3
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 392
   %66 = load i32, ptr %65, align 8, !tbaa !222
-  br i1 %64, label %has_decode_delay_been_guessed.exit, label %67
+  br i1 %64, label %67, label %has_decode_delay_been_guessed.exit
 
 67:                                               ; preds = %63
-  %68 = icmp sgt i32 %66, 19
+  %68 = icmp sgt i32 %66, 17
   br i1 %68, label %has_decode_delay_been_guessed.exit.thread, label %114
 
 has_decode_delay_been_guessed.exit:               ; preds = %63
-  %69 = icmp sgt i32 %66, 17
+  %69 = icmp sgt i32 %66, 19
   br i1 %69, label %has_decode_delay_been_guessed.exit.thread, label %114
 
 70:                                               ; preds = %.lr.ph, %get_next_pkt.exit

@@ -4860,7 +4860,7 @@ _ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit69.thread: ; preds = %239, %207
   br label %.critedge4
 
 _ZNK3sls12bv_valuation8in_rangeERKNS_5bvectE.exit69: ; preds = %206, %.sink.split.i67
-  %.0.i68 = phi i1 [ %212, %.sink.split.i67 ], [ true, %206 ]
+  %.0.i68 = phi i1 [ true, %206 ], [ %212, %.sink.split.i67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %214 = load i32, ptr %57, align 8
   %215 = icmp ult i32 %.056122, %214
@@ -6351,23 +6351,23 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i:     ; preds = %115, %_ZN8rationalD
   %126 = load i8, ptr %94, align 4
   %127 = and i8 %126, 1
   %128 = icmp eq i8 %127, 0
-  br i1 %128, label %129, label %133
+  br i1 %128, label %129, label %_ZeqRK8rationalS1_.exit
 
 129:                                              ; preds = %125
   %130 = load i8, ptr %44, align 4
   %131 = and i8 %130, 1
   %132 = icmp eq i8 %131, 0
-  br i1 %132, label %_ZeqRK8rationalS1_.exit, label %133
+  br i1 %132, label %133, label %_ZeqRK8rationalS1_.exit
 
-133:                                              ; preds = %129, %125
-  %134 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %111, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %39)
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %844, label %_ZeqRK8rationalS1_.exit.thread
+133:                                              ; preds = %129
+  %134 = load i32, ptr %89, align 8, !tbaa !55
+  %135 = load i32, ptr %39, align 8, !tbaa !55
+  %136 = icmp eq i32 %134, %135
+  br i1 %136, label %844, label %_ZeqRK8rationalS1_.exit.thread
 
-_ZeqRK8rationalS1_.exit:                          ; preds = %129
-  %136 = load i32, ptr %89, align 8, !tbaa !55
-  %137 = load i32, ptr %39, align 8, !tbaa !55
-  %138 = icmp eq i32 %136, %137
+_ZeqRK8rationalS1_.exit:                          ; preds = %125, %129
+  %137 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %111, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %39)
+  %138 = icmp eq i32 %137, 0
   br i1 %138, label %844, label %_ZeqRK8rationalS1_.exit.thread
 
 _ZeqRK8rationalS1_.exit.thread:                   ; preds = %119, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i, %133, %_ZeqRK8rationalS1_.exit

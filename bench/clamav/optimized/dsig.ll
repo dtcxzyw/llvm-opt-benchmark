@@ -478,10 +478,10 @@ cli_ndecode.exit:                                 ; preds = %20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %30, %27, %cli_ndecode.exit, %cli_ndecode.exit.thread, %._crit_edge, %12, %10, %8, %4, %47, %46, %42
-  %.045 = phi ptr [ null, %cli_ndecode.exit.thread ], [ null, %4 ], [ null, %8 ], [ null, %10 ], [ null, %42 ], [ %45, %47 ], [ null, %46 ], [ null, %._crit_edge ], [ null, %12 ], [ null, %cli_ndecode.exit ], [ null, %27 ], [ null, %30 ], [ null, %34 ]
-  %.044 = phi ptr [ %9, %cli_ndecode.exit.thread ], [ null, %4 ], [ null, %8 ], [ %9, %10 ], [ %9, %42 ], [ %9, %47 ], [ %9, %46 ], [ %9, %._crit_edge ], [ %9, %12 ], [ %9, %cli_ndecode.exit ], [ %9, %27 ], [ %9, %30 ], [ %9, %34 ]
-  %.043 = phi ptr [ %11, %cli_ndecode.exit.thread ], [ null, %4 ], [ null, %8 ], [ null, %10 ], [ %11, %42 ], [ %11, %47 ], [ %11, %46 ], [ %11, %._crit_edge ], [ %11, %12 ], [ %11, %cli_ndecode.exit ], [ %11, %27 ], [ %11, %30 ], [ %11, %34 ]
-  %.042 = phi ptr [ %13, %cli_ndecode.exit.thread ], [ null, %4 ], [ null, %8 ], [ null, %10 ], [ %13, %42 ], [ %13, %47 ], [ %13, %46 ], [ %13, %._crit_edge ], [ null, %12 ], [ %13, %cli_ndecode.exit ], [ %13, %27 ], [ %13, %30 ], [ %13, %34 ]
+  %.045 = phi ptr [ null, %10 ], [ null, %8 ], [ null, %4 ], [ null, %cli_ndecode.exit.thread ], [ null, %42 ], [ %45, %47 ], [ null, %46 ], [ null, %._crit_edge ], [ null, %12 ], [ null, %cli_ndecode.exit ], [ null, %27 ], [ null, %30 ], [ null, %34 ]
+  %.044 = phi ptr [ %9, %10 ], [ null, %8 ], [ null, %4 ], [ %9, %cli_ndecode.exit.thread ], [ %9, %42 ], [ %9, %47 ], [ %9, %46 ], [ %9, %._crit_edge ], [ %9, %12 ], [ %9, %cli_ndecode.exit ], [ %9, %27 ], [ %9, %30 ], [ %9, %34 ]
+  %.043 = phi ptr [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %11, %cli_ndecode.exit.thread ], [ %11, %42 ], [ %11, %47 ], [ %11, %46 ], [ %11, %._crit_edge ], [ %11, %12 ], [ %11, %cli_ndecode.exit ], [ %11, %27 ], [ %11, %30 ], [ %11, %34 ]
+  %.042 = phi ptr [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %13, %cli_ndecode.exit.thread ], [ %13, %42 ], [ %13, %47 ], [ %13, %46 ], [ %13, %._crit_edge ], [ null, %12 ], [ %13, %cli_ndecode.exit ], [ %13, %27 ], [ %13, %30 ], [ %13, %34 ]
   tail call void @BN_free(ptr noundef %7) #15
   tail call void @BN_free(ptr noundef %.044) #15
   tail call void @BN_free(ptr noundef %.043) #15

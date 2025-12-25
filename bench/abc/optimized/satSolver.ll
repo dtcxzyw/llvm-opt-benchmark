@@ -4760,7 +4760,7 @@ veci_push.exit:                                   ; preds = %.lr.ph90, %49
   br label %sat_solver_enqueue.exit
 
 sat_solver_enqueue.exit:                          ; preds = %79, %83, %76, %123, %118, %._crit_edge109, %139
-  %.0 = phi i32 [ 1, %139 ], [ 1, %123 ], [ 0, %._crit_edge109 ], [ %122, %118 ], [ 0, %76 ], [ 1, %83 ], [ 1, %79 ]
+  %.0 = phi i32 [ 1, %139 ], [ %122, %118 ], [ 0, %._crit_edge109 ], [ 1, %123 ], [ 0, %76 ], [ 1, %83 ], [ 1, %79 ]
   ret i32 %.0
 }
 

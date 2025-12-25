@@ -783,7 +783,7 @@ define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflo
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %97
 
-.thread4:                                         ; preds = %29, %37, %21, %45, %13
+.thread4:                                         ; preds = %29, %21, %37, %13, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %thread-pre-split
 
@@ -877,7 +877,7 @@ _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
 
-_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread6: ; preds = %74, %82, %66, %90, %58, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit
+_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread6: ; preds = %74, %66, %82, %58, %90, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.0.0.copyload.i.i37.pre = load i64, ptr %0, align 8, !tbaa !32
   br label %97

@@ -3540,7 +3540,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt11char_traitsI
   br i1 %.not25.i.i, label %.loopexit225, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !138
 
 .loopexit225:                                     ; preds = %49, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %39, %45
-  %.020.i.i = phi i64 [ -1, %39 ], [ %48, %45 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ -1, %49 ]
+  %.020.i.i = phi i64 [ %48, %45 ], [ -1, %39 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ -1, %49 ]
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.sroa.0178.0, i64 %.020.i.i)
   %53 = load i64, ptr %21, align 8, !tbaa !49
   %54 = sub i64 4611686018427387903, %53

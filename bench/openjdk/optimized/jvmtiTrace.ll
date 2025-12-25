@@ -339,9 +339,9 @@ sub_0178:                                         ; preds = %74
   %.not171 = icmp eq ptr %101, null
   br i1 %.not171, label %.thread153, label %.thread153.sink.split
 
-102:                                              ; preds = %.tail, %81
-  %.not131.ph.ph = phi i1 [ true, %81 ], [ false, %.tail ]
-  %.0111.ph.ph = phi i32 [ 5, %81 ], [ 29, %.tail ]
+102:                                              ; preds = %81, %.tail
+  %.not131.ph.ph = phi i1 [ false, %.tail ], [ true, %81 ]
+  %.0111.ph.ph = phi i32 [ 29, %.tail ], [ 5, %81 ]
   %103 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not170 = icmp eq ptr %103, null
   br i1 %.not170, label %.thread153, label %.thread153.sink.split
@@ -354,9 +354,9 @@ sub_0178:                                         ; preds = %74
   br label %.thread153
 
 .thread153:                                       ; preds = %.thread153.sink.split, %sub_0178, %sub_1, %sub_0, %90, %87, %84, %81, %.tail, %74, %.tail177, %100, %102
-  %.not127159 = phi i1 [ true, %sub_0178 ], [ false, %100 ], [ true, %sub_0 ], [ false, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_1 ], [ false, %.thread153.sink.split ]
-  %.0111.ph158 = phi i32 [ 9, %sub_0178 ], [ %.0111.ph, %100 ], [ 9, %sub_0 ], [ %.0111.ph.ph, %102 ], [ 9, %.tail177 ], [ 9, %74 ], [ 9, %.tail ], [ 9, %81 ], [ 9, %84 ], [ 9, %87 ], [ 9, %90 ], [ 9, %sub_1 ], [ %.0111.ph158.ph, %.thread153.sink.split ]
-  %.not131.ph157 = phi i1 [ true, %sub_0178 ], [ %73, %100 ], [ true, %sub_0 ], [ %.not131.ph.ph, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_1 ], [ %.not131.ph157.ph, %.thread153.sink.split ]
+  %.not127159 = phi i1 [ true, %sub_0 ], [ false, %100 ], [ true, %sub_0178 ], [ false, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_1 ], [ false, %.thread153.sink.split ]
+  %.0111.ph158 = phi i32 [ 9, %sub_0 ], [ %.0111.ph, %100 ], [ 9, %sub_0178 ], [ %.0111.ph.ph, %102 ], [ 9, %.tail177 ], [ 9, %74 ], [ 9, %.tail ], [ 9, %81 ], [ 9, %84 ], [ 9, %87 ], [ 9, %90 ], [ 9, %sub_1 ], [ %.0111.ph158.ph, %.thread153.sink.split ]
+  %.not131.ph157 = phi i1 [ true, %sub_0 ], [ %73, %100 ], [ true, %sub_0178 ], [ %.not131.ph.ph, %102 ], [ true, %.tail177 ], [ true, %74 ], [ true, %.tail ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %sub_1 ], [ %.not131.ph157.ph, %.thread153.sink.split ]
   %104 = load i32, ptr @_ZN10JvmtiTrace19_max_function_indexE, align 4
   %.not129184 = icmp slt i32 %104, 0
   br i1 %.not129184, label %.loopexit181, label %.lr.ph188

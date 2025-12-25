@@ -5602,7 +5602,7 @@ _ZNSt10shared_ptrIN4Luau5ScopeEEaSERKS2_.exit:    ; preds = %104, %_ZNSt16_Sp_co
   br label %.loopexit19
 
 .loopexit19:                                      ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEaSERKS2_.exit, %.loopexit19.sink.split, %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit
-  %.not37 = phi i1 [ false, %.loopexit19.sink.split ], [ true, %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit ], [ true, %_ZNSt10shared_ptrIN4Luau5ScopeEEaSERKS2_.exit ]
+  %.not37 = phi i1 [ true, %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit ], [ false, %.loopexit19.sink.split ], [ true, %_ZNSt10shared_ptrIN4Luau5ScopeEEaSERKS2_.exit ]
   %143 = load ptr, ptr %5, align 8, !tbaa !152
   %.not.i.i27 = icmp eq ptr %143, null
   br i1 %.not.i.i27, label %_ZNSt12__shared_ptrIN4Luau5ScopeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %144

@@ -1886,7 +1886,7 @@ _ZN19brotli_decompressor6decode21ReadSymbolCodeLengths17h58da453b234a682dE.exit:
   br i1 %198, label %.backedge, label %.preheader.preheader
 
 _ZN19brotli_decompressor6decode24ReadSimpleHuffmanSymbols17hf498ef4790cd83d2E.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h394887f75911fd07E.exit.thread.i", %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h638c64b59820edb4E.exit34.i", %257, %278, %112, %.loopexit46.i, %.loopexit, %295, %217, %203, %199
-  %.0 = phi i32 [ -5, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h638c64b59820edb4E.exit34.i" ], [ 2, %199 ], [ -7, %.loopexit ], [ 1, %217 ], [ 2, %203 ], [ 2, %112 ], [ 1, %295 ], [ 2, %257 ], [ %.2.i, %.loopexit46.i ], [ 2, %278 ], [ 2, %41 ], [ -6, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h394887f75911fd07E.exit.thread.i" ]
+  %.0 = phi i32 [ -5, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h638c64b59820edb4E.exit34.i" ], [ 2, %199 ], [ -7, %.loopexit ], [ 1, %217 ], [ 2, %203 ], [ 2, %112 ], [ 1, %295 ], [ 2, %257 ], [ %.2.i, %.loopexit46.i ], [ 2, %278 ], [ -6, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h394887f75911fd07E.exit.thread.i" ], [ 2, %41 ]
   ret i32 %.0
 
 .backedge:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h638c64b59820edb4E.exit34.thread.i", %196, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h44812662e448890dE.exit.i", %.preheader.preheader, %200, %218
@@ -2753,8 +2753,8 @@ default.unreachable:                              ; preds = %.backedge63.i
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %205, %200, %193, %97, %80
-  %.sroa.12.0.ph.ph = phi i64 [ %90, %97 ], [ %.sroa.12.5, %200 ], [ %.sroa.12.5, %205 ], [ %.sroa.12.2.ph, %.invoke ], [ %.sroa.12.2.ph, %80 ], [ %.sroa.12.2.ph, %193 ]
-  %.sroa.0.035.ph.ph = phi ptr [ %88, %97 ], [ %.sroa.0.5, %200 ], [ %.sroa.0.5, %205 ], [ %.ph277, %.invoke ], [ %.ph277, %80 ], [ %.ph277, %193 ]
+  %.sroa.12.0.ph.ph = phi i64 [ %90, %97 ], [ %.sroa.12.5, %205 ], [ %.sroa.12.5, %200 ], [ %.sroa.12.2.ph, %.invoke ], [ %.sroa.12.2.ph, %193 ], [ %.sroa.12.2.ph, %80 ]
+  %.sroa.0.035.ph.ph = phi ptr [ %88, %97 ], [ %.sroa.0.5, %205 ], [ %.sroa.0.5, %200 ], [ %.ph277, %.invoke ], [ %.ph277, %193 ], [ %.ph277, %80 ]
   %lpad.loopexit.split-lp37 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5288,7 +5288,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.068.2, i64 noundef %197, i64 noundef 4) #26, !noalias !600
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17he88703aeaff139efE.exit52"
 
-.thread124:                                       ; preds = %46, %63, %18
+.thread124:                                       ; preds = %63, %46, %18
   %.sroa.15.0.ph91.ph = phi i64 [ %73, %63 ], [ %28, %18 ], [ %56, %46 ]
   %.sroa.0.0.ph92.ph = phi ptr [ %71, %63 ], [ %26, %18 ], [ %54, %46 ]
   %lpad.thr_comm122 = landingpad { ptr, i32 }
@@ -6851,9 +6851,9 @@ _ZN19brotli_decompressor6decode12DecodeSymbol17h3607ad250f015206E.exit: ; preds 
   br label %.loopexit505
 
 .loopexit505:                                     ; preds = %.preheader, %658, %704, %693
-  %.8454.ph = phi i32 [ %705, %704 ], [ %.7453, %693 ], [ %.7453, %658 ], [ %.7453, %.preheader ]
-  %.8.ph = phi i32 [ %689, %704 ], [ %.7, %693 ], [ %.7, %658 ], [ %.7, %.preheader ]
-  %.6.ph = phi i32 [ 1, %704 ], [ 2, %693 ], [ 2, %658 ], [ 2, %.preheader ]
+  %.8454.ph = phi i32 [ %.7453, %693 ], [ %705, %704 ], [ %.7453, %658 ], [ %.7453, %.preheader ]
+  %.8.ph = phi i32 [ %.7, %693 ], [ %689, %704 ], [ %.7, %658 ], [ %.7, %.preheader ]
+  %.6.ph = phi i32 [ 2, %693 ], [ 1, %704 ], [ 2, %658 ], [ 2, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZN19brotli_decompressor6decode32DecodeCommandBlockSwitchInternal17h698f8d5fc77dadc1E.exit

@@ -2131,7 +2131,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
-_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit.thread50: ; preds = %62, %.loopexit.i, %97
+_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit.thread50: ; preds = %97, %.loopexit.i, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i16, ptr %2, align 4
   br label %102

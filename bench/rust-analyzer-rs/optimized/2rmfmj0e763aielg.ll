@@ -120,7 +120,7 @@ _ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i: ; preds = 
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h72924e744e926338E.exit
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h72924e744e926338E.exit: ; preds = %35, %11, %60, %58
-  %.0 = phi i64 [ %59, %58 ], [ %61, %60 ], [ %.0.i, %11 ], [ %.0.i, %35 ]
+  %.0 = phi i64 [ %61, %60 ], [ %59, %58 ], [ %.0.i, %11 ], [ %.0.i, %35 ]
   ret i64 %.0
 }
 
@@ -775,7 +775,7 @@ define void @_ZN10line_index9LineIndex7to_wide17h5b212e3666f7baa6E(ptr noalias n
   br i1 %.not.us, label %.loopexit, label %.split.us
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h68d94d75ae3d4765E.exit.thread": ; preds = %18, %53, %.split, %42, %.split.us, %5
-  %.0 = phi i32 [ %4, %5 ], [ %.1, %53 ], [ %.1.us, %42 ], [ %.1.us, %.split.us ], [ %.1, %.split ], [ %4, %18 ]
+  %.0 = phi i32 [ %4, %5 ], [ %.1.us, %42 ], [ %.1, %53 ], [ %.1.us, %.split.us ], [ %.1, %.split ], [ %4, %18 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -898,7 +898,7 @@ define void @_ZN10line_index9LineIndex7to_utf817he2b6c042a708d224E(ptr noalias n
   br i1 %52, label %.loopexit, label %.split.us
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h68d94d75ae3d4765E.exit.thread": ; preds = %18, %56, %.split, %42, %.split.us, %5
-  %.0 = phi i32 [ %4, %5 ], [ %.1, %56 ], [ %.1.us, %42 ], [ %.1.us, %.split.us ], [ %.1, %.split ], [ %4, %18 ]
+  %.0 = phi i32 [ %4, %5 ], [ %.1.us, %42 ], [ %.1, %56 ], [ %.1.us, %.split.us ], [ %.1, %.split ], [ %4, %18 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8

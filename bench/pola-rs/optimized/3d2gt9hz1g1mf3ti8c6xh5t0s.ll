@@ -41063,9 +41063,9 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br label %110
 
 110:                                              ; preds = %.thread20.i, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i"
-  %.sroa.15.0.copyload.i = phi i64 [ %15, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ], [ %.sroa.15.0.copyload.i8, %.thread20.i ]
-  %.sroa.8.0.copyload.i = phi i64 [ %.sroa.8.0.copyload.i6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ], [ %.sroa.8.0.copyload.i5, %.thread20.i ]
-  %.sroa.3.0.i = phi i64 [ 0, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ], [ %109, %.thread20.i ]
+  %.sroa.15.0.copyload.i = phi i64 [ %.sroa.15.0.copyload.i8, %.thread20.i ], [ %15, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ]
+  %.sroa.8.0.copyload.i = phi i64 [ %.sroa.8.0.copyload.i5, %.thread20.i ], [ %.sroa.8.0.copyload.i6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ]
+  %.sroa.3.0.i = phi i64 [ %109, %.thread20.i ], [ 0, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0519445a1df3a94E.exit.thread12.i" ]
   %..i.i.i = select i1 %.not.i.i, i64 16, i64 8
   %.7.i.i.i = select i1 %.not.i.i, i64 24, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 %..i.i.i

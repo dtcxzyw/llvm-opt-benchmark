@@ -2531,8 +2531,8 @@ pymain_run_startup.exit.thread:                   ; preds = %stdin_is_interactiv
   br label %48
 
 pymain_run_startup.exit:                          ; preds = %pymain_err_print.exit.i, %43, %45, %Py_XDECREF.exit.sink.split.i
-  %.0.ph28 = phi i32 [ %.0.ph27, %Py_XDECREF.exit.sink.split.i ], [ %.0.ph29, %43 ], [ %.0.ph29, %45 ], [ %.0.ph29, %pymain_err_print.exit.i ]
-  %.0.i = phi i32 [ %.0.ph.i, %Py_XDECREF.exit.sink.split.i ], [ %.0.i.i, %43 ], [ %.0.i.i, %45 ], [ %.0.i.i, %pymain_err_print.exit.i ]
+  %.0.ph28 = phi i32 [ %.0.ph27, %Py_XDECREF.exit.sink.split.i ], [ %.0.ph29, %pymain_err_print.exit.i ], [ %.0.ph29, %45 ], [ %.0.ph29, %43 ]
+  %.0.i = phi i32 [ %.0.ph.i, %Py_XDECREF.exit.sink.split.i ], [ %.0.i.i, %pymain_err_print.exit.i ], [ %.0.i.i, %45 ], [ %.0.i.i, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not8 = icmp eq i32 %.0.i, 0
   br i1 %.not8, label %48, label %.thread

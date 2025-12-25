@@ -5112,7 +5112,7 @@ _ZN4llvm8CallBase18bundle_op_info_endEv.exit61:   ; preds = %_ZN4llvm8CallBase20
   br i1 %.not, label %.thread70, label %.lr.ph
 
 .thread70:                                        ; preds = %72, %68, %32, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61
-  %.3 = phi ptr [ %.046, %32 ], [ %39, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61 ], [ %spec.select, %68 ], [ %spec.select, %72 ]
+  %.3 = phi ptr [ %39, %_ZN4llvm8CallBase18bundle_op_info_endEv.exit61 ], [ %.046, %32 ], [ %spec.select, %68 ], [ %spec.select, %72 ]
   ret ptr %.3
 }
 
@@ -13845,7 +13845,7 @@ _ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i93: ; preds = %181
   br label %.critedge66
 
 .critedge66:                                      ; preds = %172, %.lr.ph.i97, %.critedge66.sink.split, %163, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i93, %.critedge
-  %.3 = phi i1 [ false, %.lr.ph.i97 ], [ true, %.critedge66.sink.split ], [ false, %.critedge ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i93 ], [ false, %163 ], [ false, %172 ]
+  %.3 = phi i1 [ true, %.critedge66.sink.split ], [ false, %.lr.ph.i97 ], [ false, %.critedge ], [ false, %_ZL22isSingleSourceMaskImplN4llvm8ArrayRefIiEEi.exit.i93 ], [ false, %163 ], [ false, %172 ]
   %195 = icmp ugt i32 %56, 64
   br i1 %195, label %196, label %_ZN4llvm5APIntD2Ev.exit
 
@@ -15259,7 +15259,7 @@ select.unfold.us:                                 ; preds = %69, %65
   br i1 %exitcond139.not, label %.critedge, label %.preheader, !llvm.loop !326
 
 .critedge:                                        ; preds = %49, %45, %69, %51, %80, %.preheader, %9, %5
-  %.063 = phi i1 [ false, %5 ], [ false, %69 ], [ false, %9 ], [ %.not152.not, %80 ], [ %.not152.not, %.preheader ], [ false, %51 ], [ %or.cond94.us.not, %45 ], [ %or.cond94.us.not, %49 ]
+  %.063 = phi i1 [ false, %5 ], [ %.not152.not, %80 ], [ false, %9 ], [ false, %69 ], [ %.not152.not, %.preheader ], [ false, %51 ], [ %or.cond94.us.not, %45 ], [ %or.cond94.us.not, %49 ]
   ret i1 %.063
 }
 
@@ -20249,7 +20249,7 @@ _ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit: ; 
   br label %_ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread
 
 _ZN4llvm12CmpPredicate11getMatchingES0_S0_.exit.thread: ; preds = %48, %45, %43, %41, %39, %2, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
-  %.0 = phi i1 [ %spec.select47, %43 ], [ %spec.select48, %45 ], [ false, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ true, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i ], [ %switch.selectcmp, %39 ], [ %spec.select, %41 ], [ %spec.select49, %48 ], [ true, %2 ], [ true, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i ]
+  %.0 = phi i1 [ %spec.select47, %43 ], [ %spec.select48, %45 ], [ false, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit ], [ true, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i ], [ %switch.selectcmp, %39 ], [ %spec.select, %41 ], [ true, %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i ], [ true, %2 ], [ %spec.select49, %48 ]
   ret i1 %.0
 }
 

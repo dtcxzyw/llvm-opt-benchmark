@@ -2848,7 +2848,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail16enum_from_pythonEPKSt9type_infoP
   br label %.thread88
 
 .thread88:                                        ; preds = %.invoke, %.thread88.sink.split, %.loopexit, %.loopexit99, %76, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %.loopexit99 ], [ false, %.loopexit ], [ false, %76 ], [ false, %.invoke ], [ true, %.thread88.sink.split ]
+  %.0 = phi i1 [ false, %7 ], [ false, %.loopexit99 ], [ false, %.loopexit ], [ false, %.invoke ], [ false, %76 ], [ true, %.thread88.sink.split ]
   ret i1 %.0
 
 155:                                              ; preds = %.invoke, %122, %118, %85, %81, %36, %32, %29, %25, %18, %4

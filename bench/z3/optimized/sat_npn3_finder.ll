@@ -5191,7 +5191,7 @@ _ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split: ; preds = %73, 
   br label %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49
 
 _ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49: ; preds = %.critedge19.i44, %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i40, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i39
-  %.0 = phi i1 [ true, %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i40 ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i39 ], [ false, %.critedge19.i44 ]
+  %.0 = phi i1 [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i40 ], [ true, %_ZNK3sat11npn3_finder7impliesENS_7literalES1_.exit49.sink.split ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i39 ], [ false, %.critedge19.i44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }

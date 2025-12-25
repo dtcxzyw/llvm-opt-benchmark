@@ -1770,7 +1770,7 @@ define internal noundef zeroext i1 @sqlite_handle_preparer(ptr noundef %0, ptr n
   br label %pdo_attr_lval.exit
 
 pdo_attr_lval.exit:                               ; preds = %20, %22
-  %.0.i = phi i64 [ %23, %22 ], [ %21, %20 ]
+  %.0.i = phi i64 [ %21, %20 ], [ %23, %22 ]
   %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %pdo_attr_lval.exit.thread, label %24
 

@@ -3748,7 +3748,7 @@ raxIteratorAddChars.exit40:                       ; preds = %38, %.thread.i38
   br label %.thread
 
 .thread:                                          ; preds = %105, %.thread.sink.split, %1
-  %.1 = phi i32 [ 0, %.thread.sink.split ], [ 1, %1 ], [ 1, %105 ]
+  %.1 = phi i32 [ 1, %1 ], [ 0, %.thread.sink.split ], [ 1, %105 ]
   ret i32 %.1
 }
 

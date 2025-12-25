@@ -492,8 +492,8 @@ pmix_obj_run_destructors.exit200:                 ; preds = %.lr.ph.i197, %202
   br label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %.lr.ph306, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge308, %135, %pmix_obj_update.exit, %171, %169
-  %.4147 = phi i32 [ %146, %pmix_obj_update.exit ], [ %146, %171 ], [ %146, %169 ], [ %.1144243, %135 ], [ %.1144243, %.lr.ph.preheader ], [ %146, %..critedge.loopexit_crit_edge308 ], [ %146, %.lr.ph ], [ %.3146227305, %.lr.ph306 ]
-  %.6 = phi i32 [ -46, %pmix_obj_update.exit ], [ -46, %171 ], [ -46, %169 ], [ %.2, %135 ], [ %.2, %.lr.ph.preheader ], [ 0, %..critedge.loopexit_crit_edge308 ], [ 0, %.lr.ph ], [ -43, %.lr.ph306 ]
+  %.4147 = phi i32 [ %146, %169 ], [ %146, %171 ], [ %146, %pmix_obj_update.exit ], [ %.1144243, %135 ], [ %.1144243, %.lr.ph.preheader ], [ %146, %..critedge.loopexit_crit_edge308 ], [ %146, %.lr.ph ], [ %.3146227305, %.lr.ph306 ]
+  %.6 = phi i32 [ -46, %169 ], [ -46, %171 ], [ -46, %pmix_obj_update.exit ], [ %.2, %135 ], [ %.2, %.lr.ph.preheader ], [ 0, %..critedge.loopexit_crit_edge308 ], [ 0, %.lr.ph ], [ -43, %.lr.ph306 ]
   %220 = load i32, ptr %21, align 8, !tbaa !26
   %221 = icmp eq i32 %.4147, %220
   br i1 %221, label %.loopexit, label %222
@@ -1014,8 +1014,8 @@ pmix_obj_run_destructors.exit158:                 ; preds = %.lr.ph.i155, %177
   br label %.critedge, !llvm.loop !73
 
 .critedge:                                        ; preds = %.lr.ph245, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge247, %110, %pmix_obj_update.exit146, %146, %144
-  %.4123 = phi i32 [ %121, %pmix_obj_update.exit146 ], [ %121, %146 ], [ %121, %144 ], [ %.1120193, %110 ], [ %.1120193, %.lr.ph.preheader ], [ %121, %..critedge.loopexit_crit_edge247 ], [ %121, %.lr.ph ], [ %.3122180244, %.lr.ph245 ]
-  %.4 = phi i32 [ -46, %pmix_obj_update.exit146 ], [ -46, %146 ], [ -46, %144 ], [ %.1195, %110 ], [ %.1195, %.lr.ph.preheader ], [ 0, %..critedge.loopexit_crit_edge247 ], [ 0, %.lr.ph ], [ -43, %.lr.ph245 ]
+  %.4123 = phi i32 [ %121, %144 ], [ %121, %146 ], [ %121, %pmix_obj_update.exit146 ], [ %.1120193, %110 ], [ %.1120193, %.lr.ph.preheader ], [ %121, %..critedge.loopexit_crit_edge247 ], [ %121, %.lr.ph ], [ %.3122180244, %.lr.ph245 ]
+  %.4 = phi i32 [ -46, %144 ], [ -46, %146 ], [ -46, %pmix_obj_update.exit146 ], [ %.1195, %110 ], [ %.1195, %.lr.ph.preheader ], [ 0, %..critedge.loopexit_crit_edge247 ], [ 0, %.lr.ph ], [ -43, %.lr.ph245 ]
   %195 = load i32, ptr %23, align 8, !tbaa !26
   %196 = icmp eq i32 %.4123, %195
   br i1 %196, label %.loopexit, label %197
@@ -1555,8 +1555,8 @@ pmix_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %213
   br label %.critedge, !llvm.loop !78
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %146, %pmix_obj_update.exit216, %182, %180
-  %.4164 = phi i32 [ %157, %pmix_obj_update.exit216 ], [ %157, %182 ], [ %157, %180 ], [ %.1161279, %146 ], [ %157, %..critedge.loopexit_crit_edge ], [ %.1161279, %.lr.ph.preheader ], [ %157, %.lr.ph ]
-  %.4 = phi i32 [ -46, %pmix_obj_update.exit216 ], [ -46, %182 ], [ -46, %180 ], [ %.1280, %146 ], [ 0, %..critedge.loopexit_crit_edge ], [ %.1280, %.lr.ph.preheader ], [ 0, %.lr.ph ]
+  %.4164 = phi i32 [ %157, %182 ], [ %157, %pmix_obj_update.exit216 ], [ %157, %180 ], [ %.1161279, %146 ], [ %157, %..critedge.loopexit_crit_edge ], [ %.1161279, %.lr.ph.preheader ], [ %157, %.lr.ph ]
+  %.4 = phi i32 [ -46, %182 ], [ -46, %pmix_obj_update.exit216 ], [ -46, %180 ], [ %.1280, %146 ], [ 0, %..critedge.loopexit_crit_edge ], [ %.1280, %.lr.ph.preheader ], [ 0, %.lr.ph ]
   %231 = load i32, ptr %23, align 8, !tbaa !26
   %232 = icmp eq i32 %.4164, %231
   %233 = load ptr, ptr %71, align 8, !tbaa !69
@@ -2282,10 +2282,10 @@ pmix_obj_run_destructors.exit239:                 ; preds = %.lr.ph.i236, %255
   br i1 %277, label %.critedge.thread, label %.backedge
 
 .critedge.thread:                                 ; preds = %275, %.critedge, %pmix_obj_update.exit213, %220, %218
-  %.3180276 = phi i8 [ %.3180320, %pmix_obj_update.exit213 ], [ %.3180320, %220 ], [ %.3180320, %218 ], [ 0, %275 ], [ %.3180.lcssa, %.critedge ]
-  %.5175271 = phi i8 [ %.5175321, %pmix_obj_update.exit213 ], [ %.5175321, %220 ], [ %.5175321, %218 ], [ 0, %275 ], [ %.5175.lcssa, %.critedge ]
-  %.7249 = phi i32 [ -46, %pmix_obj_update.exit213 ], [ -46, %220 ], [ -46, %218 ], [ %.6.lcssa, %.critedge ], [ %.6.lcssa, %275 ]
-  %.5162248 = phi i32 [ %164, %pmix_obj_update.exit213 ], [ %164, %220 ], [ %164, %218 ], [ %.4161.lcssa, %.critedge ], [ %.4161.lcssa, %275 ]
+  %.3180276 = phi i8 [ %.3180320, %220 ], [ %.3180320, %pmix_obj_update.exit213 ], [ %.3180320, %218 ], [ 0, %275 ], [ %.3180.lcssa, %.critedge ]
+  %.5175271 = phi i8 [ %.5175321, %220 ], [ %.5175321, %pmix_obj_update.exit213 ], [ %.5175321, %218 ], [ 0, %275 ], [ %.5175.lcssa, %.critedge ]
+  %.7249 = phi i32 [ -46, %220 ], [ -46, %pmix_obj_update.exit213 ], [ -46, %218 ], [ %.6.lcssa, %.critedge ], [ %.6.lcssa, %275 ]
+  %.5162248 = phi i32 [ %164, %220 ], [ %164, %pmix_obj_update.exit213 ], [ %164, %218 ], [ %.4161.lcssa, %.critedge ], [ %.4161.lcssa, %275 ]
   %278 = load ptr, ptr %66, align 8, !tbaa !69
   %.not210 = icmp eq ptr %278, null
   br i1 %.not210, label %280, label %279
@@ -2327,8 +2327,8 @@ pmix_obj_run_destructors.exit239:                 ; preds = %.lr.ph.i236, %255
   br i1 %283, label %310, label %.loopexit
 
 .loopexit:                                        ; preds = %159, %pmix_obj_update.exit212, %244, %242, %.split338
-  %.2172 = phi i8 [ %.us-phi339, %.split338 ], [ %.5175321, %242 ], [ %.5175321, %pmix_obj_update.exit212 ], [ %.5175321, %244 ], [ %.5175321, %159 ]
-  %.3 = phi i32 [ %.us-phi341, %.split338 ], [ %165, %242 ], [ %165, %pmix_obj_update.exit212 ], [ %165, %244 ], [ -2, %159 ]
+  %.2172 = phi i8 [ %.us-phi339, %.split338 ], [ %.5175321, %242 ], [ %.5175321, %244 ], [ %.5175321, %pmix_obj_update.exit212 ], [ %.5175321, %159 ]
+  %.3 = phi i32 [ %.us-phi341, %.split338 ], [ %165, %242 ], [ %165, %244 ], [ %165, %pmix_obj_update.exit212 ], [ -2, %159 ]
   %284 = trunc i8 %.2172 to i1
   br i1 %284, label %285, label %295
 

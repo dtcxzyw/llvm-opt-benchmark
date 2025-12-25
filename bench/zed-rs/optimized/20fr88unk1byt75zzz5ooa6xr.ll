@@ -1052,7 +1052,7 @@ _ZN5serde2de10EnumAccess7variant17hcd8c949cc8272cceE.exit.i: ; preds = %44
           cleanup
   br label %.body.thread
 
-.body.thread81:                                   ; preds = %185, %143, %.body.i, %194, %.body.thread, %.body.thread
+.body.thread81:                                   ; preds = %.body.i, %185, %143, %194, %.body.thread, %.body.thread
   %.pn1277 = phi { ptr, i32 } [ %.pn1278, %194 ], [ %.pn1278, %.body.thread ], [ %.pn1278, %.body.thread ], [ %144, %143 ], [ %177, %.body.i ], [ %177, %185 ]
   resume { ptr, i32 } %.pn1277
 
@@ -1620,7 +1620,7 @@ _ZN5serde2de10EnumAccess7variant17h7dc4b3e70d1072ccE.exit.i: ; preds = %44
           cleanup
   br label %.body.thread
 
-.body.thread81:                                   ; preds = %185, %143, %.body.i, %194, %.body.thread, %.body.thread
+.body.thread81:                                   ; preds = %.body.i, %185, %143, %194, %.body.thread, %.body.thread
   %.pn1277 = phi { ptr, i32 } [ %.pn1278, %194 ], [ %.pn1278, %.body.thread ], [ %.pn1278, %.body.thread ], [ %144, %143 ], [ %177, %.body.i ], [ %177, %185 ]
   resume { ptr, i32 } %.pn1277
 
@@ -2188,7 +2188,7 @@ _ZN5serde2de10EnumAccess7variant17h42d7b4521ddab279E.exit.i: ; preds = %44
           cleanup
   br label %.body.thread
 
-.body.thread81:                                   ; preds = %185, %143, %.body.i, %194, %.body.thread, %.body.thread
+.body.thread81:                                   ; preds = %.body.i, %185, %143, %194, %.body.thread, %.body.thread
   %.pn1277 = phi { ptr, i32 } [ %.pn1278, %194 ], [ %.pn1278, %.body.thread ], [ %.pn1278, %.body.thread ], [ %144, %143 ], [ %177, %.body.i ], [ %177, %185 ]
   resume { ptr, i32 } %.pn1277
 
@@ -3240,7 +3240,7 @@ _ZN5serde2de10EnumAccess7variant17hc18cbbf1f2482e3eE.exit.i: ; preds = %44
           cleanup
   br label %.body.thread
 
-.body.thread81:                                   ; preds = %185, %143, %.body.i, %194, %.body.thread, %.body.thread
+.body.thread81:                                   ; preds = %.body.i, %185, %143, %194, %.body.thread, %.body.thread
   %.pn1277 = phi { ptr, i32 } [ %.pn1278, %194 ], [ %.pn1278, %.body.thread ], [ %.pn1278, %.body.thread ], [ %144, %143 ], [ %177, %.body.i ], [ %177, %185 ]
   resume { ptr, i32 } %.pn1277
 
@@ -3837,7 +3837,7 @@ default.unreachable:                              ; preds = %61
           cleanup
   br label %.body.thread
 
-.body.thread84:                                   ; preds = %191, %149, %.body.i, %200, %.body.thread, %.body.thread
+.body.thread84:                                   ; preds = %.body.i, %191, %149, %200, %.body.thread, %.body.thread
   %.pn1280 = phi { ptr, i32 } [ %.pn1281, %200 ], [ %.pn1281, %.body.thread ], [ %.pn1281, %.body.thread ], [ %150, %149 ], [ %183, %.body.i ], [ %183, %191 ]
   resume { ptr, i32 } %.pn1280
 
@@ -39973,7 +39973,7 @@ define noundef zeroext i1 @"_ZN57_$LT$workspace..Toast$u20$as$u20$core..cmp..Par
   %.mux.i = and i1 %14, %16
   br i1 %.mux.i, label %89, label %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread"
 
-89:                                               ; preds = %77, %83, %71, %50, %31, %40, %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit"
+89:                                               ; preds = %77, %50, %71, %40, %31, %83, %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9057)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9060)
   %.sroa.5.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -40002,8 +40002,8 @@ define noundef zeroext i1 @"_ZN57_$LT$workspace..Toast$u20$as$u20$core..cmp..Par
   %98 = xor i1 %94, %97
   br label %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread"
 
-"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread": ; preds = %89, %38, %57, %24, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i.i", %17, %2, %8, %64, %77, %83, %71, %50, %31, %40, %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit", %"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..cmp..PartialEq$LT$alloc..borrow..Cow$LT$C$GT$$GT$$GT$2eq17h7f75711bcf701629E.exit", %91
-  %.sroa.0.0 = phi i1 [ %98, %91 ], [ false, %"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..cmp..PartialEq$LT$alloc..borrow..Cow$LT$C$GT$$GT$$GT$2eq17h7f75711bcf701629E.exit" ], [ false, %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit" ], [ false, %38 ], [ false, %40 ], [ false, %31 ], [ false, %50 ], [ false, %71 ], [ false, %83 ], [ false, %77 ], [ false, %64 ], [ false, %8 ], [ false, %2 ], [ false, %17 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i.i" ], [ false, %24 ], [ false, %57 ], [ false, %89 ]
+"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread": ; preds = %89, %38, %57, %24, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i.i", %17, %2, %8, %64, %77, %50, %71, %40, %31, %83, %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit", %"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..cmp..PartialEq$LT$alloc..borrow..Cow$LT$C$GT$$GT$$GT$2eq17h7f75711bcf701629E.exit", %91
+  %.sroa.0.0 = phi i1 [ %98, %91 ], [ false, %"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..cmp..PartialEq$LT$alloc..borrow..Cow$LT$C$GT$$GT$$GT$2eq17h7f75711bcf701629E.exit" ], [ false, %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit" ], [ false, %38 ], [ false, %83 ], [ false, %31 ], [ false, %40 ], [ false, %71 ], [ false, %50 ], [ false, %77 ], [ false, %64 ], [ false, %8 ], [ false, %2 ], [ false, %17 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i.i" ], [ false, %24 ], [ false, %57 ], [ false, %89 ]
   ret i1 %.sroa.0.0
 }
 

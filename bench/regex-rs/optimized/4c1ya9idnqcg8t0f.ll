@@ -3912,7 +3912,7 @@ _ZN12regex_syntax3hir7literal3Seq13make_infinite17h7a2ed4b13adeb66dE.llvm.125789
   br i1 %119, label %.thread295, label %96
 
 _ZN12regex_syntax3hir7literal3Seq21longest_common_suffix17hd7d1c430dbec7596E.exit._crit_edge: ; preds = %.critedge, %36, %32, %84, %86
-  %120 = phi i1 [ false, %86 ], [ false, %36 ], [ true, %.critedge ], [ true, %84 ], [ true, %32 ]
+  %120 = phi i1 [ true, %32 ], [ false, %36 ], [ true, %.critedge ], [ false, %86 ], [ true, %84 ]
   %..val2.i.pre = load i64, ptr %14, align 8, !alias.scope !801
   br label %125
 

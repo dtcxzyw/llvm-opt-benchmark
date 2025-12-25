@@ -3939,68 +3939,68 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   %274 = getelementptr inbounds i8, ptr %273, i64 %.pre-phi
   %275 = load i8, ptr %274, align 1
   %276 = icmp eq i8 %275, 0
-  br i1 %276, label %277, label %303
+  br i1 %276, label %277, label %294
 
 277:                                              ; preds = %272
   %278 = getelementptr inbounds i8, ptr %273, i64 %269
   %279 = load i8, ptr %278, align 1
   %.not211 = icmp eq i8 %279, 0
-  br i1 %.not211, label %303, label %280
+  br i1 %.not211, label %294, label %280
 
 280:                                              ; preds = %277
   %281 = getelementptr inbounds [4 x i8], ptr %6, i64 %237
   %282 = getelementptr inbounds i8, ptr %281, i64 %.pre-phi
   %283 = load i8, ptr %282, align 1
   %284 = icmp eq i8 %283, 0
-  br i1 %284, label %285, label %297
+  br i1 %284, label %285, label %288
 
 285:                                              ; preds = %280
   %286 = getelementptr inbounds i8, ptr %281, i64 %269
   %287 = load i8, ptr %286, align 1
   %.not212 = icmp eq i8 %287, 0
-  br i1 %.not212, label %297, label %288
+  br i1 %.not212, label %288, label %308
 
-288:                                              ; preds = %285
+288:                                              ; preds = %285, %280
   %289 = getelementptr inbounds i16, ptr %228, i64 %269
   %290 = load i16, ptr %289, align 2
   %291 = getelementptr inbounds i16, ptr %234, i64 %269
   %292 = load i16, ptr %291, align 2
-  %293 = getelementptr inbounds i16, ptr %238, i64 %269
-  %294 = load i16, ptr %293, align 2
-  %295 = or i16 %294, %292
-  %296 = icmp ugt i16 %290, %295
-  br i1 %296, label %.critedge, label %.critedge234
+  %293 = icmp ugt i16 %290, %292
+  br i1 %293, label %.critedge, label %.critedge234
 
-297:                                              ; preds = %285, %280
-  %298 = getelementptr inbounds i16, ptr %228, i64 %269
-  %299 = load i16, ptr %298, align 2
-  %300 = getelementptr inbounds i16, ptr %234, i64 %269
-  %301 = load i16, ptr %300, align 2
-  %302 = icmp ugt i16 %299, %301
-  br i1 %302, label %.critedge, label %.critedge234
+294:                                              ; preds = %277, %272
+  %295 = getelementptr inbounds [4 x i8], ptr %6, i64 %237
+  %296 = getelementptr inbounds i8, ptr %295, i64 %.pre-phi
+  %297 = load i8, ptr %296, align 1
+  %298 = icmp eq i8 %297, 0
+  br i1 %298, label %299, label %.critedge
 
-303:                                              ; preds = %277, %272
-  %304 = getelementptr inbounds [4 x i8], ptr %6, i64 %237
-  %305 = getelementptr inbounds i8, ptr %304, i64 %.pre-phi
-  %306 = load i8, ptr %305, align 1
-  %307 = icmp eq i8 %306, 0
-  br i1 %307, label %308, label %.critedge
+299:                                              ; preds = %294
+  %300 = getelementptr inbounds i8, ptr %295, i64 %269
+  %301 = load i8, ptr %300, align 1
+  %.not214 = icmp eq i8 %301, 0
+  br i1 %.not214, label %.critedge, label %302
 
-308:                                              ; preds = %303
-  %309 = getelementptr inbounds i8, ptr %304, i64 %269
-  %310 = load i8, ptr %309, align 1
-  %.not214 = icmp eq i8 %310, 0
-  br i1 %.not214, label %.critedge, label %311
+302:                                              ; preds = %299
+  %303 = getelementptr inbounds i16, ptr %228, i64 %269
+  %304 = load i16, ptr %303, align 2
+  %305 = getelementptr inbounds i16, ptr %238, i64 %269
+  %306 = load i16, ptr %305, align 2
+  %307 = icmp ugt i16 %304, %306
+  br i1 %307, label %.critedge, label %.critedge234
 
-311:                                              ; preds = %308
-  %312 = getelementptr inbounds i16, ptr %228, i64 %269
-  %313 = load i16, ptr %312, align 2
-  %314 = getelementptr inbounds i16, ptr %238, i64 %269
-  %315 = load i16, ptr %314, align 2
-  %316 = icmp ugt i16 %313, %315
+308:                                              ; preds = %285
+  %309 = getelementptr inbounds i16, ptr %228, i64 %269
+  %310 = load i16, ptr %309, align 2
+  %311 = getelementptr inbounds i16, ptr %234, i64 %269
+  %312 = load i16, ptr %311, align 2
+  %313 = getelementptr inbounds i16, ptr %238, i64 %269
+  %314 = load i16, ptr %313, align 2
+  %315 = or i16 %314, %312
+  %316 = icmp ugt i16 %310, %315
   br i1 %316, label %.critedge, label %.critedge234
 
-.critedge:                                        ; preds = %288, %297, %161, %243, %308, %303, %191, %186, %216, %211, %257, %253, %311
+.critedge:                                        ; preds = %302, %288, %161, %243, %299, %294, %191, %186, %216, %211, %257, %253, %308
   br i1 %55, label %317, label %321
 
 317:                                              ; preds = %.critedge
@@ -4145,9 +4145,9 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
   %401 = icmp eq i32 %396, %400
   br i1 %401, label %.sink.split, label %482
 
-.critedge234:                                     ; preds = %288, %297, %263, %191, %181, %268, %216, %203, %262, %257, %248, %311
-  %402 = phi i32 [ %232, %288 ], [ %232, %297 ], [ %232, %263 ], [ %176, %191 ], [ %176, %181 ], [ %232, %268 ], [ %198, %216 ], [ %198, %203 ], [ %232, %262 ], [ %232, %257 ], [ %232, %248 ], [ %232, %311 ]
-  %403 = phi i32 [ %226, %288 ], [ %226, %297 ], [ %226, %263 ], [ %164, %191 ], [ %164, %181 ], [ %226, %268 ], [ %164, %216 ], [ %164, %203 ], [ %226, %262 ], [ %226, %257 ], [ %226, %248 ], [ %226, %311 ]
+.critedge234:                                     ; preds = %302, %288, %191, %181, %216, %203, %262, %257, %248, %268, %263, %308
+  %402 = phi i32 [ %232, %302 ], [ %232, %288 ], [ %176, %191 ], [ %176, %181 ], [ %198, %216 ], [ %198, %203 ], [ %232, %262 ], [ %232, %257 ], [ %232, %248 ], [ %232, %268 ], [ %232, %263 ], [ %232, %308 ]
+  %403 = phi i32 [ %226, %302 ], [ %226, %288 ], [ %164, %191 ], [ %164, %181 ], [ %164, %216 ], [ %164, %203 ], [ %226, %262 ], [ %226, %257 ], [ %226, %248 ], [ %226, %268 ], [ %226, %263 ], [ %226, %308 ]
   %404 = getelementptr %struct.absRankType, ptr %53, i64 %.pre-phi
   %405 = getelementptr i8, ptr %404, i64 25
   %406 = load i8, ptr %405, align 1

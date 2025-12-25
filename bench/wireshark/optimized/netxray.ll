@@ -700,7 +700,7 @@ define internal noundef zeroext i1 @netxray_read(ptr noundef readonly captures(n
   br label %netxray_guess_atm_type.exit
 
 netxray_guess_atm_type.exit:                      ; preds = %28, %31, %21, %59, %55, %54, %51, %47, %44, %41, %35, %27, %16
-  %.0 = phi i1 [ false, %16 ], [ true, %59 ], [ false, %27 ], [ true, %55 ], [ true, %54 ], [ false, %41 ], [ false, %35 ], [ true, %44 ], [ true, %47 ], [ true, %51 ], [ false, %21 ], [ false, %31 ], [ false, %28 ]
+  %.0 = phi i1 [ false, %16 ], [ true, %54 ], [ false, %27 ], [ true, %55 ], [ true, %59 ], [ false, %41 ], [ false, %35 ], [ true, %44 ], [ true, %47 ], [ true, %51 ], [ false, %21 ], [ false, %31 ], [ false, %28 ]
   ret i1 %.0
 }
 

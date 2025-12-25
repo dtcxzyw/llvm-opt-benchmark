@@ -2818,9 +2818,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread23
 
-_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread23: ; preds = %105, %101, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %69
-  %.sroa.520.2 = phi i64 [ %.sroa.520.025, %69 ], [ %94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.520.025, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.520.025, %101 ], [ %.sroa.520.025, %105 ]
-  %.sroa.019.2 = phi i64 [ %.sroa.019.026, %69 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.019.026, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.019.026, %101 ], [ %.sroa.019.026, %105 ]
+_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread23: ; preds = %101, %105, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %69
+  %.sroa.520.2 = phi i64 [ %.sroa.520.025, %69 ], [ %94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.520.025, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.520.025, %105 ], [ %.sroa.520.025, %101 ]
+  %.sroa.019.2 = phi i64 [ %.sroa.019.026, %69 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.019.026, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit ], [ %.sroa.019.026, %105 ], [ %.sroa.019.026, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %147
 

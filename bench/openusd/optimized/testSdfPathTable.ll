@@ -5937,9 +5937,9 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i6.i
   br i1 %.not12.not.i.i, label %.lr.ph.i6.i, label %.loopexit2465
 
 .loopexit2465:                                    ; preds = %1817, %select.unfold.i.i, %.lr.ph.i6.i, %1825, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941, %1798, %1796
-  %1832 = phi i32 [ %1814, %select.unfold.i.i ], [ %1814, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ %1814, %1825 ], [ %.pre2543, %1798 ], [ %.pre2543, %1796 ], [ %1814, %.lr.ph.i6.i ], [ %1814, %1817 ]
-  %.sroa.0.0.i9.i = phi ptr [ %.09.i.i937, %select.unfold.i.i ], [ %.09.i.i937, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ %.09.i.i937, %1825 ], [ null, %1798 ], [ null, %1796 ], [ %.09.i.i937, %.lr.ph.i6.i ], [ null, %1817 ]
-  %.sroa.0.0.i5.i = phi ptr [ null, %select.unfold.i.i ], [ %1824, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ null, %1825 ], [ null, %1798 ], [ null, %1796 ], [ %1831, %.lr.ph.i6.i ], [ null, %1817 ]
+  %1832 = phi i32 [ %.pre2543, %1798 ], [ %1814, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ %1814, %1825 ], [ %1814, %select.unfold.i.i ], [ %.pre2543, %1796 ], [ %1814, %.lr.ph.i6.i ], [ %1814, %1817 ]
+  %.sroa.0.0.i9.i = phi ptr [ null, %1798 ], [ %.09.i.i937, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ %.09.i.i937, %1825 ], [ %.09.i.i937, %select.unfold.i.i ], [ null, %1796 ], [ %.09.i.i937, %.lr.ph.i6.i ], [ null, %1817 ]
+  %.sroa.0.0.i5.i = phi ptr [ null, %1798 ], [ %1824, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i941 ], [ null, %1825 ], [ null, %select.unfold.i.i ], [ null, %1796 ], [ %1831, %.lr.ph.i6.i ], [ null, %1817 ]
   %.not.i.i942 = icmp eq i32 %1832, 0
   br i1 %.not.i.i942, label %1850, label %1833
 
@@ -6079,9 +6079,9 @@ select.unfold.i.i975:                             ; preds = %.lr.ph.i6.i970
   br i1 %.not12.not.i.i977, label %.lr.ph.i6.i970, label %.loopexit2463
 
 .loopexit2463:                                    ; preds = %1877, %select.unfold.i.i975, %.lr.ph.i6.i970, %1885, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964, %1858, %1856
-  %1892 = phi i32 [ %1874, %select.unfold.i.i975 ], [ %1874, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ %1874, %1885 ], [ %.pre2544, %1858 ], [ %.pre2544, %1856 ], [ %1874, %.lr.ph.i6.i970 ], [ %1874, %1877 ]
-  %.sroa.0.0.i9.i960 = phi ptr [ %.09.i.i956, %select.unfold.i.i975 ], [ %.09.i.i956, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ %.09.i.i956, %1885 ], [ null, %1858 ], [ null, %1856 ], [ %.09.i.i956, %.lr.ph.i6.i970 ], [ null, %1877 ]
-  %.sroa.0.0.i5.i961 = phi ptr [ null, %select.unfold.i.i975 ], [ %1884, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ null, %1885 ], [ null, %1858 ], [ null, %1856 ], [ %1891, %.lr.ph.i6.i970 ], [ null, %1877 ]
+  %1892 = phi i32 [ %.pre2544, %1858 ], [ %1874, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ %1874, %1885 ], [ %1874, %select.unfold.i.i975 ], [ %.pre2544, %1856 ], [ %1874, %.lr.ph.i6.i970 ], [ %1874, %1877 ]
+  %.sroa.0.0.i9.i960 = phi ptr [ null, %1858 ], [ %.09.i.i956, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ %.09.i.i956, %1885 ], [ %.09.i.i956, %select.unfold.i.i975 ], [ null, %1856 ], [ %.09.i.i956, %.lr.ph.i6.i970 ], [ null, %1877 ]
+  %.sroa.0.0.i5.i961 = phi ptr [ null, %1858 ], [ %1884, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i964 ], [ null, %1885 ], [ null, %select.unfold.i.i975 ], [ null, %1856 ], [ %1891, %.lr.ph.i6.i970 ], [ null, %1877 ]
   %.not.i.i979 = icmp eq i32 %1892, 0
   br i1 %.not.i.i979, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit980, label %1893
 
@@ -6276,9 +6276,9 @@ select.unfold.i.i1015:                            ; preds = %.lr.ph.i6.i1010
   br i1 %.not12.not.i.i1017, label %.lr.ph.i6.i1010, label %.loopexit2460
 
 .loopexit2460:                                    ; preds = %1955, %select.unfold.i.i1015, %.lr.ph.i6.i1010, %1963, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004, %1936, %1934
-  %1970 = phi i32 [ %1952, %select.unfold.i.i1015 ], [ %1952, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ %1952, %1963 ], [ %.pre2545, %1936 ], [ %.pre2545, %1934 ], [ %1952, %.lr.ph.i6.i1010 ], [ %1952, %1955 ]
-  %.sroa.0.0.i9.i1000 = phi ptr [ %.09.i.i996, %select.unfold.i.i1015 ], [ %.09.i.i996, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ %.09.i.i996, %1963 ], [ null, %1936 ], [ null, %1934 ], [ %.09.i.i996, %.lr.ph.i6.i1010 ], [ null, %1955 ]
-  %.sroa.0.0.i5.i1001 = phi ptr [ null, %select.unfold.i.i1015 ], [ %1962, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ null, %1963 ], [ null, %1936 ], [ null, %1934 ], [ %1969, %.lr.ph.i6.i1010 ], [ null, %1955 ]
+  %1970 = phi i32 [ %.pre2545, %1936 ], [ %1952, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ %1952, %1963 ], [ %1952, %select.unfold.i.i1015 ], [ %.pre2545, %1934 ], [ %1952, %.lr.ph.i6.i1010 ], [ %1952, %1955 ]
+  %.sroa.0.0.i9.i1000 = phi ptr [ null, %1936 ], [ %.09.i.i996, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ %.09.i.i996, %1963 ], [ %.09.i.i996, %select.unfold.i.i1015 ], [ null, %1934 ], [ %.09.i.i996, %.lr.ph.i6.i1010 ], [ null, %1955 ]
+  %.sroa.0.0.i5.i1001 = phi ptr [ null, %1936 ], [ %1962, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4findERKNS_7SdfPathE.exit.i1004 ], [ null, %1963 ], [ null, %select.unfold.i.i1015 ], [ null, %1934 ], [ %1969, %.lr.ph.i6.i1010 ], [ null, %1955 ]
   %.not.i.i1019 = icmp eq i32 %1970, 0
   br i1 %.not.i.i1019, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit1020, label %1971
 

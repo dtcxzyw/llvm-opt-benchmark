@@ -144,7 +144,7 @@ _ZN11duckdb_zstdL33ZSTD_estimateSubBlockSize_literalEPKhmPKNS_17ZSTD_hufCTables_
   br label %88
 
 88:                                               ; preds = %85, %81
-  %.0.i.i.i.i = phi i64 [ %82, %81 ], [ %87, %85 ]
+  %.0.i.i.i.i = phi i64 [ %87, %85 ], [ %82, %81 ]
   %89 = icmp ult i64 %.0.i.i.i.i, -119
   br i1 %89, label %.lr.ph.split.us.i.i.i.i.preheader, label %.thread.i.i.i.i
 
@@ -208,7 +208,7 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
   br label %107
 
 107:                                              ; preds = %104, %100
-  %.0.i36.i.i.i = phi i64 [ %101, %100 ], [ %106, %104 ]
+  %.0.i36.i.i.i = phi i64 [ %106, %104 ], [ %101, %100 ]
   %108 = icmp ult i64 %.0.i36.i.i.i, -119
   br i1 %108, label %.lr.ph.split.i.i.i.i.preheader, label %.thread.i37.i.i.i
 
@@ -272,7 +272,7 @@ _ZN11duckdb_zstdL36ZSTD_estimateSubBlockSize_symbolTypeENS_20symbolEncodingType_
   br label %130
 
 130:                                              ; preds = %127, %123
-  %.0.i54.i.i.i = phi i64 [ %124, %123 ], [ %129, %127 ]
+  %.0.i54.i.i.i = phi i64 [ %129, %127 ], [ %124, %123 ]
   %131 = icmp ult i64 %.0.i54.i.i.i, -119
   br i1 %131, label %.lr.ph.split.i44.i.i.i.preheader, label %.thread.i55.i.i.i
 

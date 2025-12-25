@@ -5765,8 +5765,8 @@ _ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev.exit.i202: ; preds = %2
           to label %253 unwind label %121
 
 253:                                              ; preds = %150, %111, %89, %252
-  %.0121 = phi i1 [ false, %252 ], [ true, %150 ], [ false, %89 ], [ true, %111 ]
-  %.0119.in = phi i1 [ %83, %252 ], [ %83, %150 ], [ %83, %89 ], [ %112, %111 ]
+  %.0121 = phi i1 [ false, %252 ], [ true, %111 ], [ false, %89 ], [ true, %150 ]
+  %.0119.in = phi i1 [ %83, %252 ], [ %112, %111 ], [ %83, %89 ], [ %83, %150 ]
   br i1 %.0119.in, label %.thread, label %.thread321
 
 .thread:                                          ; preds = %.invoke517, %_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev.exit174, %253

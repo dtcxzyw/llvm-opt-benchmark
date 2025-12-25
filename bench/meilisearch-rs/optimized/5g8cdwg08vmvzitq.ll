@@ -277,7 +277,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h23cf475dff92edcfE(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17hb7bc1396a0e4f03cE.exit unwind label %.loopexit71
 
 .loopexit69:                                      ; preds = %.lr.ph7.i, %81, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.sroa.01.06.i, %.lr.ph7.i ], [ %50, %81 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %50, %81 ], [ %.sroa.01.06.i, %.lr.ph7.i ]
   %98 = add i64 %.sroa.0.0.i, %.sroa.0.0100
   %99 = icmp ugt i64 %.sroa.0.0100, %98
   br i1 %99, label %.invoke, label %100
@@ -873,7 +873,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h4006b20b23a238b7E(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17h52ea1c83a9e47677E.exit unwind label %.loopexit71
 
 .loopexit69:                                      ; preds = %.lr.ph7.i, %81, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.sroa.01.06.i, %.lr.ph7.i ], [ %50, %81 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %50, %81 ], [ %.sroa.01.06.i, %.lr.ph7.i ]
   %98 = add i64 %.sroa.0.0.i, %.sroa.0.0100
   %99 = icmp ugt i64 %.sroa.0.0100, %98
   br i1 %99, label %.invoke, label %100
@@ -1469,7 +1469,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h4ae80ea17e229fc0E(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17hb669c1cf9bb7a1f7E.exit unwind label %.loopexit71
 
 .loopexit69:                                      ; preds = %.lr.ph7.i, %81, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.sroa.01.06.i, %.lr.ph7.i ], [ %50, %81 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %50, %81 ], [ %.sroa.01.06.i, %.lr.ph7.i ]
   %98 = add i64 %.sroa.0.0.i, %.sroa.0.0100
   %99 = icmp ugt i64 %.sroa.0.0100, %98
   br i1 %99, label %.invoke, label %100
@@ -2065,7 +2065,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hb4d4aa62292b5236E(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17hc884302c25a0e630E.exit unwind label %.loopexit71
 
 .loopexit69:                                      ; preds = %.lr.ph7.i, %81, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.sroa.01.06.i, %.lr.ph7.i ], [ %50, %81 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %50, %81 ], [ %.sroa.01.06.i, %.lr.ph7.i ]
   %98 = add i64 %.sroa.0.0.i, %.sroa.0.0100
   %99 = icmp ugt i64 %.sroa.0.0100, %98
   br i1 %99, label %.invoke, label %100

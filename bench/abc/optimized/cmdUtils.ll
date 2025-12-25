@@ -1880,7 +1880,7 @@ Cmd_GenScript.exit:                               ; preds = %.lr.ph.i, %13
   br label %54
 
 54:                                               ; preds = %.critedge, %30
-  %.1 = phi ptr [ %.03146, %30 ], [ %53, %.critedge ]
+  %.1 = phi ptr [ %53, %.critedge ], [ %.03146, %30 ]
   %55 = add nuw nsw i32 %.03345, 1
   %exitcond.not = icmp eq i32 %55, %2
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !95

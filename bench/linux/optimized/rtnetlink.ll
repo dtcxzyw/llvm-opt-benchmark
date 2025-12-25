@@ -1824,7 +1824,7 @@ define dso_local ptr @rtnl_create_link(ptr noundef %0, ptr noundef %1, i8 nounde
   br label %143
 
 143:                                              ; preds = %138, %133, %128
-  %144 = phi i8 [ %142, %138 ], [ %137, %133 ], [ %132, %128 ]
+  %144 = phi i8 [ %132, %128 ], [ %137, %133 ], [ %142, %138 ]
   %145 = icmp eq i8 %121, %144
   br i1 %145, label %set_operstate.exit, label %146
 
@@ -2173,7 +2173,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @validate_linkmsg(ptr nound
   br label %.thread16
 
 .thread16:                                        ; preds = %116, %118, %126, %129, %.lr.ph, %108, %.thread16.sink.split, %88, %84, %82, %72, %60, %50, %35, %18, %7
-  %138 = phi i32 [ -22, %82 ], [ 0, %84 ], [ -22, %7 ], [ -22, %18 ], [ -22, %72 ], [ -22, %35 ], [ -97, %108 ], [ -22, %50 ], [ -22, %.thread16.sink.split ], [ -22, %60 ], [ 0, %88 ], [ -95, %118 ], [ -97, %116 ], [ %127, %126 ], [ 0, %129 ], [ 0, %.lr.ph ]
+  %138 = phi i32 [ -22, %82 ], [ 0, %84 ], [ -22, %7 ], [ -22, %18 ], [ -22, %72 ], [ -22, %35 ], [ -97, %108 ], [ -22, %50 ], [ -22, %.thread16.sink.split ], [ -22, %60 ], [ 0, %88 ], [ %127, %126 ], [ -97, %116 ], [ -95, %118 ], [ 0, %.lr.ph ], [ 0, %129 ]
   ret i32 %138
 }
 
@@ -2232,7 +2232,7 @@ define internal fastcc void @set_operstate(ptr noundef %0, i8 noundef zeroext %1
   br label %26
 
 26:                                               ; preds = %21, %16, %11
-  %27 = phi i8 [ %25, %21 ], [ %20, %16 ], [ %15, %11 ]
+  %27 = phi i8 [ %15, %11 ], [ %20, %16 ], [ %25, %21 ]
   %28 = icmp eq i8 %4, %27
   br i1 %28, label %.thread, label %29
 
@@ -4611,7 +4611,7 @@ define internal fastcc i32 @rtnl_fill_statsinfo(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 .thread40:                                        ; preds = %269, %186
-  %285 = phi i32 [ %267, %269 ], [ %184, %186 ]
+  %285 = phi i32 [ %184, %186 ], [ %267, %269 ]
   %286 = icmp eq i32 %285, -61
   br i1 %286, label %.thread45, label %296
 
@@ -5009,7 +5009,7 @@ define internal i32 @rtnl_getlink(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %60, label %.thread18, label %.preheader, !llvm.loop !92
 
 61:                                               ; preds = %46, %23
-  %62 = phi i32 [ %47, %46 ], [ %26, %23 ]
+  %62 = phi i32 [ %26, %23 ], [ %47, %46 ]
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %.thread, label %.thread18
 
@@ -7203,7 +7203,7 @@ define internal i32 @rtnl_fdb_add(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 69:                                               ; preds = %50, %60
-  %70 = phi i16 [ 0, %50 ], [ %62, %60 ]
+  %70 = phi i16 [ %62, %60 ], [ 0, %50 ]
   %71 = getelementptr i8, ptr %1, i64 26
   %72 = load i8, ptr %71, align 2
   %73 = icmp ne i8 %72, 0
@@ -8849,7 +8849,7 @@ define internal i32 @rtnl_bridge_setlink(ptr noundef readonly captures(none) %0,
   br label %.thread12
 
 .thread12:                                        ; preds = %53, %49, %79, %.critedge.thread, %73, %105, %.thread13, %22, %20, %11, %3
-  %107 = phi i32 [ -22, %3 ], [ -96, %11 ], [ -19, %22 ], [ -19, %20 ], [ -95, %73 ], [ %102, %105 ], [ %102, %.thread13 ], [ -95, %.critedge.thread ], [ %80, %79 ], [ -22, %49 ], [ -22, %53 ]
+  %107 = phi i32 [ -22, %3 ], [ -96, %11 ], [ -19, %22 ], [ -19, %20 ], [ -95, %.critedge.thread ], [ %102, %105 ], [ %102, %.thread13 ], [ -95, %73 ], [ %80, %79 ], [ -22, %49 ], [ -22, %53 ]
   ret i32 %107
 }
 
@@ -11103,7 +11103,7 @@ define internal fastcc range(i32 -90, 1) i32 @rtnl_port_fill(ptr noundef %0, ptr
   br label %select.unfold
 
 select.unfold:                                    ; preds = %67, %141, %39, %55, %60, %64, %.loopexit, %17, %10, %3
-  %152 = phi i32 [ -90, %17 ], [ 0, %10 ], [ 0, %3 ], [ -90, %39 ], [ 0, %55 ], [ 0, %.loopexit ], [ 0, %64 ], [ 0, %60 ], [ -90, %141 ], [ -90, %67 ]
+  %152 = phi i32 [ 0, %55 ], [ 0, %10 ], [ 0, %3 ], [ -90, %39 ], [ -90, %17 ], [ 0, %.loopexit ], [ 0, %64 ], [ 0, %60 ], [ -90, %141 ], [ -90, %67 ]
   ret i32 %152
 }
 
@@ -11465,7 +11465,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %36, %29, %17, %70, %82
-  %122 = phi i32 [ -90, %70 ], [ -90, %17 ], [ -90, %82 ], [ -90, %36 ], [ %30, %29 ], [ %.ph, %.thread.sink.split ]
+  %122 = phi i32 [ -90, %82 ], [ -90, %17 ], [ -90, %70 ], [ -90, %36 ], [ %30, %29 ], [ %.ph, %.thread.sink.split ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %124 = load ptr, ptr %123, align 8
   %125 = icmp ugt ptr %124, %8
@@ -12375,7 +12375,7 @@ define internal i32 @rtnetlink_rcv_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br label %216
 
 216:                                              ; preds = %116, %128, %.thread20, %214, %212, %191, %24, %13, %3
-  %217 = phi i32 [ -95, %.thread20 ], [ -1, %24 ], [ %192, %191 ], [ %213, %212 ], [ %215, %214 ], [ -95, %3 ], [ 0, %13 ], [ -93, %116 ], [ %129, %128 ]
+  %217 = phi i32 [ -95, %.thread20 ], [ -1, %24 ], [ %192, %191 ], [ %213, %212 ], [ %215, %214 ], [ -95, %3 ], [ 0, %13 ], [ %129, %128 ], [ -93, %116 ]
   ret i32 %217
 }
 

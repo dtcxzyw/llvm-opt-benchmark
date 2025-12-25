@@ -4025,7 +4025,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.i: ; pred
   br label %.split.split.i, !llvm.loop !308
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E6doFindIS2_EEPS8_RKT_.exit.i: ; preds = %204, %202, %194, %192, %.split.split.us.i, %185, %184, %177, %176, %.split.us.split.us.i
-  %.us-phi.i = phi ptr [ %191, %194 ], [ %175, %177 ], [ %183, %185 ], [ %175, %.split.us.split.us.i ], [ %175, %176 ], [ %183, %184 ], [ %191, %.split.split.us.i ], [ %191, %192 ], [ %201, %202 ], [ %201, %204 ]
+  %.us-phi.i = phi ptr [ %183, %185 ], [ %191, %194 ], [ %175, %177 ], [ %175, %.split.us.split.us.i ], [ %175, %176 ], [ %183, %184 ], [ %191, %.split.split.us.i ], [ %191, %192 ], [ %201, %202 ], [ %201, %204 ]
   %210 = load ptr, ptr %75, align 8, !tbaa !302
   %211 = load i32, ptr %148, align 8, !tbaa !305
   %212 = zext i32 %211 to i64
@@ -4315,7 +4315,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i141.i: ; p
   br label %.split224.split.i, !llvm.loop !308
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E6doFindIS2_EEPS8_RKT_.exit145.i: ; preds = %292, %290, %282, %280, %.split224.split.us.i, %273, %272, %265, %264, %.split224.us.split.us.i
-  %.us-phi225.i = phi ptr [ %279, %282 ], [ %263, %265 ], [ %271, %273 ], [ %263, %.split224.us.split.us.i ], [ %263, %264 ], [ %271, %272 ], [ %279, %.split224.split.us.i ], [ %279, %280 ], [ %289, %290 ], [ %289, %292 ]
+  %.us-phi225.i = phi ptr [ %271, %273 ], [ %279, %282 ], [ %263, %265 ], [ %263, %.split224.us.split.us.i ], [ %263, %264 ], [ %271, %272 ], [ %279, %.split224.split.us.i ], [ %279, %280 ], [ %289, %290 ], [ %289, %292 ]
   %298 = load ptr, ptr %75, align 8, !tbaa !302
   %299 = load i32, ptr %148, align 8, !tbaa !305
   %300 = zext i32 %299 to i64
@@ -4751,7 +4751,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i159.i: ; p
   br label %.split257.split.i, !llvm.loop !308
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E6doFindIS2_EEPS8_RKT_.exit163.i: ; preds = %434, %432, %424, %422, %.split257.split.us.i, %415, %414, %407, %406, %.split257.us.split.us.i
-  %.us-phi258.i = phi ptr [ %421, %424 ], [ %405, %407 ], [ %413, %415 ], [ %405, %.split257.us.split.us.i ], [ %405, %406 ], [ %413, %414 ], [ %421, %.split257.split.us.i ], [ %421, %422 ], [ %431, %432 ], [ %431, %434 ]
+  %.us-phi258.i = phi ptr [ %413, %415 ], [ %421, %424 ], [ %405, %407 ], [ %405, %.split257.us.split.us.i ], [ %405, %406 ], [ %413, %414 ], [ %421, %.split257.split.us.i ], [ %421, %422 ], [ %431, %432 ], [ %431, %434 ]
   %440 = load ptr, ptr %75, align 8, !tbaa !302
   %441 = load i32, ptr %148, align 8, !tbaa !305
   %442 = zext i32 %441 to i64
@@ -5363,7 +5363,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.i25: ; pr
   br label %.split.split.i20, !llvm.loop !308
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E6doFindIS2_EEPS8_RKT_.exit.i68: ; preds = %656, %654, %646, %644, %.split.split.us.i86, %637, %636, %629, %628, %.split.us.split.us.i98
-  %.us-phi.i69 = phi ptr [ %643, %646 ], [ %627, %629 ], [ %635, %637 ], [ %627, %.split.us.split.us.i98 ], [ %627, %628 ], [ %635, %636 ], [ %643, %.split.split.us.i86 ], [ %643, %644 ], [ %653, %654 ], [ %653, %656 ]
+  %.us-phi.i69 = phi ptr [ %635, %637 ], [ %643, %646 ], [ %627, %629 ], [ %627, %.split.us.split.us.i98 ], [ %627, %628 ], [ %635, %636 ], [ %643, %.split.split.us.i86 ], [ %643, %644 ], [ %653, %654 ], [ %653, %656 ]
   %662 = load ptr, ptr %30, align 8, !tbaa !302
   %663 = load i32, ptr %600, align 8, !tbaa !305
   %664 = zext i32 %663 to i64
@@ -5825,7 +5825,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i378.i: ; p
   br label %.split461.split.i, !llvm.loop !308
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E6doFindIS2_EEPS8_RKT_.exit382.i: ; preds = %806, %804, %796, %794, %.split461.split.us.i, %787, %786, %779, %778, %.split461.us.split.us.i
-  %.us-phi462.i = phi ptr [ %793, %796 ], [ %777, %779 ], [ %785, %787 ], [ %777, %.split461.us.split.us.i ], [ %777, %778 ], [ %785, %786 ], [ %793, %.split461.split.us.i ], [ %793, %794 ], [ %803, %804 ], [ %803, %806 ]
+  %.us-phi462.i = phi ptr [ %785, %787 ], [ %793, %796 ], [ %777, %779 ], [ %777, %.split461.us.split.us.i ], [ %777, %778 ], [ %785, %786 ], [ %793, %.split461.split.us.i ], [ %793, %794 ], [ %803, %804 ], [ %803, %806 ]
   %812 = load ptr, ptr %30, align 8, !tbaa !302
   %813 = load i32, ptr %600, align 8, !tbaa !305
   %814 = zext i32 %813 to i64

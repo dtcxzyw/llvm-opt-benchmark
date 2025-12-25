@@ -3559,7 +3559,7 @@ _ZNK19MeshLabPluginLogger3logIJmEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream4l
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc.i.i137.invoke, %373, %367, %335, %172, %159, %358, %353, %.loopexit277, %_ZNSt6vectorI8SubGraphSaIS0_EED2Ev.exit, %181, %168, %158, %153, %138, %134, %_ZNK19MeshLabPluginLogger3logIJmEEEvPKcDpOT_.exit
-  %.sroa.0234.3.ph.ph = phi ptr [ %.sroa.0234.1.lcssa, %_ZNK19MeshLabPluginLogger3logIJmEEEvPKcDpOT_.exit ], [ %.sroa.0234.7348, %335 ], [ %.sroa.0234.5, %.loopexit277 ], [ %.sroa.0234.5, %353 ], [ %.sroa.0234.6.ph, %.noexc.i.i137.invoke ], [ %.sroa.0234.8, %367 ], [ %.sroa.0234.1.lcssa, %358 ], [ %.sroa.0234.8, %373 ], [ %.sroa.0234.1.lcssa, %138 ], [ %.sroa.0234.1.lcssa, %_ZNSt6vectorI8SubGraphSaIS0_EED2Ev.exit ], [ %.sroa.0234.1.lcssa, %181 ], [ %.sroa.0234.1.lcssa, %172 ], [ %.sroa.0234.1.lcssa, %168 ], [ %.sroa.0234.1.lcssa, %159 ], [ %.sroa.0234.1.lcssa, %158 ], [ %.sroa.0234.1.lcssa, %153 ], [ %.sroa.0234.1.lcssa, %134 ]
+  %.sroa.0234.3.ph.ph = phi ptr [ %.sroa.0234.1.lcssa, %138 ], [ %.sroa.0234.8, %373 ], [ %.sroa.0234.8, %367 ], [ %.sroa.0234.5, %353 ], [ %.sroa.0234.6.ph, %.noexc.i.i137.invoke ], [ %.sroa.0234.5, %.loopexit277 ], [ %.sroa.0234.1.lcssa, %358 ], [ %.sroa.0234.7348, %335 ], [ %.sroa.0234.1.lcssa, %_ZNK19MeshLabPluginLogger3logIJmEEEvPKcDpOT_.exit ], [ %.sroa.0234.1.lcssa, %_ZNSt6vectorI8SubGraphSaIS0_EED2Ev.exit ], [ %.sroa.0234.1.lcssa, %181 ], [ %.sroa.0234.1.lcssa, %172 ], [ %.sroa.0234.1.lcssa, %168 ], [ %.sroa.0234.1.lcssa, %159 ], [ %.sroa.0234.1.lcssa, %158 ], [ %.sroa.0234.1.lcssa, %153 ], [ %.sroa.0234.1.lcssa, %134 ]
   %lpad.loopexit.split-lp275 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -8211,7 +8211,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit139.preheader: ; preds = %_ZN12
           cleanup
   br label %.thread
 
-.thread284:                                       ; preds = %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit138, %177, %175
+.thread284:                                       ; preds = %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit138, %175, %177
   %lpad.thr_comm282 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorI9AlignPairSaIS0_EED2Ev.exit

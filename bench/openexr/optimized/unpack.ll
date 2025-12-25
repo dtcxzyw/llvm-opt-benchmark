@@ -809,7 +809,7 @@ uint_to_half.exit:                                ; preds = %.lr.ph269, %238, %2
   br i1 %exitcond377.not, label %.loopexit249, label %.preheader252, !llvm.loop !51
 
 .loopexit249:                                     ; preds = %.thread228, %98, %96, %154, %225, %1
-  %spec.select218 = phi i32 [ 0, %1 ], [ 3, %98 ], [ 3, %225 ], [ 3, %154 ], [ 3, %96 ], [ 0, %.thread228 ]
+  %spec.select218 = phi i32 [ 3, %98 ], [ 0, %1 ], [ 3, %225 ], [ 3, %154 ], [ 3, %96 ], [ 0, %.thread228 ]
   ret i32 %spec.select218
 }
 
@@ -1392,7 +1392,7 @@ half_to_float.exit.us.us:                         ; preds = %225, %223, %212, %2
   br i1 %260, label %.lr.ph.us.us, label %.loopexit.us.us
 
 .loopexit266:                                     ; preds = %.thread241.us, %48, %56, %111, %179, %.preheader267.lr.ph, %1
-  %spec.select225 = phi i32 [ 0, %1 ], [ 0, %.preheader267.lr.ph ], [ 3, %48 ], [ 3, %179 ], [ 3, %111 ], [ 3, %56 ], [ 0, %.thread241.us ]
+  %spec.select225 = phi i32 [ 0, %.preheader267.lr.ph ], [ 0, %1 ], [ 3, %48 ], [ 3, %179 ], [ 3, %111 ], [ 3, %56 ], [ 0, %.thread241.us ]
   ret i32 %spec.select225
 }
 
@@ -2952,7 +2952,7 @@ uint_to_half.exit:                                ; preds = %220, %229, %231, %2
   br i1 %exitcond278.not, label %.thread191, label %15, !llvm.loop !88
 
 .thread191:                                       ; preds = %._crit_edge, %211, %70, %133, %67, %1
-  %spec.select = phi i32 [ 0, %1 ], [ 3, %211 ], [ 3, %67 ], [ 3, %133 ], [ 3, %70 ], [ 0, %._crit_edge ]
+  %spec.select = phi i32 [ 3, %211 ], [ 0, %1 ], [ 3, %67 ], [ 3, %133 ], [ 3, %70 ], [ 0, %._crit_edge ]
   ret i32 %spec.select
 }
 

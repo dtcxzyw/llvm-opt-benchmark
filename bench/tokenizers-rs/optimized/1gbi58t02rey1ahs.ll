@@ -19633,7 +19633,7 @@ common.resume:                                    ; preds = %213, %266, %294, %5
   br label %213
 
 .loopexit.split-lp.i:                             ; preds = %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hde35c78ca38434a6E.exit.i", %257, %246, %224, %211
-  %.1.ph.i = phi i1 [ false, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hde35c78ca38434a6E.exit.i" ], [ true, %211 ], [ true, %246 ], [ true, %224 ], [ true, %257 ]
+  %.1.ph.i = phi i1 [ false, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hde35c78ca38434a6E.exit.i" ], [ true, %257 ], [ true, %246 ], [ true, %224 ], [ true, %211 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %213
@@ -27251,7 +27251,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h5522
   br label %.loopexit.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %135, %125, %114, %107, %102, %.invoke.i
-  %.1111.ph.i = phi i1 [ false, %135 ], [ true, %114 ], [ true, %.invoke.i ], [ true, %.invoke ], [ true, %102 ], [ false, %125 ], [ true, %107 ]
+  %.1111.ph.i = phi i1 [ false, %135 ], [ false, %125 ], [ true, %.invoke.i ], [ true, %.invoke ], [ true, %102 ], [ true, %114 ], [ true, %107 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i
@@ -30078,7 +30078,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h7884
   br label %23
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h96f45bf39d91c707E.exit.i", %77, %72, %.invoke.i
-  %.178.ph.i = phi i1 [ false, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h96f45bf39d91c707E.exit.i" ], [ true, %.invoke.i ], [ true, %.invoke ], [ true, %72 ], [ true, %77 ]
+  %.178.ph.i = phi i1 [ true, %77 ], [ true, %.invoke.i ], [ true, %.invoke ], [ true, %72 ], [ false, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h96f45bf39d91c707E.exit.i" ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %23
@@ -30490,8 +30490,8 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h84d7
   br label %"_ZN4core3ptr63drop_in_place$LT$tokenizers..processors..template..Template$GT$17h954e149b1ec1584dE.exit.i"
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %"_ZN4core3ptr63drop_in_place$LT$tokenizers..processors..template..Template$GT$17h954e149b1ec1584dE.exit224.i", %114, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17hf4e0bd28ad9a66fdE.exit.thread.i.i.i.i.i.i", %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17hbec297409779facdE.exit.thread.i.i.i.i.i193.i", %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17hbec297409779facdE.exit.thread.i.i.i.i.i.i", %.invoke.i
-  %.1159.ph.i = phi i8 [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17hbec297409779facdE.exit.thread.i.i.i.i.i.i" ], [ %.10.i, %"_ZN4core3ptr63drop_in_place$LT$tokenizers..processors..template..Template$GT$17h954e149b1ec1584dE.exit224.i" ], [ 1, %114 ], [ 1, %.invoke.i ], [ 1, %.invoke ], [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17hbec297409779facdE.exit.thread.i.i.i.i.i193.i" ], [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17hf4e0bd28ad9a66fdE.exit.thread.i.i.i.i.i.i" ]
-  %.1.ph.i = phi i8 [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17hbec297409779facdE.exit.thread.i.i.i.i.i.i" ], [ 0, %"_ZN4core3ptr63drop_in_place$LT$tokenizers..processors..template..Template$GT$17h954e149b1ec1584dE.exit224.i" ], [ 1, %114 ], [ 1, %.invoke.i ], [ 1, %.invoke ], [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17hbec297409779facdE.exit.thread.i.i.i.i.i193.i" ], [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17hf4e0bd28ad9a66fdE.exit.thread.i.i.i.i.i.i" ]
+  %.1159.ph.i = phi i8 [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17hbec297409779facdE.exit.thread.i.i.i.i.i.i" ], [ %.10.i, %"_ZN4core3ptr63drop_in_place$LT$tokenizers..processors..template..Template$GT$17h954e149b1ec1584dE.exit224.i" ], [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17hf4e0bd28ad9a66fdE.exit.thread.i.i.i.i.i.i" ], [ 1, %.invoke.i ], [ 1, %.invoke ], [ 1, %114 ], [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17hbec297409779facdE.exit.thread.i.i.i.i.i193.i" ]
+  %.1.ph.i = phi i8 [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17hbec297409779facdE.exit.thread.i.i.i.i.i.i" ], [ 0, %"_ZN4core3ptr63drop_in_place$LT$tokenizers..processors..template..Template$GT$17h954e149b1ec1584dE.exit224.i" ], [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17hf4e0bd28ad9a66fdE.exit.thread.i.i.i.i.i.i" ], [ 1, %.invoke.i ], [ 1, %.invoke ], [ 1, %114 ], [ 1, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17hbec297409779facdE.exit.thread.i.i.i.i.i193.i" ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr63drop_in_place$LT$tokenizers..processors..template..Template$GT$17h954e149b1ec1584dE.exit.i"
@@ -35620,7 +35620,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hff0d
   br label %33
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %122, %112, %100, %.invoke.i
-  %.1.ph.i = phi i8 [ 0, %122 ], [ 1, %.invoke.i ], [ 1, %.invoke ], [ 1, %100 ], [ 0, %112 ]
+  %.1.ph.i = phi i8 [ 0, %112 ], [ 1, %.invoke.i ], [ 1, %.invoke ], [ 1, %100 ], [ 0, %122 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %33

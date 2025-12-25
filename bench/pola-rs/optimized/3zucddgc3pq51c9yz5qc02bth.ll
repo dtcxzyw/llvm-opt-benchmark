@@ -37852,7 +37852,7 @@ define void @_ZN11polars_pipe9executors5sinks4sort13sink_multiple16SortSinkMulti
   br label %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$$u5b$polars_core..datatypes..dtype..DataType$u5d$$GT$$GT$$GT$17h1c7a0b4c70c2762bE.exit"
 
 .loopexit.split-lp:                               ; preds = %298, %137, %138, %._crit_edge, %.noexc51
-  %.sroa.09.2.ph = phi i8 [ 1, %137 ], [ 0, %.noexc51 ], [ 1, %138 ], [ 1, %298 ], [ 0, %._crit_edge ]
+  %.sroa.09.2.ph = phi i8 [ 1, %137 ], [ 0, %.noexc51 ], [ 0, %._crit_edge ], [ 1, %298 ], [ 1, %138 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$$u5b$polars_core..datatypes..dtype..DataType$u5d$$GT$$GT$$GT$17h1c7a0b4c70c2762bE.exit"
@@ -40832,7 +40832,7 @@ _ZN11polars_pipe9executors5sinks4sort6source10SortSource13print_verbose17h119f2c
   br label %243
 
 .loopexit.split-lp:                               ; preds = %87, %181, %187, %198, %.loopexit135, %229, %230, %133, %138, %_ZN11polars_pipe9executors5sinks6memory10MemTracker14refresh_memory17h2a17790b6deb0de2E.exit.i
-  %.sroa.023.2.ph = phi i1 [ true, %138 ], [ true, %_ZN11polars_pipe9executors5sinks6memory10MemTracker14refresh_memory17h2a17790b6deb0de2E.exit.i ], [ true, %87 ], [ true, %133 ], [ true, %.loopexit135 ], [ false, %229 ], [ false, %230 ], [ true, %198 ], [ true, %187 ], [ true, %181 ]
+  %.sroa.023.2.ph = phi i1 [ true, %138 ], [ true, %87 ], [ true, %_ZN11polars_pipe9executors5sinks6memory10MemTracker14refresh_memory17h2a17790b6deb0de2E.exit.i ], [ true, %133 ], [ true, %.loopexit135 ], [ false, %229 ], [ false, %230 ], [ true, %198 ], [ true, %187 ], [ true, %181 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %243

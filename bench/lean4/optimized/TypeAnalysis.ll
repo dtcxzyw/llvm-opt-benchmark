@@ -78570,8 +78570,8 @@ lean_alloc_ctor.exit266:                          ; preds = %lean_dec.exit
   br label %.sink.split
 
 lean_dec.exit144:                                 ; preds = %lean_inc.exit151, %189, %191, %192, %lean_dec.exit145, %171, %173, %174
-  %.3118 = phi ptr [ %150, %lean_dec.exit145 ], [ %150, %171 ], [ %150, %173 ], [ %150, %174 ], [ %177, %192 ], [ %177, %191 ], [ %177, %189 ], [ %177, %lean_inc.exit151 ]
-  %.3114 = phi i8 [ %167, %lean_dec.exit145 ], [ %167, %171 ], [ %167, %173 ], [ %167, %174 ], [ 1, %192 ], [ 1, %191 ], [ 1, %189 ], [ 1, %lean_inc.exit151 ]
+  %.3118 = phi ptr [ %150, %lean_dec.exit145 ], [ %150, %174 ], [ %150, %173 ], [ %150, %171 ], [ %177, %192 ], [ %177, %191 ], [ %177, %189 ], [ %177, %lean_inc.exit151 ]
+  %.3114 = phi i8 [ %167, %lean_dec.exit145 ], [ %167, %174 ], [ %167, %173 ], [ %167, %171 ], [ 1, %192 ], [ 1, %191 ], [ 1, %189 ], [ 1, %lean_inc.exit151 ]
   %.3110 = add i64 %.0107317, 1
   %.not = icmp eq i64 %.3110, %2
   br i1 %.not, label %._crit_edge, label %25

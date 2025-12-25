@@ -3639,7 +3639,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit291
   br label %.loopexit.split-lp.i.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i.i.loopexit.i: ; preds = %506, %504, %455, %453, %407, %406, %394, %369
-  %.4139.ph.ph.i.i.ph.i = phi i8 [ 1, %453 ], [ 1, %394 ], [ %.7.i.i.i, %506 ], [ 1, %369 ], [ 1, %406 ], [ %.7.i.i.i, %504 ], [ 1, %407 ], [ 1, %455 ]
+  %.4139.ph.ph.i.i.ph.i = phi i8 [ %.7.i.i.i, %504 ], [ 1, %394 ], [ 1, %406 ], [ 1, %369 ], [ %.7.i.i.i, %506 ], [ 1, %453 ], [ 1, %407 ], [ 1, %455 ]
   %lpad.loopexit39.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i.i

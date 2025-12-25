@@ -60396,7 +60396,7 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %151, %130, %113, %3
-  %.0154.ph.ph = phi i1 [ true, %151 ], [ false, %130 ], [ true, %3 ], [ true, %113 ]
+  %.0154.ph.ph = phi i1 [ false, %130 ], [ true, %151 ], [ true, %3 ], [ true, %113 ]
   %lpad.loopexit.split-lp283 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

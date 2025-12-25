@@ -1559,7 +1559,7 @@ define hidden void @_ZN8Rewriter26maybe_rewrite_invokehandleEPhiib(ptr noundef n
   br label %49
 
 49:                                               ; preds = %.sink.split, %29, %34
-  %.1 = phi i32 [ -1, %29 ], [ -1, %34 ], [ 1, %.sink.split ]
+  %.1 = phi i32 [ -1, %34 ], [ -1, %29 ], [ 1, %.sink.split ]
   %50 = load ptr, ptr %12, align 8
   %51 = getelementptr inbounds i32, ptr %50, i64 %14
   store i32 %.1, ptr %51, align 4

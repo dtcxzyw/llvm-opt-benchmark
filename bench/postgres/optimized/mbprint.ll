@@ -547,7 +547,7 @@ pg_get_utf8_id.exit:                              ; preds = %2, %5
   br i1 %or.cond48.i.i, label %select.unfold.i, label %utf_charcheck.exit.i
 
 utf_charcheck.exit.i:                             ; preds = %69, %39, %17, %.lr.ph.i
-  %.0.i.i = phi i32 [ 3, %39 ], [ 1, %.lr.ph.i ], [ 4, %69 ], [ 2, %17 ]
+  %.0.i.i = phi i32 [ 2, %17 ], [ 1, %.lr.ph.i ], [ 3, %39 ], [ 4, %69 ]
   %.not23.i = icmp eq ptr %.01831.i, %.01732.i
   br i1 %.not23.i, label %80, label %.preheader.i
 

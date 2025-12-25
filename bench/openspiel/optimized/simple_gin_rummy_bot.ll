@@ -3073,11 +3073,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit137:                 ; preds = %752, %_ZNSt6vectorI
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit252
 
 _ZNSt6vectorIlSaIlEED2Ev.exit252:                 ; preds = %.loopexit369, %.loopexit.split-lp370.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp370.loopexit, %792, %_ZNSt6vectorIiSaIiEED2Ev.exit137
-  %.sroa.9.1 = phi ptr [ %.sroa.9.3, %792 ], [ %.sroa.9.3, %_ZNSt6vectorIiSaIiEED2Ev.exit137 ], [ %.sroa.9.3, %.loopexit369 ], [ %.sroa.5.0410, %.loopexit.split-lp370.loopexit ], [ %.sroa.9.0.ph.ph.ph, %.loopexit.split-lp370.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0323.1 = phi ptr [ %.sroa.0323.3, %792 ], [ %.sroa.0323.3, %_ZNSt6vectorIiSaIiEED2Ev.exit137 ], [ %.sroa.0323.3, %.loopexit369 ], [ %.sroa.0323.2411, %.loopexit.split-lp370.loopexit ], [ %.sroa.0323.0.ph.ph.ph, %.loopexit.split-lp370.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.11.1 = phi ptr [ %.sroa.11.3, %792 ], [ %.sroa.11.3, %_ZNSt6vectorIiSaIiEED2Ev.exit137 ], [ %.sroa.6.0416, %.loopexit369 ], [ null, %.loopexit.split-lp370.loopexit ], [ %.sroa.11.0.ph.ph.ph, %.loopexit.split-lp370.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.0329.1 = phi ptr [ %.sroa.0329.3, %792 ], [ %.sroa.0329.3, %_ZNSt6vectorIiSaIiEED2Ev.exit137 ], [ %.sroa.0329.2417, %.loopexit369 ], [ null, %.loopexit.split-lp370.loopexit ], [ %.sroa.0329.0.ph.ph.ph, %.loopexit.split-lp370.loopexit.split-lp.loopexit.split-lp ]
-  %.pn91 = phi { ptr, i32 } [ %.pn89, %792 ], [ %.pn89, %_ZNSt6vectorIiSaIiEED2Ev.exit137 ], [ %lpad.loopexit371, %.loopexit369 ], [ %lpad.loopexit374, %.loopexit.split-lp370.loopexit ], [ %lpad.loopexit.split-lp378, %.loopexit.split-lp370.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.3, %_ZNSt6vectorIiSaIiEED2Ev.exit137 ], [ %.sroa.9.3, %792 ], [ %.sroa.9.3, %.loopexit369 ], [ %.sroa.5.0410, %.loopexit.split-lp370.loopexit ], [ %.sroa.9.0.ph.ph.ph, %.loopexit.split-lp370.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0323.1 = phi ptr [ %.sroa.0323.3, %_ZNSt6vectorIiSaIiEED2Ev.exit137 ], [ %.sroa.0323.3, %792 ], [ %.sroa.0323.3, %.loopexit369 ], [ %.sroa.0323.2411, %.loopexit.split-lp370.loopexit ], [ %.sroa.0323.0.ph.ph.ph, %.loopexit.split-lp370.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.11.1 = phi ptr [ %.sroa.11.3, %_ZNSt6vectorIiSaIiEED2Ev.exit137 ], [ %.sroa.11.3, %792 ], [ %.sroa.6.0416, %.loopexit369 ], [ null, %.loopexit.split-lp370.loopexit ], [ %.sroa.11.0.ph.ph.ph, %.loopexit.split-lp370.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0329.1 = phi ptr [ %.sroa.0329.3, %_ZNSt6vectorIiSaIiEED2Ev.exit137 ], [ %.sroa.0329.3, %792 ], [ %.sroa.0329.2417, %.loopexit369 ], [ null, %.loopexit.split-lp370.loopexit ], [ %.sroa.0329.0.ph.ph.ph, %.loopexit.split-lp370.loopexit.split-lp.loopexit.split-lp ]
+  %.pn91 = phi { ptr, i32 } [ %.pn89, %_ZNSt6vectorIiSaIiEED2Ev.exit137 ], [ %.pn89, %792 ], [ %lpad.loopexit371, %.loopexit369 ], [ %lpad.loopexit374, %.loopexit.split-lp370.loopexit ], [ %lpad.loopexit.split-lp378, %.loopexit.split-lp370.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i253 = icmp eq ptr %.sroa.0323.1, null
   br i1 %.not.i.i.i253, label %_ZNSt6vectorIiSaIiEED2Ev.exit254, label %798
 

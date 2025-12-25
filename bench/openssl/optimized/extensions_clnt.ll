@@ -136,7 +136,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_renegotiate(ptr noundef %0, ptr n
   br label %44
 
 44:                                               ; preds = %.sink.split, %42, %31, %16, %22
-  %.0 = phi i32 [ 1, %31 ], [ 1, %42 ], [ 2, %16 ], [ 2, %22 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %31 ], [ 2, %22 ], [ 2, %16 ], [ 1, %42 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -1168,14 +1168,14 @@ define range(i32 0, 3) i32 @tls_construct_ctos_use_srtp(ptr noundef %0, ptr noun
   br i1 %.not30, label %.sink.split, label %30
 
 .sink.split:                                      ; preds = %.lr.ph, %21, %._crit_edge, %26, %28, %8, %10, %12
-  %.sink = phi i32 [ 480, %8 ], [ 498, %._crit_edge ], [ 480, %12 ], [ 480, %10 ], [ 498, %26 ], [ 498, %28 ], [ 490, %21 ], [ 490, %.lr.ph ]
+  %.sink = phi i32 [ 480, %8 ], [ 498, %26 ], [ 480, %12 ], [ 480, %10 ], [ 498, %._crit_edge ], [ 498, %28 ], [ 490, %21 ], [ 490, %.lr.ph ]
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls_construct_ctos_use_srtp) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
   br label %30
 
 30:                                               ; preds = %.sink.split, %28, %5
-  %.0 = phi i32 [ 1, %28 ], [ 2, %5 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 2, %5 ], [ 1, %28 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

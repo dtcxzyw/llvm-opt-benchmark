@@ -1996,7 +1996,7 @@ select.unfold.i:                                  ; preds = %94, %86, %24
   ret { i64, ptr } %106
 
 "_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hf6b8e9e0d9ae8b9aE.exit.loopexit214.i": ; preds = %33, %48, %.loopexit.loopexit.i, %.loopexit157.loopexit.i
-  %.sroa.10.2.i.ph = phi ptr [ %63, %.loopexit157.loopexit.i ], [ %97, %.loopexit.loopexit.i ], [ %52, %48 ], [ %37, %33 ]
+  %.sroa.10.2.i.ph = phi ptr [ %97, %.loopexit.loopexit.i ], [ %63, %.loopexit157.loopexit.i ], [ %52, %48 ], [ %37, %33 ]
   %107 = icmp eq ptr %.sroa.10.2.i.ph, null
   br i1 %107, label %.thread20, label %.sink.split
 
@@ -2310,7 +2310,7 @@ select.unfold.i:                                  ; preds = %94, %86, %24
   ret { i64, ptr } %106
 
 "_ZN89_$LT$futures_lite..io..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hdd088dd3426eea5aE.exit.loopexit214.i": ; preds = %33, %48, %.loopexit.loopexit.i, %.loopexit157.loopexit.i
-  %.sroa.10.2.i.ph = phi ptr [ %63, %.loopexit157.loopexit.i ], [ %97, %.loopexit.loopexit.i ], [ %52, %48 ], [ %37, %33 ]
+  %.sroa.10.2.i.ph = phi ptr [ %97, %.loopexit.loopexit.i ], [ %63, %.loopexit157.loopexit.i ], [ %52, %48 ], [ %37, %33 ]
   %107 = icmp eq ptr %.sroa.10.2.i.ph, null
   br i1 %107, label %.thread20, label %.sink.split
 

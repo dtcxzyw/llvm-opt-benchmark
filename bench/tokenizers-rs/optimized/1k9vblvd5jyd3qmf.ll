@@ -11189,7 +11189,7 @@ _ZN10tokenizers6models3bpe7trainer10BpeTrainer14setup_progress17he075aa2339453ea
   br label %.body128
 
 .loopexit.split-lp739:                            ; preds = %1691, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i.i, %218, %406, %.noexc138, %531, %.noexc143, %.noexc144, %_ZN10tokenizers6models3bpe7trainer10BpeTrainer15update_progress17h10ce6cf22ae991f1E.exit, %537, %538
-  %.4.ph = phi i1 [ true, %406 ], [ true, %218 ], [ true, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i.i ], [ true, %531 ], [ true, %.noexc143 ], [ true, %_ZN10tokenizers6models3bpe7trainer10BpeTrainer15update_progress17h10ce6cf22ae991f1E.exit ], [ true, %537 ], [ true, %.noexc138 ], [ true, %.noexc144 ], [ true, %538 ], [ false, %1691 ]
+  %.4.ph = phi i1 [ true, %406 ], [ true, %218 ], [ true, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i.i ], [ true, %537 ], [ true, %_ZN10tokenizers6models3bpe7trainer10BpeTrainer15update_progress17h10ce6cf22ae991f1E.exit ], [ true, %.noexc143 ], [ true, %531 ], [ true, %.noexc138 ], [ true, %.noexc144 ], [ true, %538 ], [ false, %1691 ]
   %lpad.loopexit.split-lp741 = landingpad { ptr, i32 }
           cleanup
   br label %.body128
@@ -15382,7 +15382,7 @@ _ZN10tokenizers6models3bpe7trainer10BpeTrainer17finalize_progress17ha6d0b58c6afc
   call void @llvm.lifetime.end.p0(ptr nonnull %131)
   ret void
 
-.thread557:                                       ; preds = %.thread565.loopexit, %.thread565.loopexit.split-lp, %.thread573, %1498, %1080, %1547, %1523, %1059
+.thread557:                                       ; preds = %.thread565.loopexit, %.thread565.loopexit.split-lp, %.thread573, %1498, %1080, %1523, %1547, %1059
   %.pn73556 = phi { ptr, i32 } [ %1060, %1059 ], [ %.pn71576, %.thread573 ], [ %1499, %1498 ], [ %1524, %1523 ], [ %1548, %1547 ], [ %lpad.thr_comm.split-lp583, %1080 ], [ %lpad.loopexit725, %.thread565.loopexit ], [ %lpad.loopexit.split-lp726, %.thread565.loopexit.split-lp ]
   %.14555 = phi i1 [ true, %1059 ], [ true, %.thread573 ], [ true, %1498 ], [ false, %1523 ], [ false, %1547 ], [ true, %1080 ], [ true, %.thread565.loopexit ], [ %.13.ph.ph, %.thread565.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$alloc..vec..Vec$LT$$LP$$LP$u32$C$u32$RP$$C$u32$RP$$GT$$GT$17h0fa7717a058b97a8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %120) #30
@@ -17199,7 +17199,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i.i: 
   br label %.loopexit.split-lp97.i
 
 .loopexit.split-lp97.loopexit.split-lp.i:         ; preds = %_ZN10tokenizers6models7unigram7trainer11to_log_prob17h10a79f7163f08a55E.exit.i, %291, %285, %278, %277, %274
-  %.2.ph.ph.i = phi i1 [ true, %278 ], [ true, %277 ], [ true, %285 ], [ true, %274 ], [ true, %291 ], [ false, %_ZN10tokenizers6models7unigram7trainer11to_log_prob17h10a79f7163f08a55E.exit.i ]
+  %.2.ph.ph.i = phi i1 [ true, %278 ], [ false, %_ZN10tokenizers6models7unigram7trainer11to_log_prob17h10a79f7163f08a55E.exit.i ], [ true, %291 ], [ true, %274 ], [ true, %285 ], [ true, %277 ]
   %lpad.loopexit.split-lp102.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp97.i
@@ -18805,7 +18805,7 @@ _ZN5alloc7raw_vec14handle_reserve17he7602332f1c1effcE.exit.i.i: ; preds = %.noex
   br label %.body.i237
 
 .loopexit.split-lp81.i.loopexit.split-lp:         ; preds = %.invoke.i, %931, %932, %1068
-  %.2.ph.i.ph357 = phi i1 [ false, %932 ], [ false, %931 ], [ true, %.invoke.i ], [ true, %1068 ]
+  %.2.ph.i.ph357 = phi i1 [ true, %.invoke.i ], [ false, %931 ], [ false, %932 ], [ true, %1068 ]
   %lpad.loopexit.split-lp359 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i237

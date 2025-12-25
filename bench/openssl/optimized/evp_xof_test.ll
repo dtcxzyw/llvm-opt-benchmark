@@ -562,8 +562,8 @@ define internal range(i32 0, 2) i32 @shake_squeeze_dup_test(i32 noundef %0) #0 {
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %45, %.preheader.i, %50, %28, %25
-  %.039.i = phi i32 [ 0, %28 ], [ %spec.select48.i, %50 ], [ 0, %25 ], [ 0, %.preheader.i ], [ 0, %45 ]
-  %.035.i = phi ptr [ null, %28 ], [ %.2.i, %50 ], [ null, %25 ], [ %46, %45 ], [ %.1363.i, %.preheader.i ]
+  %.039.i = phi i32 [ %spec.select48.i, %50 ], [ 0, %28 ], [ 0, %25 ], [ 0, %.preheader.i ], [ 0, %45 ]
+  %.035.i = phi ptr [ %.2.i, %50 ], [ null, %28 ], [ null, %25 ], [ %46, %45 ], [ %.1363.i, %.preheader.i ]
   call void @CRYPTO_free(ptr noundef %26, ptr noundef nonnull @.str.9, i32 noundef 475) #5
   call void @EVP_MD_CTX_free(ptr noundef %23) #5
   call void @EVP_MD_CTX_free(ptr noundef %.035.i) #5

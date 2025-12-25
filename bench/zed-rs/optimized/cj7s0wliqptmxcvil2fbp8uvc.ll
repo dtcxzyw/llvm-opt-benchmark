@@ -12800,8 +12800,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9c1299dc5ea15df5E.exit139.i: ; preds = 
           to label %.body.thread unwind label %220
 
 .body:                                            ; preds = %.thread38, %612, %586, %521, %507
-  %.pn10 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %521 ], [ %587, %586 ], [ %508, %507 ], [ %.pn36, %.thread38 ], [ %.pn36, %612 ]
-  %.sroa.03.1 = phi i8 [ %.sroa.03.4, %521 ], [ %.sroa.03.4, %586 ], [ %.sroa.03.4, %507 ], [ %.sroa.03.237, %.thread38 ], [ %.sroa.03.237, %612 ]
+  %.pn10 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %521 ], [ %587, %586 ], [ %508, %507 ], [ %.pn36, %612 ], [ %.pn36, %.thread38 ]
+  %.sroa.03.1 = phi i8 [ %.sroa.03.4, %521 ], [ %.sroa.03.4, %586 ], [ %.sroa.03.4, %507 ], [ %.sroa.03.237, %612 ], [ %.sroa.03.237, %.thread38 ]
   %506 = trunc nuw i8 %.sroa.03.1 to i1
   br i1 %506, label %.body.thread, label %619
 
@@ -17107,8 +17107,8 @@ define hidden noundef ptr @_ZN8worktree8Snapshot19apply_remote_update17h27e6daa2
   br label %.thread217.thread
 
 64:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$proto..Entry$GT$$GT$17h23a2b7094db5c308E.exit117", %._crit_edge, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h831fee391330ca0fE.exit.thread", %304
-  %.sroa.053.0.ph = phi i1 [ true, %._crit_edge ], [ false, %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$proto..Entry$GT$$GT$17h23a2b7094db5c308E.exit117" ], [ true, %304 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h831fee391330ca0fE.exit.thread" ]
-  %.sroa.055.2.ph = phi i8 [ 1, %._crit_edge ], [ 0, %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$proto..Entry$GT$$GT$17h23a2b7094db5c308E.exit117" ], [ 0, %304 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h831fee391330ca0fE.exit.thread" ]
+  %.sroa.053.0.ph = phi i1 [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h831fee391330ca0fE.exit.thread" ], [ false, %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$proto..Entry$GT$$GT$17h23a2b7094db5c308E.exit117" ], [ true, %304 ], [ true, %._crit_edge ]
+  %.sroa.055.2.ph = phi i8 [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h831fee391330ca0fE.exit.thread" ], [ 0, %"_ZN4core3ptr72drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$proto..Entry$GT$$GT$17h23a2b7094db5c308E.exit117" ], [ 0, %304 ], [ 1, %._crit_edge ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread223

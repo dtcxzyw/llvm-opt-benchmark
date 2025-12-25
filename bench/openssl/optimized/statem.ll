@@ -1236,7 +1236,7 @@ grow_init_buf.exit.i:                             ; preds = %213
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null)
   br label %read_state_machine.exit.thread
 
-read_state_machine.exit.thread:                   ; preds = %192, %196, %242, %266, %266, %266, %283, %203, %.critedge83.i, %254, %247, %229, %272, %.critedge.i
+read_state_machine.exit.thread:                   ; preds = %192, %196, %242, %266, %266, %266, %283, %272, %203, %.critedge83.i, %254, %247, %229, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

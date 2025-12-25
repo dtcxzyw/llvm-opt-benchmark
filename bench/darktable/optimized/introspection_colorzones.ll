@@ -6167,7 +6167,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   br i1 %exitcond258.not, label %._crit_edge, label %263
 
 279:                                              ; preds = %248, %._crit_edge
-  %280 = phi i32 [ %.0215.lcssa, %._crit_edge ], [ %.pre261, %248 ]
+  %280 = phi i32 [ %.pre261, %248 ], [ %.0215.lcssa, %._crit_edge ]
   %281 = icmp sgt i32 %280, -1
   br i1 %281, label %282, label %.loopexit
 

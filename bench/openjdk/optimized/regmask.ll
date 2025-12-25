@@ -218,7 +218,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask16is_aligned_pairsEv(ptr noundef n
   br i1 %.not, label %.loopexit, label %.lr.ph25, !llvm.loop !10
 
 .loopexit:                                        ; preds = %._crit_edge, %15, %.lr.ph, %1
-  %.not18 = phi i1 [ false, %15 ], [ true, %1 ], [ false, %.lr.ph ], [ true, %._crit_edge ]
+  %.not18 = phi i1 [ true, %1 ], [ false, %15 ], [ false, %.lr.ph ], [ true, %._crit_edge ]
   ret i1 %.not18
 }
 
@@ -988,7 +988,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask15is_aligned_setsEj(ptr noundef no
   br i1 %.not, label %.loopexit, label %15, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge, %24, %.lr.ph, %4, %2
-  %.0 = phi i1 [ true, %4 ], [ true, %2 ], [ false, %24 ], [ false, %.lr.ph ], [ true, %._crit_edge ]
+  %.0 = phi i1 [ false, %24 ], [ true, %2 ], [ true, %4 ], [ false, %.lr.ph ], [ true, %._crit_edge ]
   ret i1 %.0
 }
 

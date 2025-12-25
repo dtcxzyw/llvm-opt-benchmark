@@ -1040,10 +1040,10 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN10polynomial12lex_compare2EPKNS_8
   br label %.thread
 
 58:                                               ; preds = %24, %30, %49, %37
-  %.250 = phi i32 [ %.04877, %24 ], [ %40, %37 ], [ %51, %49 ], [ %33, %30 ]
-  %.147 = phi i32 [ %26, %24 ], [ %.04678, %37 ], [ %.04678, %49 ], [ %26, %30 ]
-  %.245 = phi i32 [ %.04379, %24 ], [ %39, %37 ], [ %.04379, %49 ], [ %32, %30 ]
-  %.142 = phi i32 [ %27, %24 ], [ %.04180, %37 ], [ %50, %49 ], [ %27, %30 ]
+  %.250 = phi i32 [ %33, %30 ], [ %40, %37 ], [ %51, %49 ], [ %.04877, %24 ]
+  %.147 = phi i32 [ %26, %30 ], [ %.04678, %37 ], [ %.04678, %49 ], [ %26, %24 ]
+  %.245 = phi i32 [ %32, %30 ], [ %39, %37 ], [ %.04379, %49 ], [ %.04379, %24 ]
+  %.142 = phi i32 [ %27, %30 ], [ %.04180, %37 ], [ %50, %49 ], [ %27, %24 ]
   %59 = icmp sgt i32 %.142, -1
   %60 = icmp sgt i32 %.250, -1
   %61 = select i1 %59, i1 %60, i1 false
@@ -21703,7 +21703,7 @@ _ZN10polynomial7manager3imp4signEPNS_8monomialERK3mpzRK7svectorI5lbooljE.exit42:
   br i1 %.not, label %49, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.cont.i, %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.i, %_ZN10polynomial7manager3imp4signEPNS_8monomialERK3mpzRK7svectorI5lbooljE.exit42, %49, %.lr.ph.split.us.split, %48, %.lr.ph.i, %_ZN10polynomial7manager3imp4signEPNS_8monomialERK3mpzRK7svectorI5lbooljE.exit, %3
-  %.018 = phi i32 [ 0, %3 ], [ 0, %.lr.ph.i ], [ %spec.select.i.fr, %_ZN10polynomial7manager3imp4signEPNS_8monomialERK3mpzRK7svectorI5lbooljE.exit ], [ %spec.select.i.fr, %48 ], [ 0, %_ZN10polynomial7manager3imp4signEPNS_8monomialERK3mpzRK7svectorI5lbooljE.exit42 ], [ 0, %.lr.ph.split.us.split ], [ %spec.select.i.fr, %49 ], [ 0, %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.i ], [ 0, %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.cont.i ]
+  %.018 = phi i32 [ 0, %3 ], [ 0, %.lr.ph.i ], [ %spec.select.i.fr, %_ZN10polynomial7manager3imp4signEPNS_8monomialERK3mpzRK7svectorI5lbooljE.exit ], [ 0, %_ZN10polynomial7manager3imp4signEPNS_8monomialERK3mpzRK7svectorI5lbooljE.exit42 ], [ %spec.select.i.fr, %48 ], [ 0, %.lr.ph.split.us.split ], [ %spec.select.i.fr, %49 ], [ 0, %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.i ], [ 0, %_ZNK6vectorI5lboolLb0EjE3getEjRKS0_.exit.cont.i ]
   ret i32 %.018
 }
 
@@ -40042,7 +40042,7 @@ _ZN10polynomial12tmp_monomial7reserveEj.exit110:  ; preds = %_ZN10polynomial12tm
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %_ZN10polynomial12tmp_monomial7reserveEj.exit110, %75, %._crit_edge
-  %.0 = phi i1 [ false, %_ZN10polynomial12tmp_monomial7reserveEj.exit110 ], [ false, %._crit_edge ], [ false, %75 ], [ true, %._crit_edge.thread.sink.split ]
+  %.0 = phi i1 [ false, %75 ], [ false, %._crit_edge ], [ false, %_ZN10polynomial12tmp_monomial7reserveEj.exit110 ], [ true, %._crit_edge.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -64547,10 +64547,10 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPPN10polynomial8monomialElS
   br i1 %67, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread36
 
 68:                                               ; preds = %61, %49, %42, %36
-  %.250.i.i.i = phi i32 [ %.04877.i.i.i, %36 ], [ %52, %49 ], [ %63, %61 ], [ %45, %42 ]
-  %.147.i.i.i = phi i32 [ %38, %36 ], [ %.04678.i.i.i, %49 ], [ %.04678.i.i.i, %61 ], [ %38, %42 ]
-  %.245.i.i.i = phi i32 [ %.04379.i.i.i, %36 ], [ %51, %49 ], [ %.04379.i.i.i, %61 ], [ %44, %42 ]
-  %.142.i.i.i = phi i32 [ %39, %36 ], [ %.04180.i.i.i, %49 ], [ %62, %61 ], [ %39, %42 ]
+  %.250.i.i.i = phi i32 [ %45, %42 ], [ %52, %49 ], [ %63, %61 ], [ %.04877.i.i.i, %36 ]
+  %.147.i.i.i = phi i32 [ %38, %42 ], [ %.04678.i.i.i, %49 ], [ %.04678.i.i.i, %61 ], [ %38, %36 ]
+  %.245.i.i.i = phi i32 [ %44, %42 ], [ %51, %49 ], [ %.04379.i.i.i, %61 ], [ %.04379.i.i.i, %36 ]
+  %.142.i.i.i = phi i32 [ %39, %42 ], [ %.04180.i.i.i, %49 ], [ %62, %61 ], [ %39, %36 ]
   %.245.i.i.i.fr = freeze i32 %.245.i.i.i
   %.147.i.i.i.fr = freeze i32 %.147.i.i.i
   %69 = icmp sgt i32 %.142.i.i.i, -1
@@ -64710,10 +64710,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES
   br i1 %150, label %_ZSt11__push_heapIPPN10polynomial8monomialElS2_N9__gnu_cxx5__ops14_Iter_comp_valINS0_7lex_lt2EEEEvT_T0_SA_T1_RT2_.exit, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN10polynomial7lex_lt2EEclIPPNS2_8monomialES7_EEbT_RT0_.exit.thread19.i
 
 151:                                              ; preds = %144, %132, %125, %119
-  %.250.i.i.i.i = phi i32 [ %.04877.i.i.i.i, %119 ], [ %135, %132 ], [ %146, %144 ], [ %128, %125 ]
-  %.147.i.i.i.i = phi i32 [ %121, %119 ], [ %.04678.i.i.i.i, %132 ], [ %.04678.i.i.i.i, %144 ], [ %121, %125 ]
-  %.245.i.i.i.i = phi i32 [ %.04379.i.i.i.i, %119 ], [ %134, %132 ], [ %.04379.i.i.i.i, %144 ], [ %127, %125 ]
-  %.142.i.i.i.i = phi i32 [ %122, %119 ], [ %.04180.i.i.i.i, %132 ], [ %145, %144 ], [ %122, %125 ]
+  %.250.i.i.i.i = phi i32 [ %128, %125 ], [ %135, %132 ], [ %146, %144 ], [ %.04877.i.i.i.i, %119 ]
+  %.147.i.i.i.i = phi i32 [ %121, %125 ], [ %.04678.i.i.i.i, %132 ], [ %.04678.i.i.i.i, %144 ], [ %121, %119 ]
+  %.245.i.i.i.i = phi i32 [ %127, %125 ], [ %134, %132 ], [ %.04379.i.i.i.i, %144 ], [ %.04379.i.i.i.i, %119 ]
+  %.142.i.i.i.i = phi i32 [ %122, %125 ], [ %.04180.i.i.i.i, %132 ], [ %145, %144 ], [ %122, %119 ]
   %152 = icmp sgt i32 %.142.i.i.i.i, -1
   %153 = icmp sgt i32 %.250.i.i.i.i, -1
   %154 = select i1 %152, i1 %153, i1 false
@@ -64836,10 +64836,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPPN10polynomial8mo
   br i1 %59, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread98
 
 60:                                               ; preds = %53, %41, %34, %28
-  %.250.i.i.i = phi i32 [ %.04877.i.i.i, %28 ], [ %44, %41 ], [ %55, %53 ], [ %37, %34 ]
-  %.147.i.i.i = phi i32 [ %30, %28 ], [ %.04678.i.i.i, %41 ], [ %.04678.i.i.i, %53 ], [ %30, %34 ]
-  %.245.i.i.i = phi i32 [ %.04379.i.i.i, %28 ], [ %43, %41 ], [ %.04379.i.i.i, %53 ], [ %36, %34 ]
-  %.142.i.i.i = phi i32 [ %31, %28 ], [ %.04180.i.i.i, %41 ], [ %54, %53 ], [ %31, %34 ]
+  %.250.i.i.i = phi i32 [ %37, %34 ], [ %44, %41 ], [ %55, %53 ], [ %.04877.i.i.i, %28 ]
+  %.147.i.i.i = phi i32 [ %30, %34 ], [ %.04678.i.i.i, %41 ], [ %.04678.i.i.i, %53 ], [ %30, %28 ]
+  %.245.i.i.i = phi i32 [ %36, %34 ], [ %43, %41 ], [ %.04379.i.i.i, %53 ], [ %.04379.i.i.i, %28 ]
+  %.142.i.i.i = phi i32 [ %31, %34 ], [ %.04180.i.i.i, %41 ], [ %54, %53 ], [ %31, %28 ]
   %61 = icmp sgt i32 %.142.i.i.i, -1
   %62 = icmp sgt i32 %.250.i.i.i, -1
   %63 = select i1 %61, i1 %62, i1 false
@@ -64943,10 +64943,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES
   br i1 %116, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit38.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit38.thread105
 
 117:                                              ; preds = %110, %98, %91, %85
-  %.250.i.i.i33 = phi i32 [ %.04877.i.i.i32, %85 ], [ %101, %98 ], [ %112, %110 ], [ %94, %91 ]
-  %.147.i.i.i34 = phi i32 [ %87, %85 ], [ %.04678.i.i.i31, %98 ], [ %.04678.i.i.i31, %110 ], [ %87, %91 ]
-  %.245.i.i.i35 = phi i32 [ %.04379.i.i.i30, %85 ], [ %100, %98 ], [ %.04379.i.i.i30, %110 ], [ %93, %91 ]
-  %.142.i.i.i36 = phi i32 [ %88, %85 ], [ %.04180.i.i.i29, %98 ], [ %111, %110 ], [ %88, %91 ]
+  %.250.i.i.i33 = phi i32 [ %94, %91 ], [ %101, %98 ], [ %112, %110 ], [ %.04877.i.i.i32, %85 ]
+  %.147.i.i.i34 = phi i32 [ %87, %91 ], [ %.04678.i.i.i31, %98 ], [ %.04678.i.i.i31, %110 ], [ %87, %85 ]
+  %.245.i.i.i35 = phi i32 [ %93, %91 ], [ %100, %98 ], [ %.04379.i.i.i30, %110 ], [ %.04379.i.i.i30, %85 ]
+  %.142.i.i.i36 = phi i32 [ %88, %91 ], [ %.04180.i.i.i29, %98 ], [ %111, %110 ], [ %88, %85 ]
   %118 = icmp sgt i32 %.142.i.i.i36, -1
   %119 = icmp sgt i32 %.250.i.i.i33, -1
   %120 = select i1 %118, i1 %119, i1 false
@@ -65049,10 +65049,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES
   br i1 %172, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit55.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit38.thread105
 
 173:                                              ; preds = %166, %154, %147, %141
-  %.250.i.i.i50 = phi i32 [ %.04877.i.i.i49, %141 ], [ %157, %154 ], [ %168, %166 ], [ %150, %147 ]
-  %.147.i.i.i51 = phi i32 [ %143, %141 ], [ %.04678.i.i.i48, %154 ], [ %.04678.i.i.i48, %166 ], [ %143, %147 ]
-  %.245.i.i.i52 = phi i32 [ %.04379.i.i.i47, %141 ], [ %156, %154 ], [ %.04379.i.i.i47, %166 ], [ %149, %147 ]
-  %.142.i.i.i53 = phi i32 [ %144, %141 ], [ %.04180.i.i.i46, %154 ], [ %167, %166 ], [ %144, %147 ]
+  %.250.i.i.i50 = phi i32 [ %150, %147 ], [ %157, %154 ], [ %168, %166 ], [ %.04877.i.i.i49, %141 ]
+  %.147.i.i.i51 = phi i32 [ %143, %147 ], [ %.04678.i.i.i48, %154 ], [ %.04678.i.i.i48, %166 ], [ %143, %141 ]
+  %.245.i.i.i52 = phi i32 [ %149, %147 ], [ %156, %154 ], [ %.04379.i.i.i47, %166 ], [ %.04379.i.i.i47, %141 ]
+  %.142.i.i.i53 = phi i32 [ %144, %147 ], [ %.04180.i.i.i46, %154 ], [ %167, %166 ], [ %144, %141 ]
   %174 = icmp sgt i32 %.142.i.i.i53, -1
   %175 = icmp sgt i32 %.250.i.i.i50, -1
   %176 = select i1 %174, i1 %175, i1 false
@@ -65163,10 +65163,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES
   br i1 %233, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit72.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit38.thread105
 
 234:                                              ; preds = %227, %215, %208, %202
-  %.250.i.i.i67 = phi i32 [ %.04877.i.i.i66, %202 ], [ %218, %215 ], [ %229, %227 ], [ %211, %208 ]
-  %.147.i.i.i68 = phi i32 [ %204, %202 ], [ %.04678.i.i.i65, %215 ], [ %.04678.i.i.i65, %227 ], [ %204, %208 ]
-  %.245.i.i.i69 = phi i32 [ %.04379.i.i.i64, %202 ], [ %217, %215 ], [ %.04379.i.i.i64, %227 ], [ %210, %208 ]
-  %.142.i.i.i70 = phi i32 [ %205, %202 ], [ %.04180.i.i.i63, %215 ], [ %228, %227 ], [ %205, %208 ]
+  %.250.i.i.i67 = phi i32 [ %211, %208 ], [ %218, %215 ], [ %229, %227 ], [ %.04877.i.i.i66, %202 ]
+  %.147.i.i.i68 = phi i32 [ %204, %208 ], [ %.04678.i.i.i65, %215 ], [ %.04678.i.i.i65, %227 ], [ %204, %202 ]
+  %.245.i.i.i69 = phi i32 [ %210, %208 ], [ %217, %215 ], [ %.04379.i.i.i64, %227 ], [ %.04379.i.i.i64, %202 ]
+  %.142.i.i.i70 = phi i32 [ %205, %208 ], [ %.04180.i.i.i63, %215 ], [ %228, %227 ], [ %205, %202 ]
   %235 = icmp sgt i32 %.142.i.i.i70, -1
   %236 = icmp sgt i32 %.250.i.i.i67, -1
   %237 = select i1 %235, i1 %236, i1 false
@@ -65273,10 +65273,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES
   br i1 %293, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit89.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit38.thread105
 
 294:                                              ; preds = %287, %275, %268, %262
-  %.250.i.i.i84 = phi i32 [ %.04877.i.i.i83, %262 ], [ %278, %275 ], [ %289, %287 ], [ %271, %268 ]
-  %.147.i.i.i85 = phi i32 [ %264, %262 ], [ %.04678.i.i.i82, %275 ], [ %.04678.i.i.i82, %287 ], [ %264, %268 ]
-  %.245.i.i.i86 = phi i32 [ %.04379.i.i.i81, %262 ], [ %277, %275 ], [ %.04379.i.i.i81, %287 ], [ %270, %268 ]
-  %.142.i.i.i87 = phi i32 [ %265, %262 ], [ %.04180.i.i.i80, %275 ], [ %288, %287 ], [ %265, %268 ]
+  %.250.i.i.i84 = phi i32 [ %271, %268 ], [ %278, %275 ], [ %289, %287 ], [ %.04877.i.i.i83, %262 ]
+  %.147.i.i.i85 = phi i32 [ %264, %268 ], [ %.04678.i.i.i82, %275 ], [ %.04678.i.i.i82, %287 ], [ %264, %262 ]
+  %.245.i.i.i86 = phi i32 [ %270, %268 ], [ %277, %275 ], [ %.04379.i.i.i81, %287 ], [ %.04379.i.i.i81, %262 ]
+  %.142.i.i.i87 = phi i32 [ %265, %268 ], [ %.04180.i.i.i80, %275 ], [ %288, %287 ], [ %265, %262 ]
   %295 = icmp sgt i32 %.142.i.i.i87, -1
   %296 = icmp sgt i32 %.250.i.i.i84, -1
   %297 = select i1 %295, i1 %296, i1 false
@@ -65408,10 +65408,10 @@ define linkonce_odr hidden noundef ptr @_ZSt21__unguarded_partitionIPPN10polynom
   br i1 %59, label %.preheader, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread
 
 60:                                               ; preds = %53, %41, %34, %28
-  %.250.i.i.i = phi i32 [ %.04877.i.i.i, %28 ], [ %44, %41 ], [ %55, %53 ], [ %37, %34 ]
-  %.147.i.i.i = phi i32 [ %30, %28 ], [ %.04678.i.i.i, %41 ], [ %.04678.i.i.i, %53 ], [ %30, %34 ]
-  %.245.i.i.i = phi i32 [ %.04379.i.i.i, %28 ], [ %43, %41 ], [ %.04379.i.i.i, %53 ], [ %36, %34 ]
-  %.142.i.i.i = phi i32 [ %31, %28 ], [ %.04180.i.i.i, %41 ], [ %54, %53 ], [ %31, %34 ]
+  %.250.i.i.i = phi i32 [ %37, %34 ], [ %44, %41 ], [ %55, %53 ], [ %.04877.i.i.i, %28 ]
+  %.147.i.i.i = phi i32 [ %30, %34 ], [ %.04678.i.i.i, %41 ], [ %.04678.i.i.i, %53 ], [ %30, %28 ]
+  %.245.i.i.i = phi i32 [ %36, %34 ], [ %43, %41 ], [ %.04379.i.i.i, %53 ], [ %.04379.i.i.i, %28 ]
+  %.142.i.i.i = phi i32 [ %31, %34 ], [ %.04180.i.i.i, %41 ], [ %54, %53 ], [ %31, %28 ]
   %61 = icmp sgt i32 %.142.i.i.i, -1
   %62 = icmp sgt i32 %.250.i.i.i, -1
   %63 = select i1 %61, i1 %62, i1 false
@@ -65528,10 +65528,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES
   br i1 %120, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit31.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit31
 
 121:                                              ; preds = %114, %102, %95, %89
-  %.250.i.i.i26 = phi i32 [ %.04877.i.i.i25, %89 ], [ %105, %102 ], [ %116, %114 ], [ %98, %95 ]
-  %.147.i.i.i27 = phi i32 [ %91, %89 ], [ %.04678.i.i.i24, %102 ], [ %.04678.i.i.i24, %114 ], [ %91, %95 ]
-  %.245.i.i.i28 = phi i32 [ %.04379.i.i.i23, %89 ], [ %104, %102 ], [ %.04379.i.i.i23, %114 ], [ %97, %95 ]
-  %.142.i.i.i29 = phi i32 [ %92, %89 ], [ %.04180.i.i.i22, %102 ], [ %115, %114 ], [ %92, %95 ]
+  %.250.i.i.i26 = phi i32 [ %98, %95 ], [ %105, %102 ], [ %116, %114 ], [ %.04877.i.i.i25, %89 ]
+  %.147.i.i.i27 = phi i32 [ %91, %95 ], [ %.04678.i.i.i24, %102 ], [ %.04678.i.i.i24, %114 ], [ %91, %89 ]
+  %.245.i.i.i28 = phi i32 [ %97, %95 ], [ %104, %102 ], [ %.04379.i.i.i23, %114 ], [ %.04379.i.i.i23, %89 ]
+  %.142.i.i.i29 = phi i32 [ %92, %95 ], [ %.04180.i.i.i22, %102 ], [ %115, %114 ], [ %92, %89 ]
   %122 = icmp sgt i32 %.142.i.i.i29, -1
   %123 = icmp sgt i32 %.250.i.i.i26, -1
   %124 = select i1 %122, i1 %123, i1 false
@@ -65674,10 +65674,10 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPPN10polynomial8monomial
   br i1 %60, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN10polynomial7lex_lt2EEclIPPNS2_8monomialES8_EEbT_T0_.exit.thread23
 
 61:                                               ; preds = %54, %42, %35, %29
-  %.250.i.i.i = phi i32 [ %.04877.i.i.i, %29 ], [ %45, %42 ], [ %56, %54 ], [ %38, %35 ]
-  %.147.i.i.i = phi i32 [ %31, %29 ], [ %.04678.i.i.i, %42 ], [ %.04678.i.i.i, %54 ], [ %31, %35 ]
-  %.245.i.i.i = phi i32 [ %.04379.i.i.i, %29 ], [ %44, %42 ], [ %.04379.i.i.i, %54 ], [ %37, %35 ]
-  %.142.i.i.i = phi i32 [ %32, %29 ], [ %.04180.i.i.i, %42 ], [ %55, %54 ], [ %32, %35 ]
+  %.250.i.i.i = phi i32 [ %38, %35 ], [ %45, %42 ], [ %56, %54 ], [ %.04877.i.i.i, %29 ]
+  %.147.i.i.i = phi i32 [ %31, %35 ], [ %.04678.i.i.i, %42 ], [ %.04678.i.i.i, %54 ], [ %31, %29 ]
+  %.245.i.i.i = phi i32 [ %37, %35 ], [ %44, %42 ], [ %.04379.i.i.i, %54 ], [ %.04379.i.i.i, %29 ]
+  %.142.i.i.i = phi i32 [ %32, %35 ], [ %.04180.i.i.i, %42 ], [ %55, %54 ], [ %32, %29 ]
   %62 = icmp sgt i32 %.142.i.i.i, -1
   %63 = icmp sgt i32 %.250.i.i.i, -1
   %64 = select i1 %62, i1 %63, i1 false
@@ -65834,10 +65834,10 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN10polynomial7lex_lt2EEclIPNS2_8monomialEPS7
   br i1 %61, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN10polynomial7lex_lt2EEclIPNS2_8monomialEPS7_EEbRT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN10polynomial7lex_lt2EEclIPNS2_8monomialEPS7_EEbRT_T0_.exit.thread15
 
 62:                                               ; preds = %55, %43, %36, %30
-  %.250.i.i.i = phi i32 [ %.04877.i.i.i, %30 ], [ %46, %43 ], [ %57, %55 ], [ %39, %36 ]
-  %.147.i.i.i = phi i32 [ %32, %30 ], [ %.04678.i.i.i, %43 ], [ %.04678.i.i.i, %55 ], [ %32, %36 ]
-  %.245.i.i.i = phi i32 [ %.04379.i.i.i, %30 ], [ %45, %43 ], [ %.04379.i.i.i, %55 ], [ %38, %36 ]
-  %.142.i.i.i = phi i32 [ %33, %30 ], [ %.04180.i.i.i, %43 ], [ %56, %55 ], [ %33, %36 ]
+  %.250.i.i.i = phi i32 [ %39, %36 ], [ %46, %43 ], [ %57, %55 ], [ %.04877.i.i.i, %30 ]
+  %.147.i.i.i = phi i32 [ %32, %36 ], [ %.04678.i.i.i, %43 ], [ %.04678.i.i.i, %55 ], [ %32, %30 ]
+  %.245.i.i.i = phi i32 [ %38, %36 ], [ %45, %43 ], [ %.04379.i.i.i, %55 ], [ %.04379.i.i.i, %30 ]
+  %.142.i.i.i = phi i32 [ %33, %36 ], [ %.04180.i.i.i, %43 ], [ %56, %55 ], [ %33, %30 ]
   %63 = icmp sgt i32 %.142.i.i.i, -1
   %64 = icmp sgt i32 %.250.i.i.i, -1
   %65 = select i1 %63, i1 %64, i1 false
@@ -66317,8 +66317,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader:  ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i:            ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader
-  %21 = phi ptr [ %9, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %22 = phi ptr [ %.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %21 = phi ptr [ %9, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be21, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %22 = phi ptr [ %.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be21, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
   %23 = icmp eq ptr %22, null
   br i1 %23, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i
 
@@ -66442,7 +66442,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge:   ; preds = %69, %28
-  %.be = phi ptr [ %72, %69 ], [ %31, %28 ]
+  %.be21 = phi ptr [ %31, %28 ], [ %72, %69 ]
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i, !llvm.loop !198
 
 73:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -79966,9 +79966,9 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN6vectorIjLb0EjE4setxEjRKjS2_.exit
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %.pre5759 = phi ptr [ %.pre5764, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %103 = phi ptr [ %94, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %104 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %.pre5759 = phi ptr [ %.pre5764, %thread-pre-split.i.i.preheader ], [ %.be99, %thread-pre-split.i.i.backedge ]
+  %103 = phi ptr [ %94, %thread-pre-split.i.i.preheader ], [ %.be99, %thread-pre-split.i.i.backedge ]
+  %104 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be99, %thread-pre-split.i.i.backedge ]
   %105 = icmp eq ptr %104, null
   br i1 %105, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -80088,7 +80088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i32: ; pre
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %150, %110
-  %.be = phi ptr [ %153, %150 ], [ %113, %110 ]
+  %.be99 = phi ptr [ %113, %110 ], [ %153, %150 ]
   br label %thread-pre-split.i.i, !llvm.loop !198
 
 154:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i30
@@ -80333,8 +80333,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN6vectorIjLb0EjE4setxEjRKjS2_.exit
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %16 = phi ptr [ %6, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %17 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %16 = phi ptr [ %6, %thread-pre-split.i.i.preheader ], [ %.be24, %thread-pre-split.i.i.backedge ]
+  %17 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be24, %thread-pre-split.i.i.backedge ]
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -80458,7 +80458,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %64, %23
-  %.be = phi ptr [ %67, %64 ], [ %26, %23 ]
+  %.be24 = phi ptr [ %26, %23 ], [ %67, %64 ]
   br label %thread-pre-split.i.i, !llvm.loop !198
 
 68:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i

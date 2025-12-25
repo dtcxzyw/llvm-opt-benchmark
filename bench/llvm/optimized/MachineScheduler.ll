@@ -25592,7 +25592,7 @@ _ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0
   %.not38 = icmp eq ptr %.019.lcssa.i.i, %14
   br i1 %.not38, label %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit.thread31, label %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit.thread
 
-_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit.thread31: ; preds = %68, %98, %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfo7CompareERKPKN4llvm14MachineOperandES7_.exit, %96, %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit
+_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit.thread31: ; preds = %98, %68, %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfo7CompareERKPKN4llvm14MachineOperandES7_.exit, %96, %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit
   %108 = load ptr, ptr %9, align 8, !tbaa !25
   %109 = load i32, ptr %11, align 8, !tbaa !26
   %110 = zext i32 %109 to i64
@@ -25743,7 +25743,7 @@ _ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0
   %.not40 = icmp eq ptr %.019.lcssa.i.i17, %115
   br i1 %.not40, label %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit19.thread35, label %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit.thread
 
-_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit19.thread35: ; preds = %169, %199, %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfo7CompareERKPKN4llvm14MachineOperandES7_.exit25, %197, %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit19
+_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit19.thread35: ; preds = %199, %169, %_ZN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfo7CompareERKPKN4llvm14MachineOperandES7_.exit25, %197, %_ZSt23lexicographical_compareIPKPKN4llvm14MachineOperandES5_PFbRS4_S6_EEbT_S9_T0_SA_T1_.exit19
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %210 = load i64, ptr %209, align 8, !tbaa !1068
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 56

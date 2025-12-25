@@ -5081,7 +5081,7 @@ _ZN7glslang13TInputScanner4peekEv.exit.i73:       ; preds = %.preheader199
   br label %_ZN7glslang13TInputScanner3getEv.exit74
 
 _ZN7glslang13TInputScanner3getEv.exit74:          ; preds = %19, %_ZN7glslang13TInputScanner3getEv.exit45, %_ZN7glslang13TInputScanner4peekEv.exit24, %129, %92, %202, %251, %302, %312, %291, %191, %240, %8, %81, %343, %.thread84, %_ZN7glslang13TInputScanner4peekEv.exit64, %.loopexit, %344
-  %.0 = phi i32 [ 10, %302 ], [ 10, %343 ], [ 10, %291 ], [ 10, %.loopexit ], [ 10, %312 ], [ 10, %_ZN7glslang13TInputScanner4peekEv.exit64 ], [ %.014, %344 ], [ 10, %.thread84 ], [ -1, %191 ], [ -1, %202 ], [ 92, %_ZN7glslang13TInputScanner4peekEv.exit24 ], [ 92, %81 ], [ -1, %8 ], [ -1, %251 ], [ -1, %240 ], [ 92, %92 ], [ 92, %129 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit45 ], [ -1, %19 ]
+  %.0 = phi i32 [ 10, %291 ], [ 10, %343 ], [ 10, %302 ], [ 10, %.loopexit ], [ 10, %312 ], [ 10, %_ZN7glslang13TInputScanner4peekEv.exit64 ], [ %.014, %344 ], [ 10, %.thread84 ], [ -1, %191 ], [ -1, %202 ], [ 92, %_ZN7glslang13TInputScanner4peekEv.exit24 ], [ 92, %81 ], [ -1, %8 ], [ -1, %251 ], [ -1, %240 ], [ 92, %92 ], [ 92, %129 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit45 ], [ -1, %19 ]
   ret i32 %.0
 }
 

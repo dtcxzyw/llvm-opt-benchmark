@@ -15836,7 +15836,7 @@ _ZgtRK8rationalS1_.exit:                          ; preds = %44
   %91 = icmp samesign ult i64 %indvars.iv.next, %90
   br i1 %91, label %83, label %.preheader88, !llvm.loop !431
 
-92:                                               ; preds = %139, %142
+92:                                               ; preds = %139, %143
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %93 = load i32, ptr %16, align 8, !tbaa !169
   %94 = zext i32 %93 to i64
@@ -15893,28 +15893,28 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i:   ; preds = %116, %105
   %131 = load i8, ptr %130, align 4
   %132 = and i8 %131, 1
   %133 = icmp eq i8 %132, 0
-  br i1 %133, label %134, label %139
+  br i1 %133, label %134, label %143
 
 134:                                              ; preds = %127
   %135 = getelementptr inbounds nuw i8, ptr %110, i64 20
   %136 = load i8, ptr %135, align 4
   %137 = and i8 %136, 1
   %138 = icmp eq i8 %137, 0
-  br i1 %138, label %142, label %139
+  br i1 %138, label %139, label %143
 
-139:                                              ; preds = %134, %127
-  %140 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %111, ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %129)
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %92, label %.thread.loopexit
+139:                                              ; preds = %134
+  %140 = load i32, ptr %128, align 8, !tbaa !343
+  %141 = load i32, ptr %129, align 8, !tbaa !343
+  %142 = icmp eq i32 %140, %141
+  br i1 %142, label %92, label %.thread.loopexit
 
-142:                                              ; preds = %134
-  %143 = load i32, ptr %128, align 8, !tbaa !343
-  %144 = load i32, ptr %129, align 8, !tbaa !343
-  %145 = icmp eq i32 %143, %144
+143:                                              ; preds = %127, %134
+  %144 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %111, ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %129)
+  %145 = icmp eq i32 %144, 0
   br i1 %145, label %92, label %.thread.loopexit
 
-.thread.loopexit:                                 ; preds = %139, %121, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i, %96, %92, %142
-  %.168.ph = phi i1 [ true, %142 ], [ true, %121 ], [ true, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i ], [ true, %96 ], [ false, %92 ], [ true, %139 ]
+.thread.loopexit:                                 ; preds = %139, %121, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i, %96, %92, %143
+  %.168.ph = phi i1 [ true, %143 ], [ true, %121 ], [ true, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i ], [ true, %96 ], [ false, %92 ], [ true, %139 ]
   %.pre138 = load i32, ptr %14, align 8, !tbaa !169
   br label %.thread
 

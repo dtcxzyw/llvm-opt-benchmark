@@ -481,7 +481,7 @@ getNextGISTSearchItem.exit:                       ; preds = %gistkillitems.exit
   br i1 %244, label %177, label %.loopexit, !llvm.loop !10
 
 .critedge:                                        ; preds = %gistkillitems.exit, %getNextGISTSearchItem.exit, %93, %getNextGISTSearchItem.exit.i, %.thread35.i, %62, %9, %147
-  %.0 = phi i1 [ false, %93 ], [ true, %147 ], [ false, %62 ], [ false, %9 ], [ true, %.thread35.i ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]
+  %.0 = phi i1 [ false, %62 ], [ true, %147 ], [ false, %93 ], [ false, %9 ], [ true, %.thread35.i ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]
   ret i1 %.0
 }
 

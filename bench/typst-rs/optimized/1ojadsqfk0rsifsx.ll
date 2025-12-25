@@ -4521,7 +4521,7 @@ _ZN10ttf_parser4Face13outline_glyph17h92106d384096df99E.exit.i.thread: ; preds =
   br label %655
 
 _ZN10ttf_parser4Face13outline_glyph17h92106d384096df99E.exit.i: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf360a8afff34f752E.exit.i.i", %641, %630, %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i.i
-  %642 = phi i16 [ %.pre, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf360a8afff34f752E.exit.i.i" ], [ %620, %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i.i ], [ %storemerge.i.i, %641 ], [ %storemerge15.i.i, %630 ]
+  %642 = phi i16 [ %.pre, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf360a8afff34f752E.exit.i.i" ], [ %storemerge15.i.i, %630 ], [ %storemerge.i.i, %641 ], [ %620, %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !775
   %trunc24.i = trunc nuw i16 %642 to i1
   %.sroa.018.0.copyload.i = load i64, ptr %.sroa.78.0..sroa_idx9.i.i.i, align 2, !noalias !775

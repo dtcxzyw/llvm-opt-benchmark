@@ -11554,7 +11554,7 @@ _ZN5prost8encoding13decode_varint17heba04dbd573d767eE.exit: ; preds = %141
   %162 = trunc nuw i64 %159 to i1
   br i1 %162, label %_ZN5prost8encoding13decode_varint17heba04dbd573d767eE.exit.thread, label %_ZN5prost8encoding13decode_varint17heba04dbd573d767eE.exit.thread18
 
-_ZN5prost8encoding13decode_varint17heba04dbd573d767eE.exit.thread18: ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h385b2dd7e09ddc80E.exit14.i", %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h385b2dd7e09ddc80E.exit.i", %_ZN5prost8encoding13decode_varint17heba04dbd573d767eE.exit
+_ZN5prost8encoding13decode_varint17heba04dbd573d767eE.exit.thread18: ; preds = %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h385b2dd7e09ddc80E.exit.i", %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h385b2dd7e09ddc80E.exit14.i", %_ZN5prost8encoding13decode_varint17heba04dbd573d767eE.exit
   %.sroa.6.0.i21 = phi i64 [ %161, %_ZN5prost8encoding13decode_varint17heba04dbd573d767eE.exit ], [ %30, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h385b2dd7e09ddc80E.exit.i" ], [ %.sroa.5.0.ph.i, %"_ZN59_$LT$$RF$mut$u20$T$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h385b2dd7e09ddc80E.exit14.i" ]
   store i64 %.sroa.6.0.i21, ptr %1, align 8
   br label %_ZN5prost8encoding13decode_varint17heba04dbd573d767eE.exit.thread

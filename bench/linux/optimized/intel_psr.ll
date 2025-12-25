@@ -1566,7 +1566,7 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
   br label %.critedge
 
 110:                                              ; preds = %82, %102
-  %111 = phi i8 [ 0, %82 ], [ 1, %102 ]
+  %111 = phi i8 [ 1, %102 ], [ 0, %82 ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 3440
   store i8 %111, ptr %112, align 8
   br label %119

@@ -3607,7 +3607,7 @@ sub_1:                                            ; preds = %sub_0
   store i32 %693, ptr %627, align 4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %149, %692, %130
+thread-pre-split:                                 ; preds = %692, %130, %149
   %.ph95.ph = phi ptr [ %137, %149 ], [ %137, %130 ], [ %648, %692 ]
   %.ph96.ph = phi ptr [ %150, %149 ], [ %135, %130 ], [ %627, %692 ]
   %.ph97.ph = phi i32 [ %134, %149 ], [ %134, %130 ], [ %650, %692 ]

@@ -13730,7 +13730,7 @@ _ZN4llvm15LegalizerHelper21moreElementsVectorDstERNS_12MachineInstrENS_3LLTEj.ex
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %310, %334, %312
-  %.1 = phi i32 [ 2, %310 ], [ 2, %334 ], [ 2, %312 ], [ 1, %.critedge.sink.split ]
+  %.1 = phi i32 [ 2, %334 ], [ 2, %310 ], [ 2, %312 ], [ 1, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %790
 
@@ -28903,7 +28903,7 @@ _ZN4llvm11SmallVectorINS_8RegisterELj16EED2Ev.exit: ; preds = %_ZN4llvm11SmallVe
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %66, %70, %244, %117, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit154
-  %.2 = phi i32 [ 2, %66 ], [ 2, %117 ], [ 2, %244 ], [ 2, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit154 ], [ 2, %70 ], [ 1, %.critedge.sink.split ]
+  %.2 = phi i32 [ 2, %70 ], [ 2, %117 ], [ 2, %244 ], [ 2, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit154 ], [ 2, %66 ], [ 1, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %402
 

@@ -5446,7 +5446,7 @@ list_head.exit.thread:                            ; preds = %6
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph67, %60, %.thread45, %list_head.exit.thread, %.critedge, %49, %32, %33, %16, %17, %1, %71
-  %.0 = phi i1 [ true, %1 ], [ false, %32 ], [ false, %49 ], [ true, %71 ], [ false, %.critedge ], [ false, %16 ], [ false, %17 ], [ false, %33 ], [ false, %.thread45 ], [ false, %list_head.exit.thread ], [ false, %60 ], [ false, %.lr.ph67 ]
+  %.0 = phi i1 [ true, %1 ], [ false, %32 ], [ false, %49 ], [ true, %71 ], [ false, %.critedge ], [ false, %16 ], [ false, %17 ], [ false, %33 ], [ false, %list_head.exit.thread ], [ false, %.thread45 ], [ false, %60 ], [ false, %.lr.ph67 ]
   ret i1 %.0
 }
 

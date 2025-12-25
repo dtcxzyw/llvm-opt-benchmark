@@ -9450,8 +9450,8 @@ get_bits1_vector.exit.loopexit256:                ; preds = %209
   br label %get_bits1_vector.exit
 
 get_bits1_vector.exit:                            ; preds = %.lr.ph226, %.lr.ph238, %get_bits1_vector.exit.loopexit256, %._crit_edge, %._crit_edge235
-  %354 = phi i32 [ %125, %._crit_edge235 ], [ %125, %.lr.ph238 ], [ %313, %._crit_edge ], [ %176, %get_bits1_vector.exit.loopexit256 ], [ %313, %.lr.ph226 ]
-  %.0186 = phi i32 [ %141, %._crit_edge235 ], [ %141, %.lr.ph238 ], [ %329, %._crit_edge ], [ %353, %get_bits1_vector.exit.loopexit256 ], [ %329, %.lr.ph226 ]
+  %354 = phi i32 [ %125, %.lr.ph238 ], [ %125, %._crit_edge235 ], [ %313, %._crit_edge ], [ %176, %get_bits1_vector.exit.loopexit256 ], [ %313, %.lr.ph226 ]
+  %.0186 = phi i32 [ %141, %.lr.ph238 ], [ %141, %._crit_edge235 ], [ %329, %._crit_edge ], [ %353, %get_bits1_vector.exit.loopexit256 ], [ %329, %.lr.ph226 ]
   store i32 %31, ptr %3, align 16, !tbaa !123
   %355 = icmp sgt i32 %.0186, -1
   br i1 %355, label %357, label %356

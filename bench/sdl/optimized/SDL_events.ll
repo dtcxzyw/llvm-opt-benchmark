@@ -224,7 +224,7 @@ define hidden ptr @SDL_AllocateTemporaryMemory(i64 noundef %0) local_unnamed_add
   br label %SDL_FreeLater.exit
 
 SDL_GetTemporaryMemoryState.exit.i:               ; preds = %8, %4
-  %.06.i.i = phi ptr [ %5, %4 ], [ %7, %8 ]
+  %.06.i.i = phi ptr [ %7, %8 ], [ %5, %4 ]
   %11 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 24) #8
   %.not14.i = icmp eq ptr %11, null
   br i1 %.not14.i, label %SDL_FreeLater.exit, label %12
@@ -288,7 +288,7 @@ define hidden ptr @SDL_CreateTemporaryString(ptr noundef %0) local_unnamed_addr 
   br label %SDL_FreeLater.exit
 
 SDL_GetTemporaryMemoryState.exit.i:               ; preds = %9, %5
-  %.06.i.i = phi ptr [ %6, %5 ], [ %8, %9 ]
+  %.06.i.i = phi ptr [ %8, %9 ], [ %6, %5 ]
   %12 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 24) #8
   %.not14.i = icmp eq ptr %12, null
   br i1 %.not14.i, label %SDL_FreeLater.exit, label %13
@@ -2322,7 +2322,7 @@ define hidden void @SDL_StopEventLoop() local_unnamed_addr #0 {
   br label %SDL_TransferTemporaryMemoryFromEvent.exit
 
 SDL_GetTemporaryMemoryState.exit.i:               ; preds = %17, %13
-  %.06.i.i = phi ptr [ %14, %13 ], [ %16, %17 ]
+  %.06.i.i = phi ptr [ %16, %17 ], [ %14, %13 ]
   %20 = load ptr, ptr %11, align 8
   %.not1115.i = icmp eq ptr %20, null
   br i1 %.not1115.i, label %._crit_edge.i, label %.lr.ph.i
@@ -3531,7 +3531,7 @@ define internal fastcc void @SDL_CutEvent(ptr noundef nonnull %0) unnamed_addr #
   br label %SDL_TransferTemporaryMemoryFromEvent.exit
 
 SDL_GetTemporaryMemoryState.exit.i:               ; preds = %8, %4
-  %.06.i.i = phi ptr [ %5, %4 ], [ %7, %8 ]
+  %.06.i.i = phi ptr [ %7, %8 ], [ %5, %4 ]
   %11 = load ptr, ptr %2, align 8
   %.not1115.i = icmp eq ptr %11, null
   br i1 %.not1115.i, label %._crit_edge.i, label %.lr.ph.i

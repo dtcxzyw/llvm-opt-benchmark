@@ -1434,7 +1434,7 @@ if.then.i54:                                      ; preds = %_ZNK6hermes12Compac
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then.i54, %entry.split.us.split.split.i70, %entry.split.us.split.split.us151.i, %entry.split.us.split.split.us.i59, %if.then.i, %entry.split.us.split.split.i, %entry.split.us.split.split.us148.i, %entry.split.us.split.split.us.i, %if.else20, %if.then13
-  %idx.0 = phi i32 [ %call15, %if.then13 ], [ 0, %if.else20 ], [ %idx.0.us181.i, %entry.split.us.split.split.i ], [ %idx.0.us181.i, %entry.split.us.split.split.us.i ], [ %spec.select.i, %if.then.i ], [ %idx.0.us181.i, %entry.split.us.split.split.us148.i ], [ %idx.0.us184.i, %entry.split.us.split.split.us.i59 ], [ %spec.select.i57, %if.then.i54 ], [ %idx.0.us184.i, %entry.split.us.split.split.us151.i ], [ %idx.0.us184.i, %entry.split.us.split.split.i70 ]
+  %idx.0 = phi i32 [ %call15, %if.then13 ], [ 0, %if.else20 ], [ %idx.0.us181.i, %entry.split.us.split.split.us148.i ], [ %idx.0.us181.i, %entry.split.us.split.split.us.i ], [ %spec.select.i, %if.then.i ], [ %idx.0.us181.i, %entry.split.us.split.split.i ], [ %idx.0.us184.i, %entry.split.us.split.split.us.i59 ], [ %spec.select.i57, %if.then.i54 ], [ %idx.0.us184.i, %entry.split.us.split.split.i70 ], [ %idx.0.us184.i, %entry.split.us.split.split.us151.i ]
   %cmp.i5.i.i.i = icmp ult i32 %retval.0.i.i23, 65536
   br i1 %cmp.i5.i.i.i, label %entry.split.us.i.i, label %while.cond.i.preheader.i
 

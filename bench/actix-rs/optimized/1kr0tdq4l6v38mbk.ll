@@ -1740,7 +1740,7 @@ _ZN8smallvec10deallocate17hdf713e930719dcd0E.exit.i: ; preds = %48
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink3.i.i, i64 noundef %51, i64 noundef 8) #30
   br label %_ZN8smallvec10infallible17hab804a69e4a73d7dE.exit
 
-55:                                               ; preds = %36, %31
+55:                                               ; preds = %31, %36
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.cf8ce5e1de4a78c7021e8ff3b6c4351c.56, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cf8ce5e1de4a78c7021e8ff3b6c4351c.57) #31
   unreachable
 
@@ -8199,8 +8199,8 @@ common.resume:                                    ; preds = %126, %161, %137
           to label %.body unwind label %148
 
 .body:                                            ; preds = %70, %62, %34, %42, %153
-  %.pn.pn = phi { ptr, i32 } [ %154, %153 ], [ %71, %70 ], [ %35, %34 ], [ %43, %42 ], [ %63, %62 ]
-  %.2 = phi i1 [ false, %153 ], [ false, %70 ], [ true, %34 ], [ true, %42 ], [ false, %62 ]
+  %.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %154, %153 ], [ %35, %34 ], [ %43, %42 ], [ %63, %62 ]
+  %.2 = phi i1 [ false, %70 ], [ false, %153 ], [ true, %34 ], [ true, %42 ], [ false, %62 ]
   invoke void @"_ZN4core3ptr96drop_in_place$LT$actix_http..message..Message$LT$actix_http..requests..head..RequestHead$GT$$GT$17hbf9cfe1452a6a30cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16) #32
           to label %.thread unwind label %148
 

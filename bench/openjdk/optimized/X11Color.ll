@@ -1318,7 +1318,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph457, %493, %.loopexit.sink.split, %._crit_edge453, %.loopexit431, %1
-  %.0357 = phi i32 [ 1, %493 ], [ 0, %1 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge453 ], [ 1, %.loopexit431 ], [ 1, %.lr.ph457 ]
+  %.0357 = phi i32 [ 1, %._crit_edge453 ], [ 0, %1 ], [ 0, %.loopexit.sink.split ], [ 1, %493 ], [ 1, %.loopexit431 ], [ 1, %.lr.ph457 ]
   ret i32 %.0357
 }
 

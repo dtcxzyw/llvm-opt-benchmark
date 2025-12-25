@@ -9103,7 +9103,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr %.0.i.i.i.i17.i, ptr %237, align 8, !tbaa !760
   br label %_ZN5clang4ento16MemRegionManager16getGlobalsRegionENS0_9MemRegion4KindEPKNS0_14CodeTextRegionE.exit
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread194: ; preds = %139, %156, %_ZNK5clang7VarDecl13isStaticLocalEv.exit, %.critedge.thread
+_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread194: ; preds = %156, %139, %_ZNK5clang7VarDecl13isStaticLocalEv.exit, %.critedge.thread
   %264 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %264, align 8
   %265 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
@@ -12628,7 +12628,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(pt
   br i1 %cond, label %.lr.ph, label %.split18.us, !llvm.loop !813
 
 .split18.us:                                      ; preds = %.lr.ph, %.thread, %.split.us, %8, %.split.preheader
-  %.us-phi = phi ptr [ %0, %.split.preheader ], [ %.012.us, %.split.us ], [ %.012.us, %8 ], [ %.01225, %.lr.ph ], [ %.214, %.thread ]
+  %.us-phi = phi ptr [ %0, %.split.preheader ], [ %.012.us, %.split.us ], [ %.012.us, %8 ], [ %.214, %.thread ], [ %.01225, %.lr.ph ]
   ret ptr %.us-phi
 }
 

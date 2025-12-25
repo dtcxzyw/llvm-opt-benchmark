@@ -3814,7 +3814,7 @@ H5S__hyper_spans_shape_same.exit:                 ; preds = %.thread86, %.crited
   br label %.loopexit
 
 .loopexit:                                        ; preds = %167, %.lr.ph, %122, %117, %110, %.lr.ph100, %127, %.preheader, %2, %H5S__hyper_spans_shape_same.exit, %153, %141
-  %.067 = phi i32 [ 1, %2 ], [ 1, %127 ], [ 0, %122 ], [ -1, %141 ], [ %218, %H5S__hyper_spans_shape_same.exit ], [ -1, %153 ], [ 1, %.preheader ], [ 0, %.lr.ph100 ], [ 0, %110 ], [ 0, %117 ], [ 0, %.lr.ph ], [ 0, %167 ]
+  %.067 = phi i32 [ 1, %2 ], [ -1, %141 ], [ -1, %153 ], [ 1, %127 ], [ %218, %H5S__hyper_spans_shape_same.exit ], [ 0, %122 ], [ 1, %.preheader ], [ 0, %.lr.ph100 ], [ 0, %110 ], [ 0, %117 ], [ 0, %.lr.ph ], [ 0, %167 ]
   ret i32 %.067
 }
 
@@ -9920,7 +9920,7 @@ define internal fastcc void @H5S__hyper_update_diminfo(ptr noundef readonly capt
   br label %115
 
 115:                                              ; preds = %92, %87, %99, %96, %111, %38
-  %.2 = phi i1 [ %.0198, %38 ], [ true, %111 ], [ true, %96 ], [ true, %99 ], [ true, %87 ], [ true, %92 ]
+  %.2 = phi i1 [ %.0198, %38 ], [ true, %99 ], [ true, %96 ], [ true, %111 ], [ true, %92 ], [ true, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !173
@@ -15134,11 +15134,11 @@ H5S__hyper_iter_get_seq_list_opt.exit:            ; preds = %244, %._crit_edge47
   br i1 %exitcond627.not.i, label %.thread.i172, label %.lr.ph520.i, !llvm.loop !247
 
 .thread.i172:                                     ; preds = %620, %.lr.ph520.i, %.preheader454.i, %589, %556, %._crit_edge.i170
-  %.0340.i = phi i64 [ %552, %.preheader454.i ], [ %552, %.lr.ph520.i ], [ %..i163, %._crit_edge.i170 ], [ %552, %556 ], [ %552, %589 ], [ %552, %620 ]
-  %.0326.i = phi i64 [ 1, %.preheader454.i ], [ 1, %.lr.ph520.i ], [ 0, %._crit_edge.i170 ], [ 1, %556 ], [ 1, %589 ], [ 1, %620 ]
-  %.0321.i = phi i64 [ %551, %.preheader454.i ], [ %551, %.lr.ph520.i ], [ 0, %._crit_edge.i170 ], [ %551, %556 ], [ %551, %589 ], [ %551, %620 ]
-  %.1313.i = phi i64 [ 0, %.preheader454.i ], [ %641, %.lr.ph520.i ], [ %.0312.lcssa.i, %._crit_edge.i170 ], [ %561, %556 ], [ %.0312.lcssa.i, %589 ], [ %.0312.lcssa.i, %620 ]
-  %.0308.i = phi ptr [ %628, %.preheader454.i ], [ %.4.lcssa651.i, %.lr.ph520.i ], [ %532, %._crit_edge.i170 ], [ %555, %556 ], [ null, %589 ], [ null, %620 ]
+  %.0340.i = phi i64 [ %552, %.preheader454.i ], [ %552, %589 ], [ %..i163, %._crit_edge.i170 ], [ %552, %556 ], [ %552, %.lr.ph520.i ], [ %552, %620 ]
+  %.0326.i = phi i64 [ 1, %.preheader454.i ], [ 1, %589 ], [ 0, %._crit_edge.i170 ], [ 1, %556 ], [ 1, %.lr.ph520.i ], [ 1, %620 ]
+  %.0321.i = phi i64 [ %551, %.preheader454.i ], [ %551, %589 ], [ 0, %._crit_edge.i170 ], [ %551, %556 ], [ %551, %.lr.ph520.i ], [ %551, %620 ]
+  %.1313.i = phi i64 [ 0, %.preheader454.i ], [ %.0312.lcssa.i, %589 ], [ %.0312.lcssa.i, %._crit_edge.i170 ], [ %561, %556 ], [ %641, %.lr.ph520.i ], [ %.0312.lcssa.i, %620 ]
+  %.0308.i = phi ptr [ %628, %.preheader454.i ], [ null, %589 ], [ %532, %._crit_edge.i170 ], [ %555, %556 ], [ %.4.lcssa651.i, %.lr.ph520.i ], [ null, %620 ]
   %642 = icmp ne i64 %.0340.i, 0
   %643 = icmp ult i64 %.0326.i, %1
   %644 = and i1 %642, %643
@@ -15394,8 +15394,8 @@ H5S__hyper_iter_get_seq_list_opt.exit:            ; preds = %244, %._crit_edge47
   br i1 %exitcond637.not.i, label %.loopexit.i174, label %.lr.ph550.i, !llvm.loop !250
 
 .thread431.i:                                     ; preds = %.thread397.thread.i, %.loopexit.i174, %743, %706, %693, %.thread.i172, %580, %573
-  %.2342.i = phi i64 [ %.4344407.i, %743 ], [ %.4344406.i, %693 ], [ %.4344406.i, %706 ], [ %.0340.i, %.thread.i172 ], [ 0, %573 ], [ 0, %580 ], [ %.4344407.i, %.loopexit.i174 ], [ %.4344407.i, %.thread397.thread.i ]
-  %.2328.i = phi i64 [ %.4330413.i, %743 ], [ %.4330412.i, %693 ], [ %.4330412.i, %706 ], [ %.0326.i, %.thread.i172 ], [ 1, %573 ], [ 1, %580 ], [ %.4330413.i, %.loopexit.i174 ], [ %.4330413.i, %.thread397.thread.i ]
+  %.2342.i = phi i64 [ %.0340.i, %.thread.i172 ], [ %.4344406.i, %693 ], [ %.4344406.i, %706 ], [ 0, %580 ], [ 0, %573 ], [ %.4344407.i, %743 ], [ %.4344407.i, %.loopexit.i174 ], [ %.4344407.i, %.thread397.thread.i ]
+  %.2328.i = phi i64 [ %.0326.i, %.thread.i172 ], [ %.4330412.i, %693 ], [ %.4330412.i, %706 ], [ 1, %580 ], [ 1, %573 ], [ %.4330413.i, %743 ], [ %.4330413.i, %.loopexit.i174 ], [ %.4330413.i, %.thread397.thread.i ]
   %765 = sub i64 %..i163, %.2342.i
   %766 = load i64, ptr %538, align 8, !tbaa !207
   %767 = sub i64 %766, %765
@@ -18937,10 +18937,10 @@ H5S__hyper_new_span.exit549:                      ; preds = %419, %415
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %729, %725, %704, %708, %581, %585, %561, %563, %433, %437, %293, %297, %273, %275, %117, %113
-  %.1448 = phi i8 [ 0, %433 ], [ 0, %581 ], [ 1, %561 ], [ %.04471056, %117 ], [ 0, %293 ], [ 1, %273 ], [ 0, %704 ], [ %.04471056, %113 ], [ 0, %729 ], [ 1, %275 ], [ 0, %297 ], [ 0, %437 ], [ 1, %563 ], [ 0, %585 ], [ 0, %708 ], [ 0, %725 ], [ %.1448.ph, %.thread.sink.split ]
-  %.1428 = phi i8 [ 1, %433 ], [ 0, %581 ], [ 0, %561 ], [ 0, %117 ], [ 0, %293 ], [ 0, %273 ], [ 1, %704 ], [ 0, %113 ], [ %.04271057, %729 ], [ 0, %275 ], [ 0, %297 ], [ 1, %437 ], [ 0, %563 ], [ 0, %585 ], [ 1, %708 ], [ %.04271057, %725 ], [ %.1428.ph, %.thread.sink.split ]
-  %.1416 = phi ptr [ %435, %433 ], [ %583, %581 ], [ %544, %561 ], [ %.04151058, %117 ], [ %295, %293 ], [ %247, %273 ], [ %706, %704 ], [ %.04151058, %113 ], [ %727, %729 ], [ %247, %275 ], [ %295, %297 ], [ %435, %437 ], [ %544, %563 ], [ %583, %585 ], [ %706, %708 ], [ %727, %725 ], [ %.1416.ph, %.thread.sink.split ]
-  %.1404 = phi ptr [ %409, %433 ], [ %572, %581 ], [ %552, %561 ], [ %115, %117 ], [ %284, %293 ], [ %264, %273 ], [ %689, %704 ], [ %115, %113 ], [ %.04031059, %729 ], [ %264, %275 ], [ %284, %297 ], [ %409, %437 ], [ %552, %563 ], [ %572, %585 ], [ %689, %708 ], [ %.04031059, %725 ], [ %.1404.ph, %.thread.sink.split ]
+  %.1448 = phi i8 [ 0, %433 ], [ 0, %704 ], [ 1, %273 ], [ 0, %293 ], [ %.04471056, %117 ], [ 1, %561 ], [ 0, %581 ], [ %.04471056, %113 ], [ 0, %729 ], [ 1, %275 ], [ 0, %297 ], [ 0, %437 ], [ 1, %563 ], [ 0, %585 ], [ 0, %708 ], [ 0, %725 ], [ %.1448.ph, %.thread.sink.split ]
+  %.1428 = phi i8 [ 1, %433 ], [ 1, %704 ], [ 0, %273 ], [ 0, %293 ], [ 0, %117 ], [ 0, %561 ], [ 0, %581 ], [ 0, %113 ], [ %.04271057, %729 ], [ 0, %275 ], [ 0, %297 ], [ 1, %437 ], [ 0, %563 ], [ 0, %585 ], [ 1, %708 ], [ %.04271057, %725 ], [ %.1428.ph, %.thread.sink.split ]
+  %.1416 = phi ptr [ %435, %433 ], [ %706, %704 ], [ %247, %273 ], [ %295, %293 ], [ %.04151058, %117 ], [ %544, %561 ], [ %583, %581 ], [ %.04151058, %113 ], [ %727, %729 ], [ %247, %275 ], [ %295, %297 ], [ %435, %437 ], [ %544, %563 ], [ %583, %585 ], [ %706, %708 ], [ %727, %725 ], [ %.1416.ph, %.thread.sink.split ]
+  %.1404 = phi ptr [ %409, %433 ], [ %689, %704 ], [ %264, %273 ], [ %284, %293 ], [ %115, %117 ], [ %552, %561 ], [ %572, %581 ], [ %115, %113 ], [ %.04031059, %729 ], [ %264, %275 ], [ %284, %297 ], [ %409, %437 ], [ %552, %563 ], [ %572, %585 ], [ %689, %708 ], [ %.04031059, %725 ], [ %.1404.ph, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -20530,10 +20530,10 @@ H5S__hyper_free_span.exit460.thread:              ; preds = %599, %611, %H5S__hy
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %643, %639, %H5S__hyper_free_span.exit460.thread, %623, %506, %H5S__hyper_free_span.exit451.thread, %459, %H5S__hyper_free_span.exit445.thread, %340, %H5S__hyper_free_span.exit436.thread, %222, %H5S__hyper_free_span.exit427.thread, %175, %H5S__hyper_free_span.exit421.thread, %55, %51
-  %.1349 = phi i8 [ 0, %340 ], [ 0, %506 ], [ 1, %459 ], [ %.0348859, %55 ], [ 0, %222 ], [ 1, %175 ], [ 0, %H5S__hyper_free_span.exit460.thread ], [ %.0348859, %51 ], [ 0, %639 ], [ 1, %H5S__hyper_free_span.exit421.thread ], [ 0, %H5S__hyper_free_span.exit451.thread ], [ 0, %H5S__hyper_free_span.exit427.thread ], [ 0, %643 ], [ 0, %H5S__hyper_free_span.exit436.thread ], [ 0, %623 ], [ 1, %H5S__hyper_free_span.exit445.thread ], [ %.1349.ph, %.thread.sink.split ]
-  %.1329 = phi i8 [ 1, %340 ], [ 0, %506 ], [ 0, %459 ], [ 0, %55 ], [ 0, %222 ], [ 0, %175 ], [ 1, %H5S__hyper_free_span.exit460.thread ], [ 0, %51 ], [ %.0328860, %639 ], [ 0, %H5S__hyper_free_span.exit421.thread ], [ 0, %H5S__hyper_free_span.exit451.thread ], [ 0, %H5S__hyper_free_span.exit427.thread ], [ %.0328860, %643 ], [ 1, %H5S__hyper_free_span.exit436.thread ], [ 1, %623 ], [ 0, %H5S__hyper_free_span.exit445.thread ], [ %.1329.ph, %.thread.sink.split ]
-  %.1317 = phi ptr [ %338, %340 ], [ %504, %506 ], [ %418, %459 ], [ %.0316861, %55 ], [ %220, %222 ], [ %134, %175 ], [ %621, %H5S__hyper_free_span.exit460.thread ], [ %.0316861, %51 ], [ %641, %639 ], [ %134, %H5S__hyper_free_span.exit421.thread ], [ %504, %H5S__hyper_free_span.exit451.thread ], [ %220, %H5S__hyper_free_span.exit427.thread ], [ %641, %643 ], [ %338, %H5S__hyper_free_span.exit436.thread ], [ %621, %623 ], [ %418, %H5S__hyper_free_span.exit445.thread ], [ %.1317.ph, %.thread.sink.split ]
-  %.1304 = phi ptr [ %299, %340 ], [ %480, %506 ], [ %435, %459 ], [ %53, %55 ], [ %196, %222 ], [ %151, %175 ], [ %582, %H5S__hyper_free_span.exit460.thread ], [ %53, %51 ], [ %.0303862, %639 ], [ %151, %H5S__hyper_free_span.exit421.thread ], [ %480, %H5S__hyper_free_span.exit451.thread ], [ %196, %H5S__hyper_free_span.exit427.thread ], [ %.0303862, %643 ], [ %299, %H5S__hyper_free_span.exit436.thread ], [ %582, %623 ], [ %435, %H5S__hyper_free_span.exit445.thread ], [ %.1304.ph, %.thread.sink.split ]
+  %.1349 = phi i8 [ %.0348859, %55 ], [ 1, %459 ], [ 0, %506 ], [ 0, %340 ], [ 0, %222 ], [ 0, %H5S__hyper_free_span.exit460.thread ], [ 1, %175 ], [ %.0348859, %51 ], [ 0, %639 ], [ 1, %H5S__hyper_free_span.exit421.thread ], [ 0, %H5S__hyper_free_span.exit451.thread ], [ 0, %H5S__hyper_free_span.exit427.thread ], [ 0, %643 ], [ 0, %H5S__hyper_free_span.exit436.thread ], [ 0, %623 ], [ 1, %H5S__hyper_free_span.exit445.thread ], [ %.1349.ph, %.thread.sink.split ]
+  %.1329 = phi i8 [ 0, %55 ], [ 0, %459 ], [ 0, %506 ], [ 1, %340 ], [ 0, %222 ], [ 1, %H5S__hyper_free_span.exit460.thread ], [ 0, %175 ], [ 0, %51 ], [ %.0328860, %639 ], [ 0, %H5S__hyper_free_span.exit421.thread ], [ 0, %H5S__hyper_free_span.exit451.thread ], [ 0, %H5S__hyper_free_span.exit427.thread ], [ %.0328860, %643 ], [ 1, %H5S__hyper_free_span.exit436.thread ], [ 1, %623 ], [ 0, %H5S__hyper_free_span.exit445.thread ], [ %.1329.ph, %.thread.sink.split ]
+  %.1317 = phi ptr [ %.0316861, %55 ], [ %418, %459 ], [ %504, %506 ], [ %338, %340 ], [ %220, %222 ], [ %621, %H5S__hyper_free_span.exit460.thread ], [ %134, %175 ], [ %.0316861, %51 ], [ %641, %639 ], [ %134, %H5S__hyper_free_span.exit421.thread ], [ %504, %H5S__hyper_free_span.exit451.thread ], [ %220, %H5S__hyper_free_span.exit427.thread ], [ %641, %643 ], [ %338, %H5S__hyper_free_span.exit436.thread ], [ %621, %623 ], [ %418, %H5S__hyper_free_span.exit445.thread ], [ %.1317.ph, %.thread.sink.split ]
+  %.1304 = phi ptr [ %53, %55 ], [ %435, %459 ], [ %480, %506 ], [ %299, %340 ], [ %196, %222 ], [ %582, %H5S__hyper_free_span.exit460.thread ], [ %151, %175 ], [ %53, %51 ], [ %.0303862, %639 ], [ %151, %H5S__hyper_free_span.exit421.thread ], [ %480, %H5S__hyper_free_span.exit451.thread ], [ %196, %H5S__hyper_free_span.exit427.thread ], [ %.0303862, %643 ], [ %299, %H5S__hyper_free_span.exit436.thread ], [ %582, %623 ], [ %435, %H5S__hyper_free_span.exit445.thread ], [ %.1304.ph, %.thread.sink.split ]
   %663 = icmp ne ptr %.1304, null
   %664 = icmp ne ptr %.1317, null
   %665 = select i1 %663, i1 %664, i1 false
@@ -21955,7 +21955,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__hyper_proj_int_build_proj(ptr 
   br label %.thread
 
 741:                                              ; preds = %305, %312, %374, %381, %589, %596, %658, %665
-  %.0470 = phi ptr [ %354, %381 ], [ %354, %374 ], [ %279, %312 ], [ %563, %589 ], [ %563, %596 ], [ %279, %305 ], [ %638, %665 ], [ %638, %658 ]
+  %.0470 = phi ptr [ %638, %665 ], [ %279, %305 ], [ %279, %312 ], [ %563, %589 ], [ %563, %596 ], [ %354, %381 ], [ %354, %374 ], [ %638, %658 ]
   %742 = tail call fastcc i32 @H5S__hyper_free_span_info(ptr noundef nonnull %.0470)
   %743 = icmp slt i32 %742, 0
   br i1 %743, label %744, label %.thread

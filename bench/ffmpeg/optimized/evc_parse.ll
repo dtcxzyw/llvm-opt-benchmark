@@ -855,7 +855,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   br i1 %102, label %.lr.ph.backedge, label %103
 
 .lr.ph.backedge:                                  ; preds = %.lr.ph, %103
-  %.be = phi i32 [ 0, %.lr.ph ], [ %101, %103 ]
+  %.be = phi i32 [ %101, %103 ], [ 0, %.lr.ph ]
   br label %.lr.ph, !llvm.loop !62
 
 103:                                              ; preds = %.lr.ph

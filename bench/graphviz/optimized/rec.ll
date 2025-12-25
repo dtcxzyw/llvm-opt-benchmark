@@ -75,7 +75,7 @@ define ptr @aggetrec(ptr noundef captures(none) %0, ptr noundef readonly capture
   br label %.critedge26
 
 .critedge26:                                      ; preds = %6, %11, %26, %22, %18, %17, %19
-  %.0 = phi ptr [ %.021, %22 ], [ %.021, %17 ], [ %.021, %18 ], [ %.021, %26 ], [ %.021, %19 ], [ null, %11 ], [ null, %6 ]
+  %.0 = phi ptr [ %.021, %17 ], [ %.021, %22 ], [ %.021, %18 ], [ %.021, %26 ], [ %.021, %19 ], [ null, %11 ], [ null, %6 ]
   ret ptr %.0
 }
 

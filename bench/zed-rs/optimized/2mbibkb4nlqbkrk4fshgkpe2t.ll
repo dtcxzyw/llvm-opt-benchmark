@@ -4299,7 +4299,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17hd91cb6921f503b13E.llvm.1
           to label %525 unwind label %.critedge125.thread488.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %608, %599, %541, %532, %782, %773
-  %555 = phi ptr [ @anon.0f678e99b415c09c9b6afba76a3cb391.95, %782 ], [ @anon.0f678e99b415c09c9b6afba76a3cb391.95, %773 ], [ @anon.0f678e99b415c09c9b6afba76a3cb391.88, %532 ], [ @anon.0f678e99b415c09c9b6afba76a3cb391.92, %599 ], [ @anon.0f678e99b415c09c9b6afba76a3cb391.88, %541 ], [ @anon.0f678e99b415c09c9b6afba76a3cb391.92, %608 ]
+  %555 = phi ptr [ @anon.0f678e99b415c09c9b6afba76a3cb391.95, %782 ], [ @anon.0f678e99b415c09c9b6afba76a3cb391.95, %773 ], [ @anon.0f678e99b415c09c9b6afba76a3cb391.88, %532 ], [ @anon.0f678e99b415c09c9b6afba76a3cb391.92, %599 ], [ @anon.0f678e99b415c09c9b6afba76a3cb391.92, %608 ], [ @anon.0f678e99b415c09c9b6afba76a3cb391.88, %541 ]
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) %555) #31
           to label %.cont unwind label %.critedge125.thread488.loopexit.split-lp.loopexit.split-lp
 

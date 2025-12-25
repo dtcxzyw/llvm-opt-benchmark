@@ -6001,7 +6001,7 @@ _ZNKSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_
   br i1 %186, label %.thread, label %.loopexit233
 
 .loopexit233:                                     ; preds = %.noexc105, %.noexc103, %.noexc101, %.noexc99, %.noexc111, %.noexc109, %.noexc107
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.0103.1.i.i.i.i.i.i, %.noexc109 ], [ %.sroa.0103.2.i.i.i.i.i.i, %.noexc111 ], [ %.sroa.0103.0.lcssa.i.i.i.i.i.i, %.noexc107 ], [ %149, %.noexc101 ], [ %.sroa.0103.0126.i.i.i.i.i.i, %.noexc99 ], [ %154, %.noexc103 ], [ %159, %.noexc105 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.0103.1.i.i.i.i.i.i, %.noexc109 ], [ %.sroa.0103.2.i.i.i.i.i.i, %.noexc111 ], [ %.sroa.0103.0.lcssa.i.i.i.i.i.i, %.noexc107 ], [ %149, %.noexc101 ], [ %.sroa.0103.0126.i.i.i.i.i.i, %.noexc99 ], [ %159, %.noexc105 ], [ %154, %.noexc103 ]
   %.not = icmp eq ptr %.val50, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %.not, label %.thread, label %187
 
@@ -15447,7 +15447,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEE
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -15672,7 +15672,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_check
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 

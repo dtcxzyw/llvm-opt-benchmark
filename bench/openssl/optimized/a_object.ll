@@ -401,8 +401,8 @@ define i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_null) %0, 
   br label %.thread171
 
 .thread171:                                       ; preds = %61, %.thread157, %46, %40, %.thread, %.lr.ph253, %.thread171.sink.split
-  %.0109 = phi ptr [ %.1110263, %.thread157 ], [ %.0109.ph, %.thread171.sink.split ], [ %.2111, %.lr.ph253 ], [ %.1110263, %.thread ], [ %.1110263, %40 ], [ %.1110263, %46 ], [ %.1110263, %61 ]
-  %.096 = phi ptr [ %.3163, %.thread157 ], [ %.096.ph, %.thread171.sink.split ], [ %.2.lcssa.ph, %.lr.ph253 ], [ %.3163, %46 ], [ null, %40 ], [ %.4156, %.thread ], [ %.2.lcssa.ph, %61 ]
+  %.0109 = phi ptr [ %.2111, %.lr.ph253 ], [ %.1110263, %.thread157 ], [ %.0109.ph, %.thread171.sink.split ], [ %.1110263, %.thread ], [ %.1110263, %40 ], [ %.1110263, %46 ], [ %.1110263, %61 ]
+  %.096 = phi ptr [ %.2.lcssa.ph, %.lr.ph253 ], [ %.3163, %.thread157 ], [ %.096.ph, %.thread171.sink.split ], [ %.3163, %46 ], [ null, %40 ], [ %.4156, %.thread ], [ %.2.lcssa.ph, %61 ]
   %.not153 = icmp eq ptr %.0109, %5
   br i1 %.not153, label %.sink.split, label %.thread171.thread
 

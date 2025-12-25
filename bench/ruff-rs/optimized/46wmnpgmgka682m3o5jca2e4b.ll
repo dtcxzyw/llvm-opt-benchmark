@@ -62640,7 +62640,7 @@ define void @_ZN11ruff_linter6linter10check_path17ha2da14a9b838ead4E(ptr dead_on
   br label %.body135
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %86, %87, %88, %94, %96, %98, %100, %101, %114, %116, %117, %120, %133, %139, %147, %151, %153, %156, %158, %283, %290, %291, %292, %298, %305, %313, %314, %323, %329, %330, %333, %334, %337, %338, %.loopexit189, %._crit_edge, %.loopexit, %439
-  %.sroa.033.3.ph.ph.ph.ph.ph.ph.ph = phi i1 [ true, %114 ], [ true, %117 ], [ true, %86 ], [ true, %120 ], [ true, %116 ], [ true, %96 ], [ true, %101 ], [ true, %133 ], [ true, %._crit_edge ], [ true, %139 ], [ true, %147 ], [ true, %151 ], [ true, %153 ], [ true, %156 ], [ true, %158 ], [ true, %290 ], [ true, %291 ], [ true, %292 ], [ true, %283 ], [ false, %439 ], [ true, %.loopexit ], [ true, %298 ], [ true, %94 ], [ true, %305 ], [ true, %313 ], [ true, %88 ], [ true, %100 ], [ true, %314 ], [ true, %329 ], [ true, %323 ], [ true, %330 ], [ true, %333 ], [ true, %334 ], [ true, %337 ], [ true, %87 ], [ true, %98 ], [ true, %338 ], [ true, %.loopexit189 ]
+  %.sroa.033.3.ph.ph.ph.ph.ph.ph.ph = phi i1 [ true, %114 ], [ true, %117 ], [ true, %86 ], [ true, %120 ], [ true, %116 ], [ true, %101 ], [ true, %96 ], [ true, %133 ], [ true, %._crit_edge ], [ true, %139 ], [ true, %147 ], [ true, %151 ], [ true, %153 ], [ true, %156 ], [ true, %158 ], [ true, %290 ], [ true, %291 ], [ true, %292 ], [ true, %283 ], [ true, %.loopexit ], [ false, %439 ], [ true, %298 ], [ true, %94 ], [ true, %305 ], [ true, %313 ], [ true, %100 ], [ true, %88 ], [ true, %314 ], [ true, %329 ], [ true, %323 ], [ true, %330 ], [ true, %333 ], [ true, %334 ], [ true, %337 ], [ true, %98 ], [ true, %87 ], [ true, %338 ], [ true, %.loopexit189 ]
   %lpad.loopexit.split-lp218 = landingpad { ptr, i32 }
           cleanup
   br label %.body135
@@ -64557,7 +64557,7 @@ define void @_ZN11ruff_linter6linter8lint_fix17h0ead6b788f88e5f4E(ptr dead_on_un
   br label %.thread
 
 .loopexit.split-lp141:                            ; preds = %9, %63, %77, %290, %69, %75, %121
-  %.sroa.026.0.ph = phi i8 [ 1, %63 ], [ 1, %75 ], [ 1, %77 ], [ 1, %9 ], [ 1, %121 ], [ %.sroa.026.10, %290 ], [ 1, %69 ]
+  %.sroa.026.0.ph = phi i8 [ 1, %63 ], [ 1, %75 ], [ 1, %77 ], [ 1, %69 ], [ 1, %121 ], [ %.sroa.026.10, %290 ], [ 1, %9 ]
   %lpad.loopexit.split-lp143 = landingpad { ptr, i32 }
           cleanup
   br label %50

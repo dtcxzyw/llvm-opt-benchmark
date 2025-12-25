@@ -358,7 +358,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %_ZN7QStringC2EPKc.e
   br i1 %42, label %_ZN7QStringD2Ev.exit.thread.sink.split, label %_ZN7QStringD2Ev.exit.thread
 
 _ZN7QStringD2Ev.exit:                             ; preds = %25, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %_ZN7QStringC2EPKc.exit, %31
-  %.0 = phi ptr [ %13, %25 ], [ %13, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ %36, %31 ], [ %13, %_ZN7QStringC2EPKc.exit ]
+  %.0 = phi ptr [ %13, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i ], [ %13, %25 ], [ %36, %31 ], [ %13, %_ZN7QStringC2EPKc.exit ]
   %.not60 = icmp eq ptr %.0, null
   br i1 %.not60, label %_ZN7QStringD2Ev.exit.thread, label %43
 

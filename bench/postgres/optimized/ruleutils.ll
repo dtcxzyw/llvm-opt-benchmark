@@ -2850,7 +2850,7 @@ list_length.exit84.thread.i.i:                    ; preds = %list_length.exit.th
   %.not77.i.i = icmp eq i32 %176, 0
   br i1 %.not77.i.i, label %144, label %get_simple_values_rte.exit.i.thread, !llvm.loop !15
 
-get_simple_values_rte.exit.i.thread211:           ; preds = %149, %151, %121, %123, %list_length.exit84.i.i, %.preheader.split.split.us.i.i, %.preheader.split.split.i.i, %list_length.exit.thread.i.i
+get_simple_values_rte.exit.i.thread211:           ; preds = %149, %151, %121, %123, %list_length.exit84.i.i, %list_length.exit.thread.i.i, %.preheader.split.split.i.i, %.preheader.split.split.us.i.i
   %177 = getelementptr inbounds nuw i8, ptr %.254.i.i, i64 136
   %178 = load ptr, ptr %177, align 8
   call fastcc void @get_values_def(ptr noundef %178, ptr noundef nonnull %9)
@@ -19288,7 +19288,7 @@ for_each_cell_setup.exit.split:                   ; preds = %73
   br label %.thread174
 
 .thread135:                                       ; preds = %66, %68, %22, %30, %.lr.ph, %26, %49, %thread-pre-split
-  %.191.ph = phi ptr [ %24, %thread-pre-split ], [ %24, %30 ], [ %.090207269, %49 ], [ %24, %22 ], [ %24, %.lr.ph ], [ %24, %26 ], [ %.090207269, %68 ], [ %.090207269, %66 ]
+  %.191.ph = phi ptr [ %24, %thread-pre-split ], [ %24, %.lr.ph ], [ %.090207269, %49 ], [ %24, %22 ], [ %24, %30 ], [ %24, %26 ], [ %.090207269, %68 ], [ %.090207269, %66 ]
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229268, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next230, %wide.trip.count233
   br i1 %exitcond234.not, label %.thread174, label %22
@@ -20486,7 +20486,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %.loopexit.loopexit, %3, %55, %57, %62, %63, %.thread, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %46, %18, %20, %28, %30, %37, %39, %40, %69, %65, %52, %48, %8, %5
-  %.0 = phi i1 [ true, %.loopexit.loopexit ], [ true, %37 ], [ %45, %40 ], [ false, %39 ], [ %7, %5 ], [ %10, %8 ], [ false, %55 ], [ false, %57 ], [ false, %62 ], [ false, %63 ], [ true, %53 ], [ true, %53 ], [ false, %28 ], [ false, %52 ], [ %or.cond11, %48 ], [ false, %18 ], [ false, %69 ], [ true, %53 ], [ true, %.thread ], [ %or.cond17, %65 ], [ true, %46 ], [ true, %53 ], [ false, %20 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ false, %30 ], [ false, %3 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
+  %.0 = phi i1 [ false, %3 ], [ true, %37 ], [ %45, %40 ], [ false, %39 ], [ %7, %5 ], [ %10, %8 ], [ false, %55 ], [ false, %57 ], [ false, %62 ], [ false, %63 ], [ true, %53 ], [ true, %53 ], [ false, %28 ], [ false, %52 ], [ %or.cond11, %48 ], [ false, %18 ], [ false, %69 ], [ true, %53 ], [ true, %.thread ], [ %or.cond17, %65 ], [ true, %46 ], [ true, %53 ], [ false, %20 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %46 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ true, %53 ], [ false, %30 ], [ true, %.loopexit.loopexit ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -24195,7 +24195,7 @@ define internal fastcc void @get_rte_alias(ptr noundef readonly captures(none) %
     i32 3, label %.critedge
     i32 1, label %.critedge
     i32 5, label %.critedge
-    i32 6, label %37
+    i32 6, label %36
   ]
 
 29:                                               ; preds = %26
@@ -24203,7 +24203,7 @@ define internal fastcc void @get_rte_alias(ptr noundef readonly captures(none) %
   %31 = load i32, ptr %30, align 4
   %32 = tail call ptr @get_rel_name(i32 noundef %31) #11
   %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %33, label %get_relation_name.exit
+  br i1 %.not.i, label %33, label %40
 
 33:                                               ; preds = %29
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -24211,26 +24211,26 @@ define internal fastcc void @get_rte_alias(ptr noundef readonly captures(none) %
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 13049, ptr noundef nonnull @__func__.get_relation_name) #11
   unreachable
 
-get_relation_name.exit:                           ; preds = %29
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %32) #13
-  %.not21.not = icmp eq i32 %36, 0
-  br i1 %.not21.not, label %.fold.split, label %.critedge
-
-37:                                               ; preds = %26
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %39) #13
-  %.not20.not = icmp eq i32 %40, 0
+36:                                               ; preds = %26
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %38) #13
+  %.not20.not = icmp eq i32 %39, 0
   br i1 %.not20.not, label %.fold.split, label %.critedge
 
-.critedge:                                        ; preds = %get_relation_name.exit, %26, %26, %26, %4, %17, %37
-  %41 = load ptr, ptr %3, align 8
-  %42 = select i1 %2, ptr @.str.454, ptr @.str.474
-  %43 = tail call ptr @quote_identifier(ptr noundef %14)
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %41, ptr noundef nonnull @.str.477, ptr noundef nonnull %42, ptr noundef %43) #11
+40:                                               ; preds = %29
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %32) #13
+  %.not21.not = icmp eq i32 %41, 0
+  br i1 %.not21.not, label %.fold.split, label %.critedge
+
+.critedge:                                        ; preds = %36, %26, %26, %26, %4, %17, %40
+  %42 = load ptr, ptr %3, align 8
+  %43 = select i1 %2, ptr @.str.454, ptr @.str.474
+  %44 = tail call ptr @quote_identifier(ptr noundef %14)
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %42, ptr noundef nonnull @.str.477, ptr noundef nonnull %43, ptr noundef %44) #11
   br label %.fold.split
 
-.fold.split:                                      ; preds = %get_relation_name.exit, %26, %.critedge, %37
+.fold.split:                                      ; preds = %36, %26, %.critedge, %40
   ret void
 }
 

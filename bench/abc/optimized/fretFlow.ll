@@ -3815,7 +3815,7 @@ define range(i32 0, 2) i32 @dfsplain_r(ptr noundef %0, ptr noundef %1) local_unn
   br label %.critedge2
 
 .critedge2:                                       ; preds = %82, %110, %108, %.critedge2.sink.split, %.preheader, %57, %.critedge, %2, %9, %10
-  %.0 = phi i32 [ 1, %2 ], [ 0, %57 ], [ 1, %10 ], [ 1, %9 ], [ 0, %.critedge ], [ 0, %110 ], [ 1, %.critedge2.sink.split ], [ 0, %.preheader ], [ 1, %108 ], [ 1, %82 ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %57 ], [ 1, %10 ], [ 1, %9 ], [ 0, %.critedge ], [ 1, %.critedge2.sink.split ], [ 0, %110 ], [ 0, %.preheader ], [ 1, %108 ], [ 1, %82 ]
   ret i32 %.0
 }
 

@@ -426,7 +426,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124X86FlagsCopyLoweringPass2
   br i1 %.not.i.i.i.i.i, label %"_ZN4llvm7none_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZN12_GLOBAL__N_124X86FlagsCopyLoweringPass20runOnMachineFunctionERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.thread", label %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit
 
 _ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit: ; preds = %63, %57
-  %.sroa.0.0.i.i = phi ptr [ %62, %63 ], [ %.0.i.i.i, %57 ]
+  %.sroa.0.0.i.i = phi ptr [ %.0.i.i.i, %57 ], [ %62, %63 ]
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !162
   %68 = getelementptr i8, ptr %67, i64 68
@@ -2913,7 +2913,7 @@ _ZN12_GLOBAL__N_124X86FlagsCopyLoweringPass17rewriteArithmeticERN4llvm17MachineB
   br i1 %.not528, label %.critedge7.thread, label %.lr.ph634
 
 .critedge7.thread:                                ; preds = %.lr.ph983, %.lr.ph634, %.critedge7, %945, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit, %.lr.ph634.preheader
-  %.1177 = phi i8 [ %spec.select, %945 ], [ 0, %.lr.ph634.preheader ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit ], [ %.2178, %.lr.ph634 ], [ %920, %.lr.ph983 ], [ %.2178, %.critedge7 ]
+  %.1177 = phi i8 [ %spec.select, %945 ], [ 0, %.lr.ph634.preheader ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit ], [ %920, %.lr.ph983 ], [ %.2178, %.critedge7 ], [ %.2178, %.lr.ph634 ]
   %1103 = trunc nuw i8 %.1177 to i1
   br i1 %1103, label %.critedge7.thread.thread, label %.critedge7.thread.thread863
 

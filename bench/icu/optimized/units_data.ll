@@ -2534,7 +2534,7 @@ _ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitP
   br label %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62
 
 _ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62: ; preds = %46, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit, %106, %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split, %16, %127
-  %.1 = phi i32 [ -1, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit ], [ -1, %16 ], [ %128, %127 ], [ %93, %106 ], [ -1, %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split ], [ %33, %46 ]
+  %.1 = phi i32 [ -1, %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split ], [ -1, %16 ], [ %128, %127 ], [ %93, %106 ], [ -1, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit ], [ %33, %46 ]
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 136
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %130) #18
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 72

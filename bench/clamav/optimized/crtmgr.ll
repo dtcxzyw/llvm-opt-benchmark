@@ -928,7 +928,7 @@ switch.lookup:                                    ; preds = %4
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %57, %.lr.ph.i.i, %.thread.i.i, %.loopexit.thread61.i.i, %.loopexit.i.i, %51, %49, %44
-  %.str.27.sink.i = phi ptr [ @.str.26, %49 ], [ @.str.25, %.thread.i.i ], [ @.str.25, %44 ], [ @.str.27, %.loopexit.i.i ], [ @.str.26, %51 ], [ @.str.27, %.loopexit.thread61.i.i ], [ @.str.27, %.lr.ph.i.i ], [ @.str.27, %57 ]
+  %.str.27.sink.i = phi ptr [ @.str.26, %49 ], [ @.str.25, %.thread.i.i ], [ @.str.25, %44 ], [ @.str.27, %.loopexit.thread61.i.i ], [ @.str.26, %51 ], [ @.str.27, %.loopexit.i.i ], [ @.str.27, %.lr.ph.i.i ], [ @.str.27, %57 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.27.sink.i, ptr noundef nonnull @__func__._padding_check_PKCS1_type_1) #11
   br label %64
 

@@ -2028,8 +2028,8 @@ tailrecurse.backedge:                             ; preds = %140, %155, %162, %1
   br label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %29, %2, %62, %._crit_edge234, %136, %.critedge170, %.critedge168, %7, %188
-  %ret.known.tr199 = phi i1 [ %ret.known.tr212, %188 ], [ false, %2 ], [ %ret.known.tr212, %.critedge170 ], [ %ret.known.tr212, %136 ], [ %ret.known.tr212, %.critedge168 ], [ %ret.known.tr212, %._crit_edge234 ], [ %ret.known.tr212, %7 ], [ %ret.known.tr212, %62 ], [ %ret.known.tr212, %29 ], [ %ret.known.tr212, %.lr.ph ], [ true, %tailrecurse.backedge ]
-  %.0 = phi i1 [ %189, %188 ], [ false, %2 ], [ false, %.critedge170 ], [ false, %136 ], [ false, %.critedge168 ], [ false, %._crit_edge234 ], [ false, %7 ], [ false, %62 ], [ false, %29 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
+  %ret.known.tr199 = phi i1 [ %ret.known.tr212, %188 ], [ %ret.known.tr212, %.critedge168 ], [ %ret.known.tr212, %.critedge170 ], [ %ret.known.tr212, %136 ], [ false, %2 ], [ %ret.known.tr212, %._crit_edge234 ], [ %ret.known.tr212, %7 ], [ %ret.known.tr212, %62 ], [ %ret.known.tr212, %29 ], [ %ret.known.tr212, %.lr.ph ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %189, %188 ], [ false, %.critedge168 ], [ false, %.critedge170 ], [ false, %136 ], [ false, %2 ], [ false, %._crit_edge234 ], [ false, %7 ], [ false, %62 ], [ false, %29 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
   %not.ret.known.tr199 = xor i1 %ret.known.tr199, true
   %current.ret.tr184 = select i1 %not.ret.known.tr199, i1 %.0, i1 false
   ret i1 %current.ret.tr184

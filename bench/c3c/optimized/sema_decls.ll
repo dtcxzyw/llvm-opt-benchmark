@@ -6070,7 +6070,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_error(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %.loopexit.sink.split, %13, %16, %7
-  %.030 = phi i1 [ false, %.loopexit.sink.split ], [ true, %7 ], [ true, %13 ], [ true, %16 ], [ true, %20 ]
+  %.030 = phi i1 [ true, %13 ], [ true, %7 ], [ false, %.loopexit.sink.split ], [ true, %16 ], [ true, %20 ]
   ret i1 %.030
 }
 

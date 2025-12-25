@@ -2795,7 +2795,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.us.preheader, %.loopexit.sink.split, %22, %._crit_edge174, %._crit_edge166, %6, %3
-  %.0134 = phi ptr [ null, %3 ], [ null, %.loopexit.sink.split ], [ %7, %._crit_edge174 ], [ %7, %22 ], [ %7, %._crit_edge166 ], [ null, %6 ], [ %7, %.preheader.us.preheader ]
+  %.0134 = phi ptr [ null, %3 ], [ null, %6 ], [ %7, %._crit_edge166 ], [ %7, %22 ], [ %7, %._crit_edge174 ], [ null, %.loopexit.sink.split ], [ %7, %.preheader.us.preheader ]
   ret ptr %.0134
 }
 

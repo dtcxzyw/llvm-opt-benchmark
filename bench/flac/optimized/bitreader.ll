@@ -1423,7 +1423,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nound
   br label %.thread58
 
 .thread58:                                        ; preds = %64, %.thread58.sink.split, %21
-  %.3 = phi i32 [ 1, %.thread58.sink.split ], [ 1, %21 ], [ 0, %64 ]
+  %.3 = phi i32 [ 1, %21 ], [ 1, %.thread58.sink.split ], [ 0, %64 ]
   ret i32 %.3
 }
 

@@ -1234,9 +1234,9 @@ Min_CubesDistOne.exit:                            ; preds = %51, %52
   %.not78 = icmp eq ptr %.274, null
   br i1 %.not78, label %._crit_edge168, label %.lr.ph.i99, !llvm.loop !39
 
-.loopexit131:                                     ; preds = %.thread.i, %._crit_edge.i, %._crit_edge.thread.i
-  %.069152 = phi ptr [ %.069153, %._crit_edge.thread.i ], [ %.069165, %._crit_edge.i ], [ %.069165, %.thread.i ]
-  %.274147 = phi ptr [ %.274148, %._crit_edge.thread.i ], [ %.274166, %._crit_edge.i ], [ %.274166, %.thread.i ]
+.loopexit131:                                     ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i
+  %.069152 = phi ptr [ %.069165, %._crit_edge.i ], [ %.069153, %._crit_edge.thread.i ], [ %.069165, %.thread.i ]
+  %.274147 = phi ptr [ %.274166, %._crit_edge.i ], [ %.274148, %._crit_edge.thread.i ], [ %.274166, %.thread.i ]
   %61 = load ptr, ptr %.274147, align 8, !tbaa !15
   store ptr %61, ptr %.069152, align 8, !tbaa !14
   %62 = load i32, ptr %5, align 8
@@ -1675,7 +1675,7 @@ define void @Min_SopDist1Merge(ptr noundef captures(none) %0) local_unnamed_addr
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread.i, %._crit_edge.i, %._crit_edge.thread.i
+.loopexit:                                        ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i
   %37 = load ptr, ptr %5, align 8, !tbaa !31
   %38 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %37) #10
   store ptr null, ptr %38, align 8, !tbaa !15

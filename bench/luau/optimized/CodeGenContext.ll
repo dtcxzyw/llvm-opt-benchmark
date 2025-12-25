@@ -2694,7 +2694,7 @@ _ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5
   br label %_ZNSt6vectorISt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESaIS5_EED2Ev.exit126
 
 498:                                              ; preds = %377, %374
-  %.pr.i123 = phi ptr [ %.pre203, %374 ], [ %378, %377 ]
+  %.pr.i123 = phi ptr [ %378, %377 ], [ %.pre203, %374 ]
   %.not4.i.i.i.i116 = icmp eq ptr %.pr.i123, %198
   br i1 %.not4.i.i.i.i116, label %_ZSt8_DestroyIPSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEES5_EvT_S7_RSaIT0_E.exit.i124, label %.lr.ph.i.i.i.i117
 

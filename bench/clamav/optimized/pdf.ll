@@ -6222,7 +6222,7 @@ default.unreachable201:                           ; preds = %dbg_printhex.exit14
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %146
 
-142:                                              ; preds = %.thread171, %.thread175, %.split184.us, %dbg_printhex.exit147
+142:                                              ; preds = %.thread171, %.thread175, %dbg_printhex.exit147, %.split184.us
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.334) #23
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %144 = load i32, ptr %143, align 4, !tbaa !17
@@ -6230,7 +6230,7 @@ default.unreachable201:                           ; preds = %dbg_printhex.exit14
   store i32 %145, ptr %143, align 4, !tbaa !17
   br label %.thread164
 
-146:                                              ; preds = %.thread171.thread, %141, %.split184.us, %dbg_printhex.exit147
+146:                                              ; preds = %.thread171.thread, %141, %dbg_printhex.exit147, %.split184.us
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.335) #23
   br label %.thread164
 
@@ -8314,7 +8314,7 @@ define internal fastcc range(i32 -1, 1) i32 @xrefCheck(ptr noundef nonnull reado
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.sink.split, %.preheader, %.critedge
-  %.016 = phi i32 [ 0, %.loopexit.sink.split ], [ -1, %.preheader ], [ -1, %.critedge ], [ -1, %13 ]
+  %.016 = phi i32 [ -1, %.preheader ], [ 0, %.loopexit.sink.split ], [ -1, %.critedge ], [ -1, %13 ]
   ret i32 %.016
 }
 

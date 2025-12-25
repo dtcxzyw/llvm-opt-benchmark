@@ -3497,7 +3497,7 @@ ZSTD_overlapCopy8.exit197.i:                      ; preds = %1023, %1001
   br i1 %1049, label %1043, label %ZSTD_execSequenceSplitLitBuffer.exit.i, !llvm.loop !97
 
 ZSTD_execSequenceSplitLitBuffer.exit.i:           ; preds = %1043, %.preheader543.i, %992, %931, %.preheader540.i, %880, %953, %981, %986, %ZSTD_overlapCopy8.exit197.i, %1038, %841, %869, %874, %ZSTD_overlapCopy8.exit194.i, %926
-  %1050 = phi i64 [ %833, %931 ], [ %842, %841 ], [ %833, %880 ], [ %833, %869 ], [ %833, %ZSTD_overlapCopy8.exit194.i ], [ %943, %.preheader543.i ], [ %833, %874 ], [ %833, %.preheader540.i ], [ %833, %926 ], [ %954, %953 ], [ %943, %1038 ], [ %943, %981 ], [ %943, %ZSTD_overlapCopy8.exit197.i ], [ %943, %992 ], [ %943, %986 ], [ %943, %1043 ]
+  %1050 = phi i64 [ %833, %931 ], [ %842, %841 ], [ %943, %1038 ], [ %833, %869 ], [ %833, %ZSTD_overlapCopy8.exit194.i ], [ %943, %.preheader543.i ], [ %833, %874 ], [ %833, %.preheader540.i ], [ %833, %926 ], [ %954, %953 ], [ %833, %880 ], [ %943, %981 ], [ %943, %ZSTD_overlapCopy8.exit197.i ], [ %943, %992 ], [ %943, %986 ], [ %943, %1043 ]
   %1051 = icmp ult i64 %1050, -119
   br i1 %1051, label %.thread468.i, label %.thread505.i
 
@@ -4297,7 +4297,7 @@ ZSTD_overlapCopy8.exit195.i:                      ; preds = %1430, %1408
   br i1 %1456, label %1450, label %ZSTD_execSequenceSplitLitBuffer.exit45.i, !llvm.loop !97
 
 ZSTD_execSequenceSplitLitBuffer.exit45.i:         ; preds = %1450, %.preheader533.i, %1399, %1341, %.preheader530.i, %1290, %1360, %1388, %1393, %ZSTD_overlapCopy8.exit195.i, %1445, %1251, %1279, %1284, %ZSTD_overlapCopy8.exit.i, %1336
-  %1457 = phi i64 [ %1243, %1341 ], [ %1252, %1251 ], [ %1243, %1290 ], [ %1243, %1279 ], [ %1243, %ZSTD_overlapCopy8.exit.i ], [ %1350, %.preheader533.i ], [ %1243, %1284 ], [ %1243, %.preheader530.i ], [ %1243, %1336 ], [ %1361, %1360 ], [ %1350, %1445 ], [ %1350, %1388 ], [ %1350, %ZSTD_overlapCopy8.exit195.i ], [ %1350, %1399 ], [ %1350, %1393 ], [ %1350, %1450 ]
+  %1457 = phi i64 [ %1243, %1341 ], [ %1252, %1251 ], [ %1350, %1445 ], [ %1243, %1279 ], [ %1243, %ZSTD_overlapCopy8.exit.i ], [ %1350, %.preheader533.i ], [ %1243, %1284 ], [ %1243, %.preheader530.i ], [ %1243, %1336 ], [ %1361, %1360 ], [ %1243, %1290 ], [ %1350, %1388 ], [ %1350, %ZSTD_overlapCopy8.exit195.i ], [ %1350, %1399 ], [ %1350, %1393 ], [ %1350, %1450 ]
   %1458 = icmp ult i64 %1457, -119
   %1459 = getelementptr inbounds nuw i8, ptr %.9216.i595.i, i64 %1457
   br i1 %1458, label %1460, label %.thread505.i

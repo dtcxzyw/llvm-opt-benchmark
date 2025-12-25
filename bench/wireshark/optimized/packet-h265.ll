@@ -4159,12 +4159,12 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   %144 = icmp ult i32 %.0255330, 2147483647
   br i1 %144, label %.lr.ph335.preheader, label %.preheader
 
-.lr.ph335.preheader:                              ; preds = %116, %119, %.preheader326
-  %.1253.ph378 = phi i32 [ %135, %.preheader326 ], [ -2147483648, %119 ], [ -2147483648, %116 ]
-  %.0254311.ph377 = phi i32 [ %137, %.preheader326 ], [ -1, %119 ], [ -1, %116 ]
-  %.0250312.ph375 = phi i32 [ %.1251, %.preheader326 ], [ 0, %119 ], [ 1, %116 ]
-  %.0248313.ph374 = phi i32 [ %.0248313.ph, %.preheader326 ], [ 0, %119 ], [ %spec.select298, %116 ]
-  %.ph372 = phi i32 [ %143, %.preheader326 ], [ %120, %119 ], [ %118, %116 ]
+.lr.ph335.preheader:                              ; preds = %119, %116, %.preheader326
+  %.1253.ph378 = phi i32 [ %135, %.preheader326 ], [ -2147483648, %116 ], [ -2147483648, %119 ]
+  %.0254311.ph377 = phi i32 [ %137, %.preheader326 ], [ -1, %116 ], [ -1, %119 ]
+  %.0250312.ph375 = phi i32 [ %.1251, %.preheader326 ], [ 1, %116 ], [ 0, %119 ]
+  %.0248313.ph374 = phi i32 [ %.0248313.ph, %.preheader326 ], [ %spec.select298, %116 ], [ 0, %119 ]
+  %.ph372 = phi i32 [ %143, %.preheader326 ], [ %118, %116 ], [ %120, %119 ]
   br label %.lr.ph335
 
 145:                                              ; preds = %103

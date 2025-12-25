@@ -18138,7 +18138,7 @@ lean_alloc_ctor.exit523:                          ; preds = %lean_dec.exit319
   br i1 %402, label %403, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %400, %71
-  %.0240.ph.be = phi ptr [ %397, %400 ], [ %68, %71 ]
+  %.0240.ph.be = phi ptr [ %68, %71 ], [ %397, %400 ]
   br label %.outer
 
 403:                                              ; preds = %400

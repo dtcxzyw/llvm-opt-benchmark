@@ -251,7 +251,7 @@ atomic_store_b.exit:                              ; preds = %98
   br label %.thread89
 
 .thread89:                                        ; preds = %77, %.thread116, %97, %11, %7, %.thread
-  %.0 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %.thread ], [ %70, %.thread116 ], [ %70, %77 ], [ %70, %97 ]
+  %.0 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %.thread ], [ %70, %97 ], [ %70, %.thread116 ], [ %70, %77 ]
   ret ptr %.0
 }
 

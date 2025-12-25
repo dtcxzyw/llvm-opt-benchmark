@@ -48577,41 +48577,41 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i: ; preds = %_ZN5arrow8intern
 315:                                              ; preds = %313, %311, %308
   %.pn.i.i = phi i64 [ 3, %311 ], [ 6, %313 ], [ 9, %308 ]
   %316 = icmp eq i64 %.pn.i.i, %310
-  br i1 %316, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, label %317, !prof !78
+  br i1 %316, label %317, label %319, !prof !78
 
 317:                                              ; preds = %315
+  %318 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %309, i64 noundef range(i64 0, -20) %310, ptr noundef nonnull %10)
+  br i1 %318, label %switch.lookup121, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread66, !prof !525
+
+319:                                              ; preds = %315
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !54
-  %318 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %309, i64 noundef range(i64 0, -20) %310, ptr noundef nonnull %8)
-  br i1 %318, label %319, label %323, !prof !78
+  %320 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %309, i64 noundef range(i64 0, -20) %310, ptr noundef nonnull %8)
+  br i1 %320, label %321, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, !prof !78
 
-319:                                              ; preds = %317
+321:                                              ; preds = %319
   %reass.sub = sub i64 %.pn.i.i, %.062.i
   %switch.tableidx = add i64 %reass.sub, 19
-  %320 = icmp ult i64 %switch.tableidx, 8
-  br i1 %320, label %switch.lookup, label %.thread120.i
+  %322 = icmp ult i64 %switch.tableidx, 8
+  br i1 %322, label %switch.lookup, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread120.i
 
-switch.lookup:                                    ; preds = %319
+switch.lookup:                                    ; preds = %321
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5arrow7compute8internal14ParseTimestamp4CallIlSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
-  %321 = load i32, ptr %8, align 4, !tbaa !54
-  %322 = mul i32 %321, %switch.load
-  store i32 %322, ptr %10, align 4, !tbaa !54
-  br label %.thread120.i
+  %323 = load i32, ptr %8, align 4, !tbaa !54
+  %324 = mul i32 %323, %switch.load
+  store i32 %324, ptr %10, align 4, !tbaa !54
+  br label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread120.i
 
-.thread120.i:                                     ; preds = %319, %switch.lookup
+_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread120.i: ; preds = %321, %switch.lookup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %switch.lookup121
 
-323:                                              ; preds = %317
+_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i: ; preds = %319
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread66
 
-_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i: ; preds = %315
-  %324 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %309, i64 noundef range(i64 0, -20) %310, ptr noundef nonnull %10)
-  br i1 %324, label %switch.lookup121, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread66, !prof !525
-
-switch.lookup121:                                 ; preds = %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, %.thread120.i
+switch.lookup121:                                 ; preds = %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread120.i, %317
   %325 = sext i32 %21 to i64
   %326 = getelementptr i64, ptr @switch.table._ZNK5arrow7compute8internal14ParseTimestamp4CallIlSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE.437, i64 %325
   %switch.gep122 = getelementptr i8, ptr %326, i64 -8
@@ -48629,12 +48629,12 @@ _ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread
 
-_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread61: ; preds = %297, %299, %301, %303
-  %.040.ph = phi i64 [ %302, %301 ], [ %304, %303 ], [ %300, %299 ], [ %298, %297 ]
+_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread61: ; preds = %297, %303, %301, %299
+  %.040.ph = phi i64 [ %298, %297 ], [ %300, %299 ], [ %304, %303 ], [ %302, %301 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread51
 
-_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread66: ; preds = %323, %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, %308, %313, %311
+_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread66: ; preds = %317, %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.i, %308, %313, %311
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre = load ptr, ptr %0, align 8, !tbaa !1295
@@ -48706,9 +48706,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %348
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %434
 
-_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread51: ; preds = %122, %120, %118, %117, %switch.lookup121, %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.249 = phi i8 [ %.248, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.1, %switch.lookup121 ], [ %.1, %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread61 ], [ 0, %117 ], [ 0, %118 ], [ 0, %120 ], [ 0, %122 ]
-  %.24247 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %330, %switch.lookup121 ], [ %.040.ph, %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread61 ], [ %115, %117 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ]
+_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread51: ; preds = %118, %120, %122, %117, %switch.lookup121, %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.249 = phi i8 [ %.248, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.1, %switch.lookup121 ], [ %.1, %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread61 ], [ 0, %117 ], [ 0, %122 ], [ 0, %120 ], [ 0, %118 ]
+  %.24247 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %330, %switch.lookup121 ], [ %.040.ph, %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread61 ], [ %115, %117 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ]
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %356 = load i8, ptr %355, align 8, !tbaa !1303, !range !89, !noundef !90
   %.not = icmp eq i8 %.249, %356

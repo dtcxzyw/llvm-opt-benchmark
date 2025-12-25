@@ -10940,7 +10940,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc70
   %175 = and i1 %174, %173
   br i1 %175, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread173, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread173: ; preds = %.noexc70, %166, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread173: ; preds = %166, %.noexc70, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %176 = load i32, ptr %16, align 8
   %177 = zext i32 %176 to i64
   %178 = load ptr, ptr %52, align 8
@@ -18501,7 +18501,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuerycvbEv.exit.thread: ;
 173:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuerycvbEv.exit.thread
   br i1 %172, label %_ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuerycvbEv.exit.thread465, label %.critedge
 
-_ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuerycvbEv.exit.thread465: ; preds = %.noexc, %158, %_ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuerycvbEv.exit, %173
+_ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuerycvbEv.exit.thread465: ; preds = %158, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuerycvbEv.exit, %173
   %.val183 = load ptr, ptr %3, align 8
   %.not507 = icmp eq ptr %.val183, null
   br i1 %.not507, label %174, label %.critedge171
@@ -19381,7 +19381,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit: ; pred
   %563 = and i1 %562, %561
   br i1 %563, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit.thread469, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit.thread469: ; preds = %.noexc248, %554, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit.thread469: ; preds = %554, %.noexc248, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit
   %.val190 = load ptr, ptr %3, align 8
   %564 = getelementptr i8, ptr %.val190, i64 80
   %.val193 = load i8, ptr %564, align 1
@@ -19446,7 +19446,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit256: ; p
   %589 = and i1 %588, %587
   br i1 %589, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit256.thread473, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit256.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit256.thread473: ; preds = %.noexc255, %580, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit256
+_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit256.thread473: ; preds = %580, %.noexc255, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit256
   %.val189 = load ptr, ptr %3, align 8
   %590 = getelementptr i8, ptr %.val189, i64 128
   %.val194 = load i8, ptr %590, align 1
@@ -19573,7 +19573,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit267: ; preds 
   %638 = and i1 %637, %636
   br i1 %638, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.thread477, label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQueryELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.thread477: ; preds = %.noexc266, %629, %.noexc259, %611, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit267, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit.thread477: ; preds = %629, %.noexc266, %611, %.noexc259, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit267, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit
   %639 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #29
           to label %640 unwind label %207
 
@@ -19745,7 +19745,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery7IsValidEv.exit: ;
   %711 = and i1 %710, %709
   br i1 %711, label %_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery7IsValidEv.exit.thread485, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEESaIS2_EED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery7IsValidEv.exit.thread485: ; preds = %.noexc279, %702, %_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery7IsValidEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery7IsValidEv.exit.thread485: ; preds = %702, %.noexc279, %_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery7IsValidEv.exit
   %712 = load i32, ptr %1, align 8
   %713 = and i32 %712, 8
   %.not113 = icmp eq i32 %713, 0
@@ -21052,7 +21052,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit378: ; p
   %1294 = and i1 %1293, %1292
   br i1 %1294, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit378.thread496, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit378.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit378.thread496: ; preds = %.noexc377, %1285, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit378
+_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit378.thread496: ; preds = %1285, %.noexc377, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery7IsValidEv.exit378
   %1295 = load i8, ptr %90, align 8
   %1296 = or i8 %1295, 3
   store i8 %1296, ptr %90, align 8
@@ -21126,7 +21126,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit386.thread: ;
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %40) #25
   br label %1338
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit386.thread500: ; preds = %1319, %.noexc385
+_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit386.thread500: ; preds = %.noexc385, %1319
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %40) #25
   br label %1329
 
@@ -21214,7 +21214,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit394.thread: ;
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %41) #25
   br label %1374
 
-_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit394.thread504: ; preds = %1355, %.noexc393
+_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuerycvbEv.exit394.thread504: ; preds = %.noexc393, %1355
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %41) #25
   br label %1365
 

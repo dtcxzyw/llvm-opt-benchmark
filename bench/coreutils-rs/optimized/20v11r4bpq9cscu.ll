@@ -237,9 +237,9 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
   br label %130
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread103: ; preds = %88, %67, %71, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
-  %91 = phi i64 [ %76, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %35, %71 ], [ %50, %67 ], [ %79, %88 ]
-  %.297106 = phi i64 [ %.298, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %33, %71 ], [ %.187, %67 ], [ %89, %88 ]
-  %92 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %74, %71 ], [ 0, %67 ], [ 0, %88 ]
+  %91 = phi i64 [ %76, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %35, %71 ], [ %79, %88 ], [ %50, %67 ]
+  %.297106 = phi i64 [ %.298, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %33, %71 ], [ %89, %88 ], [ %.187, %67 ]
+  %92 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %74, %71 ], [ 0, %88 ], [ 0, %67 ]
   %93 = add nsw i64 %.sroa.076.0.copyload, -2
   %94 = icmp ult i64 %93, 3
   %95 = add nsw i64 %.sroa.076.0.copyload, -1
@@ -608,9 +608,9 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
   br label %128
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread103: ; preds = %86, %65, %69, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
-  %89 = phi i64 [ %74, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %33, %69 ], [ %48, %65 ], [ %77, %86 ]
-  %.297106 = phi i64 [ %.298, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %31, %69 ], [ %.187, %65 ], [ %87, %86 ]
-  %90 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %72, %69 ], [ 0, %65 ], [ 0, %86 ]
+  %89 = phi i64 [ %74, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %33, %69 ], [ %77, %86 ], [ %48, %65 ]
+  %.297106 = phi i64 [ %.298, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %31, %69 ], [ %87, %86 ], [ %.187, %65 ]
+  %90 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %72, %69 ], [ 0, %86 ], [ 0, %65 ]
   %91 = add nsw i64 %.sroa.076.0.copyload, -2
   %92 = icmp ult i64 %91, 3
   %93 = add nsw i64 %.sroa.076.0.copyload, -1
@@ -968,9 +968,9 @@ _ZN3std3sys3pal4unix11kernel_copy16safe_kernel_copy17h78e9b2490701cdbdE.exit.thr
   br label %129
 
 _ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit.thread103: ; preds = %87, %66, %70, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit
-  %90 = phi i64 [ %75, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %34, %70 ], [ %49, %66 ], [ %78, %87 ]
-  %.297106 = phi i64 [ %.298, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %32, %70 ], [ %.187, %66 ], [ %88, %87 ]
-  %91 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %73, %70 ], [ 0, %66 ], [ 0, %87 ]
+  %90 = phi i64 [ %75, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %34, %70 ], [ %78, %87 ], [ %49, %66 ]
+  %.297106 = phi i64 [ %.298, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %32, %70 ], [ %88, %87 ], [ %.187, %66 ]
+  %91 = phi i64 [ 0, %_ZN3std3sys3pal4unix11kernel_copy6FdMeta10maybe_fifo17h264e396aad76722aE.exit ], [ %73, %70 ], [ 0, %87 ], [ 0, %66 ]
   %92 = add nsw i64 %.sroa.076.0.copyload, -2
   %93 = icmp ult i64 %92, 3
   %94 = add nsw i64 %.sroa.076.0.copyload, -1

@@ -541,7 +541,7 @@ define void @_ZN4core5slice4sort10merge_sort17h1f0d3ad145fef165E(ptr align 8 %0,
           to label %63 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit60:                                      ; preds = %.noexc37, %52, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %38, %52 ], [ %.033.i, %.noexc37 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.033.i, %.noexc37 ], [ %38, %52 ]
   %58 = add i64 %.sroa.0.0.i, %.067
   %59 = invoke { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf13ac0d129723fdbE"(i64 %.067, i64 %58, ptr nonnull align 8 %0, i64 %13, ptr nonnull align 8 @anon.b6e57e65500bbc04d156d51ff30abbc6.9)
           to label %60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1034,7 +1034,7 @@ define void @_ZN4core5slice4sort10merge_sort17h6bbfbc75e71540afE(ptr align 8 %0,
           to label %63 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit60:                                      ; preds = %.noexc37, %52, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %38, %52 ], [ %.033.i, %.noexc37 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.033.i, %.noexc37 ], [ %38, %52 ]
   %58 = add i64 %.sroa.0.0.i, %.067
   %59 = invoke { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd05ee195c22dd49dE"(i64 %.067, i64 %58, ptr nonnull align 8 %0, i64 %13, ptr nonnull align 8 @anon.b6e57e65500bbc04d156d51ff30abbc6.9)
           to label %60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1527,7 +1527,7 @@ define void @_ZN4core5slice4sort10merge_sort17h8c9148157a4442aaE(ptr align 8 %0,
           to label %63 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit60:                                      ; preds = %.noexc37, %52, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %38, %52 ], [ %.033.i, %.noexc37 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.033.i, %.noexc37 ], [ %38, %52 ]
   %58 = add i64 %.sroa.0.0.i, %.067
   %59 = invoke { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha31dcc1b244ccd2bE"(i64 %.067, i64 %58, ptr nonnull align 8 %0, i64 %13, ptr nonnull align 8 @anon.b6e57e65500bbc04d156d51ff30abbc6.9)
           to label %60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2020,7 +2020,7 @@ define void @_ZN4core5slice4sort10merge_sort17ha82410be37d79667E(ptr align 8 %0,
           to label %63 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit60:                                      ; preds = %.noexc37, %52, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %38, %52 ], [ %.033.i, %.noexc37 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.033.i, %.noexc37 ], [ %38, %52 ]
   %58 = add i64 %.sroa.0.0.i, %.067
   %59 = invoke { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5389a66679160a36E"(i64 %.067, i64 %58, ptr nonnull align 8 %0, i64 %13, ptr nonnull align 8 @anon.b6e57e65500bbc04d156d51ff30abbc6.9)
           to label %60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2517,7 +2517,7 @@ define void @_ZN4core5slice4sort10merge_sort17hd3b592fed9f537eaE(ptr align 2 %0,
           to label %63 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit60:                                      ; preds = %.noexc37, %52, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %38, %52 ], [ %.033.i, %.noexc37 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.033.i, %.noexc37 ], [ %38, %52 ]
   %58 = add i64 %.sroa.0.0.i, %.067
   %59 = invoke { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb218bf370c203e15E"(i64 %.067, i64 %58, ptr nonnull align 2 %0, i64 %13, ptr nonnull align 8 @anon.b6e57e65500bbc04d156d51ff30abbc6.9)
           to label %60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3012,7 +3012,7 @@ define void @_ZN4core5slice4sort10merge_sort17heb26124698d14d2fE(ptr align 8 %0,
           to label %63 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit60:                                      ; preds = %.noexc37, %52, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %38, %52 ], [ %.033.i, %.noexc37 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.033.i, %.noexc37 ], [ %38, %52 ]
   %58 = add i64 %.sroa.0.0.i, %.067
   %59 = invoke { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h61622de3b53ea630E"(i64 %.067, i64 %58, ptr nonnull align 8 %0, i64 %13, ptr nonnull align 8 @anon.b6e57e65500bbc04d156d51ff30abbc6.9)
           to label %60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4051,8 +4051,8 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h13f46cb6248c3d98E(ptr ali
   br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %.lr.ph34, %19, %.preheader28, %.preheader, %3
-  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %.lr.ph34 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ 2, %.preheader28 ], [ %.033, %.lr.ph34 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
+  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ true, %.lr.ph34 ], [ false, %.preheader28 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ %.033, %.lr.ph34 ], [ 2, %.preheader28 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
   %21 = insertvalue { i64, i1 } poison, i64 %.sroa.0.0, 0
   %22 = insertvalue { i64, i1 } %21, i1 %.sroa.4.0, 1
   ret { i64, i1 } %22
@@ -4104,8 +4104,8 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h30ae274533970e2fE(ptr ali
   br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %.lr.ph34, %19, %.preheader28, %.preheader, %3
-  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %.lr.ph34 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ 2, %.preheader28 ], [ %.033, %.lr.ph34 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
+  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ true, %.lr.ph34 ], [ false, %.preheader28 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ %.033, %.lr.ph34 ], [ 2, %.preheader28 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
   %21 = insertvalue { i64, i1 } poison, i64 %.sroa.0.0, 0
   %22 = insertvalue { i64, i1 } %21, i1 %.sroa.4.0, 1
   ret { i64, i1 } %22
@@ -4157,8 +4157,8 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h3e106a3e6759f0e1E(ptr ali
   br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %.lr.ph34, %19, %.preheader28, %.preheader, %3
-  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %.lr.ph34 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ 2, %.preheader28 ], [ %.033, %.lr.ph34 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
+  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ true, %.lr.ph34 ], [ false, %.preheader28 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ %.033, %.lr.ph34 ], [ 2, %.preheader28 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
   %21 = insertvalue { i64, i1 } poison, i64 %.sroa.0.0, 0
   %22 = insertvalue { i64, i1 } %21, i1 %.sroa.4.0, 1
   ret { i64, i1 } %22
@@ -4210,8 +4210,8 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h4055f7b4c41bea54E(ptr ali
   br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %.lr.ph34, %19, %.preheader28, %.preheader, %3
-  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %.lr.ph34 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ 2, %.preheader28 ], [ %.033, %.lr.ph34 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
+  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ true, %.lr.ph34 ], [ false, %.preheader28 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ %.033, %.lr.ph34 ], [ 2, %.preheader28 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
   %21 = insertvalue { i64, i1 } poison, i64 %.sroa.0.0, 0
   %22 = insertvalue { i64, i1 } %21, i1 %.sroa.4.0, 1
   ret { i64, i1 } %22
@@ -4263,8 +4263,8 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h42b8c8c51d3ec950E(ptr ali
   br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %.lr.ph34, %19, %.preheader28, %.preheader, %3
-  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %.lr.ph34 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ 2, %.preheader28 ], [ %.033, %.lr.ph34 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
+  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ true, %.lr.ph34 ], [ false, %.preheader28 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ %.033, %.lr.ph34 ], [ 2, %.preheader28 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
   %21 = insertvalue { i64, i1 } poison, i64 %.sroa.0.0, 0
   %22 = insertvalue { i64, i1 } %21, i1 %.sroa.4.0, 1
   ret { i64, i1 } %22
@@ -4316,8 +4316,8 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17ha6544e17ce482e58E(ptr ali
   br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %.lr.ph34, %19, %.preheader28, %.preheader, %3
-  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %.lr.ph34 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ 2, %.preheader28 ], [ %.033, %.lr.ph34 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
+  %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ true, %.lr.ph34 ], [ false, %.preheader28 ], [ true, %19 ], [ false, %13 ], [ false, %.lr.ph ]
+  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ %.033, %.lr.ph34 ], [ 2, %.preheader28 ], [ %1, %19 ], [ %.130, %.lr.ph ], [ %1, %13 ]
   %21 = insertvalue { i64, i1 } poison, i64 %.sroa.0.0, 0
   %22 = insertvalue { i64, i1 } %21, i1 %.sroa.4.0, 1
   ret { i64, i1 } %22

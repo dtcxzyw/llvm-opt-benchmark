@@ -494,9 +494,9 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %50
 
 50:                                               ; preds = %46, %44, %36, %29
-  %.240.i = phi ptr [ %37, %36 ], [ %42, %46 ], [ null, %44 ], [ null, %29 ]
-  %.136.i = phi i64 [ %33, %36 ], [ %49, %46 ], [ %45, %44 ], [ %33, %29 ]
-  %.134.i = phi ptr [ %30, %36 ], [ %17, %46 ], [ %17, %44 ], [ %30, %29 ]
+  %.240.i = phi ptr [ %42, %46 ], [ %37, %36 ], [ null, %44 ], [ null, %29 ]
+  %.136.i = phi i64 [ %49, %46 ], [ %33, %36 ], [ %45, %44 ], [ %33, %29 ]
+  %.134.i = phi ptr [ %17, %46 ], [ %30, %36 ], [ %17, %44 ], [ %30, %29 ]
   %51 = call ptr @BUF_strndup(ptr noundef nonnull %.134.i, i64 noundef %.136.i) #10
   store ptr %51, ptr %4, align 8, !tbaa !30
   %52 = icmp eq ptr %51, null

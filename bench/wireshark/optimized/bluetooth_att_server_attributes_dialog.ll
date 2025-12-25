@@ -2929,7 +2929,7 @@ _ZeqRK7QStringS1_.exit275:                        ; preds = %340
   br label %_ZeqRK7QStringS1_.exit276
 
 _ZeqRK7QStringS1_.exit276:                        ; preds = %351, %356
-  %362 = phi i1 [ %361, %356 ], [ false, %351 ]
+  %362 = phi i1 [ false, %351 ], [ %361, %356 ]
   %363 = load ptr, ptr %36, align 8
   %.not.i.i.i277 = icmp eq ptr %363, null
   br i1 %.not.i.i.i277, label %.critedge155.thread, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i278

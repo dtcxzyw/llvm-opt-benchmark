@@ -466,8 +466,8 @@ _gres_per_job_reduce_res_cores.exit.thread:       ; preds = %97, %100, %109, %.l
   br label %152
 
 _gres_per_job_reduce_res_cores.exit:              ; preds = %.critedge.i, %.sink.split.i
-  %.5115 = phi i64 [ %.3113, %.sink.split.i ], [ %.4114, %.critedge.i ]
-  %.8 = phi i64 [ %.4, %.sink.split.i ], [ %.6, %.critedge.i ]
+  %.5115 = phi i64 [ %.4114, %.critedge.i ], [ %.3113, %.sink.split.i ]
+  %.8 = phi i64 [ %.6, %.critedge.i ], [ %.4, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %151 = icmp ult i64 %.5115, %.072
   br i1 %151, label %.sink.split, label %152
@@ -507,7 +507,7 @@ _gres_per_job_reduce_res_cores.exit:              ; preds = %.critedge.i, %.sink
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_gres_per_job_reduce_res_cores.exit, %152, %.outer._crit_edge, %159, %162, %.outer._crit_edge.thread
-  %.0.ph = phi i1 [ true, %.outer._crit_edge ], [ true, %159 ], [ true, %.outer._crit_edge.thread ], [ true, %162 ], [ false, %152 ], [ false, %_gres_per_job_reduce_res_cores.exit ]
+  %.0.ph = phi i1 [ true, %159 ], [ true, %.outer._crit_edge ], [ true, %.outer._crit_edge.thread ], [ true, %162 ], [ false, %152 ], [ false, %_gres_per_job_reduce_res_cores.exit ]
   call void @slurm_xfree(ptr noundef nonnull %14) #4
   br label %163
 

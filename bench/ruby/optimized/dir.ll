@@ -4234,7 +4234,7 @@ ruby_nonempty_memcpy.exit.i417:                   ; preds = %527, %526
   br label %.thread493
 
 .thread493:                                       ; preds = %540, %534, %glob_alloc_n.exit403, %.thread493.sink.split, %.preheader505, %.preheader504
-  %.12 = phi i32 [ 0, %.preheader505 ], [ -1, %.thread493.sink.split ], [ 0, %.preheader504 ], [ 0, %540 ], [ -1, %glob_alloc_n.exit403 ], [ %539, %534 ]
+  %.12 = phi i32 [ 0, %.preheader505 ], [ -1, %.thread493.sink.split ], [ 0, %.preheader504 ], [ -1, %glob_alloc_n.exit403 ], [ 0, %540 ], [ %539, %534 ]
   call void @free(ptr noundef %462) #22
   br label %.thread451
 
@@ -4439,8 +4439,8 @@ define internal fastcc range(i32 0, 4) i32 @has_magic(ptr noundef %0, ptr nounde
   br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !175
 
 .critedge:                                        ; preds = %.lr.ph, %.outer, %14, %12
-  %.us-phi = phi i32 [ %.016.ph.us, %14 ], [ %.016.ph.us, %12 ], [ %.016.ph46, %.lr.ph ], [ %.117, %.outer ]
-  %.us-phi36 = phi i32 [ %.015.ph.us, %14 ], [ %.015.ph.us, %12 ], [ %.015.ph47, %.lr.ph ], [ %.1, %.outer ]
+  %.us-phi = phi i32 [ %.016.ph.us, %14 ], [ %.016.ph.us, %12 ], [ %.117, %.outer ], [ %.016.ph46, %.lr.ph ]
+  %.us-phi36 = phi i32 [ %.015.ph.us, %14 ], [ %.015.ph.us, %12 ], [ %.1, %.outer ], [ %.015.ph47, %.lr.ph ]
   %.us-phi36.fr = freeze i32 %.us-phi36
   %.not23 = icmp eq i32 %.us-phi36.fr, 0
   %.not24 = icmp ne i32 %.us-phi, 0
@@ -5042,9 +5042,9 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_helper(ptr noundef nonnull c
   br i1 %.not168, label %.sink.split, label %.outer.split.split
 
 .split247.us:                                     ; preds = %31, %31, %48, %.split247.split.us
-  %.us-phi249 = phi i1 [ %49, %48 ], [ false, %.split247.split.us ], [ %32, %31 ], [ %32, %31 ]
-  %.us-phi250 = phi ptr [ %50, %48 ], [ %43, %.split247.split.us ], [ %33, %31 ], [ %33, %31 ]
-  %.us-phi251 = phi ptr [ %45, %48 ], [ %39, %.split247.split.us ], [ %28, %31 ], [ %28, %31 ]
+  %.us-phi249 = phi i1 [ false, %.split247.split.us ], [ %49, %48 ], [ %32, %31 ], [ %32, %31 ]
+  %.us-phi250 = phi ptr [ %43, %.split247.split.us ], [ %50, %48 ], [ %33, %31 ], [ %33, %31 ]
+  %.us-phi251 = phi ptr [ %39, %.split247.split.us ], [ %45, %48 ], [ %28, %31 ], [ %28, %31 ]
   %54 = and i1 %.not159, %.us-phi249
   %spec.select197 = select i1 %54, ptr %.us-phi250, ptr %.us-phi251
   br label %.sink.split
@@ -5352,8 +5352,8 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_helper(ptr noundef nonnull c
   br label %.outer
 
 .sink.split:                                      ; preds = %.thread, %.split242.us, %.split237.us, %36, %36, %41, %52, %.split247.us
-  %.us-phi243.sink = phi ptr [ %39, %41 ], [ %28, %36 ], [ %45, %52 ], [ %spec.select197, %.split247.us ], [ %28, %36 ], [ %.3148, %.thread ], [ %.us-phi243, %.split242.us ], [ %.us-phi238, %.split237.us ]
-  %.0.shrunk.ph = phi i1 [ true, %41 ], [ true, %36 ], [ true, %52 ], [ false, %.split247.us ], [ true, %36 ], [ true, %.split237.us ], [ true, %.split242.us ], [ true, %.thread ]
+  %.us-phi243.sink = phi ptr [ %28, %36 ], [ %39, %41 ], [ %45, %52 ], [ %spec.select197, %.split247.us ], [ %28, %36 ], [ %.3148, %.thread ], [ %.us-phi243, %.split242.us ], [ %.us-phi238, %.split237.us ]
+  %.0.shrunk.ph = phi i1 [ true, %36 ], [ true, %41 ], [ true, %52 ], [ false, %.split247.us ], [ true, %36 ], [ true, %.split237.us ], [ true, %.split242.us ], [ true, %.thread ]
   store ptr %.us-phi243.sink, ptr %0, align 8, !tbaa !176
   store ptr %.0142.ph, ptr %1, align 8, !tbaa !176
   br label %174

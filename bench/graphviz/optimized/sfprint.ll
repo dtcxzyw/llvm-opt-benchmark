@@ -726,7 +726,7 @@ thread-pre-split:                                 ; preds = %126, %115, %119, %1
   br label %.loopexit1414
 
 .loopexit1414:                                    ; preds = %293, %.loopexit1414.loopexit.split.loop.exit, %.preheader1413, %285, %287
-  %.3 = phi i32 [ %289, %287 ], [ %spec.select1325, %285 ], [ 0, %.preheader1413 ], [ %294, %.loopexit1414.loopexit.split.loop.exit ], [ %263, %293 ]
+  %.3 = phi i32 [ %spec.select1325, %285 ], [ %289, %287 ], [ 0, %.preheader1413 ], [ %294, %.loopexit1414.loopexit.split.loop.exit ], [ %263, %293 ]
   %295 = sub nsw i32 %262, %.3
   store i32 %295, ptr %3, align 4, !tbaa !13
   %296 = icmp sgt i32 %295, 0

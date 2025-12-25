@@ -5966,7 +5966,7 @@ define hidden void @"_ZN216_$LT$meilisearch_types..keys..CreateApiKey$u20$as$u20
   br label %.thread844
 
 .thread849.loopexit.split-lp:                     ; preds = %422, %421, %437, %455, %480, %494, %504, %503, %412, %534, %407, %569
-  %.sroa.063.9.ph.ph = phi i8 [ 0, %480 ], [ 0, %455 ], [ 1, %494 ], [ 0, %504 ], [ 0, %437 ], [ 0, %503 ], [ 1, %412 ], [ 0, %421 ], [ 0, %422 ], [ 0, %534 ], [ 0, %407 ], [ 0, %569 ]
+  %.sroa.063.9.ph.ph = phi i8 [ 0, %534 ], [ 0, %455 ], [ 0, %569 ], [ 1, %412 ], [ 0, %437 ], [ 0, %503 ], [ 0, %504 ], [ 0, %421 ], [ 0, %422 ], [ 1, %494 ], [ 0, %407 ], [ 0, %480 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread844
@@ -22373,7 +22373,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc499, %
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %226, %233, %240, %312, %315, %680, %219
-  %.sroa.0232.0.ph.ph.ph = phi i8 [ 1, %233 ], [ 1, %.invoke ], [ 1, %226 ], [ 1, %240 ], [ 1, %219 ], [ 1, %315 ], [ 1, %312 ], [ 0, %680 ]
+  %.sroa.0232.0.ph.ph.ph = phi i8 [ 0, %680 ], [ 1, %219 ], [ 1, %226 ], [ 1, %240 ], [ 1, %315 ], [ 1, %233 ], [ 1, %312 ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp851 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -23881,8 +23881,8 @@ default.unreachable:                              ; preds = %216
   br label %568
 
 .thread.thread833:                                ; preds = %743, %.thread
-  %.sroa.0237.3 = phi i1 [ %.sroa.0237.2831, %743 ], [ %.sroa.0237.1, %.thread ]
-  %.pn481 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn832, %743 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.thread ]
+  %.sroa.0237.3 = phi i1 [ %.sroa.0237.1, %.thread ], [ %.sroa.0237.2831, %743 ]
+  %.pn481 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn832, %743 ]
   br i1 %.sroa.0237.3, label %.thread.thread833.thread, label %"_ZN4core3ptr150drop_in_place$LT$grenad..reader..Reader$LT$std..io..cursor..Cursor$LT$milli..update..index_documents..helpers..clonable_mmap..ClonableMmap$GT$$GT$$GT$17h6b189cb8922353bdE.exit"
 
 569:                                              ; preds = %740, %627, %568
@@ -29995,7 +29995,7 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc285, %
   br label %263
 
 .loopexit.split-lp:                               ; preds = %284, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit", %413, %.thread493, %419, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit353", %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit358", %515, %.thread501, %521, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit368", %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit385", %273, %293, %397, %398, %399, %403
-  %.sroa.0103.4.ph = phi i8 [ 1, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit" ], [ 1, %273 ], [ 1, %403 ], [ 1, %284 ], [ 1, %399 ], [ 1, %397 ], [ 1, %413 ], [ 1, %.thread493 ], [ 1, %419 ], [ 1, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit358" ], [ 1, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit353" ], [ 1, %398 ], [ 1, %293 ], [ 1, %515 ], [ 1, %.thread501 ], [ 1, %521 ], [ %.sroa.0103.17, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit385" ], [ 0, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit368" ]
+  %.sroa.0103.4.ph = phi i8 [ 1, %293 ], [ 1, %273 ], [ 1, %403 ], [ 1, %284 ], [ 1, %399 ], [ 1, %397 ], [ 1, %413 ], [ 1, %.thread493 ], [ 1, %419 ], [ 1, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit358" ], [ 1, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit353" ], [ 1, %398 ], [ 1, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit" ], [ 1, %515 ], [ 1, %.thread501 ], [ 1, %521 ], [ %.sroa.0103.17, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit385" ], [ 0, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h08e9ee6425646d83E.exit368" ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %263
@@ -35319,10 +35319,10 @@ _ZN7tracing4span4Span8do_enter17hf08afab7205d280cE.exit: ; preds = %.noexc584, %
   br label %.loopexit.split-lp1020
 
 .loopexit.split-lp1020.loopexit.split-lp:         ; preds = %.invoke, %298, %745, %432, %365, %338, %318, %299
-  %.sroa.0306.4.ph.ph = phi i8 [ 1, %318 ], [ 0, %299 ], [ 1, %338 ], [ 0, %745 ], [ 1, %298 ], [ 1, %365 ], [ 0, %432 ], [ 1, %.invoke ]
-  %.sroa.0308.10.ph.ph = phi i8 [ 1, %318 ], [ 1, %299 ], [ 1, %338 ], [ %.sroa.0308.34, %745 ], [ 1, %298 ], [ 1, %365 ], [ 1, %432 ], [ 1, %.invoke ]
-  %.sroa.0310.10.ph.ph = phi i8 [ 1, %318 ], [ 1, %299 ], [ 1, %338 ], [ %.sroa.0310.29, %745 ], [ 1, %298 ], [ 1, %365 ], [ 1, %432 ], [ 1, %.invoke ]
-  %.sroa.0313.10.ph.ph = phi i8 [ 1, %318 ], [ 1, %299 ], [ 1, %338 ], [ %.sroa.0313.19, %745 ], [ 1, %298 ], [ 1, %365 ], [ 1, %432 ], [ 1, %.invoke ]
+  %.sroa.0306.4.ph.ph = phi i8 [ 1, %318 ], [ 0, %432 ], [ 1, %338 ], [ 0, %745 ], [ 0, %299 ], [ 1, %365 ], [ 1, %.invoke ], [ 1, %298 ]
+  %.sroa.0308.10.ph.ph = phi i8 [ 1, %318 ], [ 1, %432 ], [ 1, %338 ], [ %.sroa.0308.34, %745 ], [ 1, %299 ], [ 1, %365 ], [ 1, %.invoke ], [ 1, %298 ]
+  %.sroa.0310.10.ph.ph = phi i8 [ 1, %318 ], [ 1, %432 ], [ 1, %338 ], [ %.sroa.0310.29, %745 ], [ 1, %299 ], [ 1, %365 ], [ 1, %.invoke ], [ 1, %298 ]
+  %.sroa.0313.10.ph.ph = phi i8 [ 1, %318 ], [ 1, %432 ], [ 1, %338 ], [ %.sroa.0313.19, %745 ], [ 1, %299 ], [ 1, %365 ], [ 1, %.invoke ], [ 1, %298 ]
   %lpad.loopexit.split-lp1035 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp1020

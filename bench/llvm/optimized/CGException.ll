@@ -569,10 +569,10 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule14getTerminateFnE
 18:                                               ; preds = %.critedge2
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %20 = load i32, ptr %19, align 4, !tbaa !349
-  switch i32 %20, label %38 [
+  switch i32 %20, label %33 [
     i32 1, label %21
     i32 0, label %27
-    i32 2, label %33
+    i32 2, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit
     i32 3, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
     i32 4, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23
     i32 5, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23
@@ -585,8 +585,8 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule14getTerminateFnE
   %24 = trunc i64 %23 to i32
   %25 = icmp ult i32 %24, 10
   %26 = and i64 %23, 9223372006790004735
-  %or.cond27.not = icmp eq i64 %26, 10
-  %or.cond = or i1 %25, %or.cond27.not
+  %or.cond.not = icmp eq i64 %26, 10
+  %or.cond = or i1 %25, %or.cond.not
   br i1 %or.cond, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
 
 27:                                               ; preds = %18
@@ -595,28 +595,28 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule14getTerminateFnE
   %30 = trunc i64 %29 to i32
   %31 = icmp ult i32 %30, 10
   %32 = and i64 %29, 9223372006790004735
-  %or.cond.not = icmp eq i64 %32, 10
-  %or.cond28 = or i1 %31, %or.cond.not
+  %or.cond27.not = icmp eq i64 %32, 10
+  %or.cond28 = or i1 %31, %or.cond27.not
   br i1 %or.cond28, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
 
 33:                                               ; preds = %18
+  unreachable
+
+_ZNK5clang11ObjCRuntime12hasTerminateEv.exit:     ; preds = %18
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 364
   %35 = load i64, ptr %34, align 4
   %36 = trunc i64 %35 to i32
   %37 = icmp ugt i32 %36, 4
   br i1 %37, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread, label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23
 
-38:                                               ; preds = %18
-  unreachable
-
-_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23: ; preds = %18, %18, %18, %21, %27, %33, %.critedge2
+_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23: ; preds = %18, %18, %18, %27, %21, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit, %.critedge2
   br label %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread
 
-_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread: ; preds = %33, %18, %21, %27, %12, %8, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23
-  %.sroa.9.0 = phi i64 [ 5, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23 ], [ 15, %8 ], [ %., %12 ], [ 14, %27 ], [ 14, %21 ], [ 14, %18 ], [ 14, %33 ]
-  %.sroa.020.0 = phi ptr [ @.str.4, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23 ], [ @.str, %8 ], [ %.str.1..str.2, %12 ], [ @.str.3, %27 ], [ @.str.3, %21 ], [ @.str.3, %18 ], [ @.str.3, %33 ]
-  %39 = tail call { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule21CreateRuntimeFunctionEPN4llvm12FunctionTypeENS2_9StringRefENS2_13AttributeListEbb(ptr noundef nonnull align 8 dereferenceable(3608) %0, ptr noundef %3, ptr nonnull %.sroa.020.0, i64 %.sroa.9.0, ptr null, i1 noundef zeroext false, i1 noundef zeroext false) #18
-  ret { ptr, ptr } %39
+_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread: ; preds = %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit, %18, %21, %27, %12, %8, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23
+  %.sroa.9.0 = phi i64 [ 5, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23 ], [ 15, %8 ], [ %., %12 ], [ 14, %27 ], [ 14, %21 ], [ 14, %18 ], [ 14, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit ]
+  %.sroa.020.0 = phi ptr [ @.str.4, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit.thread23 ], [ @.str, %8 ], [ %.str.1..str.2, %12 ], [ @.str.3, %27 ], [ @.str.3, %21 ], [ @.str.3, %18 ], [ @.str.3, %_ZNK5clang11ObjCRuntime12hasTerminateEv.exit ]
+  %38 = tail call { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule21CreateRuntimeFunctionEPN4llvm12FunctionTypeENS2_9StringRefENS2_13AttributeListEbb(ptr noundef nonnull align 8 dereferenceable(3608) %0, ptr noundef %3, ptr nonnull %.sroa.020.0, i64 %.sroa.9.0, ptr null, i1 noundef zeroext false, i1 noundef zeroext false) #18
+  ret { ptr, ptr } %38
 }
 
 declare noundef ptr @_ZN4llvm12FunctionType3getEPNS_4TypeEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1

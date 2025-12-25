@@ -2238,7 +2238,7 @@ define range(i32 0, 2) i32 @cli_isutf8(ptr noundef readonly captures(none) %0, i
   br i1 %35, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %7, %.loopexit, %22, %28, %30, %2
-  %.232 = phi i32 [ 0, %28 ], [ 1, %2 ], [ 0, %30 ], [ 0, %7 ], [ 1, %.loopexit ], [ 0, %22 ]
+  %.232 = phi i32 [ 1, %2 ], [ 0, %28 ], [ 0, %30 ], [ 0, %7 ], [ 0, %22 ], [ 1, %.loopexit ]
   ret i32 %.232
 }
 

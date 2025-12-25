@@ -9971,7 +9971,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0
   br i1 %.not45, label %.loopexit, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4swapIS4_EEvRKNS0_IT_EE.exit, !llvm.loop !304
 
 .critedge:                                        ; preds = %.loopexit, %68, %.loopexit.us, %51, %31
-  %.sroa.073.081114 = phi ptr [ %calloc, %.loopexit.us ], [ null, %31 ], [ %calloc, %51 ], [ %calloc, %68 ], [ %calloc, %.loopexit ]
+  %.sroa.073.081114 = phi ptr [ null, %31 ], [ %calloc, %.loopexit.us ], [ %calloc, %51 ], [ %calloc, %68 ], [ %calloc, %.loopexit ]
   call void @free(ptr noundef %.sroa.073.081114) #25
   br label %.loopexit84
 
@@ -10987,7 +10987,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0
   br i1 %.not44, label %.loopexit, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEE4swapIS4_EEvRKNS0_IT_EE.exit, !llvm.loop !335
 
 .critedge:                                        ; preds = %.loopexit, %64, %.loopexit.us, %47, %30
-  %.sroa.068.076109 = phi ptr [ %calloc, %.loopexit.us ], [ null, %30 ], [ %calloc, %47 ], [ %calloc, %64 ], [ %calloc, %.loopexit ]
+  %.sroa.068.076109 = phi ptr [ null, %30 ], [ %calloc, %.loopexit.us ], [ %calloc, %47 ], [ %calloc, %64 ], [ %calloc, %.loopexit ]
   tail call void @free(ptr noundef %.sroa.068.076109) #25
   br label %.loopexit79
 

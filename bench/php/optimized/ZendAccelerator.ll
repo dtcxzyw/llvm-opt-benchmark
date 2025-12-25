@@ -2479,7 +2479,7 @@ is_cacheable_stream_path.exit:                    ; preds = %104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   br label %158
 
-.thread215:                                       ; preds = %127, %130
+.thread215:                                       ; preds = %130, %127
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @accel_globals, i64 384), i8 0, i64 16, i1 false)
   br label %162
 
@@ -7250,7 +7250,7 @@ zend_string_copy.exit.thread:                     ; preds = %30, %26, %21
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %88, %46, %40, %49, %.thread, %90
-  %.8 = phi ptr [ %92, %90 ], [ %53, %.thread ], [ %53, %88 ], [ %51, %49 ], [ %42, %46 ], [ %42, %40 ]
+  %.8 = phi ptr [ %92, %90 ], [ %53, %.thread ], [ %53, %88 ], [ %51, %49 ], [ %42, %40 ], [ %42, %46 ]
   ret ptr %.8
 }
 

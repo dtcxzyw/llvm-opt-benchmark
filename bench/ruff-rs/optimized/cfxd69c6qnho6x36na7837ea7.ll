@@ -4009,7 +4009,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i66, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hdb6a89251b9e94c7E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %187, %191, %193, %123, %201
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %123 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %193 ], [ %.sroa.03.2, %187 ], [ %.sroa.03.2, %191 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %123 ], [ %.sroa.03.2, %193 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %187 ], [ %.sroa.03.2, %191 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hdb6a89251b9e94c7E.exit"
@@ -4830,7 +4830,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i66, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hdb6a89251b9e94c7E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %187, %191, %193, %123, %201
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %123 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %193 ], [ %.sroa.03.2, %187 ], [ %.sroa.03.2, %191 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %123 ], [ %.sroa.03.2, %193 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %187 ], [ %.sroa.03.2, %191 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hdb6a89251b9e94c7E.exit"
@@ -5644,7 +5644,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i66, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hdb6a89251b9e94c7E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %184, %188, %190, %120, %198
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %120 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %190 ], [ %.sroa.03.2, %184 ], [ %.sroa.03.2, %188 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %120 ], [ %.sroa.03.2, %190 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %184 ], [ %.sroa.03.2, %188 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hdb6a89251b9e94c7E.exit"

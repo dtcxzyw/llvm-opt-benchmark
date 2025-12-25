@@ -4790,7 +4790,7 @@ _ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split: ; preds = %38, %43, %50
   br label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit
 
 _ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit:     ; preds = %32, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split, %84, %80, %78, %68, %59, %51, %.critedge, %15, %5
-  %.0 = phi i1 [ false, %80 ], [ false, %5 ], [ false, %15 ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split ], [ false, %.critedge ], [ false, %78 ], [ false, %84 ], [ false, %68 ], [ false, %59 ], [ false, %51 ], [ false, %32 ]
+  %.0 = phi i1 [ false, %80 ], [ false, %5 ], [ false, %15 ], [ false, %78 ], [ false, %.critedge ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split ], [ false, %84 ], [ false, %68 ], [ false, %59 ], [ false, %51 ], [ false, %32 ]
   ret i1 %.0
 }
 

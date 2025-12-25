@@ -20674,7 +20674,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit99: ; preds = %187, %189
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %28, %5, %172, %_ZNK4llvm3LLT15isPointerVectorEv.exit
-  %.0 = phi i1 [ false, %5 ], [ false, %172 ], [ false, %28 ], [ false, %_ZNK4llvm3LLT15isPointerVectorEv.exit ], [ true, %.critedge.sink.split ]
+  %.0 = phi i1 [ false, %172 ], [ false, %5 ], [ false, %28 ], [ false, %_ZNK4llvm3LLT15isPointerVectorEv.exit ], [ true, %.critedge.sink.split ]
   ret i1 %.0
 }
 

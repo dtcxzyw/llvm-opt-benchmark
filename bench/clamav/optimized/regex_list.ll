@@ -830,7 +830,7 @@ define i32 @load_regex_matcher(ptr noundef readonly captures(none) %0, ptr nound
   br label %functionality_level_check.exit.thread108
 
 functionality_level_check.exit:                   ; preds = %88, %87, %121, %148, %127, %37, %37, %97
-  %.180 = phi i32 [ %.079133, %37 ], [ %.079133, %37 ], [ %.079133, %97 ], [ %.079133, %88 ], [ %.079133, %87 ], [ %99, %148 ], [ %99, %127 ], [ %99, %121 ]
+  %.180 = phi i32 [ %.079133, %37 ], [ %.079133, %37 ], [ %.079133, %97 ], [ %99, %121 ], [ %99, %148 ], [ %.079133, %87 ], [ %.079133, %88 ], [ %99, %127 ]
   %159 = call ptr @cli_dbgets(ptr noundef nonnull %9, i32 noundef 8192, ptr noundef %2, ptr noundef %6) #14
   %.not94 = icmp eq ptr %159, null
   br i1 %.not94, label %._crit_edge, label %37

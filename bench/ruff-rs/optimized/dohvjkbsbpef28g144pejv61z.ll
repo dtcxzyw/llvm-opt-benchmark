@@ -23864,12 +23864,12 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i499: ; preds = %1017, 
           cleanup
   br label %.thread1173
 
-.thread928.thread1167.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %"_ZN4core3ptr65drop_in_place$LT$ruff_linter..rule_selector..RuleSelectorIter$GT$17hee22018a9f9e7b95E.exit592", %1426, %1422, %1385, %1347, %1355, %1356, %1358, %1368, %1435, %1427, %1423, %1414, %.thread1062, %1408, %1389, %1390, %1386, %1377, %1372, %1369, %1367
+.thread928.thread1167.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %"_ZN4core3ptr65drop_in_place$LT$ruff_linter..rule_selector..RuleSelectorIter$GT$17hee22018a9f9e7b95E.exit592", %1368, %1358, %1356, %1355, %1347, %1422, %1426, %1385, %1435, %1427, %1423, %1414, %.thread1062, %1408, %1389, %1390, %1386, %1377, %1372, %1369, %1367
   %lpad.loopexit1271 = landingpad { ptr, i32 }
           cleanup
   br label %.thread1173
 
-.thread928.thread1167.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %1242, %1287, %1241, %"_ZN134_$LT$ruff_linter..registry..rule_set..RuleSet$u20$as$u20$core..iter..traits..collect..FromIterator$LT$ruff_linter..codes..Rule$GT$$GT$9from_iter17h3ba6745fc6952d0aE.exit.i"
+.thread928.thread1167.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %"_ZN134_$LT$ruff_linter..registry..rule_set..RuleSet$u20$as$u20$core..iter..traits..collect..FromIterator$LT$ruff_linter..codes..Rule$GT$$GT$9from_iter17h3ba6745fc6952d0aE.exit.i", %1241, %1287, %1242
   %lpad.loopexit.split-lp1272 = landingpad { ptr, i32 }
           cleanup
   br label %.thread1173

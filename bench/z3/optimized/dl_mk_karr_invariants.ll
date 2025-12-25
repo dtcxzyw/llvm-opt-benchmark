@@ -1014,7 +1014,7 @@ _ZgtRK8rationalS1_.exit:                          ; preds = %141
           to label %_ZltRK8rationalS1_.exit unwind label %213
 
 _ZltRK8rationalS1_.exit:                          ; preds = %179, %172, %.noexc43
-  %181 = phi i1 [ %180, %179 ], [ %175, %172 ], [ %178, %.noexc43 ]
+  %181 = phi i1 [ %178, %.noexc43 ], [ %175, %172 ], [ %180, %179 ]
   %182 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !245
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %182, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc.i unwind label %183

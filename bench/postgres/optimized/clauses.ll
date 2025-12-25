@@ -403,7 +403,7 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
   br label %.thread48
 
 .thread48:                                        ; preds = %.critedge, %.critedge.us, %49, %44, %63, %63, %53, %4, %2, %67, %65
-  %.0 = phi i1 [ true, %44 ], [ false, %2 ], [ true, %4 ], [ true, %63 ], [ %66, %65 ], [ %68, %67 ], [ true, %53 ], [ true, %63 ], [ false, %49 ], [ true, %.critedge.us ], [ true, %.critedge ]
+  %.0 = phi i1 [ false, %49 ], [ false, %2 ], [ true, %4 ], [ true, %63 ], [ %66, %65 ], [ %68, %67 ], [ true, %53 ], [ true, %63 ], [ true, %44 ], [ true, %.critedge.us ], [ true, %.critedge ]
   ret i1 %.0
 }
 
@@ -1393,7 +1393,7 @@ tailrecurse.backedge:                             ; preds = %24, %112, %109, %10
   br label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %108, %109, %99, %100, %104, %30, %24, %34, %50, %67, %64, %54, %48, %42, %112, %93, %82, %16, %2, %75, %.lr.ph149, %.preheader, %12, %8, %129, %124, %117
-  %.0 = phi ptr [ null, %2 ], [ %120, %124 ], [ null, %8 ], [ %120, %117 ], [ %15, %12 ], [ %131, %129 ], [ %21, %16 ], [ null, %.preheader ], [ null, %75 ], [ %.9, %82 ], [ null, %.lr.ph149 ], [ null, %93 ], [ null, %112 ], [ null, %42 ], [ null, %48 ], [ null, %54 ], [ null, %64 ], [ null, %67 ], [ null, %50 ], [ null, %34 ], [ null, %24 ], [ null, %30 ], [ null, %104 ], [ null, %100 ], [ null, %99 ], [ null, %109 ], [ null, %108 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %120, %124 ], [ null, %2 ], [ null, %8 ], [ %120, %117 ], [ %15, %12 ], [ %131, %129 ], [ %.9, %82 ], [ null, %.preheader ], [ null, %75 ], [ %21, %16 ], [ null, %.lr.ph149 ], [ null, %93 ], [ null, %112 ], [ null, %42 ], [ null, %48 ], [ null, %54 ], [ null, %64 ], [ null, %67 ], [ null, %50 ], [ null, %34 ], [ null, %24 ], [ null, %30 ], [ null, %104 ], [ null, %100 ], [ null, %99 ], [ null, %109 ], [ null, %108 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -1651,7 +1651,7 @@ tailrecurse.backedge:                             ; preds = %28, %.lr.ph, %117, 
   br i1 %or.cond190, label %tailrecurse.backedge, label %.critedge
 
 .critedge:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %113, %114, %104, %105, %109, %34, %28, %38, %54, %71, %68, %58, %52, %46, %117, %97, %86, %20, %2, %79, %.lr.ph144, %.preheader, %12, %8
-  %.0 = phi ptr [ null, %2 ], [ %19, %12 ], [ null, %8 ], [ %25, %20 ], [ null, %.preheader ], [ null, %79 ], [ %.9, %86 ], [ null, %.lr.ph144 ], [ null, %97 ], [ null, %117 ], [ null, %46 ], [ null, %52 ], [ null, %58 ], [ null, %68 ], [ null, %71 ], [ null, %54 ], [ null, %38 ], [ null, %28 ], [ null, %34 ], [ null, %109 ], [ null, %105 ], [ null, %104 ], [ null, %114 ], [ null, %113 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %19, %12 ], [ null, %2 ], [ null, %8 ], [ %.9, %86 ], [ null, %.preheader ], [ null, %79 ], [ %25, %20 ], [ null, %.lr.ph144 ], [ null, %97 ], [ null, %117 ], [ null, %46 ], [ null, %52 ], [ null, %58 ], [ null, %68 ], [ null, %71 ], [ null, %54 ], [ null, %38 ], [ null, %28 ], [ null, %34 ], [ null, %109 ], [ null, %105 ], [ null, %104 ], [ null, %114 ], [ null, %113 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -1770,7 +1770,7 @@ tailrecurse:                                      ; preds = %54
   br i1 %60, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %tailrecurse, %54, %.lr.ph, %46, %22, %26, %29, %32, %4, %8, %12, %15, %18, %1, %.preheader, %find_forced_null_var.exit
-  %.0 = phi ptr [ null, %1 ], [ %42, %find_forced_null_var.exit ], [ null, %.preheader ], [ null, %22 ], [ %51, %46 ], [ null, %26 ], [ null, %29 ], [ null, %18 ], [ null, %15 ], [ null, %12 ], [ null, %8 ], [ null, %4 ], [ null, %32 ], [ null, %.lr.ph ], [ null, %54 ], [ null, %tailrecurse ]
+  %.0 = phi ptr [ null, %1 ], [ %42, %find_forced_null_var.exit ], [ null, %.preheader ], [ null, %22 ], [ null, %29 ], [ null, %26 ], [ %51, %46 ], [ null, %18 ], [ null, %15 ], [ null, %12 ], [ null, %8 ], [ null, %4 ], [ null, %32 ], [ null, %.lr.ph ], [ null, %54 ], [ null, %tailrecurse ]
   ret ptr %.0
 }
 

@@ -2773,8 +2773,8 @@ define internal fastcc noundef i32 @netlogon_dissect_CLAIMS_SET_BUFFER(ptr nound
   %28 = add i32 %2, %1
   br label %32
 
-.thread3:                                         ; preds = %19, %16, %22, %23
-  %.05 = phi ptr [ %24, %23 ], [ %18, %19 ], [ %15, %16 ], [ %21, %22 ]
+.thread3:                                         ; preds = %22, %16, %19, %23
+  %.05 = phi ptr [ %24, %23 ], [ %21, %22 ], [ %15, %16 ], [ %18, %19 ]
   %29 = add i32 %2, %1
   %30 = call i32 @nt_dissect_MIDL_NDRHEADERBLOB(ptr noundef %4, ptr noundef nonnull %.05, i32 noundef 0, ptr noundef nonnull %7)
   call void @init_ndr_pointer_list(ptr noundef nonnull %9)

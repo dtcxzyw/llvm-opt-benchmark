@@ -7461,8 +7461,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %22 = phi ptr [ %14, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %23 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %22 = phi ptr [ %14, %thread-pre-split.i.i.preheader ], [ %.be52, %thread-pre-split.i.i.backedge ]
+  %23 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be52, %thread-pre-split.i.i.backedge ]
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -7489,7 +7489,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %.noexc19, %.noexc20
-  %.be = phi ptr [ %31, %.noexc19 ], [ %71, %.noexc20 ]
+  %.be52 = phi ptr [ %71, %.noexc20 ], [ %31, %.noexc19 ]
   br label %thread-pre-split.i.i, !llvm.loop !225
 
 32:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -16998,7 +16998,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i:        ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %.not15.i.i.i.i, label %_ZNK14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE6equalsERK9_key_dataIS2_S6_ESL_.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !304
 
 _ZNK14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE6equalsERK9_key_dataIS2_S6_ESL_.exit.thread: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.thread, %96, %34, %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i.us, %47
-  %.05096 = phi ptr [ %.05098.us, %34 ], [ %.05098.us, %47 ], [ %.05098, %96 ], [ %.05098.us, %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i.us ], [ %.05098, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.thread ], [ %.05098, %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i ]
+  %.05096 = phi ptr [ %.05098.us, %47 ], [ %.05098, %96 ], [ %.05098.us, %34 ], [ %.05098.us, %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i.us ], [ %.05098, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i.thread ], [ %.05098, %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i ]
   store ptr %.05096, ptr %2, align 8, !tbaa !134
   br label %164
 
@@ -17121,7 +17121,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i63:      ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %.not15.i.i.i.i70, label %_ZNK14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE6equalsERK9_key_dataIS2_S6_ESL_.exit71.thread, label %.lr.ph.i.i.i.i65, !llvm.loop !304
 
 _ZNK14core_hashtableI17default_map_entryI7svectorIjjEPN7datalog12sparse_table11key_indexerEEN9table2mapIS7_NS3_17svector_hash_procI13unsigned_hashEENS3_14vector_eq_procIS2_EEE15entry_hash_procENSE_13entry_eq_procEE6equalsERK9_key_dataIS2_S6_ESL_.exit71.thread: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i63, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i56.thread, %140, %59, %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i63.us, %72
-  %.15189 = phi ptr [ %.151105.us, %59 ], [ %.151105.us, %72 ], [ %.151105, %140 ], [ %.151105.us, %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i63.us ], [ %.151105, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i56.thread ], [ %.151105, %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i63 ]
+  %.15189 = phi ptr [ %.151105.us, %72 ], [ %.151105, %140 ], [ %.151105.us, %59 ], [ %.151105.us, %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i63.us ], [ %.151105, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i56.thread ], [ %.151105, %_ZNK6vectorIjLb0EjE4sizeEv.exit20.i.i.i.i63 ]
   store ptr %.15189, ptr %2, align 8, !tbaa !134
   br label %164
 

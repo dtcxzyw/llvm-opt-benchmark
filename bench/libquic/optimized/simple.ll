@@ -1887,8 +1887,8 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   br i1 %exitcond185.not, label %.thread, label %113, !llvm.loop !30
 
 .thread:                                          ; preds = %.preheader207, %53, %42, %83, %91, %98, %140, %123, %129, %134, %118, %143, %107, %71, %73, %33, %29, %16, %11, %66
-  %.0131 = phi ptr [ null, %11 ], [ null, %16 ], [ %calloc, %53 ], [ %calloc, %33 ], [ %calloc, %83 ], [ %calloc, %107 ], [ %calloc, %140 ], [ %calloc, %71 ], [ %calloc, %73 ], [ %calloc, %66 ], [ %calloc, %29 ], [ %calloc, %143 ], [ %calloc, %118 ], [ %calloc, %134 ], [ %calloc, %129 ], [ %calloc, %123 ], [ %calloc, %98 ], [ %calloc, %91 ], [ %calloc, %42 ], [ %calloc, %.preheader207 ]
-  %.0129 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %53 ], [ 0, %33 ], [ 0, %83 ], [ 0, %107 ], [ 0, %140 ], [ 0, %71 ], [ 0, %73 ], [ 0, %66 ], [ 0, %29 ], [ 0, %123 ], [ 0, %129 ], [ 0, %134 ], [ 0, %118 ], [ 1, %143 ], [ 0, %98 ], [ 0, %91 ], [ 0, %42 ], [ 0, %.preheader207 ]
+  %.0131 = phi ptr [ null, %11 ], [ null, %16 ], [ %calloc, %83 ], [ %calloc, %33 ], [ %calloc, %107 ], [ %calloc, %53 ], [ %calloc, %73 ], [ %calloc, %71 ], [ %calloc, %140 ], [ %calloc, %66 ], [ %calloc, %29 ], [ %calloc, %143 ], [ %calloc, %118 ], [ %calloc, %134 ], [ %calloc, %129 ], [ %calloc, %123 ], [ %calloc, %98 ], [ %calloc, %91 ], [ %calloc, %42 ], [ %calloc, %.preheader207 ]
+  %.0129 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %83 ], [ 0, %33 ], [ 0, %107 ], [ 0, %53 ], [ 0, %73 ], [ 0, %71 ], [ 0, %140 ], [ 0, %66 ], [ 0, %29 ], [ 0, %123 ], [ 0, %129 ], [ 0, %134 ], [ 0, %118 ], [ 1, %143 ], [ 0, %98 ], [ 0, %91 ], [ 0, %42 ], [ 0, %.preheader207 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.0132) #4
   tail call void @BN_CTX_free(ptr noundef %.0133) #4
   %.not163 = icmp eq ptr %.0131, null

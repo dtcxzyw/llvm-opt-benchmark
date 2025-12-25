@@ -193,7 +193,7 @@ Div_AddLit.exit50:                                ; preds = %71, %75
   br i1 %77, label %66, label %Div_AddLit.exit, !llvm.loop !15
 
 Div_AddLit.exit:                                  ; preds = %46, %37, %60, %Div_AddLit.exit50, %72, %.preheader
-  %.0 = phi i32 [ -1, %60 ], [ -1, %72 ], [ %.035.lcssa, %.preheader ], [ %.035.lcssa, %Div_AddLit.exit50 ], [ -1, %37 ], [ -1, %46 ]
+  %.0 = phi i32 [ -1, %60 ], [ %.035.lcssa, %.preheader ], [ -1, %72 ], [ %.035.lcssa, %Div_AddLit.exit50 ], [ -1, %37 ], [ -1, %46 ]
   ret i32 %.0
 }
 

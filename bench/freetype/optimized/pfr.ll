@@ -4811,7 +4811,7 @@ pfr_extra_items_skip.exit.i:                      ; preds = %.thread.us.i.i.i, %
   br i1 %exitcond.not.i, label %.loopexit123, label %.lr.ph.i, !llvm.loop !284
 
 pfr_glyph_load_compound.exit.thread:              ; preds = %39, %.lr.ph59.split.us.i.i.i, %178, %88, %125, %116, %147, %166, %158, %137, %71, %.lr.ph.i, %104, %53, %31, %49, %19
-  %.ph = phi i32 [ %59, %53 ], [ 8, %19 ], [ 8, %31 ], [ 8, %49 ], [ 8, %178 ], [ 8, %104 ], [ 8, %.lr.ph.i ], [ 8, %71 ], [ 8, %137 ], [ 8, %158 ], [ 8, %166 ], [ 8, %147 ], [ 8, %116 ], [ 8, %125 ], [ 8, %88 ], [ 8, %.lr.ph59.split.us.i.i.i ], [ 8, %39 ]
+  %.ph = phi i32 [ %59, %53 ], [ 8, %19 ], [ 8, %178 ], [ 8, %49 ], [ 8, %31 ], [ 8, %104 ], [ 8, %.lr.ph.i ], [ 8, %71 ], [ 8, %137 ], [ 8, %158 ], [ 8, %166 ], [ 8, %147 ], [ 8, %116 ], [ 8, %125 ], [ 8, %88 ], [ 8, %.lr.ph59.split.us.i.i.i ], [ 8, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit122.sink.split
 
@@ -5651,12 +5651,12 @@ pfr_glyph_line_to.exit.i:                         ; preds = %611, %.thread.i.i.i
   br i1 %.not152.i, label %397, label %pfr_extra_items_skip.exit.thread.sink.split.i
 
 pfr_extra_items_skip.exit.thread.sink.split.i:    ; preds = %pfr_glyph_line_to.exit.i, %412, %405, %397, %494, %480, %468, %461, %458, %445, %433, %426, %423, %pfr_glyph_line_to.exit.i.thread, %._crit_edge216.thread282.i
-  %.ph.i = phi i32 [ 8, %494 ], [ %.pre227.pre.i, %._crit_edge216.thread282.i ], [ %.sink291.i.ph, %pfr_glyph_line_to.exit.i.thread ], [ 8, %423 ], [ 8, %426 ], [ 8, %433 ], [ 8, %445 ], [ 8, %458 ], [ 8, %461 ], [ 8, %468 ], [ 8, %480 ], [ 8, %405 ], [ 8, %412 ], [ 8, %397 ], [ %.sink291.i, %pfr_glyph_line_to.exit.i ]
+  %.ph.i = phi i32 [ 8, %494 ], [ %.pre227.pre.i, %._crit_edge216.thread282.i ], [ %.sink291.i.ph, %pfr_glyph_line_to.exit.i.thread ], [ 8, %423 ], [ 8, %426 ], [ 8, %433 ], [ 8, %445 ], [ 8, %458 ], [ 8, %461 ], [ 8, %468 ], [ 8, %480 ], [ 8, %397 ], [ 8, %412 ], [ 8, %405 ], [ %.sink291.i, %pfr_glyph_line_to.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %pfr_glyph_load_simple.exit
 
 pfr_glyph_load_simple.exit:                       ; preds = %340, %348, %360, %.lr.ph59.split.us.i.i.i101, %382, %.thread, %281, %290, %300, %308, %319, %374, %pfr_extra_items_skip.exit.thread.sink.split.i
-  %613 = phi i32 [ 8, %374 ], [ %327, %319 ], [ 8, %290 ], [ %.ph.i, %pfr_extra_items_skip.exit.thread.sink.split.i ], [ 8, %300 ], [ 8, %.thread ], [ 8, %.lr.ph59.split.us.i.i.i101 ], [ 8, %308 ], [ 8, %281 ], [ 8, %382 ], [ 8, %360 ], [ 8, %348 ], [ 8, %340 ]
+  %613 = phi i32 [ 8, %374 ], [ %327, %319 ], [ 8, %290 ], [ 8, %300 ], [ %.ph.i, %pfr_extra_items_skip.exit.thread.sink.split.i ], [ 8, %.thread ], [ 8, %281 ], [ 8, %308 ], [ 8, %.lr.ph59.split.us.i.i.i101 ], [ 8, %382 ], [ 8, %360 ], [ 8, %348 ], [ 8, %340 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit122.sink.split
 

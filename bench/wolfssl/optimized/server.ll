@@ -597,10 +597,10 @@ current_time.exit123:                             ; preds = %140
   br label %155
 
 155:                                              ; preds = %tcp_select.exit.thread, %152
-  %.298 = phi double [ %.096188, %tcp_select.exit.thread ], [ %.399, %152 ]
-  %.294 = phi double [ %.092192, %tcp_select.exit.thread ], [ %.395, %152 ]
-  %.287 = phi i64 [ %.085193, %tcp_select.exit.thread ], [ %154, %152 ]
-  %.3 = phi double [ %.082194, %tcp_select.exit.thread ], [ %.4, %152 ]
+  %.298 = phi double [ %.399, %152 ], [ %.096188, %tcp_select.exit.thread ]
+  %.294 = phi double [ %.395, %152 ], [ %.092192, %tcp_select.exit.thread ]
+  %.287 = phi i64 [ %154, %152 ], [ %.085193, %tcp_select.exit.thread ]
+  %.3 = phi double [ %.4, %152 ], [ %.082194, %tcp_select.exit.thread ]
   %156 = icmp uge i64 %.287, %4
   %or.cond112 = select i1 %.not133, i1 %156, i1 %26
   br i1 %or.cond112, label %._crit_edge, label %.critedge, !llvm.loop !19
@@ -3923,8 +3923,8 @@ err_sys_ex.exit43:                                ; preds = %62, %59, %58, %53
   br label %.critedge7
 
 err_sys_ex.exit:                                  ; preds = %err_sys_ex.exit43, %25, %22, %21, %9
-  %.037 = phi i32 [ %7, %22 ], [ %7, %9 ], [ %7, %25 ], [ %7, %21 ], [ %51, %err_sys_ex.exit43 ]
-  %.0 = phi i32 [ %10, %22 ], [ %10, %9 ], [ %10, %25 ], [ %10, %21 ], [ %52, %err_sys_ex.exit43 ]
+  %.037 = phi i32 [ %7, %25 ], [ %7, %9 ], [ %7, %22 ], [ %7, %21 ], [ %51, %err_sys_ex.exit43 ]
+  %.0 = phi i32 [ %10, %25 ], [ %10, %9 ], [ %10, %22 ], [ %10, %21 ], [ %52, %err_sys_ex.exit43 ]
   switch i32 %.0, label %err_sys_ex.exit.thread [
     i32 -108, label %.critedge7.backedge
     i32 3, label %.critedge7.backedge

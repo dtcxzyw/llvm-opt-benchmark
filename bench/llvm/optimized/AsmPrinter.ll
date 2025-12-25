@@ -6136,7 +6136,7 @@ _ZN4llvm10AsmPrinter16emitLLVMUsedListEPKNS_13ConstantArrayE.exit.sink.split: ; 
   br label %_ZN4llvm10AsmPrinter16emitLLVMUsedListEPKNS_13ConstantArrayE.exit
 
 _ZN4llvm10AsmPrinter16emitLLVMUsedListEPKNS_13ConstantArrayE.exit: ; preds = %153, %40, %_ZN4llvm10AsmPrinter16emitLLVMUsedListEPKNS_13ConstantArrayE.exit.sink.split, %_ZNK4llvm4User8operandsEv.exit, %13, %_ZN4llvmeqENS_9StringRefES0_.exit51.thread86, %_ZN4llvmeqENS_9StringRefES0_.exit47, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread83, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %.0 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ true, %_ZNK4llvm4User8operandsEv.exit ], [ true, %40 ], [ true, %_ZN4llvm10AsmPrinter16emitLLVMUsedListEPKNS_13ConstantArrayE.exit.sink.split ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit51.thread86 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread83 ], [ true, %13 ], [ true, %153 ]
+  %.0 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ true, %_ZNK4llvm4User8operandsEv.exit ], [ true, %_ZN4llvm10AsmPrinter16emitLLVMUsedListEPKNS_13ConstantArrayE.exit.sink.split ], [ true, %40 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit51.thread86 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit47.thread83 ], [ true, %13 ], [ true, %153 ]
   ret i1 %.0
 }
 

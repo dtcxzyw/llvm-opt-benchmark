@@ -1066,7 +1066,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr captures(none) %
   br i1 %exitcond41.not, label %.loopexit, label %.preheader.split, !llvm.loop !89
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph7.split, %.lr.ph7.split.us, %.preheader.split, %.preheader.split.us
-  %.2 = phi i32 [ 256, %.preheader.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph7.split.us ], [ %7, %.lr.ph.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph.split ]
+  %.2 = phi i32 [ 256, %.preheader.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph7.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph.split.us ], [ %7, %.lr.ph.split ]
   %89 = icmp samesign ugt i32 %.2, %1
   br i1 %89, label %90, label %96
 

@@ -14499,7 +14499,7 @@ _ZN11duckdb_zstdL24ZSTD_matchState_dictModeEPKNS_17ZSTD_matchState_tE.exit: ; pr
   br label %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit
 
 _ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit: ; preds = %114, %122
-  %.0.i = phi i64 [ %111, %114 ], [ %123, %122 ]
+  %.0.i = phi i64 [ %123, %122 ], [ %111, %114 ]
   %124 = icmp ult i64 %.0.i, -119
   br i1 %124, label %125, label %_ZN11duckdb_zstdL38ZSTD_postProcessSequenceProducerResultEPNS_13ZSTD_SequenceEmmm.exit.thread
 

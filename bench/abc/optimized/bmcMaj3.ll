@@ -4570,7 +4570,7 @@ Zyx_ManCollectFanins.exit:                        ; preds = %14, %._crit_edge.lo
   br i1 %352, label %.critedge, label %.thread, !llvm.loop !149
 
 .thread:                                          ; preds = %62, %58, %._crit_edge247, %._crit_edge243, %._crit_edge263, %347, %.preheader, %._crit_edge, %._crit_edge.thread
-  %.2 = phi i32 [ %.5, %347 ], [ 0, %._crit_edge.thread ], [ %.1179, %._crit_edge ], [ -1, %._crit_edge247 ], [ %.2180.lcssa, %.preheader ], [ -1, %._crit_edge263 ], [ -1, %._crit_edge243 ], [ -1, %58 ], [ -1, %62 ]
+  %.2 = phi i32 [ -1, %._crit_edge247 ], [ %.5, %347 ], [ %.1179, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.2180.lcssa, %.preheader ], [ -1, %._crit_edge263 ], [ -1, %._crit_edge243 ], [ -1, %58 ], [ -1, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0345)

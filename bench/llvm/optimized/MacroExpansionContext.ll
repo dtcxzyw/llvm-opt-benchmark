@@ -483,7 +483,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationENS_11SmallStringILj
   br label %69
 
 69:                                               ; preds = %.sink.split, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E7find_asIS3_EENS_16DenseMapIteratorIS3_S3_S5_S8_Lb1EEERKT_.exit, %3
-  %.sink = phi i8 [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E7find_asIS3_EENS_16DenseMapIteratorIS3_S3_S5_S8_Lb1EEERKT_.exit ], [ 0, %3 ], [ 1, %.sink.split ]
+  %.sink = phi i8 [ 0, %3 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E7find_asIS3_EENS_16DenseMapIteratorIS3_S3_S5_S8_Lb1EEERKT_.exit ], [ 1, %.sink.split ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %70, align 8, !tbaa !289
   ret void

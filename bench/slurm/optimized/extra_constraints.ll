@@ -665,8 +665,8 @@ _add_child.exit89:                                ; preds = %147, %149, %152
   br label %161
 
 161:                                              ; preds = %75, %_add_child.exit, %_add_child.exit89
-  %.160 = phi i8 [ 1, %75 ], [ 0, %_add_child.exit89 ], [ 0, %_add_child.exit ]
-  %.1 = phi i8 [ 0, %75 ], [ 1, %_add_child.exit89 ], [ 1, %_add_child.exit ]
+  %.160 = phi i8 [ 0, %_add_child.exit89 ], [ 0, %_add_child.exit ], [ 1, %75 ]
+  %.1 = phi i8 [ 1, %_add_child.exit89 ], [ 1, %_add_child.exit ], [ 0, %75 ]
   %162 = load i32, ptr %3, align 4
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %12, label %.thread

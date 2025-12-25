@@ -66301,9 +66301,9 @@ common.resume:                                    ; preds = %2375, %2376, %266, 
   unreachable
 
 .thread1806:                                      ; preds = %.thread1802, %275
-  %.1468 = phi i8 [ %.34701799, %.thread1802 ], [ %.1466, %275 ]
-  %.2 = phi i8 [ %.41800, %.thread1802 ], [ %.1466, %275 ]
-  %.pn658.pn = phi { ptr, i32 } [ %.pn5981801, %.thread1802 ], [ %276, %275 ]
+  %.1468 = phi i8 [ %.1466, %275 ], [ %.34701799, %.thread1802 ]
+  %.2 = phi i8 [ %.1466, %275 ], [ %.41800, %.thread1802 ]
+  %.pn658.pn = phi { ptr, i32 } [ %276, %275 ], [ %.pn5981801, %.thread1802 ]
   %274 = trunc nuw i8 %.1468 to i1
   br i1 %274, label %2374, label %266
 

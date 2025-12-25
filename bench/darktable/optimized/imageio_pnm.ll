@@ -426,8 +426,8 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 .sink.split:                                      ; preds = %.lr.ph89, %._crit_edge, %.lr.ph110, %._crit_edge94, %39, %.lr.ph79, %16, %.lr.ph99
-  %.sink = phi ptr [ %17, %16 ], [ %40, %39 ], [ %40, %.lr.ph79 ], [ %17, %.lr.ph99 ], [ %17, %.lr.ph110 ], [ %17, %._crit_edge94 ], [ %40, %._crit_edge ], [ %40, %.lr.ph89 ]
-  %.0.ph = phi i32 [ 0, %16 ], [ 0, %39 ], [ 0, %.lr.ph79 ], [ 0, %.lr.ph99 ], [ 6, %.lr.ph110 ], [ 0, %._crit_edge94 ], [ 6, %.lr.ph89 ], [ 0, %._crit_edge ]
+  %.sink = phi ptr [ %17, %16 ], [ %40, %.lr.ph79 ], [ %40, %39 ], [ %17, %.lr.ph99 ], [ %17, %.lr.ph110 ], [ %17, %._crit_edge94 ], [ %40, %._crit_edge ], [ %40, %.lr.ph89 ]
+  %.0.ph = phi i32 [ 0, %16 ], [ 0, %.lr.ph79 ], [ 0, %39 ], [ 0, %.lr.ph99 ], [ 6, %.lr.ph110 ], [ 0, %._crit_edge94 ], [ 6, %.lr.ph89 ], [ 0, %._crit_edge ]
   call void @free(ptr noundef %.sink) #13
   br label %62
 
@@ -593,8 +593,8 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
   br i1 %exitcond.not, label %57, label %60
 
 .sink.split:                                      ; preds = %.lr.ph96, %._crit_edge, %.lr.ph118, %._crit_edge102, %42, %.lr.ph, %17, %.lr.ph107
-  %.sink = phi ptr [ %18, %17 ], [ %43, %42 ], [ %43, %.lr.ph ], [ %18, %.lr.ph107 ], [ %18, %.lr.ph118 ], [ %18, %._crit_edge102 ], [ %43, %._crit_edge ], [ %43, %.lr.ph96 ]
-  %.0.ph = phi i32 [ 0, %17 ], [ 0, %42 ], [ 0, %.lr.ph ], [ 0, %.lr.ph107 ], [ 2, %.lr.ph118 ], [ 0, %._crit_edge102 ], [ 6, %.lr.ph96 ], [ 0, %._crit_edge ]
+  %.sink = phi ptr [ %18, %17 ], [ %43, %.lr.ph ], [ %43, %42 ], [ %18, %.lr.ph107 ], [ %18, %.lr.ph118 ], [ %18, %._crit_edge102 ], [ %43, %._crit_edge ], [ %43, %.lr.ph96 ]
+  %.0.ph = phi i32 [ 0, %17 ], [ 0, %.lr.ph ], [ 0, %42 ], [ 0, %.lr.ph107 ], [ 2, %.lr.ph118 ], [ 0, %._crit_edge102 ], [ 6, %.lr.ph96 ], [ 0, %._crit_edge ]
   call void @free(ptr noundef %.sink) #13
   br label %66
 

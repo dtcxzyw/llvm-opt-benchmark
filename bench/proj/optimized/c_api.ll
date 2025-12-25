@@ -68589,7 +68589,7 @@ define i32 @proj_coordoperation_get_param_index(ptr noundef %0, ptr noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %.lr.ph, %.loopexit.sink.split, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %.loopexit.sink.split ], [ %.02036, %.lr.ph ], [ -1, %28 ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %.loopexit.sink.split ], [ -1, %28 ], [ %.02036, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -69099,8 +69099,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %36, %39
   resume { ptr, i32 } %37
 
 .critedge:                                        ; preds = %29, %..critedge_crit_edge, %.preheader, %34
-  %45 = phi ptr [ %20, %34 ], [ %.pre, %..critedge_crit_edge ], [ %20, %.preheader ], [ %20, %29 ]
-  %.2 = phi i32 [ 0, %34 ], [ 0, %..critedge_crit_edge ], [ 1, %.preheader ], [ 1, %29 ]
+  %45 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %20, %34 ], [ %20, %.preheader ], [ %20, %29 ]
+  %.2 = phi i32 [ 0, %..critedge_crit_edge ], [ 0, %34 ], [ 1, %.preheader ], [ 1, %29 ]
   %.not.i.i.i30 = icmp eq ptr %45, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIdSaIdEED2Ev.exit31, label %.critedge.thread
 

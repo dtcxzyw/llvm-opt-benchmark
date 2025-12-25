@@ -1259,7 +1259,7 @@ default.unreachable:                              ; preds = %"_ZN56_$LT$std..io.
   br i1 %55, label %.noexc, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe2280de6ff592ceE.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit", %.outer, %78, %_ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit.i, %3
-  %.018.ph203 = phi i64 [ 0, %3 ], [ %.018.ph205, %78 ], [ %.018.ph205, %_ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit.i ], [ %.018.ph205, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit" ], [ %57, %.outer ]
+  %.018.ph203 = phi i64 [ 0, %3 ], [ %.018.ph205, %78 ], [ %.018.ph205, %_ZN3std2io4Read8read_buf17hb4f514663453a8f5E.exit.i ], [ %57, %.outer ], [ %.018.ph205, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h815e98f9379c482dE.exit" ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.018.ph203, ptr %56, align 8
   br label %67

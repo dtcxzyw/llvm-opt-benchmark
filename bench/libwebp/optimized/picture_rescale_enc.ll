@@ -265,7 +265,7 @@ AdjustAndCheckRectangle.exit.thread.sink.split:   ; preds = %61, %68
   br label %AdjustAndCheckRectangle.exit.thread
 
 AdjustAndCheckRectangle.exit.thread:              ; preds = %AdjustAndCheckRectangle.exit.thread.sink.split, %12, %SnapTopLeftPosition.exit.i, %15, %30, %AdjustAndCheckRectangle.exit, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %AdjustAndCheckRectangle.exit ], [ 1, %30 ], [ 0, %12 ], [ 0, %SnapTopLeftPosition.exit.i ], [ 0, %15 ], [ 1, %AdjustAndCheckRectangle.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %AdjustAndCheckRectangle.exit ], [ 1, %30 ], [ 0, %SnapTopLeftPosition.exit.i ], [ 0, %12 ], [ 0, %15 ], [ 1, %AdjustAndCheckRectangle.exit.thread.sink.split ]
   ret i32 %.0
 }
 

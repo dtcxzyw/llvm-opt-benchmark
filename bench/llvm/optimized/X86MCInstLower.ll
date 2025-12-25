@@ -10842,7 +10842,7 @@ define internal fastcc { i8, i64 } @_ZNK12_GLOBAL__N_114X86MCInstLower18LowerSym
   br label %63
 
 63:                                               ; preds = %38, %51, %12
-  %.0 = phi ptr [ %47, %38 ], [ %62, %51 ], [ %21, %12 ]
+  %.0 = phi ptr [ %62, %51 ], [ %47, %38 ], [ %21, %12 ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.thread, label %66
 

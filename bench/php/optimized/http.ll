@@ -1656,7 +1656,7 @@ cache_request_parse_body_options.exit:            ; preds = %.critedge79.i, %cac
   store i32 775, ptr %100, align 8, !tbaa !4
   br label %cache_request_parse_body_options.exit.thread
 
-cache_request_parse_body_options.exit.thread:     ; preds = %66, %60, %72, %53, %75, %40, %35, %74, %86, %83, %79
+cache_request_parse_body_options.exit.thread:     ; preds = %53, %60, %72, %66, %75, %40, %35, %74, %86, %83, %79
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 560), align 8, !tbaa !61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 568), i8 0, i64 80, i1 false)
   br label %101

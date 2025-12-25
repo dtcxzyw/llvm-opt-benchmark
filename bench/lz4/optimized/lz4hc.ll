@@ -4118,11 +4118,11 @@ LZ4HC_reverseCountPattern.exit753:                ; preds = %1040, %.lr.ph.i749,
   br label %1087
 
 1087:                                             ; preds = %1077, %1063, %1056, %.thread1143
-  %.18.i1184 = phi i32 [ %.2.i126, %.thread1143 ], [ %.2.i126, %1056 ], [ %.2.i126, %1063 ], [ %.12.i, %1077 ]
-  %.4345.i1181 = phi i32 [ %.4345.i.ph, %.thread1143 ], [ 2, %1056 ], [ 2, %1063 ], [ 2, %1077 ]
-  %.4350.i1179 = phi i64 [ %.4350.i.ph, %.thread1143 ], [ %.3349.i, %1056 ], [ %.3349.i, %1063 ], [ %.3349.i, %1077 ]
-  %.18369.i1177 = phi i32 [ %.2353.i, %.thread1143 ], [ %.2353.i, %1056 ], [ %.2353.i, %1063 ], [ %.12363.i, %1077 ]
-  %.3326.i = phi i32 [ %1086, %.thread1143 ], [ %..i, %1056 ], [ %668, %1063 ], [ %1084, %1077 ]
+  %.18.i1184 = phi i32 [ %.2.i126, %.thread1143 ], [ %.2.i126, %1063 ], [ %.2.i126, %1056 ], [ %.12.i, %1077 ]
+  %.4345.i1181 = phi i32 [ %.4345.i.ph, %.thread1143 ], [ 2, %1063 ], [ 2, %1056 ], [ 2, %1077 ]
+  %.4350.i1179 = phi i64 [ %.4350.i.ph, %.thread1143 ], [ %.3349.i, %1063 ], [ %.3349.i, %1056 ], [ %.3349.i, %1077 ]
+  %.18369.i1177 = phi i32 [ %.2353.i, %.thread1143 ], [ %.2353.i, %1063 ], [ %.2353.i, %1056 ], [ %.12363.i, %1077 ]
+  %.3326.i = phi i32 [ %1086, %.thread1143 ], [ %668, %1063 ], [ %..i, %1056 ], [ %1084, %1077 ]
   %1088 = icmp uge i32 %.3326.i, %694
   %1089 = icmp sgt i32 %.0314.i1816, 1
   %1090 = select i1 %1088, i1 %1089, i1 false
@@ -8038,11 +8038,11 @@ LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103: ; preds = %1807
   br label %LZ4HC_encodeSequence.exit
 
 LZ4HC_encodeSequence.exit:                        ; preds = %2507, %LZ4_wildCopy8.exit110, %LZ4_wildCopy8.exit113, %2571, %LZ4_wildCopy8.exit119, %2646, %LZ4_wildCopy8.exit116, %2725, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103
-  %.21112 = phi ptr [ %.41114.ph, %LZ4_wildCopy8.exit119 ], [ %.11111, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103 ], [ %.41114.ph, %LZ4_wildCopy8.exit116 ], [ %.11111, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit ], [ %.41114.ph, %2725 ], [ %.41114.ph, %2646 ], [ %.41114.ph, %2507 ], [ %.41114.ph, %LZ4_wildCopy8.exit110 ], [ %.4.i, %LZ4_wildCopy8.exit113 ], [ %.4.i, %2571 ]
-  %.21102 = phi ptr [ %.41104.ph, %LZ4_wildCopy8.exit119 ], [ %.11101.ph, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103 ], [ %.41104.ph, %LZ4_wildCopy8.exit116 ], [ %.11101.ph, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit ], [ %.41104.ph, %2725 ], [ %.41104.ph, %2646 ], [ %.41104.ph, %2507 ], [ %.41104.ph, %LZ4_wildCopy8.exit110 ], [ %2572, %LZ4_wildCopy8.exit113 ], [ %2572, %2571 ]
-  %.sroa.0162.sroa.0.1.i = phi i32 [ %.sroa.0162.sroa.0.3.i.ph, %LZ4_wildCopy8.exit119 ], [ %.sroa.0162.sroa.0.0.i.le1948.le, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103 ], [ %.sroa.0162.sroa.0.3.i.ph, %LZ4_wildCopy8.exit116 ], [ %.sroa.0162.sroa.0.0.i.le1948.le2133, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit ], [ %.sroa.0162.sroa.0.3.i.ph, %2725 ], [ %.sroa.0162.sroa.0.3.i.ph, %2646 ], [ %.sroa.0162.sroa.0.3.i.ph, %2507 ], [ %.sroa.0162.sroa.0.3.i.ph, %LZ4_wildCopy8.exit110 ], [ %.sroa.090.sroa.0.1.i, %LZ4_wildCopy8.exit113 ], [ %.sroa.090.sroa.0.1.i, %2571 ]
-  %.sroa.0162.sroa.14.1.i = phi i32 [ %.sroa.0162.sroa.14.3.i.ph, %LZ4_wildCopy8.exit119 ], [ %.sroa.0162.sroa.14.0.i, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103 ], [ %.sroa.0162.sroa.14.5.i, %LZ4_wildCopy8.exit116 ], [ %.sroa.0162.sroa.14.0.i, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit ], [ %.sroa.0162.sroa.14.5.i, %2725 ], [ %.sroa.0162.sroa.14.3.i.ph, %2646 ], [ %.sroa.0162.sroa.14.4.i, %2507 ], [ %.sroa.0162.sroa.14.4.i, %LZ4_wildCopy8.exit110 ], [ %.sroa.090.sroa.12.2.i, %LZ4_wildCopy8.exit113 ], [ %.sroa.090.sroa.12.2.i, %2571 ]
-  %.0328.i = phi ptr [ %.5.ph, %LZ4_wildCopy8.exit119 ], [ %.1.ph, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103 ], [ %.5.ph, %LZ4_wildCopy8.exit116 ], [ %.1.ph, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit ], [ %.5.ph, %2725 ], [ %.5.ph, %2646 ], [ %.5.ph, %2507 ], [ %.5.ph, %LZ4_wildCopy8.exit110 ], [ %.25, %LZ4_wildCopy8.exit113 ], [ %.25, %2571 ]
+  %.21112 = phi ptr [ %.11111, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103 ], [ %.41114.ph, %LZ4_wildCopy8.exit116 ], [ %.11111, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit ], [ %.41114.ph, %LZ4_wildCopy8.exit119 ], [ %.41114.ph, %2725 ], [ %.41114.ph, %2646 ], [ %.41114.ph, %2507 ], [ %.4.i, %2571 ], [ %.41114.ph, %LZ4_wildCopy8.exit110 ], [ %.4.i, %LZ4_wildCopy8.exit113 ]
+  %.21102 = phi ptr [ %.11101.ph, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103 ], [ %.41104.ph, %LZ4_wildCopy8.exit116 ], [ %.11101.ph, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit ], [ %.41104.ph, %LZ4_wildCopy8.exit119 ], [ %.41104.ph, %2725 ], [ %.41104.ph, %2646 ], [ %.41104.ph, %2507 ], [ %2572, %2571 ], [ %.41104.ph, %LZ4_wildCopy8.exit110 ], [ %2572, %LZ4_wildCopy8.exit113 ]
+  %.sroa.0162.sroa.0.1.i = phi i32 [ %.sroa.0162.sroa.0.0.i.le1948.le, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103 ], [ %.sroa.0162.sroa.0.3.i.ph, %LZ4_wildCopy8.exit116 ], [ %.sroa.0162.sroa.0.0.i.le1948.le2133, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit ], [ %.sroa.0162.sroa.0.3.i.ph, %LZ4_wildCopy8.exit119 ], [ %.sroa.0162.sroa.0.3.i.ph, %2725 ], [ %.sroa.0162.sroa.0.3.i.ph, %2646 ], [ %.sroa.0162.sroa.0.3.i.ph, %2507 ], [ %.sroa.090.sroa.0.1.i, %2571 ], [ %.sroa.0162.sroa.0.3.i.ph, %LZ4_wildCopy8.exit110 ], [ %.sroa.090.sroa.0.1.i, %LZ4_wildCopy8.exit113 ]
+  %.sroa.0162.sroa.14.1.i = phi i32 [ %.sroa.0162.sroa.14.0.i, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103 ], [ %.sroa.0162.sroa.14.5.i, %LZ4_wildCopy8.exit116 ], [ %.sroa.0162.sroa.14.0.i, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit ], [ %.sroa.0162.sroa.14.3.i.ph, %LZ4_wildCopy8.exit119 ], [ %.sroa.0162.sroa.14.5.i, %2725 ], [ %.sroa.0162.sroa.14.3.i.ph, %2646 ], [ %.sroa.0162.sroa.14.4.i, %2507 ], [ %.sroa.090.sroa.12.2.i, %2571 ], [ %.sroa.0162.sroa.14.4.i, %LZ4_wildCopy8.exit110 ], [ %.sroa.090.sroa.12.2.i, %LZ4_wildCopy8.exit113 ]
+  %.0328.i = phi ptr [ %.1.ph, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit2103 ], [ %.5.ph, %LZ4_wildCopy8.exit116 ], [ %.1.ph, %LZ4HC_encodeSequence.exit.loopexit1526.split.loop.exit ], [ %.5.ph, %LZ4_wildCopy8.exit119 ], [ %.5.ph, %2725 ], [ %.5.ph, %2646 ], [ %.5.ph, %2507 ], [ %.25, %2571 ], [ %.5.ph, %LZ4_wildCopy8.exit110 ], [ %.25, %LZ4_wildCopy8.exit113 ]
   br i1 %646, label %2845, label %LZ4MID_compress.exit.thread
 
 2845:                                             ; preds = %LZ4HC_encodeSequence.exit
@@ -9217,13 +9217,13 @@ LZ4HC_reverseCountPattern.exit1083.i:             ; preds = %.lr.ph.i1079.i, %33
   %spec.select459.i.i.i = sub nuw i32 %.0323.i.i.i2178, %3396
   br i1 %3395, label %.thread1413.i, label %.backedge2445.i
 
-.backedge2445.i:                                  ; preds = %3379, %3365, %3394, %.thread1373.i, %3358
-  %.0351.i.i.be.i = phi i32 [ %.2353.i.i.i, %3394 ], [ %.2353.i.i.i, %.thread1373.i ], [ %.2353.i.i.i, %3358 ], [ %.12363.i.i.i, %3379 ], [ %.2353.i.i.i, %3365 ]
-  %.0346.i.i.be.i = phi i64 [ %.0346.i.i.i2176, %3394 ], [ %.4350.i.i.ph.i, %.thread1373.i ], [ %.3349.i.i.i, %3358 ], [ %.3349.i.i.i, %3379 ], [ %.3349.i.i.i, %3365 ]
-  %.0341.i.i.be.i = phi i32 [ %.0341.i.i.i2177, %3394 ], [ %.4345.i.i.ph.i, %.thread1373.i ], [ 2, %3358 ], [ 2, %3379 ], [ 2, %3365 ]
-  %.0323.i.i.be.i = phi i32 [ %spec.select459.i.i.i, %3394 ], [ %3393, %.thread1373.i ], [ %..i.i.i, %3358 ], [ %3386, %3379 ], [ %2957, %3365 ]
-  %.0317.i.i.be.i = phi i32 [ %.3320.i.i.i, %3394 ], [ %.1318.i.i.i, %.thread1373.i ], [ 0, %3358 ], [ 0, %3379 ], [ 0, %3365 ]
-  %.0.i.i.be.i = phi i32 [ %.0385.i.i.i, %3394 ], [ %.2.i.i.i, %.thread1373.i ], [ %.2.i.i.i, %3358 ], [ %.12.i.i.i, %3379 ], [ %.2.i.i.i, %3365 ]
+.backedge2445.i:                                  ; preds = %3365, %3379, %3394, %.thread1373.i, %3358
+  %.0351.i.i.be.i = phi i32 [ %.2353.i.i.i, %3394 ], [ %.2353.i.i.i, %.thread1373.i ], [ %.2353.i.i.i, %3358 ], [ %.2353.i.i.i, %3365 ], [ %.12363.i.i.i, %3379 ]
+  %.0346.i.i.be.i = phi i64 [ %.0346.i.i.i2176, %3394 ], [ %.4350.i.i.ph.i, %.thread1373.i ], [ %.3349.i.i.i, %3358 ], [ %.3349.i.i.i, %3365 ], [ %.3349.i.i.i, %3379 ]
+  %.0341.i.i.be.i = phi i32 [ %.0341.i.i.i2177, %3394 ], [ %.4345.i.i.ph.i, %.thread1373.i ], [ 2, %3358 ], [ 2, %3365 ], [ 2, %3379 ]
+  %.0323.i.i.be.i = phi i32 [ %spec.select459.i.i.i, %3394 ], [ %3393, %.thread1373.i ], [ %..i.i.i, %3358 ], [ %2957, %3365 ], [ %3386, %3379 ]
+  %.0317.i.i.be.i = phi i32 [ %.3320.i.i.i, %3394 ], [ %.1318.i.i.i, %.thread1373.i ], [ 0, %3358 ], [ 0, %3365 ], [ 0, %3379 ]
+  %.0.i.i.be.i = phi i32 [ %.0385.i.i.i, %3394 ], [ %.2.i.i.i, %.thread1373.i ], [ %.2.i.i.i, %3358 ], [ %.2.i.i.i, %3365 ], [ %.12.i.i.i, %3379 ]
   %3397 = icmp uge i32 %.0323.i.i.be.i, %2966
   %3398 = icmp sgt i32 %.0314.i.i.i2180, 1
   %3399 = select i1 %3397, i1 %3398, i1 false
@@ -10665,13 +10665,13 @@ LZ4HC_reverseCountPattern.exit1174.i:             ; preds = %.lr.ph.i1170.i, %39
   %spec.select459.i.i546.i = sub nuw i32 %.0323.i.i465.i2201, %4042
   br i1 %4041, label %.thread1503.i, label %.backedge2444.i
 
-.backedge2444.i:                                  ; preds = %4025, %4011, %4040, %.thread1461.i, %4004
-  %.0351.i.i462.be.i = phi i32 [ %.2353.i.i536.i, %4040 ], [ %.2353.i.i536.i, %.thread1461.i ], [ %.2353.i.i536.i, %4004 ], [ %.12363.i.i598.i, %4025 ], [ %.2353.i.i536.i, %4011 ]
-  %.0346.i.i463.be.i = phi i64 [ %.0346.i.i463.i2199, %4040 ], [ %.4350.i.i561.ph.i, %.thread1461.i ], [ %.3349.i.i566.i, %4004 ], [ %.3349.i.i566.i, %4025 ], [ %.3349.i.i566.i, %4011 ]
-  %.0341.i.i464.be.i = phi i32 [ %.0341.i.i464.i2200, %4040 ], [ %.4345.i.i562.ph.i, %.thread1461.i ], [ 2, %4004 ], [ 2, %4025 ], [ 2, %4011 ]
-  %.0323.i.i465.be.i = phi i32 [ %spec.select459.i.i546.i, %4040 ], [ %4039, %.thread1461.i ], [ %..i.i590.i, %4004 ], [ %4032, %4025 ], [ %2957, %4011 ]
-  %.0317.i.i466.be.i = phi i32 [ %.3320.i.i614.i, %4040 ], [ %.1318.i.i557.i, %.thread1461.i ], [ 0, %4004 ], [ 0, %4025 ], [ 0, %4011 ]
-  %.0.i.i468.be.i = phi i32 [ %.0385.i.i534.i, %4040 ], [ %.2.i.i537.i, %.thread1461.i ], [ %.2.i.i537.i, %4004 ], [ %.12.i.i599.i, %4025 ], [ %.2.i.i537.i, %4011 ]
+.backedge2444.i:                                  ; preds = %4011, %4025, %4040, %.thread1461.i, %4004
+  %.0351.i.i462.be.i = phi i32 [ %.2353.i.i536.i, %4040 ], [ %.2353.i.i536.i, %.thread1461.i ], [ %.2353.i.i536.i, %4004 ], [ %.2353.i.i536.i, %4011 ], [ %.12363.i.i598.i, %4025 ]
+  %.0346.i.i463.be.i = phi i64 [ %.0346.i.i463.i2199, %4040 ], [ %.4350.i.i561.ph.i, %.thread1461.i ], [ %.3349.i.i566.i, %4004 ], [ %.3349.i.i566.i, %4011 ], [ %.3349.i.i566.i, %4025 ]
+  %.0341.i.i464.be.i = phi i32 [ %.0341.i.i464.i2200, %4040 ], [ %.4345.i.i562.ph.i, %.thread1461.i ], [ 2, %4004 ], [ 2, %4011 ], [ 2, %4025 ]
+  %.0323.i.i465.be.i = phi i32 [ %spec.select459.i.i546.i, %4040 ], [ %4039, %.thread1461.i ], [ %..i.i590.i, %4004 ], [ %2957, %4011 ], [ %4032, %4025 ]
+  %.0317.i.i466.be.i = phi i32 [ %.3320.i.i614.i, %4040 ], [ %.1318.i.i557.i, %.thread1461.i ], [ 0, %4004 ], [ 0, %4011 ], [ 0, %4025 ]
+  %.0.i.i468.be.i = phi i32 [ %.0385.i.i534.i, %4040 ], [ %.2.i.i537.i, %.thread1461.i ], [ %.2.i.i537.i, %4004 ], [ %.2.i.i537.i, %4011 ], [ %.12.i.i599.i, %4025 ]
   %4043 = icmp uge i32 %.0323.i.i465.be.i, %3624
   %4044 = icmp sgt i32 %.0314.i.i467.i2203, 1
   %4045 = select i1 %4043, i1 %4044, i1 false
@@ -11831,13 +11831,13 @@ LZ4HC_reverseCountPattern.exit1265.i:             ; preds = %.lr.ph.i1261.i, %45
   %spec.select459.i.i779.i = sub nuw i32 %.0323.i.i698.i2224, %4566
   br i1 %4565, label %.thread1585.i, label %.backedge.i
 
-.backedge.i:                                      ; preds = %4549, %4535, %4564, %.thread1543.i, %4528
-  %.0351.i.i695.be.i = phi i32 [ %.2353.i.i769.i, %4564 ], [ %.2353.i.i769.i, %.thread1543.i ], [ %.2353.i.i769.i, %4528 ], [ %.12363.i.i831.i, %4549 ], [ %.2353.i.i769.i, %4535 ]
-  %.0346.i.i696.be.i = phi i64 [ %.0346.i.i696.i2222, %4564 ], [ %.4350.i.i794.ph.i, %.thread1543.i ], [ %.3349.i.i799.i, %4528 ], [ %.3349.i.i799.i, %4549 ], [ %.3349.i.i799.i, %4535 ]
-  %.0341.i.i697.be.i = phi i32 [ %.0341.i.i697.i2223, %4564 ], [ %.4345.i.i795.ph.i, %.thread1543.i ], [ 2, %4528 ], [ 2, %4549 ], [ 2, %4535 ]
-  %.0323.i.i698.be.i = phi i32 [ %spec.select459.i.i779.i, %4564 ], [ %4563, %.thread1543.i ], [ %..i.i823.i, %4528 ], [ %4556, %4549 ], [ %2957, %4535 ]
-  %.0317.i.i699.be.i = phi i32 [ %.3320.i.i847.i, %4564 ], [ %.1318.i.i790.i, %.thread1543.i ], [ 0, %4528 ], [ 0, %4549 ], [ 0, %4535 ]
-  %.0.i.i701.be.i = phi i32 [ %.0385.i.i767.i, %4564 ], [ %.2.i.i770.i, %.thread1543.i ], [ %.2.i.i770.i, %4528 ], [ %.12.i.i832.i, %4549 ], [ %.2.i.i770.i, %4535 ]
+.backedge.i:                                      ; preds = %4535, %4549, %4564, %.thread1543.i, %4528
+  %.0351.i.i695.be.i = phi i32 [ %.2353.i.i769.i, %4564 ], [ %.2353.i.i769.i, %.thread1543.i ], [ %.2353.i.i769.i, %4528 ], [ %.2353.i.i769.i, %4535 ], [ %.12363.i.i831.i, %4549 ]
+  %.0346.i.i696.be.i = phi i64 [ %.0346.i.i696.i2222, %4564 ], [ %.4350.i.i794.ph.i, %.thread1543.i ], [ %.3349.i.i799.i, %4528 ], [ %.3349.i.i799.i, %4535 ], [ %.3349.i.i799.i, %4549 ]
+  %.0341.i.i697.be.i = phi i32 [ %.0341.i.i697.i2223, %4564 ], [ %.4345.i.i795.ph.i, %.thread1543.i ], [ 2, %4528 ], [ 2, %4535 ], [ 2, %4549 ]
+  %.0323.i.i698.be.i = phi i32 [ %spec.select459.i.i779.i, %4564 ], [ %4563, %.thread1543.i ], [ %..i.i823.i, %4528 ], [ %2957, %4535 ], [ %4556, %4549 ]
+  %.0317.i.i699.be.i = phi i32 [ %.3320.i.i847.i, %4564 ], [ %.1318.i.i790.i, %.thread1543.i ], [ 0, %4528 ], [ 0, %4535 ], [ 0, %4549 ]
+  %.0.i.i701.be.i = phi i32 [ %.0385.i.i767.i, %4564 ], [ %.2.i.i770.i, %.thread1543.i ], [ %.2.i.i770.i, %4528 ], [ %.2.i.i770.i, %4535 ], [ %.12.i.i832.i, %4549 ]
   %4567 = icmp uge i32 %.0323.i.i698.be.i, %4148
   %4568 = icmp sgt i32 %.0314.i.i700.i2226, 1
   %4569 = select i1 %4567, i1 %4568, i1 false

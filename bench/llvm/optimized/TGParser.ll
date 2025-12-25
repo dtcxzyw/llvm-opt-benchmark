@@ -7661,8 +7661,8 @@ _ZNK4llvm6Record8getValueEPKNS_4InitE.exit228.thread: ; preds = %358, %.lr.ph, %
   store i32 %381, ptr %45, align 8, !tbaa !527
   br label %.thread308.backedge
 
-.thread308.backedge:                              ; preds = %.loopexit, %396, %396, %396, %.thread297, %.thread311, %157, %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit
-  %.0107.be = phi ptr [ %.1108, %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit ], [ %151, %157 ], [ %377, %.loopexit ], [ %403, %.thread311 ], [ %.0107, %396 ], [ %.0107, %396 ], [ %.0107, %396 ], [ %487, %.thread297 ]
+.thread308.backedge:                              ; preds = %.loopexit, %.thread297, %396, %396, %396, %.thread311, %157, %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit
+  %.0107.be = phi ptr [ %.1108, %_ZN4llvm11SmallVectorIjLj16EED2Ev.exit ], [ %151, %157 ], [ %377, %.loopexit ], [ %403, %.thread311 ], [ %.0107, %396 ], [ %487, %.thread297 ], [ %.0107, %396 ], [ %.0107, %396 ]
   br label %.thread308, !llvm.loop !565
 
 382:                                              ; preds = %.thread308

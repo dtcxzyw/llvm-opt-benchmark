@@ -566,7 +566,7 @@ CloseTransientFile.exit65:                        ; preds = %.thread.i64, %75
   br label %.sink.split
 
 .sink.split:                                      ; preds = %21, %CloseTransientFile.exit, %77, %.sink.split.sink.split, %CloseTransientFile.exit65, %16, %11, %11
-  %.0 = phi i32 [ 0, %CloseTransientFile.exit65 ], [ 0, %11 ], [ 0, %11 ], [ 0, %16 ], [ -1, %.sink.split.sink.split ], [ -1, %77 ], [ -1, %CloseTransientFile.exit ], [ -1, %21 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %11 ], [ 0, %11 ], [ 0, %CloseTransientFile.exit65 ], [ -1, %.sink.split.sink.split ], [ -1, %77 ], [ -1, %CloseTransientFile.exit ], [ -1, %21 ]
   ret i32 %.0
 }
 

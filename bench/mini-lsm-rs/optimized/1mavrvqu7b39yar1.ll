@@ -1599,9 +1599,9 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h2b49461e03f1c8a4E(ptr noal
   br i1 %78, label %.invoke, label %82
 
 .invoke:                                          ; preds = %.noexc51, %.noexc49, %203, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4d3474698387d030E.exit", %.noexc55, %.noexc53, %.noexc59, %.noexc57
-  %79 = phi ptr [ @anon.96775935ede547741b85d59639f87438.32, %.noexc59 ], [ @anon.96775935ede547741b85d59639f87438.32, %.noexc55 ], [ @anon.96775935ede547741b85d59639f87438.32, %.noexc57 ], [ @anon.96775935ede547741b85d59639f87438.32, %.noexc53 ], [ @anon.96775935ede547741b85d59639f87438.49, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4d3474698387d030E.exit" ], [ @anon.96775935ede547741b85d59639f87438.32, %.noexc51 ], [ @anon.96775935ede547741b85d59639f87438.32, %.noexc49 ], [ @anon.96775935ede547741b85d59639f87438.32, %203 ]
-  %80 = phi i64 [ 43, %.noexc59 ], [ 43, %.noexc55 ], [ 43, %.noexc57 ], [ 43, %.noexc53 ], [ 44, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4d3474698387d030E.exit" ], [ 43, %.noexc51 ], [ 43, %.noexc49 ], [ 43, %203 ]
-  %81 = phi ptr [ @anon.96775935ede547741b85d59639f87438.91, %.noexc59 ], [ @anon.96775935ede547741b85d59639f87438.91, %.noexc55 ], [ @anon.96775935ede547741b85d59639f87438.90, %.noexc57 ], [ @anon.96775935ede547741b85d59639f87438.90, %.noexc53 ], [ @anon.96775935ede547741b85d59639f87438.50, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4d3474698387d030E.exit" ], [ @anon.96775935ede547741b85d59639f87438.91, %.noexc51 ], [ @anon.96775935ede547741b85d59639f87438.90, %.noexc49 ], [ @anon.96775935ede547741b85d59639f87438.35, %203 ]
+  %79 = phi ptr [ @anon.96775935ede547741b85d59639f87438.32, %.noexc59 ], [ @anon.96775935ede547741b85d59639f87438.32, %.noexc55 ], [ @anon.96775935ede547741b85d59639f87438.32, %.noexc57 ], [ @anon.96775935ede547741b85d59639f87438.32, %.noexc53 ], [ @anon.96775935ede547741b85d59639f87438.49, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4d3474698387d030E.exit" ], [ @anon.96775935ede547741b85d59639f87438.32, %203 ], [ @anon.96775935ede547741b85d59639f87438.32, %.noexc49 ], [ @anon.96775935ede547741b85d59639f87438.32, %.noexc51 ]
+  %80 = phi i64 [ 43, %.noexc59 ], [ 43, %.noexc55 ], [ 43, %.noexc57 ], [ 43, %.noexc53 ], [ 44, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4d3474698387d030E.exit" ], [ 43, %203 ], [ 43, %.noexc49 ], [ 43, %.noexc51 ]
+  %81 = phi ptr [ @anon.96775935ede547741b85d59639f87438.91, %.noexc59 ], [ @anon.96775935ede547741b85d59639f87438.91, %.noexc55 ], [ @anon.96775935ede547741b85d59639f87438.90, %.noexc57 ], [ @anon.96775935ede547741b85d59639f87438.90, %.noexc53 ], [ @anon.96775935ede547741b85d59639f87438.50, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h4d3474698387d030E.exit" ], [ @anon.96775935ede547741b85d59639f87438.35, %203 ], [ @anon.96775935ede547741b85d59639f87438.90, %.noexc49 ], [ @anon.96775935ede547741b85d59639f87438.91, %.noexc51 ]
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 %79, i64 noundef %80, ptr noalias noundef readonly align 8 dereferenceable(24) %81) #45
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2676,9 +2676,9 @@ select.unfold186.cont:                            ; preds = %select.unfold186.in
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %select.unfold180.invoke, %select.unfold186.invoke
-  %.sroa.18.2.ph.ph.i = phi ptr [ %.sroa.18.038.i, %select.unfold180.invoke ], [ %.sroa.18.333.i, %select.unfold186.invoke ]
-  %.sroa.10.2.ph.ph.i = phi ptr [ %.sroa.10.039.i, %select.unfold180.invoke ], [ %281, %select.unfold186.invoke ]
-  %.sroa.0.1.ph.ph.i = phi ptr [ %26, %select.unfold180.invoke ], [ %.sroa.0.234.i, %select.unfold186.invoke ]
+  %.sroa.18.2.ph.ph.i = phi ptr [ %.sroa.18.333.i, %select.unfold186.invoke ], [ %.sroa.18.038.i, %select.unfold180.invoke ]
+  %.sroa.10.2.ph.ph.i = phi ptr [ %281, %select.unfold186.invoke ], [ %.sroa.10.039.i, %select.unfold180.invoke ]
+  %.sroa.0.1.ph.ph.i = phi ptr [ %.sroa.0.234.i, %select.unfold186.invoke ], [ %26, %select.unfold180.invoke ]
   %lpad.loopexit.split-lp18.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i

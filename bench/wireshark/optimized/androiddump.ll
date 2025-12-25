@@ -2210,7 +2210,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   br i1 %60, label %.thread261, label %62
 
 .thread:                                          ; preds = %53, %46, %33
-  %.2183 = phi i64 [ %47, %46 ], [ %47, %53 ], [ %.0181335, %33 ]
+  %.2183 = phi i64 [ %47, %46 ], [ %.0181335, %33 ], [ %47, %53 ]
   %61 = load i32, ptr @endless_loop, align 4
   %.not227 = icmp eq i32 %61, 0
   br i1 %.not227, label %._crit_edge361, label %33
@@ -3447,7 +3447,7 @@ define internal fastcc range(i32 -1, 46) i32 @capture_android_tcpdump(ptr nounde
   br label %109
 
 109:                                              ; preds = %._crit_edge, %106, %.lr.ph172
-  %.2122 = phi i64 [ %.1121170, %.lr.ph172 ], [ %.lcssa, %._crit_edge ], [ %.lcssa, %106 ]
+  %.2122 = phi i64 [ %.1121170, %.lr.ph172 ], [ %.lcssa, %106 ], [ %.lcssa, %._crit_edge ]
   %110 = load i32, ptr @endless_loop, align 4
   %.not142 = icmp eq i32 %110, 0
   br i1 %.not142, label %._crit_edge173, label %.lr.ph172

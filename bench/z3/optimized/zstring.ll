@@ -235,7 +235,7 @@ _ZL12is_hex_digitcRj.exit41.sink.split:           ; preds = %37, %90
   br label %_ZL12is_hex_digitcRj.exit41
 
 _ZL12is_hex_digitcRj.exit41:                      ; preds = %29, %_ZL12is_hex_digitcRj.exit41.sink.split, %7, %switch.lookup108, %3, %48, %58, %68, %77, %switch.lookup, %_ZL12is_hex_digitcRj.exit
-  %.1 = phi i1 [ false, %_ZL12is_hex_digitcRj.exit ], [ true, %_ZL12is_hex_digitcRj.exit41.sink.split ], [ false, %switch.lookup ], [ false, %77 ], [ false, %switch.lookup108 ], [ false, %7 ], [ false, %68 ], [ false, %58 ], [ false, %48 ], [ false, %3 ], [ false, %29 ]
+  %.1 = phi i1 [ false, %_ZL12is_hex_digitcRj.exit ], [ false, %7 ], [ false, %switch.lookup ], [ false, %77 ], [ false, %switch.lookup108 ], [ true, %_ZL12is_hex_digitcRj.exit41.sink.split ], [ false, %68 ], [ false, %58 ], [ false, %48 ], [ false, %3 ], [ false, %29 ]
   ret i1 %.1
 }
 

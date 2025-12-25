@@ -607,8 +607,8 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
 102:                                              ; preds = %99
   switch i32 %.0.i.ph, label %default.unreachable [
     i32 0, label %103
-    i32 1, label %163
-    i32 2, label %187
+    i32 1, label %162
+    i32 2, label %186
   ]
 
 103:                                              ; preds = %102
@@ -635,9 +635,9 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
 114:                                              ; preds = %108, %111
   %115 = phi ptr [ %113, %111 ], [ null, %108 ]
   %116 = tail call i32 @bms_subset_compare(ptr noundef %109, ptr noundef %115) #9
-  switch i32 %101, label %134 [
+  switch i32 %101, label %130 [
     i32 1, label %117
-    i32 2, label %127
+    i32 2, label %123
   ]
 
 117:                                              ; preds = %114
@@ -649,170 +649,170 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
   %120 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %121 = load double, ptr %120, align 8
   %122 = fcmp ugt double %119, %121
-  br i1 %122, label %compare_path_costs_fuzzily.exit.thread156, label %123
+  br i1 %122, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit
 
-123:                                              ; preds = %118
-  %124 = load i8, ptr %20, align 1, !range !8, !noundef !9
-  %125 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %126 = load i8, ptr %125, align 1, !range !8, !noundef !9
-  %.not147.not = icmp samesign ult i8 %124, %126
-  br i1 %.not147.not, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
+123:                                              ; preds = %114
+  %124 = and i32 %116, -3
+  %or.cond3 = icmp eq i32 %124, 0
+  br i1 %or.cond3, label %125, label %compare_path_costs_fuzzily.exit.thread156
 
-127:                                              ; preds = %114
-  %128 = and i32 %116, -3
-  %or.cond3 = icmp eq i32 %128, 0
-  br i1 %or.cond3, label %129, label %compare_path_costs_fuzzily.exit.thread156
+125:                                              ; preds = %123
+  %126 = load double, ptr %19, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %128 = load double, ptr %127, align 8
+  %129 = fcmp ult double %126, %128
+  br i1 %129, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread156.sink.split
 
-129:                                              ; preds = %127
-  %130 = load double, ptr %19, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %132 = load double, ptr %131, align 8
-  %133 = fcmp ult double %130, %132
-  br i1 %133, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread156.sink.split
-
-134:                                              ; preds = %114
+130:                                              ; preds = %114
   switch i32 %116, label %compare_path_costs_fuzzily.exit.thread156 [
-    i32 0, label %135
-    i32 1, label %149
-    i32 2, label %158
+    i32 0, label %131
+    i32 1, label %148
+    i32 2, label %157
   ]
 
-135:                                              ; preds = %134
-  %136 = load i8, ptr %20, align 1, !range !8, !noundef !9
-  %137 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %138 = load i8, ptr %137, align 1, !range !8, !noundef !9
-  %139 = icmp samesign ugt i8 %136, %138
-  br i1 %139, label %compare_path_costs_fuzzily.exit.thread162, label %140
+131:                                              ; preds = %130
+  %132 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %133 = getelementptr inbounds nuw i8, ptr %31, i64 33
+  %134 = load i8, ptr %133, align 1, !range !8, !noundef !9
+  %135 = icmp samesign ugt i8 %132, %134
+  br i1 %135, label %compare_path_costs_fuzzily.exit.thread162, label %136
 
-140:                                              ; preds = %135
-  %141 = icmp samesign ult i8 %136, %138
-  br i1 %141, label %compare_path_costs_fuzzily.exit.thread156, label %142
+136:                                              ; preds = %131
+  %137 = icmp samesign ult i8 %132, %134
+  br i1 %137, label %compare_path_costs_fuzzily.exit.thread156, label %138
 
-142:                                              ; preds = %140
-  %143 = load double, ptr %19, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %145 = load double, ptr %144, align 8
-  %146 = fcmp olt double %143, %145
-  br i1 %146, label %compare_path_costs_fuzzily.exit.thread162, label %147
+138:                                              ; preds = %136
+  %139 = load double, ptr %19, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %141 = load double, ptr %140, align 8
+  %142 = fcmp olt double %139, %141
+  br i1 %142, label %compare_path_costs_fuzzily.exit.thread162, label %143
 
-147:                                              ; preds = %142
-  %148 = fcmp ogt double %143, %145
-  br i1 %148, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit
+143:                                              ; preds = %138
+  %144 = fcmp ogt double %139, %141
+  br i1 %144, label %compare_path_costs_fuzzily.exit.thread156, label %145
 
-149:                                              ; preds = %134
-  %150 = load double, ptr %19, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %152 = load double, ptr %151, align 8
-  %153 = fcmp ugt double %150, %152
-  br i1 %153, label %compare_path_costs_fuzzily.exit.thread156, label %154
+145:                                              ; preds = %143
+  %146 = tail call fastcc i32 @compare_path_costs_fuzzily(ptr noundef nonnull %1, ptr noundef nonnull %31, double noundef 0x3FF000000006DF38)
+  %147 = icmp eq i32 %146, 1
+  br i1 %147, label %compare_path_costs_fuzzily.exit.thread162, label %compare_path_costs_fuzzily.exit.thread156
 
-154:                                              ; preds = %149
-  %155 = load i8, ptr %20, align 1, !range !8, !noundef !9
-  %156 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %157 = load i8, ptr %156, align 1, !range !8, !noundef !9
-  %.not144 = icmp samesign ult i8 %155, %157
+148:                                              ; preds = %130
+  %149 = load double, ptr %19, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %151 = load double, ptr %150, align 8
+  %152 = fcmp ugt double %149, %151
+  br i1 %152, label %compare_path_costs_fuzzily.exit.thread156, label %153
+
+153:                                              ; preds = %148
+  %154 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %155 = getelementptr inbounds nuw i8, ptr %31, i64 33
+  %156 = load i8, ptr %155, align 1, !range !8, !noundef !9
+  %.not144 = icmp samesign ult i8 %154, %156
   br i1 %.not144, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
 
-158:                                              ; preds = %134
-  %159 = load double, ptr %19, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %161 = load double, ptr %160, align 8
-  %162 = fcmp ult double %159, %161
-  br i1 %162, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread156.sink.split
+157:                                              ; preds = %130
+  %158 = load double, ptr %19, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %160 = load double, ptr %159, align 8
+  %161 = fcmp ult double %158, %160
+  br i1 %161, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread156.sink.split
 
-163:                                              ; preds = %102
+162:                                              ; preds = %102
   %.not138 = icmp eq i32 %101, 2
-  br i1 %.not138, label %compare_path_costs_fuzzily.exit.thread156, label %164
+  br i1 %.not138, label %compare_path_costs_fuzzily.exit.thread156, label %163
 
-164:                                              ; preds = %163
-  %165 = load ptr, ptr %6, align 8
-  %.not139 = icmp eq ptr %165, null
-  br i1 %.not139, label %169, label %166
+163:                                              ; preds = %162
+  %164 = load ptr, ptr %6, align 8
+  %.not139 = icmp eq ptr %164, null
+  br i1 %.not139, label %168, label %165
 
-166:                                              ; preds = %164
-  %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %168 = load ptr, ptr %167, align 8
-  br label %169
+165:                                              ; preds = %163
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %167 = load ptr, ptr %166, align 8
+  br label %168
 
-169:                                              ; preds = %164, %166
-  %170 = phi ptr [ %168, %166 ], [ null, %164 ]
-  %171 = load ptr, ptr %94, align 8
-  %.not140 = icmp eq ptr %171, null
-  br i1 %.not140, label %175, label %172
+168:                                              ; preds = %163, %165
+  %169 = phi ptr [ %167, %165 ], [ null, %163 ]
+  %170 = load ptr, ptr %94, align 8
+  %.not140 = icmp eq ptr %170, null
+  br i1 %.not140, label %174, label %171
 
-172:                                              ; preds = %169
-  %173 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %174 = load ptr, ptr %173, align 8
-  br label %175
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %173 = load ptr, ptr %172, align 8
+  br label %174
 
-175:                                              ; preds = %169, %172
-  %176 = phi ptr [ %174, %172 ], [ null, %169 ]
-  %177 = tail call i32 @bms_subset_compare(ptr noundef %170, ptr noundef %176) #9
-  %or.cond5 = icmp ult i32 %177, 2
-  br i1 %or.cond5, label %178, label %compare_path_costs_fuzzily.exit.thread156
+174:                                              ; preds = %168, %171
+  %175 = phi ptr [ %173, %171 ], [ null, %168 ]
+  %176 = tail call i32 @bms_subset_compare(ptr noundef %169, ptr noundef %175) #9
+  %or.cond5 = icmp ult i32 %176, 2
+  br i1 %or.cond5, label %177, label %compare_path_costs_fuzzily.exit.thread156
 
-178:                                              ; preds = %175
-  %179 = load double, ptr %19, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %181 = load double, ptr %180, align 8
-  %182 = fcmp ugt double %179, %181
-  br i1 %182, label %compare_path_costs_fuzzily.exit.thread156, label %183
+177:                                              ; preds = %174
+  %178 = load double, ptr %19, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %180 = load double, ptr %179, align 8
+  %181 = fcmp ugt double %178, %180
+  br i1 %181, label %compare_path_costs_fuzzily.exit.thread156, label %182
 
-183:                                              ; preds = %178
-  %184 = load i8, ptr %20, align 1, !range !8, !noundef !9
-  %185 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %186 = load i8, ptr %185, align 1, !range !8, !noundef !9
-  %.not141.not = icmp samesign ult i8 %184, %186
+182:                                              ; preds = %177
+  %183 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %184 = getelementptr inbounds nuw i8, ptr %31, i64 33
+  %185 = load i8, ptr %184, align 1, !range !8, !noundef !9
+  %.not141.not = icmp samesign ult i8 %183, %185
   br i1 %.not141.not, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
 
-187:                                              ; preds = %102
+186:                                              ; preds = %102
   %.not134 = icmp eq i32 %101, 1
-  br i1 %.not134, label %compare_path_costs_fuzzily.exit.thread156, label %188
+  br i1 %.not134, label %compare_path_costs_fuzzily.exit.thread156, label %187
 
-188:                                              ; preds = %187
-  %189 = load ptr, ptr %6, align 8
-  %.not135 = icmp eq ptr %189, null
-  br i1 %.not135, label %193, label %190
+187:                                              ; preds = %186
+  %188 = load ptr, ptr %6, align 8
+  %.not135 = icmp eq ptr %188, null
+  br i1 %.not135, label %192, label %189
 
-190:                                              ; preds = %188
-  %191 = getelementptr inbounds nuw i8, ptr %189, i64 8
-  %192 = load ptr, ptr %191, align 8
-  br label %193
+189:                                              ; preds = %187
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  %191 = load ptr, ptr %190, align 8
+  br label %192
 
-193:                                              ; preds = %188, %190
-  %194 = phi ptr [ %192, %190 ], [ null, %188 ]
-  %195 = load ptr, ptr %94, align 8
-  %.not136 = icmp eq ptr %195, null
-  br i1 %.not136, label %199, label %196
+192:                                              ; preds = %187, %189
+  %193 = phi ptr [ %191, %189 ], [ null, %187 ]
+  %194 = load ptr, ptr %94, align 8
+  %.not136 = icmp eq ptr %194, null
+  br i1 %.not136, label %198, label %195
 
-196:                                              ; preds = %193
-  %197 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  %198 = load ptr, ptr %197, align 8
-  br label %199
+195:                                              ; preds = %192
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
+  %197 = load ptr, ptr %196, align 8
+  br label %198
 
-199:                                              ; preds = %193, %196
-  %200 = phi ptr [ %198, %196 ], [ null, %193 ]
-  %201 = tail call i32 @bms_subset_compare(ptr noundef %194, ptr noundef %200) #9
-  %202 = and i32 %201, -3
-  %or.cond7 = icmp eq i32 %202, 0
-  br i1 %or.cond7, label %203, label %compare_path_costs_fuzzily.exit.thread156
+198:                                              ; preds = %192, %195
+  %199 = phi ptr [ %197, %195 ], [ null, %192 ]
+  %200 = tail call i32 @bms_subset_compare(ptr noundef %193, ptr noundef %199) #9
+  %201 = and i32 %200, -3
+  %or.cond7 = icmp eq i32 %201, 0
+  br i1 %or.cond7, label %202, label %compare_path_costs_fuzzily.exit.thread156
 
-203:                                              ; preds = %199
-  %204 = load double, ptr %19, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %206 = load double, ptr %205, align 8
-  %207 = fcmp ult double %204, %206
-  br i1 %207, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread156.sink.split
+202:                                              ; preds = %198
+  %203 = load double, ptr %19, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %205 = load double, ptr %204, align 8
+  %206 = fcmp ult double %203, %205
+  br i1 %206, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread156.sink.split
 
 default.unreachable:                              ; preds = %102
   unreachable
 
-compare_path_costs_fuzzily.exit:                  ; preds = %147
-  %208 = tail call fastcc i32 @compare_path_costs_fuzzily(ptr noundef nonnull %1, ptr noundef nonnull %31, double noundef 0x3FF000000006DF38)
-  %209 = icmp eq i32 %208, 1
-  br i1 %209, label %compare_path_costs_fuzzily.exit.thread162, label %compare_path_costs_fuzzily.exit.thread156
+compare_path_costs_fuzzily.exit:                  ; preds = %118
+  %207 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %208 = getelementptr inbounds nuw i8, ptr %31, i64 33
+  %209 = load i8, ptr %208, align 1, !range !8, !noundef !9
+  %.not147.not = icmp samesign ult i8 %207, %209
+  br i1 %.not147.not, label %compare_path_costs_fuzzily.exit.thread156, label %compare_path_costs_fuzzily.exit.thread162
 
-compare_path_costs_fuzzily.exit.thread162:        ; preds = %154, %135, %142, %123, %183, %compare_path_costs_fuzzily.exit
+compare_path_costs_fuzzily.exit.thread162:        ; preds = %138, %131, %153, %145, %182, %compare_path_costs_fuzzily.exit
   %210 = load ptr, ptr %13, align 8
   %211 = add i32 %.sroa.7.0173, -1
   %212 = tail call ptr @list_delete_nth_cell(ptr noundef %210, i32 noundef %.sroa.7.0173) #9
@@ -825,15 +825,15 @@ compare_path_costs_fuzzily.exit.thread162:        ; preds = %154, %135, %142, %1
   tail call void @pfree(ptr noundef nonnull %31) #9
   br label %.thread
 
-compare_path_costs_fuzzily.exit.thread156.sink.split: ; preds = %203, %158, %129
+compare_path_costs_fuzzily.exit.thread156.sink.split: ; preds = %202, %157, %125
   %216 = load i8, ptr %20, align 1, !range !8, !noundef !9
   %217 = getelementptr inbounds nuw i8, ptr %31, i64 33
   %218 = load i8, ptr %217, align 1, !range !8, !noundef !9
   %.not145 = icmp samesign ugt i8 %216, %218
   br label %compare_path_costs_fuzzily.exit.thread156
 
-compare_path_costs_fuzzily.exit.thread156:        ; preds = %compare_path_costs_fuzzily.exit.thread156.sink.split, %149, %154, %78, %55, %163, %175, %178, %203, %158, %199, %134, %187, %147, %140, %127, %129, %117, %118, %99, %123, %183, %compare_path_costs_fuzzily.exit
-  %.2160.shrunk = phi i1 [ true, %123 ], [ false, %compare_path_costs_fuzzily.exit ], [ true, %183 ], [ true, %78 ], [ true, %55 ], [ true, %163 ], [ true, %175 ], [ true, %178 ], [ true, %203 ], [ true, %154 ], [ true, %149 ], [ true, %158 ], [ true, %199 ], [ true, %134 ], [ true, %187 ], [ false, %147 ], [ false, %140 ], [ true, %99 ], [ true, %127 ], [ true, %129 ], [ true, %117 ], [ true, %118 ], [ %.not145, %compare_path_costs_fuzzily.exit.thread156.sink.split ]
+compare_path_costs_fuzzily.exit.thread156:        ; preds = %compare_path_costs_fuzzily.exit.thread156.sink.split, %148, %153, %78, %55, %162, %174, %177, %202, %157, %198, %130, %186, %143, %136, %123, %125, %117, %118, %99, %145, %182, %compare_path_costs_fuzzily.exit
+  %.2160.shrunk = phi i1 [ false, %145 ], [ true, %compare_path_costs_fuzzily.exit ], [ true, %182 ], [ true, %78 ], [ true, %55 ], [ true, %162 ], [ true, %174 ], [ true, %177 ], [ true, %202 ], [ true, %153 ], [ true, %148 ], [ true, %157 ], [ true, %198 ], [ true, %130 ], [ true, %186 ], [ false, %143 ], [ false, %136 ], [ true, %99 ], [ true, %123 ], [ true, %125 ], [ true, %117 ], [ true, %118 ], [ %.not145, %compare_path_costs_fuzzily.exit.thread156.sink.split ]
   %219 = load i32, ptr %15, align 8
   %220 = load i32, ptr %33, align 8
   %221 = icmp sgt i32 %219, %220

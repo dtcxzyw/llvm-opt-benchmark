@@ -108935,9 +108935,9 @@ default.unreachable619:                           ; preds = %514
   br i1 %.not, label %138, label %136
 
 134:                                              ; preds = %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit316", %414, %296
-  %.sroa.069.3 = phi i8 [ 1, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit316" ], [ 1, %414 ], [ 0, %296 ]
-  %.sroa.067.3 = phi i8 [ 1, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit316" ], [ 0, %414 ], [ 1, %296 ]
-  %.sroa.065.0 = phi i8 [ %.sroa.065.14, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit316" ], [ %.sroa.058.2487, %414 ], [ %.sroa.065.4, %296 ]
+  %.sroa.069.3 = phi i8 [ 1, %414 ], [ 1, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit316" ], [ 0, %296 ]
+  %.sroa.067.3 = phi i8 [ 0, %414 ], [ 1, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit316" ], [ 1, %296 ]
+  %.sroa.065.0 = phi i8 [ %.sroa.058.2487, %414 ], [ %.sroa.065.14, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit316" ], [ %.sroa.065.4, %296 ]
   %135 = trunc nuw i8 %.sroa.065.0 to i1
   br i1 %135, label %.thread447, label %715
 
@@ -109094,10 +109094,10 @@ default.unreachable619:                           ; preds = %514
   unreachable
 
 .thread453:                                       ; preds = %711, %294, %.body271, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit221", %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit"
-  %.sroa.069.6 = phi i8 [ %.sroa.069.8, %294 ], [ 1, %.body271 ], [ 1, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit221" ], [ 0, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit" ], [ 1, %711 ]
-  %.sroa.067.6 = phi i8 [ %.sroa.067.8, %294 ], [ 1, %.body271 ], [ 0, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit221" ], [ 1, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit" ], [ 1, %711 ]
-  %.sroa.065.1 = phi i8 [ %.sroa.065.5, %294 ], [ %.sroa.065.12, %.body271 ], [ %.sroa.065.6, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit221" ], [ %.sroa.065.2, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit" ], [ %.sroa.065.14, %711 ]
-  %.pn165.pn.pn = phi { ptr, i32 } [ %295, %294 ], [ %.pn150.pn, %.body271 ], [ %.pn156, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit221" ], [ %.pn160, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit" ], [ %712, %711 ]
+  %.sroa.069.6 = phi i8 [ 1, %.body271 ], [ %.sroa.069.8, %294 ], [ 1, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit221" ], [ 0, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit" ], [ 1, %711 ]
+  %.sroa.067.6 = phi i8 [ 1, %.body271 ], [ %.sroa.067.8, %294 ], [ 0, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit221" ], [ 1, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit" ], [ 1, %711 ]
+  %.sroa.065.1 = phi i8 [ %.sroa.065.12, %.body271 ], [ %.sroa.065.5, %294 ], [ %.sroa.065.6, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit221" ], [ %.sroa.065.2, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit" ], [ %.sroa.065.14, %711 ]
+  %.pn165.pn.pn = phi { ptr, i32 } [ %.pn150.pn, %.body271 ], [ %295, %294 ], [ %.pn156, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit221" ], [ %.pn160, %"_ZN4core3ptr59drop_in_place$LT$wayland_backend..sys..client..ObjectId$GT$17hecfd9b1770ae6ce3E.exit" ], [ %712, %711 ]
   %181 = trunc nuw i8 %.sroa.065.1 to i1
   br i1 %181, label %.thread453.thread, label %.thread453.thread555
 
@@ -112124,8 +112124,8 @@ _ZN4gpui8platform5linux7wayland6client21WaylandClientStatePtr10get_client17h26d0
   %50 = trunc nuw i8 %.sroa.0138.6515 to i1
   br i1 %50, label %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit323..thread505_crit_edge", label %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit323.thread"
 
-"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit323..thread505_crit_edge": ; preds = %61, %525, %610, %642, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit323"
-  %.sroa.0140.2667 = phi i8 [ 0, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit323" ], [ 1, %642 ], [ 1, %610 ], [ 1, %525 ], [ 1, %61 ]
+"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit323..thread505_crit_edge": ; preds = %610, %525, %61, %642, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit323"
+  %.sroa.0140.2667 = phi i8 [ 0, %"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E.exit323" ], [ 1, %642 ], [ 1, %61 ], [ 1, %525 ], [ 1, %610 ]
   %.pre = load i64, ptr %43, align 8, !noalias !31258
   %51 = add i64 %.pre, 1
   br label %.thread505
@@ -115141,7 +115141,7 @@ default.unreachable486:                           ; preds = %62
   invoke void @"_ZN14filedescriptor4unix79_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$filedescriptor..OwnedHandle$GT$4drop17hf63e4105328930feE"(ptr noalias noundef nonnull align 4 dereferenceable(4) %187)
           to label %.critedge.thread unwind label %128
 
-.critedge.thread:                                 ; preds = %275, %229, %205, %269, %211, %177, %170
+.critedge.thread:                                 ; preds = %275, %205, %229, %269, %211, %177, %170
   %.pn93.pn354 = phi { ptr, i32 } [ %178, %177 ], [ %171, %170 ], [ %.pn93.ph, %275 ], [ %212, %211 ], [ %206, %205 ], [ %230, %229 ], [ %270, %269 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..platform..linux..wayland..window..WaylandWindowStatePtr$GT$17h438d51a88ee64d31E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34) #69
           to label %289 unwind label %128
@@ -123189,7 +123189,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04b3e2920b2c5cf6E.llvm.5405220595630156
   br label %.body
 
 .loopexit.split-lp476:                            ; preds = %404, %408, %.loopexit450
-  %.sroa.065.0.ph = phi i8 [ 1, %404 ], [ 1, %408 ], [ 0, %.loopexit450 ]
+  %.sroa.065.0.ph = phi i8 [ 1, %408 ], [ 1, %404 ], [ 0, %.loopexit450 ]
   %lpad.loopexit.split-lp478 = landingpad { ptr, i32 }
           cleanup
   %195 = trunc nuw i8 %.sroa.065.0.ph to i1
@@ -130623,7 +130623,7 @@ common.resume.sink.split:                         ; preds = %1607, %1603
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %1675, %.body717, %.body717, %.body717, %.body717, %.body717, %1599, %1603, %1607
-  %common.resume.op = phi { ptr, i32 } [ %.pn555.pn, %.body717 ], [ %1676, %1675 ], [ %.pn555.pn, %.body717 ], [ %.pn555.pn, %.body717 ], [ %.pn555.pn, %common.resume.sink.split ], [ %.pn555.pn, %1607 ], [ %.pn555.pn, %1603 ], [ %.pn555.pn, %1599 ], [ %.pn555.pn, %.body717 ], [ %.pn555.pn, %.body717 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn555.pn, %.body717 ], [ %.pn555.pn, %.body717 ], [ %.pn555.pn, %.body717 ], [ %1676, %1675 ], [ %.pn555.pn, %common.resume.sink.split ], [ %.pn555.pn, %1607 ], [ %.pn555.pn, %1603 ], [ %.pn555.pn, %1599 ], [ %.pn555.pn, %.body717 ], [ %.pn555.pn, %.body717 ]
   resume { ptr, i32 } %common.resume.op
 
 1603:                                             ; preds = %.body717

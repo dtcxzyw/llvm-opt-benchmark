@@ -2470,8 +2470,8 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i.i:      ; preds = %54
   br label %_ZL13parseMemLimitPKcRlRiPci.exit.thread.sink.split
 
 61:                                               ; preds = %57, %48
-  %.015.i = phi i64 [ %58, %57 ], [ %42, %48 ]
-  %.014.i = phi ptr [ %59, %57 ], [ %46, %48 ]
+  %.015.i = phi i64 [ %42, %48 ], [ %58, %57 ]
+  %.014.i = phi ptr [ %46, %48 ], [ %59, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = ptrtoint ptr %.014.i to i64
   %63 = ptrtoint ptr %25 to i64

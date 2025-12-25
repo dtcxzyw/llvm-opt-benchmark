@@ -1089,7 +1089,7 @@ define i32 @av_frame_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %frame_copy_video.exit
 
 frame_copy_video.exit:                            ; preds = %71, %68, %37, %.lr.ph.i, %.critedge.i14, %61, %52, %.critedge.i, %30, %20, %16, %49, %45, %2
-  %.0 = phi i32 [ -22, %2 ], [ -22, %49 ], [ -22, %37 ], [ -22, %45 ], [ -22, %16 ], [ %31, %30 ], [ 0, %.critedge.i ], [ -22, %20 ], [ -22, %61 ], [ -22, %52 ], [ 0, %.critedge.i14 ], [ -22, %.lr.ph.i ], [ -22, %68 ], [ -22, %71 ]
+  %.0 = phi i32 [ -22, %2 ], [ -22, %49 ], [ -22, %61 ], [ -22, %45 ], [ -22, %16 ], [ %31, %30 ], [ 0, %.critedge.i ], [ -22, %20 ], [ -22, %37 ], [ -22, %52 ], [ 0, %.critedge.i14 ], [ -22, %.lr.ph.i ], [ -22, %68 ], [ -22, %71 ]
   ret i32 %.0
 }
 

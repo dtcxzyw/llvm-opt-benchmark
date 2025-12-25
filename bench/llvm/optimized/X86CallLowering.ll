@@ -1092,7 +1092,7 @@ _ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit: ; preds = %_ZNK4ll
   br label %.critedge
 
 .critedge:                                        ; preds = %89, %91, %93, %95, %97, %99, %223, %61
-  %.0.ph = phi i1 [ false, %61 ], [ %220, %223 ], [ false, %99 ], [ false, %97 ], [ false, %95 ], [ false, %93 ], [ false, %91 ], [ false, %89 ]
+  %.0.ph = phi i1 [ %220, %223 ], [ false, %61 ], [ false, %99 ], [ false, %97 ], [ false, %95 ], [ false, %93 ], [ false, %91 ], [ false, %89 ]
   %.pr = load i32, ptr %54, align 8, !tbaa !131
   %224 = load ptr, ptr %8, align 8, !tbaa !130
   %.not4.i.i = icmp eq i32 %.pr, 0

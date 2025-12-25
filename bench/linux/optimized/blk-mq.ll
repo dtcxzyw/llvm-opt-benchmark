@@ -4656,7 +4656,7 @@ define dso_local void @blk_mq_run_hw_queue(ptr noundef %0, i1 noundef zeroext %1
   tail call void @__rcu_read_unlock() #22
   br label %91
 
-.thread8:                                         ; preds = %62, %79, %84
+.thread8:                                         ; preds = %62, %84, %79
   tail call void @__rcu_read_unlock() #22
   br label %118
 
@@ -9312,7 +9312,7 @@ define dso_local ptr @blk_mq_alloc_map_and_rqs(ptr noundef %0, i32 noundef %1, i
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %.thread.sink.split, %83, %35
-  %183 = phi ptr [ null, %.thread.sink.split ], [ null, %35 ], [ %41, %83 ], [ %41, %.loopexit ]
+  %183 = phi ptr [ %41, %83 ], [ null, %35 ], [ null, %.thread.sink.split ], [ %41, %.loopexit ]
   ret ptr %183
 }
 

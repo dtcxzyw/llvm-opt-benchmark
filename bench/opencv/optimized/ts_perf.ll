@@ -18730,7 +18730,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %140,
   br label %170
 
 170:                                              ; preds = %151, %165, %92
-  %.068.shrunk = phi i1 [ %169, %165 ], [ %narrow, %92 ], [ false, %151 ]
+  %.068.shrunk = phi i1 [ false, %151 ], [ %narrow, %92 ], [ %169, %165 ]
   %.b = load i1, ptr @_ZL23perf_validation_enabled, align 1
   %.not = xor i1 %.b, true
   %or.cond = select i1 %.not, i1 true, i1 %.068.shrunk

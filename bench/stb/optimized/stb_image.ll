@@ -10739,7 +10739,7 @@ define range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef captures(none) %0, p
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %.loopexit, %.loopexit65.sink.split, %47
-  %.0 = phi i32 [ 0, %.loopexit65.sink.split ], [ 1, %47 ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 1, %47 ], [ 0, %.loopexit65.sink.split ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -11682,7 +11682,7 @@ stbi__extend_receive.exit95:                      ; preds = %198, %201
   br label %.thread118.sink.split
 
 .thread118.sink.split:                            ; preds = %170, %168, %148, %119, %.thread118.sink.split.sink.split, %stbi__mul2shorts_valid.exit, %100, %stbi__addints_valid.exit, %stbi__jpeg_huff_decode.exit, %20, %44, %46
-  %.str.7.sink = phi ptr [ @.str.7, %.thread118.sink.split.sink.split ], [ @.str.9, %stbi__mul2shorts_valid.exit ], [ @.str.8, %stbi__addints_valid.exit ], [ @.str.7, %stbi__jpeg_huff_decode.exit ], [ @.str.7, %46 ], [ @.str.7, %44 ], [ @.str.7, %20 ], [ @.str.9, %100 ], [ @.str.7, %119 ], [ @.str.7, %148 ], [ @.str.7, %168 ], [ @.str.7, %170 ]
+  %.str.7.sink = phi ptr [ @.str.9, %100 ], [ @.str.9, %stbi__mul2shorts_valid.exit ], [ @.str.8, %stbi__addints_valid.exit ], [ @.str.7, %stbi__jpeg_huff_decode.exit ], [ @.str.7, %46 ], [ @.str.7, %44 ], [ @.str.7, %20 ], [ @.str.7, %.thread118.sink.split.sink.split ], [ @.str.7, %119 ], [ @.str.7, %148 ], [ @.str.7, %168 ], [ @.str.7, %170 ]
   %226 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr %.str.7.sink, ptr %226, align 8, !tbaa !22
   br label %.thread118
@@ -16944,7 +16944,7 @@ stbi__jpeg_dequantize.exit.us.i:                  ; preds = %77
   br label %.critedge
 
 .critedge:                                        ; preds = %34, %15, %13, %._crit_edge38.i, %.critedge.sink.split, %.preheader35.i, %37, %6
-  %.0 = phi i32 [ 1, %._crit_edge38.i ], [ 0, %6 ], [ 1, %37 ], [ 1, %.preheader35.i ], [ 0, %.critedge.sink.split ], [ 0, %15 ], [ 1, %34 ], [ 0, %13 ]
+  %.0 = phi i32 [ 1, %._crit_edge38.i ], [ 0, %6 ], [ 1, %37 ], [ 1, %.preheader35.i ], [ 0, %.critedge.sink.split ], [ 0, %13 ], [ 1, %34 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -18994,7 +18994,7 @@ define range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef captures(none) init
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %79, %.loopexit70.sink.split, %40
-  %.062 = phi i32 [ 0, %.loopexit70.sink.split ], [ 1, %40 ], [ 1, %79 ]
+  %.062 = phi i32 [ 1, %40 ], [ 0, %.loopexit70.sink.split ], [ 1, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.062
@@ -30308,7 +30308,7 @@ stbi__skip.exit220.thread.sink.split:             ; preds = %stbi__get8.exit, %1
   br label %stbi__skip.exit220.thread
 
 stbi__skip.exit220.thread:                        ; preds = %stbi__get8.exit, %232, %stbi__skip.exit220.thread.sink.split, %202, %209, %205, %8
-  %.0 = phi ptr [ null, %8 ], [ %204, %232 ], [ null, %stbi__skip.exit220.thread.sink.split ], [ %204, %209 ], [ %204, %205 ], [ null, %202 ], [ %0, %stbi__get8.exit ]
+  %.0 = phi ptr [ null, %8 ], [ null, %202 ], [ %204, %232 ], [ %204, %209 ], [ %204, %205 ], [ null, %stbi__skip.exit220.thread.sink.split ], [ %0, %stbi__get8.exit ]
   ret ptr %.0
 }
 

@@ -7780,16 +7780,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !566
   %19 = icmp ult i32 %18, 65
-  br i1 %19, label %_ZNK4llvm9KnownBits9isUnknownEv.exit, label %20
+  br i1 %19, label %20, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
 
 20:                                               ; preds = %15
-  %21 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %16) #34
-  %22 = icmp eq i32 %21, %18
+  %21 = load i64, ptr %16, align 8, !tbaa !820
+  %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZN4llvm5APIntaSERKS0_.exit11, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %15
-  %23 = load i64, ptr %16, align 8, !tbaa !820
-  %24 = icmp eq i64 %23, 0
+  %23 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %16) #34
+  %24 = icmp eq i32 %23, %18
   br i1 %24, label %_ZN4llvm5APIntaSERKS0_.exit11, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit.thread:      ; preds = %10, %_ZNK4llvm5APInt6isZeroEv.exit.i, %20, %_ZNK4llvm9KnownBits9isUnknownEv.exit, %4
@@ -15827,16 +15827,16 @@ _ZL6GetVBRmPKhRj.exit718:                         ; preds = %280
     i8 58, label %381
     i8 60, label %380
     i8 59, label %_ZL11getSimpleVTPKhRj.exit.i879
-    i8 91, label %610
-    i8 90, label %610
-    i8 89, label %610
-    i8 88, label %610
+    i8 91, label %603
+    i8 90, label %603
+    i8 89, label %603
+    i8 88, label %603
     i8 87, label %575
     i8 95, label %537
     i8 56, label %367
-    i8 106, label %721
-    i8 105, label %695
-    i8 92, label %610
+    i8 106, label %715
+    i8 105, label %688
+    i8 92, label %603
     i8 61, label %421
     i8 63, label %466
     i8 64, label %466
@@ -16229,31 +16229,31 @@ _ZL11getSimpleVTPKhRj.exit121.i:                  ; preds = %_ZL6GetVBRmPKhRj.ex
   %.sroa.21.0..sroa_idx.i.i201.i = getelementptr inbounds nuw i8, ptr %506, i64 8
   %.sroa.21.0.copyload.i.i202.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i201.i, align 8, !tbaa !1054
   %.not.i.i205.i = icmp eq i16 %.sroa.0.0.copyload.i.i200.i, %.0102.i
-  br i1 %.not.i.i205.i, label %_ZL14CheckChildTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutEj.exit.i, label %507
+  br i1 %.not.i.i205.i, label %507, label %510
 
 507:                                              ; preds = %499
-  %508 = icmp eq i16 %.0102.i, 510
-  br i1 %508, label %509, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
-
-509:                                              ; preds = %507
-  %510 = load ptr, ptr %492, align 8, !tbaa !3
-  %511 = getelementptr inbounds nuw i8, ptr %510, i64 32
-  %512 = load ptr, ptr %511, align 8
-  %513 = call i16 %512(ptr noundef nonnull align 8 dereferenceable(412423) %492, ptr noundef nonnull align 8 dereferenceable(496) %496, i32 noundef 0) #30
-  %.not.i.i213.i = icmp eq i16 %.sroa.0.0.copyload.i.i200.i, %513
-  br i1 %.not.i.i213.i, label %514, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
-
-514:                                              ; preds = %509
-  %515 = icmp ne i16 %.sroa.0.0.copyload.i.i200.i, 0
-  %516 = icmp eq ptr %.sroa.21.0.copyload.i.i202.i, null
-  %spec.select200.i = select i1 %515, i1 true, i1 %516
-  br i1 %spec.select200.i, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
-
-_ZL14CheckChildTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutEj.exit.i: ; preds = %499
-  %517 = icmp ne i16 %.0102.i, 0
-  %518 = icmp eq ptr %.sroa.21.0.copyload.i.i202.i, null
-  %or.cond199.i = select i1 %517, i1 true, i1 %518
+  %508 = icmp ne i16 %.0102.i, 0
+  %509 = icmp eq ptr %.sroa.21.0.copyload.i.i202.i, null
+  %or.cond199.i = select i1 %508, i1 true, i1 %509
   br i1 %or.cond199.i, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
+
+510:                                              ; preds = %499
+  %511 = icmp eq i16 %.0102.i, 510
+  br i1 %511, label %512, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
+
+512:                                              ; preds = %510
+  %513 = load ptr, ptr %492, align 8, !tbaa !3
+  %514 = getelementptr inbounds nuw i8, ptr %513, i64 32
+  %515 = load ptr, ptr %514, align 8
+  %516 = call i16 %515(ptr noundef nonnull align 8 dereferenceable(412423) %492, ptr noundef nonnull align 8 dereferenceable(496) %496, i32 noundef 0) #30
+  %.not.i.i213.i = icmp eq i16 %.sroa.0.0.copyload.i.i200.i, %516
+  br i1 %.not.i.i213.i, label %_ZL14CheckChildTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutEj.exit.i, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
+
+_ZL14CheckChildTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutEj.exit.i: ; preds = %512
+  %517 = icmp ne i16 %.sroa.0.0.copyload.i.i200.i, 0
+  %518 = icmp eq ptr %.sroa.21.0.copyload.i.i202.i, null
+  %spec.select200.i = select i1 %517, i1 true, i1 %518
+  br i1 %spec.select200.i, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
 
 519:                                              ; preds = %294
   %520 = load i32, ptr %268, align 8, !tbaa !1364
@@ -16348,7 +16348,7 @@ _ZL11getSimpleVTPKhRj.exit.i.i:                   ; preds = %_ZL6GetVBRmPKhRj.ex
   %spec.select202.i = select i1 %571, i1 true, i1 %572
   br i1 %spec.select202.i, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
 
-_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge: ; preds = %570, %514, %461, %416, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i, %563, %565, %507, %509, %_ZL11getSimpleVTPKhRj.exit121.i, %454, %456, %409, %411, %741, %_ZL6GetVBRmPKhRj.exit.i166.i, %_ZL6GetVBRmPKhRj.exit.i157.i, %610, %525, %312, %_ZL22decodeSignRotatedValuem.exit.i, %_ZL22decodeSignRotatedValuem.exit235.i, %715, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit244.i, %301, %316, %_ZL21CheckPatternPredicatejPKhRjRKN4llvm16SelectionDAGISelE.exit.i, %_ZL18CheckNodePredicatejPKhRjRKN4llvm16SelectionDAGISelEPNS2_6SDNodeE.exit.i, %367, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit.i880, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit124.i, %_ZL14CheckChildTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutEj.exit.i, %519, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZL14CheckValueTypePKhRjN4llvm7SDValueEPKNS2_14TargetLoweringERKNS2_10DataLayoutE.exit.i, %528, %_ZNK4llvm5APInt12trySExtValueEv.exit.i
+_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge: ; preds = %570, %507, %461, %416, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i, %563, %565, %510, %512, %_ZL11getSimpleVTPKhRj.exit121.i, %454, %456, %409, %411, %735, %_ZL6GetVBRmPKhRj.exit.i166.i, %_ZL6GetVBRmPKhRj.exit.i157.i, %603, %525, %312, %_ZL22decodeSignRotatedValuem.exit.i, %_ZL22decodeSignRotatedValuem.exit235.i, %708, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit244.i, %301, %316, %_ZL21CheckPatternPredicatejPKhRjRKN4llvm16SelectionDAGISelE.exit.i, %_ZL18CheckNodePredicatejPKhRjRKN4llvm16SelectionDAGISelEPNS2_6SDNodeE.exit.i, %367, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit.i880, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit124.i, %_ZL14CheckChildTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutEj.exit.i, %519, %_ZNK4llvm5APInt12trySExtValueEv.exit.i, %_ZL14CheckValueTypePKhRjN4llvm7SDValueEPKNS2_14TargetLoweringERKNS2_10DataLayoutE.exit.i, %528, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i
   br label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread
 
 _ZL14CheckValueTypePKhRjN4llvm7SDValueEPKNS2_14TargetLoweringERKNS2_10DataLayoutE.exit.i: ; preds = %_ZL11getSimpleVTPKhRj.exit.i.i
@@ -16411,284 +16411,284 @@ _ZL22decodeSignRotatedValuem.exit.i:              ; preds = %599, %598, %596
   %.0.i231.i = phi i64 [ %597, %596 ], [ %601, %599 ], [ -9223372036854775808, %598 ]
   %602 = load i32, ptr %270, align 8, !tbaa !1046
   switch i32 %602, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge [
-    i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
-    i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i
+    i32 35, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit
+    i32 11, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit
   ]
 
-_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i: ; preds = %_ZL22decodeSignRotatedValuem.exit.i, %_ZL22decodeSignRotatedValuem.exit.i
-  %603 = load ptr, ptr %268, align 8, !tbaa !1295
-  %604 = getelementptr inbounds nuw i8, ptr %603, i64 24
-  %605 = call { i64, i8 } @_ZNK4llvm5APInt12trySExtValueEv(ptr noundef nonnull align 8 dereferenceable(12) %604)
-  %606 = extractvalue { i64, i8 } %605, 0
-  %607 = extractvalue { i64, i8 } %605, 1
-  %608 = trunc nuw i8 %607 to i1
-  %609 = icmp eq i64 %606, %.0.i231.i
-  %.not1803 = select i1 %608, i1 %609, i1 false
-  br i1 %.not1803, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
+603:                                              ; preds = %294, %294, %294, %294, %294
+  %604 = add nsw i32 %300, -88
+  %605 = load i16, ptr %266, align 8, !tbaa !1045
+  %606 = zext i16 %605 to i32
+  %.not.i143.i = icmp samesign ult i32 %604, %606
+  br i1 %.not.i143.i, label %607, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
 
-610:                                              ; preds = %294, %294, %294, %294, %294
-  %611 = add nsw i32 %300, -88
-  %612 = load i16, ptr %266, align 8, !tbaa !1045
-  %613 = zext i16 %612 to i32
-  %.not.i143.i = icmp samesign ult i32 %611, %613
-  br i1 %.not.i143.i, label %614, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
+607:                                              ; preds = %603
+  %608 = load ptr, ptr %267, align 8, !tbaa !1044
+  %609 = zext nneg i32 %604 to i64
+  %610 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %608, i64 %609
+  %.sroa.0.0.copyload.i145.i = load ptr, ptr %610, align 8, !tbaa !900
+  %611 = add i32 %.41517, 2
+  %612 = zext i32 %296 to i64
+  %613 = getelementptr inbounds nuw i8, ptr %2, i64 %612
+  %614 = load i8, ptr %613, align 1, !tbaa !820
+  %615 = zext i8 %614 to i64
+  %.not.i.i148.i = icmp sgt i8 %614, -1
+  br i1 %.not.i.i148.i, label %_ZL6GetVBRmPKhRj.exit.i.i152.i, label %616
 
-614:                                              ; preds = %610
-  %615 = load ptr, ptr %267, align 8, !tbaa !1044
-  %616 = zext nneg i32 %611 to i64
-  %617 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %615, i64 %616
-  %.sroa.0.0.copyload.i145.i = load ptr, ptr %617, align 8, !tbaa !900
-  %618 = add i32 %.41517, 2
-  %619 = zext i32 %296 to i64
-  %620 = getelementptr inbounds nuw i8, ptr %2, i64 %619
-  %621 = load i8, ptr %620, align 1, !tbaa !820
-  %622 = zext i8 %621 to i64
-  %.not.i.i148.i = icmp sgt i8 %621, -1
-  br i1 %.not.i.i148.i, label %_ZL6GetVBRmPKhRj.exit.i.i152.i, label %623
+616:                                              ; preds = %607
+  %617 = and i64 %615, 127
+  br label %618
 
-623:                                              ; preds = %614
-  %624 = and i64 %622, 127
-  br label %625
+618:                                              ; preds = %618, %616
+  %.17.i = phi i32 [ %611, %616 ], [ %619, %618 ]
+  %.08.i.i.i149.i = phi i32 [ 7, %616 ], [ %628, %618 ]
+  %.0.i.i.i150.i = phi i64 [ %617, %616 ], [ %627, %618 ]
+  %619 = add i32 %.17.i, 1
+  %620 = zext i32 %.17.i to i64
+  %621 = getelementptr inbounds nuw i8, ptr %2, i64 %620
+  %622 = load i8, ptr %621, align 1, !tbaa !820
+  %623 = and i8 %622, 127
+  %624 = zext nneg i8 %623 to i64
+  %625 = zext nneg i32 %.08.i.i.i149.i to i64
+  %626 = shl i64 %624, %625
+  %627 = or i64 %626, %.0.i.i.i150.i
+  %628 = add i32 %.08.i.i.i149.i, 7
+  %.not.i.i.i151.i = icmp sgt i8 %622, -1
+  br i1 %.not.i.i.i151.i, label %_ZL6GetVBRmPKhRj.exit.i.i152.i, label %618, !llvm.loop !1362
 
-625:                                              ; preds = %625, %623
-  %.17.i = phi i32 [ %618, %623 ], [ %626, %625 ]
-  %.08.i.i.i149.i = phi i32 [ 7, %623 ], [ %635, %625 ]
-  %.0.i.i.i150.i = phi i64 [ %624, %623 ], [ %634, %625 ]
-  %626 = add i32 %.17.i, 1
-  %627 = zext i32 %.17.i to i64
-  %628 = getelementptr inbounds nuw i8, ptr %2, i64 %627
-  %629 = load i8, ptr %628, align 1, !tbaa !820
-  %630 = and i8 %629, 127
-  %631 = zext nneg i8 %630 to i64
-  %632 = zext nneg i32 %.08.i.i.i149.i to i64
-  %633 = shl i64 %631, %632
-  %634 = or i64 %633, %.0.i.i.i150.i
-  %635 = add i32 %.08.i.i.i149.i, 7
-  %.not.i.i.i151.i = icmp sgt i8 %629, -1
-  br i1 %.not.i.i.i151.i, label %_ZL6GetVBRmPKhRj.exit.i.i152.i, label %625, !llvm.loop !1362
+_ZL6GetVBRmPKhRj.exit.i.i152.i:                   ; preds = %618, %607
+  %.0171.i = phi i64 [ %615, %607 ], [ %627, %618 ]
+  %.18.i = phi i32 [ %611, %607 ], [ %619, %618 ]
+  %629 = and i64 %.0171.i, 1
+  %630 = icmp eq i64 %629, 0
+  br i1 %630, label %631, label %633
 
-_ZL6GetVBRmPKhRj.exit.i.i152.i:                   ; preds = %625, %614
-  %.0171.i = phi i64 [ %622, %614 ], [ %634, %625 ]
-  %.18.i = phi i32 [ %618, %614 ], [ %626, %625 ]
-  %636 = and i64 %.0171.i, 1
-  %637 = icmp eq i64 %636, 0
-  br i1 %637, label %638, label %640
-
-638:                                              ; preds = %_ZL6GetVBRmPKhRj.exit.i.i152.i
-  %639 = lshr exact i64 %.0171.i, 1
+631:                                              ; preds = %_ZL6GetVBRmPKhRj.exit.i.i152.i
+  %632 = lshr exact i64 %.0171.i, 1
   br label %_ZL22decodeSignRotatedValuem.exit235.i
 
-640:                                              ; preds = %_ZL6GetVBRmPKhRj.exit.i.i152.i
+633:                                              ; preds = %_ZL6GetVBRmPKhRj.exit.i.i152.i
   %.not.i233.i = icmp eq i64 %.0171.i, 1
-  br i1 %.not.i233.i, label %_ZL22decodeSignRotatedValuem.exit235.i, label %641
+  br i1 %.not.i233.i, label %_ZL22decodeSignRotatedValuem.exit235.i, label %634
 
-641:                                              ; preds = %640
-  %642 = lshr i64 %.0171.i, 1
-  %643 = sub nsw i64 0, %642
+634:                                              ; preds = %633
+  %635 = lshr i64 %.0171.i, 1
+  %636 = sub nsw i64 0, %635
   br label %_ZL22decodeSignRotatedValuem.exit235.i
 
-_ZL22decodeSignRotatedValuem.exit235.i:           ; preds = %641, %640, %638
-  %.0.i234.i = phi i64 [ %639, %638 ], [ %643, %641 ], [ -9223372036854775808, %640 ]
-  %644 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i145.i, i64 24
-  %645 = load i32, ptr %644, align 8, !tbaa !1046
-  switch i32 %645, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge [
+_ZL22decodeSignRotatedValuem.exit235.i:           ; preds = %634, %633, %631
+  %.0.i234.i = phi i64 [ %632, %631 ], [ %636, %634 ], [ -9223372036854775808, %633 ]
+  %637 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i145.i, i64 24
+  %638 = load i32, ptr %637, align 8, !tbaa !1046
+  switch i32 %638, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit237.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit237.i
   ]
 
 _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit237.i: ; preds = %_ZL22decodeSignRotatedValuem.exit235.i, %_ZL22decodeSignRotatedValuem.exit235.i
-  %646 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i145.i, i64 88
-  %647 = load ptr, ptr %646, align 8, !tbaa !1295
-  %648 = getelementptr inbounds nuw i8, ptr %647, i64 24
-  %649 = getelementptr inbounds nuw i8, ptr %647, i64 32
-  %650 = load i32, ptr %649, align 8, !tbaa !566
-  %651 = add i32 %650, -1
-  %652 = and i32 %651, 63
-  %653 = zext nneg i32 %652 to i64
-  %654 = shl nuw i64 1, %653
-  %655 = icmp ult i32 %650, 65
-  %656 = load ptr, ptr %648, align 8
-  %657 = lshr i32 %651, 6
-  %658 = zext nneg i32 %657 to i64
-  %659 = getelementptr inbounds nuw i64, ptr %656, i64 %658
-  %.in.i.i.i.i.i.i.i = select i1 %655, ptr %648, ptr %659
-  %660 = load i64, ptr %.in.i.i.i.i.i.i.i, align 8, !tbaa !820
-  %661 = and i64 %654, %660
-  %.not.i.i.i238.i = icmp eq i64 %661, 0
-  %662 = ptrtoint ptr %656 to i64
-  br i1 %.not.i.i.i238.i, label %675, label %663
+  %639 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i145.i, i64 88
+  %640 = load ptr, ptr %639, align 8, !tbaa !1295
+  %641 = getelementptr inbounds nuw i8, ptr %640, i64 24
+  %642 = getelementptr inbounds nuw i8, ptr %640, i64 32
+  %643 = load i32, ptr %642, align 8, !tbaa !566
+  %644 = add i32 %643, -1
+  %645 = and i32 %644, 63
+  %646 = zext nneg i32 %645 to i64
+  %647 = shl nuw i64 1, %646
+  %648 = icmp ult i32 %643, 65
+  %649 = load ptr, ptr %641, align 8
+  %650 = lshr i32 %644, 6
+  %651 = zext nneg i32 %650 to i64
+  %652 = getelementptr inbounds nuw i64, ptr %649, i64 %651
+  %.in.i.i.i.i.i.i.i = select i1 %648, ptr %641, ptr %652
+  %653 = load i64, ptr %.in.i.i.i.i.i.i.i, align 8, !tbaa !820
+  %654 = and i64 %647, %653
+  %.not.i.i.i238.i = icmp eq i64 %654, 0
+  %655 = ptrtoint ptr %649 to i64
+  br i1 %.not.i.i.i238.i, label %668, label %656
 
-663:                                              ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit237.i
-  br i1 %655, label %664, label %673
+656:                                              ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit237.i
+  br i1 %648, label %657, label %666
 
-664:                                              ; preds = %663
-  %665 = icmp eq i32 %650, 0
-  br i1 %665, label %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i, label %666, !prof !1298
+657:                                              ; preds = %656
+  %658 = icmp eq i32 %643, 0
+  br i1 %658, label %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i, label %659, !prof !1298
 
-666:                                              ; preds = %664
-  %667 = sub nuw nsw i32 64, %650
-  %668 = zext nneg i32 %667 to i64
-  %669 = shl i64 %662, %668
-  %670 = xor i64 %669, -1
-  %671 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %670, i1 false)
-  %672 = trunc nuw nsw i64 %671 to i32
+659:                                              ; preds = %657
+  %660 = sub nuw nsw i32 64, %643
+  %661 = zext nneg i32 %660 to i64
+  %662 = shl i64 %655, %661
+  %663 = xor i64 %662, -1
+  %664 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %663, i1 false)
+  %665 = trunc nuw nsw i64 %664 to i32
   br label %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i
 
-673:                                              ; preds = %663
-  %674 = call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %648) #34
+666:                                              ; preds = %656
+  %667 = call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %641) #34
   br label %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i
 
-675:                                              ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit237.i
-  br i1 %655, label %676, label %680
+668:                                              ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit237.i
+  br i1 %648, label %669, label %673
 
-676:                                              ; preds = %675
-  %.neg.i.i.i.i.i = add nsw i32 %650, -64
-  %677 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %662, i1 false)
-  %678 = trunc nuw nsw i64 %677 to i32
-  %679 = add nsw i32 %.neg.i.i.i.i.i, %678
+669:                                              ; preds = %668
+  %.neg.i.i.i.i.i = add nsw i32 %643, -64
+  %670 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %655, i1 false)
+  %671 = trunc nuw nsw i64 %670 to i32
+  %672 = add nsw i32 %.neg.i.i.i.i.i, %671
   br label %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i
 
-680:                                              ; preds = %675
-  %681 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %648) #34
+673:                                              ; preds = %668
+  %674 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %641) #34
   br label %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i
 
-_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i:   ; preds = %680, %676, %673, %666, %664
-  %682 = phi i32 [ 0, %664 ], [ %674, %673 ], [ %672, %666 ], [ %679, %676 ], [ %681, %680 ]
-  %683 = add i32 %650, 1
-  %684 = sub i32 %683, %682
-  %685 = icmp ugt i32 %684, 64
-  br i1 %685, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge, label %686
+_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i:   ; preds = %673, %669, %666, %659, %657
+  %675 = phi i32 [ 0, %657 ], [ %667, %666 ], [ %665, %659 ], [ %672, %669 ], [ %674, %673 ]
+  %676 = add i32 %643, 1
+  %677 = sub i32 %676, %675
+  %678 = icmp ugt i32 %677, 64
+  br i1 %678, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge, label %679
 
-686:                                              ; preds = %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i
-  br i1 %655, label %687, label %693
+679:                                              ; preds = %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i.i
+  br i1 %648, label %680, label %686
 
-687:                                              ; preds = %686
-  %688 = icmp eq i32 %650, 0
-  %689 = sub nuw nsw i32 64, %650
-  %690 = zext nneg i32 %689 to i64
-  %691 = shl i64 %662, %690
-  %692 = ashr exact i64 %691, %690
-  %.0.i.i.i241.i = select i1 %688, i64 0, i64 %692
+680:                                              ; preds = %679
+  %681 = icmp eq i32 %643, 0
+  %682 = sub nuw nsw i32 64, %643
+  %683 = zext nneg i32 %682 to i64
+  %684 = shl i64 %655, %683
+  %685 = ashr exact i64 %684, %683
+  %.0.i.i.i241.i = select i1 %681, i64 0, i64 %685
   br label %_ZNK4llvm5APInt12trySExtValueEv.exit.i
 
-693:                                              ; preds = %686
-  %694 = load i64, ptr %656, align 8, !tbaa !47
+686:                                              ; preds = %679
+  %687 = load i64, ptr %649, align 8, !tbaa !47
   br label %_ZNK4llvm5APInt12trySExtValueEv.exit.i
 
-_ZNK4llvm5APInt12trySExtValueEv.exit.i:           ; preds = %693, %687
-  %.sroa.0.0.i.i = phi i64 [ %694, %693 ], [ %.0.i.i.i241.i, %687 ]
+_ZNK4llvm5APInt12trySExtValueEv.exit.i:           ; preds = %686, %680
+  %.sroa.0.0.i.i = phi i64 [ %687, %686 ], [ %.0.i.i.i241.i, %680 ]
   %.not1804 = icmp eq i64 %.sroa.0.0.i.i, %.0.i234.i
   br i1 %.not1804, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
 
-695:                                              ; preds = %294
-  %696 = add i32 %.41517, 2
-  %697 = zext i32 %296 to i64
-  %698 = getelementptr inbounds nuw i8, ptr %2, i64 %697
-  %699 = load i8, ptr %698, align 1, !tbaa !820
-  %700 = zext i8 %699 to i64
-  %.not.i153.i = icmp sgt i8 %699, -1
-  br i1 %.not.i153.i, label %_ZL6GetVBRmPKhRj.exit.i157.i, label %701
+688:                                              ; preds = %294
+  %689 = add i32 %.41517, 2
+  %690 = zext i32 %296 to i64
+  %691 = getelementptr inbounds nuw i8, ptr %2, i64 %690
+  %692 = load i8, ptr %691, align 1, !tbaa !820
+  %693 = zext i8 %692 to i64
+  %.not.i153.i = icmp sgt i8 %692, -1
+  br i1 %.not.i153.i, label %_ZL6GetVBRmPKhRj.exit.i157.i, label %694
 
-701:                                              ; preds = %695
-  %702 = and i64 %700, 127
-  br label %703
+694:                                              ; preds = %688
+  %695 = and i64 %693, 127
+  br label %696
 
-703:                                              ; preds = %703, %701
-  %.20.i = phi i32 [ %696, %701 ], [ %704, %703 ]
-  %.08.i.i154.i = phi i32 [ 7, %701 ], [ %713, %703 ]
-  %.0.i.i155.i = phi i64 [ %702, %701 ], [ %712, %703 ]
-  %704 = add i32 %.20.i, 1
-  %705 = zext i32 %.20.i to i64
-  %706 = getelementptr inbounds nuw i8, ptr %2, i64 %705
-  %707 = load i8, ptr %706, align 1, !tbaa !820
-  %708 = and i8 %707, 127
-  %709 = zext nneg i8 %708 to i64
-  %710 = zext nneg i32 %.08.i.i154.i to i64
-  %711 = shl i64 %709, %710
-  %712 = or i64 %711, %.0.i.i155.i
-  %713 = add i32 %.08.i.i154.i, 7
-  %.not.i.i156.i = icmp sgt i8 %707, -1
-  br i1 %.not.i.i156.i, label %_ZL6GetVBRmPKhRj.exit.i157.i, label %703, !llvm.loop !1362
+696:                                              ; preds = %696, %694
+  %.20.i = phi i32 [ %689, %694 ], [ %697, %696 ]
+  %.08.i.i154.i = phi i32 [ 7, %694 ], [ %706, %696 ]
+  %.0.i.i155.i = phi i64 [ %695, %694 ], [ %705, %696 ]
+  %697 = add i32 %.20.i, 1
+  %698 = zext i32 %.20.i to i64
+  %699 = getelementptr inbounds nuw i8, ptr %2, i64 %698
+  %700 = load i8, ptr %699, align 1, !tbaa !820
+  %701 = and i8 %700, 127
+  %702 = zext nneg i8 %701 to i64
+  %703 = zext nneg i32 %.08.i.i154.i to i64
+  %704 = shl i64 %702, %703
+  %705 = or i64 %704, %.0.i.i155.i
+  %706 = add i32 %.08.i.i154.i, 7
+  %.not.i.i156.i = icmp sgt i8 %700, -1
+  br i1 %.not.i.i156.i, label %_ZL6GetVBRmPKhRj.exit.i157.i, label %696, !llvm.loop !1362
 
-_ZL6GetVBRmPKhRj.exit.i157.i:                     ; preds = %703, %695
-  %.21.i = phi i32 [ %696, %695 ], [ %704, %703 ]
-  %.010.i.i = phi i64 [ %700, %695 ], [ %712, %703 ]
-  %714 = load i32, ptr %270, align 8, !tbaa !1046
-  %.not12.i.i = icmp eq i32 %714, 186
-  br i1 %.not12.i.i, label %715, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
+_ZL6GetVBRmPKhRj.exit.i157.i:                     ; preds = %696, %688
+  %.21.i = phi i32 [ %689, %688 ], [ %697, %696 ]
+  %.010.i.i = phi i64 [ %693, %688 ], [ %705, %696 ]
+  %707 = load i32, ptr %270, align 8, !tbaa !1046
+  %.not12.i.i = icmp eq i32 %707, 186
+  br i1 %.not12.i.i, label %708, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
 
-715:                                              ; preds = %_ZL6GetVBRmPKhRj.exit.i157.i
-  %716 = load ptr, ptr %267, align 8, !tbaa !1044
-  %717 = getelementptr inbounds nuw i8, ptr %716, i64 40
-  %718 = load ptr, ptr %717, align 8, !tbaa !1040
-  %719 = getelementptr inbounds nuw i8, ptr %718, i64 24
-  %720 = load i32, ptr %719, align 8, !tbaa !1046
-  switch i32 %720, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge [
-    i32 35, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit
-    i32 11, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit
+708:                                              ; preds = %_ZL6GetVBRmPKhRj.exit.i157.i
+  %709 = load ptr, ptr %267, align 8, !tbaa !1044
+  %710 = getelementptr inbounds nuw i8, ptr %709, i64 40
+  %711 = load ptr, ptr %710, align 8, !tbaa !1040
+  %712 = getelementptr inbounds nuw i8, ptr %711, i64 24
+  %713 = load i32, ptr %712, align 8, !tbaa !1046
+  switch i32 %713, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge [
+    i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i
+    i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i
   ]
 
-721:                                              ; preds = %294
-  %722 = add i32 %.41517, 2
-  %723 = zext i32 %296 to i64
-  %724 = getelementptr inbounds nuw i8, ptr %2, i64 %723
-  %725 = load i8, ptr %724, align 1, !tbaa !820
-  %726 = zext i8 %725 to i64
-  %.not.i162.i = icmp sgt i8 %725, -1
-  br i1 %.not.i162.i, label %_ZL6GetVBRmPKhRj.exit.i166.i, label %727
+_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i: ; preds = %708, %708
+  %.sroa.0.0.copyload.i159.i = load ptr, ptr %709, align 8, !tbaa !900
+  %.sroa.2.0..sroa_idx.i160.i = getelementptr inbounds nuw i8, ptr %709, i64 8
+  %.sroa.2.0.copyload.i161.i = load i32, ptr %.sroa.2.0..sroa_idx.i160.i, align 8, !tbaa !816
+  %714 = call noundef zeroext i1 @_ZNK4llvm16SelectionDAGISel12CheckAndMaskENS_7SDValueEPNS_14ConstantSDNodeEl(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr %.sroa.0.0.copyload.i159.i, i32 %.sroa.2.0.copyload.i161.i, ptr noundef nonnull %711, i64 noundef %.010.i.i)
+  br i1 %714, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
 
-727:                                              ; preds = %721
-  %728 = and i64 %726, 127
-  br label %729
+715:                                              ; preds = %294
+  %716 = add i32 %.41517, 2
+  %717 = zext i32 %296 to i64
+  %718 = getelementptr inbounds nuw i8, ptr %2, i64 %717
+  %719 = load i8, ptr %718, align 1, !tbaa !820
+  %720 = zext i8 %719 to i64
+  %.not.i162.i = icmp sgt i8 %719, -1
+  br i1 %.not.i162.i, label %_ZL6GetVBRmPKhRj.exit.i166.i, label %721
 
-729:                                              ; preds = %729, %727
-  %.22.i = phi i32 [ %722, %727 ], [ %730, %729 ]
-  %.08.i.i163.i = phi i32 [ 7, %727 ], [ %739, %729 ]
-  %.0.i.i164.i = phi i64 [ %728, %727 ], [ %738, %729 ]
-  %730 = add i32 %.22.i, 1
-  %731 = zext i32 %.22.i to i64
-  %732 = getelementptr inbounds nuw i8, ptr %2, i64 %731
-  %733 = load i8, ptr %732, align 1, !tbaa !820
-  %734 = and i8 %733, 127
-  %735 = zext nneg i8 %734 to i64
-  %736 = zext nneg i32 %.08.i.i163.i to i64
-  %737 = shl i64 %735, %736
-  %738 = or i64 %737, %.0.i.i164.i
-  %739 = add i32 %.08.i.i163.i, 7
-  %.not.i.i165.i = icmp sgt i8 %733, -1
-  br i1 %.not.i.i165.i, label %_ZL6GetVBRmPKhRj.exit.i166.i, label %729, !llvm.loop !1362
+721:                                              ; preds = %715
+  %722 = and i64 %720, 127
+  br label %723
 
-_ZL6GetVBRmPKhRj.exit.i166.i:                     ; preds = %729, %721
-  %.23.i = phi i32 [ %722, %721 ], [ %730, %729 ]
-  %.010.i167.i = phi i64 [ %726, %721 ], [ %738, %729 ]
-  %740 = load i32, ptr %270, align 8, !tbaa !1046
-  %.not12.i168.i = icmp eq i32 %740, 187
-  br i1 %.not12.i168.i, label %741, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
+723:                                              ; preds = %723, %721
+  %.22.i = phi i32 [ %716, %721 ], [ %724, %723 ]
+  %.08.i.i163.i = phi i32 [ 7, %721 ], [ %733, %723 ]
+  %.0.i.i164.i = phi i64 [ %722, %721 ], [ %732, %723 ]
+  %724 = add i32 %.22.i, 1
+  %725 = zext i32 %.22.i to i64
+  %726 = getelementptr inbounds nuw i8, ptr %2, i64 %725
+  %727 = load i8, ptr %726, align 1, !tbaa !820
+  %728 = and i8 %727, 127
+  %729 = zext nneg i8 %728 to i64
+  %730 = zext nneg i32 %.08.i.i163.i to i64
+  %731 = shl i64 %729, %730
+  %732 = or i64 %731, %.0.i.i164.i
+  %733 = add i32 %.08.i.i163.i, 7
+  %.not.i.i165.i = icmp sgt i8 %727, -1
+  br i1 %.not.i.i165.i, label %_ZL6GetVBRmPKhRj.exit.i166.i, label %723, !llvm.loop !1362
 
-741:                                              ; preds = %_ZL6GetVBRmPKhRj.exit.i166.i
-  %742 = load ptr, ptr %267, align 8, !tbaa !1044
-  %743 = getelementptr inbounds nuw i8, ptr %742, i64 40
-  %744 = load ptr, ptr %743, align 8, !tbaa !1040
-  %745 = getelementptr inbounds nuw i8, ptr %744, i64 24
-  %746 = load i32, ptr %745, align 8, !tbaa !1046
-  switch i32 %746, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge [
+_ZL6GetVBRmPKhRj.exit.i166.i:                     ; preds = %723, %715
+  %.23.i = phi i32 [ %716, %715 ], [ %724, %723 ]
+  %.010.i167.i = phi i64 [ %720, %715 ], [ %732, %723 ]
+  %734 = load i32, ptr %270, align 8, !tbaa !1046
+  %.not12.i168.i = icmp eq i32 %734, 187
+  br i1 %.not12.i168.i, label %735, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
+
+735:                                              ; preds = %_ZL6GetVBRmPKhRj.exit.i166.i
+  %736 = load ptr, ptr %267, align 8, !tbaa !1044
+  %737 = getelementptr inbounds nuw i8, ptr %736, i64 40
+  %738 = load ptr, ptr %737, align 8, !tbaa !1040
+  %739 = getelementptr inbounds nuw i8, ptr %738, i64 24
+  %740 = load i32, ptr %739, align 8, !tbaa !1046
+  switch i32 %740, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit244.i
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit244.i
   ]
 
-_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit244.i: ; preds = %741, %741
-  %.sroa.0.0.copyload.i171.i = load ptr, ptr %742, align 8, !tbaa !900
-  %.sroa.2.0..sroa_idx.i172.i = getelementptr inbounds nuw i8, ptr %742, i64 8
+_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit244.i: ; preds = %735, %735
+  %.sroa.0.0.copyload.i171.i = load ptr, ptr %736, align 8, !tbaa !900
+  %.sroa.2.0..sroa_idx.i172.i = getelementptr inbounds nuw i8, ptr %736, i64 8
   %.sroa.2.0.copyload.i173.i = load i32, ptr %.sroa.2.0..sroa_idx.i172.i, align 8, !tbaa !816
-  %747 = call noundef zeroext i1 @_ZNK4llvm16SelectionDAGISel11CheckOrMaskENS_7SDValueEPNS_14ConstantSDNodeEl(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr %.sroa.0.0.copyload.i171.i, i32 %.sroa.2.0.copyload.i173.i, ptr noundef nonnull %744, i64 noundef %.010.i167.i)
-  br i1 %747, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
+  %741 = call noundef zeroext i1 @_ZNK4llvm16SelectionDAGISel11CheckOrMaskENS_7SDValueEPNS_14ConstantSDNodeEl(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr %.sroa.0.0.copyload.i171.i, i32 %.sroa.2.0.copyload.i173.i, ptr noundef nonnull %738, i64 noundef %.010.i167.i)
+  br i1 %741, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
 
-_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit: ; preds = %715, %715
-  %.sroa.0.0.copyload.i159.i = load ptr, ptr %716, align 8, !tbaa !900
-  %.sroa.2.0..sroa_idx.i160.i = getelementptr inbounds nuw i8, ptr %716, i64 8
-  %.sroa.2.0.copyload.i161.i = load i32, ptr %.sroa.2.0..sroa_idx.i160.i, align 8, !tbaa !816
-  %748 = call noundef zeroext i1 @_ZNK4llvm16SelectionDAGISel12CheckAndMaskENS_7SDValueEPNS_14ConstantSDNodeEl(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr %.sroa.0.0.copyload.i159.i, i32 %.sroa.2.0.copyload.i161.i, ptr noundef nonnull %718, i64 noundef %.010.i.i)
-  br i1 %748, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
+_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit: ; preds = %_ZL22decodeSignRotatedValuem.exit.i, %_ZL22decodeSignRotatedValuem.exit.i
+  %742 = load ptr, ptr %268, align 8, !tbaa !1295
+  %743 = getelementptr inbounds nuw i8, ptr %742, i64 24
+  %744 = call { i64, i8 } @_ZNK4llvm5APInt12trySExtValueEv(ptr noundef nonnull align 8 dereferenceable(12) %743)
+  %745 = extractvalue { i64, i8 } %744, 0
+  %746 = extractvalue { i64, i8 } %744, 1
+  %747 = trunc nuw i8 %746 to i1
+  %748 = icmp eq i64 %745, %.0.i231.i
+  %.not1803 = select i1 %747, i1 %748, i1 false
+  br i1 %.not1803, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539, label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread.backedge
 
 _ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1954: ; preds = %301
   %749 = add i32 %.41517, 2
@@ -16710,8 +16710,8 @@ _ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15
   %753 = add i32 %.41517, 2
   br label %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539
 
-_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539: ; preds = %_ZNK4llvm5APInt12trySExtValueEv.exit.i, %_ZL14CheckValueTypePKhRjN4llvm7SDValueEPKNS2_14TargetLoweringERKNS2_10DataLayoutE.exit.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i, %_ZL14CheckChildTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutEj.exit.i, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit124.i, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit.i880, %_ZL18CheckNodePredicatejPKhRjRKN4llvm16SelectionDAGISelEPNS2_6SDNodeE.exit.i, %_ZL21CheckPatternPredicatejPKhRjRKN4llvm16SelectionDAGISelE.exit.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit244.i, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit, %294, %416, %461, %514, %570, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1987, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1978, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1966, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1957, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1954
-  %.51518.ph = phi i32 [ %753, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1987 ], [ %750, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1957 ], [ %749, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1954 ], [ %752, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1978 ], [ %751, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1966 ], [ %.14.i, %570 ], [ %.11.i, %514 ], [ %.8.i, %461 ], [ %.6.i, %416 ], [ %.16.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.i ], [ %.11.i, %_ZL14CheckChildTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutEj.exit.i ], [ %.8.i, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit124.i ], [ %.6.i, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit.i880 ], [ %.3.i, %_ZL18CheckNodePredicatejPKhRjRKN4llvm16SelectionDAGISelEPNS2_6SDNodeE.exit.i ], [ %.2.i, %_ZL21CheckPatternPredicatejPKhRjRKN4llvm16SelectionDAGISelE.exit.i ], [ %.23.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit244.i ], [ %.21.i, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit ], [ %.41517, %294 ], [ %.14.i, %_ZL14CheckValueTypePKhRjN4llvm7SDValueEPKNS2_14TargetLoweringERKNS2_10DataLayoutE.exit.i ], [ %.18.i, %_ZNK4llvm5APInt12trySExtValueEv.exit.i ]
+_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539: ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i, %_ZL14CheckValueTypePKhRjN4llvm7SDValueEPKNS2_14TargetLoweringERKNS2_10DataLayoutE.exit.i, %_ZNK4llvm5APInt12trySExtValueEv.exit.i, %_ZL14CheckChildTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutEj.exit.i, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit124.i, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit.i880, %_ZL18CheckNodePredicatejPKhRjRKN4llvm16SelectionDAGISelEPNS2_6SDNodeE.exit.i, %_ZL21CheckPatternPredicatejPKhRjRKN4llvm16SelectionDAGISelE.exit.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit244.i, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit, %294, %416, %461, %507, %570, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1987, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1978, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1966, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1957, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1954
+  %.51518.ph = phi i32 [ %753, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1987 ], [ %750, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1957 ], [ %749, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1954 ], [ %752, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1978 ], [ %751, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit.thread1539.split.loop.exit1966 ], [ %.14.i, %570 ], [ %.11.i, %507 ], [ %.8.i, %461 ], [ %.6.i, %416 ], [ %.18.i, %_ZNK4llvm5APInt12trySExtValueEv.exit.i ], [ %.11.i, %_ZL14CheckChildTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutEj.exit.i ], [ %.8.i, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit124.i ], [ %.6.i, %_ZL9CheckTypeN4llvm3MVT15SimpleValueTypeENS_7SDValueEPKNS_14TargetLoweringERKNS_10DataLayoutE.exit.i880 ], [ %.3.i, %_ZL18CheckNodePredicatejPKhRjRKN4llvm16SelectionDAGISelEPNS2_6SDNodeE.exit.i ], [ %.2.i, %_ZL21CheckPatternPredicatejPKhRjRKN4llvm16SelectionDAGISelE.exit.i ], [ %.23.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit244.i ], [ %.16.i, %_ZL22IsPredicateKnownToFailPKhjN4llvm7SDValueERbRKNS1_16SelectionDAGISelERNS1_15SmallVectorImplISt4pairIS2_PNS1_6SDNodeEEEE.exit ], [ %.41517, %294 ], [ %.14.i, %_ZL14CheckValueTypePKhRjN4llvm7SDValueEPKNS2_14TargetLoweringERKNS2_10DataLayoutE.exit.i ], [ %.21.i, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i ]
   %754 = icmp eq i32 %295, 0
   br i1 %754, label %.thread1568, label %755
 

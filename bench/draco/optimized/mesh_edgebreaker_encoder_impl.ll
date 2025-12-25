@@ -26484,7 +26484,7 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE9push_back
   br i1 %239, label %_ZNK5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEE13IsFaceVisitedENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread, label %92
 
 _ZNK5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEE13IsFaceVisitedENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.thread: ; preds = %236, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit98, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit61, %87, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, %2, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit44, %_ZNK5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEE13IsFaceVisitedENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %.0 = phi i1 [ true, %2 ], [ true, %_ZNK5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEE13IsFaceVisitedENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ false, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit44 ], [ false, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit98 ], [ false, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ true, %87 ], [ false, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit61 ], [ true, %236 ]
+  %.0 = phi i1 [ true, %2 ], [ true, %_ZNK5draco13TraverserBaseINS_11CornerTableENS_36MeshAttributeIndicesEncodingObserverIS1_EEE13IsFaceVisitedENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ false, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit44 ], [ true, %87 ], [ false, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ false, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_21CornerIndex_tag_type_EEESaIS3_EE9push_backERKS3_.exit98 ], [ false, %_ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit61 ], [ true, %236 ]
   ret i1 %.0
 }
 
@@ -26810,7 +26810,7 @@ _ZN5draco14PointAttribute18SetExplicitMappingEm.exit: ; preds = %20, %22, %24, %
   br i1 %exitcond52.not, label %.critedge, label %42, !llvm.loop !648
 
 .critedge:                                        ; preds = %.critedge29, %48, %56, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit
-  %66 = phi i1 [ false, %48 ], [ true, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit ], [ false, %56 ], [ true, %.critedge29 ]
+  %66 = phi i1 [ true, %_ZN5draco14PointAttribute18SetExplicitMappingEm.exit ], [ false, %48 ], [ false, %56 ], [ true, %.critedge29 ]
   ret i1 %66
 }
 

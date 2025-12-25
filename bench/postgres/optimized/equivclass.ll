@@ -2419,7 +2419,7 @@ select_equality_operator.exit.thread:             ; preds = %77, %.lr.ph.i, %.lr
   br label %.loopexit265
 
 .loopexit265:                                     ; preds = %155, %.lr.ph347, %.loopexit265.sink.split, %5, %.lr.ph, %115, %112
-  %.2 = phi ptr [ null, %.loopexit265.sink.split ], [ %.0114, %112 ], [ null, %.lr.ph ], [ %.0114, %115 ], [ null, %5 ], [ %.0114, %.lr.ph347 ], [ %.7121.ph, %155 ]
+  %.2 = phi ptr [ null, %.lr.ph ], [ %.0114, %112 ], [ null, %.loopexit265.sink.split ], [ %.0114, %115 ], [ null, %5 ], [ %.0114, %.lr.ph347 ], [ %.7121.ph, %155 ]
   ret ptr %.2
 }
 
@@ -3858,8 +3858,8 @@ define dso_local ptr @match_eclasses_to_foreign_key_col(ptr noundef readonly cap
   br i1 %83, label %.thread, label %.loopexit104
 
 .loopexit:                                        ; preds = %58, %.preheader, %52, %74
-  %.175.ph = phi ptr [ %.074107113, %52 ], [ %.276, %74 ], [ %.074107113, %.preheader ], [ %.074107113, %58 ]
-  %.172.ph = phi ptr [ %.071108112, %52 ], [ %.273, %74 ], [ %.071108112, %.preheader ], [ %.071108112, %58 ]
+  %.175.ph = phi ptr [ %.276, %74 ], [ %.074107113, %52 ], [ %.074107113, %.preheader ], [ %.074107113, %58 ]
+  %.172.ph = phi ptr [ %.273, %74 ], [ %.071108112, %52 ], [ %.071108112, %.preheader ], [ %.071108112, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit104, label %52

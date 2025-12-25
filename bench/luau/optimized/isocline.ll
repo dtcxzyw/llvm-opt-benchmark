@@ -9450,8 +9450,8 @@ attr_update_sgr.exit.i:                           ; preds = %87, %84
   br label %.critedge86
 
 .critedge84:                                      ; preds = %219, %222
-  %.269 = phi i64 [ %.067121, %222 ], [ %220, %219 ]
-  %.266 = phi i64 [ %223, %222 ], [ %.064122, %219 ]
+  %.269 = phi i64 [ %220, %219 ], [ %.067121, %222 ]
+  %.266 = phi i64 [ %.064122, %219 ], [ %223, %222 ]
   %.not77 = icmp sgt i64 %.269, %.266
   br i1 %.not77, label %240, label %.critedge84.preheader, !llvm.loop !213
 
@@ -11485,9 +11485,9 @@ parse_skip_white.exit74.i:                        ; preds = %.preheader118.i, %.
   br i1 %.not.i84.i, label %parse_value.exit.i, label %.lr.ph.i83.i, !llvm.loop !237
 
 parse_value.exit.i:                               ; preds = %.preheader116.i, %105, %.preheader.i, %114, %113, %102
-  %.1107.i = phi ptr [ %.0.i75.i, %105 ], [ %97, %102 ], [ %.0.i75.i, %114 ], [ %.0.i75.i, %113 ], [ %.0.i75.i, %.preheader.i ], [ %.0.i75.i, %.preheader116.i ]
-  %.1105.i = phi ptr [ %.2.i79.i, %105 ], [ %.0.i82.i, %102 ], [ %115, %114 ], [ %.361.i.i, %113 ], [ %.2.i79.i, %.preheader.i ], [ %.0.i75.i, %.preheader116.i ]
-  %.1.i81.i = phi ptr [ %.2.i79.i, %105 ], [ %spec.select.i.i, %102 ], [ %115, %114 ], [ %.361.i.i, %113 ], [ %.2.i79.i, %.preheader.i ], [ %.0.i75.i, %.preheader116.i ]
+  %.1107.i = phi ptr [ %.0.i75.i, %114 ], [ %97, %102 ], [ %.0.i75.i, %105 ], [ %.0.i75.i, %113 ], [ %.0.i75.i, %.preheader.i ], [ %.0.i75.i, %.preheader116.i ]
+  %.1105.i = phi ptr [ %115, %114 ], [ %.0.i82.i, %102 ], [ %.2.i79.i, %105 ], [ %.361.i.i, %113 ], [ %.2.i79.i, %.preheader.i ], [ %.0.i75.i, %.preheader116.i ]
+  %.1.i81.i = phi ptr [ %115, %114 ], [ %spec.select.i.i, %102 ], [ %.2.i79.i, %105 ], [ %.361.i.i, %113 ], [ %.2.i79.i, %.preheader.i ], [ %.0.i75.i, %.preheader116.i ]
   br label %117
 
 117:                                              ; preds = %119, %parse_value.exit.i

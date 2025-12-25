@@ -1355,7 +1355,7 @@ gv_calloc.exit:                                   ; preds = %14
   br label %SparseMatrix_delete.exit
 
 SparseMatrix_delete.exit:                         ; preds = %.lr.ph277, %.lr.ph287, %.lr.ph290, %.lr.ph298, %.lr.ph306, %.lr.ph309, %142, %.lr.ph315, %.lr.ph323, %.lr.ph326, %._crit_edge, %.split, %.loopexit238
-  %.2 = phi i1 [ false, %.split ], [ true, %.loopexit238 ], [ false, %._crit_edge ], [ false, %.lr.ph287 ], [ false, %.lr.ph323 ], [ false, %.lr.ph290 ], [ false, %.lr.ph298 ], [ false, %.lr.ph326 ], [ false, %.lr.ph306 ], [ false, %.lr.ph309 ], [ false, %.lr.ph315 ], [ false, %142 ], [ false, %.lr.ph277 ]
+  %.2 = phi i1 [ false, %.split ], [ true, %.loopexit238 ], [ false, %._crit_edge ], [ false, %.lr.ph287 ], [ false, %.lr.ph306 ], [ false, %.lr.ph290 ], [ false, %.lr.ph298 ], [ false, %.lr.ph326 ], [ false, %.lr.ph323 ], [ false, %.lr.ph309 ], [ false, %.lr.ph315 ], [ false, %142 ], [ false, %.lr.ph277 ]
   tail call void @free(ptr noundef %39) #18
   tail call void @free(ptr noundef %20) #18
   tail call void @free(ptr noundef %22) #18
@@ -3220,7 +3220,7 @@ define internal fastcc ptr @SparseMatrix_from_coordinate_arrays_internal(i32 nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph318, %177, %.lr.ph329, %147, %.lr.ph339, %109, %.lr.ph349, %68, %.lr.ph360, %32, %._crit_edge367, %212, %.split, %._crit_edge, %9
-  %.0257 = phi ptr [ null, %9 ], [ null, %.lr.ph339 ], [ %14, %._crit_edge367 ], [ null, %.split ], [ %213, %212 ], [ null, %.lr.ph329 ], [ null, %.lr.ph360 ], [ null, %.lr.ph349 ], [ null, %._crit_edge ], [ null, %32 ], [ null, %68 ], [ null, %109 ], [ null, %147 ], [ null, %177 ], [ null, %.lr.ph318 ]
+  %.0257 = phi ptr [ null, %9 ], [ null, %.lr.ph329 ], [ %14, %._crit_edge367 ], [ null, %.split ], [ null, %._crit_edge ], [ null, %.lr.ph339 ], [ null, %.lr.ph360 ], [ null, %.lr.ph349 ], [ %213, %212 ], [ null, %32 ], [ null, %68 ], [ null, %109 ], [ null, %147 ], [ null, %177 ], [ null, %.lr.ph318 ]
   ret ptr %.0257
 }
 

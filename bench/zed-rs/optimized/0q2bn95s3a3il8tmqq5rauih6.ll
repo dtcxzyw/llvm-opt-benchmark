@@ -3971,7 +3971,7 @@ _ZN5serde2de10EnumAccess7variant17he9423d9bbe5b183aE.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 
@@ -4560,7 +4560,7 @@ _ZN5serde2de10EnumAccess7variant17h801ddf297572947aE.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 
@@ -5263,7 +5263,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17h02d8fb9dc9dc6287E.exit._crit_edge
           cleanup
   br label %.body.thread
 
-.body.thread120:                                  ; preds = %204, %166, %.body.i, %213, %.body.thread, %.body.thread
+.body.thread120:                                  ; preds = %.body.i, %204, %166, %213, %.body.thread, %.body.thread
   %.pn12116 = phi { ptr, i32 } [ %.pn12117, %213 ], [ %.pn12117, %.body.thread ], [ %.pn12117, %.body.thread ], [ %167, %166 ], [ %196, %.body.i ], [ %196, %204 ]
   resume { ptr, i32 } %.pn12116
 
@@ -69323,7 +69323,7 @@ common.resume:                                    ; preds = %204, %394, %264, %.
   br label %393
 
 204:                                              ; preds = %372, %218, %348, %366, %383
-  %.sroa.027.0.ph.ph = phi i8 [ %.sroa.027.2, %366 ], [ %.sroa.027.2, %348 ], [ 1, %218 ], [ %.sroa.027.2, %383 ], [ %.sroa.027.2, %372 ]
+  %.sroa.027.0.ph.ph = phi i8 [ %.sroa.027.2, %366 ], [ %.sroa.027.2, %348 ], [ 1, %218 ], [ %.sroa.027.2, %372 ], [ %.sroa.027.2, %383 ]
   %lpad.thr_comm.split-lp284 = landingpad { ptr, i32 }
           cleanup
   %205 = trunc nuw i8 %.sroa.027.0.ph.ph to i1
@@ -70456,7 +70456,7 @@ common.resume:                                    ; preds = %201, %382, %252, %.
   br label %381
 
 201:                                              ; preds = %360, %215, %336, %354, %371
-  %.sroa.027.0.ph.ph = phi i8 [ %.sroa.027.2, %354 ], [ %.sroa.027.2, %336 ], [ 1, %215 ], [ %.sroa.027.2, %371 ], [ %.sroa.027.2, %360 ]
+  %.sroa.027.0.ph.ph = phi i8 [ %.sroa.027.2, %354 ], [ %.sroa.027.2, %336 ], [ 1, %215 ], [ %.sroa.027.2, %360 ], [ %.sroa.027.2, %371 ]
   %lpad.thr_comm.split-lp293 = landingpad { ptr, i32 }
           cleanup
   %202 = trunc nuw i8 %.sroa.027.0.ph.ph to i1
@@ -71255,7 +71255,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge161, %33, %.thread.sink.split, %.preheader
-  %.sink = phi i64 [ 0, %.preheader ], [ 1, %.thread.sink.split ], [ 0, %33 ], [ 0, %._crit_edge161 ]
+  %.sink = phi i64 [ 1, %.thread.sink.split ], [ 0, %.preheader ], [ 0, %33 ], [ 0, %._crit_edge161 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -71680,7 +71680,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge159, %39, %.thread.sink.split, %.preheader
-  %.sink = phi i64 [ 0, %.preheader ], [ 1, %.thread.sink.split ], [ 0, %39 ], [ 0, %._crit_edge159 ]
+  %.sink = phi i64 [ 1, %.thread.sink.split ], [ 0, %.preheader ], [ 0, %39 ], [ 0, %._crit_edge159 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -76182,7 +76182,7 @@ define internal fastcc void @"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8
   unreachable
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha20a6c43c03ed1bbE.exit.thread.i": ; preds = %59, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha20a6c43c03ed1bbE.exit.us.us.i", %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdc684dd5f73700b6E.exit15.us.us.i", %.lr.ph194.i
-  %.us-phi.i = phi i64 [ %60, %59 ], [ %48, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha20a6c43c03ed1bbE.exit.us.us.i" ], [ %48, %.lr.ph194.i ], [ %48, %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdc684dd5f73700b6E.exit15.us.us.i" ]
+  %.us-phi.i = phi i64 [ %48, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha20a6c43c03ed1bbE.exit.us.us.i" ], [ %60, %59 ], [ %48, %.lr.ph194.i ], [ %48, %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hdc684dd5f73700b6E.exit15.us.us.i" ]
   %64 = icmp ugt i64 %.us-phi.i, %28
   br i1 %64, label %66, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17ha20a6c43c03ed1bbE.exit.thread.thread.i"
 
@@ -76524,7 +76524,7 @@ define internal fastcc void @"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8
   unreachable
 
 .split.us.i:                                      ; preds = %63, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hd381e08c58500c5dE.exit17.us.us.i", %.lr.ph188.i
-  %.us-phi.i = phi i64 [ %64, %63 ], [ %50, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hd381e08c58500c5dE.exit17.us.us.i" ], [ %50, %.lr.ph188.i ]
+  %.us-phi.i = phi i64 [ %50, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hd381e08c58500c5dE.exit17.us.us.i" ], [ %64, %63 ], [ %50, %.lr.ph188.i ]
   %68 = icmp ugt i64 %.us-phi.i, %26
   br i1 %68, label %70, label %.split.us.thread.i
 

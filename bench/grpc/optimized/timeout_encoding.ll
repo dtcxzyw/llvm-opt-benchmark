@@ -901,8 +901,8 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   br i1 %64, label %61, label %.critedge57
 
 .critedge57:                                      ; preds = %14, %24, %32, %.lr.ph87, %.lr.ph.i, %61, %.critedge, %59, %.critedge2
-  %.sroa.061.0 = phi i64 [ 9223372036854775807, %24 ], [ undef, %.critedge2 ], [ undef, %.lr.ph.i ], [ undef, %32 ], [ %.sroa.0.0, %59 ], [ undef, %.critedge ], [ %.sroa.0.0, %61 ], [ undef, %.lr.ph87 ], [ undef, %14 ]
-  %.sroa.3.0 = phi i8 [ 1, %24 ], [ 0, %.critedge2 ], [ 0, %.lr.ph.i ], [ 0, %32 ], [ 1, %59 ], [ 0, %.critedge ], [ 1, %61 ], [ 0, %.lr.ph87 ], [ 0, %14 ]
+  %.sroa.061.0 = phi i64 [ undef, %32 ], [ undef, %.critedge2 ], [ undef, %.lr.ph.i ], [ 9223372036854775807, %24 ], [ %.sroa.0.0, %59 ], [ undef, %.critedge ], [ %.sroa.0.0, %61 ], [ undef, %.lr.ph87 ], [ undef, %14 ]
+  %.sroa.3.0 = phi i8 [ 0, %32 ], [ 0, %.critedge2 ], [ 0, %.lr.ph.i ], [ 1, %24 ], [ 1, %59 ], [ 0, %.critedge ], [ 1, %61 ], [ 0, %.lr.ph87 ], [ 0, %14 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.061.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert

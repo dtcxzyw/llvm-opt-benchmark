@@ -7809,7 +7809,7 @@ _ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60, %.loopexit.sink.split, %.preheader, %2, %108, %86
-  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.preheader ], [ false, %86 ], [ false, %108 ], [ true, %2 ], [ true, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60 ]
+  %.0 = phi i1 [ true, %.preheader ], [ false, %.loopexit.sink.split ], [ false, %86 ], [ false, %108 ], [ true, %2 ], [ true, %_ZN18VM_RedefineClasses40rewrite_cp_refs_in_annotations_typeArrayEP5ArrayIhERi.exit60 ]
   ret i1 %.0
 }
 

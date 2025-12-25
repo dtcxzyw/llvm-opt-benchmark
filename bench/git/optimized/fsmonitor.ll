@@ -603,10 +603,10 @@ fsmonitor_hook_version.exit:                      ; preds = %44
   br label %.thread
 
 79:                                               ; preds = %57, %67, %66, %74
-  %.193 = phi i32 [ %73, %67 ], [ 0, %66 ], [ 0, %57 ], [ 0, %74 ]
-  %.190 = phi i64 [ %68, %67 ], [ 0, %66 ], [ 0, %57 ], [ 0, %74 ]
-  %.088 = phi i32 [ %spec.store.select, %67 ], [ %spec.store.select, %66 ], [ %.0.i133, %57 ], [ %.0.i133, %74 ]
-  %.186.shrunk = phi i1 [ true, %67 ], [ false, %66 ], [ false, %57 ], [ false, %74 ]
+  %.193 = phi i32 [ %73, %67 ], [ 0, %66 ], [ 0, %74 ], [ 0, %57 ]
+  %.190 = phi i64 [ %68, %67 ], [ 0, %66 ], [ 0, %74 ], [ 0, %57 ]
+  %.088 = phi i32 [ %spec.store.select, %67 ], [ %spec.store.select, %66 ], [ %.0.i133, %74 ], [ %.0.i133, %57 ]
+  %.186.shrunk = phi i1 [ true, %67 ], [ false, %66 ], [ false, %74 ], [ false, %57 ]
   %80 = icmp eq i32 %.088, 1
   br i1 %80, label %.thread, label %89
 

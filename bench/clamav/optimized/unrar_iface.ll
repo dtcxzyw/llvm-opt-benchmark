@@ -379,7 +379,7 @@ _ZL13unrar_strndupPKcm.exit:                      ; preds = %_ZL13unrar_strnlenP
   store ptr %28, ptr %1, align 8, !tbaa !27
   br label %.thread133
 
-.thread133:                                       ; preds = %108, %.thread173, %.thread171, %.thread164, %.thread149, %33, %25, %.thread139
+.thread133:                                       ; preds = %108, %.thread173, %.thread171, %.thread164, %.thread149, %25, %33, %.thread139
   %.0138.ph = phi i32 [ 0, %.thread173 ], [ 0, %.thread171 ], [ 0, %.thread164 ], [ 0, %.thread149 ], [ %36, %33 ], [ 3, %25 ], [ 0, %108 ], [ 0, %.thread139 ]
   %.pr186 = load ptr, ptr %22, align 1, !tbaa !16
   %.not92 = icmp eq ptr %.pr186, null

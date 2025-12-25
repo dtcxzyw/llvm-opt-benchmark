@@ -18436,12 +18436,12 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   br label %.loopexit
 
 .loopexit:                                        ; preds = %305, %.thread3236, %8393, %.thread3227
-  %.83216 = phi ptr [ %.33211, %8393 ], [ %.2, %.thread3227 ], [ %.03209, %.thread3236 ], [ %.03209, %305 ]
-  %.01804 = phi i32 [ 1, %8393 ], [ 2, %.thread3227 ], [ 0, %.thread3236 ], [ 1, %305 ]
-  %.71790 = phi ptr [ %.61789, %8393 ], [ %.51788, %.thread3227 ], [ %.21785, %.thread3236 ], [ %300, %305 ]
-  %.71764 = phi ptr [ %.61763, %8393 ], [ %.51762, %.thread3227 ], [ %.21759, %.thread3236 ], [ %296, %305 ]
-  %.61756 = phi ptr [ %.11751, %8393 ], [ %.51755, %.thread3227 ], [ %.11751, %.thread3236 ], [ %280, %305 ]
-  %.10 = phi i32 [ %.7, %8393 ], [ %.3, %.thread3227 ], [ %.01732, %.thread3236 ], [ %.01732, %305 ]
+  %.83216 = phi ptr [ %.2, %.thread3227 ], [ %.33211, %8393 ], [ %.03209, %.thread3236 ], [ %.03209, %305 ]
+  %.01804 = phi i32 [ 2, %.thread3227 ], [ 1, %8393 ], [ 0, %.thread3236 ], [ 1, %305 ]
+  %.71790 = phi ptr [ %.51788, %.thread3227 ], [ %.61789, %8393 ], [ %.21785, %.thread3236 ], [ %300, %305 ]
+  %.71764 = phi ptr [ %.51762, %.thread3227 ], [ %.61763, %8393 ], [ %.21759, %.thread3236 ], [ %296, %305 ]
+  %.61756 = phi ptr [ %.51755, %.thread3227 ], [ %.11751, %8393 ], [ %.11751, %.thread3236 ], [ %280, %305 ]
+  %.10 = phi i32 [ %.3, %.thread3227 ], [ %.7, %8393 ], [ %.01732, %.thread3236 ], [ %.01732, %305 ]
   %.not2384 = icmp eq i32 %.10, -2
   br i1 %.not2384, label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2891, label %8437
 

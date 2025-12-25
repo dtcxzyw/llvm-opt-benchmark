@@ -2342,9 +2342,9 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
   br label %932
 
 .thread356:                                       ; preds = %_ZN4ncnn3MatD2Ev.exit204, %_ZNK4ncnn3Mat5emptyEv.exit206, %639, %887, %.preheader, %652, %.loopexit, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit
-  %900 = phi ptr [ %640, %.preheader ], [ %640, %652 ], [ %640, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ %640, %.loopexit ], [ %640, %887 ], [ %425, %639 ], [ %425, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ %425, %_ZN4ncnn3MatD2Ev.exit204 ]
-  %901 = phi i1 [ true, %.preheader ], [ false, %652 ], [ false, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ true, %.loopexit ], [ true, %887 ], [ false, %639 ], [ false, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ false, %_ZN4ncnn3MatD2Ev.exit204 ]
-  %.10 = phi i32 [ 0, %.preheader ], [ %651, %652 ], [ %752, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ 0, %.loopexit ], [ 0, %887 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ %636, %639 ], [ -100, %_ZN4ncnn3MatD2Ev.exit204 ]
+  %900 = phi ptr [ %640, %.loopexit ], [ %640, %652 ], [ %640, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ %640, %.preheader ], [ %640, %887 ], [ %425, %639 ], [ %425, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ %425, %_ZN4ncnn3MatD2Ev.exit204 ]
+  %901 = phi i1 [ true, %.loopexit ], [ false, %652 ], [ false, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ true, %.preheader ], [ true, %887 ], [ false, %639 ], [ false, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ false, %_ZN4ncnn3MatD2Ev.exit204 ]
+  %.10 = phi i32 [ 0, %.loopexit ], [ %651, %652 ], [ %752, %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit ], [ 0, %.preheader ], [ 0, %887 ], [ -100, %_ZNK4ncnn3Mat5emptyEv.exit206 ], [ %636, %639 ], [ -100, %_ZN4ncnn3MatD2Ev.exit204 ]
   %902 = load ptr, ptr %8, align 8, !tbaa !62
   %903 = load ptr, ptr %900, align 8, !tbaa !109
   %.not4.i.i.i.i339 = icmp eq ptr %902, %903

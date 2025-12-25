@@ -600,7 +600,7 @@ bytestream2_get_byte.exit87:                      ; preds = %146, %150, %144
   %232 = icmp sgt i32 %231, 0
   br i1 %232, label %37, label %.thread245, !llvm.loop !43
 
-.thread245:                                       ; preds = %143, %.thread236, %135, %.lr.ph.split.us.split.split.i, %.lr.ph.split.us.split.split.us.i, %.lr.ph.split.split.i.cont, %90, %.lr.ph.split.split.us.i.cont, %74, %.lr.ph.split.us.split.split.i142, %.lr.ph.split.us.split.split.us.i155, %.lr.ph.split.us.split.us.split.i164, %.lr.ph.split.us.split.us.split.us.i172, %219, %.lr.ph.split.split.i124.cont, %.lr.ph.split.split.us.i132.cont, %203, %.lr.ph.split.us.split.us.split.i, %.lr.ph.split.us.split.us.split.us.i
+.thread245:                                       ; preds = %143, %.thread236, %135, %.lr.ph.split.us.split.split.i, %.lr.ph.split.us.split.split.us.i, %90, %.lr.ph.split.split.i.cont, %74, %.lr.ph.split.split.us.i.cont, %.lr.ph.split.us.split.split.i142, %.lr.ph.split.us.split.split.us.i155, %.lr.ph.split.us.split.us.split.i164, %.lr.ph.split.us.split.us.split.us.i172, %.lr.ph.split.split.i124.cont, %219, %.lr.ph.split.split.us.i132.cont, %203, %.lr.ph.split.us.split.us.split.i, %.lr.ph.split.us.split.us.split.us.i
   %233 = load ptr, ptr %6, align 8, !tbaa !29
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load ptr, ptr %234, align 8, !tbaa !39

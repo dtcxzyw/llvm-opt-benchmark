@@ -5287,7 +5287,7 @@ _store_item_copy_data.exit:                       ; preds = %.sink.split.i, %161
   tail call void @do_item_remove(ptr noundef nonnull %19) #34
   br label %.thread148
 
-.thread.thread159:                                ; preds = %156, %161, %151, %146
+.thread.thread159:                                ; preds = %151, %161, %156, %146
   tail call void @do_item_remove(ptr noundef nonnull %19) #34
   br label %229
 

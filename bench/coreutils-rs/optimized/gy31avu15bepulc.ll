@@ -855,59 +855,59 @@ define void @_ZN8uu_split11filter_args17h2df78d9015153365E(ptr noalias noundef w
 
 32:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit.i"
   %.not.i6.i = icmp eq i64 %29, 1
-  br i1 %.not.i6.i, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit10.thread.i"
+  br i1 %.not.i6.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit10.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit10.thread.i"
+
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit10.i": ; preds = %32
+  %33 = trunc nuw i8 %.val to i1
+  %34 = trunc nuw i8 %.val11 to i1
+  %35 = select i1 %33, i1 true, i1 %34
+  br i1 %35, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %46
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit10.thread.i": ; preds = %32
   %bcmp.i.i8.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.66d731aad004fadc267d2ec7cc952fb9.58, ptr noundef nonnull readonly align 1 dereferenceable(2) %27, i64 2), !alias.scope !118
-  %33 = icmp eq i32 %bcmp.i.i8.i, 0
-  %34 = trunc nuw i8 %.val to i1
-  %35 = select i1 %33, i1 true, i1 %34
-  %36 = trunc nuw i8 %.val11 to i1
-  %37 = select i1 %35, i1 true, i1 %36
-  br i1 %37, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit15.i"
+  %36 = icmp eq i32 %bcmp.i.i8.i, 0
+  %37 = trunc nuw i8 %.val to i1
+  %38 = select i1 %36, i1 true, i1 %37
+  %39 = trunc nuw i8 %.val11 to i1
+  %40 = select i1 %38, i1 true, i1 %39
+  br i1 %40, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit15.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit15.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit10.thread.i"
   %bcmp.i.i13.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.66d731aad004fadc267d2ec7cc952fb9.59, ptr noundef nonnull readonly align 1 dereferenceable(2) %27, i64 2), !alias.scope !125
-  %38 = icmp eq i32 %bcmp.i.i13.i, 0
-  br i1 %38, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit20.i"
+  %41 = icmp eq i32 %bcmp.i.i13.i, 0
+  br i1 %41, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit20.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit20.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit15.i"
   %bcmp.i.i18.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.66d731aad004fadc267d2ec7cc952fb9.60, ptr noundef nonnull readonly align 1 dereferenceable(2) %27, i64 2), !alias.scope !132
-  %39 = icmp eq i32 %bcmp.i.i18.i, 0
-  br i1 %39, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit25.i"
+  %42 = icmp eq i32 %bcmp.i.i18.i, 0
+  br i1 %42, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit25.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit25.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit20.i"
   %bcmp.i.i23.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.66d731aad004fadc267d2ec7cc952fb9.61, ptr noundef nonnull readonly align 1 dereferenceable(2) %27, i64 2), !alias.scope !139
-  %40 = icmp eq i32 %bcmp.i.i23.i, 0
-  br i1 %40, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit30.i"
+  %43 = icmp eq i32 %bcmp.i.i23.i, 0
+  br i1 %43, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit30.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit30.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit25.i"
   %bcmp.i.i28.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.66d731aad004fadc267d2ec7cc952fb9.62, ptr noundef nonnull readonly align 1 dereferenceable(2) %27, i64 2), !alias.scope !146
-  %41 = icmp eq i32 %bcmp.i.i28.i, 0
-  br i1 %41, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit35.i"
+  %44 = icmp eq i32 %bcmp.i.i28.i, 0
+  br i1 %44, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit35.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit35.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit30.i"
   %bcmp.i.i33.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.66d731aad004fadc267d2ec7cc952fb9.63, ptr noundef nonnull readonly align 1 dereferenceable(2) %27, i64 2), !alias.scope !153
-  %42 = icmp eq i32 %bcmp.i.i33.i, 0
-  br i1 %42, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE.exit.i37.i"
+  %45 = icmp eq i32 %bcmp.i.i33.i, 0
+  br i1 %45, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE.exit.i37.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit35.i"
+_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit35.i"
   %bcmp.i.i38.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.66d731aad004fadc267d2ec7cc952fb9.64, ptr noundef nonnull readonly align 1 dereferenceable(2) %27, i64 2), !alias.scope !160
   %.not = icmp eq i32 %bcmp.i.i38.i, 0
   br i1 %.not, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %46
 
-_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit: ; preds = %32
-  %43 = trunc nuw i8 %.val to i1
-  %44 = trunc nuw i8 %.val11 to i1
-  %45 = select i1 %43, i1 true, i1 %44
-  br i1 %45, label %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread, label %46
-
-_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread: ; preds = %30, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit15.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit20.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit25.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit30.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit35.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit10.thread.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE.exit.i37.i", %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit
+_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit.thread: ; preds = %30, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit15.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit20.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit25.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit30.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit35.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit10.thread.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit10.i", %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !167
   invoke void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 1 %27, i64 noundef %29)
           to label %108 unwind label %.body
 
-46:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9589c53a8d62512aE.exit.i37.i", %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit
+46:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hd9b8cee344c8959cE.exit10.i", %_ZN8uu_split24should_extract_obs_lines17h905e7fbe3d79f69fE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

@@ -1505,7 +1505,7 @@ cuddZddSiftingBackward.exit:                      ; preds = %152, %154, %136, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %163, %.loopexit.sink.split, %.loopexit188.i, %4
-  %.0 = phi i32 [ 0, %.loopexit.sink.split ], [ 0, %.loopexit188.i ], [ 1, %4 ], [ 1, %163 ]
+  %.0 = phi i32 [ 0, %.loopexit188.i ], [ 0, %.loopexit.sink.split ], [ 1, %4 ], [ 1, %163 ]
   ret i32 %.0
 }
 
@@ -2217,8 +2217,8 @@ cuddZddSiftingDown.exit240.i:                     ; preds = %246, %cuddZddSiftin
   br i1 %.not30.i253.i, label %.lr.ph.i, label %.lr.ph.split.i250.i, !llvm.loop !104
 
 .lr.ph.i:                                         ; preds = %281, %283, %266, %214, %216, %199, %95, %97, %80, %.preheader.i194.i, %.preheader.i249.i, %.preheader.i.i
-  %.1384.i = phi ptr [ %58, %.preheader.i.i ], [ %244, %.preheader.i249.i ], [ %156, %.preheader.i194.i ], [ %156, %214 ], [ %58, %95 ], [ %244, %266 ], [ %58, %80 ], [ %156, %199 ], [ %58, %97 ], [ %156, %216 ], [ %244, %283 ], [ %244, %281 ]
-  %.189383.i = phi ptr [ null, %.preheader.i.i ], [ %223, %.preheader.i249.i ], [ %177, %.preheader.i194.i ], [ %177, %214 ], [ null, %95 ], [ %223, %266 ], [ null, %80 ], [ %177, %199 ], [ null, %97 ], [ %177, %216 ], [ %223, %283 ], [ %223, %281 ]
+  %.1384.i = phi ptr [ %58, %.preheader.i.i ], [ %244, %.preheader.i249.i ], [ %156, %.preheader.i194.i ], [ %156, %199 ], [ %244, %266 ], [ %58, %95 ], [ %58, %80 ], [ %156, %214 ], [ %58, %97 ], [ %156, %216 ], [ %244, %283 ], [ %244, %281 ]
+  %.189383.i = phi ptr [ null, %.preheader.i.i ], [ %223, %.preheader.i249.i ], [ %177, %.preheader.i194.i ], [ %177, %199 ], [ %223, %266 ], [ null, %95 ], [ null, %80 ], [ %177, %214 ], [ null, %97 ], [ %177, %216 ], [ %223, %283 ], [ %223, %281 ]
   %.promoted.i = load ptr, ptr %38, align 8, !tbaa !88
   br label %286
 

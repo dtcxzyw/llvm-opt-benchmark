@@ -14398,7 +14398,7 @@ define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr no
   br label %86, !llvm.loop !285
 
 .loopexit:                                        ; preds = %147, %113, %63, %.thread, %67, %28
-  %202 = phi i64 [ 0, %.thread ], [ 0, %28 ], [ 0, %63 ], [ 0, %67 ], [ %87, %113 ], [ %87, %147 ]
+  %202 = phi i64 [ 0, %.thread ], [ 0, %28 ], [ 0, %67 ], [ 0, %63 ], [ %87, %113 ], [ %87, %147 ]
   %203 = load i16, ptr %4, align 8
   %204 = zext i16 %203 to i64
   %205 = and i64 %202, %204

@@ -6713,7 +6713,7 @@ _ZN18tree_sitter_loader5mtime17h2c85b39d6424743eE.exit.i: ; preds = %.noexc328, 
   br i1 %340, label %.loopexit525, label %318
 
 341:                                              ; preds = %.noexc329, %.noexc333
-  %.sroa.8468.0 = phi ptr [ %.sroa.033.0.ph.in.i, %.noexc333 ], [ %312, %.noexc329 ]
+  %.sroa.8468.0 = phi ptr [ %312, %.noexc329 ], [ %.sroa.033.0.ph.in.i, %.noexc333 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %342 = icmp ne ptr %.sroa.8468.0, null
   call void @llvm.assume(i1 %342)

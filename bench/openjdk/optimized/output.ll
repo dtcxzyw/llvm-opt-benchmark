@@ -7549,8 +7549,8 @@ _ZN10Scheduling18ChooseNodeToBundleEv.exit.thread: ; preds = %225, %.loopexit.i,
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.6, i32 noundef 2797, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #15
   unreachable
 
-_ZN10Scheduling18ChooseNodeToBundleEv.exit.thread70: ; preds = %243, %_ZN10Scheduling16NodeFitsInBundleEP4Node.exit.i, %_ZN10Scheduling18ChooseNodeToBundleEv.exit
-  %.0.i73 = phi ptr [ %293, %_ZN10Scheduling18ChooseNodeToBundleEv.exit ], [ %238, %_ZN10Scheduling16NodeFitsInBundleEP4Node.exit.i ], [ %238, %243 ]
+_ZN10Scheduling18ChooseNodeToBundleEv.exit.thread70: ; preds = %_ZN10Scheduling16NodeFitsInBundleEP4Node.exit.i, %243, %_ZN10Scheduling18ChooseNodeToBundleEv.exit
+  %.0.i73 = phi ptr [ %293, %_ZN10Scheduling18ChooseNodeToBundleEv.exit ], [ %238, %243 ], [ %238, %_ZN10Scheduling16NodeFitsInBundleEP4Node.exit.i ]
   tail call void @_ZN10Scheduling15AddNodeToBundleEP4NodePK5Block(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull %.0.i73, ptr noundef nonnull %38)
   %295 = load i32, ptr %24, align 8
   %.not59 = icmp eq i32 %295, 0
@@ -7856,7 +7856,7 @@ _ZNK10Node_ArrayixEj.exit.sink.split:             ; preds = %.loopexit, %4
   br label %_ZNK10Node_ArrayixEj.exit
 
 _ZNK10Node_ArrayixEj.exit:                        ; preds = %31, %_ZN10Scheduling16NodeFitsInBundleEP4Node.exit, %_ZNK10Node_ArrayixEj.exit.sink.split, %.loopexit, %4, %1
-  %.0 = phi ptr [ null, %.loopexit ], [ %83, %_ZNK10Node_ArrayixEj.exit.sink.split ], [ null, %1 ], [ null, %4 ], [ %26, %_ZN10Scheduling16NodeFitsInBundleEP4Node.exit ], [ %26, %31 ]
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %4 ], [ null, %1 ], [ %83, %_ZNK10Node_ArrayixEj.exit.sink.split ], [ %26, %_ZN10Scheduling16NodeFitsInBundleEP4Node.exit ], [ %26, %31 ]
   ret ptr %.0
 }
 
@@ -8206,7 +8206,7 @@ _ZNK10Node_ArrayixEj.exit46:                      ; preds = %_ZNK10Node_ArrayixE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %150, %.loopexit.loopexit.split.loop.exit, %134, %133, %_ZNK10Node_ArrayixEj.exit45, %127, %.loopexit51
-  %.1 = phi i32 [ %.055, %.loopexit51 ], [ %.055, %_ZNK10Node_ArrayixEj.exit45 ], [ %.055, %133 ], [ %.055, %127 ], [ 0, %134 ], [ %151, %.loopexit.loopexit.split.loop.exit ], [ %135, %150 ]
+  %.1 = phi i32 [ %.055, %_ZNK10Node_ArrayixEj.exit45 ], [ %.055, %.loopexit51 ], [ %.055, %133 ], [ %.055, %127 ], [ 0, %134 ], [ %151, %.loopexit.loopexit.split.loop.exit ], [ %135, %150 ]
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(28) %152, i32 noundef %.1, ptr noundef nonnull %1) #14
   %153 = load i32, ptr %10, align 8

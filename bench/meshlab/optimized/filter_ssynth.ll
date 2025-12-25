@@ -33165,8 +33165,8 @@ _ZNK3vcg6Point4IfEeqERKS1_.exit:                  ; preds = %114
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke1524, %._crit_edge1110, %411, %864, %1144, %160, %350
-  %.sroa.0843.01080 = phi ptr [ %.sroa.0843.01097, %.invoke1524 ], [ %.sroa.0843.0.lcssa, %350 ], [ %.sroa.0843.0.lcssa, %864 ], [ %.sroa.0843.0.lcssa, %._crit_edge1110 ], [ %.sroa.0843.0.lcssa, %1144 ], [ %.sroa.0843.0.lcssa, %411 ], [ %.sroa.0843.01097, %160 ]
-  %.sroa.0885.1.ph.ph.ph957 = phi ptr [ %.sroa.0885.01100, %.invoke1524 ], [ %.sroa.0885.0.lcssa, %350 ], [ %.sroa.0885.0.lcssa, %864 ], [ %.sroa.0885.0.lcssa, %._crit_edge1110 ], [ %.sroa.0885.0.lcssa, %1144 ], [ %.sroa.0885.0.lcssa, %411 ], [ %.sroa.0885.4, %160 ]
+  %.sroa.0843.01080 = phi ptr [ %.sroa.0843.0.lcssa, %1144 ], [ %.sroa.0843.0.lcssa, %350 ], [ %.sroa.0843.0.lcssa, %864 ], [ %.sroa.0843.0.lcssa, %._crit_edge1110 ], [ %.sroa.0843.01097, %.invoke1524 ], [ %.sroa.0843.0.lcssa, %411 ], [ %.sroa.0843.01097, %160 ]
+  %.sroa.0885.1.ph.ph.ph957 = phi ptr [ %.sroa.0885.0.lcssa, %1144 ], [ %.sroa.0885.0.lcssa, %350 ], [ %.sroa.0885.0.lcssa, %864 ], [ %.sroa.0885.0.lcssa, %._crit_edge1110 ], [ %.sroa.0885.01100, %.invoke1524 ], [ %.sroa.0885.0.lcssa, %411 ], [ %.sroa.0885.4, %160 ]
   %lpad.loopexit.split-lp959 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -34132,7 +34132,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i541: ; preds = %_ZN7QStringD2
   br label %.body567
 
 .loopexit.split-lp918.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %527, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i541, %568
-  %.sroa.0809.0.ph.ph.ph926 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i541 ], [ %.sroa.0809.31128, %568 ], [ %.sroa.0809.31128, %527 ], [ %.sroa.0809.1, %.invoke ]
+  %.sroa.0809.0.ph.ph.ph926 = phi ptr [ %.sroa.0809.1, %.invoke ], [ %.sroa.0809.31128, %568 ], [ %.sroa.0809.31128, %527 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i541 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body567

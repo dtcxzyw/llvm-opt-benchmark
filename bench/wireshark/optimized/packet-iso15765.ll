@@ -713,7 +713,7 @@ define internal noundef zeroext i1 @update_config_can_addr_mappings(ptr noundef 
   br label %.thread47
 
 .thread47:                                        ; preds = %.thread47.sink.split, %30, %27, %28, %31
-  %.0 = phi i1 [ true, %30 ], [ true, %27 ], [ true, %28 ], [ true, %31 ], [ false, %.thread47.sink.split ]
+  %.0 = phi i1 [ true, %30 ], [ true, %31 ], [ true, %28 ], [ true, %27 ], [ false, %.thread47.sink.split ]
   ret i1 %.0
 }
 

@@ -673,7 +673,7 @@ shm_mq_get_receiver.exit:                         ; preds = %39, %41
   br label %74
 
 74:                                               ; preds = %48, %55, %60, %.critedge
-  %.167 = phi i64 [ %.06689, %48 ], [ %69, %.critedge ], [ %.06689, %55 ], [ %.06689, %60 ]
+  %.167 = phi i64 [ %.06689, %48 ], [ %.06689, %60 ], [ %.06689, %55 ], [ %69, %.critedge ]
   %75 = icmp ult i64 %.167, %1
   br i1 %75, label %19, label %.thread, !llvm.loop !22
 

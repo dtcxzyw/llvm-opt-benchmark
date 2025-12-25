@@ -801,7 +801,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %14
   %21 = and i1 %20, %19
   br i1 %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread4, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread4: ; preds = %14, %12, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread4: ; preds = %12, %14, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %22 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_10GfMatrix4dEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %0, double %2)
   br i1 %22, label %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
@@ -858,7 +858,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %20 = and i1 %19, %18
   br i1 %20, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread10, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread10: ; preds = %.noexc, %11, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread10: ; preds = %11, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %21 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7TfTokenEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %0, double 0x7FF8000000000000)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7TfTokenEEEbPT_NS_11UsdTimeCodeE.exit unwind label %58
 
@@ -2533,7 +2533,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuery7IsValidEv.exit.thre
 48:                                               ; preds = %46
   br i1 %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuery7IsValidEv.exit.thread38, label %.critedge
 
-_ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuery7IsValidEv.exit.thread38: ; preds = %.noexc, %31, %_ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuery7IsValidEv.exit, %48
+_ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuery7IsValidEv.exit.thread38: ; preds = %31, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQuery7IsValidEv.exit, %48
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvar9IsPrimvarERKNS_12UsdAttributeE(ptr noundef nonnull align 8 dereferenceable(44) %49)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvarcvbEv.exit unwind label %68
@@ -4802,7 +4802,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc50
   %263 = and i1 %262, %261
   br i1 %263, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread101, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperEED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread101: ; preds = %.noexc50, %254, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread101: ; preds = %254, %.noexc50, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %264 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7TfTokenEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %12, double 0x7FF8000000000000)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7VtArrayINS_7TfTokenEEEEEbPT_NS_11UsdTimeCodeE.exit unwind label %320
 
@@ -4993,7 +4993,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit68: ; preds = %.noexc6
   %337 = and i1 %336, %335
   br i1 %337, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit68.thread105, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperEED2Ev.exit92
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit68.thread105: ; preds = %.noexc67, %328, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit68
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit68.thread105: ; preds = %328, %.noexc67, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit68
   %338 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7VtArrayINS_7TfTokenEEEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %12, double 0x7FF8000000000000)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7VtArrayINS_7TfTokenEEEEEbPT_NS_11UsdTimeCodeE.exit70 unwind label %320
 
@@ -5346,7 +5346,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %19
   %26 = and i1 %25, %24
   br i1 %26, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread39, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit33
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread39: ; preds = %19, %17, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread39: ; preds = %17, %19, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %27 = load i32, ptr %2, align 8
   switch i32 %27, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit33 [
     i32 4, label %28
@@ -5385,7 +5385,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20: ; preds = %36
   %43 = and i1 %42, %41
   br i1 %43, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20.thread43, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit33
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20.thread43: ; preds = %36, %34, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20.thread43: ; preds = %34, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvar14GetElementSizeEv(ptr noundef nonnull align 8 dereferenceable(44) %44)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -5726,7 +5726,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %13
   %20 = and i1 %19, %18
   br i1 %20, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread11, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread11: ; preds = %13, %11, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread11: ; preds = %11, %13, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %21 = load i32, ptr %2, align 8
   switch i32 %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread [
     i32 4, label %22
@@ -5769,7 +5769,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit8: ; preds = %30
   %or.cond = select i1 %37, i1 %40, i1 false
   br i1 %or.cond, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit8.thread15: ; preds = %30, %28
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit8.thread15: ; preds = %28, %30
   %.old = getelementptr inbounds nuw i8, ptr %0, i64 288
   %.old17 = load ptr, ptr %.old, align 8
   %.old18.not = icmp eq ptr %.old17, null

@@ -157,7 +157,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocrt_reg_prop(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %.sink.split, %17, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %17 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %1 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

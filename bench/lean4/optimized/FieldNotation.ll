@@ -19413,8 +19413,8 @@ lean_alloc_ctor.exit293:                          ; preds = %lean_dec.exit176
   br label %.thread306
 
 lean_dec.exit180:                                 ; preds = %lean_inc.exit165, %354, %356, %357, %320, %319, %317, %lean_inc.exit167
-  %.1153 = phi ptr [ %305, %320 ], [ %305, %lean_inc.exit167 ], [ %305, %317 ], [ %305, %319 ], [ %340, %357 ], [ %340, %356 ], [ %340, %354 ], [ %340, %lean_inc.exit165 ]
-  %.1151 = phi ptr [ %45, %320 ], [ %45, %lean_inc.exit167 ], [ %45, %317 ], [ %45, %319 ], [ %330, %357 ], [ %330, %356 ], [ %330, %354 ], [ %330, %lean_inc.exit165 ]
+  %.1153 = phi ptr [ %305, %lean_inc.exit167 ], [ %305, %320 ], [ %305, %319 ], [ %305, %317 ], [ %340, %357 ], [ %340, %356 ], [ %340, %354 ], [ %340, %lean_inc.exit165 ]
+  %.1151 = phi ptr [ %45, %lean_inc.exit167 ], [ %45, %320 ], [ %45, %319 ], [ %45, %317 ], [ %330, %357 ], [ %330, %356 ], [ %330, %354 ], [ %330, %lean_inc.exit165 ]
   %400 = tail call zeroext i8 @l_Lean_Exception_isInterrupt(ptr noundef %.1151) #4
   %401 = icmp eq i8 %400, 0
   br i1 %401, label %402, label %422

@@ -2249,7 +2249,7 @@ _ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread.fold.split: ; preds = 
   br label %_ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread
 
 _ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread: ; preds = %3, %_Z9is_forallPK3ast.exit, %_ZNK3hnf3imp12is_predicateEP4expr.exit.thread29, %_ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread.fold.split, %36, %27, %12, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i, %23, %.loopexit, %_ZNK3hnf3imp12is_predicateEP4expr.exit, %.critedge, %_ZNK3hnf3imp12is_predicateEP4expr.exit20.thread
-  %.015 = phi i1 [ false, %_ZNK3hnf3imp12is_predicateEP4expr.exit20.thread ], [ true, %_ZNK3hnf3imp12is_predicateEP4expr.exit.thread29 ], [ false, %36 ], [ true, %.critedge ], [ false, %.loopexit ], [ false, %_ZNK3hnf3imp12is_predicateEP4expr.exit ], [ false, %_ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread.fold.split ], [ false, %23 ], [ false, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i ], [ false, %27 ], [ false, %12 ], [ false, %_Z9is_forallPK3ast.exit ], [ false, %3 ]
+  %.015 = phi i1 [ false, %_ZNK3hnf3imp12is_predicateEP4expr.exit20.thread ], [ true, %_ZNK3hnf3imp12is_predicateEP4expr.exit.thread29 ], [ false, %36 ], [ true, %.critedge ], [ false, %.loopexit ], [ false, %_ZNK3hnf3imp12is_predicateEP4expr.exit ], [ false, %27 ], [ false, %23 ], [ false, %_ZNK11ast_manager10is_impliesEPK4expr.exit.i ], [ false, %_ZNK11ast_manager10is_impliesEPK4exprRPS0_S4_.exit.thread.fold.split ], [ false, %12 ], [ false, %_Z9is_forallPK3ast.exit ], [ false, %3 ]
   ret i1 %.015
 }
 

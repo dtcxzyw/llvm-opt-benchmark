@@ -594,7 +594,7 @@ Py_DECREF.exit42:                                 ; preds = %Py_DECREF.exit, %30
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Py_DECREF.exit42, %36, %38, %.loopexit.sink.split, %5
-  %.0 = phi i32 [ 0, %5 ], [ -1, %.loopexit.sink.split ], [ 0, %38 ], [ -1, %Py_DECREF.exit42 ], [ 0, %36 ]
+  %.0 = phi i32 [ 0, %5 ], [ -1, %.loopexit.sink.split ], [ -1, %Py_DECREF.exit42 ], [ 0, %38 ], [ 0, %36 ]
   ret i32 %.0
 }
 
@@ -1122,7 +1122,7 @@ Py_DECREF.exit.i:                                 ; preds = %76, %73, %Py_DECREF
   br label %.critedge
 
 .critedge:                                        ; preds = %Py_DECREF.exit, %81, %79, %Py_DECREF.exit.i, %.critedge.sink.split, %50
-  %.0 = phi i32 [ 0, %81 ], [ 0, %50 ], [ -1, %.critedge.sink.split ], [ -1, %Py_DECREF.exit.i ], [ 0, %79 ], [ -1, %Py_DECREF.exit ]
+  %.0 = phi i32 [ 0, %50 ], [ 0, %79 ], [ -1, %.critedge.sink.split ], [ -1, %Py_DECREF.exit.i ], [ 0, %81 ], [ -1, %Py_DECREF.exit ]
   ret i32 %.0
 }
 

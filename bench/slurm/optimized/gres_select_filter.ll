@@ -1487,8 +1487,8 @@ _set_used_cnts.exit:                              ; preds = %._crit_edge.i
   br label %.loopexit180.i
 
 .loopexit180.i:                                   ; preds = %.loopexit179.i, %.preheader178.lr.ph.i, %.loopexit180.sink.split.i, %198
-  %.1137.i = phi i32 [ %.0136196.i, %.loopexit180.sink.split.i ], [ %199, %198 ], [ %199, %.preheader178.lr.ph.i ], [ %199, %.loopexit179.i ]
-  %.1130.i = phi i32 [ %285, %.loopexit180.sink.split.i ], [ %.0129197.i, %198 ], [ %.0129197.i, %.preheader178.lr.ph.i ], [ %.4.i, %.loopexit179.i ]
+  %.1137.i = phi i32 [ %199, %198 ], [ %.0136196.i, %.loopexit180.sink.split.i ], [ %199, %.preheader178.lr.ph.i ], [ %199, %.loopexit179.i ]
+  %.1130.i = phi i32 [ %.0129197.i, %198 ], [ %285, %.loopexit180.sink.split.i ], [ %.0129197.i, %.preheader178.lr.ph.i ], [ %.4.i, %.loopexit179.i ]
   %286 = load i32, ptr %13, align 4
   %287 = add nsw i32 %286, 1
   store i32 %287, ptr %13, align 4
@@ -3006,9 +3006,9 @@ define internal fastcc void @_set_sock_bits(i32 noundef %0, ptr noundef readonly
   br i1 %exitcond.not, label %.preheader204, label %.lr.ph, !llvm.loop !47
 
 .thread:                                          ; preds = %98, %._crit_edge.us, %84, %79, %.preheader204, %92, %50, %37, %34, %30, %9
-  %143 = phi ptr [ %4, %9 ], [ %70, %79 ], [ %4, %30 ], [ %4, %34 ], [ %4, %37 ], [ %43, %50 ], [ %43, %92 ], [ %142, %.preheader204 ], [ %85, %84 ], [ %142, %._crit_edge.us ], [ %142, %98 ]
-  %.0142 = phi i32 [ %7, %9 ], [ %80, %79 ], [ %7, %30 ], [ %7, %34 ], [ %7, %37 ], [ %7, %50 ], [ %7, %92 ], [ %.4146, %.preheader204 ], [ %.2144, %84 ], [ %101, %98 ], [ %.5147215.us, %._crit_edge.us ]
-  %.0138 = phi i1 [ false, %9 ], [ true, %84 ], [ false, %30 ], [ false, %34 ], [ false, %37 ], [ true, %50 ], [ true, %92 ], [ true, %.preheader204 ], [ true, %79 ], [ true, %._crit_edge.us ], [ true, %98 ]
+  %143 = phi ptr [ %4, %9 ], [ %4, %34 ], [ %4, %30 ], [ %70, %79 ], [ %4, %37 ], [ %43, %50 ], [ %43, %92 ], [ %142, %.preheader204 ], [ %85, %84 ], [ %142, %._crit_edge.us ], [ %142, %98 ]
+  %.0142 = phi i32 [ %7, %9 ], [ %7, %34 ], [ %7, %30 ], [ %80, %79 ], [ %7, %37 ], [ %7, %50 ], [ %7, %92 ], [ %.4146, %.preheader204 ], [ %.2144, %84 ], [ %101, %98 ], [ %.5147215.us, %._crit_edge.us ]
+  %.0138 = phi i1 [ false, %9 ], [ false, %34 ], [ false, %30 ], [ true, %84 ], [ false, %37 ], [ true, %50 ], [ true, %92 ], [ true, %.preheader204 ], [ true, %79 ], [ true, %._crit_edge.us ], [ true, %98 ]
   %144 = getelementptr inbounds nuw i8, ptr %20, i64 68
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, %29

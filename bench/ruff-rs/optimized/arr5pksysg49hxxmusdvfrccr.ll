@@ -16605,21 +16605,21 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h4b0777fbfcaab3bcE.exit.thread.
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2b5e77b01cbffc5E.exit"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2b5e77b01cbffc5E.exit": ; preds = %13, %9
-  %.sink18.in = phi ptr [ %.sroa.96.0.copyload, %13 ], [ %.sroa.5.0.copyload, %9 ]
-  %.sink.in = phi ptr [ %.sroa.10.0.copyload, %13 ], [ %.sroa.63.0.copyload, %9 ]
   %.sroa.9.0.sink = phi ptr [ %.sroa.9.0, %13 ], [ %.sroa.0.0, %9 ]
   %.sroa.9.2 = phi ptr [ %14, %13 ], [ %.sroa.9.0, %9 ]
+  %.sroa.68.1 = phi ptr [ %.sroa.96.0.copyload, %13 ], [ %.sroa.5.0.copyload, %9 ]
+  %.sroa.79.1 = phi ptr [ %.sroa.10.0.copyload, %13 ], [ %.sroa.63.0.copyload, %9 ]
   %.sroa.0.3 = phi ptr [ null, %13 ], [ %10, %9 ]
   %.sink.i = phi i8 [ 1, %13 ], [ 0, %9 ]
-  %.sink = icmp ne ptr %.sink.in, null
-  %.sink18 = icmp ne ptr %.sink18.in, null
+  %.sink = icmp ne ptr %.sroa.79.1, null
+  %.sink18 = icmp ne ptr %.sroa.68.1, null
   call void @llvm.assume(i1 %.sink18)
   call void @llvm.assume(i1 %.sink)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0.sink, i64 16, i1 false), !noalias !2029
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07, i64 16, i1 false)
-  store ptr %.sink18.in, ptr %.sroa.68.0..sroa_idx, align 8
-  store ptr %.sink.in, ptr %.sroa.79.0..sroa_idx, align 8
+  store ptr %.sroa.68.1, ptr %.sroa.68.0..sroa_idx, align 8
+  store ptr %.sroa.79.1, ptr %.sroa.79.0..sroa_idx, align 8
   store i8 %.sink.i, ptr %.sroa.810.0..sroa_idx, align 8
   %15 = call noundef align 8 dereferenceable(32) ptr @_ZN7ruff_db7display4Join5entry17h55b6dbb5fdb14547E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d97261724ce1fa66ecdc8f9dbb5efb85.183)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

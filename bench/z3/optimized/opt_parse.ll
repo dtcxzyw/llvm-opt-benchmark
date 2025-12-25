@@ -5046,7 +5046,7 @@ define linkonce_odr hidden void @_ZN3opb8parse_idEv(ptr dead_on_unwind noalias w
   br i1 %22, label %10, label %_ZN17opt_stream_buffer11parse_tokenEPKc.exit, !llvm.loop !12
 
 _ZN17opt_stream_buffer11parse_tokenEPKc.exit:     ; preds = %13, %.critedge.thread.i.i, %.lr.ph.i.preheader, %2
-  %.not.lcssa.i = phi i1 [ true, %.lr.ph.i.preheader ], [ false, %2 ], [ false, %.critedge.thread.i.i ], [ false, %13 ]
+  %.not.lcssa.i = phi i1 [ false, %2 ], [ true, %.lr.ph.i.preheader ], [ false, %.critedge.thread.i.i ], [ false, %13 ]
   %23 = load ptr, ptr %4, align 8, !tbaa !143
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !3

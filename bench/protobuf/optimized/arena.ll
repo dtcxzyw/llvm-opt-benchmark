@@ -2019,8 +2019,8 @@ invoke.cont.sink.split.sink.split:                ; preds = %while.end.i, %if.th
   br label %invoke.cont.sink.split
 
 invoke.cont.sink.split:                           ; preds = %invoke.cont.sink.split.sink.split, %if.then16.i.i, %if.end18.i.i
-  %mem.sroa.0.0.i.sink6 = phi ptr [ %call20.i.i3, %if.end18.i.i ], [ %call.i7.i.i2, %if.then16.i.i ], [ %mem, %invoke.cont.sink.split.sink.split ]
-  %mem.sroa.3.0.i.sink = phi i64 [ %.sroa.speculated.i.i, %if.end18.i.i ], [ %.sroa.speculated.i.i, %if.then16.i.i ], [ %size, %invoke.cont.sink.split.sink.split ]
+  %mem.sroa.0.0.i.sink6 = phi ptr [ %call.i7.i.i2, %if.then16.i.i ], [ %call20.i.i3, %if.end18.i.i ], [ %mem, %invoke.cont.sink.split.sink.split ]
+  %mem.sroa.3.0.i.sink = phi i64 [ %.sroa.speculated.i.i, %if.then16.i.i ], [ %.sroa.speculated.i.i, %if.end18.i.i ], [ %size, %invoke.cont.sink.split.sink.split ]
   %size3.i.i = getelementptr inbounds nuw i8, ptr %mem.sroa.0.0.i.sink6, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mem.sroa.0.0.i.sink6, i8 0, i64 16, i1 false)
   store i64 %mem.sroa.3.0.i.sink, ptr %size3.i.i, align 8

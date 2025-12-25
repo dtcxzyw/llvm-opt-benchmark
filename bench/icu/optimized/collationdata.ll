@@ -1100,7 +1100,7 @@ _ZNK6icu_7713CollationData14getScriptIndexEi.exit173: ; preds = %151, %155
   br label %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread
 
 _ZNK6icu_7713CollationData14getScriptIndexEi.exit173.thread: ; preds = %147, %153, %164, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173
-  %.5 = phi i32 [ %183, %164 ], [ %.3122223, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173 ], [ %.3122223, %153 ], [ %.3122223, %147 ]
+  %.5 = phi i32 [ %.3122223, %_ZNK6icu_7713CollationData14getScriptIndexEi.exit173 ], [ %183, %164 ], [ %.3122223, %153 ], [ %.3122223, %147 ]
   %exitcond263.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count262
   br i1 %exitcond263.not, label %.thread182, label %99
 

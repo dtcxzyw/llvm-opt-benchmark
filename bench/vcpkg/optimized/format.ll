@@ -22063,7 +22063,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEE
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -22285,7 +22285,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_check
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread11, label %35
 
@@ -26880,7 +26880,7 @@ _ZZN3fmt3v116detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %295 = trunc nuw i32 %294 to i1
   br i1 %295, label %.critedge149, label %.critedge151
 
-.critedge149.thread:                              ; preds = %284, %272, %220, %216, %_ZZN3fmt3v116detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit166.thread, %280
+.critedge149.thread:                              ; preds = %272, %284, %220, %216, %_ZZN3fmt3v116detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit166.thread, %280
   %296 = load ptr, ptr %3, align 8, !tbaa !20
   %297 = zext nneg i32 %.0211 to i64
   %298 = getelementptr i8, ptr %296, i64 %297
@@ -26950,8 +26950,8 @@ _ZZN3fmt3v116detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   store i32 %332, ptr %5, align 4, !tbaa !70
   br label %.critedge151
 
-.critedge151:                                     ; preds = %284, %272, %220, %282, %218, %.critedge, %331, %327, %288
-  %.1212 = phi i32 [ %328, %327 ], [ %.0211, %331 ], [ %.0211, %.critedge ], [ %.0211, %288 ], [ 9, %218 ], [ 18, %282 ], [ 9, %220 ], [ %.0211, %272 ], [ 18, %284 ]
+.critedge151:                                     ; preds = %272, %284, %220, %282, %218, %.critedge, %331, %327, %288
+  %.1212 = phi i32 [ %328, %327 ], [ %.0211, %331 ], [ %.0211, %.critedge ], [ %.0211, %288 ], [ 9, %218 ], [ 18, %282 ], [ 9, %220 ], [ 18, %284 ], [ %.0211, %272 ]
   %333 = zext nneg i32 %.1212 to i64
   %334 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %335 = load i64, ptr %334, align 8, !tbaa !21

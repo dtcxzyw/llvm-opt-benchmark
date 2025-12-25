@@ -5311,7 +5311,7 @@ _Z16yy_delete_bufferP15yy_buffer_statePv.exit.i:  ; preds = %33, %.critedge.i.i
   br label %_Z18yypop_buffer_statePv.exit
 
 _Z18yypop_buffer_statePv.exit:                    ; preds = %26, %45, %49
-  %58 = phi ptr [ %44, %49 ], [ %25, %26 ], [ %44, %45 ]
+  %58 = phi ptr [ %44, %45 ], [ %25, %26 ], [ %44, %49 ]
   %59 = load i64, ptr %2, align 8
   %60 = getelementptr inbounds ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
@@ -7707,7 +7707,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost2io18basic_altstringbufIcSt11char_tra
   br label %64
 
 64:                                               ; preds = %.sink.split, %13, %27, %36, %20, %18, %49, %46, %44
-  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %13 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %49 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
+  %.sroa.021.0 = phi i64 [ -1, %46 ], [ -1, %49 ], [ %1, %36 ], [ %1, %27 ], [ -1, %44 ], [ -1, %13 ], [ -1, %18 ], [ -1, %20 ], [ %1, %.sink.split ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 0, 1
   ret { i64, i64 } %.fca.1.insert

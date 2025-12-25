@@ -4043,7 +4043,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge135, %41, %.thread.sink.split, %.preheader
-  %.sink = phi i64 [ 0, %.preheader ], [ 1, %.thread.sink.split ], [ 0, %41 ], [ 0, %._crit_edge135 ]
+  %.sink = phi i64 [ 1, %.thread.sink.split ], [ 0, %.preheader ], [ 0, %41 ], [ 0, %._crit_edge135 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
@@ -4377,7 +4377,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge135, %37, %.thread.sink.split, %.preheader
-  %.sink = phi i64 [ 0, %.preheader ], [ 1, %.thread.sink.split ], [ 0, %37 ], [ 0, %._crit_edge135 ]
+  %.sink = phi i64 [ 1, %.thread.sink.split ], [ 0, %.preheader ], [ 0, %37 ], [ 0, %._crit_edge135 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

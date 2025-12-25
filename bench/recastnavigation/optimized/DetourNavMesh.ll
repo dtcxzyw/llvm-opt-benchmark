@@ -2433,7 +2433,7 @@ _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb0EEEvPK10dtMeshTilePK6dtPolyPKfPf
   br label %174
 
 174:                                              ; preds = %.sink.split, %45, %._crit_edge, %5
-  %.044 = phi i1 [ false, %5 ], [ true, %45 ], [ false, %._crit_edge ], [ true, %.sink.split ]
+  %.044 = phi i1 [ false, %5 ], [ false, %._crit_edge ], [ true, %45 ], [ true, %.sink.split ]
   ret i1 %.044
 }
 

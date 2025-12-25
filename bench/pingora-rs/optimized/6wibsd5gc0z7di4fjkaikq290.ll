@@ -8547,11 +8547,11 @@ _ZN12pingora_core9protocols4http11compression26depends_on_accept_encoding17h34f4
   br i1 %122, label %143, label %.split2.i.i.i.i.i.i.i.i
 
 .split2.i.i.i.i.i.i.i.i:                          ; preds = %115, %121, %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i", %.loopexit.i.i.i.i.i.i, %98
-  %123 = phi i1 [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i" ], [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %.loopexit.i.i.i.i.i.i ], [ true, %98 ], [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %121 ], [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %115 ]
-  %124 = phi ptr [ %113, %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i" ], [ %113, %.loopexit.i.i.i.i.i.i ], [ %100, %98 ], [ %113, %121 ], [ %113, %115 ]
-  %125 = phi i64 [ %112, %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i" ], [ %112, %.loopexit.i.i.i.i.i.i ], [ 0, %98 ], [ %112, %121 ], [ %112, %115 ]
-  %.sroa.8.1.lcssa.i4.i.i.i.i.i.i = phi i64 [ %.sroa.8.19.i.i.i.i.i.i.i, %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i" ], [ 0, %.loopexit.i.i.i.i.i.i ], [ 0, %98 ], [ 0, %121 ], [ 0, %115 ]
-  %.sroa.0.0.lcssa19.i3.i.i.i.i.i.i = phi ptr [ %.sroa.0.03.i.i.i.i.i.i.i, %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i" ], [ %100, %.loopexit.i.i.i.i.i.i ], [ %100, %98 ], [ %.sroa.0.03.i.i.i.i.i.i.i, %121 ], [ %scevgep.i.i.i.i.i.i.i, %115 ]
+  %123 = phi i1 [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i" ], [ true, %98 ], [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %.loopexit.i.i.i.i.i.i ], [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %121 ], [ %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, %115 ]
+  %124 = phi ptr [ %113, %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i" ], [ %100, %98 ], [ %113, %.loopexit.i.i.i.i.i.i ], [ %113, %121 ], [ %113, %115 ]
+  %125 = phi i64 [ %112, %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i" ], [ 0, %98 ], [ %112, %.loopexit.i.i.i.i.i.i ], [ %112, %121 ], [ %112, %115 ]
+  %.sroa.8.1.lcssa.i4.i.i.i.i.i.i = phi i64 [ %.sroa.8.19.i.i.i.i.i.i.i, %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i" ], [ 0, %98 ], [ 0, %.loopexit.i.i.i.i.i.i ], [ 0, %121 ], [ 0, %115 ]
+  %.sroa.0.0.lcssa19.i3.i.i.i.i.i.i = phi ptr [ %.sroa.0.03.i.i.i.i.i.i.i, %"_ZN12pingora_core9protocols4http11compression15add_vary_header28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h28f1dee9d6d6c053E.exit.i.i.i.i.i.i" ], [ %100, %98 ], [ %100, %.loopexit.i.i.i.i.i.i ], [ %.sroa.0.03.i.i.i.i.i.i.i, %121 ], [ %scevgep.i.i.i.i.i.i.i, %115 ]
   %126 = call { ptr, i64 } @"_ZN91_$LT$http..header..name..HeaderName$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u5d$$GT$$GT$6as_ref17h91d22b56130d69daE"(ptr noundef nonnull align 8 @anon.8e071d1b15d522c405dc2a4db65745c3.175), !noalias !746
   %127 = extractvalue { ptr, i64 } %126, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !747)
@@ -11444,8 +11444,8 @@ _ZN12pingora_core9protocols4http2v16client11HttpSession23is_connection_keepalive
   br label %"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h94ae65e2f8b0b215E.exit.i"
 
 "_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h94ae65e2f8b0b215E.exit.i": ; preds = %117, %115, %106, %.preheader44.i.i, %126, %.lr.ph.i.i, %132, %97, %97, %93, %91, %88
-  %.sroa.010.1.i = phi i1 [ %.sroa.010.097.i, %88 ], [ %.sroa.010.097.i, %91 ], [ %.sroa.010.097.i, %132 ], [ %125, %126 ], [ false, %93 ], [ false, %97 ], [ false, %97 ], [ %125, %.lr.ph.i.i ], [ %.not.i.not.i, %.preheader44.i.i ], [ %.not.i.not.i, %106 ], [ %.not.i.not.i, %115 ], [ %.not.i.not.i, %117 ]
-  %.sroa.4.1.i = phi i64 [ %.sroa.4.098.i, %88 ], [ %.sroa.4.098.i, %91 ], [ %.sroa.4.098.i, %132 ], [ %131, %126 ], [ undef, %93 ], [ undef, %97 ], [ undef, %97 ], [ undef, %.lr.ph.i.i ], [ undef, %106 ], [ %.sroa.013.0.i.i, %.preheader44.i.i ], [ undef, %117 ], [ undef, %115 ]
+  %.sroa.010.1.i = phi i1 [ %.sroa.010.097.i, %88 ], [ %.sroa.010.097.i, %91 ], [ false, %97 ], [ %.sroa.010.097.i, %132 ], [ false, %93 ], [ false, %97 ], [ %125, %126 ], [ %125, %.lr.ph.i.i ], [ %.not.i.not.i, %.preheader44.i.i ], [ %.not.i.not.i, %106 ], [ %.not.i.not.i, %115 ], [ %.not.i.not.i, %117 ]
+  %.sroa.4.1.i = phi i64 [ %.sroa.4.098.i, %88 ], [ %.sroa.4.098.i, %91 ], [ undef, %97 ], [ %.sroa.4.098.i, %132 ], [ undef, %93 ], [ undef, %97 ], [ %131, %126 ], [ undef, %.lr.ph.i.i ], [ undef, %106 ], [ %.sroa.013.0.i.i, %.preheader44.i.i ], [ undef, %117 ], [ undef, %115 ]
   %89 = load i8, ptr %.sroa.519.0..sroa_idx.i, align 1, !range !57, !alias.scope !1036, !noalias !1016, !noundef !16
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %_ZN12pingora_core9protocols4http2v16client11HttpSession20get_keepalive_values17h501c1cf38b1a34d1E.exit, label %58
@@ -12331,12 +12331,12 @@ thread-pre-split.i:                               ; preds = %24
   %98 = icmp samesign ugt i64 %96, 1
   br i1 %98, label %116, label %115
 
-"_ZN4core3num21_$LT$impl$u20$i64$GT$16from_ascii_radix17h68e410d08ce302e6E.exit.thread14": ; preds = %.preheader81.i, %.preheader.i
+"_ZN4core3num21_$LT$impl$u20$i64$GT$16from_ascii_radix17h68e410d08ce302e6E.exit.thread14": ; preds = %.preheader.i, %.preheader81.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %114
 
 "_ZN4core3num21_$LT$impl$u20$i64$GT$16from_ascii_radix17h68e410d08ce302e6E.exit": ; preds = %.preheader83.i, %62, %.preheader79.i, %90
-  %.sroa.1410.0 = phi i64 [ %67, %62 ], [ %95, %90 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1410.0 = phi i64 [ %95, %90 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %67, %62 ], [ %.sroa.023.3.i, %.preheader83.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %.sroa.1410.0, ptr %11, align 8
   %99 = icmp sgt i64 %.sroa.1410.0, -1

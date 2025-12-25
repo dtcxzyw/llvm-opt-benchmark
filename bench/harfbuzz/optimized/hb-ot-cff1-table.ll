@@ -674,7 +674,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit: ; preds = %121, %130
-  %.03.i15 = phi i32 [ %126, %121 ], [ %135, %130 ]
+  %.03.i15 = phi i32 [ %135, %130 ], [ %126, %121 ]
   switch i32 %.03.i15, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread [
     i32 256, label %136
     i32 14, label %137
@@ -1156,7 +1156,7 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit: ; preds = %118, %127
-  %.03.i17 = phi i32 [ %123, %118 ], [ %132, %127 ]
+  %.03.i17 = phi i32 [ %132, %127 ], [ %123, %118 ]
   switch i32 %.03.i17, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread [
     i32 256, label %133
     i32 14, label %134
@@ -1793,7 +1793,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3CFF16cs_interpreter_tINS_2
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit: ; preds = %11, %20
-  %.03.i = phi i32 [ %16, %11 ], [ %25, %20 ]
+  %.03.i = phi i32 [ %25, %20 ], [ %16, %11 ]
   switch i32 %.03.i, label %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread [
     i32 256, label %26
     i32 14, label %29

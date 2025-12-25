@@ -979,8 +979,8 @@ process_zlib_error.exit102:                       ; preds = %75, %76
   store i32 0, ptr %9, align 4, !tbaa !103
   br label %exit_zlib.exit90.thread
 
-exit_zlib.exit90.thread:                          ; preds = %51, %70, %82, %52, %72, %84, %48, %process_zlib_error.exit.i
-  %.169 = phi i32 [ %41, %48 ], [ %41, %process_zlib_error.exit.i ], [ 61, %70 ], [ 61, %82 ], [ %53, %52 ], [ 61, %84 ], [ 61, %72 ], [ 0, %51 ]
+exit_zlib.exit90.thread:                          ; preds = %51, %70, %84, %52, %72, %82, %48, %process_zlib_error.exit.i
+  %.169 = phi i32 [ %41, %48 ], [ %41, %process_zlib_error.exit.i ], [ 61, %70 ], [ 61, %84 ], [ %53, %52 ], [ 61, %82 ], [ 61, %72 ], [ 0, %51 ]
   %86 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   tail call void %86(ptr noundef nonnull %19) #8
   %.not80 = icmp eq i32 %7, 0

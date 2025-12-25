@@ -3907,7 +3907,7 @@ unlock_ref.exit.sink.split:                       ; preds = %53, %16, %30
   br label %unlock_ref.exit
 
 unlock_ref.exit:                                  ; preds = %unlock_ref.exit.sink.split, %53, %24, %10, %51
-  %.0 = phi i32 [ -1, %53 ], [ 0, %51 ], [ -1, %24 ], [ -1, %10 ], [ -1, %unlock_ref.exit.sink.split ]
+  %.0 = phi i32 [ -1, %24 ], [ 0, %51 ], [ -1, %53 ], [ -1, %10 ], [ -1, %unlock_ref.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -4582,7 +4582,7 @@ define internal fastcc i32 @raceproof_create_file(ptr noundef %0, ptr noundef re
   br i1 %31, label %27, label %.thread, !llvm.loop !162
 
 .thread:                                          ; preds = %21, %11, %12, %19, %7, %27, %30
-  %32 = phi i32 [ %10, %11 ], [ 2, %27 ], [ 2, %30 ], [ 21, %19 ], [ %10, %7 ], [ 21, %12 ], [ 2, %21 ]
+  %32 = phi i32 [ 2, %27 ], [ %10, %11 ], [ 2, %30 ], [ 21, %19 ], [ %10, %7 ], [ 21, %12 ], [ 2, %21 ]
   call void @strbuf_release(ptr noundef nonnull %4) #20
   store i32 %32, ptr %9, align 4, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -2945,7 +2945,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i:     ; preds = %151, %158
 207:                                              ; preds = %187
   br i1 %.0.i121, label %208, label %.critedge
 
-208:                                              ; preds = %202, %199, %192, %207
+208:                                              ; preds = %192, %199, %202, %207
   %209 = load ptr, ptr %12, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 8, !tbaa !3
@@ -2965,7 +2965,7 @@ _ZN11mpz_managerILb0EE3incER3mpz.exit127:         ; preds = %208
           cleanup
   br label %293
 
-.critedge:                                        ; preds = %202, %199, %192, %_ZN11mpz_managerILb0EE3incER3mpz.exit127, %187, %206, %207
+.critedge:                                        ; preds = %192, %199, %202, %_ZN11mpz_managerILb0EE3incER3mpz.exit127, %187, %206, %207
   %214 = load i32, ptr %2, align 8
   %215 = lshr i32 %214, 15
   %216 = and i32 %215, 65535
@@ -9327,7 +9327,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %._ZN11mpz_managerIL
 107:                                              ; preds = %._crit_edge
   br i1 %.028.in74, label %108, label %.critedge
 
-108:                                              ; preds = %102, %99, %97, %107
+108:                                              ; preds = %97, %99, %102, %107
   %109 = load ptr, ptr %14, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 8, !tbaa !3
@@ -9353,7 +9353,7 @@ _ZN11mpz_managerILb0EE3incER3mpz.exit:            ; preds = %108
   invoke void @_ZN11mpz_managerILb0EE5mul2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %115, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %116)
           to label %.critedge unwind label %93
 
-.critedge:                                        ; preds = %102, %99, %97, %_ZN11mpz_managerILb0EE3incER3mpz.exit, %._crit_edge, %107, %106, %114
+.critedge:                                        ; preds = %97, %99, %102, %_ZN11mpz_managerILb0EE3incER3mpz.exit, %._crit_edge, %107, %106, %114
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %118 = load i8, ptr %17, align 4
   %119 = and i8 %118, 1

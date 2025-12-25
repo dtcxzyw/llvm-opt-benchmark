@@ -21719,9 +21719,9 @@ ra_alloc1.exit.i:                                 ; preds = %177, %173
   br label %asm_isk32.exit
 
 asm_isk32.exit:                                   ; preds = %184, %ra_alloc1.exit.i, %103, %96, %ra_dest.exit
-  %.0113 = phi i32 [ 0, %ra_dest.exit ], [ %104, %103 ], [ %97, %96 ], [ 0, %ra_alloc1.exit.i ], [ 0, %184 ]
-  %.075 = phi i32 [ %.mux, %ra_dest.exit ], [ %37, %103 ], [ %37, %96 ], [ %.0.i.i, %ra_alloc1.exit.i ], [ %185, %184 ]
-  %.072 = phi i32 [ %5, %ra_dest.exit ], [ %5, %103 ], [ %5, %96 ], [ %154, %ra_alloc1.exit.i ], [ %154, %184 ]
+  %.0113 = phi i32 [ 0, %ra_dest.exit ], [ %97, %96 ], [ %104, %103 ], [ 0, %ra_alloc1.exit.i ], [ 0, %184 ]
+  %.075 = phi i32 [ %.mux, %ra_dest.exit ], [ %37, %96 ], [ %37, %103 ], [ %.0.i.i, %ra_alloc1.exit.i ], [ %185, %184 ]
+  %.072 = phi i32 [ %5, %ra_dest.exit ], [ %5, %96 ], [ %5, %103 ], [ %154, %ra_alloc1.exit.i ], [ %154, %184 ]
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %187 = load i8, ptr %186, align 4, !tbaa !20
   %.not85 = icmp sgt i8 %187, -1
@@ -24269,7 +24269,7 @@ emit_rmro.exit279:                                ; preds = %emit_rmro.exit279.s
   br label %ir_khash.exit
 
 ir_khash.exit:                                    ; preds = %645, %634, %620
-  %653 = phi i32 [ %635, %634 ], [ %652, %645 ], [ %625, %620 ]
+  %653 = phi i32 [ %652, %645 ], [ %635, %634 ], [ %625, %620 ]
   %654 = icmp eq i32 %653, 0
   br i1 %654, label %655, label %ir_khash.exit.thread
 
@@ -25356,9 +25356,9 @@ ra_alloc1.exit:                                   ; preds = %asm_isk32.exit.thre
   br label %asm_isk32.exit
 
 asm_isk32.exit:                                   ; preds = %36, %29, %ra_alloc1.exit
-  %.154 = phi i32 [ 0, %ra_alloc1.exit ], [ %30, %29 ], [ %37, %36 ]
-  %.040 = phi i32 [ %.0.i, %ra_alloc1.exit ], [ 128, %29 ], [ 128, %36 ]
-  %.039 = phi i32 [ %56, %ra_alloc1.exit ], [ 49135, %29 ], [ 49135, %36 ]
+  %.154 = phi i32 [ 0, %ra_alloc1.exit ], [ %37, %36 ], [ %30, %29 ]
+  %.040 = phi i32 [ %.0.i, %ra_alloc1.exit ], [ 128, %36 ], [ 128, %29 ]
+  %.039 = phi i32 [ %56, %ra_alloc1.exit ], [ 49135, %36 ], [ 49135, %29 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %58 = load i8, ptr %57, align 1, !tbaa !20
   %59 = icmp eq i8 %58, 77

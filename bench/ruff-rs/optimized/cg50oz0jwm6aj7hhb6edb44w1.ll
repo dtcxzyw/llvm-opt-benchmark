@@ -6081,7 +6081,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr95drop
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E.exit.i.i.i"
 
 .loopexit.split-lp.i.i.i:                         ; preds = %257, %241, %229, %218
-  %.sroa.045.1.ph.i.i.i = phi i8 [ %.sroa.045.6.i.i.i, %257 ], [ 1, %218 ], [ 1, %241 ], [ 1, %229 ]
+  %.sroa.045.1.ph.i.i.i = phi i8 [ 1, %241 ], [ 1, %218 ], [ %.sroa.045.6.i.i.i, %257 ], [ 1, %229 ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E.exit.i.i.i"
@@ -10533,7 +10533,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
   invoke void %87(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef align 1 %78, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.sroa.01.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
           to label %88 unwind label %104
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread18: ; preds = %26, %11, %33, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread18: ; preds = %11, %33, %26, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
   store i64 0, ptr %0, align 8
   br label %102
 
@@ -10816,8 +10816,8 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread25
 
-_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread25: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit, %33, %11, %26, %102
-  %.sroa.0.0 = phi i1 [ %88, %102 ], [ false, %26 ], [ false, %11 ], [ false, %33 ], [ false, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit ]
+_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit.thread25: ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit, %26, %33, %11, %102
+  %.sroa.0.0 = phi i1 [ %88, %102 ], [ false, %11 ], [ false, %33 ], [ false, %26 ], [ false, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.sroa.0.0
 
@@ -11181,8 +11181,8 @@ define hidden { i32, i32 } @_ZN15ruff_python_ast10whitespace29trailing_comment_s
   br i1 %cond, label %77, label %79
 
 "_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd090cc60cd42de9E.exit.thread": ; preds = %35, %79, %77, %84
-  %.sroa.5.0 = phi i32 [ %86, %84 ], [ undef, %77 ], [ undef, %79 ], [ undef, %35 ]
-  %.sroa.0.0 = phi i32 [ 1, %84 ], [ 0, %77 ], [ 0, %79 ], [ 0, %35 ]
+  %.sroa.5.0 = phi i32 [ undef, %77 ], [ %86, %84 ], [ undef, %79 ], [ undef, %35 ]
+  %.sroa.0.0 = phi i32 [ 0, %77 ], [ 1, %84 ], [ 0, %79 ], [ 0, %35 ]
   %75 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %76 = insertvalue { i32, i32 } %75, i32 %.sroa.5.0, 1
   ret { i32, i32 } %76
@@ -100265,7 +100265,7 @@ _ZN8smallvec10deallocate17h28ad06dc8f6522faE.exit.i: ; preds = %39
   tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %19) #31
   unreachable
 
-44:                                               ; preds = %26, %23, %21, %18
+44:                                               ; preds = %26, %18, %21, %23
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8ad231a129453d088979dfad2582f60a.206, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8ad231a129453d088979dfad2582f60a.207) #31
   unreachable
 
@@ -100390,7 +100390,7 @@ _ZN8smallvec10deallocate17h3913013a812447eeE.exit.i: ; preds = %39
   tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %19) #31
   unreachable
 
-44:                                               ; preds = %26, %23, %21, %18
+44:                                               ; preds = %26, %18, %21, %23
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8ad231a129453d088979dfad2582f60a.206, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8ad231a129453d088979dfad2582f60a.207) #31
   unreachable
 
@@ -100523,7 +100523,7 @@ _ZN8smallvec10deallocate17h79cba588600f3e30E.exit.i: ; preds = %42
   tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) 8, i64 noundef %22) #31
   unreachable
 
-47:                                               ; preds = %29, %26, %24, %21
+47:                                               ; preds = %29, %21, %24, %26
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8ad231a129453d088979dfad2582f60a.206, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8ad231a129453d088979dfad2582f60a.207) #31
   unreachable
 
@@ -102802,7 +102802,7 @@ define void @_ZN11ruff_linter14pyproject_toml19lint_pyproject_toml17h34e1b01730a
   br label %.thread104
 
 145:                                              ; preds = %143, %181
-  %.sroa.05.4.ph = phi i8 [ 1, %143 ], [ 0, %181 ]
+  %.sroa.05.4.ph = phi i8 [ 0, %181 ], [ 1, %143 ]
   %lpad.thr_comm.split-lp117 = landingpad { ptr, i32 }
           cleanup
   br label %.thread92
@@ -114199,7 +114199,7 @@ _ZN4core3ops8function6FnOnce9call_once17h66d080db07b8d0deE.exit.i: ; preds = %se
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h79af04ad1f791b67E.exit.thread"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h79af04ad1f791b67E.exit.thread": ; preds = %.sink.split.i.i.i.i, %187, %194, %"_ZN4core6option15Option$LT$T$GT$7or_else17h79af04ad1f791b67E.exit"
-  %.sroa.012.0467 = phi ptr [ %189, %"_ZN4core6option15Option$LT$T$GT$7or_else17h79af04ad1f791b67E.exit" ], [ %191, %194 ], [ %184, %187 ], [ %180, %.sink.split.i.i.i.i ]
+  %.sroa.012.0467 = phi ptr [ %189, %"_ZN4core6option15Option$LT$T$GT$7or_else17h79af04ad1f791b67E.exit" ], [ %191, %194 ], [ %180, %.sink.split.i.i.i.i ], [ %184, %187 ]
   %196 = invoke noundef align 8 ptr @_ZN15ruff_python_ast5nodes20ParameterWithDefault10annotation17h558c3f3f55586564E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.012.0467)
           to label %910 unwind label %.loopexit
 
@@ -119822,7 +119822,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hfca04ca7bac4fc13E.exit: ; pred
   br label %.thread143.i
 
 216:                                              ; preds = %274, %.thread147.i
-  %.sroa.011.3.ph.i = phi i1 [ false, %274 ], [ true, %.thread147.i ]
+  %.sroa.011.3.ph.i = phi i1 [ true, %.thread147.i ], [ false, %274 ]
   %lpad.thr_comm.split-lp142.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E.exit71.i"

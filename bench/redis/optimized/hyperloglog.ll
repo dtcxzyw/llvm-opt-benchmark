@@ -1027,9 +1027,9 @@ sdslen.exit247:                                   ; preds = %92, %95, %99, %103,
   br i1 %129, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %127, %125
-  %.0189.lcssa = phi i64 [ %.0189305, %125 ], [ %126, %127 ]
-  %.0186.lcssa = phi ptr [ %.0186306, %125 ], [ %.0181307, %127 ]
-  %.0181.lcssa = phi ptr [ %.0181307, %125 ], [ %128, %127 ]
+  %.0189.lcssa = phi i64 [ %126, %127 ], [ %.0189305, %125 ]
+  %.0186.lcssa = phi ptr [ %.0181307, %127 ], [ %.0186306, %125 ]
+  %.0181.lcssa = phi ptr [ %128, %127 ], [ %.0181307, %125 ]
   %.not228 = icmp ult ptr %.0181.lcssa, %110
   br i1 %.not228, label %130, label %.thread.thread
 

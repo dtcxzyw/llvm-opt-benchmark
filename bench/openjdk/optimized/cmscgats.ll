@@ -6972,7 +6972,7 @@ ReadNumbers.exit.i:                               ; preds = %Check.exit.i.i104.i
   call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %9, ptr noundef nonnull %.str.157.sink.i)
   br label %ParseCube.exit.thread
 
-ParseCube.exit.thread:                            ; preds = %91, %146, %.preheader175.i, %.loopexit.sink.split.i
+ParseCube.exit.thread:                            ; preds = %146, %91, %.preheader175.i, %.loopexit.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)

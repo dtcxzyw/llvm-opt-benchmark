@@ -379,7 +379,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph
   br label %uriParseUriReferenceA.exit
 
 uriParseUriReferenceA.exit:                       ; preds = %uriOnExitSegmentNzNcOrScheme2A.exit.i.i, %46, %48, %65, %73, %77, %79, %86, %93, %95
-  %.0.i = phi ptr [ %74, %73 ], [ %96, %95 ], [ %66, %65 ], [ %82, %79 ], [ %2, %uriOnExitSegmentNzNcOrScheme2A.exit.i.i ], [ %88, %86 ], [ %94, %93 ], [ %47, %46 ], [ %50, %48 ], [ %78, %77 ]
+  %.0.i = phi ptr [ %66, %65 ], [ %96, %95 ], [ %2, %uriOnExitSegmentNzNcOrScheme2A.exit.i.i ], [ %82, %79 ], [ %47, %46 ], [ %88, %86 ], [ %94, %93 ], [ %50, %48 ], [ %74, %73 ], [ %78, %77 ]
   %97 = icmp eq ptr %.0.i, null
   br i1 %97, label %uriParseUriReferenceA.exit.thread, label %107
 
@@ -2019,7 +2019,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph
   br label %uriParseUriReferenceW.exit
 
 uriParseUriReferenceW.exit:                       ; preds = %uriOnExitSegmentNzNcOrScheme2W.exit.i.i, %41, %43, %60, %68, %72, %74, %81, %88, %90
-  %.0.i = phi ptr [ %69, %68 ], [ %91, %90 ], [ %61, %60 ], [ %77, %74 ], [ %2, %uriOnExitSegmentNzNcOrScheme2W.exit.i.i ], [ %83, %81 ], [ %89, %88 ], [ %42, %41 ], [ %45, %43 ], [ %73, %72 ]
+  %.0.i = phi ptr [ %61, %60 ], [ %91, %90 ], [ %2, %uriOnExitSegmentNzNcOrScheme2W.exit.i.i ], [ %77, %74 ], [ %42, %41 ], [ %83, %81 ], [ %89, %88 ], [ %45, %43 ], [ %69, %68 ], [ %73, %72 ]
   %92 = icmp eq ptr %.0.i, null
   br i1 %92, label %uriParseUriReferenceW.exit.thread, label %102
 
@@ -4373,7 +4373,7 @@ uriParseZeroMoreSlashSegsA.exit.sink.split.i:     ; preds = %163, %138
   br label %uriParsePathAbsNoLeadSlashA.exit
 
 uriParsePathAbsNoLeadSlashA.exit:                 ; preds = %tailrecurse.i.i36, %159, %.lr.ph.i.i34, %36, %72, %uriOnExitOwnHostUserInfoA.exit.i.i, %18, %89, %uriParseZeroMoreSlashSegsA.exit.sink.split.i, %157, %uriParseSegmentNzA.exit.i, %133, %130, %uriParsePathAbsEmptyA.exit, %uriParseAuthorityA.exit, %5
-  %.0 = phi ptr [ %2, %5 ], [ null, %uriOnExitOwnHostUserInfoA.exit.i.i ], [ %.0.i28, %uriParsePathAbsEmptyA.exit ], [ null, %uriParseAuthorityA.exit ], [ null, %uriParseZeroMoreSlashSegsA.exit.sink.split.i ], [ null, %uriParseSegmentNzA.exit.i ], [ null, %72 ], [ null, %133 ], [ %1, %130 ], [ null, %36 ], [ %2, %157 ], [ null, %89 ], [ null, %18 ], [ null, %159 ], [ %.tr2832.i.i, %.lr.ph.i.i34 ], [ %2, %tailrecurse.i.i36 ]
+  %.0 = phi ptr [ %2, %5 ], [ null, %uriOnExitOwnHostUserInfoA.exit.i.i ], [ %.0.i28, %uriParsePathAbsEmptyA.exit ], [ null, %uriParseAuthorityA.exit ], [ null, %uriParseZeroMoreSlashSegsA.exit.sink.split.i ], [ null, %uriParseSegmentNzA.exit.i ], [ null, %72 ], [ null, %133 ], [ %1, %130 ], [ null, %36 ], [ %2, %157 ], [ null, %89 ], [ null, %18 ], [ %.tr2832.i.i, %.lr.ph.i.i34 ], [ null, %159 ], [ %2, %tailrecurse.i.i36 ]
   ret ptr %.0
 }
 
@@ -4905,7 +4905,7 @@ uriParseZeroMoreSlashSegsA.exit.sink.split.i:     ; preds = %37, %12
   br label %uriParsePathRootlessA.exit
 
 uriParsePathRootlessA.exit:                       ; preds = %tailrecurse.i.i, %33, %.lr.ph.i.i, %uriParseZeroMoreSlashSegsA.exit.sink.split.i, %31, %uriParseSegmentNzA.exit.i, %7, %5, %4, %58
-  %.0 = phi ptr [ %60, %58 ], [ %2, %4 ], [ %1, %5 ], [ %2, %31 ], [ null, %7 ], [ null, %uriParseSegmentNzA.exit.i ], [ null, %uriParseZeroMoreSlashSegsA.exit.sink.split.i ], [ %2, %tailrecurse.i.i ], [ null, %33 ], [ %.tr2832.i.i, %.lr.ph.i.i ]
+  %.0 = phi ptr [ %60, %58 ], [ %2, %4 ], [ %1, %5 ], [ %2, %31 ], [ null, %7 ], [ null, %uriParseSegmentNzA.exit.i ], [ null, %uriParseZeroMoreSlashSegsA.exit.sink.split.i ], [ %2, %tailrecurse.i.i ], [ %.tr2832.i.i, %.lr.ph.i.i ], [ null, %33 ]
   ret ptr %.0
 }
 
@@ -5465,8 +5465,8 @@ uriParseIpFutLoopA.exit:                          ; preds = %.lr.ph.i52, %33
   store i32 1, ptr %45, align 8, !tbaa !29
   br label %54
 
-46:                                               ; preds = %41, %39
-  %.0.i51.ph = phi ptr [ %2, %39 ], [ %40, %41 ]
+46:                                               ; preds = %39, %41
+  %.0.i51.ph = phi ptr [ %40, %41 ], [ %2, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store ptr %.0.i51.ph, ptr %47, align 8, !tbaa !40
   %48 = getelementptr inbounds nuw i8, ptr %28, i64 72
@@ -7513,7 +7513,7 @@ uriParseZeroMoreSlashSegsW.exit.sink.split.i:     ; preds = %163, %138
   br label %uriParsePathAbsNoLeadSlashW.exit
 
 uriParsePathAbsNoLeadSlashW.exit:                 ; preds = %tailrecurse.i.i36, %159, %.lr.ph.i.i34, %36, %72, %uriOnExitOwnHostUserInfoW.exit.i.i, %18, %89, %uriParseZeroMoreSlashSegsW.exit.sink.split.i, %157, %uriParseSegmentNzW.exit.i, %133, %130, %uriParsePathAbsEmptyW.exit, %uriParseAuthorityW.exit, %5
-  %.0 = phi ptr [ %2, %5 ], [ null, %uriOnExitOwnHostUserInfoW.exit.i.i ], [ %.0.i28, %uriParsePathAbsEmptyW.exit ], [ null, %uriParseAuthorityW.exit ], [ null, %uriParseZeroMoreSlashSegsW.exit.sink.split.i ], [ null, %uriParseSegmentNzW.exit.i ], [ null, %72 ], [ null, %133 ], [ %1, %130 ], [ null, %36 ], [ %2, %157 ], [ null, %89 ], [ null, %18 ], [ null, %159 ], [ %.tr2832.i.i, %.lr.ph.i.i34 ], [ %2, %tailrecurse.i.i36 ]
+  %.0 = phi ptr [ %2, %5 ], [ null, %uriOnExitOwnHostUserInfoW.exit.i.i ], [ %.0.i28, %uriParsePathAbsEmptyW.exit ], [ null, %uriParseAuthorityW.exit ], [ null, %uriParseZeroMoreSlashSegsW.exit.sink.split.i ], [ null, %uriParseSegmentNzW.exit.i ], [ null, %72 ], [ null, %133 ], [ %1, %130 ], [ null, %36 ], [ %2, %157 ], [ null, %89 ], [ null, %18 ], [ %.tr2832.i.i, %.lr.ph.i.i34 ], [ null, %159 ], [ %2, %tailrecurse.i.i36 ]
   ret ptr %.0
 }
 
@@ -8045,7 +8045,7 @@ uriParseZeroMoreSlashSegsW.exit.sink.split.i:     ; preds = %37, %12
   br label %uriParsePathRootlessW.exit
 
 uriParsePathRootlessW.exit:                       ; preds = %tailrecurse.i.i, %33, %.lr.ph.i.i, %uriParseZeroMoreSlashSegsW.exit.sink.split.i, %31, %uriParseSegmentNzW.exit.i, %7, %5, %4, %58
-  %.0 = phi ptr [ %60, %58 ], [ %2, %4 ], [ %1, %5 ], [ %2, %31 ], [ null, %7 ], [ null, %uriParseSegmentNzW.exit.i ], [ null, %uriParseZeroMoreSlashSegsW.exit.sink.split.i ], [ %2, %tailrecurse.i.i ], [ null, %33 ], [ %.tr2832.i.i, %.lr.ph.i.i ]
+  %.0 = phi ptr [ %60, %58 ], [ %2, %4 ], [ %1, %5 ], [ %2, %31 ], [ null, %7 ], [ null, %uriParseSegmentNzW.exit.i ], [ null, %uriParseZeroMoreSlashSegsW.exit.sink.split.i ], [ %2, %tailrecurse.i.i ], [ %.tr2832.i.i, %.lr.ph.i.i ], [ null, %33 ]
   ret ptr %.0
 }
 
@@ -8603,8 +8603,8 @@ uriParseIpFutLoopW.exit:                          ; preds = %.lr.ph.i52, %33
   store i32 1, ptr %44, align 8, !tbaa !69
   br label %53
 
-45:                                               ; preds = %40, %38
-  %.0.i51.ph = phi ptr [ %2, %38 ], [ %39, %40 ]
+45:                                               ; preds = %38, %40
+  %.0.i51.ph = phi ptr [ %39, %40 ], [ %2, %38 ]
   %46 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store ptr %.0.i51.ph, ptr %46, align 8, !tbaa !79
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 72

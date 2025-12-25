@@ -4692,7 +4692,7 @@ define internal fastcc void @_ZN3exr4meta9attribute11ChannelList4read17h485e6149
   unreachable
 
 58:                                               ; preds = %55, %.thread.i.i
-  %.sroa.74.0.i = phi ptr [ %.sroa.719.0.copyload.i.i.i, %55 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.105, %.thread.i.i ]
+  %.sroa.74.0.i = phi ptr [ @anon.485243c0b6e0c52e847d698bbee735f0.105, %.thread.i.i ], [ %.sroa.719.0.copyload.i.i.i, %55 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1082
   invoke void @"_ZN86_$LT$exr..error..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h4fd8a87c25c37dadE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %26, ptr noundef nonnull %.sroa.74.0.i)
           to label %_ZN3exr4meta12sequence_end8has_come17hdd826193719d6314E.exit unwind label %.body.thread105.loopexit

@@ -4054,7 +4054,7 @@ default.unreachable233:                           ; preds = %64
           to label %58 unwind label %56
 
 .thread199:                                       ; preds = %114, %131, %148, %165, %182, %199, %215, %232, %249, %84, %73, %90, %56
-  %.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %85, %84 ], [ %57, %56 ], [ %74, %73 ], [ %216, %215 ], [ %200, %199 ], [ %183, %182 ], [ %166, %165 ], [ %149, %148 ], [ %132, %131 ], [ %115, %114 ], [ %233, %232 ], [ %250, %249 ]
+  %.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %85, %84 ], [ %57, %56 ], [ %74, %73 ], [ %216, %215 ], [ %200, %199 ], [ %183, %182 ], [ %166, %165 ], [ %149, %148 ], [ %132, %131 ], [ %115, %114 ], [ %250, %249 ], [ %233, %232 ]
   invoke void @"_ZN4core3ptr111drop_in_place$LT$tiff..decoder..Decoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17hf0cc9cd5e99a9f95E"(ptr noalias noundef nonnull align 8 dereferenceable(376) %29) #23
           to label %.thread unwind label %88
 
@@ -4837,7 +4837,7 @@ default.unreachable233:                           ; preds = %64
           to label %58 unwind label %56
 
 .thread199:                                       ; preds = %114, %131, %148, %165, %182, %199, %215, %232, %249, %84, %73, %90, %56
-  %.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %85, %84 ], [ %57, %56 ], [ %74, %73 ], [ %216, %215 ], [ %200, %199 ], [ %183, %182 ], [ %166, %165 ], [ %149, %148 ], [ %132, %131 ], [ %115, %114 ], [ %233, %232 ], [ %250, %249 ]
+  %.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %85, %84 ], [ %57, %56 ], [ %74, %73 ], [ %216, %215 ], [ %200, %199 ], [ %183, %182 ], [ %166, %165 ], [ %149, %148 ], [ %132, %131 ], [ %115, %114 ], [ %250, %249 ], [ %233, %232 ]
   invoke void @"_ZN4core3ptr98drop_in_place$LT$tiff..decoder..Decoder$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hce659f685e3eeebeE"(ptr noalias noundef nonnull align 8 dereferenceable(352) %29) #23
           to label %.thread unwind label %88
 

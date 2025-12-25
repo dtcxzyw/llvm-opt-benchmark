@@ -826,7 +826,7 @@ Mio_CheckPins.exit.thread16:                      ; preds = %.lr.ph, %Mio_CheckP
   br i1 %.not, label %Mio_CheckPins.exit.thread, label %.lr.ph28, !llvm.loop !83
 
 Mio_CheckPins.exit.thread:                        ; preds = %._crit_edge, %23, %17, %11, %5, %29, %Mio_CheckPins.exit, %1
-  %.011 = phi i32 [ 1, %1 ], [ 0, %23 ], [ 0, %Mio_CheckPins.exit ], [ 0, %29 ], [ 0, %5 ], [ 0, %11 ], [ 0, %17 ], [ 1, %._crit_edge ]
+  %.011 = phi i32 [ 0, %23 ], [ 1, %1 ], [ 0, %Mio_CheckPins.exit ], [ 0, %29 ], [ 0, %5 ], [ 0, %11 ], [ 0, %17 ], [ 1, %._crit_edge ]
   ret i32 %.011
 }
 
@@ -2181,7 +2181,7 @@ Mio_CompareTwoGates.exit:                         ; preds = %95
   %101 = icmp slt i32 %100, 1
   br i1 %101, label %Mio_CompareTwoGates.exit.thread, label %Mio_CompareTwoGates.exit.thread68
 
-Mio_CompareTwoGates.exit.thread68:                ; preds = %Mio_GateDelayAve.exit27.i, %51, %Mio_CompareTwoGates.exit
+Mio_CompareTwoGates.exit.thread68:                ; preds = %51, %Mio_GateDelayAve.exit27.i, %Mio_CompareTwoGates.exit
   store ptr %.078, ptr %52, align 8, !tbaa !98
   br label %Mio_CompareTwoGates.exit.thread
 
@@ -2398,8 +2398,8 @@ Mio_CompareTwo.exit:                              ; preds = %64
   %70 = icmp slt i32 %69, 1
   br i1 %70, label %Mio_CollectCopy.exit, label %Mio_CompareTwo.exit.thread147
 
-Mio_CompareTwo.exit.thread147:                    ; preds = %Mio_GateDelayAve.exit.i, %26, %Mio_CompareTwo.exit
-  %71 = phi i32 [ %59, %Mio_GateDelayAve.exit.i ], [ %11, %26 ], [ %59, %Mio_CompareTwo.exit ]
+Mio_CompareTwo.exit.thread147:                    ; preds = %26, %Mio_GateDelayAve.exit.i, %Mio_CompareTwo.exit
+  %71 = phi i32 [ %11, %26 ], [ %59, %Mio_GateDelayAve.exit.i ], [ %59, %Mio_CompareTwo.exit ]
   %72 = load ptr, ptr %.091165, align 8, !tbaa !65
   store ptr %72, ptr %19, align 8, !tbaa !114
   %73 = load i64, ptr %17, align 8, !tbaa !63
@@ -3040,9 +3040,9 @@ Mio_CompareTwo2.exit:                             ; preds = %90
   %109 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %8, i64 %108
   br label %Mio_CompareTwo2.exit.thread.sink.split
 
-Mio_CompareTwo2.exit.thread.sink.split:           ; preds = %Mio_CompareTwo2.exit, %76, %84, %98, %102, %106
-  %.lcssa223.sink = phi ptr [ %101, %98 ], [ %109, %106 ], [ %105, %102 ], [ %69, %84 ], [ %69, %76 ], [ %69, %Mio_CompareTwo2.exit ]
-  %.1111.ph = phi i32 [ %.0110159, %98 ], [ %107, %106 ], [ %.0110159, %102 ], [ %.0110159, %84 ], [ %.0110159, %76 ], [ %.0110159, %Mio_CompareTwo2.exit ]
+Mio_CompareTwo2.exit.thread.sink.split:           ; preds = %Mio_CompareTwo2.exit, %84, %76, %98, %102, %106
+  %.lcssa223.sink = phi ptr [ %101, %98 ], [ %109, %106 ], [ %105, %102 ], [ %69, %76 ], [ %69, %84 ], [ %69, %Mio_CompareTwo2.exit ]
+  %.1111.ph = phi i32 [ %.0110159, %98 ], [ %107, %106 ], [ %.0110159, %102 ], [ %.0110159, %76 ], [ %.0110159, %84 ], [ %.0110159, %Mio_CompareTwo2.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.lcssa223.sink, ptr noundef nonnull align 8 dereferenceable(80) %.0114157, i64 80, i1 false)
   br label %Mio_CompareTwo2.exit.thread
 

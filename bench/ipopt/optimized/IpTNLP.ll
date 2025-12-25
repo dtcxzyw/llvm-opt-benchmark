@@ -3117,7 +3117,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit120:     ; preds = %331, %327
   br label %_ZN5Ipopt8SmartPtrINS_16NLPScalingObjectEED2Ev.exit102
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit122:      ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit, %220, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit
-  %353 = phi ptr [ %89, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit ], [ %89, %220 ], [ %.pre47, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit ]
+  %353 = phi ptr [ %89, %220 ], [ %89, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit ], [ %.pre47, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit ]
   %.not.i.i127 = icmp eq ptr %353, null
   br i1 %.not.i.i127, label %.thread46, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit122.thread
 
@@ -3837,7 +3837,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit120:     ; preds = %331, %327
   br label %_ZN5Ipopt8SmartPtrINS_16NLPScalingObjectEED2Ev.exit102
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit122:      ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit, %220, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit
-  %353 = phi ptr [ %89, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit ], [ %89, %220 ], [ %.pre47, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit ]
+  %353 = phi ptr [ %89, %220 ], [ %89, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit ], [ %.pre47, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit ]
   %.not.i.i127 = icmp eq ptr %353, null
   br i1 %.not.i.i127, label %.thread46, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit122.thread
 

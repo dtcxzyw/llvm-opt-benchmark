@@ -9110,8 +9110,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader:  ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i:            ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader
-  %42 = phi ptr [ %29, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %43 = phi ptr [ %.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %42 = phi ptr [ %29, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be32, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %43 = phi ptr [ %.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be32, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
   %44 = icmp eq ptr %43, null
   br i1 %44, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i
 
@@ -9235,7 +9235,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge:   ; preds = %90, %49
-  %.be = phi ptr [ %93, %90 ], [ %52, %49 ]
+  %.be32 = phi ptr [ %52, %49 ], [ %93, %90 ]
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i, !llvm.loop !250
 
 94:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -10251,7 +10251,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i3.then.i.i:    ; preds = %_ZNK3euf9ac_plugin1
   br i1 %or.cond.not, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.i, label %_ZN3euf9ac_plugin11is_supersetERKNS0_10ref_countsERS1_RKNS0_10monomial_tE.exit
 
 _ZN3euf9ac_plugin11is_supersetERKNS0_10ref_countsERS1_RKNS0_10monomial_tE.exit: ; preds = %"_ZZN3euf9ac_plugin11is_supersetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i", %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us12.i.i, %"_ZZN3euf9ac_plugin11is_supersetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i60", %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us12.i.i72, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83, %_ZN3euf9ac_plugin10ref_counts3decEjj.exit, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83.then, %"_ZZN3euf9ac_plugin16forward_subsumesEjjENK3$_0clEPNS0_4nodeE.exit.i", %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us15.i, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us15.thread.i, %"_ZZN3euf9ac_plugin16forward_subsumesEjjENK3$_0clEPNS0_4nodeE.exit.us.i", %"_ZZN3euf9ac_plugin16forward_subsumesEjjENK3$_0clEPNS0_4nodeE.exit.us.thread.i", %.lr.ph.split.us.i, %_ZNK3euf9ac_plugin10monomial_t3endEv.exit.i, %.critedge, %_ZNK3euf9ac_plugin10monomial_t4sizeEv.exit47, %19, %3
-  %.0 = phi i1 [ false, %19 ], [ false, %3 ], [ false, %_ZNK3euf9ac_plugin10monomial_t4sizeEv.exit47 ], [ false, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us15.i ], [ false, %"_ZZN3euf9ac_plugin16forward_subsumesEjjENK3$_0clEPNS0_4nodeE.exit.us.i" ], [ %302, %"_ZZN3euf9ac_plugin16forward_subsumesEjjENK3$_0clEPNS0_4nodeE.exit.i" ], [ false, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us12.i.i72 ], [ false, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us12.i.i ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83 ], [ true, %_ZNK3euf9ac_plugin10monomial_t3endEv.exit.i ], [ true, %.lr.ph.split.us.i ], [ true, %.critedge ], [ false, %"_ZZN3euf9ac_plugin11is_supersetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i60" ], [ true, %"_ZZN3euf9ac_plugin16forward_subsumesEjjENK3$_0clEPNS0_4nodeE.exit.us.thread.i" ], [ true, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us15.thread.i ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83.then ], [ false, %_ZN3euf9ac_plugin10ref_counts3decEjj.exit ], [ false, %"_ZZN3euf9ac_plugin11is_supersetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i" ]
+  %.0 = phi i1 [ false, %19 ], [ false, %3 ], [ false, %_ZNK3euf9ac_plugin10monomial_t4sizeEv.exit47 ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83 ], [ false, %"_ZZN3euf9ac_plugin16forward_subsumesEjjENK3$_0clEPNS0_4nodeE.exit.us.i" ], [ false, %"_ZZN3euf9ac_plugin11is_supersetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i60" ], [ false, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us12.i.i72 ], [ %302, %"_ZZN3euf9ac_plugin16forward_subsumesEjjENK3$_0clEPNS0_4nodeE.exit.i" ], [ false, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us12.i.i ], [ true, %_ZNK3euf9ac_plugin10monomial_t3endEv.exit.i ], [ true, %.lr.ph.split.us.i ], [ true, %.critedge ], [ false, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us15.i ], [ true, %"_ZZN3euf9ac_plugin16forward_subsumesEjjENK3$_0clEPNS0_4nodeE.exit.us.thread.i" ], [ true, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us15.thread.i ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83.then ], [ false, %_ZN3euf9ac_plugin10ref_counts3decEjj.exit ], [ false, %"_ZZN3euf9ac_plugin11is_supersetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i" ]
   ret i1 %.0
 }
 
@@ -11850,8 +11850,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader:  ; preds = %75, %_ZNK6vectorIjL
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i:            ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader
-  %82 = phi ptr [ %45, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %83 = phi ptr [ %.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %82 = phi ptr [ %45, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be80, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %83 = phi ptr [ %.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be80, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
   %84 = icmp eq ptr %83, null
   br i1 %84, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i
 
@@ -11975,7 +11975,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge:   ; preds = %129, %88
-  %.be = phi ptr [ %132, %129 ], [ %91, %88 ]
+  %.be80 = phi ptr [ %91, %88 ], [ %132, %129 ]
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i, !llvm.loop !250
 
 133:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -12318,8 +12318,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader:  ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i:            ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader
-  %61 = phi ptr [ %48, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
-  %62 = phi ptr [ %.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %61 = phi ptr [ %48, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be127, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
+  %62 = phi ptr [ %.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.preheader ], [ %.be127, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge ]
   %63 = icmp eq ptr %62, null
   br i1 %63, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i
 
@@ -12443,7 +12443,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge:   ; preds = %108, %68
-  %.be = phi ptr [ %111, %108 ], [ %71, %68 ]
+  %.be127 = phi ptr [ %71, %68 ], [ %111, %108 ]
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i, !llvm.loop !250
 
 112:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i

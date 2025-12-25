@@ -2653,9 +2653,9 @@ default.unreachable:                              ; preds = %116, %104, %36, %24
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 280
   switch i64 %34, label %default.unreachable [
-    i64 0, label %39
-    i64 1, label %43
-    i64 2, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i"
+    i64 0, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i"
+    i64 1, label %39
+    i64 2, label %43
   ]
 
 39:                                               ; preds = %36
@@ -2665,9 +2665,9 @@ default.unreachable:                              ; preds = %116, %104, %36, %24
   br i1 %42, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread24.i.i", label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 43:                                               ; preds = %36
-  %44 = load i64, ptr %37, align 8, !alias.scope !232, !noalias !233, !noundef !3
-  %45 = load i64, ptr %38, align 8, !alias.scope !233, !noalias !232, !noundef !3
-  %46 = icmp eq i64 %44, %45
+  %44 = load double, ptr %37, align 8, !alias.scope !232, !noalias !233, !noundef !3
+  %45 = load double, ptr %38, align 8, !alias.scope !233, !noalias !232, !noundef !3
+  %46 = fcmp oeq double %44, %45
   br i1 %46, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread24.i.i", label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 47:                                               ; preds = %24
@@ -2701,9 +2701,9 @@ default.unreachable:                              ; preds = %116, %104, %36, %24
   br i1 %62, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread24.i.i", label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 "_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i": ; preds = %36
-  %63 = load double, ptr %37, align 8, !alias.scope !232, !noalias !233, !noundef !3
-  %64 = load double, ptr %38, align 8, !alias.scope !233, !noalias !232, !noundef !3
-  %65 = fcmp oeq double %63, %64
+  %63 = load i64, ptr %37, align 8, !alias.scope !232, !noalias !233, !noundef !3
+  %64 = load i64, ptr %38, align 8, !alias.scope !233, !noalias !232, !noundef !3
+  %65 = icmp eq i64 %63, %64
   br i1 %65, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread24.i.i", label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 "_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread24.i.i": ; preds = %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i", %59, %53, %47, %43, %39, %25, %24, %21
@@ -2822,9 +2822,9 @@ default.unreachable:                              ; preds = %116, %104, %36, %24
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 128
   switch i64 %114, label %default.unreachable [
-    i64 0, label %119
-    i64 1, label %123
-    i64 2, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i.i"
+    i64 0, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i.i"
+    i64 1, label %119
+    i64 2, label %123
   ]
 
 119:                                              ; preds = %116
@@ -2834,9 +2834,9 @@ default.unreachable:                              ; preds = %116, %104, %36, %24
   br i1 %122, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread28.i.i.i", label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 123:                                              ; preds = %116
-  %124 = load i64, ptr %117, align 8, !alias.scope !262, !noalias !263, !noundef !3
-  %125 = load i64, ptr %118, align 8, !alias.scope !263, !noalias !262, !noundef !3
-  %126 = icmp eq i64 %124, %125
+  %124 = load double, ptr %117, align 8, !alias.scope !262, !noalias !263, !noundef !3
+  %125 = load double, ptr %118, align 8, !alias.scope !263, !noalias !262, !noundef !3
+  %126 = fcmp oeq double %124, %125
   br i1 %126, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread28.i.i.i", label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 127:                                              ; preds = %104
@@ -2870,9 +2870,9 @@ default.unreachable:                              ; preds = %116, %104, %36, %24
   br i1 %142, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread28.i.i.i", label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 "_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i.i": ; preds = %116
-  %143 = load double, ptr %117, align 8, !alias.scope !262, !noalias !263, !noundef !3
-  %144 = load double, ptr %118, align 8, !alias.scope !263, !noalias !262, !noundef !3
-  %145 = fcmp oeq double %143, %144
+  %143 = load i64, ptr %117, align 8, !alias.scope !262, !noalias !263, !noundef !3
+  %144 = load i64, ptr %118, align 8, !alias.scope !263, !noalias !262, !noundef !3
+  %145 = icmp eq i64 %143, %144
   br i1 %145, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread28.i.i.i", label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 "_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread28.i.i.i": ; preds = %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i.i", %139, %133, %127, %123, %119, %105, %104, %101
@@ -3045,7 +3045,7 @@ default.unreachable:                              ; preds = %116, %104, %36, %24
   br label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 "_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit": ; preds = %232, %226, %"_ZN83_$LT$ruff_notebook..schema..RawNotebookMetadata$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe0df52ec7c46e24E.exit.i", %217, %216, %215, %203, %202, %201, %"_ZN76_$LT$ruff_notebook..schema..LanguageInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h16dcf9a7838ac663E.exit.i.i", %187, %186, %185, %173, %167, %166, %165, %153, %152, %151, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i.i", %139, %133, %127, %123, %119, %111, %105, %102, %101, %100, %93, %92, %"_ZN74_$LT$ruff_notebook..schema..Kernelspec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1c8074d2f70ccd55E.exit.i.i", %77, %76, %75, %72, %71, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i", %59, %53, %47, %43, %39, %31, %25, %22, %21, %20, %8, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ %237, %232 ], [ false, %226 ], [ false, %"_ZN83_$LT$ruff_notebook..schema..RawNotebookMetadata$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe0df52ec7c46e24E.exit.i" ], [ false, %8 ], [ false, %215 ], [ false, %201 ], [ false, %92 ], [ false, %71 ], [ false, %20 ], [ false, %216 ], [ false, %202 ], [ false, %93 ], [ false, %72 ], [ false, %21 ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i" ], [ false, %217 ], [ false, %25 ], [ false, %39 ], [ false, %59 ], [ false, %53 ], [ false, %47 ], [ false, %43 ], [ false, %"_ZN74_$LT$ruff_notebook..schema..Kernelspec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1c8074d2f70ccd55E.exit.i.i" ], [ false, %31 ], [ false, %"_ZN76_$LT$ruff_notebook..schema..LanguageInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h16dcf9a7838ac663E.exit.i.i" ], [ false, %77 ], [ false, %203 ], [ false, %22 ], [ false, %75 ], [ false, %76 ], [ false, %185 ], [ false, %165 ], [ false, %151 ], [ false, %100 ], [ false, %186 ], [ false, %173 ], [ false, %166 ], [ false, %152 ], [ false, %101 ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i.i" ], [ false, %187 ], [ false, %105 ], [ false, %119 ], [ false, %139 ], [ false, %133 ], [ false, %127 ], [ false, %123 ], [ false, %153 ], [ false, %167 ], [ false, %102 ], [ false, %111 ]
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ %237, %232 ], [ false, %226 ], [ false, %"_ZN83_$LT$ruff_notebook..schema..RawNotebookMetadata$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe0df52ec7c46e24E.exit.i" ], [ false, %8 ], [ false, %215 ], [ false, %201 ], [ false, %92 ], [ false, %71 ], [ false, %20 ], [ false, %216 ], [ false, %202 ], [ false, %93 ], [ false, %72 ], [ false, %21 ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i" ], [ false, %217 ], [ false, %25 ], [ false, %43 ], [ false, %59 ], [ false, %53 ], [ false, %47 ], [ false, %39 ], [ false, %"_ZN74_$LT$ruff_notebook..schema..Kernelspec$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1c8074d2f70ccd55E.exit.i.i" ], [ false, %31 ], [ false, %"_ZN76_$LT$ruff_notebook..schema..LanguageInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17h16dcf9a7838ac663E.exit.i.i" ], [ false, %77 ], [ false, %203 ], [ false, %22 ], [ false, %75 ], [ false, %76 ], [ false, %185 ], [ false, %165 ], [ false, %151 ], [ false, %100 ], [ false, %186 ], [ false, %173 ], [ false, %166 ], [ false, %152 ], [ false, %101 ], [ false, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.i.i.i" ], [ false, %187 ], [ false, %105 ], [ false, %123 ], [ false, %139 ], [ false, %133 ], [ false, %127 ], [ false, %119 ], [ false, %153 ], [ false, %167 ], [ false, %102 ], [ false, %111 ]
   ret i1 %.sroa.0.0
 }
 

@@ -6870,8 +6870,8 @@ _ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit: ; preds = %_ZN7testing15Ass
   br i1 %exitcond.not29.i.i, label %.loopexit145, label %.preheader.i.i.backedge
 
 .preheader.i.i.backedge:                          ; preds = %.thread.i.i, %121
-  %.01825.i.i.be = phi i64 [ %125, %.thread.i.i ], [ %124, %121 ]
-  %.01924.i.i.be = phi i1 [ false, %.thread.i.i ], [ %.1.shrunk.i.i, %121 ]
+  %.01825.i.i.be = phi i64 [ %124, %121 ], [ %125, %.thread.i.i ]
+  %.01924.i.i.be = phi i1 [ %.1.shrunk.i.i, %121 ], [ false, %.thread.i.i ]
   br label %.preheader.i.i, !llvm.loop !222
 
 126:                                              ; preds = %120
@@ -7163,8 +7163,8 @@ _ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit72: ; preds = %_ZN7testing15A
   br i1 %exitcond.not30.i.i, label %.loopexit, label %.preheader.i.i82.backedge
 
 .preheader.i.i82.backedge:                        ; preds = %.thread.i.i83, %220
-  %.01826.i.i.be = phi i64 [ %224, %.thread.i.i83 ], [ %223, %220 ]
-  %.01925.i.i.be = phi i1 [ false, %.thread.i.i83 ], [ %.1.shrunk.i.i87, %220 ]
+  %.01826.i.i.be = phi i64 [ %223, %220 ], [ %224, %.thread.i.i83 ]
+  %.01925.i.i.be = phi i1 [ %.1.shrunk.i.i87, %220 ], [ false, %.thread.i.i83 ]
   br label %.preheader.i.i82, !llvm.loop !226
 
 225:                                              ; preds = %209

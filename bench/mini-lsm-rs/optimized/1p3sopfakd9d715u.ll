@@ -12034,7 +12034,7 @@ _ZN8smallvec10deallocate17hb87a44b9741e31d2E.exit.i.i: ; preds = %54
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef %38) #44
   unreachable
 
-_ZN8smallvec10infallible17hd1f4a6937c697817E.exit: ; preds = %36, %_ZN8smallvec10deallocate17hb87a44b9741e31d2E.exit.i.i, %51, %35
+_ZN8smallvec10infallible17hd1f4a6937c697817E.exit: ; preds = %35, %_ZN8smallvec10deallocate17hb87a44b9741e31d2E.exit.i.i, %51, %36
   %62 = load ptr, ptr %7, align 8, !noundef !9
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre16 = load i64, ptr %63, align 8

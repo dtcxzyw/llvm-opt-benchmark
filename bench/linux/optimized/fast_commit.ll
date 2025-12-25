@@ -5072,7 +5072,7 @@ define internal fastcc noundef i32 @ext4_fc_replay_link_internal(ptr noundef %0,
   br label %24
 
 24:                                               ; preds = %23, %21, %18
-  %25 = phi i32 [ 0, %23 ], [ %22, %21 ], [ -12, %18 ]
+  %25 = phi i32 [ 0, %23 ], [ -12, %18 ], [ %22, %21 ]
   %26 = icmp eq ptr %16, null
   br i1 %26, label %.thread, label %27
 

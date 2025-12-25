@@ -56194,7 +56194,7 @@ _ZN3fmt2v96detail13width_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_ifIXs
   unreachable
 
 _ZN3fmt2v96detail13width_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit: ; preds = %18, %12, %22, %16, %9
-  %.0 = phi i64 [ %.sroa.06.0.extract.trunc, %22 ], [ %13, %12 ], [ %.sroa.012.0.extract.trunc, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0 = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.012.0.extract.trunc, %18 ], [ %11, %9 ], [ %.sroa.06.0.extract.trunc, %22 ]
   %34 = icmp ugt i64 %.0, 2147483647
   br i1 %34, label %_ZN3fmt2v96detail13width_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit.thread54, label %35
 
@@ -56633,7 +56633,7 @@ _ZN3fmt2v96detail17precision_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_i
   unreachable
 
 _ZN3fmt2v96detail17precision_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit: ; preds = %18, %12, %22, %16, %9
-  %.0 = phi i64 [ %.sroa.06.0.extract.trunc, %22 ], [ %13, %12 ], [ %.sroa.012.0.extract.trunc, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0 = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.012.0.extract.trunc, %18 ], [ %11, %9 ], [ %.sroa.06.0.extract.trunc, %22 ]
   %34 = icmp ugt i64 %.0, 2147483647
   br i1 %34, label %_ZN3fmt2v96detail17precision_checkerINS1_13error_handlerEEclIxTnNSt3__19enable_ifIXsr10is_integerIT_EE5valueEiE4typeELi0EEEyS8_.exit.thread54, label %35
 
@@ -69833,7 +69833,7 @@ _ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit: ; preds = %
   br i1 %.not50, label %.critedge, label %.lr.ph.split, !llvm.loop !1182
 
 .critedge:                                        ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53, %.critedge2, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53.us, %.critedge2.us, %.preheader, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit, %_ZNKSt3__14hashIN3tev12ChannelGroupEEclERKS2_.exit
-  %.042 = phi i64 [ undef, %_ZNKSt3__14hashIN3tev12ChannelGroupEEclERKS2_.exit ], [ %32, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit ], [ %32, %.preheader ], [ %32, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53.us ], [ %32, %.critedge2.us ], [ %32, %.critedge2 ], [ %32, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53 ]
+  %.042 = phi i64 [ %32, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit ], [ undef, %_ZNKSt3__14hashIN3tev12ChannelGroupEEclERKS2_.exit ], [ %32, %.preheader ], [ %32, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53.us ], [ %32, %.critedge2.us ], [ %32, %.critedge2 ], [ %32, %_ZNSt3__116__constrain_hashB8ne190000Emm.exit53 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1183)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %96 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #34, !noalias !1183
@@ -70062,8 +70062,8 @@ _ZNSt3__110unique_ptrINS_11__hash_nodeIN3tev12ChannelGroupEPvEENS_22__hash_node_
   br label %_ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit.thread
 
 _ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit.thread: ; preds = %_ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit, %.preheader.i.i.i, %89, %.preheader.i.i.i.us, %_ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit.us, %65, %_ZNSt3__110unique_ptrINS_11__hash_nodeIN3tev12ChannelGroupEPvEENS_22__hash_node_destructorINS_9allocatorIS5_EEEEED2B8ne190000Ev.exit
-  %.069 = phi i8 [ 1, %_ZNSt3__110unique_ptrINS_11__hash_nodeIN3tev12ChannelGroupEPvEENS_22__hash_node_destructorINS_9allocatorIS5_EEEEED2B8ne190000Ev.exit ], [ 0, %89 ], [ 0, %65 ], [ 0, %.preheader.i.i.i.us ], [ 0, %_ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit.us ], [ 0, %.preheader.i.i.i ], [ 0, %_ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit ]
-  %.1 = phi ptr [ %202, %_ZNSt3__110unique_ptrINS_11__hash_nodeIN3tev12ChannelGroupEPvEENS_22__hash_node_destructorINS_9allocatorIS5_EEEEED2B8ne190000Ev.exit ], [ %.04179, %89 ], [ %.04179.us, %65 ], [ %.04179.us, %.preheader.i.i.i.us ], [ %.04179.us, %_ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit.us ], [ %.04179, %.preheader.i.i.i ], [ %.04179, %_ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit ]
+  %.069 = phi i8 [ 1, %_ZNSt3__110unique_ptrINS_11__hash_nodeIN3tev12ChannelGroupEPvEENS_22__hash_node_destructorINS_9allocatorIS5_EEEEED2B8ne190000Ev.exit ], [ 0, %65 ], [ 0, %89 ], [ 0, %.preheader.i.i.i.us ], [ 0, %_ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit.us ], [ 0, %.preheader.i.i.i ], [ 0, %_ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit ]
+  %.1 = phi ptr [ %202, %_ZNSt3__110unique_ptrINS_11__hash_nodeIN3tev12ChannelGroupEPvEENS_22__hash_node_destructorINS_9allocatorIS5_EEEEED2B8ne190000Ev.exit ], [ %.04179.us, %65 ], [ %.04179, %89 ], [ %.04179.us, %.preheader.i.i.i.us ], [ %.04179.us, %_ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit.us ], [ %.04179, %.preheader.i.i.i ], [ %.04179, %_ZNKSt3__18equal_toIN3tev12ChannelGroupEEclB8ne190000ERKS2_S5_.exit ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.069, 1
   ret { ptr, i8 } %.fca.1.insert

@@ -323,7 +323,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %.not197, label %.loopexit, label %124, !llvm.loop !20
 
 .loopexit:                                        ; preds = %9, %tailrecurse, %124, %97, %4, %.critedge2, %103, %83, %.thread, %72, %69, %71, %58, %43, %27, %46, %30, %17
-  %.0175 = phi ptr [ null, %103 ], [ null, %4 ], [ %.tr, %17 ], [ null, %.critedge2 ], [ %28, %30 ], [ null, %27 ], [ %44, %46 ], [ %104, %124 ], [ null, %43 ], [ null, %58 ], [ %59, %69 ], [ null, %72 ], [ null, %.thread ], [ null, %83 ], [ %59, %71 ], [ %84, %97 ], [ null, %tailrecurse ], [ null, %9 ]
+  %.0175 = phi ptr [ null, %103 ], [ null, %.critedge2 ], [ %.tr, %17 ], [ null, %4 ], [ %28, %30 ], [ null, %27 ], [ %44, %46 ], [ %104, %124 ], [ null, %43 ], [ null, %58 ], [ %59, %69 ], [ null, %72 ], [ null, %.thread ], [ null, %83 ], [ %59, %71 ], [ %84, %97 ], [ null, %tailrecurse ], [ null, %9 ]
   ret ptr %.0175
 }
 

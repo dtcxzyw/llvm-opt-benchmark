@@ -302,7 +302,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_png(ptr noundef %0, ptr no
   br label %add_icc_profile_size.exit
 
 add_icc_profile_size.exit:                        ; preds = %37, %33, %58, %44, %41, %61
-  %.0 = phi i32 [ 0, %61 ], [ %59, %58 ], [ %42, %41 ], [ %56, %44 ], [ -1094995529, %37 ], [ -1094995529, %33 ]
+  %.0 = phi i32 [ 0, %61 ], [ %59, %58 ], [ %42, %41 ], [ %56, %44 ], [ -1094995529, %33 ], [ -1094995529, %37 ]
   ret i32 %.0
 }
 
@@ -1342,7 +1342,7 @@ apng_encode_frame.exit:                           ; preds = %128, %.loopexit186.
   br label %add_icc_profile_size.exit
 
 add_icc_profile_size.exit:                        ; preds = %401, %apng_encode_frame.exit.thread, %58, %54, %468, %478, %.loopexit, %415, %413, %405, %apng_encode_frame.exit, %94, %89, %76, %73, %69, %68, %62, %.critedge
-  %.2 = phi i32 [ -1, %.critedge ], [ 0, %468 ], [ -12, %69 ], [ %107, %94 ], [ %425, %415 ], [ %466, %.loopexit ], [ -12, %413 ], [ -12, %405 ], [ %.0.i162, %apng_encode_frame.exit ], [ -12, %401 ], [ %74, %73 ], [ -22, %68 ], [ -12, %62 ], [ -12, %76 ], [ %92, %89 ], [ 0, %478 ], [ -1094995529, %58 ], [ -1094995529, %54 ], [ -12, %apng_encode_frame.exit.thread ]
+  %.2 = phi i32 [ -1, %.critedge ], [ 0, %468 ], [ -12, %69 ], [ %107, %94 ], [ %425, %415 ], [ %466, %.loopexit ], [ -12, %413 ], [ -12, %405 ], [ %.0.i162, %apng_encode_frame.exit ], [ -12, %401 ], [ %74, %73 ], [ -22, %68 ], [ -12, %62 ], [ -12, %76 ], [ %92, %89 ], [ 0, %478 ], [ -1094995529, %54 ], [ -1094995529, %58 ], [ -12, %apng_encode_frame.exit.thread ]
   ret i32 %.2
 }
 

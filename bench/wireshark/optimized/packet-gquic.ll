@@ -2808,7 +2808,7 @@ define internal noundef zeroext i1 @dissect_gquic_heur(ptr noundef %0, ptr nound
   br label %30
 
 30:                                               ; preds = %.sink.split, %16, %19, %25, %22, %11, %4
-  %.0 = phi i1 [ false, %22 ], [ false, %4 ], [ false, %11 ], [ false, %16 ], [ false, %19 ], [ false, %25 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %19 ], [ false, %4 ], [ false, %11 ], [ false, %16 ], [ false, %22 ], [ false, %25 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

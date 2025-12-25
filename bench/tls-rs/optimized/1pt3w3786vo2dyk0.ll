@@ -7952,7 +7952,7 @@ _ZN6rustls4msgs9handshake18ClientHelloPayload18keyshare_extension17h4f7b3ce890f2
   br label %_ZN6rustls4msgs9handshake18ClientHelloPayload18keyshare_extension17h4f7b3ce890f2c444E.exit.thread
 
 _ZN6rustls4msgs9handshake18ClientHelloPayload18keyshare_extension17h4f7b3ce890f2c444E.exit.thread: ; preds = %"_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h4eb5595beb4347f9E.llvm.15934541666227088301.exit.thread10.i.i.i", %_ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit.i.i.i.i, %_ZN6rustls4msgs9handshake18ClientHelloPayload18keyshare_extension17h4f7b3ce890f2c444E.exit.thread.sink.split, %1
-  %.0 = phi i1 [ %.0.ph, %_ZN6rustls4msgs9handshake18ClientHelloPayload18keyshare_extension17h4f7b3ce890f2c444E.exit.thread.sink.split ], [ false, %1 ], [ false, %_ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit.i.i.i.i ], [ false, %"_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h4eb5595beb4347f9E.llvm.15934541666227088301.exit.thread10.i.i.i" ]
+  %.0 = phi i1 [ false, %1 ], [ %.0.ph, %_ZN6rustls4msgs9handshake18ClientHelloPayload18keyshare_extension17h4f7b3ce890f2c444E.exit.thread.sink.split ], [ false, %_ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit.i.i.i.i ], [ false, %"_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17h4eb5595beb4347f9E.llvm.15934541666227088301.exit.thread10.i.i.i" ]
   ret i1 %.0
 
 52:                                               ; preds = %29

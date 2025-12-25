@@ -37287,7 +37287,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser13parseBin
   br label %.thread
 
 .thread:                                          ; preds = %36, %.thread.sink.split, %4
-  %48 = phi i1 [ false, %4 ], [ true, %.thread.sink.split ], [ false, %36 ]
+  %48 = phi i1 [ true, %.thread.sink.split ], [ false, %4 ], [ false, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %48
 }

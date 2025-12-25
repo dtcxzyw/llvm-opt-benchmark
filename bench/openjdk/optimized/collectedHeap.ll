@@ -2790,7 +2790,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43, %.loopexit.loopexit, %.loopexit.loopexit64, %._crit_edge, %.preheader
-  %.1 = phi i32 [ %135, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43 ], [ 0, %.preheader ], [ %indvars84, %.loopexit.loopexit64 ], [ %indvars89.le, %.loopexit.loopexit ], [ %.2.lcssa, %._crit_edge ], [ %115, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us ]
+  %.1 = phi i32 [ %indvars89.le, %.loopexit.loopexit ], [ 0, %.preheader ], [ %indvars84, %.loopexit.loopexit64 ], [ %135, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43 ], [ %.2.lcssa, %._crit_edge ], [ %115, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us ]
   %139 = icmp eq i32 %.1, %2
   br i1 %139, label %.sink.split, label %140
 

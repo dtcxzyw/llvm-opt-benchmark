@@ -9258,7 +9258,7 @@ Vec_IntPush.exit114:                              ; preds = %Vec_IntPush.exit114
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Vec_IntPush.exit114, %.loopexit.sink.split, %Vec_IntAlloc.exit
-  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ %161, %Vec_IntAlloc.exit ], [ %161, %Vec_IntPush.exit114 ]
+  %.0 = phi ptr [ %161, %Vec_IntAlloc.exit ], [ null, %.loopexit.sink.split ], [ %161, %Vec_IntPush.exit114 ]
   %.not.i115 = icmp eq ptr %.val94, null
   br i1 %.not.i115, label %Vec_IntFree.exit116, label %202
 

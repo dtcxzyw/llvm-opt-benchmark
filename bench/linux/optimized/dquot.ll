@@ -5430,7 +5430,7 @@ define dso_local i32 @dquot_load_quota_sb(ptr noundef %0, i32 noundef %1, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %33, %43, %14
-  %48 = phi ptr [ %7, %14 ], [ %47, %43 ], [ null, %33 ], [ null, %39 ]
+  %48 = phi ptr [ %7, %14 ], [ null, %33 ], [ %47, %43 ], [ null, %39 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @dq_list_lock) #12
   br label %.critedge
 

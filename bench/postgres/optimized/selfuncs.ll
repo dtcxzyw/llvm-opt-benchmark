@@ -7274,7 +7274,7 @@ list_length.exit.i:                               ; preds = %189
   br label %.critedge260.i
 
 .critedge260.i:                                   ; preds = %232, %.critedge260.sink.split.i, %.lr.ph313.i, %219, %213, %209
-  %.3202.i = phi ptr [ %.0199318.i289, %213 ], [ %.0199318.i289, %.lr.ph313.i ], [ %236, %.critedge260.sink.split.i ], [ %.0199318.i289, %209 ], [ %.0199318.i289, %219 ], [ %.0199318.i289, %232 ]
+  %.3202.i = phi ptr [ %.0199318.i289, %209 ], [ %.0199318.i289, %.lr.ph313.i ], [ %236, %.critedge260.sink.split.i ], [ %.0199318.i289, %213 ], [ %.0199318.i289, %219 ], [ %.0199318.i289, %232 ]
   %indvars.iv.next361.i = add nuw nsw i64 %indvars.iv360.i288, 1
   %237 = load i32, ptr %121, align 4
   %238 = sext i32 %237 to i64

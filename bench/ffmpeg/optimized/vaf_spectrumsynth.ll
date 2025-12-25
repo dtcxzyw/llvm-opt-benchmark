@@ -744,7 +744,7 @@ av_cmp_q.exit129.thread137:                       ; preds = %56, %53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %103, %.lr.ph, %119, %._crit_edge, %81, %75, %._crit_edge146, %74, %av_cmp_q.exit129.thread, %av_cmp_q.exit.thread, %._crit_edge151
-  %.0 = phi i32 [ -1094995529, %._crit_edge151 ], [ -1094995529, %av_cmp_q.exit.thread ], [ -1094995529, %av_cmp_q.exit129.thread ], [ %72, %74 ], [ -12, %119 ], [ -12, %81 ], [ 0, %._crit_edge146 ], [ -12, %._crit_edge ], [ -12, %75 ], [ -12, %.lr.ph ], [ -12, %103 ]
+  %.0 = phi i32 [ -1094995529, %._crit_edge151 ], [ -1094995529, %av_cmp_q.exit.thread ], [ -1094995529, %av_cmp_q.exit129.thread ], [ %72, %74 ], [ -12, %75 ], [ -12, %81 ], [ 0, %._crit_edge146 ], [ -12, %._crit_edge ], [ -12, %119 ], [ -12, %.lr.ph ], [ -12, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

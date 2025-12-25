@@ -1108,7 +1108,7 @@ define void @"_ZN12polars_utils10slice_enum111_$LT$impl$u20$core..convert..TryFr
   br label %12
 
 12:                                               ; preds = %.sink.split, %9, %8
-  %.sink = phi i64 [ 1, %9 ], [ 1, %8 ], [ 0, %.sink.split ]
+  %.sink = phi i64 [ 1, %8 ], [ 1, %9 ], [ 0, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

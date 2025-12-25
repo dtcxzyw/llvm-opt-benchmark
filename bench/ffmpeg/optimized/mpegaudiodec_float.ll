@@ -4410,7 +4410,7 @@ switch_buffer.exit215.i.i:                        ; preds = %1939, %1934, %1932
   br label %.thread288.i.i
 
 .thread288.i.i:                                   ; preds = %.thread288.sink.split.i.i, %2009, %2008, %2005
-  %.9.i.i = phi i32 [ %.6.i.i, %2005 ], [ %.6.i.i, %2008 ], [ %.6.i.i, %2009 ], [ 0, %.thread288.sink.split.i.i ]
+  %.9.i.i = phi i32 [ %.6.i.i, %2008 ], [ %.6.i.i, %2005 ], [ %.6.i.i, %2009 ], [ 0, %.thread288.sink.split.i.i ]
   %2013 = sext i32 %.9.i.i to i64
   %2014 = getelementptr inbounds float, ptr %1563, i64 %2013
   %2015 = sub nsw i32 576, %.9.i.i

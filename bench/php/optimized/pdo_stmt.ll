@@ -1764,7 +1764,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %79, %82, %87
   store i32 2, ptr %104, align 8, !tbaa !37
   br label %105
 
-105:                                              ; preds = %.critedge.sink.split.i, %65, %.thread, %41, %93, %92, %72, %103
+105:                                              ; preds = %65, %.critedge.sink.split.i, %.thread, %41, %93, %92, %72, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5609,8 +5609,8 @@ zend_gc_try_addref.exit:                          ; preds = %175, %179
   store i32 %42, ptr %9, align 4, !tbaa !84
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split.i, %49, %200, %199, %192, %186, %148, %147, %140, %134, %131, %130, %123, %117, %115, %114, %107, %101, %85, %84, %77, %71, %69, %68, %61, %55, %152, %164, %174, %157, %212, %211, %204, %94, %89
-  %.0 = phi i1 [ false, %211 ], [ false, %115 ], [ true, %212 ], [ false, %69 ], [ false, %89 ], [ false, %94 ], [ false, %85 ], [ false, %200 ], [ false, %148 ], [ false, %204 ], [ false, %157 ], [ false, %174 ], [ false, %164 ], [ false, %152 ], [ false, %131 ], [ false, %55 ], [ false, %61 ], [ false, %68 ], [ false, %71 ], [ false, %77 ], [ false, %84 ], [ false, %101 ], [ false, %107 ], [ false, %114 ], [ false, %117 ], [ false, %123 ], [ false, %130 ], [ false, %134 ], [ false, %140 ], [ false, %147 ], [ false, %186 ], [ false, %192 ], [ false, %199 ], [ false, %49 ], [ false, %.critedge.sink.split.i ]
+.critedge:                                        ; preds = %49, %.critedge.sink.split.i, %200, %199, %192, %186, %148, %147, %140, %134, %131, %130, %123, %117, %115, %114, %107, %101, %85, %84, %77, %71, %69, %68, %61, %55, %152, %164, %174, %157, %212, %211, %204, %94, %89
+  %.0 = phi i1 [ false, %211 ], [ false, %115 ], [ true, %212 ], [ false, %69 ], [ false, %89 ], [ false, %94 ], [ false, %85 ], [ false, %200 ], [ false, %148 ], [ false, %204 ], [ false, %157 ], [ false, %174 ], [ false, %164 ], [ false, %152 ], [ false, %131 ], [ false, %55 ], [ false, %61 ], [ false, %68 ], [ false, %71 ], [ false, %77 ], [ false, %84 ], [ false, %101 ], [ false, %107 ], [ false, %114 ], [ false, %117 ], [ false, %123 ], [ false, %130 ], [ false, %134 ], [ false, %140 ], [ false, %147 ], [ false, %186 ], [ false, %192 ], [ false, %199 ], [ false, %.critedge.sink.split.i ], [ false, %49 ]
   ret i1 %.0
 }
 

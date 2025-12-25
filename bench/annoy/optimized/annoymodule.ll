@@ -825,7 +825,7 @@ define noundef zeroext i1 @_Z17check_constraintsP8py_annoyib(ptr noundef readonl
   br label %14
 
 14:                                               ; preds = %.sink.split, %5, %6
-  %.0 = phi i1 [ true, %5 ], [ true, %6 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %6 ], [ true, %5 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

@@ -3496,7 +3496,7 @@ _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12isLoopHeaderEPKS1_.exit42.th
   br label %.thread77
 
 .thread77:                                        ; preds = %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12isLoopHeaderEPKS1_.exit42.thread, %36, %123, %121, %118
-  %.3 = phi i1 [ %.5, %121 ], [ false, %118 ], [ false, %123 ], [ false, %36 ], [ false, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12isLoopHeaderEPKS1_.exit42.thread ]
+  %.3 = phi i1 [ false, %123 ], [ false, %118 ], [ %.5, %121 ], [ false, %36 ], [ false, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12isLoopHeaderEPKS1_.exit42.thread ]
   ret i1 %.3
 }
 
@@ -5816,7 +5816,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i315: ; preds = %._crit_edge.
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge153.thread
 
-.critedge153.thread492:                           ; preds = %86, %108
+.critedge153.thread492:                           ; preds = %108, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread501
 
@@ -10886,7 +10886,7 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit97:         ; preds = %_ZN4llvm19SmallPtrS
   br label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit.thread
 
 _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit.thread: ; preds = %76, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit, %82, %.lr.ph163.split.us, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit94, %127, %133, %115, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit97
-  %.6 = phi i1 [ %.not74.lcssa202, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit97 ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit94 ], [ false, %115 ], [ false, %133 ], [ false, %.lr.ph163.split.us ], [ false, %82 ], [ false, %127 ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit ], [ false, %76 ]
+  %.6 = phi i1 [ %.not74.lcssa202, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit97 ], [ false, %115 ], [ false, %.lr.ph163.split.us ], [ false, %82 ], [ false, %133 ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit94 ], [ false, %127 ], [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit ], [ false, %76 ]
   %165 = load i8, ptr %9, align 4, !tbaa !32, !range !48, !noundef !49
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit98, label %167

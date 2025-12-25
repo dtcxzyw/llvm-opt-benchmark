@@ -12675,7 +12675,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread14: ; pre
   br i1 %.not.i.i.i, label %_ZNK4llvm6SDNode12getGluedNodeEv.exit, label %.critedge, !llvm.loop !548
 
 .critedge:                                        ; preds = %127, %.critedge.thread22, %107, %83, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, %.lr.ph.split, %.lr.ph.split.us, %2
-  %.not5829 = phi i1 [ true, %107 ], [ true, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit ], [ true, %.lr.ph.split.us ], [ false, %2 ], [ true, %83 ], [ true, %.lr.ph.split ], [ false, %.critedge.thread22 ], [ false, %127 ]
+  %.not5829 = phi i1 [ true, %107 ], [ false, %2 ], [ true, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit ], [ true, %.lr.ph.split.us ], [ true, %83 ], [ true, %.lr.ph.split ], [ false, %.critedge.thread22 ], [ false, %127 ]
   ret i1 %.not5829
 }
 

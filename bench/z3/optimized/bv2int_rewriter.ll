@@ -3831,7 +3831,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i14:          ; preds = %53
   br label %67
 
 67:                                               ; preds = %.sink.split, %42, %45
-  %.0 = phi i32 [ 5, %42 ], [ 5, %45 ], [ 4, %.sink.split ]
+  %.0 = phi i32 [ 5, %45 ], [ 5, %42 ], [ 4, %.sink.split ]
   %68 = load ptr, ptr %7, align 8, !tbaa !108
   %.not.i.i = icmp eq ptr %68, null
   br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %69
@@ -7178,7 +7178,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i65:          ; preds = %209
   br label %223
 
 223:                                              ; preds = %.sink.split, %199, %202
-  %.0 = phi i32 [ 5, %199 ], [ 5, %202 ], [ 4, %.sink.split ]
+  %.0 = phi i32 [ 5, %202 ], [ 5, %199 ], [ 4, %.sink.split ]
   %224 = load ptr, ptr %8, align 8, !tbaa !108
   %.not.i.i = icmp eq ptr %224, null
   br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %225
@@ -8450,7 +8450,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i35:          ; preds = %134
   br label %148
 
 148:                                              ; preds = %.sink.split, %82, %85
-  %.0 = phi i32 [ 5, %82 ], [ 5, %85 ], [ 4, %.sink.split ]
+  %.0 = phi i32 [ 5, %85 ], [ 5, %82 ], [ 4, %.sink.split ]
   %149 = load ptr, ptr %12, align 8, !tbaa !108
   %.not.i.i = icmp eq ptr %149, null
   br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %150

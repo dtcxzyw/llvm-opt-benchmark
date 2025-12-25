@@ -157,9 +157,9 @@ define range(i32 0, 2) i32 @EC_GROUP_check(ptr noundef %0, ptr noundef %1) local
   br label %37
 
 37:                                               ; preds = %.sink.split, %35, %33, %28, %25
-  %.026 = phi i32 [ 1, %35 ], [ 0, %33 ], [ 0, %28 ], [ 0, %25 ], [ 0, %.sink.split ]
-  %.1 = phi ptr [ %.024, %35 ], [ %.024, %33 ], [ %.024, %28 ], [ %.024, %25 ], [ %.1.ph, %.sink.split ]
-  %.0 = phi ptr [ %26, %35 ], [ %26, %33 ], [ %26, %28 ], [ null, %25 ], [ %.0.ph, %.sink.split ]
+  %.026 = phi i32 [ 0, %28 ], [ 1, %35 ], [ 0, %33 ], [ 0, %25 ], [ 0, %.sink.split ]
+  %.1 = phi ptr [ %.024, %28 ], [ %.024, %35 ], [ %.024, %33 ], [ %.024, %25 ], [ %.1.ph, %.sink.split ]
+  %.0 = phi ptr [ %26, %28 ], [ %26, %35 ], [ %26, %33 ], [ null, %25 ], [ %.0.ph, %.sink.split ]
   tail call void @BN_CTX_free(ptr noundef %.1) #2
   tail call void @EC_POINT_free(ptr noundef %.0) #2
   br label %38

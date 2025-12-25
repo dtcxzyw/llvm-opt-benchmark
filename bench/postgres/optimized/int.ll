@@ -2392,7 +2392,7 @@ is_funcclause.exit.thread.sink.split:             ; preds = %34, %41, %49, %.thr
   br label %is_funcclause.exit.thread
 
 is_funcclause.exit.thread:                        ; preds = %is_funcclause.exit.thread.sink.split, %.thread, %53, %7, %is_funcclause.exit, %57, %54, %1
-  %.0 = phi i64 [ 0, %1 ], [ 0, %is_funcclause.exit ], [ 0, %.thread ], [ 0, %53 ], [ 0, %54 ], [ 0, %7 ], [ 0, %57 ], [ %3, %is_funcclause.exit.thread.sink.split ]
+  %.0 = phi i64 [ 0, %1 ], [ 0, %is_funcclause.exit ], [ 0, %57 ], [ 0, %53 ], [ 0, %54 ], [ 0, %7 ], [ 0, %.thread ], [ %3, %is_funcclause.exit.thread.sink.split ]
   ret i64 %.0
 }
 

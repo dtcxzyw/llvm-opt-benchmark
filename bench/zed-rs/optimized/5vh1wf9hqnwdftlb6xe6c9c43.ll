@@ -11516,7 +11516,7 @@ _ZN8markdown12RenderedLine31rendered_index_for_source_index17h21f046550e56e40dE.
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2c6bbb28cccbb97E.llvm.5483158644543765426.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2c6bbb28cccbb97E.llvm.5483158644543765426.exit.thread": ; preds = %14, %7, %50, %51
-  %storemerge3 = phi i32 [ 0, %50 ], [ 1, %51 ], [ 0, %7 ], [ 0, %14 ]
+  %storemerge3 = phi i32 [ 1, %51 ], [ 0, %50 ], [ 0, %7 ], [ 0, %14 ]
   store i32 %storemerge3, ptr %0, align 4
   ret void
 }

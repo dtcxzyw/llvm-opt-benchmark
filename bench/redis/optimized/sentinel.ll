@@ -2358,7 +2358,7 @@ sentinelAddrOrHostnameEqual.exit.thread:          ; preds = %sentinelAddrOrHostn
   br i1 %.not33, label %70, label %66
 
 .sink.split:                                      ; preds = %57, %sentinelAddrOrHostnameEqual.exit, %sentinelAddrOrHostnameEqual.exit.thread, %sentinelAddrOrHostnameEqual.exit.us, %40
-  %.142.ph = phi ptr [ %28, %sentinelAddrOrHostnameEqual.exit.us ], [ %28, %40 ], [ %50, %57 ], [ %50, %sentinelAddrOrHostnameEqual.exit ], [ null, %sentinelAddrOrHostnameEqual.exit.thread ]
+  %.142.ph = phi ptr [ %28, %sentinelAddrOrHostnameEqual.exit.us ], [ %28, %40 ], [ %50, %sentinelAddrOrHostnameEqual.exit ], [ null, %sentinelAddrOrHostnameEqual.exit.thread ], [ %50, %57 ]
   tail call void @dictReleaseIterator(ptr noundef %13) #30
   br label %66
 
@@ -11694,7 +11694,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %260
 
-sentinelGetMasterByNameOrReplyError.exit:         ; preds = %239, %241, %250
+sentinelGetMasterByNameOrReplyError.exit:         ; preds = %241, %239, %250
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %251 = add nsw i32 %.2, 1
   %252 = load i32, ptr %12, align 8, !tbaa !249

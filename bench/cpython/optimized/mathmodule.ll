@@ -2447,7 +2447,7 @@ Py_DECREF.exit48.sink.split.i:                    ; preds = %82, %72
   br label %factorial_odd_part.exit
 
 factorial_odd_part.exit:                          ; preds = %70, %72, %Py_DECREF.exit48.sink.split.i
-  %.0.i = phi ptr [ %.0.ph.i, %Py_DECREF.exit48.sink.split.i ], [ %.139.i, %72 ], [ %.139.i, %70 ]
+  %.0.i = phi ptr [ %.139.i, %72 ], [ %.0.ph.i, %Py_DECREF.exit48.sink.split.i ], [ %.139.i, %70 ]
   %85 = icmp eq ptr %.0.i, null
   br i1 %85, label %Py_DECREF.exit, label %.preheader
 
@@ -4129,7 +4129,7 @@ Py_DECREF.exit132:                                ; preds = %168, %165, %162, %P
   br label %Py_DECREF.exit134
 
 .loopexit:                                        ; preds = %111, %Py_DECREF.exit120, %.thread, %Py_DECREF.exit130
-  %.093.ph = phi ptr [ %.194.lcssa, %.thread ], [ %.194.lcssa, %Py_DECREF.exit130 ], [ %.194169, %Py_DECREF.exit120 ], [ %.194169, %111 ]
+  %.093.ph = phi ptr [ %.194.lcssa, %Py_DECREF.exit130 ], [ %.194.lcssa, %.thread ], [ %.194169, %Py_DECREF.exit120 ], [ %.194169, %111 ]
   %174 = load i32, ptr %.093.ph, align 8, !tbaa !13
   %.not.i.i = icmp sgt i32 %174, -1
   br i1 %.not.i.i, label %175, label %Py_XDECREF.exit
@@ -6009,9 +6009,9 @@ Py_DECREF.exit260.i:                              ; preds = %249, %246, %244
 
 .loopexit.i:                                      ; preds = %56, %47, %218, %215, %201, %190, %113, %110, %62
   %255 = phi i1 [ %44, %62 ], [ true, %47 ], [ %44, %56 ], [ %44, %218 ], [ %44, %215 ], [ %44, %201 ], [ %44, %190 ], [ %44, %113 ], [ %44, %110 ]
-  %.1202.ph.i = phi ptr [ null, %62 ], [ null, %47 ], [ null, %56 ], [ %199, %201 ], [ null, %190 ], [ %111, %113 ], [ null, %110 ], [ null, %215 ], [ %216, %218 ]
+  %.1202.ph.i = phi ptr [ null, %62 ], [ null, %47 ], [ null, %56 ], [ %199, %201 ], [ null, %190 ], [ %111, %113 ], [ null, %110 ], [ %216, %218 ], [ null, %215 ]
   %.1191.ph.i = phi ptr [ %52, %62 ], [ null, %47 ], [ null, %56 ], [ %52, %218 ], [ %52, %215 ], [ %52, %201 ], [ %52, %190 ], [ %52, %113 ], [ %52, %110 ]
-  %.1181.ph.i = phi ptr [ %.0180.i.ph, %62 ], [ %.0180.i.ph, %47 ], [ %.0180.i.ph, %56 ], [ %.2182.i, %201 ], [ %.2182.i, %190 ], [ %.0180.i.ph, %113 ], [ %.0180.i.ph, %110 ], [ %.3183.i, %215 ], [ %.3183.i, %218 ]
+  %.1181.ph.i = phi ptr [ %.0180.i.ph, %62 ], [ %.0180.i.ph, %47 ], [ %.0180.i.ph, %56 ], [ %.2182.i, %201 ], [ %.2182.i, %190 ], [ %.0180.i.ph, %113 ], [ %.0180.i.ph, %110 ], [ %.3183.i, %218 ], [ %.3183.i, %215 ]
   %256 = load i32, ptr %11, align 8, !tbaa !13
   %.not.i255.i = icmp sgt i32 %256, -1
   br i1 %.not.i255.i, label %257, label %Py_DECREF.exit256.i

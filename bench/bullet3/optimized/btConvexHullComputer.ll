@@ -10195,7 +10195,7 @@ _ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread: ; preds = %
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, -1
   br label %33, !llvm.loop !247
 
-_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39: ; preds = %43, %38, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34
+_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34.thread39: ; preds = %38, %43, %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit34
   %48 = trunc nsw i64 %indvars.iv53 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv53
   br i1 %.not, label %54, label %49

@@ -2943,15 +2943,15 @@ HeapTupleGetUpdateXid.exit.i:                     ; preds = %.loopexit.i.i.i, %1
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %HeapTupleGetUpdateXid.exit.i, %107, %54
-  %.173 = phi i16 [ %.val84, %HeapTupleGetUpdateXid.exit.i ], [ %.val84, %107 ], [ %56, %54 ]
-  %.169 = phi i32 [ %.08.i.i.i, %HeapTupleGetUpdateXid.exit.i ], [ %.val.i.i, %107 ], [ %.068114, %54 ]
-  %.167 = phi i1 [ false, %HeapTupleGetUpdateXid.exit.i ], [ false, %107 ], [ %.066115, %54 ]
-  %.164 = phi ptr [ %.265, %HeapTupleGetUpdateXid.exit.i ], [ %.265, %107 ], [ %.063116, %54 ]
+  %.173 = phi i16 [ %.val84, %HeapTupleGetUpdateXid.exit.i ], [ %56, %54 ], [ %.val84, %107 ]
+  %.169 = phi i32 [ %.08.i.i.i, %HeapTupleGetUpdateXid.exit.i ], [ %.068114, %54 ], [ %.val.i.i, %107 ]
+  %.167 = phi i1 [ false, %HeapTupleGetUpdateXid.exit.i ], [ %.066115, %54 ], [ false, %107 ]
+  %.164 = phi ptr [ %.265, %HeapTupleGetUpdateXid.exit.i ], [ %.063116, %54 ], [ %.265, %107 ]
   %123 = icmp eq i16 %.173, 0
   br i1 %123, label %HeapTupleIsHotUpdated.exit.thread, label %37
 
-HeapTupleIsHotUpdated.exit.thread:                ; preds = %HeapTupleHeaderGetUpdateXid.exit, %52, %HeapTupleHeaderGetXmin.exit, %64, %37, %100, %96, %24, %HeapTupleHeaderGetXmin.exit90, %85
-  %.2 = phi i1 [ true, %85 ], [ true, %HeapTupleHeaderGetXmin.exit90 ], [ false, %24 ], [ false, %96 ], [ false, %100 ], [ false, %37 ], [ false, %64 ], [ false, %HeapTupleHeaderGetXmin.exit ], [ false, %52 ], [ false, %HeapTupleHeaderGetUpdateXid.exit ]
+HeapTupleIsHotUpdated.exit.thread:                ; preds = %HeapTupleHeaderGetUpdateXid.exit, %52, %HeapTupleHeaderGetXmin.exit, %64, %37, %100, %96, %24, %85, %HeapTupleHeaderGetXmin.exit90
+  %.2 = phi i1 [ true, %HeapTupleHeaderGetXmin.exit90 ], [ true, %85 ], [ false, %24 ], [ false, %96 ], [ false, %100 ], [ false, %37 ], [ false, %64 ], [ false, %HeapTupleHeaderGetXmin.exit ], [ false, %52 ], [ false, %HeapTupleHeaderGetUpdateXid.exit ]
   ret i1 %.2
 }
 
@@ -4544,8 +4544,8 @@ heap_acquire_tuplock.exit:                        ; preds = %96, %94, %91
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %.thread, %119, %121, %127
-  %.be = phi i32 [ 0, %119 ], [ %98, %.thread ], [ %117, %127 ], [ %117, %121 ]
-  %.0165.be = phi i8 [ 1, %119 ], [ %.3167, %.thread ], [ 1, %127 ], [ 1, %121 ]
+  %.be = phi i32 [ %98, %.thread ], [ 0, %119 ], [ %117, %121 ], [ %117, %127 ]
+  %.0165.be = phi i8 [ %.3167, %.thread ], [ 1, %119 ], [ 1, %121 ], [ 1, %127 ]
   br label %.split
 
 111:                                              ; preds = %108, %89
@@ -8583,8 +8583,8 @@ UpdateXmaxHintBits.exit:                          ; preds = %279, %280, %292, %2
   br label %453
 
 .critedge:                                        ; preds = %143, %.thread367, %276, %195, %202, %182, %189, %170, %177, %155
-  %.2290 = phi i8 [ %.0433, %195 ], [ %.0433, %155 ], [ %.3291, %.thread367 ], [ %.0433, %182 ], [ %.0433, %189 ], [ %.0433, %170 ], [ %.0433, %177 ], [ %.0433, %143 ], [ %.3291, %276 ], [ %.0433, %202 ]
-  %.4228 = phi i1 [ %.1225301, %195 ], [ %.1225307, %155 ], [ %.1225301, %.thread367 ], [ %.1225314468, %182 ], [ %.1225314468, %189 ], [ %.1225, %170 ], [ %.1225, %177 ], [ %.1225, %143 ], [ %.1225301, %276 ], [ %.1225301, %202 ]
+  %.2290 = phi i8 [ %.0433, %195 ], [ %.0433, %155 ], [ %.3291, %.thread367 ], [ %.0433, %182 ], [ %.0433, %189 ], [ %.0433, %170 ], [ %.0433, %177 ], [ %.0433, %202 ], [ %.3291, %276 ], [ %.0433, %143 ]
+  %.4228 = phi i1 [ %.1225301, %195 ], [ %.1225307, %155 ], [ %.1225301, %.thread367 ], [ %.1225314468, %182 ], [ %.1225314468, %189 ], [ %.1225, %170 ], [ %.1225, %177 ], [ %.1225301, %202 ], [ %.1225301, %276 ], [ %.1225, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.backedge
 

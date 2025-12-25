@@ -789,7 +789,7 @@ _query_job_states.exit.i:                         ; preds = %.loopexit.i.i, %204
   br label %271
 
 271:                                              ; preds = %269, %267, %263
-  %.1.i11 = phi i32 [ %270, %269 ], [ %268, %267 ], [ %264, %263 ]
+  %.1.i11 = phi i32 [ %268, %267 ], [ %270, %269 ], [ %264, %263 ]
   %.not62.i = icmp eq i32 %.1.i11, 0
   br i1 %.not62.i, label %.thread.i10, label %.thread76.i
 

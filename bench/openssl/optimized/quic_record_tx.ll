@@ -1290,7 +1290,7 @@ ossl_list_txe_insert_tail.exit.i87:               ; preds = %qtx_add_to_pending.
   br label %ossl_qtx_finish_dgram.exit91
 
 ossl_qtx_finish_dgram.exit91:                     ; preds = %163, %161, %qtx_mutate_write.exit, %395, %qtx_ensure_cons.exit, %ossl_quic_pkt_type_to_enc_level.exit.thread, %ossl_list_txe_insert_tail.exit.i87, %436, %qtx_mutate_write.exit.thread, %428, %63, %2
-  %.0 = phi i32 [ 0, %ossl_quic_pkt_type_to_enc_level.exit.thread ], [ 0, %2 ], [ 1, %ossl_list_txe_insert_tail.exit.i87 ], [ 1, %436 ], [ 1, %428 ], [ 0, %qtx_mutate_write.exit.thread ], [ 0, %63 ], [ 0, %qtx_ensure_cons.exit ], [ 0, %395 ], [ 0, %qtx_mutate_write.exit ], [ 0, %161 ], [ 0, %163 ]
+  %.0 = phi i32 [ 0, %ossl_quic_pkt_type_to_enc_level.exit.thread ], [ 0, %2 ], [ 1, %ossl_list_txe_insert_tail.exit.i87 ], [ 0, %qtx_mutate_write.exit.thread ], [ 1, %428 ], [ 1, %436 ], [ 0, %63 ], [ 0, %qtx_ensure_cons.exit ], [ 0, %395 ], [ 0, %qtx_mutate_write.exit ], [ 0, %161 ], [ 0, %163 ]
   ret i32 %.0
 }
 

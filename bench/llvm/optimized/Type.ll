@@ -1083,7 +1083,7 @@ _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit:    ; preds = %49, %51
   br label %_ZNK5clang10RecordType7getDeclEv.exit.thread
 
 _ZNK5clang10RecordType7getDeclEv.exit:            ; preds = %39, %36, %28, %25, %_ZNK5clang4Type6castAsINS_11TypedefTypeEEEPKT_v.exit
-  %.0 = phi ptr [ %21, %28 ], [ %46, %_ZNK5clang4Type6castAsINS_11TypedefTypeEEEPKT_v.exit ], [ %21, %25 ], [ %32, %36 ], [ %32, %39 ]
+  %.0 = phi ptr [ %46, %_ZNK5clang4Type6castAsINS_11TypedefTypeEEEPKT_v.exit ], [ %21, %28 ], [ %21, %25 ], [ %32, %36 ], [ %32, %39 ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %_ZNK5clang10RecordType7getDeclEv.exit.thread, label %_ZNK5clang10RecordType7getDeclEv.exit.thread36
 
@@ -1623,7 +1623,7 @@ tailrecurse:                                      ; preds = %8
   br label %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread
 
 _ZNK5clang8QualType16isConstQualifiedEv.exit.thread: ; preds = %_ZNK5clang8QualType16isConstQualifiedEv.exit, %tailrecurse, %2, %15, %12
-  %.05 = phi i1 [ false, %12 ], [ %20, %15 ], [ true, %2 ], [ true, %tailrecurse ], [ true, %_ZNK5clang8QualType16isConstQualifiedEv.exit ]
+  %.05 = phi i1 [ %20, %15 ], [ false, %12 ], [ true, %2 ], [ true, %tailrecurse ], [ true, %_ZNK5clang8QualType16isConstQualifiedEv.exit ]
   ret i1 %.05
 }
 
@@ -8881,7 +8881,7 @@ _ZNK5clang10RecordType7getDeclEv.exit:            ; preds = %.lr.ph.i.i.i, %15, 
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_15ObjCBoxableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !515
 
 _ZN5clangneENS_22specific_attr_iteratorINS_15ObjCBoxableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %35, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %30, %35 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %30, %35 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %37 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %30
   br label %_ZNK5clang4Decl7hasAttrINS_15ObjCBoxableAttrEEEbv.exit
 
@@ -9058,7 +9058,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread: ; preds = %1, %_ZNK5
   br label %_ZNK5clang4Type10isVoidTypeEv.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %4, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread, %24
-  %28 = phi i1 [ %27, %24 ], [ false, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread ], [ false, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ false, %4 ]
+  %28 = phi i1 [ false, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread ], [ %27, %24 ], [ false, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ false, %4 ]
   ret i1 %28
 }
 
@@ -11320,7 +11320,7 @@ select.unfold:                                    ; preds = %_ZNK5clang17ObjCInt
   br label %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit
 
 _ZNK5clang14ObjCObjectType12getInterfaceEv.exit:  ; preds = %.thread28.i, %select.unfold
-  %109 = phi ptr [ %98, %select.unfold ], [ %108, %.thread28.i ]
+  %109 = phi ptr [ %108, %.thread28.i ], [ %98, %select.unfold ]
   %.not49125 = icmp eq ptr %109, %.030
   br i1 %.not49125, label %._crit_edge, label %.lr.ph
 
@@ -11818,7 +11818,7 @@ _ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread18.i: ; preds = %_Z
   br label %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit
 
 _ZNK5clang14ObjCObjectType12getInterfaceEv.exit:  ; preds = %21, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i, %31, %39, %5, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit
-  %44 = phi ptr [ %.1.i15, %31 ], [ null, %5 ], [ %.1.i15, %39 ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i ], [ null, %21 ]
+  %44 = phi ptr [ %.1.i15, %39 ], [ null, %5 ], [ %.1.i15, %31 ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i ], [ null, %21 ]
   ret ptr %44
 }
 
@@ -12644,7 +12644,7 @@ _ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread18.i: ; preds = %_Z
   br label %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit
 
 _ZNK5clang14ObjCObjectType12getInterfaceEv.exit:  ; preds = %22, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i, %32, %40, %5, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread14
-  %45 = phi ptr [ %.1.i17, %32 ], [ null, %5 ], [ %.1.i17, %40 ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread14 ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i ], [ null, %22 ]
+  %45 = phi ptr [ %.1.i17, %40 ], [ null, %5 ], [ %.1.i17, %32 ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread14 ], [ null, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i ], [ null, %22 ]
   ret ptr %45
 }
 
@@ -12949,7 +12949,7 @@ _ZNK5clang7TagType7getDeclEv.exit.thread:         ; preds = %_ZNK5clang4Type5get
   br i1 %or.cond.i.i25, label %_ZNK5clang7TagType7getDeclEv.exit.thread37, label %.lr.ph.i.i15
 
 _ZNK5clang7TagType7getDeclEv.exit.thread37:       ; preds = %.lr.ph.i.i15, %34, %37, %.lr.ph.i.i, %19, %22, %_ZNK5clang7TagType7getDeclEv.exit.thread, %28, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread
-  %.1 = phi ptr [ null, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread ], [ null, %_ZNK5clang7TagType7getDeclEv.exit.thread ], [ null, %28 ], [ %.sroa.013.027.i.i, %.lr.ph.i.i ], [ %15, %19 ], [ %15, %22 ], [ %30, %37 ], [ %30, %34 ], [ %.sroa.013.027.i.i17, %.lr.ph.i.i15 ]
+  %.1 = phi ptr [ null, %_ZNK5clang4Type5getAsINS_7TagTypeEEEPKT_v.exit.thread ], [ null, %_ZNK5clang7TagType7getDeclEv.exit.thread ], [ null, %28 ], [ %.sroa.013.027.i.i, %.lr.ph.i.i ], [ %15, %22 ], [ %15, %19 ], [ %30, %37 ], [ %30, %34 ], [ %.sroa.013.027.i.i17, %.lr.ph.i.i15 ]
   ret ptr %.1
 }
 
@@ -27649,7 +27649,7 @@ _ZNK5clang17ObjCInterfaceType7getDeclEv.exit:     ; preds = %_ZNK5clang17ObjCInt
   unreachable
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %_ZN5clang11LinkageInfo5mergeES0_.exit65, %79, %_ZNK5clang17ObjCInterfaceType7getDeclEv.exit, %_ZN5clang11LinkageInfo5mergeES0_.exit, %_ZNK5clang7TagType7getDeclEv.exit
-  %.sroa.092.0 = phi i8 [ %storemerge.i61, %_ZN5clang11LinkageInfo5mergeES0_.exit65 ], [ %storemerge.i, %_ZN5clang11LinkageInfo5mergeES0_.exit ], [ %17, %_ZNK5clang7TagType7getDeclEv.exit ], [ %135, %_ZNK5clang17ObjCInterfaceType7getDeclEv.exit ], [ %84, %79 ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ]
+  %.sroa.092.0 = phi i8 [ %storemerge.i, %_ZN5clang11LinkageInfo5mergeES0_.exit ], [ %135, %_ZNK5clang17ObjCInterfaceType7getDeclEv.exit ], [ %storemerge.i61, %_ZN5clang11LinkageInfo5mergeES0_.exit65 ], [ %17, %_ZNK5clang7TagType7getDeclEv.exit ], [ %84, %79 ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ], [ 22, %tailrecurse ]
   ret i8 %.sroa.092.0
 }
 
@@ -29334,7 +29334,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type18isObjCNSObjectTypeEv(ptr n
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_16ObjCNSObjectAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !727
 
 _ZN5clangneENS_22specific_attr_iteratorINS_16ObjCNSObjectAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %20, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %15, %20 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %15, %20 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %22 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %15
   br label %_ZNK5clang4Decl7hasAttrINS_16ObjCNSObjectAttrEEEbv.exit
 
@@ -29383,7 +29383,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type26isObjCIndependentClassType
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_24ObjCIndependentClassAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !728
 
 _ZN5clangneENS_22specific_attr_iteratorINS_24ObjCIndependentClassAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %20, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %15, %20 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %15, %20 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %22 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %15
   br label %_ZNK5clang4Decl7hasAttrINS_24ObjCIndependentClassAttrEEEbv.exit
 
@@ -29445,7 +29445,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Type20isObjCRetainableTypeEv(ptr
   br i1 %.not.i.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_16ObjCNSObjectAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !727
 
 _ZN5clangneENS_22specific_attr_iteratorINS_16ObjCNSObjectAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i: ; preds = %27, %.lr.ph.i.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %22, %27 ]
+  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %22, %27 ], [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %29 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i.i, %22
   br label %_ZNK5clang4Type18isObjCNSObjectTypeEv.exit
 
@@ -29674,7 +29674,7 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread: ; preds = %6, %_ZNK5clang4T
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_16ObjCNSObjectAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !727
 
 _ZN5clangneENS_22specific_attr_iteratorINS_16ObjCNSObjectAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i: ; preds = %42, %.lr.ph.i.i.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %37, %42 ]
+  %.sroa.07.0.i.i.ph.i.i.i.i = phi ptr [ %37, %42 ], [ %.sroa.07.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %44 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i.i.i, %37
   br label %_ZNK5clang4Type20isObjCRetainableTypeEv.exit
 
@@ -29833,7 +29833,7 @@ _ZNK5clang10RecordType7getDeclEv.exit:            ; preds = %.lr.ph.i.i.i, %15, 
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_32CUDADeviceBuiltinSurfaceTypeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !729
 
 _ZN5clangneENS_22specific_attr_iteratorINS_32CUDADeviceBuiltinSurfaceTypeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %35, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %30, %35 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %30, %35 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %37 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %30
   br label %_ZNK5clang4Decl7hasAttrINS_32CUDADeviceBuiltinSurfaceTypeAttrEEEbv.exit
 
@@ -29920,7 +29920,7 @@ _ZNK5clang10RecordType7getDeclEv.exit:            ; preds = %.lr.ph.i.i.i, %15, 
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_32CUDADeviceBuiltinTextureTypeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !730
 
 _ZN5clangneENS_22specific_attr_iteratorINS_32CUDADeviceBuiltinTextureTypeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %35, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %30, %35 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %30, %35 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %37 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %30
   br label %_ZNK5clang4Decl7hasAttrINS_32CUDADeviceBuiltinTextureTypeAttrEEEbv.exit
 
@@ -34264,7 +34264,7 @@ _ZN12_GLOBAL__N_122SimpleTransformVisitorINS_24SubstObjCTypeArgsVisitorEE7recurs
   br label %_ZN12_GLOBAL__N_122SimpleTransformVisitorINS_24SubstObjCTypeArgsVisitorEE19VisitAttributedTypeEPKN5clang14AttributedTypeE.exit
 
 _ZN12_GLOBAL__N_122SimpleTransformVisitorINS_24SubstObjCTypeArgsVisitorEE19VisitAttributedTypeEPKN5clang14AttributedTypeE.exit: ; preds = %62, %.critedge.i
-  %.sroa.091.1 = phi i64 [ %64, %62 ], [ %71, %.critedge.i ]
+  %.sroa.091.1 = phi i64 [ %71, %.critedge.i ], [ %64, %62 ]
   %.not.i.i = icmp ult i64 %.sroa.091.1, 16
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_122SimpleTransformVisitorINS_24SubstObjCTypeArgsVisitorEE19VisitAttributedTypeEPKN5clang14AttributedTypeE.exit.thread, label %72
 

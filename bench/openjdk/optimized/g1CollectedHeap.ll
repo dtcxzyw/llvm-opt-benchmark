@@ -5388,7 +5388,7 @@ _ZN12ResourceMarkD2Ev.exit66:                     ; preds = %195, %193, %201, %1
   br label %406
 
 406:                                              ; preds = %325, %_ZN12ResourceMarkD2Ev.exit66, %347, %349, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94, %.thread199, %403, %405
-  %.140 = phi i32 [ %.241, %405 ], [ %.241, %403 ], [ %.039, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94 ], [ %.039, %325 ], [ %.039, %347 ], [ %.039, %.thread199 ], [ %.039, %349 ], [ %.241, %_ZN12ResourceMarkD2Ev.exit66 ]
+  %.140 = phi i32 [ %.241, %_ZN12ResourceMarkD2Ev.exit66 ], [ %.039, %347 ], [ %.039, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94 ], [ %.039, %325 ], [ %.241, %403 ], [ %.241, %405 ], [ %.039, %349 ], [ %.039, %.thread199 ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(38) %6) #23
   %407 = add i32 %.038, 1
   br label %41, !llvm.loop !22

@@ -372,8 +372,8 @@ if.end104.i207:                                   ; preds = %land.rhs.i225
   br label %if.end
 
 if.end:                                           ; preds = %if.end82.i299, %if.then.i324, %if.end12.i235, %if.end19.i243, %if.end28.i251, %if.end37.i259, %if.end46.i267, %if.end55.i275, %if.end64.i283, %if.end73.i291, %if.end104.i207
-  %pos.promoted299 = phi i64 [ %inc.i327, %if.then.i324 ], [ %inc74.i292, %if.end73.i291 ], [ %inc96.i217, %if.end104.i207 ], [ %inc83.i300, %if.end82.i299 ], [ %inc13.i236, %if.end12.i235 ], [ %inc20.i244, %if.end19.i243 ], [ %inc29.i252, %if.end28.i251 ], [ %inc38.i260, %if.end37.i259 ], [ %inc47.i268, %if.end46.i267 ], [ %inc56.i276, %if.end55.i275 ], [ %inc65.i284, %if.end64.i283 ]
-  %tag.0 = phi i64 [ %conv.i321, %if.then.i324 ], [ %or79.i297, %if.end73.i291 ], [ %or110.i213, %if.end104.i207 ], [ %or88.i305, %if.end82.i299 ], [ %or.i241, %if.end12.i235 ], [ %or25.i249, %if.end19.i243 ], [ %or34.i257, %if.end28.i251 ], [ %or43.i265, %if.end37.i259 ], [ %or52.i273, %if.end46.i267 ], [ %or61.i281, %if.end55.i275 ], [ %or70.i289, %if.end64.i283 ]
+  %pos.promoted299 = phi i64 [ %inc.i327, %if.then.i324 ], [ %inc96.i217, %if.end104.i207 ], [ %inc74.i292, %if.end73.i291 ], [ %inc83.i300, %if.end82.i299 ], [ %inc13.i236, %if.end12.i235 ], [ %inc20.i244, %if.end19.i243 ], [ %inc29.i252, %if.end28.i251 ], [ %inc38.i260, %if.end37.i259 ], [ %inc47.i268, %if.end46.i267 ], [ %inc56.i276, %if.end55.i275 ], [ %inc65.i284, %if.end64.i283 ]
+  %tag.0 = phi i64 [ %conv.i321, %if.then.i324 ], [ %or110.i213, %if.end104.i207 ], [ %or79.i297, %if.end73.i291 ], [ %or88.i305, %if.end82.i299 ], [ %or.i241, %if.end12.i235 ], [ %or25.i249, %if.end19.i243 ], [ %or34.i257, %if.end28.i251 ], [ %or43.i265, %if.end37.i259 ], [ %or52.i273, %if.end46.i267 ], [ %or61.i281, %if.end55.i275 ], [ %or70.i289, %if.end64.i283 ]
   switch i64 %tag.0, label %sw.default [
     i64 10, label %sw.bb
     i64 18, label %sw.bb12
@@ -540,8 +540,8 @@ if.end104.i:                                      ; preds = %land.rhs.i
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end82.i, %if.then.i, %if.then5.i, %if.end12.i, %if.end19.i, %if.end28.i, %if.end37.i, %if.end46.i, %if.end55.i, %if.end64.i, %if.end73.i, %if.end104.i
-  %29 = phi i64 [ %inc.i, %if.then.i ], [ %inc74.i, %if.end73.i ], [ %inc96.i, %if.end104.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc83.i, %if.end82.i ]
-  %sz.0 = phi i64 [ %conv.i, %if.then.i ], [ %or79.i, %if.end73.i ], [ %or110.i, %if.end104.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or52.i, %if.end46.i ], [ %or61.i, %if.end55.i ], [ %or70.i, %if.end64.i ], [ %or88.i, %if.end82.i ]
+  %29 = phi i64 [ %inc.i, %if.then.i ], [ %inc96.i, %if.end104.i ], [ %inc74.i, %if.end73.i ], [ %inc6.i, %if.then5.i ], [ %inc13.i, %if.end12.i ], [ %inc20.i, %if.end19.i ], [ %inc29.i, %if.end28.i ], [ %inc38.i, %if.end37.i ], [ %inc47.i, %if.end46.i ], [ %inc56.i, %if.end55.i ], [ %inc65.i, %if.end64.i ], [ %inc83.i, %if.end82.i ]
+  %sz.0 = phi i64 [ %conv.i, %if.then.i ], [ %or110.i, %if.end104.i ], [ %or79.i, %if.end73.i ], [ %and9.i, %if.then5.i ], [ %or.i, %if.end12.i ], [ %or25.i, %if.end19.i ], [ %or34.i, %if.end28.i ], [ %or43.i, %if.end37.i ], [ %or52.i, %if.end46.i ], [ %or61.i, %if.end55.i ], [ %or70.i, %if.end64.i ], [ %or88.i, %if.end82.i ]
   %30 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %30, %sz.0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -775,8 +775,8 @@ if.end104.i65:                                    ; preds = %land.rhs.i83
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end82.i157, %if.then.i182, %if.then5.i87, %if.end12.i93, %if.end19.i101, %if.end28.i109, %if.end37.i117, %if.end46.i125, %if.end55.i133, %if.end64.i141, %if.end73.i149, %if.end104.i65
-  %50 = phi i64 [ %inc.i185, %if.then.i182 ], [ %inc74.i150, %if.end73.i149 ], [ %inc96.i75, %if.end104.i65 ], [ %inc6.i88, %if.then5.i87 ], [ %inc13.i94, %if.end12.i93 ], [ %inc20.i102, %if.end19.i101 ], [ %inc29.i110, %if.end28.i109 ], [ %inc38.i118, %if.end37.i117 ], [ %inc47.i126, %if.end46.i125 ], [ %inc56.i134, %if.end55.i133 ], [ %inc65.i142, %if.end64.i141 ], [ %inc83.i158, %if.end82.i157 ]
-  %sz13.0 = phi i64 [ %conv.i179, %if.then.i182 ], [ %or79.i155, %if.end73.i149 ], [ %or110.i71, %if.end104.i65 ], [ %and9.i91, %if.then5.i87 ], [ %or.i99, %if.end12.i93 ], [ %or25.i107, %if.end19.i101 ], [ %or34.i115, %if.end28.i109 ], [ %or43.i123, %if.end37.i117 ], [ %or52.i131, %if.end46.i125 ], [ %or61.i139, %if.end55.i133 ], [ %or70.i147, %if.end64.i141 ], [ %or88.i163, %if.end82.i157 ]
+  %50 = phi i64 [ %inc.i185, %if.then.i182 ], [ %inc96.i75, %if.end104.i65 ], [ %inc74.i150, %if.end73.i149 ], [ %inc6.i88, %if.then5.i87 ], [ %inc13.i94, %if.end12.i93 ], [ %inc20.i102, %if.end19.i101 ], [ %inc29.i110, %if.end28.i109 ], [ %inc38.i118, %if.end37.i117 ], [ %inc47.i126, %if.end46.i125 ], [ %inc56.i134, %if.end55.i133 ], [ %inc65.i142, %if.end64.i141 ], [ %inc83.i158, %if.end82.i157 ]
+  %sz13.0 = phi i64 [ %conv.i179, %if.then.i182 ], [ %or110.i71, %if.end104.i65 ], [ %or79.i155, %if.end73.i149 ], [ %and9.i91, %if.then5.i87 ], [ %or.i99, %if.end12.i93 ], [ %or25.i107, %if.end19.i101 ], [ %or34.i115, %if.end28.i109 ], [ %or43.i123, %if.end37.i117 ], [ %or52.i131, %if.end46.i125 ], [ %or61.i139, %if.end55.i133 ], [ %or70.i147, %if.end64.i141 ], [ %or88.i163, %if.end82.i157 ]
   %51 = load i64, ptr %_M_string_length.i.i.i241, align 8
   %cmp.i.i242 = icmp ult i64 %51, %sz13.0
   br i1 %cmp.i.i242, label %if.then.i.i247, label %if.else.i.i243
@@ -1328,8 +1328,8 @@ if.end104.i58:                                    ; preds = %land.rhs.i76
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end82.i151, %if.then.i176, %if.then5.i80, %if.end12.i87, %if.end19.i95, %if.end28.i103, %if.end37.i111, %if.end46.i119, %if.end55.i127, %if.end64.i135, %if.end73.i143, %if.end104.i58
-  %41 = phi i64 [ %inc.i179, %if.then.i176 ], [ %inc74.i144, %if.end73.i143 ], [ %inc96.i68, %if.end104.i58 ], [ %inc6.i82, %if.then5.i80 ], [ %inc13.i88, %if.end12.i87 ], [ %inc20.i96, %if.end19.i95 ], [ %inc29.i104, %if.end28.i103 ], [ %inc38.i112, %if.end37.i111 ], [ %inc47.i120, %if.end46.i119 ], [ %inc56.i128, %if.end55.i127 ], [ %inc65.i136, %if.end64.i135 ], [ %inc83.i152, %if.end82.i151 ]
-  %sz.0 = phi i64 [ %conv.i173, %if.then.i176 ], [ %or79.i149, %if.end73.i143 ], [ %or110.i64, %if.end104.i58 ], [ %and9.i85, %if.then5.i80 ], [ %or.i93, %if.end12.i87 ], [ %or25.i101, %if.end19.i95 ], [ %or34.i109, %if.end28.i103 ], [ %or43.i117, %if.end37.i111 ], [ %or52.i125, %if.end46.i119 ], [ %or61.i133, %if.end55.i127 ], [ %or70.i141, %if.end64.i135 ], [ %or88.i157, %if.end82.i151 ]
+  %41 = phi i64 [ %inc.i179, %if.then.i176 ], [ %inc96.i68, %if.end104.i58 ], [ %inc74.i144, %if.end73.i143 ], [ %inc6.i82, %if.then5.i80 ], [ %inc13.i88, %if.end12.i87 ], [ %inc20.i96, %if.end19.i95 ], [ %inc29.i104, %if.end28.i103 ], [ %inc38.i112, %if.end37.i111 ], [ %inc47.i120, %if.end46.i119 ], [ %inc56.i128, %if.end55.i127 ], [ %inc65.i136, %if.end64.i135 ], [ %inc83.i152, %if.end82.i151 ]
+  %sz.0 = phi i64 [ %conv.i173, %if.then.i176 ], [ %or110.i64, %if.end104.i58 ], [ %or79.i149, %if.end73.i143 ], [ %and9.i85, %if.then5.i80 ], [ %or.i93, %if.end12.i87 ], [ %or25.i101, %if.end19.i95 ], [ %or34.i109, %if.end28.i103 ], [ %or43.i117, %if.end37.i111 ], [ %or52.i125, %if.end46.i119 ], [ %or61.i133, %if.end55.i127 ], [ %or70.i141, %if.end64.i135 ], [ %or88.i157, %if.end82.i151 ]
   %add16 = add i64 %41, %sz.0
   %cmp17 = icmp ugt i64 %add16, %size
   br i1 %cmp17, label %return, label %if.end19

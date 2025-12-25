@@ -377,7 +377,7 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterTransformPlugin(ptr noundef %0, p
   br label %20
 
 20:                                               ; preds = %.sink.split, %9, %5
-  %.0 = phi i32 [ 0, %9 ], [ 0, %5 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

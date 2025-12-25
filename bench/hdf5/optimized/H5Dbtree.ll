@@ -571,7 +571,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_shutdown(ptr noundef r
   br label %22
 
 22:                                               ; preds = %.sink.split, %14, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %14 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %14 ], [ 0, %2 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

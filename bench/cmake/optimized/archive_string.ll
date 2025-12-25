@@ -1778,7 +1778,7 @@ archive_string_conversion_to_charset.exit:        ; preds = %17, %22, %default_i
   br label %52
 
 52:                                               ; preds = %.sink.split, %13, %47, %archive_string_conversion_to_charset.exit
-  %.0 = phi i32 [ 0, %13 ], [ -1, %47 ], [ -1, %archive_string_conversion_to_charset.exit ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %archive_string_conversion_to_charset.exit ], [ -1, %47 ], [ 0, %13 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -4197,11 +4197,11 @@ archive_string_ensure.exit:                       ; preds = %467, %.lr.ph738
   br label %496
 
 484:                                              ; preds = %._crit_edge768, %252, %239, %._crit_edge786, %._crit_edge780, %._crit_edge791
-  %.2462 = phi i32 [ %.0460798, %._crit_edge768 ], [ -1, %._crit_edge791 ], [ %.0460798, %252 ], [ %.0460798, %239 ], [ %.0460798, %._crit_edge786 ], [ %.0460798, %._crit_edge780 ]
-  %.3412 = phi ptr [ %.15424.lcssa, %._crit_edge768 ], [ %.2411.lcssa, %._crit_edge791 ], [ %.14423, %252 ], [ %.14423, %239 ], [ %.13422.lcssa, %._crit_edge786 ], [ %.9418.lcssa, %._crit_edge780 ]
-  %.4 = phi ptr [ %275, %._crit_edge768 ], [ %82, %._crit_edge791 ], [ %254, %252 ], [ %.27, %239 ], [ %184, %._crit_edge786 ], [ %155, %._crit_edge780 ]
-  %.2400 = phi ptr [ %89, %._crit_edge768 ], [ %85, %._crit_edge791 ], [ %89, %252 ], [ %89, %239 ], [ %89, %._crit_edge786 ], [ %89, %._crit_edge780 ]
-  %.2396 = phi i64 [ %90, %._crit_edge768 ], [ %86, %._crit_edge791 ], [ %90, %252 ], [ %90, %239 ], [ %90, %._crit_edge786 ], [ %90, %._crit_edge780 ]
+  %.2462 = phi i32 [ %.0460798, %._crit_edge768 ], [ -1, %._crit_edge791 ], [ %.0460798, %239 ], [ %.0460798, %._crit_edge780 ], [ %.0460798, %._crit_edge786 ], [ %.0460798, %252 ]
+  %.3412 = phi ptr [ %.15424.lcssa, %._crit_edge768 ], [ %.2411.lcssa, %._crit_edge791 ], [ %.14423, %239 ], [ %.9418.lcssa, %._crit_edge780 ], [ %.13422.lcssa, %._crit_edge786 ], [ %.14423, %252 ]
+  %.4 = phi ptr [ %275, %._crit_edge768 ], [ %82, %._crit_edge791 ], [ %.27, %239 ], [ %155, %._crit_edge780 ], [ %184, %._crit_edge786 ], [ %254, %252 ]
+  %.2400 = phi ptr [ %89, %._crit_edge768 ], [ %85, %._crit_edge791 ], [ %89, %239 ], [ %89, %._crit_edge780 ], [ %89, %._crit_edge786 ], [ %89, %252 ]
+  %.2396 = phi i64 [ %90, %._crit_edge768 ], [ %86, %._crit_edge791 ], [ %90, %239 ], [ %90, %._crit_edge780 ], [ %90, %._crit_edge786 ], [ %90, %252 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %485 = call i32 %.0456(ptr noundef nonnull %5, ptr noundef %.2400, i64 noundef %.2396) #25, !callees !65
   %.not491 = icmp eq i32 %485, 0
@@ -5758,11 +5758,11 @@ get_nfc.exit828:                                  ; preds = %524
   %.not813 = icmp eq ptr %.2660, null
   br i1 %767, label %768, label %870
 
-.loopexit.thread:                                 ; preds = %725, %._crit_edge1184, %698, %._crit_edge1179, %.preheader892
-  %.6716.ph844 = phi ptr [ %.25735.lcssa, %698 ], [ %.25735.lcssa, %._crit_edge1179 ], [ %.25735.lcssa, %.preheader892 ], [ %.29739.lcssa, %._crit_edge1184 ], [ %.287381188, %725 ]
-  %.7618.ph846 = phi ptr [ %.46.lcssa, %698 ], [ %.46.lcssa, %._crit_edge1179 ], [ %.46.lcssa, %.preheader892 ], [ %759, %._crit_edge1184 ], [ %.491190, %725 ]
-  %.4603.ph847 = phi ptr [ %.6605.lcssa, %698 ], [ %.6605.lcssa, %._crit_edge1179 ], [ %.6605.lcssa, %.preheader892 ], [ %730, %._crit_edge1184 ], [ %.116101191, %725 ]
-  %.4595.ph848 = phi i64 [ %.6597.lcssa, %698 ], [ %.6597.lcssa, %._crit_edge1179 ], [ %.6597.lcssa, %.preheader892 ], [ %731, %._crit_edge1184 ], [ %.111192, %725 ]
+.loopexit.thread:                                 ; preds = %._crit_edge1184, %725, %698, %._crit_edge1179, %.preheader892
+  %.6716.ph844 = phi ptr [ %.25735.lcssa, %698 ], [ %.25735.lcssa, %._crit_edge1179 ], [ %.25735.lcssa, %.preheader892 ], [ %.287381188, %725 ], [ %.29739.lcssa, %._crit_edge1184 ]
+  %.7618.ph846 = phi ptr [ %.46.lcssa, %698 ], [ %.46.lcssa, %._crit_edge1179 ], [ %.46.lcssa, %.preheader892 ], [ %.491190, %725 ], [ %759, %._crit_edge1184 ]
+  %.4603.ph847 = phi ptr [ %.6605.lcssa, %698 ], [ %.6605.lcssa, %._crit_edge1179 ], [ %.6605.lcssa, %.preheader892 ], [ %.116101191, %725 ], [ %730, %._crit_edge1184 ]
+  %.4595.ph848 = phi i64 [ %.6597.lcssa, %698 ], [ %.6597.lcssa, %._crit_edge1179 ], [ %.6597.lcssa, %.preheader892 ], [ %.111192, %725 ], [ %731, %._crit_edge1184 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %934
@@ -6074,9 +6074,9 @@ get_nfc.exit828:                                  ; preds = %524
   %.not803 = icmp eq i32 %935, 0
   br i1 %.not803, label %.thread869, label %.lr.ph1229
 
-.thread869:                                       ; preds = %934, %41, %898, %911, %._crit_edge1233
-  %.1700 = phi i32 [ %.06991223, %898 ], [ %.06991223, %._crit_edge1233 ], [ %.06991223, %911 ], [ 0, %41 ], [ %.2701, %934 ]
-  %.1612 = phi ptr [ %.59, %898 ], [ %933, %._crit_edge1233 ], [ %913, %911 ], [ %44, %41 ], [ %.3614, %934 ]
+.thread869:                                       ; preds = %934, %41, %911, %898, %._crit_edge1233
+  %.1700 = phi i32 [ %.06991223, %911 ], [ %.06991223, %._crit_edge1233 ], [ %.06991223, %898 ], [ 0, %41 ], [ %.2701, %934 ]
+  %.1612 = phi ptr [ %913, %911 ], [ %933, %._crit_edge1233 ], [ %.59, %898 ], [ %44, %41 ], [ %.3614, %934 ]
   %936 = load ptr, ptr %0, align 8, !tbaa !11
   %937 = ptrtoint ptr %.1612 to i64
   %938 = ptrtoint ptr %936 to i64

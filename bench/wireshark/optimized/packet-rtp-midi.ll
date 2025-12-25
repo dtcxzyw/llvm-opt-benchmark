@@ -3117,7 +3117,7 @@ decode_sysex_common_nrt_mtc.exit.i.i:             ; preds = %523, %521, %424, %3
   br i1 %560, label %decodemidi.exit, label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
 decode_sysex_common_nrt_mtc.exit.thread.i.i:      ; preds = %decode_sysex_common_nrt_mtc.exit.i.i, %557, %552, %547, %542, %537, %532, %527, %464, %462, %455, %449, %442, %428, %359, %324, %313
-  %.0131.i.i = phi i32 [ %.0.i.i189, %decode_sysex_common_nrt_mtc.exit.i.i ], [ 0, %313 ], [ 1, %557 ], [ 1, %552 ], [ 1, %547 ], [ 1, %542 ], [ 1, %537 ], [ 1, %532 ], [ 1, %527 ], [ %456, %455 ], [ %463, %462 ], [ %.2.i.i.i191, %449 ], [ %468, %464 ], [ 16, %324 ], [ 1, %428 ], [ 2, %359 ], [ 2, %442 ]
+  %.0131.i.i = phi i32 [ %.0.i.i189, %decode_sysex_common_nrt_mtc.exit.i.i ], [ 2, %442 ], [ 1, %557 ], [ 1, %552 ], [ 1, %547 ], [ 1, %542 ], [ 1, %537 ], [ 1, %532 ], [ 1, %527 ], [ %456, %455 ], [ %463, %462 ], [ %.2.i.i.i191, %449 ], [ %468, %464 ], [ 2, %359 ], [ 1, %428 ], [ 16, %324 ], [ 0, %313 ]
   %561 = add nuw i32 %.0131.i.i, 2
   %.not.i.i188 = icmp eq i32 %323, %.0131.i.i
   br i1 %.not.i.i188, label %737, label %562
@@ -5039,7 +5039,7 @@ decode_channel_journal.exit.thread:               ; preds = %1695, %decode_chann
   br label %.thread242
 
 .thread242:                                       ; preds = %decodemidi.exit, %67, %.preheader.split.i.i, %decode_channel_journal.exit, %1543, %1695, %.preheader.i.i, %1278, %decode_system_journal.exit, %.thread238
-  %.2 = phi i32 [ %1699, %.thread238 ], [ %.7287, %decode_channel_journal.exit ], [ %884, %.preheader.split.i.i ], [ %884, %.preheader.i.i ], [ %884, %decode_system_journal.exit ], [ %884, %1278 ], [ %.7287, %1695 ], [ %.7287, %1543 ], [ %.3121221, %67 ], [ %.3121221, %decodemidi.exit ]
+  %.2 = phi i32 [ %1699, %.thread238 ], [ %884, %.preheader.i.i ], [ %884, %.preheader.split.i.i ], [ %.7287, %decode_channel_journal.exit ], [ %884, %decode_system_journal.exit ], [ %884, %1278 ], [ %.7287, %1695 ], [ %.7287, %1543 ], [ %.3121221, %67 ], [ %.3121221, %decodemidi.exit ]
   ret i32 %.2
 }
 

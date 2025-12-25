@@ -281,8 +281,8 @@ define hidden range(i32 -2147483648, 2) i32 @english_ISO_8859_1_stem(ptr noundef
 58:                                               ; preds = %55, %24, %25, %28, %31, %34, %37, %40, %43, %46, %49, %52
   br label %.critedge
 
-59:                                               ; preds = %14, %20, %8, %18, %1
-  %60 = phi i32 [ %7, %14 ], [ %.pre, %20 ], [ %7, %8 ], [ %.pre, %18 ], [ %7, %1 ]
+59:                                               ; preds = %20, %14, %1, %18, %8
+  %60 = phi i32 [ %.pre, %20 ], [ %7, %14 ], [ %7, %1 ], [ %.pre, %18 ], [ %7, %8 ]
   %61 = add i32 %3, 3
   %62 = icmp sgt i32 %61, %60
   %spec.store.select = select i1 %62, i32 %3, i32 %61

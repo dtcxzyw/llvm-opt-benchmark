@@ -5022,7 +5022,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %rbimpl_RB_TYPE_P_fa
   br i1 %101, label %rbimpl_RB_TYPE_P_fastpath.exit172, label %RCLASS_SINGLETON_P.exit180.thread, !llvm.loop !124
 
 RCLASS_SINGLETON_P.exit180.thread:                ; preds = %rbimpl_RB_TYPE_P_fastpath.exit172, %rbimpl_RB_TYPE_P_fastpath.exit, %rbimpl_RB_TYPE_P_fastpath.exit174, %RCLASS_SINGLETON_P.exit.thread, %rbimpl_RB_TYPE_P_fastpath.exit.i179
-  %.2 = phi i64 [ %73, %rbimpl_RB_TYPE_P_fastpath.exit.i179 ], [ %73, %RCLASS_SINGLETON_P.exit.thread ], [ %73, %rbimpl_RB_TYPE_P_fastpath.exit174 ], [ %93, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %93, %rbimpl_RB_TYPE_P_fastpath.exit172 ]
+  %.2 = phi i64 [ %73, %RCLASS_SINGLETON_P.exit.thread ], [ %73, %rbimpl_RB_TYPE_P_fastpath.exit.i179 ], [ %73, %rbimpl_RB_TYPE_P_fastpath.exit174 ], [ %93, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %93, %rbimpl_RB_TYPE_P_fastpath.exit172 ]
   %102 = tail call i64 @rb_inspect(i64 noundef %.2) #21
   %103 = tail call i64 @rb_str_buf_append(i64 noundef %4, i64 noundef %102) #21
   %.not164 = icmp eq i64 %.1154, %.2

@@ -778,7 +778,7 @@ _ZN5clang6format12_GLOBAL__N_113skipAttributeEPKNS0_11FormatTokenE.exit.thread.i
   br label %.critedge2.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.us.i36.i.i, %193, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.us.i.i.i, %206
-  %.08.i.i = phi ptr [ %.0.i.us.i.i.i, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.us.i.i.i ], [ %.0.i.i, %206 ], [ %.0.i.i.i, %193 ], [ %.0.i.us.i34.i.i, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.us.i36.i.i ]
+  %.08.i.i = phi ptr [ %.0.i.i.i, %193 ], [ %.0.i.i, %206 ], [ %.0.i.us.i.i.i, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.us.i.i.i ], [ %.0.i.us.i34.i.i, %_ZNK5clang6format11FormatToken17getNextNonCommentEv.exit.us.i36.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !239
   store ptr %73, ptr %16, align 8, !tbaa !218, !noalias !239
   store i64 0, ptr %74, align 8, !tbaa !219, !noalias !239

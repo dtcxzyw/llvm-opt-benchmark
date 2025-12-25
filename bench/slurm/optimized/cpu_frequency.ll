@@ -2462,10 +2462,10 @@ switch.early.test:                                ; preds = %.thread, %11
   br label %_cpu_freq_next_cpu.exit
 
 _cpu_freq_next_cpu.exit:                          ; preds = %.lr.ph.i, %.lr.ph19.i, %139
-  %.240 = phi i16 [ %87, %.lr.ph19.i ], [ %.139, %139 ], [ %126, %.lr.ph.i ]
-  %.3 = phi i16 [ %.035, %.lr.ph19.i ], [ %.237, %139 ], [ -1, %.lr.ph.i ]
-  %.2 = phi ptr [ %88, %.lr.ph19.i ], [ %.1, %139 ], [ %.3.i, %.lr.ph.i ]
-  %.049.i = phi i16 [ %87, %.lr.ph19.i ], [ %140, %139 ], [ %126, %.lr.ph.i ]
+  %.240 = phi i16 [ %.139, %139 ], [ %87, %.lr.ph19.i ], [ %126, %.lr.ph.i ]
+  %.3 = phi i16 [ %.237, %139 ], [ %.035, %.lr.ph19.i ], [ -1, %.lr.ph.i ]
+  %.2 = phi ptr [ %.1, %139 ], [ %88, %.lr.ph19.i ], [ %.3.i, %.lr.ph.i ]
+  %.049.i = phi i16 [ %140, %139 ], [ %87, %.lr.ph19.i ], [ %126, %.lr.ph.i ]
   %141 = zext i16 %.049.i to i32
   %.not28 = icmp eq i16 %.049.i, -1
   br i1 %.not28, label %_cpu_freq_next_cpu.exit.thread, label %_cpu_freq_next_cpu.exit.thread47

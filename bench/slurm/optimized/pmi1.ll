@@ -296,7 +296,7 @@ define dso_local i32 @handle_pmi1_cmd(i32 noundef %0, i32 noundef %1) local_unna
   br label %_handle_pmi1_mcmd_buf.exit
 
 _handle_pmi1_mcmd_buf.exit:                       ; preds = %70, %75, %._crit_edge.i, %.loopexit.sink.split.i
-  %.041.i = phi i32 [ 0, %._crit_edge.i ], [ -1, %.loopexit.sink.split.i ], [ %81, %75 ], [ 0, %70 ]
+  %.041.i = phi i32 [ 0, %._crit_edge.i ], [ -1, %.loopexit.sink.split.i ], [ 0, %70 ], [ %81, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @slurm_xfree(ptr noundef nonnull %4) #8
   br label %88

@@ -54092,7 +54092,7 @@ return.sink.split:                                ; preds = %_ZNSt10error_codeC2
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16
-  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -55195,7 +55195,7 @@ return.sink.split:                                ; preds = %_ZNSt10error_codeC2
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16
-  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ true, %return.sink.split ]
+  %retval.0 = phi i1 [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit16 ], [ false, %_ZNSt10error_codeC2IN4asio5error12basic_errorsEvEET_.exit26 ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -57532,8 +57532,8 @@ return.sink.split:                                ; preds = %if.end.i29.i, %if.e
   store ptr %add.ptr.i14.i, ptr %.sink132, align 8
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end.i43, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i, %sw.bb.i, %entry, %if.end.i, %if.end9.i, %sw.bb8.i, %sw.bb, %if.end.i77, %if.end3.i, %if.end7.i, %sw.bb.i89, %sw.bb2.i87, %sw.bb7.i, %sw.epilog.i85, %if.end13.i, %if.end17.i
-  %retval.0 = phi i32 [ 3, %if.end.i43 ], [ 1, %if.then27.i ], [ 1, %if.end9.i ], [ 1, %if.end3.i ], [ 1, %sw.bb ], [ 0, %if.end.i77 ], [ 0, %if.end7.i ], [ 1, %sw.bb2.i87 ], [ 1, %sw.bb7.i ], [ 0, %sw.epilog.i85 ], [ 1, %sw.bb.i89 ], [ 1, %if.end13.i ], [ 0, %if.end17.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb8.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 0, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end.i43, %if.then27.i, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit, %sw.bb2.i, %sw.bb8.i, %entry, %if.end.i, %if.end9.i, %sw.bb.i, %sw.bb, %if.end.i77, %if.end3.i, %if.end7.i, %sw.bb.i89, %sw.bb2.i87, %sw.bb7.i, %sw.epilog.i85, %if.end13.i, %if.end17.i
+  %retval.0 = phi i32 [ 1, %if.end9.i ], [ 1, %if.then27.i ], [ 3, %if.end.i43 ], [ 1, %if.end3.i ], [ 1, %sw.bb ], [ 0, %if.end.i77 ], [ 0, %if.end7.i ], [ 1, %sw.bb2.i87 ], [ 1, %sw.bb7.i ], [ 0, %sw.epilog.i85 ], [ 1, %sw.bb.i89 ], [ 1, %if.end13.i ], [ 0, %if.end17.i ], [ 1, %_ZN11struct_pack6detail13memory_reader9read_viewEm.exit ], [ 1, %sw.bb.i ], [ 1, %sw.bb2.i ], [ 1, %sw.bb8.i ], [ 1, %entry ], [ 2, %if.end.i ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -58509,7 +58509,7 @@ return.sink.split:                                ; preds = %acquire.i69.i.i26, 
   br label %return
 
 return:                                           ; preds = %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit50, %for.inc25, %return.sink.split, %entry, %if.end14, %for.end, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit
-  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit ], [ true, %return.sink.split ], [ false, %for.end ], [ false, %if.end14 ], [ true, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit50 ], [ false, %for.inc25 ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit ], [ true, %return.sink.split ], [ false, %for.end ], [ false, %if.end14 ], [ false, %for.inc25 ], [ true, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN8coro_rpc15coro_rpc_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit50 ]
   ret i1 %retval.0
 }
 

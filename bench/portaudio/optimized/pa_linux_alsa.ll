@@ -1433,9 +1433,9 @@ IgnorePlugin.exit.thread.sink.split:              ; preds = %233, %.loopexit
   br label %IgnorePlugin.exit.thread
 
 IgnorePlugin.exit.thread:                         ; preds = %196, %IgnorePlugin.exit.thread.sink.split, %192
-  %.6170 = phi ptr [ %.7171, %IgnorePlugin.exit.thread.sink.split ], [ %.5169356, %192 ], [ %.5169356, %196 ]
-  %.6160 = phi i64 [ %.7161, %IgnorePlugin.exit.thread.sink.split ], [ %.5159357, %192 ], [ %.5159357, %196 ]
-  %.5151 = phi i64 [ %218, %IgnorePlugin.exit.thread.sink.split ], [ %.4150358, %192 ], [ %.4150358, %196 ]
+  %.6170 = phi ptr [ %.5169356, %192 ], [ %.7171, %IgnorePlugin.exit.thread.sink.split ], [ %.5169356, %196 ]
+  %.6160 = phi i64 [ %.5159357, %192 ], [ %.7161, %IgnorePlugin.exit.thread.sink.split ], [ %.5159357, %196 ]
+  %.5151 = phi i64 [ %.4150358, %192 ], [ %218, %IgnorePlugin.exit.thread.sink.split ], [ %.4150358, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3981,7 +3981,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef nonnull %0, ptr n
   br label %PaAlsaStream_DetermineFramesPerBuffer.exit.thread72
 
 209:                                              ; preds = %206, %179
-  %.0207.i = phi i64 [ %.285.i, %206 ], [ %spec.select283.i, %179 ]
+  %.0207.i = phi i64 [ %spec.select283.i, %179 ], [ %.285.i, %206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -4183,7 +4183,7 @@ PaAlsaStream_DetermineFramesPerBuffer.exit.thread72: ; preds = %272, %.thread336
   br label %287
 
 PaAlsaStream_DetermineFramesPerBuffer.exit:       ; preds = %.thread349.i, %257, %266
-  %.13.i = phi i32 [ %.15.ph.i, %.thread349.i ], [ %267, %266 ], [ %258, %257 ]
+  %.13.i = phi i32 [ %258, %257 ], [ %267, %266 ], [ %.15.ph.i, %.thread349.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i32 %.13.i, ptr @paUtilErr_, align 4, !tbaa !3
@@ -6264,7 +6264,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
   br label %.preheader
 
 134:                                              ; preds = %.thread163, %114, %126, %129, %121, %88
-  %.181 = phi i32 [ %.080214, %88 ], [ %.282, %126 ], [ %.282, %129 ], [ %.282, %121 ], [ %.282, %114 ], [ %.282, %.thread163 ]
+  %.181 = phi i32 [ %.080214, %88 ], [ %.282, %.thread163 ], [ %.282, %129 ], [ %.282, %121 ], [ %.282, %114 ], [ %.282, %126 ]
   %135 = load i32, ptr %4, align 4, !tbaa !3
   %136 = icmp ne i32 %135, 0
   %137 = load i32, ptr %5, align 4

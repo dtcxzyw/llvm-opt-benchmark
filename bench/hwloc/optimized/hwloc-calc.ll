@@ -2976,8 +2976,8 @@ hwloc_calc_process_location.exit.thread:          ; preds = %61, %66, %63, %68, 
   br label %224
 
 hwloc_calc_process_location.exit.thread108:       ; preds = %206, %192, %173
-  %.17.i.lcssa.sink = phi ptr [ %.0.i.i.i, %192 ], [ %.0.i.i.i.i.i, %173 ], [ %.17.i, %206 ]
-  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %.17.i.lcssa.sink)
+  %.0.i.i.i.i.i.lcssa.sink = phi ptr [ %.0.i.i.i.i.i, %173 ], [ %.0.i.i.i, %192 ], [ %.17.i, %206 ]
+  call fastcc void @hwloc_calc_process_location_set_cb(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %.0.i.i.i.i.i.lcssa.sink)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %223
 
@@ -4201,7 +4201,7 @@ define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %29, %.preheader, %67, %.split104.us, %._crit_edge, %11
-  %.061 = phi i64 [ %12, %11 ], [ 0, %._crit_edge ], [ -1, %67 ], [ -1, %.split104.us ], [ %.069, %.preheader ], [ %.069, %29 ]
+  %.061 = phi i64 [ %12, %11 ], [ 0, %._crit_edge ], [ -1, %.split104.us ], [ -1, %67 ], [ %.069, %.preheader ], [ %.069, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.061
 }

@@ -2798,7 +2798,7 @@ define hidden ptr @decrypt_krb5_krb_cfx_dce(ptr noundef %0, ptr noundef %1, i32 
   br label %74
 
 74:                                               ; preds = %.sink.split, %67, %54, %48, %50, %39, %28, %22, %24, %14, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %22 ], [ null, %28 ], [ null, %39 ], [ null, %48 ], [ %70, %67 ], [ null, %50 ], [ null, %54 ], [ null, %24 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %22 ], [ null, %28 ], [ null, %39 ], [ null, %48 ], [ null, %50 ], [ %70, %67 ], [ null, %54 ], [ null, %24 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }

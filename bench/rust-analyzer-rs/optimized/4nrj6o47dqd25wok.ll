@@ -18882,7 +18882,7 @@ common.resume:                                    ; preds = %33, %15
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h915b981cb570ecedE.llvm.14675025554980555382.exit: ; preds = %6, %_ZN4core3ops8function6FnOnce9call_once17ha5b095c3cce700f9E.exit.i
-  %.0.i = phi ptr [ %8, %6 ], [ %13, %_ZN4core3ops8function6FnOnce9call_once17ha5b095c3cce700f9E.exit.i ]
+  %.0.i = phi ptr [ %13, %_ZN4core3ops8function6FnOnce9call_once17ha5b095c3cce700f9E.exit.i ], [ %8, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7276
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7299)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -49841,7 +49841,7 @@ default.unreachable1357:                          ; preds = %719, %694, %665, %6
   br label %"_ZN81_$LT$rustc_apfloat..ieee..IeeeFloat$LT$S$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h999e5da85a59bd75E.exit126.i"
 
 "_ZN81_$LT$rustc_apfloat..ieee..IeeeFloat$LT$S$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h999e5da85a59bd75E.exit126.i": ; preds = %"_ZN81_$LT$rustc_apfloat..ieee..IeeeFloat$LT$S$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h42831c57ee00de57E.exit.i114.i", %651, %.thread27.i123.i, %646, %645, %643
-  %.0.i107.i = phi i8 [ %653, %651 ], [ %650, %.thread27.i123.i ], [ %.0.i.i117.i, %"_ZN81_$LT$rustc_apfloat..ieee..IeeeFloat$LT$S$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h42831c57ee00de57E.exit.i114.i" ], [ %648, %646 ], [ %552, %643 ], [ %552, %645 ]
+  %.0.i107.i = phi i8 [ %.0.i.i117.i, %"_ZN81_$LT$rustc_apfloat..ieee..IeeeFloat$LT$S$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp28_$u7b$$u7b$closure$u7d$$u7d$17h42831c57ee00de57E.exit.i114.i" ], [ %650, %.thread27.i123.i ], [ %653, %651 ], [ %648, %646 ], [ %552, %643 ], [ %552, %645 ]
   %switch.i.i = icmp ult i8 %.0.i107.i, 2
   br i1 %switch.i.i, label %.critedge.i.i, label %.thread37.thread.i
 
@@ -50003,7 +50003,7 @@ default.unreachable1357:                          ; preds = %719, %694, %665, %6
   br label %"_ZN81_$LT$rustc_apfloat..ieee..IeeeFloat$LT$S$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc57846e7355a9f8cE.exit88.i"
 
 "_ZN81_$LT$rustc_apfloat..ieee..IeeeFloat$LT$S$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hc57846e7355a9f8cE.exit88.i": ; preds = %"_ZN81_$LT$rustc_apfloat..ieee..IeeeFloat$LT$S$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf545b6ff47ab8a61E.exit.i76.i", %705, %.thread27.i85.i, %700, %699, %697
-  %.0.i69.i = phi i8 [ %707, %705 ], [ %704, %.thread27.i85.i ], [ %.0.i.i79.i, %"_ZN81_$LT$rustc_apfloat..ieee..IeeeFloat$LT$S$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf545b6ff47ab8a61E.exit.i76.i" ], [ %702, %700 ], [ %552, %697 ], [ %552, %699 ]
+  %.0.i69.i = phi i8 [ %.0.i.i79.i, %"_ZN81_$LT$rustc_apfloat..ieee..IeeeFloat$LT$S$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp28_$u7b$$u7b$closure$u7d$$u7d$17hf545b6ff47ab8a61E.exit.i76.i" ], [ %704, %.thread27.i85.i ], [ %707, %705 ], [ %702, %700 ], [ %552, %697 ], [ %552, %699 ]
   %switch35.i.i = icmp ult i8 %.0.i69.i, 2
   br i1 %switch35.i.i, label %.critedge34.i.i, label %.thread37.thread.i
 
@@ -55082,10 +55082,10 @@ _ZN13rustc_apfloat4ieee3sig4omsb17h11e77ce4627df859E.exit.i: ; preds = %319, %32
   br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64bdb17d9432c47cE.llvm.14675025554980555382.exit.thread.i"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64bdb17d9432c47cE.llvm.14675025554980555382.exit.thread.i": ; preds = %366, %382, %.lr.ph748.i, %370, %361, %.preheader700.i
-  %372 = phi i64 [ %345, %361 ], [ %.pre800.i, %370 ], [ %345, %.preheader700.i ], [ %345, %382 ], [ %345, %.lr.ph748.i ], [ %345, %366 ]
-  %373 = phi i64 [ %341, %361 ], [ %.pre799.i, %370 ], [ %341, %.preheader700.i ], [ %341, %382 ], [ %341, %.lr.ph748.i ], [ %341, %366 ]
-  %374 = phi i32 [ %.lcssa732.i, %361 ], [ %.pre798.i, %370 ], [ %.lcssa732.i, %.preheader700.i ], [ %.lcssa732.i, %382 ], [ %.lcssa732.i, %.lr.ph748.i ], [ %.lcssa732.i, %366 ]
-  %.2.i = phi i64 [ %356, %361 ], [ %.1281745.i, %370 ], [ %356, %.preheader700.i ], [ %383, %382 ], [ %.0280747.i, %.lr.ph748.i ], [ %.sink4.i459.i, %366 ]
+  %372 = phi i64 [ %.pre800.i, %370 ], [ %345, %361 ], [ %345, %.preheader700.i ], [ %345, %382 ], [ %345, %.lr.ph748.i ], [ %345, %366 ]
+  %373 = phi i64 [ %.pre799.i, %370 ], [ %341, %361 ], [ %341, %.preheader700.i ], [ %341, %382 ], [ %341, %.lr.ph748.i ], [ %341, %366 ]
+  %374 = phi i32 [ %.pre798.i, %370 ], [ %.lcssa732.i, %361 ], [ %.lcssa732.i, %.preheader700.i ], [ %.lcssa732.i, %382 ], [ %.lcssa732.i, %.lr.ph748.i ], [ %.lcssa732.i, %366 ]
+  %.2.i = phi i64 [ %.1281745.i, %370 ], [ %356, %361 ], [ %356, %.preheader700.i ], [ %383, %382 ], [ %.0280747.i, %.lr.ph748.i ], [ %.sink4.i459.i, %366 ]
   %375 = trunc i64 %.2.i to i32
   %376 = add i32 %374, %375
   store i32 %376, ptr %30, align 4, !noalias !15554
@@ -56787,10 +56787,10 @@ _ZN13rustc_apfloat4ieee3sig4omsb17h11e77ce4627df859E.exit.i: ; preds = %319, %32
   br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64bdb17d9432c47cE.llvm.14675025554980555382.exit.thread.i"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64bdb17d9432c47cE.llvm.14675025554980555382.exit.thread.i": ; preds = %366, %382, %.lr.ph748.i, %370, %361, %.preheader700.i
-  %372 = phi i64 [ %345, %361 ], [ %.pre800.i, %370 ], [ %345, %.preheader700.i ], [ %345, %382 ], [ %345, %.lr.ph748.i ], [ %345, %366 ]
-  %373 = phi i64 [ %341, %361 ], [ %.pre799.i, %370 ], [ %341, %.preheader700.i ], [ %341, %382 ], [ %341, %.lr.ph748.i ], [ %341, %366 ]
-  %374 = phi i32 [ %.lcssa732.i, %361 ], [ %.pre798.i, %370 ], [ %.lcssa732.i, %.preheader700.i ], [ %.lcssa732.i, %382 ], [ %.lcssa732.i, %.lr.ph748.i ], [ %.lcssa732.i, %366 ]
-  %.2.i = phi i64 [ %356, %361 ], [ %.1281745.i, %370 ], [ %356, %.preheader700.i ], [ %383, %382 ], [ %.0280747.i, %.lr.ph748.i ], [ %.sink4.i459.i, %366 ]
+  %372 = phi i64 [ %.pre800.i, %370 ], [ %345, %361 ], [ %345, %.preheader700.i ], [ %345, %382 ], [ %345, %.lr.ph748.i ], [ %345, %366 ]
+  %373 = phi i64 [ %.pre799.i, %370 ], [ %341, %361 ], [ %341, %.preheader700.i ], [ %341, %382 ], [ %341, %.lr.ph748.i ], [ %341, %366 ]
+  %374 = phi i32 [ %.pre798.i, %370 ], [ %.lcssa732.i, %361 ], [ %.lcssa732.i, %.preheader700.i ], [ %.lcssa732.i, %382 ], [ %.lcssa732.i, %.lr.ph748.i ], [ %.lcssa732.i, %366 ]
+  %.2.i = phi i64 [ %.1281745.i, %370 ], [ %356, %361 ], [ %356, %.preheader700.i ], [ %383, %382 ], [ %.0280747.i, %.lr.ph748.i ], [ %.sink4.i459.i, %366 ]
   %375 = trunc i64 %.2.i to i32
   %376 = add i32 %374, %375
   store i32 %376, ptr %30, align 4, !noalias !15827
@@ -69810,7 +69810,7 @@ _ZN8smallvec10deallocate17h5200e54b29a10fafE.exit.i: ; preds = %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 8) #47, !noalias !19233
   br label %_ZN8smallvec10infallible17had1d3a994b7d55c0E.exit
 
-52:                                               ; preds = %34, %29
+52:                                               ; preds = %29, %34
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.5b47fb01172ce3642f26b4239355f179.267.llvm.14675025554980555382, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.268.llvm.14675025554980555382) #44
   unreachable
 
@@ -70173,7 +70173,7 @@ _ZN8smallvec10deallocate17h2f92392ecdcc9e6cE.exit.i: ; preds = %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 8) #47, !noalias !19269
   br label %_ZN8smallvec10infallible17had1d3a994b7d55c0E.exit
 
-52:                                               ; preds = %34, %29
+52:                                               ; preds = %29, %34
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.5b47fb01172ce3642f26b4239355f179.267.llvm.14675025554980555382, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5b47fb01172ce3642f26b4239355f179.268.llvm.14675025554980555382) #44
   unreachable
 

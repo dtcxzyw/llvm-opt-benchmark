@@ -1723,7 +1723,7 @@ If_ManImproveNodeFaninCompact1.exit.thread.sink.split: ; preds = %If_ManImproveN
   br label %If_ManImproveNodeFaninCompact1.exit.thread
 
 If_ManImproveNodeFaninCompact1.exit.thread:       ; preds = %70, %If_ManImproveNodeFaninCompact1.exit.thread.sink.split, %5, %thread-pre-split
-  %.0 = phi i32 [ 1, %If_ManImproveNodeFaninCompact1.exit.thread.sink.split ], [ 0, %5 ], [ 0, %thread-pre-split ], [ 0, %70 ]
+  %.0 = phi i32 [ 0, %5 ], [ 1, %If_ManImproveNodeFaninCompact1.exit.thread.sink.split ], [ 0, %thread-pre-split ], [ 0, %70 ]
   ret i32 %.0
 }
 

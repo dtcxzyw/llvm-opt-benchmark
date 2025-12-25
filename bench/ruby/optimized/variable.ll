@@ -5405,7 +5405,7 @@ autoload_defined_p.exit.thread:                   ; preds = %.split, %rb_vm_lock
   br label %get_autoload_data.exit
 
 get_autoload_data.exit:                           ; preds = %autoload_defined_p.exit.thread, %.split.us, %rb_vm_lock_leave.exit.i.i.us, %16, %autoload_defined_p.exit.us, %41, %54, %.split23.us
-  %.0 = phi i64 [ 4, %41 ], [ %55, %54 ], [ 4, %.split23.us ], [ 4, %.split.us ], [ 4, %autoload_defined_p.exit.us ], [ 4, %16 ], [ 4, %rb_vm_lock_leave.exit.i.i.us ], [ 4, %autoload_defined_p.exit.thread ]
+  %.0 = phi i64 [ %55, %54 ], [ 4, %41 ], [ 4, %.split23.us ], [ 4, %.split.us ], [ 4, %autoload_defined_p.exit.us ], [ 4, %16 ], [ 4, %rb_vm_lock_leave.exit.i.i.us ], [ 4, %autoload_defined_p.exit.thread ]
   ret i64 %.0
 }
 
@@ -6569,7 +6569,7 @@ rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.ex
   br label %.split43.split
 
 rb_autoloading_value.exit.thread:                 ; preds = %rb_const_lookup.exit.thread.us, %._crit_edge, %77, %rb_const_lookup.exit.thread.us.us, %19, %.split43.us.split.us, %rb_vm_lock_leave.exit.i.us.us.us, %.lr.ph.us.us, %.split43.split.us, %69, %71, %59, %74
-  %.0 = phi i32 [ 0, %71 ], [ 0, %69 ], [ 20, %74 ], [ 0, %59 ], [ 0, %rb_const_lookup.exit.thread.us.us ], [ 0, %.split43.split.us ], [ 0, %._crit_edge ], [ 0, %.split43.us.split.us ], [ 0, %.lr.ph.us.us ], [ 0, %rb_vm_lock_leave.exit.i.us.us.us ], [ 0, %19 ], [ 0, %77 ], [ 0, %rb_const_lookup.exit.thread.us ]
+  %.0 = phi i32 [ 0, %71 ], [ 0, %69 ], [ 20, %74 ], [ 0, %59 ], [ 0, %rb_const_lookup.exit.thread.us.us ], [ 0, %.split43.split.us ], [ 0, %.split43.us.split.us ], [ 0, %._crit_edge ], [ 0, %.lr.ph.us.us ], [ 0, %rb_vm_lock_leave.exit.i.us.us.us ], [ 0, %19 ], [ 0, %77 ], [ 0, %rb_const_lookup.exit.thread.us ]
   ret i32 %.0
 }
 

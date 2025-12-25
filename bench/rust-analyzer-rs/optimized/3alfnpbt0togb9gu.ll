@@ -4030,7 +4030,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2256a9de6f026c6cE.exit.thre
   br label %.body
 
 .loopexit.split-lp318.loopexit.split-lp.loopexit.split-lp: ; preds = %.loopexit.i.invoke, %411, %225
-  %.2.ph.ph.ph = phi i1 [ true, %411 ], [ true, %.loopexit.i.invoke ], [ false, %225 ]
+  %.2.ph.ph.ph = phi i1 [ true, %.loopexit.i.invoke ], [ true, %411 ], [ false, %225 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

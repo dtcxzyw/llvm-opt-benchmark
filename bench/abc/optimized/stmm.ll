@@ -1179,7 +1179,7 @@ define noalias noundef ptr @stmm_copy(ptr noundef readonly captures(none) %0) lo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %12, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %.loopexit.sink.split ], [ %4, %12 ], [ %4, %._crit_edge ]
+  %.0 = phi ptr [ null, %1 ], [ %4, %12 ], [ null, %.loopexit.sink.split ], [ %4, %._crit_edge ]
   ret ptr %.0
 }
 

@@ -846,7 +846,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc24
   %or.cond33 = select i1 %.not36, i1 true, i1 %115
   br i1 %or.cond33, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread, label %116
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread28: ; preds = %.noexc24, %104
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread28: ; preds = %104, %.noexc24
   %.old = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.old31 = load ptr, ptr %.old, align 8
   %.old32 = icmp eq ptr %.old31, null

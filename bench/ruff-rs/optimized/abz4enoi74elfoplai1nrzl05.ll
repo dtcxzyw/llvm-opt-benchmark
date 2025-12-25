@@ -9091,8 +9091,8 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit140.i.i: ; preds = %496, %4
           to label %536 unwind label %.loopexit216.i.i, !noalias !701
 
 .invoke.i.i:                                      ; preds = %507, %505, %403, %401, %528, %526
-  %534 = phi i64 [ %.sroa.17.0232.i.i, %528 ], [ %.sroa.11.0228.i.i, %403 ], [ %.sroa.17.0232.i.i, %526 ], [ %.sroa.11.0228.i.i, %401 ], [ %.sroa.067.0.i.i, %505 ], [ %.sroa.067.0.i.i, %507 ]
-  %535 = phi ptr [ @anon.86c23db3b5593fac2c462c369b316c3a.330, %528 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.328, %403 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.330, %526 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.328, %401 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.329, %505 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.329, %507 ]
+  %534 = phi i64 [ %.sroa.11.0228.i.i, %403 ], [ %.sroa.17.0232.i.i, %528 ], [ %.sroa.17.0232.i.i, %526 ], [ %.sroa.11.0228.i.i, %401 ], [ %.sroa.067.0.i.i, %505 ], [ %.sroa.067.0.i.i, %507 ]
+  %535 = phi ptr [ @anon.86c23db3b5593fac2c462c369b316c3a.328, %403 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.330, %528 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.330, %526 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.328, %401 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.329, %505 ], [ @anon.86c23db3b5593fac2c462c369b316c3a.329, %507 ]
   invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %296, i64 noundef %295, i64 noundef 0, i64 noundef %534, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %535) #22
           to label %.cont.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.loopexit.split-lp, !noalias !701
 

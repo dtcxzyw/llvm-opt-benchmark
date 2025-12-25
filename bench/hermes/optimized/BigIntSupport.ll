@@ -5847,7 +5847,7 @@ if.else72:                                        ; preds = %if.else58
   br label %if.end85
 
 if.end85:                                         ; preds = %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit267, %if.then68, %if.else72, %if.then47
-  %res.0 = phi i32 [ %call76, %if.else72 ], [ %retval.0.i266, %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit267 ], [ %retval.0.i266, %if.then68 ], [ %call50, %if.then47 ]
+  %res.0 = phi i32 [ %call76, %if.else72 ], [ %retval.0.i266, %if.then68 ], [ %retval.0.i266, %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit267 ], [ %call50, %if.then47 ]
   %cmp86.not = icmp eq i32 %res.0, 0
   br i1 %cmp86.not, label %if.end89, label %return
 
@@ -5899,8 +5899,8 @@ _ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.
   store i32 %retval.sroa.3.0.i.i, ptr %dst.coerce1, align 4
   br label %return
 
-return:                                           ; preds = %if.else40, %if.else18, %if.then4, %if.then55, %if.end.i, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread289, %if.end85, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit
-  %retval.0 = phi i32 [ 0, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit ], [ %res.0, %if.end85 ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread289 ], [ 2, %if.else40 ], [ 1, %if.else18 ], [ 1, %if.then4 ], [ 2, %if.then55 ], [ 1, %if.end.i ]
+return:                                           ; preds = %if.else40, %if.else18, %if.then55, %if.end.i, %if.then4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread289, %if.end85, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit
+  %retval.0 = phi i32 [ 0, %_ZN6hermes6bigint12_GLOBAL__N_121ensureCanonicalResultERNS0_16MutableBigIntRefE.exit ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit ], [ %res.0, %if.end85 ], [ 4, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread289 ], [ 2, %if.else40 ], [ 1, %if.else18 ], [ 2, %if.then55 ], [ 1, %if.end.i ], [ 1, %if.then4 ]
   ret i32 %retval.0
 }
 

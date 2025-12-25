@@ -1328,7 +1328,7 @@ uv__signal_compare.exit.i:                        ; preds = %104
   br i1 %.not9.i, label %uv__signal_compare.exit.thread5.i, label %uv__signal_tree_s_RB_INSERT.exit
 
 uv__signal_compare.exit.thread5.i:                ; preds = %uv__signal_compare.exit.i, %104, %102, %97, %95, %88, %86, %82
-  %.sink.i = phi i64 [ 112, %97 ], [ 112, %104 ], [ 112, %82 ], [ 112, %88 ], [ 120, %95 ], [ 120, %86 ], [ 120, %102 ], [ 120, %uv__signal_compare.exit.i ]
+  %.sink.i = phi i64 [ 112, %97 ], [ 112, %104 ], [ 112, %82 ], [ 112, %88 ], [ 120, %102 ], [ 120, %86 ], [ 120, %95 ], [ 120, %uv__signal_compare.exit.i ]
   %106 = getelementptr inbounds nuw i8, ptr %.02615.i, i64 %.sink.i
   %.026.i = load ptr, ptr %106, align 8, !tbaa !28
   %.not.i42 = icmp eq ptr %.026.i, null

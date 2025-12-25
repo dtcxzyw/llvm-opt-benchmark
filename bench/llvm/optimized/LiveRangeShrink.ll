@@ -1365,7 +1365,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPS0_S3_S3_.exit, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %552, %546
-  %.sroa.0.0.i.i.i244 = phi ptr [ %551, %552 ], [ %.0.i.i.i.i243, %546 ]
+  %.sroa.0.0.i.i.i244 = phi ptr [ %.0.i.i.i.i243, %546 ], [ %551, %552 ]
   %555 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i244, i64 24
   %556 = load ptr, ptr %555, align 8, !tbaa !225
   %.not.i.i.i.i.i.i.i = icmp eq ptr %556, null

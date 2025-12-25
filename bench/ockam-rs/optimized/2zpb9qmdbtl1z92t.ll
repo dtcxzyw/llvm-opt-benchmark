@@ -26942,13 +26942,13 @@ common.ret:                                       ; preds = %"_ZN4core3ptr94drop
   br label %.body.i302
 
 1120:                                             ; preds = %1095, %1086, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317"
-  %1121 = phi ptr [ %696, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ], [ %763, %1095 ], [ %1052, %1086 ]
-  %1122 = phi ptr [ %697, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ], [ %764, %1095 ], [ %1053, %1086 ]
-  %1123 = phi ptr [ %701, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ], [ %765, %1095 ], [ %1054, %1086 ]
-  %1124 = phi ptr [ %702, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ], [ %766, %1095 ], [ %1055, %1086 ]
-  %.sroa.625.0.i = phi ptr [ null, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ], [ null, %1095 ], [ %.sroa.0415.0.copyload.i.i, %1086 ]
-  %.sroa.826.0.i = phi ptr [ %773, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ], [ %.sroa.18.2.i.i, %1095 ], [ %.sroa.3416.0.copyload.i.i, %1086 ]
-  %.sroa.927.0.i = phi i64 [ undef, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ], [ undef, %1095 ], [ %.sroa.5417.0.copyload.i.i, %1086 ]
+  %1121 = phi ptr [ %1052, %1086 ], [ %763, %1095 ], [ %696, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ]
+  %1122 = phi ptr [ %1053, %1086 ], [ %764, %1095 ], [ %697, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ]
+  %1123 = phi ptr [ %1054, %1086 ], [ %765, %1095 ], [ %701, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ]
+  %1124 = phi ptr [ %1055, %1086 ], [ %766, %1095 ], [ %702, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ]
+  %.sroa.625.0.i = phi ptr [ %.sroa.0415.0.copyload.i.i, %1086 ], [ null, %1095 ], [ null, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ]
+  %.sroa.826.0.i = phi ptr [ %.sroa.3416.0.copyload.i.i, %1086 ], [ %.sroa.18.2.i.i, %1095 ], [ %773, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ]
+  %.sroa.927.0.i = phi i64 [ %.sroa.5417.0.copyload.i.i, %1086 ], [ undef, %1095 ], [ undef, %"_ZN14ockam_identity14secure_channel9handshake5error139_$LT$impl$u20$core..convert..From$LT$ockam_identity..secure_channel..handshake..error..XXError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hec2fd56db0a02324E.exit.i.i.i317" ]
   store i8 1, ptr %1123, align 4, !noalias !3708
   invoke fastcc void @"_ZN4core3ptr130drop_in_place$LT$ockam_identity..secure_channel..handshake..handshake..Handshake..decode_message2..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0c9eff6e79775f01E"(ptr noundef nonnull align 8 %1124)
           to label %1137 unwind label %1125, !noalias !3719
@@ -36236,8 +36236,8 @@ define internal fastcc void @"_ZN120_$LT$ockam_identity..secure_channel..message
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %179, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit", %131, %3
-  %.0193.ph.ph = phi i8 [ 1, %179 ], [ %.12205, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" ], [ 1, %3 ], [ 1, %131 ]
-  %.0191.ph.ph = phi i8 [ 1, %179 ], [ 0, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" ], [ 1, %3 ], [ 1, %131 ]
+  %.0193.ph.ph = phi i8 [ %.12205, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" ], [ 1, %179 ], [ 1, %3 ], [ 1, %131 ]
+  %.0191.ph.ph = phi i8 [ 0, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h6abd8d7aa6c3391fE.exit" ], [ 1, %179 ], [ 1, %3 ], [ 1, %131 ]
   %lpad.loopexit.split-lp311 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

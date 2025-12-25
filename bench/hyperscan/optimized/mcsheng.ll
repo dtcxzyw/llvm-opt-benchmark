@@ -1620,7 +1620,7 @@ nfaExecMcSheng8_inAccept.exit.sink.split:         ; preds = %63, %37, %.thread47
   br label %nfaExecMcSheng8_inAccept.exit
 
 nfaExecMcSheng8_inAccept.exit:                    ; preds = %144, %.lr.ph.i.i, %nfaExecMcSheng8_inAccept.exit.sink.split, %138, %130, %nfaExecMcSheng8_Q2i.exit
-  %.0 = phi i8 [ 1, %138 ], [ 1, %130 ], [ 0, %nfaExecMcSheng8_inAccept.exit.sink.split ], [ 0, %nfaExecMcSheng8_Q2i.exit ], [ 2, %.lr.ph.i.i ], [ %129, %144 ]
+  %.0 = phi i8 [ 1, %138 ], [ 1, %130 ], [ 0, %nfaExecMcSheng8_inAccept.exit.sink.split ], [ 0, %nfaExecMcSheng8_Q2i.exit ], [ %129, %144 ], [ 2, %.lr.ph.i.i ]
   ret i8 %.0
 }
 
@@ -1880,7 +1880,7 @@ nfaExecMcSheng16_inAccept.exit.sink.split:        ; preds = %62, %36, %.thread47
   br label %nfaExecMcSheng16_inAccept.exit
 
 nfaExecMcSheng16_inAccept.exit:                   ; preds = %139, %.lr.ph.i.i, %nfaExecMcSheng16_inAccept.exit.sink.split, %133, %125, %nfaExecMcSheng16_Q2i.exit
-  %.0 = phi i8 [ 1, %133 ], [ 1, %125 ], [ 0, %nfaExecMcSheng16_inAccept.exit.sink.split ], [ 0, %nfaExecMcSheng16_Q2i.exit ], [ 2, %.lr.ph.i.i ], [ %124, %139 ]
+  %.0 = phi i8 [ 1, %133 ], [ 1, %125 ], [ 0, %nfaExecMcSheng16_inAccept.exit.sink.split ], [ 0, %nfaExecMcSheng16_Q2i.exit ], [ %124, %139 ], [ 2, %.lr.ph.i.i ]
   ret i8 %.0
 }
 
@@ -3013,7 +3013,7 @@ doComplexReport.exit.i:                           ; preds = %610, %593, %584, %d
   br label %mcshengExec8_i.exit
 
 mcshengExec8_i.exit:                              ; preds = %291, %276, %270, %297, %605, %590, %584, %611, %.thread177, %10
-  %.0.i = phi i8 [ 1, %10 ], [ 1, %.thread177 ], [ 0, %605 ], [ 0, %297 ], [ 0, %611 ], [ 0, %584 ], [ 0, %590 ], [ 0, %270 ], [ 0, %276 ], [ 0, %291 ]
+  %.0.i = phi i8 [ 1, %10 ], [ 1, %.thread177 ], [ 0, %605 ], [ 0, %611 ], [ 0, %297 ], [ 0, %584 ], [ 0, %590 ], [ 0, %270 ], [ 0, %276 ], [ 0, %291 ]
   ret i8 %.0.i
 }
 
@@ -5730,7 +5730,7 @@ doComplexReport.exit.i:                           ; preds = %606, %702, %685, %6
   br label %mcshengExec16_i.exit
 
 mcshengExec16_i.exit:                             ; preds = %334, %319, %312, %340, %697, %682, %675, %703, %.thread142, %8
-  %.0.i = phi i8 [ 1, %8 ], [ 0, %697 ], [ 1, %.thread142 ], [ 0, %340 ], [ 0, %703 ], [ 0, %675 ], [ 0, %682 ], [ 0, %312 ], [ 0, %319 ], [ 0, %334 ]
+  %.0.i = phi i8 [ 1, %8 ], [ 0, %697 ], [ 1, %.thread142 ], [ 0, %703 ], [ 0, %340 ], [ 0, %675 ], [ 0, %682 ], [ 0, %312 ], [ 0, %319 ], [ 0, %334 ]
   ret i8 %.0.i
 }
 

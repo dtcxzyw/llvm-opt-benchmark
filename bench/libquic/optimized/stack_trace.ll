@@ -310,7 +310,7 @@ _ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit: ; preds = %_ZN4base5de
   br i1 %59, label %12, label %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.thread29
 
 _ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit.thread29: ; preds = %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit, %35, %.thread, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i, %3
-  %.1 = phi i64 [ %.2, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i ], [ 0, %3 ], [ %.2, %.thread ], [ %.2, %35 ], [ %.2, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %.2, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit ]
+  %.1 = phi i64 [ 0, %3 ], [ %.2, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i ], [ %.2, %.thread ], [ %.2, %35 ], [ %.2, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %.2, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit ]
   ret i64 %.1
 }
 

@@ -5898,8 +5898,8 @@ lean_alloc_ctor.exit265:                          ; preds = %lean_inc.exit
   br label %373
 
 373:                                              ; preds = %lean_inc.exit159, %lean_alloc_ctor.exit265
-  %.1142 = phi ptr [ %326, %lean_alloc_ctor.exit265 ], [ %158, %lean_inc.exit159 ]
-  %.1138 = phi ptr [ %367, %lean_alloc_ctor.exit265 ], [ %.0137319, %lean_inc.exit159 ]
+  %.1142 = phi ptr [ %158, %lean_inc.exit159 ], [ %326, %lean_alloc_ctor.exit265 ]
+  %.1138 = phi ptr [ %.0137319, %lean_inc.exit159 ], [ %367, %lean_alloc_ctor.exit265 ]
   %.1133 = add nuw i64 %.0132320, 1
   %exitcond.not = icmp eq i64 %.1133, %5
   br i1 %exitcond.not, label %._crit_edge, label %34

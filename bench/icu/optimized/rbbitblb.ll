@@ -1392,7 +1392,7 @@ define void @_ZN6icu_7716RBBITableBuilder15buildStateTableEv(ptr noundef nonnull
   store i32 7, ptr %.sink.sink, align 4, !tbaa !17
   br label %.thread164
 
-.thread164:                                       ; preds = %94, %.thread164.sink.split, %45, %56, %59
+.thread164:                                       ; preds = %94, %.thread164.sink.split, %45, %59, %56
   tail call void @_ZN6icu_7719RBBIStateDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %39) #13
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %39) #13
   br label %.thread170

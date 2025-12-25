@@ -600,7 +600,7 @@ bytestream2_get_byte.exit54.thread.i84:           ; preds = %bytestream2_get_byt
   br label %mm_decode_raw.exit
 
 mm_decode_raw.exit:                               ; preds = %319, %317, %315
-  %.0 = phi i32 [ %320, %319 ], [ %318, %317 ], [ %316, %315 ]
+  %.0 = phi i32 [ %320, %319 ], [ %316, %315 ], [ %318, %317 ]
   %321 = icmp slt i32 %.0, 0
   br i1 %321, label %mm_decode_raw.exit.thread89, label %mm_decode_raw.exit.thread
 
@@ -624,7 +624,7 @@ mm_decode_raw.exit.thread89.sink.split:           ; preds = %bytestream2_get_be2
   br label %mm_decode_raw.exit.thread89
 
 mm_decode_raw.exit.thread89:                      ; preds = %bytestream2_get_byte.exit54.thread.i84, %bytestream2_get_byte.exit54.i71, %bytestream2_get_byte.exit54.thread.i61, %bytestream2_get_byte.exit54.i49, %bytestream2_get_byte.exit54.thread.i, %bytestream2_get_byte.exit54.i, %mm_decode_raw.exit.thread89.sink.split, %25, %24, %mm_decode_raw.exit.thread, %mm_decode_raw.exit, %bytestream2_init.exit, %4
-  %.032 = phi i32 [ -1094995529, %bytestream2_get_byte.exit54.thread.i ], [ -1094995529, %4 ], [ %22, %bytestream2_init.exit ], [ %.0, %mm_decode_raw.exit ], [ -1094995529, %bytestream2_get_byte.exit54.thread.i61 ], [ %327, %mm_decode_raw.exit.thread ], [ -1094995529, %24 ], [ %330, %mm_decode_raw.exit.thread89.sink.split ], [ -1094995529, %25 ], [ -1094995529, %bytestream2_get_byte.exit54.i ], [ -1094995529, %bytestream2_get_byte.exit54.i49 ], [ -1094995529, %bytestream2_get_byte.exit54.i71 ], [ -1094995529, %bytestream2_get_byte.exit54.thread.i84 ]
+  %.032 = phi i32 [ -1094995529, %bytestream2_get_byte.exit54.thread.i61 ], [ -1094995529, %4 ], [ %22, %bytestream2_init.exit ], [ %.0, %mm_decode_raw.exit ], [ -1094995529, %bytestream2_get_byte.exit54.thread.i ], [ %327, %mm_decode_raw.exit.thread ], [ -1094995529, %24 ], [ %330, %mm_decode_raw.exit.thread89.sink.split ], [ -1094995529, %25 ], [ -1094995529, %bytestream2_get_byte.exit54.i ], [ -1094995529, %bytestream2_get_byte.exit54.i49 ], [ -1094995529, %bytestream2_get_byte.exit54.i71 ], [ -1094995529, %bytestream2_get_byte.exit54.thread.i84 ]
   ret i32 %.032
 }
 
@@ -1199,7 +1199,7 @@ bytestream2_get_byte.exit80:                      ; preds = %224, %228
   br i1 %275, label %.lr.ph.split, label %.thread87
 
 .thread87:                                        ; preds = %.split99, %197, %.split99.us.split.us113, %119, %.split99.us.split.us.us.us, %51, %bytestream2_init.exit.thread, %bytestream2_init.exit, %bytestream2_get_le16.exit
-  %.0 = phi i32 [ -1094995529, %bytestream2_get_le16.exit ], [ 0, %bytestream2_init.exit.thread ], [ 0, %bytestream2_init.exit ], [ 0, %.split99.us.split.us.us.us ], [ 0, %.split99.us.split.us113 ], [ 0, %51 ], [ 0, %119 ], [ 0, %197 ], [ 0, %.split99 ]
+  %.0 = phi i32 [ -1094995529, %bytestream2_get_le16.exit ], [ 0, %bytestream2_init.exit ], [ 0, %bytestream2_init.exit.thread ], [ 0, %.split99.us.split.us.us.us ], [ 0, %.split99.us.split.us113 ], [ 0, %51 ], [ 0, %119 ], [ 0, %197 ], [ 0, %.split99 ]
   ret i32 %.0
 }
 

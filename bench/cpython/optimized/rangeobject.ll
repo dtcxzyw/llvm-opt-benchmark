@@ -2644,8 +2644,8 @@ compute_range_length.exit:                        ; preds = %31, %.split11.i.i, 
   %126 = icmp eq ptr %125, null
   br i1 %126, label %Py_DECREF.exit, label %compute_range_length.exit.thread22
 
-compute_range_length.exit.thread22:               ; preds = %100, %66, %63, %Py_DECREF.exit60.i, %97, %compute_range_length.exit
-  %.0.i24 = phi ptr [ %125, %compute_range_length.exit ], [ %78, %100 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %66 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %63 ], [ %78, %Py_DECREF.exit60.i ], [ %78, %97 ]
+compute_range_length.exit.thread22:               ; preds = %100, %97, %Py_DECREF.exit60.i, %63, %66, %compute_range_length.exit
+  %.0.i24 = phi ptr [ %125, %compute_range_length.exit ], [ %78, %100 ], [ %78, %97 ], [ %78, %Py_DECREF.exit60.i ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %63 ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), %66 ]
   %127 = call ptr @_PyObject_New(ptr noundef %0) #6
   %128 = icmp eq ptr %127, null
   br i1 %128, label %129, label %135

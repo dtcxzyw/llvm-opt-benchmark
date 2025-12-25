@@ -8880,7 +8880,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %46 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %37 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -9334,7 +9334,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %226 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %358 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -10082,7 +10082,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %46 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %37 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -10536,7 +10536,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %226 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %358 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -11285,7 +11285,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %46 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %37 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -11739,7 +11739,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %226 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %358 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -12488,7 +12488,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %46 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %37 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -12942,7 +12942,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %226 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %358 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -13691,7 +13691,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %46 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %37 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -14145,7 +14145,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %226 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %358 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -14894,7 +14894,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %46 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %37 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -15348,7 +15348,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %226 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %358 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -16096,7 +16096,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %46 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %37 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -16550,7 +16550,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %226 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %358 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -17299,7 +17299,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %46 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %37 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -17753,7 +17753,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %226 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %358 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -18502,7 +18502,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %141, %123, %78, %76, %67, %46, %44, %40, %37
-  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %37 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %46 ]
+  %.sroa.020.2.ph.i = phi i1 [ true, %76 ], [ true, %67 ], [ true, %78 ], [ true, %40 ], [ true, %46 ], [ true, %123 ], [ false, %141 ], [ true, %44 ], [ true, %37 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -18956,7 +18956,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %216, %219, %223, %226, %354, %358, %395, %381, %436, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit", %300
-  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %358 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %226 ], [ false, %300 ]
+  %.sroa.022.2.ph = phi i1 [ true, %216 ], [ true, %395 ], [ true, %381 ], [ true, %219 ], [ true, %226 ], [ true, %436 ], [ true, %223 ], [ true, %"_ZN4core3ptr58drop_in_place$LT$$u5b$polars_core..series..Series$u5d$$GT$17h0bd44f87b253f4c0E.exit" ], [ true, %354 ], [ true, %358 ], [ false, %300 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

@@ -4233,7 +4233,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_time(ptr noundef captures(none) %
   br label %48
 
 48:                                               ; preds = %.sink.split, %45, %43, %41, %35, %33
-  %.0 = phi i64 [ 1, %45 ], [ 1, %41 ], [ 0, %35 ], [ 0, %43 ], [ 1, %33 ], [ 0, %.sink.split ]
+  %.0 = phi i64 [ 1, %33 ], [ 1, %41 ], [ 0, %35 ], [ 0, %43 ], [ 1, %45 ], [ 0, %.sink.split ]
   ret i64 %.0
 }
 
@@ -5938,7 +5938,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   br label %50
 
 50:                                               ; preds = %.sink.split, %47, %45, %43, %37, %35
-  %.0 = phi i64 [ 1, %47 ], [ 1, %43 ], [ 0, %37 ], [ 0, %45 ], [ 1, %35 ], [ 0, %.sink.split ]
+  %.0 = phi i64 [ 1, %35 ], [ 1, %43 ], [ 0, %37 ], [ 0, %45 ], [ 1, %47 ], [ 0, %.sink.split ]
   ret i64 %.0
 }
 

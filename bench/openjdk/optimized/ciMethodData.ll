@@ -1848,7 +1848,7 @@ define hidden noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(pt
   br i1 %53, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph.split.split, %43, %51, %.lr.ph.split.us.split.us, %25, %4, %.split35.us, %.split31.us
-  %.0 = phi ptr [ null, %.split31.us ], [ %34, %.split35.us ], [ null, %.lr.ph.split.us.split.us ], [ null, %4 ], [ null, %25 ], [ null, %51 ], [ null, %.lr.ph.split.split ], [ %37, %43 ]
+  %.0 = phi ptr [ null, %.split31.us ], [ %34, %.split35.us ], [ null, %.lr.ph.split.us.split.us ], [ null, %4 ], [ null, %25 ], [ null, %51 ], [ %37, %43 ], [ null, %.lr.ph.split.split ]
   ret ptr %.0
 }
 

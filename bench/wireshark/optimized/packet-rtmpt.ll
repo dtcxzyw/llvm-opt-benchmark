@@ -4004,7 +4004,7 @@ define internal fastcc ptr @rtmpt_get_amf_param(ptr noundef %0, i32 noundef rang
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %57, %.lr.ph126, %54, %.thread.sink.split, %5, %31, %23, %48, %46, %28, %._crit_edge
-  %.4 = phi ptr [ %64, %.thread.sink.split ], [ null, %57 ], [ null, %31 ], [ null, %._crit_edge ], [ null, %23 ], [ null, %28 ], [ null, %48 ], [ null, %46 ], [ null, %5 ], [ null, %54 ], [ null, %.lr.ph126 ], [ null, %.lr.ph ]
+  %.4 = phi ptr [ null, %5 ], [ null, %57 ], [ null, %31 ], [ null, %._crit_edge ], [ null, %48 ], [ null, %28 ], [ null, %23 ], [ null, %46 ], [ %64, %.thread.sink.split ], [ null, %54 ], [ null, %.lr.ph126 ], [ null, %.lr.ph ]
   ret ptr %.4
 }
 

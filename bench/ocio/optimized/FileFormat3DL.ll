@@ -661,8 +661,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187: ; preds = %_Z
   br label %.loopexit519
 
 .loopexit519.loopexit.split-lp:                   ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i249, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i239, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i229
-  %.sroa.30.1.ph.ph = phi ptr [ %.sroa.17.0.ph705, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i229 ], [ %.sroa.30.5, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i239 ], [ %.sroa.30.6, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i249 ]
-  %.sroa.0436.1.ph.ph = phi ptr [ %.sroa.0436.0.ph706, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i229 ], [ %.sroa.0436.5, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i239 ], [ %.sroa.0436.6, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i249 ]
+  %.sroa.30.1.ph.ph = phi ptr [ %.sroa.30.5, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i239 ], [ %.sroa.17.0.ph705, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i229 ], [ %.sroa.30.6, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i249 ]
+  %.sroa.0436.1.ph.ph = phi ptr [ %.sroa.0436.5, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i239 ], [ %.sroa.0436.0.ph706, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i229 ], [ %.sroa.0436.6, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i249 ]
   %lpad.loopexit.split-lp527 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit519

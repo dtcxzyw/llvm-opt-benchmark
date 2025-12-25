@@ -12099,11 +12099,11 @@ _ZN5serde2de9MapAccess8next_key17h4be3ed1afd345563E.exit.thread390.i.thread: ; p
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %206, %204, %202, %.loopexit427.i
-  %.sroa.0225.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0225.12.i, %204 ], [ %.sroa.0225.12.i, %206 ], [ %.sroa.0225.12.i, %202 ]
-  %.sroa.0227.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0227.13.i, %204 ], [ %.sroa.0227.13.i, %206 ], [ %.sroa.0227.13.i, %202 ]
-  %.sroa.0229.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0229.8.i, %204 ], [ %.sroa.0229.8.i, %206 ], [ %.sroa.0229.8.i, %202 ]
-  %.sroa.0231.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0231.7.i, %204 ], [ %.sroa.0231.7.i, %206 ], [ %.sroa.0231.7.i, %202 ]
-  %.sroa.0233.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0233.6.i, %204 ], [ %.sroa.0233.6.i, %206 ], [ %.sroa.0233.6.i, %202 ]
+  %.sroa.0225.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0225.12.i, %206 ], [ 1, %.loopexit427.i ], [ %.sroa.0225.12.i, %202 ], [ %.sroa.0225.12.i, %204 ]
+  %.sroa.0227.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0227.13.i, %206 ], [ 1, %.loopexit427.i ], [ %.sroa.0227.13.i, %202 ], [ %.sroa.0227.13.i, %204 ]
+  %.sroa.0229.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0229.8.i, %206 ], [ 1, %.loopexit427.i ], [ %.sroa.0229.8.i, %202 ], [ %.sroa.0229.8.i, %204 ]
+  %.sroa.0231.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0231.7.i, %206 ], [ 1, %.loopexit427.i ], [ %.sroa.0231.7.i, %202 ], [ %.sroa.0231.7.i, %204 ]
+  %.sroa.0233.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0233.6.i, %206 ], [ 1, %.loopexit427.i ], [ %.sroa.0233.6.i, %202 ], [ %.sroa.0233.6.i, %204 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -14104,10 +14104,10 @@ _ZN5serde2de9MapAccess8next_key17hed59aec5bbc0da3fE.exit.thread345.i.thread: ; p
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %196, %194, %192, %.loopexit382.i
-  %.sroa.0202.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0202.10.i, %194 ], [ %.sroa.0202.10.i, %196 ], [ %.sroa.0202.10.i, %192 ]
-  %.sroa.0204.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0204.8.i, %194 ], [ %.sroa.0204.8.i, %196 ], [ %.sroa.0204.8.i, %192 ]
-  %.sroa.0206.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0206.7.i, %194 ], [ %.sroa.0206.7.i, %196 ], [ %.sroa.0206.7.i, %192 ]
-  %.sroa.0208.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0208.6.i, %194 ], [ %.sroa.0208.6.i, %196 ], [ %.sroa.0208.6.i, %192 ]
+  %.sroa.0202.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0202.10.i, %196 ], [ 1, %.loopexit382.i ], [ %.sroa.0202.10.i, %192 ], [ %.sroa.0202.10.i, %194 ]
+  %.sroa.0204.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0204.8.i, %196 ], [ 1, %.loopexit382.i ], [ %.sroa.0204.8.i, %192 ], [ %.sroa.0204.8.i, %194 ]
+  %.sroa.0206.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0206.7.i, %196 ], [ 1, %.loopexit382.i ], [ %.sroa.0206.7.i, %192 ], [ %.sroa.0206.7.i, %194 ]
+  %.sroa.0208.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0208.6.i, %196 ], [ 1, %.loopexit382.i ], [ %.sroa.0208.6.i, %192 ], [ %.sroa.0208.6.i, %194 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -15331,10 +15331,10 @@ _ZN5serde2de9MapAccess8next_key17h8f5e4caf875dd7a6E.exit.thread345.i.thread: ; p
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %196, %194, %192, %.loopexit382.i
-  %.sroa.0202.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0202.10.i, %194 ], [ %.sroa.0202.10.i, %196 ], [ %.sroa.0202.10.i, %192 ]
-  %.sroa.0204.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0204.8.i, %194 ], [ %.sroa.0204.8.i, %196 ], [ %.sroa.0204.8.i, %192 ]
-  %.sroa.0206.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0206.7.i, %194 ], [ %.sroa.0206.7.i, %196 ], [ %.sroa.0206.7.i, %192 ]
-  %.sroa.0208.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit382.i ], [ %.sroa.0208.6.i, %194 ], [ %.sroa.0208.6.i, %196 ], [ %.sroa.0208.6.i, %192 ]
+  %.sroa.0202.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0202.10.i, %196 ], [ 1, %.loopexit382.i ], [ %.sroa.0202.10.i, %192 ], [ %.sroa.0202.10.i, %194 ]
+  %.sroa.0204.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0204.8.i, %196 ], [ 1, %.loopexit382.i ], [ %.sroa.0204.8.i, %192 ], [ %.sroa.0204.8.i, %194 ]
+  %.sroa.0206.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0206.7.i, %196 ], [ 1, %.loopexit382.i ], [ %.sroa.0206.7.i, %192 ], [ %.sroa.0206.7.i, %194 ]
+  %.sroa.0208.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0208.6.i, %196 ], [ 1, %.loopexit382.i ], [ %.sroa.0208.6.i, %192 ], [ %.sroa.0208.6.i, %194 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -16555,11 +16555,11 @@ _ZN5serde2de9MapAccess8next_key17h68e5c3ae8114b1e7E.exit.thread390.i.thread: ; p
   br label %.body.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %206, %204, %202, %.loopexit427.i
-  %.sroa.0225.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0225.12.i, %204 ], [ %.sroa.0225.12.i, %206 ], [ %.sroa.0225.12.i, %202 ]
-  %.sroa.0227.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0227.13.i, %204 ], [ %.sroa.0227.13.i, %206 ], [ %.sroa.0227.13.i, %202 ]
-  %.sroa.0229.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0229.8.i, %204 ], [ %.sroa.0229.8.i, %206 ], [ %.sroa.0229.8.i, %202 ]
-  %.sroa.0231.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0231.7.i, %204 ], [ %.sroa.0231.7.i, %206 ], [ %.sroa.0231.7.i, %202 ]
-  %.sroa.0233.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %.loopexit427.i ], [ %.sroa.0233.6.i, %204 ], [ %.sroa.0233.6.i, %206 ], [ %.sroa.0233.6.i, %202 ]
+  %.sroa.0225.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0225.12.i, %206 ], [ 1, %.loopexit427.i ], [ %.sroa.0225.12.i, %202 ], [ %.sroa.0225.12.i, %204 ]
+  %.sroa.0227.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0227.13.i, %206 ], [ 1, %.loopexit427.i ], [ %.sroa.0227.13.i, %202 ], [ %.sroa.0227.13.i, %204 ]
+  %.sroa.0229.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0229.8.i, %206 ], [ 1, %.loopexit427.i ], [ %.sroa.0229.8.i, %202 ], [ %.sroa.0229.8.i, %204 ]
+  %.sroa.0231.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0231.7.i, %206 ], [ 1, %.loopexit427.i ], [ %.sroa.0231.7.i, %202 ], [ %.sroa.0231.7.i, %204 ]
+  %.sroa.0233.1.ph.i = phi i8 [ 1, %.invoke ], [ %.sroa.0233.6.i, %206 ], [ 1, %.loopexit427.i ], [ %.sroa.0233.6.i, %202 ], [ %.sroa.0233.6.i, %204 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -18883,8 +18883,8 @@ _ZN5serde2de9SeqAccess12next_element17hb96efebc9765093dE.exit57.invoke.i: ; pred
   br label %.loopexit.i50
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %293, %268
-  %.sroa.098.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %268 ], [ %.sroa.098.9.i, %293 ]
-  %.sroa.0100.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %268 ], [ %.sroa.0100.6.i, %293 ]
+  %.sroa.098.1.ph.i = phi i8 [ %.sroa.098.9.i, %293 ], [ 1, %.invoke ], [ 1, %268 ]
+  %.sroa.0100.1.ph.i = phi i8 [ %.sroa.0100.6.i, %293 ], [ 1, %.invoke ], [ 1, %268 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i50
@@ -19997,8 +19997,8 @@ _ZN5serde2de9SeqAccess12next_element17h97389f878fbde99cE.exit57.invoke.i: ; pred
   br label %.loopexit.i50
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %293, %268
-  %.sroa.098.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %268 ], [ %.sroa.098.9.i, %293 ]
-  %.sroa.0100.1.ph.i = phi i8 [ 1, %.invoke ], [ 1, %268 ], [ %.sroa.0100.6.i, %293 ]
+  %.sroa.098.1.ph.i = phi i8 [ %.sroa.098.9.i, %293 ], [ 1, %.invoke ], [ 1, %268 ]
+  %.sroa.0100.1.ph.i = phi i8 [ %.sroa.0100.6.i, %293 ], [ 1, %.invoke ], [ 1, %268 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i50

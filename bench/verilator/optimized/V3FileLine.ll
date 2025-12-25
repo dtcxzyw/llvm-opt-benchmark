@@ -7070,10 +7070,10 @@ define dso_local void @_ZN8FileLine18lineDirectiveParseEPKcRNSt7__cxx1112basic_s
   br label %.critedge6
 
 .critedge6:                                       ; preds = %16, %22, %28, %.critedge6.loopexit, %5
-  %.2.lcssa234 = phi ptr [ %1, %5 ], [ %.2173, %.critedge6.loopexit ], [ %23, %22 ], [ %29, %28 ], [ %17, %16 ]
-  %isdigittmp = phi i1 [ false, %5 ], [ %39, %.critedge6.loopexit ], [ false, %22 ], [ false, %28 ], [ false, %16 ]
-  %40 = phi i8 [ 0, %5 ], [ %.ph, %.critedge6.loopexit ], [ 0, %22 ], [ 0, %28 ], [ 0, %16 ]
-  %.3.lcssa = phi ptr [ %1, %5 ], [ %.3.lcssa.ph, %.critedge6.loopexit ], [ %23, %22 ], [ %29, %28 ], [ %17, %16 ]
+  %.2.lcssa234 = phi ptr [ %.2173, %.critedge6.loopexit ], [ %1, %5 ], [ %23, %22 ], [ %29, %28 ], [ %17, %16 ]
+  %isdigittmp = phi i1 [ %39, %.critedge6.loopexit ], [ false, %5 ], [ false, %22 ], [ false, %28 ], [ false, %16 ]
+  %40 = phi i8 [ %.ph, %.critedge6.loopexit ], [ 0, %5 ], [ 0, %22 ], [ 0, %28 ], [ 0, %16 ]
+  %.3.lcssa = phi ptr [ %.3.lcssa.ph, %.critedge6.loopexit ], [ %1, %5 ], [ %23, %22 ], [ %29, %28 ], [ %17, %16 ]
   %41 = ptrtoint ptr %.3.lcssa to i64
   %42 = ptrtoint ptr %.2.lcssa234 to i64
   %43 = sub i64 %41, %42

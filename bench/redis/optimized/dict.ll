@@ -2025,11 +2025,11 @@ dictFreeUnlinkedEntry.exit:                       ; preds = %149, %._crit_edge.i
 _dictShrinkIfNeeded.exit:                         ; preds = %160
   %162 = and i64 %68, 4
   %.not5.i90 = icmp eq i64 %162, 0
-  %163 = getelementptr inbounds nuw i8, ptr %.059102, i64 16
-  %164 = and i64 %68, -8
-  %165 = inttoptr i64 %164 to ptr
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %.160.in = select i1 %.not5.i90, ptr %163, ptr %166
+  %163 = and i64 %68, -8
+  %164 = inttoptr i64 %163 to ptr
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %.059102, i64 16
+  %.160.in = select i1 %.not5.i90, ptr %166, ptr %165
   %.160 = load ptr, ptr %.160.in, align 8, !tbaa !31
   %.not = icmp eq ptr %.160, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
@@ -2044,7 +2044,7 @@ _dictShrinkIfNeeded.exit:                         ; preds = %160
   br i1 %51, label %50, label %_dictShrinkIfNeeded.exit.thread, !llvm.loop !58
 
 _dictShrinkIfNeeded.exit.thread:                  ; preds = %._crit_edge, %168, %dictFreeUnlinkedEntry.exit, %158, %3
-  %.0 = phi ptr [ null, %3 ], [ %.059102, %dictFreeUnlinkedEntry.exit ], [ %.059102, %158 ], [ null, %168 ], [ null, %._crit_edge ]
+  %.0 = phi ptr [ null, %3 ], [ %.059102, %158 ], [ %.059102, %dictFreeUnlinkedEntry.exit ], [ null, %168 ], [ null, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -2563,11 +2563,11 @@ dictGetNext.exit:                                 ; preds = %dictGetKey.exit, %7
 dictGetNext.exit64:                               ; preds = %88
   %89 = and i64 %59, 4
   %.not5.i63 = icmp eq i64 %89, 0
-  %90 = getelementptr inbounds nuw i8, ptr %.04071, i64 16
-  %91 = and i64 %59, -8
-  %92 = inttoptr i64 %91 to ptr
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %.141.in = select i1 %.not5.i63, ptr %90, ptr %93
+  %90 = and i64 %59, -8
+  %91 = inttoptr i64 %90 to ptr
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.04071, i64 16
+  %.141.in = select i1 %.not5.i63, ptr %93, ptr %92
   %.141 = load ptr, ptr %.141.in, align 8, !tbaa !31
   %.not = icmp eq ptr %.141, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61

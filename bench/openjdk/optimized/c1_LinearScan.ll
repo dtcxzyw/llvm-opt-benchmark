@@ -7190,10 +7190,10 @@ _ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i.sink.split: ; preds = %24,
   br label %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i
 
 _ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i: ; preds = %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i.sink.split, %19, %24, %18, %_ZN10LinearScan23is_virtual_cpu_intervalEPK8Interval.exit, %.lr.ph.split.i
-  %.133 = phi ptr [ %.032, %.lr.ph.split.i ], [ %.032, %_ZN10LinearScan23is_virtual_cpu_intervalEPK8Interval.exit ], [ %.032, %19 ], [ %.032, %24 ], [ %13, %18 ], [ %.032, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i.sink.split ]
-  %.130 = phi ptr [ %.029, %.lr.ph.split.i ], [ %.029, %_ZN10LinearScan23is_virtual_cpu_intervalEPK8Interval.exit ], [ %.029, %19 ], [ %13, %24 ], [ %.029, %18 ], [ %.029, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i.sink.split ]
-  %.128.i = phi ptr [ %.02729.i, %.lr.ph.split.i ], [ %.02729.i, %_ZN10LinearScan23is_virtual_cpu_intervalEPK8Interval.exit ], [ %.02729.i, %19 ], [ %.02729.i, %24 ], [ %13, %18 ], [ %.128.i.ph, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i.sink.split ]
-  %.1.i = phi ptr [ %.02630.i, %.lr.ph.split.i ], [ %.02630.i, %_ZN10LinearScan23is_virtual_cpu_intervalEPK8Interval.exit ], [ %.02630.i, %19 ], [ %13, %24 ], [ %.02630.i, %18 ], [ %.1.i.ph, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i.sink.split ]
+  %.133 = phi ptr [ %.032, %.lr.ph.split.i ], [ %.032, %_ZN10LinearScan23is_virtual_cpu_intervalEPK8Interval.exit ], [ %13, %18 ], [ %.032, %24 ], [ %.032, %19 ], [ %.032, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i.sink.split ]
+  %.130 = phi ptr [ %.029, %.lr.ph.split.i ], [ %.029, %_ZN10LinearScan23is_virtual_cpu_intervalEPK8Interval.exit ], [ %.029, %18 ], [ %13, %24 ], [ %.029, %19 ], [ %.029, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i.sink.split ]
+  %.128.i = phi ptr [ %.02729.i, %.lr.ph.split.i ], [ %.02729.i, %_ZN10LinearScan23is_virtual_cpu_intervalEPK8Interval.exit ], [ %13, %18 ], [ %.02729.i, %24 ], [ %.02729.i, %19 ], [ %.128.i.ph, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i.sink.split ]
+  %.1.i = phi ptr [ %.02630.i, %.lr.ph.split.i ], [ %.02630.i, %_ZN10LinearScan23is_virtual_cpu_intervalEPK8Interval.exit ], [ %.02630.i, %18 ], [ %13, %24 ], [ %.02630.i, %19 ], [ %.1.i.ph, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i.sink.split ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count39.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !6
@@ -7280,10 +7280,10 @@ _ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7.sink.split: ; preds = %50
   br label %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7
 
 _ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7: ; preds = %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7.sink.split, %45, %50, %44, %_ZN10LinearScan23is_virtual_fpu_intervalEPK8Interval.exit, %.lr.ph.split.i3
-  %.127 = phi ptr [ %.026, %.lr.ph.split.i3 ], [ %.026, %_ZN10LinearScan23is_virtual_fpu_intervalEPK8Interval.exit ], [ %.026, %45 ], [ %.026, %50 ], [ %39, %44 ], [ %.026, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7.sink.split ]
-  %.1 = phi ptr [ %.0, %.lr.ph.split.i3 ], [ %.0, %_ZN10LinearScan23is_virtual_fpu_intervalEPK8Interval.exit ], [ %.0, %45 ], [ %39, %50 ], [ %.0, %44 ], [ %.0, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7.sink.split ]
-  %.128.i8 = phi ptr [ %.02729.i6, %.lr.ph.split.i3 ], [ %.02729.i6, %_ZN10LinearScan23is_virtual_fpu_intervalEPK8Interval.exit ], [ %.02729.i6, %45 ], [ %.02729.i6, %50 ], [ %39, %44 ], [ %.128.i8.ph, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7.sink.split ]
-  %.1.i9 = phi ptr [ %.02630.i5, %.lr.ph.split.i3 ], [ %.02630.i5, %_ZN10LinearScan23is_virtual_fpu_intervalEPK8Interval.exit ], [ %.02630.i5, %45 ], [ %39, %50 ], [ %.02630.i5, %44 ], [ %.1.i9.ph, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7.sink.split ]
+  %.127 = phi ptr [ %.026, %.lr.ph.split.i3 ], [ %.026, %_ZN10LinearScan23is_virtual_fpu_intervalEPK8Interval.exit ], [ %39, %44 ], [ %.026, %50 ], [ %.026, %45 ], [ %.026, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7.sink.split ]
+  %.1 = phi ptr [ %.0, %.lr.ph.split.i3 ], [ %.0, %_ZN10LinearScan23is_virtual_fpu_intervalEPK8Interval.exit ], [ %.0, %44 ], [ %39, %50 ], [ %.0, %45 ], [ %.0, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7.sink.split ]
+  %.128.i8 = phi ptr [ %.02729.i6, %.lr.ph.split.i3 ], [ %.02729.i6, %_ZN10LinearScan23is_virtual_fpu_intervalEPK8Interval.exit ], [ %39, %44 ], [ %.02729.i6, %50 ], [ %.02729.i6, %45 ], [ %.128.i8.ph, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7.sink.split ]
+  %.1.i9 = phi ptr [ %.02630.i5, %.lr.ph.split.i3 ], [ %.02630.i5, %_ZN10LinearScan23is_virtual_fpu_intervalEPK8Interval.exit ], [ %.02630.i5, %44 ], [ %39, %50 ], [ %.02630.i5, %45 ], [ %.1.i9.ph, %_ZN10LinearScan11add_to_listEPP8IntervalS2_S1_.exit.i7.sink.split ]
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, %wide.trip.count39.i2
   br i1 %exitcond.not.i11, label %._crit_edge.i12, label %.lr.ph.split.i3, !llvm.loop !6
@@ -17898,7 +17898,7 @@ _ZN16LinearScanWalker11set_use_posEiP8Intervalib.exit.i: ; preds = %32, %37, %27
   br label %50, !llvm.loop !96
 
 _ZN8Interval21current_intersects_atEPS_.exit:     ; preds = %54, %63, %78
-  %.026.i.i = phi i32 [ %51, %63 ], [ %51, %78 ], [ %52, %54 ]
+  %.026.i.i = phi i32 [ %51, %63 ], [ %52, %54 ], [ %51, %78 ]
   %.not.i14 = icmp eq i32 %.026.i.i, -1
   br i1 %.not.i14, label %_ZN16LinearScanWalker11set_use_posEP8Intervalib.exit, label %87
 
@@ -18421,7 +18421,7 @@ _ZN8Interval2toEv.exit:                           ; preds = %13, %_ZN8Interval7c
   br label %30, !llvm.loop !96
 
 _ZN8Interval21current_intersects_atEPS_.exit:     ; preds = %34, %43, %58
-  %.026.i.i = phi i32 [ %31, %43 ], [ %31, %58 ], [ %32, %34 ]
+  %.026.i.i = phi i32 [ %31, %43 ], [ %32, %34 ], [ %31, %58 ]
   %.not.i = icmp eq i32 %.026.i.i, -1
   br i1 %.not.i, label %_ZN16LinearScanWalker13set_block_posEP8Intervali.exit, label %67
 
@@ -22345,7 +22345,7 @@ define hidden void @_ZN16LinearScanWalker19init_vars_for_allocEP8Interval(ptr no
   store i32 24, ptr %29, align 8
   br label %_ZN16LinearScanWalker22pd_init_regs_for_allocEP8Interval.exit
 
-30:                                               ; preds = %20, %26
+30:                                               ; preds = %26, %20
   %31 = and i8 %4, -2
   %or.cond = icmp eq i8 %31, 6
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88

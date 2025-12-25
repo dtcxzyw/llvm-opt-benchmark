@@ -1703,7 +1703,7 @@ ExecProcNode.exit125:                             ; preds = %.loopexit, %133
 
 .critedge:                                        ; preds = %.lr.ph146.split.split, %ExecProcNode.exit125, %71, %ExecProcNode.exit125.us, %ExecProcNode.exit
   %.1102.lcssa = phi ptr [ %.0101, %ExecProcNode.exit ], [ %87, %71 ], [ %87, %ExecProcNode.exit125.us ], [ %.0101, %ExecProcNode.exit125 ], [ %.0101, %.lr.ph146.split.split ]
-  %.099.lcssa = phi i1 [ false, %ExecProcNode.exit ], [ true, %71 ], [ true, %ExecProcNode.exit125.us ], [ true, %ExecProcNode.exit125 ], [ %.099144, %.lr.ph146.split.split ]
+  %.099.lcssa = phi i1 [ false, %ExecProcNode.exit ], [ true, %71 ], [ true, %ExecProcNode.exit125.us ], [ %.099144, %.lr.ph146.split.split ], [ true, %ExecProcNode.exit125 ]
   br i1 %32, label %.critedge.thread, label %155
 
 .critedge.thread:                                 ; preds = %.lr.ph146.split.split.us, %.critedge

@@ -22431,9 +22431,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   br label %.loopexit135
 
 .body72:                                          ; preds = %183, %190, %103, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17hd4920a138c5a3337E.exit"
-  %.139 = phi i1 [ %.240177, %190 ], [ %.240177, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17hd4920a138c5a3337E.exit" ], [ %.240177, %183 ], [ %.038, %103 ]
-  %.1 = phi i1 [ %.2180, %190 ], [ %.2180, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17hd4920a138c5a3337E.exit" ], [ %.2180, %183 ], [ %.037, %103 ]
-  %.pn50 = phi { ptr, i32 } [ %184, %190 ], [ %.pn, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17hd4920a138c5a3337E.exit" ], [ %184, %183 ], [ %104, %103 ]
+  %.139 = phi i1 [ %.240177, %183 ], [ %.240177, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17hd4920a138c5a3337E.exit" ], [ %.240177, %190 ], [ %.038, %103 ]
+  %.1 = phi i1 [ %.2180, %183 ], [ %.2180, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17hd4920a138c5a3337E.exit" ], [ %.2180, %190 ], [ %.037, %103 ]
+  %.pn50 = phi { ptr, i32 } [ %184, %183 ], [ %.pn, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17hd4920a138c5a3337E.exit" ], [ %184, %190 ], [ %104, %103 ]
   switch i64 %.sroa.0.0, label %336 [
     i64 2, label %"_ZN4core3ptr388drop_in_place$LT$core..iter..sources..successors..Successors$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$C$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$$RF$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$..ancestors_with_macros_skip_attr_item..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfd2369eb2957f92dE.exit"
     i64 0, label %335

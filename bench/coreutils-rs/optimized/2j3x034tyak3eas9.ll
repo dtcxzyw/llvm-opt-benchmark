@@ -481,7 +481,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
   br i1 %147, label %.loopexit, label %.lr.ph.i.i
 
 .loopexit:                                        ; preds = %117, %146, %79, %154, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i53", %82
-  %..sink = phi i64 [ %153, %154 ], [ %.182, %82 ], [ %.182, %79 ], [ %153, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i53" ], [ %.182, %146 ], [ %.182, %117 ]
+  %..sink = phi i64 [ %153, %154 ], [ %.182, %82 ], [ %153, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i.i53" ], [ %.182, %79 ], [ %.182, %146 ], [ %.182, %117 ]
   store ptr %80, ptr %10, align 8
   store i64 %..sink, ptr %15, align 8
   %.not.i = icmp eq i64 %..sink, 1

@@ -5788,7 +5788,7 @@ ir_phi_input_number.exit:                         ; preds = %37, %10, %34
   br i1 %exitcond323.not, label %.lr.ph294.preheader, label %.lr.ph290.backedge
 
 .lr.ph290.backedge:                               ; preds = %162, %199, %169, %.lr.ph290.sink.split
-  %indvars.iv319.be = phi i64 [ %indvars.iv.next320, %162 ], [ 0, %169 ], [ 0, %.lr.ph290.sink.split ], [ 0, %199 ]
+  %indvars.iv319.be = phi i64 [ %indvars.iv.next320, %162 ], [ 0, %199 ], [ 0, %.lr.ph290.sink.split ], [ 0, %169 ]
   br label %.lr.ph290
 
 .lr.ph294.preheader:                              ; preds = %ir_bitset_pop_first.exit, %162
@@ -7183,7 +7183,7 @@ ir_ivals_overlap.exit.i.i:                        ; preds = %373
   br label %ir_ivals_overlap.exit.thread.i.i
 
 ir_ivals_overlap.exit.thread.i.i:                 ; preds = %381, %378, %.lr.ph312.i.i, %401, %397, %388, %ir_ivals_overlap.exit.i.i, %365
-  %.1167.i.i = phi i32 [ %390, %388 ], [ %.0166315.i.i, %365 ], [ %402, %401 ], [ %.0166315.i.i, %397 ], [ %.0166315.i.i, %ir_ivals_overlap.exit.i.i ], [ %390, %.lr.ph312.i.i ], [ %.0166315.i.i, %378 ], [ %.0166315.i.i, %381 ]
+  %.1167.i.i = phi i32 [ %.0166315.i.i, %365 ], [ %390, %388 ], [ %402, %401 ], [ %.0166315.i.i, %397 ], [ %.0166315.i.i, %ir_ivals_overlap.exit.i.i ], [ %390, %.lr.ph312.i.i ], [ %.0166315.i.i, %378 ], [ %.0166315.i.i, %381 ]
   %406 = getelementptr inbounds nuw i8, ptr %.1172314.i.i, i64 56
   %407 = load ptr, ptr %406, align 8, !tbaa !115
   %.not200.i.i = icmp eq ptr %407, null
@@ -7838,7 +7838,7 @@ ir_try_allocate_free_reg.exit.thread.sink.split.i: ; preds = %519, %482, %461
   br label %ir_try_allocate_free_reg.exit.thread.i
 
 ir_try_allocate_free_reg.exit.thread.i:           ; preds = %.critedge.i294.i.thread, %ir_try_allocate_free_reg.exit.thread.sink.split.i, %519, %.critedge.i294.i, %482, %480, %461, %ir_try_allocate_preferred_reg.exit.i.i
-  %.18.i = phi ptr [ %.2216541.lcssa.i, %.critedge.i294.i ], [ %.2216541.lcssa.i, %461 ], [ %.2216541.lcssa.i, %519 ], [ %.2216541.lcssa.i, %480 ], [ %.2216541.lcssa.i, %ir_try_allocate_preferred_reg.exit.i.i ], [ %.2216541.lcssa.i, %482 ], [ %.0.378554.i, %ir_try_allocate_free_reg.exit.thread.sink.split.i ], [ %.2216541.lcssa.i, %.critedge.i294.i.thread ]
+  %.18.i = phi ptr [ %.2216541.lcssa.i, %.critedge.i294.i ], [ %.2216541.lcssa.i, %ir_try_allocate_preferred_reg.exit.i.i ], [ %.2216541.lcssa.i, %519 ], [ %.2216541.lcssa.i, %480 ], [ %.2216541.lcssa.i, %461 ], [ %.2216541.lcssa.i, %482 ], [ %.0.378554.i, %ir_try_allocate_free_reg.exit.thread.sink.split.i ], [ %.2216541.lcssa.i, %.critedge.i294.i.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %1755
 
@@ -9501,8 +9501,8 @@ ir_find_optimal_split_position.exit534.i.i:       ; preds = %.preheader673.i.i, 
   br label %1468
 
 1468:                                             ; preds = %.sink.split.i, %1463, %1378
-  %.16.i = phi ptr [ %1466, %1463 ], [ %1381, %1378 ], [ %.5.i, %.sink.split.i ]
-  %.0244.i.i = phi ptr [ %.2255.i.i, %1463 ], [ %1379, %1378 ], [ %.0244.i.ph.i, %.sink.split.i ]
+  %.16.i = phi ptr [ %1381, %1378 ], [ %1466, %1463 ], [ %.5.i, %.sink.split.i ]
+  %.0244.i.i = phi ptr [ %1379, %1378 ], [ %.2255.i.i, %1463 ], [ %.0244.i.ph.i, %.sink.split.i ]
   %1469 = load i32, ptr %289, align 8, !tbaa !66
   %1470 = getelementptr inbounds nuw i8, ptr %.0244.i.i, i64 40
   %.024.i535.i.i = load ptr, ptr %1470, align 8, !tbaa !112
@@ -11550,7 +11550,7 @@ define internal fastcc void @ir_vregs_join(ptr noundef captures(none) %0, i32 no
   %61 = icmp ult i16 %60, %57
   br i1 %61, label %.critedge2, label %.critedge
 
-.critedge2:                                       ; preds = %49, %56, %59
+.critedge2:                                       ; preds = %56, %49, %59
   %62 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !78
   %64 = icmp sgt i32 %63, 0

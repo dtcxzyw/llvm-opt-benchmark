@@ -1476,7 +1476,7 @@ If_Dec08CofCount2.exit.thread:                    ; preds = %423, %441
   br i1 %exitcond360.not, label %.loopexit, label %450, !llvm.loop !30
 
 .loopexit232:                                     ; preds = %.loopexit.us271, %74, %70, %.loopexit.us, %50, %.loopexit, %459, %466, %3, %.preheader
-  %.085 = phi i32 [ 0, %3 ], [ 0, %.loopexit ], [ 1, %459 ], [ 1, %74 ], [ 0, %.preheader ], [ 1, %50 ], [ 0, %.loopexit.us ], [ 1, %466 ], [ 1, %70 ], [ 0, %.loopexit.us271 ]
+  %.085 = phi i32 [ 0, %3 ], [ 0, %.loopexit.us ], [ 0, %.preheader ], [ 0, %.loopexit ], [ 1, %459 ], [ 1, %74 ], [ 1, %50 ], [ 1, %466 ], [ 1, %70 ], [ 0, %.loopexit.us271 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

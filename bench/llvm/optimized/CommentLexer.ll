@@ -4631,8 +4631,8 @@ _ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit: ; preds = %.lr.ph.
   br i1 %.not.i17, label %_ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit, label %.lr.ph.i14, !llvm.loop !91
 
 _ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit: ; preds = %13, %.lr.ph.i14, %20, %2, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit
-  %.0.i29 = phi ptr [ %.0711.i, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit ], [ %.0711.i, %.lr.ph.i14 ], [ %7, %2 ], [ %.0711.i, %20 ], [ %7, %13 ]
-  %.0.i18 = phi ptr [ %7, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit ], [ %.0711.i15, %.lr.ph.i14 ], [ %7, %2 ], [ %7, %20 ], [ %7, %13 ]
+  %.0.i29 = phi ptr [ %.0711.i, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit ], [ %7, %2 ], [ %.0711.i, %.lr.ph.i14 ], [ %.0711.i, %20 ], [ %7, %13 ]
+  %.0.i18 = phi ptr [ %7, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit ], [ %7, %2 ], [ %.0711.i15, %.lr.ph.i14 ], [ %7, %20 ], [ %7, %13 ]
   %22 = ptrtoint ptr %.0.i18 to i64
   %23 = ptrtoint ptr %.0.i29 to i64
   %24 = sub i64 %22, %23
@@ -5251,7 +5251,7 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
   br label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i
 
 _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %76, %73, %71
-  %.2.i = phi ptr [ %75, %73 ], [ %spec.select.i.i, %76 ], [ %.1.i, %71 ]
+  %.2.i = phi ptr [ %.1.i, %71 ], [ %spec.select.i.i, %76 ], [ %75, %73 ]
   %.not.i = icmp eq ptr %.2.i, %7
   br i1 %.not.i, label %.backedge.outer.backedge, label %.preheader38.i.backedge
 

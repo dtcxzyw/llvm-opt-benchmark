@@ -6435,7 +6435,7 @@ _ZNK4llvm12MachineInstr20findInlineAsmFlagIdxEjPj.exit: ; preds = %44
   br label %_ZNK4llvm12MachineInstr20findInlineAsmFlagIdxEjPj.exit.thread
 
 _ZNK4llvm12MachineInstr20findInlineAsmFlagIdxEjPj.exit.thread: ; preds = %52, %38, %54, %56, %58, %33, %_ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit, %_ZNK4llvm12MachineInstr20findInlineAsmFlagIdxEjPj.exit, %68, %61, %19, %12
-  %.0 = phi ptr [ null, %19 ], [ %18, %12 ], [ null, %33 ], [ null, %_ZNK4llvm12MachineInstr20findInlineAsmFlagIdxEjPj.exit ], [ %67, %61 ], [ %72, %68 ], [ null, %54 ], [ null, %_ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit ], [ null, %56 ], [ null, %58 ], [ null, %38 ], [ null, %52 ]
+  %.0 = phi ptr [ null, %19 ], [ %18, %12 ], [ null, %33 ], [ null, %_ZNK4llvm12MachineInstr20findInlineAsmFlagIdxEjPj.exit ], [ %67, %61 ], [ %72, %68 ], [ null, %54 ], [ null, %_ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit ], [ null, %58 ], [ null, %56 ], [ null, %38 ], [ null, %52 ]
   ret ptr %.0
 }
 
@@ -9319,7 +9319,7 @@ switch.hole_check:                                ; preds = %103
   br i1 %switch.lobit, label %_ZNK4llvm12MachineInstr20wouldBeTriviallyDeadEv.exit, label %105
 
 _ZNK4llvm12MachineInstr20wouldBeTriviallyDeadEv.exit: ; preds = %.loopexit, %28, %.lr.ph.preheader, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i, %45, %switch.hole_check, %108, %101, %._crit_edge
-  %.7 = phi i1 [ true, %101 ], [ false, %._crit_edge ], [ false, %switch.hole_check ], [ false, %45 ], [ %109, %108 ], [ false, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i ], [ false, %.lr.ph.preheader ], [ false, %28 ], [ false, %.loopexit ]
+  %.7 = phi i1 [ true, %101 ], [ false, %._crit_edge ], [ %109, %108 ], [ false, %45 ], [ false, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i ], [ false, %switch.hole_check ], [ false, %.lr.ph.preheader ], [ false, %28 ], [ false, %.loopexit ]
   ret i1 %.7
 }
 

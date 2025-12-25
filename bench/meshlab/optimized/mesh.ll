@@ -21056,7 +21056,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_Sa
   br label %24, !llvm.loop !141
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge94, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit
-  %.sroa.021.0 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %._crit_edge94 ], [ %23, %._crit_edge ]
+  %.sroa.021.0 = phi ptr [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge94 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.021.0
 }
 
@@ -22970,8 +22970,8 @@ _ZN3vcg3tri2io11ImporterOBJI4MeshE12GoodObjIndexERii.exit448: ; preds = %526, %5
           to label %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit unwind label %.loopexit725
 
 _ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit: ; preds = %491, %.preheader721, %515, %.preheader719, %526, %.preheader718, %498, %504, %.noexc450, %539
-  %.4297 = phi i32 [ %533, %.noexc450 ], [ %.32961000, %515 ], [ %.32961000, %526 ], [ %.32961000, %498 ], [ %533, %539 ], [ %.32961000, %504 ], [ %.32961000, %.preheader718 ], [ %.32961000, %.preheader719 ], [ %.32961000, %.preheader721 ], [ %.32961000, %491 ]
-  %.4261 = phi i32 [ %.32601001, %.noexc450 ], [ %.32601001, %515 ], [ %.32601001, %526 ], [ 9, %498 ], [ %.32601001, %539 ], [ 9, %504 ], [ %.32601001, %.preheader718 ], [ %.32601001, %.preheader719 ], [ %.32601001, %.preheader721 ], [ %.32601001, %491 ]
+  %.4297 = phi i32 [ %533, %539 ], [ %.32961000, %515 ], [ %.32961000, %498 ], [ %533, %.noexc450 ], [ %.32961000, %526 ], [ %.32961000, %504 ], [ %.32961000, %.preheader718 ], [ %.32961000, %.preheader719 ], [ %.32961000, %.preheader721 ], [ %.32961000, %491 ]
+  %.4261 = phi i32 [ %.32601001, %539 ], [ %.32601001, %515 ], [ 9, %498 ], [ %.32601001, %.noexc450 ], [ %.32601001, %526 ], [ 9, %504 ], [ %.32601001, %.preheader718 ], [ %.32601001, %.preheader719 ], [ %.32601001, %.preheader721 ], [ %.32601001, %491 ]
   %540 = add i64 %.0320998, 3
   %541 = load ptr, ptr %117, align 8
   %542 = load ptr, ptr %20, align 8

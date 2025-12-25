@@ -3351,7 +3351,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end53, %if.then
   br label %ehcleanup152
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i.i.i.invoke, %if.then.i.i.i.i67.i, %if.then.i.i.i81
-  %iovecs.sroa.0.2.ph.ph.ph = phi ptr [ %iovecs.sroa.0.1.lcssa, %if.then.i.i.i81 ], [ %iovecs.sroa.0.5, %if.then.i.i.i.i67.i ], [ %iovecs.sroa.0.1246, %if.then.i.i.i.i.i.invoke ]
+  %iovecs.sroa.0.2.ph.ph.ph = phi ptr [ %iovecs.sroa.0.1246, %if.then.i.i.i.i.i.invoke ], [ %iovecs.sroa.0.5, %if.then.i.i.i.i67.i ], [ %iovecs.sroa.0.1.lcssa, %if.then.i.i.i81 ]
   %lpad.loopexit.split-lp181 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup152
@@ -3608,9 +3608,9 @@ _ZNSt6vectorI5iovecSaIS0_EE9push_backEOS0_.exit68.i: ; preds = %_ZNSt6vectorI5io
   br i1 %cmp22.i, label %invoke.cont42, label %for.cond.i
 
 invoke.cont42:                                    ; preds = %_ZNSt6vectorI5iovecSaIS0_EE9push_backEOS0_.exit68.i, %for.cond.i, %_ZNSt6vectorI5iovecSaIS0_EE7reserveEm.exit.i, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i, %if.then.i.i.i54
-  %iovecs.sroa.12.5 = phi ptr [ %iovecs.sroa.12.2, %_ZNSt6vectorI5iovecSaIS0_EE7reserveEm.exit.i ], [ %incdec.ptr.i.i.i, %if.then.i.i.i54 ], [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %iovecs.sroa.12.4, %for.cond.i ], [ %iovecs.sroa.12.4, %_ZNSt6vectorI5iovecSaIS0_EE9push_backEOS0_.exit68.i ]
-  %iovecs.sroa.23.5 = phi ptr [ %iovecs.sroa.23.2, %_ZNSt6vectorI5iovecSaIS0_EE7reserveEm.exit.i ], [ %iovecs.sroa.23.1245, %if.then.i.i.i54 ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %iovecs.sroa.23.4, %for.cond.i ], [ %iovecs.sroa.23.4, %_ZNSt6vectorI5iovecSaIS0_EE9push_backEOS0_.exit68.i ]
-  %iovecs.sroa.0.7 = phi ptr [ %iovecs.sroa.0.4, %_ZNSt6vectorI5iovecSaIS0_EE7reserveEm.exit.i ], [ %iovecs.sroa.0.1246, %if.then.i.i.i54 ], [ %call5.i.i.i.i.i.i.i66, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %iovecs.sroa.0.6, %for.cond.i ], [ %iovecs.sroa.0.6, %_ZNSt6vectorI5iovecSaIS0_EE9push_backEOS0_.exit68.i ]
+  %iovecs.sroa.12.5 = phi ptr [ %iovecs.sroa.12.2, %_ZNSt6vectorI5iovecSaIS0_EE7reserveEm.exit.i ], [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i.i.i, %if.then.i.i.i54 ], [ %iovecs.sroa.12.4, %for.cond.i ], [ %iovecs.sroa.12.4, %_ZNSt6vectorI5iovecSaIS0_EE9push_backEOS0_.exit68.i ]
+  %iovecs.sroa.23.5 = phi ptr [ %iovecs.sroa.23.2, %_ZNSt6vectorI5iovecSaIS0_EE7reserveEm.exit.i ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %iovecs.sroa.23.1245, %if.then.i.i.i54 ], [ %iovecs.sroa.23.4, %for.cond.i ], [ %iovecs.sroa.23.4, %_ZNSt6vectorI5iovecSaIS0_EE9push_backEOS0_.exit68.i ]
+  %iovecs.sroa.0.7 = phi ptr [ %iovecs.sroa.0.4, %_ZNSt6vectorI5iovecSaIS0_EE7reserveEm.exit.i ], [ %call5.i.i.i.i.i.i.i66, %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %iovecs.sroa.0.1246, %if.then.i.i.i54 ], [ %iovecs.sroa.0.6, %for.cond.i ], [ %iovecs.sroa.0.6, %_ZNSt6vectorI5iovecSaIS0_EE9push_backEOS0_.exit68.i ]
   %inc = add nuw nsw i32 %numWritten.0249, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load ptr, ptr %_M_finish.i, align 8

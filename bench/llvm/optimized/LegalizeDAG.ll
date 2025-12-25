@@ -1512,7 +1512,7 @@ _ZNK4llvm3EVT8isVectorEv.exit518:                 ; preds = %538
   br label %564
 
 564:                                              ; preds = %561, %535
-  %.0250 = phi ptr [ %563, %561 ], [ %537, %535 ]
+  %.0250 = phi ptr [ %537, %535 ], [ %563, %561 ]
   %.not257 = icmp eq ptr %.0250, %1
   br i1 %.not257, label %.thread, label %565
 

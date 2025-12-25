@@ -1105,7 +1105,7 @@ split:                                            ; preds = %373, %370, %._crit_
   br label %.critedge
 
 .critedge:                                        ; preds = %367, %.loopexit487, %355, %313, %.loopexit486, %239, %213, %206, %.loopexit, %._crit_edge, %..critedge_crit_edge586, %.preheader496, %.preheader494, %217, %296, %359, %427, %436, %437, %289, %312, %366, %split, %360, %432, %431
-  %.pre-phi588 = phi i32 [ %.pre587, %..critedge_crit_edge586 ], [ %145, %431 ], [ %145, %._crit_edge ], [ %145, %355 ], [ %145, %.loopexit486 ], [ %145, %239 ], [ %145, %213 ], [ %145, %206 ], [ %145, %.loopexit ], [ %145, %432 ], [ %145, %.preheader496 ], [ %145, %.preheader494 ], [ %145, %217 ], [ %145, %296 ], [ %145, %359 ], [ %145, %427 ], [ %145, %436 ], [ %145, %437 ], [ %145, %289 ], [ %145, %312 ], [ %145, %366 ], [ %145, %split ], [ %145, %360 ], [ %145, %313 ], [ %145, %.loopexit487 ], [ %145, %367 ]
+  %.pre-phi588 = phi i32 [ %.pre587, %..critedge_crit_edge586 ], [ %145, %431 ], [ %145, %._crit_edge ], [ %145, %355 ], [ %145, %239 ], [ %145, %.loopexit486 ], [ %145, %206 ], [ %145, %213 ], [ %145, %.loopexit ], [ %145, %432 ], [ %145, %.preheader496 ], [ %145, %.preheader494 ], [ %145, %217 ], [ %145, %296 ], [ %145, %359 ], [ %145, %427 ], [ %145, %436 ], [ %145, %437 ], [ %145, %289 ], [ %145, %312 ], [ %145, %366 ], [ %145, %split ], [ %145, %360 ], [ %145, %313 ], [ %145, %.loopexit487 ], [ %145, %367 ]
   %438 = add nuw nsw i32 %.pre-phi588, %33
   %439 = load i32, ptr @hf_fiveco_cks, align 4
   %440 = call ptr @proto_tree_add_checksum(ptr noundef %131, ptr noundef %0, i32 noundef %438, i32 noundef %439, i32 noundef -1, ptr noundef null, ptr noundef null, i32 noundef %122, i32 noundef 0, i32 noundef 1)

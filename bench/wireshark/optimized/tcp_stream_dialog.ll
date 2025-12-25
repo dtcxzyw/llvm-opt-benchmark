@@ -21927,7 +21927,7 @@ _ZNKSt8_Rb_treeIdSt4pairIKdP7segmentESt10_Select1stIS4_ESt4lessIdESaIS4_EE14_M_l
   br label %_ZNK9QMultiMapIdP7segmentE5valueERKdRKS1_.exit.thread
 
 _ZNK9QMultiMapIdP7segmentE5valueERKdRKS1_.exit:   ; preds = %137, %148, %154
-  %.025 = phi ptr [ %.0.in.i.sroa.speculate.load.394, %137 ], [ %153, %154 ], [ %147, %148 ]
+  %.025 = phi ptr [ %153, %154 ], [ %.0.in.i.sroa.speculate.load.394, %137 ], [ %147, %148 ]
   %.not71.not = icmp eq ptr %.025, null
   br i1 %.not71.not, label %_ZNK9QMultiMapIdP7segmentE5valueERKdRKS1_.exit.thread, label %220
 

@@ -383,7 +383,7 @@ define dso_local range(i32 0, 2) i32 @processRESP(ptr noundef captures(none) %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %33, %.loopexit.sink.split, %.preheader, %3
-  %.011 = phi i32 [ 0, %3 ], [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 0, %.lr.ph ], [ 1, %33 ]
+  %.011 = phi i32 [ 0, %3 ], [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %33 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.011

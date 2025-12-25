@@ -6788,8 +6788,8 @@ define { i64, i64 } @_ZN6quiche4path4Path25on_loss_detection_timeout17h14bd45653
   br label %39
 
 39:                                               ; preds = %.sink.split, %50, %53
-  %.sroa.6.0 = phi i32 [ %27, %50 ], [ %27, %53 ], [ %22, %.sink.split ]
-  %.sroa.06.0 = phi i64 [ %30, %50 ], [ %30, %53 ], [ %24, %.sink.split ]
+  %.sroa.6.0 = phi i32 [ %27, %53 ], [ %27, %50 ], [ %22, %.sink.split ]
+  %.sroa.06.0 = phi i64 [ %30, %53 ], [ %30, %50 ], [ %24, %.sink.split ]
   store i64 %.sroa.06.0, ptr %25, align 8
   store i32 %.sroa.6.0, ptr %26, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 2528

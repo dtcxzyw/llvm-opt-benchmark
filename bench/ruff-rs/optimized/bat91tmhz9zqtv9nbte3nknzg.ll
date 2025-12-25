@@ -702,7 +702,7 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h92a
   br label %.loopexit
 
 .critedge20:                                      ; preds = %178, %72, %28, %.sink.split.i.us, %112, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h2654c6b5f23cd4cfE.exit.split"
-  %.sroa.07.0112 = phi i64 [ %.sroa.07.0.us, %72 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h2654c6b5f23cd4cfE.exit.split" ], [ %.sroa.07.0.us, %112 ], [ %.sroa.07.0.us, %.sink.split.i.us ], [ %.sroa.07.0.us, %28 ], [ %.sroa.07.0.us148, %178 ]
+  %.sroa.07.0112 = phi i64 [ %.sroa.07.0.us, %72 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h2654c6b5f23cd4cfE.exit.split" ], [ %.sroa.07.0.us, %.sink.split.i.us ], [ %.sroa.07.0.us, %112 ], [ %.sroa.07.0.us, %28 ], [ %.sroa.07.0.us148, %178 ]
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.07.0112
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %187, ptr noundef nonnull %188, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25)

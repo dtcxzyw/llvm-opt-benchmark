@@ -585,7 +585,7 @@ define dso_local noundef ptr @_load_reservation_state(ptr noundef %0, i16 nounde
   store i32 300, ptr %59, align 8
   br label %.thread140
 
-.thread140:                                       ; preds = %108, %111
+.thread140:                                       ; preds = %111, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %114
 
@@ -12986,9 +12986,9 @@ _addto_gres_list_exc.exit:                        ; preds = %436, %434, %.thread
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer.split, %.outer.split.us, %.loopexit.sink.split, %364, %348
-  %.not233330 = phi i1 [ true, %.outer.split.us ], [ false, %348 ], [ false, %364 ], [ false, %.loopexit.sink.split ], [ true, %.outer.split ]
-  %.1205 = phi i64 [ %.0204.ph, %.outer.split.us ], [ %.2206, %348 ], [ %.2206, %364 ], [ %.2206, %.loopexit.sink.split ], [ %.0204.ph, %.outer.split ]
-  %.1 = phi i32 [ 0, %.outer.split.us ], [ 2118, %348 ], [ 2016, %364 ], [ %.1.ph, %.loopexit.sink.split ], [ 0, %.outer.split ]
+  %.not233330 = phi i1 [ false, %.loopexit.sink.split ], [ false, %348 ], [ false, %364 ], [ true, %.outer.split.us ], [ true, %.outer.split ]
+  %.1205 = phi i64 [ %.2206, %.loopexit.sink.split ], [ %.2206, %348 ], [ %.2206, %364 ], [ %.0204.ph, %.outer.split.us ], [ %.0204.ph, %.outer.split ]
+  %.1 = phi i32 [ %.1.ph, %.loopexit.sink.split ], [ 2118, %348 ], [ 2016, %364 ], [ 0, %.outer.split.us ], [ 0, %.outer.split ]
   call void @list_iterator_destroy(ptr noundef %247) #19
   br i1 %.not254, label %451, label %447
 
@@ -17389,7 +17389,7 @@ define internal fastcc range(i32 0, 2017) i32 @_pick_nodes_ordered(ptr noundef %
   br i1 %.not67.i.i, label %.thread.i.i, label %.lr.ph79.split.i.i
 
 .thread.i.i:                                      ; preds = %295, %.lr.ph79.split.us.i.i, %336, %.lr.ph79.split.i.i, %265
-  %.159.lcssa.i.i = phi i32 [ %.05885.i.i, %265 ], [ %.05885.i.i, %336 ], [ %.05885.i.i, %.lr.ph79.split.i.i ], [ %276, %.lr.ph79.split.us.i.i ], [ %271, %295 ]
+  %.159.lcssa.i.i = phi i32 [ %.05885.i.i, %265 ], [ %.05885.i.i, %336 ], [ %.05885.i.i, %.lr.ph79.split.i.i ], [ %271, %295 ], [ %276, %.lr.ph79.split.us.i.i ]
   %340 = icmp ult i32 %266, %223
   br i1 %340, label %246, label %._crit_edge.i.i, !llvm.loop !100
 

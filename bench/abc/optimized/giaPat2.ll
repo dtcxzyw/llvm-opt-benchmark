@@ -9028,9 +9028,9 @@ define void @Gia_GenerateCexesDumpFile(ptr noundef %0, ptr noundef readonly capt
   br i1 %161, label %138, label %.critedge, !llvm.loop !176
 
 .critedge:                                        ; preds = %138, %157, %109, %130, %71, %90, %37, %64, %.lr.ph113.split.us, %.lr.ph113.split, %9
-  %.sroa.0.0.lcssa = phi i32 [ 0, %9 ], [ %.sroa.0.1.us, %71 ], [ %.sroa.0.1.us144, %109 ], [ 0, %.lr.ph113.split.us ], [ %.sroa.0.1.us.us, %37 ], [ 0, %.lr.ph113.split ], [ %.sroa.0.1.us.us, %64 ], [ %.sroa.0.1.us, %90 ], [ %.sroa.0.1.us144, %130 ], [ %.sroa.0.1, %157 ], [ %.sroa.0.1, %138 ]
-  %.sroa.7.0.lcssa = phi i32 [ 0, %9 ], [ %.sroa.7.1.us, %71 ], [ %.sroa.7.1.us145, %109 ], [ 0, %.lr.ph113.split.us ], [ %.sroa.7.1.us.us, %37 ], [ 0, %.lr.ph113.split ], [ %.sroa.7.1.us.us, %64 ], [ %.sroa.7.1.us, %90 ], [ %.sroa.7.1.us145, %130 ], [ %.sroa.7.1, %157 ], [ %.sroa.7.1, %138 ]
-  %.val79.lcssa = phi i32 [ %.val87.val.fr, %9 ], [ %.val79.us, %71 ], [ %.val79.us146, %109 ], [ %.val87.val.fr, %.lr.ph113.split.us ], [ %.val79.us.us, %37 ], [ %.val87.val.fr, %.lr.ph113.split ], [ %.val79.us.us, %64 ], [ %.val79.us, %90 ], [ %.val79.us146, %130 ], [ %.val79, %157 ], [ %.val79, %138 ]
+  %.sroa.0.0.lcssa = phi i32 [ 0, %9 ], [ 0, %.lr.ph113.split.us ], [ 0, %.lr.ph113.split ], [ %.sroa.0.1.us144, %109 ], [ %.sroa.0.1.us, %71 ], [ %.sroa.0.1.us.us, %37 ], [ %.sroa.0.1.us.us, %64 ], [ %.sroa.0.1.us, %90 ], [ %.sroa.0.1.us144, %130 ], [ %.sroa.0.1, %157 ], [ %.sroa.0.1, %138 ]
+  %.sroa.7.0.lcssa = phi i32 [ 0, %9 ], [ 0, %.lr.ph113.split.us ], [ 0, %.lr.ph113.split ], [ %.sroa.7.1.us145, %109 ], [ %.sroa.7.1.us, %71 ], [ %.sroa.7.1.us.us, %37 ], [ %.sroa.7.1.us.us, %64 ], [ %.sroa.7.1.us, %90 ], [ %.sroa.7.1.us145, %130 ], [ %.sroa.7.1, %157 ], [ %.sroa.7.1, %138 ]
+  %.val79.lcssa = phi i32 [ %.val87.val.fr, %9 ], [ %.val87.val.fr, %.lr.ph113.split.us ], [ %.val87.val.fr, %.lr.ph113.split ], [ %.val79.us146, %109 ], [ %.val79.us, %71 ], [ %.val79.us.us, %37 ], [ %.val79.us.us, %64 ], [ %.val79.us, %90 ], [ %.val79.us146, %130 ], [ %.val79, %157 ], [ %.val79, %138 ]
   %162 = add i32 %.sroa.7.0.lcssa, %.sroa.0.0.lcssa
   %163 = sub i32 %.val79.lcssa, %162
   %164 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %.sroa.7.0.lcssa, i32 noundef %.sroa.0.0.lcssa, i32 noundef %163, ptr noundef %0)

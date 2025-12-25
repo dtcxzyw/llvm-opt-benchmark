@@ -945,7 +945,7 @@ pmix_obj_run_destructors.exit235:                 ; preds = %.lr.ph.i232, %388
   br i1 %.not.i239, label %pmix_obj_run_destructors.exit240, label %.lr.ph.i237, !llvm.loop !53
 
 pmix_obj_run_destructors.exit240:                 ; preds = %369, %303, %300, %329, %326, %.lr.ph.i237, %410, %403
-  %.0 = phi i32 [ -32, %403 ], [ %.0129, %.lr.ph.i237 ], [ -32, %329 ], [ %.0129, %410 ], [ -32, %326 ], [ -32, %300 ], [ -32, %303 ], [ -32, %369 ]
+  %.0 = phi i32 [ -32, %403 ], [ -32, %329 ], [ %.0129, %410 ], [ %.0129, %.lr.ph.i237 ], [ -32, %326 ], [ -32, %300 ], [ -32, %303 ], [ -32, %369 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1707,7 +1707,7 @@ pmix_obj_run_destructors.exit169.sink.split:      ; preds = %224, %221
   br label %pmix_obj_run_destructors.exit169
 
 pmix_obj_run_destructors.exit169:                 ; preds = %.lr.ph.i178, %.lr.ph.i166, %pmix_obj_run_destructors.exit169.sink.split, %._crit_edge212, %._crit_edge215
-  %.0 = phi i32 [ -1366, %.lr.ph.i166 ], [ 0, %._crit_edge212 ], [ -32, %pmix_obj_run_destructors.exit169.sink.split ], [ -1366, %._crit_edge215 ], [ 0, %.lr.ph.i178 ]
+  %.0 = phi i32 [ 0, %._crit_edge212 ], [ -1366, %.lr.ph.i166 ], [ -32, %pmix_obj_run_destructors.exit169.sink.split ], [ -1366, %._crit_edge215 ], [ 0, %.lr.ph.i178 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

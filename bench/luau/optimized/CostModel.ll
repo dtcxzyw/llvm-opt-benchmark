@@ -2519,8 +2519,8 @@ _ZN4Luau7Compile12getTripCountEddd.exit:          ; preds = %138
   %147 = sext i32 %146 to i64
   br label %_ZN4Luau7Compile12getTripCountEddd.exit.thread
 
-_ZN4Luau7Compile12getTripCountEddd.exit.thread:   ; preds = %138, %135, %100, %96, %94, %78, %74, %71, %55, %51, %48, %124, %126, %130, %_ZN4Luau7Compile12getTripCountEddd.exit
-  %148 = phi i64 [ 3, %100 ], [ %147, %_ZN4Luau7Compile12getTripCountEddd.exit ], [ 3, %130 ], [ 3, %126 ], [ 3, %124 ], [ 3, %48 ], [ 3, %51 ], [ 3, %55 ], [ 3, %71 ], [ 3, %74 ], [ 3, %78 ], [ 3, %94 ], [ 3, %96 ], [ 0, %135 ], [ 0, %138 ]
+_ZN4Luau7Compile12getTripCountEddd.exit.thread:   ; preds = %138, %135, %100, %94, %96, %78, %71, %74, %55, %48, %51, %124, %126, %130, %_ZN4Luau7Compile12getTripCountEddd.exit
+  %148 = phi i64 [ 3, %100 ], [ %147, %_ZN4Luau7Compile12getTripCountEddd.exit ], [ 3, %130 ], [ 3, %126 ], [ 3, %124 ], [ 3, %51 ], [ 3, %48 ], [ 3, %55 ], [ 3, %74 ], [ 3, %71 ], [ 3, %78 ], [ 3, %96 ], [ 3, %94 ], [ 0, %135 ], [ 0, %138 ]
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 64
   %149 = load ptr, ptr %.in, align 8, !tbaa !86
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)

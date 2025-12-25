@@ -3372,7 +3372,7 @@ _ZNK9CGContext14is_nonwritableEPK8Variable.exit:  ; preds = %85, %.loopexit.i
   br i1 %109, label %56, label %.critedge, !llvm.loop !190
 
 .critedge:                                        ; preds = %.loopexit, %42, %.lr.ph.i, %101, %96, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, %88, %91, %.lr.ph.i32, %.critedge.i, %.lr.ph28.i, %.preheader
-  %.2 = phi i1 [ true, %.lr.ph.i ], [ true, %91 ], [ true, %.lr.ph.i32 ], [ true, %.lr.ph28.i ], [ false, %.preheader ], [ true, %.critedge.i ], [ true, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ true, %96 ], [ false, %101 ], [ true, %88 ], [ true, %42 ], [ true, %.loopexit ]
+  %.2 = phi i1 [ true, %.lr.ph.i ], [ false, %.preheader ], [ true, %91 ], [ true, %.lr.ph.i32 ], [ true, %.lr.ph28.i ], [ true, %.critedge.i ], [ true, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ true, %96 ], [ false, %101 ], [ true, %88 ], [ true, %42 ], [ true, %.loopexit ]
   ret i1 %.2
 }
 

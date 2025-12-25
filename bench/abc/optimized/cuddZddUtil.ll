@@ -1577,8 +1577,8 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   tail call void @free(ptr noundef nonnull %12) #13
   br label %281
 
-.loopexit417:                                     ; preds = %.lr.ph274, %92, %115, %117, %._crit_edge297, %142, %128, %153, %177, %202, %204, %229, %243, %265, %67, %70, %73, %._crit_edge334, %._crit_edge285, %97, %._crit_edge300, %._crit_edge310
-  %.0205243.ph = phi ptr [ %46, %265 ], [ %46, %92 ], [ %46, %115 ], [ %46, %153 ], [ %46, %177 ], [ %46, %202 ], [ %46, %._crit_edge297 ], [ %46, %._crit_edge310 ], [ %46, %229 ], [ %46, %._crit_edge300 ], [ %46, %67 ], [ %46, %97 ], [ %46, %._crit_edge285 ], [ %46, %._crit_edge334 ], [ %46, %73 ], [ %46, %70 ], [ %46, %243 ], [ %46, %204 ], [ %46, %128 ], [ %46, %142 ], [ %46, %117 ], [ %37, %.lr.ph274 ]
+.loopexit417:                                     ; preds = %.lr.ph274, %92, %115, %117, %._crit_edge297, %142, %128, %153, %177, %202, %204, %229, %243, %265, %._crit_edge300, %._crit_edge310, %67, %70, %73, %._crit_edge285, %97, %._crit_edge334
+  %.0205243.ph = phi ptr [ %46, %67 ], [ %46, %115 ], [ %46, %92 ], [ %46, %._crit_edge310 ], [ %46, %._crit_edge300 ], [ %46, %._crit_edge297 ], [ %46, %202 ], [ %46, %._crit_edge334 ], [ %46, %229 ], [ %46, %153 ], [ %46, %265 ], [ %46, %97 ], [ %46, %._crit_edge285 ], [ %46, %177 ], [ %46, %73 ], [ %46, %70 ], [ %46, %243 ], [ %46, %204 ], [ %46, %128 ], [ %46, %142 ], [ %46, %117 ], [ %37, %.lr.ph274 ]
   call void @free(ptr noundef nonnull %12) #13
   call void @st__free_table(ptr noundef nonnull %.0205243.ph) #13
   br label %281

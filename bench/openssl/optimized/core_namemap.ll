@@ -830,7 +830,7 @@ ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exi
   br label %.thread
 
 48:                                               ; preds = %46, %ossl_namemap_name2num.exit
-  %.1 = phi i32 [ %.0.i, %ossl_namemap_name2num.exit ], [ %.04779, %46 ]
+  %.1 = phi i32 [ %.04779, %46 ], [ %.0.i, %ossl_namemap_name2num.exit ]
   %49 = load i8, ptr %.052105, align 1, !tbaa !25
   %.not59 = icmp eq i8 %49, 0
   br i1 %.not59, label %.preheader, label %21, !llvm.loop !34

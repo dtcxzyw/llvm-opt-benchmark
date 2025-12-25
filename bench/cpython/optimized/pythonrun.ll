@@ -1461,8 +1461,8 @@ Py_DECREF.exit:                                   ; preds = %119, %121, %124
   br label %maybe_pyc_file.exit
 
 maybe_pyc_file.exit:                              ; preds = %132, %129, %127, %45, %51, %19, %Py_DECREF.exit, %104
-  %.053 = phi ptr [ %6, %132 ], [ %6, %129 ], [ null, %Py_DECREF.exit ], [ %6, %45 ], [ %6, %19 ], [ %6, %104 ], [ %6, %127 ], [ %6, %51 ]
-  %.043 = phi i32 [ 0, %132 ], [ 0, %129 ], [ -1, %Py_DECREF.exit ], [ -1, %45 ], [ -1, %19 ], [ -1, %104 ], [ 0, %127 ], [ -1, %51 ]
+  %.053 = phi ptr [ %6, %127 ], [ %6, %129 ], [ null, %Py_DECREF.exit ], [ %6, %45 ], [ %6, %19 ], [ %6, %104 ], [ %6, %132 ], [ %6, %51 ]
+  %.043 = phi i32 [ 0, %127 ], [ 0, %129 ], [ -1, %Py_DECREF.exit ], [ -1, %45 ], [ -1, %19 ], [ -1, %104 ], [ 0, %132 ], [ -1, %51 ]
   br i1 %.not.not, label %133, label %145
 
 133:                                              ; preds = %maybe_pyc_file.exit
@@ -3149,7 +3149,7 @@ print_exception_cause_and_context.exit.sink.split: ; preds = %65, %51
   br label %print_exception_cause_and_context.exit
 
 print_exception_cause_and_context.exit:           ; preds = %print_exception_cause_and_context.exit.sink.split, %63, %65, %print_exception_seen_lookup.exit.thread, %51
-  %.024.i = phi i32 [ %.0.i, %63 ], [ %.0.i, %65 ], [ %.025.i, %print_exception_seen_lookup.exit.thread ], [ %.025.i, %51 ], [ %.024.i.ph, %print_exception_cause_and_context.exit.sink.split ]
+  %.024.i = phi i32 [ %.0.i, %65 ], [ %.0.i, %63 ], [ %.025.i, %print_exception_seen_lookup.exit.thread ], [ %.025.i, %51 ], [ %.024.i.ph, %print_exception_cause_and_context.exit.sink.split ]
   %68 = icmp slt i32 %.024.i, 0
   br i1 %68, label %print_exception.exit.thread, label %print_exception_cause_and_context.exit.thread
 
@@ -3608,8 +3608,8 @@ print_exception.exit:                             ; preds = %76
 print_exception.exit.thread:                      ; preds = %247, %244, %print_exception_message.exit.thread.i, %73, %76, %print_exception.exit, %print_exception_cause_and_context.exit
   br label %.sink.split
 
-.sink.split:                                      ; preds = %print_exception.exit, %242, %239, %237, %print_exception.exit.thread
-  %.0.ph = phi i32 [ -1, %print_exception.exit.thread ], [ 0, %237 ], [ 0, %239 ], [ 0, %242 ], [ 0, %print_exception.exit ]
+.sink.split:                                      ; preds = %print_exception.exit, %242, %237, %239, %print_exception.exit.thread
+  %.0.ph = phi i32 [ -1, %print_exception.exit.thread ], [ 0, %239 ], [ 0, %237 ], [ 0, %242 ], [ 0, %print_exception.exit ]
   %250 = load ptr, ptr %4, align 8, !tbaa !4
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 52
   %252 = load i32, ptr %251, align 4, !tbaa !199

@@ -6535,7 +6535,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.thread:     ; preds = %105, %_ZNK11ast_man
   br label %"_Z6any_ofI3appZN3sls7context7is_trueEP4exprE3$_1EbRKT_RKT0_.exit"
 
 "_Z6any_ofI3appZN3sls7context7is_trueEP4exprE3$_1EbRKT_RKT0_.exit": ; preds = %78, %.lr.ph69, %.lr.ph, %38, %53, %_ZNK11ast_manager6is_iteEPK4expr.exit.thread, %14
-  %.0 = phi i1 [ %21, %14 ], [ true, %38 ], [ %45, %.lr.ph ], [ %126, %_ZNK11ast_manager6is_iteEPK4expr.exit.thread ], [ false, %53 ], [ %60, %.lr.ph69 ], [ true, %78 ]
+  %.0 = phi i1 [ %21, %14 ], [ true, %38 ], [ %126, %_ZNK11ast_manager6is_iteEPK4expr.exit.thread ], [ %45, %.lr.ph ], [ false, %53 ], [ %60, %.lr.ph69 ], [ true, %78 ]
   %accumulator.ret.tr41 = xor i1 %accumulator.tr.ph, %.0
   br label %common.ret188
 }
@@ -13044,7 +13044,7 @@ _ZSt13move_backwardIPP4exprS2_ET0_T_S4_S3_.exit:  ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !298
 
 _ZSt11swap_rangesIPP4exprS2_ET0_T_S4_S3_.exit:    ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP4exprS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP4exprS2_ET0_T_S4_S3_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPP4exprS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

@@ -7482,7 +7482,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @jpeg2000_decode_packets_po
   br i1 %625, label %.lr.ph790.split, label %.thread695, !llvm.loop !269
 
 .thread695:                                       ; preds = %._crit_edge786, %506, %499, %601, %.lr.ph816, %._crit_edge795, %._crit_edge817, %331, %320, %419, %.loopexit733, %237, %._crit_edge850.split.us.us.us, %89, %.preheader724.us, %._crit_edge871.us, %47, %.lr.ph790, %.preheader728.lr.ph, %.preheader724.lr.ph, %473, %259, %100, %55, %10, %139, %9, %._crit_edge772.thread
-  %.6 = phi i32 [ -1163346256, %139 ], [ 0, %.preheader724.us ], [ 0, %259 ], [ 0, %.preheader724.lr.ph ], [ 0, %473 ], [ -1163346256, %._crit_edge772.thread ], [ 0, %9 ], [ %92, %89 ], [ 0, %10 ], [ 0, %55 ], [ %604, %601 ], [ 0, %100 ], [ -1094995529, %506 ], [ %240, %237 ], [ %422, %419 ], [ 0, %.lr.ph790 ], [ -1094995529, %331 ], [ 0, %.loopexit733 ], [ 0, %.preheader728.lr.ph ], [ 0, %.lr.ph816 ], [ 0, %._crit_edge850.split.us.us.us ], [ %50, %47 ], [ 0, %._crit_edge871.us ], [ -1094995529, %320 ], [ 0, %._crit_edge817 ], [ 0, %._crit_edge795 ], [ -1094995529, %499 ], [ 0, %._crit_edge786 ]
+  %.6 = phi i32 [ -1163346256, %139 ], [ 0, %.loopexit733 ], [ 0, %._crit_edge850.split.us.us.us ], [ 0, %259 ], [ 0, %473 ], [ -1163346256, %._crit_edge772.thread ], [ 0, %9 ], [ %240, %237 ], [ 0, %10 ], [ 0, %55 ], [ %604, %601 ], [ 0, %100 ], [ 0, %.preheader724.lr.ph ], [ 0, %.preheader724.us ], [ -1094995529, %506 ], [ 0, %.lr.ph790 ], [ -1094995529, %331 ], [ %92, %89 ], [ 0, %.preheader728.lr.ph ], [ %422, %419 ], [ 0, %.lr.ph816 ], [ %50, %47 ], [ 0, %._crit_edge871.us ], [ -1094995529, %320 ], [ 0, %._crit_edge817 ], [ 0, %._crit_edge795 ], [ -1094995529, %499 ], [ 0, %._crit_edge786 ]
   ret i32 %.6
 }
 

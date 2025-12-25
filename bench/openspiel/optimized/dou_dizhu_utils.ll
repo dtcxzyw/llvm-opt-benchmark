@@ -2756,8 +2756,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %35
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %49, %91
-  %.sroa.17.4.ph.ph.ph = phi ptr [ %.sroa.17.5209, %91 ], [ %.sroa.8.5135, %49 ]
-  %.sroa.070.4.ph.ph.ph = phi ptr [ %.sroa.070.5211, %91 ], [ %.sroa.070.6136, %49 ]
+  %.sroa.17.4.ph.ph.ph = phi ptr [ %.sroa.8.5135, %49 ], [ %.sroa.17.5209, %91 ]
+  %.sroa.070.4.ph.ph.ph = phi ptr [ %.sroa.070.6136, %49 ], [ %.sroa.070.5211, %91 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3958,8 +3958,8 @@ _ZNK4absl7debian24SpanIKiEixEm.exit31:            ; preds = %29
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %74, %42
-  %.sroa.17.4.ph.ph = phi ptr [ %.sroa.17.5146, %74 ], [ %.sroa.8.598, %42 ]
-  %.sroa.054.4.ph.ph = phi ptr [ %.sroa.054.5148, %74 ], [ %.sroa.054.699, %42 ]
+  %.sroa.17.4.ph.ph = phi ptr [ %.sroa.8.598, %42 ], [ %.sroa.17.5146, %74 ]
+  %.sroa.054.4.ph.ph = phi ptr [ %.sroa.054.699, %42 ], [ %.sroa.054.5148, %74 ]
   %lpad.loopexit.split-lp84 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -4824,8 +4824,8 @@ _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %40
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %192, %129, %63, %254, %._crit_edge.split, %207, %146, %110, %80, %45
-  %.sroa.37.1.ph.ph.ph.ph = phi ptr [ %.sroa.15.0294, %.invoke ], [ %.sroa.37.0293, %110 ], [ %.sroa.37.0293, %146 ], [ %.sroa.15.2280, %63 ], [ %.sroa.37.7, %._crit_edge.split ], [ %.sroa.37.7, %254 ], [ %.sroa.15.3286, %129 ], [ %.sroa.37.0293, %80 ], [ %.sroa.37.0293, %45 ], [ %.sroa.15.4301, %192 ], [ %.sroa.37.7, %207 ]
-  %.sroa.0.1.ph.ph.ph.ph = phi ptr [ %.sroa.0.0295, %.invoke ], [ %.sroa.0.0295, %110 ], [ %.sroa.0.0295, %146 ], [ %.sroa.0.4281, %63 ], [ %.sroa.0.7, %._crit_edge.split ], [ %.sroa.0.7, %254 ], [ %.sroa.0.5287, %129 ], [ %.sroa.0.0295, %80 ], [ %.sroa.0.0295, %45 ], [ %.sroa.0.6302, %192 ], [ %.sroa.0.7, %207 ]
+  %.sroa.37.1.ph.ph.ph.ph = phi ptr [ %.sroa.15.0294, %.invoke ], [ %.sroa.15.3286, %129 ], [ %.sroa.37.0293, %146 ], [ %.sroa.15.2280, %63 ], [ %.sroa.37.7, %._crit_edge.split ], [ %.sroa.37.7, %254 ], [ %.sroa.37.0293, %110 ], [ %.sroa.37.0293, %80 ], [ %.sroa.37.0293, %45 ], [ %.sroa.15.4301, %192 ], [ %.sroa.37.7, %207 ]
+  %.sroa.0.1.ph.ph.ph.ph = phi ptr [ %.sroa.0.0295, %.invoke ], [ %.sroa.0.5287, %129 ], [ %.sroa.0.0295, %146 ], [ %.sroa.0.4281, %63 ], [ %.sroa.0.7, %._crit_edge.split ], [ %.sroa.0.7, %254 ], [ %.sroa.0.0295, %110 ], [ %.sroa.0.0295, %80 ], [ %.sroa.0.0295, %45 ], [ %.sroa.0.6302, %192 ], [ %.sroa.0.7, %207 ]
   %lpad.loopexit.split-lp211 = landingpad { ptr, i32 }
           cleanup
   br label %.body

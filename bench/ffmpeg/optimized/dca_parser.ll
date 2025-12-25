@@ -680,8 +680,8 @@ dca_find_frame_end.exit:                          ; preds = %159, %.loopexit.i
   br label %376
 
 376:                                              ; preds = %.sink.split113.i, %374, %366, %362, %354, %336
-  %.136 = phi i32 [ %340, %336 ], [ %340, %362 ], [ %340, %374 ], [ %340, %366 ], [ %340, %354 ], [ %.035, %.sink.split113.i ]
-  %.2 = phi i32 [ %345, %336 ], [ %345, %362 ], [ %345, %374 ], [ %345, %366 ], [ %345, %354 ], [ %.034, %.sink.split113.i ]
+  %.136 = phi i32 [ %340, %374 ], [ %340, %362 ], [ %340, %336 ], [ %340, %354 ], [ %340, %366 ], [ %.035, %.sink.split113.i ]
+  %.2 = phi i32 [ %345, %374 ], [ %345, %362 ], [ %345, %336 ], [ %345, %354 ], [ %345, %366 ], [ %.034, %.sink.split113.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %377 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -702,7 +702,7 @@ dca_find_frame_end.exit:                          ; preds = %159, %.loopexit.i
   %386 = trunc i64 %385 to i32
   br label %388
 
-387:                                              ; preds = %178, %187, %194, %204, %216, %239, %284, %250, %330, %333, %274, %252, %262
+387:                                              ; preds = %178, %187, %194, %204, %216, %274, %239, %284, %250, %330, %333, %252, %262
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %388

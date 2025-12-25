@@ -3768,7 +3768,7 @@ define internal i32 @ipmr_rtm_getroute(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %92, label %.thread11, label %80, !llvm.loop !80
 
 93:                                               ; preds = %60, %23
-  %94 = phi i32 [ %61, %60 ], [ %26, %23 ]
+  %94 = phi i32 [ %26, %23 ], [ %61, %60 ]
   %95 = icmp slt i32 %94, 0
   br i1 %95, label %.thread, label %..thread11_crit_edge
 
@@ -4705,8 +4705,8 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
   br label %.thread14
 
 .thread14:                                        ; preds = %.critedge, %87, %78, %.lr.ph, %.loopexit15, %62, %108, %148, %169, %.loopexit
-  %319 = phi i64 [ 0, %169 ], [ 0, %.loopexit ], [ 0, %148 ], [ 0, %108 ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %.loopexit15 ]
-  %320 = phi i64 [ 0, %169 ], [ %289, %.loopexit ], [ 0, %148 ], [ 0, %108 ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 0, %.lr.ph ], [ 0, %.loopexit15 ]
+  %319 = phi i64 [ 0, %148 ], [ 0, %.loopexit ], [ 0, %169 ], [ 0, %108 ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %.loopexit15 ]
+  %320 = phi i64 [ 0, %148 ], [ %289, %.loopexit ], [ 0, %169 ], [ 0, %108 ], [ 0, %62 ], [ 0, %78 ], [ 0, %87 ], [ 0, %.critedge ], [ 0, %.lr.ph ], [ 0, %.loopexit15 ]
   store i64 %320, ptr %64, align 8
   store i64 %319, ptr %63, align 8
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 112

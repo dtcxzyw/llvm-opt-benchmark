@@ -2291,7 +2291,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc71
   %132 = and i1 %131, %130
   br i1 %132, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread173, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit78.thread.invoke
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread173: ; preds = %.noexc71, %123, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread173: ; preds = %123, %.noexc71, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %133 = load i32, ptr %4, align 8
   switch i32 %133, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit78.thread.invoke [
     i32 4, label %134
@@ -2338,7 +2338,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit78.thread.invoke: ; pr
   %151 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %150)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit unwind label %98
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit78.thread177: ; preds = %.noexc77, %140, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit78
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit78.thread177: ; preds = %140, %.noexc77, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit78
   store ptr null, ptr %9, align 8
   %152 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute4_GetINS_7TfTokenEEEbPT_NS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %9, double 0x7FF8000000000000)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7TfTokenEEEbPT_NS_11UsdTimeCodeE.exit unwind label %240

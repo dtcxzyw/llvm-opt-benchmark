@@ -24284,7 +24284,7 @@ if.then.i.i.i165:                                 ; preds = %ehcleanup125
   br label %if.then.i.i.i173
 
 ehcleanup129:                                     ; preds = %lpad.loopexit192, %lpad.loopexit.split-lp193
-  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp195, %lpad.loopexit.split-lp193 ], [ %lpad.loopexit194, %lpad.loopexit192 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit194, %lpad.loopexit192 ], [ %lpad.loopexit.split-lp195, %lpad.loopexit.split-lp193 ]
   %tobool.not.i.i.i172 = icmp eq ptr %cond.i.i.i.i, null
   br i1 %tobool.not.i.i.i172, label %_ZNSt6vectorIdSaIdEED2Ev.exit178, label %if.then.i.i.i173
 
@@ -24850,7 +24850,7 @@ if.then.i.i.i167:                                 ; preds = %ehcleanup
   br label %if.then.i.i.i175
 
 ehcleanup123:                                     ; preds = %lpad.loopexit194, %lpad.loopexit.split-lp195
-  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp197, %lpad.loopexit.split-lp195 ], [ %lpad.loopexit196, %lpad.loopexit194 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit196, %lpad.loopexit194 ], [ %lpad.loopexit.split-lp197, %lpad.loopexit.split-lp195 ]
   %tobool.not.i.i.i174 = icmp eq ptr %cond.i.i.i.i, null
   br i1 %tobool.not.i.i.i174, label %_ZNSt6vectorIdSaIdEED2Ev.exit180, label %if.then.i.i.i175
 
@@ -25416,7 +25416,7 @@ if.then.i.i.i167:                                 ; preds = %ehcleanup
   br label %if.then.i.i.i175
 
 ehcleanup123:                                     ; preds = %lpad.loopexit194, %lpad.loopexit.split-lp195
-  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp197, %lpad.loopexit.split-lp195 ], [ %lpad.loopexit196, %lpad.loopexit194 ]
+  %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit196, %lpad.loopexit194 ], [ %lpad.loopexit.split-lp197, %lpad.loopexit.split-lp195 ]
   %tobool.not.i.i.i174 = icmp eq ptr %cond.i.i.i.i, null
   br i1 %tobool.not.i.i.i174, label %_ZNSt6vectorIdSaIdEED2Ev.exit180, label %if.then.i.i.i175
 

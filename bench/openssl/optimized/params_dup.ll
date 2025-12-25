@@ -370,7 +370,7 @@ define noalias ptr @OSSL_PARAM_merge(ptr noundef %0, ptr noundef %1) local_unnam
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader76, %35, %.loopexit.sink.split, %27
-  %.0 = phi ptr [ %31, %35 ], [ null, %.loopexit.sink.split ], [ null, %27 ], [ %31, %.preheader76 ]
+  %.0 = phi ptr [ null, %.loopexit.sink.split ], [ %31, %35 ], [ null, %27 ], [ %31, %.preheader76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

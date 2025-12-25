@@ -7676,8 +7676,8 @@ _ZN4cvc58internal6theory11quantifiers6TermDb12isTermActiveENS0_12NodeTemplateILb
   br label %_ZN4cvc58internal6theory11quantifiers6TermDb12isTermActiveENS0_12NodeTemplateILb1EEE.exit.thread116
 
 _ZN4cvc58internal6theory11quantifiers6TermDb12isTermActiveENS0_12NodeTemplateILb1EEE.exit.thread116: ; preds = %.lr.ph.i.i.i.i.i.i, %246, %218, %_ZN4cvc58internal6theory11quantifiers6TermDb12isTermActiveENS0_12NodeTemplateILb1EEE.exit.thread116.sink.split, %.noexc52
-  %253 = phi ptr [ %217, %218 ], [ %.ph, %_ZN4cvc58internal6theory11quantifiers6TermDb12isTermActiveENS0_12NodeTemplateILb1EEE.exit.thread116.sink.split ], [ %.pre141, %.noexc52 ], [ %.pre141, %246 ], [ %.pre141, %.lr.ph.i.i.i.i.i.i ]
-  %254 = phi i1 [ true, %218 ], [ %252, %_ZN4cvc58internal6theory11quantifiers6TermDb12isTermActiveENS0_12NodeTemplateILb1EEE.exit.thread116.sink.split ], [ true, %.noexc52 ], [ true, %246 ], [ true, %.lr.ph.i.i.i.i.i.i ]
+  %253 = phi ptr [ %.pre141, %.noexc52 ], [ %.ph, %_ZN4cvc58internal6theory11quantifiers6TermDb12isTermActiveENS0_12NodeTemplateILb1EEE.exit.thread116.sink.split ], [ %217, %218 ], [ %.pre141, %246 ], [ %.pre141, %.lr.ph.i.i.i.i.i.i ]
+  %254 = phi i1 [ true, %.noexc52 ], [ %252, %_ZN4cvc58internal6theory11quantifiers6TermDb12isTermActiveENS0_12NodeTemplateILb1EEE.exit.thread116.sink.split ], [ true, %218 ], [ true, %246 ], [ true, %.lr.ph.i.i.i.i.i.i ]
   %255 = load i64, ptr %253, align 8
   %256 = and i64 %255, 1152920405095219200
   %.not.i.i53 = icmp eq i64 %256, 1152920405095219200

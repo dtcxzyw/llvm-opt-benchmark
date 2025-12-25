@@ -1182,7 +1182,7 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %135, label %.split9.split.split, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %.thread, %132, %128, %102, %.thread.us19, %81, %77, %.thread.us13, %62, %.thread.us13.us, %50, %46, %43, %41, %.split11.us
-  %136 = phi i32 [ %110, %.split11.us ], [ -512, %102 ], [ -512, %62 ], [ -110, %.thread.us13 ], [ %38, %41 ], [ -512, %46 ], [ -512, %50 ], [ -110, %43 ], [ -512, %.thread.us13.us ], [ -512, %81 ], [ -512, %77 ], [ -512, %.thread.us19 ], [ -512, %132 ], [ -110, %.thread ], [ -512, %128 ]
+  %136 = phi i32 [ %110, %.split11.us ], [ -512, %77 ], [ -512, %62 ], [ -512, %102 ], [ %38, %41 ], [ -512, %46 ], [ -512, %50 ], [ -110, %43 ], [ -512, %.thread.us13.us ], [ -512, %81 ], [ -110, %.thread.us13 ], [ -512, %.thread.us19 ], [ -512, %132 ], [ -110, %.thread ], [ -512, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %136
 }

@@ -2756,10 +2756,10 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit.i:           ; preds = %764, %766, %.lr.ph3
   br label %.thread274.i
 
 .thread274.i:                                     ; preds = %._crit_edge345.i, %VP8LPutBits.exit272.i, %670, %.thread274.sink.split.i
-  %.5238.ph.i = phi ptr [ null, %.thread274.sink.split.i ], [ null, %VP8LPutBits.exit272.i ], [ null, %670 ], [ %774, %._crit_edge345.i ]
-  %.5232.ph.i = phi ptr [ %.5232.ph.ph.i, %.thread274.sink.split.i ], [ %680, %VP8LPutBits.exit272.i ], [ null, %670 ], [ %680, %._crit_edge345.i ]
-  %.5220.ph.i = phi ptr [ %.5220.ph.ph.i, %.thread274.sink.split.i ], [ null, %VP8LPutBits.exit272.i ], [ %667, %670 ], [ null, %._crit_edge345.i ]
-  %.5214.ph.i = phi ptr [ %.5214.ph.ph.i, %.thread274.sink.split.i ], [ null, %VP8LPutBits.exit272.i ], [ %666, %670 ], [ null, %._crit_edge345.i ]
+  %.5238.ph.i = phi ptr [ null, %.thread274.sink.split.i ], [ %774, %._crit_edge345.i ], [ null, %670 ], [ null, %VP8LPutBits.exit272.i ]
+  %.5232.ph.i = phi ptr [ %.5232.ph.ph.i, %.thread274.sink.split.i ], [ %680, %._crit_edge345.i ], [ null, %670 ], [ %680, %VP8LPutBits.exit272.i ]
+  %.5220.ph.i = phi ptr [ %.5220.ph.ph.i, %.thread274.sink.split.i ], [ null, %._crit_edge345.i ], [ %667, %670 ], [ null, %VP8LPutBits.exit272.i ]
+  %.5214.ph.i = phi ptr [ %.5214.ph.ph.i, %.thread274.sink.split.i ], [ null, %._crit_edge345.i ], [ %666, %670 ], [ null, %VP8LPutBits.exit272.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit317.i
 

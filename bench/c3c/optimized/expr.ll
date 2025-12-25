@@ -2023,7 +2023,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph246, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge.loopexit293, %80, %1, %83
-  %.070 = phi i1 [ true, %.lr.ph ], [ true, %80 ], [ true, %83 ], [ %.070.ph, %.critedge.loopexit293 ], [ true, %1 ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ %89, %.lr.ph246 ]
+  %.070 = phi i1 [ true, %83 ], [ true, %80 ], [ true, %.lr.ph ], [ %.070.ph, %.critedge.loopexit293 ], [ true, %1 ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ %89, %.lr.ph246 ]
   ret i1 %.070
 }
 
@@ -2198,11 +2198,11 @@ tailrecurse.backedge:                             ; preds = %32, %23
   br label %.split36.us
 
 .split36.us.loopexit80:                           ; preds = %29, %tailrecurse, %32, %23
-  %.0.ph = phi i1 [ false, %23 ], [ true, %tailrecurse ], [ false, %29 ], [ false, %32 ]
+  %.0.ph = phi i1 [ false, %32 ], [ false, %29 ], [ true, %tailrecurse ], [ false, %23 ]
   br label %.split36.us
 
 .split36.us:                                      ; preds = %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %6, %15, %9, %.split36.us.loopexit80, %.split36.us.loopexit, %.split31.us, %41, %40
-  %.0 = phi i1 [ %1, %.split31.us ], [ false, %40 ], [ false, %6 ], [ %.0.ph, %.split36.us.loopexit80 ], [ true, %41 ], [ true, %.split36.us.loopexit ], [ false, %9 ], [ false, %15 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ]
+  %.0 = phi i1 [ %1, %.split31.us ], [ false, %40 ], [ false, %6 ], [ true, %.split36.us.loopexit ], [ true, %41 ], [ %.0.ph, %.split36.us.loopexit80 ], [ false, %9 ], [ false, %15 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ], [ true, %29 ]
   ret i1 %.0
 }
 

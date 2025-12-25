@@ -578,8 +578,8 @@ define range(i32 0, 2) i32 @TS_CONF_set_policies(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %23, %21, %.thread.sink.split, %8
-  %.1 = phi ptr [ %.1.ph, %.thread.sink.split ], [ %.024, %8 ], [ %.024, %21 ], [ %.024, %23 ]
-  %.022 = phi i32 [ 0, %.thread.sink.split ], [ 1, %8 ], [ 1, %23 ], [ 0, %21 ]
+  %.1 = phi ptr [ %.024, %8 ], [ %.1.ph, %.thread.sink.split ], [ %.024, %21 ], [ %.024, %23 ]
+  %.022 = phi i32 [ 1, %8 ], [ 0, %.thread.sink.split ], [ 1, %23 ], [ 0, %21 ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef %.1, ptr noundef nonnull @X509V3_conf_free) #4
   ret i32 %.022
 }

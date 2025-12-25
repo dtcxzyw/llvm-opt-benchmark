@@ -45295,7 +45295,7 @@ _ZN4Luau16RecursionLimiterC2EPii.exit:            ; preds = %4
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %.thread110, !llvm.loop !695
 
 .loopexit.i.i:                                    ; preds = %69, %67, %.thread, %.thread111
-  %72 = phi ptr [ %59, %.thread111 ], [ %36, %.thread ], [ %36, %67 ], [ %36, %69 ]
+  %72 = phi ptr [ %36, %.thread ], [ %59, %.thread111 ], [ %36, %67 ], [ %36, %69 ]
   invoke void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %.noexc unwind label %54
 
@@ -45752,7 +45752,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7Unifier11occursCheckERNS_12DenseHa
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %49, !llvm.loop !696
 
 .loopexit.i.i:                                    ; preds = %55, %53, %.thread, %.thread61
-  %58 = phi ptr [ %38, %.thread61 ], [ %17, %.thread ], [ %17, %53 ], [ %17, %55 ]
+  %58 = phi ptr [ %17, %.thread ], [ %38, %.thread61 ], [ %17, %53 ], [ %17, %55 ]
   tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %.pre.i = load i64, ptr %58, align 8, !tbaa !289
   br label %_ZN4Luau6detail14DenseHashTableIPKNS_11TypePackVarES4_S4_NS0_16ItemInterfaceSetIS4_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERKS4_.exit.i
@@ -56129,7 +56129,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12visit_detail7hasSeen
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %42, !llvm.loop !837
 
 .loopexit.i.i:                                    ; preds = %48, %46, %.thread, %.thread12
-  %51 = phi ptr [ %31, %.thread12 ], [ %10, %.thread ], [ %10, %46 ], [ %10, %48 ]
+  %51 = phi ptr [ %10, %.thread ], [ %31, %.thread12 ], [ %10, %46 ], [ %10, %48 ]
   tail call void @_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.pre.i = load i64, ptr %51, align 8, !tbaa !836
   br label %_ZN4Luau6detail14DenseHashTableIPvS2_S2_NS0_16ItemInterfaceSetIS2_EENS_16DenseHashPointerESt8equal_toIS2_EE14rehash_if_fullERKS2_.exit.i

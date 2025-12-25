@@ -2366,7 +2366,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %.critedge
 
 625:                                              ; preds = %620, %611
-  %.0413 = phi i32 [ 1, %620 ], [ %615, %611 ]
+  %.0413 = phi i32 [ %615, %611 ], [ 1, %620 ]
   %626 = tail call i32 @slurm_takeover(i32 noundef %.0413) #18
   %.not524 = icmp eq i32 %626, 0
   br i1 %.not524, label %.critedge, label %627
@@ -2421,7 +2421,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %.critedge
 
 650:                                              ; preds = %645, %638, %634
-  %.0 = phi i16 [ 2, %634 ], [ 0, %645 ], [ 2, %638 ]
+  %.0 = phi i16 [ 2, %638 ], [ 0, %645 ], [ 2, %634 ]
   %651 = tail call i32 @slurm_shutdown(i16 noundef zeroext %.0) #18
   %.not529 = icmp eq i32 %651, 0
   br i1 %.not529, label %.critedge, label %652

@@ -599,9 +599,9 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_to
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit49
 
 145:                                              ; preds = %77, %128, %130, %64, %60, %44
-  %.sroa.21.1 = phi ptr [ %.sroa.21.0, %77 ], [ %.sroa.11.1113, %130 ], [ %.sroa.21.4112, %128 ], [ %.sroa.21.0, %60 ], [ %.sroa.21.0, %64 ], [ %.sroa.21.0, %44 ]
-  %.sroa.058.1 = phi ptr [ %.sroa.058.0, %77 ], [ %.sroa.058.4114, %130 ], [ %.sroa.058.4114, %128 ], [ %.sroa.058.0, %60 ], [ %.sroa.058.0, %64 ], [ %.sroa.058.0, %44 ]
-  %.pn20.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %lpad.phi, %130 ], [ %129, %128 ], [ %.pn20, %60 ], [ %65, %64 ], [ %45, %44 ]
+  %.sroa.21.1 = phi ptr [ %.sroa.21.4112, %128 ], [ %.sroa.11.1113, %130 ], [ %.sroa.21.0, %77 ], [ %.sroa.21.0, %60 ], [ %.sroa.21.0, %64 ], [ %.sroa.21.0, %44 ]
+  %.sroa.058.1 = phi ptr [ %.sroa.058.4114, %128 ], [ %.sroa.058.4114, %130 ], [ %.sroa.058.0, %77 ], [ %.sroa.058.0, %60 ], [ %.sroa.058.0, %64 ], [ %.sroa.058.0, %44 ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %129, %128 ], [ %lpad.phi, %130 ], [ %78, %77 ], [ %.pn20, %60 ], [ %65, %64 ], [ %45, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %146 = ptrtoint ptr %.sroa.21.1 to i64
   %147 = ptrtoint ptr %.sroa.058.1 to i64

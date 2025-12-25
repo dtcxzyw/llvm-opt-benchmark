@@ -4685,7 +4685,7 @@ _Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %33, %.
   br label %_Z32textFileFormatYypop_buffer_statePv.exit
 
 _Z32textFileFormatYypop_buffer_statePv.exit:      ; preds = %26, %45, %49
-  %58 = phi ptr [ %44, %49 ], [ %25, %26 ], [ %44, %45 ]
+  %58 = phi ptr [ %44, %45 ], [ %25, %26 ], [ %44, %49 ]
   %59 = load i64, ptr %2, align 8
   %60 = getelementptr inbounds ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8

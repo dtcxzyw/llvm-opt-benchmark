@@ -1609,7 +1609,7 @@ _get_profile.exit.thread:                         ; preds = %42, %29, %13, %46, 
   br i1 %.not.us50.i57, label %_get_profile.exit58, label %.lr.ph.split.split.us.i54
 
 _get_profile.exit58:                              ; preds = %39, %26, %133, %130, %_get_profile.exit.thread, %_get_profile.exit
-  %.3 = phi ptr [ %.1, %_get_profile.exit ], [ null, %_get_profile.exit.thread ], [ null, %133 ], [ %15, %26 ], [ %126, %130 ], [ %31, %39 ]
+  %.3 = phi ptr [ %.1, %_get_profile.exit ], [ null, %_get_profile.exit.thread ], [ %15, %26 ], [ null, %133 ], [ %126, %130 ], [ %31, %39 ]
   ret ptr %.3
 }
 

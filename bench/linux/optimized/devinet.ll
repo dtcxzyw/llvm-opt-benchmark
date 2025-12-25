@@ -1705,8 +1705,8 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   br i1 %157, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.backedge, %.backedge.us54, %104, %.backedge.us, %67, %.thread4.us
-  %158 = phi i32 [ %116, %.backedge.us54 ], [ %71, %.thread4.us ], [ %68, %67 ], [ %.be.us, %.backedge.us ], [ %114, %104 ], [ %154, %.backedge ]
-  %159 = phi i32 [ %115, %.backedge.us54 ], [ %44, %.thread4.us ], [ %44, %67 ], [ %.be12.us, %.backedge.us ], [ %105, %104 ], [ %153, %.backedge ]
+  %158 = phi i32 [ %116, %.backedge.us54 ], [ %71, %.thread4.us ], [ %.be.us, %.backedge.us ], [ %68, %67 ], [ %114, %104 ], [ %154, %.backedge ]
+  %159 = phi i32 [ %115, %.backedge.us54 ], [ %44, %.thread4.us ], [ %.be12.us, %.backedge.us ], [ %44, %67 ], [ %105, %104 ], [ %153, %.backedge ]
   %.fr = freeze i32 %158
   %160 = icmp eq i32 %.fr, 0
   br i1 %160, label %.loopexit.thread109, label %.loopexit.thread

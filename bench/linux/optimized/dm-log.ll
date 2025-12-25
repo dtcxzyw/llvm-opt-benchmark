@@ -701,7 +701,7 @@ define internal i32 @disk_resume(ptr noundef readonly captures(none) %0) #0 alig
   br i1 %50, label %68, label %.loopexit6
 
 .thread3:                                         ; preds = %.thread, %44
-  %51 = phi i32 [ %.pre, %44 ], [ %25, %.thread ]
+  %51 = phi i32 [ %25, %.thread ], [ %.pre, %44 ]
   %52 = icmp eq i32 %51, 1
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 24

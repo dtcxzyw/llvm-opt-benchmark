@@ -2378,9 +2378,6 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %43 = icmp ugt i8 %.039.i, 3
   br i1 %43, label %46, label %.outer.outer222.backedge
 
-.outer.outer222.backedge:                         ; preds = %42, %46
-  br label %.outer.outer222
-
 .outer.outer222:                                  ; preds = %.outer.outer222.backedge, %.outer.outer
   %.0111.ph.ph223 = phi i32 [ %.0111.ph.ph, %.outer.outer ], [ %.0111, %.outer.outer222.backedge ]
   %.0105.ph.ph224 = phi i32 [ %.0105.ph.ph, %.outer.outer ], [ %.0105, %.outer.outer222.backedge ]
@@ -2397,6 +2394,9 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %50 = trunc i64 %49 to i32
   %51 = icmp sgt i32 %50, %48
   br i1 %51, label %52, label %.outer.outer222.backedge
+
+.outer.outer222.backedge:                         ; preds = %46, %42
+  br label %.outer.outer222
 
 52:                                               ; preds = %46
   %53 = zext i8 %.039.i to i16

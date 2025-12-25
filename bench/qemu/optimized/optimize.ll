@@ -8098,7 +8098,7 @@ args_are_copies.exit:                             ; preds = %.lr.ph.i.i, %35, %5
   br label %72
 
 72:                                               ; preds = %.sink.split, %.loopexit, %62, %32, %25
-  %.0 = phi i32 [ %30, %25 ], [ -1, %.loopexit ], [ -1, %62 ], [ -1, %32 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ %30, %25 ], [ -1, %62 ], [ -1, %.loopexit ], [ -1, %32 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

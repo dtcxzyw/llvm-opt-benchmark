@@ -54332,7 +54332,7 @@ define void @_ZN2uv8settings15PublishSettings7resolve17h5c5e2434e56479f6E(ptr de
           to label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$17h1ecce945ed1bd381E.exit160" unwind label %173
 
 377:                                              ; preds = %122, %138
-  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %.pn65, %122 ], [ %139, %138 ]
+  %.pn67.pn.pn.pn = phi { ptr, i32 } [ %139, %138 ], [ %.pn65, %122 ]
   %378 = getelementptr inbounds nuw i8, ptr %38, i64 200
   %379 = load i64, ptr %378, align 8, !range !9, !alias.scope !8293, !noundef !8
   %380 = icmp eq i64 %379, -9223372036854775808

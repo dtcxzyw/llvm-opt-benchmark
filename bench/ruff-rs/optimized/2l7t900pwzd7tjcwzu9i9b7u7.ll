@@ -38689,8 +38689,8 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit: ; preds = %1
           to label %547 unwind label %399
 
 .thread510:                                       ; preds = %547, %422, %.thread513
-  %.sroa.0184.7 = phi i1 [ false, %547 ], [ false, %422 ], [ true, %.thread513 ]
-  %.pn398 = phi { ptr, i32 } [ %.pn, %547 ], [ %lpad.thr_comm.split-lp, %422 ], [ %eh.lpad-body460517, %.thread513 ]
+  %.sroa.0184.7 = phi i1 [ true, %.thread513 ], [ false, %422 ], [ false, %547 ]
+  %.pn398 = phi { ptr, i32 } [ %eh.lpad-body460517, %.thread513 ], [ %lpad.thr_comm.split-lp, %422 ], [ %.pn, %547 ]
   %554 = load i64, ptr %73, align 8, !range !42
   %.not401 = icmp eq i64 %554, -9223372036854775808
   br i1 %.not401, label %649, label %417
@@ -42671,8 +42671,8 @@ define hidden noundef ptr @_ZN11ruff_server7session5index5Index24update_notebook
   br label %346
 
 .loopexit.split-lp383.i:                          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7c5870aeedb5efE.exit.thread.i", %"_ZN131_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd016f039681643b0E.exit.thread287.i", %.thread281.i, %342
-  %.sroa.048.0.ph.i = phi i8 [ 1, %"_ZN131_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd016f039681643b0E.exit.thread287.i" ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7c5870aeedb5efE.exit.thread.i" ], [ 1, %.thread281.i ], [ 1, %342 ]
-  %347 = phi i1 [ true, %"_ZN131_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd016f039681643b0E.exit.thread287.i" ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7c5870aeedb5efE.exit.thread.i" ], [ false, %.thread281.i ], [ false, %342 ]
+  %.sroa.048.0.ph.i = phi i8 [ 1, %"_ZN131_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd016f039681643b0E.exit.thread287.i" ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7c5870aeedb5efE.exit.thread.i" ], [ 1, %342 ], [ 1, %.thread281.i ]
+  %347 = phi i1 [ true, %"_ZN131_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hd016f039681643b0E.exit.thread287.i" ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7c5870aeedb5efE.exit.thread.i" ], [ false, %342 ], [ false, %.thread281.i ]
   %lpad.loopexit.split-lp385.i = landingpad { ptr, i32 }
           cleanup
   br label %346

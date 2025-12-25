@@ -40607,7 +40607,7 @@ lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
   br label %lpad9
 
 lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then.i.i.i, %if.then.i.i.i134
-  %valueArrayInsert.sroa.0.1.ph2343.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %valueArrayInsert.sroa.0.6, %if.then.i.i.i134 ], [ %valueArrayInsert.sroa.0.22531, %if.then.i.i.i ]
+  %valueArrayInsert.sroa.0.1.ph2343.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %valueArrayInsert.sroa.0.22531, %if.then.i.i.i ], [ %valueArrayInsert.sroa.0.6, %if.then.i.i.i134 ]
   %lpad.loopexit2452 = landingpad { ptr, i32 }
           cleanup
   br label %lpad9

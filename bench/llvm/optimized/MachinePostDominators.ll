@@ -6236,7 +6236,7 @@ _ZN4llvm11raw_ostream5flushEv.exit.thread64.sink.split: ; preds = %_ZN4llvm11raw
   br label %_ZN4llvm11raw_ostream5flushEv.exit.thread64
 
 _ZN4llvm11raw_ostream5flushEv.exit.thread64:      ; preds = %119, %_ZN4llvm11raw_ostream5flushEv.exit.thread64.sink.split, %_ZN4llvm11raw_ostream5flushEv.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit58, %_ZN4llvm11raw_ostreamlsEPKc.exit49
-  %.4 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit49 ], [ false, %_ZN4llvm11raw_ostream5flushEv.exit.thread64.sink.split ], [ true, %_ZN4llvm11raw_ostream5flushEv.exit ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ], [ true, %119 ]
+  %.4 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit49 ], [ true, %_ZN4llvm11raw_ostream5flushEv.exit ], [ false, %_ZN4llvm11raw_ostream5flushEv.exit.thread64.sink.split ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit58 ], [ true, %119 ]
   ret i1 %.4
 }
 
@@ -6540,7 +6540,7 @@ _ZN4llvm11raw_ostream5flushEv.exit.thread.sink.split: ; preds = %_ZN4llvm11raw_o
   br label %_ZN4llvm11raw_ostream5flushEv.exit.thread
 
 _ZN4llvm11raw_ostream5flushEv.exit.thread:        ; preds = %_ZN4llvm11raw_ostream5flushEv.exit, %_ZN4llvm11raw_ostream5flushEv.exit.thread.sink.split, %1, %_ZN4llvm11raw_ostreamlsEPKc.exit64, %_ZN4llvm11raw_ostreamlsEPKc.exit44
-  %.not73 = phi i1 [ false, %_ZN4llvm11raw_ostream5flushEv.exit.thread.sink.split ], [ true, %1 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit64 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit44 ], [ true, %_ZN4llvm11raw_ostream5flushEv.exit ]
+  %.not73 = phi i1 [ true, %1 ], [ false, %_ZN4llvm11raw_ostream5flushEv.exit.thread.sink.split ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit64 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit44 ], [ true, %_ZN4llvm11raw_ostream5flushEv.exit ]
   ret i1 %.not73
 }
 
@@ -6837,7 +6837,7 @@ _ZN4llvm11raw_ostream5flushEv.exit.sink.split:    ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostream5flushEv.exit
 
 _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %_ZN4llvm11raw_ostream5flushEv.exit62.thread65, %_ZN4llvm11raw_ostream5flushEv.exit62, %_ZN4llvm11raw_ostream5flushEv.exit.sink.split, %_ZN4llvm11raw_ostreamlsEc.exit60, %_ZN4llvm11raw_ostreamlsEc.exit
-  %.1 = phi i1 [ false, %_ZN4llvm11raw_ostream5flushEv.exit.sink.split ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit60 ], [ false, %_ZN4llvm11raw_ostream5flushEv.exit62 ], [ true, %_ZN4llvm11raw_ostream5flushEv.exit62.thread65 ]
+  %.1 = phi i1 [ false, %_ZN4llvm11raw_ostream5flushEv.exit.sink.split ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit ], [ false, %_ZN4llvm11raw_ostreamlsEc.exit60 ], [ true, %_ZN4llvm11raw_ostream5flushEv.exit62.thread65 ], [ false, %_ZN4llvm11raw_ostream5flushEv.exit62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %147
 
@@ -25161,8 +25161,8 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5countEPKS1_.exit.thread23: 
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit42, %_ZN4llvm11SmallPtrSetIPNS_17MachineBasicBlockELj4EEC2IPKS2_EET_S7_.exit
-  %64 = phi i8 [ %.pre43, %.critedge.loopexit42 ], [ %33, %_ZN4llvm11SmallPtrSetIPNS_17MachineBasicBlockELj4EEC2IPKS2_EET_S7_.exit ]
-  %.not1829 = phi i1 [ %.not1829.ph, %.critedge.loopexit42 ], [ true, %_ZN4llvm11SmallPtrSetIPNS_17MachineBasicBlockELj4EEC2IPKS2_EET_S7_.exit ]
+  %64 = phi i8 [ %33, %_ZN4llvm11SmallPtrSetIPNS_17MachineBasicBlockELj4EEC2IPKS2_EET_S7_.exit ], [ %.pre43, %.critedge.loopexit42 ]
+  %.not1829 = phi i1 [ true, %_ZN4llvm11SmallPtrSetIPNS_17MachineBasicBlockELj4EEC2IPKS2_EET_S7_.exit ], [ %.not1829.ph, %.critedge.loopexit42 ]
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %66
 

@@ -599,7 +599,7 @@ dissect_iso7816_class.exit.i:                     ; preds = %71
   br label %155
 
 155:                                              ; preds = %152, %148, %142, %125
-  %.0.i105.i = phi ptr [ %154, %152 ], [ %150, %148 ], [ %144, %142 ], [ %127, %125 ]
+  %.0.i105.i = phi ptr [ %127, %125 ], [ %150, %148 ], [ %154, %152 ], [ %144, %142 ]
   %.not.i.i.i = icmp eq ptr %.0.i105.i, null
   br i1 %.not.i.i.i, label %dissect_iso7816_params.exit.i, label %156
 

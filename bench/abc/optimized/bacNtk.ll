@@ -388,8 +388,8 @@ Vec_IntPush.exit27.sink.split:                    ; preds = %53, %55, %45, %47
   br label %Vec_IntPush.exit27
 
 Vec_IntPush.exit27:                               ; preds = %Vec_IntPush.exit27.sink.split, %.critedge.preheader, %.critedge._crit_edge
-  %.014.lcssa46 = phi i32 [ 0, %.critedge.preheader ], [ %.115, %.critedge._crit_edge ], [ %.115, %Vec_IntPush.exit27.sink.split ]
-  %57 = phi ptr [ @Bac_NameToRanges.pArray, %.critedge.preheader ], [ %.pre.i33, %.critedge._crit_edge ], [ %.sink50, %Vec_IntPush.exit27.sink.split ]
+  %.014.lcssa46 = phi i32 [ %.115, %.critedge._crit_edge ], [ 0, %.critedge.preheader ], [ %.115, %Vec_IntPush.exit27.sink.split ]
+  %57 = phi ptr [ %.pre.i33, %.critedge._crit_edge ], [ @Bac_NameToRanges.pArray, %.critedge.preheader ], [ %.sink50, %Vec_IntPush.exit27.sink.split ]
   %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Bac_NameToRanges.Bits, i64 4), align 4, !tbaa !22
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr getelementptr inbounds nuw (i8, ptr @Bac_NameToRanges.Bits, i64 4), align 4, !tbaa !22

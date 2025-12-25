@@ -13548,11 +13548,11 @@ _ZL9cos_anglePKfS0_.exit._crit_edge.i:            ; preds = %_ZL9cos_anglePKfS0_
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !llvm.access.group !398
   br label %1468
 
-.thread397:                                       ; preds = %952, %815, %._crit_edge.i271
-  %.sroa.0383.13.ph = phi float [ %.sroa.0383.111269, %815 ], [ %954, %952 ], [ %.sroa.0383.111269, %._crit_edge.i271 ]
-  %.sroa.0385.12.ph = phi float [ %.sroa.0385.111270, %815 ], [ %953, %952 ], [ %.sroa.0385.111270, %._crit_edge.i271 ]
-  %.sroa.0.12.ph396 = phi i32 [ %.sroa.0.111271, %815 ], [ %832, %952 ], [ -49297, %._crit_edge.i271 ]
-  %.091.i.ph = phi i32 [ 2, %815 ], [ 2, %952 ], [ 1, %._crit_edge.i271 ]
+.thread397:                                       ; preds = %815, %952, %._crit_edge.i271
+  %.sroa.0383.13.ph = phi float [ %954, %952 ], [ %.sroa.0383.111269, %815 ], [ %.sroa.0383.111269, %._crit_edge.i271 ]
+  %.sroa.0385.12.ph = phi float [ %953, %952 ], [ %.sroa.0385.111270, %815 ], [ %.sroa.0385.111270, %._crit_edge.i271 ]
+  %.sroa.0.12.ph396 = phi i32 [ %832, %952 ], [ %.sroa.0.111271, %815 ], [ -49297, %._crit_edge.i271 ]
+  %.091.i.ph = phi i32 [ 2, %952 ], [ 2, %815 ], [ 1, %._crit_edge.i271 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !llvm.access.group !398
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !llvm.access.group !398
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !llvm.access.group !398

@@ -413,7 +413,7 @@ create_set_item.exit.thread.loopexit179:          ; preds = %64
   br label %create_set_item.exit.thread
 
 create_set_item.exit.thread:                      ; preds = %142, %.lr.ph167, %ossl_list_uint_set_remove.exit135, %.critedge.thread, %create_set_item.exit.thread.loopexit179, %52, %.critedge, %126, %34, %8, %125, %ossl_list_uint_set_insert_before.exit, %120, %2, %ossl_list_uint_set_insert_tail.exit, %33, %ossl_list_uint_set_insert_head.exit
-  %.0 = phi i32 [ 0, %2 ], [ 1, %ossl_list_uint_set_insert_head.exit ], [ 1, %33 ], [ 1, %ossl_list_uint_set_remove.exit135 ], [ 1, %ossl_list_uint_set_insert_tail.exit ], [ 0, %8 ], [ 1, %.critedge ], [ 0, %34 ], [ 1, %125 ], [ 0, %126 ], [ 1, %120 ], [ 1, %ossl_list_uint_set_insert_before.exit ], [ 1, %52 ], [ 1, %.critedge.thread ], [ 1, %create_set_item.exit.thread.loopexit179 ], [ 1, %.lr.ph167 ], [ 1, %142 ]
+  %.0 = phi i32 [ 0, %2 ], [ 1, %ossl_list_uint_set_insert_head.exit ], [ 1, %33 ], [ 1, %125 ], [ 1, %ossl_list_uint_set_insert_tail.exit ], [ 0, %8 ], [ 1, %.critedge ], [ 0, %34 ], [ 1, %ossl_list_uint_set_remove.exit135 ], [ 0, %126 ], [ 1, %120 ], [ 1, %ossl_list_uint_set_insert_before.exit ], [ 1, %52 ], [ 1, %create_set_item.exit.thread.loopexit179 ], [ 1, %.critedge.thread ], [ 1, %.lr.ph167 ], [ 1, %142 ]
   ret i32 %.0
 }
 

@@ -1500,7 +1500,7 @@ Vec_IntFind.exit87:                               ; preds = %65, %Vec_IntFind.ex
   br label %.loopexit90
 
 .loopexit90:                                      ; preds = %.loopexit, %112, %.loopexit90.sink.split, %.critedge2._crit_edge, %11
-  %.065 = phi i32 [ 0, %.loopexit90.sink.split ], [ %.263.lcssa, %.critedge2._crit_edge ], [ 1, %11 ], [ %.263.lcssa, %112 ], [ %.263.lcssa, %.loopexit ]
+  %.065 = phi i32 [ %.263.lcssa, %.critedge2._crit_edge ], [ 0, %.loopexit90.sink.split ], [ 1, %11 ], [ %.263.lcssa, %112 ], [ %.263.lcssa, %.loopexit ]
   ret i32 %.065
 }
 

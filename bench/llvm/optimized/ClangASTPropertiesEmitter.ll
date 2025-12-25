@@ -3712,8 +3712,8 @@ _ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit30.i: ; preds = %_ZN4
   br i1 %110, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i
 
 _ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.i: ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit66.thread35.i.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit32.thread27.i.i
-  %.sroa.021.2.i.i = phi ptr [ null, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit66.thread35.i.i ], [ %56, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit32.thread27.i.i ]
-  %.sroa.12.2.i.i = phi ptr [ %74, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit66.thread35.i.i ], [ %56, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit32.thread27.i.i ]
+  %.sroa.021.2.i.i = phi ptr [ %56, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit32.thread27.i.i ], [ null, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit66.thread35.i.i ]
+  %.sroa.12.2.i.i = phi ptr [ %56, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit32.thread27.i.i ], [ %74, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit66.thread35.i.i ]
   %.not.i = icmp eq ptr %.sroa.12.2.i.i, null
   br i1 %.not.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i, label %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_.exit.thread.i
 

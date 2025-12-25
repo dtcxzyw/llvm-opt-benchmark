@@ -17981,7 +17981,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12with_release17h21154
   %91 = add nuw nsw i8 %74, 1
   br label %_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit
 
-_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread: ; preds = %76, %78, %70
+_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread: ; preds = %78, %76, %70
   %92 = invoke noundef align 8 dereferenceable(136) ptr @_ZN9uv_pep4407version7Version9make_full17h80bac72c41a6d3c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
           to label %93 unwind label %68
 
@@ -19376,8 +19376,8 @@ default.unreachable:                              ; preds = %74, %6
           to label %26 unwind label %133
 
 .thread92.i:                                      ; preds = %.body.i, %104, %96, %26
-  %.sroa.07.197.i = phi i1 [ true, %26 ], [ false, %.body.i ], [ false, %104 ], [ false, %96 ]
-  %.pn.pn96.i = phi { ptr, i32 } [ %.pn78.i, %26 ], [ %82, %.body.i ], [ %97, %104 ], [ %97, %96 ]
+  %.sroa.07.197.i = phi i1 [ true, %26 ], [ false, %104 ], [ false, %.body.i ], [ false, %96 ]
+  %.pn.pn96.i = phi { ptr, i32 } [ %.pn78.i, %26 ], [ %97, %104 ], [ %82, %.body.i ], [ %97, %96 ]
   invoke void @"_ZN4core3ptr498drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..sources..once_with..OnceWith$LT$uv_python..discovery..python_executables..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$std..path..PathBuf$GT$$C$uv_python..virtualenv..virtualenv_python_executable$LT$std..path..PathBuf$GT$$GT$$C$uv_python..discovery..python_executables..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h6d64e61916fe1edbE.llvm.1525709606161698564"(ptr noalias noundef nonnull align 8 dereferenceable(56) %23)
           to label %"_ZN4core3ptr184drop_in_place$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..sources..once_with..OnceWith$LT$uv_python..discovery..python_executables..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h85aea1fa685a1689E.exit46.i" unwind label %133
 
@@ -27947,7 +27947,7 @@ _ZN9uv_python9discovery14VersionRequest15is_freethreaded17hba41bd624d637957E.exi
   br label %.loopexit288
 
 _ZN9uv_python9discovery14VersionRequest15is_freethreaded17hba41bd624d637957E.exit.thread: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf0e411f8245d44e7E.exit63", %67, %.thread280, %.thread280, %_ZN9uv_python9discovery14VersionRequest15is_freethreaded17hba41bd624d637957E.exit
-  %116 = phi i64 [ %71, %.thread280 ], [ %112, %_ZN9uv_python9discovery14VersionRequest15is_freethreaded17hba41bd624d637957E.exit ], [ %44, %67 ], [ %71, %.thread280 ], [ %157, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf0e411f8245d44e7E.exit63" ]
+  %116 = phi i64 [ %112, %_ZN9uv_python9discovery14VersionRequest15is_freethreaded17hba41bd624d637957E.exit ], [ %71, %.thread280 ], [ %44, %67 ], [ %71, %.thread280 ], [ %157, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf0e411f8245d44e7E.exit63" ]
   %117 = load ptr, ptr %11, align 8, !nonnull !20, !noundef !20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !noalias !6698

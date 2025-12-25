@@ -3252,7 +3252,7 @@ define hidden noundef ptr @zend_fetch_class_const_info(ptr noundef %0, ptr nound
   br label %86
 
 86:                                               ; preds = %83, %52, %65
-  %.2 = phi ptr [ %85, %83 ], [ %55, %52 ], [ %66, %65 ]
+  %.2 = phi ptr [ %55, %52 ], [ %66, %65 ], [ %85, %83 ]
   %.not76 = icmp eq ptr %.2, null
   br i1 %.not76, label %.thread, label %..thread89_crit_edge
 

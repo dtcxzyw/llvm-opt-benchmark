@@ -420,8 +420,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_part_of_packet(ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %114
 
-.thread106:                                       ; preds = %62, %66, %77
-  %.3.ph = phi i64 [ %93, %77 ], [ -9223372036854775808, %66 ], [ -9223372036854775808, %62 ]
+.thread106:                                       ; preds = %77, %66, %62
+  %.3.ph = phi i64 [ -9223372036854775808, %62 ], [ -9223372036854775808, %66 ], [ %93, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 

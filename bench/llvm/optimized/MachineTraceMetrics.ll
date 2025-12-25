@@ -4505,7 +4505,7 @@ define internal fastcc void @_ZL10getPHIDepsRKN4llvm12MachineInstrERNS_15SmallVe
   br label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i: ; preds = %29, %11
-  %.sroa.0.0.i.i.i = phi ptr [ %31, %29 ], [ %.0.i.i.i.i, %11 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %11 ], [ %31, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !485
   %.not.i.i3.i.i = icmp eq ptr %33, null
@@ -4640,7 +4640,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %27
   br label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i: ; preds = %42, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread
-  %.sroa.0.0.i.i.i = phi ptr [ %44, %42 ], [ %.0.i.i.i.i, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread ], [ %44, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !485
   %.not.i.i3.i.i = icmp eq ptr %46, null
@@ -5584,7 +5584,7 @@ _ZNK4llvm19MachineTraceMetrics8Ensemble10getLoopForEPKNS_17MachineBasicBlockE.ex
   br label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i.i
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i.i: ; preds = %197, %179
-  %.sroa.0.0.i.i.i.i = phi ptr [ %199, %197 ], [ %.0.i.i.i.i.i, %179 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %.0.i.i.i.i.i, %179 ], [ %199, %197 ]
   %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 24
   %201 = load ptr, ptr %200, align 8, !tbaa !485
   %.not.i.i3.i.i.i = icmp eq ptr %201, null
@@ -6178,7 +6178,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i: ; preds = %482
   br label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i.i157
 
 _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit.i.i.i157: ; preds = %497, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i
-  %.sroa.0.0.i.i.i.i158 = phi ptr [ %499, %497 ], [ %.0.i.i.i.i.i155, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i ]
+  %.sroa.0.0.i.i.i.i158 = phi ptr [ %.0.i.i.i.i.i155, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i ], [ %499, %497 ]
   %500 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i158, i64 24
   %501 = load ptr, ptr %500, align 8, !tbaa !485
   %.not.i.i3.i.i.i159 = icmp eq ptr %501, null
@@ -6226,7 +6226,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17DataDepELb1EE9push_backES2_.ex
   br label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread25.i
 
 _ZNK4llvm14MachineOperand8readsRegEv.exit.thread25.i: ; preds = %477, %473, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17DataDepELb1EE9push_backES2_.exit.i169, %482
-  %.val128488 = phi i32 [ %516, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17DataDepELb1EE9push_backES2_.exit.i169 ], [ %.val128489.ph, %482 ], [ %.val128489.ph, %473 ], [ %.val128489.ph, %477 ]
+  %.val128488 = phi i32 [ %.val128489.ph, %482 ], [ %516, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17DataDepELb1EE9push_backES2_.exit.i169 ], [ %.val128489.ph, %473 ], [ %.val128489.ph, %477 ]
   %517 = getelementptr inbounds nuw i8, ptr %.01828.i, i64 32
   %.not.i150 = icmp eq ptr %517, %470
   br i1 %.not.i150, label %_ZL11getDataDepsRKN4llvm12MachineInstrERNS_15SmallVectorImplIN12_GLOBAL__N_17DataDepEEEPKNS_19MachineRegisterInfoE.exit, label %.outer

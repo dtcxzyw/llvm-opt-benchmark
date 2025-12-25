@@ -282,8 +282,8 @@ define internal range(i32 1, 3) i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr 
   store i32 %.01928, ptr %38, align 4, !tbaa !28
   br label %prte_reachable_netlink_is_nlreply_err.exit.thread
 
-prte_reachable_netlink_is_nlreply_err.exit.thread: ; preds = %2, %7, %.sink.split.i, %16, %13, %.thread
-  %.0 = phi i32 [ 2, %.thread ], [ 1, %16 ], [ 1, %2 ], [ 1, %13 ], [ 1, %.sink.split.i ], [ 1, %7 ]
+prte_reachable_netlink_is_nlreply_err.exit.thread: ; preds = %2, %.sink.split.i, %7, %16, %13, %.thread
+  %.0 = phi i32 [ 2, %.thread ], [ 1, %16 ], [ 1, %2 ], [ 1, %13 ], [ 1, %7 ], [ 1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

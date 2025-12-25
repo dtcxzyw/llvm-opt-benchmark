@@ -22813,7 +22813,7 @@ _ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit: ; preds = %5
   br i1 %.not, label %32, label %24
 
 .loopexit:                                        ; preds = %33, %114, %112, %52, %91, %105, %103, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit, %70, %59, %21, %86, %81, %24, %.loopexit90, %._crit_edge104
-  %.sroa.0.0 = phi i1 [ true, %114 ], [ %102, %._crit_edge104 ], [ true, %52 ], [ true, %86 ], [ true, %91 ], [ true, %105 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit ], [ true, %24 ], [ %22, %21 ], [ true, %.loopexit90 ], [ true, %81 ], [ %60, %59 ], [ %71, %70 ], [ true, %103 ], [ true, %112 ], [ true, %33 ]
+  %.sroa.0.0 = phi i1 [ true, %105 ], [ %102, %._crit_edge104 ], [ true, %52 ], [ true, %86 ], [ true, %81 ], [ true, %114 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17he43344f56d744565E.exit ], [ true, %24 ], [ %22, %21 ], [ true, %.loopexit90 ], [ true, %91 ], [ %60, %59 ], [ %71, %70 ], [ true, %103 ], [ true, %112 ], [ true, %33 ]
   ret i1 %.sroa.0.0
 
 24:                                               ; preds = %23

@@ -3809,8 +3809,8 @@ if.then6:                                         ; preds = %while.end.i, %if.th
   %11 = extractvalue { ptr, i32 } %call10, 1
   br label %if.end11
 
-if.end11:                                         ; preds = %while.end.i, %if.else.i, %if.then.i, %if.then6
-  %p.sroa.4.0 = phi i32 [ %11, %if.then6 ], [ %3, %if.then.i ], [ %3, %if.else.i ], [ %3, %while.end.i ]
+if.end11:                                         ; preds = %while.end.i, %if.then.i, %if.else.i, %if.then6
+  %p.sroa.4.0 = phi i32 [ %11, %if.then6 ], [ %3, %if.else.i ], [ %3, %if.then.i ], [ %3, %while.end.i ]
   %alloc_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %12 = load ptr, ptr %alloc_.i, align 8
   %cmp.i.i = icmp eq ptr %12, null

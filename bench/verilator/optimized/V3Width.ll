@@ -10064,7 +10064,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit264: ; preds = %39
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit257, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit253, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit240, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit238, %346, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit, %.thread338
-  %.3114 = phi ptr [ %398, %.thread338 ], [ %373, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit257 ], [ %278, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit ], [ %324, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit238 ], [ %362, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit253 ], [ %342, %346 ], [ %330, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit240 ]
+  %.3114 = phi ptr [ %398, %.thread338 ], [ %373, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit257 ], [ %342, %346 ], [ %278, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit ], [ %362, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit253 ], [ %324, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit238 ], [ %330, %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit240 ]
   call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %.3114)
   %399 = call noundef i32 @_ZL5debugv()
   %400 = icmp sgt i32 %399, 8
@@ -42131,8 +42131,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc.exit.sink.split: ; pre
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc.exit.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %348, %351, %114
-  %.1135 = phi ptr [ %.0134640, %114 ], [ %.2136.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %350, %351 ], [ null, %348 ], [ %.0134640, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc.exit.sink.split ]
-  %.1133 = phi i1 [ true, %114 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ false, %351 ], [ false, %348 ], [ %.0132641, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc.exit.sink.split ]
+  %.1135 = phi ptr [ %.0134640, %114 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ %.2136.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i ], [ %350, %351 ], [ null, %348 ], [ %.0134640, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc.exit.sink.split ]
+  %.1133 = phi i1 [ true, %114 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i ], [ false, %351 ], [ false, %348 ], [ %.0132641, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEc.exit.sink.split ]
   %506 = getelementptr inbounds nuw i8, ptr %.sroa.0448.0639, i64 1
   %.not579 = icmp eq ptr %506, %97
   br i1 %.not579, label %._crit_edge, label %110
@@ -64644,8 +64644,8 @@ _ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit153:
   br label %.thread231
 
 .thread231:                                       ; preds = %81, %_ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit153, %.thread231.sink.split, %.preheader
-  %.4240 = phi ptr [ %.4258, %.thread231.sink.split ], [ %.4258, %_ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit153 ], [ null, %.preheader ], [ null, %81 ]
-  %.194 = phi i32 [ %92, %.thread231.sink.split ], [ %.093257, %_ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit153 ], [ 1, %.preheader ], [ %84, %81 ]
+  %.4240 = phi ptr [ null, %.preheader ], [ %.4258, %_ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit153 ], [ %.4258, %.thread231.sink.split ], [ null, %81 ]
+  %.194 = phi i32 [ 1, %.preheader ], [ %.093257, %_ZN7AstNode11privateCastI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit153 ], [ %92, %.thread231.sink.split ], [ %84, %81 ]
   switch i32 %4, label %98 [
     i32 0, label %117
     i32 1, label %93
@@ -101133,7 +101133,7 @@ _ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit.sink.split: ; preds = %179, %189, %
   br label %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit
 
 _ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit:     ; preds = %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit.sink.split, %214, %204, %194, %184, %174, %167
-  %.155 = phi ptr [ %166, %167 ], [ %171, %214 ], [ %171, %204 ], [ %171, %194 ], [ %171, %184 ], [ %171, %174 ], [ %171, %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit.sink.split ]
+  %.155 = phi ptr [ %166, %167 ], [ %171, %184 ], [ %171, %194 ], [ %171, %204 ], [ %171, %214 ], [ %171, %174 ], [ %171, %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit.sink.split ]
   %224 = add nuw nsw i32 %.056, 1
   br label %125, !llvm.loop !1201
 

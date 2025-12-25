@@ -14902,7 +14902,7 @@ match_filter.exit43.thread53.i:                   ; preds = %match_filter.exit43
   br label %diffcore_apply_filter.exit
 
 diffcore_apply_filter.exit:                       ; preds = %.lr.ph.split.split.i, %match_filter.exit.us66.i, %184, %match_filter.exit.us.i, %172, %match_filter.exit.us.us.i, %diff_resolve_rename_copy.exit, %.critedge.i, %.loopexit.i
-  %237 = phi i32 [ %.sroa.9.0.i, %.loopexit.i ], [ 1, %match_filter.exit.us.us.i ], [ 1, %match_filter.exit.us66.i ], [ %.pr.pre, %diff_resolve_rename_copy.exit ], [ 1, %match_filter.exit.us.i ], [ 1, %.critedge.i ], [ 1, %172 ], [ 1, %184 ], [ 1, %.lr.ph.split.split.i ]
+  %237 = phi i32 [ %.sroa.9.0.i, %.loopexit.i ], [ 1, %match_filter.exit.us66.i ], [ %.pr.pre, %diff_resolve_rename_copy.exit ], [ 1, %match_filter.exit.us.us.i ], [ 1, %.critedge.i ], [ 1, %match_filter.exit.us.i ], [ 1, %172 ], [ 1, %184 ], [ 1, %.lr.ph.split.split.i ]
   %.not38 = icmp eq i32 %237, 0
   br i1 %.not38, label %241, label %238
 
@@ -19158,7 +19158,7 @@ emit_rewrite_diff.exit.i:                         ; preds = %676, %675
   br label %680
 
 680:                                              ; preds = %.sink.split.i97, %510, %505, %503
-  %.0198.i = phi i32 [ %.1.i86, %503 ], [ %.1.i86, %505 ], [ %.1.i86, %510 ], [ 1, %.sink.split.i97 ]
+  %.0198.i = phi i32 [ %.1.i86, %505 ], [ %.1.i86, %503 ], [ %.1.i86, %510 ], [ 1, %.sink.split.i97 ]
   %681 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %682 = load i32, ptr %681, align 8, !tbaa !434
   %.not235.i = icmp eq i32 %682, 0

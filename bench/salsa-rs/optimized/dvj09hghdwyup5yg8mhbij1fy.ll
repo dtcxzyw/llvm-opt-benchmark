@@ -625,7 +625,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit55.i.i.i.i: ; preds = %
   unreachable
 
 .loopexit:                                        ; preds = %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit55.i.i.i.i, %85, %15, %._crit_edge.i.i.i.i, %63, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i.i.i.i, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit45.i.i.i.i
-  %.sroa.0.0.i.ph = phi i8 [ 2, %15 ], [ %82, %._crit_edge.i.i.i.i ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit45.i.i.i.i ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i.i.i.i ], [ 0, %63 ], [ 1, %85 ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit55.i.i.i.i ]
+  %.sroa.0.0.i.ph = phi i8 [ %82, %._crit_edge.i.i.i.i ], [ 2, %15 ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit45.i.i.i.i ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit.i.i.i.i ], [ 0, %63 ], [ 1, %85 ], [ 1, %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit55.i.i.i.i ]
   ret i8 %.sroa.0.0.i.ph
 }
 

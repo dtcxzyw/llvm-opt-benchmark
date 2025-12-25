@@ -15477,7 +15477,7 @@ define hidden noundef zeroext i1 @_ZN6casadi14IndexReduction20dfs_match_pantelid
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge35, %.loopexit.sink.split, %1
-  %.3 = phi i1 [ true, %.loopexit.sink.split ], [ false, %1 ], [ false, %.critedge35 ]
+  %.3 = phi i1 [ false, %1 ], [ true, %.loopexit.sink.split ], [ false, %.critedge35 ]
   ret i1 %.3
 }
 

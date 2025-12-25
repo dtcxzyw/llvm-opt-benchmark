@@ -2461,7 +2461,7 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %129, %131
   tail call void @exit(i32 noundef %169) #17
   unreachable
 
-170:                                              ; preds = %151, %155
+170:                                              ; preds = %155, %151
   %171 = getelementptr inbounds nuw i8, ptr %97, i64 576
   %172 = load i64, ptr %171, align 8
   %173 = icmp eq i64 %172, 0
@@ -2976,7 +2976,7 @@ _set_env_vars2.exit:                              ; preds = %349, %367
   call void @exit(i32 noundef %389) #17
   unreachable
 
-390:                                              ; preds = %_set_env_vars2.exit, %372
+390:                                              ; preds = %372, %_set_env_vars2.exit
   %391 = call ptr @job_create_allocation(ptr noundef nonnull %254, ptr noundef nonnull %260)
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 48
   store i32 %262, ptr %392, align 8
@@ -3123,7 +3123,7 @@ _set_step_opts.exit.thread:                       ; preds = %_set_step_opts.exit
   tail call void @exit(i32 noundef %460) #17
   unreachable
 
-461:                                              ; preds = %440, %446
+461:                                              ; preds = %446, %440
   %462 = tail call ptr @job_create_allocation(ptr noundef nonnull %437, ptr noundef nonnull @opt)
   %463 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 24), align 8
   store i32 -2, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 228), align 4

@@ -728,7 +728,7 @@ switch.early.test:                                ; preds = %209
   br i1 %334, label %.thread264, label %.thread559
 
 335:                                              ; preds = %320, %283, %.thread266
-  %.2185 = phi i32 [ %.7, %320 ], [ %.5188, %283 ], [ %.3186268, %.thread266 ]
+  %.2185 = phi i32 [ %.5188, %283 ], [ %.3186268, %.thread266 ], [ %.7, %320 ]
   %.not243 = icmp eq i32 %.2185, 0
   br i1 %.not243, label %.thread552, label %.thread287
 

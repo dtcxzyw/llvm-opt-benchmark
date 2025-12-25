@@ -276,7 +276,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   br i1 %118, label %.lr.ph.i, label %ft_get_adobe_glyph_index.exit, !llvm.loop !10
 
 ft_get_adobe_glyph_index.exit:                    ; preds = %71, %97, %100, %115, %._crit_edge.i, %79, %82
-  %.0.i = phi i32 [ %90, %82 ], [ 0, %115 ], [ 0, %97 ], [ 0, %79 ], [ 0, %._crit_edge.i ], [ 0, %100 ], [ 0, %71 ]
+  %.0.i = phi i32 [ %90, %82 ], [ 0, %115 ], [ 0, %79 ], [ 0, %97 ], [ 0, %._crit_edge.i ], [ 0, %100 ], [ 0, %71 ]
   %119 = icmp eq i8 %52, 46
   %120 = or i32 %.0.i, -2147483648
   %spec.select = select i1 %119, i32 %120, i32 %.0.i

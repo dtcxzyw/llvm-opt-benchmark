@@ -628,7 +628,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit151, %.loopexit158
-  %.0129 = phi i1 [ false, %.loopexit.sink.split ], [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit151 ], [ true, %.loopexit158 ], [ true, %.preheader ]
+  %.0129 = phi i1 [ true, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit151 ], [ false, %.loopexit.sink.split ], [ true, %.loopexit158 ], [ true, %.preheader ]
   ret i1 %.0129
 }
 

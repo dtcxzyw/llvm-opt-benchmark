@@ -557,7 +557,7 @@ sema_check_builtin_args_match.exit.thread.i:      ; preds = %sema_check_builtin_
   br label %sema_check_builtin_args_match.exit.thread.i.backedge
 
 sema_check_builtin_args_match.exit.thread.i.backedge: ; preds = %172, %166
-  %.0.i73.in.i.be = phi ptr [ %173, %172 ], [ %171, %166 ]
+  %.0.i73.in.i.be = phi ptr [ %171, %166 ], [ %173, %172 ]
   br label %sema_check_builtin_args_match.exit.thread.i
 
 174:                                              ; preds = %sema_check_builtin_args_match.exit.thread.i

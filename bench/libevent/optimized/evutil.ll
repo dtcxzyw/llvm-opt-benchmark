@@ -259,7 +259,7 @@ define range(i32 -1, 1) i32 @evutil_make_socket_nonblocking(i32 noundef %0) loca
   br label %10
 
 10:                                               ; preds = %.sink.split, %4, %6
-  %11 = phi i32 [ 0, %4 ], [ 0, %6 ], [ -1, %.sink.split ]
+  %11 = phi i32 [ 0, %6 ], [ 0, %4 ], [ -1, %.sink.split ]
   ret i32 %11
 }
 
@@ -341,7 +341,7 @@ define range(i32 -1, 1) i32 @evutil_make_socket_closeonexec(i32 noundef %0) loca
   br label %10
 
 10:                                               ; preds = %.sink.split, %4, %6
-  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %4 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -395,7 +395,7 @@ define range(i32 -1, 3) i32 @evutil_socket_connect_(ptr noundef captures(none) %
   tail call void (ptr, ...) @event_warn(ptr noundef nonnull %.str.sink.i, i32 noundef %9) #30
   br label %28
 
-evutil_make_socket_nonblocking.exit.thread:       ; preds = %16, %14, %3
+evutil_make_socket_nonblocking.exit.thread:       ; preds = %14, %16, %3
   %20 = load i32, ptr %0, align 4
   %21 = tail call i32 @connect(i32 noundef %20, ptr %1, i32 noundef %2) #30
   %22 = icmp slt i32 %21, 0
@@ -1466,7 +1466,7 @@ define range(i32 -1, 2) i32 @evutil_inet_pton(i32 noundef %0, ptr noundef %1, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %111, %113, %.lr.ph, %144, %77, %130, %._crit_edge, %122, %125, %.critedge139, %.critedge136, %39
-  %.2 = phi i32 [ 0, %.critedge136 ], [ 0, %39 ], [ 0, %.critedge139 ], [ 1, %144 ], [ 0, %122 ], [ 0, %._crit_edge ], [ -1, %130 ], [ 0, %125 ], [ 0, %77 ], [ 0, %.lr.ph ], [ 0, %113 ], [ 0, %111 ]
+  %.2 = phi i32 [ 0, %.critedge136 ], [ 0, %39 ], [ 0, %.critedge139 ], [ 0, %125 ], [ 0, %122 ], [ 0, %._crit_edge ], [ -1, %130 ], [ 1, %144 ], [ 0, %77 ], [ 0, %.lr.ph ], [ 0, %113 ], [ 0, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %153
 
@@ -2747,7 +2747,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   br label %130
 
 130:                                              ; preds = %.sink.split, %.critedge29.thread, %75
-  %.2111 = phi ptr [ null, %.critedge29.thread ], [ null, %75 ], [ %2, %.sink.split ]
+  %.2111 = phi ptr [ null, %75 ], [ null, %.critedge29.thread ], [ %2, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %131
@@ -3572,7 +3572,7 @@ evutil_fast_socket_closeonexec.exit.sink.split:   ; preds = %19, %15
   br label %evutil_fast_socket_closeonexec.exit
 
 evutil_fast_socket_closeonexec.exit:              ; preds = %evutil_fast_socket_closeonexec.exit.sink.split, %19, %evutil_fast_socket_nonblocking.exit, %9, %6, %3
-  %.0 = phi i32 [ -1, %9 ], [ %4, %3 ], [ -1, %6 ], [ %11, %19 ], [ %11, %evutil_fast_socket_nonblocking.exit ], [ -1, %evutil_fast_socket_closeonexec.exit.sink.split ]
+  %.0 = phi i32 [ -1, %9 ], [ %4, %3 ], [ -1, %6 ], [ %11, %evutil_fast_socket_nonblocking.exit ], [ %11, %19 ], [ -1, %evutil_fast_socket_closeonexec.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -3756,8 +3756,8 @@ define range(i32 -1, 1) i32 @evutil_ersatz_socketpair_(i32 noundef %0, i32 nound
   br label %88
 
 .thread:                                          ; preds = %52, %.split.us, %43, %40, %19, %25, %28, %31, %59
-  %.044.ph = phi i32 [ -1, %43 ], [ -1, %40 ], [ %.us-phi, %59 ], [ -1, %19 ], [ -1, %31 ], [ -1, %28 ], [ -1, %25 ], [ %47, %.split.us ], [ %53, %52 ]
-  %.043.ph = phi i32 [ %29, %43 ], [ %29, %40 ], [ %29, %59 ], [ -1, %19 ], [ %29, %31 ], [ %29, %28 ], [ -1, %25 ], [ %29, %.split.us ], [ %29, %52 ]
+  %.044.ph = phi i32 [ -1, %40 ], [ -1, %43 ], [ %.us-phi, %59 ], [ -1, %19 ], [ -1, %31 ], [ -1, %28 ], [ -1, %25 ], [ %47, %.split.us ], [ %53, %52 ]
+  %.043.ph = phi i32 [ %29, %40 ], [ %29, %43 ], [ %29, %59 ], [ -1, %19 ], [ %29, %31 ], [ %29, %28 ], [ -1, %25 ], [ %29, %.split.us ], [ %29, %52 ]
   %78 = tail call ptr @__errno_location() #31
   %79 = load i32, ptr %78, align 4
   br label %.critedge
@@ -3857,7 +3857,7 @@ evutil_fast_socket_nonblocking.exit.sink.split:   ; preds = %19, %15
   br label %evutil_fast_socket_nonblocking.exit
 
 evutil_fast_socket_nonblocking.exit:              ; preds = %evutil_fast_socket_nonblocking.exit.sink.split, %19, %evutil_fast_socket_closeonexec.exit, %10, %4, %7
-  %.0 = phi i32 [ %11, %10 ], [ %5, %4 ], [ %11, %19 ], [ %11, %evutil_fast_socket_closeonexec.exit ], [ %5, %7 ], [ -1, %evutil_fast_socket_nonblocking.exit.sink.split ]
+  %.0 = phi i32 [ %11, %10 ], [ %5, %4 ], [ %11, %evutil_fast_socket_closeonexec.exit ], [ %11, %19 ], [ %5, %7 ], [ -1, %evutil_fast_socket_nonblocking.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -3990,7 +3990,7 @@ evutil_fast_socket_nonblocking.exit.sink.split:   ; preds = %15, %11
   br label %evutil_fast_socket_nonblocking.exit
 
 evutil_fast_socket_nonblocking.exit:              ; preds = %evutil_fast_socket_nonblocking.exit.sink.split, %15, %evutil_fast_socket_closeonexec.exit, %6, %2
-  %.0 = phi i32 [ %7, %6 ], [ %3, %2 ], [ %7, %15 ], [ %7, %evutil_fast_socket_closeonexec.exit ], [ -1, %evutil_fast_socket_nonblocking.exit.sink.split ]
+  %.0 = phi i32 [ %7, %6 ], [ %3, %2 ], [ %7, %evutil_fast_socket_closeonexec.exit ], [ %7, %15 ], [ -1, %evutil_fast_socket_nonblocking.exit.sink.split ]
   ret i32 %.0
 }
 

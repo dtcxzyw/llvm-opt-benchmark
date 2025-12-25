@@ -1669,7 +1669,7 @@ Py_DECREF.exit.sink.split:                        ; preds = %31, %18
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %.critedge25, %Py_DECREF.exit.sink.split, %9, %31, %29, %18, %.critedge, %6, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %Py_DECREF.exit.sink.split ], [ %7, %9 ], [ null, %.critedge ], [ null, %18 ], [ null, %29 ], [ null, %31 ], [ %7, %.critedge25 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ %7, %9 ], [ null, %Py_DECREF.exit.sink.split ], [ null, %.critedge ], [ null, %18 ], [ null, %29 ], [ null, %31 ], [ %7, %.critedge25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

@@ -287,7 +287,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h1ad649304f4d9bdaE(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17hac7af97b0f4a6602E.exit unwind label %.loopexit79
 
 .loopexit77:                                      ; preds = %.lr.ph7.i, %80, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %49, %80 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %49, %80 ], [ %.06.i, %.lr.ph7.i ]
   %98 = add i64 %.sroa.0.0.i, %.0108
   %99 = icmp ugt i64 %.0108, %98
   br i1 %99, label %.invoke, label %100

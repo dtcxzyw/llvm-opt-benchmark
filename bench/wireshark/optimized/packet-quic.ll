@@ -1271,7 +1271,7 @@ get_conn_by_number.exit.thread.sink.split:        ; preds = %.lr.ph, %._crit_edg
   br label %get_conn_by_number.exit.thread
 
 get_conn_by_number.exit.thread:                   ; preds = %9, %get_conn_by_number.exit.thread.sink.split, %14, %3, %._crit_edge, %11, %get_conn_by_number.exit
-  %.017 = phi i1 [ true, %get_conn_by_number.exit.thread.sink.split ], [ false, %14 ], [ false, %11 ], [ false, %get_conn_by_number.exit ], [ false, %._crit_edge ], [ false, %3 ], [ false, %9 ]
+  %.017 = phi i1 [ false, %14 ], [ true, %get_conn_by_number.exit.thread.sink.split ], [ false, %11 ], [ false, %get_conn_by_number.exit ], [ false, %._crit_edge ], [ false, %3 ], [ false, %9 ]
   ret i1 %.017
 }
 
@@ -1641,8 +1641,8 @@ quic_find_stateless_reset_token.exit:             ; preds = %126
   br label %.thread199
 
 .thread199:                                       ; preds = %.thread199.loopexit, %84, %quic_connection_from_conv.exit.i, %82, %81
-  %137 = phi i8 [ %71, %84 ], [ %71, %82 ], [ %71, %81 ], [ %.pre, %.thread199.loopexit ], [ %71, %quic_connection_from_conv.exit.i ]
-  %.0194 = phi ptr [ null, %84 ], [ null, %82 ], [ %72, %81 ], [ null, %.thread199.loopexit ], [ null, %quic_connection_from_conv.exit.i ]
+  %137 = phi i8 [ %71, %84 ], [ %71, %82 ], [ %71, %81 ], [ %71, %quic_connection_from_conv.exit.i ], [ %.pre, %.thread199.loopexit ]
+  %.0194 = phi ptr [ null, %84 ], [ null, %82 ], [ %72, %81 ], [ null, %quic_connection_from_conv.exit.i ], [ null, %.thread199.loopexit ]
   %138 = load i32, ptr %42, align 4
   %139 = load i8, ptr %45, align 1, !range !6, !noundef !7
   %140 = trunc nuw i8 %139 to i1
@@ -6607,9 +6607,9 @@ quic_get_crypto_state.exit:                       ; preds = %431, %439, %443
   br label %624
 
 624:                                              ; preds = %.thread12.i.i, %603, %.thread2.thread39.i.i
-  %.1216.i.i = phi ptr [ %.0215.i.i, %.thread12.i.i ], [ %607, %603 ], [ %.0215.i.i, %.thread2.thread39.i.i ]
-  %.0212.i.i = phi i1 [ true, %.thread12.i.i ], [ false, %603 ], [ false, %.thread2.thread39.i.i ]
-  %.2208.i.i = phi ptr [ %.0206615.i.i, %.thread12.i.i ], [ %616, %603 ], [ %.0206616.i.i, %.thread2.thread39.i.i ]
+  %.1216.i.i = phi ptr [ %607, %603 ], [ %.0215.i.i, %.thread12.i.i ], [ %.0215.i.i, %.thread2.thread39.i.i ]
+  %.0212.i.i = phi i1 [ false, %603 ], [ true, %.thread12.i.i ], [ false, %.thread2.thread39.i.i ]
+  %.2208.i.i = phi ptr [ %616, %603 ], [ %.0206615.i.i, %.thread12.i.i ], [ %.0206616.i.i, %.thread2.thread39.i.i ]
   %625 = icmp eq ptr %.2208.i.i, null
   br i1 %625, label %dissect_quic_crypto_payload.exit, label %.thread18.i.i
 

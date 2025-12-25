@@ -415,7 +415,7 @@ starts_with_chunk_size.exit:                      ; preds = %32
   br i1 %or.cond30, label %.loopexit, label %.lr.ph502, !llvm.loop !9
 
 .loopexit.sink.split:                             ; preds = %126, %.lr.ph502, %153, %147, %158
-  %.sink = phi i32 [ 268435455, %147 ], [ 268435455, %153 ], [ %159, %158 ], [ 268435455, %.lr.ph502 ], [ 268435455, %126 ]
+  %.sink = phi i32 [ 268435455, %147 ], [ %159, %158 ], [ 268435455, %153 ], [ 268435455, %.lr.ph502 ], [ 268435455, %126 ]
   store i32 %1, ptr %119, align 4
   store i32 %.sink, ptr %120, align 8
   br label %.loopexit

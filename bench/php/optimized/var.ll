@@ -8174,7 +8174,7 @@ zend_tmp_string_release.exit.sink.split.i:        ; preds = %184, %129, %68
   br label %zend_tmp_string_release.exit.i
 
 zend_tmp_string_release.exit.i:                   ; preds = %.thread127.i, %.thread130.i, %zend_tmp_string_release.exit.sink.split.i, %184, %180, %179, %129, %125, %124, %68, %64, %63, %4
-  %201 = phi i1 [ false, %64 ], [ true, %4 ], [ false, %179 ], [ false, %184 ], [ false, %63 ], [ false, %180 ], [ false, %124 ], [ false, %zend_tmp_string_release.exit.sink.split.i ], [ false, %129 ], [ false, %125 ], [ false, %68 ], [ true, %.thread127.i ], [ false, %.thread130.i ]
+  %201 = phi i1 [ false, %64 ], [ true, %4 ], [ false, %179 ], [ false, %68 ], [ false, %63 ], [ false, %180 ], [ false, %124 ], [ false, %184 ], [ false, %zend_tmp_string_release.exit.sink.split.i ], [ false, %125 ], [ false, %129 ], [ false, %.thread130.i ], [ true, %.thread127.i ]
   %.not79.i = icmp eq ptr %9, null
   br i1 %.not79.i, label %php_var_serialize_get_sleep_props.exit, label %202
 

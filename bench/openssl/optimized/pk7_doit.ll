@@ -1689,8 +1689,8 @@ PKCS7_get_octet_string.exit108:                   ; preds = %103, %106, %110, %1
   br label %139
 
 139:                                              ; preds = %.sink.split, %PKCS7_get_octet_string.exit, %91, %29
-  %.079 = phi ptr [ %61, %PKCS7_get_octet_string.exit ], [ %61, %91 ], [ %32, %29 ], [ %.079.ph, %.sink.split ]
-  %.078 = phi ptr [ %.0.i, %PKCS7_get_octet_string.exit ], [ %.0.i, %91 ], [ %36, %29 ], [ %.sink, %.sink.split ]
+  %.079 = phi ptr [ %61, %91 ], [ %61, %PKCS7_get_octet_string.exit ], [ %32, %29 ], [ %.079.ph, %.sink.split ]
+  %.078 = phi ptr [ %.0.i, %91 ], [ %.0.i, %PKCS7_get_octet_string.exit ], [ %36, %29 ], [ %.sink, %.sink.split ]
   %.not91 = icmp eq ptr %.079, null
   br i1 %.not91, label %.thread120, label %.preheader
 
@@ -1908,7 +1908,7 @@ do_pkcs7_signed_attrib.exit:                      ; preds = %170
   br label %.loopexit
 
 .loopexit:                                        ; preds = %do_pkcs7_signed_attrib.exit, %153, %146, %216, %220, %.thread129, %231, %.thread127, %.thread118, %do_pkcs7_signed_attrib.exit.thread, %218, %134, %52, %41
-  %.077 = phi i32 [ 0, %134 ], [ 1, %216 ], [ 1, %220 ], [ 0, %.thread118 ], [ 1, %.thread129 ], [ 0, %do_pkcs7_signed_attrib.exit.thread ], [ 0, %218 ], [ 0, %231 ], [ 0, %.thread127 ], [ 0, %41 ], [ 0, %52 ], [ 0, %146 ], [ 0, %153 ], [ 0, %do_pkcs7_signed_attrib.exit ]
+  %.077 = phi i32 [ 0, %134 ], [ 1, %.thread129 ], [ 1, %220 ], [ 0, %.thread118 ], [ 1, %216 ], [ 0, %do_pkcs7_signed_attrib.exit.thread ], [ 0, %218 ], [ 0, %231 ], [ 0, %.thread127 ], [ 0, %41 ], [ 0, %52 ], [ 0, %146 ], [ 0, %153 ], [ 0, %do_pkcs7_signed_attrib.exit ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %19) #4
   br label %232
 

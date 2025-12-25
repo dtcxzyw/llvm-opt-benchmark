@@ -1429,8 +1429,8 @@ define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %254
 
 254:                                              ; preds = %250, %240, %228, %189
-  %255 = phi ptr [ %237, %250 ], [ %237, %240 ], [ %184, %228 ], [ %184, %189 ]
-  %256 = phi ptr [ %80, %250 ], [ %238, %240 ], [ %80, %228 ], [ %80, %189 ]
+  %255 = phi ptr [ %237, %240 ], [ %237, %250 ], [ %184, %189 ], [ %184, %228 ]
+  %256 = phi ptr [ %238, %240 ], [ %80, %250 ], [ %80, %189 ], [ %80, %228 ]
   %257 = icmp ult ptr %255, %3
   br i1 %257, label %.loopexit, label %.preheader.preheader
 

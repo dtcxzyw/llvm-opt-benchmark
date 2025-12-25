@@ -8407,7 +8407,7 @@ _ZN11ast_manager7mk_joinEPN18dependency_managerINS_22expr_dependency_configEE10d
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %197, %.critedge330, %_ZNK6vectorIjLb0EjE4sizeEv.exit156, %_ZNK6vectorIjLb0EjE4sizeEv.exit158, %266, %.preheader.i.i.i, %.loopexit, %258, %268, %218, %229, %232, %788
-  %790 = phi ptr [ %163, %218 ], [ %163, %229 ], [ %.pre405, %788 ], [ %163, %232 ], [ %163, %_ZNK6vectorIjLb0EjE4sizeEv.exit156 ], [ %163, %.preheader.i.i.i ], [ %413, %.critedge330 ], [ %163, %258 ], [ %163, %.loopexit ], [ %163, %266 ], [ %163, %_ZNK6vectorIjLb0EjE4sizeEv.exit158 ], [ %163, %197 ], [ %163, %268 ]
+  %790 = phi ptr [ %163, %218 ], [ %163, %229 ], [ %.pre405, %788 ], [ %163, %232 ], [ %163, %_ZNK6vectorIjLb0EjE4sizeEv.exit156 ], [ %163, %.loopexit ], [ %413, %.critedge330 ], [ %163, %266 ], [ %163, %.preheader.i.i.i ], [ %163, %258 ], [ %163, %_ZNK6vectorIjLb0EjE4sizeEv.exit158 ], [ %163, %197 ], [ %163, %268 ]
   %.not.i.i269 = icmp eq ptr %790, null
   br i1 %.not.i.i269, label %_ZN6vectorIjLb0EjED2Ev.exit, label %791
 
@@ -9817,7 +9817,7 @@ _ZgtRK8rationalS1_.exit32:                        ; preds = %94
   br i1 %111, label %.thread, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, !llvm.loop !252
 
 .thread:                                          ; preds = %.preheader, %108, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %99, %102, %_ZgtRK8rationalS1_.exit32, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit30, %.preheader39, %36, %39, %_ZgtRK8rationalS1_.exit
-  %.026 = phi i1 [ false, %36 ], [ false, %_ZgtRK8rationalS1_.exit ], [ false, %39 ], [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit30 ], [ true, %.preheader39 ], [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ false, %99 ], [ false, %102 ], [ false, %_ZgtRK8rationalS1_.exit32 ], [ true, %108 ], [ false, %.preheader ]
+  %.026 = phi i1 [ false, %36 ], [ false, %_ZgtRK8rationalS1_.exit ], [ false, %39 ], [ true, %.preheader39 ], [ false, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit30 ], [ false, %99 ], [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ false, %102 ], [ false, %_ZgtRK8rationalS1_.exit32 ], [ true, %108 ], [ false, %.preheader ]
   ret i1 %.026
 }
 

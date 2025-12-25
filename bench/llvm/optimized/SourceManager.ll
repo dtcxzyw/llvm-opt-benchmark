@@ -11171,7 +11171,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %70
   br label %.loopexit
 
 97:                                               ; preds = %.critedge, %58, %.critedge43, %91, %85
-  %.1 = phi i32 [ %14, %.critedge43 ], [ %spec.select, %.critedge ], [ %14, %91 ], [ %14, %58 ], [ %14, %85 ]
+  %.1 = phi i32 [ %spec.select, %.critedge ], [ %14, %.critedge43 ], [ %14, %91 ], [ %14, %58 ], [ %14, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %13
 

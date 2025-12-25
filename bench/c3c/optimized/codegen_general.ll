@@ -145,7 +145,7 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
   br label %.loopexit54
 
 .loopexit54:                                      ; preds = %40, %.loopexit54.loopexit.critedge, %17, %20, %._crit_edge, %11, %8
-  %.041 = phi ptr [ null, %8 ], [ null, %11 ], [ %spec.select, %._crit_edge ], [ null, %17 ], [ null, %20 ], [ null, %.loopexit54.loopexit.critedge ], [ null, %40 ]
+  %.041 = phi ptr [ null, %8 ], [ null, %11 ], [ null, %20 ], [ %spec.select, %._crit_edge ], [ null, %17 ], [ null, %.loopexit54.loopexit.critedge ], [ null, %40 ]
   ret ptr %.041
 }
 

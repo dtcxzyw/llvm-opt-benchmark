@@ -21822,7 +21822,7 @@ define noundef zeroext i1 @_ZN7hir_def4attr5Attrs7is_test17hc3c01896372ee0f5E(pt
   br i1 %.not10.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0daec7a8579570e2E.exit", label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h0daec7a8579570e2E.exit": ; preds = %"_ZN7hir_def4attr5Attrs7is_test28_$u7b$$u7b$closure$u7d$$u7d$17h8f5cc920eb6c2ef1E.exit.i", %15, %19, %1
-  %30 = phi i1 [ true, %15 ], [ false, %1 ], [ true, %19 ], [ false, %"_ZN7hir_def4attr5Attrs7is_test28_$u7b$$u7b$closure$u7d$$u7d$17h8f5cc920eb6c2ef1E.exit.i" ]
+  %30 = phi i1 [ false, %1 ], [ true, %15 ], [ true, %19 ], [ false, %"_ZN7hir_def4attr5Attrs7is_test28_$u7b$$u7b$closure$u7d$$u7d$17h8f5cc920eb6c2ef1E.exit.i" ]
   ret i1 %30
 }
 

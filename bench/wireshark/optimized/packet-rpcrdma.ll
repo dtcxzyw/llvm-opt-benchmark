@@ -2477,7 +2477,7 @@ get_reply_chunk_size.exit:                        ; preds = %36, %37
   br label %get_read_list_size.exit.thread
 
 get_read_list_size.exit.thread:                   ; preds = %9, %4, %16, %23, %get_reply_chunk_size.exit, %37, %32, %12, %get_write_list_size.exit, %get_read_list_size.exit
-  %.0 = phi i32 [ 0, %37 ], [ 0, %get_write_list_size.exit ], [ 0, %get_read_list_size.exit ], [ %spec.select, %get_reply_chunk_size.exit ], [ 0, %32 ], [ 0, %16 ], [ 0, %12 ], [ 0, %23 ], [ 0, %4 ], [ 0, %9 ]
+  %.0 = phi i32 [ 0, %37 ], [ 0, %get_write_list_size.exit ], [ 0, %get_read_list_size.exit ], [ %spec.select, %get_reply_chunk_size.exit ], [ 0, %32 ], [ 0, %12 ], [ 0, %16 ], [ 0, %23 ], [ 0, %4 ], [ 0, %9 ]
   ret i32 %.0
 }
 

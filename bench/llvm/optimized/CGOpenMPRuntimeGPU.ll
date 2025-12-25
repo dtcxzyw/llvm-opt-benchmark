@@ -12242,7 +12242,7 @@ switch.lookup:                                    ; preds = %_ZNK5clang4Decl7get
   br label %_ZNK5clang4Decl7hasAttrINS_19OMPAllocateDeclAttrEEEbv.exit.thread15
 
 _ZNK5clang4Decl7hasAttrINS_19OMPAllocateDeclAttrEEEbv.exit.thread15: ; preds = %19, %_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit, %switch.lookup, %8, %4, %3, %_ZNK5clang4Decl7hasAttrINS_19OMPAllocateDeclAttrEEEbv.exit
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZNK5clang4Decl7hasAttrINS_19OMPAllocateDeclAttrEEEbv.exit ], [ true, %switch.lookup ], [ false, %4 ], [ false, %8 ], [ false, %_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit ], [ false, %19 ]
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZNK5clang4Decl7hasAttrINS_19OMPAllocateDeclAttrEEEbv.exit ], [ false, %8 ], [ false, %4 ], [ true, %switch.lookup ], [ false, %_ZNK5clang4Decl7getAttrINS_19OMPAllocateDeclAttrEEEPT_v.exit ], [ false, %19 ]
   ret i1 %.0
 }
 

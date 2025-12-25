@@ -454,10 +454,10 @@ define dso_local range(i32 0, 3) i32 @verify_main(i32 noundef %0, ptr noundef %1
   br i1 %exitcond.not, label %select.unfold, label %.preheader, !llvm.loop !19
 
 select.unfold:                                    ; preds = %76, %67, %62, %58, %55, %52, %39, %.lr.ph148, %.preheader, %._crit_edge, %99, %89, %2, %86, %12
-  %.083 = phi ptr [ null, %2 ], [ null, %12 ], [ %90, %99 ], [ %90, %.preheader ], [ null, %._crit_edge ], [ null, %89 ], [ null, %86 ], [ null, %.lr.ph148 ], [ null, %39 ], [ null, %52 ], [ null, %55 ], [ null, %58 ], [ null, %62 ], [ null, %67 ], [ null, %76 ]
-  %.080 = phi ptr [ null, %2 ], [ %.3, %12 ], [ %.181, %99 ], [ %.181, %.preheader ], [ %.181, %._crit_edge ], [ %.181, %89 ], [ %.181, %86 ], [ %.181, %.lr.ph148 ], [ %.181, %39 ], [ %.181, %52 ], [ %.181, %55 ], [ %.181, %58 ], [ %.181, %62 ], [ %.181, %67 ], [ %.181, %76 ]
-  %.056 = phi i32 [ 1, %2 ], [ 1, %12 ], [ %sext, %99 ], [ %spec.select105, %.preheader ], [ 0, %._crit_edge ], [ 1, %89 ], [ 1, %86 ], [ 0, %.lr.ph148 ], [ 1, %39 ], [ 1, %52 ], [ 1, %55 ], [ 1, %58 ], [ 1, %62 ], [ 1, %67 ], [ 1, %76 ]
-  %.0 = phi ptr [ null, %2 ], [ %.1, %12 ], [ %.1, %99 ], [ %.1, %.preheader ], [ %.1, %._crit_edge ], [ %.1, %89 ], [ %.1, %86 ], [ %.1, %.lr.ph148 ], [ %.1, %67 ], [ null, %62 ], [ %.1, %58 ], [ %.1, %55 ], [ %.1, %52 ], [ %.1, %39 ], [ %.1, %76 ]
+  %.083 = phi ptr [ null, %2 ], [ null, %12 ], [ %90, %99 ], [ null, %89 ], [ null, %._crit_edge ], [ %90, %.preheader ], [ null, %86 ], [ null, %.lr.ph148 ], [ null, %39 ], [ null, %52 ], [ null, %55 ], [ null, %58 ], [ null, %62 ], [ null, %67 ], [ null, %76 ]
+  %.080 = phi ptr [ null, %2 ], [ %.3, %12 ], [ %.181, %99 ], [ %.181, %89 ], [ %.181, %._crit_edge ], [ %.181, %.preheader ], [ %.181, %86 ], [ %.181, %.lr.ph148 ], [ %.181, %39 ], [ %.181, %52 ], [ %.181, %55 ], [ %.181, %58 ], [ %.181, %62 ], [ %.181, %67 ], [ %.181, %76 ]
+  %.056 = phi i32 [ 1, %2 ], [ 1, %12 ], [ %sext, %99 ], [ 1, %89 ], [ 0, %._crit_edge ], [ %spec.select105, %.preheader ], [ 1, %86 ], [ 0, %.lr.ph148 ], [ 1, %39 ], [ 1, %52 ], [ 1, %55 ], [ 1, %58 ], [ 1, %62 ], [ 1, %67 ], [ 1, %76 ]
+  %.0 = phi ptr [ null, %2 ], [ %.1, %12 ], [ %.1, %99 ], [ %.1, %89 ], [ %.1, %._crit_edge ], [ %.1, %.preheader ], [ %.1, %86 ], [ %.1, %.lr.ph148 ], [ %.1, %67 ], [ null, %62 ], [ %.1, %58 ], [ %.1, %55 ], [ %.1, %52 ], [ %.1, %39 ], [ %.1, %76 ]
   %.056.fr = freeze i32 %.056
   call void @X509_VERIFY_PARAM_free(ptr noundef %6) #3
   call void @X509_STORE_free(ptr noundef %.083) #3

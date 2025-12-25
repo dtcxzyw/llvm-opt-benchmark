@@ -943,7 +943,7 @@ throwOutOfMemoryError.exit98.thread:              ; preds = %95, %89, %83, %77
   br label %.lr.ph112.preheader
 
 throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %108, %.lr.ph108, %60, %55, %handleRV.exit
-  %.089 = phi ptr [ null, %55 ], [ null, %.lr.ph108 ], [ null, %handleRV.exit ], [ null, %60 ], [ %103, %108 ], [ null, %.lr.ph106 ], [ null, %42 ]
+  %.089 = phi ptr [ null, %handleRV.exit ], [ null, %.lr.ph108 ], [ null, %55 ], [ null, %60 ], [ %103, %108 ], [ null, %.lr.ph106 ], [ null, %42 ]
   %124 = load ptr, ptr %0, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 1560
   %126 = load ptr, ptr %125, align 8

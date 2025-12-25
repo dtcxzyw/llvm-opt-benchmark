@@ -3656,7 +3656,7 @@ lean_inc.exit:                                    ; preds = %143, %142, %140, %l
   br i1 %.not115, label %146, label %lean_dec.exit73.backedge
 
 lean_dec.exit73.backedge:                         ; preds = %lean_inc.exit, %149, %151, %152, %lean_inc.exit78, %73, %75, %76
-  %.063.be = phi ptr [ %135, %lean_inc.exit ], [ %135, %149 ], [ %59, %lean_inc.exit78 ], [ %59, %76 ], [ %59, %75 ], [ %59, %73 ], [ %135, %152 ], [ %135, %151 ]
+  %.063.be = phi ptr [ %135, %149 ], [ %135, %lean_inc.exit ], [ %59, %lean_inc.exit78 ], [ %59, %76 ], [ %59, %75 ], [ %59, %73 ], [ %135, %152 ], [ %135, %151 ]
   br label %lean_dec.exit73
 
 146:                                              ; preds = %lean_inc.exit

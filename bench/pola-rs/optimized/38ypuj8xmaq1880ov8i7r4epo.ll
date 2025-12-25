@@ -4085,7 +4085,7 @@ define hidden void @"_ZN122_$LT$polars_parquet_format..parquet_format..ColumnChu
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i.loopexit.split-lp:           ; preds = %273, %276, %305, %576
-  %.sroa.0305.1.ph.i.ph = phi i1 [ true, %276 ], [ true, %273 ], [ true, %576 ], [ false, %305 ]
+  %.sroa.0305.1.ph.i.ph = phi i1 [ true, %276 ], [ true, %273 ], [ false, %305 ], [ true, %576 ]
   %lpad.loopexit.split-lp986 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i

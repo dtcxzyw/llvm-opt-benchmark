@@ -92982,8 +92982,8 @@ define hidden void @"_ZN93_$LT$ockam_core..routing..address..Address$u20$as$u20$
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %102, %101, %.thread314.thread, %87, %3
-  %.sroa.14.0.ph.ph = phi i64 [ %.sroa.14.5517, %.thread314.thread ], [ %.sroa.14.5517, %101 ], [ %.sroa.14.5517, %102 ], [ %.sroa.14.2.ph, %87 ], [ undef, %3 ]
-  %.sroa.0.0308.ph.ph = phi ptr [ %.sroa.0.5518, %.thread314.thread ], [ %.sroa.0.5518, %101 ], [ %.sroa.0.5518, %102 ], [ %.sroa.0.2.ph, %87 ], [ null, %3 ]
+  %.sroa.14.0.ph.ph = phi i64 [ %.sroa.14.5517, %101 ], [ %.sroa.14.5517, %.thread314.thread ], [ %.sroa.14.5517, %102 ], [ %.sroa.14.2.ph, %87 ], [ undef, %3 ]
+  %.sroa.0.0308.ph.ph = phi ptr [ %.sroa.0.5518, %101 ], [ %.sroa.0.5518, %.thread314.thread ], [ %.sroa.0.5518, %102 ], [ %.sroa.0.2.ph, %87 ], [ null, %3 ]
   %lpad.loopexit.split-lp344 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

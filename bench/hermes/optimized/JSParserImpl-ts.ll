@@ -1197,8 +1197,8 @@ if.else143:                                       ; preds = %if.end129
   br i1 %call146, label %while.cond, label %if.end149, !llvm.loop !6
 
 if.end149:                                        ; preds = %if.else143, %while.cond, %if.else143.us, %while.cond.us, %land.lhs.true117.thread, %if.end112, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117, %land.lhs.true117
-  %type.0216 = phi ptr [ %type.0217, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %type.0, %if.end112 ], [ %type.0217, %land.lhs.true117 ], [ null, %land.lhs.true117.thread ], [ null, %if.else143.us ], [ null, %while.cond.us ], [ %type.0217, %while.cond ], [ %type.0217, %if.else143 ]
-  %isFunction.2 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ 0, %if.end112 ], [ %isFunction.0219, %land.lhs.true117 ], [ 1, %land.lhs.true117.thread ], [ 1, %if.else143.us ], [ 1, %while.cond.us ], [ 1, %while.cond ], [ 1, %if.else143 ]
+  %type.0216 = phi ptr [ %type.0217, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %type.0217, %land.lhs.true117 ], [ %type.0, %if.end112 ], [ null, %land.lhs.true117.thread ], [ null, %if.else143.us ], [ null, %while.cond.us ], [ %type.0217, %while.cond ], [ %type.0217, %if.else143 ]
+  %isFunction.2 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %isFunction.0219, %land.lhs.true117 ], [ 0, %if.end112 ], [ 1, %land.lhs.true117.thread ], [ 1, %if.else143.us ], [ 1, %while.cond.us ], [ 1, %while.cond ], [ 1, %if.else143 ]
   %call152 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %start.coerce) #4
   br i1 %call152, label %if.end154, label %return
 

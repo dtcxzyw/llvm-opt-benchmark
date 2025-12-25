@@ -1579,7 +1579,7 @@ php_mail_build_headers_check_field_name.exit:     ; preds = %13, %6
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.41, ptr noundef nonnull %7) #11
   br label %93
 
-40:                                               ; preds = %24, %27
+40:                                               ; preds = %27, %24
   tail call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.42, ptr noundef nonnull %7) #11
   br label %93
 

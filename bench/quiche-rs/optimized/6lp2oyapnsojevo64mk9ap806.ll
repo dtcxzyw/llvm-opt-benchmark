@@ -2002,7 +2002,7 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   store i64 29, ptr %0, align 8
   br label %549
 
-.thread401:                                       ; preds = %532, %531, %533
+.thread401:                                       ; preds = %533, %531, %532
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4, ptr %536, align 8
   store i64 29, ptr %0, align 8
@@ -2065,7 +2065,7 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %554)
   br label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit"
 
-.critedge321:                                     ; preds = %529, %521, %523, %527, %532, %531, %533, %thread-pre-split, %thread-pre-split, %534
+.critedge321:                                     ; preds = %533, %521, %523, %527, %529, %531, %532, %thread-pre-split, %thread-pre-split, %534
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %30, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %555

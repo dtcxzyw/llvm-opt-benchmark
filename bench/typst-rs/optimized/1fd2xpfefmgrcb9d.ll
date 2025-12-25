@@ -6778,8 +6778,8 @@ default.unreachable2.i.i:                         ; preds = %47
   br label %_ZN10ttf_parser6tables4cmap8Subtable11glyph_index17h29cd81520ce026a6E.exit.i
 
 _ZN10ttf_parser6tables4cmap8Subtable11glyph_index17h29cd81520ce026a6E.exit.i: ; preds = %78, %74, %70, %66, %62, %58, %53
-  %82 = phi i16 [ %57, %53 ], [ %61, %58 ], [ %65, %62 ], [ %69, %66 ], [ %81, %78 ], [ %73, %70 ], [ %77, %74 ]
-  %.sroa.0.0.i.i = phi i16 [ %spec.select8.i.i.i, %53 ], [ %60, %58 ], [ %64, %62 ], [ %68, %66 ], [ %80, %78 ], [ %72, %70 ], [ %76, %74 ]
+  %82 = phi i16 [ %81, %78 ], [ %61, %58 ], [ %65, %62 ], [ %69, %66 ], [ %57, %53 ], [ %73, %70 ], [ %77, %74 ]
+  %.sroa.0.0.i.i = phi i16 [ %80, %78 ], [ %60, %58 ], [ %64, %62 ], [ %68, %66 ], [ %spec.select8.i.i.i, %53 ], [ %72, %70 ], [ %76, %74 ]
   %83 = icmp eq i16 %.sroa.0.0.i.i, 1
   br i1 %83, label %85, label %.backedge.i
 

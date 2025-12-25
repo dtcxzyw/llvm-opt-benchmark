@@ -8584,7 +8584,7 @@ Wlc_PrsFindLine.exit:                             ; preds = %1913, %.thread1967,
   br label %.loopexit2016
 
 .loopexit2016:                                    ; preds = %85, %1887, %.loopexit2016.loopexit3134.split.loop.exit, %246, %Wlc_PrsStrtok.exit1186, %Wlc_PrsStrtok.exit1186.thread, %Vec_IntPush.exit1890, %1754, %1673, %1604, %1515, %1352, %Vec_IntPush.exit1544, %730, %580, %.tail1969.thread
-  %.3771 = phi i32 [ %.1769.ph.lcssa2155, %Wlc_PrsStrtok.exit1186.thread ], [ %.1769.ph2456, %1887 ], [ %.4772.lcssa.ph, %246 ], [ %.1769.ph.lcssa2155, %Wlc_PrsStrtok.exit1186 ], [ %.1769.ph2456, %.tail1969.thread ], [ %.1769.ph2456, %580 ], [ %.1769.ph2456, %730 ], [ %.1769.ph2456, %Vec_IntPush.exit1544 ], [ %.1769.ph2456, %1352 ], [ %.1769.ph2456, %1515 ], [ %.1769.ph2456, %1604 ], [ %.1769.ph2456, %1673 ], [ %.1769.ph2456, %1754 ], [ %.1769.ph2456, %Vec_IntPush.exit1890 ], [ %1921, %.loopexit2016.loopexit3134.split.loop.exit ], [ %smax, %85 ]
+  %.3771 = phi i32 [ %.1769.ph2456, %1887 ], [ %.1769.ph.lcssa2155, %Wlc_PrsStrtok.exit1186.thread ], [ %.4772.lcssa.ph, %246 ], [ %.1769.ph.lcssa2155, %Wlc_PrsStrtok.exit1186 ], [ %.1769.ph2456, %.tail1969.thread ], [ %.1769.ph2456, %580 ], [ %.1769.ph2456, %730 ], [ %.1769.ph2456, %Vec_IntPush.exit1544 ], [ %.1769.ph2456, %1352 ], [ %.1769.ph2456, %1515 ], [ %.1769.ph2456, %1604 ], [ %.1769.ph2456, %1673 ], [ %.1769.ph2456, %1754 ], [ %.1769.ph2456, %Vec_IntPush.exit1890 ], [ %1921, %.loopexit2016.loopexit3134.split.loop.exit ], [ %smax, %85 ]
   %1922 = add nsw i32 %.3771, 1
   %1923 = load ptr, ptr %30, align 8, !tbaa !23
   %1924 = getelementptr i8, ptr %1923, i64 4
@@ -8693,7 +8693,7 @@ Wlc_PrsFindLine.exit:                             ; preds = %1913, %.thread1967,
   br label %.loopexit2017
 
 .loopexit2017:                                    ; preds = %.tail1969.thread, %532, %.tail1969, %302, %294, %.thread1934, %.thread, %1949, %1952, %.critedge1061, %.critedge1059, %.critedge1057, %.critedge1055, %.critedge1051, %.critedge1049, %.critedge1047, %.critedge1045, %.critedge1043, %1918, %249, %75
-  %.2 = phi i32 [ 0, %75 ], [ 0, %.thread ], [ 0, %249 ], [ 0, %1918 ], [ 1, %1949 ], [ 0, %302 ], [ 1, %1952 ], [ 0, %.critedge1061 ], [ 0, %.critedge1043 ], [ 0, %.critedge1045 ], [ 0, %.thread1934 ], [ 0, %.critedge1047 ], [ 0, %.critedge1049 ], [ 0, %.critedge1051 ], [ 0, %.critedge1055 ], [ 0, %.critedge1057 ], [ 0, %.critedge1059 ], [ 0, %294 ], [ 0, %.tail1969 ], [ 0, %532 ], [ 0, %.tail1969.thread ]
+  %.2 = phi i32 [ 0, %75 ], [ 0, %.thread ], [ 0, %249 ], [ 0, %1918 ], [ 1, %1952 ], [ 0, %.critedge1061 ], [ 1, %1949 ], [ 0, %302 ], [ 0, %.critedge1043 ], [ 0, %.critedge1045 ], [ 0, %.thread1934 ], [ 0, %.critedge1047 ], [ 0, %.critedge1049 ], [ 0, %.critedge1051 ], [ 0, %.critedge1055 ], [ 0, %.critedge1057 ], [ 0, %.critedge1059 ], [ 0, %294 ], [ 0, %.tail1969 ], [ 0, %532 ], [ 0, %.tail1969.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
 }

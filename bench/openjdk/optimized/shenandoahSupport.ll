@@ -19224,7 +19224,7 @@ _ZNK10Node_ArrayixEj.exit292:                     ; preds = %_ZNK14PhaseIdealLoo
   br label %824
 
 824:                                              ; preds = %.sink.split, %708, %_ZNK10Node_ArrayixEj.exit283, %_ZNK10Node_ArrayixEj.exit292, %_ZNK16MemoryGraphFixer12ctrl_or_selfEP4Node.exit
-  %.2204 = phi i1 [ %.1203363, %_ZNK16MemoryGraphFixer12ctrl_or_selfEP4Node.exit ], [ true, %708 ], [ %.1203363, %_ZNK10Node_ArrayixEj.exit283 ], [ %.1203363, %_ZNK10Node_ArrayixEj.exit292 ], [ true, %.sink.split ]
+  %.2204 = phi i1 [ %.1203363, %_ZNK10Node_ArrayixEj.exit292 ], [ true, %708 ], [ %.1203363, %_ZNK10Node_ArrayixEj.exit283 ], [ %.1203363, %_ZNK16MemoryGraphFixer12ctrl_or_selfEP4Node.exit ], [ true, %.sink.split ]
   %indvars.iv.next404 = add nsw i64 %indvars.iv403, -1
   %825 = icmp sgt i64 %indvars.iv403, 0
   br i1 %825, label %.lr.ph366, label %.loopexit334, !llvm.loop !78

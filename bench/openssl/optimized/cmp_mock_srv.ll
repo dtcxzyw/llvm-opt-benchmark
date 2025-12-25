@@ -1127,7 +1127,7 @@ define internal range(i32 0, 2) i32 @process_certConf(ptr noundef %0, ptr nounde
   br label %26
 
 26:                                               ; preds = %.sink.split, %24, %21
-  %.0 = phi i32 [ 1, %24 ], [ 0, %21 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %21 ], [ 1, %24 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

@@ -30475,7 +30475,7 @@ define range(i32 0, 2) i32 @stbir__double_to_rational(double noundef %0, i32 nou
 ._crit_edge:                                      ; preds = %5
   br i1 %.not, label %._crit_edge.thread, label %._crit_edge.thread120
 
-._crit_edge.thread120:                            ; preds = %35, %33, %._crit_edge
+._crit_edge.thread120:                            ; preds = %33, %35, %._crit_edge
   %42 = uitofp i32 %1 to double
   %43 = fmul double %0, %42
   %44 = fadd double %43, 5.000000e-01

@@ -1907,7 +1907,7 @@ ws_enc_write_payload.exit:                        ; preds = %132, %146, %.loopex
   br label %.thread175
 
 .thread175:                                       ; preds = %.thread175.sink.split, %112, %109, %45, %34, %.loopexit
-  %.1177 = phi i64 [ %.0128224, %.loopexit ], [ %2, %112 ], [ %2, %109 ], [ %2, %45 ], [ %2, %34 ], [ %2, %.thread175.sink.split ]
+  %.1177 = phi i64 [ %.0128224, %.loopexit ], [ %2, %112 ], [ %2, %34 ], [ %2, %45 ], [ %2, %109 ], [ %2, %.thread175.sink.split ]
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %230 = load i64, ptr %229, align 2
   %231 = and i64 %230, 2147483648
@@ -2416,7 +2416,7 @@ ws_enc_info.exit:                                 ; preds = %71, %72, %79, %ws_f
   br label %103
 
 103:                                              ; preds = %.sink.split94, %102, %ws_enc_info.exit
-  %.0 = phi i64 [ %.055, %102 ], [ -1, %ws_enc_info.exit ], [ -1, %.sink.split94 ]
+  %.0 = phi i64 [ -1, %ws_enc_info.exit ], [ %.055, %102 ], [ -1, %.sink.split94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
@@ -2917,7 +2917,7 @@ define internal fastcc i32 @ws_send_raw_blocking(ptr noundef %0, ptr noundef %1,
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %8, %33, %.critedge.sink.split, %3
-  %.1 = phi i32 [ 0, %3 ], [ 55, %.critedge.sink.split ], [ 0, %10 ], [ %9, %8 ], [ 55, %33 ]
+  %.1 = phi i32 [ 0, %3 ], [ 55, %.critedge.sink.split ], [ %9, %8 ], [ 0, %10 ], [ 55, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }

@@ -6467,7 +6467,7 @@ prepareCommandsInPipeline.exit.i.i:               ; preds = %._crit_edge.i.i.i, 
   br label %executeMetaCommand.exit.thread.i
 
 executeMetaCommand.exit.thread269.i:              ; preds = %1011, %1008, %pg_time_now_lazy.exit.i.i
-  %.1.i.ph.i = phi i32 [ 5, %1008 ], [ 7, %1011 ], [ 6, %pg_time_now_lazy.exit.i.i ]
+  %.1.i.ph.i = phi i32 [ 6, %pg_time_now_lazy.exit.i.i ], [ 5, %1008 ], [ 7, %1011 ]
   store i32 %.1.i.ph.i, ptr %209, align 4
   br label %.critedge.i.backedge
 

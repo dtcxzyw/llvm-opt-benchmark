@@ -6744,7 +6744,7 @@ thread-pre-split.i:                               ; preds = %8
   br i1 %165, label %161, label %169
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %45, %.preheader79.i, %73, %.preheader.i, %.preheader81.i
-  %.sroa.1544.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %78, %73 ], [ %50, %45 ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1544.0 = phi i128 [ %78, %73 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %50, %45 ], [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %.sroa.023.3.i, %.preheader83.i ]
   %or.cond.i.i31 = icmp ult i128 %.sroa.1544.0, 18446744073709551616
   %168 = trunc nuw i128 %.sroa.1544.0 to i64
   %.sroa.3.0.i.i32 = select i1 %or.cond.i.i31, i64 %168, i64 undef
@@ -7146,7 +7146,7 @@ thread-pre-split.i:                               ; preds = %8
   br i1 %160, label %156, label %165
 
 "_ZN4core3num22_$LT$impl$u20$i128$GT$16from_ascii_radix17h9f904f2fd73be7f5E.exit": ; preds = %.preheader83.i, %45, %.preheader79.i, %73, %.preheader.i, %.preheader81.i
-  %.sroa.1533.0 = phi i128 [ 0, %.preheader81.i ], [ 0, %.preheader.i ], [ %.sroa.023.0.i, %.preheader79.i ], [ %78, %73 ], [ %50, %45 ], [ %.sroa.023.3.i, %.preheader83.i ]
+  %.sroa.1533.0 = phi i128 [ %78, %73 ], [ %.sroa.023.0.i, %.preheader79.i ], [ %50, %45 ], [ 0, %.preheader.i ], [ 0, %.preheader81.i ], [ %.sroa.023.3.i, %.preheader83.i ]
   %163 = add i128 %.sroa.1533.0, 9223372036854775808
   %or.cond.i.i21 = icmp ult i128 %163, 18446744073709551616
   %164 = trunc nsw i128 %.sroa.1533.0 to i64
@@ -38412,7 +38412,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h377384bfcfbd8
           to label %25 unwind label %23, !noalias !4298
 
 .critedge.i:                                      ; preds = %29, %23
-  %.pn.i = phi { ptr, i32 } [ %24, %23 ], [ %30, %29 ]
+  %.pn.i = phi { ptr, i32 } [ %30, %29 ], [ %24, %23 ]
   %22 = load i64, ptr %11, align 8, !range !16, !alias.scope !4296, !noalias !4293, !noundef !3
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %.thread12, label %46
@@ -38582,7 +38582,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hcc624dc93c3fa
           to label %25 unwind label %23, !noalias !4307
 
 .critedge.i:                                      ; preds = %29, %23
-  %.pn.i = phi { ptr, i32 } [ %24, %23 ], [ %30, %29 ]
+  %.pn.i = phi { ptr, i32 } [ %30, %29 ], [ %24, %23 ]
   %22 = load i64, ptr %11, align 8, !range !16, !alias.scope !4305, !noalias !4302, !noundef !3
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %.thread12, label %46
@@ -47474,7 +47474,7 @@ define void @"_ZN103_$LT$polars_expr..expressions..binary..BinaryExpr$u20$as$u20
   br label %.thread
 
 58:                                               ; preds = %36, %37, %_ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit, %96, %203, %238, %57, %69, %70, %72, %74
-  %.sroa.074.0.ph = phi i8 [ 0, %36 ], [ 1, %96 ], [ 0, %37 ], [ 0, %74 ], [ 0, %_ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit ], [ 0, %57 ], [ 0, %69 ], [ 0, %70 ], [ 0, %72 ], [ 0, %203 ], [ %.sroa.074.6, %238 ]
+  %.sroa.074.0.ph = phi i8 [ 0, %70 ], [ 0, %69 ], [ 0, %57 ], [ 0, %_ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit ], [ 0, %74 ], [ 0, %37 ], [ 1, %96 ], [ 0, %36 ], [ 0, %72 ], [ 0, %203 ], [ %.sroa.074.6, %238 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread190

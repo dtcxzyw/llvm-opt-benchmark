@@ -10728,9 +10728,9 @@ cmp_address.exit.thread.thread90:                 ; preds = %43, %cmp_address.ex
 .critedge:                                        ; preds = %27, %35, %16, %25, %cmp_address.exit.thread, %cmp_address.exit.thread.thread90
   br label %.critedge81
 
-.critedge81:                                      ; preds = %cmp_address.exit.thread.thread90, %cmp_address.exit, %20, %16, %41, %33, %.critedge
-  %.sink106 = phi ptr [ %7, %.critedge ], [ %6, %33 ], [ %6, %41 ], [ %6, %16 ], [ %6, %20 ], [ %6, %cmp_address.exit ], [ %6, %cmp_address.exit.thread.thread90 ]
-  %.sink105 = phi ptr [ %6, %.critedge ], [ %7, %33 ], [ %7, %41 ], [ %7, %16 ], [ %7, %20 ], [ %7, %cmp_address.exit ], [ %7, %cmp_address.exit.thread.thread90 ]
+.critedge81:                                      ; preds = %cmp_address.exit.thread.thread90, %20, %cmp_address.exit, %16, %41, %33, %.critedge
+  %.sink106 = phi ptr [ %7, %.critedge ], [ %6, %33 ], [ %6, %41 ], [ %6, %16 ], [ %6, %cmp_address.exit ], [ %6, %20 ], [ %6, %cmp_address.exit.thread.thread90 ]
+  %.sink105 = phi ptr [ %6, %.critedge ], [ %7, %33 ], [ %7, %41 ], [ %7, %16 ], [ %7, %cmp_address.exit ], [ %7, %20 ], [ %7, %cmp_address.exit.thread.thread90 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink106, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sink105, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
   %56 = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0(i64 noundef 136) #16

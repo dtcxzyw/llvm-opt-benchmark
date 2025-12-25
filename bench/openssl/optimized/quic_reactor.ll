@@ -572,9 +572,9 @@ poll_two_fds.exit.i:                              ; preds = %97, %116
   br label %poll_two_descriptors.exit
 
 poll_two_descriptors.exit:                        ; preds = %68, %73, %poll_descriptor_to_fd.exit.i, %77, %poll_two_fds.exit.i
-  %119 = phi i8 [ %.pre40, %poll_two_fds.exit.i ], [ %62, %68 ], [ %62, %73 ], [ %62, %77 ], [ %62, %poll_descriptor_to_fd.exit.i ]
-  %120 = phi i64 [ %.pre, %poll_two_fds.exit.i ], [ %69, %68 ], [ %69, %73 ], [ %69, %77 ], [ %69, %poll_descriptor_to_fd.exit.i ]
-  %.0.i = phi i1 [ %.0.i11.i, %poll_two_fds.exit.i ], [ true, %68 ], [ true, %73 ], [ true, %77 ], [ true, %poll_descriptor_to_fd.exit.i ]
+  %119 = phi i8 [ %.pre40, %poll_two_fds.exit.i ], [ %62, %73 ], [ %62, %68 ], [ %62, %poll_descriptor_to_fd.exit.i ], [ %62, %77 ]
+  %120 = phi i64 [ %.pre, %poll_two_fds.exit.i ], [ %69, %73 ], [ %69, %68 ], [ %69, %poll_descriptor_to_fd.exit.i ], [ %69, %77 ]
+  %.0.i = phi i1 [ %.0.i11.i, %poll_two_fds.exit.i ], [ true, %73 ], [ true, %68 ], [ true, %poll_descriptor_to_fd.exit.i ], [ true, %77 ]
   store i64 %120, ptr %20, align 8, !tbaa !20
   %121 = and i8 %119, 48
   %or.cond.not.i = icmp eq i8 %121, 48

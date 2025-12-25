@@ -652,7 +652,7 @@ zend_hash_str_find_ptr.exit48.thread:             ; preds = %.lr.ph, %21
   br label %35
 
 35:                                               ; preds = %.sink.split, %.thread, %28
-  %.03656 = phi ptr [ %32, %.thread ], [ %.2, %28 ], [ null, %.sink.split ]
+  %.03656 = phi ptr [ %.2, %28 ], [ %32, %.thread ], [ null, %.sink.split ]
   ret ptr %.03656
 }
 

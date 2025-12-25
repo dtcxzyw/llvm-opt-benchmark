@@ -19327,7 +19327,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h1c7a5b09804e546aE.exit.i.i: ; pr
   br label %420
 
 .invoke3027:                                      ; preds = %1873, %1864, %1811, %1802, %2045, %2036
-  %2078 = phi ptr [ @anon.3922ed866fbe749de4ffb0d44fe6d742.69, %2045 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.69, %2036 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.62, %1802 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.66, %1864 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.62, %1811 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.66, %1873 ]
+  %2078 = phi ptr [ @anon.3922ed866fbe749de4ffb0d44fe6d742.69, %2045 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.69, %2036 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.62, %1802 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.66, %1864 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.66, %1873 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.62, %1811 ]
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) %2078) #35
           to label %.cont3028 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -19349,9 +19349,9 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h1c7a5b09804e546aE.exit.i.i: ; pr
   br i1 %2087, label %2091, label %.invoke
 
 .invoke:                                          ; preds = %1950, %1880, %1818, %2086, %2053
-  %2088 = phi i64 [ %2047, %2086 ], [ %2047, %2053 ], [ %1875, %1880 ], [ %1945, %1950 ], [ %1813, %1818 ]
-  %2089 = phi i64 [ %2084, %2086 ], [ %2050, %2053 ], [ %1878, %1880 ], [ %1948, %1950 ], [ %1816, %1818 ]
-  %2090 = phi ptr [ @anon.3922ed866fbe749de4ffb0d44fe6d742.70, %2086 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.68, %2053 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.65, %1880 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.67, %1950 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.61, %1818 ]
+  %2088 = phi i64 [ %2047, %2086 ], [ %2047, %2053 ], [ %1875, %1880 ], [ %1813, %1818 ], [ %1945, %1950 ]
+  %2089 = phi i64 [ %2084, %2086 ], [ %2050, %2053 ], [ %1878, %1880 ], [ %1816, %1818 ], [ %1948, %1950 ]
+  %2090 = phi ptr [ @anon.3922ed866fbe749de4ffb0d44fe6d742.70, %2086 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.68, %2053 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.65, %1880 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.61, %1818 ], [ @anon.3922ed866fbe749de4ffb0d44fe6d742.67, %1950 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %2088, i64 noundef %2089, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2090) #35
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 

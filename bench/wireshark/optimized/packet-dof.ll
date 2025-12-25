@@ -4689,7 +4689,7 @@ switch.early.test107:                             ; preds = %23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %switch.early.test107, %switch.early.test, %31, %64, %1, %10, %._crit_edge
-  %.0 = phi i8 [ 1, %1 ], [ 1, %10 ], [ 0, %._crit_edge ], [ 1, %64 ], [ 1, %31 ], [ 1, %switch.early.test ], [ 1, %switch.early.test107 ]
+  %.0 = phi i8 [ 0, %._crit_edge ], [ 1, %1 ], [ 1, %10 ], [ 1, %64 ], [ 1, %31 ], [ 1, %switch.early.test ], [ 1, %switch.early.test107 ]
   ret i8 %.0
 }
 

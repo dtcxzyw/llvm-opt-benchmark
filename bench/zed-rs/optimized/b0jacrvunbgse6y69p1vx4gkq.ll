@@ -70197,8 +70197,8 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i.i.i.i: ; pred
           to label %"_ZN4core3ptr180drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..iter..adapters..chain..Chain$LT$rope..Chunks$C$core..array..iter..IntoIter$LT$$RF$str$C$1_usize$GT$$GT$$GT$$GT$17h94d6d7a4dcd52b55E.exit.i" unwind label %546, !noalias !12355
 
 538:                                              ; preds = %201, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf5b9b433c410da2dE.exit.i.i.i
-  %.sroa.0.0.i.pn.i.i.i.i = phi ptr [ %183, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf5b9b433c410da2dE.exit.i.i.i ], [ %203, %201 ]
-  %.sroa.3.0.i.pn.i.i.i.i = phi i64 [ %192, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf5b9b433c410da2dE.exit.i.i.i ], [ %205, %201 ]
+  %.sroa.0.0.i.pn.i.i.i.i = phi ptr [ %203, %201 ], [ %183, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf5b9b433c410da2dE.exit.i.i.i ]
+  %.sroa.3.0.i.pn.i.i.i.i = phi i64 [ %205, %201 ], [ %192, %_ZN4core4iter8adapters5chain17and_then_or_clear17hf5b9b433c410da2dE.exit.i.i.i ]
   %539 = getelementptr inbounds nuw i8, ptr %1, i64 1016
   %540 = load i64, ptr %539, align 8, !alias.scope !12680, !noalias !12428, !noundef !4
   %541 = add i64 %540, 1

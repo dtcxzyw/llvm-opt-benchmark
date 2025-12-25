@@ -861,15 +861,15 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %27
   br label %.critedge5
 
 .critedge5:                                       ; preds = %.lr.ph, %.lr.ph227, %.lr.ph.preheader, %.lr.ph227.preheader, %65, %101, %55, %120, %121, %122, %115, %112, %86, %79, %76, %128, %48, %93, %90, %84
-  %.2147 = phi ptr [ %.0145229, %48 ], [ %.0145229, %120 ], [ %.0145229, %121 ], [ %.0145229, %55 ], [ %.0145229, %101 ], [ %.0145229, %93 ], [ %.0145229, %90 ], [ %.0145229, %84 ], [ %.0145229, %86 ], [ %.0145229, %122 ], [ null, %128 ], [ %.0145229, %76 ], [ %83, %79 ], [ %119, %115 ], [ %.0145229, %112 ], [ %.0145229, %65 ], [ %.0145229, %.lr.ph227.preheader ], [ %.0145229, %.lr.ph.preheader ], [ %.0145229, %.lr.ph227 ], [ %.0145229, %.lr.ph ]
-  %.2141 = phi ptr [ %.0139230, %48 ], [ %.0139230, %120 ], [ %.0139230, %121 ], [ %.0139230, %55 ], [ null, %101 ], [ %.0139230, %93 ], [ %.0139230, %90 ], [ %.0139230, %84 ], [ %.0139230, %86 ], [ %.0139230, %122 ], [ null, %128 ], [ %.0139230, %76 ], [ %.0139230, %79 ], [ %.0139230, %115 ], [ %.0139230, %112 ], [ null, %65 ], [ %105, %.lr.ph227.preheader ], [ %69, %.lr.ph.preheader ], [ %105, %.lr.ph227 ], [ %69, %.lr.ph ]
-  %.1136 = phi i32 [ %.0135232, %48 ], [ %.0135232, %120 ], [ %.0135232, %121 ], [ %.0135232, %55 ], [ %.0135232, %101 ], [ 1, %93 ], [ %.0135232, %90 ], [ %.0135232, %84 ], [ 0, %86 ], [ 0, %122 ], [ 0, %128 ], [ 0, %76 ], [ 1, %79 ], [ 1, %115 ], [ 0, %112 ], [ %.0135232, %65 ], [ %.0135232, %.lr.ph227.preheader ], [ %.0135232, %.lr.ph.preheader ], [ %.0135232, %.lr.ph227 ], [ %.0135232, %.lr.ph ]
-  %.1133 = phi i32 [ %.0132233, %48 ], [ %.0132233, %120 ], [ %.0132233, %121 ], [ %.0132233, %55 ], [ 1, %101 ], [ 0, %93 ], [ %.0132233, %90 ], [ %.0132233, %84 ], [ 1, %86 ], [ 0, %122 ], [ 0, %128 ], [ 0, %76 ], [ 0, %79 ], [ 0, %115 ], [ 0, %112 ], [ 1, %65 ], [ 1, %.lr.ph227.preheader ], [ 1, %.lr.ph.preheader ], [ 1, %.lr.ph227 ], [ 1, %.lr.ph ]
-  %.2129 = phi i32 [ %.0127234, %48 ], [ %.0127234, %120 ], [ %.0127234, %121 ], [ %.0127234, %55 ], [ %.0127234, %101 ], [ %.0127234, %93 ], [ %.0127234, %90 ], [ %.0127234, %84 ], [ %.0127234, %86 ], [ 0, %122 ], [ 0, %128 ], [ %.0127234, %76 ], [ 1, %79 ], [ 1, %115 ], [ %.0127234, %112 ], [ %.0127234, %65 ], [ %.0127234, %.lr.ph227.preheader ], [ %.0127234, %.lr.ph.preheader ], [ %.0127234, %.lr.ph227 ], [ %.0127234, %.lr.ph ]
-  %.2126 = phi i32 [ %.0124235, %48 ], [ %.0124235, %120 ], [ %.0124235, %121 ], [ %.0124235, %55 ], [ 1, %101 ], [ %.0124235, %93 ], [ %.0124235, %90 ], [ %.0124235, %84 ], [ %.0124235, %86 ], [ 0, %122 ], [ 0, %128 ], [ %.0124235, %76 ], [ %.0124235, %79 ], [ %.0124235, %115 ], [ %.0124235, %112 ], [ 1, %65 ], [ 1, %.lr.ph227.preheader ], [ 1, %.lr.ph.preheader ], [ 1, %.lr.ph227 ], [ 1, %.lr.ph ]
-  %.1120 = phi i32 [ %.0119236, %48 ], [ %.0119236, %120 ], [ 0, %121 ], [ %.0119236, %55 ], [ 0, %101 ], [ 1, %93 ], [ %.0119236, %90 ], [ %.0119236, %84 ], [ 1, %86 ], [ 0, %122 ], [ 0, %128 ], [ 0, %76 ], [ 0, %79 ], [ 0, %115 ], [ 0, %112 ], [ 0, %65 ], [ 0, %.lr.ph227.preheader ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph227 ], [ 0, %.lr.ph ]
-  %.1116 = phi i1 [ true, %48 ], [ true, %120 ], [ true, %121 ], [ %58, %55 ], [ true, %101 ], [ true, %93 ], [ true, %90 ], [ true, %84 ], [ true, %86 ], [ true, %122 ], [ true, %128 ], [ true, %76 ], [ true, %79 ], [ true, %115 ], [ true, %112 ], [ true, %65 ], [ true, %.lr.ph227.preheader ], [ true, %.lr.ph.preheader ], [ true, %.lr.ph227 ], [ true, %.lr.ph ]
-  %.1 = phi i32 [ %.0237, %48 ], [ %.0237, %120 ], [ 1, %121 ], [ 1, %55 ], [ %.0237, %101 ], [ %.0237, %93 ], [ %.0237, %90 ], [ %.0237, %84 ], [ %.0237, %86 ], [ 1, %122 ], [ 0, %128 ], [ %.0237, %76 ], [ %.0237, %79 ], [ %.0237, %115 ], [ %.0237, %112 ], [ %.0237, %65 ], [ %.0237, %.lr.ph227.preheader ], [ %.0237, %.lr.ph.preheader ], [ %.0237, %.lr.ph227 ], [ %.0237, %.lr.ph ]
+  %.2147 = phi ptr [ %.0145229, %48 ], [ %.0145229, %120 ], [ %.0145229, %121 ], [ %.0145229, %55 ], [ %119, %115 ], [ %.0145229, %93 ], [ %.0145229, %90 ], [ %.0145229, %84 ], [ %.0145229, %86 ], [ %.0145229, %122 ], [ null, %128 ], [ %.0145229, %76 ], [ %83, %79 ], [ %.0145229, %101 ], [ %.0145229, %112 ], [ %.0145229, %65 ], [ %.0145229, %.lr.ph227.preheader ], [ %.0145229, %.lr.ph.preheader ], [ %.0145229, %.lr.ph227 ], [ %.0145229, %.lr.ph ]
+  %.2141 = phi ptr [ %.0139230, %48 ], [ %.0139230, %120 ], [ %.0139230, %121 ], [ %.0139230, %55 ], [ %.0139230, %115 ], [ %.0139230, %93 ], [ %.0139230, %90 ], [ %.0139230, %84 ], [ %.0139230, %86 ], [ %.0139230, %122 ], [ null, %128 ], [ %.0139230, %76 ], [ %.0139230, %79 ], [ null, %101 ], [ %.0139230, %112 ], [ null, %65 ], [ %105, %.lr.ph227.preheader ], [ %69, %.lr.ph.preheader ], [ %105, %.lr.ph227 ], [ %69, %.lr.ph ]
+  %.1136 = phi i32 [ %.0135232, %48 ], [ %.0135232, %120 ], [ %.0135232, %121 ], [ %.0135232, %55 ], [ 1, %115 ], [ 1, %93 ], [ %.0135232, %90 ], [ %.0135232, %84 ], [ 0, %86 ], [ 0, %122 ], [ 0, %128 ], [ 0, %76 ], [ 1, %79 ], [ %.0135232, %101 ], [ 0, %112 ], [ %.0135232, %65 ], [ %.0135232, %.lr.ph227.preheader ], [ %.0135232, %.lr.ph.preheader ], [ %.0135232, %.lr.ph227 ], [ %.0135232, %.lr.ph ]
+  %.1133 = phi i32 [ %.0132233, %48 ], [ %.0132233, %120 ], [ %.0132233, %121 ], [ %.0132233, %55 ], [ 0, %115 ], [ 0, %93 ], [ %.0132233, %90 ], [ %.0132233, %84 ], [ 1, %86 ], [ 0, %122 ], [ 0, %128 ], [ 0, %76 ], [ 0, %79 ], [ 1, %101 ], [ 0, %112 ], [ 1, %65 ], [ 1, %.lr.ph227.preheader ], [ 1, %.lr.ph.preheader ], [ 1, %.lr.ph227 ], [ 1, %.lr.ph ]
+  %.2129 = phi i32 [ %.0127234, %48 ], [ %.0127234, %120 ], [ %.0127234, %121 ], [ %.0127234, %55 ], [ 1, %115 ], [ %.0127234, %93 ], [ %.0127234, %90 ], [ %.0127234, %84 ], [ %.0127234, %86 ], [ 0, %122 ], [ 0, %128 ], [ %.0127234, %76 ], [ 1, %79 ], [ %.0127234, %101 ], [ %.0127234, %112 ], [ %.0127234, %65 ], [ %.0127234, %.lr.ph227.preheader ], [ %.0127234, %.lr.ph.preheader ], [ %.0127234, %.lr.ph227 ], [ %.0127234, %.lr.ph ]
+  %.2126 = phi i32 [ %.0124235, %48 ], [ %.0124235, %120 ], [ %.0124235, %121 ], [ %.0124235, %55 ], [ %.0124235, %115 ], [ %.0124235, %93 ], [ %.0124235, %90 ], [ %.0124235, %84 ], [ %.0124235, %86 ], [ 0, %122 ], [ 0, %128 ], [ %.0124235, %76 ], [ %.0124235, %79 ], [ 1, %101 ], [ %.0124235, %112 ], [ 1, %65 ], [ 1, %.lr.ph227.preheader ], [ 1, %.lr.ph.preheader ], [ 1, %.lr.ph227 ], [ 1, %.lr.ph ]
+  %.1120 = phi i32 [ %.0119236, %48 ], [ %.0119236, %120 ], [ 0, %121 ], [ %.0119236, %55 ], [ 0, %115 ], [ 1, %93 ], [ %.0119236, %90 ], [ %.0119236, %84 ], [ 1, %86 ], [ 0, %122 ], [ 0, %128 ], [ 0, %76 ], [ 0, %79 ], [ 0, %101 ], [ 0, %112 ], [ 0, %65 ], [ 0, %.lr.ph227.preheader ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph227 ], [ 0, %.lr.ph ]
+  %.1116 = phi i1 [ true, %48 ], [ true, %120 ], [ true, %121 ], [ %58, %55 ], [ true, %115 ], [ true, %93 ], [ true, %90 ], [ true, %84 ], [ true, %86 ], [ true, %122 ], [ true, %128 ], [ true, %76 ], [ true, %79 ], [ true, %101 ], [ true, %112 ], [ true, %65 ], [ true, %.lr.ph227.preheader ], [ true, %.lr.ph.preheader ], [ true, %.lr.ph227 ], [ true, %.lr.ph ]
+  %.1 = phi i32 [ %.0237, %48 ], [ %.0237, %120 ], [ 1, %121 ], [ 1, %55 ], [ %.0237, %115 ], [ %.0237, %93 ], [ %.0237, %90 ], [ %.0237, %84 ], [ %.0237, %86 ], [ 1, %122 ], [ 0, %128 ], [ %.0237, %76 ], [ %.0237, %79 ], [ %.0237, %101 ], [ %.0237, %112 ], [ %.0237, %65 ], [ %.0237, %.lr.ph227.preheader ], [ %.0237, %.lr.ph.preheader ], [ %.0237, %.lr.ph227 ], [ %.0237, %.lr.ph ]
   %129 = load ptr, ptr %42, align 8, !tbaa !40
   %.not178 = icmp eq ptr %129, null
   br i1 %.not178, label %131, label %130
@@ -1660,7 +1660,7 @@ zend_memnstr.exit:                                ; preds = %84
   br label %228
 
 .sink.split:                                      ; preds = %86, %76, %zend_memnstr.exit, %69, %71, %63
-  %.sink = phi i8 [ 97, %63 ], [ 99, %zend_memnstr.exit ], [ 99, %69 ], [ 99, %71 ], [ 99, %76 ], [ 99, %86 ]
+  %.sink = phi i8 [ 97, %63 ], [ 99, %69 ], [ 99, %zend_memnstr.exit ], [ 99, %71 ], [ 99, %76 ], [ 99, %86 ]
   store i8 %.sink, ptr %5, align 1, !tbaa !21
   br label %91
 
@@ -1958,7 +1958,7 @@ zend_tmp_string_release.exit.thread259:           ; preds = %168, %137, %130, %1
   br label %223
 
 zend_tmp_string_release.exit:                     ; preds = %zend_tmp_string_release.exit.thread, %zval_ptr_dtor_str.exit.thread, %133, %124
-  %.1 = phi i64 [ %132, %133 ], [ %.0, %124 ], [ %.7, %zval_ptr_dtor_str.exit.thread ], [ %.4, %zend_tmp_string_release.exit.thread ]
+  %.1 = phi i64 [ %.7, %zval_ptr_dtor_str.exit.thread ], [ %.0, %124 ], [ %132, %133 ], [ %.4, %zend_tmp_string_release.exit.thread ]
   %221 = call i32 @_php_stream_free(ptr noundef nonnull %96, i32 noundef 3) #18
   %222 = icmp slt i64 %.1, 0
   br i1 %222, label %223, label %226
@@ -6475,11 +6475,11 @@ zend_parse_arg_str_ex.exit:                       ; preds = %50
   %cond.fr185 = freeze i1 %56
   br i1 %cond.fr185, label %57, label %zend_parse_arg_resource.exit.thread195, !prof !26
 
-zend_parse_arg_resource.exit.thread195:           ; preds = %zend_parse_arg_str_ex.exit, %zend_parse_arg_long_ex.exit, %zend_parse_arg_string.exit134, %13, %zend_parse_arg_string.exit, %12
-  %.0111210 = phi i32 [ 1, %12 ], [ 9, %zend_parse_arg_string.exit ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_string.exit134 ], [ 9, %13 ], [ 9, %zend_parse_arg_str_ex.exit ]
-  %.0112209 = phi i32 [ 0, %12 ], [ 4, %zend_parse_arg_string.exit ], [ 2, %zend_parse_arg_long_ex.exit ], [ 3, %zend_parse_arg_string.exit134 ], [ 1, %13 ], [ 5, %zend_parse_arg_str_ex.exit ]
-  %.0113208 = phi i32 [ 0, %12 ], [ 4, %zend_parse_arg_string.exit ], [ 1, %zend_parse_arg_long_ex.exit ], [ 4, %zend_parse_arg_string.exit134 ], [ 14, %13 ], [ 4, %zend_parse_arg_str_ex.exit ]
-  %.0114207 = phi ptr [ null, %12 ], [ %41, %zend_parse_arg_string.exit ], [ %21, %zend_parse_arg_long_ex.exit ], [ %30, %zend_parse_arg_string.exit134 ], [ %14, %13 ], [ %51, %zend_parse_arg_str_ex.exit ]
+zend_parse_arg_resource.exit.thread195:           ; preds = %zend_parse_arg_str_ex.exit, %zend_parse_arg_string.exit134, %zend_parse_arg_long_ex.exit, %13, %zend_parse_arg_string.exit, %12
+  %.0111210 = phi i32 [ 1, %12 ], [ 9, %zend_parse_arg_string.exit ], [ 9, %zend_parse_arg_string.exit134 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %13 ], [ 9, %zend_parse_arg_str_ex.exit ]
+  %.0112209 = phi i32 [ 0, %12 ], [ 4, %zend_parse_arg_string.exit ], [ 3, %zend_parse_arg_string.exit134 ], [ 2, %zend_parse_arg_long_ex.exit ], [ 1, %13 ], [ 5, %zend_parse_arg_str_ex.exit ]
+  %.0113208 = phi i32 [ 0, %12 ], [ 4, %zend_parse_arg_string.exit ], [ 4, %zend_parse_arg_string.exit134 ], [ 1, %zend_parse_arg_long_ex.exit ], [ 14, %13 ], [ 4, %zend_parse_arg_str_ex.exit ]
+  %.0114207 = phi ptr [ null, %12 ], [ %41, %zend_parse_arg_string.exit ], [ %30, %zend_parse_arg_string.exit134 ], [ %21, %zend_parse_arg_long_ex.exit ], [ %14, %13 ], [ %51, %zend_parse_arg_str_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.0111210, i32 noundef %.0112209, ptr noundef null, i32 noundef %.0113208, ptr noundef %.0114207) #18
   br label %php_csv_handle_escape_argument.exit
 

@@ -120,7 +120,7 @@ tq_free.exit.sink.split:                          ; preds = %6, %12, %31
   br label %tq_free.exit
 
 tq_free.exit:                                     ; preds = %tq_free.exit.sink.split, %28, %3
-  %.0 = phi ptr [ %5, %28 ], [ null, %3 ], [ null, %tq_free.exit.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ %5, %28 ], [ null, %tq_free.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

@@ -4420,7 +4420,7 @@ define hidden void @_ZN8tempfile4util13create_helper17hbba3d2a6594de6fdE.llvm.43
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %9, %31, %86, %88, %_ZN3std4path4Path4join17h495d91701cfa5793E.exit, %48, %57
-  %.sroa.014.0.ph = phi i8 [ %.sroa.014.2, %88 ], [ 1, %_ZN3std4path4Path4join17h495d91701cfa5793E.exit ], [ %.sroa.014.2, %86 ], [ %.sroa.014.2, %57 ], [ 1, %48 ], [ 0, %31 ], [ 0, %9 ]
+  %.sroa.014.0.ph = phi i8 [ %.sroa.014.2, %88 ], [ 1, %_ZN3std4path4Path4join17h495d91701cfa5793E.exit ], [ 0, %9 ], [ 0, %31 ], [ 1, %48 ], [ %.sroa.014.2, %57 ], [ %.sroa.014.2, %86 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

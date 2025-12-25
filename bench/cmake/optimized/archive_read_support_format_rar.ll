@@ -6554,7 +6554,7 @@ define internal fastcc range(i32 0, 2) i32 @rar_br_fillup(ptr noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %150, %147, %13, %.loopexit.sink.split
-  %.065 = phi i32 [ 1, %.loopexit.sink.split ], [ 1, %13 ], [ 0, %147 ], [ 0, %150 ]
+  %.065 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %150 ], [ 0, %147 ], [ 1, %13 ]
   ret i32 %.065
 }
 
@@ -6794,7 +6794,7 @@ define internal fastcc range(i32 -30, 1) i32 @create_code(ptr noundef %0, ptr no
   br i1 %exitcond61.not, label %add_value.exit.thread, label %.preheader, !llvm.loop !259
 
 add_value.exit.thread:                            ; preds = %92, %90, %84, %83, %57, %38, %8
-  %.032 = phi i32 [ -30, %8 ], [ -30, %83 ], [ 0, %84 ], [ -30, %57 ], [ -30, %38 ], [ 0, %90 ], [ 0, %92 ]
+  %.032 = phi i32 [ -30, %8 ], [ -30, %83 ], [ -30, %57 ], [ 0, %84 ], [ -30, %38 ], [ 0, %90 ], [ 0, %92 ]
   ret i32 %.032
 }
 

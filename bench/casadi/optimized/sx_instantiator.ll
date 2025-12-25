@@ -80267,7 +80267,7 @@ _ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit21: ; preds = %30
   br i1 %.not, label %30, label %.thread, !llvm.loop !1061
 
 .thread:                                          ; preds = %25, %23, %21, %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit21, %40, %.preheader
-  %.3 = phi i1 [ %39, %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit21 ], [ true, %.preheader ], [ %39, %40 ], [ false, %21 ], [ false, %23 ], [ false, %25 ]
+  %.3 = phi i1 [ true, %.preheader ], [ %39, %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit21 ], [ %39, %40 ], [ false, %21 ], [ false, %23 ], [ false, %25 ]
   ret i1 %.3
 }
 

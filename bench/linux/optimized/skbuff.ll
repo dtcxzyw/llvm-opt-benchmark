@@ -4653,7 +4653,7 @@ define dso_local range(i32 -12, 1) i32 @___pskb_trim(ptr noundef %0, i32 noundef
   store ptr null, ptr %140, align 8
   br label %.thread21
 
-.thread21:                                        ; preds = %122, %169, %.thread16, %118, %.loopexit
+.thread21:                                        ; preds = %122, %.thread16, %169, %118, %.loopexit
   %170 = load i32, ptr %3, align 8
   %171 = load i32, ptr %5, align 4
   %172 = sub i32 %170, %171
@@ -13992,8 +13992,8 @@ define dso_local ptr @skb_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
   br label %875
 
 .loopexit:                                        ; preds = %233, %332, %469, %493, %750, %.critedge45, %544, %292, %324, %596, %593
-  %.ph50 = phi i64 [ -12, %292 ], [ -12, %324 ], [ -12, %.critedge45 ], [ -22, %593 ], [ -22, %596 ], [ -12, %544 ], [ -12, %750 ], [ -12, %493 ], [ -12, %469 ], [ -12, %332 ], [ -12, %233 ]
-  %.ph56 = phi ptr [ %203, %292 ], [ %203, %324 ], [ %372, %.critedge45 ], [ %372, %593 ], [ %372, %596 ], [ %372, %544 ], [ %372, %469 ], [ %372, %493 ], [ %372, %750 ], [ %203, %332 ], [ %203, %233 ]
+  %.ph50 = phi i64 [ -12, %324 ], [ -12, %292 ], [ -12, %.critedge45 ], [ -22, %593 ], [ -22, %596 ], [ -12, %544 ], [ -12, %750 ], [ -12, %493 ], [ -12, %469 ], [ -12, %332 ], [ -12, %233 ]
+  %.ph56 = phi ptr [ %203, %324 ], [ %203, %292 ], [ %372, %.critedge45 ], [ %372, %593 ], [ %372, %596 ], [ %372, %544 ], [ %372, %469 ], [ %372, %493 ], [ %372, %750 ], [ %203, %233 ], [ %203, %332 ]
   tail call void @kfree_skb_list_reason(ptr noundef %.ph56, i32 noundef 2)
   %874 = inttoptr i64 %.ph50 to ptr
   br label %875
@@ -16032,7 +16032,7 @@ skb_pull_rcsum.exit:                              ; preds = %58, %65, %71, %83
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %22, %3, %107, %105, %32
-  %109 = phi ptr [ %35, %105 ], [ null, %32 ], [ null, %22 ], [ null, %107 ], [ null, %3 ], [ null, %.thread.sink.split ]
+  %109 = phi ptr [ %35, %105 ], [ null, %32 ], [ null, %3 ], [ null, %107 ], [ null, %22 ], [ null, %.thread.sink.split ]
   ret ptr %109
 }
 

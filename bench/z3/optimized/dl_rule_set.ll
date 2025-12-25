@@ -8610,8 +8610,8 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   br label %.critedge30
 
 .critedge30:                                      ; preds = %291, %305, %302, %.critedge30.loopexit258, %.critedge30.loopexit253, %.critedge30.loopexit, %313, %310, %.preheader.i, %320, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i86
-  %.not159267 = phi i1 [ %.not159.le285, %.critedge30.loopexit253 ], [ false, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i86 ], [ false, %320 ], [ false, %.preheader.i ], [ %.not159.le283, %.critedge30.loopexit258 ], [ false, %313 ], [ false, %310 ], [ %.not159.le, %.critedge30.loopexit ], [ false, %305 ], [ false, %302 ], [ false, %291 ]
-  %.3 = phi i1 [ %.2153, %.critedge30.loopexit253 ], [ true, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i86 ], [ true, %320 ], [ true, %.preheader.i ], [ %.2153, %.critedge30.loopexit258 ], [ true, %313 ], [ true, %310 ], [ %.2153, %.critedge30.loopexit ], [ true, %305 ], [ true, %302 ], [ true, %291 ]
+  %.not159267 = phi i1 [ %.not159.le, %.critedge30.loopexit ], [ false, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i86 ], [ false, %320 ], [ false, %.preheader.i ], [ %.not159.le283, %.critedge30.loopexit258 ], [ false, %310 ], [ false, %313 ], [ %.not159.le285, %.critedge30.loopexit253 ], [ false, %305 ], [ false, %302 ], [ false, %291 ]
+  %.3 = phi i1 [ %.2153, %.critedge30.loopexit ], [ true, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12delete_tableEv.exit.i86 ], [ true, %320 ], [ true, %.preheader.i ], [ %.2153, %.critedge30.loopexit258 ], [ true, %310 ], [ true, %313 ], [ %.2153, %.critedge30.loopexit253 ], [ true, %305 ], [ true, %302 ], [ true, %291 ]
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   br i1 %.not159267, label %132, label %.critedge, !llvm.loop !367
 

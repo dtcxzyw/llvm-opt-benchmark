@@ -289,9 +289,9 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader:    ; preds = %54, %_ZNK6vectorIjL
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.backedge, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader
-  %.pre.pre113 = phi ptr [ %.pre.pre114, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader ], [ %.pre108.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.backedge ]
-  %.pre108 = phi ptr [ %.pre109, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader ], [ %.pre108.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.backedge ]
-  %62 = phi ptr [ %.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader ], [ %.pre108.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.backedge ]
+  %.pre.pre113 = phi ptr [ %.pre.pre114, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.backedge ]
+  %.pre108 = phi ptr [ %.pre109, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.backedge ]
+  %62 = phi ptr [ %.ph, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.backedge ]
   %63 = icmp eq ptr %62, null
   br i1 %63, label %67, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -315,7 +315,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i:          ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.backedge
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.backedge:     ; preds = %.noexc72, %.noexc73
-  %.pre108.be = phi ptr [ %70, %.noexc72 ], [ %101, %.noexc73 ]
+  %.be = phi ptr [ %101, %.noexc73 ], [ %70, %.noexc72 ]
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i, !llvm.loop !50
 
 _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
@@ -7549,7 +7549,7 @@ _ZN2dd11bdd_manager3popEj.exit:                   ; preds = %_ZN2dd11bdd_manager
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.outer, %tailrecurse, %38, %3, %77, %_ZN2dd11bdd_manager3popEj.exit, %30, %27
-  %.0 = phi i32 [ %128, %_ZN2dd11bdd_manager3popEj.exit ], [ %29, %27 ], [ %79, %77 ], [ %32, %30 ], [ %.tr63.ph112, %tailrecurse ], [ %1, %3 ], [ %.tr63.ph112, %38 ], [ %.047, %tailrecurse.outer ]
+  %.0 = phi i32 [ %128, %_ZN2dd11bdd_manager3popEj.exit ], [ %79, %77 ], [ %29, %27 ], [ %32, %30 ], [ %.tr63.ph112, %tailrecurse ], [ %1, %3 ], [ %.tr63.ph112, %38 ], [ %.047, %tailrecurse.outer ]
   ret i32 %.0
 }
 
@@ -9567,7 +9567,7 @@ _ZN6vectorIN2dd11bdd_manager8bdd_nodeELb0EjE3endEv.exit: ; preds = %12, %._crit_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %180, %.loopexit.sink.split, %._crit_edge, %_ZN6vectorIN2dd11bdd_manager8bdd_nodeELb0EjE3endEv.exit
-  %.3 = phi i1 [ false, %.loopexit.sink.split ], [ true, %._crit_edge ], [ true, %_ZN6vectorIN2dd11bdd_manager8bdd_nodeELb0EjE3endEv.exit ], [ true, %180 ]
+  %.3 = phi i1 [ true, %._crit_edge ], [ false, %.loopexit.sink.split ], [ true, %_ZN6vectorIN2dd11bdd_manager8bdd_nodeELb0EjE3endEv.exit ], [ true, %180 ]
   ret i1 %.3
 }
 

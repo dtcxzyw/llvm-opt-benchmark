@@ -53021,7 +53021,7 @@ _ZN12polars_arrow5array5Array10null_count17h0d8ad647d3d2ba06E.exit.i: ; preds = 
           to label %.thread43.i unwind label %127, !noalias !3879
 
 133:                                              ; preds = %122, %79
-  %.pn.i = phi { ptr, i32 } [ %123, %122 ], [ %80, %79 ]
+  %.pn.i = phi { ptr, i32 } [ %80, %79 ], [ %123, %122 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #30
           to label %.thread43.i unwind label %127, !noalias !3879
 
@@ -53413,7 +53413,7 @@ _ZN12polars_arrow5array5Array10null_count17h0d8ad647d3d2ba06E.exit.i18: ; preds 
           to label %.thread46.i unwind label %254, !noalias !3907
 
 260:                                              ; preds = %249, %206
-  %.pn.i16 = phi { ptr, i32 } [ %250, %249 ], [ %207, %206 ]
+  %.pn.i16 = phi { ptr, i32 } [ %207, %206 ], [ %250, %249 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #30
           to label %.thread46.i unwind label %254, !noalias !3907
 
@@ -53984,7 +53984,7 @@ _ZN12polars_arrow5array5Array10null_count17he9e1152ac2b5c247E.exit.i: ; preds = 
           to label %.thread46.i unwind label %153, !noalias !3965
 
 159:                                              ; preds = %148, %105
-  %.pn.i = phi { ptr, i32 } [ %149, %148 ], [ %106, %105 ]
+  %.pn.i = phi { ptr, i32 } [ %106, %105 ], [ %149, %148 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #30
           to label %.thread46.i unwind label %153, !noalias !3965
 
@@ -54444,7 +54444,7 @@ _ZN12polars_arrow5array5Array10null_count17hcf1f8beb3bcbd716E.exit.i: ; preds = 
           to label %.thread43.i unwind label %127, !noalias !4023
 
 133:                                              ; preds = %122, %79
-  %.pn.i = phi { ptr, i32 } [ %123, %122 ], [ %80, %79 ]
+  %.pn.i = phi { ptr, i32 } [ %80, %79 ], [ %123, %122 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #30
           to label %.thread43.i unwind label %127, !noalias !4023
 
@@ -54836,7 +54836,7 @@ _ZN12polars_arrow5array5Array10null_count17hcf1f8beb3bcbd716E.exit.i18: ; preds 
           to label %.thread46.i unwind label %254, !noalias !4049
 
 260:                                              ; preds = %249, %206
-  %.pn.i16 = phi { ptr, i32 } [ %250, %249 ], [ %207, %206 ]
+  %.pn.i16 = phi { ptr, i32 } [ %207, %206 ], [ %250, %249 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #30
           to label %.thread46.i unwind label %254, !noalias !4049
 
@@ -55300,7 +55300,7 @@ _ZN12polars_arrow5array5Array10null_count17h04863f981db29605E.exit.i: ; preds = 
           to label %.thread43.i unwind label %127, !noalias !4107
 
 133:                                              ; preds = %122, %79
-  %.pn.i = phi { ptr, i32 } [ %123, %122 ], [ %80, %79 ]
+  %.pn.i = phi { ptr, i32 } [ %80, %79 ], [ %123, %122 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #30
           to label %.thread43.i unwind label %127, !noalias !4107
 
@@ -55692,7 +55692,7 @@ _ZN12polars_arrow5array5Array10null_count17h04863f981db29605E.exit.i18: ; preds 
           to label %.thread46.i unwind label %254, !noalias !4133
 
 260:                                              ; preds = %249, %206
-  %.pn.i16 = phi { ptr, i32 } [ %250, %249 ], [ %207, %206 ]
+  %.pn.i16 = phi { ptr, i32 } [ %207, %206 ], [ %250, %249 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #30
           to label %.thread46.i unwind label %254, !noalias !4133
 
@@ -56156,7 +56156,7 @@ _ZN12polars_arrow5array5Array10null_count17h7f068606bbc680aaE.exit.i: ; preds = 
           to label %.thread43.i unwind label %127, !noalias !4191
 
 133:                                              ; preds = %122, %79
-  %.pn.i = phi { ptr, i32 } [ %123, %122 ], [ %80, %79 ]
+  %.pn.i = phi { ptr, i32 } [ %80, %79 ], [ %123, %122 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #30
           to label %.thread43.i unwind label %127, !noalias !4191
 
@@ -56548,7 +56548,7 @@ _ZN12polars_arrow5array5Array10null_count17h7f068606bbc680aaE.exit.i18: ; preds 
           to label %.thread46.i unwind label %254, !noalias !4217
 
 260:                                              ; preds = %249, %206
-  %.pn.i16 = phi { ptr, i32 } [ %250, %249 ], [ %207, %206 ]
+  %.pn.i16 = phi { ptr, i32 } [ %207, %206 ], [ %250, %249 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #30
           to label %.thread46.i unwind label %254, !noalias !4217
 
@@ -57012,7 +57012,7 @@ _ZN12polars_arrow5array5Array10null_count17h76402a4dd064aa8bE.exit.i: ; preds = 
           to label %.thread43.i unwind label %127, !noalias !4275
 
 133:                                              ; preds = %122, %79
-  %.pn.i = phi { ptr, i32 } [ %123, %122 ], [ %80, %79 ]
+  %.pn.i = phi { ptr, i32 } [ %80, %79 ], [ %123, %122 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #30
           to label %.thread43.i unwind label %127, !noalias !4275
 
@@ -57404,7 +57404,7 @@ _ZN12polars_arrow5array5Array10null_count17h76402a4dd064aa8bE.exit.i18: ; preds 
           to label %.thread46.i unwind label %254, !noalias !4301
 
 260:                                              ; preds = %249, %206
-  %.pn.i16 = phi { ptr, i32 } [ %250, %249 ], [ %207, %206 ]
+  %.pn.i16 = phi { ptr, i32 } [ %207, %206 ], [ %250, %249 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #30
           to label %.thread46.i unwind label %254, !noalias !4301
 
@@ -57868,7 +57868,7 @@ _ZN12polars_arrow5array5Array10null_count17hbe358bb490af8827E.exit.i: ; preds = 
           to label %.thread43.i unwind label %127, !noalias !4359
 
 133:                                              ; preds = %122, %79
-  %.pn.i = phi { ptr, i32 } [ %123, %122 ], [ %80, %79 ]
+  %.pn.i = phi { ptr, i32 } [ %80, %79 ], [ %123, %122 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #30
           to label %.thread43.i unwind label %127, !noalias !4359
 
@@ -58260,7 +58260,7 @@ _ZN12polars_arrow5array5Array10null_count17hbe358bb490af8827E.exit.i18: ; preds 
           to label %.thread46.i unwind label %254, !noalias !4385
 
 260:                                              ; preds = %249, %206
-  %.pn.i16 = phi { ptr, i32 } [ %250, %249 ], [ %207, %206 ]
+  %.pn.i16 = phi { ptr, i32 } [ %207, %206 ], [ %250, %249 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #30
           to label %.thread46.i unwind label %254, !noalias !4385
 
@@ -58724,7 +58724,7 @@ _ZN12polars_arrow5array5Array10null_count17h4ed23c694e69fbebE.exit.i: ; preds = 
           to label %.thread43.i unwind label %127, !noalias !4443
 
 133:                                              ; preds = %122, %79
-  %.pn.i = phi { ptr, i32 } [ %123, %122 ], [ %80, %79 ]
+  %.pn.i = phi { ptr, i32 } [ %80, %79 ], [ %123, %122 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32) #30
           to label %.thread43.i unwind label %127, !noalias !4443
 
@@ -59116,7 +59116,7 @@ _ZN12polars_arrow5array5Array10null_count17h4ed23c694e69fbebE.exit.i18: ; preds 
           to label %.thread46.i unwind label %254, !noalias !4469
 
 260:                                              ; preds = %249, %206
-  %.pn.i16 = phi { ptr, i32 } [ %250, %249 ], [ %207, %206 ]
+  %.pn.i16 = phi { ptr, i32 } [ %207, %206 ], [ %250, %249 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #30
           to label %.thread46.i unwind label %254, !noalias !4469
 
@@ -59516,7 +59516,7 @@ _ZN12polars_arrow5array5Array10null_count17h6785bd62cc80cf36E.exit: ; preds = %7
           to label %.thread43 unwind label %98
 
 104:                                              ; preds = %49, %92
-  %.pn = phi { ptr, i32 } [ %93, %92 ], [ %50, %49 ]
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %93, %92 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #30
           to label %.thread43 unwind label %98
 
@@ -59811,7 +59811,7 @@ _ZN12polars_arrow5array5Array10null_count17h05e5e02aa287bb54E.exit: ; preds = %7
           to label %.thread43 unwind label %98
 
 104:                                              ; preds = %49, %92
-  %.pn = phi { ptr, i32 } [ %93, %92 ], [ %50, %49 ]
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %93, %92 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #30
           to label %.thread43 unwind label %98
 
@@ -60106,7 +60106,7 @@ _ZN12polars_arrow5array5Array10null_count17he9e1152ac2b5c247E.exit: ; preds = %7
           to label %.thread43 unwind label %98
 
 104:                                              ; preds = %49, %92
-  %.pn = phi { ptr, i32 } [ %93, %92 ], [ %50, %49 ]
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %93, %92 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h70e19ca66a30789fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #30
           to label %.thread43 unwind label %98
 

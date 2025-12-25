@@ -2042,7 +2042,7 @@ highpass.exit:                                    ; preds = %802, %678
   br label %.critedge
 
 .critedge:                                        ; preds = %speex_inband_handler.exit, %113, %116, %56, %43, %79, %.preheader479, %112, %210, %highpass.exit, %iir_mem.exit
-  %.1 = phi i32 [ -1094995529, %112 ], [ -1094995529, %210 ], [ 0, %highpass.exit ], [ 0, %iir_mem.exit ], [ -1094995529, %.preheader479 ], [ -1094995529, %79 ], [ -1094995529, %43 ], [ -1094995529, %56 ], [ -1094995529, %116 ], [ -1094995529, %113 ], [ -1094995529, %speex_inband_handler.exit ]
+  %.1 = phi i32 [ 0, %highpass.exit ], [ -1094995529, %210 ], [ -1094995529, %112 ], [ 0, %iir_mem.exit ], [ -1094995529, %.preheader479 ], [ -1094995529, %79 ], [ -1094995529, %43 ], [ -1094995529, %56 ], [ -1094995529, %116 ], [ -1094995529, %113 ], [ -1094995529, %speex_inband_handler.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

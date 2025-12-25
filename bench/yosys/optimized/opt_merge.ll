@@ -87941,8 +87941,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread: ; preds = %21, %25, %30, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread35
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread35: ; preds = %42, %40, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread
-  %49 = phi i64 [ %13, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread ], [ %11, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit ], [ %11, %38 ], [ %11, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i ], [ %11, %40 ], [ %11, %42 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread35: ; preds = %40, %42, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread
+  %49 = phi i64 [ %13, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread ], [ %11, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit ], [ %11, %38 ], [ %11, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i ], [ %11, %42 ], [ %11, %40 ]
   %50 = getelementptr inbounds %"struct.std::pair.545", ptr %0, i64 %49
   %51 = getelementptr inbounds %"struct.std::pair.545", ptr %0, i64 %.036
   %52 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNSt4pairIN5Yosys5RTLIL6SigBitENS1_7SigSpecEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef nonnull align 8 dereferenceable(72) %50) #26
@@ -88246,8 +88246,8 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIN5Yosys5R
   %45 = icmp sgt i64 %.0921, %2
   br i1 %45, label %9, label %.critedge, !llvm.loop !1017
 
-.critedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread, %33, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %35, %37, %5
-  %.0.lcssa = phi i64 [ %1, %5 ], [ %.020, %37 ], [ %.020, %35 ], [ %.020, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i ], [ %.020, %33 ], [ %.0921, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread ], [ %.020, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit ]
+.critedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread, %33, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %37, %35, %5
+  %.0.lcssa = phi i64 [ %1, %5 ], [ %.020, %35 ], [ %.020, %37 ], [ %.020, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i ], [ %.020, %33 ], [ %.0921, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread ], [ %.020, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit ]
   %46 = getelementptr inbounds %"struct.std::pair.545", ptr %0, i64 %.0.lcssa
   %47 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNSt4pairIN5Yosys5RTLIL6SigBitENS1_7SigSpecEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(72) %46, ptr noundef nonnull align 8 dereferenceable(72) %3) #26
   ret void
@@ -88410,8 +88410,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %181
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit31.thread53: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit31._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit31.thread53_crit_edge, %72, %70, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i30, %68
-  %79 = phi ptr [ %.pre62, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit31._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit31.thread53_crit_edge ], [ null, %72 ], [ %46, %70 ], [ %46, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i30 ], [ %46, %68 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit31.thread53: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit31._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit31.thread53_crit_edge, %70, %72, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i30, %68
+  %79 = phi ptr [ %.pre62, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit31._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit31.thread53_crit_edge ], [ %46, %70 ], [ null, %72 ], [ %46, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i30 ], [ %46, %68 ]
   %80 = load ptr, ptr %1, align 8, !tbaa !498
   %81 = icmp eq ptr %80, %79
   %.not12.i.i.i32 = icmp eq ptr %80, null
@@ -88483,7 +88483,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %181
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit37.thread55: ; preds = %106, %104, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i36, %102, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit37
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit37.thread55: ; preds = %104, %106, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i36, %102, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit37
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 16, i1 false), !tbaa.struct !335
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 12, i1 false), !tbaa.struct !335
@@ -88491,8 +88491,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %181
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread51: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread51_crit_edge, %38, %36, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %34
-  %113 = phi ptr [ %.pre, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread51_crit_edge ], [ %11, %38 ], [ null, %36 ], [ %11, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i ], [ %11, %34 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread51: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread51_crit_edge, %36, %38, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %34
+  %113 = phi ptr [ %.pre, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread51_crit_edge ], [ null, %36 ], [ %11, %38 ], [ %11, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i ], [ %11, %34 ]
   %114 = load ptr, ptr %3, align 8, !tbaa !498
   %115 = icmp eq ptr %113, %114
   %.not12.i.i.i38 = icmp eq ptr %113, null
@@ -88568,8 +88568,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %181
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit43.thread57: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit43._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit43.thread57_crit_edge, %140, %138, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i42, %136
-  %147 = phi ptr [ %.pre60, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit43._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit43.thread57_crit_edge ], [ null, %140 ], [ %114, %138 ], [ %114, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i42 ], [ %114, %136 ]
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit43.thread57: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit43._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit43.thread57_crit_edge, %138, %140, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i42, %136
+  %147 = phi ptr [ %.pre60, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit43._ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit43.thread57_crit_edge ], [ %114, %138 ], [ null, %140 ], [ %114, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i42 ], [ %114, %136 ]
   %148 = load ptr, ptr %2, align 8, !tbaa !498
   %149 = icmp eq ptr %148, %147
   %.not12.i.i.i44 = icmp eq ptr %148, null
@@ -88641,7 +88641,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %181
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit49.thread59: ; preds = %174, %172, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i48, %170, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit49
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit49.thread59: ; preds = %172, %174, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i48, %170, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit49
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 16, i1 false), !tbaa.struct !335
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 12, i1 false), !tbaa.struct !335
@@ -88733,7 +88733,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5
   %40 = tail call noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpecltERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(56) %6)
   br i1 %40, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread20.preheader
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread20.preheader: ; preds = %35, %33, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread20.preheader: ; preds = %33, %35, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread20
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread: ; preds = %14, %18, %23, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit
@@ -88808,7 +88808,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5
   %73 = tail call noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpecltERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %72)
   br i1 %73, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread20.backedge, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit13.thread22
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit13.thread22: ; preds = %68, %66, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i12, %64, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit13
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit13.thread22: ; preds = %66, %68, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i12, %64, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit13
   %74 = icmp ult ptr %.sroa.016.1, %.sroa.0.1
   br i1 %74, label %76, label %75
 
@@ -89227,7 +89227,7 @@ _ZNSt4pairIN5Yosys5RTLIL6SigBitENS1_7SigSpecEED2Ev.exit: ; preds = %130, %_ZNSt6
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br label %134
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread27: ; preds = %40, %38, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread27: ; preds = %38, %40, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS6_7SigSpecEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit
   tail call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL6SigBitENS4_7SigSpecEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_less_iterEEvT_T0_(ptr nonnull %.sroa.0.032)
   br label %134
 
@@ -89357,7 +89357,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5Yosys5RTLIL6SigBitENS5_7SigSpec
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %61
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5Yosys5RTLIL6SigBitENS5_7SigSpecEENS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread7: ; preds = %52, %50, %48, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5Yosys5RTLIL6SigBitENS5_7SigSpecEENS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5Yosys5RTLIL6SigBitENS5_7SigSpecEENS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.thread7: ; preds = %50, %52, %48, %_ZNK5Yosys5RTLIL6SigBitltERKS1_.exit10.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclISt4pairIN5Yosys5RTLIL6SigBitENS5_7SigSpecEENS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.03.0, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 12, i1 false), !tbaa.struct !335
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.03.0, i64 16
   %63 = load i64, ptr %3, align 8

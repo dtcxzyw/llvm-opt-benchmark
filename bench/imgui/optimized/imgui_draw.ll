@@ -18951,8 +18951,8 @@ _ZL22stbtt_GetGlyphHMetricsPK14stbtt_fontinfoiPiS2_.exit.i: ; preds = %1697, %16
   br label %_ZL17stbtt_GetGlyphBoxPK14stbtt_fontinfoiPiS2_S2_S2_.exit.i.i
 
 _ZL17stbtt_GetGlyphBoxPK14stbtt_fontinfoiPiS2_S2_S2_.exit.i.i: ; preds = %1826, %1751
-  %.041.i.i = phi i32 [ %1754, %1751 ], [ %1835, %1826 ]
-  %.0.i181.i = phi i32 [ %1756, %1751 ], [ %1842, %1826 ]
+  %.041.i.i = phi i32 [ %1835, %1826 ], [ %1754, %1751 ]
+  %.0.i181.i = phi i32 [ %1842, %1826 ], [ %1756, %1751 ]
   %1843 = sitofp i32 %.041.i.i to float
   %1844 = call float @llvm.fmuladd.f32(float %1843, float %1667, float 0.000000e+00)
   %1845 = fcmp ult float %1844, 0.000000e+00
@@ -28354,10 +28354,10 @@ define internal fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fonti
   br i1 %.not32, label %169, label %.sink.split
 
 _ZL17stbtt_GetGlyphBoxPK14stbtt_fontinfoiPiS2_S2_S2_.exit: ; preds = %102, %12
-  %.041 = phi i32 [ %16, %12 ], [ %111, %102 ]
-  %.040 = phi i32 [ %19, %12 ], [ %118, %102 ]
-  %.039 = phi i32 [ %22, %12 ], [ %125, %102 ]
-  %.0 = phi i32 [ %25, %12 ], [ %132, %102 ]
+  %.041 = phi i32 [ %111, %102 ], [ %16, %12 ]
+  %.040 = phi i32 [ %118, %102 ], [ %19, %12 ]
+  %.039 = phi i32 [ %125, %102 ], [ %22, %12 ]
+  %.0 = phi i32 [ %132, %102 ], [ %25, %12 ]
   %136 = sitofp i32 %.041 to float
   %137 = call float @llvm.fmuladd.f32(float %136, float %2, float 0.000000e+00)
   %138 = fcmp ult float %137, 0.000000e+00
@@ -31127,7 +31127,7 @@ _ZL14stbtt__cff_intP10stbtt__buf.exit:            ; preds = %_ZL15stbtt__buf_get
   br i1 %932, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit, label %.critedge, !llvm.loop !606
 
 .critedge:                                        ; preds = %107, %116, %123, %130, %182, %184, %284, %286, %330, %347, %._crit_edge510, %417, %._crit_edge, %488, %632, %634, %_ZL15stbtt__get_subr10stbtt__bufi.exit, %722, %848, %925, %.thread, %791, %780, %_ZL15stbtt__buf_get8P10stbtt__buf.exit377, %806, %821, %775, %58, %_ZL14stbtt__buf_getP10stbtt__bufi.exit28.i, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i, %733
-  %.2 = phi i32 [ 1, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i ], [ 1, %733 ], [ 0, %_ZL14stbtt__buf_getP10stbtt__bufi.exit28.i ], [ 0, %58 ], [ 0, %775 ], [ 0, %821 ], [ 0, %806 ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit377 ], [ 0, %780 ], [ 0, %791 ], [ 0, %.thread ], [ 0, %925 ], [ 0, %848 ], [ 0, %722 ], [ 0, %_ZL15stbtt__get_subr10stbtt__bufi.exit ], [ 0, %634 ], [ 0, %632 ], [ 0, %488 ], [ 0, %._crit_edge ], [ 0, %417 ], [ 0, %._crit_edge510 ], [ 0, %347 ], [ 0, %330 ], [ 0, %286 ], [ 0, %284 ], [ 0, %184 ], [ 0, %182 ], [ 0, %130 ], [ 0, %123 ], [ 0, %116 ], [ 0, %107 ]
+  %.2 = phi i32 [ 1, %733 ], [ 1, %_ZL14stbtt__csctx_vP12stbtt__csctxhiiiiii.exit.i ], [ 0, %_ZL14stbtt__buf_getP10stbtt__bufi.exit28.i ], [ 0, %58 ], [ 0, %775 ], [ 0, %821 ], [ 0, %806 ], [ 0, %_ZL15stbtt__buf_get8P10stbtt__buf.exit377 ], [ 0, %780 ], [ 0, %791 ], [ 0, %.thread ], [ 0, %925 ], [ 0, %848 ], [ 0, %722 ], [ 0, %_ZL15stbtt__get_subr10stbtt__bufi.exit ], [ 0, %634 ], [ 0, %632 ], [ 0, %488 ], [ 0, %._crit_edge ], [ 0, %417 ], [ 0, %._crit_edge510 ], [ 0, %347 ], [ 0, %330 ], [ 0, %286 ], [ 0, %284 ], [ 0, %184 ], [ 0, %182 ], [ 0, %130 ], [ 0, %123 ], [ 0, %116 ], [ 0, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -5760,7 +5760,7 @@ _ZN12_GLOBAL__N_19SafeStack18IsMemIntrinsicSafeEPKN4llvm12MemIntrinsicERKNS1_3Us
   br i1 %.not, label %thread-pre-split.loopexit, label %.lr.ph126
 
 .thread108:                                       ; preds = %thread-pre-split, %109, %_ZN12_GLOBAL__N_19SafeStack18IsMemIntrinsicSafeEPKN4llvm12MemIntrinsicERKNS1_3UseEPKNS1_5ValueEm.exit, %_ZNK4llvm4User10getOperandEj.exit69, %_ZNK4llvm4User10getOperandEj.exit, %29, %.lr.ph126, %_ZNK4llvm4User10getOperandEj.exit.thread, %185, %131
-  %.not.i119 = phi i1 [ false, %109 ], [ false, %185 ], [ false, %131 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.thread ], [ false, %.lr.ph126 ], [ false, %29 ], [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit69 ], [ false, %_ZN12_GLOBAL__N_19SafeStack18IsMemIntrinsicSafeEPKN4llvm12MemIntrinsicERKNS1_3UseEPKNS1_5ValueEm.exit ], [ true, %thread-pre-split ]
+  %.not.i119 = phi i1 [ false, %185 ], [ false, %109 ], [ false, %131 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.thread ], [ false, %.lr.ph126 ], [ false, %29 ], [ false, %_ZNK4llvm4User10getOperandEj.exit ], [ false, %_ZNK4llvm4User10getOperandEj.exit69 ], [ false, %_ZN12_GLOBAL__N_19SafeStack18IsMemIntrinsicSafeEPKN4llvm12MemIntrinsicERKNS1_3UseEPKNS1_5ValueEm.exit ], [ true, %thread-pre-split ]
   %219 = load ptr, ptr %4, align 8, !tbaa !25
   %220 = icmp eq ptr %219, %12
   br i1 %220, label %_ZN4llvm11SmallVectorIPKNS_5ValueELj8EED2Ev.exit, label %221

@@ -832,7 +832,7 @@ thread-pre-split:                                 ; preds = %52
   br label %cff_index_get_sid_string.exit
 
 cff_index_get_sid_string.exit:                    ; preds = %273, %281
-  %.0.i = phi ptr [ %278, %273 ], [ %284, %281 ]
+  %.0.i = phi ptr [ %284, %281 ], [ %278, %273 ]
   %.not396 = icmp eq ptr %.0.i, null
   br i1 %.not396, label %cff_index_get_sid_string.exit.thread, label %285
 
@@ -901,8 +901,8 @@ cff_index_get_sid_string.exit.thread:             ; preds = %218, %218, %268, %2
   br label %cff_index_get_sid_string.exit432
 
 cff_index_get_sid_string.exit432:                 ; preds = %304, %312
-  %316 = phi ptr [ %293, %304 ], [ %.pre524, %312 ]
-  %.0.i431 = phi ptr [ %309, %304 ], [ %315, %312 ]
+  %316 = phi ptr [ %.pre524, %312 ], [ %293, %304 ]
+  %.0.i431 = phi ptr [ %315, %312 ], [ %309, %304 ]
   %317 = icmp ne ptr %.0.i431, null
   %318 = icmp ne ptr %316, null
   %or.cond4 = select i1 %317, i1 %318, i1 false
@@ -1002,7 +1002,7 @@ cff_index_get_sid_string.exit432:                 ; preds = %304, %312
   br label %cff_index_get_sid_string.exit435
 
 cff_index_get_sid_string.exit435:                 ; preds = %341, %349
-  %.0.i434 = phi ptr [ %346, %341 ], [ %352, %349 ]
+  %.0.i434 = phi ptr [ %352, %349 ], [ %346, %341 ]
   %.not400 = icmp eq ptr %.0.i434, null
   br i1 %.not400, label %cff_index_get_sid_string.exit432.thread, label %353
 
@@ -1078,7 +1078,7 @@ cff_index_get_sid_string.exit432.thread:          ; preds = %.outer.backedge, %.
   br label %cff_index_get_sid_string.exit438
 
 cff_index_get_sid_string.exit438:                 ; preds = %378, %386
-  %.0.i437 = phi ptr [ %383, %378 ], [ %389, %386 ]
+  %.0.i437 = phi ptr [ %389, %386 ], [ %383, %378 ]
   %.not408 = icmp eq ptr %.0.i437, null
   br i1 %.not408, label %cff_index_get_sid_string.exit438.thread, label %390
 
@@ -3731,7 +3731,7 @@ define internal i32 @cff_ps_get_font_extra(ptr noundef readonly captures(none) %
   br label %cff_index_get_sid_string.exit
 
 cff_index_get_sid_string.exit:                    ; preds = %25, %34
-  %.0.i = phi ptr [ %30, %25 ], [ %37, %34 ]
+  %.0.i = phi ptr [ %37, %34 ], [ %30, %25 ]
   %.not45 = icmp eq ptr %.0.i, null
   br i1 %.not45, label %cff_index_get_sid_string.exit.thread, label %38
 
@@ -3941,7 +3941,7 @@ define internal i32 @cff_get_glyph_name(ptr noundef %0, i32 noundef %1, ptr noun
   br label %cff_index_get_sid_string.exit
 
 cff_index_get_sid_string.exit:                    ; preds = %39, %45
-  %.0.i = phi ptr [ %44, %39 ], [ %48, %45 ]
+  %.0.i = phi ptr [ %48, %45 ], [ %44, %39 ]
   %.not30 = icmp eq ptr %.0.i, null
   br i1 %.not30, label %cff_index_get_sid_string.exit.thread, label %49
 
@@ -9122,7 +9122,7 @@ define internal fastcc i32 @cff_vstore_load(ptr noundef captures(none) %0, ptr n
   br label %.thread145
 
 .thread145:                                       ; preds = %.lr.ph, %.lr.ph160, %.lr.ph157, %64, %68, %103, %99, %97, %.lr.ph167, %.lr.ph164, %.thread145.sink.split, %37, %41, %22, %11, %44, %._crit_edge, %25, %18, %13, %8, %._crit_edge161
-  %.298 = phi ptr [ %27, %.lr.ph157 ], [ %27, %37 ], [ %27, %41 ], [ null, %22 ], [ null, %11 ], [ %.298.ph, %.thread145.sink.split ], [ %27, %44 ], [ %27, %._crit_edge161 ], [ %27, %._crit_edge ], [ %27, %.lr.ph160 ], [ %27, %25 ], [ null, %18 ], [ null, %13 ], [ %27, %.lr.ph164 ], [ null, %8 ], [ %27, %103 ], [ %27, %.lr.ph167 ], [ %27, %97 ], [ %27, %99 ], [ %27, %68 ], [ %27, %64 ], [ %27, %.lr.ph ]
+  %.298 = phi ptr [ %27, %.lr.ph160 ], [ %27, %37 ], [ %27, %41 ], [ null, %22 ], [ null, %11 ], [ %.298.ph, %.thread145.sink.split ], [ %27, %44 ], [ %27, %._crit_edge161 ], [ %27, %._crit_edge ], [ %27, %103 ], [ %27, %25 ], [ null, %18 ], [ null, %13 ], [ %27, %.lr.ph164 ], [ null, %8 ], [ %27, %.lr.ph157 ], [ %27, %.lr.ph167 ], [ %27, %97 ], [ %27, %99 ], [ %27, %68 ], [ %27, %64 ], [ %27, %.lr.ph ]
   call void @ft_mem_free(ptr noundef %7, ptr noundef %.298) #20
   %121 = load i32, ptr %5, align 4, !tbaa !59
   %.not130 = icmp eq i32 %121, 0

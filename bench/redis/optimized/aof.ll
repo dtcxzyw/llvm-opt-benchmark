@@ -1040,9 +1040,9 @@ sdslen.exit:                                      ; preds = %47, %50, %54, %58, 
   %.pre = load i32, ptr %3, align 4, !tbaa !21
   br label %.thread111.thread167
 
-.thread111.thread167:                             ; preds = %120, %123, %._crit_edge, %.thread111.thread167.loopexit
-  %143 = phi i32 [ %.pre, %.thread111.thread167.loopexit ], [ %118, %._crit_edge ], [ %118, %123 ], [ %118, %120 ]
-  %.182131.ph = phi ptr [ @.str.25, %.thread111.thread167.loopexit ], [ @.str.24, %._crit_edge ], [ @.str.24, %123 ], [ @.str.24, %120 ]
+.thread111.thread167:                             ; preds = %123, %120, %._crit_edge, %.thread111.thread167.loopexit
+  %143 = phi i32 [ %.pre, %.thread111.thread167.loopexit ], [ %118, %._crit_edge ], [ %118, %120 ], [ %118, %123 ]
+  %.182131.ph = phi ptr [ @.str.25, %.thread111.thread167.loopexit ], [ @.str.24, %._crit_edge ], [ @.str.24, %120 ], [ @.str.24, %123 ]
   call void @sdsfreesplitres(ptr noundef nonnull %66, i32 noundef %143) #20
   br label %.thread111.thread156
 
@@ -1712,7 +1712,7 @@ sdslen.exit:                                      ; preds = %26, %29, %33, %37, 
   br label %91
 
 91:                                               ; preds = %81, %54, %57, %65, %68, %74, %77, %84, %87
-  %.030 = phi i32 [ 0, %81 ], [ -1, %87 ], [ -1, %57 ], [ -1, %68 ], [ -1, %77 ], [ -1, %84 ], [ -1, %54 ], [ -1, %65 ], [ -1, %74 ]
+  %.030 = phi i32 [ 0, %81 ], [ -1, %84 ], [ -1, %57 ], [ -1, %68 ], [ -1, %77 ], [ -1, %87 ], [ -1, %54 ], [ -1, %65 ], [ -1, %74 ]
   %92 = tail call i32 @close(i32 noundef %12) #20
   br label %.thread
 
@@ -4702,7 +4702,7 @@ define dso_local range(i32 0, 6) i32 @loadSingleAppendOnlyFile(ptr noundef %0) l
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread218
 
-.thread183:                                       ; preds = %69, %64
+.thread183:                                       ; preds = %64, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %71
 
@@ -4939,8 +4939,8 @@ define dso_local range(i32 0, 6) i32 @loadSingleAppendOnlyFile(ptr noundef %0) l
   br label %178
 
 .thread188:                                       ; preds = %165, %167, %91
-  %.1133 = phi i64 [ %spec.select, %165 ], [ %spec.select, %167 ], [ %.0132, %91 ]
-  %.2131 = phi i64 [ %.3, %165 ], [ %.3, %167 ], [ %.1130, %91 ]
+  %.1133 = phi i64 [ %spec.select, %165 ], [ %.0132, %91 ], [ %spec.select, %167 ]
+  %.2131 = phi i64 [ %.3, %165 ], [ %.1130, %91 ], [ %.3, %167 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %80
 
@@ -7935,9 +7935,9 @@ rioWrite.exit135:                                 ; preds = %282
   br label %.thread159
 
 303:                                              ; preds = %289, %302, %300, %232
-  %cond = phi i1 [ true, %300 ], [ false, %232 ], [ true, %302 ], [ false, %289 ]
-  %.373 = phi i64 [ %.5, %300 ], [ %.272, %232 ], [ %.5, %302 ], [ %.272, %289 ]
-  %.3 = phi i64 [ %292, %300 ], [ %.2, %232 ], [ %292, %302 ], [ %.2, %289 ]
+  %cond = phi i1 [ false, %289 ], [ false, %232 ], [ true, %302 ], [ true, %300 ]
+  %.373 = phi i64 [ %.272, %289 ], [ %.272, %232 ], [ %.5, %302 ], [ %.5, %300 ]
+  %.3 = phi i64 [ %.2, %289 ], [ %.2, %232 ], [ %292, %302 ], [ %292, %300 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %cond, label %200, label %.thread159, !llvm.loop !230
 

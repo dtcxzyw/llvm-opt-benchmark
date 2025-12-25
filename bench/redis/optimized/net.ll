@@ -1001,7 +1001,7 @@ redisContextUpdateConnectTimeout.exit:            ; preds = %131, %34, %22
   br label %.thread
 
 .thread:                                          ; preds = %100, %158, %._crit_edge, %114, %107, %redisContextTimeoutMsec.exit, %redisContextUpdateConnectTimeout.exit, %.loopexit141, %170, %172, %._crit_edge174, %174
-  %.192 = phi i32 [ 0, %174 ], [ -1, %redisContextUpdateConnectTimeout.exit ], [ -1, %._crit_edge174 ], [ -1, %172 ], [ -1, %170 ], [ -1, %.loopexit141 ], [ -1, %._crit_edge ], [ -1, %114 ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %107 ], [ -1, %158 ], [ -1, %100 ]
+  %.192 = phi i32 [ 0, %174 ], [ -1, %redisContextUpdateConnectTimeout.exit ], [ -1, %._crit_edge174 ], [ -1, %172 ], [ -1, %170 ], [ -1, %.loopexit141 ], [ -1, %114 ], [ -1, %._crit_edge ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %107 ], [ -1, %158 ], [ -1, %100 ]
   %182 = load ptr, ptr %9, align 8, !tbaa !31
   %.not128 = icmp eq ptr %182, null
   br i1 %.not128, label %184, label %183

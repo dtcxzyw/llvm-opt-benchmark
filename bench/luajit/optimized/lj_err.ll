@@ -120,8 +120,8 @@ define hidden range(i32 3, 9) i32 @lj_err_unwind_dwarf(i32 noundef %0, i32 nound
   br label %58
 
 58:                                               ; preds = %48, %42, %37
-  %.193.us.i = phi ptr [ %44, %42 ], [ %.092154.us.i, %37 ], [ %.092154.us.i, %48 ]
-  %.188.us.i = phi ptr [ %47, %42 ], [ %40, %37 ], [ %57, %48 ]
+  %.193.us.i = phi ptr [ %.092154.us.i, %48 ], [ %44, %42 ], [ %.092154.us.i, %37 ]
+  %.188.us.i = phi ptr [ %57, %48 ], [ %47, %42 ], [ %40, %37 ]
   %.not.us.i = icmp eq ptr %.193.us.i, null
   br i1 %.not.us.i, label %err_unwind.exit, label %.lr.ph.split.us.i
 
@@ -268,8 +268,8 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br label %125
 
 125:                                              ; preds = %115, %109, %104
-  %.193.us.i56 = phi ptr [ %111, %109 ], [ %.092154.us.i52, %104 ], [ %.092154.us.i52, %115 ]
-  %.188.us.i57 = phi ptr [ %114, %109 ], [ %107, %104 ], [ %124, %115 ]
+  %.193.us.i56 = phi ptr [ %.092154.us.i52, %115 ], [ %111, %109 ], [ %.092154.us.i52, %104 ]
+  %.188.us.i57 = phi ptr [ %124, %115 ], [ %114, %109 ], [ %107, %104 ]
   %.not.us.i58 = icmp eq ptr %.193.us.i56, null
   br i1 %.not.us.i58, label %.thread121.i44, label %.lr.ph.split.us.i50
 
@@ -351,7 +351,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br label %165
 
 165:                                              ; preds = %155, %151, %143
-  %.188.us194.i = phi ptr [ %146, %143 ], [ %154, %151 ], [ %164, %155 ]
+  %.188.us194.i = phi ptr [ %164, %155 ], [ %154, %151 ], [ %146, %143 ]
   %.not101.us192.i = icmp ult ptr %.188.us194.i, %136
   br i1 %.not101.us192.i, label %.split.us.i47, label %138
 
@@ -412,7 +412,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br label %193
 
 193:                                              ; preds = %183, %179, %171
-  %.188.us245.i = phi ptr [ %174, %171 ], [ %182, %179 ], [ %192, %183 ]
+  %.188.us245.i = phi ptr [ %192, %183 ], [ %182, %179 ], [ %174, %171 ]
   %.not102.us246.i = icmp ugt ptr %.188.us245.i, %168
   br i1 %.not102.us246.i, label %.lr.ph224.split.us243.i, label %.thread121.i44
 
@@ -462,8 +462,8 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   br label %262
 
 .split202.us.i:                                   ; preds = %235, %.lr.ph224.split.i, %175, %.lr.ph224.split.us243.i, %147, %139
-  %.lcssa151.i = phi i64 [ %169, %175 ], [ %140, %147 ], [ %140, %139 ], [ %169, %.lr.ph224.split.us243.i ], [ %197, %.lr.ph224.split.i ], [ %197, %235 ]
-  %.087.lcssa131.i = phi ptr [ %.087155223.us244.i, %175 ], [ %.087155.us191266.i, %147 ], [ %.087155.us191266.i, %139 ], [ %.087155223.us244.i, %.lr.ph224.split.us243.i ], [ %.087155223.i, %.lr.ph224.split.i ], [ %.087155223.i, %235 ]
+  %.lcssa151.i = phi i64 [ %140, %147 ], [ %169, %175 ], [ %140, %139 ], [ %169, %.lr.ph224.split.us243.i ], [ %197, %.lr.ph224.split.i ], [ %197, %235 ]
+  %.087.lcssa131.i = phi ptr [ %.087155.us191266.i, %147 ], [ %.087155223.us244.i, %175 ], [ %.087155.us191266.i, %139 ], [ %.087155223.us244.i, %.lr.ph224.split.us243.i ], [ %.087155223.i, %.lr.ph224.split.i ], [ %.087155223.i, %235 ]
   %209 = and i64 %.lcssa151.i, -8
   %210 = sub i64 0, %209
   %211 = getelementptr inbounds i8, ptr %.087.lcssa131.i, i64 %210
@@ -1042,7 +1042,7 @@ default.unreachable:                              ; preds = %43
   br i1 %106, label %.preheader.i, label %finderrfunc.exit.thread, !llvm.loop !66
 
 finderrfunc.exit:                                 ; preds = %99, %80, %37
-  %107 = phi i64 [ %38, %37 ], [ %102, %99 ], [ %81, %80 ]
+  %107 = phi i64 [ %102, %99 ], [ %38, %37 ], [ %81, %80 ]
   %.not26 = icmp eq i64 %107, 0
   br i1 %.not26, label %finderrfunc.exit.thread, label %108
 
@@ -1108,7 +1108,7 @@ lj_state_checkstack.exit:                         ; preds = %108, %116
   tail call void @lj_vm_call(ptr noundef nonnull %0, ptr noundef nonnull %134, i32 noundef 2) #15
   br label %finderrfunc.exit.thread
 
-finderrfunc.exit.thread:                          ; preds = %74, %103, %39, %88, %7, %1, %133, %finderrfunc.exit
+finderrfunc.exit.thread:                          ; preds = %74, %103, %39, %7, %88, %1, %133, %finderrfunc.exit
   tail call void @lj_err_throw(ptr noundef %0, i32 noundef 2) #19
   unreachable
 }

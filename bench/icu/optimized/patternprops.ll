@@ -460,7 +460,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps12isIdentifier
   br label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit
 
 _ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit: ; preds = %11, %20, %35
-  %.0.i = phi i8 [ %38, %35 ], [ %15, %11 ], [ %32, %20 ]
+  %.0.i = phi i8 [ %32, %20 ], [ %15, %11 ], [ %38, %35 ]
   %.not = icmp eq i8 %.0.i, 0
   br i1 %.not, label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread, label %.loopexit
 
@@ -529,7 +529,7 @@ define noundef ptr @_ZN6icu_7712PatternProps14skipIdentifierEPKDsi(ptr noundef r
   br label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit
 
 _ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit: ; preds = %7, %16, %31
-  %.0.i = phi i8 [ %34, %31 ], [ %11, %7 ], [ %28, %16 ]
+  %.0.i = phi i8 [ %28, %16 ], [ %11, %7 ], [ %34, %31 ]
   %.not = icmp eq i8 %.0.i, 0
   br i1 %.not, label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread, label %.critedge
 

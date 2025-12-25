@@ -307,7 +307,7 @@ define internal fastcc void @"_ZN183_$LT$uv_distribution_types..index.._..$LT$im
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17h88853f7a00fdd135E.exit"
 
 .loopexit.split-lp:                               ; preds = %76, %94, %122, %132, %142, %152, %170, %180, %222
-  %.sroa.0163.1.ph = phi i8 [ 1, %142 ], [ 1, %132 ], [ 1, %152 ], [ 1, %122 ], [ 1, %170 ], [ 1, %94 ], [ 1, %180 ], [ 1, %76 ], [ %.sroa.0163.6632, %222 ]
+  %.sroa.0163.1.ph = phi i8 [ 1, %180 ], [ 1, %132 ], [ 1, %152 ], [ 1, %122 ], [ 1, %170 ], [ 1, %94 ], [ 1, %142 ], [ 1, %76 ], [ %.sroa.0163.6632, %222 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17h88853f7a00fdd135E.exit"
@@ -41608,7 +41608,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u2
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17h88853f7a00fdd135E.exit.i"
 
 .loopexit.split-lp.i:                             ; preds = %287, %245, %235, %217, %207, %197, %187, %159, %142
-  %.sroa.0163.1.ph.i = phi i8 [ 1, %207 ], [ 1, %197 ], [ 1, %217 ], [ 1, %187 ], [ 1, %235 ], [ 1, %159 ], [ 1, %245 ], [ 1, %142 ], [ %.sroa.0163.6.i, %287 ]
+  %.sroa.0163.1.ph.i = phi i8 [ 1, %245 ], [ 1, %197 ], [ 1, %217 ], [ 1, %187 ], [ 1, %235 ], [ 1, %159 ], [ 1, %207 ], [ 1, %142 ], [ %.sroa.0163.6.i, %287 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$uv_distribution_types..index_name..IndexName$GT$$GT$17h88853f7a00fdd135E.exit.i"

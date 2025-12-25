@@ -2614,7 +2614,7 @@ syncrep_yy_delete_buffer.exit.i:                  ; preds = %36, %33, %.critedge
   br label %syncrep_yypop_buffer_state.exit
 
 syncrep_yypop_buffer_state.exit:                  ; preds = %27, %46, %49
-  %58 = phi ptr [ %45, %49 ], [ %26, %27 ], [ %45, %46 ]
+  %58 = phi ptr [ %45, %46 ], [ %26, %27 ], [ %45, %49 ]
   %59 = load i64, ptr %4, align 8
   %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8

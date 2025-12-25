@@ -11328,7 +11328,7 @@ RARRAY_AREF.exit59:                               ; preds = %rb_array_len.exit56
   br i1 %.not, label %105, label %rb_ary_includes_by_eql.exit, !llvm.loop !90
 
 rb_ary_includes_by_eql.exit:                      ; preds = %rb_array_len.exit56.thread, %rb_array_len.exit56, %RARRAY_AREF.exit59, %rb_array_len.exit42.thread, %rb_array_len.exit42, %RARRAY_AREF.exit.i, %rb_array_len.exit, %rb_array_len.exit39
-  %.029 = phi i64 [ 0, %rb_array_len.exit42.thread ], [ 0, %rb_array_len.exit ], [ 20, %RARRAY_AREF.exit.i ], [ 0, %rb_array_len.exit39 ], [ 0, %rb_array_len.exit42 ], [ 20, %RARRAY_AREF.exit59 ], [ 0, %rb_array_len.exit56 ], [ 0, %rb_array_len.exit56.thread ]
+  %.029 = phi i64 [ 0, %rb_array_len.exit42.thread ], [ 0, %rb_array_len.exit ], [ 20, %RARRAY_AREF.exit.i ], [ 0, %rb_array_len.exit39 ], [ 0, %rb_array_len.exit42 ], [ 20, %RARRAY_AREF.exit59 ], [ 0, %rb_array_len.exit56.thread ], [ 0, %rb_array_len.exit56 ]
   ret i64 %.029
 }
 
@@ -12193,7 +12193,7 @@ rb_long2num_inline.exit35:                        ; preds = %RARRAY_AREF.exit32
   br label %44, !llvm.loop !94
 
 rb_long2num_inline.exit:                          ; preds = %rb_array_len.exit29.thread, %rb_array_len.exit29, %rb_array_len.exit.thread, %rb_array_len.exit, %59, %62, %32, %29, %9
-  %.0 = phi i64 [ %61, %59 ], [ %63, %62 ], [ %12, %9 ], [ 4, %rb_array_len.exit.thread ], [ %33, %32 ], [ %31, %29 ], [ 4, %rb_array_len.exit ], [ 4, %rb_array_len.exit29 ], [ 4, %rb_array_len.exit29.thread ]
+  %.0 = phi i64 [ %63, %62 ], [ %61, %59 ], [ %12, %9 ], [ %33, %32 ], [ 4, %rb_array_len.exit.thread ], [ %31, %29 ], [ 4, %rb_array_len.exit ], [ 4, %rb_array_len.exit29 ], [ 4, %rb_array_len.exit29.thread ]
   ret i64 %.0
 }
 
@@ -12377,7 +12377,7 @@ rb_array_len.exit45:                              ; preds = %72, %75
   br i1 %77, label %rb_long2num_inline.exit, label %rb_long2num_inline.exit42
 
 rb_long2num_inline.exit:                          ; preds = %rb_array_len.exit45, %rb_long2num_inline.exit42, %rb_array_len.exit35, %.preheader, %67, %64, %36, %33, %17
-  %.0 = phi i64 [ %66, %64 ], [ %37, %36 ], [ %20, %17 ], [ 4, %.preheader ], [ %35, %33 ], [ %68, %67 ], [ 4, %rb_array_len.exit35 ], [ 4, %rb_long2num_inline.exit42 ], [ 4, %rb_array_len.exit45 ]
+  %.0 = phi i64 [ %66, %64 ], [ %37, %36 ], [ %20, %17 ], [ %68, %67 ], [ %35, %33 ], [ 4, %.preheader ], [ 4, %rb_array_len.exit35 ], [ 4, %rb_long2num_inline.exit42 ], [ 4, %rb_array_len.exit45 ]
   ret i64 %.0
 }
 

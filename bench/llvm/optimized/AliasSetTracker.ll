@@ -1161,7 +1161,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit: ; preds = %_ZN4l
   br i1 %42, label %.thread, label %36
 
 .thread:                                          ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit, %.critedge, %23, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit, %36, %38, %._crit_edge, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit, %3
-  %.0 = phi i8 [ 3, %3 ], [ %41, %36 ], [ 0, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit ], [ 0, %._crit_edge ], [ 3, %38 ], [ 3, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit ], [ 3, %23 ], [ 3, %.critedge ], [ 3, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit ]
+  %.0 = phi i8 [ 3, %3 ], [ 0, %._crit_edge ], [ 0, %_ZNK4llvm11Instruction20mayReadOrWriteMemoryEv.exit ], [ %41, %36 ], [ 3, %38 ], [ 3, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit ], [ 3, %23 ], [ 3, %.critedge ], [ 3, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit ]
   ret i8 %.0
 }
 

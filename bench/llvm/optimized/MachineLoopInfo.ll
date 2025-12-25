@@ -1458,7 +1458,7 @@ _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit
   br i1 %.not, label %.critedge28, label %13
 
 .critedge28:                                      ; preds = %.critedge, %.lr.ph.split.us, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit, %36, %41, %30, %1
-  %.not37 = phi i1 [ false, %30 ], [ false, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit ], [ true, %1 ], [ false, %41 ], [ false, %36 ], [ false, %.lr.ph.split.us ], [ true, %.critedge ]
+  %.not37 = phi i1 [ true, %1 ], [ false, %30 ], [ false, %41 ], [ false, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit ], [ false, %36 ], [ true, %.critedge ], [ false, %.lr.ph.split.us ]
   %48 = load ptr, ptr %2, align 8, !tbaa !46
   %49 = icmp eq ptr %48, %3
   br i1 %49, label %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EED2Ev.exit, label %50
@@ -1678,8 +1678,8 @@ define weak_odr void @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoop
   br i1 %.not.not9.i.i.i.us.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, label %.lr.ph.i.i.i.preheader.us.i
 
 .lr.ph.i.i.i.preheader.us.i:                      ; preds = %.lr.ph.split.us.i, %.thread40.us.i
-  %.01645.us.i = phi ptr [ %26, %.thread40.us.i ], [ null, %.lr.ph.split.us.i ]
-  %.02044.us.i = phi ptr [ %27, %.thread40.us.i ], [ %7, %.lr.ph.split.us.i ]
+  %.01645.us.i = phi ptr [ %27, %.thread40.us.i ], [ null, %.lr.ph.split.us.i ]
+  %.02044.us.i = phi ptr [ %28, %.thread40.us.i ], [ %7, %.lr.ph.split.us.i ]
   %21 = load ptr, ptr %.02044.us.i, align 8, !tbaa !27
   br label %.lr.ph.i.i.i.us.i
 
@@ -1687,71 +1687,71 @@ define weak_odr void @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoop
   %.0810.i.i.i.us.i = phi ptr [ %25, %24 ], [ %17, %.lr.ph.i.i.i.preheader.us.i ]
   %22 = load ptr, ptr %.0810.i.i.i.us.i, align 8, !tbaa !37
   %23 = icmp eq ptr %22, %21
-  br i1 %23, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i, label %24
+  br i1 %23, label %26, label %24
 
 24:                                               ; preds = %.lr.ph.i.i.i.us.i
   %25 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.us.i, i64 8
   %.not.not.i.i.i.us.i = icmp eq ptr %25, %20
   br i1 %.not.not.i.i.i.us.i, label %.thread40.us.i, label %.lr.ph.i.i.i.us.i, !llvm.loop !38
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i: ; preds = %.lr.ph.i.i.i.us.i
+26:                                               ; preds = %.lr.ph.i.i.i.us.i
   %.not2131.us.i = icmp eq ptr %.01645.us.i, null
   br i1 %.not2131.us.i, label %.thread40.us.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
 
-.thread40.us.i:                                   ; preds = %24, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i
-  %26 = phi ptr [ %21, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i ], [ %.01645.us.i, %24 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.02044.us.i, i64 8
-  %.not.us.i = icmp eq ptr %27, %11
+.thread40.us.i:                                   ; preds = %24, %26
+  %27 = phi ptr [ %21, %26 ], [ %.01645.us.i, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.02044.us.i, i64 8
+  %.not.us.i = icmp eq ptr %28, %11
   br i1 %.not.us.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, label %.lr.ph.i.i.i.preheader.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.thread40.i
-  %.01645.i = phi ptr [ %41, %.thread40.i ], [ null, %.lr.ph.i ]
-  %.02044.i = phi ptr [ %42, %.thread40.i ], [ %7, %.lr.ph.i ]
-  %28 = load ptr, ptr %.02044.i, align 8, !tbaa !27
-  %29 = load i8, ptr %13, align 4, !tbaa !32, !range !33, !noundef !34
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %31, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i
+  %.01645.i = phi ptr [ %43, %.thread40.i ], [ null, %.lr.ph.i ]
+  %.02044.i = phi ptr [ %44, %.thread40.i ], [ %7, %.lr.ph.i ]
+  %29 = load ptr, ptr %.02044.i, align 8, !tbaa !27
+  %30 = load i8, ptr %13, align 4, !tbaa !32, !range !33, !noundef !34
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %32, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i
 
-31:                                               ; preds = %.lr.ph.split.i
-  %32 = load ptr, ptr %12, align 8, !tbaa !35
-  %33 = load i32, ptr %14, align 4, !tbaa !36
-  %34 = zext i32 %33 to i64
-  %.idx.i.i.i.i = shl nuw nsw i64 %34, 3
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i.i
-  %.not.not9.i.i.i.i = icmp eq i32 %33, 0
+32:                                               ; preds = %.lr.ph.split.i
+  %33 = load ptr, ptr %12, align 8, !tbaa !35
+  %34 = load i32, ptr %14, align 4, !tbaa !36
+  %35 = zext i32 %34 to i64
+  %.idx.i.i.i.i = shl nuw nsw i64 %35, 3
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i.i.i
+  %.not.not9.i.i.i.i = icmp eq i32 %34, 0
   br i1 %.not.not9.i.i.i.i, label %.thread40.i, label %.lr.ph.i.i.i.i
 
-36:                                               ; preds = %.lr.ph.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %.not.not.i.i.i.i = icmp eq ptr %37, %35
+37:                                               ; preds = %.lr.ph.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %.not.not.i.i.i.i = icmp eq ptr %38, %36
   br i1 %.not.not.i.i.i.i, label %.thread40.i, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
-.lr.ph.i.i.i.i:                                   ; preds = %31, %36
-  %.0810.i.i.i.i = phi ptr [ %37, %36 ], [ %32, %31 ]
-  %38 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !37
-  %39 = icmp eq ptr %38, %28
-  br i1 %39, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i, label %36
+.lr.ph.i.i.i.i:                                   ; preds = %32, %37
+  %.0810.i.i.i.i = phi ptr [ %38, %37 ], [ %33, %32 ]
+  %39 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !37
+  %40 = icmp eq ptr %39, %29
+  br i1 %40, label %42, label %37
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i: ; preds = %.lr.ph.i.i.i.i
+_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i: ; preds = %.lr.ph.split.i
+  %41 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef %29) #17
+  %.not42.i = icmp eq ptr %41, null
+  %.not21.i = icmp eq ptr %.01645.i, null
+  %brmerge.i = select i1 %.not42.i, i1 true, i1 %.not21.i
+  %.016.mux.i = select i1 %.not42.i, ptr %.01645.i, ptr %29
+  br i1 %brmerge.i, label %.thread40.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
+
+42:                                               ; preds = %.lr.ph.i.i.i.i
   %.not2131.i = icmp eq ptr %.01645.i, null
   br i1 %.not2131.i, label %.thread40.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i: ; preds = %.lr.ph.split.i
-  %40 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %12, ptr noundef %28) #17
-  %.not42.i = icmp eq ptr %40, null
-  %.not21.i = icmp eq ptr %.01645.i, null
-  %brmerge.i = select i1 %.not42.i, i1 true, i1 %.not21.i
-  %.016.mux.i = select i1 %.not42.i, ptr %.01645.i, ptr %28
-  br i1 %brmerge.i, label %.thread40.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
-
-.thread40.i:                                      ; preds = %36, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i, %31
-  %41 = phi ptr [ %28, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i ], [ %.016.mux.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ %.01645.i, %31 ], [ %.01645.i, %36 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 8
-  %.not.i = icmp eq ptr %42, %11
+.thread40.i:                                      ; preds = %37, %42, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %32
+  %43 = phi ptr [ %.016.mux.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ %29, %42 ], [ %.01645.i, %32 ], [ %.01645.i, %37 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 8
+  %.not.i = icmp eq ptr %44, %11
   br i1 %.not.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, label %.lr.ph.split.i, !llvm.loop !66
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit: ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %.thread40.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i, %.thread40.us.i, %2, %.lr.ph.split.us.i
-  %spec.select.i = phi ptr [ null, %2 ], [ null, %.lr.ph.split.us.i ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i ], [ %26, %.thread40.us.i ], [ %41, %.thread40.i ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ]
+_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit: ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %42, %.thread40.i, %26, %.thread40.us.i, %2, %.lr.ph.split.us.i
+  %spec.select.i = phi ptr [ null, %2 ], [ %27, %.thread40.us.i ], [ null, %.lr.ph.split.us.i ], [ null, %26 ], [ null, %42 ], [ %43, %.thread40.i ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ]
   tail call void @_ZN4llvm25getUniqueExitBlocksHelperINS_17MachineBasicBlockENS_8LoopBaseIS1_NS_11MachineLoopEEEZNKS4_27getUniqueNonLatchExitBlocksERNS_15SmallVectorImplIPS1_EEEUlPKS1_E_EEvPKT0_RNS5_IPT_EET1_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %spec.select.i)
   ret void
 }
@@ -1789,8 +1789,8 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   br i1 %.not.not9.i.i.i.us, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit._crit_edge, label %.lr.ph.i.i.i.preheader.us
 
 .lr.ph.i.i.i.preheader.us:                        ; preds = %.lr.ph.split.us, %.thread40.us
-  %.01645.us = phi ptr [ %25, %.thread40.us ], [ null, %.lr.ph.split.us ]
-  %.02044.us = phi ptr [ %26, %.thread40.us ], [ %6, %.lr.ph.split.us ]
+  %.01645.us = phi ptr [ %26, %.thread40.us ], [ null, %.lr.ph.split.us ]
+  %.02044.us = phi ptr [ %27, %.thread40.us ], [ %6, %.lr.ph.split.us ]
   %20 = load ptr, ptr %.02044.us, align 8, !tbaa !27
   br label %.lr.ph.i.i.i.us
 
@@ -1798,71 +1798,71 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   %.0810.i.i.i.us = phi ptr [ %24, %23 ], [ %16, %.lr.ph.i.i.i.preheader.us ]
   %21 = load ptr, ptr %.0810.i.i.i.us, align 8, !tbaa !37
   %22 = icmp eq ptr %21, %20
-  br i1 %22, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us, label %23
+  br i1 %22, label %25, label %23
 
 23:                                               ; preds = %.lr.ph.i.i.i.us
   %24 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.us, i64 8
   %.not.not.i.i.i.us = icmp eq ptr %24, %19
   br i1 %.not.not.i.i.i.us, label %.thread40.us, label %.lr.ph.i.i.i.us, !llvm.loop !38
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us: ; preds = %.lr.ph.i.i.i.us
+25:                                               ; preds = %.lr.ph.i.i.i.us
   %.not2131.us = icmp eq ptr %.01645.us, null
   br i1 %.not2131.us, label %.thread40.us, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit._crit_edge
 
-.thread40.us:                                     ; preds = %23, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us
-  %25 = phi ptr [ %20, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us ], [ %.01645.us, %23 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.02044.us, i64 8
-  %.not.us = icmp eq ptr %26, %10
+.thread40.us:                                     ; preds = %23, %25
+  %26 = phi ptr [ %20, %25 ], [ %.01645.us, %23 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.02044.us, i64 8
+  %.not.us = icmp eq ptr %27, %10
   br i1 %.not.us, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit._crit_edge, label %.lr.ph.i.i.i.preheader.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread40
-  %.01645 = phi ptr [ %40, %.thread40 ], [ null, %.lr.ph ]
-  %.02044 = phi ptr [ %41, %.thread40 ], [ %6, %.lr.ph ]
-  %27 = load ptr, ptr %.02044, align 8, !tbaa !27
-  %28 = load i8, ptr %12, align 4, !tbaa !32, !range !33, !noundef !34
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit
+  %.01645 = phi ptr [ %42, %.thread40 ], [ null, %.lr.ph ]
+  %.02044 = phi ptr [ %43, %.thread40 ], [ %6, %.lr.ph ]
+  %28 = load ptr, ptr %.02044, align 8, !tbaa !27
+  %29 = load i8, ptr %12, align 4, !tbaa !32, !range !33, !noundef !34
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit
 
-30:                                               ; preds = %.lr.ph.split
-  %31 = load ptr, ptr %11, align 8, !tbaa !35
-  %32 = load i32, ptr %13, align 4, !tbaa !36
-  %33 = zext i32 %32 to i64
-  %.idx.i.i.i = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i
-  %.not.not9.i.i.i = icmp eq i32 %32, 0
+31:                                               ; preds = %.lr.ph.split
+  %32 = load ptr, ptr %11, align 8, !tbaa !35
+  %33 = load i32, ptr %13, align 4, !tbaa !36
+  %34 = zext i32 %33 to i64
+  %.idx.i.i.i = shl nuw nsw i64 %34, 3
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i
+  %.not.not9.i.i.i = icmp eq i32 %33, 0
   br i1 %.not.not9.i.i.i, label %.thread40, label %.lr.ph.i.i.i
 
-35:                                               ; preds = %.lr.ph.i.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i, i64 8
-  %.not.not.i.i.i = icmp eq ptr %36, %34
+36:                                               ; preds = %.lr.ph.i.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i, i64 8
+  %.not.not.i.i.i = icmp eq ptr %37, %35
   br i1 %.not.not.i.i.i, label %.thread40, label %.lr.ph.i.i.i, !llvm.loop !38
 
-.lr.ph.i.i.i:                                     ; preds = %30, %35
-  %.0810.i.i.i = phi ptr [ %36, %35 ], [ %31, %30 ]
-  %37 = load ptr, ptr %.0810.i.i.i, align 8, !tbaa !37
-  %38 = icmp eq ptr %37, %27
-  br i1 %38, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29, label %35
+.lr.ph.i.i.i:                                     ; preds = %31, %36
+  %.0810.i.i.i = phi ptr [ %37, %36 ], [ %32, %31 ]
+  %38 = load ptr, ptr %.0810.i.i.i, align 8, !tbaa !37
+  %39 = icmp eq ptr %38, %28
+  br i1 %39, label %41, label %36
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29: ; preds = %.lr.ph.i.i.i
+_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit: ; preds = %.lr.ph.split
+  %40 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef %28) #17
+  %.not42 = icmp eq ptr %40, null
+  %.not21 = icmp eq ptr %.01645, null
+  %brmerge = select i1 %.not42, i1 true, i1 %.not21
+  %.016.mux = select i1 %.not42, ptr %.01645, ptr %28
+  br i1 %brmerge, label %.thread40, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit._crit_edge
+
+41:                                               ; preds = %.lr.ph.i.i.i
   %.not2131 = icmp eq ptr %.01645, null
   br i1 %.not2131, label %.thread40, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit._crit_edge
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit: ; preds = %.lr.ph.split
-  %39 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef %27) #17
-  %.not42 = icmp eq ptr %39, null
-  %.not21 = icmp eq ptr %.01645, null
-  %brmerge = select i1 %.not42, i1 true, i1 %.not21
-  %.016.mux = select i1 %.not42, ptr %.01645, ptr %27
-  br i1 %brmerge, label %.thread40, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit._crit_edge
-
-.thread40:                                        ; preds = %35, %30, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29
-  %40 = phi ptr [ %27, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29 ], [ %.016.mux, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit ], [ %.01645, %30 ], [ %.01645, %35 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.02044, i64 8
-  %.not = icmp eq ptr %41, %10
+.thread40:                                        ; preds = %36, %31, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit, %41
+  %42 = phi ptr [ %.016.mux, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit ], [ %28, %41 ], [ %.01645, %31 ], [ %.01645, %36 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.02044, i64 8
+  %.not = icmp eq ptr %43, %10
   br i1 %.not, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit._crit_edge, label %.lr.ph.split, !llvm.loop !66
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit._crit_edge: ; preds = %.thread40, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit, %.thread40.us, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us, %.lr.ph.split.us, %1
-  %spec.select = phi ptr [ null, %1 ], [ null, %.lr.ph.split.us ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us ], [ %25, %.thread40.us ], [ %40, %.thread40 ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29 ]
+_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit._crit_edge: ; preds = %41, %.thread40, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit, %25, %.thread40.us, %.lr.ph.split.us, %1
+  %spec.select = phi ptr [ null, %1 ], [ %26, %.thread40.us ], [ null, %.lr.ph.split.us ], [ null, %25 ], [ null, %41 ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit ], [ %42, %.thread40 ]
   ret ptr %spec.select
 }
 
@@ -2160,8 +2160,8 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   br label %.lr.ph.i.i.i.preheader.us.i
 
 .lr.ph.i.i.i.preheader.us.i:                      ; preds = %.lr.ph.split.us.i, %.thread40.us.i
-  %.01645.us.i = phi ptr [ %25, %.thread40.us.i ], [ null, %.lr.ph.split.us.i ]
-  %.02044.us.i = phi ptr [ %26, %.thread40.us.i ], [ %6, %.lr.ph.split.us.i ]
+  %.01645.us.i = phi ptr [ %26, %.thread40.us.i ], [ null, %.lr.ph.split.us.i ]
+  %.02044.us.i = phi ptr [ %27, %.thread40.us.i ], [ %6, %.lr.ph.split.us.i ]
   %20 = load ptr, ptr %.02044.us.i, align 8, !tbaa !27
   br label %.lr.ph.i.i.i.us.i
 
@@ -2169,79 +2169,79 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   %.0810.i.i.i.us.i = phi ptr [ %24, %23 ], [ %16, %.lr.ph.i.i.i.preheader.us.i ]
   %21 = load ptr, ptr %.0810.i.i.i.us.i, align 8, !tbaa !37
   %22 = icmp eq ptr %21, %20
-  br i1 %22, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i, label %23
+  br i1 %22, label %25, label %23
 
 23:                                               ; preds = %.lr.ph.i.i.i.us.i
   %24 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.us.i, i64 8
   %.not.not.i.i.i.us.i = icmp eq ptr %24, %19
   br i1 %.not.not.i.i.i.us.i, label %.thread40.us.i, label %.lr.ph.i.i.i.us.i, !llvm.loop !38
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i: ; preds = %.lr.ph.i.i.i.us.i
+25:                                               ; preds = %.lr.ph.i.i.i.us.i
   %.not2131.us.i = icmp eq ptr %.01645.us.i, null
   tail call void @llvm.assume(i1 %.not2131.us.i)
   br label %.thread40.us.i
 
-.thread40.us.i:                                   ; preds = %23, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i
-  %25 = phi ptr [ %20, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i ], [ %.01645.us.i, %23 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.02044.us.i, i64 8
-  %.not.us.i = icmp eq ptr %26, %10
+.thread40.us.i:                                   ; preds = %23, %25
+  %26 = phi ptr [ %20, %25 ], [ %.01645.us.i, %23 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.02044.us.i, i64 8
+  %.not.us.i = icmp eq ptr %27, %10
   br i1 %.not.us.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, label %.lr.ph.i.i.i.preheader.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.thread40.i
-  %.01645.i = phi ptr [ %40, %.thread40.i ], [ null, %.lr.ph.i ]
-  %.02044.i = phi ptr [ %41, %.thread40.i ], [ %6, %.lr.ph.i ]
-  %27 = load ptr, ptr %.02044.i, align 8, !tbaa !27
-  %28 = load i8, ptr %12, align 4, !tbaa !32, !range !33, !noundef !34
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i
+  %.01645.i = phi ptr [ %41, %.thread40.i ], [ null, %.lr.ph.i ]
+  %.02044.i = phi ptr [ %42, %.thread40.i ], [ %6, %.lr.ph.i ]
+  %28 = load ptr, ptr %.02044.i, align 8, !tbaa !27
+  %29 = load i8, ptr %12, align 4, !tbaa !32, !range !33, !noundef !34
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i
 
-30:                                               ; preds = %.lr.ph.split.i
-  %31 = load ptr, ptr %11, align 8, !tbaa !35
-  %32 = load i32, ptr %13, align 4, !tbaa !36
-  %33 = zext i32 %32 to i64
-  %.idx.i.i.i.i = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i
-  %.not.not9.i.i.i.i = icmp eq i32 %32, 0
+31:                                               ; preds = %.lr.ph.split.i
+  %32 = load ptr, ptr %11, align 8, !tbaa !35
+  %33 = load i32, ptr %13, align 4, !tbaa !36
+  %34 = zext i32 %33 to i64
+  %.idx.i.i.i.i = shl nuw nsw i64 %34, 3
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i.i
+  %.not.not9.i.i.i.i = icmp eq i32 %33, 0
   br i1 %.not.not9.i.i.i.i, label %.thread40.i, label %.lr.ph.i.i.i.i
 
-35:                                               ; preds = %.lr.ph.i.i.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %.not.not.i.i.i.i = icmp eq ptr %36, %34
+36:                                               ; preds = %.lr.ph.i.i.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %.not.not.i.i.i.i = icmp eq ptr %37, %35
   br i1 %.not.not.i.i.i.i, label %.thread40.i, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
-.lr.ph.i.i.i.i:                                   ; preds = %30, %35
-  %.0810.i.i.i.i = phi ptr [ %36, %35 ], [ %31, %30 ]
-  %37 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !37
-  %38 = icmp eq ptr %37, %27
-  br i1 %38, label %.thread40.i, label %35
+.lr.ph.i.i.i.i:                                   ; preds = %31, %36
+  %.0810.i.i.i.i = phi ptr [ %37, %36 ], [ %32, %31 ]
+  %38 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !37
+  %39 = icmp eq ptr %38, %28
+  br i1 %39, label %.thread40.i, label %36
 
 _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i: ; preds = %.lr.ph.split.i
-  %39 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef %27) #17
-  %.not42.i = icmp eq ptr %39, null
-  %.016.mux.i = select i1 %.not42.i, ptr %.01645.i, ptr %27
+  %40 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef %28) #17
+  %.not42.i = icmp eq ptr %40, null
+  %.016.mux.i = select i1 %.not42.i, ptr %.01645.i, ptr %28
   br label %.thread40.i
 
-.thread40.i:                                      ; preds = %35, %.lr.ph.i.i.i.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %30
-  %40 = phi ptr [ %.01645.i, %30 ], [ %.016.mux.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ %.01645.i, %35 ], [ %27, %.lr.ph.i.i.i.i ]
-  %41 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 8
-  %.not.i = icmp eq ptr %41, %10
+.thread40.i:                                      ; preds = %36, %.lr.ph.i.i.i.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %31
+  %41 = phi ptr [ %.01645.i, %31 ], [ %.016.mux.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ %.01645.i, %36 ], [ %28, %.lr.ph.i.i.i.i ]
+  %42 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 8
+  %.not.i = icmp eq ptr %42, %10
   br i1 %.not.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, label %.lr.ph.split.i, !llvm.loop !66
 
 _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit: ; preds = %.thread40.i, %.thread40.us.i
-  %spec.select.i = phi ptr [ %25, %.thread40.us.i ], [ %40, %.thread40.i ]
+  %spec.select.i = phi ptr [ %26, %.thread40.us.i ], [ %41, %.thread40.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %42 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 112
-  %43 = load ptr, ptr %42, align 8, !tbaa !46
-  %44 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 120
-  %45 = load i32, ptr %44, align 8, !tbaa !48
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %46
-  store ptr %43, ptr %1, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %47, ptr %48, align 8
-  %49 = call noundef ptr @_ZN4llvm14find_singletonINS_17MachineBasicBlockENS_14iterator_rangeIPPS1_EEZNKS_8LoopBaseIS1_NS_11MachineLoopEE23getUniqueLatchExitBlockEvEUlS3_bE_EEPT_OT0_T1_b(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull %0, i1 noundef zeroext false)
+  %43 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 112
+  %44 = load ptr, ptr %43, align 8, !tbaa !46
+  %45 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 120
+  %46 = load i32, ptr %45, align 8, !tbaa !48
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  store ptr %44, ptr %1, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %48, ptr %49, align 8
+  %50 = call noundef ptr @_ZN4llvm14find_singletonINS_17MachineBasicBlockENS_14iterator_rangeIPPS1_EEZNKS_8LoopBaseIS1_NS_11MachineLoopEE23getUniqueLatchExitBlockEvEUlS3_bE_EEPT_OT0_T1_b(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull %0, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret ptr %49
+  ret ptr %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6434,39 +6434,39 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit: ; 
 144:                                              ; preds = %140
   %145 = load i8, ptr %39, align 8, !tbaa !307, !range !33, !noundef !34
   %146 = trunc nuw i8 %145 to i1
-  br i1 %146, label %147, label %155
+  br i1 %146, label %147, label %151
 
 147:                                              ; preds = %144
   %148 = getelementptr inbounds nuw i8, ptr %131, i64 72
   %149 = load i32, ptr %148, align 8, !tbaa !308
   %150 = load i32, ptr %118, align 8, !tbaa !308
   %.not.i.i26 = icmp ult i32 %149, %150
-  br i1 %.not.i.i26, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread, label %151
+  br i1 %.not.i.i26, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit
 
-151:                                              ; preds = %147
-  %152 = getelementptr inbounds nuw i8, ptr %131, i64 76
-  %153 = load i32, ptr %152, align 4, !tbaa !309
-  %154 = load i32, ptr %119, align 4, !tbaa !309
-  %.not42 = icmp ugt i32 %153, %154
-  br i1 %.not42, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.thread38
+151:                                              ; preds = %144
+  %152 = load i32, ptr %40, align 4, !tbaa !309
+  %153 = add i32 %152, 1
+  store i32 %153, ptr %40, align 4, !tbaa !309
+  %154 = icmp ugt i32 %153, 32
+  br i1 %154, label %155, label %.preheader.i
 
-155:                                              ; preds = %144
-  %156 = load i32, ptr %40, align 4, !tbaa !310
-  %157 = add i32 %156, 1
-  store i32 %157, ptr %40, align 4, !tbaa !310
-  %158 = icmp ugt i32 %157, 32
-  br i1 %158, label %159, label %.preheader.i
+155:                                              ; preds = %151
+  call void @_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE16updateDFSNumbersEv(ptr noundef nonnull align 8 dereferenceable(124) %1)
+  %156 = getelementptr inbounds nuw i8, ptr %131, i64 72
+  %157 = load i32, ptr %156, align 8, !tbaa !308
+  %158 = load i32, ptr %118, align 8, !tbaa !308
+  %.not.i20.i = icmp ult i32 %157, %158
+  br i1 %.not.i20.i, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread, label %159
 
 159:                                              ; preds = %155
-  call void @_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE16updateDFSNumbersEv(ptr noundef nonnull align 8 dereferenceable(124) %1)
-  %160 = getelementptr inbounds nuw i8, ptr %131, i64 72
-  %161 = load i32, ptr %160, align 8, !tbaa !308
-  %162 = load i32, ptr %118, align 8, !tbaa !308
-  %.not.i20.i = icmp ult i32 %161, %162
-  br i1 %.not.i20.i, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit
+  %160 = getelementptr inbounds nuw i8, ptr %131, i64 76
+  %161 = load i32, ptr %160, align 4, !tbaa !310
+  %162 = load i32, ptr %119, align 4, !tbaa !310
+  %.not41 = icmp ugt i32 %161, %162
+  br i1 %.not41, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.thread38
 
-.preheader.i:                                     ; preds = %155, %165
-  %.0.i.i = phi ptr [ %164, %165 ], [ %131, %155 ]
+.preheader.i:                                     ; preds = %151, %165
+  %.0.i.i = phi ptr [ %164, %165 ], [ %131, %151 ]
   %163 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !305
   %.not.i22.i = icmp eq ptr %164, null
@@ -6482,14 +6482,14 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWa
   %168 = icmp eq ptr %.0.i.i, %108
   br i1 %168, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.thread38, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread
 
-_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit: ; preds = %159
+_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit: ; preds = %147
   %169 = getelementptr inbounds nuw i8, ptr %131, i64 76
-  %170 = load i32, ptr %169, align 4, !tbaa !309
-  %171 = load i32, ptr %119, align 4, !tbaa !309
-  %.not41 = icmp ugt i32 %170, %171
-  br i1 %.not41, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.thread38
+  %170 = load i32, ptr %169, align 4, !tbaa !310
+  %171 = load i32, ptr %119, align 4, !tbaa !310
+  %.not42 = icmp ugt i32 %170, %171
+  br i1 %.not42, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.thread38
 
-_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.thread38: ; preds = %133, %132, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, %151, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit
+_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.thread38: ; preds = %133, %132, %159, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit
   %172 = load i32, ptr %35, align 8, !tbaa !48
   %173 = load i32, ptr %36, align 4, !tbaa !54
   %.not.i.i.not.i = icmp ult i32 %172, %173
@@ -6514,7 +6514,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   store i32 %183, ptr %35, align 8, !tbaa !48
   br label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread
 
-_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread: ; preds = %147, %140, %137, %159, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, %151, %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit
+_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thread: ; preds = %147, %140, %137, %155, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i, %159, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE23dominatedBySlowTreeWalkEPKNS_15DomTreeNodeBaseIS1_EES6_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE9dominatesEPKNS_15DomTreeNodeBaseIS1_EES6_.exit, %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit
   %184 = getelementptr inbounds nuw i8, ptr %.046, i64 8
   %.not = icmp eq ptr %184, %115
   br i1 %.not, label %._crit_edge, label %121
@@ -8159,8 +8159,8 @@ define dso_local noundef ptr @_ZNK4llvm11MachineLoop20findLoopControlBlockEv(ptr
   br i1 %.not.not9.i.i.i.us.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29, label %.lr.ph.i.i.i.preheader.us.i
 
 .lr.ph.i.i.i.preheader.us.i:                      ; preds = %.lr.ph.split.us.i, %.thread40.us.i
-  %.01645.us.i = phi ptr [ %25, %.thread40.us.i ], [ null, %.lr.ph.split.us.i ]
-  %.02044.us.i = phi ptr [ %26, %.thread40.us.i ], [ %6, %.lr.ph.split.us.i ]
+  %.01645.us.i = phi ptr [ %26, %.thread40.us.i ], [ null, %.lr.ph.split.us.i ]
+  %.02044.us.i = phi ptr [ %27, %.thread40.us.i ], [ %6, %.lr.ph.split.us.i ]
   %20 = load ptr, ptr %.02044.us.i, align 8, !tbaa !27
   br label %.lr.ph.i.i.i.us.i
 
@@ -8168,193 +8168,193 @@ define dso_local noundef ptr @_ZNK4llvm11MachineLoop20findLoopControlBlockEv(ptr
   %.0810.i.i.i.us.i = phi ptr [ %24, %23 ], [ %16, %.lr.ph.i.i.i.preheader.us.i ]
   %21 = load ptr, ptr %.0810.i.i.i.us.i, align 8, !tbaa !37
   %22 = icmp eq ptr %21, %20
-  br i1 %22, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i, label %23
+  br i1 %22, label %25, label %23
 
 23:                                               ; preds = %.lr.ph.i.i.i.us.i
   %24 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.us.i, i64 8
   %.not.not.i.i.i.us.i = icmp eq ptr %24, %19
   br i1 %.not.not.i.i.i.us.i, label %.thread40.us.i, label %.lr.ph.i.i.i.us.i, !llvm.loop !38
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i: ; preds = %.lr.ph.i.i.i.us.i
+25:                                               ; preds = %.lr.ph.i.i.i.us.i
   %.not2131.us.i = icmp eq ptr %.01645.us.i, null
   br i1 %.not2131.us.i, label %.thread40.us.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29
 
-.thread40.us.i:                                   ; preds = %23, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i
-  %25 = phi ptr [ %20, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i ], [ %.01645.us.i, %23 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.02044.us.i, i64 8
-  %.not.us.i = icmp eq ptr %26, %10
+.thread40.us.i:                                   ; preds = %23, %25
+  %26 = phi ptr [ %20, %25 ], [ %.01645.us.i, %23 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.02044.us.i, i64 8
+  %.not.us.i = icmp eq ptr %27, %10
   br i1 %.not.us.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, label %.lr.ph.i.i.i.preheader.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.thread40.i
-  %.01645.i = phi ptr [ %40, %.thread40.i ], [ null, %.lr.ph.i ]
-  %.02044.i = phi ptr [ %41, %.thread40.i ], [ %6, %.lr.ph.i ]
-  %27 = load ptr, ptr %.02044.i, align 8, !tbaa !27
-  %28 = load i8, ptr %12, align 4, !tbaa !32, !range !33, !noundef !34
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i
+  %.01645.i = phi ptr [ %42, %.thread40.i ], [ null, %.lr.ph.i ]
+  %.02044.i = phi ptr [ %43, %.thread40.i ], [ %6, %.lr.ph.i ]
+  %28 = load ptr, ptr %.02044.i, align 8, !tbaa !27
+  %29 = load i8, ptr %12, align 4, !tbaa !32, !range !33, !noundef !34
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i
 
-30:                                               ; preds = %.lr.ph.split.i
-  %31 = load ptr, ptr %11, align 8, !tbaa !35
-  %32 = load i32, ptr %13, align 4, !tbaa !36
-  %33 = zext i32 %32 to i64
-  %.idx.i.i.i.i = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i.i
-  %.not.not9.i.i.i.i = icmp eq i32 %32, 0
+31:                                               ; preds = %.lr.ph.split.i
+  %32 = load ptr, ptr %11, align 8, !tbaa !35
+  %33 = load i32, ptr %13, align 4, !tbaa !36
+  %34 = zext i32 %33 to i64
+  %.idx.i.i.i.i = shl nuw nsw i64 %34, 3
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i.i.i
+  %.not.not9.i.i.i.i = icmp eq i32 %33, 0
   br i1 %.not.not9.i.i.i.i, label %.thread40.i, label %.lr.ph.i.i.i.i
 
-35:                                               ; preds = %.lr.ph.i.i.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %.not.not.i.i.i.i = icmp eq ptr %36, %34
+36:                                               ; preds = %.lr.ph.i.i.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %.not.not.i.i.i.i = icmp eq ptr %37, %35
   br i1 %.not.not.i.i.i.i, label %.thread40.i, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
-.lr.ph.i.i.i.i:                                   ; preds = %30, %35
-  %.0810.i.i.i.i = phi ptr [ %36, %35 ], [ %31, %30 ]
-  %37 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !37
-  %38 = icmp eq ptr %37, %27
-  br i1 %38, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i, label %35
+.lr.ph.i.i.i.i:                                   ; preds = %31, %36
+  %.0810.i.i.i.i = phi ptr [ %37, %36 ], [ %32, %31 ]
+  %38 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !37
+  %39 = icmp eq ptr %38, %28
+  br i1 %39, label %41, label %36
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i: ; preds = %.lr.ph.i.i.i.i
+_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i: ; preds = %.lr.ph.split.i
+  %40 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef %28) #17
+  %.not42.i = icmp eq ptr %40, null
+  %.not21.i = icmp eq ptr %.01645.i, null
+  %brmerge.i = select i1 %.not42.i, i1 true, i1 %.not21.i
+  %.016.mux.i = select i1 %.not42.i, ptr %.01645.i, ptr %28
+  br i1 %brmerge.i, label %.thread40.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29
+
+41:                                               ; preds = %.lr.ph.i.i.i.i
   %.not2131.i = icmp eq ptr %.01645.i, null
   br i1 %.not2131.i, label %.thread40.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i: ; preds = %.lr.ph.split.i
-  %39 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef %27) #17
-  %.not42.i = icmp eq ptr %39, null
-  %.not21.i = icmp eq ptr %.01645.i, null
-  %brmerge.i = select i1 %.not42.i, i1 true, i1 %.not21.i
-  %.016.mux.i = select i1 %.not42.i, ptr %.01645.i, ptr %27
-  br i1 %brmerge.i, label %.thread40.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29
-
-.thread40.i:                                      ; preds = %35, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i, %30
-  %40 = phi ptr [ %27, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i ], [ %.016.mux.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ %.01645.i, %30 ], [ %.01645.i, %35 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 8
-  %.not.i = icmp eq ptr %41, %10
+.thread40.i:                                      ; preds = %36, %41, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %31
+  %42 = phi ptr [ %.016.mux.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ %28, %41 ], [ %.01645.i, %31 ], [ %.01645.i, %36 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 8
+  %.not.i = icmp eq ptr %43, %10
   br i1 %.not.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, label %.lr.ph.split.i, !llvm.loop !66
 
 _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit: ; preds = %.thread40.i, %.thread40.us.i
-  %spec.select.i = phi ptr [ %25, %.thread40.us.i ], [ %40, %.thread40.i ]
+  %spec.select.i = phi ptr [ %26, %.thread40.us.i ], [ %42, %.thread40.i ]
   %.not.not = icmp eq ptr %spec.select.i, null
-  br i1 %.not.not, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29, label %42
+  br i1 %.not.not, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29, label %44
 
-42:                                               ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
-  %43 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 112
-  %44 = load ptr, ptr %43, align 8, !tbaa !46
-  %45 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 120
-  %46 = load i32, ptr %45, align 8, !tbaa !48
-  %47 = zext i32 %46 to i64
-  %.idx.i7 = shl nuw nsw i64 %47, 3
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i7
-  %.not21.not.i = icmp eq i32 %46, 0
+44:                                               ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
+  %45 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 112
+  %46 = load ptr, ptr %45, align 8, !tbaa !46
+  %47 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 120
+  %48 = load i32, ptr %47, align 8, !tbaa !48
+  %49 = zext i32 %48 to i64
+  %.idx.i7 = shl nuw nsw i64 %49, 3
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i7
+  %.not21.not.i = icmp eq i32 %48, 0
   br i1 %.not21.not.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit, label %.lr.ph.i8
 
-.lr.ph.i8:                                        ; preds = %42
-  %49 = load i8, ptr %12, align 4, !tbaa !32, !range !33, !noundef !34
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %.lr.ph.split.us.i16, label %.lr.ph.split.i9
+.lr.ph.i8:                                        ; preds = %44
+  %51 = load i8, ptr %12, align 4, !tbaa !32, !range !33, !noundef !34
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %.lr.ph.split.us.i16, label %.lr.ph.split.i9
 
 .lr.ph.split.us.i16:                              ; preds = %.lr.ph.i8
-  %51 = load ptr, ptr %11, align 8, !tbaa !35
-  %52 = load i32, ptr %13, align 4, !tbaa !36
-  %53 = zext i32 %52 to i64
-  %.idx.i.i.i.us.i17 = shl nuw nsw i64 %53, 3
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i.i.us.i17
-  %.not.not9.i.i.i.us.i18 = icmp eq i32 %52, 0
+  %53 = load ptr, ptr %11, align 8, !tbaa !35
+  %54 = load i32, ptr %13, align 4, !tbaa !36
+  %55 = zext i32 %54 to i64
+  %.idx.i.i.i.us.i17 = shl nuw nsw i64 %55, 3
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i.i.i.us.i17
+  %.not.not9.i.i.i.us.i18 = icmp eq i32 %54, 0
   br i1 %.not.not9.i.i.i.us.i18, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29, label %.lr.ph.i.i.i.preheader.us.i19
 
 .lr.ph.i.i.i.preheader.us.i19:                    ; preds = %.lr.ph.split.us.i16, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.loopexit.us.i
-  %.01222.us.i = phi ptr [ %60, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.loopexit.us.i ], [ %44, %.lr.ph.split.us.i16 ]
-  %55 = load ptr, ptr %.01222.us.i, align 8, !tbaa !27
+  %.01222.us.i = phi ptr [ %62, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.loopexit.us.i ], [ %46, %.lr.ph.split.us.i16 ]
+  %57 = load ptr, ptr %.01222.us.i, align 8, !tbaa !27
   br label %.lr.ph.i.i.i.us.i20
 
-.lr.ph.i.i.i.us.i20:                              ; preds = %58, %.lr.ph.i.i.i.preheader.us.i19
-  %.0810.i.i.i.us.i21 = phi ptr [ %59, %58 ], [ %51, %.lr.ph.i.i.i.preheader.us.i19 ]
-  %56 = load ptr, ptr %.0810.i.i.i.us.i21, align 8, !tbaa !37
-  %57 = icmp eq ptr %56, %55
-  br i1 %57, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.loopexit.us.i, label %58
+.lr.ph.i.i.i.us.i20:                              ; preds = %60, %.lr.ph.i.i.i.preheader.us.i19
+  %.0810.i.i.i.us.i21 = phi ptr [ %61, %60 ], [ %53, %.lr.ph.i.i.i.preheader.us.i19 ]
+  %58 = load ptr, ptr %.0810.i.i.i.us.i21, align 8, !tbaa !37
+  %59 = icmp eq ptr %58, %57
+  br i1 %59, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.loopexit.us.i, label %60
 
-58:                                               ; preds = %.lr.ph.i.i.i.us.i20
-  %59 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.us.i21, i64 8
-  %.not.not.i.i.i.us.i22 = icmp eq ptr %59, %54
+60:                                               ; preds = %.lr.ph.i.i.i.us.i20
+  %61 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.us.i21, i64 8
+  %.not.not.i.i.i.us.i22 = icmp eq ptr %61, %56
   br i1 %.not.not.i.i.i.us.i22, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29, label %.lr.ph.i.i.i.us.i20, !llvm.loop !38
 
 _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.loopexit.us.i: ; preds = %.lr.ph.i.i.i.us.i20
-  %60 = getelementptr inbounds nuw i8, ptr %.01222.us.i, i64 8
-  %.not.us.not.i = icmp eq ptr %60, %48
+  %62 = getelementptr inbounds nuw i8, ptr %.01222.us.i, i64 8
+  %.not.us.not.i = icmp eq ptr %62, %50
   br i1 %.not.us.not.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit, label %.lr.ph.i.i.i.preheader.us.i19
 
 .lr.ph.split.i9:                                  ; preds = %.lr.ph.i8, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.i
-  %.01222.i = phi ptr [ %74, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.i ], [ %44, %.lr.ph.i8 ]
-  %61 = load ptr, ptr %.01222.i, align 8, !tbaa !27
-  %62 = load i8, ptr %12, align 4, !tbaa !32, !range !33, !noundef !34
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i10
+  %.01222.i = phi ptr [ %76, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.i ], [ %46, %.lr.ph.i8 ]
+  %63 = load ptr, ptr %.01222.i, align 8, !tbaa !27
+  %64 = load i8, ptr %12, align 4, !tbaa !32, !range !33, !noundef !34
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %66, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i10
 
-64:                                               ; preds = %.lr.ph.split.i9
-  %65 = load ptr, ptr %11, align 8, !tbaa !35
-  %66 = load i32, ptr %13, align 4, !tbaa !36
-  %67 = zext i32 %66 to i64
-  %.idx.i.i.i.i11 = shl nuw nsw i64 %67, 3
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i.i.i.i11
-  %.not.not9.i.i.i.i12 = icmp eq i32 %66, 0
+66:                                               ; preds = %.lr.ph.split.i9
+  %67 = load ptr, ptr %11, align 8, !tbaa !35
+  %68 = load i32, ptr %13, align 4, !tbaa !36
+  %69 = zext i32 %68 to i64
+  %.idx.i.i.i.i11 = shl nuw nsw i64 %69, 3
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i.i.i11
+  %.not.not9.i.i.i.i12 = icmp eq i32 %68, 0
   br i1 %.not.not9.i.i.i.i12, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29, label %.lr.ph.i.i.i.i13
 
-69:                                               ; preds = %.lr.ph.i.i.i.i13
-  %70 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i14, i64 8
-  %.not.not.i.i.i.i15 = icmp eq ptr %70, %68
+71:                                               ; preds = %.lr.ph.i.i.i.i13
+  %72 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i14, i64 8
+  %.not.not.i.i.i.i15 = icmp eq ptr %72, %70
   br i1 %.not.not.i.i.i.i15, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29, label %.lr.ph.i.i.i.i13, !llvm.loop !38
 
-.lr.ph.i.i.i.i13:                                 ; preds = %64, %69
-  %.0810.i.i.i.i14 = phi ptr [ %70, %69 ], [ %65, %64 ]
-  %71 = load ptr, ptr %.0810.i.i.i.i14, align 8, !tbaa !37
-  %72 = icmp eq ptr %71, %61
-  br i1 %72, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.i, label %69
+.lr.ph.i.i.i.i13:                                 ; preds = %66, %71
+  %.0810.i.i.i.i14 = phi ptr [ %72, %71 ], [ %67, %66 ]
+  %73 = load ptr, ptr %.0810.i.i.i.i14, align 8, !tbaa !37
+  %74 = icmp eq ptr %73, %63
+  br i1 %74, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.i, label %71
 
 _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i10: ; preds = %.lr.ph.split.i9
-  %73 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef %61) #17
-  %.not17.i = icmp eq ptr %73, null
+  %75 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef %63) #17
+  %.not17.i = icmp eq ptr %75, null
   br i1 %.not17.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.i
 
 _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.i: ; preds = %.lr.ph.i.i.i.i13, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i10
-  %74 = getelementptr inbounds nuw i8, ptr %.01222.i, i64 8
-  %.not.not.i = icmp eq ptr %74, %48
+  %76 = getelementptr inbounds nuw i8, ptr %.01222.i, i64 8
+  %.not.not.i = icmp eq ptr %76, %50
   br i1 %.not.not.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit, label %.lr.ph.split.i9, !llvm.loop !49
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit: ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.loopexit.us.i, %42
-  %75 = load ptr, ptr %2, align 8, !tbaa !26
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %77 = load ptr, ptr %76, align 8, !tbaa !29
-  %.not37.i.i = icmp eq ptr %75, %77
+_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit: ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread14.loopexit.us.i, %44
+  %77 = load ptr, ptr %2, align 8, !tbaa !26
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %79 = load ptr, ptr %78, align 8, !tbaa !29
+  %.not37.i.i = icmp eq ptr %77, %79
   br i1 %.not37.i.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29, label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit, %.thread.us.i.i
   %.02139.us.i.i = phi ptr [ %.32435.us.i.i, %.thread.us.i.i ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit ]
-  %.02738.us.i.i = phi ptr [ %87, %.thread.us.i.i ], [ %75, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit ]
-  %78 = load ptr, ptr %.02738.us.i.i, align 8, !tbaa !27
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 112
-  %80 = load ptr, ptr %79, align 8, !tbaa !46
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 120
-  %82 = load i32, ptr %81, align 8, !tbaa !48
-  %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %80, i64 %83
-  %85 = tail call noundef ptr @_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZNKS0_8LoopBaseIS1_NS0_11MachineLoopEE15getExitingBlockEvEUlS2_E_EEET_SC_SC_T0_St26random_access_iterator_tag(ptr noundef %80, ptr noundef %84, ptr nonnull align 8 dereferenceable(144) %0)
-  %.not.i.us.i.i = icmp eq ptr %84, %85
-  %.not2936.us.i.i = icmp eq ptr %78, null
+  %.02738.us.i.i = phi ptr [ %89, %.thread.us.i.i ], [ %77, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit ]
+  %80 = load ptr, ptr %.02738.us.i.i, align 8, !tbaa !27
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 112
+  %82 = load ptr, ptr %81, align 8, !tbaa !46
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 120
+  %84 = load i32, ptr %83, align 8, !tbaa !48
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr inbounds nuw ptr, ptr %82, i64 %85
+  %87 = tail call noundef ptr @_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZNKS0_8LoopBaseIS1_NS0_11MachineLoopEE15getExitingBlockEvEUlS2_E_EEET_SC_SC_T0_St26random_access_iterator_tag(ptr noundef %82, ptr noundef %86, ptr nonnull align 8 dereferenceable(144) %0)
+  %.not.i.us.i.i = icmp eq ptr %86, %87
+  %.not2936.us.i.i = icmp eq ptr %80, null
   %.not29.us.i.i = or i1 %.not2936.us.i.i, %.not.i.us.i.i
-  br i1 %.not29.us.i.i, label %.thread.us.i.i, label %86
+  br i1 %.not29.us.i.i, label %.thread.us.i.i, label %88
 
-86:                                               ; preds = %.lr.ph.split.us.i.i
+88:                                               ; preds = %.lr.ph.split.us.i.i
   %.not30.us.i.i = icmp eq ptr %.02139.us.i.i, null
   br i1 %.not30.us.i.i, label %.thread.us.i.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29
 
-.thread.us.i.i:                                   ; preds = %86, %.lr.ph.split.us.i.i
-  %.32435.us.i.i = phi ptr [ %.02139.us.i.i, %.lr.ph.split.us.i.i ], [ %78, %86 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.02738.us.i.i, i64 8
-  %.not.us.i.i = icmp eq ptr %87, %77
+.thread.us.i.i:                                   ; preds = %88, %.lr.ph.split.us.i.i
+  %.32435.us.i.i = phi ptr [ %.02139.us.i.i, %.lr.ph.split.us.i.i ], [ %80, %88 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.02738.us.i.i, i64 8
+  %.not.us.i.i = icmp eq ptr %89, %79
   br i1 %.not.us.i.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29, label %.lr.ph.split.us.i.i
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29: ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i10, %64, %69, %58, %86, %.thread.us.i.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, %1, %.lr.ph.split.us.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit, %.lr.ph.split.us.i16
-  %88 = phi ptr [ %spec.select.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i10 ], [ %spec.select.i, %.lr.ph.split.us.i16 ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit ], [ null, %1 ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit ], [ null, %.lr.ph.split.us.i ], [ %spec.select.i, %58 ], [ %spec.select.i, %69 ], [ null, %86 ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i ], [ %.32435.us.i.i, %.thread.us.i.i ], [ %spec.select.i, %64 ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ]
-  ret ptr %88
+_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE15getExitingBlockEv.exit.thread29: ; preds = %41, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %25, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i10, %66, %71, %60, %88, %.thread.us.i.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, %1, %.lr.ph.split.us.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit, %.lr.ph.split.us.i16
+  %90 = phi ptr [ null, %.lr.ph.split.us.i ], [ %spec.select.i, %.lr.ph.split.us.i16 ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE13isLoopExitingEPKS1_.exit ], [ null, %1 ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit ], [ %spec.select.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i10 ], [ %spec.select.i, %60 ], [ %spec.select.i, %71 ], [ null, %25 ], [ %.32435.us.i.i, %.thread.us.i.i ], [ null, %88 ], [ %spec.select.i, %66 ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ null, %41 ]
+  ret ptr %90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8490,8 +8490,8 @@ _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE16getLoopPreheaderEv
   br i1 %.not.not9.i.i.i.us.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, label %.lr.ph.i.i.i.preheader.us.i
 
 .lr.ph.i.i.i.preheader.us.i:                      ; preds = %.lr.ph.split.us.i, %.thread40.us.i
-  %.01645.us.i = phi ptr [ %36, %.thread40.us.i ], [ null, %.lr.ph.split.us.i ]
-  %.02044.us.i = phi ptr [ %37, %.thread40.us.i ], [ %17, %.lr.ph.split.us.i ]
+  %.01645.us.i = phi ptr [ %37, %.thread40.us.i ], [ null, %.lr.ph.split.us.i ]
+  %.02044.us.i = phi ptr [ %38, %.thread40.us.i ], [ %17, %.lr.ph.split.us.i ]
   %31 = load ptr, ptr %.02044.us.i, align 8, !tbaa !27
   br label %.lr.ph.i.i.i.us.i
 
@@ -8499,193 +8499,193 @@ _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE16getLoopPreheaderEv
   %.0810.i.i.i.us.i = phi ptr [ %35, %34 ], [ %27, %.lr.ph.i.i.i.preheader.us.i ]
   %32 = load ptr, ptr %.0810.i.i.i.us.i, align 8, !tbaa !37
   %33 = icmp eq ptr %32, %31
-  br i1 %33, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i, label %34
+  br i1 %33, label %36, label %34
 
 34:                                               ; preds = %.lr.ph.i.i.i.us.i
   %35 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.us.i, i64 8
   %.not.not.i.i.i.us.i = icmp eq ptr %35, %30
   br i1 %.not.not.i.i.i.us.i, label %.thread40.us.i, label %.lr.ph.i.i.i.us.i, !llvm.loop !38
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i: ; preds = %.lr.ph.i.i.i.us.i
+36:                                               ; preds = %.lr.ph.i.i.i.us.i
   %.not2131.us.i = icmp eq ptr %.01645.us.i, null
   br i1 %.not2131.us.i, label %.thread40.us.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
 
-.thread40.us.i:                                   ; preds = %34, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i
-  %36 = phi ptr [ %31, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i ], [ %.01645.us.i, %34 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.02044.us.i, i64 8
-  %.not.us.i = icmp eq ptr %37, %21
+.thread40.us.i:                                   ; preds = %34, %36
+  %37 = phi ptr [ %31, %36 ], [ %.01645.us.i, %34 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.02044.us.i, i64 8
+  %.not.us.i = icmp eq ptr %38, %21
   br i1 %.not.us.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, label %.lr.ph.i.i.i.preheader.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.thread40.i
-  %.01645.i = phi ptr [ %51, %.thread40.i ], [ null, %.lr.ph.i ]
-  %.02044.i = phi ptr [ %52, %.thread40.i ], [ %17, %.lr.ph.i ]
-  %38 = load ptr, ptr %.02044.i, align 8, !tbaa !27
-  %39 = load i8, ptr %23, align 4, !tbaa !32, !range !33, !noundef !34
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %41, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i
+  %.01645.i = phi ptr [ %53, %.thread40.i ], [ null, %.lr.ph.i ]
+  %.02044.i = phi ptr [ %54, %.thread40.i ], [ %17, %.lr.ph.i ]
+  %39 = load ptr, ptr %.02044.i, align 8, !tbaa !27
+  %40 = load i8, ptr %23, align 4, !tbaa !32, !range !33, !noundef !34
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %42, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i
 
-41:                                               ; preds = %.lr.ph.split.i
-  %42 = load ptr, ptr %22, align 8, !tbaa !35
-  %43 = load i32, ptr %24, align 4, !tbaa !36
-  %44 = zext i32 %43 to i64
-  %.idx.i.i.i.i = shl nuw nsw i64 %44, 3
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i.i.i.i
-  %.not.not9.i.i.i.i = icmp eq i32 %43, 0
+42:                                               ; preds = %.lr.ph.split.i
+  %43 = load ptr, ptr %22, align 8, !tbaa !35
+  %44 = load i32, ptr %24, align 4, !tbaa !36
+  %45 = zext i32 %44 to i64
+  %.idx.i.i.i.i = shl nuw nsw i64 %45, 3
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i.i
+  %.not.not9.i.i.i.i = icmp eq i32 %44, 0
   br i1 %.not.not9.i.i.i.i, label %.thread40.i, label %.lr.ph.i.i.i.i
 
-46:                                               ; preds = %.lr.ph.i.i.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %.not.not.i.i.i.i = icmp eq ptr %47, %45
+47:                                               ; preds = %.lr.ph.i.i.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %.not.not.i.i.i.i = icmp eq ptr %48, %46
   br i1 %.not.not.i.i.i.i, label %.thread40.i, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
-.lr.ph.i.i.i.i:                                   ; preds = %41, %46
-  %.0810.i.i.i.i = phi ptr [ %47, %46 ], [ %42, %41 ]
-  %48 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !37
-  %49 = icmp eq ptr %48, %38
-  br i1 %49, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i, label %46
+.lr.ph.i.i.i.i:                                   ; preds = %42, %47
+  %.0810.i.i.i.i = phi ptr [ %48, %47 ], [ %43, %42 ]
+  %49 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !37
+  %50 = icmp eq ptr %49, %39
+  br i1 %50, label %52, label %47
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i: ; preds = %.lr.ph.i.i.i.i
+_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i: ; preds = %.lr.ph.split.i
+  %51 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %22, ptr noundef %39) #17
+  %.not42.i = icmp eq ptr %51, null
+  %.not21.i = icmp eq ptr %.01645.i, null
+  %brmerge.i = select i1 %.not42.i, i1 true, i1 %.not21.i
+  %.016.mux.i = select i1 %.not42.i, ptr %.01645.i, ptr %39
+  br i1 %brmerge.i, label %.thread40.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101
+
+52:                                               ; preds = %.lr.ph.i.i.i.i
   %.not2131.i = icmp eq ptr %.01645.i, null
   br i1 %.not2131.i, label %.thread40.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i: ; preds = %.lr.ph.split.i
-  %50 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %22, ptr noundef %38) #17
-  %.not42.i = icmp eq ptr %50, null
-  %.not21.i = icmp eq ptr %.01645.i, null
-  %brmerge.i = select i1 %.not42.i, i1 true, i1 %.not21.i
-  %.016.mux.i = select i1 %.not42.i, ptr %.01645.i, ptr %38
-  br i1 %brmerge.i, label %.thread40.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101
-
-.thread40.i:                                      ; preds = %46, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i, %41
-  %51 = phi ptr [ %38, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i ], [ %.016.mux.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ %.01645.i, %41 ], [ %.01645.i, %46 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 8
-  %.not.i64 = icmp eq ptr %52, %21
+.thread40.i:                                      ; preds = %47, %52, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %42
+  %53 = phi ptr [ %.016.mux.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ %39, %52 ], [ %.01645.i, %42 ], [ %.01645.i, %47 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 8
+  %.not.i64 = icmp eq ptr %54, %21
   br i1 %.not.i64, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101, label %.lr.ph.split.i, !llvm.loop !66
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101: ; preds = %.thread40.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i
-  %spec.select.i63.ph.ph102 = phi ptr [ %51, %.thread40.i ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.i ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ]
+_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101: ; preds = %.thread40.i, %52, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i
+  %spec.select.i63.ph.ph102 = phi ptr [ null, %52 ], [ %53, %.thread40.i ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ]
   %.pr.pre = load i32, ptr %18, align 8, !tbaa !48
   br label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit: ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i, %.thread40.us.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101, %.lr.ph.split.us.i
-  %.pr = phi i32 [ %.pr.pre, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101 ], [ %19, %.lr.ph.split.us.i ], [ %19, %.thread40.us.i ], [ %19, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i ]
-  %spec.select.i63.ph = phi ptr [ %spec.select.i63.ph.ph102, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101 ], [ null, %.lr.ph.split.us.i ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.thread29.us.i ], [ %36, %.thread40.us.i ]
+_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit: ; preds = %36, %.thread40.us.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101, %.lr.ph.split.us.i
+  %.pr = phi i32 [ %.pr.pre, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101 ], [ %19, %.lr.ph.split.us.i ], [ %19, %.thread40.us.i ], [ %19, %36 ]
+  %spec.select.i63.ph = phi ptr [ %spec.select.i63.ph.ph102, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.loopexit101 ], [ null, %.lr.ph.split.us.i ], [ null, %36 ], [ %37, %.thread40.us.i ]
   %.not56 = icmp eq i32 %.pr, 2
-  br i1 %.not56, label %53, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread
+  br i1 %.not56, label %55, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread
 
-53:                                               ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
-  %54 = getelementptr inbounds nuw i8, ptr %15, i64 217
-  %55 = load i8, ptr %54, align 1, !tbaa !409, !range !33, !noundef !34
-  %56 = trunc nuw i8 %55 to i1
-  %57 = getelementptr inbounds nuw i8, ptr %15, i64 224
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp ne ptr %58, null
-  %60 = select i1 %56, i1 true, i1 %59
-  br i1 %60, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %.lr.ph.preheader
+55:                                               ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
+  %56 = getelementptr inbounds nuw i8, ptr %15, i64 217
+  %57 = load i8, ptr %56, align 1, !tbaa !409, !range !33, !noundef !34
+  %58 = trunc nuw i8 %57 to i1
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 224
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp ne ptr %60, null
+  %62 = select i1 %58, i1 true, i1 %61
+  br i1 %62, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %53
-  %61 = load ptr, ptr %16, align 8, !tbaa !46
+.lr.ph.preheader:                                 ; preds = %55
+  %63 = load ptr, ptr %16, align 8, !tbaa !46
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %.04989 = phi ptr [ %.251, %64 ], [ null, %.lr.ph.preheader ]
-  %.05388.idx = phi i64 [ %.05388.add, %64 ], [ 0, %.lr.ph.preheader ]
-  %.05388.ptr = getelementptr inbounds nuw i8, ptr %61, i64 %.05388.idx
-  %62 = load ptr, ptr %.05388.ptr, align 8, !tbaa !27
-  %63 = icmp eq ptr %62, %spec.select.i63.ph
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %66
+  %.04989 = phi ptr [ %.251, %66 ], [ null, %.lr.ph.preheader ]
+  %.05388.idx = phi i64 [ %.05388.add, %66 ], [ 0, %.lr.ph.preheader ]
+  %.05388.ptr = getelementptr inbounds nuw i8, ptr %63, i64 %.05388.idx
+  %64 = load ptr, ptr %.05388.ptr, align 8, !tbaa !27
+  %65 = icmp eq ptr %64, %spec.select.i63.ph
   %.not58 = icmp ne ptr %.04989, null
-  %not. = xor i1 %63, true
+  %not. = xor i1 %65, true
   %switch = select i1 %not., i1 %.not58, i1 false
-  br i1 %switch, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %64
+  br i1 %switch, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %66
 
-64:                                               ; preds = %.lr.ph
-  %65 = select i1 %63, i1 true, i1 %.not58
-  %.251 = select i1 %65, ptr %.04989, ptr %62
+66:                                               ; preds = %.lr.ph
+  %67 = select i1 %65, i1 true, i1 %.not58
+  %.251 = select i1 %67, ptr %.04989, ptr %64
   %.05388.add = add nuw nsw i64 %.05388.idx, 8
   %.not57 = icmp eq i64 %.05388.add, 16
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %64
-  br i1 %3, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %66
+._crit_edge:                                      ; preds = %66
+  br i1 %3, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %68
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %.251, i64 112
-  %68 = load ptr, ptr %67, align 8, !tbaa !46
-  %69 = getelementptr inbounds nuw i8, ptr %.251, i64 120
-  %70 = load i32, ptr %69, align 8, !tbaa !48
-  %71 = zext i32 %70 to i64
-  %.idx = shl nuw nsw i64 %71, 3
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
-  %.not5991 = icmp eq i32 %70, 0
+68:                                               ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %.251, i64 112
+  %70 = load ptr, ptr %69, align 8, !tbaa !46
+  %71 = getelementptr inbounds nuw i8, ptr %.251, i64 120
+  %72 = load i32, ptr %71, align 8, !tbaa !48
+  %73 = zext i32 %72 to i64
+  %.idx = shl nuw nsw i64 %73, 3
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
+  %.not5991 = icmp eq i32 %72, 0
   br i1 %.not5991, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %.lr.ph94
 
-.lr.ph94:                                         ; preds = %66
-  %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %75 = load i32, ptr %74, align 8
-  %.fr98 = freeze i32 %75
-  %76 = icmp eq i32 %.fr98, 0
-  %77 = add i32 %.fr98, -1
-  br i1 %76, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %.lr.ph94.split
+.lr.ph94:                                         ; preds = %68
+  %75 = load ptr, ptr %0, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %77 = load i32, ptr %76, align 8
+  %.fr98 = freeze i32 %77
+  %78 = icmp eq i32 %.fr98, 0
+  %79 = add i32 %.fr98, -1
+  br i1 %78, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %.lr.ph94.split
 
 .lr.ph94.split:                                   ; preds = %.lr.ph94, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread
-  %.05292 = phi ptr [ %108, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread ], [ %68, %.lr.ph94 ]
-  %78 = load ptr, ptr %.05292, align 8, !tbaa !27
-  %79 = icmp eq ptr %78, %15
-  br i1 %79, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, label %80
+  %.05292 = phi ptr [ %110, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread ], [ %70, %.lr.ph94 ]
+  %80 = load ptr, ptr %.05292, align 8, !tbaa !27
+  %81 = icmp eq ptr %80, %15
+  br i1 %81, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, label %82
 
-80:                                               ; preds = %.lr.ph94.split
-  %81 = ptrtoint ptr %78 to i64
-  %82 = trunc i64 %81 to i32
-  %83 = lshr i32 %82, 4
-  %84 = lshr i32 %82, 9
-  %85 = xor i32 %83, %84
-  %.01826.i.i.i.i = and i32 %77, %85
-  %86 = zext nneg i32 %.01826.i.i.i.i to i64
-  %87 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %73, i64 %86
-  %88 = load ptr, ptr %87, align 8, !tbaa !27
-  %89 = icmp eq ptr %78, %88
-  br i1 %89, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit, label %.lr.ph.i.i.i.i67, !prof !131
+82:                                               ; preds = %.lr.ph94.split
+  %83 = ptrtoint ptr %80 to i64
+  %84 = trunc i64 %83 to i32
+  %85 = lshr i32 %84, 4
+  %86 = lshr i32 %84, 9
+  %87 = xor i32 %85, %86
+  %.01826.i.i.i.i = and i32 %79, %87
+  %88 = zext nneg i32 %.01826.i.i.i.i to i64
+  %89 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %75, i64 %88
+  %90 = load ptr, ptr %89, align 8, !tbaa !27
+  %91 = icmp eq ptr %80, %90
+  br i1 %91, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit, label %.lr.ph.i.i.i.i67, !prof !131
 
-.lr.ph.i.i.i.i67:                                 ; preds = %80, %92
-  %90 = phi ptr [ %97, %92 ], [ %88, %80 ]
-  %.01828.i.i.i.i = phi i32 [ %.018.i.i.i.i, %92 ], [ %.01826.i.i.i.i, %80 ]
-  %.01627.i.i.i.i = phi i32 [ %93, %92 ], [ 1, %80 ]
-  %91 = icmp eq ptr %90, inttoptr (i64 -4096 to ptr)
-  br i1 %91, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, label %92, !prof !55
+.lr.ph.i.i.i.i67:                                 ; preds = %82, %94
+  %92 = phi ptr [ %99, %94 ], [ %90, %82 ]
+  %.01828.i.i.i.i = phi i32 [ %.018.i.i.i.i, %94 ], [ %.01826.i.i.i.i, %82 ]
+  %.01627.i.i.i.i = phi i32 [ %95, %94 ], [ 1, %82 ]
+  %93 = icmp eq ptr %92, inttoptr (i64 -4096 to ptr)
+  br i1 %93, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, label %94, !prof !55
 
-92:                                               ; preds = %.lr.ph.i.i.i.i67
-  %93 = add i32 %.01627.i.i.i.i, 1
-  %94 = add i32 %.01627.i.i.i.i, %.01828.i.i.i.i
-  %.018.i.i.i.i = and i32 %94, %77
-  %95 = zext i32 %.018.i.i.i.i to i64
-  %96 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %73, i64 %95
-  %97 = load ptr, ptr %96, align 8, !tbaa !27
-  %98 = icmp eq ptr %78, %97
-  br i1 %98, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit, label %.lr.ph.i.i.i.i67, !prof !132, !llvm.loop !222
+94:                                               ; preds = %.lr.ph.i.i.i.i67
+  %95 = add i32 %.01627.i.i.i.i, 1
+  %96 = add i32 %.01627.i.i.i.i, %.01828.i.i.i.i
+  %.018.i.i.i.i = and i32 %96, %79
+  %97 = zext i32 %.018.i.i.i.i to i64
+  %98 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %75, i64 %97
+  %99 = load ptr, ptr %98, align 8, !tbaa !27
+  %100 = icmp eq ptr %80, %99
+  br i1 %100, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit, label %.lr.ph.i.i.i.i67, !prof !132, !llvm.loop !222
 
-_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit: ; preds = %92, %80
-  %99 = phi i64 [ %86, %80 ], [ %95, %92 ]
-  %100 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %73, i64 %99
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !92
-  %.not60 = icmp eq ptr %102, null
-  br i1 %.not60, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, label %103
+_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit: ; preds = %94, %82
+  %101 = phi i64 [ %88, %82 ], [ %97, %94 ]
+  %102 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %75, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %104 = load ptr, ptr %103, align 8, !tbaa !92
+  %.not60 = icmp eq ptr %104, null
+  br i1 %.not60, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, label %105
 
-103:                                              ; preds = %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 32
-  %105 = load ptr, ptr %104, align 8, !tbaa !26
-  %106 = load ptr, ptr %105, align 8, !tbaa !27
-  %107 = icmp eq ptr %106, %78
-  br i1 %107, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread
+105:                                              ; preds = %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %107 = load ptr, ptr %106, align 8, !tbaa !26
+  %108 = load ptr, ptr %107, align 8, !tbaa !27
+  %109 = icmp eq ptr %108, %80
+  br i1 %109, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread
 
-_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread: ; preds = %.lr.ph.i.i.i.i67, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit, %103, %.lr.ph94.split
-  %108 = getelementptr inbounds nuw i8, ptr %.05292, i64 8
-  %.not59 = icmp eq ptr %108, %72
+_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread: ; preds = %.lr.ph.i.i.i.i67, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit, %105, %.lr.ph94.split
+  %110 = getelementptr inbounds nuw i8, ptr %.05292, i64 8
+  %.not59 = icmp eq ptr %110, %74
   br i1 %.not59, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread, label %.lr.ph94.split
 
-_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread: ; preds = %.lr.ph, %103, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, %.lr.ph94, %66, %._crit_edge, %12, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE16getLoopPreheaderEv.exit, %53, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
-  %.1 = phi ptr [ %.251, %.lr.ph94 ], [ %.0.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE16getLoopPreheaderEv.exit ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit ], [ null, %53 ], [ %.251, %._crit_edge ], [ null, %12 ], [ %.251, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread ], [ %.251, %66 ], [ null, %103 ], [ null, %.lr.ph ]
+_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit.thread: ; preds = %.lr.ph, %105, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread, %.lr.ph94, %68, %._crit_edge, %12, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE16getLoopPreheaderEv.exit, %55, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit
+  %.1 = phi ptr [ %.251, %.lr.ph94 ], [ %.0.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE16getLoopPreheaderEv.exit ], [ null, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit ], [ null, %55 ], [ %.251, %._crit_edge ], [ null, %12 ], [ %.251, %_ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE10getLoopForEPKS1_.exit.thread ], [ %.251, %68 ], [ null, %105 ], [ null, %.lr.ph ]
   ret ptr %.1
 }
 
@@ -8853,7 +8853,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %.thread150, %65
   br label %.critedge
 
 .critedge:                                        ; preds = %37, %33, %.lr.ph, %52, %27, %20, %10, %6, %24, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit, %3, %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZNK4llvm6MDNode10getOperandEj.exit, %71
-  %.12 = phi ptr [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ null, %71 ], [ %.357, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ null, %20 ], [ null, %3 ], [ null, %10 ], [ null, %6 ], [ null, %24 ], [ null, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit ], [ null, %27 ], [ null, %52 ], [ null, %.lr.ph ], [ null, %33 ], [ null, %37 ]
+  %.12 = phi ptr [ null, %_ZNK4llvm11Instruction11getMetadataEj.exit ], [ null, %71 ], [ %.357, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ null, %24 ], [ null, %3 ], [ null, %6 ], [ null, %10 ], [ null, %20 ], [ null, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit ], [ null, %27 ], [ null, %52 ], [ null, %.lr.ph ], [ null, %33 ], [ null, %37 ]
   ret ptr %.12
 }
 
@@ -8918,7 +8918,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MachineLoop30isLoopInvariantImpl
   br i1 %.not.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_11MachineLoop30isLoopInvariantImplicitPhysRegENS_8RegisterEE3$_0EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %34, %40
-  %.sroa.0.0.i.i = phi ptr [ %39, %40 ], [ %.0.i.i.i, %34 ]
+  %.sroa.0.0.i.i = phi ptr [ %.0.i.i.i, %34 ], [ %39, %40 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -9731,7 +9731,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit, %16, %65, %48, %31, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit53, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit45, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit37, %21, %38, %55, %72, %93, %111, %129, %123, %105, %87, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit77, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit69, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit61, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit77.thread103
-  %.028 = phi ptr [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit69 ], [ %.029.lcssa, %87 ], [ %.1, %105 ], [ %.2, %123 ], [ %1, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit77.thread103 ], [ %.1, %111 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit61 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit77 ], [ %.029.lcssa, %93 ], [ %33, %38 ], [ %50, %55 ], [ %.2, %129 ], [ %.029145, %21 ], [ %67, %72 ], [ %.029145, %16 ], [ %29, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit37 ], [ %46, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit45 ], [ %50, %48 ], [ %63, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit53 ], [ %33, %31 ], [ %67, %65 ], [ %.029145, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit ]
+  %.028 = phi ptr [ %.1, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit69 ], [ %.029.lcssa, %87 ], [ %.1, %105 ], [ %.2, %123 ], [ %1, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit77.thread103 ], [ %.029145, %21 ], [ %.029.lcssa, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit61 ], [ %.2, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit77 ], [ %.029.lcssa, %93 ], [ %33, %38 ], [ %50, %55 ], [ %.2, %129 ], [ %.1, %111 ], [ %67, %72 ], [ %.029145, %16 ], [ %29, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit37 ], [ %46, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit45 ], [ %63, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit53 ], [ %33, %31 ], [ %50, %48 ], [ %67, %65 ], [ %.029145, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm8LoopBaseINS2_17MachineBasicBlockENS2_11MachineLoopEE15getExitingBlockEvEUlPS4_E_EclIPS7_EEbT_.exit ]
   ret ptr %.028
 }
 
@@ -13211,8 +13211,8 @@ attributes #21 = { nounwind willreturn memory(read) }
 !306 = !{!253, !22, i64 16}
 !307 = !{!225, !23, i64 112}
 !308 = !{!253, !22, i64 72}
-!309 = !{!253, !22, i64 76}
-!310 = !{!225, !22, i64 116}
+!309 = !{!225, !22, i64 116}
+!310 = !{!253, !22, i64 76}
 !311 = distinct !{!311, !25}
 !312 = !{!313}
 !313 = distinct !{!313, !314, !"_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_: argument 0"}

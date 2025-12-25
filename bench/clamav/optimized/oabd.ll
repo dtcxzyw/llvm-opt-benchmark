@@ -485,7 +485,7 @@ copy_fh.exit:                                     ; preds = %108, %102
   br label %.thread.thread174
 
 .thread.thread174:                                ; preds = %58, %55, %95, %copy_fh.exit, %53, %.lr.ph.split.us.i, %39, %112, %32
-  %.099158182 = phi i32 [ 6, %32 ], [ 0, %39 ], [ %.2.ph, %112 ], [ 3, %.lr.ph.split.us.i ], [ 9, %copy_fh.exit ], [ 6, %95 ], [ 3, %55 ], [ 8, %58 ], [ 0, %53 ]
+  %.099158182 = phi i32 [ 6, %32 ], [ %.2.ph, %112 ], [ 0, %39 ], [ 3, %.lr.ph.split.us.i ], [ 9, %copy_fh.exit ], [ 6, %95 ], [ 3, %55 ], [ 8, %58 ], [ 0, %53 ]
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !30
   call void %114(ptr noundef nonnull %31) #6

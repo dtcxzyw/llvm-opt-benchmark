@@ -2756,7 +2756,7 @@ sw.epilog:                                        ; preds = %do.body110, %do.bod
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.then22, %if.end4.i, %if.then3.i, %if.end48, %invoke.cont37.thread, %if.else.i79, %invoke.cont30.thread, %if.else.i, %invoke.cont23.thread, %if.end.i, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit, %sw.epilog
-  %cleanup.dest.slot.0270 = phi i32 [ 2, %if.end48 ], [ 2, %if.end4.i ], [ %cleanup.dest.slot.6, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit ], [ 2, %if.then3.i ], [ 2, %invoke.cont23.thread ], [ 2, %invoke.cont30.thread ], [ 2, %if.end.i ], [ 2, %invoke.cont37.thread ], [ 2, %if.else.i ], [ 2, %if.else.i79 ], [ 0, %sw.epilog ], [ 2, %if.then22 ]
+  %cleanup.dest.slot.0270 = phi i32 [ 2, %invoke.cont30.thread ], [ 2, %if.end4.i ], [ 2, %if.end48 ], [ %cleanup.dest.slot.6, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit ], [ 2, %invoke.cont23.thread ], [ 2, %if.else.i79 ], [ 2, %if.then3.i ], [ 2, %if.else.i ], [ 2, %invoke.cont37.thread ], [ 2, %if.end.i ], [ 0, %sw.epilog ], [ 2, %if.then22 ]
   %76 = icmp eq i32 %cleanup.dest.slot.0270, 1
   br i1 %76, label %return, label %while.body
 

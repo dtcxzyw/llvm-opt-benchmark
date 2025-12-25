@@ -2409,8 +2409,8 @@ select.unfold907.i:                               ; preds = %30, %26
   br label %.thread705.i
 
 .thread705.i:                                     ; preds = %.thread705.sink.split.i, %53, %50, %30, %29, %26, %25
-  %68 = phi i1 [ true, %50 ], [ false, %26 ], [ true, %53 ], [ false, %25 ], [ false, %30 ], [ false, %29 ], [ false, %.thread705.sink.split.i ]
-  %.10.i = phi i32 [ 1, %50 ], [ -2001, %26 ], [ 1, %53 ], [ -2000, %25 ], [ -2001, %30 ], [ -2000, %29 ], [ 0, %.thread705.sink.split.i ]
+  %68 = phi i1 [ true, %50 ], [ false, %29 ], [ true, %53 ], [ false, %30 ], [ false, %25 ], [ false, %26 ], [ false, %.thread705.sink.split.i ]
+  %.10.i = phi i32 [ 1, %50 ], [ -2000, %29 ], [ 1, %53 ], [ -2001, %30 ], [ -2000, %25 ], [ -2001, %26 ], [ 0, %.thread705.sink.split.i ]
   %.not662.i = icmp eq ptr %13, null
   br i1 %.not662.i, label %73, label %69
 
@@ -3578,10 +3578,10 @@ define internal noalias noundef ptr @test_server_nofail(ptr noundef captures(add
   br label %118
 
 118:                                              ; preds = %95, %110, %108, %81, %79, %77, %74, %70, %53, %117, %24
-  %.0135 = phi ptr [ null, %24 ], [ %.0136141156, %53 ], [ %.0136141156, %108 ], [ %.0136141156, %117 ], [ %.0136141156, %70 ], [ %.0136141156, %74 ], [ %.0136141156, %77 ], [ %.0136141156, %79 ], [ %.0136141156, %81 ], [ %.0136141156, %95 ], [ %.0136141156, %110 ]
-  %.not127133 = phi i1 [ true, %24 ], [ %.not127134143154, %53 ], [ %.not127134143154, %108 ], [ %.not127134143154, %117 ], [ %.not127134143154, %70 ], [ %.not127134143154, %74 ], [ %.not127134143154, %77 ], [ %.not127134143154, %79 ], [ %.not127134143154, %81 ], [ %.not127134143154, %95 ], [ %.not127134143154, %110 ]
-  %.090 = phi i32 [ 0, %24 ], [ 0, %53 ], [ %92, %108 ], [ %92, %117 ], [ 0, %70 ], [ %76, %74 ], [ %.1, %77 ], [ %.1, %79 ], [ %.1, %81 ], [ %92, %95 ], [ %92, %110 ]
-  %.084 = phi ptr [ null, %24 ], [ null, %53 ], [ %71, %108 ], [ %71, %117 ], [ null, %70 ], [ %71, %74 ], [ %71, %77 ], [ %71, %79 ], [ %71, %81 ], [ %71, %95 ], [ %71, %110 ]
+  %.0135 = phi ptr [ null, %24 ], [ %.0136141156, %53 ], [ %.0136141156, %117 ], [ %.0136141156, %108 ], [ %.0136141156, %70 ], [ %.0136141156, %74 ], [ %.0136141156, %77 ], [ %.0136141156, %79 ], [ %.0136141156, %81 ], [ %.0136141156, %95 ], [ %.0136141156, %110 ]
+  %.not127133 = phi i1 [ true, %24 ], [ %.not127134143154, %53 ], [ %.not127134143154, %117 ], [ %.not127134143154, %108 ], [ %.not127134143154, %70 ], [ %.not127134143154, %74 ], [ %.not127134143154, %77 ], [ %.not127134143154, %79 ], [ %.not127134143154, %81 ], [ %.not127134143154, %95 ], [ %.not127134143154, %110 ]
+  %.090 = phi i32 [ 0, %24 ], [ 0, %53 ], [ %92, %117 ], [ %92, %108 ], [ 0, %70 ], [ %76, %74 ], [ %.1, %77 ], [ %.1, %79 ], [ %.1, %81 ], [ %92, %95 ], [ %92, %110 ]
+  %.084 = phi ptr [ null, %24 ], [ null, %53 ], [ %71, %117 ], [ %71, %108 ], [ null, %70 ], [ %71, %74 ], [ %71, %77 ], [ %71, %79 ], [ %71, %81 ], [ %71, %95 ], [ %71, %110 ]
   br i1 %.not, label %.critedge130, label %.thread181
 
 .thread181:                                       ; preds = %.thread160, %.thread168, %118
@@ -4513,8 +4513,8 @@ define internal range(i32 0, 2) i32 @test_wc_Md5HmacSetKey() #0 {
   br i1 %exitcond.not, label %.critedge223, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %36, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next234, %.thread ], [ %indvars.iv.next, %36 ]
-  %.be = phi i1 [ true, %.thread ], [ false, %36 ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ %indvars.iv.next234, %.thread ]
+  %.be = phi i1 [ false, %36 ], [ true, %.thread ]
   br label %.backedge, !llvm.loop !98
 
 .thread:                                          ; preds = %22
@@ -4905,8 +4905,8 @@ define internal range(i32 0, 2) i32 @test_wc_ShaHmacSetKey() #0 {
   br i1 %exitcond.not, label %.critedge222, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %36, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next233, %.thread ], [ %indvars.iv.next, %36 ]
-  %.be = phi i1 [ true, %.thread ], [ false, %36 ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ %indvars.iv.next233, %.thread ]
+  %.be = phi i1 [ false, %36 ], [ true, %.thread ]
   br label %.backedge, !llvm.loop !99
 
 .thread:                                          ; preds = %17
@@ -5297,8 +5297,8 @@ define internal range(i32 0, 2) i32 @test_wc_Sha224HmacSetKey() #0 {
   br i1 %exitcond.not, label %.critedge222, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %36, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next233, %.thread ], [ %indvars.iv.next, %36 ]
-  %.be = phi i1 [ true, %.thread ], [ false, %36 ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ %indvars.iv.next233, %.thread ]
+  %.be = phi i1 [ false, %36 ], [ true, %.thread ]
   br label %.backedge, !llvm.loop !100
 
 .thread:                                          ; preds = %17
@@ -5689,8 +5689,8 @@ define internal range(i32 0, 2) i32 @test_wc_Sha256HmacSetKey() #0 {
   br i1 %exitcond.not, label %.critedge222, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %36, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next233, %.thread ], [ %indvars.iv.next, %36 ]
-  %.be = phi i1 [ true, %.thread ], [ false, %36 ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ %indvars.iv.next233, %.thread ]
+  %.be = phi i1 [ false, %36 ], [ true, %.thread ]
   br label %.backedge, !llvm.loop !101
 
 .thread:                                          ; preds = %17
@@ -6081,8 +6081,8 @@ define internal range(i32 0, 2) i32 @test_wc_Sha384HmacSetKey() #0 {
   br i1 %exitcond.not, label %.critedge222, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %36, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next233, %.thread ], [ %indvars.iv.next, %36 ]
-  %.be = phi i1 [ true, %.thread ], [ false, %36 ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %36 ], [ %indvars.iv.next233, %.thread ]
+  %.be = phi i1 [ false, %36 ], [ true, %.thread ]
   br label %.backedge, !llvm.loop !102
 
 .thread:                                          ; preds = %17
@@ -7657,8 +7657,8 @@ define internal range(i32 0, 2) i32 @test_wc_AesCbcEncryptDecrypt() #0 {
   br i1 %exitcond.not, label %.critedge845, label %.backedge896.backedge
 
 .backedge896.backedge:                            ; preds = %149, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next888, %.thread ], [ %indvars.iv.next, %149 ]
-  %.be907 = phi i1 [ true, %.thread ], [ false, %149 ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %149 ], [ %indvars.iv.next888, %.thread ]
+  %.be907 = phi i1 [ false, %149 ], [ true, %.thread ]
   br label %.backedge896, !llvm.loop !104
 
 .thread:                                          ; preds = %132
@@ -7778,8 +7778,8 @@ define internal range(i32 0, 2) i32 @test_wc_AesCbcEncryptDecrypt() #0 {
   br i1 %exitcond864.not, label %.critedge853, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %213, %.thread891
-  %indvars.iv861.be = phi i64 [ %indvars.iv.next862893, %.thread891 ], [ %indvars.iv.next862, %213 ]
-  %.be = phi i1 [ true, %.thread891 ], [ false, %213 ]
+  %indvars.iv861.be = phi i64 [ %indvars.iv.next862, %213 ], [ %indvars.iv.next862893, %.thread891 ]
+  %.be = phi i1 [ false, %213 ], [ true, %.thread891 ]
   br label %.backedge, !llvm.loop !105
 
 .thread891:                                       ; preds = %196
@@ -30668,7 +30668,7 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
   br label %.critedge607
 
 .critedge607:                                     ; preds = %.lr.ph, %.critedge607.sink.split, %.critedge, %.critedge609
-  %.32 = phi i32 [ 1, %.critedge609 ], [ 0, %.critedge607.sink.split ], [ 0, %.critedge ], [ 0, %.lr.ph ]
+  %.32 = phi i32 [ 1, %.critedge609 ], [ 0, %.critedge ], [ 0, %.critedge607.sink.split ], [ 0, %.lr.ph ]
   %250 = load ptr, ptr %3, align 8, !tbaa !145
   call void @wolfSSL_free(ptr noundef %250) #27
   %251 = load ptr, ptr %4, align 8, !tbaa !145
@@ -32303,7 +32303,7 @@ define internal range(i32 0, 2) i32 @test_tls_cert_store_unchanged() #0 {
   br label %.thread99
 
 .thread99:                                        ; preds = %.thread99.sink.split, %.thread.thread, %18
-  %.4 = phi i32 [ %.0119, %18 ], [ 1, %.thread.thread ], [ 0, %.thread99.sink.split ]
+  %.4 = phi i32 [ 1, %.thread.thread ], [ %.0119, %18 ], [ 0, %.thread99.sink.split ]
   br i1 %15, label %14, label %43, !llvm.loop !175
 
 43:                                               ; preds = %.thread99

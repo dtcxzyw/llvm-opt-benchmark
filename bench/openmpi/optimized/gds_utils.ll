@@ -481,7 +481,7 @@ define noundef zeroext i1 @pmix_gds_hash_check_node(ptr noundef readonly capture
   br i1 %52, label %.loopexit, label %47
 
 .loopexit:                                        ; preds = %25, %.loopexit50, %38, %.lr.ph, %.lr.ph64, %47, %.preheader52, %.preheader, %43, %17, %9, %13, %5
-  %.034 = phi i1 [ true, %38 ], [ true, %5 ], [ false, %9 ], [ true, %17 ], [ false, %13 ], [ false, %43 ], [ false, %.preheader52 ], [ %52, %.lr.ph64 ], [ false, %.preheader ], [ %52, %47 ], [ true, %.lr.ph ], [ %28, %.loopexit50 ], [ %28, %25 ]
+  %.034 = phi i1 [ false, %43 ], [ true, %5 ], [ false, %9 ], [ true, %17 ], [ false, %13 ], [ true, %38 ], [ false, %.preheader52 ], [ %52, %.lr.ph64 ], [ false, %.preheader ], [ %52, %47 ], [ true, %.lr.ph ], [ %28, %.loopexit50 ], [ %28, %25 ]
   ret i1 %.034
 }
 

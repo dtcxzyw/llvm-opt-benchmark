@@ -1642,9 +1642,9 @@ _ZNK5clang5Token9getEndLocEv.exit40:              ; preds = %83, %88
   br i1 %.not.i.i41, label %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit, label %.lr.ph.i.i, !llvm.loop !279
 
 _ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit: ; preds = %94, %.lr.ph.i.i, %101, %31
-  %.sroa.060.178 = phi i32 [ %.sroa.060.181, %.lr.ph.i.i ], [ %.sroa.060.086, %31 ], [ %.sroa.060.181, %101 ], [ %.sroa.060.2, %94 ]
-  %.12976 = phi i8 [ %.12982, %.lr.ph.i.i ], [ %.02888, %31 ], [ %.12982, %101 ], [ %.230, %94 ]
-  %.0.lcssa.i.i = phi ptr [ %.05.i.i, %.lr.ph.i.i ], [ null, %31 ], [ null, %101 ], [ null, %94 ]
+  %.sroa.060.178 = phi i32 [ %.sroa.060.086, %31 ], [ %.sroa.060.181, %.lr.ph.i.i ], [ %.sroa.060.181, %101 ], [ %.sroa.060.2, %94 ]
+  %.12976 = phi i8 [ %.02888, %31 ], [ %.12982, %.lr.ph.i.i ], [ %.12982, %101 ], [ %.230, %94 ]
+  %.0.lcssa.i.i = phi ptr [ null, %31 ], [ %.05.i.i, %.lr.ph.i.i ], [ null, %101 ], [ null, %94 ]
   store ptr %.0.lcssa.i.i, ptr %16, align 8, !tbaa !271
   %104 = icmp eq i32 %.sroa.060.178, 0
   %105 = load i32, ptr %9, align 8

@@ -2364,8 +2364,8 @@ stbi__jpeg_dequantize.exit.us.i.i.i:              ; preds = %1089
   br i1 %1108, label %.lr.ph.i66.i.i, label %stbi__decode_jpeg_image.exit.i, !llvm.loop !30
 
 .critedge.sink.split.i.i:                         ; preds = %1047, %1042, %340, %337, %333, %331, %101, %96, %stbi__get8.exit.i.i.i, %200, %194, %stbi__jpeg_huff_decode.exit179.i.us.i.i.i, %603, %601, %581, %755, %753, %733, %706, %.split.us.i.i.i, %.split296.us.i.i.i, %stbi__get8.exit.thread.i.i.i
-  %.str.11.sink.i.i = phi ptr [ @.str.6, %200 ], [ @.str.6, %.split296.us.i.i.i ], [ @.str.11, %706 ], [ @.str.6, %.split.us.i.i.i ], [ @.str.6, %stbi__get8.exit.thread.i.i.i ], [ @.str.6, %stbi__jpeg_huff_decode.exit179.i.us.i.i.i ], [ @.str.6, %755 ], [ @.str.6, %753 ], [ @.str.6, %733 ], [ @.str.6, %581 ], [ @.str.6, %601 ], [ @.str.6, %603 ], [ @.str.6, %194 ], [ @.str.6, %stbi__get8.exit.i.i.i ], [ @.str.6, %96 ], [ @.str.6, %101 ], [ @.str.6, %331 ], [ @.str.6, %333 ], [ @.str.6, %337 ], [ @.str.6, %340 ], [ @.str.6, %1042 ], [ @.str.6, %1047 ]
-  %1109 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull %.str.11.sink.i.i) #11
+  %.str.6.sink.i.i = phi ptr [ @.str.6, %.split296.us.i.i.i ], [ @.str.6, %.split.us.i.i.i ], [ @.str.11, %706 ], [ @.str.6, %stbi__jpeg_huff_decode.exit179.i.us.i.i.i ], [ @.str.6, %200 ], [ @.str.6, %stbi__get8.exit.thread.i.i.i ], [ @.str.6, %755 ], [ @.str.6, %753 ], [ @.str.6, %733 ], [ @.str.6, %581 ], [ @.str.6, %601 ], [ @.str.6, %603 ], [ @.str.6, %194 ], [ @.str.6, %stbi__get8.exit.i.i.i ], [ @.str.6, %96 ], [ @.str.6, %101 ], [ @.str.6, %331 ], [ @.str.6, %333 ], [ @.str.6, %337 ], [ @.str.6, %340 ], [ @.str.6, %1042 ], [ @.str.6, %1047 ]
+  %1109 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull %.str.6.sink.i.i) #11
   br label %.loopexit385.i
 
 .loopexit385.i:                                   ; preds = %stbi__parse_entropy_coded_data.exit.i.i, %._crit_edge.i.i.i, %191, %828, %.lr.ph.i51.i.i, %.critedge.sink.split.i.i, %23
@@ -7434,7 +7434,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %.loopexit, %.loopexit65.sink.split, %47
-  %.0 = phi i32 [ 0, %.loopexit65.sink.split ], [ 1, %47 ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 1, %47 ], [ 0, %.loopexit65.sink.split ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 

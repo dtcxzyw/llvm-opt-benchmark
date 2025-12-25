@@ -4950,7 +4950,7 @@ check_unrecoverable_load_failure.exit437:         ; preds = %102, %104
   br label %125
 
 125:                                              ; preds = %113, %121
-  %.7365 = phi i32 [ %.6364609, %113 ], [ %124, %121 ]
+  %.7365 = phi i32 [ %124, %121 ], [ %.6364609, %113 ]
   %indvars.iv.next743 = add nuw nsw i64 %indvars.iv742, 1
   %126 = load i32, ptr %92, align 8, !tbaa !148
   %127 = zext i32 %126 to i64
@@ -9165,7 +9165,7 @@ do_inheritance_check_on_method.exit.i:            ; preds = %118
   br i1 %.not140.i, label %zend_can_early_bind.exit.thread, label %176
 
 zend_can_early_bind.exit.thread:                  ; preds = %107, %102, %118, %100, %.thread195.i, %._crit_edge224.i
-  %.6.i.ph = phi i32 [ %.099.lcssa.i, %.thread195.i ], [ %.099.lcssa.i, %._crit_edge224.i ], [ 0, %100 ], [ 0, %118 ], [ 0, %102 ], [ 0, %107 ]
+  %.6.i.ph = phi i32 [ %.099.lcssa.i, %._crit_edge224.i ], [ %.099.lcssa.i, %.thread195.i ], [ 0, %100 ], [ 0, %118 ], [ 0, %102 ], [ 0, %107 ]
   store ptr %73, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 560), align 8, !tbaa !163
   br label %213
 

@@ -1329,13 +1329,13 @@ _ZN10fundu_core5parse18ReprParserTemplate14parse_exponent17h5c2200d38db1f972E.ex
   br label %_ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hfc20e73684321050E.exit
 
 _ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hfc20e73684321050E.exit: ; preds = %332, %.loopexit.i
-  %.sroa.19.0446 = phi ptr [ %337, %332 ], [ %.sroa.18.057.ph.i, %.loopexit.i ]
-  %.sroa.21.0444 = phi i64 [ 19, %332 ], [ %.sroa.21.055.ph.i, %.loopexit.i ]
-  %.sroa.8.sroa.0.sroa.0.0442 = phi i8 [ %.sroa.8.sroa.0.sroa.0.0.extract.trunc374, %332 ], [ %.sroa.8.sroa.0.sroa.0.0.extract.trunc, %.loopexit.i ]
-  %.sroa.10128.sroa.0.0 = phi i8 [ %.sroa.8.sroa.0.sroa.9.0.extract.trunc376, %332 ], [ %.sroa.8.sroa.0.sroa.9.0.extract.trunc, %.loopexit.i ]
-  %.sroa.10128.sroa.6.0 = phi i48 [ %.sroa.8.sroa.10.0.extract.trunc, %332 ], [ %.sroa.8.sroa.8.sroa.0.051.ph.i, %.loopexit.i ]
-  %.sroa.10128.sroa.7.0 = phi i64 [ %336, %332 ], [ %.sroa.9.sroa.5.0.ph.i, %.loopexit.i ]
-  %.sroa.0123.0 = phi i64 [ 1, %332 ], [ %.sroa.0.0.ph.i, %.loopexit.i ]
+  %.sroa.19.0446 = phi ptr [ %.sroa.18.057.ph.i, %.loopexit.i ], [ %337, %332 ]
+  %.sroa.21.0444 = phi i64 [ %.sroa.21.055.ph.i, %.loopexit.i ], [ 19, %332 ]
+  %.sroa.8.sroa.0.sroa.0.0442 = phi i8 [ %.sroa.8.sroa.0.sroa.0.0.extract.trunc, %.loopexit.i ], [ %.sroa.8.sroa.0.sroa.0.0.extract.trunc374, %332 ]
+  %.sroa.10128.sroa.0.0 = phi i8 [ %.sroa.8.sroa.0.sroa.9.0.extract.trunc, %.loopexit.i ], [ %.sroa.8.sroa.0.sroa.9.0.extract.trunc376, %332 ]
+  %.sroa.10128.sroa.6.0 = phi i48 [ %.sroa.8.sroa.8.sroa.0.051.ph.i, %.loopexit.i ], [ %.sroa.8.sroa.10.0.extract.trunc, %332 ]
+  %.sroa.10128.sroa.7.0 = phi i64 [ %.sroa.9.sroa.5.0.ph.i, %.loopexit.i ], [ %336, %332 ]
+  %.sroa.0123.0 = phi i64 [ %.sroa.0.0.ph.i, %.loopexit.i ], [ 1, %332 ]
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0123.0, ptr %339, align 8
   %.sroa.2310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2589,13 +2589,13 @@ _ZN10fundu_core5parse18ReprParserTemplate14parse_exponent17h84f73b8e1c2c6e9bE.ex
   br label %_ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hd943b0ab5dd2c190E.exit
 
 _ZN10fundu_core5parse18ReprParserTemplate21parse_number_exponent17hd943b0ab5dd2c190E.exit: ; preds = %409, %.loopexit.i
-  %.sroa.19385.0486 = phi ptr [ %414, %409 ], [ %.sroa.18.057.ph.i, %.loopexit.i ]
-  %.sroa.21386.0484 = phi i64 [ 19, %409 ], [ %.sroa.21.055.ph.i, %.loopexit.i ]
-  %.sroa.8383.sroa.0.sroa.0.0482 = phi i8 [ %.sroa.8383.sroa.0.sroa.0.0.extract.trunc387, %409 ], [ %.sroa.8383.sroa.0.sroa.0.0.extract.trunc, %.loopexit.i ]
-  %.sroa.10128.sroa.0.0 = phi i8 [ %.sroa.8383.sroa.0.sroa.9.0.extract.trunc389, %409 ], [ %.sroa.8383.sroa.0.sroa.9.0.extract.trunc, %.loopexit.i ]
-  %.sroa.10128.sroa.6.0 = phi i48 [ %.sroa.8383.sroa.10.0.extract.trunc, %409 ], [ %.sroa.8.sroa.8.sroa.0.051.ph.i, %.loopexit.i ]
-  %.sroa.10128.sroa.7.0 = phi i64 [ %413, %409 ], [ %.sroa.9.sroa.5.0.ph.i, %.loopexit.i ]
-  %.sroa.0123.0 = phi i64 [ 1, %409 ], [ %.sroa.0.0.ph.i, %.loopexit.i ]
+  %.sroa.19385.0486 = phi ptr [ %.sroa.18.057.ph.i, %.loopexit.i ], [ %414, %409 ]
+  %.sroa.21386.0484 = phi i64 [ %.sroa.21.055.ph.i, %.loopexit.i ], [ 19, %409 ]
+  %.sroa.8383.sroa.0.sroa.0.0482 = phi i8 [ %.sroa.8383.sroa.0.sroa.0.0.extract.trunc, %.loopexit.i ], [ %.sroa.8383.sroa.0.sroa.0.0.extract.trunc387, %409 ]
+  %.sroa.10128.sroa.0.0 = phi i8 [ %.sroa.8383.sroa.0.sroa.9.0.extract.trunc, %.loopexit.i ], [ %.sroa.8383.sroa.0.sroa.9.0.extract.trunc389, %409 ]
+  %.sroa.10128.sroa.6.0 = phi i48 [ %.sroa.8.sroa.8.sroa.0.051.ph.i, %.loopexit.i ], [ %.sroa.8383.sroa.10.0.extract.trunc, %409 ]
+  %.sroa.10128.sroa.7.0 = phi i64 [ %.sroa.9.sroa.5.0.ph.i, %.loopexit.i ], [ %413, %409 ]
+  %.sroa.0123.0 = phi i64 [ %.sroa.0.0.ph.i, %.loopexit.i ], [ 1, %409 ]
   %416 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0123.0, ptr %416, align 8
   %.sroa.2310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

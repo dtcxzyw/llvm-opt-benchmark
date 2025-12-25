@@ -12755,7 +12755,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hca155bdce395aa83E"(ptr nonnull %23) #22
           to label %.thread.thread unwind label %95
 
-.thread.thread175:                                ; preds = %28, %54, %.thread.thread
+.thread.thread175:                                ; preds = %54, %28, %.thread.thread
   %.pn.pn171 = phi { ptr, i32 } [ %.pn.pn172, %.thread.thread ], [ %lpad.thr_comm.split-lp, %28 ], [ %55, %54 ]
   resume { ptr, i32 } %.pn.pn171
 
@@ -13279,7 +13279,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hca155bdce395aa83E"(ptr nonnull %28) #22
           to label %.thread.thread unwind label %100
 
-.thread.thread222:                                ; preds = %34, %60, %.thread.thread
+.thread.thread222:                                ; preds = %60, %34, %.thread.thread
   %.pn.pn218 = phi { ptr, i32 } [ %.pn.pn219, %.thread.thread ], [ %lpad.thr_comm.split-lp, %34 ], [ %61, %60 ]
   resume { ptr, i32 } %.pn.pn218
 
@@ -14807,7 +14807,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hca155bdce395aa83E"(ptr nonnull %33) #22
           to label %.thread.thread unwind label %109
 
-.thread.thread213:                                ; preds = %39, %66, %.thread.thread
+.thread.thread213:                                ; preds = %66, %39, %.thread.thread
   %.pn.pn209 = phi { ptr, i32 } [ %.pn.pn210, %.thread.thread ], [ %lpad.thr_comm.split-lp, %39 ], [ %67, %66 ]
   resume { ptr, i32 } %.pn.pn209
 
@@ -18780,7 +18780,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hca155bdce395aa83E"(ptr nonnull %33) #22
           to label %.thread.thread unwind label %109
 
-.thread.thread212:                                ; preds = %39, %66, %.thread.thread
+.thread.thread212:                                ; preds = %66, %39, %.thread.thread
   %.pn.pn208 = phi { ptr, i32 } [ %.pn.pn209, %.thread.thread ], [ %lpad.thr_comm.split-lp, %39 ], [ %67, %66 ]
   resume { ptr, i32 } %.pn.pn208
 
@@ -20047,14 +20047,14 @@ common.ret:                                       ; preds = %430, %426, %138
   br label %.body53
 
 425:                                              ; preds = %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i", %396
-  %.sroa.6.0 = phi i64 [ %.sroa.11220.1.i, %396 ], [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ]
-  %.sroa.074.0 = phi i64 [ %.sroa.0219.1.i, %396 ], [ %.sroa.0219.3.i, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ]
-  %.sroa.775.0 = phi i64 [ %.sroa.13221.1.i, %396 ], [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ]
-  %.sroa.876.0 = phi i64 [ %.sroa.15222.1.i, %396 ], [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ]
-  %.sroa.977.0 = phi i64 [ %.sroa.17223.1.i, %396 ], [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ]
-  %.sroa.1078.0 = phi i64 [ %.sroa.19.1.i, %396 ], [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ]
-  %.sroa.1179.0 = phi i64 [ %.sroa.21.1.i, %396 ], [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ]
-  %.sroa.12.0 = phi i8 [ %.sroa.23.1.i, %396 ], [ 8, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ]
+  %.sroa.6.0 = phi i64 [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ], [ %.sroa.11220.1.i, %396 ]
+  %.sroa.074.0 = phi i64 [ %.sroa.0219.3.i, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ], [ %.sroa.0219.1.i, %396 ]
+  %.sroa.775.0 = phi i64 [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ], [ %.sroa.13221.1.i, %396 ]
+  %.sroa.876.0 = phi i64 [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ], [ %.sroa.15222.1.i, %396 ]
+  %.sroa.977.0 = phi i64 [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ], [ %.sroa.17223.1.i, %396 ]
+  %.sroa.1078.0 = phi i64 [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ], [ %.sroa.19.1.i, %396 ]
+  %.sroa.1179.0 = phi i64 [ undef, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ], [ %.sroa.21.1.i, %396 ]
+  %.sroa.12.0 = phi i8 [ 8, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit.i" ], [ %.sroa.23.1.i, %396 ]
   store i8 1, ptr %148, align 1, !noalias !2266
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5158.sroa.2.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5158.sroa.3.i)
@@ -53029,7 +53029,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hca155bdce395aa83E"(ptr nonnull %22) #22
           to label %.thread.thread unwind label %95
 
-.thread.thread112:                                ; preds = %26, %54, %.thread.thread
+.thread.thread112:                                ; preds = %54, %26, %.thread.thread
   %.pn.pn108 = phi { ptr, i32 } [ %.pn.pn109, %.thread.thread ], [ %lpad.thr_comm.split-lp, %26 ], [ %55, %54 ]
   resume { ptr, i32 } %.pn.pn108
 
@@ -53371,7 +53371,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit: ;
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hca155bdce395aa83E"(ptr nonnull %19) #22
           to label %.thread.thread unwind label %91
 
-.thread.thread103:                                ; preds = %23, %50, %.thread.thread
+.thread.thread103:                                ; preds = %50, %23, %.thread.thread
   %.pn.pn99 = phi { ptr, i32 } [ %.pn.pn100, %.thread.thread ], [ %lpad.thr_comm.split-lp, %23 ], [ %51, %50 ]
   resume { ptr, i32 } %.pn.pn99
 

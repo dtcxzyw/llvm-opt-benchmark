@@ -1397,8 +1397,8 @@ get_vlc2.exit.i:                                  ; preds = %326, %312
   br label %h263p_decode_umotion.exit
 
 h263p_decode_umotion.exit:                        ; preds = %364, %get_vlc2.exit.i, %307
-  %371 = phi i32 [ %345, %get_vlc2.exit.i ], [ %287, %307 ], [ %356, %364 ]
-  %.1325 = phi i32 [ %254, %get_vlc2.exit.i ], [ %311, %307 ], [ %spec.select38.i, %364 ]
+  %371 = phi i32 [ %356, %364 ], [ %287, %307 ], [ %345, %get_vlc2.exit.i ]
+  %.1325 = phi i32 [ %spec.select38.i, %364 ], [ %311, %307 ], [ %254, %get_vlc2.exit.i ]
   %372 = icmp sgt i32 %.1325, 65534
   br i1 %372, label %h263p_decode_umotion.exit.thread, label %374
 
@@ -1583,9 +1583,9 @@ h263p_decode_umotion.exit416.thread485:           ; preds = %473
   br label %h263p_decode_umotion.exit416
 
 h263p_decode_umotion.exit416:                     ; preds = %488, %get_vlc2.exit.i417, %426, %.thread570
-  %.1325483566 = phi i32 [ %.1325483572, %.thread570 ], [ %.1325483572, %426 ], [ %.1325483567, %488 ], [ %.1325483567, %get_vlc2.exit.i417 ]
-  %495 = phi i32 [ %376, %.thread570 ], [ %376, %426 ], [ %433, %488 ], [ %433, %get_vlc2.exit.i417 ]
-  %.1329 = phi i32 [ %376, %.thread570 ], [ %430, %426 ], [ %spec.select38.i427, %488 ], [ %433, %get_vlc2.exit.i417 ]
+  %.1325483566 = phi i32 [ %.1325483572, %.thread570 ], [ %.1325483572, %426 ], [ %.1325483567, %get_vlc2.exit.i417 ], [ %.1325483567, %488 ]
+  %495 = phi i32 [ %376, %.thread570 ], [ %376, %426 ], [ %433, %get_vlc2.exit.i417 ], [ %433, %488 ]
+  %.1329 = phi i32 [ %376, %.thread570 ], [ %430, %426 ], [ %433, %get_vlc2.exit.i417 ], [ %spec.select38.i427, %488 ]
   %496 = icmp sgt i32 %.1329, 65534
   br i1 %496, label %h263p_decode_umotion.exit.thread, label %497
 
@@ -2981,7 +2981,7 @@ h263_skip_b_part.exit:                            ; preds = %1335
   br label %h263p_decode_umotion.exit.thread
 
 h263p_decode_umotion.exit.thread:                 ; preds = %471, %347, %h263p_decode_umotion.exit416, %h263p_decode_umotion.exit, %h263p_decode_umotion.exit.thread568, %1316, %946, %955, %907, %898, %639, %590, %423, %304, %h263_skip_b_part.exit.thread, %1362, %1357, %229, %220, %1166, %1026, %186, %89
-  %.1 = phi i32 [ -1, %h263_skip_b_part.exit.thread ], [ -1094995529, %1357 ], [ %spec.select, %1362 ], [ -1, %89 ], [ -1, %1166 ], [ -1, %1316 ], [ -1, %946 ], [ -1, %186 ], [ -1, %1026 ], [ -1, %220 ], [ -1, %229 ], [ -1, %955 ], [ -1, %907 ], [ -1, %898 ], [ -1, %304 ], [ -1, %423 ], [ -1, %590 ], [ -1, %639 ], [ -1, %h263p_decode_umotion.exit.thread568 ], [ -1, %h263p_decode_umotion.exit ], [ -1, %h263p_decode_umotion.exit416 ], [ -1, %347 ], [ -1, %471 ]
+  %.1 = phi i32 [ -1, %h263_skip_b_part.exit.thread ], [ -1094995529, %1357 ], [ %spec.select, %1362 ], [ -1, %89 ], [ -1, %1166 ], [ -1, %898 ], [ -1, %946 ], [ -1, %186 ], [ -1, %1026 ], [ -1, %220 ], [ -1, %229 ], [ -1, %907 ], [ -1, %955 ], [ -1, %1316 ], [ -1, %304 ], [ -1, %423 ], [ -1, %590 ], [ -1, %639 ], [ -1, %h263p_decode_umotion.exit.thread568 ], [ -1, %h263p_decode_umotion.exit ], [ -1, %h263p_decode_umotion.exit416 ], [ -1, %347 ], [ -1, %471 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1

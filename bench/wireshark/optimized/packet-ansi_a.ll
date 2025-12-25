@@ -5637,7 +5637,7 @@ define internal zeroext i8 @elem_mid(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %112
 
 106:                                              ; preds = %55, %26
-  %.pn = phi i32 [ 5, %55 ], [ 6, %26 ]
+  %.pn = phi i32 [ 6, %26 ], [ 5, %55 ]
   %.0 = add i32 %.pn, %3
   %107 = icmp ugt i32 %4, %.pn
   br i1 %107, label %108, label %112
@@ -7298,7 +7298,7 @@ define internal noundef zeroext i8 @elem_a2p_bearer_format(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %46, %24, %._crit_edge, %._crit_edge.thread, %107, %92, %74, %66
-  %.0.in = phi i32 [ %4, %74 ], [ %4, %._crit_edge ], [ %4, %66 ], [ %94, %92 ], [ %4, %107 ], [ %4, %._crit_edge.thread ], [ %4, %24 ], [ %4, %46 ], [ %4, %.thread ]
+  %.0.in = phi i32 [ %4, %._crit_edge ], [ %4, %74 ], [ %4, %66 ], [ %94, %92 ], [ %4, %107 ], [ %4, %._crit_edge.thread ], [ %4, %24 ], [ %4, %46 ], [ %4, %.thread ]
   %.0 = trunc i32 %.0.in to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i8 %.0

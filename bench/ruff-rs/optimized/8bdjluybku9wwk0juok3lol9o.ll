@@ -16916,7 +16916,7 @@ define hidden void @_ZN8tempfile4util13create_helper17hb858630e3085d5a8E(ptr dea
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %9, %28, %38, %73, %47, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17hd36eb798b9cda35aE.exit.i"
-  %.sroa.015.0.ph = phi i8 [ %.sroa.015.2, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17hd36eb798b9cda35aE.exit.i" ], [ %.sroa.015.2, %73 ], [ %.sroa.015.2, %47 ], [ 1, %38 ], [ 0, %28 ], [ 0, %9 ]
+  %.sroa.015.0.ph = phi i8 [ %.sroa.015.2, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17hd36eb798b9cda35aE.exit.i" ], [ 0, %9 ], [ 0, %28 ], [ 1, %38 ], [ %.sroa.015.2, %47 ], [ %.sroa.015.2, %73 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -21166,7 +21166,7 @@ common.resume:                                    ; preds = %145, %.body, %165, 
   br label %.body141
 
 .loopexit.split-lp:                               ; preds = %176, %183, %487, %.thread221, %233, %542, %548
-  %.sroa.056.0.ph = phi i8 [ 1, %487 ], [ 0, %233 ], [ 1, %.thread221 ], [ 1, %183 ], [ 1, %548 ], [ 1, %176 ], [ 1, %542 ]
+  %.sroa.056.0.ph = phi i8 [ 1, %183 ], [ 1, %542 ], [ 1, %.thread221 ], [ 0, %233 ], [ 1, %548 ], [ 1, %487 ], [ 1, %176 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body141
@@ -24350,7 +24350,7 @@ define internal fastcc void @_ZN4ruff8commands6format36warn_incompatible_formatt
   br label %.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %117, %173, %116, %115, %1
-  %.sroa.012.0.ph.ph = phi i8 [ 0, %117 ], [ %.sroa.012.2, %.invoke ], [ 0, %173 ], [ 0, %116 ], [ %.sroa.012.2, %115 ], [ 1, %1 ]
+  %.sroa.012.0.ph.ph = phi i8 [ 0, %117 ], [ %.sroa.012.2, %.invoke ], [ 0, %173 ], [ 1, %1 ], [ 0, %116 ], [ %.sroa.012.2, %115 ]
   %lpad.loopexit.split-lp413 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -28046,8 +28046,8 @@ _ZN4ruff5cache9FileCache14to_diagnostics17ha886f196bb8de509E.exit.thread: ; pred
           to label %370 unwind label %264
 
 .thread289:                                       ; preds = %502, %499, %522, %501, %264
-  %.sroa.070.1 = phi i8 [ %.sroa.070.7, %522 ], [ %.sroa.070.7, %501 ], [ %.sroa.070.0, %264 ], [ %.sroa.070.7, %502 ], [ %.sroa.070.7, %499 ]
-  %.pn157.pn = phi { ptr, i32 } [ %.pn154.pn262, %522 ], [ %.pn154.pn262, %501 ], [ %265, %264 ], [ %503, %502 ], [ %500, %499 ]
+  %.sroa.070.1 = phi i8 [ %.sroa.070.7, %522 ], [ %.sroa.070.7, %501 ], [ %.sroa.070.0, %264 ], [ %.sroa.070.7, %499 ], [ %.sroa.070.7, %502 ]
+  %.pn157.pn = phi { ptr, i32 } [ %.pn154.pn262, %522 ], [ %.pn154.pn262, %501 ], [ %265, %264 ], [ %500, %499 ], [ %503, %502 ]
   %263 = trunc nuw i8 %.sroa.070.1 to i1
   br i1 %263, label %.thread289.thread, label %common.resume
 
@@ -29450,8 +29450,8 @@ define hidden void @_ZN4ruff11diagnostics10lint_stdin17haff1542b98846066E(ptr de
           to label %169 unwind label %167
 
 .thread303:                                       ; preds = %366, %363, %385, %365, %167
-  %.sroa.070.1 = phi i8 [ %.sroa.070.0, %167 ], [ %.sroa.070.6, %366 ], [ %.sroa.070.6, %385 ], [ %.sroa.070.6, %365 ], [ %.sroa.070.6, %363 ]
-  %.pn167 = phi { ptr, i32 } [ %168, %167 ], [ %367, %366 ], [ %.pn161301, %385 ], [ %.pn161301, %365 ], [ %364, %363 ]
+  %.sroa.070.1 = phi i8 [ %.sroa.070.0, %167 ], [ %.sroa.070.6, %363 ], [ %.sroa.070.6, %385 ], [ %.sroa.070.6, %365 ], [ %.sroa.070.6, %366 ]
+  %.pn167 = phi { ptr, i32 } [ %168, %167 ], [ %364, %363 ], [ %.pn161301, %385 ], [ %.pn161301, %365 ], [ %367, %366 ]
   %166 = trunc nuw i8 %.sroa.070.1 to i1
   br i1 %166, label %.thread272, label %.thread241
 
@@ -31102,9 +31102,9 @@ define void @_ZN4ruff3run17h4af14cd00d528a10E(ptr dead_on_unwind noalias noundef
   br label %.thread120
 
 128:                                              ; preds = %.thread190, %182, %884, %888, %904, %915
-  %.sroa.041.0.ph = phi i1 [ true, %888 ], [ true, %915 ], [ true, %182 ], [ true, %884 ], [ true, %904 ], [ false, %.thread190 ]
-  %.sroa.043.0.ph = phi i1 [ false, %888 ], [ true, %915 ], [ false, %182 ], [ false, %884 ], [ true, %904 ], [ true, %.thread190 ]
-  %.sroa.045.0.ph = phi i1 [ true, %888 ], [ false, %915 ], [ true, %182 ], [ true, %884 ], [ false, %904 ], [ true, %.thread190 ]
+  %.sroa.041.0.ph = phi i1 [ true, %888 ], [ true, %904 ], [ true, %884 ], [ true, %915 ], [ true, %182 ], [ false, %.thread190 ]
+  %.sroa.043.0.ph = phi i1 [ false, %888 ], [ true, %904 ], [ false, %884 ], [ true, %915 ], [ false, %182 ], [ true, %.thread190 ]
+  %.sroa.045.0.ph = phi i1 [ true, %888 ], [ false, %904 ], [ true, %884 ], [ false, %915 ], [ true, %182 ], [ true, %.thread190 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread127
@@ -31748,7 +31748,7 @@ define void @_ZN4ruff3run17h4af14cd00d528a10E(ptr dead_on_unwind noalias noundef
   br label %333
 
 .loopexit.split-lp.i.i:                           ; preds = %573, %570, %523, %514, %511, %510, %501, %.thread333.i.i, %497, %488, %484, %482, %473, %471, %469, %441, %440, %.noexc269.i.i, %428, %412, %.invoke.i.i, %393, %376, %367, %.thread323.i.i, %344, %330
-  %.sroa.0114.3.ph.i.i = phi i1 [ true, %344 ], [ true, %367 ], [ true, %376 ], [ true, %.invoke.i.i ], [ true, %393 ], [ false, %.noexc269.i.i ], [ false, %441 ], [ false, %428 ], [ false, %471 ], [ false, %488 ], [ false, %497 ], [ false, %573 ], [ false, %469 ], [ false, %473 ], [ false, %482 ], [ false, %484 ], [ false, %501 ], [ false, %514 ], [ false, %523 ], [ false, %570 ], [ false, %.thread333.i.i ], [ false, %510 ], [ true, %412 ], [ true, %.thread323.i.i ], [ false, %511 ], [ false, %440 ], [ true, %330 ]
+  %.sroa.0114.3.ph.i.i = phi i1 [ true, %344 ], [ true, %367 ], [ true, %376 ], [ true, %.invoke.i.i ], [ true, %393 ], [ false, %.noexc269.i.i ], [ false, %441 ], [ false, %428 ], [ false, %471 ], [ false, %488 ], [ false, %497 ], [ false, %573 ], [ false, %469 ], [ false, %473 ], [ false, %482 ], [ false, %484 ], [ false, %501 ], [ false, %514 ], [ false, %523 ], [ false, %570 ], [ false, %.thread333.i.i ], [ false, %510 ], [ true, %330 ], [ true, %.thread323.i.i ], [ false, %511 ], [ false, %440 ], [ true, %412 ]
   %lpad.loopexit.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   br label %333

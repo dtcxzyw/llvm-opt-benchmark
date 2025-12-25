@@ -655,7 +655,7 @@ default.unreachable:                              ; preds = %59
 thread-pre-split.i:                               ; preds = %66, %64, %61, %59
   %68 = phi i32 [ %67, %66 ], [ %65, %64 ], [ %60, %59 ], [ %60, %61 ]
   %cond.i = icmp eq i32 %68, 10949
-  br i1 %cond.i, label %69, label %pcapng_process_custom_option.exit
+  br i1 %cond.i, label %69, label %126
 
 69:                                               ; preds = %thread-pre-split.i
   %70 = icmp ult i16 %.075, 8
@@ -666,7 +666,7 @@ thread-pre-split.i:                               ; preds = %66, %64, %61, %59
   %73 = load i32, ptr %72, align 1
   %74 = getelementptr i8, ptr %.07893, i64 12
   %75 = add i16 %.075, -8
-  switch i32 %73, label %126 [
+  switch i32 %73, label %pcapng_process_custom_option.exit [
     i32 1, label %76
     i32 2, label %80
     i32 4, label %123
@@ -674,17 +674,17 @@ thread-pre-split.i:                               ; preds = %66, %64, %61, %59
 
 76:                                               ; preds = %71
   %77 = icmp eq i16 %75, 4
-  br i1 %77, label %78, label %126
+  br i1 %77, label %78, label %pcapng_process_custom_option.exit
 
 78:                                               ; preds = %76
   %79 = load i32, ptr %74, align 1
   store i32 %79, ptr %22, align 8
-  br label %126
+  br label %pcapng_process_custom_option.exit
 
 80:                                               ; preds = %71
   %81 = load i32, ptr %1, align 8
   %82 = icmp eq i32 %81, 2989
-  br i1 %82, label %83, label %126
+  br i1 %82, label %83, label %pcapng_process_custom_option.exit
 
 83:                                               ; preds = %80
   %84 = load ptr, ptr %20, align 8
@@ -742,11 +742,11 @@ thread-pre-split.i:                               ; preds = %66, %64, %61, %59
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i32 1, ptr %122, align 4
   store i8 0, ptr %21, align 4
-  br label %126
+  br label %pcapng_process_custom_option.exit
 
 123:                                              ; preds = %71
   %124 = icmp eq i16 %75, 208
-  br i1 %124, label %125, label %126
+  br i1 %124, label %125, label %pcapng_process_custom_option.exit
 
 125:                                              ; preds = %123
   %.sroa.3.0..sroa_idx.i.i = getelementptr i8, ptr %.07893, i64 68
@@ -755,22 +755,22 @@ thread-pre-split.i:                               ; preds = %66, %64, %61, %59
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 1
   store i64 %.sroa.3.0.copyload.i.i, ptr %18, align 8
   store i64 %.sroa.4.0.copyload.i.i, ptr %19, align 8
-  br label %126
+  br label %pcapng_process_custom_option.exit
 
-126:                                              ; preds = %125, %123, %120, %80, %78, %76, %71
+126:                                              ; preds = %thread-pre-split.i
   %127 = load ptr, ptr %17, align 8
-  %128 = zext i16 %75 to i64
-  %129 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef %127, i32 noundef %73, ptr noundef %74, i64 noundef %128)
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %142, label %pcapng_process_custom_option.exit.thread
+  %128 = zext nneg i16 %.076 to i32
+  %129 = getelementptr i8, ptr %.07893, i64 8
+  %130 = add nsw i32 %43, -4
+  %131 = zext nneg i32 %130 to i64
+  %132 = tail call i32 @wtap_block_add_custom_option(ptr noundef %127, i32 noundef %128, i32 noundef %68, ptr noundef %129, i64 noundef %131)
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %142, label %pcapng_process_custom_option.exit.thread
 
-pcapng_process_custom_option.exit:                ; preds = %thread-pre-split.i
-  %131 = load ptr, ptr %17, align 8
-  %132 = zext nneg i16 %.076 to i32
-  %133 = getelementptr i8, ptr %.07893, i64 8
-  %134 = add nsw i32 %43, -4
-  %135 = zext nneg i32 %134 to i64
-  %136 = tail call i32 @wtap_block_add_custom_option(ptr noundef %131, i32 noundef %132, i32 noundef %68, ptr noundef %133, i64 noundef %135)
+pcapng_process_custom_option.exit:                ; preds = %71, %76, %78, %80, %120, %123, %125
+  %134 = load ptr, ptr %17, align 8
+  %135 = zext i16 %75 to i64
+  %136 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef %134, i32 noundef %73, ptr noundef %74, i64 noundef %135)
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %142, label %pcapng_process_custom_option.exit.thread
 

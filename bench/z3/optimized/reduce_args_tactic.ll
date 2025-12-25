@@ -7148,7 +7148,7 @@ _ZNK14core_hashtableIN7obj_mapI9func_decl10bit_vectorE13obj_map_entryE8obj_hashI
   br i1 %.not.i.i.i.i55, label %_ZNK7obj_mapI9func_decl10bit_vectorE13find_iteratorEPS0_.exit58, label %.lr.ph.i.i.i.i53, !llvm.loop !204
 
 _ZNK7obj_mapI9func_decl10bit_vectorE13find_iteratorEPS0_.exit58: ; preds = %141, %152, %155, %.lr.ph.i.i.i.i53, %158, %.preheader.i.i.i38, %_ZNK14core_hashtableIN7obj_mapI9func_decl10bit_vectorE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE9find_coreERKS6_.exit.i.i50
-  %.sroa.0.0.i.i47 = phi ptr [ %133, %152 ], [ %133, %_ZNK14core_hashtableIN7obj_mapI9func_decl10bit_vectorE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE9find_coreERKS6_.exit.i.i50 ], [ %.sroa.0.1.i.i54, %.lr.ph.i.i.i.i53 ], [ %133, %.preheader.i.i.i38 ], [ %133, %158 ], [ %133, %155 ], [ %133, %141 ]
+  %.sroa.0.0.i.i47 = phi ptr [ %.sroa.0.1.i.i54, %.lr.ph.i.i.i.i53 ], [ %133, %_ZNK14core_hashtableIN7obj_mapI9func_decl10bit_vectorE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE9find_coreERKS6_.exit.i.i50 ], [ %133, %152 ], [ %133, %.preheader.i.i.i38 ], [ %133, %158 ], [ %133, %155 ], [ %133, %141 ]
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i47, i64 8
   %161 = load i32, ptr %160, align 8, !tbaa !208
   %162 = icmp ugt i32 %7, %161
@@ -18791,7 +18791,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN6bufferIP4exprLb
   resume { ptr, i32 } %.pn50.pn
 
 _ZNK7obj_mapI9func_decl10bit_vectorE13find_iteratorEPS0_.exit.thread: ; preds = %47, %61, %58, %64, %.preheader.i.i.i, %_ZNK14core_hashtableIN7obj_mapI9func_decl10bit_vectorE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE9find_coreERKS6_.exit.i.i, %_ZN7obj_refI3app11ast_managerED2Ev.exit, %_ZNK7obj_mapI9func_decl10bit_vectorE13find_iteratorEPS0_.exit, %_ZNK4decl13get_family_idEv.exit, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
-  %.039 = phi i32 [ 5, %_ZNK4decl13get_family_idEv.exit ], [ 5, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ], [ 4, %_ZN7obj_refI3app11ast_managerED2Ev.exit ], [ 5, %_ZNK7obj_mapI9func_decl10bit_vectorE13find_iteratorEPS0_.exit ], [ 5, %61 ], [ 5, %_ZNK14core_hashtableIN7obj_mapI9func_decl10bit_vectorE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE9find_coreERKS6_.exit.i.i ], [ 5, %.preheader.i.i.i ], [ 5, %64 ], [ 5, %58 ], [ 5, %47 ]
+  %.039 = phi i32 [ 5, %_ZNK4decl13get_family_idEv.exit ], [ 5, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ], [ 4, %_ZN7obj_refI3app11ast_managerED2Ev.exit ], [ 5, %_ZNK7obj_mapI9func_decl10bit_vectorE13find_iteratorEPS0_.exit ], [ 5, %_ZNK14core_hashtableIN7obj_mapI9func_decl10bit_vectorE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE9find_coreERKS6_.exit.i.i ], [ 5, %61 ], [ 5, %.preheader.i.i.i ], [ 5, %64 ], [ 5, %58 ], [ 5, %47 ]
   ret i32 %.039
 }
 

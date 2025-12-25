@@ -2446,7 +2446,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_115MicrosoftCXXABI26isMembe
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_17MSInheritanceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !792
 
 _ZN5clangneENS_22specific_attr_iteratorINS_17MSInheritanceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %18, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %13, %18 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %13, %18 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %20 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %13
   br label %_ZNK5clang4Decl7hasAttrINS_17MSInheritanceAttrEEEbv.exit
 
@@ -9354,7 +9354,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115MicrosoftCXXABI26doStruct
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14MSNoVTableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1350
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14MSNoVTableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %17, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %12, %17 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %12, %17 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %19 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %12
   br label %_ZNK5clang4Decl7hasAttrINS_14MSNoVTableAttrEEEbv.exit
 
@@ -11354,7 +11354,7 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit.thread:  ; preds = %_ZNK5clang4Decl21ge
   tail call void @_ZN5clang7CodeGen15CodeGenFunction24EmitCXXGlobalVarDeclInitERKNS_7VarDeclEPN4llvm14GlobalVariableEb(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull align 8 dereferenceable(100) %2, ptr noundef %3, i1 noundef zeroext %4) #26
   br label %454
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread379: ; preds = %45, %62, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
+_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread379: ; preds = %62, %45, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
   %89 = tail call noundef i32 @_ZNK5clang7VarDecl10getTLSKindEv(ptr noundef nonnull align 8 dereferenceable(100) %2) #26
   %.not142 = icmp eq i32 %89, 0
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8

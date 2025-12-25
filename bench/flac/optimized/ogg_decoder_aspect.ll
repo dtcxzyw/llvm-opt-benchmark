@@ -644,7 +644,7 @@ check_size_of_link_allocation_.exit.thread155:    ; preds = %156, %143, %135, %1
   br label %check_size_of_link_allocation_.exit
 
 check_size_of_link_allocation_.exit:              ; preds = %156, %147, %143, %145, %138, %128, %126, %124, %62, %.thread.i151, %.critedge, %42, %163
-  %.1 = phi i32 [ %., %42 ], [ 1, %163 ], [ 0, %.critedge ], [ 6, %.thread.i151 ], [ 8, %147 ], [ %144, %143 ], [ 3, %145 ], [ 4, %126 ], [ 5, %128 ], [ 3, %138 ], [ 7, %156 ], [ 4, %124 ], [ 8, %62 ]
+  %.1 = phi i32 [ %., %42 ], [ 1, %163 ], [ 0, %.critedge ], [ 6, %.thread.i151 ], [ 8, %147 ], [ %144, %143 ], [ 3, %145 ], [ 4, %124 ], [ 5, %128 ], [ 3, %138 ], [ 7, %156 ], [ 4, %126 ], [ 8, %62 ]
   ret i32 %.1
 }
 

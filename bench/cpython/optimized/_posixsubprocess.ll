@@ -743,7 +743,7 @@ Py_DECREF.exit240:                                ; preds = %161, %165, %168
   call void @PyOS_AfterFork_Parent() #12
   br label %210
 
-.thread61:                                        ; preds = %185, %181
+.thread61:                                        ; preds = %181, %185
   call void @PyMem_Free(ptr noundef nonnull %177) #12
   br label %Py_XDECREF.exit
 
@@ -1531,7 +1531,7 @@ make_inheritable.exit.sink.split:                 ; preds = %._crit_edge, %128
   br label %make_inheritable.exit
 
 make_inheritable.exit:                            ; preds = %32, %65, %62, %make_inheritable.exit.sink.split, %133, %90, %._crit_edge, %122, %118, %114, %109, %104, %100, %86, %83, %79, %76, %72, %69, %56, %53, %48, %45, %41, %37
-  %.089 = phi ptr [ @.str.19, %90 ], [ @.str.18, %37 ], [ @.str.18, %41 ], [ @.str.18, %45 ], [ @.str.18, %48 ], [ @.str.18, %53 ], [ @.str.18, %56 ], [ %.089.ph, %make_inheritable.exit.sink.split ], [ @.str.18, %79 ], [ @.str.18, %69 ], [ @.str.18, %76 ], [ @.str.18, %83 ], [ @.str.18, %72 ], [ @.str.18, %100 ], [ @.str.18, %104 ], [ @.str.18, %109 ], [ @.str.18, %114 ], [ @.str.18, %118 ], [ @.str.18, %122 ], [ @.str.20, %133 ], [ @.str.18, %65 ], [ @.str.20, %._crit_edge ], [ @.str.18, %86 ], [ @.str.18, %62 ], [ @.str.18, %32 ]
+  %.089 = phi ptr [ @.str.19, %90 ], [ @.str.18, %37 ], [ @.str.18, %41 ], [ @.str.18, %45 ], [ @.str.18, %48 ], [ @.str.18, %53 ], [ @.str.18, %56 ], [ @.str.18, %79 ], [ @.str.20, %133 ], [ @.str.18, %69 ], [ @.str.18, %76 ], [ @.str.18, %83 ], [ @.str.18, %72 ], [ @.str.18, %100 ], [ @.str.18, %104 ], [ @.str.18, %109 ], [ @.str.18, %114 ], [ @.str.18, %118 ], [ @.str.18, %122 ], [ %.089.ph, %make_inheritable.exit.sink.split ], [ @.str.18, %65 ], [ @.str.20, %._crit_edge ], [ @.str.18, %86 ], [ @.str.18, %62 ], [ @.str.18, %32 ]
   %156 = tail call ptr @__errno_location() #13
   %157 = load i32, ptr %156, align 4, !tbaa !38
   %.not132 = icmp eq i32 %157, 0

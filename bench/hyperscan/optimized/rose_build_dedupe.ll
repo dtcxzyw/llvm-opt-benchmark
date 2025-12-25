@@ -2978,9 +2978,9 @@ _ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.thread41.i: ; preds = %_ZNKSt4less
   %.not.i345 = icmp eq ptr %175, null
   br i1 %.not.i345, label %.noexc234, label %.noexc347.thread
 
-.noexc347.thread:                                 ; preds = %144, %152, %136, %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.i, %160, %.noexc347
-  %.sroa.12.0.i445 = phi ptr [ %175, %.noexc347 ], [ %137, %160 ], [ %137, %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.i ], [ %137, %136 ], [ %137, %152 ], [ %137, %144 ]
-  %.sroa.038.0.i444 = phi ptr [ %174, %.noexc347 ], [ null, %160 ], [ null, %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.i ], [ null, %136 ], [ null, %152 ], [ null, %144 ]
+.noexc347.thread:                                 ; preds = %144, %152, %160, %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.i, %136, %.noexc347
+  %.sroa.12.0.i445 = phi ptr [ %175, %.noexc347 ], [ %137, %136 ], [ %137, %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.i ], [ %137, %160 ], [ %137, %152 ], [ %137, %144 ]
+  %.sroa.038.0.i444 = phi ptr [ %174, %.noexc347 ], [ null, %136 ], [ null, %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.i ], [ null, %160 ], [ null, %152 ], [ null, %144 ]
   %.not.i.i346 = icmp ne ptr %.sroa.038.0.i444, null
   %176 = icmp eq ptr %.sroa.12.0.i445, %63
   %or.cond.i.i = or i1 %176, %.not.i.i346
@@ -4213,8 +4213,8 @@ _ZSt4nextISt17_Rb_tree_iteratorISt4pairIKjjEEET_S5_NSt15iterator_traitsIS5_E15di
   br i1 %or.cond.i, label %.thread452, label %.lr.ph.i, !llvm.loop !134
 
 .thread452:                                       ; preds = %.lr.ph583, %587, %.lr.ph.i, %664, %619, %618, %612, %.lr.ph608.split.preheader, %.lr.ph614, %624, %639, %640, %.lr.ph621, %643, %.lr.ph608, %._crit_edge622
-  %665 = phi ptr [ %92, %.lr.ph608 ], [ %597, %618 ], [ %621, %.lr.ph614 ], [ %621, %.lr.ph.i ], [ %621, %.lr.ph621 ], [ %621, %._crit_edge622 ], [ %597, %619 ], [ %597, %612 ], [ %621, %643 ], [ %621, %640 ], [ %621, %639 ], [ %621, %624 ], [ %92, %587 ], [ %597, %.lr.ph608.split.preheader ], [ %621, %664 ], [ %92, %.lr.ph583 ]
-  %.4 = phi i1 [ true, %.lr.ph608 ], [ true, %618 ], [ true, %.lr.ph614 ], [ %.3146.lcssa, %.lr.ph.i ], [ true, %.lr.ph621 ], [ false, %._crit_edge622 ], [ true, %619 ], [ true, %612 ], [ true, %643 ], [ true, %640 ], [ true, %639 ], [ true, %624 ], [ true, %587 ], [ true, %.lr.ph608.split.preheader ], [ false, %664 ], [ true, %.lr.ph583 ]
+  %665 = phi ptr [ %92, %.lr.ph608 ], [ %597, %618 ], [ %621, %.lr.ph614 ], [ %621, %._crit_edge622 ], [ %597, %619 ], [ %621, %.lr.ph621 ], [ %597, %612 ], [ %621, %.lr.ph.i ], [ %621, %643 ], [ %621, %640 ], [ %621, %639 ], [ %621, %624 ], [ %92, %587 ], [ %597, %.lr.ph608.split.preheader ], [ %621, %664 ], [ %92, %.lr.ph583 ]
+  %.4 = phi i1 [ true, %.lr.ph608 ], [ true, %618 ], [ true, %.lr.ph614 ], [ false, %._crit_edge622 ], [ true, %619 ], [ true, %.lr.ph621 ], [ true, %612 ], [ %.3146.lcssa, %.lr.ph.i ], [ true, %643 ], [ true, %640 ], [ true, %639 ], [ true, %624 ], [ true, %587 ], [ true, %.lr.ph608.split.preheader ], [ false, %664 ], [ true, %.lr.ph583 ]
   %666 = load ptr, ptr %665, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %666)
           to label %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit unwind label %667

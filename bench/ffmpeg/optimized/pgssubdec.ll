@@ -944,7 +944,7 @@ parse_palette_segment.exit:                       ; preds = %313, %58, %33, %dis
   br i1 %481, label %21, label %display_end_segment.exit.thread.thread, !llvm.loop !95
 
 display_end_segment.exit.thread.thread:           ; preds = %.thread, %display_end_segment.exit.thread, %parse_palette_segment.exit, %330, %21, %351, %decode_rle.exit.i, %400, %.thread88, %4
-  %.040 = phi i32 [ -1, %4 ], [ -12, %.thread88 ], [ -12, %351 ], [ -12, %400 ], [ -12, %decode_rle.exit.i ], [ -12, %display_end_segment.exit.thread ], [ -12, %330 ], [ %8, %parse_palette_segment.exit ], [ %.0.ph87, %.thread ], [ %8, %21 ]
+  %.040 = phi i32 [ -1, %4 ], [ -12, %.thread88 ], [ -12, %351 ], [ -12, %400 ], [ -12, %decode_rle.exit.i ], [ -12, %display_end_segment.exit.thread ], [ -12, %330 ], [ %.0.ph87, %.thread ], [ %8, %21 ], [ %8, %parse_palette_segment.exit ]
   ret i32 %.040
 }
 

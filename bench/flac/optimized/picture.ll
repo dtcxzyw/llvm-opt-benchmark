@@ -362,7 +362,7 @@ thread-pre-split:                                 ; preds = %114
   br i1 %.not99, label %.thread136.thread191, label %.thread136.thread.sink.split
 
 .thread136.thread.sink.split:                     ; preds = %20, %local__parse_resolution_.exit, %79, %81, %53, %46, %safe_malloc_add_2op_.exit.i106, %43, %36, %safe_malloc_add_2op_.exit.i, %68, %.preheader.i, %70, %63, %134, %131, %129, %106, %110, %114, %103, %100, %94
-  %.str.4.sink = phi ptr [ @.str.12, %134 ], [ @.str.6, %106 ], [ @.str.5, %70 ], [ @.str.6, %114 ], [ @.str.6, %110 ], [ @.str.12, %129 ], [ @.str.5, %68 ], [ @.str.10, %.preheader.i ], [ @.str.4, %94 ], [ @.str.3, %103 ], [ @.str.4, %100 ], [ @.str.12, %131 ], [ @.str.5, %63 ], [ @.str.3, %43 ], [ @.str.3, %53 ], [ @.str.4, %20 ], [ @.str.3, %safe_malloc_add_2op_.exit.i ], [ @.str.3, %safe_malloc_add_2op_.exit.i106 ], [ @.str.5, %81 ], [ @.str.5, %79 ], [ @.str.5, %local__parse_resolution_.exit ], [ @.str.3, %46 ], [ @.str.3, %36 ]
+  %.str.4.sink = phi ptr [ @.str.12, %131 ], [ @.str.6, %106 ], [ @.str.5, %70 ], [ @.str.6, %114 ], [ @.str.6, %110 ], [ @.str.12, %129 ], [ @.str.5, %68 ], [ @.str.10, %.preheader.i ], [ @.str.4, %94 ], [ @.str.3, %103 ], [ @.str.4, %100 ], [ @.str.12, %134 ], [ @.str.5, %63 ], [ @.str.3, %43 ], [ @.str.3, %53 ], [ @.str.4, %20 ], [ @.str.3, %safe_malloc_add_2op_.exit.i ], [ @.str.3, %safe_malloc_add_2op_.exit.i106 ], [ @.str.5, %81 ], [ @.str.5, %79 ], [ @.str.5, %local__parse_resolution_.exit ], [ @.str.3, %36 ], [ @.str.3, %46 ]
   store ptr %.str.4.sink, ptr %1, align 8, !tbaa !4
   br label %.thread136.thread
 
@@ -1089,7 +1089,7 @@ define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info
   br label %.critedge
 
 .critedge:                                        ; preds = %125, %171, %170, %120, %.preheader.preheader, %108, %20, %.critedge.sink.split, %13, %12, %10, %186, %191, %131, %130, %113, %115
-  %.5 = phi i32 [ 0, %108 ], [ 0, %186 ], [ 0, %.preheader.preheader ], [ 0, %113 ], [ 0, %115 ], [ 1, %.critedge.sink.split ], [ 0, %10 ], [ 0, %130 ], [ 0, %131 ], [ 0, %191 ], [ 0, %12 ], [ 0, %13 ], [ 0, %20 ], [ 0, %120 ], [ 0, %170 ], [ 0, %171 ], [ 0, %125 ]
+  %.5 = phi i32 [ 0, %115 ], [ 0, %186 ], [ 0, %108 ], [ 0, %113 ], [ 0, %13 ], [ 0, %12 ], [ 0, %10 ], [ 0, %130 ], [ 0, %131 ], [ 0, %191 ], [ 1, %.critedge.sink.split ], [ 0, %.preheader.preheader ], [ 0, %20 ], [ 0, %120 ], [ 0, %170 ], [ 0, %171 ], [ 0, %125 ]
   ret i32 %.5
 }
 

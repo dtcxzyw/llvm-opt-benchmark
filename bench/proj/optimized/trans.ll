@@ -469,7 +469,7 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge115
 
-.critedge115:                                     ; preds = %182, %241, %63, %96, %193, %159, %119, %140, %216, %237
+.critedge115:                                     ; preds = %182, %241, %159, %63, %96, %193, %119, %140, %216, %237
   %242 = icmp slt i32 %.0140, 0
   br i1 %242, label %275, label %243
 

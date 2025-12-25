@@ -3311,7 +3311,7 @@ bytestream2_get_be24.exit.i:                      ; preds = %._crit_edge.i
   br label %handle_notify.exit
 
 handle_notify.exit:                               ; preds = %122, %124, %bytestream2_init.exit.i, %._crit_edge.i, %bytestream2_get_be24.exit.i, %160, %169
-  %.011.i = phi i32 [ -1094995529, %._crit_edge.i ], [ %170, %169 ], [ -1094995529, %bytestream2_get_be24.exit.i ], [ -1094995529, %bytestream2_init.exit.i ], [ -1094995529, %160 ], [ -1094995529, %124 ], [ -1094995529, %122 ]
+  %.011.i = phi i32 [ -1094995529, %160 ], [ %170, %169 ], [ -1094995529, %bytestream2_get_be24.exit.i ], [ -1094995529, %bytestream2_init.exit.i ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %124 ], [ -1094995529, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

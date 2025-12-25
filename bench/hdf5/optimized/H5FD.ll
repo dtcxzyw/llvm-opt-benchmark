@@ -6649,7 +6649,7 @@ define range(i32 -1, 1) i32 @H5FDget_vfd_handle(ptr noundef %0, i64 noundef %1, 
   br label %.thread39.sink.split
 
 68:                                               ; preds = %54, %46, %39, %33, %26, %13
-  %.021 = phi i1 [ false, %13 ], [ false, %26 ], [ false, %33 ], [ true, %54 ], [ true, %46 ], [ true, %39 ]
+  %.021 = phi i1 [ false, %13 ], [ false, %26 ], [ false, %33 ], [ true, %54 ], [ true, %39 ], [ true, %46 ]
   %.not50 = icmp eq ptr %2, null
   br i1 %.not50, label %70, label %69
 

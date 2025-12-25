@@ -199,7 +199,7 @@ define ptr @ff_make_channel_layout_list(ptr noundef %0) local_unnamed_addr #2 {
   br label %.thread
 
 .thread:                                          ; preds = %13, %.thread.sink.split, %8, %.loopexit
-  %.020 = phi ptr [ null, %.loopexit ], [ null, %.thread.sink.split ], [ %7, %8 ], [ %7, %13 ]
+  %.020 = phi ptr [ null, %.loopexit ], [ %7, %8 ], [ null, %.thread.sink.split ], [ %7, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.020
 }
@@ -4269,7 +4269,7 @@ layouts_compatible.exit.thread:                   ; preds = %30, %.thread25.i, %
   br label %.loopexit30
 
 .loopexit30:                                      ; preds = %.loopexit, %.lr.ph33, %.loopexit30.sink.split, %13, %2
-  %.020 = phi i32 [ -22, %.loopexit30.sink.split ], [ 0, %13 ], [ 0, %2 ], [ 0, %.lr.ph33 ], [ 0, %.loopexit ]
+  %.020 = phi i32 [ 0, %13 ], [ -22, %.loopexit30.sink.split ], [ 0, %2 ], [ 0, %.lr.ph33 ], [ 0, %.loopexit ]
   ret i32 %.020
 }
 

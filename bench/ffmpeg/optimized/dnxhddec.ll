@@ -1365,7 +1365,7 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %259, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ -1094995529, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %259 ]
+  %.0 = phi i32 [ 0, %.preheader ], [ -1094995529, %.loopexit.sink.split ], [ 0, %259 ]
   ret i32 %.0
 }
 

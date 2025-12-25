@@ -126015,7 +126015,7 @@ _ZN5boost6system10error_codeaSINS_4asio5error11misc_errorsEEERNSt9enable_ifIXsr1
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZNK5boost6system10error_code8categoryEv.exit.i.i45.us, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit38.thread.us, %.critedge.thread.loopexit.split, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit, %93, %.critedge.thread80, %75, %15
-  %.021 = phi i64 [ 0, %15 ], [ 0, %75 ], [ 0, %.critedge.thread80 ], [ 0, %93 ], [ %.lcssa, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit ], [ 0, %.critedge.thread.loopexit.split ], [ 0, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit38.thread.us ], [ 0, %_ZNK5boost6system10error_code8categoryEv.exit.i.i45.us ]
+  %.021 = phi i64 [ 0, %15 ], [ 0, %75 ], [ 0, %.critedge.thread80 ], [ %.lcssa, %_ZN5boost4asio6detail14descriptor_ops14get_last_errorERNS_6system10error_codeEb.exit ], [ 0, %93 ], [ 0, %.critedge.thread.loopexit.split ], [ 0, %_ZN5boost6system10error_codeC2INS_4asio5error12basic_errorsEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit38.thread.us ], [ 0, %_ZNK5boost6system10error_code8categoryEv.exit.i.i45.us ]
   ret i64 %.021
 }
 
@@ -127083,7 +127083,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36: ; preds = %44
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36, %63, %60, %22, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
-  %.0 = phi i1 [ false, %22 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit ], [ %69, %63 ], [ true, %60 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit ], [ true, %60 ], [ %69, %63 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34 ]
   ret i1 %.0
 }
 

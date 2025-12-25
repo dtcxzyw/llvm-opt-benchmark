@@ -3892,7 +3892,7 @@ bytestream2_put_be16.exit.i:                      ; preds = %bytestream2_put_be1
   br label %1711, !llvm.loop !114
 
 .critedge.i992:                                   ; preds = %bytestream2_peek_be16.exit.thread.i, %bytestream2_peek_be16.exit.i, %1698, %bytestream2_get_be32.exit.i990, %1692
-  %.sroa.0101.1106.i = phi ptr [ %1686, %1692 ], [ %1696, %bytestream2_get_be32.exit.i990 ], [ %1696, %1698 ], [ %1696, %bytestream2_peek_be16.exit.i ], [ %1696, %bytestream2_peek_be16.exit.thread.i ]
+  %.sroa.0101.1106.i = phi ptr [ %1686, %1692 ], [ %1696, %1698 ], [ %1696, %bytestream2_get_be32.exit.i990 ], [ %1696, %bytestream2_peek_be16.exit.i ], [ %1696, %bytestream2_peek_be16.exit.thread.i ]
   %1772 = add nuw nsw i32 %.047128.i, 1
   %exitcond131.not.i = icmp eq i32 %1772, %1675
   br i1 %exitcond131.not.i, label %decode_short_horizontal_delta.exit, label %1692, !llvm.loop !115
@@ -4879,9 +4879,9 @@ bytestream2_get_be16.exit67.us.i:                 ; preds = %2173, %bytestream2_
   br i1 %or.cond132152.us.i, label %bytestream2_seek_p.exit.us.i1052, label %.critedge2.us.i
 
 .critedge2.us.i:                                  ; preds = %bytestream2_put_be16.exit72.us.i, %.lr.ph.us.i1047, %bytestream2_put_be16.exit.us.i1055, %bytestream2_get_be16.exit67.us.i, %2161, %2138
-  %.sroa.096.2.us.i = phi ptr [ %.sroa.096.7.us.i, %bytestream2_get_be16.exit67.us.i ], [ %2131, %2161 ], [ %.sroa.096.7.us.i, %bytestream2_put_be16.exit.us.i1055 ], [ %2131, %2138 ], [ %.sroa.096.8.us.i, %bytestream2_put_be16.exit72.us.i ], [ %.sroa.096.3140.us.i, %.lr.ph.us.i1047 ]
-  %.sroa.0.5.us.i = phi ptr [ %.sroa.0.3158.us.i, %bytestream2_get_be16.exit67.us.i ], [ %.sroa.0.3158.us.i, %2161 ], [ %.sroa.0.7.us.i, %bytestream2_put_be16.exit.us.i1055 ], [ %.sroa.0.3158.us.i, %2138 ], [ %.sroa.0.8.us.i, %bytestream2_put_be16.exit72.us.i ], [ %.sroa.0.6141.us.i, %.lr.ph.us.i1047 ]
-  %.2.us.i1048 = phi i32 [ %.050159.us.i, %bytestream2_get_be16.exit67.us.i ], [ %2163, %2161 ], [ %2189, %bytestream2_put_be16.exit.us.i1055 ], [ %.050159.us.i, %2138 ], [ %2159, %bytestream2_put_be16.exit72.us.i ], [ %.3143.us.i, %.lr.ph.us.i1047 ]
+  %.sroa.096.2.us.i = phi ptr [ %2131, %2161 ], [ %.sroa.096.7.us.i, %bytestream2_get_be16.exit67.us.i ], [ %.sroa.096.7.us.i, %bytestream2_put_be16.exit.us.i1055 ], [ %2131, %2138 ], [ %.sroa.096.8.us.i, %bytestream2_put_be16.exit72.us.i ], [ %.sroa.096.3140.us.i, %.lr.ph.us.i1047 ]
+  %.sroa.0.5.us.i = phi ptr [ %.sroa.0.3158.us.i, %2161 ], [ %.sroa.0.3158.us.i, %bytestream2_get_be16.exit67.us.i ], [ %.sroa.0.7.us.i, %bytestream2_put_be16.exit.us.i1055 ], [ %.sroa.0.3158.us.i, %2138 ], [ %.sroa.0.8.us.i, %bytestream2_put_be16.exit72.us.i ], [ %.sroa.0.6141.us.i, %.lr.ph.us.i1047 ]
+  %.2.us.i1048 = phi i32 [ %2163, %2161 ], [ %.050159.us.i, %bytestream2_get_be16.exit67.us.i ], [ %2189, %bytestream2_put_be16.exit.us.i1055 ], [ %.050159.us.i, %2138 ], [ %2159, %bytestream2_put_be16.exit72.us.i ], [ %.3143.us.i, %.lr.ph.us.i1047 ]
   %2180 = add nsw i32 %.049160.us.i, -1
   %2181 = icmp sgt i32 %.049160.us.i, 1
   br i1 %2181, label %.lr.ph161.us.i, label %.critedge.us.i, !llvm.loop !128
@@ -8051,9 +8051,9 @@ bytestream2_get_be16.exit117.us:                  ; preds = %127, %bytestream2_g
   br i1 %137, label %.loopexit, label %.preheader.us
 
 .critedge2.us:                                    ; preds = %bytestream2_put_be16.exit122.us288, %.lr.ph.split.us308, %bytestream2_put_be16.exit122.us.us, %.lr.ph.split.us.us, %bytestream2_put_be16.exit.us296, %bytestream2_put_be16.exit.us.us, %78, %.preheader.us, %101
-  %.sroa.0159.3.us = phi ptr [ %.sroa.0159.2.us, %.preheader.us ], [ %72, %101 ], [ %.sroa.0159.2.us, %bytestream2_put_be16.exit.us.us ], [ %.sroa.0159.2.us, %bytestream2_put_be16.exit.us296 ], [ %72, %78 ], [ %.sroa.0159.13.us.us, %bytestream2_put_be16.exit122.us.us ], [ %.sroa.0159.4229.us.us, %.lr.ph.split.us.us ], [ %.sroa.0159.4229.us283, %.lr.ph.split.us308 ], [ %.sroa.0159.10.us, %bytestream2_put_be16.exit122.us288 ]
-  %.sroa.0.6.us = phi ptr [ %.sroa.0.3255.us, %.preheader.us ], [ %.sroa.0.3255.us, %101 ], [ %.sroa.0.5.us.us, %bytestream2_put_be16.exit.us.us ], [ %.sroa.0.5.us297, %bytestream2_put_be16.exit.us296 ], [ %.sroa.0.3255.us, %78 ], [ %.sroa.0.8.us.us, %bytestream2_put_be16.exit122.us.us ], [ %.sroa.0.7230.us.us, %.lr.ph.split.us.us ], [ %.sroa.0.7230.us282, %.lr.ph.split.us308 ], [ %.sroa.0.8.us289, %bytestream2_put_be16.exit122.us288 ]
-  %.2.us = phi i32 [ %.0257.us, %.preheader.us ], [ %103, %101 ], [ %189, %bytestream2_put_be16.exit.us.us ], [ %147, %bytestream2_put_be16.exit.us296 ], [ %.0257.us, %78 ], [ %177, %bytestream2_put_be16.exit122.us.us ], [ %.3232.us.us, %.lr.ph.split.us.us ], [ %.3232.us280, %.lr.ph.split.us308 ], [ %99, %bytestream2_put_be16.exit122.us288 ]
+  %.sroa.0159.3.us = phi ptr [ %72, %101 ], [ %.sroa.0159.2.us, %.preheader.us ], [ %.sroa.0159.2.us, %bytestream2_put_be16.exit.us.us ], [ %.sroa.0159.2.us, %bytestream2_put_be16.exit.us296 ], [ %72, %78 ], [ %.sroa.0159.13.us.us, %bytestream2_put_be16.exit122.us.us ], [ %.sroa.0159.4229.us.us, %.lr.ph.split.us.us ], [ %.sroa.0159.4229.us283, %.lr.ph.split.us308 ], [ %.sroa.0159.10.us, %bytestream2_put_be16.exit122.us288 ]
+  %.sroa.0.6.us = phi ptr [ %.sroa.0.3255.us, %101 ], [ %.sroa.0.3255.us, %.preheader.us ], [ %.sroa.0.5.us.us, %bytestream2_put_be16.exit.us.us ], [ %.sroa.0.5.us297, %bytestream2_put_be16.exit.us296 ], [ %.sroa.0.3255.us, %78 ], [ %.sroa.0.8.us.us, %bytestream2_put_be16.exit122.us.us ], [ %.sroa.0.7230.us.us, %.lr.ph.split.us.us ], [ %.sroa.0.7230.us282, %.lr.ph.split.us308 ], [ %.sroa.0.8.us289, %bytestream2_put_be16.exit122.us288 ]
+  %.2.us = phi i32 [ %103, %101 ], [ %.0257.us, %.preheader.us ], [ %189, %bytestream2_put_be16.exit.us.us ], [ %147, %bytestream2_put_be16.exit.us296 ], [ %.0257.us, %78 ], [ %177, %bytestream2_put_be16.exit122.us.us ], [ %.3232.us.us, %.lr.ph.split.us.us ], [ %.3232.us280, %.lr.ph.split.us308 ], [ %99, %bytestream2_put_be16.exit122.us288 ]
   %138 = add nsw i32 %.074256.us, -1
   %139 = icmp sgt i32 %.074256.us, 1
   br i1 %139, label %.lr.ph258.us, label %.critedge.us, !llvm.loop !177
@@ -8525,7 +8525,7 @@ bytestream2_skip_p.exit81:                        ; preds = %bytestream2_get_be3
   br i1 %.not59, label %.critedge, label %60
 
 .critedge:                                        ; preds = %.critedge63, %60, %bytestream2_init.exit, %.preheader142, %32, %38, %bytestream2_get_be32.exit
-  %.sroa.0104.1129 = phi ptr [ %36, %bytestream2_get_be32.exit ], [ %26, %32 ], [ %36, %38 ], [ %36, %.preheader142 ], [ %36, %bytestream2_init.exit ], [ %36, %60 ], [ %36, %.critedge63 ]
+  %.sroa.0104.1129 = phi ptr [ %36, %bytestream2_get_be32.exit ], [ %36, %38 ], [ %26, %32 ], [ %36, %.preheader142 ], [ %36, %bytestream2_init.exit ], [ %36, %60 ], [ %36, %.critedge63 ]
   %138 = add nuw nsw i32 %.048159, 1
   %exitcond.not = icmp eq i32 %138, %4
   br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !183
@@ -8803,7 +8803,7 @@ bytestream2_skip_p.exit71:                        ; preds = %bytestream2_get_be1
   br i1 %.not52, label %.critedge, label %56, !llvm.loop !186
 
 .critedge:                                        ; preds = %.critedge4, %56, %bytestream2_init.exit, %bytestream2_get_be16.exit, %31, %37, %bytestream2_get_be32.exit
-  %.sroa.092.1115 = phi ptr [ %35, %bytestream2_get_be32.exit ], [ %26, %31 ], [ %35, %37 ], [ %35, %bytestream2_get_be16.exit ], [ %35, %bytestream2_init.exit ], [ %35, %56 ], [ %35, %.critedge4 ]
+  %.sroa.092.1115 = phi ptr [ %35, %bytestream2_get_be32.exit ], [ %35, %37 ], [ %26, %31 ], [ %35, %bytestream2_get_be16.exit ], [ %35, %bytestream2_init.exit ], [ %35, %56 ], [ %35, %.critedge4 ]
   %132 = add nuw nsw i32 %.044143, 1
   %exitcond.not = icmp eq i32 %132, %4
   br i1 %exitcond.not, label %.loopexit, label %31, !llvm.loop !187

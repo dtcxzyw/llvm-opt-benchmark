@@ -6721,7 +6721,7 @@ entry_is_new_sparse_dir.exit:                     ; preds = %58
   br label %.loopexit
 
 .loopexit:                                        ; preds = %123, %130, %135, %.loopexit.sink.split, %._crit_edge.thread, %110, %entry_is_new_sparse_dir.exit, %17
-  %.0 = phi i32 [ 0, %entry_is_new_sparse_dir.exit ], [ 0, %.loopexit.sink.split ], [ 0, %135 ], [ 0, %17 ], [ 0, %._crit_edge.thread ], [ %spec.store.select.i, %110 ], [ -1, %130 ], [ %spec.store.select.i, %123 ]
+  %.0 = phi i32 [ 0, %entry_is_new_sparse_dir.exit ], [ 0, %.loopexit.sink.split ], [ 0, %._crit_edge.thread ], [ 0, %17 ], [ 0, %135 ], [ %spec.store.select.i, %110 ], [ -1, %130 ], [ %spec.store.select.i, %123 ]
   ret i32 %.0
 }
 

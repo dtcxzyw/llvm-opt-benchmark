@@ -3930,7 +3930,7 @@ define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %29, %.preheader, %67, %.split104.us, %._crit_edge, %11
-  %.061 = phi i64 [ %12, %11 ], [ 0, %._crit_edge ], [ -1, %67 ], [ -1, %.split104.us ], [ %.069, %.preheader ], [ %.069, %29 ]
+  %.061 = phi i64 [ %12, %11 ], [ 0, %._crit_edge ], [ -1, %.split104.us ], [ -1, %67 ], [ %.069, %.preheader ], [ %.069, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.061
 }
@@ -4400,7 +4400,7 @@ hwloc_get_next_obj_by_depth.exit:                 ; preds = %37, %42
   br i1 %64, label %hwloc_get_next_obj_by_depth.exit.thread, label %.outer, !llvm.loop !140
 
 hwloc_get_next_obj_by_depth.exit.thread:          ; preds = %63, %hwloc_get_next_obj_by_depth.exit, %39, %31, %hwloc_get_next_obj_by_depth.exit.us, %5
-  %.024 = phi ptr [ null, %hwloc_get_next_obj_by_depth.exit.us ], [ null, %hwloc_get_next_obj_by_depth.exit ], [ null, %5 ], [ %.0.i.us, %31 ], [ null, %39 ], [ %.0.i, %63 ]
+  %.024 = phi ptr [ null, %hwloc_get_next_obj_by_depth.exit ], [ %.0.i.us, %31 ], [ null, %5 ], [ null, %hwloc_get_next_obj_by_depth.exit.us ], [ null, %39 ], [ %.0.i, %63 ]
   ret ptr %.024
 }
 

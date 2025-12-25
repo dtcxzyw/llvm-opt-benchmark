@@ -11913,7 +11913,7 @@ read_den.exit.sink.split:                         ; preds = %read_den.exit.sink.
   br label %read_den.exit
 
 read_den.exit:                                    ; preds = %.preheader.i.i32, %read_den.exit.sink.split, %6, %17, %.loopexit19.i.i33, %read_num.exit
-  %.0 = phi i32 [ 0, %read_den.exit.sink.split ], [ 0, %6 ], [ 1, %read_num.exit ], [ 1, %.loopexit19.i.i33 ], [ 0, %17 ], [ 1, %.preheader.i.i32 ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %read_den.exit.sink.split ], [ 1, %read_num.exit ], [ 1, %.loopexit19.i.i33 ], [ 0, %17 ], [ 1, %.preheader.i.i32 ]
   ret i32 %.0
 }
 

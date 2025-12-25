@@ -924,7 +924,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_color_lut_check(ptr noundef 
   br i1 %82, label %.loopexit, label %.split.split, !llvm.loop !34
 
 .split6.us:                                       ; preds = %76, %72, %68, %62, %.split.split, %47, %41, %35, %.split.us.split, %26
-  %.us-phi = phi ptr [ @.str.5, %47 ], [ @.str.4, %.split.us.split ], [ @.str.4, %26 ], [ @.str.5, %35 ], [ @.str.5, %41 ], [ @.str.4, %62 ], [ @.str.4, %.split.split ], [ @.str.5, %76 ], [ @.str.5, %72 ], [ @.str.5, %68 ]
+  %.us-phi = phi ptr [ @.str.5, %47 ], [ @.str.4, %.split.us.split ], [ @.str.4, %26 ], [ @.str.5, %35 ], [ @.str.5, %41 ], [ @.str.4, %62 ], [ @.str.5, %76 ], [ @.str.4, %.split.split ], [ @.str.5, %68 ], [ @.str.5, %72 ]
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.us-phi) #6
   br label %.loopexit
 

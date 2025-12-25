@@ -873,8 +873,8 @@ unhex4.exit.i:                                    ; preds = %273
   br label %293
 
 293:                                              ; preds = %291, %283, %232, %230, %228, %226, %224, %222
-  %.169.i.i = phi ptr [ %292, %291 ], [ %289, %283 ], [ %233, %232 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %223, %222 ]
-  %.164.i.i = phi ptr [ %215, %291 ], [ %.265.i.i, %283 ], [ %220, %232 ], [ %220, %230 ], [ %220, %228 ], [ %220, %226 ], [ %220, %224 ], [ %220, %222 ]
+  %.169.i.i = phi ptr [ %292, %291 ], [ %223, %222 ], [ %225, %224 ], [ %227, %226 ], [ %229, %228 ], [ %231, %230 ], [ %233, %232 ], [ %289, %283 ]
+  %.164.i.i = phi ptr [ %215, %291 ], [ %220, %222 ], [ %220, %224 ], [ %220, %226 ], [ %220, %228 ], [ %220, %230 ], [ %220, %232 ], [ %.265.i.i, %283 ]
   %294 = icmp ult ptr %.164.i.i, %213
   br i1 %294, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !39
 
@@ -1011,7 +1011,7 @@ tokenadd.exit134.i:                               ; preds = %336, %._crit_edge.i
   br label %.backedge
 
 .critedge:                                        ; preds = %189, %classify.exit.thread.i, %.backedge, %unhex4.exit.i, %257, %259, %219, %unhex4.exit.i.i, %234, %218, %290, %254, %243, %271, %312, %316, %parse_is_top_num.exit.i, %seq_check_truncation.exit.thread138.i, %stream_is_top_num.exit.i, %stream_is_top_num.exit.thread.i
-  %.0119.be180 = phi ptr [ @.str.42, %unhex4.exit.i ], [ @.str.37, %312 ], [ @.str.12, %parse_is_top_num.exit.i ], [ @.str.37, %316 ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.41, %243 ], [ @.str.42, %271 ], [ @.str.12, %stream_is_top_num.exit.i ], [ %125, %seq_check_truncation.exit.thread138.i ], [ @.str.42, %254 ], [ @.str.44, %290 ], [ @.str.39, %218 ], [ @.str.40, %234 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.43, %219 ], [ @.str.42, %259 ], [ @.str.42, %257 ], [ %150, %classify.exit.thread.i ], [ %190, %189 ], [ %.0119.be, %.backedge ]
+  %.0119.be180 = phi ptr [ @.str.42, %unhex4.exit.i ], [ @.str.37, %312 ], [ @.str.12, %parse_is_top_num.exit.i ], [ @.str.37, %316 ], [ %125, %seq_check_truncation.exit.thread138.i ], [ @.str.41, %243 ], [ @.str.42, %271 ], [ @.str.13, %stream_is_top_num.exit.thread.i ], [ @.str.12, %stream_is_top_num.exit.i ], [ @.str.42, %254 ], [ @.str.44, %290 ], [ @.str.39, %218 ], [ @.str.40, %234 ], [ @.str.41, %unhex4.exit.i.i ], [ @.str.43, %219 ], [ @.str.42, %259 ], [ @.str.42, %257 ], [ %150, %classify.exit.thread.i ], [ %190, %189 ], [ %.0119.be, %.backedge ]
   %353 = icmp eq ptr %.0119.be180, @.str.1
   br i1 %353, label %.critedge.thread, label %356
 

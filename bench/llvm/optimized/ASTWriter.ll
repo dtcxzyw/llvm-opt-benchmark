@@ -40799,7 +40799,7 @@ _ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit:   ; preds = %41, %45
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %25, %28, %.preheader.i, %34, %_ZN4llvmeqENS_9StringRefES0_.exit22.thread34, %_ZL31adjustFilenameForRelocatableASTPKcN4llvm9StringRefE.exit, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit22
-  %.0 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit22 ], [ true, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit ], [ %14, %_ZL31adjustFilenameForRelocatableASTPKcN4llvm9StringRefE.exit ], [ %14, %.preheader.i ], [ %14, %34 ], [ %14, %_ZN4llvmeqENS_9StringRefES0_.exit22.thread34 ], [ %14, %28 ], [ %14, %25 ]
+  %.0 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit22 ], [ true, %_ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit ], [ %14, %_ZL31adjustFilenameForRelocatableASTPKcN4llvm9StringRefE.exit ], [ %14, %34 ], [ %14, %.preheader.i ], [ %14, %_ZN4llvmeqENS_9StringRefES0_.exit22.thread34 ], [ %14, %28 ], [ %14, %25 ]
   ret i1 %.0
 }
 
@@ -46025,7 +46025,7 @@ _ZN4llvm15SmallVectorImplIcE5eraseEPKcS3_.exit.i: ; preds = %1065, %1062
   br label %_ZN5clang9ASTWriter20PreparePathForOutputERN4llvm15SmallVectorImplIcEE.exit
 
 _ZN5clang9ASTWriter20PreparePathForOutputERN4llvm15SmallVectorImplIcEE.exitthread-pre-split: ; preds = %1049, %1046, %_ZL31adjustFilenameForRelocatableASTPKcN4llvm9StringRefE.exit.i, %.preheader.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit22.thread34.i, %._ZN5clang9ASTWriter20PreparePathForOutputERN4llvm15SmallVectorImplIcEE.exit_crit_edge
-  %.ph = phi ptr [ %.pre590, %._ZN5clang9ASTWriter20PreparePathForOutputERN4llvm15SmallVectorImplIcEE.exit_crit_edge ], [ %1038, %_ZN4llvmeqENS_9StringRefES0_.exit22.thread34.i ], [ %.pre591, %_ZL31adjustFilenameForRelocatableASTPKcN4llvm9StringRefE.exit.i ], [ %1038, %.preheader.i.i ], [ %1038, %1046 ], [ %1038, %1049 ]
+  %.ph = phi ptr [ %1038, %_ZN4llvmeqENS_9StringRefES0_.exit22.thread34.i ], [ %.pre590, %._ZN5clang9ASTWriter20PreparePathForOutputERN4llvm15SmallVectorImplIcEE.exit_crit_edge ], [ %.pre591, %_ZL31adjustFilenameForRelocatableASTPKcN4llvm9StringRefE.exit.i ], [ %1038, %.preheader.i.i ], [ %1038, %1046 ], [ %1038, %1049 ]
   %.pr = load i64, ptr %913, align 8, !tbaa !289
   br label %_ZN5clang9ASTWriter20PreparePathForOutputERN4llvm15SmallVectorImplIcEE.exit
 

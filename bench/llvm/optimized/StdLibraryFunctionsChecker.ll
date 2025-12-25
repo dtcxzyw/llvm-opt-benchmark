@@ -3074,7 +3074,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i:        ; preds = %462, %_ZN4llvm18Int
   br label %463
 
 463:                                              ; preds = %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76.i
-  %.1.i = phi ptr [ %.037172.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76.i ], [ %450, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i ]
+  %.1.i = phi ptr [ %450, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i ], [ %.037172.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76.i ]
   %464 = load ptr, ptr %23, align 8, !tbaa !248
   %.not.i.i98.i = icmp eq ptr %464, null
   br i1 %.not.i.i98.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit99.i, label %465

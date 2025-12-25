@@ -7315,7 +7315,7 @@ copy_address_wmem.exit91:                         ; preds = %copy_address_wmem.e
   br label %.thread
 
 207:                                              ; preds = %192, %187
-  %.075 = phi ptr [ %189, %187 ], [ %195, %192 ]
+  %.075 = phi ptr [ %195, %192 ], [ %189, %187 ]
   %.not88 = icmp eq ptr %.075, null
   br i1 %.not88, label %208, label %.thread
 

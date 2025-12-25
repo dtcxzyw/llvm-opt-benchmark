@@ -2774,7 +2774,7 @@ Abc_TtHasVar.exit.thread99.i:                     ; preds = %1289
   br i1 %1335, label %.preheader.us.i63.i, label %Abc_TtHasVar.exit.i, !llvm.loop !143
 
 Abc_TtHasVar.exit.i:                              ; preds = %._crit_edge.us.i69.i, %1315, %1314, %1330
-  %.0.i.i = phi i32 [ 1, %1330 ], [ 1, %1315 ], [ 0, %1314 ], [ 0, %._crit_edge.us.i69.i ]
+  %.0.i.i = phi i32 [ 1, %1330 ], [ 0, %1314 ], [ 1, %1315 ], [ 0, %._crit_edge.us.i69.i ]
   %1336 = add nsw i32 %.0.i.i, %.032118.i
   br i1 %1307, label %1337, label %Abc_TtHasVar.exit.thread.thread.i
 
@@ -2847,8 +2847,8 @@ Abc_TtHasVar.exit.thread.thread.i:                ; preds = %Abc_TtHasVar.exit.i
   br i1 %1360, label %.preheader.us.i78.i, label %Abc_TtHasVar.exit96.i, !llvm.loop !143
 
 Abc_TtHasVar.exit96.i:                            ; preds = %._crit_edge.us.i87.i, %1344, %1343, %1355, %.preheader.lr.ph.i73.i, %Abc_TtHasVar.exit.thread.thread.i, %1337, %.preheader.lr.ph.i59.i, %1321, %1308, %Abc_TtHasVar.exit.thread99.i
-  %1361 = phi i32 [ %1300, %Abc_TtHasVar.exit.thread99.i ], [ %.032118.i, %1321 ], [ %1336, %.preheader.lr.ph.i73.i ], [ %1336, %Abc_TtHasVar.exit.thread.thread.i ], [ %1336, %1337 ], [ %1336, %1355 ], [ %.032118.i, %1308 ], [ %.032118.i, %.preheader.lr.ph.i59.i ], [ %1336, %1344 ], [ %1336, %1343 ], [ %1336, %._crit_edge.us.i87.i ]
-  %.0.i84.i = phi i32 [ %1305, %Abc_TtHasVar.exit.thread99.i ], [ 0, %1321 ], [ 0, %.preheader.lr.ph.i73.i ], [ 0, %Abc_TtHasVar.exit.thread.thread.i ], [ 0, %1337 ], [ 1, %1355 ], [ 0, %1308 ], [ 0, %.preheader.lr.ph.i59.i ], [ 1, %1344 ], [ 0, %1343 ], [ 0, %._crit_edge.us.i87.i ]
+  %1361 = phi i32 [ %1300, %Abc_TtHasVar.exit.thread99.i ], [ %.032118.i, %1321 ], [ %1336, %.preheader.lr.ph.i73.i ], [ %1336, %Abc_TtHasVar.exit.thread.thread.i ], [ %1336, %1337 ], [ %.032118.i, %1308 ], [ %1336, %1355 ], [ %.032118.i, %.preheader.lr.ph.i59.i ], [ %1336, %1344 ], [ %1336, %1343 ], [ %1336, %._crit_edge.us.i87.i ]
+  %.0.i84.i = phi i32 [ %1305, %Abc_TtHasVar.exit.thread99.i ], [ 0, %1321 ], [ 0, %.preheader.lr.ph.i73.i ], [ 0, %Abc_TtHasVar.exit.thread.thread.i ], [ 0, %1337 ], [ 0, %1308 ], [ 1, %1355 ], [ 0, %.preheader.lr.ph.i59.i ], [ 1, %1344 ], [ 0, %1343 ], [ 0, %._crit_edge.us.i87.i ]
   %1362 = icmp sgt i32 %1361, %1207
   %1363 = add nsw i32 %.0.i84.i, %.0119.i
   %1364 = icmp sgt i32 %1363, %1207

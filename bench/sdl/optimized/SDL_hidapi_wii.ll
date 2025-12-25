@@ -1115,7 +1115,7 @@ NeedsPeriodicMotionPlusCheck.exit:                ; preds = %GetMotionPlusState.
   br label %NeedsPeriodicMotionPlusCheck.exit.thread
 
 NeedsPeriodicMotionPlusCheck.exit.thread:         ; preds = %75, %NeedsPeriodicMotionPlusCheck.exit
-  %79 = phi i32 [ %.pr, %NeedsPeriodicMotionPlusCheck.exit ], [ %.pre, %75 ]
+  %79 = phi i32 [ %.pre, %75 ], [ %.pr, %NeedsPeriodicMotionPlusCheck.exit ]
   %80 = and i32 %79, -2
   %switch = icmp eq i32 %80, 128
   br i1 %switch, label %81, label %NeedsPeriodicMotionPlusCheck.exit.thread.thread

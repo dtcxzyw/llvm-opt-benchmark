@@ -510,7 +510,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %.invoke
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread27: ; preds = %45, %.noexc6
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread27: ; preds = %.noexc6, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %55
 

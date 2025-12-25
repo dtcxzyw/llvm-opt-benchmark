@@ -8622,7 +8622,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   %.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %.not, label %.loopexit30, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, !llvm.loop !672
 
-.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %43, %47
+.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %47, %43
   %.sroa.0.0.insert.insert = or disjoint i64 %indvars.iv, 4294967296
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
@@ -9657,7 +9657,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   %.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %.not, label %.loopexit30, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, !llvm.loop !721
 
-.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %43, %47
+.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %47, %43
   %.sroa.0.0.insert.insert = or disjoint i64 %indvars.iv, 4294967296
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
@@ -10304,7 +10304,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   %.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %.not, label %.loopexit30, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, !llvm.loop !756
 
-.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %43, %47
+.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %47, %43
   %.sroa.0.0.insert.insert = or disjoint i64 %indvars.iv, 4294967296
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
@@ -10943,7 +10943,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   %.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %.not, label %.loopexit30, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, !llvm.loop !781
 
-.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %43, %47
+.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %47, %43
   %.sroa.0.0.insert.insert = or disjoint i64 %indvars.iv, 4294967296
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
@@ -11635,7 +11635,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   %.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %.not, label %.loopexit30, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, !llvm.loop !807
 
-.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %43, %47
+.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %47, %43
   %.sroa.0.0.insert.insert = or disjoint i64 %indvars.iv, 4294967296
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
@@ -12276,7 +12276,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   %.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %.not, label %.loopexit30, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, !llvm.loop !832
 
-.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %43, %47
+.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %47, %43
   %.sroa.0.0.insert.insert = or disjoint i64 %indvars.iv, 4294967296
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
@@ -13099,7 +13099,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   %.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %.not, label %.loopexit30, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, !llvm.loop !861
 
-.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %43, %47
+.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %47, %43
   %.sroa.0.0.insert.insert = or disjoint i64 %indvars.iv, 4294967296
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
@@ -13686,7 +13686,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   %.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %.not, label %.loopexit30, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, !llvm.loop !886
 
-.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %43, %47
+.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %47, %43
   %.sroa.0.0.insert.insert = or disjoint i64 %indvars.iv, 4294967296
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
@@ -15209,7 +15209,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   %.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %.not, label %.loopexit30, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, !llvm.loop !926
 
-.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %43, %47
+.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %47, %43
   %.sroa.0.0.insert.insert = or disjoint i64 %indvars.iv, 4294967296
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread
@@ -15932,7 +15932,7 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %49, %45, %_ZNK4llvm
   %.not = icmp eq i64 %indvars.iv.next, %28
   br i1 %.not, label %.loopexit30, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread, !llvm.loop !954
 
-.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %43, %47
+.loopexit:                                        ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, %47, %43
   %.sroa.0.0.insert.insert = or disjoint i64 %indvars.iv, 4294967296
   store i64 %.sroa.0.0.insert.insert, ptr %13, align 8
   br label %_ZNK4llvm12VersionTuple5emptyEv.exit2.thread

@@ -910,8 +910,8 @@ _ZNSt3__117__append_c_digitsB8ne210000EjjPc.exit: ; preds = %._crit_edge.i274, %
   br label %.thread280
 
 439:                                              ; preds = %433, %.lr.ph372
-  %.7226 = phi i32 [ %.5224369, %.lr.ph372 ], [ 1, %433 ]
-  %.2 = phi ptr [ %431, %.lr.ph372 ], [ %.0371, %433 ]
+  %.7226 = phi i32 [ 1, %433 ], [ %.5224369, %.lr.ph372 ]
+  %.2 = phi ptr [ %.0371, %433 ], [ %431, %.lr.ph372 ]
   %440 = icmp eq ptr %431, %0
   br i1 %440, label %._crit_edge373, label %.lr.ph372
 
@@ -1998,7 +1998,7 @@ _ZNSt3__117__append_d_digitsB8ne210000EjjPc.exit365: ; preds = %571, %580
   br label %.thread443
 
 602:                                              ; preds = %596, %.lr.ph521
-  %.3237 = phi i32 [ 1, %596 ], [ %.1235519, %.lr.ph521 ]
+  %.3237 = phi i32 [ %.1235519, %.lr.ph521 ], [ 1, %596 ]
   %603 = icmp eq ptr %594, %0
   br i1 %603, label %._crit_edge522, label %.lr.ph521
 

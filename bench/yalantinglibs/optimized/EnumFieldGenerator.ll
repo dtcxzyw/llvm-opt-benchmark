@@ -3322,8 +3322,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %array
   ret void
 
 lpad.body:                                        ; preds = %lpad2.i12, %lpad.i7, %lpad.i17, %lpad2.i22
-  %arrayinit.endOfInit.0.lpad-body = phi ptr [ %arrayinit.element4, %lpad.i17 ], [ %arrayinit.element4, %lpad2.i22 ], [ %arrayinit.element, %lpad.i7 ], [ %arrayinit.element, %lpad2.i12 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad.i17 ], [ %10, %lpad2.i22 ], [ %7, %lpad.i7 ], [ %8, %lpad2.i12 ]
+  %arrayinit.endOfInit.0.lpad-body = phi ptr [ %arrayinit.element4, %lpad2.i22 ], [ %arrayinit.element4, %lpad.i17 ], [ %arrayinit.element, %lpad.i7 ], [ %arrayinit.element, %lpad2.i12 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad2.i22 ], [ %9, %lpad.i17 ], [ %7, %lpad.i7 ], [ %8, %lpad2.i12 ]
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %lpad.body, %arraydestroy.body

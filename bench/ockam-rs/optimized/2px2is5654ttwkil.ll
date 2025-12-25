@@ -35830,8 +35830,8 @@ define hidden void @"_ZN146_$LT$ockam_identity..secure_channel..handshake..hands
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %244, %216, %168, %3
-  %.0221.ph.ph = phi i8 [ 1, %244 ], [ %.14235, %216 ], [ 1, %3 ], [ 1, %168 ]
-  %.0218.ph.ph = phi i8 [ 1, %244 ], [ 0, %216 ], [ 1, %3 ], [ 1, %168 ]
+  %.0221.ph.ph = phi i8 [ %.14235, %216 ], [ 1, %244 ], [ 1, %3 ], [ 1, %168 ]
+  %.0218.ph.ph = phi i8 [ 0, %216 ], [ 1, %244 ], [ 1, %3 ], [ 1, %168 ]
   %lpad.loopexit.split-lp349 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

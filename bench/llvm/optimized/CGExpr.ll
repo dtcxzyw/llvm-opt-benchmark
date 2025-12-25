@@ -11022,7 +11022,7 @@ tailrecurse.backedge:                             ; preds = %11, %17, %11
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116StructAccessBaseEPKNS_4ExprEJEE5VisitEPKNS_4StmtE.exit
 
 _ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116StructAccessBaseEPKNS_4ExprEJEE5VisitEPKNS_4StmtE.exit: ; preds = %5, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %21, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51, %53, %55, %57
-  %.3.i = phi ptr [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %5 ]
+  %.3.i = phi ptr [ %52, %51 ], [ %54, %53 ], [ %26, %25 ], [ %56, %55 ], [ %58, %57 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %22, %21 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %24, %23 ], [ %48, %47 ], [ %50, %49 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %17 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %11 ], [ null, %5 ]
   ret ptr %.3.i
 }
 
@@ -25469,8 +25469,8 @@ _ZL31checkVarTypeForConstantEmissionN5clang8QualTypeE.exit: ; preds = %.loopexit
   store i8 0, ptr %51, align 4
   br label %64
 
-select.unfold:                                    ; preds = %.loopexit.i, %46, %.thread.i
-  %.not41 = phi i1 [ true, %46 ], [ true, %.thread.i ], [ false, %.loopexit.i ]
+select.unfold:                                    ; preds = %.loopexit.i, %.thread.i, %46
+  %.not41 = phi i1 [ true, %.thread.i ], [ true, %46 ], [ false, %.loopexit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 8, !tbaa !2518
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -25728,7 +25728,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_14CUDA
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14CUDADeviceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !2527
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14CUDADeviceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_14CUDADeviceAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -31389,7 +31389,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_24OMPT
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_24OMPThreadPrivateDeclAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !1983
 
 _ZN5clangneENS_22specific_attr_iteratorINS_24OMPThreadPrivateDeclAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_24OMPThreadPrivateDeclAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -31708,7 +31708,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_23ObjC
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_23ObjCPreciseLifetimeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !981
 
 _ZN5clangneENS_22specific_attr_iteratorINS_23ObjCPreciseLifetimeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_23ObjCPreciseLifetimeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -32282,12 +32282,12 @@ _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6resizeEm.exit: ; preds = %.sink.spl
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_16OptimizeNoneAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !2717
 
 _ZN5clangneENS_22specific_attr_iteratorINS_16OptimizeNoneAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %70, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %65, %70 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %65, %70 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %72 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %65
   br label %_ZNK5clang4Decl7hasAttrINS_16OptimizeNoneAttrEEEbv.exit
 
 _ZNK5clang4Decl7hasAttrINS_16OptimizeNoneAttrEEEbv.exit: ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_16OptimizeNoneAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, %59, %55, %52
-  %73 = phi i1 [ %72, %_ZN5clangneENS_22specific_attr_iteratorINS_16OptimizeNoneAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ], [ false, %59 ], [ false, %52 ], [ false, %55 ]
+  %73 = phi i1 [ false, %59 ], [ %72, %_ZN5clangneENS_22specific_attr_iteratorINS_16OptimizeNoneAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ], [ false, %52 ], [ false, %55 ]
   %74 = load ptr, ptr %45, align 8, !tbaa !2716
   %75 = icmp eq ptr %74, null
   %or.cond = or i1 %73, %75
@@ -35133,7 +35133,7 @@ _ZNK5clang10ASTContext22getAsVariableArrayTypeENS_8QualTypeE.exit.i: ; preds = %
   br i1 %34, label %_ZNK5clang10ASTContext22getAsVariableArrayTypeENS_8QualTypeE.exit.i, label %_ZL23getFixedSizeElementTypeRKN5clang10ASTContextEPKNS_17VariableArrayTypeE.exit, !llvm.loop !2841
 
 _ZL23getFixedSizeElementTypeRKN5clang10ASTContextEPKNS_17VariableArrayTypeE.exit: ; preds = %31, %_ZNK5clang10ASTContext22getAsVariableArrayTypeENS_8QualTypeE.exit.i, %12, %22
-  %.sroa.042.0 = phi i64 [ %5, %12 ], [ %5, %22 ], [ %.sroa.0.0.copyload.i.i, %_ZNK5clang10ASTContext22getAsVariableArrayTypeENS_8QualTypeE.exit.i ], [ %.sroa.0.0.copyload.i.i, %31 ]
+  %.sroa.042.0 = phi i64 [ %5, %22 ], [ %5, %12 ], [ %.sroa.0.0.copyload.i.i, %_ZNK5clang10ASTContext22getAsVariableArrayTypeENS_8QualTypeE.exit.i ], [ %.sroa.0.0.copyload.i.i, %31 ]
   %35 = load ptr, ptr %17, align 8, !tbaa !59
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 144
   %37 = load ptr, ptr %36, align 8, !tbaa !672
@@ -35364,12 +35364,16 @@ _ZL26hasBPFPreserveStaticOffsetPKN5clang4ExprE.exit.thread85: ; preds = %80, %69
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %141 = load i16, ptr %140, align 8
   %142 = icmp eq i16 %141, 139
-  br i1 %142, label %_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit, label %143
+  br i1 %142, label %_ZNK5clang4Decl7hasAttrINS_26BPFPreserveAccessIndexAttrEEEbv.exit.i, label %143
 
 143:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %144, %138
   br i1 %.not.i.i.i.i.i.i, label %_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit.thread88, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1056
+
+_ZNK5clang4Decl7hasAttrINS_26BPFPreserveAccessIndexAttrEEEbv.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
+  %.not94 = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %138
+  br i1 %.not94, label %_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit.thread88, label %209
 
 145:                                              ; preds = %122
   %146 = getelementptr inbounds nuw i8, ptr %123, i64 16
@@ -35450,22 +35454,18 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread8.i: ; preds = %_ZNK5c
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   %191 = load i16, ptr %190, align 8
   %192 = icmp eq i16 %191, 139
-  br i1 %192, label %_ZN5clangneENS_22specific_attr_iteratorINS_26BPFPreserveAccessIndexAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i52.i, label %193
+  br i1 %192, label %_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit, label %193
 
 193:                                              ; preds = %.lr.ph.i.i.i.i.i49.i
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i50.i, i64 8
   %.not.i.i.i.i.i51.i = icmp eq ptr %194, %188
   br i1 %.not.i.i.i.i.i51.i, label %_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit.thread88, label %.lr.ph.i.i.i.i.i49.i, !llvm.loop !1056
 
-_ZN5clangneENS_22specific_attr_iteratorINS_26BPFPreserveAccessIndexAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i52.i: ; preds = %.lr.ph.i.i.i.i.i49.i
+_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit: ; preds = %.lr.ph.i.i.i.i.i49.i
   %.not93 = icmp eq ptr %.sroa.07.1.i.i.i.i50.i, %188
   br i1 %.not93, label %_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit.thread88, label %209
 
-_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit: ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not94 = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %138
-  br i1 %.not94, label %_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit.thread88, label %209
-
-_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit.thread88: ; preds = %193, %143, %182, %177, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread8.i, %122, %160, %145, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %132, %126, %117, %_ZN5clangneENS_22specific_attr_iteratorINS_26BPFPreserveAccessIndexAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i52.i, %_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit, %_ZL26hasBPFPreserveStaticOffsetPKN5clang4ExprE.exit.thread85
+_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit.thread88: ; preds = %193, %143, %182, %177, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread8.i, %122, %160, %145, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %132, %126, %117, %_ZNK5clang4Decl7hasAttrINS_26BPFPreserveAccessIndexAttrEEEbv.exit.i, %_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit, %_ZL26hasBPFPreserveStaticOffsetPKN5clang4ExprE.exit.thread85
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
@@ -35510,7 +35510,7 @@ _ZL21emitArraySubscriptGEPRN5clang7CodeGen15CodeGenFunctionENS0_7AddressEN4llvm8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !tbaa.struct !863
   br label %244
 
-209:                                              ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_26BPFPreserveAccessIndexAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i52.i, %_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit, %113
+209:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_26BPFPreserveAccessIndexAttrEEEbv.exit.i, %_ZL21IsPreserveAIArrayBaseRN5clang7CodeGen15CodeGenFunctionEPKNS_4ExprE.exit, %113
   %210 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %211 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %212 = load i32, ptr %211, align 8, !tbaa !1187
@@ -45201,7 +45201,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   br label %.critedge35
 
 .critedge35:                                      ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %.critedge35.sink.split, %4
-  %52 = phi i1 [ true, %.critedge35.sink.split ], [ false, %4 ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+  %52 = phi i1 [ false, %4 ], [ true, %.critedge35.sink.split ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
   ret i1 %52
 }
 

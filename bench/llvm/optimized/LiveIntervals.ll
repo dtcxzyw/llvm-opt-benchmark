@@ -13873,7 +13873,7 @@ _ZN4llvm27MIBundleOperandIteratorBaseINS_14MachineOperandEEppEv.exit: ; preds = 
   br i1 %.not128, label %.backedge, label %.lr.ph171, !llvm.loop !737
 
 .thread:                                          ; preds = %.backedge, %_ZNK4llvm11SlotIndexes19getInstructionIndexERKNS_12MachineInstrEb.exit79, %.critedge2.i.i.i.i, %.critedge2.i.i48, %6, %182, %.thread122
-  %.sroa.040.4 = phi i64 [ %1, %182 ], [ %326, %.thread122 ], [ %.sroa.040.1, %.critedge2.i.i48 ], [ %1, %.critedge2.i.i.i.i ], [ %1, %6 ], [ %1, %_ZNK4llvm11SlotIndexes19getInstructionIndexERKNS_12MachineInstrEb.exit79 ], [ %1, %.backedge ]
+  %.sroa.040.4 = phi i64 [ %1, %182 ], [ %326, %.thread122 ], [ %1, %6 ], [ %1, %.critedge2.i.i.i.i ], [ %.sroa.040.1, %.critedge2.i.i48 ], [ %1, %_ZNK4llvm11SlotIndexes19getInstructionIndexERKNS_12MachineInstrEb.exit79 ], [ %1, %.backedge ]
   ret i64 %.sroa.040.4
 }
 

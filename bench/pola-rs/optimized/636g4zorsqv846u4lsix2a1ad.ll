@@ -2679,8 +2679,8 @@ _ZN4core3ops8function6FnOnce9call_once17h8a0668248a99363cE.exit.thread9.i11.i.i.
   br i1 %109, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17ha38db79e22e544ccE.exit", label %114
 
 .thread31.i:                                      ; preds = %96, %.noexc16.i
-  %.sroa.3.0.i3.i.i.i.ph.i = phi i64 [ %97, %96 ], [ undef, %.noexc16.i ]
-  %.sroa.0.0.i4.i.i.i.ph.i = phi i64 [ 1, %96 ], [ 0, %.noexc16.i ]
+  %.sroa.3.0.i3.i.i.i.ph.i = phi i64 [ undef, %.noexc16.i ], [ %97, %96 ]
+  %.sroa.0.0.i4.i.i.i.ph.i = phi i64 [ 0, %.noexc16.i ], [ 1, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !349
   br label %.thread.i
 

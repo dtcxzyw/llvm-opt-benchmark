@@ -23972,7 +23972,7 @@ _ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_cont
   unreachable
 
 _ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread11, label %35
 
@@ -24095,7 +24095,7 @@ _ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_
   unreachable
 
 _ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %18, %12, %9, %16, %22
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %22 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %17, %16 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %13, %12 ], [ %.sroa.011.0.extract.trunc.i, %18 ], [ %11, %9 ], [ %.sroa.05.0.extract.trunc.i, %22 ]
   %34 = icmp ugt i64 %.0.i, 2147483647
   br i1 %34, label %_ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread11, label %35
 
@@ -28710,7 +28710,7 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %417 = trunc nuw i32 %416 to i1
   br i1 %417, label %.critedge149, label %.critedge151
 
-.critedge149.thread:                              ; preds = %406, %394, %342, %338, %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit183.thread, %402
+.critedge149.thread:                              ; preds = %394, %406, %342, %338, %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit183.thread, %402
   %418 = load ptr, ptr %300, align 8, !tbaa !78
   %419 = zext nneg i32 %.0228 to i64
   %420 = getelementptr i8, ptr %418, i64 %419
@@ -28780,8 +28780,8 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   store i32 %454, ptr %7, align 4, !tbaa !166
   br label %.critedge151
 
-.critedge151:                                     ; preds = %406, %394, %342, %404, %340, %.critedge, %453, %449, %410
-  %.1229 = phi i32 [ %450, %449 ], [ %.0228, %453 ], [ %.0228, %.critedge ], [ %.0228, %410 ], [ 9, %340 ], [ 18, %404 ], [ 9, %342 ], [ %.0228, %394 ], [ 18, %406 ]
+.critedge151:                                     ; preds = %394, %406, %342, %404, %340, %.critedge, %453, %449, %410
+  %.1229 = phi i32 [ %450, %449 ], [ %.0228, %453 ], [ %.0228, %.critedge ], [ %.0228, %410 ], [ 9, %340 ], [ 18, %404 ], [ 9, %342 ], [ 18, %406 ], [ %.0228, %394 ]
   %455 = zext nneg i32 %.1229 to i64
   %456 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %457 = load i64, ptr %456, align 8, !tbaa !80
@@ -31145,12 +31145,12 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %233, %_ZSt4findIPKc
 
 275:                                              ; preds = %271
   switch i32 %272, label %.critedge [
-    i32 8, label %288
+    i32 8, label %_ZN3fmt3v1016visit_format_argINS0_6detail11is_zero_intENS0_20basic_printf_contextIcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
     i32 1, label %276
     i32 2, label %279
     i32 3, label %282
     i32 4, label %285
-    i32 7, label %_ZN3fmt3v1016visit_format_argINS0_6detail11is_zero_intENS0_20basic_printf_contextIcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
+    i32 7, label %288
   ]
 
 276:                                              ; preds = %275
@@ -31174,14 +31174,14 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %233, %_ZSt4findIPKc
   br i1 %287, label %293, label %.critedge
 
 288:                                              ; preds = %275
-  %289 = load i8, ptr %28, align 16, !tbaa !40
-  %290 = icmp eq i8 %289, 0
-  br i1 %290, label %293, label %.critedge
+  %289 = load i8, ptr %28, align 16, !tbaa !40, !range !221, !noundef !222
+  %290 = trunc nuw i8 %289 to i1
+  br i1 %290, label %.critedge, label %293
 
 _ZN3fmt3v1016visit_format_argINS0_6detail11is_zero_intENS0_20basic_printf_contextIcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %275
-  %291 = load i8, ptr %28, align 16, !tbaa !40, !range !221, !noundef !222
-  %292 = trunc nuw i8 %291 to i1
-  br i1 %292, label %.critedge, label %293
+  %291 = load i8, ptr %28, align 16, !tbaa !40
+  %292 = icmp eq i8 %291, 0
+  br i1 %292, label %293, label %.critedge
 
 293:                                              ; preds = %276, %279, %282, %285, %288, %_ZN3fmt3v1016visit_format_argINS0_6detail11is_zero_intENS0_20basic_printf_contextIcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
   %294 = and i16 %273, -129

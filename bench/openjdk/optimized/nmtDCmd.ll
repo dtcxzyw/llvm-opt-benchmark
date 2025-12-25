@@ -1444,7 +1444,7 @@ _ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17Al
   br label %.critedge18
 
 .critedge18:                                      ; preds = %.preheader, %.critedge18.sink.split, %6
-  %.014 = phi i1 [ true, %.critedge18.sink.split ], [ true, %6 ], [ false, %.preheader ]
+  %.014 = phi i1 [ true, %6 ], [ true, %.critedge18.sink.split ], [ false, %.preheader ]
   ret i1 %.014
 }
 
@@ -2114,7 +2114,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   br label %.critedge18
 
 .critedge18:                                      ; preds = %.preheader, %.critedge18.sink.split, %6
-  %.014 = phi i1 [ true, %.critedge18.sink.split ], [ true, %6 ], [ false, %.preheader ]
+  %.014 = phi i1 [ true, %6 ], [ true, %.critedge18.sink.split ], [ false, %.preheader ]
   ret i1 %.014
 }
 
@@ -2627,7 +2627,7 @@ _ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLA
   br label %.critedge18
 
 .critedge18:                                      ; preds = %.preheader, %.critedge18.sink.split, %6
-  %.014 = phi i1 [ true, %.critedge18.sink.split ], [ true, %6 ], [ false, %.preheader ]
+  %.014 = phi i1 [ true, %6 ], [ true, %.critedge18.sink.split ], [ false, %.preheader ]
   ret i1 %.014
 }
 
@@ -3215,7 +3215,7 @@ _ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8
   br label %.critedge18
 
 .critedge18:                                      ; preds = %.preheader, %.critedge18.sink.split, %6
-  %.014 = phi i1 [ true, %.critedge18.sink.split ], [ true, %6 ], [ false, %.preheader ]
+  %.014 = phi i1 [ true, %6 ], [ true, %.critedge18.sink.split ], [ false, %.preheader ]
   ret i1 %.014
 }
 

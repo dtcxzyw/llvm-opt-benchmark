@@ -7105,7 +7105,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %73,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %.loopexit.sink.split, %25, %44
-  %.0 = phi i8 [ 2, %.loopexit.sink.split ], [ %48, %44 ], [ %18, %25 ], [ %33, %41 ]
+  %.0 = phi i8 [ %18, %25 ], [ %48, %44 ], [ 2, %.loopexit.sink.split ], [ %33, %41 ]
   ret i8 %.0
 
 82:                                               ; preds = %81, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26
@@ -48384,7 +48384,7 @@ _ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_
   br label %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS6_5BlockE.exit.thread
 
 _ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS6_5BlockE.exit.thread: ; preds = %104, %107, %2, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS6_5BlockE.exit.thread20, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit, %94
-  %.1 = phi i1 [ false, %2 ], [ true, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit ], [ true, %94 ], [ false, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS6_5BlockE.exit.thread20 ], [ true, %107 ], [ true, %104 ]
+  %.1 = phi i1 [ false, %_ZN17duckdb_moodycamel15ConcurrentQueueIN6duckdb10shared_ptrINS1_4TaskELb1EEENS_28ConcurrentQueueDefaultTraitsEE22add_block_to_free_listEPNS6_5BlockE.exit.thread20 ], [ true, %_ZN6duckdb10shared_ptrINS_4TaskELb1EED2Ev.exit ], [ true, %94 ], [ false, %2 ], [ true, %107 ], [ true, %104 ]
   ret i1 %.1
 }
 

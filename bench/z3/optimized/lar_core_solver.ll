@@ -3125,23 +3125,23 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i:     ; preds = %45, %39
   %59 = load i8, ptr %58, align 4
   %60 = and i8 %59, 1
   %61 = icmp eq i8 %60, 0
-  br i1 %61, label %62, label %66
+  br i1 %61, label %62, label %_ZeqRK8rationalS1_.exit
 
 62:                                               ; preds = %56
   %63 = load i8, ptr %5, align 4
   %64 = and i8 %63, 1
   %65 = icmp eq i8 %64, 0
-  br i1 %65, label %_ZeqRK8rationalS1_.exit, label %66
+  br i1 %65, label %66, label %_ZeqRK8rationalS1_.exit
 
-66:                                               ; preds = %62, %56
-  %67 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %40, ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %72, label %_ZgtRK8rationalS1_.exit5
+66:                                               ; preds = %62
+  %67 = load i32, ptr %57, align 8, !tbaa !138
+  %68 = load i32, ptr %4, align 8, !tbaa !138
+  %69 = icmp eq i32 %67, %68
+  br i1 %69, label %72, label %_ZgtRK8rationalS1_.exit5
 
-_ZeqRK8rationalS1_.exit:                          ; preds = %62
-  %69 = load i32, ptr %57, align 8, !tbaa !138
-  %70 = load i32, ptr %4, align 8, !tbaa !138
-  %71 = icmp eq i32 %69, %70
+_ZeqRK8rationalS1_.exit:                          ; preds = %56, %62
+  %70 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %40, ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %_ZgtRK8rationalS1_.exit5
 
 72:                                               ; preds = %66, %_ZeqRK8rationalS1_.exit

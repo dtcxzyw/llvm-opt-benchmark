@@ -1047,7 +1047,7 @@ cinepak_decode_strip.exit.i:                      ; preds = %._crit_edge.i.i, %2
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %cinepak_decode.exit, label %145, !llvm.loop !68
 
-.loopexit:                                        ; preds = %213, %219, %223, %145, %184, %cinepak_decode_codebook.exit.i, %228, %361, %318, %299, %309
+.loopexit:                                        ; preds = %213, %219, %145, %184, %223, %cinepak_decode_codebook.exit.i, %228, %361, %318, %299, %309
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #6
   br label %cinepak_decode.exit
 

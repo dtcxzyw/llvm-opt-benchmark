@@ -9083,7 +9083,7 @@ ff_speedhq_mb_y_order_to_mb.exit:                 ; preds = %.lr.ph.i, %239
   br i1 %or.cond932, label %select.unfold, label %.thread929
 
 select.unfold:                                    ; preds = %393, %.thread, %381, %384, %375
-  %.1784 = phi i32 [ %spec.select, %375 ], [ %spec.select, %381 ], [ %.2785924, %.thread ], [ %spec.select, %384 ], [ %spec.select, %393 ]
+  %.1784 = phi i32 [ %spec.select, %375 ], [ %spec.select, %381 ], [ %spec.select, %393 ], [ %spec.select, %384 ], [ %.2785924, %.thread ]
   %.not805 = icmp eq i32 %.1784, 0
   br i1 %.not805, label %.thread926, label %.thread929
 

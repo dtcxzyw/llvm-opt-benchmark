@@ -4611,9 +4611,9 @@ _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader: ; preds = %_ZNK6vectorI5lboo
   br label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i:         ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader
-  %25 = phi ptr [ %16, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be36, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
-  %26 = phi ptr [ %17, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be36, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
-  %27 = phi ptr [ %.ph, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be36, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
+  %25 = phi ptr [ %16, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be37, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
+  %26 = phi ptr [ %17, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be37, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
+  %27 = phi ptr [ %.ph, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.preheader ], [ %.be37, %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge ]
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZNK6vectorI5lboolLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorI5lboolLb0EjE8capacityEv.exit.i.i
 
@@ -4737,7 +4737,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge
 
 _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i.backedge: ; preds = %74, %33
-  %.be36 = phi ptr [ %77, %74 ], [ %36, %33 ]
+  %.be37 = phi ptr [ %36, %33 ], [ %77, %74 ]
   br label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i, !llvm.loop !272
 
 78:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -11753,7 +11753,7 @@ _ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit: ; preds = %_ZNK5n
   br i1 %.not, label %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread, label %12
 
 _ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit.thread: ; preds = %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit, %27, %29, %31, %33, %35, %37, %39, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit, %2, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17
-  %.not27 = phi i1 [ false, %27 ], [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17 ], [ true, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit ], [ true, %2 ], [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit ], [ false, %39 ], [ false, %37 ], [ false, %35 ], [ false, %33 ], [ false, %31 ], [ false, %29 ], [ true, %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit ]
+  %.not27 = phi i1 [ true, %_ZNK6vectorIPN5nlsat6clauseELb0EjE3endEv.exit ], [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit.thread17 ], [ false, %27 ], [ true, %2 ], [ false, %_ZNK5nlsat6solver3imp19is_full_dimensionalEN3sat7literalE.exit ], [ false, %39 ], [ false, %37 ], [ false, %35 ], [ false, %33 ], [ false, %31 ], [ false, %29 ], [ true, %_ZNK5nlsat6solver3imp19is_full_dimensionalERKNS_6clauseE.exit ]
   ret i1 %.not27
 }
 

@@ -1835,7 +1835,7 @@ define internal range(i32 0, 2) i32 @test_WPACKET_init_der() #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %93, %88, %129, %124, %82, %123, %81
-  %.06 = phi i32 [ 0, %123 ], [ 0, %82 ], [ %spec.select, %129 ], [ 0, %124 ], [ 0, %81 ], [ 0, %88 ], [ 0, %93 ]
+  %.06 = phi i32 [ 0, %123 ], [ 0, %82 ], [ 0, %81 ], [ 0, %124 ], [ %spec.select, %129 ], [ 0, %88 ], [ 0, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

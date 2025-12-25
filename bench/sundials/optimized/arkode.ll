@@ -3483,7 +3483,7 @@ define range(i32 0, 2) i32 @arkStopTests(ptr noundef %0, double noundef %1, ptr 
   br label %163
 
 163:                                              ; preds = %.sink.split, %135, %153, %134
-  %.0 = phi i32 [ 0, %135 ], [ 0, %153 ], [ 0, %134 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %134 ], [ 0, %153 ], [ 0, %135 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -5800,7 +5800,7 @@ define range(i32 -27, 1) i32 @arkHin(ptr noundef %0, double noundef %1) local_un
   br label %.loopexit
 
 .loopexit:                                        ; preds = %94, %69, %.loopexit.sink.split, %.preheader, %22, %8, %2
-  %.079 = phi i32 [ -27, %8 ], [ -27, %2 ], [ -8, %22 ], [ -8, %69 ], [ 0, %.loopexit.sink.split ], [ -8, %.preheader ], [ -8, %94 ]
+  %.079 = phi i32 [ -27, %8 ], [ -27, %2 ], [ -8, %22 ], [ -8, %.preheader ], [ 0, %.loopexit.sink.split ], [ -8, %69 ], [ -8, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.079
 }

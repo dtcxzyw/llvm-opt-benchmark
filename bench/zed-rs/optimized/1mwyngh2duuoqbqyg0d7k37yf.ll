@@ -922,8 +922,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
           to label %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit" unwind label %91
 
 36:                                               ; preds = %._crit_edge, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5783e6affded1deE.llvm.3612665634329711074.exit.i"
-  %37 = phi i64 [ %14, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5783e6affded1deE.llvm.3612665634329711074.exit.i" ], [ %.pre, %._crit_edge ]
-  %38 = phi i64 [ 0, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5783e6affded1deE.llvm.3612665634329711074.exit.i" ], [ 1, %._crit_edge ]
+  %37 = phi i64 [ %.pre, %._crit_edge ], [ %14, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5783e6affded1deE.llvm.3612665634329711074.exit.i" ]
+  %38 = phi i64 [ 1, %._crit_edge ], [ 0, %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5783e6affded1deE.llvm.3612665634329711074.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %38, ptr %6, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8

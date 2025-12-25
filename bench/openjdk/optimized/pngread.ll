@@ -3684,16 +3684,16 @@ make_ga_colormap.exit.thread.thread.sink.split:   ; preds = %598, %178, %123
   br label %make_ga_colormap.exit.thread.thread
 
 make_ga_colormap.exit.thread.thread:              ; preds = %619, %148, %265, %make_ga_colormap.exit.thread.thread.sink.split, %make_gray_colormap.exit, %make_ga_colormap.exit.thread
-  %.0394557570 = phi i32 [ %.0394557, %make_ga_colormap.exit.thread ], [ 231, %265 ], [ 256, %make_ga_colormap.exit.thread.thread.sink.split ], [ 256, %make_gray_colormap.exit ], [ 231, %148 ], [ 256, %619 ]
-  %.0384559568 = phi i32 [ %.0384559, %make_ga_colormap.exit.thread ], [ 1, %265 ], [ %.0384559568.ph, %make_ga_colormap.exit.thread.thread.sink.split ], [ 0, %make_gray_colormap.exit ], [ 1, %148 ], [ 3, %619 ]
-  %.0383560566 = phi i32 [ %.0383560, %make_ga_colormap.exit.thread ], [ %219, %265 ], [ %.0383560566.ph, %make_ga_colormap.exit.thread.thread.sink.split ], [ 256, %make_gray_colormap.exit ], [ %145, %148 ], [ %614, %619 ]
+  %.0394557570 = phi i32 [ %.0394557, %make_ga_colormap.exit.thread ], [ 256, %make_ga_colormap.exit.thread.thread.sink.split ], [ 231, %265 ], [ 256, %make_gray_colormap.exit ], [ 231, %148 ], [ 256, %619 ]
+  %.0384559568 = phi i32 [ %.0384559, %make_ga_colormap.exit.thread ], [ %.0384559568.ph, %make_ga_colormap.exit.thread.thread.sink.split ], [ 1, %265 ], [ 0, %make_gray_colormap.exit ], [ 1, %148 ], [ 3, %619 ]
+  %.0383560566 = phi i32 [ %.0383560, %make_ga_colormap.exit.thread ], [ %.0383560566.ph, %make_ga_colormap.exit.thread.thread.sink.split ], [ %219, %265 ], [ 256, %make_gray_colormap.exit ], [ %145, %148 ], [ %614, %619 ]
   call void @png_set_alpha_mode_fixed(ptr noundef %8, i32 noundef 0, i32 noundef 220000) #12
   br label %make_ga_colormap.exit.thread.thread573
 
-make_ga_colormap.exit.thread.thread573:           ; preds = %._crit_edge, %89, %775, %92, %make_ga_colormap.exit.thread, %make_ga_colormap.exit.thread.thread
-  %.0394557569 = phi i32 [ %.0394557, %make_ga_colormap.exit.thread ], [ %.0394557570, %make_ga_colormap.exit.thread.thread ], [ 256, %92 ], [ 256, %775 ], [ 256, %89 ], [ 256, %._crit_edge ]
-  %.0384559567 = phi i32 [ %.0384559, %make_ga_colormap.exit.thread ], [ %.0384559568, %make_ga_colormap.exit.thread.thread ], [ 0, %92 ], [ 0, %775 ], [ 0, %89 ], [ 0, %._crit_edge ]
-  %.0383560565 = phi i32 [ %.0383560, %make_ga_colormap.exit.thread ], [ %.0383560566, %make_ga_colormap.exit.thread.thread ], [ %65, %92 ], [ %spec.store.select, %775 ], [ %65, %89 ], [ %spec.store.select, %._crit_edge ]
+make_ga_colormap.exit.thread.thread573:           ; preds = %89, %92, %775, %._crit_edge, %make_ga_colormap.exit.thread, %make_ga_colormap.exit.thread.thread
+  %.0394557569 = phi i32 [ %.0394557, %make_ga_colormap.exit.thread ], [ %.0394557570, %make_ga_colormap.exit.thread.thread ], [ 256, %._crit_edge ], [ 256, %775 ], [ 256, %92 ], [ 256, %89 ]
+  %.0384559567 = phi i32 [ %.0384559, %make_ga_colormap.exit.thread ], [ %.0384559568, %make_ga_colormap.exit.thread.thread ], [ 0, %._crit_edge ], [ 0, %775 ], [ 0, %92 ], [ 0, %89 ]
+  %.0383560565 = phi i32 [ %.0383560, %make_ga_colormap.exit.thread ], [ %.0383560566, %make_ga_colormap.exit.thread.thread ], [ %spec.store.select, %._crit_edge ], [ %spec.store.select, %775 ], [ %65, %92 ], [ %65, %89 ]
   %785 = getelementptr inbounds nuw i8, ptr %8, i64 520
   %786 = load i8, ptr %785, align 8
   %787 = icmp ugt i8 %786, 8

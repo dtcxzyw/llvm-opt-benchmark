@@ -2181,7 +2181,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver18ExtractAnimChannelEPP10aiNodeA
   br label %129
 
 129:                                              ; preds = %116, %119
-  %130 = phi i1 [ %128, %119 ], [ false, %116 ]
+  %130 = phi i1 [ false, %116 ], [ %128, %119 ]
   %or.cond = or i1 %50, %90
   %or.cond3 = or i1 %or.cond, %130
   br i1 %or.cond3, label %.thread, label %344

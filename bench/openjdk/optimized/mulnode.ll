@@ -2784,7 +2784,7 @@ tailrecurse:                                      ; preds = %106, %100
   br label %.loopexit
 
 .loopexit:                                        ; preds = %99, %105, %106, %78, %70, %64, %43, %40, %tailrecurse, %.lr.ph116, %.lr.ph, %5, %159, %131, %143, %125, %165
-  %.0 = phi i1 [ false, %125 ], [ false, %143 ], [ false, %165 ], [ false, %131 ], [ true, %159 ], [ false, %5 ], [ false, %.lr.ph ], [ false, %.lr.ph116 ], [ false, %tailrecurse ], [ false, %40 ], [ false, %43 ], [ false, %64 ], [ false, %70 ], [ false, %78 ], [ false, %106 ], [ false, %105 ], [ false, %99 ]
+  %.0 = phi i1 [ false, %125 ], [ false, %143 ], [ false, %131 ], [ true, %159 ], [ false, %165 ], [ false, %5 ], [ false, %.lr.ph ], [ false, %.lr.ph116 ], [ false, %tailrecurse ], [ false, %40 ], [ false, %43 ], [ false, %64 ], [ false, %70 ], [ false, %78 ], [ false, %106 ], [ false, %105 ], [ false, %99 ]
   ret i1 %.0
 }
 
@@ -3330,7 +3330,7 @@ define hidden noundef ptr @_ZN7MulNode24AndIL_add_shift_and_maskEP8PhaseGVN9Basi
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %38, %27, %18, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %38 ], [ null, %27 ], [ null, %18 ], [ %0, %.critedge.sink.split ]
+  %.0 = phi ptr [ null, %3 ], [ null, %27 ], [ null, %38 ], [ null, %18 ], [ %0, %.critedge.sink.split ]
   ret ptr %.0
 }
 

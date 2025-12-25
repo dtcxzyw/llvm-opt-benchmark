@@ -9148,8 +9148,8 @@ define internal fastcc void @_ZN12clap_builder6parser6parser6Parser5react17he346
           to label %90 unwind label %88
 
 .body:                                            ; preds = %744, %669, %605, %88, %753, %.thread341, %.thread313
-  %.1140 = phi i8 [ %.7, %.thread341 ], [ %.7, %669 ], [ %.8, %744 ], [ %.6, %.thread313 ], [ %.6, %605 ], [ %.8, %753 ], [ %.0139, %88 ]
-  %.pn168 = phi { ptr, i32 } [ %.pn158344, %.thread341 ], [ %lpad.thr_comm.split-lp348, %669 ], [ %lpad.thr_comm.split-lp371, %744 ], [ %.pn162316, %.thread313 ], [ %lpad.thr_comm.split-lp320, %605 ], [ %lpad.thr_comm370, %753 ], [ %89, %88 ]
+  %.1140 = phi i8 [ %.7, %.thread341 ], [ %.7, %669 ], [ %.8, %753 ], [ %.6, %.thread313 ], [ %.6, %605 ], [ %.8, %744 ], [ %.0139, %88 ]
+  %.pn168 = phi { ptr, i32 } [ %.pn158344, %.thread341 ], [ %lpad.thr_comm.split-lp348, %669 ], [ %lpad.thr_comm370, %753 ], [ %.pn162316, %.thread313 ], [ %lpad.thr_comm.split-lp320, %605 ], [ %lpad.thr_comm.split-lp371, %744 ], [ %89, %88 ]
   %87 = trunc nuw i8 %.1140 to i1
   br i1 %87, label %.thread, label %.thread277
 
@@ -9946,7 +9946,7 @@ _ZN12clap_builder6parser6parser6Parser15verify_num_args17hf07cb5a4e9e4655dE.exit
   br i1 %or.cond, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hcf15c03c5b193b03E.exit", label %347
 
 345:                                              ; preds = %651, %715, %751
-  %.2141 = phi i8 [ %.7, %715 ], [ %.8, %751 ], [ %.6, %651 ]
+  %.2141 = phi i8 [ %.6, %651 ], [ %.8, %751 ], [ %.7, %715 ]
   %346 = trunc nuw i8 %.2141 to i1
   br i1 %346, label %.thread283, label %.thread286
 
@@ -10528,7 +10528,7 @@ _ZN12clap_builder6parser6parser6Parser15verify_num_args17hf07cb5a4e9e4655dE.exit
   br label %.thread286
 
 575:                                              ; preds = %750, %713, %649
-  %.5 = phi i8 [ %.8, %750 ], [ %.7, %713 ], [ %.6, %649 ]
+  %.5 = phi i8 [ %.7, %713 ], [ %.8, %750 ], [ %.6, %649 ]
   %576 = trunc nuw i8 %.5 to i1
   br i1 %576, label %.thread307, label %.thread286
 

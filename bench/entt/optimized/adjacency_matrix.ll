@@ -2716,7 +2716,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290: ; preds = %_ZN7
   call void @_ZdlPvm(ptr noundef nonnull %70, i64 noundef 72) #26
   br label %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit292
 
-_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit292: ; preds = %76, %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290, %.thread388
+_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit292: ; preds = %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290, %76, %.thread388
   %.pn78.pn.pn.pn.pn.pn380 = phi { ptr, i32 } [ %.pn78.pn.pn.pn.pn.pn379, %.thread388 ], [ %.pn.pn.pn, %76 ], [ %.pn78.pn.pn.pn, %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit290 ]
   resume { ptr, i32 } %.pn78.pn.pn.pn.pn.pn380
 }

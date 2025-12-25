@@ -3542,7 +3542,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodeNumberEiPj.exit.thread
   br label %291
 
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE12DecodeNumberEiPj.exit: ; preds = %262, %269, %276
-  %.0172 = phi i32 [ %266, %262 ], [ %285, %276 ], [ %266, %269 ]
+  %.0172 = phi i32 [ %266, %269 ], [ %285, %276 ], [ %266, %262 ]
   %287 = lshr i32 %.sroa.0.0.copyload178, 1
   %288 = icmp ult i32 %287, %.0172
   br i1 %288, label %.thread193, label %291
@@ -5002,7 +5002,7 @@ _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit.thread
   br label %290
 
 _ZN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE12DecodeNumberEiPj.exit: ; preds = %261, %268, %275
-  %.0169 = phi i32 [ %265, %261 ], [ %284, %275 ], [ %265, %268 ]
+  %.0169 = phi i32 [ %265, %268 ], [ %284, %275 ], [ %265, %261 ]
   %286 = lshr i32 %.sroa.0.0.copyload175, 1
   %287 = icmp ult i32 %286, %.0169
   br i1 %287, label %.thread190, label %290

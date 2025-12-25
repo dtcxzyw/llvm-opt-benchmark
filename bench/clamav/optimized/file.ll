@@ -804,8 +804,8 @@ _ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %_ZN4File10DirectReadEPvm.exit, %_ZN4File10DirectReadEPvm.exit63, %.preheader, %71
-  %.144 = phi i32 [ %spec.select, %_ZN4File10DirectReadEPvm.exit63 ], [ %.043.ph, %71 ], [ %.043.ph, %.preheader ], [ %.043.ph, %_ZN4File10DirectReadEPvm.exit ], [ %.043.ph, %35 ]
-  %.041 = phi i32 [ %56, %_ZN4File10DirectReadEPvm.exit63 ], [ -1, %71 ], [ 0, %.preheader ], [ %33, %_ZN4File10DirectReadEPvm.exit ], [ -1, %35 ]
+  %.144 = phi i32 [ %.043.ph, %.preheader ], [ %.043.ph, %71 ], [ %spec.select, %_ZN4File10DirectReadEPvm.exit63 ], [ %.043.ph, %_ZN4File10DirectReadEPvm.exit ], [ %.043.ph, %35 ]
+  %.041 = phi i32 [ 0, %.preheader ], [ -1, %71 ], [ %56, %_ZN4File10DirectReadEPvm.exit63 ], [ %33, %_ZN4File10DirectReadEPvm.exit ], [ -1, %35 ]
   %72 = add nsw i32 %.041, %.144
   %73 = load i32, ptr %20, align 4, !tbaa !20
   %74 = icmp eq i32 %73, 1

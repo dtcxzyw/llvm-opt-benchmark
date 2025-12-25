@@ -3252,7 +3252,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp3GetINS_7GfVec3dEEEbPT_NS_
   br label %192
 
 190:                                              ; preds = %186, %188
-  %.0.i = phi i1 [ %189, %188 ], [ %187, %186 ]
+  %.0.i = phi i1 [ %187, %186 ], [ %189, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.0.i, label %192, label %191
 

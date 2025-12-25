@@ -8232,8 +8232,8 @@ default.unreachable:                              ; preds = %58
           to label %75 unwind label %.loopexit63
 
 70:                                               ; preds = %85, %74
-  %71 = phi ptr [ %.pr, %74 ], [ %80, %85 ]
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %74 ], [ %86, %85 ]
+  %71 = phi ptr [ %80, %85 ], [ %.pr, %74 ]
+  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %lpad.phi, %74 ]
   %72 = icmp eq ptr %71, null
   br i1 %72, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$core..cell..Ref$LT$fish..parser..Block$GT$$GT$$GT$17he931aafcfab29e6aE.exit41", label %73
 
@@ -10158,7 +10158,7 @@ define range(i64 0, 8589934594) i64 @_ZN4fish8builtins11commandline11commandline
   br label %.thread503
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke1117, %.invoke1116, %.invoke1115, %.invoke, %1201, %335, %249, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit479", %1282, %1232, %1202, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit474", %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit", %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit", %1113, %1094, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6b7cc77c254ed6dE.exit", %1055, %1034, %1015, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6b7cc77c254ed6dE.exit449", %997, %990, %988, %947, %944, %894, %873, %854, %727, %531, %503, %459, %428, %349, %336, %321, %316, %274, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %4
-  %.sroa.0229.0.ph.ph = phi i8 [ 1, %194 ], [ 1, %316 ], [ 1, %321 ], [ 1, %335 ], [ 1, %336 ], [ 1, %274 ], [ 1, %195 ], [ 1, %197 ], [ 1, %349 ], [ 1, %196 ], [ 1, %.invoke1115 ], [ 1, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit479" ], [ 1, %.invoke1116 ], [ 1, %1232 ], [ 1, %4 ], [ 1, %177 ], [ 1, %178 ], [ 1, %179 ], [ 1, %180 ], [ 1, %183 ], [ 1, %1282 ], [ 1, %181 ], [ 1, %1202 ], [ 1, %1201 ], [ 1, %185 ], [ 1, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit" ], [ 1, %192 ], [ 1, %459 ], [ 1, %190 ], [ 1, %531 ], [ 1, %944 ], [ 1, %187 ], [ 1, %1113 ], [ 1, %1034 ], [ 1, %188 ], [ 1, %1094 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6b7cc77c254ed6dE.exit" ], [ 1, %182 ], [ 1, %189 ], [ 1, %1055 ], [ 1, %1015 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6b7cc77c254ed6dE.exit449" ], [ 1, %.invoke ], [ 1, %997 ], [ 1, %990 ], [ 1, %988 ], [ 1, %947 ], [ 1, %.invoke1117 ], [ 1, %894 ], [ 1, %873 ], [ %.sroa.0229.5, %854 ], [ %.sroa.0229.5, %727 ], [ 1, %191 ], [ 1, %503 ], [ 1, %186 ], [ 1, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit" ], [ 1, %193 ], [ 1, %428 ], [ 1, %184 ], [ 1, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit474" ], [ 1, %249 ], [ 1, %198 ], [ 1, %203 ], [ 1, %202 ], [ 1, %201 ], [ 1, %200 ], [ 1, %199 ]
+  %.sroa.0229.0.ph.ph = phi i8 [ 1, %194 ], [ 1, %316 ], [ 1, %321 ], [ 1, %335 ], [ 1, %336 ], [ 1, %274 ], [ 1, %195 ], [ 1, %197 ], [ 1, %349 ], [ 1, %196 ], [ 1, %.invoke1115 ], [ 1, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit479" ], [ 1, %.invoke1116 ], [ 1, %1232 ], [ 1, %181 ], [ 1, %180 ], [ 1, %179 ], [ 1, %178 ], [ 1, %177 ], [ 1, %183 ], [ 1, %1282 ], [ 1, %4 ], [ 1, %1202 ], [ 1, %1201 ], [ 1, %185 ], [ 1, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit" ], [ 1, %192 ], [ 1, %459 ], [ 1, %190 ], [ 1, %531 ], [ 1, %944 ], [ 1, %187 ], [ 1, %1113 ], [ 1, %1034 ], [ 1, %188 ], [ 1, %1094 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6b7cc77c254ed6dE.exit" ], [ 1, %182 ], [ 1, %189 ], [ 1, %1055 ], [ 1, %1015 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd6b7cc77c254ed6dE.exit449" ], [ 1, %.invoke ], [ 1, %997 ], [ 1, %990 ], [ 1, %988 ], [ 1, %947 ], [ 1, %.invoke1117 ], [ 1, %894 ], [ 1, %873 ], [ %.sroa.0229.5, %854 ], [ %.sroa.0229.5, %727 ], [ 1, %191 ], [ 1, %503 ], [ 1, %186 ], [ 1, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$2$u5d$$GT$17h6fede06249a5c22cE.exit" ], [ 1, %193 ], [ 1, %428 ], [ 1, %184 ], [ 1, %"_ZN4core3ptr63drop_in_place$LT$$u5b$fish_printf..arg..Arg$u3b$$u20$1$u5d$$GT$17hb3555a6f2166fa7aE.exit474" ], [ 1, %249 ], [ 1, %198 ], [ 1, %203 ], [ 1, %202 ], [ 1, %201 ], [ 1, %200 ], [ 1, %199 ]
   %lpad.loopexit.split-lp526 = landingpad { ptr, i32 }
           cleanup
   br label %.thread503
@@ -49636,7 +49636,7 @@ _ZN4fish6reader14is_backslashed17h241a0e9c52893f60E.exit.i163: ; preds = %170, %
   br label %_ZN4fish6reader15unescaped_quote17h250306752b20ceb8E.exit168
 
 _ZN4fish6reader15unescaped_quote17h250306752b20ceb8E.exit168: ; preds = %_ZN4fish6reader14is_backslashed17h241a0e9c52893f60E.exit.i163, %163
-  %.sroa.0.0.i157 = phi i32 [ %spec.select.i166, %_ZN4fish6reader14is_backslashed17h241a0e9c52893f60E.exit.i163 ], [ %162, %163 ]
+  %.sroa.0.0.i157 = phi i32 [ %162, %163 ], [ %spec.select.i166, %_ZN4fish6reader14is_backslashed17h241a0e9c52893f60E.exit.i163 ]
   %.not238 = icmp eq i32 %.sroa.0.0.i157, %.sroa.036.0224
   br i1 %.not238, label %157, label %_ZN4fish6reader15unescaped_quote17h250306752b20ceb8E.exit168.thread
 
@@ -51244,7 +51244,7 @@ _ZN4fish6reader13get_best_rank17h7d0367615fbbd725E.exit.i: ; preds = %.noexc89.i
   br label %.body117.i
 
 .loopexit.split-lp194.i:                          ; preds = %377, %.split.i.i.i.i, %539, %375
-  %.sroa.037.2.ph.i = phi i8 [ 1, %377 ], [ 1, %.split.i.i.i.i ], [ 1, %375 ], [ %.sroa.037.6.i, %539 ]
+  %.sroa.037.2.ph.i = phi i8 [ 1, %375 ], [ 1, %.split.i.i.i.i ], [ 1, %377 ], [ %.sroa.037.6.i, %539 ]
   %lpad.loopexit.split-lp196.i = landingpad { ptr, i32 }
           cleanup
   br label %.body117.i
@@ -51371,7 +51371,7 @@ _ZN4fish6reader13get_best_rank17h7d0367615fbbd725E.exit.i: ; preds = %.noexc89.i
   br label %.loopexit.split-lp183.i
 
 .loopexit.split-lp183.loopexit.split-lp.loopexit.split-lp.i: ; preds = %538, %437, %421, %.invoke473.i
-  %.sroa.037.4.ph.ph.ph.i = phi i8 [ 1, %421 ], [ %.sroa.037.6.i, %538 ], [ 1, %437 ], [ 1, %.invoke473.i ]
+  %.sroa.037.4.ph.ph.ph.i = phi i8 [ 1, %421 ], [ %.sroa.037.6.i, %538 ], [ 1, %.invoke473.i ], [ 1, %437 ]
   %lpad.loopexit.split-lp191.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp183.i

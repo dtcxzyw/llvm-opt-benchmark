@@ -853,13 +853,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.loopexit331
 
 .loopexit331:                                     ; preds = %.loopexit, %.loopexit331.sink.split, %2
-  %.0103396 = phi i32 [ %.0103409, %.loopexit331.sink.split ], [ 0, %2 ], [ %.2105.ph, %.loopexit ]
-  %.0100390 = phi ptr [ %.0100410, %.loopexit331.sink.split ], [ null, %2 ], [ %.2102.ph, %.loopexit ]
-  %.097384 = phi ptr [ %.097411, %.loopexit331.sink.split ], [ null, %2 ], [ %.299.ph, %.loopexit ]
-  %.094378 = phi ptr [ %.094412, %.loopexit331.sink.split ], [ null, %2 ], [ %.296.ph, %.loopexit ]
-  %.091371 = phi i32 [ %.091413, %.loopexit331.sink.split ], [ 0, %2 ], [ %.293.ph, %.loopexit ]
-  %.084365 = phi i32 [ %.084415, %.loopexit331.sink.split ], [ 0, %2 ], [ %.286.ph, %.loopexit ]
-  %.0359 = phi i32 [ %.0416, %.loopexit331.sink.split ], [ 0, %2 ], [ %.2.ph, %.loopexit ]
+  %.0103396 = phi i32 [ 0, %2 ], [ %.0103409, %.loopexit331.sink.split ], [ %.2105.ph, %.loopexit ]
+  %.0100390 = phi ptr [ null, %2 ], [ %.0100410, %.loopexit331.sink.split ], [ %.2102.ph, %.loopexit ]
+  %.097384 = phi ptr [ null, %2 ], [ %.097411, %.loopexit331.sink.split ], [ %.299.ph, %.loopexit ]
+  %.094378 = phi ptr [ null, %2 ], [ %.094412, %.loopexit331.sink.split ], [ %.296.ph, %.loopexit ]
+  %.091371 = phi i32 [ 0, %2 ], [ %.091413, %.loopexit331.sink.split ], [ %.293.ph, %.loopexit ]
+  %.084365 = phi i32 [ 0, %2 ], [ %.084415, %.loopexit331.sink.split ], [ %.286.ph, %.loopexit ]
+  %.0359 = phi i32 [ 0, %2 ], [ %.0416, %.loopexit331.sink.split ], [ %.2.ph, %.loopexit ]
   %213 = load i32, ptr @log_destination, align 4, !tbaa !12
   switch i32 %213, label %218 [
     i32 -1, label %214

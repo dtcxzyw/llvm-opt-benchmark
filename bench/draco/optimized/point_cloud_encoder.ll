@@ -1839,9 +1839,9 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit186:          ; preds = %.critedge147, %.cri
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 .body163:                                         ; preds = %292, %291
-  %.sroa.17.1 = phi ptr [ %.sroa.17.4274, %292 ], [ %.sroa.17.4, %291 ]
-  %.sroa.0228.1 = phi ptr [ %.sroa.0228.4276, %292 ], [ %.sroa.0228.4, %291 ]
-  %.pn128.pn.pn.pn = phi { ptr, i32 } [ %.pn128.pn.pn278, %292 ], [ %.pn128.pn.pn, %291 ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.4, %291 ], [ %.sroa.17.4274, %292 ]
+  %.sroa.0228.1 = phi ptr [ %.sroa.0228.4, %291 ], [ %.sroa.0228.4276, %292 ]
+  %.pn128.pn.pn.pn = phi { ptr, i32 } [ %.pn128.pn.pn, %291 ], [ %.pn128.pn.pn278, %292 ]
   %.not.i.i.i188 = icmp eq ptr %.sroa.0228.1, null
   br i1 %.not.i.i.i188, label %_ZNSt6vectorIiSaIiEED2Ev.exit189, label %309
 

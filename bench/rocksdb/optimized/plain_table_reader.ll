@@ -5713,8 +5713,8 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %91, %_ZNKSt14defaul
   br label %.critedge
 
 128:                                              ; preds = %124, %120
-  %.142 = phi i32 [ %87, %124 ], [ %.041114, %120 ]
-  %.140 = phi i32 [ %.039115, %124 ], [ %87, %120 ]
+  %.142 = phi i32 [ %.041114, %120 ], [ %87, %124 ]
+  %.140 = phi i32 [ %87, %120 ], [ %.039115, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %129 = sub i32 %.142, %.140
   %130 = icmp ugt i32 %129, 1

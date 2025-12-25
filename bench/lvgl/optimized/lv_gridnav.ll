@@ -378,12 +378,12 @@ obj_is_focusable.exit.thread.i:                   ; preds = %obj_is_focusable.ex
   br label %.critedge
 
 152:                                              ; preds = %83, %141, %112, %51
-  %.0149 = phi ptr [ %84, %83 ], [ %114, %112 ], [ %52, %51 ], [ %143, %141 ]
+  %.0149 = phi ptr [ %52, %51 ], [ %84, %83 ], [ %114, %112 ], [ %143, %141 ]
   %.not178 = icmp eq ptr %.0149, null
   br i1 %.not178, label %.critedge, label %.thread211
 
-.thread211:                                       ; preds = %105, %79, %134, %72, %47, %40, %152
-  %.0149214 = phi ptr [ %.0149, %152 ], [ %107, %105 ], [ %81, %79 ], [ %136, %134 ], [ %74, %72 ], [ %49, %47 ], [ %42, %40 ]
+.thread211:                                       ; preds = %105, %40, %72, %134, %47, %79, %152
+  %.0149214 = phi ptr [ %.0149, %152 ], [ %107, %105 ], [ %42, %40 ], [ %74, %72 ], [ %136, %134 ], [ %49, %47 ], [ %81, %79 ]
   %153 = load ptr, ptr %10, align 8, !tbaa !12
   %.not179 = icmp eq ptr %.0149214, %153
   br i1 %.not179, label %.critedge, label %154

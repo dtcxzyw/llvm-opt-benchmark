@@ -1242,7 +1242,7 @@ _ZN5Ipopt8SmartPtrINS_6MatrixEED2Ev.exit:         ; preds = %_ZN5Ipopt8SmartPtrI
   ret i1 %29
 
 _ZN5Ipopt8SmartPtrINS_16NLPScalingObjectEED2Ev.exit82.thread: ; preds = %_ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEED2Ev.exit139, %411, %360, %358, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i125, %346, %221, %158, %148, %138, %231, %227, %164, %144, %154, %168
-  %.pn54.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn197 = phi { ptr, i32 } [ %349, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i125 ], [ %149, %154 ], [ %169, %168 ], [ %349, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %361, %360 ], [ %.pn54.pn.pn.pn.pn.pn, %411 ], [ %359, %358 ], [ %347, %346 ], [ %222, %221 ], [ %159, %158 ], [ %149, %148 ], [ %139, %138 ], [ %232, %231 ], [ %222, %227 ], [ %159, %164 ], [ %139, %144 ], [ %.pn54.pn.pn.pn.pn.pn, %_ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEED2Ev.exit139 ]
+  %.pn54.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn197 = phi { ptr, i32 } [ %349, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i125 ], [ %149, %154 ], [ %169, %168 ], [ %349, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127 ], [ %359, %358 ], [ %.pn54.pn.pn.pn.pn.pn, %411 ], [ %361, %360 ], [ %347, %346 ], [ %222, %221 ], [ %159, %158 ], [ %149, %148 ], [ %139, %138 ], [ %232, %231 ], [ %222, %227 ], [ %159, %164 ], [ %139, %144 ], [ %.pn54.pn.pn.pn.pn.pn, %_ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEED2Ev.exit139 ]
   %432 = load i32, ptr %60, align 8, !tbaa !3
   %433 = add nsw i32 %432, -1
   store i32 %433, ptr %60, align 8, !tbaa !3

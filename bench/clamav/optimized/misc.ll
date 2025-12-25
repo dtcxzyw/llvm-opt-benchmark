@@ -441,7 +441,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly captures(address_is_n
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge2, %.preheader, %35, %32, %14, %18, %29, %24
-  %.015 = phi ptr [ null, %32 ], [ null, %14 ], [ null, %24 ], [ null, %29 ], [ null, %18 ], [ %40, %35 ], [ @filelist.buff, %.preheader ], [ @filelist.buff, %.critedge2 ], [ @filelist.buff, %.lr.ph ]
+  %.015 = phi ptr [ %40, %35 ], [ null, %14 ], [ null, %24 ], [ null, %29 ], [ null, %18 ], [ null, %32 ], [ @filelist.buff, %.preheader ], [ @filelist.buff, %.critedge2 ], [ @filelist.buff, %.lr.ph ]
   ret ptr %.015
 }
 

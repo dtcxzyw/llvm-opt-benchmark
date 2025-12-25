@@ -264,8 +264,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_msync(i6
   br i1 %134, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %76, %70, %68, %80, %41, %.lr.ph.split.us.split.us.split.us, %45, %55, %53, %60, %130, %93, %88, %132, %30
-  %.ph8 = phi i32 [ %91, %93 ], [ %56, %55 ], [ 0, %30 ], [ 0, %41 ], [ %84, %88 ], [ %91, %132 ], [ %91, %130 ], [ %56, %60 ], [ %49, %53 ], [ 0, %45 ], [ 0, %.lr.ph.split.us.split.us.split.us ], [ %64, %68 ], [ %71, %76 ], [ %71, %70 ], [ %71, %80 ]
-  %.ph9 = phi i32 [ -16, %93 ], [ 0, %55 ], [ -12, %30 ], [ -12, %45 ], [ -12, %88 ], [ -12, %132 ], [ 0, %130 ], [ -12, %60 ], [ -12, %53 ], [ -12, %.lr.ph.split.us.split.us.split.us ], [ 0, %41 ], [ -12, %68 ], [ 0, %76 ], [ -16, %70 ], [ -12, %80 ]
+  %.ph8 = phi i32 [ %56, %55 ], [ %91, %93 ], [ 0, %30 ], [ 0, %41 ], [ %84, %88 ], [ %91, %132 ], [ %91, %130 ], [ %56, %60 ], [ %49, %53 ], [ 0, %45 ], [ 0, %.lr.ph.split.us.split.us.split.us ], [ %64, %68 ], [ %71, %76 ], [ %71, %70 ], [ %71, %80 ]
+  %.ph9 = phi i32 [ 0, %55 ], [ -16, %93 ], [ -12, %30 ], [ 0, %41 ], [ -12, %88 ], [ -12, %132 ], [ 0, %130 ], [ -12, %60 ], [ -12, %53 ], [ -12, %.lr.ph.split.us.split.us.split.us ], [ -12, %45 ], [ -12, %68 ], [ 0, %76 ], [ -16, %70 ], [ -12, %80 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #4
           to label %136 [label %135], !srcloc !6
 

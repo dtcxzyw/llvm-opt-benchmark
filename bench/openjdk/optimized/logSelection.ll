@@ -271,7 +271,7 @@ _ZNK9LogTagSet8containsEN6LogTag4typeE.exit:      ; preds = %19
   br i1 %exitcond.not, label %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit.thread, label %11, !llvm.loop !10
 
 _ZNK9LogTagSet8containsEN6LogTag4typeE.exit.thread: ; preds = %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit, %16, %14, %2, %8
-  %.06 = phi i1 [ false, %2 ], [ true, %8 ], [ false, %16 ], [ false, %14 ], [ true, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit ]
+  %.06 = phi i1 [ false, %2 ], [ false, %16 ], [ true, %8 ], [ false, %14 ], [ true, %_ZNK9LogTagSet8containsEN6LogTag4typeE.exit ]
   ret i1 %.06
 }
 

@@ -252,8 +252,8 @@ define i32 @av_base64_decode(ptr noundef %0, ptr noundef readonly captures(none)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.lr.ph, %.loopexit.split.loop.exit, %.loopexit.split.loop.exit131, %.loopexit.split.loop.exit133, %.loopexit.split.loop.exit135, %55, %128, %.loopexit114, %49
-  %.290 = phi ptr [ %.088, %.loopexit.split.loop.exit ], [ %.189.lcssa, %55 ], [ %131, %128 ], [ %6, %.loopexit114 ], [ %.189.lcssa, %49 ], [ %.088, %.loopexit.split.loop.exit135 ], [ %.088, %.loopexit.split.loop.exit133 ], [ %.088, %.loopexit.split.loop.exit131 ], [ %.189128, %.lr.ph ], [ %.189128, %14 ]
-  %.083 = phi i32 [ %132, %.loopexit.split.loop.exit ], [ %61, %55 ], [ %.184, %128 ], [ %.184, %.loopexit114 ], [ %54, %49 ], [ %135, %.loopexit.split.loop.exit135 ], [ %134, %.loopexit.split.loop.exit133 ], [ %133, %.loopexit.split.loop.exit131 ], [ %20, %14 ], [ %13, %.lr.ph ]
+  %.290 = phi ptr [ %.189.lcssa, %55 ], [ %.088, %.loopexit.split.loop.exit ], [ %131, %128 ], [ %6, %.loopexit114 ], [ %.189.lcssa, %49 ], [ %.088, %.loopexit.split.loop.exit135 ], [ %.088, %.loopexit.split.loop.exit133 ], [ %.088, %.loopexit.split.loop.exit131 ], [ %.189128, %.lr.ph ], [ %.189128, %14 ]
+  %.083 = phi i32 [ %61, %55 ], [ %132, %.loopexit.split.loop.exit ], [ %.184, %128 ], [ %.184, %.loopexit114 ], [ %54, %49 ], [ %135, %.loopexit.split.loop.exit135 ], [ %134, %.loopexit.split.loop.exit133 ], [ %133, %.loopexit.split.loop.exit131 ], [ %20, %14 ], [ %13, %.lr.ph ]
   %136 = and i32 %.083, 1
   %.not111 = icmp eq i32 %136, 0
   %137 = ptrtoint ptr %.290 to i64

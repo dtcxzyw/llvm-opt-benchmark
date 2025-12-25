@@ -3806,7 +3806,7 @@ if.then150:                                       ; preds = %if.end.i, %if.then.
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then150, %if.end16.thread.i, %delete.notnull.i, %do.end103, %do.end69, %do.end34, %do.body22, %_ZN10napi_env__13CheckGCAccessEv.exit
-  %status.0.sink = phi i32 [ 3, %do.end103 ], [ 2, %do.end69 ], [ 1, %do.end34 ], [ 1, %do.body22 ], [ 9, %if.end16.thread.i ], [ 9, %delete.notnull.i ], [ 1, %_ZN10napi_env__13CheckGCAccessEv.exit ], [ 0, %if.then150 ]
+  %status.0.sink = phi i32 [ 3, %do.end103 ], [ 2, %do.end69 ], [ 1, %do.end34 ], [ 1, %do.body22 ], [ 9, %delete.notnull.i ], [ 9, %if.end16.thread.i ], [ 1, %_ZN10napi_env__13CheckGCAccessEv.exit ], [ 0, %if.then150 ]
   %error_code1.i57 = getelementptr inbounds nuw i8, ptr %env, i64 156
   store i32 %status.0.sink, ptr %error_code1.i57, align 4
   %engine_error_code3.i58 = getelementptr inbounds nuw i8, ptr %env, i64 152

@@ -13989,11 +13989,11 @@ _ZN4entt9meta_typeD2Ev.exit76:                    ; preds = %_ZNSt12__shared_ptr
   unreachable
 
 _ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit:       ; preds = %403, %399, %386, %390
-  %408 = phi ptr [ %391, %390 ], [ %389, %386 ], [ null, %399 ], [ null, %403 ]
-  %409 = phi ptr [ %382, %390 ], [ %382, %386 ], [ %.ph108, %399 ], [ %.ph108, %403 ]
-  %410 = phi ptr [ %381, %390 ], [ %381, %386 ], [ %.ph107, %399 ], [ %.ph107, %403 ]
-  %411 = phi ptr [ %380, %390 ], [ %380, %386 ], [ %.ph, %399 ], [ %.ph, %403 ]
-  %412 = phi ptr [ null, %390 ], [ null, %386 ], [ %402, %399 ], [ %404, %403 ]
+  %408 = phi ptr [ %389, %386 ], [ %391, %390 ], [ null, %399 ], [ null, %403 ]
+  %409 = phi ptr [ %382, %386 ], [ %382, %390 ], [ %.ph108, %399 ], [ %.ph108, %403 ]
+  %410 = phi ptr [ %381, %386 ], [ %381, %390 ], [ %.ph107, %399 ], [ %.ph107, %403 ]
+  %411 = phi ptr [ %380, %386 ], [ %380, %390 ], [ %.ph, %399 ], [ %.ph, %403 ]
+  %412 = phi ptr [ null, %386 ], [ null, %390 ], [ %402, %399 ], [ %404, %403 ]
   invoke void %409(ptr dead_on_unwind writable sret(%"class.entt::meta_sequence_container::meta_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %410, ptr noundef %411, ptr noundef %408, ptr noundef %412, ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %.critedge35.thread unwind label %421
 

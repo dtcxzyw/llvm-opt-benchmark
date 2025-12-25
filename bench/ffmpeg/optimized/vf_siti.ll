@@ -755,9 +755,9 @@ calculate_motion.exit.thread:                     ; preds = %219, %convolve_sobe
   br label %._crit_edge45.thread78.i
 
 calculate_motion.exit:                            ; preds = %._crit_edge80.split.split.us85.i, %._crit_edge80.split.split.us.us.us.i, %._crit_edge80.split.us.us.us.split.i, %._crit_edge80.split.us.us.us.split.us.us.i, %calculate_motion.exit.loopexit112, %.preheader.lr.ph.i, %.preheader74.lr.ph.i
-  %349 = phi i32 [ %33, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %33, %.preheader.lr.ph.i ], [ %33, %.preheader74.lr.ph.i ], [ %33, %._crit_edge80.split.us.us.us.split.i ], [ %33, %._crit_edge80.split.split.us.us.us.i ], [ %301, %calculate_motion.exit.loopexit112 ], [ %33, %._crit_edge80.split.split.us85.i ]
-  %350 = phi ptr [ %23, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %23, %.preheader.lr.ph.i ], [ %23, %.preheader74.lr.ph.i ], [ %23, %._crit_edge80.split.us.us.us.split.i ], [ %23, %._crit_edge80.split.split.us.us.us.i ], [ %.pre130, %calculate_motion.exit.loopexit112 ], [ %23, %._crit_edge80.split.split.us85.i ]
-  %351 = phi ptr [ %221, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %221, %.preheader.lr.ph.i ], [ %286, %.preheader74.lr.ph.i ], [ %221, %._crit_edge80.split.us.us.us.split.i ], [ %221, %._crit_edge80.split.split.us.us.us.i ], [ %286, %calculate_motion.exit.loopexit112 ], [ %221, %._crit_edge80.split.split.us85.i ]
+  %349 = phi i32 [ %33, %.preheader74.lr.ph.i ], [ %33, %.preheader.lr.ph.i ], [ %33, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %33, %._crit_edge80.split.us.us.us.split.i ], [ %33, %._crit_edge80.split.split.us.us.us.i ], [ %301, %calculate_motion.exit.loopexit112 ], [ %33, %._crit_edge80.split.split.us85.i ]
+  %350 = phi ptr [ %23, %.preheader74.lr.ph.i ], [ %23, %.preheader.lr.ph.i ], [ %23, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %23, %._crit_edge80.split.us.us.us.split.i ], [ %23, %._crit_edge80.split.split.us.us.us.i ], [ %.pre130, %calculate_motion.exit.loopexit112 ], [ %23, %._crit_edge80.split.split.us85.i ]
+  %351 = phi ptr [ %286, %.preheader74.lr.ph.i ], [ %221, %.preheader.lr.ph.i ], [ %221, %._crit_edge80.split.us.us.us.split.us.us.i ], [ %221, %._crit_edge80.split.us.us.us.split.i ], [ %221, %._crit_edge80.split.split.us.us.us.i ], [ %286, %calculate_motion.exit.loopexit112 ], [ %221, %._crit_edge80.split.split.us85.i ]
   %352 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %353 = load i32, ptr %352, align 4, !tbaa !53
   %354 = add nsw i32 %353, -2

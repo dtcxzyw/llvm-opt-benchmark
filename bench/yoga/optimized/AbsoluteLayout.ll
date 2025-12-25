@@ -2582,7 +2582,7 @@ _ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit: ; preds = %191
   br label %.thread195
 
 _ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv.exit.thread: ; preds = %179, %175, %171, %167, %163, %.thread185
-  %198 = phi ptr [ %spec.select, %179 ], [ %0, %167 ], [ %0, %175 ], [ %0, %171 ], [ %0, %.thread185 ], [ %0, %163 ]
+  %198 = phi ptr [ %spec.select, %179 ], [ %0, %171 ], [ %0, %175 ], [ %0, %167 ], [ %0, %.thread185 ], [ %0, %163 ]
   %199 = icmp eq i8 %.0.i181188, 3
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 436
   %201 = getelementptr inbounds nuw i8, ptr %70, i64 436

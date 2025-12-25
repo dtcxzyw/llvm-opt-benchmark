@@ -7362,9 +7362,9 @@ _ZN4cvc58internal8RationalD2Ev.exit257:           ; preds = %776, %752
   br label %.loopexit.sink.split
 
 .body130:                                         ; preds = %.loopexit325, %224, %740, %738, %212
-  %.179 = phi ptr [ %214, %740 ], [ %214, %224 ], [ %197, %738 ], [ %197, %212 ], [ %.482302, %.loopexit325 ]
-  %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %741, %740 ], [ %.pn.i142, %224 ], [ %739, %738 ], [ %.pn5.i137, %212 ], [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn303, %.loopexit325 ]
-  %.1 = phi i1 [ false, %740 ], [ false, %224 ], [ false, %738 ], [ false, %212 ], [ %.4304, %.loopexit325 ]
+  %.179 = phi ptr [ %214, %224 ], [ %214, %740 ], [ %197, %738 ], [ %197, %212 ], [ %.482302, %.loopexit325 ]
+  %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.i142, %224 ], [ %741, %740 ], [ %739, %738 ], [ %.pn5.i137, %212 ], [ %.pn97.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn303, %.loopexit325 ]
+  %.1 = phi i1 [ false, %224 ], [ false, %740 ], [ false, %738 ], [ false, %212 ], [ %.4304, %.loopexit325 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %786 = icmp eq ptr %58, %.179

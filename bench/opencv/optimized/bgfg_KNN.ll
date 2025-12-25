@@ -2604,8 +2604,8 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   br i1 %exitcond268.not.i.us, label %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us, label %136, !llvm.loop !137
 
 _ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us: ; preds = %100, %133, %._crit_edge.i.us, %167, %.thread152.i.us, %.thread148.i.us.thread, %.thread148.i.us
-  %.1.shrunk.us = phi i1 [ %.not135.i.us90, %.thread148.i.us.thread ], [ %.not135.i.us, %._crit_edge.i.us ], [ %.not135.i.us, %.thread148.i.us ], [ true, %133 ], [ %.not135.i.us, %.thread152.i.us ], [ %.not135.i.us, %167 ], [ true, %100 ]
-  %.3.i.us = phi i32 [ 0, %.thread148.i.us.thread ], [ 0, %._crit_edge.i.us ], [ 0, %.thread148.i.us ], [ 1, %133 ], [ 2, %167 ], [ 0, %.thread152.i.us ], [ 1, %100 ]
+  %.1.shrunk.us = phi i1 [ %.not135.i.us, %.thread148.i.us ], [ %.not135.i.us, %._crit_edge.i.us ], [ %.not135.i.us90, %.thread148.i.us.thread ], [ true, %133 ], [ %.not135.i.us, %.thread152.i.us ], [ %.not135.i.us, %167 ], [ true, %100 ]
+  %.3.i.us = phi i32 [ 0, %.thread148.i.us ], [ 0, %._crit_edge.i.us ], [ 0, %.thread148.i.us.thread ], [ 1, %133 ], [ 2, %167 ], [ 0, %.thread152.i.us ], [ 1, %100 ]
   %.1.us = zext i1 %.1.shrunk.us to i8
   %169 = load i32, ptr %33, align 8, !tbaa !69
   %170 = load i32, ptr %34, align 4, !tbaa !70

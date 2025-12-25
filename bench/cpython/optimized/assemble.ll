@@ -1110,8 +1110,8 @@ makecode.exit:                                    ; preds = %Py_XDECREF.exit46.i
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %assemble_emit.exit.thread
 
-assemble_emit.exit.thread:                        ; preds = %188, %186, %assemble_emit_location.exit.i.i, %.lr.ph.i.i.i, %.lr.ph.i36.i.i, %275, %assemble_emit_location.exit38.i.i, %302, %159, %157, %Py_XDECREF.exit17.i.i, %323, %318, %315, %assemble_exception_table.exit.i, %326, %162, %makecode.exit, %assemble_emit.exit
-  %.015 = phi ptr [ %.057.i, %makecode.exit ], [ null, %assemble_emit.exit ], [ null, %162 ], [ null, %326 ], [ null, %275 ], [ null, %.lr.ph.i36.i.i ], [ null, %assemble_exception_table.exit.i ], [ null, %315 ], [ null, %318 ], [ null, %323 ], [ null, %Py_XDECREF.exit17.i.i ], [ null, %157 ], [ null, %159 ], [ null, %302 ], [ null, %.lr.ph.i.i.i ], [ null, %assemble_emit_location.exit.i.i ], [ null, %assemble_emit_location.exit38.i.i ], [ null, %186 ], [ null, %188 ]
+assemble_emit.exit.thread:                        ; preds = %188, %186, %assemble_emit_location.exit.i.i, %.lr.ph.i.i.i, %.lr.ph.i36.i.i, %275, %assemble_emit_location.exit38.i.i, %159, %157, %Py_XDECREF.exit17.i.i, %323, %318, %315, %assemble_exception_table.exit.i, %302, %326, %162, %makecode.exit, %assemble_emit.exit
+  %.015 = phi ptr [ %.057.i, %makecode.exit ], [ null, %assemble_emit.exit ], [ null, %162 ], [ null, %326 ], [ null, %302 ], [ null, %.lr.ph.i36.i.i ], [ null, %assemble_exception_table.exit.i ], [ null, %315 ], [ null, %318 ], [ null, %323 ], [ null, %Py_XDECREF.exit17.i.i ], [ null, %157 ], [ null, %159 ], [ null, %275 ], [ null, %.lr.ph.i.i.i ], [ null, %assemble_emit_location.exit.i.i ], [ null, %assemble_emit_location.exit38.i.i ], [ null, %186 ], [ null, %188 ]
   %515 = load ptr, ptr %19, align 8, !tbaa !36
   %.not.i.i31 = icmp eq ptr %515, null
   br i1 %.not.i.i31, label %Py_XDECREF.exit.i33, label %516

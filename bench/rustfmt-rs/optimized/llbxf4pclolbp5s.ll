@@ -29695,7 +29695,7 @@ common.resume:                                    ; preds = %527, %164, %.loopex
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %.invoke, %489, %472, %433, %.loopexit.i.i.i60.i, %416, %.invoke.i, %408, %.loopexit142.i.i.i.i.i.i.i, %393, %.loopexit143.i.i.i.i.i.i.i, %362, %334, %322, %315, %306, %299, %290, %283, %.loopexit149.i.i.i.i.i.i.i, %260, %.loopexit.i.i.i.i, %242, %.loopexit.i.i.thread.i, %.loopexit33.i.i.i64, %221, %.loopexit35.i.i.i
-  %.1.ph.ph.i = phi i8 [ %.5.i, %489 ], [ 1, %472 ], [ 1, %242 ], [ 1, %.loopexit35.i.i.i ], [ 1, %221 ], [ 1, %.loopexit33.i.i.i64 ], [ 1, %.loopexit.i.i.thread.i ], [ 1, %.invoke ], [ 1, %.loopexit.i.i.i.i ], [ 1, %260 ], [ 1, %.loopexit149.i.i.i.i.i.i.i ], [ 1, %283 ], [ 1, %290 ], [ 1, %299 ], [ 1, %306 ], [ 1, %315 ], [ 1, %322 ], [ 1, %.loopexit142.i.i.i.i.i.i.i ], [ 1, %416 ], [ 1, %433 ], [ 1, %334 ], [ 1, %.loopexit.i.i.i60.i ], [ 1, %408 ], [ 1, %362 ], [ 1, %.loopexit143.i.i.i.i.i.i.i ], [ 1, %.invoke.i ], [ 1, %393 ]
+  %.1.ph.ph.i = phi i8 [ %.5.i, %489 ], [ 1, %472 ], [ 1, %242 ], [ 1, %.loopexit35.i.i.i ], [ 1, %221 ], [ 1, %.loopexit33.i.i.i64 ], [ 1, %.loopexit.i.i.thread.i ], [ 1, %416 ], [ 1, %.loopexit.i.i.i.i ], [ 1, %260 ], [ 1, %.loopexit149.i.i.i.i.i.i.i ], [ 1, %283 ], [ 1, %290 ], [ 1, %299 ], [ 1, %306 ], [ 1, %315 ], [ 1, %322 ], [ 1, %.invoke.i ], [ 1, %.loopexit.i.i.i60.i ], [ 1, %433 ], [ 1, %334 ], [ 1, %.invoke ], [ 1, %408 ], [ 1, %362 ], [ 1, %.loopexit143.i.i.i.i.i.i.i ], [ 1, %.loopexit142.i.i.i.i.i.i.i ], [ 1, %393 ]
   %lpad.loopexit.split-lp120.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i

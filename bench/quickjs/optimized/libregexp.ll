@@ -3303,8 +3303,8 @@ re_parse_char_class.exit:                         ; preds = %301, %.thread61.i, 
   br label %398
 
 398:                                              ; preds = %re_parse_expect.exit443.thread, %re_parse_expect.exit.thread, %.critedge, %391, %392, %352, %354, %267, %110, %33
-  %.0331 = phi i32 [ %368, %392 ], [ %368, %391 ], [ %283, %352 ], [ %283, %354 ], [ %32, %33 ], [ %32, %.critedge ], [ %74, %re_parse_expect.exit.thread ], [ %.1332, %110 ], [ %137, %re_parse_expect.exit443.thread ], [ %272, %267 ]
-  %.0320 = phi i32 [ %366, %392 ], [ %366, %391 ], [ %281, %352 ], [ %281, %354 ], [ %30, %33 ], [ %30, %.critedge ], [ %79, %re_parse_expect.exit.thread ], [ %.1321, %110 ], [ %157, %re_parse_expect.exit443.thread ], [ %270, %267 ]
+  %.0331 = phi i32 [ %368, %392 ], [ %368, %391 ], [ %272, %267 ], [ %283, %354 ], [ %32, %33 ], [ %32, %.critedge ], [ %74, %re_parse_expect.exit.thread ], [ %.1332, %110 ], [ %137, %re_parse_expect.exit443.thread ], [ %283, %352 ]
+  %.0320 = phi i32 [ %366, %392 ], [ %366, %391 ], [ %270, %267 ], [ %281, %354 ], [ %30, %33 ], [ %30, %.critedge ], [ %79, %re_parse_expect.exit.thread ], [ %.1321, %110 ], [ %157, %re_parse_expect.exit443.thread ], [ %281, %352 ]
   %399 = icmp sgt i32 %.0320, -1
   %.pre576 = load ptr, ptr %13, align 8, !tbaa !7
   br i1 %399, label %400, label %.thread519

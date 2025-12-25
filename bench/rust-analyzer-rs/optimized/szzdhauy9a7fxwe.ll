@@ -13160,8 +13160,8 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17h09a4c8a8
   br label %30
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %108, %94, %.invoke.i
-  %.1155.ph.i = phi i8 [ 1, %.invoke ], [ %.10.i, %108 ], [ 1, %94 ], [ 1, %.invoke.i ]
-  %.1.ph.i = phi i8 [ 1, %.invoke ], [ 0, %108 ], [ 1, %94 ], [ 1, %.invoke.i ]
+  %.1155.ph.i = phi i8 [ 1, %94 ], [ %.10.i, %108 ], [ 1, %.invoke ], [ 1, %.invoke.i ]
+  %.1.ph.i = phi i8 [ 1, %94 ], [ 0, %108 ], [ 1, %.invoke ], [ 1, %.invoke.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -14111,10 +14111,10 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17h30d1e09b
   br label %58
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hca2d2da577c20024E.exit.i", %177, %.thread9.i.i.i.i.i.i434.i, %.thread9.i.i.i.i.i.i425.i, %.thread9.i.i.i.i.i.i414.i, %.thread9.i.i.i.i.i.i.i, %.invoke.i
-  %.1327.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i434.i ], [ 1, %177 ], [ 1, %.thread9.i.i.i.i.i.i425.i ], [ %.9335.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hca2d2da577c20024E.exit.i" ], [ 1, %.thread9.i.i.i.i.i.i414.i ], [ 1, %.invoke ]
-  %.1313.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i434.i ], [ 1, %177 ], [ 1, %.thread9.i.i.i.i.i.i425.i ], [ %.9321.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hca2d2da577c20024E.exit.i" ], [ 1, %.thread9.i.i.i.i.i.i414.i ], [ 1, %.invoke ]
-  %.1301.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i434.i ], [ 1, %177 ], [ 1, %.thread9.i.i.i.i.i.i425.i ], [ %.10310.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hca2d2da577c20024E.exit.i" ], [ 1, %.thread9.i.i.i.i.i.i414.i ], [ 1, %.invoke ]
-  %.1298.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i434.i ], [ 1, %177 ], [ 1, %.thread9.i.i.i.i.i.i425.i ], [ 0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hca2d2da577c20024E.exit.i" ], [ 1, %.thread9.i.i.i.i.i.i414.i ], [ 1, %.invoke ]
+  %.1327.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i434.i ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %177 ], [ 1, %.thread9.i.i.i.i.i.i425.i ], [ %.9335.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hca2d2da577c20024E.exit.i" ], [ 1, %.thread9.i.i.i.i.i.i414.i ], [ 1, %.invoke ]
+  %.1313.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i434.i ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %177 ], [ 1, %.thread9.i.i.i.i.i.i425.i ], [ %.9321.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hca2d2da577c20024E.exit.i" ], [ 1, %.thread9.i.i.i.i.i.i414.i ], [ 1, %.invoke ]
+  %.1301.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i434.i ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %177 ], [ 1, %.thread9.i.i.i.i.i.i425.i ], [ %.10310.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hca2d2da577c20024E.exit.i" ], [ 1, %.thread9.i.i.i.i.i.i414.i ], [ 1, %.invoke ]
+  %.1298.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i434.i ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %177 ], [ 1, %.thread9.i.i.i.i.i.i425.i ], [ 0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hca2d2da577c20024E.exit.i" ], [ 1, %.thread9.i.i.i.i.i.i414.i ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %58
@@ -15284,10 +15284,10 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17h6a533ce2
   br label %62
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h8fd4c10bdd279054E.exit.i", %204, %197, %184, %174, %.thread9.i.i.i.i.i.i403.i, %.thread9.i.i.i.i.i.i392.i, %.thread9.i.i.i.i.i.i.i, %.invoke.i
-  %.1293.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i403.i ], [ 1, %184 ], [ 1, %.thread9.i.i.i.i.i.i392.i ], [ 1, %197 ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %204 ], [ %.9301.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h8fd4c10bdd279054E.exit.i" ], [ 1, %174 ], [ 1, %.invoke ]
-  %.1281.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i403.i ], [ 1, %184 ], [ 1, %.thread9.i.i.i.i.i.i392.i ], [ 1, %197 ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %204 ], [ %.9289.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h8fd4c10bdd279054E.exit.i" ], [ 1, %174 ], [ 1, %.invoke ]
-  %.1270.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i403.i ], [ 1, %184 ], [ 1, %.thread9.i.i.i.i.i.i392.i ], [ 1, %197 ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %204 ], [ %.10279.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h8fd4c10bdd279054E.exit.i" ], [ 1, %174 ], [ 1, %.invoke ]
-  %.1268.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i403.i ], [ 1, %184 ], [ 1, %.thread9.i.i.i.i.i.i392.i ], [ 1, %197 ], [ 1, %.invoke.i ], [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %204 ], [ 0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h8fd4c10bdd279054E.exit.i" ], [ 1, %174 ], [ 1, %.invoke ]
+  %.1293.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %184 ], [ 1, %.thread9.i.i.i.i.i.i392.i ], [ 1, %.thread9.i.i.i.i.i.i403.i ], [ 1, %.invoke.i ], [ 1, %197 ], [ 1, %204 ], [ %.9301.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h8fd4c10bdd279054E.exit.i" ], [ 1, %174 ], [ 1, %.invoke ]
+  %.1281.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %184 ], [ 1, %.thread9.i.i.i.i.i.i392.i ], [ 1, %.thread9.i.i.i.i.i.i403.i ], [ 1, %.invoke.i ], [ 1, %197 ], [ 1, %204 ], [ %.9289.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h8fd4c10bdd279054E.exit.i" ], [ 1, %174 ], [ 1, %.invoke ]
+  %.1270.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %184 ], [ 1, %.thread9.i.i.i.i.i.i392.i ], [ 1, %.thread9.i.i.i.i.i.i403.i ], [ 1, %.invoke.i ], [ 1, %197 ], [ 1, %204 ], [ %.10279.i, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h8fd4c10bdd279054E.exit.i" ], [ 1, %174 ], [ 1, %.invoke ]
+  %.1268.ph.i = phi i8 [ 1, %.thread9.i.i.i.i.i.i.i ], [ 1, %184 ], [ 1, %.thread9.i.i.i.i.i.i392.i ], [ 1, %.thread9.i.i.i.i.i.i403.i ], [ 1, %.invoke.i ], [ 1, %197 ], [ 1, %204 ], [ 0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h8fd4c10bdd279054E.exit.i" ], [ 1, %174 ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %62
@@ -18635,8 +18635,8 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17h9a9e808f
   br label %73
 
 .loopexit.split-lp:                               ; preds = %.invoke2919, %.invoke2918, %225, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h3ea8487365bf7972E.exit28", %237, %.thread9.i.i.i.i.i.i, %165, %229
-  %.sroa.0134.01585 = phi i64 [ %.sroa.0134.0, %.invoke2919 ], [ 0, %229 ], [ %.sroa.0134.0, %237 ], [ %.sroa.0134.0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h3ea8487365bf7972E.exit28" ], [ %.sroa.0134.0, %165 ], [ 1, %225 ], [ %.sroa.0134.0, %.invoke2918 ], [ %.sroa.0134.0, %.thread9.i.i.i.i.i.i ]
-  %.1369.i.ph = phi i8 [ 1, %.invoke2919 ], [ 1, %229 ], [ 1, %237 ], [ 0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h3ea8487365bf7972E.exit28" ], [ 1, %165 ], [ 1, %225 ], [ 1, %.invoke2918 ], [ 1, %.thread9.i.i.i.i.i.i ]
+  %.sroa.0134.01585 = phi i64 [ %.sroa.0134.0, %.invoke2919 ], [ 0, %229 ], [ %.sroa.0134.0, %237 ], [ %.sroa.0134.0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h3ea8487365bf7972E.exit28" ], [ %.sroa.0134.0, %.invoke2918 ], [ 1, %225 ], [ %.sroa.0134.0, %.thread9.i.i.i.i.i.i ], [ %.sroa.0134.0, %165 ]
+  %.1369.i.ph = phi i8 [ 1, %.invoke2919 ], [ 1, %229 ], [ 1, %237 ], [ 0, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h3ea8487365bf7972E.exit28" ], [ 1, %.invoke2918 ], [ 1, %225 ], [ 1, %.thread9.i.i.i.i.i.i ], [ 1, %165 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -19883,8 +19883,8 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17haf70d1b9
   br label %.loopexit.i
 
 .loopexit.split-lp.i:                             ; preds = %.invoke, %"_ZN4core3ptr64drop_in_place$LT$cargo_metadata..messages..ArtifactDebuginfo$GT$17h338c7e517fb0f619E.exit.i", %130, %123, %110, %100, %.invoke.i
-  %.1154.ph.i = phi i8 [ 1, %123 ], [ 1, %.invoke.i ], [ 1, %100 ], [ 1, %130 ], [ %.6159.i, %"_ZN4core3ptr64drop_in_place$LT$cargo_metadata..messages..ArtifactDebuginfo$GT$17h338c7e517fb0f619E.exit.i" ], [ 1, %110 ], [ 1, %.invoke ]
-  %.1152.ph.i = phi i8 [ 1, %123 ], [ 1, %.invoke.i ], [ 1, %100 ], [ 1, %130 ], [ 0, %"_ZN4core3ptr64drop_in_place$LT$cargo_metadata..messages..ArtifactDebuginfo$GT$17h338c7e517fb0f619E.exit.i" ], [ 1, %110 ], [ 1, %.invoke ]
+  %.1154.ph.i = phi i8 [ 1, %110 ], [ 1, %.invoke.i ], [ 1, %123 ], [ 1, %130 ], [ %.6159.i, %"_ZN4core3ptr64drop_in_place$LT$cargo_metadata..messages..ArtifactDebuginfo$GT$17h338c7e517fb0f619E.exit.i" ], [ 1, %100 ], [ 1, %.invoke ]
+  %.1152.ph.i = phi i8 [ 1, %110 ], [ 1, %.invoke.i ], [ 1, %123 ], [ 1, %130 ], [ 0, %"_ZN4core3ptr64drop_in_place$LT$cargo_metadata..messages..ArtifactDebuginfo$GT$17h338c7e517fb0f619E.exit.i" ], [ 1, %100 ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i
@@ -20782,9 +20782,9 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17hd1445986
   br label %.loopexit
 
 .loopexit.split-lp:                               ; preds = %.invoke262, %.invoke, %.noexc18, %157, %.thread9.i.i.i.i.i.i
-  %.1283.i.ph = phi i8 [ 1, %.invoke262 ], [ 1, %157 ], [ %.11.i, %.noexc18 ], [ 1, %.invoke ], [ 1, %.thread9.i.i.i.i.i.i ]
-  %.1272.i.ph = phi i8 [ 1, %.invoke262 ], [ 1, %157 ], [ %.7278.i, %.noexc18 ], [ 1, %.invoke ], [ 1, %.thread9.i.i.i.i.i.i ]
-  %.1270.i.ph = phi i8 [ 1, %.invoke262 ], [ 1, %157 ], [ 0, %.noexc18 ], [ 1, %.invoke ], [ 1, %.thread9.i.i.i.i.i.i ]
+  %.1283.i.ph = phi i8 [ 1, %.invoke262 ], [ 1, %157 ], [ %.11.i, %.noexc18 ], [ 1, %.thread9.i.i.i.i.i.i ], [ 1, %.invoke ]
+  %.1272.i.ph = phi i8 [ 1, %.invoke262 ], [ 1, %157 ], [ %.7278.i, %.noexc18 ], [ 1, %.thread9.i.i.i.i.i.i ], [ 1, %.invoke ]
+  %.1270.i.ph = phi i8 [ 1, %.invoke262 ], [ 1, %157 ], [ 0, %.noexc18 ], [ 1, %.thread9.i.i.i.i.i.i ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit

@@ -1044,7 +1044,7 @@ fdt_rw_probe_.exit.thread.sink.split:             ; preds = %69, %62
   br label %fdt_rw_probe_.exit.thread
 
 fdt_rw_probe_.exit.thread:                        ; preds = %fdt_rw_probe_.exit.thread.sink.split, %30, %10, %5, %67, %53
-  %.1 = phi i32 [ %8, %5 ], [ %68, %67 ], [ %61, %53 ], [ -10, %10 ], [ -12, %30 ], [ 0, %fdt_rw_probe_.exit.thread.sink.split ]
+  %.1 = phi i32 [ -10, %10 ], [ %68, %67 ], [ %61, %53 ], [ %8, %5 ], [ -12, %30 ], [ 0, %fdt_rw_probe_.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
@@ -1669,7 +1669,7 @@ define i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   br label %237
 
 237:                                              ; preds = %.sink.split, %112, %84, %78, %72, %3
-  %.1 = phi i32 [ %79, %78 ], [ -3, %84 ], [ -3, %112 ], [ %73, %72 ], [ %24, %3 ], [ 0, %.sink.split ]
+  %.1 = phi i32 [ %79, %78 ], [ -3, %84 ], [ %24, %3 ], [ %73, %72 ], [ -3, %112 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }

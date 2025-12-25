@@ -819,7 +819,7 @@ sw.epilog:                                        ; preds = %CheckAndLoop, %Loop
   br i1 %cmp195, label %while.body.lr.ph, label %return, !llvm.loop !4
 
 return:                                           ; preds = %sw.epilog, %if.then19, %if.end147, %if.end112, %entry, %if.end, %invoke.cont38
-  %retval.0 = phi i1 [ false, %invoke.cont38 ], [ true, %if.end147 ], [ false, %if.end ], [ false, %entry ], [ %matched.0.ph200, %if.then19 ], [ true, %if.end112 ], [ %matched.2, %sw.epilog ]
+  %retval.0 = phi i1 [ false, %invoke.cont38 ], [ false, %if.end ], [ true, %if.end147 ], [ false, %entry ], [ %matched.0.ph200, %if.then19 ], [ true, %if.end112 ], [ %matched.2, %sw.epilog ]
   ret i1 %retval.0
 }
 

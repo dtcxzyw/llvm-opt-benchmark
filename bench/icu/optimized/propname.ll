@@ -352,7 +352,7 @@ define noundef i32 @_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii(i32 
   br label %.thread70
 
 .thread70:                                        ; preds = %39, %33, %.lr.ph, %23, %.thread70.sink.split, %.preheader, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %.lr.ph ], [ %47, %.thread70.sink.split ], [ 0, %.preheader ], [ 0, %23 ], [ 0, %33 ], [ 0, %39 ]
+  %.0 = phi i32 [ 0, %2 ], [ %47, %.thread70.sink.split ], [ 0, %.lr.ph ], [ 0, %.preheader ], [ 0, %23 ], [ 0, %33 ], [ 0, %39 ]
   ret i32 %.0
 }
 
@@ -691,7 +691,7 @@ _ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit: ; preds = %.thread
   br label %_ZN6icu_7712PropNameData7getNameEPKci.exit
 
 _ZN6icu_7712PropNameData7getNameEPKci.exit:       ; preds = %4, %14, %65, %59, %49, %.lr.ph.i, %.preheader.i, %24, %._crit_edge.i, %79, %75, %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit, %_ZN6icu_7712PropNameData12findPropertyEi.exit
-  %.0 = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ null, %49 ], [ null, %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit ], [ null, %79 ], [ null, %75 ], [ %..010.i, %._crit_edge.i ], [ null, %.preheader.i ], [ null, %24 ], [ null, %65 ], [ null, %.lr.ph.i ], [ null, %59 ], [ null, %14 ], [ null, %4 ]
+  %.0 = phi ptr [ null, %_ZN6icu_7712PropNameData12findPropertyEi.exit ], [ null, %65 ], [ null, %_ZN6icu_7712PropNameData26findPropertyValueNameGroupEii.exit ], [ null, %79 ], [ null, %75 ], [ %..010.i, %._crit_edge.i ], [ null, %49 ], [ null, %24 ], [ null, %.preheader.i ], [ null, %.lr.ph.i ], [ null, %59 ], [ null, %14 ], [ null, %4 ]
   ret ptr %.0
 }
 

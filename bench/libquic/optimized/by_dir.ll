@@ -329,8 +329,8 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   br i1 %104, label %.split.split, label %.thread
 
 .thread:                                          ; preds = %.split.split, %.lr.ph187, %.split.us, %.lr.ph190, %.split.split.us, %.split.us.preheader, %.split.split.us.preheader
-  %.1162 = phi ptr [ null, %.split.us.preheader ], [ %.1.ph, %.split.split.us.preheader ], [ %.1.ph, %.lr.ph190 ], [ null, %.lr.ph187 ], [ %.1.ph, %.split.split.us ], [ null, %.split.us ], [ null, %.split.split ]
-  %.us-phi = phi i32 [ 0, %.split.us.preheader ], [ %.196.ph, %.split.split.us.preheader ], [ %90, %.split.split.us ], [ %.297.us186, %.lr.ph187 ], [ %.297.us137189, %.lr.ph190 ], [ %70, %.split.us ], [ %spec.select, %.split.split ]
+  %.1162 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ null, %.lr.ph187 ], [ %.1.ph, %.lr.ph190 ], [ %.1.ph, %.split.split.us ], [ null, %.split.us ], [ null, %.split.split ]
+  %.us-phi = phi i32 [ %.196.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.297.us186, %.lr.ph187 ], [ %90, %.split.split.us ], [ %.297.us137189, %.lr.ph190 ], [ %70, %.split.us ], [ %spec.select, %.split.split ]
   %106 = load ptr, ptr %30, align 8, !tbaa !36
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %107) #14

@@ -39802,7 +39802,7 @@ _ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i276: ; pred
   br label %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit279
 
 _ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit279:           ; preds = %156, %187, %.loopexit286, %296, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i276, %314, %.critedge, %.critedge213
-  %.1156 = phi i32 [ 0, %.critedge ], [ 1, %.loopexit286 ], [ 0, %.critedge213 ], [ 0, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i276 ], [ 0, %314 ], [ 1, %296 ], [ 1, %187 ], [ 1, %156 ]
+  %.1156 = phi i32 [ 0, %.critedge ], [ 0, %_ZSt8__copy_nIPyxS0_ET1_T_T0_S1_St26random_access_iterator_tag.exit.i276 ], [ 0, %.critedge213 ], [ 0, %314 ], [ 1, %.loopexit286 ], [ 1, %296 ], [ 1, %187 ], [ 1, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.1156
 }
@@ -41590,7 +41590,7 @@ _ZSt6fill_nIPyxiET_S1_T0_RKT1_.exit348:           ; preds = %.lr.ph.i.i.i.i343, 
   br i1 %374, label %.lr.ph394, label %.loopexit, !llvm.loop !816
 
 .loopexit:                                        ; preds = %191, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit302, %340, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit338, %.lr.ph394, %.critedge234
-  %.1168 = phi i32 [ 0, %.critedge234 ], [ 0, %.lr.ph394 ], [ 1, %340 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit338 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit302 ], [ 1, %191 ]
+  %.1168 = phi i32 [ 0, %.critedge234 ], [ 1, %340 ], [ 0, %.lr.ph394 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit338 ], [ 1, %_ZSt6copy_nIPyxS0_ET1_T_T0_S1_.exit302 ], [ 1, %191 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.1168
 }

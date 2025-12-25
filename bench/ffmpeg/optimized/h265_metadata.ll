@@ -934,8 +934,8 @@ h265_metadata_update_vps.exit:                    ; preds = %.sink.split.i.i, %1
   br label %h265_metadata_update_sps.exit.thread
 
 h265_metadata_deduce_crop.exit.i:                 ; preds = %417, %393
-  %.0143.i = phi i32 [ %363, %393 ], [ %.16992.i.i, %417 ]
-  %.0142.i = phi i32 [ %365, %393 ], [ %.1.i.i, %417 ]
+  %.0143.i = phi i32 [ %.16992.i.i, %417 ], [ %363, %393 ]
+  %.0142.i = phi i32 [ %.1.i.i, %417 ], [ %365, %393 ]
   %421 = getelementptr inbounds nuw i8, ptr %210, i64 433
   %422 = load i8, ptr %421, align 1, !tbaa !111
   %.not133.i = icmp eq i8 %422, 0

@@ -1501,8 +1501,8 @@ _ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i: ; preds = %49
   br label %57
 
 57:                                               ; preds = %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i, %49, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i
-  %.sroa.0.4 = phi ptr [ %25, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i ], [ null, %49 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ]
-  %.sroa.3.4 = phi ptr [ %56, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i ], [ null, %49 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ]
+  %.sroa.0.4 = phi ptr [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ], [ null, %49 ], [ %25, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i ]
+  %.sroa.3.4 = phi ptr [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i ], [ null, %49 ], [ %56, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %58
 
@@ -5479,9 +5479,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
   br label %196
 
 196:                                              ; preds = %189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112
-  %.sroa.6190.1 = phi i64 [ %195, %189 ], [ %184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ]
-  %.sroa.0189.1 = phi ptr [ %194, %189 ], [ %183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ]
-  %.0 = phi i32 [ 4, %189 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ]
+  %.sroa.6190.1 = phi i64 [ %184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ], [ %195, %189 ]
+  %.sroa.0189.1 = phi ptr [ %183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ], [ %194, %189 ]
+  %.0 = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ], [ 4, %189 ]
   %197 = icmp eq i64 %.sroa.6190.1, 0
   br i1 %197, label %.thread, label %198
 

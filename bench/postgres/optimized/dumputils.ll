@@ -1326,7 +1326,7 @@ AddAcl.exit386:                                   ; preds = %124
   tail call fastcc void @AddAcl(ptr noundef nonnull %6, ptr noundef nonnull %.str.46.sink, ptr noundef %2)
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %282, %211, %187, %300, %125, %AddAcl.exit386
+.critedge:                                        ; preds = %.critedge.sink.split, %187, %300, %282, %125, %211, %AddAcl.exit386
   tail call void @resetPQExpBuffer(ptr noundef %5) #8
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.66) #8
   %.not370 = icmp eq ptr %2, null
@@ -1336,11 +1336,11 @@ AddAcl.exit386:                                   ; preds = %124
   br i1 %.6, label %.thread13, label %dequoteAclUserName.exit.thread
 
 .thread13.sink.split:                             ; preds = %261, %251, %241, %231, %218, %163, %153, %140
-  %.str.52.sink = phi ptr [ @.str.36, %163 ], [ @.str.46, %153 ], [ @.str.52, %218 ], [ @.str.46, %140 ], [ @.str.36, %231 ], [ @.str.36, %251 ], [ @.str.36, %241 ], [ @.str.35, %261 ]
-  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull %.str.52.sink, ptr noundef %2)
+  %.str.35.sink = phi ptr [ @.str.36, %251 ], [ @.str.36, %163 ], [ @.str.46, %153 ], [ @.str.36, %241 ], [ @.str.52, %218 ], [ @.str.36, %231 ], [ @.str.46, %140 ], [ @.str.35, %261 ]
+  tail call fastcc void @AddAcl(ptr noundef %5, ptr noundef nonnull %.str.35.sink, ptr noundef %2)
   br label %.thread13
 
-.thread13:                                        ; preds = %.thread13.sink.split, %212, %188, %283, %301, %131, %303
+.thread13:                                        ; preds = %.thread13.sink.split, %212, %283, %301, %188, %131, %303
   tail call void @resetPQExpBuffer(ptr noundef %6) #8
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %5, ptr noundef nonnull @.str.66) #8
   %.not369 = icmp eq ptr %2, null
@@ -1351,8 +1351,8 @@ AddAcl.exit386:                                   ; preds = %124
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %.sink94, ptr noundef nonnull @.str.67, ptr noundef nonnull %2) #8
   br label %dequoteAclUserName.exit.thread
 
-dequoteAclUserName.exit.thread:                   ; preds = %.loopexit.i, %.preheader.i, %.loopexit.i376, %.critedge, %.thread13, %303, %131, %301, %283, %188, %212, %AddAcl.exit386, %125, %300, %187, %211, %282, %239, %249, %229, %216, %204, %259, %180, %161, %151, %138, %113, %293, %275, %.thread.sink.split, %17
-  %.0 = phi i1 [ true, %.critedge ], [ false, %.preheader.i ], [ false, %17 ], [ false, %.loopexit.i376 ], [ true, %.thread.sink.split ], [ true, %275 ], [ true, %293 ], [ true, %113 ], [ true, %138 ], [ true, %151 ], [ true, %161 ], [ true, %180 ], [ true, %259 ], [ true, %204 ], [ true, %216 ], [ true, %229 ], [ true, %249 ], [ true, %239 ], [ true, %282 ], [ true, %211 ], [ true, %187 ], [ true, %300 ], [ true, %125 ], [ true, %AddAcl.exit386 ], [ true, %212 ], [ true, %188 ], [ true, %283 ], [ true, %301 ], [ true, %131 ], [ true, %303 ], [ true, %.thread13 ], [ false, %.loopexit.i ]
+dequoteAclUserName.exit.thread:                   ; preds = %.loopexit.i, %.preheader.i, %.loopexit.i376, %.critedge, %.thread13, %303, %131, %188, %301, %283, %212, %AddAcl.exit386, %211, %125, %282, %300, %187, %239, %229, %216, %259, %204, %180, %161, %151, %138, %249, %113, %275, %293, %.thread.sink.split, %17
+  %.0 = phi i1 [ true, %.critedge ], [ false, %.preheader.i ], [ false, %17 ], [ false, %.loopexit.i376 ], [ true, %.thread.sink.split ], [ true, %293 ], [ true, %275 ], [ true, %113 ], [ true, %249 ], [ true, %138 ], [ true, %151 ], [ true, %161 ], [ true, %180 ], [ true, %204 ], [ true, %259 ], [ true, %216 ], [ true, %229 ], [ true, %239 ], [ true, %187 ], [ true, %300 ], [ true, %282 ], [ true, %125 ], [ true, %211 ], [ true, %AddAcl.exit386 ], [ true, %212 ], [ true, %283 ], [ true, %301 ], [ true, %188 ], [ true, %131 ], [ true, %303 ], [ true, %.thread13 ], [ false, %.loopexit.i ]
   tail call void @pg_free(ptr noundef %8) #8
   ret i1 %.0
 }

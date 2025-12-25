@@ -1330,9 +1330,9 @@ gt.exit.thread.i:                                 ; preds = %97, %90
   br i1 %exitcond.not.i76, label %.loopexit.i74, label %543, !llvm.loop !51
 
 findInside.exit:                                  ; preds = %.loopexit.i74, %570, %594, %.loopexit, %.thread, %529
-  %.sink236 = phi ptr [ %11, %529 ], [ %11, %.loopexit ], [ %530, %570 ], [ %64, %.thread ], [ %530, %594 ], [ %530, %.loopexit.i74 ]
-  %.sink = phi ptr [ %36, %529 ], [ %36, %.loopexit ], [ %531, %570 ], [ %65, %.thread ], [ %531, %594 ], [ %531, %.loopexit.i74 ]
-  %.060 = phi i32 [ 0, %529 ], [ 0, %.loopexit ], [ 0, %570 ], [ 1, %.thread ], [ 0, %594 ], [ 1, %.loopexit.i74 ]
+  %.sink236 = phi ptr [ %11, %529 ], [ %11, %.loopexit ], [ %64, %.thread ], [ %530, %570 ], [ %530, %594 ], [ %530, %.loopexit.i74 ]
+  %.sink = phi ptr [ %36, %529 ], [ %36, %.loopexit ], [ %65, %.thread ], [ %531, %570 ], [ %531, %594 ], [ %531, %.loopexit.i74 ]
+  %.060 = phi i32 [ 0, %529 ], [ 0, %.loopexit ], [ 1, %.thread ], [ 0, %570 ], [ 0, %594 ], [ 1, %.loopexit.i74 ]
   tail call void @free(ptr noundef %.sink236) #16
   tail call void @free(ptr noundef %.sink) #16
   ret i32 %.060
@@ -1761,7 +1761,7 @@ online.exit204.thread.sink.split:                 ; preds = %176, %177, %32, %46
   br label %online.exit204.thread
 
 online.exit204.thread:                            ; preds = %online.exit204.thread.sink.split, %154, %161, %159, %28, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %154 ], [ 0, %159 ], [ 0, %161 ], [ 1, %28 ], [ 1, %online.exit204.thread.sink.split ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %154 ], [ 1, %28 ], [ 0, %161 ], [ 0, %159 ], [ 1, %online.exit204.thread.sink.split ]
   ret i32 %.0
 }
 

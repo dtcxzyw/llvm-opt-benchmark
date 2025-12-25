@@ -470,7 +470,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %56 = add nsw i32 %.4131.lcssa, -14
   br label %.thread178
 
-.thread178:                                       ; preds = %52, %._crit_edge, %15
+.thread178:                                       ; preds = %._crit_edge, %52, %15
   %.2136 = phi i32 [ %.0134231, %15 ], [ %47, %._crit_edge ], [ %55, %52 ]
   %.2129 = phi i32 [ %.0127232, %15 ], [ %48, %._crit_edge ], [ %56, %52 ]
   %.1125 = phi i32 [ %.0124233, %15 ], [ %.2126.lcssa, %._crit_edge ], [ %.2126.lcssa, %52 ]

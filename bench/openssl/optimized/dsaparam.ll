@@ -423,11 +423,11 @@ define dso_local range(i32 0, 2) i32 @dsaparam_main(i32 noundef %0, ptr noundef 
   br label %161
 
 161:                                              ; preds = %12, %156, %158, %134, %.loopexit121
-  %.067119 = phi i32 [ 1, %.loopexit121 ], [ 0, %134 ], [ 0, %12 ], [ 0, %158 ], [ 0, %156 ]
-  %.072117 = phi ptr [ %.072.ph, %.loopexit121 ], [ %66, %134 ], [ null, %12 ], [ %138, %158 ], [ %138, %156 ]
-  %.074115 = phi ptr [ null, %.loopexit121 ], [ null, %134 ], [ null, %12 ], [ %151, %158 ], [ %151, %156 ]
-  %.076113 = phi ptr [ %.076.ph, %.loopexit121 ], [ %.177, %134 ], [ null, %12 ], [ %.177, %158 ], [ %.177, %156 ]
-  %.078111 = phi ptr [ %.078.ph, %.loopexit121 ], [ %117, %134 ], [ null, %12 ], [ %117, %158 ], [ %117, %156 ]
+  %.067119 = phi i32 [ 1, %.loopexit121 ], [ 0, %158 ], [ 0, %12 ], [ 0, %134 ], [ 0, %156 ]
+  %.072117 = phi ptr [ %.072.ph, %.loopexit121 ], [ %138, %158 ], [ null, %12 ], [ %66, %134 ], [ %138, %156 ]
+  %.074115 = phi ptr [ null, %.loopexit121 ], [ %151, %158 ], [ null, %12 ], [ null, %134 ], [ %151, %156 ]
+  %.076113 = phi ptr [ %.076.ph, %.loopexit121 ], [ %.177, %158 ], [ null, %12 ], [ %.177, %134 ], [ %.177, %156 ]
+  %.078111 = phi ptr [ %.078.ph, %.loopexit121 ], [ %117, %158 ], [ null, %12 ], [ %117, %134 ], [ %117, %156 ]
   call void @BIO_free_all(ptr noundef %.078111) #3
   call void @EVP_PKEY_CTX_free(ptr noundef %.072117) #3
   call void @EVP_PKEY_free(ptr noundef %.074115) #3

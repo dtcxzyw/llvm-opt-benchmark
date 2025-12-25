@@ -44074,7 +44074,7 @@ thread-pre-split.i.i:                             ; preds = %118
   br label %_ZN10polars_sql7context10SQLContext20process_limit_offset17h9dcf2b10e9509549E.exit
 
 .loopexit52.i:                                    ; preds = %.preheader83.i.i, %155, %.preheader79.i.i, %183, %.preheader.i131.i, %.preheader81.i.i
-  %.sroa.739.0.ph.i = phi i64 [ %160, %155 ], [ 0, %.preheader81.i.i ], [ %188, %183 ], [ %.sroa.023.0.i.i, %.preheader79.i.i ], [ 0, %.preheader.i131.i ], [ %.sroa.023.3.i.i, %.preheader83.i.i ]
+  %.sroa.739.0.ph.i = phi i64 [ %188, %183 ], [ 0, %.preheader81.i.i ], [ 0, %.preheader.i131.i ], [ %160, %155 ], [ %.sroa.023.0.i.i, %.preheader79.i.i ], [ %.sroa.023.3.i.i, %.preheader83.i.i ]
   call void @_ZN11polars_lazy5frame9LazyFrame5slice17h2810675dc67eabc9E(ptr noalias noundef nonnull sret([336 x i8]) align 16 captures(none) dereferenceable(336) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(336) %20, i64 noundef %.sroa.739.0.ph.i, i32 noundef -1), !noalias !3375
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !3339
   br label %_ZN10polars_sql7context10SQLContext20process_limit_offset17h9dcf2b10e9509549E.exit
@@ -46480,10 +46480,10 @@ _ZN10polars_sql7context10SQLContext16get_frame_schema17h686b7e7c99fa94daE.exit85
   br label %.thread213
 
 .loopexit.split-lp:                               ; preds = %485, %486, %497, %502, %519, %526, %541, %542, %543
-  %.sroa.0147.0.i.ph = phi i8 [ 1, %502 ], [ 1, %485 ], [ 1, %519 ], [ 1, %526 ], [ 1, %542 ], [ 0, %543 ], [ 1, %541 ], [ 1, %497 ], [ 1, %486 ]
-  %.sroa.0149.8.i.ph = phi i8 [ 0, %502 ], [ 0, %485 ], [ %.sroa.0149.9.i, %519 ], [ %.sroa.0149.9.i, %526 ], [ %.sroa.0149.9.i, %542 ], [ %.sroa.0149.9.i, %543 ], [ %.sroa.0149.9.i, %541 ], [ 0, %497 ], [ 1, %486 ]
-  %.sroa.0152.18.i.ph = phi i8 [ 1, %502 ], [ 0, %485 ], [ 0, %519 ], [ 0, %526 ], [ 0, %542 ], [ 0, %543 ], [ 0, %541 ], [ 1, %497 ], [ 1, %486 ]
-  %.sroa.0160.2.i.ph = phi i1 [ true, %502 ], [ true, %485 ], [ true, %519 ], [ true, %526 ], [ false, %542 ], [ false, %543 ], [ false, %541 ], [ true, %497 ], [ true, %486 ]
+  %.sroa.0147.0.i.ph = phi i8 [ 1, %502 ], [ 1, %485 ], [ 1, %519 ], [ 1, %526 ], [ 1, %542 ], [ 0, %543 ], [ 1, %541 ], [ 1, %486 ], [ 1, %497 ]
+  %.sroa.0149.8.i.ph = phi i8 [ 0, %502 ], [ 0, %485 ], [ %.sroa.0149.9.i, %519 ], [ %.sroa.0149.9.i, %526 ], [ %.sroa.0149.9.i, %542 ], [ %.sroa.0149.9.i, %543 ], [ %.sroa.0149.9.i, %541 ], [ 1, %486 ], [ 0, %497 ]
+  %.sroa.0152.18.i.ph = phi i8 [ 1, %502 ], [ 0, %485 ], [ 0, %519 ], [ 0, %526 ], [ 0, %542 ], [ 0, %543 ], [ 0, %541 ], [ 1, %486 ], [ 1, %497 ]
+  %.sroa.0160.2.i.ph = phi i1 [ true, %502 ], [ true, %485 ], [ true, %519 ], [ true, %526 ], [ false, %542 ], [ false, %543 ], [ false, %541 ], [ true, %486 ], [ true, %497 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %487
@@ -50380,7 +50380,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17he9d953c35baf2b2dE.exit.i.i: ; p
           to label %393 unwind label %392, !noalias !4042
 
 392:                                              ; preds = %412, %398, %391
-  %.sroa.09.0.ph.i = phi i1 [ false, %412 ], [ true, %398 ], [ true, %391 ]
+  %.sroa.09.0.ph.i = phi i1 [ true, %398 ], [ false, %412 ], [ true, %391 ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread12.i
@@ -54731,7 +54731,7 @@ _ZN10polars_sql7context10SQLContext16get_frame_schema17h686b7e7c99fa94daE.exit: 
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %._crit_edge, %129, %141, %446
-  %.sroa.049.13.ph = phi i8 [ 0, %129 ], [ 0, %._crit_edge ], [ 1, %446 ], [ 0, %141 ]
+  %.sroa.049.13.ph = phi i8 [ 0, %141 ], [ 0, %._crit_edge ], [ 1, %446 ], [ 0, %129 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

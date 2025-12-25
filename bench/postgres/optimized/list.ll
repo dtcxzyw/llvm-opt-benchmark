@@ -2486,7 +2486,7 @@ list_member.exit:                                 ; preds = %.lr.ph23.i, %.loope
   br i1 %53, label %.lr.ph.i, label %.critedge
 
 .critedge:                                        ; preds = %list_member.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ null, %10 ], [ %27, %12 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member.exit ]
+  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member.exit ]
   ret ptr %.0
 }
 
@@ -2586,7 +2586,7 @@ list_member_ptr.exit:                             ; preds = %44, %.loopexit
   br i1 %51, label %.lr.ph.i, label %.critedge
 
 .critedge:                                        ; preds = %list_member_ptr.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ null, %10 ], [ %27, %12 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member_ptr.exit ]
+  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member_ptr.exit ]
   ret ptr %.0
 }
 
@@ -2686,7 +2686,7 @@ list_member_int.exit:                             ; preds = %44, %.loopexit
   br i1 %51, label %.lr.ph.i, label %.critedge
 
 .critedge:                                        ; preds = %list_member_int.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ null, %10 ], [ %27, %12 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member_int.exit ]
+  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member_int.exit ]
   ret ptr %.0
 }
 
@@ -2786,7 +2786,7 @@ list_member_oid.exit:                             ; preds = %44, %.loopexit
   br i1 %51, label %.lr.ph.i, label %.critedge
 
 .critedge:                                        ; preds = %list_member_oid.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ null, %10 ], [ %27, %12 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member_oid.exit ]
+  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.lr.ph ], [ null, %.preheader ], [ %.1, %list_member_oid.exit ]
   ret ptr %.0
 }
 

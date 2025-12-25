@@ -4000,7 +4000,7 @@ define range(i32 -1, 1) i32 @H5E__print2(i64 noundef %0, ptr noundef %1) #0 {
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %H5E__print.exit.thread
 
-H5E__print.exit.thread:                           ; preds = %21, %23
+H5E__print.exit.thread:                           ; preds = %23, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
@@ -4069,7 +4069,7 @@ define range(i32 -1, 1) i32 @H5E__print(ptr noundef %0, ptr noundef %1, i1 nound
   br label %25
 
 25:                                               ; preds = %.sink.split, %19, %16, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %16 ], [ 0, %19 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %19 ], [ 0, %16 ], [ 0, %3 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

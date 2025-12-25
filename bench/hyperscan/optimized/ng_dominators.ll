@@ -396,8 +396,8 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit106
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit106: ; preds = %.thread, %66
-  %.sroa.0136.0145 = phi ptr [ %.sroa.0136.0148194, %.thread ], [ %.sroa.0136.0151, %66 ]
-  %.pn50.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn50.pn.pn.pn.pn.pn.pn.pn.pn196, %.thread ], [ %.pn50.pn.pn.pn.pn.pn, %66 ]
+  %.sroa.0136.0145 = phi ptr [ %.sroa.0136.0151, %66 ], [ %.sroa.0136.0148194, %.thread ]
+  %.pn50.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn50.pn.pn.pn.pn.pn, %66 ], [ %.pn50.pn.pn.pn.pn.pn.pn.pn.pn196, %.thread ]
   %.not.i.i.i107 = icmp eq ptr %.sroa.0136.0145, null
   br i1 %.not.i.i.i107, label %_ZNSt6vectorImSaImEED2Ev.exit108, label %67
 
@@ -681,8 +681,8 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit106
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit106: ; preds = %.thread, %68
-  %.sroa.0136.0145 = phi ptr [ %.sroa.0136.0148194, %.thread ], [ %.sroa.0136.0151, %68 ]
-  %.pn50.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn50.pn.pn.pn.pn.pn.pn.pn.pn196, %.thread ], [ %.pn50.pn.pn.pn.pn.pn, %68 ]
+  %.sroa.0136.0145 = phi ptr [ %.sroa.0136.0151, %68 ], [ %.sroa.0136.0148194, %.thread ]
+  %.pn50.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn50.pn.pn.pn.pn.pn, %68 ], [ %.pn50.pn.pn.pn.pn.pn.pn.pn.pn196, %.thread ]
   %.not.i.i.i107 = icmp eq ptr %.sroa.0136.0145, null
   br i1 %.not.i.i.i107, label %_ZNSt6vectorImSaImEED2Ev.exit108, label %69
 

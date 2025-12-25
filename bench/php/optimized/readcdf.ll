@@ -774,7 +774,7 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %cdf_file_summary_info.exit.thread51
 
-cdf_file_summary_info.exit.thread51:              ; preds = %184, %138, %128, %119, %110, %100, %.lr.ph131.i.i, %218, %.critedge115.i.i
+cdf_file_summary_info.exit.thread51:              ; preds = %184, %138, %128, %119, %110, %100, %.lr.ph131.i.i, %.critedge115.i.i, %218
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %222 = load ptr, ptr %18, align 8, !tbaa !36

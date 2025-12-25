@@ -1789,8 +1789,8 @@ Py_DECREF.exit95:                                 ; preds = %247, %249, %252
   br label %254
 
 254:                                              ; preds = %242, %Py_DECREF.exit95
-  %.2114 = phi i64 [ %.1113, %Py_DECREF.exit95 ], [ %243, %242 ]
-  %.2 = phi ptr [ %253, %Py_DECREF.exit95 ], [ %.3, %242 ]
+  %.2114 = phi i64 [ %243, %242 ], [ %.1113, %Py_DECREF.exit95 ]
+  %.2 = phi ptr [ %.3, %242 ], [ %253, %Py_DECREF.exit95 ]
   %255 = icmp eq ptr %.2, null
   br i1 %255, label %256, label %.thread121
 

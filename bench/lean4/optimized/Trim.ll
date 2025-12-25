@@ -145,7 +145,7 @@ lean_dec.exit29:                                  ; preds = %lean_obj_tag.exit, 
   br label %lean_dec.exit30.backedge
 
 lean_dec.exit30.backedge:                         ; preds = %43, %47, %53, %55, %56
-  %.023.be = phi ptr [ %50, %56 ], [ %50, %55 ], [ %50, %53 ], [ %48, %47 ], [ %46, %43 ]
+  %.023.be = phi ptr [ %50, %55 ], [ %50, %56 ], [ %50, %53 ], [ %48, %47 ], [ %46, %43 ]
   br label %lean_dec.exit30
 
 47:                                               ; preds = %40

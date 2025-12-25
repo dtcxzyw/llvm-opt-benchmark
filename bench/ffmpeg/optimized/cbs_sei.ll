@@ -330,7 +330,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   unreachable
 
 cbs_sei_get_unit.exit:                            ; preds = %22, %61, %57, %53
-  %.033 = phi ptr [ %47, %53 ], [ %47, %57 ], [ %47, %61 ], [ %23, %22 ]
+  %.033 = phi ptr [ %47, %53 ], [ %47, %61 ], [ %47, %57 ], [ %23, %22 ]
   %.val = load ptr, ptr %9, align 8, !tbaa !24
   %.val.val = load i32, ptr %.val, align 8, !tbaa !28
   switch i32 %.val.val, label %cbs_sei_get_unit.exit.thread [

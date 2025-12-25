@@ -34866,7 +34866,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   br label %454
 
 450:                                              ; preds = %203, %556, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.7442130522521287225.exit146.thread, %578, %559, %565, %567, %"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E.exit.i141"
-  %.0.ph = phi i8 [ 1, %203 ], [ 1, %"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E.exit.i141" ], [ 1, %567 ], [ 1, %578 ], [ 1, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.7442130522521287225.exit146.thread ], [ 1, %559 ], [ %.2, %556 ], [ 1, %565 ]
+  %.0.ph = phi i8 [ 1, %203 ], [ 1, %"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E.exit.i141" ], [ 1, %567 ], [ 1, %578 ], [ 1, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.7442130522521287225.exit146.thread ], [ 1, %565 ], [ %.2, %556 ], [ 1, %559 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %451 = trunc nuw i8 %.0.ph to i1

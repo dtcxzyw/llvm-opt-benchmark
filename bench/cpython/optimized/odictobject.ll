@@ -1684,7 +1684,7 @@ _odict_add_tail.exit.i:                           ; preds = %54, %52
   br label %_odict_add_new_node.exit
 
 _odict_add_new_node.exit:                         ; preds = %_odict_add_tail.exit.i, %34, %31, %29, %61, %4
-  %.0 = phi i32 [ -1, %61 ], [ %5, %4 ], [ 0, %_odict_add_tail.exit.i ], [ 0, %34 ], [ 0, %31 ], [ 0, %29 ]
+  %.0 = phi i32 [ -1, %61 ], [ %5, %4 ], [ 0, %_odict_add_tail.exit.i ], [ 0, %34 ], [ 0, %29 ], [ 0, %31 ]
   ret i32 %.0
 }
 

@@ -10219,7 +10219,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL5ConstENS1_8hash_opsIS4_EEE7entry_tE
   br label %.critedge36.i.i
 
 .critedge36.i.i:                                  ; preds = %.thread.i.i, %.critedge36.sink.split.i.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit166.i
-  %cond.i = phi i1 [ true, %.critedge36.sink.split.i.i ], [ false, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit166.i ], [ false, %.thread.i.i ]
+  %cond.i = phi i1 [ false, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit166.i ], [ true, %.critedge36.sink.split.i.i ], [ false, %.thread.i.i ]
   %3975 = load ptr, ptr %3270, align 8, !tbaa !298
   %3976 = load ptr, ptr %3271, align 8, !tbaa !292
   %.not4.i.i.i.i.i.i.i159 = icmp eq ptr %3975, %3976

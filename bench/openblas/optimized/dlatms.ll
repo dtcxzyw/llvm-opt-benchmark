@@ -2082,8 +2082,8 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond1687.not, label %.loopexit1278, label %924, !llvm.loop !45
 
 .loopexit1278:                                    ; preds = %._crit_edge1501, %885, %868, %.lr.ph1533, %.loopexit, %._crit_edge1495, %839, %820
-  %.191026 = phi i32 [ %spec.select1182, %868 ], [ %spec.select1184, %885 ], [ %.01007, %820 ], [ %.01007, %839 ], [ %.01007, %._crit_edge1495 ], [ %.01007, %.loopexit ], [ %.01007, %.lr.ph1533 ], [ %.01007, %._crit_edge1501 ]
-  %.18 = phi i32 [ %spec.select1183, %868 ], [ %spec.select1185, %885 ], [ %.0997, %820 ], [ %.0997, %839 ], [ %.0997, %._crit_edge1495 ], [ %.0997, %.loopexit ], [ %.0997, %.lr.ph1533 ], [ %.0997, %._crit_edge1501 ]
+  %.191026 = phi i32 [ %spec.select1184, %885 ], [ %spec.select1182, %868 ], [ %.01007, %820 ], [ %.01007, %839 ], [ %.01007, %._crit_edge1495 ], [ %.01007, %.loopexit ], [ %.01007, %.lr.ph1533 ], [ %.01007, %._crit_edge1501 ]
+  %.18 = phi i32 [ %spec.select1185, %885 ], [ %spec.select1183, %868 ], [ %.0997, %820 ], [ %.0997, %839 ], [ %.0997, %._crit_edge1495 ], [ %.0997, %.loopexit ], [ %.0997, %.lr.ph1533 ], [ %.0997, %._crit_edge1501 ]
   %or.cond19 = or i1 %94, %95
   br i1 %or.cond19, label %.loopexit1278.thread, label %957
 

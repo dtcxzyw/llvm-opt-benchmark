@@ -1030,8 +1030,8 @@ define range(i32 0, 2) i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %.not19.i162.i, label %ddSiftingBackward.exit.thread.i, label %.lr.ph26.i159.i, !llvm.loop !92
 
 ddSiftingBackward.exit.thread.i:                  ; preds = %144, %.lr.ph26.i159.i, %123, %.lr.ph26.i146.i, %78, %.lr.ph26.i.i, %109
-  %.194.i = phi ptr [ null, %78 ], [ %110, %123 ], [ null, %109 ], [ null, %.lr.ph26.i.i ], [ %110, %.lr.ph26.i146.i ], [ %127, %.lr.ph26.i159.i ], [ %127, %144 ]
-  %.1.i = phi ptr [ %65, %78 ], [ %105, %123 ], [ %105, %109 ], [ %65, %.lr.ph26.i.i ], [ %105, %.lr.ph26.i146.i ], [ %131, %.lr.ph26.i159.i ], [ %131, %144 ]
+  %.194.i = phi ptr [ %110, %123 ], [ null, %109 ], [ null, %78 ], [ null, %.lr.ph26.i.i ], [ %110, %.lr.ph26.i146.i ], [ %127, %.lr.ph26.i159.i ], [ %127, %144 ]
+  %.1.i = phi ptr [ %105, %123 ], [ %105, %109 ], [ %65, %78 ], [ %65, %.lr.ph26.i.i ], [ %105, %.lr.ph26.i146.i ], [ %131, %.lr.ph26.i159.i ], [ %131, %144 ]
   %.not120188.i = icmp eq ptr %.1.i, null
   br i1 %.not120188.i, label %.preheader.i, label %.lr.ph.i
 
@@ -1564,7 +1564,7 @@ ddSiftingBackward.exit:                           ; preds = %.lr.ph26.i, %149
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %158, %.loopexit.sink.split, %.loopexit189.i, %4
-  %.0 = phi i32 [ 0, %.loopexit.sink.split ], [ 0, %.loopexit189.i ], [ 1, %4 ], [ 1, %158 ], [ 1, %17 ]
+  %.0 = phi i32 [ 0, %.loopexit189.i ], [ 0, %.loopexit.sink.split ], [ 1, %4 ], [ 1, %158 ], [ 1, %17 ]
   ret i32 %.0
 }
 

@@ -16818,7 +16818,7 @@ define void @_ZN14ruff_workspace8resolver20python_files_in_path17h17cb09e0f2e908
   br label %.loopexit.split-lp128
 
 .loopexit.split-lp128.loopexit.split-lp:          ; preds = %_ZN14ruff_workspace8resolver20WalkPythonFilesState6finish17he839b6caee460847E.exit, %135, %128, %119, %106, %63, %60, %47
-  %.sroa.048.2.ph.ph = phi i1 [ true, %106 ], [ true, %63 ], [ true, %60 ], [ true, %119 ], [ true, %128 ], [ false, %_ZN14ruff_workspace8resolver20WalkPythonFilesState6finish17he839b6caee460847E.exit ], [ true, %135 ], [ true, %47 ]
+  %.sroa.048.2.ph.ph = phi i1 [ true, %106 ], [ true, %63 ], [ true, %128 ], [ true, %119 ], [ true, %60 ], [ false, %_ZN14ruff_workspace8resolver20WalkPythonFilesState6finish17he839b6caee460847E.exit ], [ true, %135 ], [ true, %47 ]
   %lpad.loopexit.split-lp134 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp128

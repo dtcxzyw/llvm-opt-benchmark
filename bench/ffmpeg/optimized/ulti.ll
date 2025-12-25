@@ -833,12 +833,12 @@ default.unreachable278:                           ; preds = %bytestream2_get_byt
   br label %49
 
 .loopexit:                                        ; preds = %.lr.ph, %89, %bytestream2_get_byte.exit.thread, %bytestream2_get_byte.exit215, %bytestream2_get_byte.exit, %76, %95, %77, %67
-  %.1177 = phi i32 [ %91, %89 ], [ %.0176386, %bytestream2_get_byte.exit.thread ], [ %.0176386, %bytestream2_get_byte.exit215 ], [ %.0176386, %67 ], [ %.0176386, %95 ], [ %.0176386, %76 ], [ %.0176386, %bytestream2_get_byte.exit ], [ %.0176386, %77 ], [ %93, %.lr.ph ]
-  %.1173 = phi i32 [ %.0172387, %89 ], [ %.0172387, %bytestream2_get_byte.exit.thread ], [ %.0172387, %bytestream2_get_byte.exit215 ], [ %.0172387, %67 ], [ %.0172387, %95 ], [ %.0172387, %76 ], [ %.0172387, %bytestream2_get_byte.exit ], [ %.0172387, %77 ], [ %94, %.lr.ph ]
-  %.1168 = phi i32 [ %88, %89 ], [ %.0167388, %bytestream2_get_byte.exit.thread ], [ %.0167388, %bytestream2_get_byte.exit215 ], [ %.0167388, %67 ], [ %.0167388, %95 ], [ %.0167388, %76 ], [ %.0167388, %bytestream2_get_byte.exit ], [ %.0167388, %77 ], [ %88, %.lr.ph ]
-  %.1162 = phi i32 [ %.0161.ph396, %89 ], [ %.0161.ph396, %bytestream2_get_byte.exit.thread ], [ %.0161.ph396, %bytestream2_get_byte.exit215 ], [ %.0161.ph396, %67 ], [ %.0161.ph396, %95 ], [ %.0161.ph396, %76 ], [ %.0161.ph396, %bytestream2_get_byte.exit ], [ %78, %77 ], [ %.0161.ph396, %.lr.ph ]
-  %.1158 = phi i32 [ %.0157389, %89 ], [ %.0157389, %bytestream2_get_byte.exit.thread ], [ %.0157389, %bytestream2_get_byte.exit215 ], [ 1, %67 ], [ %.0157389, %95 ], [ %.0157389, %76 ], [ %.0157389, %bytestream2_get_byte.exit ], [ %.0157389, %77 ], [ %.0157389, %.lr.ph ]
-  %.1 = phi i32 [ %.0149.ph398, %89 ], [ 0, %bytestream2_get_byte.exit.thread ], [ %.0149.ph398, %bytestream2_get_byte.exit215 ], [ %.0149.ph398, %67 ], [ %.0149.ph398, %95 ], [ %74, %76 ], [ %74, %bytestream2_get_byte.exit ], [ %.0149.ph398, %77 ], [ %.0149.ph398, %.lr.ph ]
+  %.1177 = phi i32 [ %91, %89 ], [ %.0176386, %67 ], [ %.0176386, %bytestream2_get_byte.exit215 ], [ %.0176386, %bytestream2_get_byte.exit.thread ], [ %.0176386, %95 ], [ %.0176386, %76 ], [ %.0176386, %bytestream2_get_byte.exit ], [ %.0176386, %77 ], [ %93, %.lr.ph ]
+  %.1173 = phi i32 [ %.0172387, %89 ], [ %.0172387, %67 ], [ %.0172387, %bytestream2_get_byte.exit215 ], [ %.0172387, %bytestream2_get_byte.exit.thread ], [ %.0172387, %95 ], [ %.0172387, %76 ], [ %.0172387, %bytestream2_get_byte.exit ], [ %.0172387, %77 ], [ %94, %.lr.ph ]
+  %.1168 = phi i32 [ %88, %89 ], [ %.0167388, %67 ], [ %.0167388, %bytestream2_get_byte.exit215 ], [ %.0167388, %bytestream2_get_byte.exit.thread ], [ %.0167388, %95 ], [ %.0167388, %76 ], [ %.0167388, %bytestream2_get_byte.exit ], [ %.0167388, %77 ], [ %88, %.lr.ph ]
+  %.1162 = phi i32 [ %.0161.ph396, %89 ], [ %.0161.ph396, %67 ], [ %.0161.ph396, %bytestream2_get_byte.exit215 ], [ %.0161.ph396, %bytestream2_get_byte.exit.thread ], [ %.0161.ph396, %95 ], [ %.0161.ph396, %76 ], [ %.0161.ph396, %bytestream2_get_byte.exit ], [ %78, %77 ], [ %.0161.ph396, %.lr.ph ]
+  %.1158 = phi i32 [ %.0157389, %89 ], [ 1, %67 ], [ %.0157389, %bytestream2_get_byte.exit215 ], [ %.0157389, %bytestream2_get_byte.exit.thread ], [ %.0157389, %95 ], [ %.0157389, %76 ], [ %.0157389, %bytestream2_get_byte.exit ], [ %.0157389, %77 ], [ %.0157389, %.lr.ph ]
+  %.1 = phi i32 [ %.0149.ph398, %89 ], [ %.0149.ph398, %67 ], [ %.0149.ph398, %bytestream2_get_byte.exit215 ], [ 0, %bytestream2_get_byte.exit.thread ], [ %.0149.ph398, %95 ], [ %74, %76 ], [ %74, %bytestream2_get_byte.exit ], [ %.0149.ph398, %77 ], [ %.0149.ph398, %.lr.ph ]
   %451 = icmp ne i32 %.1162, 0
   %.not203 = icmp eq i32 %.1, 0
   br label %.lr.ph390

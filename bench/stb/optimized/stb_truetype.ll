@@ -8624,7 +8624,7 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
   br i1 %962, label %stbtt__buf_get8.exit, label %.critedge, !llvm.loop !78
 
 .critedge:                                        ; preds = %107, %116, %123, %130, %182, %184, %284, %286, %358, %389, %._crit_edge455, %473, %._crit_edge, %558, %625, %627, %640, %646, %878, %955, %.thread, %738, %704, %stbtt__buf_get8.exit325, %781, %823, %699, %60, %stbtt__buf_get.exit26.i, %stbtt__csctx_v.exit.i, %657
-  %.2 = phi i32 [ 1, %stbtt__csctx_v.exit.i ], [ 1, %657 ], [ 0, %stbtt__buf_get.exit26.i ], [ 0, %60 ], [ 0, %699 ], [ 0, %823 ], [ 0, %781 ], [ 0, %stbtt__buf_get8.exit325 ], [ 0, %704 ], [ 0, %738 ], [ 0, %.thread ], [ 0, %955 ], [ 0, %878 ], [ 0, %646 ], [ 0, %640 ], [ 0, %627 ], [ 0, %625 ], [ 0, %558 ], [ 0, %._crit_edge ], [ 0, %473 ], [ 0, %._crit_edge455 ], [ 0, %389 ], [ 0, %358 ], [ 0, %286 ], [ 0, %284 ], [ 0, %184 ], [ 0, %182 ], [ 0, %130 ], [ 0, %123 ], [ 0, %116 ], [ 0, %107 ]
+  %.2 = phi i32 [ 1, %657 ], [ 1, %stbtt__csctx_v.exit.i ], [ 0, %stbtt__buf_get.exit26.i ], [ 0, %60 ], [ 0, %699 ], [ 0, %823 ], [ 0, %781 ], [ 0, %stbtt__buf_get8.exit325 ], [ 0, %704 ], [ 0, %738 ], [ 0, %.thread ], [ 0, %955 ], [ 0, %878 ], [ 0, %646 ], [ 0, %640 ], [ 0, %627 ], [ 0, %625 ], [ 0, %558 ], [ 0, %._crit_edge ], [ 0, %473 ], [ 0, %._crit_edge455 ], [ 0, %389 ], [ 0, %358 ], [ 0, %286 ], [ 0, %284 ], [ 0, %184 ], [ 0, %182 ], [ 0, %130 ], [ 0, %123 ], [ 0, %116 ], [ 0, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
@@ -14089,7 +14089,7 @@ stbtt__add_point.exit.us:                         ; preds = %100, %92, %81, %73,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge125.us, %.loopexit.sink.split, %._crit_edge
-  %.0100 = phi ptr [ null, %.loopexit.sink.split ], [ null, %._crit_edge ], [ %.1102.us, %._crit_edge125.us ]
+  %.0100 = phi ptr [ null, %._crit_edge ], [ null, %.loopexit.sink.split ], [ %.1102.us, %._crit_edge125.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0100
 }
@@ -15866,13 +15866,13 @@ define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) 
   br label %stbtt_GetGlyphBox.exit
 
 stbtt_GetGlyphBox.exit:                           ; preds = %202, %117
-  %.pre111.pre = phi i32 [ %.pre111.pre.pre, %117 ], [ %.pre111.pre123, %202 ]
-  %.pre110 = phi i32 [ %.pre110.pre, %117 ], [ %.pre110116, %202 ]
-  %.pre = phi i32 [ %.pre.pre, %117 ], [ %.pre112, %202 ]
-  %.080 = phi i32 [ %122, %117 ], [ %222, %202 ]
-  %.379 = phi i32 [ %124, %117 ], [ %231, %202 ]
-  %.3 = phi i32 [ %126, %117 ], [ %240, %202 ]
-  %.069 = phi i32 [ %120, %117 ], [ %213, %202 ]
+  %.pre111.pre = phi i32 [ %.pre111.pre123, %202 ], [ %.pre111.pre.pre, %117 ]
+  %.pre110 = phi i32 [ %.pre110116, %202 ], [ %.pre110.pre, %117 ]
+  %.pre = phi i32 [ %.pre112, %202 ], [ %.pre.pre, %117 ]
+  %.080 = phi i32 [ %222, %202 ], [ %122, %117 ]
+  %.379 = phi i32 [ %231, %202 ], [ %124, %117 ]
+  %.3 = phi i32 [ %240, %202 ], [ %126, %117 ]
+  %.069 = phi i32 [ %213, %202 ], [ %120, %117 ]
   %241 = sitofp i32 %.069 to float
   %242 = call float @llvm.fmuladd.f32(float %241, float %113, float 0.000000e+00)
   %243 = call float @llvm.floor.f32(float %242)

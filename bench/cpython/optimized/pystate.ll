@@ -1357,7 +1357,7 @@ define hidden void @_PyRuntimeState_ReInitThreads(ptr dead_on_unwind noalias wri
   br i1 %exitcond.not, label %27, label %36, !llvm.loop !191
 
 tstate_tss_reinit.exit:                           ; preds = %30, %34
-  %.sroa.12.0 = phi ptr [ @.str.159, %34 ], [ @.str.1, %30 ]
+  %.sroa.12.0 = phi ptr [ @.str.1, %30 ], [ @.str.159, %34 ]
   store i32 1, ptr %0, align 8, !tbaa !193
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.8.0..sroa_idx, align 4

@@ -1449,9 +1449,9 @@ _ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit186: ; preds = %354, %351
   br label %375
 
 375:                                              ; preds = %.loopexit263, %.loopexit.split-lp264, %371, %373, %206, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184, %235
-  %.sroa.18.4 = phi ptr [ %.sroa.18.1.lcssa466, %373 ], [ %.sroa.18.2, %206 ], [ %.sroa.18.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %.sroa.18.1.lcssa466, %371 ], [ %.sroa.18.3, %235 ], [ %.sroa.11.1324, %.loopexit263 ], [ %.sroa.11.1324, %.loopexit.split-lp264 ]
-  %.sroa.0202.4 = phi ptr [ %.sroa.0202.1.lcssa468, %373 ], [ %.sroa.0202.2, %206 ], [ %.sroa.0202.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %.sroa.0202.1.lcssa468, %371 ], [ %.sroa.0202.3, %235 ], [ %.sroa.0202.1325, %.loopexit263 ], [ %.sroa.0202.1325, %.loopexit.split-lp264 ]
-  %.pn136.pn = phi { ptr, i32 } [ %374, %373 ], [ %207, %206 ], [ %.pn132.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %372, %371 ], [ %236, %235 ], [ %lpad.loopexit265, %.loopexit263 ], [ %lpad.loopexit.split-lp266, %.loopexit.split-lp264 ]
+  %.sroa.18.4 = phi ptr [ %.sroa.18.1.lcssa466, %371 ], [ %.sroa.18.2, %206 ], [ %.sroa.18.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %.sroa.18.1.lcssa466, %373 ], [ %.sroa.18.3, %235 ], [ %.sroa.11.1324, %.loopexit263 ], [ %.sroa.11.1324, %.loopexit.split-lp264 ]
+  %.sroa.0202.4 = phi ptr [ %.sroa.0202.1.lcssa468, %371 ], [ %.sroa.0202.2, %206 ], [ %.sroa.0202.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %.sroa.0202.1.lcssa468, %373 ], [ %.sroa.0202.3, %235 ], [ %.sroa.0202.1325, %.loopexit263 ], [ %.sroa.0202.1325, %.loopexit.split-lp264 ]
+  %.pn136.pn = phi { ptr, i32 } [ %372, %371 ], [ %207, %206 ], [ %.pn132.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit184 ], [ %374, %373 ], [ %236, %235 ], [ %lpad.loopexit265, %.loopexit263 ], [ %lpad.loopexit.split-lp266, %.loopexit.split-lp264 ]
   %.not.i.i.i187 = icmp eq ptr %.sroa.0202.4, null
   br i1 %.not.i.i.i187, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit191, label %.thread244
 

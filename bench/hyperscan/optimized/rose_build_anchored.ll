@@ -12500,7 +12500,7 @@ _ZNK3ue212graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGra
   br i1 %26, label %.loopexit, label %.lr.ph37.split
 
 .loopexit:                                        ; preds = %.outer, %.lr.ph.split, %.lr.ph37.split.us, %_ZNK3ue212graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEltES7_.exit, %22, %.preheader, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK3ue212graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEltES7_.exit ], [ true, %.preheader ], [ false, %22 ], [ false, %.lr.ph.split ], [ false, %.lr.ph37.split.us ], [ true, %.outer ]
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK3ue212graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEltES7_.exit ], [ true, %.preheader ], [ false, %22 ], [ true, %.outer ], [ false, %.lr.ph37.split.us ], [ false, %.lr.ph.split ]
   ret i1 %.0
 }
 

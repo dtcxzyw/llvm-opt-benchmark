@@ -2912,7 +2912,7 @@ _mpd_get_msdigits.exit.thread:                    ; preds = %33, %27
   br label %57
 
 57:                                               ; preds = %.sink.split, %_mpd_get_msdigits.exit.thread, %51, %mpd_iszero.exit
-  %.0 = phi i64 [ %.148, %_mpd_get_msdigits.exit.thread ], [ %umul.value56, %51 ], [ 0, %mpd_iszero.exit ], [ -1, %.sink.split ]
+  %.0 = phi i64 [ 0, %mpd_iszero.exit ], [ %umul.value56, %51 ], [ %.148, %_mpd_get_msdigits.exit.thread ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
@@ -15301,7 +15301,7 @@ mpd_qresize.exit59:                               ; preds = %219, %221
   br label %265
 
 265:                                              ; preds = %249, %263, %261
-  %.042 = phi ptr [ %264, %263 ], [ %262, %261 ], [ %254, %249 ]
+  %.042 = phi ptr [ %262, %261 ], [ %264, %263 ], [ %254, %249 ]
   %266 = icmp eq ptr %.042, null
   br i1 %266, label %.thread82, label %.thread
 

@@ -3134,9 +3134,9 @@ skip_prefix.exit.i.i:                             ; preds = %179, %186
   br i1 %.not.i.i.i, label %verify_ordered.exit.i, label %name_stack_pop.exit.i.i
 
 verify_ordered.exit.i:                            ; preds = %skip_prefix.exit.i.i, %name_stack_pop.exit.i.i, %name_stack_push.exit63.i.i, %.preheader78.i.i, %170, %name_stack_push.exit.i.i
-  %.sroa.17.5.i = phi i64 [ %.sroa.17.0310.i, %170 ], [ %.sroa.17.0310.i, %.preheader78.i.i ], [ %.sroa.17.4.i, %name_stack_push.exit.i.i ], [ %.sroa.17.6.i, %name_stack_push.exit63.i.i ], [ %.sroa.17.0310.i, %name_stack_pop.exit.i.i ], [ %.sroa.17.0310.i, %skip_prefix.exit.i.i ]
-  %.sroa.10.4.i = phi i64 [ %.sroa.10.0311.i, %170 ], [ 0, %.preheader78.i.i ], [ %160, %name_stack_push.exit.i.i ], [ %174, %name_stack_push.exit63.i.i ], [ 0, %skip_prefix.exit.i.i ], [ %175, %name_stack_pop.exit.i.i ]
-  %.sroa.0.5.i = phi ptr [ %.sroa.0.0312.i, %170 ], [ %.sroa.0.0312.i, %.preheader78.i.i ], [ %.sroa.0.4.i, %name_stack_push.exit.i.i ], [ %.sroa.0.6.i, %name_stack_push.exit63.i.i ], [ %.sroa.0.0312.i, %name_stack_pop.exit.i.i ], [ %.sroa.0.0312.i, %skip_prefix.exit.i.i ]
+  %.sroa.17.5.i = phi i64 [ %.sroa.17.0310.i, %170 ], [ %.sroa.17.0310.i, %.preheader78.i.i ], [ %.sroa.17.6.i, %name_stack_push.exit63.i.i ], [ %.sroa.17.4.i, %name_stack_push.exit.i.i ], [ %.sroa.17.0310.i, %name_stack_pop.exit.i.i ], [ %.sroa.17.0310.i, %skip_prefix.exit.i.i ]
+  %.sroa.10.4.i = phi i64 [ %.sroa.10.0311.i, %170 ], [ 0, %.preheader78.i.i ], [ %174, %name_stack_push.exit63.i.i ], [ %160, %name_stack_push.exit.i.i ], [ 0, %skip_prefix.exit.i.i ], [ %175, %name_stack_pop.exit.i.i ]
+  %.sroa.0.5.i = phi ptr [ %.sroa.0.0312.i, %170 ], [ %.sroa.0.0312.i, %.preheader78.i.i ], [ %.sroa.0.6.i, %name_stack_push.exit63.i.i ], [ %.sroa.0.4.i, %name_stack_push.exit.i.i ], [ %.sroa.0.0312.i, %name_stack_pop.exit.i.i ], [ %.sroa.0.0312.i, %skip_prefix.exit.i.i ]
   %.not223.i = icmp ult i8 %.038.i.i, %.039.i.i
   %spec.select.i = select i1 %.not223.i, i32 %.0104323.i, i32 1
   br label %verify_ordered.exit.thread200.i

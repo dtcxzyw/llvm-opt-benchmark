@@ -322,7 +322,7 @@ _ZL10parseStatePKcPiPj.exit.thread14:             ; preds = %117, %37
   br label %130
 
 _ZL10parseStatePKcPiPj.exit:                      ; preds = %52, %59, %72, %119, %40
-  %.080.i = phi ptr [ %41, %40 ], [ %54, %52 ], [ %68, %72 ], [ %121, %119 ], [ %54, %59 ]
+  %.080.i = phi ptr [ %41, %40 ], [ %121, %119 ], [ %68, %72 ], [ %54, %52 ], [ %54, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %.080.i, null
   br i1 %.not, label %130, label %127

@@ -800,7 +800,7 @@ Bac_ManNtk.exit43:                                ; preds = %.critedge.preheader
   br label %.critedge2
 
 .critedge2:                                       ; preds = %BacManReadBacLine.exit, %Bac_ManNtk.exit43, %.critedge2.sink.split, %Bac_ManAlloc.exit, %.critedge.preheader, %._crit_edge
-  %.0 = phi ptr [ %27, %Bac_ManAlloc.exit ], [ null, %.critedge2.sink.split ], [ %27, %Bac_ManNtk.exit43 ], [ null, %._crit_edge ], [ %27, %.critedge.preheader ], [ null, %BacManReadBacLine.exit ]
+  %.0 = phi ptr [ %27, %Bac_ManAlloc.exit ], [ %27, %Bac_ManNtk.exit43 ], [ null, %.critedge2.sink.split ], [ null, %._crit_edge ], [ %27, %.critedge.preheader ], [ null, %BacManReadBacLine.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

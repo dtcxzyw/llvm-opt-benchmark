@@ -1699,7 +1699,7 @@ Kit_TruthCopy.exit:                               ; preds = %65
   br label %133
 
 133:                                              ; preds = %131, %128, %125, %121, %114, %104, %101, %97, %90, %82, %78, %71, %Vec_IntFree.exit, %108, %112, %88, %Kit_TruthCopy.exit
-  %.044 = phi ptr [ null, %Kit_TruthCopy.exit ], [ @Lpk_DsdAnalize.Res0, %Vec_IntFree.exit ], [ null, %108 ], [ null, %88 ], [ @Lpk_DsdAnalize.Res1, %71 ], [ @Lpk_DsdAnalize.Res0, %78 ], [ null, %112 ], [ @Lpk_DsdAnalize.Res1, %82 ], [ @Lpk_DsdAnalize.Res2, %90 ], [ @Lpk_DsdAnalize.Res0, %97 ], [ @Lpk_DsdAnalize.Res1, %101 ], [ %spec.select, %131 ], [ @Lpk_DsdAnalize.Res2, %104 ], [ @Lpk_DsdAnalize.Res3, %114 ], [ @Lpk_DsdAnalize.Res0, %121 ], [ @Lpk_DsdAnalize.Res1, %125 ], [ @Lpk_DsdAnalize.Res2, %128 ]
+  %.044 = phi ptr [ null, %Kit_TruthCopy.exit ], [ @Lpk_DsdAnalize.Res0, %Vec_IntFree.exit ], [ %spec.select, %131 ], [ null, %88 ], [ @Lpk_DsdAnalize.Res1, %71 ], [ @Lpk_DsdAnalize.Res0, %78 ], [ null, %112 ], [ @Lpk_DsdAnalize.Res1, %82 ], [ @Lpk_DsdAnalize.Res2, %90 ], [ @Lpk_DsdAnalize.Res0, %97 ], [ @Lpk_DsdAnalize.Res1, %101 ], [ null, %108 ], [ @Lpk_DsdAnalize.Res2, %104 ], [ @Lpk_DsdAnalize.Res3, %114 ], [ @Lpk_DsdAnalize.Res0, %121 ], [ @Lpk_DsdAnalize.Res1, %125 ], [ @Lpk_DsdAnalize.Res2, %128 ]
   %.not62 = icmp eq i32 %2, 31
   br i1 %.not62, label %._crit_edge, label %.lr.ph.preheader
 

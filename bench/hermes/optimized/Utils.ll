@@ -452,7 +452,7 @@ for.inc60:                                        ; preds = %for.inc57, %for.bod
   br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %for.inc60, %if.end17, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit, %if.end, %if.end.i32, %land.lhs.true47, %if.end.i46, %if.end35, %if.then31, %for.body.i53, %entry
-  %cmp.not88 = phi i1 [ false, %if.end17 ], [ false, %if.end.i32 ], [ false, %land.lhs.true47 ], [ false, %for.body.i53 ], [ true, %entry ], [ false, %if.then31 ], [ false, %if.end35 ], [ false, %if.end.i46 ], [ false, %if.end ], [ false, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit ], [ true, %for.inc60 ]
+  %cmp.not88 = phi i1 [ true, %entry ], [ false, %if.end.i32 ], [ false, %land.lhs.true47 ], [ false, %for.body.i53 ], [ false, %if.end17 ], [ false, %if.then31 ], [ false, %if.end35 ], [ false, %if.end.i46 ], [ false, %if.end ], [ false, %_ZN6hermes19isStoreOnceVariableEPNS_8VariableE.exit ], [ true, %for.inc60 ]
   ret i1 %cmp.not88
 }
 

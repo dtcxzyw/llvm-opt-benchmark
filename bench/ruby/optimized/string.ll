@@ -13395,7 +13395,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %94, %98, %85, %RSTR
   br label %117
 
 117:                                              ; preds = %89, %104, %102, %30, %rb_str_new_frozen.exit33, %rb_enc_asciicompat.exit.thread
-  %.0 = phi i64 [ 0, %30 ], [ 0, %rb_str_new_frozen.exit33 ], [ %116, %rb_enc_asciicompat.exit.thread ], [ 20, %102 ], [ 0, %89 ], [ %108, %104 ]
+  %.0 = phi i64 [ 0, %30 ], [ 0, %rb_str_new_frozen.exit33 ], [ %116, %rb_enc_asciicompat.exit.thread ], [ %108, %104 ], [ 0, %89 ], [ 20, %102 ]
   ret i64 %.0
 }
 
@@ -17141,9 +17141,9 @@ split_string.exit:                                ; preds = %.loopexit.i, %383, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold377, %163, %173, %262, %.preheader397, %.preheader, %.thread, %.loopexit400, %440, %.critedge, %.critedge3
-  %.1269 = phi i64 [ %.4272, %.loopexit400 ], [ %.2270, %.critedge ], [ %.3271, %.critedge3 ], [ %.0268, %.thread ], [ %.4272, %440 ], [ %.0268, %.preheader ], [ %.0268, %.preheader397 ], [ %.0268, %163 ], [ %.4272, %262 ], [ %.0268, %173 ], [ %.0268, %select.unfold377 ]
-  %.7254 = phi i64 [ %.14, %.loopexit400 ], [ %.9256, %.critedge ], [ %.12259, %.critedge3 ], [ %.4251455, %.thread ], [ %.14, %440 ], [ %spec.select, %.preheader ], [ %spec.select, %.preheader397 ], [ %.1248464, %163 ], [ %spec.select, %262 ], [ %.2249, %173 ], [ %.5252, %select.unfold377 ]
-  %.6 = phi i64 [ %.8, %.loopexit400 ], [ %235, %.critedge ], [ %258, %.critedge3 ], [ %.3230458, %.thread ], [ %.8, %440 ], [ 0, %.preheader ], [ 0, %.preheader397 ], [ %.0227467, %163 ], [ 0, %262 ], [ %.1228, %173 ], [ %.4, %select.unfold377 ]
+  %.1269 = phi i64 [ %.4272, %440 ], [ %.2270, %.critedge ], [ %.3271, %.critedge3 ], [ %.0268, %.thread ], [ %.4272, %.loopexit400 ], [ %.0268, %.preheader ], [ %.0268, %163 ], [ %.0268, %.preheader397 ], [ %.4272, %262 ], [ %.0268, %173 ], [ %.0268, %select.unfold377 ]
+  %.7254 = phi i64 [ %.14, %440 ], [ %.9256, %.critedge ], [ %.12259, %.critedge3 ], [ %.4251455, %.thread ], [ %.14, %.loopexit400 ], [ %spec.select, %.preheader ], [ %.1248464, %163 ], [ %spec.select, %.preheader397 ], [ %spec.select, %262 ], [ %.2249, %173 ], [ %.5252, %select.unfold377 ]
+  %.6 = phi i64 [ %.8, %440 ], [ %235, %.critedge ], [ %258, %.critedge3 ], [ %.3230458, %.thread ], [ %.8, %.loopexit400 ], [ 0, %.preheader ], [ %.0227467, %163 ], [ 0, %.preheader397 ], [ 0, %262 ], [ %.1228, %173 ], [ %.4, %select.unfold377 ]
   %441 = load i64, ptr %.sroa.3.0.in.i, align 8, !tbaa !12
   %442 = icmp sgt i64 %441, 0
   br i1 %442, label %443, label %452
@@ -21823,7 +21823,7 @@ rbimpl_RB_TYPE_P_fastpath.exit36:                 ; preds = %35
   br label %.critedge
 
 rb_scan_args_set.exit.thread:                     ; preds = %.preheader, %33, %30
-  %.3 = phi i64 [ %31, %30 ], [ %.0.i39, %33 ], [ 0, %.preheader ]
+  %.3 = phi i64 [ %.0.i39, %33 ], [ %31, %30 ], [ 0, %.preheader ]
   %45 = icmp eq i64 %17, 0
   %46 = and i64 %17, 7
   %47 = icmp ne i64 %46, 0
@@ -22098,7 +22098,7 @@ rbimpl_RB_TYPE_P_fastpath.exit28:                 ; preds = %26
   br label %.critedge
 
 rb_scan_args_set.exit.thread:                     ; preds = %.preheader, %24, %21
-  %.3 = phi i64 [ %22, %21 ], [ %.0.i31, %24 ], [ 0, %.preheader ]
+  %.3 = phi i64 [ %.0.i31, %24 ], [ %22, %21 ], [ 0, %.preheader ]
   %36 = tail call fastcc zeroext i1 @single_byte_optimizable(i64 noundef %2)
   br i1 %36, label %str_ensure_byte_pos.exit, label %37
 
@@ -22780,7 +22780,7 @@ RSTRING_PTR.exit31.i:                             ; preds = %126, %123
   br label %rb_str_byterindex.exit
 
 rb_str_byterindex.exit:                           ; preds = %112, %RSTRING_PTR.exit31.i, %128
-  %.0.i38 = phi i64 [ %130, %128 ], [ %spec.select.i35, %112 ], [ %..i, %RSTRING_PTR.exit31.i ]
+  %.0.i38 = phi i64 [ %130, %128 ], [ %..i, %RSTRING_PTR.exit31.i ], [ %spec.select.i35, %112 ]
   %131 = icmp sgt i64 %.0.i38, -1
   br i1 %131, label %132, label %rb_long2num_inline.exit
 
@@ -26279,7 +26279,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %get_encoding.exit, 
   br i1 %32, label %.lr.ph.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %28, %.critedge2.i, %22, %.thread.i
-  %.1.i = phi ptr [ %.02440.i, %22 ], [ %.239.i, %.thread.i ], [ %16, %.critedge2.i ], [ %31, %28 ]
+  %.1.i = phi ptr [ %.239.i, %.thread.i ], [ %.02440.i, %22 ], [ %16, %.critedge2.i ], [ %31, %28 ]
   %33 = ptrtoint ptr %.1.i to i64
   %34 = sub i64 %33, %17
   br label %lstrip_offset.exit
@@ -26397,7 +26397,7 @@ get_encoding.exit:                                ; preds = %rbimpl_rstring_getm
   br i1 %31, label %.lr.ph.i, label %lstrip_offset.exit
 
 lstrip_offset.exit:                               ; preds = %27, %21, %.critedge2.i, %.thread.i
-  %.1.i = phi ptr [ %.02440.i, %21 ], [ %.239.i, %.thread.i ], [ %8, %.critedge2.i ], [ %30, %27 ]
+  %.1.i = phi ptr [ %.239.i, %.thread.i ], [ %.02440.i, %21 ], [ %8, %.critedge2.i ], [ %30, %27 ]
   %32 = ptrtoint ptr %.1.i to i64
   %33 = sub i64 %32, %16
   %34 = icmp slt i64 %33, 1
@@ -27366,7 +27366,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %get_encoding.exit, 
   br i1 %32, label %.lr.ph.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %28, %.critedge2.i, %22, %.thread.i
-  %.1.i = phi ptr [ %.02440.i, %22 ], [ %.239.i, %.thread.i ], [ %16, %.critedge2.i ], [ %31, %28 ]
+  %.1.i = phi ptr [ %.239.i, %.thread.i ], [ %.02440.i, %22 ], [ %16, %.critedge2.i ], [ %31, %28 ]
   %33 = ptrtoint ptr %.1.i to i64
   %34 = sub i64 %33, %17
   br label %lstrip_offset.exit
@@ -27498,7 +27498,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %get_encoding.exit, 
   br i1 %32, label %.lr.ph.i, label %lstrip_offset.exit
 
 lstrip_offset.exit:                               ; preds = %28, %22, %.critedge2.i, %.thread.i
-  %.1.i = phi ptr [ %.02440.i, %22 ], [ %.239.i, %.thread.i ], [ %16, %.critedge2.i ], [ %31, %28 ]
+  %.1.i = phi ptr [ %.239.i, %.thread.i ], [ %.02440.i, %22 ], [ %16, %.critedge2.i ], [ %31, %28 ]
   %33 = ptrtoint ptr %.1.i to i64
   %34 = sub i64 %33, %17
   %35 = icmp sgt i64 %34, 0

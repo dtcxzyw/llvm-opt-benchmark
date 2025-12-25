@@ -1271,20 +1271,20 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i: ; preds = %277
   %302 = and i32 %299, 4
   %303 = icmp ne i32 %302, 0
   %or.cond.i.i3.i = or i1 %301, %303
-  br i1 %or.cond.i.i3.i, label %304, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit
+  br i1 %or.cond.i.i3.i, label %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit, label %304
 
 304:                                              ; preds = %298
-  %305 = getelementptr inbounds nuw i8, ptr %263, i64 16
-  %306 = load ptr, ptr %305, align 8, !tbaa !285
-  %307 = getelementptr inbounds nuw i8, ptr %306, i64 16
-  %308 = load i64, ptr %307, align 8, !tbaa !286
-  %309 = and i64 %308, 1048576
-  %.not51 = icmp eq i64 %309, 0
-  br i1 %.not51, label %311, label %.critedge.i.i
+  %305 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %263, i64 noundef 1048576, i32 noundef 1) #22
+  br i1 %305, label %.critedge.i.i, label %311
 
 _ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit: ; preds = %298
-  %310 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %263, i64 noundef 1048576, i32 noundef 1) #22
-  br i1 %310, label %.critedge.i.i, label %311
+  %306 = getelementptr inbounds nuw i8, ptr %263, i64 16
+  %307 = load ptr, ptr %306, align 8, !tbaa !285
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 16
+  %309 = load i64, ptr %308, align 8, !tbaa !286
+  %310 = and i64 %309, 1048576
+  %.not51 = icmp eq i64 %310, 0
+  br i1 %.not51, label %311, label %.critedge.i.i
 
 311:                                              ; preds = %304, %_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE.exit
   %312 = getelementptr inbounds nuw i8, ptr %263, i64 32

@@ -131213,7 +131213,7 @@ _ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELb0EL
   br i1 %376, label %381, label %382
 
 _ZN4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELb0ELm1ELm1EEppEv.exit.i.i: ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i.i, %.lr.ph.i.i, %356, %.lr.ph.i.i.i.i
-  %377 = phi i64 [ %348, %.lr.ph.i.i.i.i ], [ %374, %356 ], [ %365, %.lr.ph.i.i ], [ %365, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i.i ]
+  %377 = phi i64 [ %348, %.lr.ph.i.i.i.i ], [ %374, %356 ], [ %365, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i.i ], [ %365, %.lr.ph.i.i ]
   %378 = add nuw nsw i64 %.08.i.i332, 1
   %379 = add nsw i64 %377, -1
   %.not2.i.i.i.i = icmp eq i64 %379, 0
@@ -131692,7 +131692,7 @@ _ZNK4entt8internal13view_iteratorINS_16basic_sparse_setINS_6entityESaIS3_EEELb0E
   br label %_ZNK4entt17basic_common_viewINS_16basic_sparse_setINS_6entityESaIS2_EEELb0ELm1ELm1EE6handleEv.exit.i.i, !llvm.loop !1191
 
 .lr.ph:                                           ; preds = %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i.i231, %.lr.ph.i.i228, %553, %.lr.ph.i.i.i.i227
-  %.sroa.37.038.i451 = phi i64 [ %.sroa.2.0..sroa_idx.i.promoted.i.i, %.lr.ph.i.i.i.i227 ], [ %562, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i.i231 ], [ %571, %553 ], [ %562, %.lr.ph.i.i228 ]
+  %.sroa.37.038.i451 = phi i64 [ %.sroa.2.0..sroa_idx.i.promoted.i.i, %.lr.ph.i.i.i.i227 ], [ %562, %.lr.ph.i.i228 ], [ %562, %_ZNK4entt16basic_sparse_setINS_6entityESaIS1_EE8containsES1_.exit.i.i.i.i.i.i231 ], [ %571, %553 ]
   %572 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %573 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %574 = getelementptr inbounds nuw i8, ptr %35, i64 16

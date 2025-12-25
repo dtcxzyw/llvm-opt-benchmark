@@ -1797,7 +1797,7 @@ define internal range(i32 0, 2) i32 @Type_ParametricCurve_Write(ptr noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %.loopexit.sink.split, %22, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %.loopexit.sink.split ], [ 0, %22 ], [ 1, %24 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %.loopexit.sink.split ], [ 0, %22 ], [ 0, %.lr.ph ], [ 1, %24 ]
   ret i32 %.0
 }
 
@@ -2126,8 +2126,8 @@ uipow.exit.thread100:                             ; preds = %72, %uipow.exit, %1
   call void @cmsPipelineFree(ptr noundef nonnull %30) #14
   br label %.thread106
 
-.thread106:                                       ; preds = %17, %10, %4, %26, %23, %19, %12, %.thread, %118
-  %.0 = phi ptr [ %30, %118 ], [ null, %.thread ], [ null, %17 ], [ null, %12 ], [ null, %19 ], [ null, %23 ], [ null, %26 ], [ null, %4 ], [ null, %10 ]
+.thread106:                                       ; preds = %4, %10, %17, %26, %23, %19, %12, %.thread, %118
+  %.0 = phi ptr [ %30, %118 ], [ null, %.thread ], [ null, %4 ], [ null, %12 ], [ null, %19 ], [ null, %23 ], [ null, %26 ], [ null, %17 ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -3092,7 +3092,7 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr noundef readonly captu
   br label %uipow.exit.thread
 
 uipow.exit.thread:                                ; preds = %.preheader213, %121, %.lr.ph221, %.lr.ph.i, %144, %.lr.ph223, %._crit_edge.i, %139, %135, %116, %113, %105, %102, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %68, %65, %62, %.loopexit216, %10, %15, %.loopexit, %57, %.thread195
-  %.091 = phi i32 [ 0, %57 ], [ 0, %.thread195 ], [ 0, %68 ], [ 0, %.lr.ph.i ], [ 1, %.loopexit ], [ 0, %135 ], [ 0, %144 ], [ 0, %139 ], [ 0, %._crit_edge.i ], [ 0, %113 ], [ 0, %15 ], [ 0, %116 ], [ 0, %102 ], [ 0, %105 ], [ 0, %92 ], [ 0, %94 ], [ 0, %90 ], [ 0, %88 ], [ 0, %86 ], [ 0, %84 ], [ 0, %82 ], [ 0, %80 ], [ 0, %78 ], [ 0, %76 ], [ 0, %121 ], [ 0, %65 ], [ 0, %62 ], [ 0, %.loopexit216 ], [ 0, %10 ], [ 0, %.lr.ph223 ], [ 0, %.lr.ph221 ], [ 0, %.preheader213 ]
+  %.091 = phi i32 [ 0, %57 ], [ 0, %.thread195 ], [ 0, %68 ], [ 0, %15 ], [ 1, %.loopexit ], [ 0, %135 ], [ 0, %121 ], [ 0, %139 ], [ 0, %._crit_edge.i ], [ 0, %113 ], [ 0, %.lr.ph.i ], [ 0, %116 ], [ 0, %102 ], [ 0, %105 ], [ 0, %92 ], [ 0, %94 ], [ 0, %90 ], [ 0, %88 ], [ 0, %86 ], [ 0, %84 ], [ 0, %82 ], [ 0, %80 ], [ 0, %78 ], [ 0, %76 ], [ 0, %144 ], [ 0, %65 ], [ 0, %62 ], [ 0, %.loopexit216 ], [ 0, %10 ], [ 0, %.lr.ph223 ], [ 0, %.lr.ph221 ], [ 0, %.preheader213 ]
   ret i32 %.091
 }
 
@@ -3723,7 +3723,7 @@ define internal range(i32 0, 2) i32 @Type_MLU_Write(ptr readnone captures(none) 
   br i1 %.not.i, label %_cmsWriteWCharArray.exit, label %52
 
 _cmsWriteWCharArray.exit:                         ; preds = %45, %43, %37, %25, %52, %.lr.ph.i, %._crit_edge, %14, %10, %8, %6
-  %.031 = phi i32 [ 0, %6 ], [ %., %8 ], [ 0, %10 ], [ 0, %.lr.ph.i ], [ 1, %._crit_edge ], [ 0, %14 ], [ 1, %52 ], [ 0, %25 ], [ 0, %37 ], [ 0, %43 ], [ 0, %45 ]
+  %.031 = phi i32 [ 0, %6 ], [ %., %8 ], [ 0, %10 ], [ 0, %14 ], [ 0, %.lr.ph.i ], [ 1, %._crit_edge ], [ 1, %52 ], [ 0, %25 ], [ 0, %37 ], [ 0, %43 ], [ 0, %45 ]
   ret i32 %.031
 }
 
@@ -5726,7 +5726,7 @@ GetHandler.exit:                                  ; preds = %56
   tail call void @_cmsFree(ptr noundef %95, ptr noundef nonnull %21) #14
   br label %.thread116
 
-.thread.thread:                                   ; preds = %39, %.lr.ph, %69, %63, %61, %.loopexit, %87, %.lr.ph132, %GetHandler.exit, %._crit_edge, %._crit_edge133, %30, %27, %24
+.thread.thread:                                   ; preds = %39, %.lr.ph, %69, %63, %61, %.loopexit, %.lr.ph132, %87, %GetHandler.exit, %._crit_edge, %._crit_edge133, %30, %27, %24
   %96 = load ptr, ptr %7, align 8
   call void @_cmsFree(ptr noundef %96, ptr noundef nonnull %17) #14
   %97 = load ptr, ptr %7, align 8
@@ -8477,7 +8477,7 @@ ReadEmbeddedCurve.exit:                           ; preds = %16, %18
   br label %.loopexit28
 
 .loopexit28:                                      ; preds = %26, %ReadEmbeddedCurve.exit, %ReadEmbeddedCurve.exit.thread, %._crit_edge
-  %.0 = phi ptr [ null, %ReadEmbeddedCurve.exit.thread ], [ %31, %._crit_edge ], [ null, %ReadEmbeddedCurve.exit ], [ null, %26 ]
+  %.0 = phi ptr [ %31, %._crit_edge ], [ null, %ReadEmbeddedCurve.exit.thread ], [ null, %ReadEmbeddedCurve.exit ], [ null, %26 ]
   br i1 %.not39, label %.loopexit, label %.lr.ph38.preheader
 
 .lr.ph38.preheader:                               ; preds = %.loopexit28
@@ -9242,7 +9242,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
   br i1 %.not56, label %.thread64.sink.split.sink.split, label %33
 
 .thread64.sink.split.sink.split:                  ; preds = %27, %.lr.ph, %34, %39, %33, %.preheader75
-  %.0.ph.ph = phi i32 [ 1, %33 ], [ 1, %.preheader75 ], [ 0, %39 ], [ 0, %34 ], [ 0, %.lr.ph ], [ 0, %27 ]
+  %.0.ph.ph = phi i32 [ 1, %.preheader75 ], [ 1, %33 ], [ 0, %39 ], [ 0, %34 ], [ 0, %.lr.ph ], [ 0, %27 ]
   %44 = load ptr, ptr %16, align 8
   tail call void @_cmsFree(ptr noundef %44, ptr noundef nonnull %18) #14
   br label %.thread64.sink.split
@@ -10326,7 +10326,7 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   br label %.thread82.sink.split.sink.split2
 
 .thread82.sink.split.sink.split2:                 ; preds = %22, %.lr.ph, %.lr.ph90, %.thread.thread, %._crit_edge93
-  %.062.ph.ph3 = phi i32 [ 1, %._crit_edge93 ], [ 0, %.lr.ph90 ], [ 0, %.thread.thread ], [ 0, %.lr.ph ], [ 0, %22 ]
+  %.062.ph.ph3 = phi i32 [ 1, %._crit_edge93 ], [ 0, %.thread.thread ], [ 0, %.lr.ph90 ], [ 0, %.lr.ph ], [ 0, %22 ]
   %50 = load ptr, ptr %7, align 8
   tail call void @_cmsFree(ptr noundef %50, ptr noundef nonnull %9) #14
   br label %.thread82.sink.split

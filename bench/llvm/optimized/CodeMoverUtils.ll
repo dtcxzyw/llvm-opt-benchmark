@@ -475,7 +475,7 @@ _ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and
   br label %.critedge
 
 .critedge:                                        ; preds = %55, %39, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i, %59, %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit39.sink.split, %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit
-  %.sink = phi i8 [ 1, %59 ], [ 1, %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit39.sink.split ], [ 1, %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit ], [ 0, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i ], [ 0, %39 ], [ 0, %55 ]
+  %.sink = phi i8 [ 1, %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit ], [ 1, %_ZNSt8optionalIN12_GLOBAL__N_117ControlConditionsEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_.exit39.sink.split ], [ 1, %59 ], [ 0, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i ], [ 0, %39 ], [ 0, %55 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %.sink, ptr %76, align 8, !tbaa !50
   %77 = load ptr, ptr %6, align 8, !tbaa !36
@@ -786,7 +786,7 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %143, %146
   br label %.thread120
 
 .thread120:                                       ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %82, %61, %56, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.us, %120, %122, %113, %104, %29, %22, %12, %6, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
-  %.0 = phi i1 [ false, %6 ], [ true, %12 ], [ false, %113 ], [ false, %22 ], [ %.8, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ], [ false, %29 ], [ false, %61 ], [ false, %120 ], [ false, %104 ], [ false, %122 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.us ], [ false, %56 ], [ false, %82 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
+  %.0 = phi i1 [ false, %6 ], [ true, %12 ], [ false, %61 ], [ false, %22 ], [ %.8, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit ], [ false, %29 ], [ false, %120 ], [ false, %113 ], [ false, %104 ], [ false, %122 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.us ], [ false, %56 ], [ false, %82 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ]
   ret i1 %.0
 }
 

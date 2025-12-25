@@ -1828,8 +1828,8 @@ select.unfold1327.i:                              ; preds = %803, %799
   br label %823
 
 823:                                              ; preds = %821, %752
-  %.1734.i = phi i32 [ %.lobit1384.i, %752 ], [ %.lobit1388.i, %821 ]
-  %.1.i = phi i32 [ %..39.i, %752 ], [ %spec.select1377.i, %821 ]
+  %.1734.i = phi i32 [ %.lobit1388.i, %821 ], [ %.lobit1384.i, %752 ]
+  %.1.i = phi i32 [ %spec.select1377.i, %821 ], [ %..39.i, %752 ]
   %.1734.fr.i = freeze i32 %.1734.i
   %.not1431.i = icmp eq i32 %.1734.fr.i, 0
   br i1 %.not1431.i, label %r_stem_noun_suffixes.exit.thread, label %r_stem_noun_suffixes.exit
@@ -2076,8 +2076,8 @@ r_stem_noun_suffixes.exit.thread109.sink.split:   ; preds = %1, %923
   store i32 %.sink190, ptr %2, align 8
   br label %r_stem_noun_suffixes.exit.thread109
 
-r_stem_noun_suffixes.exit.thread109:              ; preds = %r_stem_noun_suffixes.exit.thread109.sink.split, %920, %917, %914, %911, %902, %889, %875, %858, %r_is_reserved_word.exit.i, %795, %734, %676, %549, %470, %814, %776, %.thread1302.i, %722, %705, %655, %625, %648, %638, %595, %585, %509, %542, %532, %461, %417, %430, %453, %select.unfold1327.i, %369, %730, %399, %.thread1239.i, %443, %667, %518, %.thread1298.i, %614, %747, %571, %382, %r_stem_noun_suffixes.exit, %309, %.thread513.i, %172, %.thread483.i, %r_more_than_one_syllable_word.exit, %select.unfold
-  %.1 = phi i32 [ 0, %select.unfold ], [ %816, %814 ], [ %351, %.thread483.i ], [ 0, %r_more_than_one_syllable_word.exit ], [ %860, %858 ], [ %312, %309 ], [ %283, %.thread513.i ], [ %175, %172 ], [ %824, %r_stem_noun_suffixes.exit ], [ %778, %776 ], [ %797, %795 ], [ %793, %.thread1302.i ], [ %724, %722 ], [ %707, %705 ], [ %735, %734 ], [ %657, %655 ], [ %627, %625 ], [ %643, %648 ], [ %640, %638 ], [ %590, %595 ], [ %587, %585 ], [ %512, %509 ], [ %537, %542 ], [ %534, %532 ], [ %463, %461 ], [ %419, %417 ], [ %432, %430 ], [ %448, %453 ], [ %808, %select.unfold1327.i ], [ %372, %369 ], [ %732, %730 ], [ %402, %399 ], [ %697, %.thread1239.i ], [ %445, %443 ], [ %662, %667 ], [ %521, %518 ], [ %769, %.thread1298.i ], [ %617, %614 ], [ %750, %747 ], [ %574, %571 ], [ %377, %382 ], [ %.fr1381.i, %676 ], [ %.fr1380.i, %549 ], [ %.fr1379.i, %470 ], [ %904, %902 ], [ 0, %r_is_reserved_word.exit.i ], [ %912, %911 ], [ %921, %920 ], [ %918, %917 ], [ %915, %914 ], [ %890, %889 ], [ %876, %875 ], [ %.1.ph, %r_stem_noun_suffixes.exit.thread109.sink.split ]
+r_stem_noun_suffixes.exit.thread109:              ; preds = %r_stem_noun_suffixes.exit.thread109.sink.split, %920, %917, %914, %911, %902, %889, %875, %858, %r_is_reserved_word.exit.i, %795, %734, %549, %676, %470, %814, %776, %.thread1302.i, %722, %705, %655, %625, %648, %638, %595, %585, %509, %542, %532, %461, %417, %430, %453, %select.unfold1327.i, %369, %730, %399, %.thread1239.i, %443, %667, %518, %.thread1298.i, %614, %747, %571, %382, %r_stem_noun_suffixes.exit, %309, %.thread513.i, %172, %.thread483.i, %r_more_than_one_syllable_word.exit, %select.unfold
+  %.1 = phi i32 [ 0, %select.unfold ], [ %816, %814 ], [ %351, %.thread483.i ], [ 0, %r_more_than_one_syllable_word.exit ], [ %860, %858 ], [ %312, %309 ], [ %283, %.thread513.i ], [ %175, %172 ], [ %824, %r_stem_noun_suffixes.exit ], [ %778, %776 ], [ %797, %795 ], [ %793, %.thread1302.i ], [ %724, %722 ], [ %707, %705 ], [ %735, %734 ], [ %657, %655 ], [ %627, %625 ], [ %643, %648 ], [ %640, %638 ], [ %590, %595 ], [ %587, %585 ], [ %512, %509 ], [ %537, %542 ], [ %534, %532 ], [ %463, %461 ], [ %419, %417 ], [ %432, %430 ], [ %448, %453 ], [ %808, %select.unfold1327.i ], [ %372, %369 ], [ %732, %730 ], [ %402, %399 ], [ %697, %.thread1239.i ], [ %445, %443 ], [ %662, %667 ], [ %521, %518 ], [ %769, %.thread1298.i ], [ %617, %614 ], [ %750, %747 ], [ %574, %571 ], [ %377, %382 ], [ %.fr1380.i, %549 ], [ %.fr1381.i, %676 ], [ %.fr1379.i, %470 ], [ %904, %902 ], [ 0, %r_is_reserved_word.exit.i ], [ %912, %911 ], [ %921, %920 ], [ %918, %917 ], [ %915, %914 ], [ %890, %889 ], [ %876, %875 ], [ %.1.ph, %r_stem_noun_suffixes.exit.thread109.sink.split ]
   ret i32 %.1
 }
 
@@ -2663,7 +2663,7 @@ define internal fastcc range(i32 0, 2) i32 @r_mark_suffix_with_optional_y_conson
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %20, %25, %28
-  %33 = phi i32 [ 0, %20 ], [ 0, %28 ], [ 0, %25 ], [ 1, %.critedge.sink.split ]
+  %33 = phi i32 [ 0, %28 ], [ 0, %20 ], [ 0, %25 ], [ 1, %.critedge.sink.split ]
   ret i32 %33
 }
 
@@ -3119,8 +3119,8 @@ r_mark_lArI.exit405.thread:                       ; preds = %r_mark_lArI.exit405
   %238 = icmp sgt i32 %237, 0
   br i1 %238, label %.thread548, label %.thread542
 
-.thread548.sink.split:                            ; preds = %219, %229, %.thread481, %157, %147, %84, %74, %52, %61
-  %.sink = phi i32 [ %63, %61 ], [ %54, %52 ], [ %76, %74 ], [ %86, %84 ], [ %149, %147 ], [ %159, %157 ], [ %168, %.thread481 ], [ %231, %229 ], [ %221, %219 ]
+.thread548.sink.split:                            ; preds = %229, %219, %.thread481, %157, %147, %84, %74, %52, %61
+  %.sink = phi i32 [ %63, %61 ], [ %54, %52 ], [ %76, %74 ], [ %86, %84 ], [ %149, %147 ], [ %159, %157 ], [ %168, %.thread481 ], [ %221, %219 ], [ %231, %229 ]
   store i32 %.sink, ptr %2, align 8
   br label %.thread548
 
@@ -3253,7 +3253,7 @@ define internal fastcc range(i32 0, 2) i32 @r_mark_possessives(ptr noundef %0) u
   br label %r_mark_suffix_with_optional_U_vowel.exit
 
 r_mark_suffix_with_optional_U_vowel.exit:         ; preds = %.critedge.sink.split.i, %41, %36, %30, %17, %1, %6, %13
-  %.011 = phi i32 [ 0, %1 ], [ 0, %17 ], [ 0, %6 ], [ 0, %13 ], [ 0, %30 ], [ 0, %41 ], [ 0, %36 ], [ 1, %.critedge.sink.split.i ]
+  %.011 = phi i32 [ 0, %1 ], [ 0, %17 ], [ 0, %6 ], [ 0, %13 ], [ 0, %41 ], [ 0, %30 ], [ 0, %36 ], [ 1, %.critedge.sink.split.i ]
   ret i32 %.011
 }
 
@@ -3344,7 +3344,7 @@ define internal fastcc range(i32 0, 2) i32 @r_mark_sU(ptr noundef %0) unnamed_ad
   br label %r_mark_suffix_with_optional_s_consonant.exit
 
 r_mark_suffix_with_optional_s_consonant.exit:     ; preds = %.critedge.sink.split.i, %32, %29, %24, %1, %3
-  %.1 = phi i32 [ 0, %1 ], [ 0, %3 ], [ 0, %24 ], [ 0, %32 ], [ 0, %29 ], [ 1, %.critedge.sink.split.i ]
+  %.1 = phi i32 [ 0, %1 ], [ 0, %3 ], [ 0, %32 ], [ 0, %24 ], [ 0, %29 ], [ 1, %.critedge.sink.split.i ]
   ret i32 %.1
 }
 
@@ -3559,7 +3559,7 @@ define internal fastcc range(i32 0, 2) i32 @r_mark_suffix_with_optional_n_conson
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %20, %25, %28
-  %33 = phi i32 [ 0, %20 ], [ 0, %28 ], [ 0, %25 ], [ 1, %.critedge.sink.split ]
+  %33 = phi i32 [ 0, %28 ], [ 0, %20 ], [ 0, %25 ], [ 1, %.critedge.sink.split ]
   ret i32 %33
 }
 

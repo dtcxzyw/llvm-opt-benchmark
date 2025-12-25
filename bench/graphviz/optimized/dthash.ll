@@ -756,7 +756,7 @@ thread-pre-split:                                 ; preds = %281, %277, %270
   br label %341
 
 .thread463:                                       ; preds = %.thread444, %325
-  %.3290 = phi ptr [ %.1288400427456, %325 ], [ %.0287.lcssa, %.thread444 ]
+  %.3290 = phi ptr [ %.0287.lcssa, %.thread444 ], [ %.1288400427456, %325 ]
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.3290, ptr %340, align 8, !tbaa !32
   %.not371 = icmp eq ptr %.3290, null

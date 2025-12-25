@@ -3219,7 +3219,7 @@ define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv13GetAllThreadsEPiPPP8_
   br label %34
 
 34:                                               ; preds = %.sink.split, %._crit_edge, %21
-  %.0 = phi i32 [ 110, %._crit_edge ], [ 110, %21 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 110, %21 ], [ 110, %._crit_edge ], [ 0, %.sink.split ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #19
   %35 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %35, null
@@ -8994,7 +8994,7 @@ _ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split:  ; preds = %32, %.thread74, %59
   br label %_ZN12JvmtiEnvBase8allocateElPPh.exit
 
 _ZN12JvmtiEnvBase8allocateElPPh.exit:             ; preds = %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split, %.thread80, %.thread74, %55, %51, %.thread55, %32, %47, %49, %.thread84, %20
-  %.0 = phi i32 [ 0, %.thread55 ], [ 21, %20 ], [ 0, %.thread80 ], [ 0, %.thread84 ], [ 0, %49 ], [ 0, %.thread74 ], [ 0, %47 ], [ 0, %32 ], [ 103, %51 ], [ 110, %55 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split ]
+  %.0 = phi i32 [ 0, %.thread55 ], [ 21, %20 ], [ 0, %.thread74 ], [ 0, %.thread84 ], [ 0, %49 ], [ 0, %.thread80 ], [ 0, %47 ], [ 0, %32 ], [ 103, %51 ], [ 110, %55 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split ]
   %61 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i, label %63, label %62
@@ -11928,7 +11928,7 @@ _ZNK14SystemProperty8readableEv.exit.thread44:    ; preds = %23, %_ZNK14SystemPr
   br i1 %.not36, label %.critedge, label %.lr.ph, !llvm.loop !49
 
 .critedge:                                        ; preds = %_ZNK14SystemProperty8readableEv.exit.thread44, %.lr.ph, %_ZN12JvmtiEnvBase8allocateElPPh.exit, %12, %3, %_ZN8JvmtiEnv10DeallocateEPh.exit41
-  %.027 = phi i32 [ 103, %3 ], [ %.0.i38, %_ZN8JvmtiEnv10DeallocateEPh.exit41 ], [ 110, %12 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit ], [ 0, %.lr.ph ], [ 0, %_ZNK14SystemProperty8readableEv.exit.thread44 ]
+  %.027 = phi i32 [ 110, %12 ], [ %.0.i38, %_ZN8JvmtiEnv10DeallocateEPh.exit41 ], [ 103, %3 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit ], [ 0, %.lr.ph ], [ 0, %_ZNK14SystemProperty8readableEv.exit.thread44 ]
   ret i32 %.027
 }
 

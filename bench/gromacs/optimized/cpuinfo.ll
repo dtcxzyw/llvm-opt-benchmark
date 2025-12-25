@@ -4017,7 +4017,7 @@ _ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.i: ; p
 
 1443:                                             ; preds = %_ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.i
   %1444 = load i32, ptr %111, align 4, !tbaa !38
-  switch i32 %1444, label %1475 [
+  switch i32 %1444, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i [
     i32 85, label %1445
     i32 102, label %_ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.thread.i
   ]
@@ -4070,17 +4070,17 @@ _ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.i: ; p
 1472:                                             ; preds = %1469
   %1473 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 2) #19
   %1474 = icmp eq i64 %1473, 22
-  br i1 %1474, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i
+  br i1 %1474, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i, label %1475
 
-1475:                                             ; preds = %1443
-  %1476 = add i32 %1444, -127
-  %or.cond.i.i = icmp ult i32 %1476, -2
+1475:                                             ; preds = %1472
+  %1476 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull @.str.8, i64 noundef 0, i64 noundef 2) #19
+  %1477 = icmp eq i64 %1476, 24
+  br i1 %1477, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i, label %_ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.thread.i
+
+_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i: ; preds = %1443
+  %1478 = add i32 %1444, -127
+  %or.cond.i.i = icmp ult i32 %1478, -2
   br i1 %or.cond.i.i, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i, label %_ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.thread.i
-
-_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i: ; preds = %1472
-  %1477 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef nonnull @.str.8, i64 noundef 0, i64 noundef 2) #19
-  %1478 = icmp eq i64 %1477, 24
-  br i1 %1478, label %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i, label %_ZNKSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EE5countERKS2_.exit884.thread.i
 
 _ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.thread913.i: ; preds = %_ZN3gmx12_GLOBAL__N_132detectProcCpuInfoSecondAvx512FMAERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit.i, %1475, %1472, %1469, %1466, %1445
   %.02022.i.i.i.i = load ptr, ptr %785, align 8, !tbaa !31

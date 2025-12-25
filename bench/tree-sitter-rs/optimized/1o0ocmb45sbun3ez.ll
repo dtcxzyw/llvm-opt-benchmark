@@ -31255,8 +31255,8 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap12
   br label %.thread227.i
 
 .thread227.i:                                     ; preds = %.thread224.i, %_ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap12prefer_token17h1fcfcbbb1955a0a7E.exit.i, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.exit19.i.i", %.split319.us.i
-  %574 = phi i64 [ %.sroa.526.1.ph.i, %.thread224.i ], [ %.us-phi320.i, %.split319.us.i ], [ %.us-phi320.i, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.exit19.i.i" ], [ %.us-phi320.i, %_ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap12prefer_token17h1fcfcbbb1955a0a7E.exit.i ]
-  %575 = phi i32 [ %.sroa.9.1.ph.i, %.thread224.i ], [ %.us-phi321.i, %.split319.us.i ], [ %.us-phi321.i, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.exit19.i.i" ], [ %.us-phi321.i, %_ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap12prefer_token17h1fcfcbbb1955a0a7E.exit.i ]
+  %574 = phi i64 [ %.sroa.526.1.ph.i, %.thread224.i ], [ %.us-phi320.i, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.exit19.i.i" ], [ %.us-phi320.i, %.split319.us.i ], [ %.us-phi320.i, %_ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap12prefer_token17h1fcfcbbb1955a0a7E.exit.i ]
+  %575 = phi i32 [ %.sroa.9.1.ph.i, %.thread224.i ], [ %.us-phi321.i, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hb0ef411744fc5f31E.exit19.i.i" ], [ %.us-phi321.i, %.split319.us.i ], [ %.us-phi321.i, %_ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap12prefer_token17h1fcfcbbb1955a0a7E.exit.i ]
   %576 = icmp eq i64 %574, %.sroa.02.0870
   br i1 %576, label %.outer.i.outer.outer, label %.outer.i.outer.outer2709
 
@@ -32072,7 +32072,7 @@ define noundef zeroext i1 @"_ZN111_$LT$tree_sitter_cli..generate..build_tables..
   br label %.sink.split
 
 .sink.split:                                      ; preds = %222, %217, %210, %187, %195, %203, %182, %39, %72, %79, %104, %111, %133, %140, %175
-  %.0.ph = phi i1 [ true, %203 ], [ true, %187 ], [ %181, %182 ], [ true, %175 ], [ true, %140 ], [ true, %133 ], [ true, %111 ], [ true, %104 ], [ true, %79 ], [ true, %72 ], [ true, %39 ], [ true, %210 ], [ true, %217 ], [ true, %195 ], [ true, %222 ]
+  %.0.ph = phi i1 [ true, %203 ], [ true, %217 ], [ %181, %182 ], [ true, %175 ], [ true, %140 ], [ true, %133 ], [ true, %111 ], [ true, %104 ], [ true, %79 ], [ true, %72 ], [ true, %39 ], [ true, %210 ], [ true, %187 ], [ true, %195 ], [ true, %222 ]
   call void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..grammars..SyntaxGrammar$GT$17h40823c311d831c85E"(ptr noalias noundef nonnull align 8 dereferenceable(184) %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %183

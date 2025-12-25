@@ -8022,7 +8022,7 @@ while.end.sink.split.i:                           ; preds = %land.lhs.true.i
   br label %_ZN5eastl8Internal17tim_sort_collapseIPiiN12_GLOBAL__N_111SlowCompareIiEEEElT_PNS0_12tim_sort_runElPT0_lT1_.exit
 
 _ZN5eastl8Internal17tim_sort_collapseIPiiN12_GLOBAL__N_111SlowCompareIiEEEElT_PNS0_12tim_sort_runElPT0_lT1_.exit: ; preds = %if.else66.i, %land.lhs.true.i, %while.end.sink.split.i
-  %stack_curr.addr.1.i = phi i64 [ 2, %land.lhs.true.i ], [ 1, %while.end.sink.split.i ], [ %stack_curr.addr.063.i34, %if.else66.i ]
+  %stack_curr.addr.1.i = phi i64 [ 1, %while.end.sink.split.i ], [ 2, %land.lhs.true.i ], [ %stack_curr.addr.063.i34, %if.else66.i ]
   store i64 %stack_curr.addr.1.i, ptr %stack_curr, align 8
   br label %for.cond.backedge
 
@@ -8587,7 +8587,7 @@ while.end.sink.split.i:                           ; preds = %land.lhs.true.i
   br label %_ZN5eastl8Internal17tim_sort_collapseIPN12_GLOBAL__N_110SlowAssignIjEES4_NS_4lessIS4_EEEElT_PNS0_12tim_sort_runElPT0_lT1_.exit
 
 _ZN5eastl8Internal17tim_sort_collapseIPN12_GLOBAL__N_110SlowAssignIjEES4_NS_4lessIS4_EEEElT_PNS0_12tim_sort_runElPT0_lT1_.exit: ; preds = %if.else66.i, %land.lhs.true.i, %while.end.sink.split.i
-  %stack_curr.addr.1.i = phi i64 [ 2, %land.lhs.true.i ], [ 1, %while.end.sink.split.i ], [ %stack_curr.addr.063.i32, %if.else66.i ]
+  %stack_curr.addr.1.i = phi i64 [ 1, %while.end.sink.split.i ], [ 2, %land.lhs.true.i ], [ %stack_curr.addr.063.i32, %if.else66.i ]
   store i64 %stack_curr.addr.1.i, ptr %stack_curr, align 8
   br label %for.cond.backedge
 
@@ -17861,7 +17861,7 @@ for.cond.backedge:                                ; preds = %for.end59, %if.end3
   br label %for.cond, !llvm.loop !208
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit
-  %retval.0 = phi ptr [ %__middle, %for.body.i ], [ %__last, %entry ], [ %add.ptr, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit ], [ %add.ptr, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end59 ]
+  %retval.0 = phi ptr [ %add.ptr, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit ], [ %__last, %entry ], [ %__middle, %for.body.i ], [ %add.ptr, %_ZSt4moveIPjS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end59 ]
   ret ptr %retval.0
 }
 
@@ -24936,7 +24936,7 @@ while.body.i.i:                                   ; preds = %for.end26.i, %while
   br i1 %cmp.i25.i, label %while.body.i.i, label %if.end28.i, !llvm.loop !303
 
 if.end28.i:                                       ; preds = %for.inc.i, %if.end.i, %while.body.i.i, %for.end26.i, %for.cond.preheader.i
-  %curr.1.i = phi i64 [ %curr.2.lcssa.i, %while.body.i.i ], [ %curr.2.lcssa.i, %for.end26.i ], [ %add.i, %for.cond.preheader.i ], [ %curr.028.i, %if.end.i ], [ %sub14.i, %for.inc.i ]
+  %curr.1.i = phi i64 [ %curr.2.lcssa.i, %for.end26.i ], [ %curr.2.lcssa.i, %while.body.i.i ], [ %add.i, %for.cond.preheader.i ], [ %curr.028.i, %if.end.i ], [ %sub14.i, %for.inc.i ]
   %sub29.i = sub nsw i64 %curr.1.i, %0
   br label %_ZN5eastl8Internal18tim_sort_count_runIPjNS_4lessIjEEEElT_llT0_.exit
 
@@ -25126,7 +25126,7 @@ while.end.sink.split:                             ; preds = %land.lhs.true
   br label %while.end
 
 while.end:                                        ; preds = %if.else66, %land.lhs.true, %while.end.sink.split, %entry
-  %stack_curr.addr.1 = phi i64 [ 1, %while.end.sink.split ], [ %stack_curr, %entry ], [ 2, %land.lhs.true ], [ %stack_curr.addr.06369, %if.else66 ]
+  %stack_curr.addr.1 = phi i64 [ %stack_curr, %entry ], [ 1, %while.end.sink.split ], [ 2, %land.lhs.true ], [ %stack_curr.addr.06369, %if.else66 ]
   ret i64 %stack_curr.addr.1
 }
 
@@ -28149,7 +28149,7 @@ if.end28.sink.split.i:                            ; preds = %for.inc.i, %if.end.
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %while.body.i.i, %if.end28.sink.split.i, %for.end26.i, %for.cond.preheader.i
-  %curr.1.i = phi i64 [ %add.i, %for.cond.preheader.i ], [ %curr.2.lcssa.i, %for.end26.i ], [ %curr.1.ph.i, %if.end28.sink.split.i ], [ %curr.2.lcssa.i, %while.body.i.i ]
+  %curr.1.i = phi i64 [ %curr.2.lcssa.i, %for.end26.i ], [ %add.i, %for.cond.preheader.i ], [ %curr.1.ph.i, %if.end28.sink.split.i ], [ %curr.2.lcssa.i, %while.body.i.i ]
   %sub29.i = sub nsw i64 %curr.1.i, %0
   br label %_ZN5eastl8Internal18tim_sort_count_runIPiN12_GLOBAL__N_111SlowCompareIiEEEElT_llT0_.exit
 
@@ -30188,7 +30188,7 @@ for.cond.backedge:                                ; preds = %for.end59, %if.end3
   br label %for.cond, !llvm.loop !362
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit
-  %retval.0 = phi ptr [ %__middle, %for.body.i ], [ %__last, %entry ], [ %add.ptr, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ], [ %add.ptr, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end59 ]
+  %retval.0 = phi ptr [ %add.ptr, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ], [ %__last, %entry ], [ %__middle, %for.body.i ], [ %add.ptr, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end59 ]
   ret ptr %retval.0
 }
 
@@ -31612,7 +31612,7 @@ while.cond.while.end_crit_edge.i.i:               ; preds = %while.body.i.i
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %for.inc.i, %if.end.i, %while.cond.while.end_crit_edge.i.i, %for.end26.i, %for.cond.preheader.i
-  %curr.1.i = phi i64 [ %curr.2.lcssa.i, %while.cond.while.end_crit_edge.i.i ], [ %curr.2.lcssa.i, %for.end26.i ], [ %add.i, %for.cond.preheader.i ], [ %sub14.i, %for.inc.i ], [ %curr.026.i, %if.end.i ]
+  %curr.1.i = phi i64 [ %curr.2.lcssa.i, %for.end26.i ], [ %curr.2.lcssa.i, %while.cond.while.end_crit_edge.i.i ], [ %add.i, %for.cond.preheader.i ], [ %sub14.i, %for.inc.i ], [ %curr.026.i, %if.end.i ]
   %sub29.i = sub nsw i64 %curr.1.i, %0
   br label %_ZN5eastl8Internal18tim_sort_count_runIPN12_GLOBAL__N_110SlowAssignIjEENS_4lessIS4_EEEElT_llT0_.exit
 

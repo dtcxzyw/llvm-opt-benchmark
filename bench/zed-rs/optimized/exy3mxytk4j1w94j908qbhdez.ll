@@ -63344,8 +63344,8 @@ define noundef zeroext i1 @"_ZN63_$LT$vim..command..GoToLine$u20$as$u20$gpui..ac
   switch i32 %16, label %default.unreachable [
     i32 0, label %20
     i32 1, label %26
-    i32 2, label %32
-    i32 3, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i"
+    i32 2, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i"
+    i32 3, label %32
   ]
 
 default.unreachable:                              ; preds = %64, %19
@@ -63656,8 +63656,8 @@ define noundef zeroext i1 @"_ZN66_$LT$vim..command..YankCommand$u20$as$u20$gpui.
   switch i32 %16, label %default.unreachable [
     i32 0, label %20
     i32 1, label %26
-    i32 2, label %32
-    i32 3, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i"
+    i32 2, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i"
+    i32 3, label %32
   ]
 
 default.unreachable:                              ; preds = %64, %19
@@ -63995,8 +63995,8 @@ define noundef zeroext i1 @"_ZN64_$LT$vim..command..WithRange$u20$as$u20$gpui..a
   switch i32 %22, label %default.unreachable [
     i32 0, label %26
     i32 1, label %32
-    i32 2, label %38
-    i32 3, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i"
+    i32 2, label %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i"
+    i32 3, label %38
   ]
 
 default.unreachable:                              ; preds = %70, %25
@@ -64143,7 +64143,7 @@ default.unreachable:                              ; preds = %70, %25
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h73b6f7d6007fcc27E.exit": ; preds = %3, %15, %21, %26, %32, %38, %44, %50, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i", %68, %71, %77, %83, %89, %95, %101, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i", %107
-  %.sroa.02.0.i = phi i1 [ false, %3 ], [ %118, %107 ], [ false, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i" ], [ false, %15 ], [ false, %101 ], [ false, %89 ], [ false, %95 ], [ false, %83 ], [ false, %32 ], [ false, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i" ], [ false, %50 ], [ false, %77 ], [ false, %44 ], [ false, %38 ], [ false, %68 ], [ false, %71 ], [ false, %21 ], [ false, %26 ]
+  %.sroa.02.0.i = phi i1 [ false, %3 ], [ %118, %107 ], [ false, %"_ZN67_$LT$vim..command..CommandRange$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a0a6c63974773ffE.exit.i.i" ], [ false, %15 ], [ false, %95 ], [ false, %101 ], [ false, %83 ], [ false, %89 ], [ false, %32 ], [ false, %"_ZN63_$LT$vim..command..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8574a707b548ab36E.exit.i.i.i" ], [ false, %50 ], [ false, %77 ], [ false, %44 ], [ false, %38 ], [ false, %68 ], [ false, %71 ], [ false, %21 ], [ false, %26 ]
   ret i1 %.sroa.02.0.i
 }
 

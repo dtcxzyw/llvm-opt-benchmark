@@ -1053,8 +1053,8 @@ _ZN5clang20NumericLiteralParser10SkipDigitsEPKc.exit: ; preds = %.lr.ph.i, %70
   br i1 %235, label %236, label %.critedge.thread
 
 236:                                              ; preds = %232, %228, %224, %221
-  %.082 = phi i8 [ 32, %228 ], [ 16, %224 ], [ 8, %221 ], [ 64, %232 ]
-  %.081 = phi i64 [ 3, %228 ], [ 3, %224 ], [ 2, %221 ], [ 3, %232 ]
+  %.082 = phi i8 [ 16, %224 ], [ 32, %228 ], [ 8, %221 ], [ 64, %232 ]
+  %.081 = phi i64 [ 3, %224 ], [ 3, %228 ], [ 2, %221 ], [ 3, %232 ]
   %237 = trunc nuw i8 %.078147 to i1
   br i1 %237, label %.critedge, label %238
 

@@ -1070,7 +1070,7 @@ fdt_next_node.exit:                               ; preds = %fdt_next_tag.exit
   br i1 %.not78, label %fdt_next_node.exit.thread, label %20, !llvm.loop !11
 
 fdt_next_node.exit.thread:                        ; preds = %fdt_check_node_offset_.exit.i, %161, %fdt_next_node.exit, %28, %156, %94, %72, %.backedge.i, %.critedge.i, %fdt_offset_ptr.exit11._crit_edge, %137, %fdt_next_tag.exit, %.preheader.i, %120, %118, %fdt_check_node_offset_.exit.thread.i
-  %.05 = phi i32 [ -1, %156 ], [ -1, %fdt_check_node_offset_.exit.thread.i ], [ -1, %.preheader.i ], [ -1, %118 ], [ -1, %120 ], [ -1, %fdt_next_tag.exit ], [ -1, %137 ], [ -1, %fdt_offset_ptr.exit11._crit_edge ], [ -1, %.critedge.i ], [ -1, %.backedge.i ], [ -1, %72 ], [ -1, %94 ], [ -1, %fdt_check_node_offset_.exit.i ], [ %74, %161 ], [ -1, %28 ], [ -1, %fdt_next_node.exit ]
+  %.05 = phi i32 [ -1, %156 ], [ -1, %fdt_check_node_offset_.exit.thread.i ], [ -1, %.preheader.i ], [ -1, %118 ], [ -1, %120 ], [ -1, %fdt_next_tag.exit ], [ -1, %137 ], [ -1, %fdt_offset_ptr.exit11._crit_edge ], [ -1, %.critedge.i ], [ -1, %.backedge.i ], [ -1, %72 ], [ -1, %94 ], [ -1, %28 ], [ -1, %fdt_check_node_offset_.exit.i ], [ %74, %161 ], [ -1, %fdt_next_node.exit ]
   ret i32 %.05
 }
 

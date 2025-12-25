@@ -14882,7 +14882,7 @@ _ZL15getConstantPartPKN4llvm4SCEVE.exit249.thread: ; preds = %493, %495, %_ZN4ll
   br i1 %.not155, label %_ZNK4llvm5APIntneEm.exit.thread, label %326
 
 _ZNK4llvm5APIntneEm.exit.thread:                  ; preds = %_ZL15getConstantPartPKN4llvm4SCEVE.exit249.thread, %364, %366, %437, %435, %.preheader, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i, %_ZNK4llvm5APIntneEm.exit
-  %572 = phi i1 [ true, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ false, %.preheader ], [ true, %_ZNK4llvm5APIntneEm.exit ], [ false, %364 ], [ false, %437 ], [ false, %435 ], [ false, %366 ], [ false, %_ZL15getConstantPartPKN4llvm4SCEVE.exit249.thread ]
+  %572 = phi i1 [ true, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i ], [ false, %437 ], [ true, %_ZNK4llvm5APIntneEm.exit ], [ false, %364 ], [ false, %.preheader ], [ false, %435 ], [ false, %366 ], [ false, %_ZL15getConstantPartPKN4llvm4SCEVE.exit249.thread ]
   %573 = load i32, ptr %303, align 8, !tbaa !191
   %574 = icmp ugt i32 %573, 64
   br i1 %574, label %575, label %_ZN4llvm5APIntD2Ev.exit269
@@ -14940,7 +14940,7 @@ _ZN4llvm5APIntD2Ev.exit271:                       ; preds = %.critedge164, %588,
   br label %.thread
 
 .thread:                                          ; preds = %60, %58, %129, %127, %_ZN4llvm5APIntD2Ev.exit271
-  %.3 = phi i1 [ false, %129 ], [ %.16, %_ZN4llvm5APIntD2Ev.exit271 ], [ false, %127 ], [ false, %58 ], [ false, %60 ]
+  %.3 = phi i1 [ %.16, %_ZN4llvm5APIntD2Ev.exit271 ], [ false, %129 ], [ false, %127 ], [ false, %58 ], [ false, %60 ]
   %592 = load i32, ptr %42, align 8, !tbaa !191
   %593 = icmp ugt i32 %592, 64
   br i1 %593, label %594, label %_ZN4llvm5APIntD2Ev.exit272
@@ -18917,7 +18917,7 @@ _ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit24: ; preds = %_ZN4llvm26ge
   br label %43
 
 43:                                               ; preds = %.sink.split, %39, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit24, %7, %19
-  %.0 = phi i1 [ true, %39 ], [ false, %7 ], [ false, %19 ], [ true, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit24 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %_ZN4llvm26getLoadStorePointerOperandEPNS_5ValueE.exit24 ], [ false, %7 ], [ false, %19 ], [ true, %39 ], [ false, %.sink.split ]
   %44 = load ptr, ptr %9, align 8, !tbaa !25
   %45 = icmp eq ptr %44, %13
   br i1 %45, label %_ZN4llvm11SmallVectorIiLj4EED2Ev.exit, label %46
@@ -25256,8 +25256,8 @@ _ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit389: ; pred
   br i1 %.not640, label %.preheader.preheader, label %838
 
 .preheader.preheader:                             ; preds = %825, %904, %907, %897, %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit389, %939, %805, %796, %_ZNK4llvm14SmallBitVector8set_bitsEv.exit361
-  %.sroa.0838.0.ph = phi i64 [ %894, %904 ], [ %.sroa.0838.5, %_ZNK4llvm14SmallBitVector8set_bitsEv.exit361 ], [ %894, %939 ], [ %.sroa.0838.5, %796 ], [ %.sroa.0838.5, %805 ], [ %894, %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit389 ], [ %894, %897 ], [ %894, %907 ], [ %.sroa.0838.5, %825 ]
-  %.sroa.0.0.ph = phi i64 [ %895, %904 ], [ %storemerge.i332, %_ZNK4llvm14SmallBitVector8set_bitsEv.exit361 ], [ %895, %939 ], [ %storemerge.i332, %796 ], [ %storemerge.i332, %805 ], [ %895, %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit389 ], [ %895, %897 ], [ %895, %907 ], [ %storemerge.i332, %825 ]
+  %.sroa.0838.0.ph = phi i64 [ %894, %904 ], [ %.sroa.0838.5, %796 ], [ %.sroa.0838.5, %_ZNK4llvm14SmallBitVector8set_bitsEv.exit361 ], [ %894, %939 ], [ %.sroa.0838.5, %805 ], [ %894, %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit389 ], [ %894, %897 ], [ %894, %907 ], [ %.sroa.0838.5, %825 ]
+  %.sroa.0.0.ph = phi i64 [ %895, %904 ], [ %storemerge.i332, %796 ], [ %storemerge.i332, %_ZNK4llvm14SmallBitVector8set_bitsEv.exit361 ], [ %895, %939 ], [ %storemerge.i332, %805 ], [ %895, %_ZN4llvm28const_set_bits_iterator_implINS_14SmallBitVectorEEppEv.exit389 ], [ %895, %897 ], [ %895, %907 ], [ %storemerge.i332, %825 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit

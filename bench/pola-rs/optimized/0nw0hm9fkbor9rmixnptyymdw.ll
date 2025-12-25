@@ -28739,7 +28739,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17hd79e6f8ef3d48
           to label %25 unwind label %23, !noalias !2116
 
 .critedge.i:                                      ; preds = %29, %23
-  %.pn.i = phi { ptr, i32 } [ %24, %23 ], [ %30, %29 ]
+  %.pn.i = phi { ptr, i32 } [ %30, %29 ], [ %24, %23 ]
   %22 = load i64, ptr %11, align 8, !range !3, !alias.scope !2114, !noalias !2111, !noundef !4
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %.thread12, label %46

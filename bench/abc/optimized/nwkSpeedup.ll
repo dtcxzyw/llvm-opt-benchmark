@@ -650,7 +650,7 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond.not, label %.critedge, label %60, !llvm.loop !68
 
 .critedge:                                        ; preds = %60, %63, %43, %46, %23, %20, %55, %39, %.preheader
-  %.250 = phi i32 [ 0, %55 ], [ %.4, %46 ], [ 0, %.preheader ], [ %.04876, %20 ], [ 0, %39 ], [ %.149, %23 ], [ %.370, %43 ], [ %.566, %60 ], [ %.6, %63 ]
+  %.250 = phi i32 [ %.4, %46 ], [ 0, %55 ], [ 0, %.preheader ], [ %.04876, %20 ], [ 0, %39 ], [ %.149, %23 ], [ %.370, %43 ], [ %.566, %60 ], [ %.6, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.250

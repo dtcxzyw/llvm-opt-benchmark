@@ -1443,8 +1443,8 @@ if.then68:                                        ; preds = %land.lhs.true60, %l
   %add.ptr69 = getelementptr inbounds nuw i8, ptr %p.1, i64 2
   br label %while.cond75.preheader
 
-while.cond75.preheader:                           ; preds = %if.then68, %land.lhs.true60, %if.then57
-  %p.2160 = phi ptr [ %p.1, %if.then57 ], [ %add.ptr69, %if.then68 ], [ %p.1, %land.lhs.true60 ]
+while.cond75.preheader:                           ; preds = %if.then68, %if.then57, %land.lhs.true60
+  %p.2160 = phi ptr [ %p.1, %land.lhs.true60 ], [ %add.ptr69, %if.then68 ], [ %p.1, %if.then57 ]
   br label %while.cond75
 
 while.cond75:                                     ; preds = %while.cond75.preheader, %while.cond75
@@ -1833,8 +1833,8 @@ if.then59:                                        ; preds = %land.lhs.true53, %l
   %add.ptr60 = getelementptr inbounds nuw i8, ptr %p.1, i64 8
   br label %while.cond66.preheader
 
-while.cond66.preheader:                           ; preds = %if.then59, %land.lhs.true53, %if.then51
-  %p.2193 = phi ptr [ %p.1, %if.then51 ], [ %add.ptr60, %if.then59 ], [ %p.1, %land.lhs.true53 ]
+while.cond66.preheader:                           ; preds = %if.then59, %if.then51, %land.lhs.true53
+  %p.2193 = phi ptr [ %p.1, %land.lhs.true53 ], [ %add.ptr60, %if.then59 ], [ %p.1, %if.then51 ]
   br label %while.cond66
 
 while.cond85.preheader:                           ; preds = %if.else, %if.then16
@@ -4225,8 +4225,8 @@ if.then68:                                        ; preds = %land.lhs.true60, %l
   %add.ptr69 = getelementptr inbounds nuw i8, ptr %p.1, i64 2
   br label %while.cond75.preheader
 
-while.cond75.preheader:                           ; preds = %if.then68, %land.lhs.true60, %if.then57
-  %p.2168 = phi ptr [ %p.1, %if.then57 ], [ %add.ptr69, %if.then68 ], [ %p.1, %land.lhs.true60 ]
+while.cond75.preheader:                           ; preds = %if.then68, %if.then57, %land.lhs.true60
+  %p.2168 = phi ptr [ %p.1, %land.lhs.true60 ], [ %add.ptr69, %if.then68 ], [ %p.1, %if.then57 ]
   br label %while.cond75
 
 while.cond75:                                     ; preds = %while.cond75.preheader, %while.cond75
@@ -4605,8 +4605,8 @@ if.then59:                                        ; preds = %land.lhs.true53, %l
   %add.ptr60 = getelementptr inbounds nuw i8, ptr %p.1, i64 8
   br label %while.cond66.preheader
 
-while.cond66.preheader:                           ; preds = %if.then59, %land.lhs.true53, %if.then51
-  %p.2201 = phi ptr [ %p.1, %if.then51 ], [ %add.ptr60, %if.then59 ], [ %p.1, %land.lhs.true53 ]
+while.cond66.preheader:                           ; preds = %if.then59, %if.then51, %land.lhs.true53
+  %p.2201 = phi ptr [ %p.1, %land.lhs.true53 ], [ %add.ptr60, %if.then59 ], [ %p.1, %if.then51 ]
   br label %while.cond66
 
 while.cond85.preheader:                           ; preds = %if.else, %if.then16

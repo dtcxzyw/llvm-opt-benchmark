@@ -1383,7 +1383,7 @@ VP8LSetError.exit.thread.sink.split:              ; preds = %183, %183, %159, %1
   br label %VP8LSetError.exit.thread
 
 VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.thread.sink.split, %183, %159, %.thread110, %90, %VP8LSetError.exit74, %VP8LSetError.exit
-  %.053122 = phi ptr [ %181, %VP8LSetError.exit ], [ null, %183 ], [ null, %159 ], [ null, %.thread110 ], [ null, %90 ], [ %181, %VP8LSetError.exit74 ], [ null, %VP8LSetError.exit.thread.sink.split ]
+  %.053122 = phi ptr [ %181, %VP8LSetError.exit ], [ %181, %VP8LSetError.exit74 ], [ null, %159 ], [ null, %.thread110 ], [ null, %90 ], [ null, %183 ], [ null, %VP8LSetError.exit.thread.sink.split ]
   call void @WebPSafeFree(ptr noundef %.053122) #8
   %187 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %188 = load ptr, ptr %187, align 8, !tbaa !53
@@ -2963,11 +2963,11 @@ GetHtreeGroupForPos.exit284:                      ; preds = %402, %405
   br label %.sink.split
 
 .thread304:                                       ; preds = %420, %295, %418, %293, %285
-  %.2192 = phi ptr [ %.1191, %293 ], [ %.1191, %295 ], [ %.5195, %418 ], [ %.1191, %285 ], [ %.5195, %420 ]
-  %.2184 = phi ptr [ %.1183, %293 ], [ %296, %295 ], [ %.0182370, %418 ], [ %.1183, %285 ], [ %421, %420 ]
-  %.2179 = phi ptr [ %286, %293 ], [ %286, %295 ], [ %391, %418 ], [ %286, %285 ], [ %391, %420 ]
-  %.1173 = phi i32 [ 0, %293 ], [ 0, %295 ], [ %.4176.lcssa, %418 ], [ %287, %285 ], [ %.4176.lcssa, %420 ]
-  %.2 = phi i32 [ %289, %293 ], [ %289, %295 ], [ %.5.lcssa, %418 ], [ %.0171374, %285 ], [ %.5.lcssa, %420 ]
+  %.2192 = phi ptr [ %.1191, %293 ], [ %.1191, %285 ], [ %.1191, %295 ], [ %.5195, %418 ], [ %.5195, %420 ]
+  %.2184 = phi ptr [ %.1183, %293 ], [ %.1183, %285 ], [ %296, %295 ], [ %.0182370, %418 ], [ %421, %420 ]
+  %.2179 = phi ptr [ %286, %293 ], [ %286, %285 ], [ %286, %295 ], [ %391, %418 ], [ %391, %420 ]
+  %.1173 = phi i32 [ 0, %293 ], [ %287, %285 ], [ 0, %295 ], [ %.4176.lcssa, %418 ], [ %.4176.lcssa, %420 ]
+  %.2 = phi i32 [ %289, %293 ], [ %.0171374, %285 ], [ %289, %295 ], [ %.5.lcssa, %418 ], [ %.5.lcssa, %420 ]
   %442 = icmp ult ptr %.2179, %20
   br i1 %442, label %65, label %.thread318
 

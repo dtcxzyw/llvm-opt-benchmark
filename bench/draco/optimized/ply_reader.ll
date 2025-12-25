@@ -5123,7 +5123,7 @@ _ZN5draco17PlyPropertyWriterIdED2Ev.exit87:       ; preds = %161, %163
   br label %.critedge64
 
 .critedge64:                                      ; preds = %.critedge62, %.critedge64.sink.split, %3
-  %.not53157 = phi i1 [ false, %.critedge64.sink.split ], [ true, %3 ], [ true, %.critedge62 ]
+  %.not53157 = phi i1 [ true, %3 ], [ false, %.critedge64.sink.split ], [ true, %.critedge62 ]
   ret i1 %.not53157
 }
 

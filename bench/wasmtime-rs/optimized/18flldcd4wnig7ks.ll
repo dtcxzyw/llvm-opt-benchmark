@@ -10889,7 +10889,7 @@ _ZN18wasmtime_cranelift5debug9transform17address_transform20get_wasm_code_offset
   br label %.thread345.i
 
 .thread365.loopexit.split-lp.i.loopexit:          ; preds = %320, %322, %"_ZN4core3ptr80drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$u64$C$usize$GT$$GT$17ha748184c69f75002E.exit.i", %356
-  %.076.ph.ph.i.ph = phi i1 [ true, %320 ], [ true, %"_ZN4core3ptr80drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$u64$C$usize$GT$$GT$17ha748184c69f75002E.exit.i" ], [ false, %356 ], [ true, %322 ]
+  %.076.ph.ph.i.ph = phi i1 [ true, %322 ], [ true, %"_ZN4core3ptr80drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$u64$C$usize$GT$$GT$17ha748184c69f75002E.exit.i" ], [ false, %356 ], [ true, %320 ]
   %lpad.loopexit146 = landingpad { ptr, i32 }
           cleanup
   br label %.thread345.i
@@ -12756,7 +12756,7 @@ select.unfold.sink.split:                         ; preds = %"_ZN103_$LT$craneli
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.sink.split, %3, %_ZN18wasmtime_cranelift5debug9transform17address_transform23TransformRangeStartIter3new17h57e405b311a0fea8E.llvm.12599983639457799574.exit, %5, %21, %.loopexit.i
-  %.sink = phi i64 [ 0, %_ZN18wasmtime_cranelift5debug9transform17address_transform23TransformRangeStartIter3new17h57e405b311a0fea8E.llvm.12599983639457799574.exit ], [ 0, %3 ], [ 0, %5 ], [ 0, %21 ], [ 0, %.loopexit.i ], [ 1, %select.unfold.sink.split ]
+  %.sink = phi i64 [ 0, %_ZN18wasmtime_cranelift5debug9transform17address_transform23TransformRangeStartIter3new17h57e405b311a0fea8E.llvm.12599983639457799574.exit ], [ 0, %21 ], [ 0, %5 ], [ 0, %3 ], [ 0, %.loopexit.i ], [ 1, %select.unfold.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
 

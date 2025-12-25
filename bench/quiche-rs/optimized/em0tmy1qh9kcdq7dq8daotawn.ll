@@ -121,8 +121,8 @@ _ZN8smallvec10infallible17h4191d5613d5470eeE.exit:
   br i1 %25, label %.loopexit, label %.critedge.i.i.i25
 
 .loopexit:                                        ; preds = %.preheader.i.i.i16, %23, %.critedge.i.i.i25, %.lr.ph80
-  %.sroa.749.1 = phi ptr [ null, %.lr.ph80 ], [ %.sroa.749.077, %23 ], [ %.sroa.749.077, %.critedge.i.i.i25 ], [ %.sroa.749.077, %.preheader.i.i.i16 ]
-  %.sroa.348.1 = phi ptr [ null, %.lr.ph80 ], [ %24, %23 ], [ null, %.critedge.i.i.i25 ], [ %.sroa.08.0.i.i.i17, %.preheader.i.i.i16 ]
+  %.sroa.749.1 = phi ptr [ %.sroa.749.077, %23 ], [ null, %.lr.ph80 ], [ %.sroa.749.077, %.critedge.i.i.i25 ], [ %.sroa.749.077, %.preheader.i.i.i16 ]
+  %.sroa.348.1 = phi ptr [ %24, %23 ], [ null, %.lr.ph80 ], [ null, %.critedge.i.i.i25 ], [ %.sroa.08.0.i.i.i17, %.preheader.i.i.i16 ]
   %26 = getelementptr inbounds i8, ptr %.sroa.348.078, i64 -32
   %.val.i22 = load i64, ptr %26, align 8, !noalias !23, !noundef !12
   %27 = load i64, ptr %2, align 8, !alias.scope !24, !noalias !29, !noundef !12
@@ -269,8 +269,8 @@ _ZN8smallvec10infallible17h4191d5613d5470eeE.exit:
   br i1 %25, label %.loopexit, label %.critedge.i.i.i25
 
 .loopexit:                                        ; preds = %.preheader.i.i.i16, %23, %.critedge.i.i.i25, %.lr.ph80
-  %.sroa.749.1 = phi ptr [ null, %.lr.ph80 ], [ %.sroa.749.077, %23 ], [ %.sroa.749.077, %.critedge.i.i.i25 ], [ %.sroa.749.077, %.preheader.i.i.i16 ]
-  %.sroa.348.1 = phi ptr [ null, %.lr.ph80 ], [ %24, %23 ], [ null, %.critedge.i.i.i25 ], [ %.sroa.08.0.i.i.i17, %.preheader.i.i.i16 ]
+  %.sroa.749.1 = phi ptr [ %.sroa.749.077, %23 ], [ null, %.lr.ph80 ], [ %.sroa.749.077, %.critedge.i.i.i25 ], [ %.sroa.749.077, %.preheader.i.i.i16 ]
+  %.sroa.348.1 = phi ptr [ %24, %23 ], [ null, %.lr.ph80 ], [ null, %.critedge.i.i.i25 ], [ %.sroa.08.0.i.i.i17, %.preheader.i.i.i16 ]
   %26 = getelementptr inbounds i8, ptr %.sroa.348.078, i64 -8
   %.val.i22 = load i64, ptr %26, align 8, !noalias !53, !noundef !12
   %27 = load i64, ptr %2, align 8, !alias.scope !54, !noalias !59, !noundef !12

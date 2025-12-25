@@ -2298,7 +2298,7 @@ _ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit.threa
   br label %if.then
 
 _ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit: ; preds = %land.lhs.true, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i, %if.end26.i
-  %retval.0.i = phi i64 [ %sub.i, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i ], [ %add.i, %if.end26.i ], [ %sub.i, %land.lhs.true ]
+  %retval.0.i = phi i64 [ %sub.i, %land.lhs.true ], [ %add.i, %if.end26.i ], [ %sub.i, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %str.i)
   %cmp5.not = icmp ult i64 %dec.i.i, %retval.0.i
   br i1 %cmp5.not, label %if.end, label %if.then

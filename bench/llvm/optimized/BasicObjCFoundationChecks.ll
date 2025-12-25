@@ -7290,16 +7290,16 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i.i:       ; preds = %86, %80
   %119 = call noundef ptr @_ZNK5clang15ObjCMessageExpr20getReceiverInterfaceEv(ptr noundef nonnull align 8 dereferenceable(40) %118) #23
   %120 = call fastcc noundef i32 @_ZL14findKnownClassPKN5clang17ObjCInterfaceDeclEb(ptr noundef %119, i1 noundef zeroext true)
   switch i32 %120, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit [
-    i32 1, label %121
-    i32 5, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i
+    i32 1, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i
+    i32 5, label %121
     i32 6, label %124
     i32 2, label %127
   ]
 
 121:                                              ; preds = %114
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.03.0.copyload.i.i = load i64, ptr %122, align 8, !tbaa !9
-  %123 = icmp eq i64 %97, %.sroa.03.0.copyload.i.i
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.sroa.02.0.copyload.i.i = load i64, ptr %122, align 8, !tbaa !9
+  %123 = icmp eq i64 %97, %.sroa.02.0.copyload.i.i
   br i1 %123, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
 124:                                              ; preds = %114
@@ -7315,9 +7315,9 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i.i:       ; preds = %86, %80
   br i1 %129, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i: ; preds = %114
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.sroa.02.0.copyload.i.i = load i64, ptr %130, align 8, !tbaa !9
-  %131 = icmp eq i64 %97, %.sroa.02.0.copyload.i.i
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.03.0.copyload.i.i = load i64, ptr %130, align 8, !tbaa !9
+  %131 = icmp eq i64 %97, %.sroa.03.0.copyload.i.i
   br i1 %131, label %132, label %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker19checkPreObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
 132:                                              ; preds = %_ZNK12_GLOBAL__N_125VariadicMethodTypeChecker17isVariadicMessageERKN5clang4ento14ObjCMethodCallE.exit.i, %127, %124, %121, %111, %108

@@ -71523,7 +71523,7 @@ _ZN7hir_def9item_tree6TreeId9item_tree17h011decfa2d5b0414E.exit: ; preds = %"_ZN
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %1104, %1099, %select.unfold980, %select.unfold975
-  %.4.ph.ph = phi i8 [ 1, %select.unfold975 ], [ %.5, %1099 ], [ %.5, %1104 ], [ 0, %select.unfold980 ]
+  %.4.ph.ph = phi i8 [ 0, %select.unfold980 ], [ %.5, %1099 ], [ %.5, %1104 ], [ 1, %select.unfold975 ]
   %lpad.loopexit.split-lp1018 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

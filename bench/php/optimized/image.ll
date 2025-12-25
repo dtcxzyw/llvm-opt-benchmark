@@ -609,7 +609,7 @@ define internal fastcc range(i32 0, 16) i32 @php_get_wbmp(ptr noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader39, %13, %.preheader37, %22, %.preheader, %32, %33, %29, %5, %3
-  %.026 = phi i32 [ 15, %32 ], [ 0, %3 ], [ 0, %5 ], [ 0, %22 ], [ 0, %13 ], [ 0, %29 ], [ 15, %33 ], [ 0, %.preheader ], [ 0, %.preheader37 ], [ 0, %.preheader39 ]
+  %.026 = phi i32 [ 15, %33 ], [ 0, %3 ], [ 0, %5 ], [ 0, %22 ], [ 0, %29 ], [ 0, %13 ], [ 15, %32 ], [ 0, %.preheader ], [ 0, %.preheader37 ], [ 0, %.preheader39 ]
   ret i32 %.026
 }
 
@@ -1777,7 +1777,7 @@ php_handle_avif.exit.i:                           ; preds = %581, %578
   br label %593
 
 593:                                              ; preds = %php_handle_avif.exit.i, %php_handle_webp.exit.i, %php_handle_ico.exit.i, %463, %php_handle_wbmp.exit.i, %php_handle_iff.exit.i, %php_handle_jp2.exit.i, %341, %339, %337, %php_handle_bmp.exit.i, %php_handle_psd.exit.i, %php_handle_swf.exit.i, %php_handle_png.exit.i, %93, %91, %php_handle_gif.exit.i
-  %.0.i65 = phi ptr [ %.0.i78.i, %php_handle_avif.exit.i ], [ %.0.i.i, %php_handle_gif.exit.i ], [ %92, %91 ], [ %94, %93 ], [ %.0.i55.i, %php_handle_png.exit.i ], [ %.0.i57.i, %php_handle_swf.exit.i ], [ %.0.i73.i, %php_handle_webp.exit.i ], [ %.0.i59.i, %php_handle_psd.exit.i ], [ %.0.i61.i, %php_handle_bmp.exit.i ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ %.0.i62.i, %php_handle_jp2.exit.i ], [ %.0.i65.i, %php_handle_iff.exit.i ], [ %.0.i68.i, %php_handle_wbmp.exit.i ], [ %465, %463 ], [ %.016.i.i, %php_handle_ico.exit.i ]
+  %.0.i65 = phi ptr [ %.0.i73.i, %php_handle_webp.exit.i ], [ %.0.i.i, %php_handle_gif.exit.i ], [ %92, %91 ], [ %94, %93 ], [ %.0.i55.i, %php_handle_png.exit.i ], [ %.0.i57.i, %php_handle_swf.exit.i ], [ %.0.i78.i, %php_handle_avif.exit.i ], [ %.0.i59.i, %php_handle_psd.exit.i ], [ %.0.i61.i, %php_handle_bmp.exit.i ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ %.0.i62.i, %php_handle_jp2.exit.i ], [ %.0.i65.i, %php_handle_iff.exit.i ], [ %.0.i68.i, %php_handle_wbmp.exit.i ], [ %465, %463 ], [ %.016.i.i, %php_handle_ico.exit.i ]
   %.not51.i = icmp eq ptr %.0.i65, null
   br i1 %.not51.i, label %.thread.i, label %594
 
@@ -2197,7 +2197,7 @@ php_next_marker.exit.thread.sink.split:           ; preds = %81, %php_read_APP.e
   br label %php_next_marker.exit.thread
 
 php_next_marker.exit.thread:                      ; preds = %124, %111, %67, %62, %28, %.preheader.i, %.thread.i, %.thread.i, %.thread.i, %php_next_marker.exit.thread.sink.split
-  %.034 = phi ptr [ %.036.ph, %.preheader.i ], [ %.036.ph, %php_next_marker.exit.thread.sink.split ], [ %.036.ph, %.thread.i ], [ %.036.ph, %.thread.i ], [ %.036.ph, %.thread.i ], [ %.036.ph, %67 ], [ %.036.ph, %124 ], [ %.036.ph, %111 ], [ %29, %62 ], [ %29, %28 ]
+  %.034 = phi ptr [ %.036.ph, %php_next_marker.exit.thread.sink.split ], [ %.036.ph, %.preheader.i ], [ %.036.ph, %.thread.i ], [ %.036.ph, %.thread.i ], [ %.036.ph, %.thread.i ], [ %.036.ph, %67 ], [ %.036.ph, %124 ], [ %.036.ph, %111 ], [ %29, %62 ], [ %29, %28 ]
   ret ptr %.034
 }
 

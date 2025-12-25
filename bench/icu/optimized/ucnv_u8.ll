@@ -1508,8 +1508,8 @@ _ZN6icu_774UTF812isValidTrailEihii.exit:          ; preds = %.lr.ph.split.split
   br i1 %76, label %.thread108, label %77
 
 .thread108:                                       ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit, %69, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137, %53, %_ZN6icu_774UTF812isValidTrailEihii.exit.us
-  %.us-phi = phi i8 [ %.095129.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.095129.us136, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.095129.us136, %53 ], [ %.095129, %69 ], [ %.095129, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
-  %.us-phi132 = phi ptr [ %.090130.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.090130.us135, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.090130.us135, %53 ], [ %.090130, %69 ], [ %.090130, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
+  %.us-phi = phi i8 [ %.095129.us136, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.095129.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.095129.us136, %53 ], [ %.095129, %69 ], [ %.095129, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
+  %.us-phi132 = phi ptr [ %.090130.us135, %_ZN6icu_774UTF812isValidTrailEihii.exit.us137 ], [ %.090130.us, %_ZN6icu_774UTF812isValidTrailEihii.exit.us ], [ %.090130.us135, %53 ], [ %.090130, %69 ], [ %.090130, %_ZN6icu_774UTF812isValidTrailEihii.exit ]
   store i32 12, ptr %1, align 4, !tbaa !27
   br label %.loopexit
 

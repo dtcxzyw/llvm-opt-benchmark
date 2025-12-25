@@ -9451,7 +9451,7 @@ if.end9.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp12.i.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i3.i.i.i.i.i.i.i.i.i, label %call1.i.noexc.i.i.i.i.i.i.i.i1913
 
 if.end.i.i3.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end9.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i1911
-  %retval.sroa.5.0.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ 12, %if.end9.i.i.i.i.i.i.i.i.i.i.i ], [ 11, %if.end.i.i.i.i.i.i.i.i.i.i.i1911 ]
+  %retval.sroa.5.0.i.i.i.i.i.i.i.i.i.i.i = phi i8 [ 11, %if.end.i.i.i.i.i.i.i.i.i.i.i1911 ], [ 12, %if.end9.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %ref.tmp.i.i.i.i.i.i.i.i.i1719, ptr %ref.tmp2.i.i.i.i.i.i.i.i.i1718, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i1717)
   invoke void @_ZZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr nonnull sret(%"class.folly::ConversionError") align 8 %ref.tmp.i.i.i.i.i.i.i.i.i.i.i1717, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i.i.i.i.i.i.i.i.i1718, i8 noundef zeroext %retval.sroa.5.0.i.i.i.i.i.i.i.i.i.i.i)
@@ -77830,7 +77830,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %cmp12.i.i.i, label %if.end.i.i3.i, label %call1.i.noexc
 
 if.end.i.i3.i:                                    ; preds = %if.end9.i.i.i, %if.end.i.i.i
-  %retval.sroa.5.0.i.i.i = phi i8 [ 12, %if.end9.i.i.i ], [ 11, %if.end.i.i.i ]
+  %retval.sroa.5.0.i.i.i = phi i8 [ 11, %if.end.i.i.i ], [ 12, %if.end9.i.i.i ]
   store ptr %ref.tmp.i, ptr %ref.tmp2.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   invoke void @_ZZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr nonnull sret(%"class.folly::ConversionError") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, i8 noundef zeroext %retval.sroa.5.0.i.i.i)
@@ -89242,7 +89242,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i442
   br i1 %cmp12.i.i.i, label %if.end.i.i3.i, label %_ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit
 
 if.end.i.i3.i:                                    ; preds = %if.end9.i.i.i, %if.end.i.i.i442
-  %retval.sroa.5.0.i.i.i = phi i8 [ 12, %if.end9.i.i.i ], [ 11, %if.end.i.i.i442 ]
+  %retval.sroa.5.0.i.i.i = phi i8 [ 11, %if.end.i.i.i442 ], [ 12, %if.end9.i.i.i ]
   store ptr %ref.tmp.i122, ptr %ref.tmp2.i441, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i440)
   call void @_ZZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr nonnull sret(%"class.folly::ConversionError") align 8 %ref.tmp.i.i.i440, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i441, i8 noundef zeroext %retval.sroa.5.0.i.i.i)
@@ -93008,7 +93008,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i298
   br i1 %cmp12.i.i.i, label %if.end.i.i3.i, label %_ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit
 
 if.end.i.i3.i:                                    ; preds = %if.end9.i.i.i, %if.end.i.i.i298
-  %retval.sroa.5.0.i.i.i = phi i8 [ 12, %if.end9.i.i.i ], [ 11, %if.end.i.i.i298 ]
+  %retval.sroa.5.0.i.i.i = phi i8 [ 11, %if.end.i.i.i298 ], [ 12, %if.end9.i.i.i ]
   store ptr %ref.tmp.i107, ptr %ref.tmp2.i297, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i296)
   call void @_ZZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr nonnull sret(%"class.folly::ConversionError") align 8 %ref.tmp.i.i.i296, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i297, i8 noundef zeroext %retval.sroa.5.0.i.i.i)
@@ -95304,7 +95304,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i304
   br i1 %cmp12.i.i.i, label %if.end.i.i3.i, label %_ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit
 
 if.end.i.i3.i:                                    ; preds = %if.end9.i.i.i, %if.end.i.i.i304
-  %retval.sroa.5.0.i.i.i = phi i8 [ 12, %if.end9.i.i.i ], [ 11, %if.end.i.i.i304 ]
+  %retval.sroa.5.0.i.i.i = phi i8 [ 11, %if.end.i.i.i304 ], [ 12, %if.end9.i.i.i ]
   store ptr %ref.tmp.i121, ptr %ref.tmp2.i303, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i302)
   call void @_ZZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr nonnull sret(%"class.folly::ConversionError") align 8 %ref.tmp.i.i.i302, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i303, i8 noundef zeroext %retval.sroa.5.0.i.i.i)
@@ -97509,7 +97509,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i298
   br i1 %cmp12.i.i.i, label %if.end.i.i3.i, label %_ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit
 
 if.end.i.i3.i:                                    ; preds = %if.end9.i.i.i, %if.end.i.i.i298
-  %retval.sroa.5.0.i.i.i = phi i8 [ 12, %if.end9.i.i.i ], [ 11, %if.end.i.i.i298 ]
+  %retval.sroa.5.0.i.i.i = phi i8 [ 11, %if.end.i.i.i298 ], [ 12, %if.end9.i.i.i ]
   store ptr %ref.tmp.i121, ptr %ref.tmp2.i297, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i296)
   call void @_ZZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr nonnull sret(%"class.folly::ConversionError") align 8 %ref.tmp.i.i.i296, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i297, i8 noundef zeroext %retval.sroa.5.0.i.i.i)
@@ -101041,7 +101041,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i419
   br i1 %cmp12.i.i.i, label %if.end.i.i3.i, label %_ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit
 
 if.end.i.i3.i:                                    ; preds = %if.end9.i.i.i, %if.end.i.i.i419
-  %retval.sroa.5.0.i.i.i = phi i8 [ 12, %if.end9.i.i.i ], [ 11, %if.end.i.i.i419 ]
+  %retval.sroa.5.0.i.i.i = phi i8 [ 11, %if.end.i.i.i419 ], [ 12, %if.end9.i.i.i ]
   store ptr %ref.tmp.i122, ptr %ref.tmp2.i418, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i417)
   call void @_ZZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr nonnull sret(%"class.folly::ConversionError") align 8 %ref.tmp.i.i.i417, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i418, i8 noundef zeroext %retval.sroa.5.0.i.i.i)
@@ -103948,7 +103948,7 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i419
   br i1 %cmp12.i.i.i, label %if.end.i.i3.i, label %_ZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit
 
 if.end.i.i3.i:                                    ; preds = %if.end9.i.i.i, %if.end.i.i.i419
-  %retval.sroa.5.0.i.i.i = phi i8 [ 12, %if.end9.i.i.i ], [ 11, %if.end.i.i.i419 ]
+  %retval.sroa.5.0.i.i.i = phi i8 [ 11, %if.end.i.i.i419 ], [ 12, %if.end9.i.i.i ]
   store ptr %ref.tmp.i133, ptr %ref.tmp2.i418, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i417)
   call void @_ZZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr nonnull sret(%"class.folly::ConversionError") align 8 %ref.tmp.i.i.i417, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i418, i8 noundef zeroext %retval.sroa.5.0.i.i.i)

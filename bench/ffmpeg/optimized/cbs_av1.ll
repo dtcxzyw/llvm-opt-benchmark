@@ -18301,7 +18301,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_av1_write_cdef_params(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %60, %67, %76, %82, %88, %.loopexit.sink.split, %.preheader, %44, %38, %35
-  %.065 = phi i32 [ 0, %.preheader ], [ %48, %44 ], [ 0, %35 ], [ %42, %38 ], [ -1094995529, %.loopexit.sink.split ], [ 0, %88 ], [ %80, %76 ], [ %65, %60 ], [ %71, %67 ], [ %86, %82 ]
+  %.065 = phi i32 [ 0, %.preheader ], [ -1094995529, %.loopexit.sink.split ], [ %48, %44 ], [ 0, %35 ], [ %42, %38 ], [ %86, %82 ], [ %71, %67 ], [ %65, %60 ], [ %80, %76 ], [ 0, %88 ]
   ret i32 %.065
 }
 

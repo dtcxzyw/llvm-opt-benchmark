@@ -519,7 +519,7 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
   br label %138
 
 138:                                              ; preds = %131, %120, %109, %100
-  %.0137.i = phi ptr [ %104, %100 ], [ %115, %109 ], [ %137, %131 ], [ %126, %120 ]
+  %.0137.i = phi ptr [ %126, %120 ], [ %104, %100 ], [ %137, %131 ], [ %115, %109 ]
   %.not76.i = icmp eq ptr %.0137.i, null
   br i1 %.not76.i, label %.thread.i, label %139
 

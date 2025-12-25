@@ -5574,7 +5574,7 @@ define internal fastcc noundef zeroext i1 @find_sctpprim_variant3_data_offset(pt
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %37, %38, %.critedge.sink.split, %68, %28, %22, %16, %12, %8, %5
-  %.0 = phi i1 [ false, %68 ], [ false, %5 ], [ false, %8 ], [ true, %.critedge.sink.split ], [ false, %16 ], [ false, %12 ], [ false, %22 ], [ false, %28 ], [ false, %38 ], [ false, %37 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %68 ], [ false, %5 ], [ false, %8 ], [ false, %28 ], [ false, %16 ], [ false, %12 ], [ false, %22 ], [ true, %.critedge.sink.split ], [ false, %38 ], [ false, %37 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

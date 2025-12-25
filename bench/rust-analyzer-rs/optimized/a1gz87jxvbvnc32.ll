@@ -791,7 +791,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h2e0a8e41146814c5E(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17h97883265c1aabaf0E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit95:                                      ; preds = %161, %167, %182, %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.i.i.i.i49.i", %.noexc51, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h072e7aa29b5a6738E.exit51.thread.i", %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.023.i, %161 ], [ %.023.i, %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.i.i.i.i49.i" ], [ %.023.i, %167 ], [ %50, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h072e7aa29b5a6738E.exit51.thread.i" ], [ %.023.i, %.noexc51 ], [ %.023.i, %182 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.023.i, %161 ], [ %.023.i, %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.i.i.i.i49.i" ], [ %.023.i, %167 ], [ %.023.i, %.noexc51 ], [ %50, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h072e7aa29b5a6738E.exit51.thread.i" ], [ %.023.i, %182 ]
   %215 = add i64 %.sroa.0.0.i, %.0145
   %216 = icmp ugt i64 %.0145, %215
   br i1 %216, label %.invoke, label %217
@@ -1854,7 +1854,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hab9f947192daa8a5E(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17hd9c7e1000991e374E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit95:                                      ; preds = %161, %167, %182, %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.i.i.i.i49.i", %.noexc51, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8ce8a3367a77c9bcE.exit51.thread.i", %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.023.i, %161 ], [ %.023.i, %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.i.i.i.i49.i" ], [ %.023.i, %167 ], [ %50, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8ce8a3367a77c9bcE.exit51.thread.i" ], [ %.023.i, %.noexc51 ], [ %.023.i, %182 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.023.i, %161 ], [ %.023.i, %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.i.i.i.i49.i" ], [ %.023.i, %167 ], [ %.023.i, %.noexc51 ], [ %50, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17h8ce8a3367a77c9bcE.exit51.thread.i" ], [ %.023.i, %182 ]
   %215 = add i64 %.sroa.0.0.i, %.0145
   %216 = icmp ugt i64 %.0145, %215
   br i1 %216, label %.invoke, label %217
@@ -2917,7 +2917,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17he43f62b650af5634E(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17ha5313ea9f6fa41d8E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit95:                                      ; preds = %161, %167, %182, %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.i.i.i.i49.i", %.noexc51, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafd1486d9031feb4E.exit51.thread.i", %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.023.i, %161 ], [ %.023.i, %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.i.i.i.i49.i" ], [ %.023.i, %167 ], [ %50, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafd1486d9031feb4E.exit51.thread.i" ], [ %.023.i, %.noexc51 ], [ %.023.i, %182 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.023.i, %161 ], [ %.023.i, %"_ZN65_$LT$hir_expand..mod_path..PathKind$u20$as$u20$core..cmp..Ord$GT$3cmp17h7b66f60803a1bd8eE.exit.i.i.i.i49.i" ], [ %.023.i, %167 ], [ %.023.i, %.noexc51 ], [ %50, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafd1486d9031feb4E.exit51.thread.i" ], [ %.023.i, %182 ]
   %215 = add i64 %.sroa.0.0.i, %.0145
   %216 = icmp ugt i64 %.0145, %215
   br i1 %216, label %.invoke, label %217

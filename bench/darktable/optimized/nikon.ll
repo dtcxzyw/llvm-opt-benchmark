@@ -1344,8 +1344,8 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not287, label %.critedge, label %.lr.ph.split, !llvm.loop !112
 
 .critedge:                                        ; preds = %430, %.lr.ph.split.us, %466, %.lr.ph.split, %417, %.tail, %446, %.tail.thread
-  %.3239371 = phi i32 [ %.3239378, %.tail.thread ], [ %.3239378, %.tail ], [ %.3239378, %446 ], [ %.0236418, %417 ], [ %468, %466 ], [ %.3239378, %.lr.ph.split ], [ %.3239378.us, %.lr.ph.split.us ], [ %434, %430 ]
-  %.3249 = phi i32 [ 96, %.tail.thread ], [ 34, %.tail ], [ 34, %446 ], [ %.0246410, %417 ], [ 0, %466 ], [ 0, %.lr.ph.split ], [ %.0246410, %.lr.ph.split.us ], [ %.0246410, %430 ]
+  %.3239371 = phi i32 [ %.3239378, %.tail.thread ], [ %.3239378, %446 ], [ %.3239378, %.tail ], [ %.0236418, %417 ], [ %468, %466 ], [ %.3239378, %.lr.ph.split ], [ %.3239378.us, %.lr.ph.split.us ], [ %434, %430 ]
+  %.3249 = phi i32 [ 96, %.tail.thread ], [ 34, %446 ], [ 34, %.tail ], [ %.0246410, %417 ], [ 0, %466 ], [ 0, %.lr.ph.split ], [ %.0246410, %.lr.ph.split.us ], [ %.0246410, %430 ]
   %474 = load i8, ptr %94, align 2, !tbaa !71
   %.not293 = icmp eq i8 %474, 0
   br i1 %.not293, label %475, label %.loopexit
@@ -2369,8 +2369,8 @@ _Z11sget4_ordersPh.exit316:                       ; preds = %938, %940
   br label %_Z11sget4_ordersPh.exit
 
 _Z11sget4_ordersPh.exit:                          ; preds = %1029, %1027, %1007, %1005, %985, %983, %963, %961, %886, %884, %_Z11sget4_ordersPh.exit316
-  %.0203 = phi i1 [ true, %1005 ], [ true, %1027 ], [ true, %1029 ], [ true, %983 ], [ true, %961 ], [ true, %1007 ], [ %958, %_Z11sget4_ordersPh.exit316 ], [ true, %886 ], [ true, %963 ], [ true, %985 ], [ true, %884 ]
-  %.0202 = phi i32 [ %1006, %1005 ], [ %1028, %1027 ], [ %1046, %1029 ], [ %984, %983 ], [ %962, %961 ], [ %1024, %1007 ], [ %.0.i315, %_Z11sget4_ordersPh.exit316 ], [ %903, %886 ], [ %980, %963 ], [ %1002, %985 ], [ %885, %884 ]
+  %.0203 = phi i1 [ true, %1005 ], [ true, %1027 ], [ true, %1029 ], [ true, %961 ], [ true, %983 ], [ true, %1007 ], [ %958, %_Z11sget4_ordersPh.exit316 ], [ true, %886 ], [ true, %963 ], [ true, %985 ], [ true, %884 ]
+  %.0202 = phi i32 [ %1006, %1005 ], [ %1028, %1027 ], [ %1046, %1029 ], [ %962, %961 ], [ %984, %983 ], [ %1024, %1007 ], [ %.0.i315, %_Z11sget4_ordersPh.exit316 ], [ %903, %886 ], [ %980, %963 ], [ %1002, %985 ], [ %885, %884 ]
   %.not278 = icmp eq i32 %.0202, 0
   br i1 %.not278, label %1067, label %1047
 

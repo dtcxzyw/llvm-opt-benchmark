@@ -574,7 +574,7 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br label %229
 
 .loopexit:                                        ; preds = %_ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i, %.preheader4.i, %.preheader.i.us, %.preheader.i, %.thread.i.i.i
-  %.sroa.6.3.i = phi i64 [ %175, %.preheader.i ], [ %89, %.thread.i.i.i ], [ %122, %.preheader4.i ], [ %175, %.preheader.i.us ], [ %40, %_ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i ]
+  %.sroa.6.3.i = phi i64 [ %122, %.preheader4.i ], [ %89, %.thread.i.i.i ], [ %175, %.preheader.i ], [ %175, %.preheader.i.us ], [ %40, %_ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !36
   %228 = icmp ult i64 %.sroa.6.3.i, 2
   br i1 %228, label %285, label %229

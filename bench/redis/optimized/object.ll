@@ -4805,7 +4805,7 @@ define dso_local range(i32 0, 2) i32 @objectSetLRUOrLFU(ptr noundef captures(non
   br label %35
 
 35:                                               ; preds = %.sink.split, %8, %22
-  %.013 = phi i32 [ 0, %8 ], [ 0, %22 ], [ 1, %.sink.split ]
+  %.013 = phi i32 [ 0, %22 ], [ 0, %8 ], [ 1, %.sink.split ]
   ret i32 %.013
 }
 

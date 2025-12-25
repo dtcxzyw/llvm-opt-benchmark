@@ -3220,7 +3220,7 @@ define range(i32 0, 2) i32 @Saig_ManDemiterCheckPo(ptr noundef readonly captures
   br label %67
 
 67:                                               ; preds = %.sink.split, %29, %47, %27, %23, %13
-  %.0 = phi i32 [ 0, %29 ], [ 0, %13 ], [ 0, %27 ], [ 0, %47 ], [ 0, %23 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %47 ], [ 0, %13 ], [ 0, %27 ], [ 0, %29 ], [ 0, %23 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

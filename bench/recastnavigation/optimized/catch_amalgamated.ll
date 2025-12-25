@@ -4721,7 +4721,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.i:              ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %._crit_edge92.i, %.split.us.i, %.split100.us.i
-  %.sroa.048.0.ph.ph.ph.i = phi ptr [ %.us-phi95.i, %.split.us.i ], [ %.sroa.048.1.lcssa.i, %._crit_edge92.i ], [ %.sroa.048.284.us.i, %.split100.us.i ]
+  %.sroa.048.0.ph.ph.ph.i = phi ptr [ %.us-phi95.i, %.split.us.i ], [ %.sroa.048.284.us.i, %.split100.us.i ], [ %.sroa.048.1.lcssa.i, %._crit_edge92.i ]
   %lpad.loopexit.split-lp69.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i

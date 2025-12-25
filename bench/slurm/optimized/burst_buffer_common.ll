@@ -4041,7 +4041,7 @@ define dso_local void @bb_limit_rem(i32 noundef %0, i64 noundef %1, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %.loopexit.sink.split, %27
-  %.064 = phi i32 [ %.067, %.loopexit.sink.split ], [ 0, %27 ], [ %52, %51 ]
+  %.064 = phi i32 [ 0, %27 ], [ %.067, %.loopexit.sink.split ], [ %52, %51 ]
   %56 = load i32, ptr %28, align 8
   %.not59 = icmp ult i32 %.064, %56
   br i1 %.not59, label %59, label %57

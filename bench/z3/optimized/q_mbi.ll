@@ -13395,7 +13395,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i21:  ; preds = %_ZN1q4mbqi11next_of
   br i1 %77, label %.thread36, label %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, !llvm.loop !744
 
 .thread36:                                        ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %.thread, %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i21, %68, %.lr.ph.i24, %3, %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit.thread
-  %78 = phi i1 [ false, %3 ], [ false, %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit ], [ true, %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit.thread ], [ false, %68 ], [ false, %.lr.ph.i24 ], [ false, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i21 ], [ false, %.thread ], [ false, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
+  %78 = phi i1 [ false, %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit ], [ false, %68 ], [ true, %_ZN1q4mbqi11next_offsetER7svectorIjjERK10ref_vectorI3app11ast_managerEjj.exit.thread ], [ false, %3 ], [ false, %.lr.ph.i24 ], [ false, %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit.i21 ], [ false, %.thread ], [ false, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
   ret i1 %78
 }
 

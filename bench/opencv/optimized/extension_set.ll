@@ -14066,7 +14066,7 @@ _ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit: ; p
   br i1 %.not, label %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread, label %.lr.ph, !llvm.loop !170
 
 _ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit.thread: ; preds = %56, %60, %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit, %.lr.ph.i, %13, %.lr.ph34, %15, %6
-  %.3 = phi i1 [ true, %15 ], [ false, %.lr.ph.i ], [ true, %6 ], [ %12, %13 ], [ %12, %.lr.ph34 ], [ false, %56 ], [ false, %60 ], [ true, %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit ]
+  %.3 = phi i1 [ false, %.lr.ph.i ], [ true, %15 ], [ true, %6 ], [ %12, %13 ], [ %12, %.lr.ph34 ], [ false, %56 ], [ false, %60 ], [ true, %_ZNK6google8protobuf8internal12ExtensionSet9Extension13IsInitializedEv.exit ]
   ret i1 %.3
 }
 
@@ -24944,7 +24944,7 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet9Extension
   br label %.loopexit187
 
 .loopexit:                                        ; preds = %119, %106, %92, %82, %71, %61, %50, %160, %155, %150, %145, %140, %135, %130
-  %.0 = phi i64 [ %81, %71 ], [ %163, %160 ], [ %159, %155 ], [ %91, %82 ], [ %105, %92 ], [ %118, %106 ], [ %60, %50 ], [ %70, %61 ], [ %134, %130 ], [ %139, %135 ], [ %144, %140 ], [ %149, %145 ], [ %154, %150 ], [ %129, %119 ]
+  %.0 = phi i64 [ %163, %160 ], [ %81, %71 ], [ %159, %155 ], [ %91, %82 ], [ %105, %92 ], [ %118, %106 ], [ %60, %50 ], [ %70, %61 ], [ %134, %130 ], [ %139, %135 ], [ %144, %140 ], [ %149, %145 ], [ %154, %150 ], [ %129, %119 ]
   %175 = trunc i64 %.0 to i32
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %175, ptr %176, align 4, !tbaa !230

@@ -357,7 +357,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr noundef readonly cap
   br label %.loopexit
 
 .split.us:                                        ; preds = %56, %63, %40, %33, %17
-  %.us-phi = phi ptr [ %15, %17 ], [ %24, %40 ], [ %24, %33 ], [ %47, %63 ], [ %47, %56 ]
+  %.us-phi = phi ptr [ %24, %40 ], [ %15, %17 ], [ %24, %33 ], [ %47, %63 ], [ %47, %56 ]
   %76 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !17
   %78 = tail call ptr @dlsym(ptr noundef %77, ptr noundef nonnull @.str.4) #8

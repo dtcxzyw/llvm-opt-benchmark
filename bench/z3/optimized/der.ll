@@ -847,7 +847,7 @@ _ZL6is_varP4exprj.exit32.thread.sink.split:       ; preds = %284, %277, %275, %2
   br label %_ZL6is_varP4exprj.exit32.thread
 
 _ZL6is_varP4exprj.exit32.thread:                  ; preds = %_ZL6is_varP4exprj.exit32.thread.sink.split, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit36.thread, %_ZL6is_varP4exprj.exit51, %243, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i57, %254, %258, %183, %178, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i45, %194, %198, %59, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit58, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit46, %_ZL6is_varP4exprj.exit32
-  %.0 = phi i1 [ false, %_ZL6is_varP4exprj.exit51 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit46 ], [ false, %243 ], [ false, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit36.thread ], [ false, %_ZL6is_varP4exprj.exit32 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i57 ], [ false, %254 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit58 ], [ false, %183 ], [ false, %59 ], [ false, %198 ], [ false, %194 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i45 ], [ false, %178 ], [ false, %258 ], [ true, %_ZL6is_varP4exprj.exit32.thread.sink.split ]
+  %.0 = phi i1 [ false, %254 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit46 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i57 ], [ false, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit36.thread ], [ false, %_ZL6is_varP4exprj.exit32 ], [ false, %243 ], [ false, %_ZL6is_varP4exprj.exit51 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit58 ], [ false, %183 ], [ false, %59 ], [ false, %198 ], [ false, %194 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i45 ], [ false, %178 ], [ false, %258 ], [ true, %_ZL6is_varP4exprj.exit32.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -1242,7 +1242,7 @@ _ZL6is_varP4exprj.exit23.thread.sink.split:       ; preds = %193, %186, %184, %1
   br label %_ZL6is_varP4exprj.exit23.thread
 
 _ZL6is_varP4exprj.exit23.thread:                  ; preds = %_ZL6is_varP4exprj.exit23.thread.sink.split, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit27.thread, %_ZL6is_varP4exprj.exit35, %152, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %163, %167, %83, %37, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit, %_ZL6is_varP4exprj.exit29, %_ZL6is_varP4exprj.exit23
-  %.0 = phi i1 [ false, %_ZL6is_varP4exprj.exit35 ], [ false, %_ZL6is_varP4exprj.exit29 ], [ false, %152 ], [ false, %_ZL6is_varP4exprj.exit23 ], [ false, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit27.thread ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit ], [ false, %83 ], [ false, %37 ], [ false, %167 ], [ false, %163 ], [ true, %_ZL6is_varP4exprj.exit23.thread.sink.split ]
+  %.0 = phi i1 [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ false, %_ZL6is_varP4exprj.exit29 ], [ false, %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit27.thread ], [ false, %_ZL6is_varP4exprj.exit23 ], [ false, %152 ], [ false, %_ZL6is_varP4exprj.exit35 ], [ false, %_ZL10is_neg_varR11ast_managerP4exprRP3varj.exit ], [ false, %83 ], [ false, %37 ], [ false, %167 ], [ false, %163 ], [ true, %_ZL6is_varP4exprj.exit23.thread.sink.split ]
   ret i1 %.0
 }
 

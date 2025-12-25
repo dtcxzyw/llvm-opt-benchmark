@@ -171,7 +171,7 @@ define dso_local range(i32 0, 2) i32 @lpStringToInt64(ptr noundef readonly captu
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %22, %.critedge.sink.split, %.thread73, %8, %32, %37, %35, %30, %11, %9, %3
-  %.045 = phi i32 [ 1, %32 ], [ 0, %3 ], [ 1, %9 ], [ 0, %11 ], [ 0, %8 ], [ 1, %.critedge.sink.split ], [ 1, %37 ], [ 0, %35 ], [ 0, %30 ], [ 0, %.thread73 ], [ 0, %22 ], [ 0, %.lr.ph ]
+  %.045 = phi i32 [ 1, %32 ], [ 0, %3 ], [ 1, %9 ], [ 0, %11 ], [ 0, %.thread73 ], [ 0, %8 ], [ 1, %37 ], [ 0, %35 ], [ 0, %30 ], [ 1, %.critedge.sink.split ], [ 0, %22 ], [ 0, %.lr.ph ]
   ret i32 %.045
 }
 
@@ -1455,7 +1455,7 @@ define internal range(i32 0, 2) i32 @lpFindCmp(ptr readnone captures(none) %0, p
   %55 = icmp slt i64 %.0.lcssa.i, 0
   br i1 %55, label %.thread, label %.thread26
 
-.thread:                                          ; preds = %.lr.ph.i, %42, %17, %.thread73.i, %21, %31, %29, %54, %50
+.thread:                                          ; preds = %.lr.ph.i, %42, %17, %21, %31, %.thread73.i, %29, %54, %50
   store i32 255, ptr %15, align 4, !tbaa !26
   br label %59
 
@@ -2268,7 +2268,7 @@ lpStringToInt64.exit.thread20:                    ; preds = %.thread90.i, %10, %
   %83 = icmp ult i32 %1, 64
   br i1 %83, label %.loopexit.thread, label %86
 
-.loopexit.thread:                                 ; preds = %10, %12, %.thread73.i, %.loopexit
+.loopexit.thread:                                 ; preds = %10, %.thread73.i, %12, %.loopexit
   %84 = add nuw nsw i32 %1, 1
   %85 = zext nneg i32 %84 to i64
   br label %lpEncodeIntegerGetType.exit.sink.split
@@ -4586,7 +4586,7 @@ lpCurrentEncodedSizeBytes.exit.sink.split:        ; preds = %lpDecodeBacklen.exi
   br label %lpCurrentEncodedSizeBytes.exit
 
 lpCurrentEncodedSizeBytes.exit:                   ; preds = %72, %lpCurrentEncodedSizeBytes.exit.sink.split, %27, %select.unfold, %lpDecodeBacklen.exit, %lpEncodeBacklenBytes.exit, %5, %8, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %lpCurrentEncodedSizeBytes.exit.sink.split ], [ 0, %5 ], [ 0, %8 ], [ 0, %lpDecodeBacklen.exit ], [ 0, %select.unfold ], [ 0, %lpEncodeBacklenBytes.exit ], [ 0, %27 ], [ 0, %72 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %27 ], [ 0, %5 ], [ 0, %8 ], [ 0, %lpDecodeBacklen.exit ], [ 0, %select.unfold ], [ 0, %lpEncodeBacklenBytes.exit ], [ 1, %lpCurrentEncodedSizeBytes.exit.sink.split ], [ 0, %72 ]
   ret i32 %.0
 }
 
@@ -4923,7 +4923,7 @@ define dso_local range(i32 0, 2) i32 @lpCompare(ptr noundef readonly captures(no
   br label %lpStringToInt64.exit
 
 lpStringToInt64.exit:                             ; preds = %92, %.lr.ph.i, %.critedge.sink.split.i, %104, %100, %.thread73.i, %81, %79, %72, %66, %68, %3
-  %.010.shrunk = phi i1 [ false, %66 ], [ false, %3 ], [ %71, %68 ], [ false, %72 ], [ %106, %.critedge.sink.split.i ], [ false, %.thread73.i ], [ false, %79 ], [ false, %81 ], [ false, %104 ], [ false, %100 ], [ false, %.lr.ph.i ], [ false, %92 ]
+  %.010.shrunk = phi i1 [ false, %66 ], [ false, %3 ], [ %71, %68 ], [ false, %72 ], [ %106, %.critedge.sink.split.i ], [ false, %.thread73.i ], [ false, %79 ], [ false, %104 ], [ false, %81 ], [ false, %100 ], [ false, %.lr.ph.i ], [ false, %92 ]
   %.010 = zext i1 %.010.shrunk to i32
   ret i32 %.010
 }
@@ -5608,7 +5608,7 @@ lpDecodeBacklen.exit.i:                           ; preds = %.preheader.i
   %.not44.i = icmp eq i64 %158, %149
   br i1 %.not44.i, label %lpNext.exit, label %.loopexit
 
-.loopexit:                                        ; preds = %94, %96, %lpDecodeBacklen.exit.i, %select.unfold.i, %lpEncodeBacklenBytes.exit.i, %114, %159
+.loopexit:                                        ; preds = %114, %94, %96, %lpDecodeBacklen.exit.i, %select.unfold.i, %lpEncodeBacklenBytes.exit.i, %159
   tail call void @_serverAssert(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1664) #21
   tail call void @abort() #22
   unreachable
@@ -6333,7 +6333,7 @@ lpDecodeBacklen.exit.i:                           ; preds = %.preheader.i
   %.not44.i = icmp eq i64 %324, %315
   br i1 %.not44.i, label %lpNext.exit, label %.loopexit
 
-.loopexit:                                        ; preds = %260, %262, %lpDecodeBacklen.exit.i, %select.unfold.i, %lpEncodeBacklenBytes.exit.i, %280, %325
+.loopexit:                                        ; preds = %280, %260, %262, %lpDecodeBacklen.exit.i, %select.unfold.i, %lpEncodeBacklenBytes.exit.i, %325
   tail call void @_serverAssert(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 1664) #21
   tail call void @abort() #22
   unreachable

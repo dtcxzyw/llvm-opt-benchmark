@@ -11525,7 +11525,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
   br i1 %exitcond.not, label %.thread169, label %41, !llvm.loop !70
 
 .thread169:                                       ; preds = %237, %41, %30, %179, %160, %129, %110, %227, %78, %1, %13, %202
-  %.0125 = phi ptr [ null, %1 ], [ null, %13 ], [ null, %227 ], [ null, %78 ], [ null, %179 ], [ null, %160 ], [ %21, %202 ], [ null, %129 ], [ null, %110 ], [ %21, %30 ], [ %21, %41 ], [ %21, %237 ]
+  %.0125 = phi ptr [ null, %1 ], [ null, %13 ], [ null, %227 ], [ null, %78 ], [ null, %160 ], [ null, %179 ], [ %21, %202 ], [ null, %129 ], [ null, %110 ], [ %21, %30 ], [ %21, %41 ], [ %21, %237 ]
   ret ptr %.0125
 }
 

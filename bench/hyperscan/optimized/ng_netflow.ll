@@ -1362,9 +1362,9 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderEN
   br label %.body.i
 
 .body.i:                                          ; preds = %444, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit102.i, %432, %430, %265
-  %.sroa.024.8.i = phi ptr [ %.sroa.024.1.i, %432 ], [ %.sroa.024.5.i, %265 ], [ %.sroa.024.1.i, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit102.i ], [ %.sroa.024.6.i, %430 ], [ %.sroa.024.1.i, %444 ]
-  %.sroa.034.10.i = phi ptr [ %.sroa.034.1.i, %432 ], [ %.sroa.034.6.i, %265 ], [ %.sroa.034.1.i, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit102.i ], [ %56, %430 ], [ %.sroa.034.1.i, %444 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %433, %432 ], [ %.pn94.pn.pn.pn.i.i, %265 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit102.i ], [ %431, %430 ], [ %.pn.pn.pn.pn.pn.i, %444 ]
+  %.sroa.024.8.i = phi ptr [ %.sroa.024.1.i, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit102.i ], [ %.sroa.024.5.i, %265 ], [ %.sroa.024.1.i, %432 ], [ %.sroa.024.6.i, %430 ], [ %.sroa.024.1.i, %444 ]
+  %.sroa.034.10.i = phi ptr [ %.sroa.034.1.i, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit102.i ], [ %.sroa.034.6.i, %265 ], [ %.sroa.034.1.i, %432 ], [ %56, %430 ], [ %.sroa.034.1.i, %444 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit102.i ], [ %.pn94.pn.pn.pn.i.i, %265 ], [ %433, %432 ], [ %431, %430 ], [ %.pn.pn.pn.pn.pn.i, %444 ]
   %.not.i.i.i105.i = icmp eq ptr %.sroa.024.8.i, null
   br i1 %.not.i.i.i105.i, label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit106.i, label %.body.thread.i
 

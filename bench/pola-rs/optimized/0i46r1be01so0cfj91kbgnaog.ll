@@ -6854,9 +6854,9 @@ define hidden void @"_ZN12polars_arrow5array7binview3ffi134_$LT$impl$u20$polars_
           to label %49 unwind label %46
 
 44:                                               ; preds = %.thread147, %46
-  %.sroa.042.2 = phi i1 [ true, %.thread147 ], [ %48, %46 ]
-  %.sroa.040.1 = phi i8 [ %.sroa.040.2, %.thread147 ], [ %.sroa.040.0, %46 ]
-  %.pn95 = phi { ptr, i32 } [ %.pn93, %.thread147 ], [ %47, %46 ]
+  %.sroa.042.2 = phi i1 [ %48, %46 ], [ true, %.thread147 ]
+  %.sroa.040.1 = phi i8 [ %.sroa.040.0, %46 ], [ %.sroa.040.2, %.thread147 ]
+  %.pn95 = phi { ptr, i32 } [ %47, %46 ], [ %.pn93, %.thread147 ]
   %45 = trunc nuw i8 %.sroa.040.1 to i1
   br i1 %45, label %141, label %35
 
@@ -7392,9 +7392,9 @@ define hidden void @"_ZN12polars_arrow5array7binview3ffi134_$LT$impl$u20$polars_
           to label %49 unwind label %46
 
 44:                                               ; preds = %.thread147, %46
-  %.sroa.042.2 = phi i1 [ true, %.thread147 ], [ %48, %46 ]
-  %.sroa.040.1 = phi i8 [ %.sroa.040.2, %.thread147 ], [ %.sroa.040.0, %46 ]
-  %.pn95 = phi { ptr, i32 } [ %.pn93, %.thread147 ], [ %47, %46 ]
+  %.sroa.042.2 = phi i1 [ %48, %46 ], [ true, %.thread147 ]
+  %.sroa.040.1 = phi i8 [ %.sroa.040.0, %46 ], [ %.sroa.040.2, %.thread147 ]
+  %.pn95 = phi { ptr, i32 } [ %47, %46 ], [ %.pn93, %.thread147 ]
   %45 = trunc nuw i8 %.sroa.040.1 to i1
   br i1 %45, label %141, label %35
 
@@ -7934,9 +7934,9 @@ define hidden void @"_ZN12polars_arrow5array7binview3ffi134_$LT$impl$u20$polars_
           to label %52 unwind label %49
 
 47:                                               ; preds = %.thread147, %49
-  %.sroa.042.2 = phi i1 [ true, %.thread147 ], [ %51, %49 ]
-  %.sroa.040.1 = phi i8 [ %.sroa.040.2, %.thread147 ], [ %.sroa.040.0, %49 ]
-  %.pn95 = phi { ptr, i32 } [ %.pn93, %.thread147 ], [ %50, %49 ]
+  %.sroa.042.2 = phi i1 [ %51, %49 ], [ true, %.thread147 ]
+  %.sroa.040.1 = phi i8 [ %.sroa.040.0, %49 ], [ %.sroa.040.2, %.thread147 ]
+  %.pn95 = phi { ptr, i32 } [ %50, %49 ], [ %.pn93, %.thread147 ]
   %48 = trunc nuw i8 %.sroa.040.1 to i1
   br i1 %48, label %144, label %38
 
@@ -8478,9 +8478,9 @@ define hidden void @"_ZN12polars_arrow5array7binview3ffi134_$LT$impl$u20$polars_
           to label %52 unwind label %49
 
 47:                                               ; preds = %.thread147, %49
-  %.sroa.042.2 = phi i1 [ true, %.thread147 ], [ %51, %49 ]
-  %.sroa.040.1 = phi i8 [ %.sroa.040.2, %.thread147 ], [ %.sroa.040.0, %49 ]
-  %.pn95 = phi { ptr, i32 } [ %.pn93, %.thread147 ], [ %50, %49 ]
+  %.sroa.042.2 = phi i1 [ %51, %49 ], [ true, %.thread147 ]
+  %.sroa.040.1 = phi i8 [ %.sroa.040.0, %49 ], [ %.sroa.040.2, %.thread147 ]
+  %.pn95 = phi { ptr, i32 } [ %50, %49 ], [ %.pn93, %.thread147 ]
   %48 = trunc nuw i8 %.sroa.040.1 to i1
   br i1 %48, label %144, label %38
 

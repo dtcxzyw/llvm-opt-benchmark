@@ -5713,7 +5713,7 @@ oe_delta.exit59.i.i.i.i.i:                        ; preds = %2299
   br i1 %.not2564.i.i.i.i.i, label %add_family_to_write_order.exit.i.i.i, label %.lr.ph82.i.i.i.i.i, !llvm.loop !231
 
 add_family_to_write_order.exit.i.i.i:             ; preds = %.backedge.i.i.i.i.i, %oe_delta.exit.i.i.i.i.i, %2288, %oe_delta.exit59.i.i.i.i.i, %2299, %oe_layer.exit.i.i.i, %.lr.ph95.i.i.i
-  %.8.i.i = phi i32 [ %.13.i.i, %oe_delta.exit59.i.i.i.i.i ], [ %.7.i.i, %oe_layer.exit.i.i.i ], [ %.7.i.i, %.lr.ph95.i.i.i ], [ %.13.i.i, %2299 ], [ %.13.i.i, %2288 ], [ %.13.i.i, %oe_delta.exit.i.i.i.i.i ], [ %.13.i.i, %.backedge.i.i.i.i.i ]
+  %.8.i.i = phi i32 [ %.7.i.i, %.lr.ph95.i.i.i ], [ %.13.i.i, %oe_delta.exit59.i.i.i.i.i ], [ %.7.i.i, %oe_layer.exit.i.i.i ], [ %.13.i.i, %2299 ], [ %.13.i.i, %2288 ], [ %.13.i.i, %oe_delta.exit.i.i.i.i.i ], [ %.13.i.i, %.backedge.i.i.i.i.i ]
   %indvars.iv.next114.i.i.i = add nuw nsw i64 %indvars.iv113.i.i.i, 1
   %2308 = icmp samesign ult i64 %indvars.iv.next114.i.i.i, %2174
   br i1 %2308, label %.lr.ph95.i.i.i, label %compute_layer_order.exit.i.i, !llvm.loop !232

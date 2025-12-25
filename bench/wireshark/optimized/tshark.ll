@@ -4721,7 +4721,7 @@ process_packet_single_pass.exit.thread.i:         ; preds = %process_packet_sing
   br label %.thread.i
 
 .thread.i:                                        ; preds = %372, %471, %.lr.ph.split.us.i92.i, %.thread.sink.split.i, %462, %._crit_edge.i
-  %.1.i = phi i32 [ 1, %._crit_edge.i ], [ 0, %.lr.ph.split.us.i92.i ], [ 0, %471 ], [ 2, %.thread.sink.split.i ], [ 0, %462 ], [ 3, %372 ]
+  %.1.i = phi i32 [ 1, %._crit_edge.i ], [ 0, %462 ], [ 0, %471 ], [ 2, %.thread.sink.split.i ], [ 0, %.lr.ph.split.us.i92.i ], [ 3, %372 ]
   %.not79.i = icmp eq ptr %.059.i, null
   br i1 %.not79.i, label %process_cap_file_single_pass.exit, label %473
 

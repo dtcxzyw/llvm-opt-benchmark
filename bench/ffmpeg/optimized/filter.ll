@@ -2418,7 +2418,7 @@ deblock_is_boundary.exit:                         ; preds = %55
   %.not37.i.not = icmp eq i8 %84, 0
   br i1 %.not37.i.not, label %deblock_is_boundary.exit.thread, label %deblock_is_boundary.exit.thread62
 
-deblock_is_boundary.exit.thread62:                ; preds = %47, %27, %deblock_is_boundary.exit
+deblock_is_boundary.exit.thread62:                ; preds = %27, %47, %deblock_is_boundary.exit
   %85 = getelementptr inbounds nuw i8, ptr %13, i64 30
   %86 = load i8, ptr %85, align 2, !tbaa !58
   %87 = zext nneg i8 %86 to i32

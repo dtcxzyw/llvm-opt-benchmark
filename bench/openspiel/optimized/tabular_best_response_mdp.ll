@@ -3860,11 +3860,11 @@ _ZNSt6vectorIlSaIlEED2Ev.exit351:                 ; preds = %666, %664, %598
   br label %679
 
 678:                                              ; preds = %.loopexit.split-lp570, %_ZNSt6vectorIlSaIlEED2Ev.exit351, %672
-  %.sroa.0455.0481488968 = phi ptr [ %.sroa.0455.0481488969, %.loopexit.split-lp570 ], [ %.sroa.0455.0481488967, %672 ], [ %.sroa.0455.0481488967, %_ZNSt6vectorIlSaIlEED2Ev.exit351 ]
-  %.sroa.12.0478491958 = phi ptr [ %.sroa.12.0478491959, %.loopexit.split-lp570 ], [ %.sroa.12.0478491957, %672 ], [ %.sroa.12.0478491957, %_ZNSt6vectorIlSaIlEED2Ev.exit351 ]
-  %.sroa.0443.0494948 = phi ptr [ %.sroa.0443.0494949, %.loopexit.split-lp570 ], [ %.sroa.0443.0494947, %672 ], [ %.sroa.0443.0494947, %_ZNSt6vectorIlSaIlEED2Ev.exit351 ]
-  %.sroa.13.0497938 = phi ptr [ %.sroa.13.0497939, %.loopexit.split-lp570 ], [ %.sroa.13.0497937, %672 ], [ %.sroa.13.0497937, %_ZNSt6vectorIlSaIlEED2Ev.exit351 ]
-  %.pn211 = phi { ptr, i32 } [ %lpad.loopexit.split-lp572, %.loopexit.split-lp570 ], [ %.pn202.pn.pn.pn.pn.pn, %672 ], [ %.pn202.pn.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit351 ]
+  %.sroa.0455.0481488968 = phi ptr [ %.sroa.0455.0481488967, %672 ], [ %.sroa.0455.0481488969, %.loopexit.split-lp570 ], [ %.sroa.0455.0481488967, %_ZNSt6vectorIlSaIlEED2Ev.exit351 ]
+  %.sroa.12.0478491958 = phi ptr [ %.sroa.12.0478491957, %672 ], [ %.sroa.12.0478491959, %.loopexit.split-lp570 ], [ %.sroa.12.0478491957, %_ZNSt6vectorIlSaIlEED2Ev.exit351 ]
+  %.sroa.0443.0494948 = phi ptr [ %.sroa.0443.0494947, %672 ], [ %.sroa.0443.0494949, %.loopexit.split-lp570 ], [ %.sroa.0443.0494947, %_ZNSt6vectorIlSaIlEED2Ev.exit351 ]
+  %.sroa.13.0497938 = phi ptr [ %.sroa.13.0497937, %672 ], [ %.sroa.13.0497939, %.loopexit.split-lp570 ], [ %.sroa.13.0497937, %_ZNSt6vectorIlSaIlEED2Ev.exit351 ]
+  %.pn211 = phi { ptr, i32 } [ %.pn202.pn.pn.pn.pn.pn, %672 ], [ %lpad.loopexit.split-lp572, %.loopexit.split-lp570 ], [ %.pn202.pn.pn.pn.pn.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit351 ]
   call void @_ZNSt6vectorIS_ISt4pairIldESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #25
   %.not.i.i.i354 = icmp eq ptr %.sroa.0443.0494948, null
   br i1 %.not.i.i.i354, label %_ZNSt6vectorIdSaIdEED2Ev.exit355, label %679

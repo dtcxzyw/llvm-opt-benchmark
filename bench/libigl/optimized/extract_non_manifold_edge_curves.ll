@@ -667,7 +667,7 @@ _ZNKSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt
   br i1 %.not6.i.i, label %_ZNKSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE5countERS5_.exit, label %.lr.ph.i.i, !llvm.loop !84
 
 _ZNKSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE5countERS5_.exit: ; preds = %.lr.ph.i.i, %45
-  %.0.i.i = phi i64 [ %.0418.i.i, %.lr.ph.i.i ], [ %46, %45 ]
+  %.0.i.i = phi i64 [ %46, %45 ], [ %.0418.i.i, %.lr.ph.i.i ]
   %47 = icmp ne i64 %.0.i.i, 2
   %48 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %41, %48
@@ -927,7 +927,7 @@ _ZNKSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt
   br i1 %.not6.i.i, label %_ZNKSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE5countERS5_.exit, label %.lr.ph.i.i, !llvm.loop !84
 
 _ZNKSt18unordered_multimapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE5countERS5_.exit: ; preds = %.lr.ph.i.i, %44
-  %.0.i.i = phi i64 [ %.0418.i.i, %.lr.ph.i.i ], [ %45, %44 ]
+  %.0.i.i = phi i64 [ %45, %44 ], [ %.0418.i.i, %.lr.ph.i.i ]
   %46 = icmp ne i64 %.0.i.i, 2
   %47 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %40, %47

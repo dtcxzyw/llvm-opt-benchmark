@@ -10445,7 +10445,7 @@ _ZN3mbp10term_graph8get_termEP4expr.exit:         ; preds = %19, %30
   br i1 %41, label %_ZN3mbp10term_graph8get_termEP4expr.exit.thread, label %.preheader, !llvm.loop !239
 
 _ZN3mbp10term_graph8get_termEP4expr.exit.thread:  ; preds = %.lr.ph.i.i.i.i, %34, %.lr.ph34.i.i.i.i, %.preheader, %40, %.preheader.i.i.i.i, %38, %_ZN3mbp10term_graph8get_termEP4expr.exit
-  %.011 = phi i1 [ true, %38 ], [ false, %_ZN3mbp10term_graph8get_termEP4expr.exit ], [ false, %34 ], [ false, %.preheader.i.i.i.i ], [ %.not13.not.not.not, %.preheader ], [ %.not13.not.not.not, %40 ], [ false, %.lr.ph34.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
+  %.011 = phi i1 [ true, %38 ], [ false, %_ZN3mbp10term_graph8get_termEP4expr.exit ], [ %.not13.not.not.not, %.preheader ], [ false, %.preheader.i.i.i.i ], [ false, %34 ], [ %.not13.not.not.not, %40 ], [ false, %.lr.ph34.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.011
 }
 
@@ -11710,7 +11710,7 @@ _ZNK3mbp4term12get_num_argsEv.exit.i:             ; preds = %432
   br i1 %.not.i.i9.i, label %_ZN3mbp10term_graph6mk_appEP4expr.exit146, label %_ZN3mbp10term_graph6mk_appEP4expr.exit146.sink.split
 
 _ZN3mbp10term_graph6mk_appEP4expr.exit146.sink.split.sink.split: ; preds = %.lr.ph.i.i.i.i.i133, %.lr.ph34.i.i.i.i.i139, %428, %432, %_ZNK3mbp4term12get_num_argsEv.exit.i, %.preheader.i.i.i.i.i137, %_ZN3mbp10term_graph8get_termEP4expr.exit.i142
-  %.sink385 = phi ptr [ %398, %.preheader.i.i.i.i.i137 ], [ %398, %.lr.ph34.i.i.i.i.i139 ], [ %435, %432 ], [ %435, %_ZNK3mbp4term12get_num_argsEv.exit.i ], [ %398, %_ZN3mbp10term_graph8get_termEP4expr.exit.i142 ], [ %398, %428 ], [ %398, %.lr.ph.i.i.i.i.i133 ]
+  %.sink385 = phi ptr [ %398, %.preheader.i.i.i.i.i137 ], [ %398, %.lr.ph34.i.i.i.i.i139 ], [ %435, %_ZNK3mbp4term12get_num_argsEv.exit.i ], [ %435, %432 ], [ %398, %_ZN3mbp10term_graph8get_termEP4expr.exit.i142 ], [ %398, %428 ], [ %398, %.lr.ph.i.i.i.i.i133 ]
   %482 = load ptr, ptr %0, align 8, !tbaa !112, !noalias !78
   store ptr %.sink385, ptr %14, align 8, !tbaa !79
   store ptr %482, ptr %217, align 8, !tbaa !96
@@ -23476,7 +23476,7 @@ _ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit.sink.
   br label %_ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit
 
 _ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit: ; preds = %.lr.ph.i.i.i, %109, %.lr.ph34.i.i.i, %_ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit.sink.split, %.preheader.i.i.i
-  %113 = phi i1 [ false, %109 ], [ true, %_ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit.sink.split ], [ false, %.preheader.i.i.i ], [ false, %.lr.ph34.i.i.i ], [ false, %.lr.ph.i.i.i ]
+  %113 = phi i1 [ true, %_ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit.sink.split ], [ false, %109 ], [ false, %.preheader.i.i.i ], [ false, %.lr.ph34.i.i.i ], [ false, %.lr.ph.i.i.i ]
   ret i1 %113
 }
 
@@ -29788,7 +29788,7 @@ _ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit.sink.
   br label %_ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit
 
 _ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit: ; preds = %.lr.ph.i.i.i, %72, %.lr.ph34.i.i.i, %_ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit.sink.split, %.preheader.i.i.i
-  %76 = phi i1 [ false, %72 ], [ true, %_ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit.sink.split ], [ false, %.preheader.i.i.i ], [ false, %.lr.ph34.i.i.i ], [ false, %.lr.ph.i.i.i ]
+  %76 = phi i1 [ true, %_ZNK9table2mapI17default_map_entryIjP4exprE6u_hash4u_eqE4findERKjRS2_.exit.sink.split ], [ false, %72 ], [ false, %.preheader.i.i.i ], [ false, %.lr.ph34.i.i.i ], [ false, %.lr.ph.i.i.i ]
   ret i1 %76
 }
 
@@ -33395,7 +33395,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN3mbp4termEENS1_10term_graph9term_hashENS4
   br label %.backedge, !llvm.loop !529
 
 _ZNK14core_hashtableI14ptr_hash_entryIN3mbp4termEENS1_10term_graph9term_hashENS4_7term_eqEE6equalsERKPS2_SA_.exit.thread: ; preds = %_ZNK6vectorIPN3mbp4termELb0EjE4sizeEv.exit22.i.i.i, %_ZNK14core_hashtableI14ptr_hash_entryIN3mbp4termEENS1_10term_graph9term_hashENS4_7term_eqEE6equalsERKPS2_SA_.exit, %108, %_ZNK6vectorIPN3mbp4termELb0EjE4sizeEv.exit22.i.i.i52, %_ZNK14core_hashtableI14ptr_hash_entryIN3mbp4termEENS1_10term_graph9term_hashENS4_7term_eqEE6equalsERKPS2_SA_.exit60, %155
-  %.1 = phi ptr [ %.02996, %108 ], [ %.298, %155 ], [ %.298, %_ZNK6vectorIPN3mbp4termELb0EjE4sizeEv.exit22.i.i.i52 ], [ %.298, %_ZNK14core_hashtableI14ptr_hash_entryIN3mbp4termEENS1_10term_graph9term_hashENS4_7term_eqEE6equalsERKPS2_SA_.exit60 ], [ %.02996, %_ZNK14core_hashtableI14ptr_hash_entryIN3mbp4termEENS1_10term_graph9term_hashENS4_7term_eqEE6equalsERKPS2_SA_.exit ], [ %.02996, %_ZNK6vectorIPN3mbp4termELb0EjE4sizeEv.exit22.i.i.i ]
+  %.1 = phi ptr [ %.298, %155 ], [ %.02996, %108 ], [ %.298, %_ZNK6vectorIPN3mbp4termELb0EjE4sizeEv.exit22.i.i.i52 ], [ %.298, %_ZNK14core_hashtableI14ptr_hash_entryIN3mbp4termEENS1_10term_graph9term_hashENS4_7term_eqEE6equalsERKPS2_SA_.exit60 ], [ %.02996, %_ZNK14core_hashtableI14ptr_hash_entryIN3mbp4termEENS1_10term_graph9term_hashENS4_7term_eqEE6equalsERKPS2_SA_.exit ], [ %.02996, %_ZNK6vectorIPN3mbp4termELb0EjE4sizeEv.exit22.i.i.i ]
   %171 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %172 = icmp eq ptr %171, %71
   %spec.select = select i1 %172, ptr %67, ptr %171

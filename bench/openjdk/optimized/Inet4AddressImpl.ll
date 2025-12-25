@@ -730,7 +730,7 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
   br i1 %206, label %163, label %ping4.exit, !llvm.loop !12
 
 ping4.exit:                                       ; preds = %170, %170, %.thread.i, %199, %132, %140, %147, %173
-  %.0.i33 = phi i8 [ 0, %132 ], [ 0, %140 ], [ 0, %147 ], [ 1, %199 ], [ 0, %173 ], [ 0, %.thread.i ], [ 0, %170 ], [ 0, %170 ]
+  %.0.i33 = phi i8 [ 0, %132 ], [ 0, %140 ], [ 0, %147 ], [ 0, %173 ], [ 1, %199 ], [ 0, %.thread.i ], [ 0, %170 ], [ 0, %170 ]
   %207 = call i32 @close(i32 noundef range(i32 0, -1) %73) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

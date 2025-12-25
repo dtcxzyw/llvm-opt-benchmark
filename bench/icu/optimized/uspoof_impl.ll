@@ -690,7 +690,7 @@ _ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split: ; pred
   br label %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit
 
 _ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit: ; preds = %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split, %2, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit, %26
-  %.0 = phi ptr [ null, %2 ], [ %0, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit ], [ %0, %26 ], [ null, %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split ]
+  %.0 = phi ptr [ %0, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit ], [ null, %2 ], [ %0, %26 ], [ null, %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -805,7 +805,7 @@ _ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split.i: ; pr
   br label %_ZN6icu_779SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode.exit
 
 _ZN6icu_779SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode.exit: ; preds = %2, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit.i, %26, %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split.i
-  %.0.i = phi ptr [ null, %2 ], [ %0, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit.i ], [ %0, %26 ], [ null, %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split.i ]
+  %.0.i = phi ptr [ %0, %_ZN6icu_7713IcuCApiHelperI13USpoofCheckerNS_9SpoofImplELi944111087EE8validateEPKS1_R10UErrorCode.exit.i ], [ null, %2 ], [ %0, %26 ], [ null, %_ZNK6icu_779SpoofData19validateDataVersionER10UErrorCode.exit.sink.split.i ]
   ret ptr %.0.i
 }
 

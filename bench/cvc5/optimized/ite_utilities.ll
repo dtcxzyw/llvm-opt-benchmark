@@ -7110,9 +7110,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89: ; preds = %_ZNSt13unordered_ma
   br label %_ZNSt6vectorIN4cvc58internal13preprocessing4util3ite16CTIVStackElementESaIS5_EED2Ev.exit
 
 .body:                                            ; preds = %386, %210, %347, %345, %287, %214, %212, %172, %166, %.loopexit.split-lp, %.loopexit
-  %.sroa.28.2 = phi ptr [ %.sroa.28.8, %347 ], [ %.sroa.28.1, %386 ], [ %.sroa.28.8, %345 ], [ %.sroa.28.0260, %166 ], [ %.sroa.28.0260, %172 ], [ %.sroa.28.0260, %210 ], [ %.sroa.28.0260, %212 ], [ %.sroa.28.0260, %214 ], [ %.sroa.28.0260, %287 ], [ %.sroa.12.0261, %.loopexit ], [ %.sroa.12.0261, %.loopexit.split-lp ]
-  %.sroa.0141.2 = phi ptr [ %.sroa.0141.8, %347 ], [ %.sroa.0141.1, %386 ], [ %.sroa.0141.8, %345 ], [ %.sroa.0141.0262, %166 ], [ %.sroa.0141.0262, %172 ], [ %.sroa.0141.0262, %210 ], [ %.sroa.0141.0262, %212 ], [ %.sroa.0141.0262, %214 ], [ %.sroa.0141.0262, %287 ], [ %.sroa.0141.0262, %.loopexit ], [ %.sroa.0141.0262, %.loopexit.split-lp ]
-  %.pn37.pn = phi { ptr, i32 } [ %348, %347 ], [ %.pn37, %386 ], [ %346, %345 ], [ %167, %166 ], [ %.pn34, %172 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %.pn27, %287 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.28.2 = phi ptr [ %.sroa.28.8, %345 ], [ %.sroa.28.1, %386 ], [ %.sroa.28.8, %347 ], [ %.sroa.28.0260, %166 ], [ %.sroa.28.0260, %172 ], [ %.sroa.28.0260, %210 ], [ %.sroa.28.0260, %212 ], [ %.sroa.28.0260, %214 ], [ %.sroa.28.0260, %287 ], [ %.sroa.12.0261, %.loopexit ], [ %.sroa.12.0261, %.loopexit.split-lp ]
+  %.sroa.0141.2 = phi ptr [ %.sroa.0141.8, %345 ], [ %.sroa.0141.1, %386 ], [ %.sroa.0141.8, %347 ], [ %.sroa.0141.0262, %166 ], [ %.sroa.0141.0262, %172 ], [ %.sroa.0141.0262, %210 ], [ %.sroa.0141.0262, %212 ], [ %.sroa.0141.0262, %214 ], [ %.sroa.0141.0262, %287 ], [ %.sroa.0141.0262, %.loopexit ], [ %.sroa.0141.0262, %.loopexit.split-lp ]
+  %.pn37.pn = phi { ptr, i32 } [ %346, %345 ], [ %.pn37, %386 ], [ %348, %347 ], [ %167, %166 ], [ %.pn34, %172 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %.pn27, %287 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %390 = ptrtoint ptr %.sroa.28.2 to i64
   %391 = ptrtoint ptr %.sroa.0141.2 to i64
   %392 = sub i64 %390, %391

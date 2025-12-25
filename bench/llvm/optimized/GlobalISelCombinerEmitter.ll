@@ -20578,7 +20578,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.i.i: ; pr
   br label %.split.split.split.i.i, !llvm.loop !781
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_.exit.i.i: ; preds = %66, %57, %.split.split.split.us.i.i, %48, %.split.split.us.split.i.i, %40, %33, %.split.us.split.split.us.i.i, %26, %.split.us.split.us.split.i.i
-  %.us-phi.i.i = phi ptr [ %25, %26 ], [ %39, %40 ], [ %32, %33 ], [ %46, %48 ], [ %55, %57 ], [ %25, %.split.us.split.us.split.i.i ], [ %32, %.split.us.split.split.us.i.i ], [ %46, %.split.split.us.split.i.i ], [ %55, %.split.split.split.us.i.i ], [ %64, %66 ]
+  %.us-phi.i.i = phi ptr [ %55, %57 ], [ %46, %48 ], [ %25, %26 ], [ %32, %33 ], [ %39, %40 ], [ %25, %.split.us.split.us.split.i.i ], [ %32, %.split.us.split.split.us.i.i ], [ %46, %.split.split.us.split.i.i ], [ %55, %.split.split.split.us.i.i ], [ %64, %66 ]
   %72 = load ptr, ptr %13, align 8, !tbaa !600
   %73 = load i32, ptr %15, align 8, !tbaa !601
   %74 = zext i32 %73 to i64
@@ -21497,7 +21497,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.i.i: ; pr
   br label %.split.split.split.i.i, !llvm.loop !781
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_.exit.i.i: ; preds = %70, %61, %.split.split.split.us.i.i, %52, %.split.split.us.split.i.i, %44, %37, %.split.us.split.split.us.i.i, %30, %.split.us.split.us.split.i.i
-  %.us-phi.i.i = phi ptr [ %29, %30 ], [ %43, %44 ], [ %36, %37 ], [ %50, %52 ], [ %59, %61 ], [ %29, %.split.us.split.us.split.i.i ], [ %36, %.split.us.split.split.us.i.i ], [ %50, %.split.split.us.split.i.i ], [ %59, %.split.split.split.us.i.i ], [ %68, %70 ]
+  %.us-phi.i.i = phi ptr [ %59, %61 ], [ %50, %52 ], [ %29, %30 ], [ %36, %37 ], [ %43, %44 ], [ %29, %.split.us.split.us.split.i.i ], [ %36, %.split.us.split.split.us.i.i ], [ %50, %.split.split.us.split.i.i ], [ %59, %.split.split.split.us.i.i ], [ %68, %70 ]
   %76 = load ptr, ptr %17, align 8, !tbaa !600
   %77 = load i32, ptr %19, align 8, !tbaa !601
   %78 = zext i32 %77 to i64
@@ -45549,7 +45549,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vector
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2050
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %._crit_edge, %._crit_edge101, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %5, %3
-  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
+  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.024.0
 }
 

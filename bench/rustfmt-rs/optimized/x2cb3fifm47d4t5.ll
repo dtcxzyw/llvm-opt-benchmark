@@ -3808,7 +3808,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %.loopexit.sink.split, %10, %16
-  %.sink = phi i32 [ 0, %10 ], [ 1, %.loopexit.sink.split ], [ 0, %16 ], [ 0, %25 ]
+  %.sink = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %10 ], [ 0, %16 ], [ 0, %25 ]
   store i32 %.sink, ptr %0, align 4
   ret void
 }
@@ -3888,7 +3888,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %.loopexit.sink.split, %10, %16
-  %.sink = phi i32 [ 0, %10 ], [ 1, %.loopexit.sink.split ], [ 0, %16 ], [ 0, %25 ]
+  %.sink = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %10 ], [ 0, %16 ], [ 0, %25 ]
   store i32 %.sink, ptr %0, align 4
   ret void
 }
@@ -3968,7 +3968,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %.loopexit.sink.split, %10, %16
-  %.sink = phi i32 [ 0, %10 ], [ 1, %.loopexit.sink.split ], [ 0, %16 ], [ 0, %25 ]
+  %.sink = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %10 ], [ 0, %16 ], [ 0, %25 ]
   store i32 %.sink, ptr %0, align 4
   ret void
 }

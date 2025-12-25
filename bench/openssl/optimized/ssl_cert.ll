@@ -926,7 +926,7 @@ define range(i32 0, 2) i32 @ssl_cert_select_current(ptr noundef captures(none) %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %.loopexit.sink.split, %.preheader36, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %.loopexit.sink.split ], [ 0, %.preheader36 ], [ 0, %28 ]
+  %.0 = phi i32 [ 0, %2 ], [ 0, %.preheader36 ], [ 1, %.loopexit.sink.split ], [ 0, %28 ]
   ret i32 %.0
 }
 
@@ -1999,7 +1999,7 @@ define internal fastcc range(i32 0, 2) i32 @add_file_cert_subjects_to_stack(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %8, %26, %9, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %8 ], [ 0, %26 ], [ 0, %9 ], [ 0, %18 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %26 ], [ 0, %8 ], [ 0, %9 ], [ 0, %18 ], [ 0, %.lr.ph ]
   %32 = call i32 @BIO_free(ptr noundef %6) #14
   %33 = load ptr, ptr %4, align 8, !tbaa !155
   call void @X509_free(ptr noundef %33) #14
@@ -2300,7 +2300,7 @@ define internal fastcc range(i32 0, 2) i32 @add_uris_recursive(ptr noundef %0, p
   br i1 %.not, label %.lr.ph.split, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.split, %.critedge39, %.lr.ph.split.us, %.critedge39.us, %.preheader
-  %.027.lcssa = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph.split.us ], [ 1, %.critedge39.us ], [ %.02746, %.lr.ph.split ], [ %.1, %.critedge39 ]
+  %.027.lcssa = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph.split.us ], [ 1, %.critedge39.us ], [ %.1, %.critedge39 ], [ %.02746, %.lr.ph.split ]
   tail call void @ERR_clear_error() #14
   br label %.critedge39.thread
 
@@ -2522,10 +2522,10 @@ define range(i32 0, 3) i32 @ssl_build_cert_chain(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge117, %96, %69, %56, %52, %15
-  %.pre-phi = phi i32 [ %.pre, %15 ], [ %17, %52 ], [ %17, %56 ], [ %17, %._crit_edge117 ], [ %17, %96 ], [ %17, %69 ]
-  %.077 = phi ptr [ null, %15 ], [ null, %52 ], [ %50, %56 ], [ %50, %._crit_edge117 ], [ %50, %96 ], [ %50, %69 ]
-  %.072 = phi ptr [ null, %15 ], [ %.173, %52 ], [ %.173, %56 ], [ %.173, %._crit_edge117 ], [ %.173, %96 ], [ %.173, %69 ]
-  %.0 = phi i32 [ 0, %15 ], [ 0, %52 ], [ 0, %56 ], [ %.2.lcssa, %._crit_edge117 ], [ 0, %96 ], [ 0, %69 ]
+  %.pre-phi = phi i32 [ %.pre, %15 ], [ %17, %56 ], [ %17, %52 ], [ %17, %._crit_edge117 ], [ %17, %96 ], [ %17, %69 ]
+  %.077 = phi ptr [ null, %15 ], [ %50, %56 ], [ null, %52 ], [ %50, %._crit_edge117 ], [ %50, %96 ], [ %50, %69 ]
+  %.072 = phi ptr [ null, %15 ], [ %.173, %56 ], [ %.173, %52 ], [ %.173, %._crit_edge117 ], [ %.173, %96 ], [ %.173, %69 ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %56 ], [ 0, %52 ], [ %.2.lcssa, %._crit_edge117 ], [ 0, %96 ], [ 0, %69 ]
   %.not100 = icmp eq i32 %.pre-phi, 0
   br i1 %.not100, label %99, label %.loopexit.thread
 
@@ -2710,7 +2710,7 @@ define range(i32 0, 2) i32 @ssl_cert_lookup_by_nid(i32 noundef %0, ptr noundef w
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %.loopexit.sink.split, %.preheader
-  %.014 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %.preheader ], [ 0, %20 ]
+  %.014 = phi i32 [ 0, %.preheader ], [ 1, %.loopexit.sink.split ], [ 0, %20 ]
   ret i32 %.014
 }
 

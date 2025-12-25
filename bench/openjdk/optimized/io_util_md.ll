@@ -392,7 +392,7 @@ define hidden range(i32 0, 2) i32 @handleAvailable(i32 noundef %0, ptr noundef w
   br label %41
 
 41:                                               ; preds = %.sink.split, %36, %33, %.critedge
-  %.0 = phi i32 [ 0, %36 ], [ 0, %33 ], [ 0, %.critedge ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %33 ], [ 0, %36 ], [ 0, %.critedge ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

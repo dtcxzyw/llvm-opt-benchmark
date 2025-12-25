@@ -8478,7 +8478,7 @@ _ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit: ; preds = %.lr.ph.i.i21, %_Z
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.i.i, %.lr.ph.i.i, %.lr.ph, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit, %.critedge.loopexit.split.loop.exit33.loopexit, %6, %2
-  %.0 = phi i1 [ %33, %.critedge.loopexit.split.loop.exit33.loopexit ], [ true, %2 ], [ true, %6 ], [ true, %.lr.ph ], [ false, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit ], [ true, %.lr.ph.i.i ], [ true, %.critedge.i.i ]
+  %.0 = phi i1 [ true, %6 ], [ true, %2 ], [ %33, %.critedge.loopexit.split.loop.exit33.loopexit ], [ true, %.lr.ph ], [ false, %_ZN7jsonnet8internalL11open_fodderEPNS0_3ASTE.exit ], [ true, %.lr.ph.i.i ], [ true, %.critedge.i.i ]
   ret i1 %.0
 }
 

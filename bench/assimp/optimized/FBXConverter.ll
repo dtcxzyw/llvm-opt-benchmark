@@ -14742,8 +14742,8 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %148, %150
-  %152 = phi ptr [ %.pr.pre, %148 ], [ %107, %150 ]
-  %.pn68.pn = phi { ptr, i32 } [ %149, %148 ], [ %151, %150 ]
+  %152 = phi ptr [ %107, %150 ], [ %.pr.pre, %148 ]
+  %.pn68.pn = phi { ptr, i32 } [ %151, %150 ], [ %149, %148 ]
   %.not.i.i.i = icmp eq ptr %152, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %153
 
@@ -34126,8 +34126,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit246: ; preds = %_Z
   br label %_ZNSt6vectorIP10aiNodeAnimSaIS1_EED2Ev.exit248
 
 741:                                              ; preds = %._crit_edge416, %555, %629, %596, %513, %485, %500
-  %742 = phi ptr [ %504, %596 ], [ %504, %629 ], [ %501, %500 ], [ %.pre417, %._crit_edge416 ], [ %481, %485 ], [ %504, %513 ], [ %504, %555 ]
-  %.merged160 = phi { ptr, i32 } [ %597, %596 ], [ %630, %629 ], [ %502, %500 ], [ %474, %._crit_edge416 ], [ %486, %485 ], [ %514, %513 ], [ %556, %555 ]
+  %742 = phi ptr [ %504, %629 ], [ %504, %596 ], [ %501, %500 ], [ %.pre417, %._crit_edge416 ], [ %481, %485 ], [ %504, %513 ], [ %504, %555 ]
+  %.merged160 = phi { ptr, i32 } [ %630, %629 ], [ %597, %596 ], [ %502, %500 ], [ %474, %._crit_edge416 ], [ %486, %485 ], [ %514, %513 ], [ %556, %555 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %.not.i.i.i247 = icmp eq ptr %742, null

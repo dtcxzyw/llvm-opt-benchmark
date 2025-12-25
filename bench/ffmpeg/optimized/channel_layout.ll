@@ -2747,7 +2747,7 @@ av_channel_layout_uninit.exit138:                 ; preds = %145, %.preheader.i1
   br label %.thread150
 
 .thread150:                                       ; preds = %136, %133, %86, %83, %8, %av_channel_layout_uninit.exit138, %122, %104, %100, %av_channel_layout_uninit.exit109, %120, %has_channel_names.exit137, %av_channel_layout_uninit.exit116, %76, %has_channel_names.exit, %49, %av_channel_layout_uninit.exit, %.loopexit, %canonical_order.exit, %3
-  %.0 = phi i32 [ -22, %3 ], [ -38, %.loopexit ], [ 0, %canonical_order.exit ], [ -22, %49 ], [ -38, %86 ], [ -38, %76 ], [ 0, %8 ], [ -22, %100 ], [ %.185141, %av_channel_layout_uninit.exit ], [ -38, %has_channel_names.exit ], [ 0, %av_channel_layout_uninit.exit116 ], [ -38, %has_channel_names.exit137 ], [ -38, %120 ], [ %.08.i149, %av_channel_layout_uninit.exit109 ], [ -38, %122 ], [ -12, %104 ], [ %.08.i129161, %av_channel_layout_uninit.exit138 ], [ -38, %83 ], [ -38, %133 ], [ -38, %136 ]
+  %.0 = phi i32 [ -22, %3 ], [ -38, %.loopexit ], [ 0, %canonical_order.exit ], [ -22, %49 ], [ -38, %122 ], [ -38, %76 ], [ -38, %86 ], [ -22, %100 ], [ %.185141, %av_channel_layout_uninit.exit ], [ -38, %has_channel_names.exit ], [ 0, %av_channel_layout_uninit.exit116 ], [ -38, %has_channel_names.exit137 ], [ -38, %120 ], [ %.08.i149, %av_channel_layout_uninit.exit109 ], [ 0, %8 ], [ -12, %104 ], [ %.08.i129161, %av_channel_layout_uninit.exit138 ], [ -38, %83 ], [ -38, %133 ], [ -38, %136 ]
   ret i32 %.0
 }
 

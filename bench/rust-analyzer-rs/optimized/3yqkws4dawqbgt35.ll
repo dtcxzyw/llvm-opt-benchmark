@@ -1270,7 +1270,7 @@ define void @_ZN3mbe8expander7matcher6match_17h83b7bdc8cc932d7eE(ptr noalias nou
   br label %.body377.i
 
 .loopexit.split-lp.i:                             ; preds = %705, %"_ZN8smallvec17SmallVec$LT$A$GT$3pop17h2e22f90c86ac91fbE.exit405.thread.i", %312, %288, %.invoke.i
-  %.9247.ph.i = phi i8 [ 1, %.invoke.i ], [ 1, %"_ZN8smallvec17SmallVec$LT$A$GT$3pop17h2e22f90c86ac91fbE.exit405.thread.i" ], [ 0, %705 ], [ 0, %312 ], [ 0, %288 ]
+  %.9247.ph.i = phi i8 [ 1, %.invoke.i ], [ 0, %288 ], [ 0, %705 ], [ 0, %312 ], [ 1, %"_ZN8smallvec17SmallVec$LT$A$GT$3pop17h2e22f90c86ac91fbE.exit405.thread.i" ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.body377.i
@@ -5792,8 +5792,8 @@ define internal fastcc void @_ZN3mbe8expander7matcher16match_loop_inner17h2d18cb
   ret void
 
 .body253:                                         ; preds = %.body629, %922, %918
-  %.1169 = phi i1 [ %.12, %.body629 ], [ %.6.lpad-body450, %918 ], [ %.6.lpad-body450, %922 ]
-  %.pn223 = phi { ptr, i32 } [ %.pn, %.body629 ], [ %eh.lpad-body451, %918 ], [ %eh.lpad-body451, %922 ]
+  %.1169 = phi i1 [ %.6.lpad-body450, %922 ], [ %.6.lpad-body450, %918 ], [ %.12, %.body629 ]
+  %.pn223 = phi { ptr, i32 } [ %eh.lpad-body451, %922 ], [ %eh.lpad-body451, %918 ], [ %.pn, %.body629 ]
   br i1 %.1169, label %.thread, label %common.resume
 
 .loopexit259.loopexit.thread:                     ; preds = %405, %335, %271, %502
@@ -8157,7 +8157,7 @@ _ZN3mbe8expander7matcher15BindingsBuilder12push_missing17h4c4a3f80036074caE.exit
   br label %"_ZN4core3ptr234drop_in_place$LT$core..option..Option$LT$$LP$mbe..tt_iter..TtIter$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$mbe..ValueResult$LT$core..option..Option$LT$mbe..expander..Fragment$GT$$C$mbe..ExpandError$GT$$RP$$GT$$GT$17hbeabeed37aa4015aE.exit807"
 
 914:                                              ; preds = %908, %842
-  %.2190 = phi i1 [ %913, %908 ], [ true, %842 ]
+  %.2190 = phi i1 [ true, %842 ], [ %913, %908 ]
   %915 = load i64, ptr %77, align 8, !range !1595, !noundef !8
   %916 = icmp ne i64 %915, 4
   %or.cond = select i1 %916, i1 %.2190, i1 false
@@ -9837,7 +9837,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit712: ; preds = %1307
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %"_ZN4core3ptr234drop_in_place$LT$core..option..Option$LT$$LP$mbe..tt_iter..TtIter$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$mbe..ValueResult$LT$core..option..Option$LT$mbe..expander..Fragment$GT$$C$mbe..ExpandError$GT$$RP$$GT$$GT$17hbeabeed37aa4015aE.exit807"
 
-.critedge231.thread167:                           ; preds = %495, %494, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_subtree17h424f3446ddd7ce3aE.exit", %927, %1400, %1362, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit, %939, %951, %488, %1361
+.critedge231.thread167:                           ; preds = %495, %494, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_subtree17h424f3446ddd7ce3aE.exit", %1362, %1400, %1361, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit, %939, %951, %488, %927
   call void @llvm.experimental.noalias.scope.decl(metadata !2008)
   call void @llvm.experimental.noalias.scope.decl(metadata !2011)
   %1438 = load i64, ptr %107, align 8, !alias.scope !2014, !noundef !8

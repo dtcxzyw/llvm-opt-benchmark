@@ -566,8 +566,8 @@ _ZNK4llvm5APInt10isSubsetOfERKS0_.exit.i:         ; preds = %209
   br label %243
 
 243:                                              ; preds = %235, %219, %212, %206, %203, %201, %193
-  %cond2.ph.i = phi i1 [ true, %212 ], [ true, %206 ], [ true, %219 ], [ true, %201 ], [ true, %203 ], [ false, %235 ], [ true, %193 ]
-  %.9.ph.i = phi i1 [ %.4169.i, %212 ], [ %.4169.i, %206 ], [ %.4169.i, %219 ], [ %.4169.i, %201 ], [ %.4169.i, %203 ], [ true, %235 ], [ %.4169.i, %193 ]
+  %cond2.ph.i = phi i1 [ true, %212 ], [ true, %206 ], [ true, %219 ], [ true, %203 ], [ true, %201 ], [ false, %235 ], [ true, %193 ]
+  %.9.ph.i = phi i1 [ %.4169.i, %212 ], [ %.4169.i, %206 ], [ %.4169.i, %219 ], [ %.4169.i, %203 ], [ %.4169.i, %201 ], [ true, %235 ], [ %.4169.i, %193 ]
   %.pr.pre.pr.i = load i32, ptr %50, align 8, !tbaa !47
   %244 = icmp ugt i32 %.pr.pre.pr.i, 64
   br i1 %244, label %.thread298.i, label %248

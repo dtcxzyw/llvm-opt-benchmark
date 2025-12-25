@@ -1021,9 +1021,9 @@ define internal i32 @test_quic_write_read(i32 noundef %0) #1 {
   br i1 %or.cond106, label %21, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %190, %183, %174, %172, %168, %166, %.loopexit82, %115, %117, %121, %127, %60, %53, %45, %39, %21, %24, %32, %131, %133, %136, %142, %146, %152, %.thread, %94, %66, %74, %83, %.preheader
-  %.247 = phi ptr [ %.04590, %83 ], [ %.04590, %131 ], [ %.04590, %.preheader ], [ %.04590, %74 ], [ %.04590, %66 ], [ %.04590, %94 ], [ %.04590, %.thread ], [ %.04590, %152 ], [ %.04590, %146 ], [ %.04590, %142 ], [ %.04590, %136 ], [ %.04590, %133 ], [ null, %183 ], [ %.348, %190 ], [ %.04590, %60 ], [ %.04590, %53 ], [ %.04590, %45 ], [ %.04590, %39 ], [ %.04590, %32 ], [ %.04590, %24 ], [ %.04590, %115 ], [ %.04590, %117 ], [ %.04590, %121 ], [ %.04590, %127 ], [ %.04590, %.loopexit82 ], [ %.04590, %172 ], [ %.04590, %166 ], [ %.04590, %168 ], [ %.04590, %174 ], [ %.04590, %21 ]
-  %.042 = phi i32 [ 0, %83 ], [ 0, %131 ], [ 0, %.preheader ], [ 0, %74 ], [ 0, %66 ], [ 0, %94 ], [ 0, %.thread ], [ 0, %152 ], [ 0, %146 ], [ 0, %142 ], [ 0, %136 ], [ 0, %133 ], [ 0, %183 ], [ 1, %190 ], [ 0, %60 ], [ 0, %53 ], [ 0, %45 ], [ 0, %39 ], [ 0, %32 ], [ 0, %24 ], [ 0, %115 ], [ 0, %117 ], [ 0, %121 ], [ 0, %127 ], [ 0, %.loopexit82 ], [ 0, %172 ], [ 0, %166 ], [ 0, %168 ], [ 0, %174 ], [ 0, %21 ]
-  %.2 = phi ptr [ %.093, %83 ], [ %.093, %131 ], [ %.093, %.preheader ], [ %.093, %74 ], [ %.093, %66 ], [ %.093, %94 ], [ %.093, %.thread ], [ %.093, %152 ], [ %.093, %146 ], [ %.093, %142 ], [ %.093, %136 ], [ %.093, %133 ], [ %.3, %183 ], [ %.3, %190 ], [ %.093, %60 ], [ %.093, %53 ], [ %.093, %45 ], [ %.093, %39 ], [ %.093, %32 ], [ %.093, %24 ], [ %.093, %115 ], [ %.093, %117 ], [ %.093, %121 ], [ %.093, %127 ], [ %.093, %.loopexit82 ], [ %.093, %172 ], [ null, %166 ], [ %170, %168 ], [ %.3, %174 ], [ %.093, %21 ]
+  %.247 = phi ptr [ %.04590, %83 ], [ %.04590, %131 ], [ %.04590, %.preheader ], [ %.04590, %74 ], [ %.04590, %66 ], [ %.04590, %94 ], [ %.04590, %.thread ], [ %.04590, %152 ], [ %.04590, %146 ], [ %.04590, %142 ], [ %.04590, %136 ], [ %.04590, %133 ], [ %.348, %190 ], [ %.04590, %32 ], [ %.04590, %39 ], [ %.04590, %45 ], [ %.04590, %53 ], [ %.04590, %60 ], [ %.04590, %24 ], [ %.04590, %174 ], [ null, %183 ], [ %.04590, %117 ], [ %.04590, %121 ], [ %.04590, %127 ], [ %.04590, %.loopexit82 ], [ %.04590, %172 ], [ %.04590, %166 ], [ %.04590, %21 ], [ %.04590, %168 ], [ %.04590, %115 ]
+  %.042 = phi i32 [ 0, %83 ], [ 0, %131 ], [ 0, %.preheader ], [ 0, %74 ], [ 0, %66 ], [ 0, %94 ], [ 0, %.thread ], [ 0, %152 ], [ 0, %146 ], [ 0, %142 ], [ 0, %136 ], [ 0, %133 ], [ 1, %190 ], [ 0, %32 ], [ 0, %39 ], [ 0, %45 ], [ 0, %53 ], [ 0, %60 ], [ 0, %24 ], [ 0, %174 ], [ 0, %183 ], [ 0, %117 ], [ 0, %121 ], [ 0, %127 ], [ 0, %.loopexit82 ], [ 0, %172 ], [ 0, %166 ], [ 0, %21 ], [ 0, %168 ], [ 0, %115 ]
+  %.2 = phi ptr [ %.093, %83 ], [ %.093, %131 ], [ %.093, %.preheader ], [ %.093, %74 ], [ %.093, %66 ], [ %.093, %94 ], [ %.093, %.thread ], [ %.093, %152 ], [ %.093, %146 ], [ %.093, %142 ], [ %.093, %136 ], [ %.093, %133 ], [ %.3, %190 ], [ %.093, %32 ], [ %.093, %39 ], [ %.093, %45 ], [ %.093, %53 ], [ %.093, %60 ], [ %.093, %24 ], [ %.3, %174 ], [ %.3, %183 ], [ %.093, %117 ], [ %.093, %121 ], [ %.093, %127 ], [ %.093, %.loopexit82 ], [ %.093, %172 ], [ null, %166 ], [ %.093, %21 ], [ %170, %168 ], [ %.093, %115 ]
   call void @SSL_SESSION_free(ptr noundef %.2) #10
   %193 = load ptr, ptr %3, align 8, !tbaa !15
   call void @ossl_quic_tserver_free(ptr noundef %193) #10
@@ -1291,8 +1291,8 @@ define internal range(i32 0, 2) i32 @test_ciphersuites() #1 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %23, %34, %13, %10, %5
-  %.023 = phi ptr [ %11, %10 ], [ %11, %13 ], [ null, %5 ], [ %11, %34 ], [ %11, %23 ], [ %11, %27 ]
-  %.022 = phi i32 [ 0, %10 ], [ 0, %13 ], [ 0, %5 ], [ %spec.select, %34 ], [ 0, %23 ], [ 0, %27 ]
+  %.023 = phi ptr [ %11, %13 ], [ %11, %10 ], [ null, %5 ], [ %11, %34 ], [ %11, %23 ], [ %11, %27 ]
+  %.022 = phi i32 [ 0, %13 ], [ 0, %10 ], [ 0, %5 ], [ %spec.select, %34 ], [ 0, %23 ], [ 0, %27 ]
   tail call void @SSL_free(ptr noundef %.023) #10
   tail call void @SSL_CTX_free(ptr noundef %3) #10
   br label %38
@@ -1342,8 +1342,8 @@ define internal range(i32 0, 2) i32 @test_cipher_find() #1 {
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %16, %14, %12, %5, %0
-  %.013 = phi ptr [ %6, %5 ], [ null, %0 ], [ %6, %12 ], [ %6, %14 ], [ %6, %16 ]
-  %.0 = phi i32 [ 0, %5 ], [ 0, %0 ], [ 1, %16 ], [ 0, %14 ], [ 0, %12 ]
+  %.013 = phi ptr [ null, %0 ], [ %6, %5 ], [ %6, %12 ], [ %6, %14 ], [ %6, %16 ]
+  %.0 = phi i32 [ 0, %0 ], [ 0, %5 ], [ 1, %16 ], [ 0, %14 ], [ 0, %12 ]
   tail call void @SSL_free(ptr noundef %.013) #10
   tail call void @SSL_CTX_free(ptr noundef %3) #10
   ret i32 %.0
@@ -2415,10 +2415,10 @@ define internal range(i32 0, 2) i32 @test_bio_ssl() #1 {
   br label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %46, %106, %102, %98, %93, %89, %83, %73, %.lr.ph, %.lr.ph122, %.lr.ph122.preheader, %..loopexit.loopexit_crit_edge, %..loopexit.loopexit_crit_edge217, %.preheader, %17, %13, %10, %0, %53
-  %.086 = phi ptr [ %11, %.preheader ], [ %11, %53 ], [ null, %0 ], [ %11, %10 ], [ %11, %13 ], [ %11, %17 ], [ %11, %.lr.ph122.preheader ], [ %11, %106 ], [ %11, %..loopexit.loopexit_crit_edge ], [ %11, %..loopexit.loopexit_crit_edge217 ], [ %11, %.lr.ph122 ], [ %11, %.lr.ph ], [ %11, %73 ], [ %11, %83 ], [ %11, %89 ], [ %11, %93 ], [ %11, %98 ], [ %11, %102 ], [ %11, %46 ]
-  %.084 = phi ptr [ null, %.preheader ], [ null, %53 ], [ null, %0 ], [ null, %10 ], [ null, %13 ], [ null, %17 ], [ null, %.lr.ph122.preheader ], [ %100, %.lr.ph122 ], [ %.185119182, %..loopexit.loopexit_crit_edge ], [ %100, %..loopexit.loopexit_crit_edge217 ], [ %100, %106 ], [ %100, %102 ], [ %100, %98 ], [ %.185119182, %93 ], [ %.185119182, %89 ], [ %.185119182, %83 ], [ %.185119182, %73 ], [ %.185119182, %.lr.ph ], [ null, %46 ]
-  %.082 = phi i32 [ 0, %.preheader ], [ 0, %53 ], [ 0, %0 ], [ 0, %10 ], [ 0, %13 ], [ 0, %17 ], [ 0, %.lr.ph122.preheader ], [ 0, %106 ], [ %.mux, %..loopexit.loopexit_crit_edge ], [ 0, %..loopexit.loopexit_crit_edge217 ], [ 0, %.lr.ph122 ], [ 0, %.lr.ph ], [ 0, %73 ], [ 0, %83 ], [ 0, %89 ], [ 0, %93 ], [ 0, %98 ], [ 0, %102 ], [ 0, %46 ]
-  %.070 = phi ptr [ null, %.preheader ], [ null, %53 ], [ null, %0 ], [ null, %10 ], [ null, %13 ], [ null, %17 ], [ null, %.lr.ph122.preheader ], [ null, %.lr.ph122 ], [ null, %..loopexit.loopexit_crit_edge ], [ null, %..loopexit.loopexit_crit_edge217 ], [ null, %106 ], [ %91, %102 ], [ %91, %98 ], [ %91, %93 ], [ %91, %89 ], [ null, %83 ], [ null, %73 ], [ null, %.lr.ph ], [ null, %46 ]
+  %.086 = phi ptr [ %11, %.preheader ], [ %11, %53 ], [ null, %0 ], [ %11, %13 ], [ %11, %10 ], [ %11, %17 ], [ %11, %.lr.ph122.preheader ], [ %11, %..loopexit.loopexit_crit_edge217 ], [ %11, %..loopexit.loopexit_crit_edge ], [ %11, %106 ], [ %11, %.lr.ph122 ], [ %11, %.lr.ph ], [ %11, %73 ], [ %11, %83 ], [ %11, %89 ], [ %11, %93 ], [ %11, %98 ], [ %11, %102 ], [ %11, %46 ]
+  %.084 = phi ptr [ null, %.preheader ], [ null, %53 ], [ null, %0 ], [ null, %13 ], [ null, %10 ], [ null, %17 ], [ null, %.lr.ph122.preheader ], [ %100, %..loopexit.loopexit_crit_edge217 ], [ %.185119182, %..loopexit.loopexit_crit_edge ], [ %100, %.lr.ph122 ], [ %100, %106 ], [ %100, %102 ], [ %100, %98 ], [ %.185119182, %93 ], [ %.185119182, %89 ], [ %.185119182, %83 ], [ %.185119182, %73 ], [ %.185119182, %.lr.ph ], [ null, %46 ]
+  %.082 = phi i32 [ 0, %.preheader ], [ 0, %53 ], [ 0, %0 ], [ 0, %13 ], [ 0, %10 ], [ 0, %17 ], [ 0, %.lr.ph122.preheader ], [ 0, %..loopexit.loopexit_crit_edge217 ], [ %.mux, %..loopexit.loopexit_crit_edge ], [ 0, %106 ], [ 0, %.lr.ph122 ], [ 0, %.lr.ph ], [ 0, %73 ], [ 0, %83 ], [ 0, %89 ], [ 0, %93 ], [ 0, %98 ], [ 0, %102 ], [ 0, %46 ]
+  %.070 = phi ptr [ null, %.preheader ], [ null, %53 ], [ null, %0 ], [ null, %13 ], [ null, %10 ], [ null, %17 ], [ null, %.lr.ph122.preheader ], [ null, %..loopexit.loopexit_crit_edge217 ], [ null, %..loopexit.loopexit_crit_edge ], [ null, %.lr.ph122 ], [ null, %106 ], [ %91, %102 ], [ %91, %98 ], [ %91, %93 ], [ %91, %89 ], [ null, %83 ], [ null, %73 ], [ null, %.lr.ph ], [ null, %46 ]
   call void @BIO_free_all(ptr noundef %.086) #10
   call void @BIO_free_all(ptr noundef %.084) #10
   call void @SSL_free(ptr noundef %.070) #10
@@ -3342,7 +3342,7 @@ unreliable_server_read.exit:                      ; preds = %104, %113
   br i1 %41, label %.preheader45, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %118, %.preheader45, %unreliable_client_read.exit, %86, %52, %59, %unreliable_server_read.exit, %115, %.preheader, %95, %29, %35, %22, %1, %13
-  %.027 = phi i32 [ 0, %unreliable_client_read.exit ], [ 0, %35 ], [ 0, %1 ], [ 0, %29 ], [ 0, %unreliable_server_read.exit ], [ 0, %13 ], [ 0, %22 ], [ 0, %95 ], [ 0, %.preheader ], [ 0, %115 ], [ 0, %59 ], [ 0, %52 ], [ 0, %86 ], [ 1, %118 ], [ 0, %.preheader45 ]
+  %.027 = phi i32 [ 0, %unreliable_client_read.exit ], [ 0, %1 ], [ 0, %35 ], [ 0, %unreliable_server_read.exit ], [ 0, %29 ], [ 0, %22 ], [ 0, %13 ], [ 0, %95 ], [ 0, %.preheader ], [ 0, %115 ], [ 0, %59 ], [ 0, %52 ], [ 0, %86 ], [ 1, %118 ], [ 0, %.preheader45 ]
   %119 = load ptr, ptr %3, align 8, !tbaa !15
   call void @ossl_quic_tserver_free(ptr noundef %119) #10
   %.sroa.0.0..sroa.0.0. = load ptr, ptr %.sroa.0, align 16, !tbaa !13
@@ -5282,8 +5282,8 @@ tparam_handle.exit:                               ; preds = %52, %57, %63, %66, 
   br label %165
 
 165:                                              ; preds = %144, %4, %12, %30, %27, %PACKET_buf_init.exit, %138, %.loopexit
-  %.069 = phi i32 [ 0, %.loopexit ], [ 0, %4 ], [ 0, %12 ], [ 1, %144 ], [ 0, %138 ], [ 0, %PACKET_buf_init.exit ], [ 0, %27 ], [ 0, %30 ]
-  %.04167 = phi ptr [ %28, %.loopexit ], [ null, %4 ], [ null, %12 ], [ %28, %144 ], [ %28, %138 ], [ null, %PACKET_buf_init.exit ], [ %28, %27 ], [ %28, %30 ]
+  %.069 = phi i32 [ 0, %.loopexit ], [ 0, %27 ], [ 0, %PACKET_buf_init.exit ], [ 1, %144 ], [ 0, %138 ], [ 0, %12 ], [ 0, %4 ], [ 0, %30 ]
+  %.04167 = phi ptr [ %28, %.loopexit ], [ %28, %27 ], [ null, %PACKET_buf_init.exit ], [ %28, %144 ], [ %28, %138 ], [ null, %12 ], [ null, %4 ], [ %28, %30 ]
   call void @BUF_MEM_free(ptr noundef %10) #10
   call void @BUF_MEM_free(ptr noundef %.04167) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

@@ -5740,7 +5740,7 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i6.i
   br i1 %.not12.not.i.i, label %.lr.ph.i6.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_16HdSceneIndexPrimEE16FindSubtreeRangeERKNS_7SdfPathE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_16HdSceneIndexPrimEE16FindSubtreeRangeERKNS_7SdfPathE.exit: ; preds = %.lr.ph.i6.i, %select.unfold.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_16HdSceneIndexPrimEE4findERKNS_7SdfPathE.exit.i
-  %.sroa.0.0.i5.i = phi ptr [ %37, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_16HdSceneIndexPrimEE4findERKNS_7SdfPathE.exit.i ], [ null, %select.unfold.i.i ], [ %44, %.lr.ph.i6.i ]
+  %.sroa.0.0.i5.i = phi ptr [ %37, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_16HdSceneIndexPrimEE4findERKNS_7SdfPathE.exit.i ], [ %44, %.lr.ph.i6.i ], [ null, %select.unfold.i.i ]
   %.not36 = icmp eq ptr %.09.i.i, %.sroa.0.0.i5.i
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
@@ -6445,7 +6445,7 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i6.i
   br i1 %.not12.not.i.i, label %.lr.ph.i6.i, label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold.i.i, %.lr.ph.i6.i, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_16HdSceneIndexPrimEE4findERKNS_7SdfPathE.exit.i
-  %.sroa.0.0.i5.i = phi ptr [ %97, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_16HdSceneIndexPrimEE4findERKNS_7SdfPathE.exit.i ], [ %104, %.lr.ph.i6.i ], [ null, %select.unfold.i.i ]
+  %.sroa.0.0.i5.i = phi ptr [ %97, %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS_16HdSceneIndexPrimEE4findERKNS_7SdfPathE.exit.i ], [ null, %select.unfold.i.i ], [ %104, %.lr.ph.i6.i ]
   %.not4752 = icmp eq ptr %.09.i.i, %.sroa.0.0.i5.i
   br i1 %.not4752, label %._crit_edge.thread, label %.lr.ph.preheader
 

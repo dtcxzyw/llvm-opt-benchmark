@@ -999,7 +999,7 @@ cab_strnlen.exit.thread.i:                        ; preds = %156, %172, %192, %2
   br label %cab_read_header.exit.thread
 
 cab_read_header.exit:                             ; preds = %373, %370
-  %.0.i = phi i32 [ 0, %370 ], [ -20, %373 ]
+  %.0.i = phi i32 [ -20, %373 ], [ 0, %370 ]
   store i8 1, ptr %8, align 8, !tbaa !44
   br label %375
 
@@ -2234,7 +2234,7 @@ define internal fastcc i64 @cab_consume_cfdata(ptr noundef %0, i64 noundef %1) u
   br i1 %88, label %14, label %.loopexit76
 
 .loopexit76.sink.split:                           ; preds = %49, %70, %.preheader, %80, %63, %42, %18, %.thread71
-  %.055.ph = phi i64 [ %43, %42 ], [ %1, %.thread71 ], [ -30, %18 ], [ -30, %.preheader ], [ %64, %63 ], [ -30, %80 ], [ %1, %49 ], [ -30, %70 ]
+  %.055.ph = phi i64 [ -30, %18 ], [ %1, %.thread71 ], [ %43, %42 ], [ -30, %.preheader ], [ %64, %63 ], [ -30, %80 ], [ -30, %70 ], [ %1, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit76
 
@@ -5146,18 +5146,18 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br label %lzx_decode_blocks.exit.i.i
 
 .thread396.i.i.i:                                 ; preds = %1113, %.loopexit.i26.i.i, %1038, %944, %.lr.ph.split.us.i.i.i, %.lr.ph.split.i.i.i, %1159, %1097
-  %.7334.i.i.i = phi i32 [ %1212, %.loopexit.i26.i.i ], [ %.3330.i.i.i, %1097 ], [ %.6333647.i.i.i, %.lr.ph.split.i.i.i ], [ %.3330.i.i.i, %1159 ], [ %.2329.i.i.i, %1038 ], [ %.6333647.us.i.i.i, %944 ], [ %.6333647.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.3330.i.i.i, %1113 ]
-  %.4323.i.i.i = phi i32 [ %1210, %.loopexit.i26.i.i ], [ %.0319.i.i.i, %1097 ], [ %.0319.i.i.i, %.lr.ph.split.i.i.i ], [ %.0319.i.i.i, %1159 ], [ %.0319.i.i.i, %1038 ], [ %.0319.i.i.i, %944 ], [ %.0319.i.i.i, %.lr.ph.split.us.i.i.i ], [ %1109, %1113 ]
-  %.5315.i.i.i = phi i32 [ %.8318.i.i.i, %.loopexit.i26.i.i ], [ %.2312.i.i.i, %1097 ], [ %.0310.i.i.i, %.lr.ph.split.i.i.i ], [ %.2312.i.i.i, %1159 ], [ %.0310.i.i.i, %1038 ], [ %.0310.i.i.i, %944 ], [ %.0310.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.2312.i.i.i, %1113 ]
-  %.6309.i.i.i = phi i32 [ %.5308.i.i.i, %.loopexit.i26.i.i ], [ %.3306.i.i.i, %1097 ], [ %.0303.i.i.i, %.lr.ph.split.i.i.i ], [ %.3306.i.i.i, %1159 ], [ 7, %1038 ], [ %.0303.i.i.i, %944 ], [ %.0303.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.3306.i.i.i, %1113 ]
-  %.5302.i.i.i = phi i32 [ %.4301.i.i.i, %.loopexit.i26.i.i ], [ %.2299.i.i.i, %1097 ], [ %.0297.ph.i.i.i.ph, %.lr.ph.split.i.i.i ], [ %.2299.i.i.i, %1159 ], [ %.0297.ph.i.i.i.ph, %1038 ], [ %.0297.ph.i.i.i.ph, %944 ], [ %.0297.ph.i.i.i.ph, %.lr.ph.split.us.i.i.i ], [ %.2299.i.i.i, %1113 ]
-  %.6296.i.i.i = phi i32 [ %.5295.i.i.i, %.loopexit.i26.i.i ], [ %.3293.i.i.i, %1097 ], [ %.0290.i.i.i, %.lr.ph.split.i.i.i ], [ %.3293.i.i.i, %1159 ], [ %.2292.i.i.i, %1038 ], [ %.0290.i.i.i, %944 ], [ %.0290.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.3293.i.i.i, %1113 ]
-  %.4289.i.i.i = phi i32 [ %.3288.i.i.i, %.loopexit.i26.i.i ], [ %.0285.ph414.i.i.i, %1097 ], [ %.0285.ph414.i.i.i, %.lr.ph.split.i.i.i ], [ %.0285.ph414.i.i.i, %1159 ], [ %.0285.ph414.i.i.i, %1038 ], [ %.0285.ph414.i.i.i, %944 ], [ %.0285.ph414.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.0285.ph414.i.i.i, %1113 ]
-  %.4284.i.i.i = phi i32 [ %.3283.i.i.i, %.loopexit.i26.i.i ], [ %.0280.ph415.ph.i.i.i, %1097 ], [ %.0280.ph415.ph.i.i.i, %.lr.ph.split.i.i.i ], [ %.0280.ph415.ph.i.i.i, %1159 ], [ %.0280.ph415.ph.i.i.i, %1038 ], [ %.0280.ph415.ph.i.i.i, %944 ], [ %.0280.ph415.ph.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.0280.ph415.ph.i.i.i, %1113 ]
-  %.4279.i.i.i = phi i32 [ %.3278.i.i.i, %.loopexit.i26.i.i ], [ %.0275.ph416.i.i.i, %1097 ], [ %.0275.ph416.i.i.i, %.lr.ph.split.i.i.i ], [ %.0275.ph416.i.i.i, %1159 ], [ %.0275.ph416.i.i.i, %1038 ], [ %.0275.ph416.i.i.i, %944 ], [ %.0275.ph416.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.0275.ph416.i.i.i, %1113 ]
-  %.4270.i.i.i = phi i32 [ %.8274.i.i.i, %.loopexit.i26.i.i ], [ 20, %1097 ], [ 18, %.lr.ph.split.i.i.i ], [ 20, %1159 ], [ 19, %1038 ], [ 18, %944 ], [ 18, %.lr.ph.split.us.i.i.i ], [ 20, %1113 ]
-  %.7259.i.i.i = phi i64 [ %1213, %.loopexit.i26.i.i ], [ %.3255.i.i.i, %1097 ], [ %.6258648.i.i.i, %.lr.ph.split.i.i.i ], [ %.3255.i.i.i, %1159 ], [ %.2254.i.i.i, %1038 ], [ %.6258648.us.i.i.i, %944 ], [ %.6258648.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.3255.i.i.i, %1113 ]
-  %.7.i.i.i = phi ptr [ %1208, %.loopexit.i26.i.i ], [ %.3.i.i.i, %1097 ], [ %.6649.i.i.i, %.lr.ph.split.i.i.i ], [ %.3.i.i.i, %1159 ], [ %.2.i31.i.i, %1038 ], [ %.6649.us.i.i.i, %944 ], [ %.6649.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.3.i.i.i, %1113 ]
+  %.7334.i.i.i = phi i32 [ %1212, %.loopexit.i26.i.i ], [ %.3330.i.i.i, %1097 ], [ %.6333647.i.i.i, %.lr.ph.split.i.i.i ], [ %.3330.i.i.i, %1159 ], [ %.6333647.us.i.i.i, %944 ], [ %.2329.i.i.i, %1038 ], [ %.6333647.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.3330.i.i.i, %1113 ]
+  %.4323.i.i.i = phi i32 [ %1210, %.loopexit.i26.i.i ], [ %.0319.i.i.i, %1097 ], [ %.0319.i.i.i, %.lr.ph.split.i.i.i ], [ %.0319.i.i.i, %1159 ], [ %.0319.i.i.i, %944 ], [ %.0319.i.i.i, %1038 ], [ %.0319.i.i.i, %.lr.ph.split.us.i.i.i ], [ %1109, %1113 ]
+  %.5315.i.i.i = phi i32 [ %.8318.i.i.i, %.loopexit.i26.i.i ], [ %.2312.i.i.i, %1097 ], [ %.0310.i.i.i, %.lr.ph.split.i.i.i ], [ %.2312.i.i.i, %1159 ], [ %.0310.i.i.i, %944 ], [ %.0310.i.i.i, %1038 ], [ %.0310.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.2312.i.i.i, %1113 ]
+  %.6309.i.i.i = phi i32 [ %.5308.i.i.i, %.loopexit.i26.i.i ], [ %.3306.i.i.i, %1097 ], [ %.0303.i.i.i, %.lr.ph.split.i.i.i ], [ %.3306.i.i.i, %1159 ], [ %.0303.i.i.i, %944 ], [ 7, %1038 ], [ %.0303.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.3306.i.i.i, %1113 ]
+  %.5302.i.i.i = phi i32 [ %.4301.i.i.i, %.loopexit.i26.i.i ], [ %.2299.i.i.i, %1097 ], [ %.0297.ph.i.i.i.ph, %.lr.ph.split.i.i.i ], [ %.2299.i.i.i, %1159 ], [ %.0297.ph.i.i.i.ph, %944 ], [ %.0297.ph.i.i.i.ph, %1038 ], [ %.0297.ph.i.i.i.ph, %.lr.ph.split.us.i.i.i ], [ %.2299.i.i.i, %1113 ]
+  %.6296.i.i.i = phi i32 [ %.5295.i.i.i, %.loopexit.i26.i.i ], [ %.3293.i.i.i, %1097 ], [ %.0290.i.i.i, %.lr.ph.split.i.i.i ], [ %.3293.i.i.i, %1159 ], [ %.0290.i.i.i, %944 ], [ %.2292.i.i.i, %1038 ], [ %.0290.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.3293.i.i.i, %1113 ]
+  %.4289.i.i.i = phi i32 [ %.3288.i.i.i, %.loopexit.i26.i.i ], [ %.0285.ph414.i.i.i, %1097 ], [ %.0285.ph414.i.i.i, %.lr.ph.split.i.i.i ], [ %.0285.ph414.i.i.i, %1159 ], [ %.0285.ph414.i.i.i, %944 ], [ %.0285.ph414.i.i.i, %1038 ], [ %.0285.ph414.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.0285.ph414.i.i.i, %1113 ]
+  %.4284.i.i.i = phi i32 [ %.3283.i.i.i, %.loopexit.i26.i.i ], [ %.0280.ph415.ph.i.i.i, %1097 ], [ %.0280.ph415.ph.i.i.i, %.lr.ph.split.i.i.i ], [ %.0280.ph415.ph.i.i.i, %1159 ], [ %.0280.ph415.ph.i.i.i, %944 ], [ %.0280.ph415.ph.i.i.i, %1038 ], [ %.0280.ph415.ph.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.0280.ph415.ph.i.i.i, %1113 ]
+  %.4279.i.i.i = phi i32 [ %.3278.i.i.i, %.loopexit.i26.i.i ], [ %.0275.ph416.i.i.i, %1097 ], [ %.0275.ph416.i.i.i, %.lr.ph.split.i.i.i ], [ %.0275.ph416.i.i.i, %1159 ], [ %.0275.ph416.i.i.i, %944 ], [ %.0275.ph416.i.i.i, %1038 ], [ %.0275.ph416.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.0275.ph416.i.i.i, %1113 ]
+  %.4270.i.i.i = phi i32 [ %.8274.i.i.i, %.loopexit.i26.i.i ], [ 20, %1097 ], [ 18, %.lr.ph.split.i.i.i ], [ 20, %1159 ], [ 18, %944 ], [ 19, %1038 ], [ 18, %.lr.ph.split.us.i.i.i ], [ 20, %1113 ]
+  %.7259.i.i.i = phi i64 [ %1213, %.loopexit.i26.i.i ], [ %.3255.i.i.i, %1097 ], [ %.6258648.i.i.i, %.lr.ph.split.i.i.i ], [ %.3255.i.i.i, %1159 ], [ %.6258648.us.i.i.i, %944 ], [ %.2254.i.i.i, %1038 ], [ %.6258648.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.3255.i.i.i, %1113 ]
+  %.7.i.i.i = phi ptr [ %1208, %.loopexit.i26.i.i ], [ %.3.i.i.i, %1097 ], [ %.6649.i.i.i, %.lr.ph.split.i.i.i ], [ %.3.i.i.i, %1159 ], [ %.6649.us.i.i.i, %944 ], [ %.2.i31.i.i, %1038 ], [ %.6649.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.3.i.i.i, %1113 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %881, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !208
   store i64 %.7259.i.i.i, ptr %897, align 8, !tbaa !193
   store i32 %.5315.i.i.i, ptr %905, align 8, !tbaa !210

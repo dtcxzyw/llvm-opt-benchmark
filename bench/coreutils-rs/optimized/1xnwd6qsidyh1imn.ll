@@ -451,8 +451,8 @@ define void @"_ZN80_$LT$uu_numfmt..options..FormatOptions$u20$as$u20$core..str..
   ]
 
 .critedge:                                        ; preds = %87, %116, %.thread422, %47, %.thread
-  %.sroa.95.1 = phi i32 [ 1114113, %47 ], [ 1114113, %.thread ], [ %.sroa.95.2, %.thread422 ], [ 1114112, %116 ], [ 1114112, %87 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %47 ], [ %.sroa.0.1, %.thread ], [ %.sroa.0.3, %.thread422 ], [ %118, %116 ], [ %.sroa.0.1, %87 ]
+  %.sroa.95.1 = phi i32 [ 1114113, %47 ], [ 1114113, %.thread ], [ 1114112, %87 ], [ 1114112, %116 ], [ %.sroa.95.2, %.thread422 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %47 ], [ %.sroa.0.1, %.thread ], [ %.sroa.0.1, %87 ], [ %118, %116 ], [ %.sroa.0.3, %.thread422 ]
   %85 = icmp sgt i32 %.0149.ph, 0
   br i1 %85, label %.lr.ph, label %._crit_edge
 

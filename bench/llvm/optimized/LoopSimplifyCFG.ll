@@ -2144,8 +2144,8 @@ _ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBl
   br label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit229.i.i.i
 
 _ZZN12_GLOBAL__N_129ConstantTerminatorFoldingImpl7analyzeEvENKUlPN4llvm10BasicBlockEE0_clES3_.exit.i.i.i: ; preds = %700, %697, %694, %.lr.ph.i.i.i.i.i.i.i199.i.i.i, %716, %712, %708
-  %.sink.i.i.i9.i.i.i.i = phi i32 [ %.sink.i.i.i8.i.i.i.i, %712 ], [ %.sink.i.i.i8.i.i.i.i, %716 ], [ %.sink.i.i.i8.i.i.i.i, %708 ], [ %690, %.lr.ph.i.i.i.i.i.i.i199.i.i.i ], [ %690, %694 ], [ %690, %697 ], [ %690, %700 ]
-  %.sroa.9.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.15.1.i.i.i.i.i.i.i.i.i.i, %712 ], [ %.sroa.15.2.i.i.i.i.i.i.i.i.i.i, %716 ], [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i.i.i, %708 ], [ %701, %700 ], [ %698, %697 ], [ %695, %694 ], [ %.sroa.15.089.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i199.i.i.i ]
+  %.sink.i.i.i9.i.i.i.i = phi i32 [ %.sink.i.i.i8.i.i.i.i, %712 ], [ %.sink.i.i.i8.i.i.i.i, %708 ], [ %.sink.i.i.i8.i.i.i.i, %716 ], [ %690, %.lr.ph.i.i.i.i.i.i.i199.i.i.i ], [ %690, %694 ], [ %690, %697 ], [ %690, %700 ]
+  %.sroa.9.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.15.1.i.i.i.i.i.i.i.i.i.i, %712 ], [ %.sroa.15.0.lcssa.i.i.i.i.i.i.i.i.i.i, %708 ], [ %.sroa.15.2.i.i.i.i.i.i.i.i.i.i, %716 ], [ %701, %700 ], [ %698, %697 ], [ %695, %694 ], [ %.sroa.15.089.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i199.i.i.i ]
   %.not307.i.i.i = icmp eq i32 %.sink.i.i.i9.i.i.i.i, %.sroa.9.0.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)

@@ -1054,11 +1054,11 @@ define internal ptr @process_sublinks_mutator(ptr noundef %0, ptr noundef readon
   br label %98
 
 98:                                               ; preds = %.thread173.i, %89, %74
-  %.4118184.i = phi ptr [ %.0114206.i116, %.thread173.i ], [ %75, %74 ], [ %90, %89 ]
-  %.4123183.i = phi ptr [ %.0119205.i117, %.thread173.i ], [ %76, %74 ], [ %91, %89 ]
-  %.4128182.i = phi ptr [ %.0124204.i118, %.thread173.i ], [ %78, %74 ], [ %93, %89 ]
-  %.4133181.i = phi ptr [ %.0129203.i119, %.thread173.i ], [ %81, %74 ], [ %96, %89 ]
-  %.2136180.i = phi ptr [ %97, %.thread173.i ], [ %.0134202.i120, %74 ], [ %.0134202.i120, %89 ]
+  %.4118184.i = phi ptr [ %.0114206.i116, %.thread173.i ], [ %90, %89 ], [ %75, %74 ]
+  %.4123183.i = phi ptr [ %.0119205.i117, %.thread173.i ], [ %91, %89 ], [ %76, %74 ]
+  %.4128182.i = phi ptr [ %.0124204.i118, %.thread173.i ], [ %93, %89 ], [ %78, %74 ]
+  %.4133181.i = phi ptr [ %.0129203.i119, %.thread173.i ], [ %96, %89 ], [ %81, %74 ]
+  %.2136180.i = phi ptr [ %97, %.thread173.i ], [ %.0134202.i120, %89 ], [ %.0134202.i120, %74 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i115, 1
   %99 = load i32, ptr %54, align 4
   %100 = sext i32 %99 to i64

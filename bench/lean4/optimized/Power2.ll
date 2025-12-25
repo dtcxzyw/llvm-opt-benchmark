@@ -59,13 +59,13 @@ lean_nat_lt.exit.thread20.us:                     ; preds = %.split.us
   %.not.i.us = icmp eq i32 %21, 0
   br i1 %.not.i.us, label %.split.us.outer.backedge, label %24
 
+.split.us.outer.backedge:                         ; preds = %23, %24, %25, %13, %15
+  %.09.us.ph.be = phi ptr [ %18, %15 ], [ %14, %13 ], [ %20, %25 ], [ %20, %24 ], [ %20, %23 ]
+  br label %.split.us.outer
+
 24:                                               ; preds = %23
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.09.us.ph) #3
   br label %.split.us.outer.backedge
-
-.split.us.outer.backedge:                         ; preds = %24, %23, %25, %13, %15
-  %.09.us.ph.be = phi ptr [ %18, %15 ], [ %14, %13 ], [ %20, %25 ], [ %20, %23 ], [ %20, %24 ]
-  br label %.split.us.outer
 
 25:                                               ; preds = %19
   %26 = add nsw i32 %21, -1
@@ -115,6 +115,10 @@ lean_nat_lt.exit.thread20:                        ; preds = %.split
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %.split.outer.backedge, label %47
 
+.split.outer.backedge:                            ; preds = %42, %47, %40, %34, %30
+  %.09.ph.be = phi ptr [ %33, %30 ], [ %35, %34 ], [ %37, %40 ], [ %37, %47 ], [ %37, %42 ]
+  br label %.split.outer
+
 .split.outer:                                     ; preds = %3, %.split.outer.backedge
   %.09.ph = phi ptr [ %.09.ph.be, %.split.outer.backedge ], [ %1, %3 ]
   %43 = ptrtoint ptr %.09.ph to i64
@@ -128,10 +132,6 @@ lean_nat_lt.exit.thread20:                        ; preds = %.split
 47:                                               ; preds = %42
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.09.ph) #3
   br label %.split.outer.backedge
-
-.split.outer.backedge:                            ; preds = %47, %42, %40, %34, %30
-  %.09.ph.be = phi ptr [ %33, %30 ], [ %35, %34 ], [ %37, %40 ], [ %37, %42 ], [ %37, %47 ]
-  br label %.split.outer
 
 .split26.us:                                      ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit.thread20, %lean_nat_lt.exit.us, %lean_nat_lt.exit.thread20.us
   %.us-phi = phi ptr [ %.09.us.ph, %lean_nat_lt.exit.us ], [ %.09.us.ph, %lean_nat_lt.exit.thread20.us ], [ %.09.ph, %lean_nat_lt.exit.thread20 ], [ %.09.ph, %lean_nat_lt.exit.thread ]

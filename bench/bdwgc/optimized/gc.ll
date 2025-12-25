@@ -10854,9 +10854,9 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   tail call fastcc void @GC_lock()
   br label %.split.backedge
 
-.split170.us:                                     ; preds = %183, %._crit_edge
-  %.us-phi173.ph = phi ptr [ %174, %183 ], [ %.086, %._crit_edge ]
-  %.us-phi174.ph = phi ptr [ %184, %183 ], [ %.085, %._crit_edge ]
+.split170.us:                                     ; preds = %._crit_edge, %183
+  %.us-phi173.ph = phi ptr [ %.086, %._crit_edge ], [ %174, %183 ]
+  %.us-phi174.ph = phi ptr [ %.085, %._crit_edge ], [ %184, %183 ]
   %.not126 = icmp eq ptr %4, null
   br i1 %.not126, label %197, label %196
 
@@ -33946,8 +33946,8 @@ GC_custom_push_proc.exit.i.i212:                  ; preds = %GC_signal_mark_stac
   br label %.backedge
 
 .backedge:                                        ; preds = %160, %167, %34, %..loopexit_crit_edge, %142, %121, %.thread, %259, %262, %._crit_edge366
-  %.0141.be = phi i64 [ %.0141263, %.thread ], [ %.0141263, %._crit_edge366 ], [ %152, %259 ], [ %152, %262 ], [ %123, %121 ], [ %37, %34 ], [ %37, %..loopexit_crit_edge ], [ %.0141263, %142 ], [ %152, %167 ], [ %152, %160 ]
-  %.0.be = phi ptr [ %136, %.thread ], [ %145, %._crit_edge366 ], [ %.10.lcssa, %259 ], [ %263, %262 ], [ %129, %121 ], [ %35, %34 ], [ %.4, %..loopexit_crit_edge ], [ %143, %142 ], [ %.8, %167 ], [ %.8, %160 ]
+  %.0141.be = phi i64 [ %123, %121 ], [ %.0141263, %._crit_edge366 ], [ %152, %262 ], [ %152, %259 ], [ %.0141263, %.thread ], [ %37, %34 ], [ %37, %..loopexit_crit_edge ], [ %.0141263, %142 ], [ %152, %167 ], [ %152, %160 ]
+  %.0.be = phi ptr [ %129, %121 ], [ %145, %._crit_edge366 ], [ %263, %262 ], [ %.10.lcssa, %259 ], [ %136, %.thread ], [ %35, %34 ], [ %.4, %..loopexit_crit_edge ], [ %143, %142 ], [ %.8, %167 ], [ %.8, %160 ]
   %264 = ptrtoint ptr %.0.be to i64
   %265 = sub i64 %264, %7
   %266 = or i64 %265, %.0141.be

@@ -3134,7 +3134,7 @@ _ZN3net10QuicFramer26GetMinSequenceNumberLengthEm.exit195: ; preds = %_ZN3net10Q
           to label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit unwind label %90
 
 _ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit: ; preds = %113, %116, %119, %122
-  %.0.i210 = phi i1 [ %121, %119 ], [ %124, %122 ], [ %118, %116 ], [ %115, %113 ]
+  %.0.i210 = phi i1 [ %121, %119 ], [ %118, %116 ], [ %124, %122 ], [ %115, %113 ]
   br i1 %.0.i210, label %150, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
 .unreachabledefault:                              ; preds = %112
@@ -3435,7 +3435,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit230: ; preds = %200
           to label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit237 unwind label %.loopexit
 
 _ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit237: ; preds = %227, %230, %233, %236
-  %.0.i232 = phi i1 [ %235, %233 ], [ %238, %236 ], [ %232, %230 ], [ %229, %227 ]
+  %.0.i232 = phi i1 [ %235, %233 ], [ %232, %230 ], [ %238, %236 ], [ %229, %227 ]
   br i1 %.0.i232, label %264, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit237.thread
 
 .unreachabledefault298:                           ; preds = %226
@@ -3802,7 +3802,7 @@ switch.lookup:                                    ; preds = %20, %18, %_ZN3net10
           to label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit unwind label %40
 
 _ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit: ; preds = %48, %51, %54, %57
-  %.0.i135 = phi i1 [ %56, %54 ], [ %59, %57 ], [ %53, %51 ], [ %50, %48 ]
+  %.0.i135 = phi i1 [ %56, %54 ], [ %53, %51 ], [ %59, %57 ], [ %50, %48 ]
   br i1 %.0.i135, label %60, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
 60:                                               ; preds = %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit
@@ -3892,7 +3892,7 @@ _ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS
           to label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit147 unwind label %74
 
 _ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit147: ; preds = %89, %92, %95, %98
-  %.0.i142 = phi i1 [ %97, %95 ], [ %100, %98 ], [ %94, %92 ], [ %91, %89 ]
+  %.0.i142 = phi i1 [ %97, %95 ], [ %94, %92 ], [ %100, %98 ], [ %91, %89 ]
   br i1 %.0.i142, label %101, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit147.thread
 
 101:                                              ; preds = %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit147
@@ -7931,7 +7931,7 @@ _ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_R
   br label %_ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_RKT0_.exit
 
 _ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_RKT0_.exit: ; preds = %27, %9, %_ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_RKT0_.exit.sink.split, %22
-  %.0 = phi i1 [ false, %9 ], [ false, %22 ], [ true, %_ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_RKT0_.exit.sink.split ], [ false, %27 ]
+  %.0 = phi i1 [ true, %_ZN4base11ContainsKeyISt13unordered_setIhSt4hashIhESt8equal_toIhESaIhEEhEEbRKT_RKT0_.exit.sink.split ], [ false, %22 ], [ false, %9 ], [ false, %27 ]
   ret i1 %.0
 }
 

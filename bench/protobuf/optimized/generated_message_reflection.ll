@@ -40842,7 +40842,7 @@ if.then.i.i93:                                    ; preds = %ehcleanup
   br label %ehcleanup75
 
 cleanup74thread-pre-split:                        ; preds = %for.inc71, %invoke.cont11, %invoke.cont14, %invoke.cont32, %invoke.cont28, %_ZN6google8protobuf11MapIteratorD2Ev.exit75, %if.then.i.i78
-  %cmp.i115.ph = phi i1 [ true, %_ZN6google8protobuf11MapIteratorD2Ev.exit75 ], [ true, %if.then.i.i78 ], [ true, %invoke.cont32 ], [ true, %invoke.cont28 ], [ true, %invoke.cont14 ], [ true, %invoke.cont11 ], [ false, %for.inc71 ]
+  %cmp.i115.ph = phi i1 [ true, %if.then.i.i78 ], [ true, %_ZN6google8protobuf11MapIteratorD2Ev.exit75 ], [ true, %invoke.cont32 ], [ true, %invoke.cont28 ], [ true, %invoke.cont14 ], [ false, %for.inc71 ], [ true, %invoke.cont11 ]
   %.pr = load ptr, ptr %fields, align 8
   br label %cleanup74
 

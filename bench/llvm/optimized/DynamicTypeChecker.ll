@@ -992,7 +992,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i: ; preds = %28, %26
   br label %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit.thread
 
 _ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit.thread: ; preds = %15, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i, %34, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i ], [ false, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit ], [ %38, %34 ], [ false, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ false, %15 ]
+  %.0 = phi i1 [ %38, %34 ], [ false, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit ], [ false, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i ], [ false, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ false, %15 ]
   ret i1 %.0
 }
 

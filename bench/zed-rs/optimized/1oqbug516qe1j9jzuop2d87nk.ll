@@ -64465,8 +64465,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   br i1 %52, label %.lr.ph, label %._crit_edge
 
 .loopexit:                                        ; preds = %42, %.lr.ph, %38, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2cf70b3e4406b281E.exit.i"
-  %.sroa.4.0 = phi ptr [ %.val3.i, %38 ], [ %.val3.i, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2cf70b3e4406b281E.exit.i" ], [ undef, %.lr.ph ], [ undef, %42 ]
-  %.sroa.0.0 = phi i64 [ 0, %38 ], [ 0, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2cf70b3e4406b281E.exit.i" ], [ 1, %42 ], [ 2, %.lr.ph ]
+  %.sroa.4.0 = phi ptr [ %.val3.i, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2cf70b3e4406b281E.exit.i" ], [ %.val3.i, %38 ], [ undef, %.lr.ph ], [ undef, %42 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2cf70b3e4406b281E.exit.i" ], [ 0, %38 ], [ 1, %42 ], [ 2, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %54 = insertvalue { i64, ptr } %53, ptr %.sroa.4.0, 1

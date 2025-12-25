@@ -6718,7 +6718,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183._ZNK6vectorIP9func_declLb0EjE4sizeE
   br i1 %690, label %_ZN6vectorISt5tupleIJP4exprjbEELb1EjED2Ev.exit, label %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit, !llvm.loop !282
 
 .thread355:                                       ; preds = %.preheader.i.i.i, %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit, %331, %342, %345, %685, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.thread.thread
-  %.11.ph = phi i1 [ false, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.thread.thread ], [ false, %342 ], [ false, %331 ], [ %.9310, %685 ], [ false, %345 ], [ %301, %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit ], [ %301, %.preheader.i.i.i ]
+  %.11.ph = phi i1 [ false, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit183.thread.thread ], [ false, %331 ], [ %.9310, %685 ], [ false, %342 ], [ false, %345 ], [ %301, %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit ], [ %301, %.preheader.i.i.i ]
   %.pr = load ptr, ptr %22, align 8, !tbaa !271
   %.not.i.i218 = icmp eq ptr %.pr, null
   br i1 %.not.i.i218, label %_ZN6vectorISt5tupleIJP4exprjbEELb1EjED2Ev.exit, label %691

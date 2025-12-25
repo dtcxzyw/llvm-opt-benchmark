@@ -5221,7 +5221,7 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE12emplace_backIJjRPKNS1
   br i1 %.not12.i.i, label %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.i.i, label %.lr.ph.i.i
 
 _ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.i.i: ; preds = %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE12emplace_backIJjRPKNS1_16ObjCProtocolDeclEEEERS3_DpOT_.exit.i.i, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit.thread.i.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.i, %117, %_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv.exit.i.i.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.i.i
-  %.1.i.i = phi i32 [ %.0.i.i, %_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv.exit.i.i.i ], [ %.0.i.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.i.i ], [ %91, %117 ], [ %91, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.i ], [ %91, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit.thread.i.i ], [ %91, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE12emplace_backIJjRPKNS1_16ObjCProtocolDeclEEEERS3_DpOT_.exit.i.i ]
+  %.1.i.i = phi i32 [ %.0.i.i, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKNS1_16PseudoObjectExprEE_clES6_.exit.i.i ], [ %.0.i.i, %_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv.exit.i.i.i ], [ %91, %117 ], [ %91, %_ZZN12_GLOBAL__N_111BodyIndexer20VisitObjCMessageExprEPN5clang15ObjCMessageExprEENKUlPKS2_E_clES5_.exit.thread.sink.split.i.i ], [ %91, %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit.thread.i.i ], [ %91, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE12emplace_backIJjRPKNS1_16ObjCProtocolDeclEEEERS3_DpOT_.exit.i.i ]
   %177 = load ptr, ptr %0, align 8, !tbaa !45
   %178 = load i32, ptr %12, align 8
   %179 = and i32 %178, 67108864
@@ -37132,7 +37132,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %2, %71, %67, %65, %60, %58, %56, %54, %52, %50, %48, %46, %43, %41, %39, %37, %33, %30, %28, %26, %24, %20, %18, %15, %13, %11, %9
-  %.0 = phi i1 [ %47, %46 ], [ %55, %54 ], [ %44, %43 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
+  %.0 = phi i1 [ %47, %46 ], [ %44, %43 ], [ %55, %54 ], [ %66, %65 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %61, %60 ], [ %16, %15 ], [ %59, %58 ], [ %57, %56 ], [ %70, %67 ], [ %53, %52 ], [ %49, %48 ], [ %19, %18 ], [ %72, %71 ], [ %51, %50 ], [ %23, %20 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %32, %30 ], [ %36, %33 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ true, %2 ], [ true, %.lr.ph ], [ true, %tailrecurse.backedge ]
   ret i1 %.0
 }
 

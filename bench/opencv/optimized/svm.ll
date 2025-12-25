@@ -14432,8 +14432,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %87
   br i1 %exitcond701.not, label %.critedge302, label %.lr.ph611, !llvm.loop !323
 
 .critedge302:                                     ; preds = %723, %716, %882, %._crit_edge608, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %434
-  %.sroa.0480.2 = phi ptr [ %.sroa.0480.3.lcssa, %._crit_edge608 ], [ null, %434 ], [ null, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %.sroa.0480.3.lcssa, %882 ], [ %.sroa.0480.6, %716 ], [ %.sroa.0480.6, %723 ]
-  %.3238 = phi i1 [ true, %._crit_edge608 ], [ false, %434 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ true, %882 ], [ false, %716 ], [ false, %723 ]
+  %.sroa.0480.2 = phi ptr [ null, %434 ], [ %.sroa.0480.3.lcssa, %._crit_edge608 ], [ null, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %.sroa.0480.3.lcssa, %882 ], [ %.sroa.0480.6, %716 ], [ %.sroa.0480.6, %723 ]
+  %.3238 = phi i1 [ false, %434 ], [ true, %._crit_edge608 ], [ false, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ true, %882 ], [ false, %716 ], [ false, %723 ]
   %884 = load ptr, ptr %23, align 8, !tbaa !313
   %.not.i.i.i384 = icmp eq ptr %884, null
   br i1 %.not.i.i.i384, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %885

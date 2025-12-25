@@ -3360,9 +3360,9 @@ get_native_fmtchar.exit91.thread114:              ; preds = %73, %get_native_fmt
   br label %124
 
 124:                                              ; preds = %97, %111, %99, %91, %83
-  %.068 = phi ptr [ %.169, %99 ], [ %.169, %97 ], [ %.169, %111 ], [ null, %83 ], [ %81, %91 ]
-  %.067 = phi ptr [ %.1, %99 ], [ %.1, %97 ], [ %.1, %111 ], [ null, %83 ], [ null, %91 ]
-  %.0 = phi i32 [ %110, %99 ], [ %98, %97 ], [ %123, %111 ], [ %84, %83 ], [ %92, %91 ]
+  %.068 = phi ptr [ %.169, %97 ], [ %.169, %111 ], [ %.169, %99 ], [ null, %83 ], [ %81, %91 ]
+  %.067 = phi ptr [ %.1, %97 ], [ %.1, %111 ], [ %.1, %99 ], [ null, %83 ], [ null, %91 ]
+  %.0 = phi i32 [ %98, %97 ], [ %123, %111 ], [ %110, %99 ], [ %84, %83 ], [ %92, %91 ]
   %.0.fr = freeze i32 %.0
   %125 = icmp slt i32 %.0.fr, 0
   br i1 %125, label %126, label %.thread
@@ -5534,7 +5534,7 @@ define internal fastcc ptr @ptr_from_tuple(ptr noundef readonly captures(none) %
   br label %lookup_dimension.exit
 
 lookup_dimension.exit:                            ; preds = %71, %67, %60, %46, %42, %35
-  %phi.call = phi ptr [ %40, %35 ], [ %65, %60 ], [ %48, %46 ], [ %40, %42 ], [ %65, %67 ], [ %73, %71 ]
+  %phi.call = phi ptr [ %40, %35 ], [ %65, %67 ], [ %48, %46 ], [ %40, %42 ], [ %65, %60 ], [ %73, %71 ]
   %.not36 = icmp eq ptr %phi.call, null
   br i1 %.not36, label %.critedge, label %74
 

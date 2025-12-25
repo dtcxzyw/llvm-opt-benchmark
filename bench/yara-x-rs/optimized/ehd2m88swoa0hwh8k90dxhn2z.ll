@@ -85137,9 +85137,9 @@ _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit.i:
   br label %_ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit72.i
 
 _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit72.i: ; preds = %266, %241
-  %.sroa.10110.0160.i = phi i64 [ %251, %266 ], [ %226, %241 ]
-  %.sroa.13.0158.i = phi i64 [ %260, %266 ], [ %235, %241 ]
-  %.sroa.15.0156.i = phi i64 [ %268, %266 ], [ %243, %241 ]
+  %.sroa.10110.0160.i = phi i64 [ %226, %241 ], [ %251, %266 ]
+  %.sroa.13.0158.i = phi i64 [ %235, %241 ], [ %260, %266 ]
+  %.sroa.15.0156.i = phi i64 [ %243, %241 ], [ %268, %266 ]
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %270 = load i64, ptr %269, align 8, !alias.scope !10880, !noalias !10883, !noundef !4
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -85421,9 +85421,9 @@ _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit72.
   br label %_ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit97.i
 
 _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit97.i: ; preds = %413, %388
-  %.sroa.15122.0182.i = phi i64 [ %415, %413 ], [ %390, %388 ]
-  %.sroa.13121.0180.i = phi i64 [ %407, %413 ], [ %382, %388 ]
-  %.sroa.10120.0178.i = phi i64 [ %398, %413 ], [ %373, %388 ]
+  %.sroa.15122.0182.i = phi i64 [ %390, %388 ], [ %415, %413 ]
+  %.sroa.13121.0180.i = phi i64 [ %382, %388 ], [ %407, %413 ]
+  %.sroa.10120.0178.i = phi i64 [ %373, %388 ], [ %398, %413 ]
   %416 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %418 = load i64, ptr %417, align 8, !alias.scope !10952, !noalias !10955, !noundef !4
@@ -86715,9 +86715,9 @@ common.resume:                                    ; preds = %1926, %1575, %1536,
   br label %_ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit337.i
 
 _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit337.i: ; preds = %618, %593
-  %.sroa.10446.0589.i = phi i64 [ %603, %618 ], [ %578, %593 ]
-  %.sroa.13.0587.i = phi i64 [ %612, %618 ], [ %587, %593 ]
-  %.sroa.15.0585.i = phi i64 [ %620, %618 ], [ %595, %593 ]
+  %.sroa.10446.0589.i = phi i64 [ %578, %593 ], [ %603, %618 ]
+  %.sroa.13.0587.i = phi i64 [ %587, %593 ], [ %612, %618 ]
+  %.sroa.15.0585.i = phi i64 [ %595, %593 ], [ %620, %618 ]
   store i64 %.sroa.10446.0589.i, ptr %113, align 8, !noalias !11176
   %.sroa.4529.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i64 %.sroa.13.0587.i, ptr %.sroa.4529.0..sroa_idx.i, align 8, !noalias !11176
@@ -86994,9 +86994,9 @@ _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit337
   br label %_ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit357.i
 
 _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit357.i: ; preds = %732, %710
-  %.sroa.10468.0624.i = phi i64 [ %720, %732 ], [ %698, %710 ]
-  %.sroa.13469.0622.i = phi i64 [ %726, %732 ], [ %704, %710 ]
-  %.sroa.15470.0620.i = phi i64 [ %734, %732 ], [ %712, %710 ]
+  %.sroa.10468.0624.i = phi i64 [ %698, %710 ], [ %720, %732 ]
+  %.sroa.13469.0622.i = phi i64 [ %704, %710 ], [ %726, %732 ]
+  %.sroa.15470.0620.i = phi i64 [ %712, %710 ], [ %734, %732 ]
   store i64 %.sroa.10468.0624.i, ptr %109, align 8, !noalias !11176
   %.sroa.4535.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i64 %.sroa.13469.0622.i, ptr %.sroa.4535.0..sroa_idx.i, align 8, !noalias !11176
@@ -87647,9 +87647,9 @@ _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit357
   br label %_ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit402.i
 
 _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit402.i: ; preds = %1032, %1012
-  %.sroa.8185.sroa.3.1.i = phi i64 [ %1020, %1032 ], [ %1000, %1012 ]
-  %.sroa.8185.sroa.5.1.i = phi i64 [ %1026, %1032 ], [ %1006, %1012 ]
-  %.sroa.8185.sroa.6.1.i = phi i64 [ %1033, %1032 ], [ %1013, %1012 ]
+  %.sroa.8185.sroa.3.1.i = phi i64 [ %1000, %1012 ], [ %1020, %1032 ]
+  %.sroa.8185.sroa.5.1.i = phi i64 [ %1006, %1012 ], [ %1026, %1032 ]
+  %.sroa.8185.sroa.6.1.i = phi i64 [ %1013, %1012 ], [ %1033, %1032 ]
   %1034 = load i64, ptr %878, align 8, !alias.scope !11337, !noalias !11340, !noundef !4
   %1035 = load i64, ptr %877, align 8, !range !4279, !alias.scope !11337, !noalias !11340, !noundef !4
   %1036 = icmp eq i64 %1034, %1035
@@ -87828,9 +87828,9 @@ _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit402
   br label %_ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit416.i
 
 _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit416.i: ; preds = %1114, %1092, %1047
-  %.val.i = phi i64 [ undef, %1047 ], [ %1102, %1114 ], [ %1080, %1092 ]
-  %.sroa.6129.sroa.5.0.i = phi i64 [ undef, %1047 ], [ %1108, %1114 ], [ %1086, %1092 ]
-  %.val307.i = phi i64 [ undef, %1047 ], [ %1116, %1114 ], [ %1094, %1092 ]
+  %.val.i = phi i64 [ undef, %1047 ], [ %1080, %1092 ], [ %1102, %1114 ]
+  %.sroa.6129.sroa.5.0.i = phi i64 [ undef, %1047 ], [ %1086, %1092 ], [ %1108, %1114 ]
+  %.val307.i = phi i64 [ undef, %1047 ], [ %1094, %1092 ], [ %1116, %1114 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %101), !noalias !11176
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8138.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %100), !noalias !11176
@@ -88092,12 +88092,12 @@ _ZN6yara_x2re8thompson8compiler8Compiler10emit_instr17hf348bff2a8bcace6E.exit416
   br label %1935
 
 1226:                                             ; preds = %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216, %1625, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit
-  %.sroa.0323.0 = phi i64 [ %.sroa.0323.10, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %.sroa.0323.0.copyload324, %1625 ], [ %.sroa.0323.2, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %.sroa.0323.4, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %.sroa.0323.6, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %.sroa.0323.8, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
-  %.sroa.19.0 = phi i64 [ %.sroa.19.10, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %.sroa.19.0.copyload331, %1625 ], [ %.sroa.19.2, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %.sroa.19.4, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %.sroa.19.6, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %.sroa.19.8, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
-  %.sroa.21.0 = phi i64 [ %.sroa.21.10, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %.sroa.21.0.copyload343, %1625 ], [ %.sroa.21.2, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %.sroa.21.4, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %.sroa.21.6, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %.sroa.21.8, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
-  %.sroa.0354.0 = phi i64 [ %.sroa.0369.0.copyload, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %.sroa.0354.2.lcssa, %1625 ], [ %.sroa.0354.1, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %.sroa.0194.0.i, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %.sroa.40278.0, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %.sroa.0375.0.copyload, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
-  %.sroa.13.0 = phi i64 [ %1908, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %.sroa.13.1.lcssa, %1625 ], [ %1452, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %1484, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %1515, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %1557, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
-  %.sroa.25.0 = phi i64 [ %1910, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %.sroa.25.1.lcssa, %1625 ], [ %1454, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %1486, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %1517, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %1559, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
+  %.sroa.0323.0 = phi i64 [ %.sroa.0323.0.copyload324, %1625 ], [ %.sroa.0323.10, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %.sroa.0323.2, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %.sroa.0323.4, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %.sroa.0323.6, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %.sroa.0323.8, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
+  %.sroa.19.0 = phi i64 [ %.sroa.19.0.copyload331, %1625 ], [ %.sroa.19.10, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %.sroa.19.2, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %.sroa.19.4, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %.sroa.19.6, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %.sroa.19.8, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
+  %.sroa.21.0 = phi i64 [ %.sroa.21.0.copyload343, %1625 ], [ %.sroa.21.10, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %.sroa.21.2, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %.sroa.21.4, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %.sroa.21.6, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %.sroa.21.8, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
+  %.sroa.0354.0 = phi i64 [ %.sroa.0354.2.lcssa, %1625 ], [ %.sroa.0369.0.copyload, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %.sroa.0354.1, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %.sroa.0194.0.i, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %.sroa.40278.0, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %.sroa.0375.0.copyload, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
+  %.sroa.13.0 = phi i64 [ %.sroa.13.1.lcssa, %1625 ], [ %1908, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %1452, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %1484, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %1515, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %1557, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
+  %.sroa.25.0 = phi i64 [ %.sroa.25.1.lcssa, %1625 ], [ %1910, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit216 ], [ %1454, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit ], [ %1486, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168 ], [ %1517, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit172 ], [ %1559, %_ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %174)
   store i64 %.sroa.0354.0, ptr %174, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %174, i64 8
@@ -88899,7 +88899,7 @@ _ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit168: ; pre
   br label %1229
 
 1506:                                             ; preds = %1182, %._crit_edge732.i, %868, %._crit_edge.i, %634, %554
-  %.sroa.40278.0 = phi i64 [ %840, %868 ], [ %531, %554 ], [ %.sroa.40278.8.copyload279, %1182 ], [ %.sroa.0226.0.copyload.i, %._crit_edge732.i ], [ %626, %634 ], [ %.sroa.0212.0.copyload.i, %._crit_edge.i ]
+  %.sroa.40278.0 = phi i64 [ %626, %634 ], [ %840, %868 ], [ %.sroa.40278.8.copyload279, %1182 ], [ %.sroa.0226.0.copyload.i, %._crit_edge732.i ], [ %531, %554 ], [ %.sroa.0212.0.copyload.i, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -89334,8 +89334,8 @@ _ZN6yara_x2re8thompson8compiler12seq_to_atoms17h853c6d267bb0ba0eE.exit176: ; pre
   br label %.critedge.i187
 
 .critedge.i187:                                   ; preds = %1678, %.lr.ph, %1661, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfef6976527848eceE.exit.loopexit.i", %1801, %.lr.ph.preheader, %..critedge.loopexit140.i.loopexit_crit_edge, %.lr.ph.i180
-  %.pr.i = phi i1 [ false, %1801 ], [ false, %.lr.ph.i180 ], [ false, %.lr.ph.preheader ], [ %1663, %..critedge.loopexit140.i.loopexit_crit_edge ], [ false, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfef6976527848eceE.exit.loopexit.i" ], [ false, %1661 ], [ false, %.lr.ph ], [ false, %1678 ]
-  %.sroa.019.1.ph.i = phi i64 [ %1793, %1801 ], [ 0, %.lr.ph.i180 ], [ 0, %.lr.ph.preheader ], [ %1793, %..critedge.loopexit140.i.loopexit_crit_edge ], [ %1793, %.lr.ph ], [ %.sroa.019.0122.i6891036, %1678 ], [ %1793, %1661 ], [ %1656, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfef6976527848eceE.exit.loopexit.i" ]
+  %.pr.i = phi i1 [ false, %1801 ], [ false, %.lr.ph.i180 ], [ %1663, %..critedge.loopexit140.i.loopexit_crit_edge ], [ false, %.lr.ph.preheader ], [ false, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfef6976527848eceE.exit.loopexit.i" ], [ false, %1661 ], [ false, %.lr.ph ], [ false, %1678 ]
+  %.sroa.019.1.ph.i = phi i64 [ %1793, %1801 ], [ 0, %.lr.ph.i180 ], [ %1793, %..critedge.loopexit140.i.loopexit_crit_edge ], [ 0, %.lr.ph.preheader ], [ %1793, %.lr.ph ], [ %.sroa.019.0122.i6891036, %1678 ], [ %1793, %1661 ], [ %1656, %"_ZN4core6option15Option$LT$T$GT$6map_or17hfef6976527848eceE.exit.loopexit.i" ]
   %1664 = icmp uge i64 %.sroa.019.1.ph.i, %1628
   %or.cond.i188 = select i1 %1664, i1 true, i1 %.pr.i
   br i1 %or.cond.i188, label %.critedge.thread.i, label %1823
@@ -97772,8 +97772,8 @@ default.unreachable:                              ; preds = %590
           cleanup
   br label %.body131
 
-.body131:                                         ; preds = %.loopexit496, %670, %704, %652, %721, %635, %738, %618, %755, %687, %790, %784, %626, %643, %660, %678, %695, %712, %729, %746, %763, %772, %.body.i127, %796, %797
-  %eh.lpad-body132 = phi { ptr, i32 } [ %798, %797 ], [ %lpad.loopexit.split-lp499, %796 ], [ %lpad.loopexit.split-lp499, %.body.i127 ], [ %627, %626 ], [ %644, %643 ], [ %661, %660 ], [ %679, %678 ], [ %696, %695 ], [ %713, %712 ], [ %730, %729 ], [ %747, %746 ], [ %764, %763 ], [ %773, %772 ], [ %lpad.loopexit498, %.loopexit496 ], [ %671, %670 ], [ %705, %704 ], [ %653, %652 ], [ %722, %721 ], [ %636, %635 ], [ %739, %738 ], [ %619, %618 ], [ %756, %755 ], [ %688, %687 ], [ %791, %790 ], [ %785, %784 ]
+.body131:                                         ; preds = %.loopexit496, %635, %704, %687, %721, %652, %738, %618, %755, %670, %790, %784, %626, %643, %660, %678, %695, %712, %729, %746, %763, %772, %.body.i127, %796, %797
+  %eh.lpad-body132 = phi { ptr, i32 } [ %798, %797 ], [ %lpad.loopexit.split-lp499, %796 ], [ %lpad.loopexit.split-lp499, %.body.i127 ], [ %627, %626 ], [ %644, %643 ], [ %661, %660 ], [ %679, %678 ], [ %696, %695 ], [ %713, %712 ], [ %730, %729 ], [ %747, %746 ], [ %764, %763 ], [ %773, %772 ], [ %lpad.loopexit498, %.loopexit496 ], [ %636, %635 ], [ %705, %704 ], [ %688, %687 ], [ %722, %721 ], [ %653, %652 ], [ %739, %738 ], [ %619, %618 ], [ %756, %755 ], [ %671, %670 ], [ %791, %790 ], [ %785, %784 ]
   invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$protobuf..reflect..runtime_type_box..RuntimeType$GT$17h3e7fcc148bd45fd8E"(ptr noalias noundef align 8 dereferenceable(32) %132) #33
           to label %1081 unwind label %494
 

@@ -2287,7 +2287,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %59, %46, %130, %141, %147, %127
-  %150 = phi i64 [ 0, %59 ], [ %122, %127 ], [ %122, %130 ], [ %122, %141 ], [ %122, %147 ], [ 0, %46 ], [ 0, %28 ]
+  %150 = phi i64 [ %122, %141 ], [ %122, %127 ], [ %122, %130 ], [ 0, %59 ], [ %122, %147 ], [ 0, %46 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %150
 }
@@ -2522,7 +2522,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %56, %43, %108, %119, %125, %.loopexit.thread
-  %128 = phi i64 [ 0, %56 ], [ %105, %.loopexit.thread ], [ %105, %108 ], [ %105, %119 ], [ %105, %125 ], [ 0, %43 ], [ 0, %25 ]
+  %128 = phi i64 [ %105, %119 ], [ %105, %.loopexit.thread ], [ %105, %108 ], [ 0, %56 ], [ %105, %125 ], [ 0, %43 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %128
 }

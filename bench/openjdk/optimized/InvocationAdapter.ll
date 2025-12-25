@@ -809,8 +809,8 @@ decodePath.exit.thread:                           ; preds = %37, %41, %100, %dec
   call void @free(ptr noundef %.1) #15
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %141, %._crit_edge, %153, %splitPathList.exit, %15, %2
-  %.123.i5560.sink = phi ptr [ null, %2 ], [ %.123.i, %._crit_edge ], [ %.123.i, %153 ], [ %.123.i, %splitPathList.exit ], [ null, %15 ], [ %.268, %141 ]
+._crit_edge.thread:                               ; preds = %141, %._crit_edge, %153, %splitPathList.exit, %2, %15
+  %.123.i5560.sink = phi ptr [ null, %15 ], [ %.123.i, %._crit_edge ], [ %.123.i, %153 ], [ %.123.i, %splitPathList.exit ], [ null, %2 ], [ %.268, %141 ]
   call void @free(ptr noundef %.123.i5560.sink) #15
   ret void
 }
@@ -1192,9 +1192,9 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
   br label %.sink.split
 
 63:                                               ; preds = %58, %55, %51, %25
-  %.062 = phi ptr [ %.186, %55 ], [ %.186, %58 ], [ %23, %25 ], [ %.186, %51 ]
-  %.not81 = phi i1 [ false, %55 ], [ %.not77, %58 ], [ false, %25 ], [ false, %51 ]
-  %.061 = phi i32 [ -1, %55 ], [ %spec.select82, %58 ], [ -1, %25 ], [ -1, %51 ]
+  %.062 = phi ptr [ %.186, %55 ], [ %.186, %51 ], [ %23, %25 ], [ %.186, %58 ]
+  %.not81 = phi i1 [ false, %55 ], [ false, %51 ], [ false, %25 ], [ %.not77, %58 ]
+  %.061 = phi i32 [ -1, %55 ], [ -1, %51 ], [ -1, %25 ], [ %spec.select82, %58 ]
   call void @free(ptr noundef nonnull %.062) #15
   call void @freeAttributes(ptr noundef nonnull %20) #15
   br i1 %.not81, label %67, label %.sink.split

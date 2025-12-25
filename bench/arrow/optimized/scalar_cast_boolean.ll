@@ -7214,7 +7214,7 @@ _ZN5arrow8internal10ParseValueINS_11BooleanTypeEEENSt9enable_ifIXsr22is_paramete
   switch i64 %1, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread [
     i64 1, label %14
     i64 4, label %17
-    i64 5, label %29
+    i64 5, label %25
   ]
 
 14:                                               ; preds = %_ZN5arrow8internal10ParseValueINS_11BooleanTypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit
@@ -7246,57 +7246,57 @@ _ZN5arrow8internal10ParseValueINS_11BooleanTypeEEENSt9enable_ifIXsr22is_paramete
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %24 = load i8, ptr %23, align 1, !tbaa !51
   switch i8 %24, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread [
-    i8 117, label %25
-    i8 85, label %25
+    i8 117, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
+    i8 85, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
   ]
 
-25:                                               ; preds = %22, %22
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !51
-  %28 = and i8 %27, -33
-  %spec.select.i = icmp eq i8 %28, 69
-  br i1 %spec.select.i, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread8, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread, !prof !352
-
-29:                                               ; preds = %_ZN5arrow8internal10ParseValueINS_11BooleanTypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit
-  %30 = load i8, ptr %2, align 1, !tbaa !51
-  switch i8 %30, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread [
-    i8 102, label %31
-    i8 70, label %31
+25:                                               ; preds = %_ZN5arrow8internal10ParseValueINS_11BooleanTypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit
+  %26 = load i8, ptr %2, align 1, !tbaa !51
+  switch i8 %26, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread [
+    i8 102, label %27
+    i8 70, label %27
   ]
 
-31:                                               ; preds = %29, %29
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %33 = load i8, ptr %32, align 1, !tbaa !51
-  switch i8 %33, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread [
-    i8 97, label %34
-    i8 65, label %34
+27:                                               ; preds = %25, %25
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !51
+  switch i8 %29, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread [
+    i8 97, label %30
+    i8 65, label %30
   ]
 
-34:                                               ; preds = %31, %31
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %36 = load i8, ptr %35, align 1, !tbaa !51
-  switch i8 %36, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread [
-    i8 108, label %37
-    i8 76, label %37
+30:                                               ; preds = %27, %27
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %32 = load i8, ptr %31, align 1, !tbaa !51
+  switch i8 %32, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread [
+    i8 108, label %33
+    i8 76, label %33
   ]
 
-37:                                               ; preds = %34, %34
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %39 = load i8, ptr %38, align 1, !tbaa !51
-  switch i8 %39, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread [
-    i8 115, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
-    i8 83, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
+33:                                               ; preds = %30, %30
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %35 = load i8, ptr %34, align 1, !tbaa !51
+  switch i8 %35, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread [
+    i8 115, label %36
+    i8 83, label %36
   ]
 
-_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit: ; preds = %37, %37
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %41 = load i8, ptr %40, align 1, !tbaa !51
-  %42 = and i8 %41, -33
-  %spec.select38.i = icmp eq i8 %42, 69
+36:                                               ; preds = %33, %33
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %38 = load i8, ptr %37, align 1, !tbaa !51
+  %39 = and i8 %38, -33
+  %spec.select38.i = icmp eq i8 %39, 69
   br i1 %spec.select38.i, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread8, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread, !prof !352
 
-_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread: ; preds = %29, %31, %34, %37, %17, %19, %22, %_ZN5arrow8internal10ParseValueINS_11BooleanTypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit, %14, %25, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
-  %.04 = phi i1 [ true, %25 ], [ false, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit ], [ false, %37 ], [ false, %34 ], [ false, %31 ], [ false, %29 ], [ true, %22 ], [ true, %19 ], [ true, %17 ], [ false, %14 ], [ false, %_ZN5arrow8internal10ParseValueINS_11BooleanTypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit ]
+_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit: ; preds = %22, %22
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %41 = load i8, ptr %40, align 1, !tbaa !51
+  %42 = and i8 %41, -33
+  %spec.select.i = icmp eq i8 %42, 69
+  br i1 %spec.select.i, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread8, label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread, !prof !352
+
+_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread: ; preds = %25, %27, %30, %33, %17, %19, %22, %_ZN5arrow8internal10ParseValueINS_11BooleanTypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit, %14, %36, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
+  %.04 = phi i1 [ false, %36 ], [ true, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit ], [ false, %33 ], [ false, %30 ], [ false, %27 ], [ false, %25 ], [ true, %22 ], [ true, %19 ], [ true, %17 ], [ false, %14 ], [ false, %_ZN5arrow8internal10ParseValueINS_11BooleanTypeEEENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEbE4typeEPKcmPNS0_15StringConverterIS4_vE10value_typeE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5arrow6Status7InvalidIJRA24_KcRSt17basic_string_viewIcSt11char_traitsIcEEEEES0_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %6, ptr noundef nonnull align 1 dereferenceable(24) @.str.6, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %43 = load ptr, ptr %3, align 8, !tbaa !92
@@ -7319,8 +7319,8 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %48, %44, %_ZN5arrow
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread8
 
-_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread8: ; preds = %14, %16, %25, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
-  %.05 = phi i1 [ %.04, %_ZN5arrow6StatusD2Ev.exit ], [ false, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit ], [ true, %25 ], [ true, %16 ], [ false, %14 ]
+_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit.thread8: ; preds = %14, %16, %36, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit
+  %.05 = phi i1 [ %.04, %_ZN5arrow6StatusD2Ev.exit ], [ true, %_ZN5arrow8internal15StringConverterINS_11BooleanTypeEvE7ConvertERKS2_PKcmPb.exit ], [ false, %36 ], [ true, %16 ], [ false, %14 ]
   ret i1 %.05
 }
 

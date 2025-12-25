@@ -1083,8 +1083,8 @@ Vec_IntPush.exit153.sink.split:                   ; preds = %208, %210, %200, %2
   br label %Vec_IntPush.exit153
 
 Vec_IntPush.exit153:                              ; preds = %Vec_IntPush.exit153.sink.split, %Vec_IntPush.exit132, %._crit_edge
-  %212 = phi i32 [ 1, %Vec_IntPush.exit132 ], [ %.pre190, %._crit_edge ], [ %.pre190, %Vec_IntPush.exit153.sink.split ]
-  %213 = phi ptr [ %127, %Vec_IntPush.exit132 ], [ %160, %._crit_edge ], [ %.sink220, %Vec_IntPush.exit153.sink.split ]
+  %212 = phi i32 [ %.pre190, %._crit_edge ], [ 1, %Vec_IntPush.exit132 ], [ %.pre190, %Vec_IntPush.exit153.sink.split ]
+  %213 = phi ptr [ %160, %._crit_edge ], [ %127, %Vec_IntPush.exit132 ], [ %.sink220, %Vec_IntPush.exit153.sink.split ]
   %214 = add nsw i32 %212, 1
   store i32 %214, ptr %126, align 4, !tbaa !3
   %215 = sext i32 %212 to i64

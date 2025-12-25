@@ -2018,9 +2018,9 @@ yy_get_previous_state.exit:                       ; preds = %.lr.ph.i, %1094
   br i1 %.not284, label %.loopexit440.backedge, label %1118
 
 .loopexit440.backedge:                            ; preds = %.lr.ph.i424, %yy_get_previous_state.exit, %yy_get_next_buffer.exit.thread433
-  %.1268.be = phi ptr [ %1358, %yy_get_next_buffer.exit.thread433 ], [ %1100, %yy_get_previous_state.exit ], [ %1358, %.lr.ph.i424 ]
-  %.2263.be = phi ptr [ %1360, %yy_get_next_buffer.exit.thread433 ], [ %1102, %yy_get_previous_state.exit ], [ %1360, %.lr.ph.i424 ]
-  %.2.be = phi ptr [ %1364, %yy_get_next_buffer.exit.thread433 ], [ %.0.lcssa.i, %yy_get_previous_state.exit ], [ %1372, %.lr.ph.i424 ]
+  %.1268.be = phi ptr [ %1100, %yy_get_previous_state.exit ], [ %1358, %yy_get_next_buffer.exit.thread433 ], [ %1358, %.lr.ph.i424 ]
+  %.2263.be = phi ptr [ %1102, %yy_get_previous_state.exit ], [ %1360, %yy_get_next_buffer.exit.thread433 ], [ %1360, %.lr.ph.i424 ]
+  %.2.be = phi ptr [ %.0.lcssa.i, %yy_get_previous_state.exit ], [ %1364, %yy_get_next_buffer.exit.thread433 ], [ %1372, %.lr.ph.i424 ]
   br label %.loopexit440
 
 1118:                                             ; preds = %yy_get_previous_state.exit
@@ -2546,7 +2546,7 @@ checkKeyword.exit.loopexit1715:                   ; preds = %113
   br label %checkKeyword.exit
 
 checkKeyword.exit:                                ; preds = %503, %parseHexChar.exit, %473, %297, %248, %194, %113, %checkKeyword.exit.loopexit1715, %checkKeyword.exit.loopexit1463, %checkKeyword.exit.loopexit1221, %checkKeyword.exit.loopexit896, %checkKeyword.exit.loopexit439, %hexval.exit13.i, %hexval.exit.i, %.critedge.i304, %285, %250, %.critedge.i294, %236, %199, %.critedge.i, %182, %147, %1062, %999, %998, %997, %996, %addchar.exit398, %addchar.exit391, %addchar.exit384, %addchar.exit377, %addchar.exit370, %addchar.exit363, %663, %addchar.exit354, %592, %591, %590, %589, %588, %551, %548, %547, %546, %502, %501
-  %.0 = phi i32 [ 0, %999 ], [ 0, %hexval.exit13.i ], [ 274, %113 ], [ 0, %1062 ], [ 271, %checkKeyword.exit.loopexit439 ], [ 0, %501 ], [ 0, %502 ], [ 0, %hexval.exit.i ], [ 0, %546 ], [ 0, %547 ], [ 266, %548 ], [ 269, %551 ], [ 0, %588 ], [ 270, %checkKeyword.exit.loopexit896 ], [ 272, %checkKeyword.exit.loopexit1221 ], [ 279, %checkKeyword.exit.loopexit1463 ], [ 273, %checkKeyword.exit.loopexit1715 ], [ 265, %194 ], [ 265, %297 ], [ 275, %589 ], [ 276, %590 ], [ 265, %248 ], [ 277, %591 ], [ 278, %592 ], [ 269, %addchar.exit354 ], [ %666, %663 ], [ 267, %addchar.exit363 ], [ 267, %addchar.exit370 ], [ 268, %addchar.exit377 ], [ 268, %addchar.exit384 ], [ 268, %addchar.exit391 ], [ 268, %addchar.exit398 ], [ 0, %996 ], [ 0, %997 ], [ 0, %998 ], [ 265, %147 ], [ %193, %.critedge.i ], [ 265, %182 ], [ 265, %199 ], [ %247, %.critedge.i294 ], [ 265, %236 ], [ 265, %250 ], [ %296, %.critedge.i304 ], [ 265, %285 ], [ 0, %473 ], [ 0, %parseHexChar.exit ], [ 0, %503 ]
+  %.0 = phi i32 [ 0, %999 ], [ 0, %hexval.exit13.i ], [ 274, %113 ], [ 0, %1062 ], [ 270, %checkKeyword.exit.loopexit896 ], [ 0, %501 ], [ 0, %502 ], [ 0, %hexval.exit.i ], [ 0, %546 ], [ 0, %547 ], [ 266, %548 ], [ 269, %551 ], [ 0, %588 ], [ 271, %checkKeyword.exit.loopexit439 ], [ 272, %checkKeyword.exit.loopexit1221 ], [ 279, %checkKeyword.exit.loopexit1463 ], [ 273, %checkKeyword.exit.loopexit1715 ], [ 265, %194 ], [ 265, %297 ], [ 275, %589 ], [ 276, %590 ], [ 265, %248 ], [ 277, %591 ], [ 278, %592 ], [ 269, %addchar.exit354 ], [ %666, %663 ], [ 267, %addchar.exit363 ], [ 267, %addchar.exit370 ], [ 268, %addchar.exit377 ], [ 268, %addchar.exit384 ], [ 268, %addchar.exit391 ], [ 268, %addchar.exit398 ], [ 0, %996 ], [ 0, %997 ], [ 0, %998 ], [ 265, %147 ], [ %193, %.critedge.i ], [ 265, %182 ], [ 265, %199 ], [ %247, %.critedge.i294 ], [ 265, %236 ], [ 265, %250 ], [ %296, %.critedge.i304 ], [ 265, %285 ], [ 0, %473 ], [ 0, %parseHexChar.exit ], [ 0, %503 ]
   ret i32 %.0
 }
 
@@ -4174,7 +4174,7 @@ jsonpath_yy_delete_buffer.exit.i:                 ; preds = %36, %33, %.critedge
   br label %jsonpath_yypop_buffer_state.exit
 
 jsonpath_yypop_buffer_state.exit:                 ; preds = %27, %46, %49
-  %58 = phi ptr [ %45, %49 ], [ %26, %27 ], [ %45, %46 ]
+  %58 = phi ptr [ %45, %46 ], [ %26, %27 ], [ %45, %49 ]
   %59 = load i64, ptr %4, align 8
   %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8

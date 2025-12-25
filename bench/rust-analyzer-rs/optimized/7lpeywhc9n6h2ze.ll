@@ -9642,8 +9642,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %13
 
 13:                                               ; preds = %9, %12, %1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bc4c9b780a657bfE.llvm.14675025554980555382.exit.i.i"
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bc4c9b780a657bfE.llvm.14675025554980555382.exit.i.i" ], [ %10, %9 ], [ undef, %12 ]
-  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bc4c9b780a657bfE.llvm.14675025554980555382.exit.i.i" ], [ %7, %9 ], [ 3, %12 ]
+  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bc4c9b780a657bfE.llvm.14675025554980555382.exit.i.i" ], [ undef, %12 ], [ %10, %9 ]
+  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7bc4c9b780a657bfE.llvm.14675025554980555382.exit.i.i" ], [ 3, %12 ], [ %7, %9 ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.3.0, 1
   ret { i64, ptr } %15
@@ -10842,8 +10842,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %13
 
 13:                                               ; preds = %9, %12, %1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcaf78edc9b4cd9dE.llvm.14675025554980555382.exit.i.i"
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcaf78edc9b4cd9dE.llvm.14675025554980555382.exit.i.i" ], [ %10, %9 ], [ undef, %12 ]
-  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcaf78edc9b4cd9dE.llvm.14675025554980555382.exit.i.i" ], [ %7, %9 ], [ 3, %12 ]
+  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcaf78edc9b4cd9dE.llvm.14675025554980555382.exit.i.i" ], [ undef, %12 ], [ %10, %9 ]
+  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdcaf78edc9b4cd9dE.llvm.14675025554980555382.exit.i.i" ], [ 3, %12 ], [ %7, %9 ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.3.0, 1
   ret { i64, ptr } %15
@@ -11944,8 +11944,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %14
 
 14:                                               ; preds = %10, %13, %1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ff06f788df5821aE.llvm.14675025554980555382.exit.i.i"
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ff06f788df5821aE.llvm.14675025554980555382.exit.i.i" ], [ %11, %10 ], [ undef, %13 ]
-  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ff06f788df5821aE.llvm.14675025554980555382.exit.i.i" ], [ %8, %10 ], [ 3, %13 ]
+  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ff06f788df5821aE.llvm.14675025554980555382.exit.i.i" ], [ undef, %13 ], [ %11, %10 ]
+  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ff06f788df5821aE.llvm.14675025554980555382.exit.i.i" ], [ 3, %13 ], [ %8, %10 ]
   %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %16 = insertvalue { i64, ptr } %15, ptr %.sroa.3.0, 1
   ret { i64, ptr } %16
@@ -11981,8 +11981,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %14
 
 14:                                               ; preds = %10, %13, %1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h786e1f97e029bd52E.llvm.14675025554980555382.exit.i.i"
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h786e1f97e029bd52E.llvm.14675025554980555382.exit.i.i" ], [ %11, %10 ], [ undef, %13 ]
-  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h786e1f97e029bd52E.llvm.14675025554980555382.exit.i.i" ], [ %8, %10 ], [ 3, %13 ]
+  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h786e1f97e029bd52E.llvm.14675025554980555382.exit.i.i" ], [ undef, %13 ], [ %11, %10 ]
+  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h786e1f97e029bd52E.llvm.14675025554980555382.exit.i.i" ], [ 3, %13 ], [ %8, %10 ]
   %15 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %16 = insertvalue { i64, ptr } %15, ptr %.sroa.3.0, 1
   ret { i64, ptr } %16
@@ -12082,8 +12082,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %21
 
 21:                                               ; preds = %17, %20, %1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f449de40586db8aE.llvm.14675025554980555382.exit.i.i"
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f449de40586db8aE.llvm.14675025554980555382.exit.i.i" ], [ %18, %17 ], [ undef, %20 ]
-  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f449de40586db8aE.llvm.14675025554980555382.exit.i.i" ], [ %15, %17 ], [ 3, %20 ]
+  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f449de40586db8aE.llvm.14675025554980555382.exit.i.i" ], [ undef, %20 ], [ %18, %17 ]
+  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f449de40586db8aE.llvm.14675025554980555382.exit.i.i" ], [ 3, %20 ], [ %15, %17 ]
   %22 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %23 = insertvalue { i64, ptr } %22, ptr %.sroa.3.0, 1
   ret { i64, ptr } %23
@@ -14519,8 +14519,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %13
 
 13:                                               ; preds = %9, %12, %1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd15f394c328ebbdE.llvm.14675025554980555382.exit.i.i"
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd15f394c328ebbdE.llvm.14675025554980555382.exit.i.i" ], [ %10, %9 ], [ undef, %12 ]
-  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd15f394c328ebbdE.llvm.14675025554980555382.exit.i.i" ], [ %7, %9 ], [ 3, %12 ]
+  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd15f394c328ebbdE.llvm.14675025554980555382.exit.i.i" ], [ undef, %12 ], [ %10, %9 ]
+  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd15f394c328ebbdE.llvm.14675025554980555382.exit.i.i" ], [ 3, %12 ], [ %7, %9 ]
   %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.3.0, 1
   ret { i64, ptr } %15
@@ -14731,8 +14731,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %17
 
 17:                                               ; preds = %13, %16, %1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ae685b6b5572bd8E.llvm.14675025554980555382.exit.i.i"
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ae685b6b5572bd8E.llvm.14675025554980555382.exit.i.i" ], [ %14, %13 ], [ undef, %16 ]
-  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ae685b6b5572bd8E.llvm.14675025554980555382.exit.i.i" ], [ %11, %13 ], [ 3, %16 ]
+  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ae685b6b5572bd8E.llvm.14675025554980555382.exit.i.i" ], [ undef, %16 ], [ %14, %13 ]
+  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7ae685b6b5572bd8E.llvm.14675025554980555382.exit.i.i" ], [ 3, %16 ], [ %11, %13 ]
   %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, ptr } %18, ptr %.sroa.3.0, 1
   ret { i64, ptr } %19
@@ -14845,8 +14845,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %15
 
 15:                                               ; preds = %11, %14, %1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29261f37e2effb07E.llvm.14675025554980555382.exit.i.i"
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29261f37e2effb07E.llvm.14675025554980555382.exit.i.i" ], [ %12, %11 ], [ undef, %14 ]
-  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29261f37e2effb07E.llvm.14675025554980555382.exit.i.i" ], [ %9, %11 ], [ 3, %14 ]
+  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29261f37e2effb07E.llvm.14675025554980555382.exit.i.i" ], [ undef, %14 ], [ %12, %11 ]
+  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29261f37e2effb07E.llvm.14675025554980555382.exit.i.i" ], [ 3, %14 ], [ %9, %11 ]
   %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0, 1
   ret { i64, ptr } %17
@@ -15701,8 +15701,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %18
 
 18:                                               ; preds = %14, %17, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i.i.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e8f3922c4b22f62E.llvm.14675025554980555382.exit.i.i"
-  %.sroa.3.0 = phi ptr [ undef, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i.i.i" ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e8f3922c4b22f62E.llvm.14675025554980555382.exit.i.i" ], [ %15, %14 ], [ undef, %17 ]
-  %.sroa.0.0 = phi i64 [ 3, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i.i.i" ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e8f3922c4b22f62E.llvm.14675025554980555382.exit.i.i" ], [ %12, %14 ], [ 3, %17 ]
+  %.sroa.3.0 = phi ptr [ undef, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i.i.i" ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e8f3922c4b22f62E.llvm.14675025554980555382.exit.i.i" ], [ undef, %17 ], [ %15, %14 ]
+  %.sroa.0.0 = phi i64 [ 3, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i.i.i" ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e8f3922c4b22f62E.llvm.14675025554980555382.exit.i.i" ], [ 3, %17 ], [ %12, %14 ]
   %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %20 = insertvalue { i64, ptr } %19, ptr %.sroa.3.0, 1
   ret { i64, ptr } %20
@@ -16589,8 +16589,8 @@ define hidden { i64, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %16
 
 16:                                               ; preds = %12, %15, %1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6884f43511fa3fadE.llvm.14675025554980555382.exit.i.i"
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6884f43511fa3fadE.llvm.14675025554980555382.exit.i.i" ], [ %13, %12 ], [ undef, %15 ]
-  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6884f43511fa3fadE.llvm.14675025554980555382.exit.i.i" ], [ %10, %12 ], [ 3, %15 ]
+  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6884f43511fa3fadE.llvm.14675025554980555382.exit.i.i" ], [ undef, %15 ], [ %13, %12 ]
+  %.sroa.0.0 = phi i64 [ 3, %1 ], [ 3, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6884f43511fa3fadE.llvm.14675025554980555382.exit.i.i" ], [ 3, %15 ], [ %10, %12 ]
   %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, ptr } %17, ptr %.sroa.3.0, 1
   ret { i64, ptr } %18
@@ -50823,7 +50823,7 @@ define hidden noundef ptr @"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$11try_to_node17
   br label %.body
 
 .body:                                            ; preds = %81, %86, %96
-  %eh.lpad-body = phi { ptr, i32 } [ %97, %96 ], [ %lpad.phi.i.i, %81 ], [ %lpad.phi.i.i, %86 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %97, %96 ], [ %lpad.phi.i.i, %86 ], [ %lpad.phi.i.i, %81 ]
   %98 = icmp eq ptr %.sroa.4.2, null
   br i1 %98, label %"_ZN4core3ptr246drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..ast..SyntaxNodePtr$LT$syntax..syntax_node..RustLanguage$GT$..try_to_node..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h04e55e86f0771422E.exit", label %99
 
@@ -63118,7 +63118,7 @@ _ZN4core3ops8function6FnOnce9call_once17h35b492e310deaaacE.exit.i: ; preds = %28
   br label %382
 
 382:                                              ; preds = %387, %384, %381, %374, %369, %364, %359, %354, %349, %344, %339, %334
-  %.sroa.0.0.i = phi i32 [ %.sroa.0.1.i, %381 ], [ %.sroa.0.0.copyload8.i, %374 ], [ %.sroa.0.0.copyload11.i, %387 ], [ %.sroa.0.0.copyload.i, %334 ], [ %.sroa.0.0.copyload10.i, %384 ], [ %.sroa.0.0.copyload1.i, %339 ], [ %.sroa.0.0.copyload2.i, %344 ], [ %.sroa.0.0.copyload3.i, %349 ], [ %.sroa.0.0.copyload4.i, %354 ], [ %.sroa.0.0.copyload7.i, %369 ], [ %.sroa.0.0.copyload6.i, %364 ], [ %.sroa.0.0.copyload5.i, %359 ]
+  %.sroa.0.0.i = phi i32 [ %.sroa.0.1.i, %381 ], [ %.sroa.0.0.copyload8.i, %374 ], [ %.sroa.0.0.copyload11.i, %387 ], [ %.sroa.0.0.copyload.i, %334 ], [ %.sroa.0.0.copyload6.i, %364 ], [ %.sroa.0.0.copyload1.i, %339 ], [ %.sroa.0.0.copyload2.i, %344 ], [ %.sroa.0.0.copyload3.i, %349 ], [ %.sroa.0.0.copyload4.i, %354 ], [ %.sroa.0.0.copyload7.i, %369 ], [ %.sroa.0.0.copyload10.i, %384 ], [ %.sroa.0.0.copyload5.i, %359 ]
   %383 = icmp eq i32 %.sroa.0.0.i, 19
   br i1 %383, label %"_ZN6hir_ty11diagnostics10decl_check13DeclValidator7allowed28_$u7b$$u7b$closure$u7d$$u7d$17h35d10440f70bfbfcE.exit", label %390
 
@@ -86084,8 +86084,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit2613: ; pre
           to label %.thread3153 unwind label %772
 
 769:                                              ; preds = %849, %824, %772
-  %.12226 = phi i1 [ %.not24183092, %772 ], [ true, %849 ], [ true, %824 ]
-  %.pn2429 = phi { ptr, i32 } [ %773, %772 ], [ %850, %849 ], [ %825, %824 ]
+  %.12226 = phi i1 [ %.not24183092, %772 ], [ true, %824 ], [ true, %849 ]
+  %.pn2429 = phi { ptr, i32 } [ %773, %772 ], [ %825, %824 ], [ %850, %849 ]
   %770 = load i32, ptr %209, align 8, !range !1286, !noundef !4
   %771 = icmp ne i32 %770, 3
   %or.cond3 = and i1 %.12226, %771
@@ -104229,10 +104229,10 @@ define void @_ZN6hir_ty3mir5lower12lower_to_mir17h41c707f2f1b2a00fE(ptr noalias 
   br i1 %553, label %473, label %.thread.i
 
 .loopexit:                                        ; preds = %520, %527, %576, %577
-  %.sroa.0239.0 = phi i8 [ %574, %577 ], [ %571, %576 ], [ 22, %527 ], [ 22, %520 ]
-  %.sroa.11240.0 = phi i32 [ %.sroa.567.0.copyload.i.i, %577 ], [ %.sroa.546.0.copyload.i.i, %576 ], [ %.sroa.5338.0.i363, %527 ], [ %.sroa.5338.0.i363, %520 ]
-  %.sroa.17.0 = phi i32 [ %.sroa.668.0.copyload.i.i, %577 ], [ %.sroa.647.0.copyload.i.i, %576 ], [ undef, %527 ], [ undef, %520 ]
-  %.sroa.20.0 = phi i32 [ %.sroa.769.0.copyload.i.i, %577 ], [ %.sroa.748.0.copyload.i.i, %576 ], [ undef, %527 ], [ undef, %520 ]
+  %.sroa.0239.0 = phi i8 [ %571, %576 ], [ %574, %577 ], [ 22, %527 ], [ 22, %520 ]
+  %.sroa.11240.0 = phi i32 [ %.sroa.546.0.copyload.i.i, %576 ], [ %.sroa.567.0.copyload.i.i, %577 ], [ %.sroa.5338.0.i363, %527 ], [ %.sroa.5338.0.i363, %520 ]
+  %.sroa.17.0 = phi i32 [ %.sroa.647.0.copyload.i.i, %576 ], [ %.sroa.668.0.copyload.i.i, %577 ], [ undef, %527 ], [ undef, %520 ]
+  %.sroa.20.0 = phi i32 [ %.sroa.748.0.copyload.i.i, %576 ], [ %.sroa.769.0.copyload.i.i, %577 ], [ undef, %527 ], [ undef, %520 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !26471)
   %554 = load ptr, ptr %464, align 8, !alias.scope !26471, !noalias !26227, !noundef !4
   %555 = icmp eq ptr %554, null

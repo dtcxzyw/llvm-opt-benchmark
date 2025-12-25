@@ -3601,8 +3601,8 @@ tailrecurse:                                      ; preds = %134, %145
   br i1 %156, label %.thread101, label %_ZNK4sort11is_type_varEv.exit
 
 _ZNK4sort11is_type_varEv.exit48:                  ; preds = %.preheader.i.i.i34.us175, %100, %115, %111, %.preheader.i.i.i34, %139, %150, %153, %.preheader.i.i.i34.us, %36, %47, %51
-  %.pre = phi ptr [ %119, %139 ], [ %119, %150 ], [ %119, %.preheader.i.i.i34 ], [ %19, %47 ], [ %83, %115 ], [ %19, %.preheader.i.i.i34.us ], [ %83, %100 ], [ %19, %36 ], [ %19, %51 ], [ %119, %153 ], [ %83, %111 ], [ %83, %.preheader.i.i.i34.us175 ]
-  %.tr105125 = phi ptr [ %.tr105130, %139 ], [ %.tr105130, %150 ], [ %.tr105130, %.preheader.i.i.i34 ], [ %.tr105130.us, %47 ], [ %.tr105130.us166, %115 ], [ %.tr105130.us, %.preheader.i.i.i34.us ], [ %.tr105130.us166, %100 ], [ %.tr105130.us, %36 ], [ %.tr105130.us, %51 ], [ %.tr105130, %153 ], [ %.tr105130.us166, %111 ], [ %.tr105130.us166, %.preheader.i.i.i34.us175 ]
+  %.pre = phi ptr [ %83, %115 ], [ %83, %100 ], [ %119, %.preheader.i.i.i34 ], [ %19, %47 ], [ %19, %.preheader.i.i.i34.us ], [ %119, %139 ], [ %119, %150 ], [ %19, %36 ], [ %19, %51 ], [ %119, %153 ], [ %83, %111 ], [ %83, %.preheader.i.i.i34.us175 ]
+  %.tr105125 = phi ptr [ %.tr105130.us166, %115 ], [ %.tr105130.us166, %100 ], [ %.tr105130, %.preheader.i.i.i34 ], [ %.tr105130.us, %47 ], [ %.tr105130.us, %.preheader.i.i.i34.us ], [ %.tr105130, %139 ], [ %.tr105130, %150 ], [ %.tr105130.us, %36 ], [ %.tr105130.us, %51 ], [ %.tr105130, %153 ], [ %.tr105130.us166, %111 ], [ %.tr105130.us166, %.preheader.i.i.i34.us175 ]
   %.pr = load i32, ptr %.pre, align 8, !tbaa !34
   %157 = icmp eq i32 %.pr, 6
   br i1 %157, label %158, label %_ZNK4sort11is_type_varEv.exit48.thread
@@ -3626,7 +3626,7 @@ _ZNK4sort11is_type_varEv.exit48.thread.thread:    ; preds = %_ZNK4sort11is_type_
   br label %_ZNK4sort11is_type_varEv.exit50
 
 _ZNK4sort11is_type_varEv.exit48.thread:           ; preds = %_ZNK4sort11is_type_varEv.exit27.us168, %_ZNK4sort11is_type_varEv.exit.thread.us167, %_ZNK4sort11is_type_varEv.exit27, %_ZNK4sort11is_type_varEv.exit, %_ZNK4sort11is_type_varEv.exit27.us, %_ZNK4sort11is_type_varEv.exit.thread.us, %_ZNK4sort11is_type_varEv.exit48
-  %.196 = phi ptr [ %.tr105130.us, %_ZNK4sort11is_type_varEv.exit27.us ], [ %.tr105125, %_ZNK4sort11is_type_varEv.exit48 ], [ %.tr105130, %_ZNK4sort11is_type_varEv.exit27 ], [ %.tr105130.us, %_ZNK4sort11is_type_varEv.exit.thread.us ], [ %.tr105130, %_ZNK4sort11is_type_varEv.exit ], [ %.tr105130.us166, %_ZNK4sort11is_type_varEv.exit.thread.us167 ], [ %.tr105130.us166, %_ZNK4sort11is_type_varEv.exit27.us168 ]
+  %.196 = phi ptr [ %.tr105130, %_ZNK4sort11is_type_varEv.exit27 ], [ %.tr105125, %_ZNK4sort11is_type_varEv.exit48 ], [ %.tr105130.us, %_ZNK4sort11is_type_varEv.exit27.us ], [ %.tr105130.us, %_ZNK4sort11is_type_varEv.exit.thread.us ], [ %.tr105130, %_ZNK4sort11is_type_varEv.exit ], [ %.tr105130.us166, %_ZNK4sort11is_type_varEv.exit.thread.us167 ], [ %.tr105130.us166, %_ZNK4sort11is_type_varEv.exit27.us168 ]
   %162 = getelementptr inbounds nuw i8, ptr %.tr104.ph247, i64 24
   %163 = icmp eq ptr %15, null
   br i1 %163, label %_ZNK4decl13get_family_idEv.exit, label %_ZNK4sort11is_type_varEv.exit50

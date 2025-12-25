@@ -2248,7 +2248,7 @@ define hidden noundef zeroext i1 @_ZN17ConstantPoolCache32check_no_old_or_obsole
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %.loopexit.sink.split, %.preheader, %.loopexit34, %44, %27
-  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.preheader ], [ false, %27 ], [ false, %44 ], [ true, %.loopexit34 ], [ true, %46 ]
+  %.0 = phi i1 [ true, %.preheader ], [ false, %.loopexit.sink.split ], [ false, %27 ], [ false, %44 ], [ true, %.loopexit34 ], [ true, %46 ]
   %61 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i, label %63, label %62

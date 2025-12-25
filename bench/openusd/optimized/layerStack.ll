@@ -1018,7 +1018,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__25Pcp_IsValidRel
   br label %19
 
 19:                                               ; preds = %.sink.split, %16, %10, %8, %6
-  %.0 = phi i1 [ true, %16 ], [ false, %6 ], [ true, %8 ], [ false, %10 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %16 ], [ false, %6 ], [ false, %10 ], [ true, %8 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

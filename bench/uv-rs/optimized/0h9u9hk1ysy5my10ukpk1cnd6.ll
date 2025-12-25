@@ -819,7 +819,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i.i.i.i.i.i.i.i.i
   br label %99
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %146, %121, %.noexc34.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i, %112
-  %.promoted.i3067.i.i.i.i.i.i.i.i = phi i64 [ %.promoted.i3083.i.i.i.i.i.i.i.i, %121 ], [ %.promoted.i3083.i.i.i.i.i.i.i.i, %112 ], [ %.promoted.i3083.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %.promoted.i3083.i.i.i.i.i.i.i.i, %.noexc34.i.i.i.i.i.i.i.i ], [ %119, %146 ]
+  %.promoted.i3067.i.i.i.i.i.i.i.i = phi i64 [ %.promoted.i3083.i.i.i.i.i.i.i.i, %112 ], [ %.promoted.i3083.i.i.i.i.i.i.i.i, %121 ], [ %.promoted.i3083.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %.promoted.i3083.i.i.i.i.i.i.i.i, %.noexc34.i.i.i.i.i.i.i.i ], [ %119, %146 ]
   %gepdiff55.i.i.i.i.i.i.i.i = sub nsw i64 %94, %.promoted.i3067.i.i.i.i.i.i.i.i
   %124 = load i64, ptr %.sroa.515.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !alias.scope !177, !noalias !167, !noundef !3
   %125 = load i64, ptr %13, align 8, !range !38, !alias.scope !177, !noalias !167, !noundef !3

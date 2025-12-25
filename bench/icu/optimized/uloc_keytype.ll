@@ -2238,7 +2238,7 @@ switch.early.test.i:                              ; preds = %29
   br label %.critedge28
 
 .critedge28:                                      ; preds = %.critedge28.sink.split, %11, %44, %20, %.thread38, %5
-  %.sink = phi i8 [ 0, %11 ], [ 0, %5 ], [ 0, %44 ], [ 0, %.thread38 ], [ 0, %20 ], [ 1, %.critedge28.sink.split ]
+  %.sink = phi i8 [ 0, %44 ], [ 0, %5 ], [ 0, %11 ], [ 0, %.thread38 ], [ 0, %20 ], [ 1, %.critedge28.sink.split ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %46, align 8, !tbaa !21
   ret void
@@ -2459,7 +2459,7 @@ switch.early.test.i:                              ; preds = %27
   br label %.critedge28
 
 .critedge28:                                      ; preds = %.critedge28.sink.split, %11, %42, %18, %.thread38, %5
-  %.sink = phi i8 [ 0, %11 ], [ 0, %5 ], [ 0, %42 ], [ 0, %.thread38 ], [ 0, %18 ], [ 1, %.critedge28.sink.split ]
+  %.sink = phi i8 [ 0, %42 ], [ 0, %5 ], [ 0, %11 ], [ 0, %.thread38 ], [ 0, %18 ], [ 1, %.critedge28.sink.split ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %44, align 8, !tbaa !21
   ret void

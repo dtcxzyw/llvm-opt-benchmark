@@ -2414,9 +2414,9 @@ define internal ptr @try_decode_PKCS12(ptr noundef readnone captures(address_is_
   br i1 %.not82, label %.thread103, label %.lr.ph, !llvm.loop !76
 
 .thread103:                                       ; preds = %63, %60, %56, %49, %51, %45, %43
-  %.146126 = phi ptr [ null, %49 ], [ %50, %51 ], [ null, %43 ], [ null, %45 ], [ null, %56 ], [ null, %60 ], [ null, %63 ]
-  %.14893125 = phi ptr [ null, %49 ], [ null, %51 ], [ null, %43 ], [ %44, %45 ], [ null, %56 ], [ null, %60 ], [ null, %63 ]
-  %.143.lcssa = phi ptr [ null, %49 ], [ null, %51 ], [ null, %43 ], [ null, %45 ], [ %59, %63 ], [ %59, %60 ], [ null, %56 ]
+  %.146126 = phi ptr [ null, %43 ], [ %50, %51 ], [ null, %49 ], [ null, %45 ], [ null, %56 ], [ null, %60 ], [ null, %63 ]
+  %.14893125 = phi ptr [ null, %43 ], [ null, %51 ], [ null, %49 ], [ %44, %45 ], [ null, %56 ], [ null, %60 ], [ null, %63 ]
+  %.143.lcssa = phi ptr [ null, %43 ], [ null, %51 ], [ null, %49 ], [ null, %45 ], [ %59, %63 ], [ %59, %60 ], [ null, %56 ]
   %65 = load ptr, ptr %14, align 8, !tbaa !70
   call void @EVP_PKEY_free(ptr noundef %65) #10
   %66 = load ptr, ptr %15, align 8, !tbaa !72

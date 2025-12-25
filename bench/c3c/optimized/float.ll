@@ -255,8 +255,8 @@ switch.lookup:                                    ; preds = %.critedge12
   br label %77
 
 77:                                               ; preds = %.sink.split, %69, %71, %76, %68, %59, %47
-  %.sroa.0.0 = phi double [ 0.000000e+00, %76 ], [ 0.000000e+00, %47 ], [ 0.000000e+00, %59 ], [ 0.000000e+00, %68 ], [ %63, %69 ], [ %63, %71 ], [ 0.000000e+00, %.sink.split ]
-  %.sroa.6.0 = phi i32 [ 0, %76 ], [ 0, %47 ], [ 0, %59 ], [ 0, %68 ], [ %.060, %69 ], [ %.060, %71 ], [ 0, %.sink.split ]
+  %.sroa.0.0 = phi double [ 0.000000e+00, %76 ], [ 0.000000e+00, %47 ], [ 0.000000e+00, %59 ], [ 0.000000e+00, %68 ], [ %63, %71 ], [ %63, %69 ], [ 0.000000e+00, %.sink.split ]
+  %.sroa.6.0 = phi i32 [ 0, %76 ], [ 0, %47 ], [ 0, %59 ], [ 0, %68 ], [ %.060, %71 ], [ %.060, %69 ], [ 0, %.sink.split ]
   %.fca.0.insert = insertvalue { double, i32 } poison, double %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, i32 } %.fca.0.insert, i32 %.sroa.6.0, 1
   ret { double, i32 } %.fca.1.insert
@@ -467,8 +467,8 @@ switch.lookup:                                    ; preds = %.critedge12
   br label %71
 
 71:                                               ; preds = %.sink.split, %63, %65, %70, %62, %53, %41
-  %.sroa.0.0 = phi double [ 0.000000e+00, %70 ], [ 0.000000e+00, %41 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %62 ], [ %57, %63 ], [ %57, %65 ], [ 0.000000e+00, %.sink.split ]
-  %.sroa.6.0 = phi i32 [ 0, %70 ], [ 0, %41 ], [ 0, %53 ], [ 0, %62 ], [ %.056, %63 ], [ %.056, %65 ], [ 0, %.sink.split ]
+  %.sroa.0.0 = phi double [ 0.000000e+00, %70 ], [ 0.000000e+00, %41 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %62 ], [ %57, %65 ], [ %57, %63 ], [ 0.000000e+00, %.sink.split ]
+  %.sroa.6.0 = phi i32 [ 0, %70 ], [ 0, %41 ], [ 0, %53 ], [ 0, %62 ], [ %.056, %65 ], [ %.056, %63 ], [ 0, %.sink.split ]
   %.fca.0.insert = insertvalue { double, i32 } poison, double %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, i32 } %.fca.0.insert, i32 %.sroa.6.0, 1
   ret { double, i32 } %.fca.1.insert

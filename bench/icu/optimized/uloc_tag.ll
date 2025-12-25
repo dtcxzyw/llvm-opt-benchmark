@@ -2019,7 +2019,7 @@ _ZN12_GLOBAL__N_17_isTKeyEPKci.exit.sink.split:   ; preds = %90, %101, %69, %_Z2
   br label %_ZN12_GLOBAL__N_17_isTKeyEPKci.exit
 
 _ZN12_GLOBAL__N_17_isTKeyEPKci.exit:              ; preds = %120, %116, %86, %_ZN12_GLOBAL__N_17_isTKeyEPKci.exit.sink.split, %79, %109, %69, %66, %64, %31, %28, %26, %8
-  %.0 = phi i1 [ false, %69 ], [ false, %26 ], [ false, %86 ], [ false, %79 ], [ true, %_ZN12_GLOBAL__N_17_isTKeyEPKci.exit.sink.split ], [ false, %109 ], [ false, %66 ], [ false, %64 ], [ false, %8 ], [ false, %28 ], [ false, %31 ], [ false, %116 ], [ true, %120 ]
+  %.0 = phi i1 [ false, %69 ], [ false, %26 ], [ false, %28 ], [ false, %79 ], [ false, %64 ], [ false, %66 ], [ false, %109 ], [ true, %_ZN12_GLOBAL__N_17_isTKeyEPKci.exit.sink.split ], [ false, %8 ], [ false, %86 ], [ false, %31 ], [ true, %120 ], [ false, %116 ]
   ret i1 %.0
 }
 
@@ -2310,7 +2310,7 @@ _Z33ultag_isUnicodeLocaleAttribute_77PKci.exit.sink.split: ; preds = %70, %85, %
   br label %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit
 
 _Z33ultag_isUnicodeLocaleAttribute_77PKci.exit:   ; preds = %103, %99, %66, %37, %33, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit.sink.split, %59, %52, %92, %26, %3
-  %.0 = phi i1 [ false, %66 ], [ false, %33 ], [ false, %3 ], [ true, %52 ], [ false, %59 ], [ false, %92 ], [ true, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit.sink.split ], [ false, %26 ], [ true, %37 ], [ true, %103 ], [ false, %99 ]
+  %.0 = phi i1 [ false, %92 ], [ false, %66 ], [ false, %3 ], [ true, %52 ], [ false, %59 ], [ false, %33 ], [ true, %_Z33ultag_isUnicodeLocaleAttribute_77PKci.exit.sink.split ], [ false, %26 ], [ true, %37 ], [ false, %99 ], [ true, %103 ]
   ret i1 %.0
 }
 
@@ -7518,7 +7518,7 @@ _ZN12_GLOBAL__N_119_addExtensionToListEPPNS_18ExtensionListEntryES1_b.exit198.i.
   br i1 %.not154.i.i, label %.loopexit453.i, label %.lr.ph302.i.i, !llvm.loop !144
 
 .critedge159.sink.split.i.i:                      ; preds = %611, %.noexc170.i.i, %580, %692, %676, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit166.thread187.i, %.noexc164.i, %645, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread226.i.i
-  %.sink398.i.i = phi i32 [ 7, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit166.thread187.i ], [ 7, %676 ], [ 7, %645 ], [ 7, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread226.i.i ], [ 7, %.noexc164.i ], [ 1, %692 ], [ 7, %580 ], [ 7, %.noexc170.i.i ], [ 7, %611 ]
+  %.sink398.i.i = phi i32 [ 7, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118ExtensionListEntryELi8EE6createIJEEEPS2_DpOT_.exit166.thread187.i ], [ 7, %676 ], [ 1, %692 ], [ 7, %_ZN6icu_7710MemoryPoolIN12_GLOBAL__N_118AttributeListEntryELi8EE6createIJEEEPS2_DpOT_.exit.thread226.i.i ], [ 7, %.noexc164.i ], [ 7, %645 ], [ 7, %580 ], [ 7, %.noexc170.i.i ], [ 7, %611 ]
   store i32 %.sink398.i.i, ptr %4, align 4, !tbaa !13
   br label %.critedge159.i.i
 

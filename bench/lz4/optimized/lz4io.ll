@@ -6522,7 +6522,7 @@ LZ4IO_toHuman.exit:                               ; preds = %.lr.ph.i45, %518
   br label %.critedge35
 
 .critedge35:                                      ; preds = %551, %.critedge35.sink.split, %20, %58, %61, %.loopexit152, %495
-  %.3 = phi i32 [ 1, %58 ], [ 1, %495 ], [ 1, %.critedge35.sink.split ], [ 1, %.loopexit152 ], [ 0, %20 ], [ 1, %61 ], [ 0, %551 ]
+  %.3 = phi i32 [ 1, %58 ], [ 1, %495 ], [ 0, %20 ], [ 1, %.loopexit152 ], [ 1, %.critedge35.sink.split ], [ 1, %61 ], [ 0, %551 ]
   ret i32 %.3
 }
 

@@ -512,7 +512,7 @@ sip_parse_addr.exit13.thread:                     ; preds = %138, %150, %145, %1
   br label %.thread
 
 .thread:                                          ; preds = %.preheader21, %.preheader21, %.thread19, %7, %sip_parse_addr.exit13.thread, %.thread16, %194, %186, %182, %173, %117, %split
-  %195 = phi i32 [ 1, %186 ], [ 0, %split ], [ 0, %117 ], [ -1, %sip_parse_addr.exit13.thread ], [ -1, %173 ], [ 0, %182 ], [ 0, %194 ], [ 0, %.thread19 ], [ 0, %7 ], [ 0, %.thread16 ], [ -1, %.preheader21 ], [ -1, %.preheader21 ]
+  %195 = phi i32 [ 1, %186 ], [ 0, %split ], [ 0, %117 ], [ -1, %sip_parse_addr.exit13.thread ], [ -1, %173 ], [ 0, %182 ], [ 0, %194 ], [ 0, %7 ], [ 0, %.thread19 ], [ 0, %.thread16 ], [ -1, %.preheader21 ], [ -1, %.preheader21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %195
 }
@@ -937,7 +937,7 @@ thread-pre-split20:                               ; preds = %107, %112
   br i1 %132, label %.loopexit, label %101, !llvm.loop !16
 
 .loopexit:                                        ; preds = %130, %101, %127, %124, %119, %.split30.us
-  %133 = phi ptr [ %117, %119 ], [ %125, %124 ], [ %95, %.split30.us ], [ %123, %127 ], [ %102, %101 ], [ %100, %130 ]
+  %133 = phi ptr [ %95, %.split30.us ], [ %117, %119 ], [ %125, %124 ], [ %123, %127 ], [ %100, %130 ], [ %102, %101 ]
   %134 = icmp eq ptr %133, null
   br i1 %134, label %.thread, label %135
 
@@ -1005,7 +1005,7 @@ thread-pre-split20:                               ; preds = %107, %112
   br i1 %176, label %.split, label %.thread, !llvm.loop !14
 
 .thread:                                          ; preds = %47, %31, %23, %53, %61, %173, %115, %112, %104, %167, %161, %151, %141, %138, %135, %.loopexit, %7
-  %177 = phi i32 [ 1, %167 ], [ -1, %151 ], [ -1, %161 ], [ 0, %141 ], [ 0, %135 ], [ 0, %138 ], [ 0, %.loopexit ], [ 0, %7 ], [ 0, %115 ], [ 0, %112 ], [ 0, %104 ], [ 0, %53 ], [ 0, %173 ], [ 0, %61 ], [ 0, %23 ], [ 0, %31 ], [ 0, %47 ]
+  %177 = phi i32 [ 1, %167 ], [ -1, %151 ], [ -1, %161 ], [ 0, %141 ], [ 0, %135 ], [ 0, %138 ], [ 0, %.loopexit ], [ 0, %7 ], [ 0, %104 ], [ 0, %112 ], [ 0, %115 ], [ 0, %53 ], [ 0, %173 ], [ 0, %61 ], [ 0, %23 ], [ 0, %31 ], [ 0, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %177
 }
@@ -1173,7 +1173,7 @@ thread-pre-split:                                 ; preds = %17, %22
   br i1 %39, label %.loopexit, label %34, !llvm.loop !15
 
 .loopexit:                                        ; preds = %37, %34, %29
-  %40 = phi ptr [ %27, %29 ], [ %33, %37 ], [ %35, %34 ]
+  %40 = phi ptr [ %27, %29 ], [ %35, %34 ], [ %33, %37 ]
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread, label %45
 
@@ -1307,7 +1307,7 @@ thread-pre-split.i:                               ; preds = %51, %46
   br i1 %68, label %.loopexit.i, label %63, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %66, %63, %58
-  %69 = phi ptr [ %56, %58 ], [ %64, %63 ], [ %62, %66 ]
+  %69 = phi ptr [ %56, %58 ], [ %62, %66 ], [ %64, %63 ]
   %70 = icmp eq ptr %69, null
   br i1 %70, label %ct_sip_header_search.exit.thread, label %74
 
@@ -1403,7 +1403,7 @@ thread-pre-split.i7:                              ; preds = %99, %94
   br i1 %116, label %.loopexit.i10, label %111, !llvm.loop !15
 
 .loopexit.i10:                                    ; preds = %114, %111, %106
-  %117 = phi ptr [ %104, %106 ], [ %112, %111 ], [ %110, %114 ]
+  %117 = phi ptr [ %104, %106 ], [ %110, %114 ], [ %112, %111 ]
   %118 = icmp eq ptr %117, null
   br i1 %118, label %ct_sip_header_search.exit.thread, label %122
 
@@ -1445,7 +1445,7 @@ ct_sip_header_search.exit11:                      ; preds = %119
   br i1 %139, label %37, label %ct_sip_header_search.exit.thread, !llvm.loop !18
 
 ct_sip_header_search.exit.thread:                 ; preds = %ct_sip_header_search.exit, %ct_sip_header_search.exit11, %135, %79, %.loopexit.i, %74, %43, %51, %54, %.loopexit.i10, %122, %91, %99, %102, %25
-  %140 = phi i32 [ %39, %.loopexit.i ], [ %20, %25 ], [ %39, %.loopexit.i10 ], [ %39, %102 ], [ %39, %99 ], [ %39, %91 ], [ %39, %122 ], [ %39, %54 ], [ %39, %51 ], [ %39, %43 ], [ %39, %74 ], [ %39, %ct_sip_header_search.exit ], [ %39, %ct_sip_header_search.exit11 ], [ %136, %135 ], [ %39, %79 ]
+  %140 = phi i32 [ %39, %.loopexit.i10 ], [ %20, %25 ], [ %39, %.loopexit.i ], [ %39, %102 ], [ %39, %99 ], [ %39, %91 ], [ %39, %122 ], [ %39, %54 ], [ %39, %51 ], [ %39, %43 ], [ %39, %74 ], [ %39, %ct_sip_header_search.exit11 ], [ %136, %135 ], [ %39, %79 ], [ %39, %ct_sip_header_search.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i32 0, ptr %5, align 4
   br label %141
@@ -1671,7 +1671,7 @@ thread-pre-split.i:                               ; preds = %30, %25
   br i1 %47, label %.loopexit.i, label %42, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %45, %42, %37
-  %48 = phi ptr [ %35, %37 ], [ %43, %42 ], [ %41, %45 ]
+  %48 = phi ptr [ %35, %37 ], [ %41, %45 ], [ %43, %42 ]
   %49 = icmp eq ptr %48, null
   br i1 %49, label %ct_sip_header_search.exit, label %53
 
@@ -1765,7 +1765,7 @@ thread-pre-split.i1:                              ; preds = %78, %73
   br i1 %95, label %.loopexit.i4, label %90, !llvm.loop !15
 
 .loopexit.i4:                                     ; preds = %93, %90, %85
-  %96 = phi ptr [ %83, %85 ], [ %91, %90 ], [ %89, %93 ]
+  %96 = phi ptr [ %83, %85 ], [ %89, %93 ], [ %91, %90 ]
   %97 = icmp eq ptr %96, null
   br i1 %97, label %ct_sip_header_search.exit5.thread, label %101
 
@@ -1968,7 +1968,7 @@ thread-pre-split.i:                               ; preds = %29, %24
   br i1 %46, label %.loopexit.i, label %41, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %44, %41, %36
-  %47 = phi ptr [ %34, %36 ], [ %42, %41 ], [ %40, %44 ]
+  %47 = phi ptr [ %34, %36 ], [ %40, %44 ], [ %42, %41 ]
   %48 = icmp eq ptr %47, null
   br i1 %48, label %ct_sip_header_search.exit, label %52
 
@@ -2062,7 +2062,7 @@ thread-pre-split.i5:                              ; preds = %77, %72
   br i1 %94, label %.loopexit.i8, label %89, !llvm.loop !15
 
 .loopexit.i8:                                     ; preds = %92, %89, %84
-  %95 = phi ptr [ %82, %84 ], [ %90, %89 ], [ %88, %92 ]
+  %95 = phi ptr [ %82, %84 ], [ %88, %92 ], [ %90, %89 ]
   %96 = icmp eq ptr %95, null
   br i1 %96, label %ct_sip_header_search.exit9.thread, label %100
 
@@ -2317,7 +2317,7 @@ define dso_local noundef range(i32 -1, 2) i32 @ct_sip_get_sdp_header(ptr noundef
   br i1 %130, label %.split, label %.thread, !llvm.loop !21
 
 .thread:                                          ; preds = %58, %66, %76, %127, %52, %38, %30, %108, %.preheader, %.preheader, %96, %121, %115, %111, %8
-  %131 = phi i32 [ 1, %121 ], [ -1, %111 ], [ -1, %115 ], [ 0, %8 ], [ 0, %52 ], [ -1, %96 ], [ -1, %108 ], [ -1, %.preheader ], [ -1, %.preheader ], [ 0, %30 ], [ 0, %38 ], [ 0, %127 ], [ 0, %76 ], [ 0, %66 ], [ 0, %58 ]
+  %131 = phi i32 [ 1, %121 ], [ -1, %111 ], [ -1, %115 ], [ 0, %8 ], [ -1, %96 ], [ 0, %52 ], [ -1, %108 ], [ -1, %.preheader ], [ -1, %.preheader ], [ 0, %30 ], [ 0, %38 ], [ 0, %127 ], [ 0, %76 ], [ 0, %66 ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %131
 }
@@ -4726,7 +4726,7 @@ thread-pre-split.i:                               ; preds = %104, %99
   br i1 %121, label %.loopexit.i, label %116, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %119, %116, %111
-  %122 = phi ptr [ %109, %111 ], [ %117, %116 ], [ %115, %119 ]
+  %122 = phi ptr [ %109, %111 ], [ %115, %119 ], [ %117, %116 ]
   %123 = icmp eq ptr %122, null
   br i1 %123, label %ct_sip_header_search.exit, label %127
 
@@ -4817,7 +4817,7 @@ thread-pre-split.i11:                             ; preds = %149, %144
   br i1 %166, label %.loopexit.i14, label %161, !llvm.loop !15
 
 .loopexit.i14:                                    ; preds = %164, %161, %156
-  %167 = phi ptr [ %154, %156 ], [ %162, %161 ], [ %160, %164 ]
+  %167 = phi ptr [ %154, %156 ], [ %160, %164 ], [ %162, %161 ]
   %168 = icmp eq ptr %167, null
   br i1 %168, label %.thread, label %172
 
@@ -5151,7 +5151,7 @@ thread-pre-split.i:                               ; preds = %110, %105
   br i1 %127, label %.loopexit.i, label %122, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %125, %122, %117
-  %128 = phi ptr [ %115, %117 ], [ %123, %122 ], [ %121, %125 ]
+  %128 = phi ptr [ %115, %117 ], [ %121, %125 ], [ %123, %122 ]
   %129 = icmp eq ptr %128, null
   br i1 %129, label %ct_sip_header_search.exit, label %133
 
@@ -5242,7 +5242,7 @@ thread-pre-split.i15:                             ; preds = %155, %150
   br i1 %172, label %.loopexit.i18, label %167, !llvm.loop !15
 
 .loopexit.i18:                                    ; preds = %170, %167, %162
-  %173 = phi ptr [ %160, %162 ], [ %168, %167 ], [ %166, %170 ]
+  %173 = phi ptr [ %160, %162 ], [ %166, %170 ], [ %168, %167 ]
   %174 = icmp eq ptr %173, null
   br i1 %174, label %.thread, label %178
 
@@ -5603,7 +5603,7 @@ thread-pre-split.i:                               ; preds = %25, %20
   br i1 %42, label %.loopexit.i, label %37, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %40, %37, %32
-  %43 = phi ptr [ %30, %32 ], [ %38, %37 ], [ %36, %40 ]
+  %43 = phi ptr [ %30, %32 ], [ %36, %40 ], [ %38, %37 ]
   %44 = icmp eq ptr %43, null
   br i1 %44, label %ct_sip_header_search.exit, label %48
 
@@ -5694,7 +5694,7 @@ thread-pre-split.i1:                              ; preds = %70, %65
   br i1 %87, label %.loopexit.i4, label %82, !llvm.loop !15
 
 .loopexit.i4:                                     ; preds = %85, %82, %77
-  %88 = phi ptr [ %75, %77 ], [ %83, %82 ], [ %81, %85 ]
+  %88 = phi ptr [ %75, %77 ], [ %81, %85 ], [ %83, %82 ]
   %89 = icmp eq ptr %88, null
   br i1 %89, label %.critedge, label %93
 

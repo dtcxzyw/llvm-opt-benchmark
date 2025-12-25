@@ -3166,8 +3166,8 @@ sub_01003:                                        ; preds = %934
   br label %954
 
 .thread909:                                       ; preds = %923, %926, %930, %943, %948, %934
-  %.2582 = phi i32 [ %945, %948 ], [ %.0580.lcssa, %934 ], [ %945, %943 ], [ %.0580.lcssa, %930 ], [ %.0580.lcssa, %926 ], [ %.0580.lcssa, %923 ]
-  %.3 = phi ptr [ %spec.store.select, %948 ], [ %.0550.lcssa, %934 ], [ %.0550.lcssa, %943 ], [ @.str, %930 ], [ %.0550.lcssa, %926 ], [ %.0550.lcssa, %923 ]
+  %.2582 = phi i32 [ %945, %943 ], [ %.0580.lcssa, %934 ], [ %945, %948 ], [ %.0580.lcssa, %930 ], [ %.0580.lcssa, %926 ], [ %.0580.lcssa, %923 ]
+  %.3 = phi ptr [ %.0550.lcssa, %943 ], [ %.0550.lcssa, %934 ], [ %spec.store.select, %948 ], [ @.str, %930 ], [ %.0550.lcssa, %926 ], [ %.0550.lcssa, %923 ]
   switch i32 %.2582, label %990 [
     i32 15, label %.loopexit1045
     i32 0, label %954
@@ -6300,7 +6300,7 @@ define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %29, %.preheader, %67, %.split104.us, %._crit_edge, %11
-  %.061 = phi i64 [ %12, %11 ], [ 0, %._crit_edge ], [ -1, %67 ], [ -1, %.split104.us ], [ %.069, %.preheader ], [ %.069, %29 ]
+  %.061 = phi i64 [ %12, %11 ], [ 0, %._crit_edge ], [ -1, %.split104.us ], [ -1, %67 ], [ %.069, %.preheader ], [ %.069, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.061
 }

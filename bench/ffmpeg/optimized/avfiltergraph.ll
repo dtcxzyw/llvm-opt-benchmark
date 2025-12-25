@@ -1445,7 +1445,7 @@ formats_declared.exit:                            ; preds = %.thread44.i, %.preh
   br label %query_formats.exit.i
 
 query_formats.exit.i:                             ; preds = %183, %.loopexit.i, %465, %.thread292.i.i
-  %.2.i.i = phi i32 [ %116, %.loopexit.i ], [ %.9.ph.i.i, %.thread292.i.i ], [ %.13.i.i, %465 ], [ %186, %183 ]
+  %.2.i.i = phi i32 [ %.9.ph.i.i, %.thread292.i.i ], [ %116, %.loopexit.i ], [ %.13.i.i, %465 ], [ %186, %183 ]
   %466 = icmp eq i32 %.2.i.i, -11
   br i1 %466, label %467, label %graph_check_validity.exit
 

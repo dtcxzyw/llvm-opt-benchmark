@@ -2766,8 +2766,8 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   br label %164
 
 select.unfold:                                    ; preds = %81, %.preheader, %73, %77, %95, %103, %117
-  %124 = phi i8 [ %76, %73 ], [ %65, %.preheader ], [ %65, %117 ], [ %65, %77 ], [ %65, %95 ], [ %65, %103 ], [ %65, %81 ]
-  %125 = phi i8 [ %64, %73 ], [ %64, %.preheader ], [ 1, %117 ], [ 0, %77 ], [ 1, %95 ], [ 1, %103 ], [ 1, %81 ]
+  %124 = phi i8 [ %76, %73 ], [ %65, %.preheader ], [ %65, %95 ], [ %65, %77 ], [ %65, %117 ], [ %65, %103 ], [ %65, %81 ]
+  %125 = phi i8 [ %64, %73 ], [ %64, %.preheader ], [ 1, %95 ], [ 0, %77 ], [ 1, %117 ], [ 1, %103 ], [ 1, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

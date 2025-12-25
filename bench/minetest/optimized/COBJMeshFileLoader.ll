@@ -2687,7 +2687,7 @@ _ZNK3irr5video9S3DVertexltERKS1_.exit101:         ; preds = %lor.rhs.i.i88
   %cmp7.i107.i91 = fcmp ogt float %242, %212
   br i1 %cmp7.i107.i91, label %if.else152, label %if.then150
 
-if.then150:                                       ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i92, %lor.rhs.i.i88, %lor.lhs.false.i47.i68, %land.lhs.true11.i.i57, %land.lhs.true26.i82, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i63, %lor.lhs.false.i.i51, %land.lhs.true11.i53.i73, %_ZNK3irr5video9S3DVertexltERKS1_.exit101
+if.then150:                                       ; preds = %_ZNK3irr4core8vector3dIfEeqERKS2_.exit79.i92, %lor.rhs.i.i88, %land.lhs.true11.i53.i73, %land.lhs.true11.i.i57, %land.lhs.true26.i82, %lor.lhs.false.i.i51, %_ZNK3irr4core8vector3dIfEeqERKS2_.exit.i63, %lor.lhs.false.i47.i68, %_ZNK3irr5video9S3DVertexltERKS1_.exit101
   %second = getelementptr inbounds nuw i8, ptr %231, i64 68
   %243 = load i32, ptr %second, align 4, !tbaa !156
   store i32 %243, ptr %vertLocation, align 4, !tbaa !90

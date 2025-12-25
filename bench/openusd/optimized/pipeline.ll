@@ -1308,8 +1308,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %or.cond = select i1 %33, i1 %.not.i.i.i3, i1 false
   br i1 %or.cond, label %37, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread10: ; preds = %.noexc, %24
-  %36 = phi i32 [ 3, %.noexc ], [ 1, %24 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread10: ; preds = %24, %.noexc
+  %36 = phi i32 [ 1, %24 ], [ 3, %.noexc ]
   %.old = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.old12 = load i32, ptr %.old, align 8
   %.not.i.i.i3.old.not = icmp eq i32 %.old12, 0
@@ -1663,7 +1663,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %37 = and i1 %36, %35
   br i1 %37, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread65, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread65: ; preds = %.noexc, %28, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread65: ; preds = %28, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load i32, ptr %38, align 8
   %.not.i.i.i18.not = icmp eq i32 %39, 0
@@ -1825,7 +1825,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit33: ; preds = %.noexc3
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   br label %233
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit33.thread69: ; preds = %.noexc32, %87, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit33
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit33.thread69: ; preds = %87, %.noexc32, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit33
   %99 = load ptr, ptr %70, align 8
   %.not.i.i = icmp eq ptr %99, null
   br i1 %.not.i.i, label %104, label %100
@@ -2051,7 +2051,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit56: ; preds = %.noexc5
   %or.cond = select i1 %197, i1 %.not.i.i.i57, i1 false
   br i1 %or.cond, label %199, label %.critedge
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit56.thread73: ; preds = %.noexc55, %188
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit56.thread73: ; preds = %188, %.noexc55
   %.old = load i32, ptr %38, align 8
   %.not.i.i.i57.old.not = icmp eq i32 %.old, 0
   br i1 %.not.i.i.i57.old.not, label %.critedge, label %199

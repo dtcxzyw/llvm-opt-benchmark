@@ -10590,7 +10590,7 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit:         ; preds = %132, %137
   %spec.select.i.i.i.i.not = icmp eq i16 %141, 56
   br i1 %spec.select.i.i.i.i.not, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread44
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread44: ; preds = %113, %129, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
+_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread44: ; preds = %129, %113, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.70, ptr noundef nonnull align 8 dereferenceable(32) %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !1027)

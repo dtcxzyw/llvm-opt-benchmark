@@ -8733,8 +8733,8 @@ if.then6:                                         ; preds = %while.end.i, %if.th
   %7 = extractvalue { ptr, i32 } %call9, 1
   br label %if.end10
 
-if.end10:                                         ; preds = %while.end.i, %if.else.i, %if.then.i, %if.then6
-  %p.sroa.4.0 = phi i32 [ %7, %if.then6 ], [ %1, %if.then.i ], [ %1, %if.else.i ], [ %1, %while.end.i ]
+if.end10:                                         ; preds = %while.end.i, %if.then.i, %if.else.i, %if.then6
+  %p.sroa.4.0 = phi i32 [ %7, %if.then6 ], [ %1, %if.else.i ], [ %1, %if.then.i ], [ %1, %while.end.i ]
   %alloc_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load ptr, ptr %alloc_.i, align 8
   %cmp.i.i = icmp eq ptr %8, null
@@ -9256,8 +9256,8 @@ if.then6:                                         ; preds = %while.end.i, %if.th
   %7 = extractvalue { ptr, i32 } %call9, 1
   br label %if.end10
 
-if.end10:                                         ; preds = %while.end.i, %if.else.i, %if.then.i, %if.then6
-  %p.sroa.4.0 = phi i32 [ %7, %if.then6 ], [ %1, %if.then.i ], [ %1, %if.else.i ], [ %1, %while.end.i ]
+if.end10:                                         ; preds = %while.end.i, %if.then.i, %if.else.i, %if.then6
+  %p.sroa.4.0 = phi i32 [ %7, %if.then6 ], [ %1, %if.else.i ], [ %1, %if.then.i ], [ %1, %while.end.i ]
   %alloc_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load ptr, ptr %alloc_.i, align 8
   %cmp.i.i = icmp eq ptr %8, null

@@ -396,11 +396,11 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %0, ptr nound
   br label %pkcs12kdf_derive.exit
 
 pkcs12kdf_derive.exit:                            ; preds = %.loopexit.i, %76, %78, %80, %._crit_edge.i, %.lr.ph165.i, %85, %87, %54, %.preheader153.i, %.loopexit152.sink.split.i
-  %.0131.i = phi ptr [ %42, %.lr.ph165.i ], [ null, %.loopexit152.sink.split.i ], [ %42, %54 ], [ %42, %.preheader153.i ], [ %42, %87 ], [ %42, %85 ], [ %42, %._crit_edge.i ], [ %42, %80 ], [ %42, %78 ], [ %42, %76 ], [ %42, %.loopexit.i ]
-  %.0123.i = phi ptr [ %56, %.lr.ph165.i ], [ null, %.loopexit152.sink.split.i ], [ %56, %54 ], [ %56, %.preheader153.i ], [ %56, %87 ], [ %56, %85 ], [ %56, %._crit_edge.i ], [ %56, %80 ], [ %56, %78 ], [ %56, %76 ], [ %56, %.loopexit.i ]
-  %.0122.i = phi ptr [ %41, %.lr.ph165.i ], [ null, %.loopexit152.sink.split.i ], [ %41, %54 ], [ %41, %.preheader153.i ], [ %41, %87 ], [ %41, %85 ], [ %41, %._crit_edge.i ], [ %41, %80 ], [ %41, %78 ], [ %41, %76 ], [ %41, %.loopexit.i ]
-  %.0120.i = phi i32 [ 0, %.lr.ph165.i ], [ 0, %.loopexit152.sink.split.i ], [ 0, %54 ], [ 0, %.preheader153.i ], [ 0, %87 ], [ 0, %85 ], [ 0, %80 ], [ 1, %._crit_edge.i ], [ 0, %78 ], [ 0, %76 ], [ 0, %.loopexit.i ]
-  %.0119.i = phi ptr [ %44, %.lr.ph165.i ], [ null, %.loopexit152.sink.split.i ], [ %44, %54 ], [ %44, %.preheader153.i ], [ %44, %87 ], [ %44, %85 ], [ %44, %._crit_edge.i ], [ %44, %80 ], [ %44, %78 ], [ %44, %76 ], [ %44, %.loopexit.i ]
+  %.0131.i = phi ptr [ null, %.loopexit152.sink.split.i ], [ %42, %.lr.ph165.i ], [ %42, %54 ], [ %42, %.preheader153.i ], [ %42, %87 ], [ %42, %85 ], [ %42, %._crit_edge.i ], [ %42, %80 ], [ %42, %78 ], [ %42, %76 ], [ %42, %.loopexit.i ]
+  %.0123.i = phi ptr [ null, %.loopexit152.sink.split.i ], [ %56, %.lr.ph165.i ], [ %56, %54 ], [ %56, %.preheader153.i ], [ %56, %87 ], [ %56, %85 ], [ %56, %._crit_edge.i ], [ %56, %80 ], [ %56, %78 ], [ %56, %76 ], [ %56, %.loopexit.i ]
+  %.0122.i = phi ptr [ null, %.loopexit152.sink.split.i ], [ %41, %.lr.ph165.i ], [ %41, %54 ], [ %41, %.preheader153.i ], [ %41, %87 ], [ %41, %85 ], [ %41, %._crit_edge.i ], [ %41, %80 ], [ %41, %78 ], [ %41, %76 ], [ %41, %.loopexit.i ]
+  %.0120.i = phi i32 [ 0, %.loopexit152.sink.split.i ], [ 0, %.lr.ph165.i ], [ 0, %54 ], [ 0, %.preheader153.i ], [ 0, %87 ], [ 0, %85 ], [ 0, %80 ], [ 1, %._crit_edge.i ], [ 0, %.loopexit.i ], [ 0, %76 ], [ 0, %78 ]
+  %.0119.i = phi ptr [ null, %.loopexit152.sink.split.i ], [ %44, %.lr.ph165.i ], [ %44, %54 ], [ %44, %.preheader153.i ], [ %44, %87 ], [ %44, %85 ], [ %44, %._crit_edge.i ], [ %44, %80 ], [ %44, %78 ], [ %44, %76 ], [ %44, %.loopexit.i ]
   tail call void @CRYPTO_free(ptr noundef %.0131.i, ptr noundef nonnull @.str, i32 noundef 129) #6
   tail call void @CRYPTO_free(ptr noundef %.0119.i, ptr noundef nonnull @.str, i32 noundef 130) #6
   tail call void @CRYPTO_free(ptr noundef %.0122.i, ptr noundef nonnull @.str, i32 noundef 131) #6

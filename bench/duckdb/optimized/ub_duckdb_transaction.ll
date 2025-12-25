@@ -2340,7 +2340,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151
 
 ._crit_edge.thread:                               ; preds = %148, %._crit_edge, %297
-  %.238 = phi i32 [ 1, %297 ], [ 0, %._crit_edge ], [ 0, %148 ]
+  %.238 = phi i32 [ 0, %._crit_edge ], [ 1, %297 ], [ 0, %148 ]
   %311 = load ptr, ptr %18, align 8, !tbaa !35
   %312 = icmp eq ptr %311, %149
   br i1 %312, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i158

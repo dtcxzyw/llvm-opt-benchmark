@@ -3565,7 +3565,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !127
 
 _ZNSt3_V28__rotateIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEEEET_S8_S8_S8_St26random_access_iterator_tag.exit: ; preds = %._crit_edge62.i, %._crit_edge.i, %.lr.ph.i.i, %135, %137
-  %.sroa.052.0 = phi ptr [ %49, %.lr.ph.i.i ], [ %.sroa.064.0, %135 ], [ %.sroa.070.0, %137 ], [ %159, %._crit_edge.i ], [ %159, %._crit_edge62.i ]
+  %.sroa.052.0 = phi ptr [ %.sroa.064.0, %135 ], [ %49, %.lr.ph.i.i ], [ %.sroa.070.0, %137 ], [ %159, %._crit_edge.i ], [ %159, %._crit_edge62.i ]
   %193 = load ptr, ptr %0, align 8
   store ptr %193, ptr %7, align 8
   store ptr %.sroa.070.0, ptr %8, align 8
@@ -5725,7 +5725,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEElEvRT_T0_.exit.i3
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !127
 
 _ZNSt3_V28__rotateIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEEEET_S8_S8_S8_St26random_access_iterator_tag.exit: ; preds = %._crit_edge62.i, %._crit_edge.i, %.lr.ph.i.i, %76, %78
-  %.sroa.045.0 = phi ptr [ %29, %.lr.ph.i.i ], [ %.sroa.057.0, %76 ], [ %.sroa.063.0, %78 ], [ %100, %._crit_edge.i ], [ %100, %._crit_edge62.i ]
+  %.sroa.045.0 = phi ptr [ %.sroa.057.0, %76 ], [ %29, %.lr.ph.i.i ], [ %.sroa.063.0, %78 ], [ %100, %._crit_edge.i ], [ %100, %._crit_edge62.i ]
   %134 = load ptr, ptr %0, align 8
   store ptr %134, ptr %6, align 8
   store ptr %.sroa.063.0, ptr %7, align 8

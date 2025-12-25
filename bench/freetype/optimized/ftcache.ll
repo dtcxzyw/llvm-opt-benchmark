@@ -715,7 +715,7 @@ FTC_Manager_FlushN.exit:                          ; preds = %30
   br label %41
 
 41:                                               ; preds = %37, %35
-  %.1 = phi i32 [ %.02336, %35 ], [ %spec.select, %37 ]
+  %.1 = phi i32 [ %spec.select, %37 ], [ %.02336, %35 ]
   %42 = load ptr, ptr %8, align 8, !tbaa !98
   %43 = call i32 %42(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %0) #13
   %44 = and i32 %43, 255
@@ -1766,7 +1766,7 @@ FTC_Manager_FlushN.exit.us:                       ; preds = %54
   br label %65
 
 65:                                               ; preds = %61, %59
-  %.145.us = phi i32 [ %.04471.us, %59 ], [ %spec.select, %61 ]
+  %.145.us = phi i32 [ %spec.select, %61 ], [ %.04471.us, %59 ]
   %66 = load ptr, ptr %33, align 8, !tbaa !18
   %67 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %0, ptr noundef %66, i32 noundef %6, ptr noundef nonnull %5)
   %68 = and i32 %67, 255
@@ -1833,7 +1833,7 @@ FTC_Manager_FlushN.exit:                          ; preds = %86
   br label %95
 
 95:                                               ; preds = %91, %.thread62
-  %.145 = phi i32 [ %.04471, %.thread62 ], [ %spec.select92, %91 ]
+  %.145 = phi i32 [ %spec.select92, %91 ], [ %.04471, %.thread62 ]
   %96 = load ptr, ptr %33, align 8, !tbaa !18
   %97 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %0, ptr noundef %96, i32 noundef %6, ptr noundef nonnull %5)
   %98 = and i32 %97, 255

@@ -8459,7 +8459,7 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit:         ; preds = %245, %250
   %spec.select.i.i.i.i.not = icmp eq i16 %254, 56
   br i1 %spec.select.i.i.i.i.not, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread182
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread182: ; preds = %225, %242, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
+_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread182: ; preds = %242, %225, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
   %255 = load ptr, ptr %43, align 8, !tbaa !299
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 1616
   %257 = load ptr, ptr %256, align 8, !tbaa !1514

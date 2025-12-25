@@ -1774,7 +1774,7 @@ define dso_local range(i32 -1, 1) i32 @PyThread_set_stacksize(i64 noundef %0) lo
   br label %_pythread_pthread_set_stacksize.exit
 
 _pythread_pthread_set_stacksize.exit:             ; preds = %11, %13, %16, %.sink.split.i
-  %.0.i = phi i32 [ -1, %11 ], [ -1, %16 ], [ -1, %13 ], [ 0, %.sink.split.i ]
+  %.0.i = phi i32 [ -1, %16 ], [ -1, %11 ], [ -1, %13 ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.i
 }

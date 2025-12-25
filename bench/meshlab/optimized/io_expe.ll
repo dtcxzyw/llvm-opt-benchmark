@@ -2724,7 +2724,7 @@ _ZN7QStringD2Ev.exit124:                          ; preds = %_ZN11QStringListD2E
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i170, %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i135
-  %.sroa.0255.0.ph.ph.ph.ph.ph.ph = phi ptr [ %.sroa.0255.4, %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i135 ], [ %.sroa.0255.5, %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i170 ]
+  %.sroa.0255.0.ph.ph.ph.ph.ph.ph = phi ptr [ %.sroa.0255.5, %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i170 ], [ %.sroa.0255.4, %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i135 ]
   %lpad.loopexit.split-lp514 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -8509,7 +8509,7 @@ _ZN10QByteArrayD2Ev.exit159.backedge:             ; preds = %_ZN9QtPrivate8RefCo
   br label %.critedge
 
 .critedge:                                        ; preds = %43, %.critedge.sink.split, %40, %_ZN9QtPrivate8RefCount5derefEv.exit.i137, %461, %_ZN9QtPrivate8RefCount5derefEv.exit.i115, %383, %_ZN9QtPrivate8RefCount5derefEv.exit.i93, %289, %_ZN9QtPrivate8RefCount5derefEv.exit.i72, %197
-  %.041 = phi i32 [ 2, %.critedge.sink.split ], [ 0, %40 ], [ 2, %461 ], [ 2, %_ZN9QtPrivate8RefCount5derefEv.exit.i115 ], [ 2, %_ZN9QtPrivate8RefCount5derefEv.exit.i137 ], [ 2, %197 ], [ 2, %_ZN9QtPrivate8RefCount5derefEv.exit.i72 ], [ 2, %289 ], [ 2, %_ZN9QtPrivate8RefCount5derefEv.exit.i93 ], [ 2, %383 ], [ 0, %43 ]
+  %.041 = phi i32 [ 2, %_ZN9QtPrivate8RefCount5derefEv.exit.i137 ], [ 2, %_ZN9QtPrivate8RefCount5derefEv.exit.i115 ], [ 2, %461 ], [ 0, %40 ], [ 2, %.critedge.sink.split ], [ 2, %197 ], [ 2, %_ZN9QtPrivate8RefCount5derefEv.exit.i72 ], [ 2, %289 ], [ 2, %_ZN9QtPrivate8RefCount5derefEv.exit.i93 ], [ 2, %383 ], [ 0, %43 ]
   %563 = load ptr, ptr %9, align 8
   %564 = load atomic i32, ptr %563 monotonic, align 4
   switch i32 %564, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i173 [

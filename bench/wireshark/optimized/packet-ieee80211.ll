@@ -23590,7 +23590,7 @@ define internal void @he_ru_allocation_base_custom(ptr noundef %0, i32 noundef %
   %3 = load i8, ptr @global_he_trigger_bw, align 1
   switch i8 %3, label %default.unreachable [
     i8 0, label %4
-    i8 1, label %10
+    i8 1, label %11
     i8 2, label %19
     i8 3, label %19
   ]
@@ -23607,30 +23607,30 @@ define internal void @he_ru_allocation_base_custom(ptr noundef %0, i32 noundef %
 8:                                                ; preds = %6
   %9 = add i32 %1, -53
   %or.cond3 = icmp ult i32 %9, 2
-  br i1 %or.cond3, label %.thread, label %34
+  br i1 %or.cond3, label %.thread, label %10
 
-10:                                               ; preds = %2
-  %11 = icmp ult i32 %1, 18
-  br i1 %11, label %.thread, label %12
+10:                                               ; preds = %8
+  %.not62 = icmp eq i32 %1, 61
+  br i1 %.not62, label %.thread, label %36
 
-12:                                               ; preds = %10
-  %13 = add i32 %1, -37
-  %or.cond5 = icmp ult i32 %13, 8
-  br i1 %or.cond5, label %.thread, label %14
+11:                                               ; preds = %2
+  %12 = icmp ult i32 %1, 18
+  br i1 %12, label %.thread, label %13
 
-14:                                               ; preds = %12
-  %15 = add i32 %1, -53
-  %or.cond7 = icmp ult i32 %15, 4
-  br i1 %or.cond7, label %.thread, label %16
+13:                                               ; preds = %11
+  %14 = add i32 %1, -37
+  %or.cond5 = icmp ult i32 %14, 8
+  br i1 %or.cond5, label %.thread, label %15
 
-16:                                               ; preds = %14
-  %17 = add i32 %1, -61
-  %or.cond9 = icmp ult i32 %17, 2
-  br i1 %or.cond9, label %.thread, label %18
+15:                                               ; preds = %13
+  %16 = add i32 %1, -53
+  %or.cond7 = icmp ult i32 %16, 4
+  br i1 %or.cond7, label %.thread, label %17
 
-18:                                               ; preds = %16
-  %.not = icmp eq i32 %1, 65
-  br i1 %.not, label %.thread, label %36
+17:                                               ; preds = %15
+  %18 = add i32 %1, -61
+  %or.cond9 = icmp ult i32 %18, 2
+  br i1 %or.cond9, label %.thread, label %34
 
 19:                                               ; preds = %2, %2
   %20 = icmp ult i32 %1, 37
@@ -23665,16 +23665,16 @@ define internal void @he_ru_allocation_base_custom(ptr noundef %0, i32 noundef %
 default.unreachable:                              ; preds = %2
   unreachable
 
-34:                                               ; preds = %8
-  %.not62 = icmp eq i32 %1, 61
-  br i1 %.not62, label %.thread, label %36
+34:                                               ; preds = %17
+  %.not = icmp eq i32 %1, 65
+  br i1 %.not, label %.thread, label %36
 
-.thread:                                          ; preds = %23, %21, %19, %27, %16, %14, %12, %10, %8, %6, %4, %29, %25, %31, %18, %34
-  %.060 = phi i32 [ 1992, %31 ], [ 242, %34 ], [ 484, %18 ], [ 106, %23 ], [ 52, %21 ], [ 26, %19 ], [ 484, %27 ], [ 242, %16 ], [ 106, %14 ], [ 52, %12 ], [ 26, %10 ], [ 106, %8 ], [ 52, %6 ], [ 26, %4 ], [ 996, %29 ], [ 242, %25 ]
+.thread:                                          ; preds = %23, %21, %19, %27, %17, %15, %13, %11, %8, %6, %4, %29, %25, %31, %10, %34
+  %.060 = phi i32 [ 1992, %31 ], [ 484, %34 ], [ 242, %10 ], [ 106, %23 ], [ 52, %21 ], [ 26, %19 ], [ 484, %27 ], [ 242, %17 ], [ 106, %15 ], [ 52, %13 ], [ 26, %11 ], [ 106, %8 ], [ 52, %6 ], [ 26, %4 ], [ 996, %29 ], [ 242, %25 ]
   %35 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.9463, i32 noundef %1, i32 noundef %.060)
   br label %38
 
-36:                                               ; preds = %31, %18, %34
+36:                                               ; preds = %31, %10, %34
   %37 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.9464, i32 noundef %1)
   br label %38
 
@@ -24532,7 +24532,7 @@ define internal noundef zeroext i1 @uat_wep_key_record_update_cb(ptr noundef rea
   br label %30
 
 30:                                               ; preds = %.sink.split, %24, %22, %20, %18, %16, %26
-  %.0 = phi i1 [ true, %24 ], [ true, %22 ], [ true, %20 ], [ false, %26 ], [ true, %18 ], [ true, %16 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %20 ], [ true, %22 ], [ true, %24 ], [ false, %26 ], [ true, %16 ], [ true, %18 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -25414,10 +25414,10 @@ switch.early.test.thread:                         ; preds = %118, %switch.early.
   br label %156
 
 156:                                              ; preds = %switch.early.test.thread, %save_proto_data_value.exit248, %39, %save_proto_data_value.exit249, %92, %save_proto_data_value.exit250, %122, %153, %150
-  %.0235 = phi i32 [ 2, %122 ], [ 2, %save_proto_data_value.exit250 ], [ 6, %153 ], [ 5, %150 ], [ 3, %92 ], [ 4, %switch.early.test.thread ], [ 1, %39 ], [ 1, %save_proto_data_value.exit248 ], [ 3, %save_proto_data_value.exit249 ]
-  %.0230 = phi i16 [ %.fr, %122 ], [ %130, %save_proto_data_value.exit250 ], [ %.fr, %153 ], [ %.fr, %150 ], [ %.fr, %92 ], [ %.fr, %switch.early.test.thread ], [ %.fr, %39 ], [ %80, %save_proto_data_value.exit248 ], [ %100, %save_proto_data_value.exit249 ]
-  %.0228 = phi ptr [ %124, %122 ], [ %124, %save_proto_data_value.exit250 ], [ %154, %153 ], [ %151, %150 ], [ %94, %92 ], [ %143, %switch.early.test.thread ], [ %41, %39 ], [ %41, %save_proto_data_value.exit248 ], [ %94, %save_proto_data_value.exit249 ]
-  %.0227 = phi i16 [ %25, %122 ], [ %141, %save_proto_data_value.exit250 ], [ %25, %153 ], [ %25, %150 ], [ %25, %92 ], [ %25, %switch.early.test.thread ], [ %25, %39 ], [ %91, %save_proto_data_value.exit248 ], [ %111, %save_proto_data_value.exit249 ]
+  %.0235 = phi i32 [ 2, %save_proto_data_value.exit250 ], [ 2, %122 ], [ 6, %153 ], [ 5, %150 ], [ 3, %92 ], [ 4, %switch.early.test.thread ], [ 1, %39 ], [ 1, %save_proto_data_value.exit248 ], [ 3, %save_proto_data_value.exit249 ]
+  %.0230 = phi i16 [ %130, %save_proto_data_value.exit250 ], [ %.fr, %122 ], [ %.fr, %153 ], [ %.fr, %150 ], [ %.fr, %92 ], [ %.fr, %switch.early.test.thread ], [ %.fr, %39 ], [ %80, %save_proto_data_value.exit248 ], [ %100, %save_proto_data_value.exit249 ]
+  %.0228 = phi ptr [ %124, %save_proto_data_value.exit250 ], [ %124, %122 ], [ %154, %153 ], [ %151, %150 ], [ %94, %92 ], [ %143, %switch.early.test.thread ], [ %41, %39 ], [ %41, %save_proto_data_value.exit248 ], [ %94, %save_proto_data_value.exit249 ]
+  %.0227 = phi i16 [ %141, %save_proto_data_value.exit250 ], [ %25, %122 ], [ %25, %153 ], [ %25, %150 ], [ %25, %92 ], [ %25, %switch.early.test.thread ], [ %25, %39 ], [ %91, %save_proto_data_value.exit248 ], [ %111, %save_proto_data_value.exit249 ]
   %.not.i251 = icmp eq ptr %.0228, null
   br i1 %.not.i251, label %proto_item_set_generated.exit, label %157
 
@@ -26413,7 +26413,7 @@ dissect_partial_virtual_bitmap.exit.sink.split:   ; preds = %16, %sta_is_s1g.exi
   br label %dissect_partial_virtual_bitmap.exit
 
 dissect_partial_virtual_bitmap.exit:              ; preds = %173, %dissect_pvb_encoded_block.exit.i, %dissect_partial_virtual_bitmap.exit.sink.split, %149, %38, %32, %18
-  %.0 = phi i32 [ %.0.i.i, %dissect_pvb_encoded_block.exit.i ], [ %7, %dissect_partial_virtual_bitmap.exit.sink.split ], [ 2, %18 ], [ 3, %32 ], [ 3, %149 ], [ 3, %38 ], [ %7, %173 ]
+  %.0 = phi i32 [ %7, %dissect_partial_virtual_bitmap.exit.sink.split ], [ %.0.i.i, %dissect_pvb_encoded_block.exit.i ], [ 2, %18 ], [ 3, %32 ], [ 3, %149 ], [ 3, %38 ], [ %7, %173 ]
   ret i32 %.0
 }
 
@@ -44805,9 +44805,9 @@ try_scan_ft_assoc_keys.exit:                      ; preds = %dissect_ieee80211_m
   %1839 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %.61132, i32 noundef %.sink353)
   br label %.thread171
 
-.thread171:                                       ; preds = %1834, %.thread171.sink.split, %1809, %1799, %1804, %1792, %1830, %1790
-  %epd_llc_handle.sink = phi ptr [ @ipx_handle, %1809 ], [ @eth_withoutfcs_handle, %1799 ], [ @llc_handle, %1792 ], [ %epd_llc_handle.sink.ph, %.thread171.sink.split ], [ @llc_handle, %1790 ], [ %spec.select, %1834 ], [ @llc_handle, %1830 ], [ @eth_withoutfcs_handle, %1804 ]
-  %.61132.sink = phi ptr [ %.61132, %1809 ], [ %.61132, %1799 ], [ %.61132, %1792 ], [ %1839, %.thread171.sink.split ], [ %.61132, %1790 ], [ %.61132, %1834 ], [ %.61132, %1830 ], [ %.61132, %1804 ]
+.thread171:                                       ; preds = %1834, %.thread171.sink.split, %1809, %1804, %1799, %1792, %1830, %1790
+  %epd_llc_handle.sink = phi ptr [ @ipx_handle, %1809 ], [ @eth_withoutfcs_handle, %1804 ], [ @llc_handle, %1792 ], [ %epd_llc_handle.sink.ph, %.thread171.sink.split ], [ @llc_handle, %1790 ], [ %spec.select, %1834 ], [ @llc_handle, %1830 ], [ @eth_withoutfcs_handle, %1799 ]
+  %.61132.sink = phi ptr [ %.61132, %1809 ], [ %.61132, %1804 ], [ %.61132, %1792 ], [ %1839, %.thread171.sink.split ], [ %.61132, %1790 ], [ %.61132, %1834 ], [ %.61132, %1830 ], [ %.61132, %1799 ]
   %1840 = load ptr, ptr %epd_llc_handle.sink, align 8
   %1841 = call i32 @call_dissector(ptr noundef %1840, ptr noundef %.61132.sink, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -50805,9 +50805,9 @@ dissect_extended_request.exit:                    ; preds = %.lr.ph.i279, %329
   br label %336
 
 336:                                              ; preds = %dissect_extended_request.exit, %321
-  %.1287.i = phi i1 [ true, %dissect_extended_request.exit ], [ %.0286323.i, %321 ]
-  %.1284.i = phi i1 [ %.0283324.i, %dissect_extended_request.exit ], [ true, %321 ]
-  %.7278.i = phi i32 [ %335, %dissect_extended_request.exit ], [ %323, %321 ]
+  %.1287.i = phi i1 [ %.0286323.i, %321 ], [ true, %dissect_extended_request.exit ]
+  %.1284.i = phi i1 [ true, %321 ], [ %.0283324.i, %dissect_extended_request.exit ]
+  %.7278.i = phi i32 [ %323, %321 ], [ %335, %dissect_extended_request.exit ]
   %337 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0.i, i32 noundef %.7278.i)
   %338 = icmp slt i32 %337, 2
   br i1 %338, label %.thread310.i, label %.lr.ph.i, !llvm.loop !247

@@ -1437,8 +1437,8 @@ define hidden noundef zeroext i1 @_ZNK6spacer7sym_mux21is_homogenous_formulaEP4e
   br label %.preheader.i.i
 
 thread-pre-split.i.i:                             ; preds = %287, %301, %298, %171, %185, %182, %.thread-pre-split_crit_edge.i.i, %.loopexit.i199.i.i, %.preheader.i.i.i.i.i190.i.i, %262, %260, %.loopexit.i155.i.i, %.preheader.i.i.i.i.i146.i.i, %146, %._crit_edge.i.i, %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit.i.i
-  %.sroa.11.3 = phi i8 [ %.sroa.11.1, %.thread-pre-split_crit_edge.i.i ], [ %.sroa.11.1, %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit.i.i ], [ 1, %._crit_edge.i.i ], [ 0, %.preheader.i.i.i.i.i146.i.i ], [ 0, %262 ], [ %189, %.loopexit.i155.i.i ], [ 0, %301 ], [ 0, %185 ], [ 0, %146 ], [ 1, %260 ], [ 0, %.preheader.i.i.i.i.i190.i.i ], [ 0, %171 ], [ %305, %.loopexit.i199.i.i ], [ 0, %182 ], [ 0, %298 ], [ 0, %287 ]
-  %.pr.i.i = phi i32 [ %.pr.pre.i.i, %.thread-pre-split_crit_edge.i.i ], [ %21, %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit.i.i ], [ %.pre-phi362.i.i, %._crit_edge.i.i ], [ %.pre-phi362.i.i, %.preheader.i.i.i.i.i146.i.i ], [ %21, %262 ], [ %.pre-phi362.i.i, %.loopexit.i155.i.i ], [ %21, %301 ], [ %.pre-phi362.i.i, %185 ], [ %.pre-phi362.i.i, %146 ], [ %21, %260 ], [ %21, %.preheader.i.i.i.i.i190.i.i ], [ %.pre-phi362.i.i, %171 ], [ %21, %.loopexit.i199.i.i ], [ %.pre-phi362.i.i, %182 ], [ %21, %298 ], [ %21, %287 ]
+  %.sroa.11.3 = phi i8 [ %.sroa.11.1, %.thread-pre-split_crit_edge.i.i ], [ %.sroa.11.1, %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit.i.i ], [ 1, %._crit_edge.i.i ], [ 0, %.preheader.i.i.i.i.i146.i.i ], [ 0, %171 ], [ %189, %.loopexit.i155.i.i ], [ 0, %262 ], [ 0, %301 ], [ 0, %146 ], [ 1, %260 ], [ 0, %.preheader.i.i.i.i.i190.i.i ], [ 0, %185 ], [ %305, %.loopexit.i199.i.i ], [ 0, %182 ], [ 0, %298 ], [ 0, %287 ]
+  %.pr.i.i = phi i32 [ %.pr.pre.i.i, %.thread-pre-split_crit_edge.i.i ], [ %21, %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit.i.i ], [ %.pre-phi362.i.i, %._crit_edge.i.i ], [ %.pre-phi362.i.i, %.preheader.i.i.i.i.i146.i.i ], [ %.pre-phi362.i.i, %171 ], [ %.pre-phi362.i.i, %.loopexit.i155.i.i ], [ %21, %262 ], [ %21, %301 ], [ %.pre-phi362.i.i, %146 ], [ %21, %260 ], [ %21, %.preheader.i.i.i.i.i190.i.i ], [ %.pre-phi362.i.i, %185 ], [ %21, %.loopexit.i199.i.i ], [ %.pre-phi362.i.i, %182 ], [ %21, %298 ], [ %21, %287 ]
   %17 = icmp eq i32 %.pr.i.i, 0
   br i1 %17, label %312, label %.preheader.i.i
 
@@ -1770,7 +1770,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i133.i.i: ; preds = %.noexc1
           to label %_ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit81.i.i unwind label %54
 
 _ZN12_GLOBAL__N_115formula_checkerclEP4expr.exit81.i.i: ; preds = %106, %120, %117, %142, %.loopexit.i116.i.i, %.preheader.i.i.i.i.i107.i.i, %84, %.thread228.i.i, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58.i.i
-  %.sroa.11.6 = phi i8 [ %.sroa.11.5, %142 ], [ %.sroa.11.5, %.thread228.i.i ], [ 1, %84 ], [ 0, %.preheader.i.i.i.i.i107.i.i ], [ %.sroa.11.5, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58.i.i ], [ %124, %.loopexit.i116.i.i ], [ 0, %120 ], [ 0, %117 ], [ 0, %106 ]
+  %.sroa.11.6 = phi i8 [ %.sroa.11.5, %142 ], [ %.sroa.11.5, %.thread228.i.i ], [ 1, %84 ], [ 0, %.preheader.i.i.i.i.i107.i.i ], [ 0, %120 ], [ %124, %.loopexit.i116.i.i ], [ %.sroa.11.5, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58.i.i ], [ 0, %117 ], [ 0, %106 ]
   %143 = load i32, ptr %33, align 8, !tbaa !96
   %144 = icmp ult i32 %143, %32
   br i1 %144, label %37, label %._crit_edge293.i.i

@@ -587,7 +587,7 @@ define range(i32 0, 2) i32 @Hop_ObjRecognizeExor(ptr noundef readonly captures(n
   br label %43
 
 43:                                               ; preds = %.sink.split, %28, %34, %18, %25, %11, %14, %3
-  %.0 = phi i32 [ 0, %34 ], [ 0, %18 ], [ 0, %28 ], [ 0, %25 ], [ 0, %11 ], [ 0, %3 ], [ 0, %14 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %25 ], [ 0, %18 ], [ 0, %28 ], [ 0, %34 ], [ 0, %11 ], [ 0, %3 ], [ 0, %14 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 

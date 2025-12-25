@@ -4820,8 +4820,8 @@ common.resume:                                    ; preds = %34, %"_ZN63_$LT$all
   br label %.loopexit69.i
 
 .loopexit.i:                                      ; preds = %234, %118, %74, %.sink.split.i.us.i, %174, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i"
-  %249 = phi i64 [ %70, %118 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %70, %174 ], [ %70, %.sink.split.i.us.i ], [ %70, %74 ], [ %180, %234 ]
-  %.sroa.0.0110.i = phi i64 [ %.sroa.0.0.us.i, %118 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %.sroa.0.0.us.i, %174 ], [ %.sroa.0.0.us.i, %.sink.split.i.us.i ], [ %.sroa.0.0.us.i, %74 ], [ %.sroa.0.0146.i, %234 ]
+  %249 = phi i64 [ %70, %118 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %70, %.sink.split.i.us.i ], [ %70, %174 ], [ %70, %74 ], [ %180, %234 ]
+  %.sroa.0.0110.i = phi i64 [ %.sroa.0.0.us.i, %118 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %.sroa.0.0.us.i, %.sink.split.i.us.i ], [ %.sroa.0.0.us.i, %174 ], [ %.sroa.0.0.us.i, %74 ], [ %.sroa.0.0146.i, %234 ]
   %gepdiff64.i = sub nsw i64 %.sroa.10.0.copyload, %.sroa.0.0110.i
   %250 = load i64, ptr %7, align 8, !alias.scope !1571, !noalias !1511, !noundef !5
   %251 = sub i64 %250, %249

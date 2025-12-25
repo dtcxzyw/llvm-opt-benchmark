@@ -1111,7 +1111,7 @@ shape_get_iv_index.exit.sink.split.i57:           ; preds = %148, %shape_cache_g
   br label %rb_shape_get_iv_index.exit
 
 rb_shape_get_iv_index.exit:                       ; preds = %133, %tailrecurse.backedge.i.i.i62, %125, %152, %148, %148, %34, %tailrecurse.backedge.i.i.i, %26, %53, %49, %49, %shape_get_iv_index.exit.sink.split.i57, %.thread.i51, %shape_get_iv_index.exit.sink.split.i, %.thread.i, %86, %96
-  %.042 = phi i1 [ false, %53 ], [ true, %86 ], [ true, %96 ], [ true, %shape_get_iv_index.exit.sink.split.i ], [ false, %152 ], [ true, %shape_get_iv_index.exit.sink.split.i57 ], [ false, %.thread.i ], [ false, %.thread.i51 ], [ false, %34 ], [ false, %49 ], [ false, %49 ], [ false, %26 ], [ false, %tailrecurse.backedge.i.i.i ], [ false, %148 ], [ false, %148 ], [ false, %125 ], [ false, %tailrecurse.backedge.i.i.i62 ], [ false, %133 ]
+  %.042 = phi i1 [ false, %.thread.i51 ], [ true, %86 ], [ true, %96 ], [ true, %shape_get_iv_index.exit.sink.split.i ], [ false, %34 ], [ true, %shape_get_iv_index.exit.sink.split.i57 ], [ false, %.thread.i ], [ false, %53 ], [ false, %152 ], [ false, %49 ], [ false, %49 ], [ false, %26 ], [ false, %tailrecurse.backedge.i.i.i ], [ false, %148 ], [ false, %148 ], [ false, %125 ], [ false, %tailrecurse.backedge.i.i.i62 ], [ false, %133 ]
   ret i1 %.042
 }
 
@@ -1223,7 +1223,7 @@ shape_get_iv_index.exit.sink.split:               ; preds = %40, %shape_cache_ge
   br label %shape_get_iv_index.exit
 
 shape_get_iv_index.exit:                          ; preds = %17, %25, %tailrecurse.backedge.i.i, %44, %40, %40, %shape_get_iv_index.exit.sink.split, %.thread
-  %.0 = phi i1 [ false, %44 ], [ true, %shape_get_iv_index.exit.sink.split ], [ false, %.thread ], [ false, %40 ], [ false, %40 ], [ false, %tailrecurse.backedge.i.i ], [ false, %25 ], [ false, %17 ]
+  %.0 = phi i1 [ false, %44 ], [ false, %.thread ], [ true, %shape_get_iv_index.exit.sink.split ], [ false, %40 ], [ false, %40 ], [ false, %tailrecurse.backedge.i.i ], [ false, %25 ], [ false, %17 ]
   ret i1 %.0
 }
 

@@ -5374,7 +5374,7 @@ decode_slice.exit.i:                              ; preds = %hevc_frame_start.ex
   br label %decode_nal_unit.exit.thread
 
 decode_slice.exit.thread.i:                       ; preds = %decode_slice.exit.i, %2022, %1777, %1698, %1465, %256, %252, %246, %242, %233
-  %.0.i = phi i32 [ %238, %233 ], [ %244, %242 ], [ %250, %246 ], [ %254, %252 ], [ %258, %256 ], [ %2032, %decode_slice.exit.i ], [ %.0.i.ph.i.i, %1465 ], [ %1780, %1777 ], [ %.030.i.ph.i.i.i, %1698 ], [ %.0211.i.i.i, %2022 ]
+  %.0.i = phi i32 [ %238, %233 ], [ %244, %242 ], [ %250, %246 ], [ %254, %252 ], [ %258, %256 ], [ %2032, %decode_slice.exit.i ], [ %.030.i.ph.i.i.i, %1698 ], [ %1780, %1777 ], [ %.0.i.ph.i.i, %1465 ], [ %.0211.i.i.i, %2022 ]
   %2036 = icmp eq i32 %.0.i, -1094995529
   br i1 %2036, label %decode_slice.exit.thread.thread.i, label %.loopexit133
 
@@ -5396,7 +5396,7 @@ decode_nal_unit.exit.thread:                      ; preds = %2034, %2041, %240, 
   br label %2045
 
 .loopexit133:                                     ; preds = %1699, %decode_slice.exit.thread.i, %decode_slice.exit.thread.thread.i, %1584
-  %.049.i = phi i32 [ -38, %1584 ], [ %1587, %1699 ], [ %.0.i, %decode_slice.exit.thread.i ], [ -1094995529, %decode_slice.exit.thread.thread.i ]
+  %.049.i = phi i32 [ -38, %1584 ], [ -1094995529, %decode_slice.exit.thread.thread.i ], [ %.0.i, %decode_slice.exit.thread.i ], [ %1587, %1699 ]
   %2043 = trunc i64 %indvars.iv191 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %2044 = load ptr, ptr %33, align 8, !tbaa !76
@@ -8411,7 +8411,7 @@ split:                                            ; preds = %86, %._crit_edge225
   br label %.thread
 
 .thread:                                          ; preds = %81, %118, %52, %.thread234, %110, %117, %112, %split
-  %.2 = phi i32 [ %.1143.ph, %split ], [ 0, %.thread234 ], [ %103, %117 ], [ 0, %112 ], [ 0, %110 ], [ 0, %52 ], [ 0, %118 ], [ 0, %81 ]
+  %.2 = phi i32 [ %.1143.ph, %split ], [ 0, %110 ], [ %103, %117 ], [ 0, %112 ], [ 0, %.thread234 ], [ 0, %52 ], [ 0, %118 ], [ 0, %81 ]
   %127 = load ptr, ptr %56, align 8, !tbaa !190
   %128 = getelementptr inbounds %struct.ThreadProgress, ptr %127, i64 %39
   tail call void @ff_thread_progress_report(ptr noundef %128, i32 noundef 2147483647) #15

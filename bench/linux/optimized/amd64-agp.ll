@@ -408,7 +408,7 @@ define internal range(i32 -2147483648, 1) i32 @agp_amd64_probe(ptr noundef %0, p
   %131 = call i32 @pci_write_config_dword(ptr noundef %74, i32 noundef 148, i32 noundef %130) #6
   br label %.critedge
 
-.critedge17:                                      ; preds = %122, %119
+.critedge17:                                      ; preds = %119, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

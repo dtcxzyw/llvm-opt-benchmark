@@ -1946,8 +1946,8 @@ lag_pred_line_yuy2.exit:                          ; preds = %mid_pred.exit.i, %6
   %exitcond358.not = icmp eq i32 %729, %3
   br i1 %exitcond358.not, label %lag_read_prob_header.exit.thread, label %666, !llvm.loop !86
 
-lag_read_prob_header.exit.thread:                 ; preds = %594, %lag_decode_zero_run_line.exit, %553, %533, %338, %lag_pred_line.exit, %lag_pred_line_yuy2.exit, %.preheader176, %.preheader166, %.preheader, %522, %.critedge.sink.split.i, %187, %.loopexit.i, %._crit_edge.i, %579, %29, %21, %7, %598
-  %.0 = phi i32 [ -1094995529, %598 ], [ -1094995529, %7 ], [ -1094995529, %21 ], [ -1094995529, %29 ], [ -1094995529, %.critedge.sink.split.i ], [ -1094995529, %338 ], [ 0, %lag_pred_line.exit ], [ 0, %.preheader ], [ -1094995529, %579 ], [ 0, %lag_pred_line_yuy2.exit ], [ -1094995529, %533 ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %.loopexit.i ], [ -1094995529, %187 ], [ -1094995529, %522 ], [ 0, %.preheader166 ], [ 0, %.preheader176 ], [ %574, %lag_decode_zero_run_line.exit ], [ -1094995529, %553 ], [ 0, %594 ]
+lag_read_prob_header.exit.thread:                 ; preds = %594, %lag_decode_zero_run_line.exit, %553, %533, %338, %lag_pred_line.exit, %lag_pred_line_yuy2.exit, %.preheader176, %.preheader166, %.preheader, %522, %.critedge.sink.split.i, %._crit_edge.i, %.loopexit.i, %187, %579, %29, %21, %7, %598
+  %.0 = phi i32 [ -1094995529, %598 ], [ -1094995529, %7 ], [ -1094995529, %21 ], [ -1094995529, %29 ], [ -1094995529, %.critedge.sink.split.i ], [ -1094995529, %338 ], [ 0, %lag_pred_line.exit ], [ 0, %.preheader ], [ -1094995529, %579 ], [ 0, %lag_pred_line_yuy2.exit ], [ -1094995529, %533 ], [ -1094995529, %187 ], [ -1094995529, %.loopexit.i ], [ -1094995529, %._crit_edge.i ], [ -1094995529, %522 ], [ 0, %.preheader166 ], [ 0, %.preheader176 ], [ %574, %lag_decode_zero_run_line.exit ], [ -1094995529, %553 ], [ 0, %594 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0

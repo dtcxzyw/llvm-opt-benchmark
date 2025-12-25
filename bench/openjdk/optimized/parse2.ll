@@ -8795,7 +8795,7 @@ _ZN4NodenwEm.exit:                                ; preds = %184, %186
   br label %_ZNK8GraphKit15record_for_igvnEP4Node.exit
 
 219:                                              ; preds = %189, %200
-  %.0 = phi ptr [ %198, %200 ], [ %.0.i.i.i, %189 ]
+  %.0 = phi ptr [ %.0.i.i.i, %189 ], [ %198, %200 ]
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 40

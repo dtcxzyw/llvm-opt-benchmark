@@ -423,7 +423,7 @@ fddifc_to_str.exit:                               ; preds = %4, %24, %25, %26, %
   br label %92
 
 92:                                               ; preds = %.sink.split, %58, %84, %85, %fddifc_to_str.exit
-  %.0 = phi ptr [ %65, %58 ], [ null, %fddifc_to_str.exit ], [ %65, %85 ], [ %65, %84 ], [ %65, %.sink.split ]
+  %.0 = phi ptr [ %65, %58 ], [ %65, %85 ], [ null, %fddifc_to_str.exit ], [ %65, %84 ], [ %65, %.sink.split ]
   %93 = load i8, ptr @fddi_padding, align 1, !range !6, !noundef !7
   %94 = trunc nuw i8 %93 to i1
   %95 = select i1 %94, i32 4, i32 1

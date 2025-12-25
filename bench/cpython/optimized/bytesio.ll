@@ -2228,7 +2228,7 @@ Py_DECREF.exit45.i:                               ; preds = %scan_eol.exit.threa
   br label %_io_BytesIO_readlines_impl.exit
 
 _io_BytesIO_readlines_impl.exit:                  ; preds = %96, %Py_DECREF.exit43.i, %scan_eol.exit.i, %.lr.ph.split.i, %Py_DECREF.exit43.us.i, %scan_eol.exit.us.i, %.lr.ph.split.us.i, %104, %101, %Py_DECREF.exit45.i, %32, %30, %25, %21, %check_closed.exit.i, %4
-  %.08 = phi ptr [ null, %4 ], [ null, %25 ], [ null, %check_closed.exit.i ], [ null, %104 ], [ null, %30 ], [ null, %21 ], [ null, %101 ], [ null, %Py_DECREF.exit45.i ], [ %31, %32 ], [ %31, %Py_DECREF.exit43.us.i ], [ %31, %.lr.ph.split.us.i ], [ %31, %scan_eol.exit.us.i ], [ %31, %.lr.ph.split.i ], [ %31, %scan_eol.exit.i ], [ %31, %Py_DECREF.exit43.i ], [ %31, %96 ]
+  %.08 = phi ptr [ null, %4 ], [ null, %25 ], [ null, %check_closed.exit.i ], [ null, %104 ], [ null, %30 ], [ null, %21 ], [ null, %Py_DECREF.exit45.i ], [ null, %101 ], [ %31, %32 ], [ %31, %Py_DECREF.exit43.us.i ], [ %31, %.lr.ph.split.us.i ], [ %31, %scan_eol.exit.us.i ], [ %31, %.lr.ph.split.i ], [ %31, %scan_eol.exit.i ], [ %31, %Py_DECREF.exit43.i ], [ %31, %96 ]
   ret ptr %.08
 }
 

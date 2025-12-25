@@ -8975,7 +8975,7 @@ _ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   br i1 %.not.i, label %_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_EC2EPS4_RS1_.exit.backedge, label %132
 
 _ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_EC2EPS4_RS1_.exit.backedge: ; preds = %130, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i, %_ZN11ast_manager7inc_refEP3ast.exit.i.i49
-  %.be = phi ptr [ %140, %_ZN11ast_manager7inc_refEP3ast.exit.i.i49 ], [ null, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i ], [ %107, %130 ]
+  %.be = phi ptr [ null, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i ], [ %140, %_ZN11ast_manager7inc_refEP3ast.exit.i.i49 ], [ %107, %130 ]
   br label %_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_EC2EPS4_RS1_.exit
 
 132:                                              ; preds = %130

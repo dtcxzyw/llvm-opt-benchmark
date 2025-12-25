@@ -19443,7 +19443,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit877: ; preds = %_ZN4cvc58internal1
   br label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit272.thread
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit272.thread: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit726, %1340, %499, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIiSaIiEESt4lessIS3_ESaISt4pairIKS3_S6_EEEixERSA_.exit754, %.critedge239, %1613, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit294, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit272
-  %.0 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit272 ], [ %., %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit294 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 1, %.critedge239 ], [ 1, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIiSaIiEESt4lessIS3_ESaISt4pairIKS3_S6_EEEixERSA_.exit754 ], [ 0, %1613 ], [ 1, %499 ], [ 1, %1340 ], [ 1, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit726 ]
+  %.0 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit272 ], [ %., %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit294 ], [ 1, %.critedge239 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 1, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIiSaIiEESt4lessIS3_ESaISt4pairIKS3_S6_EEEixERSA_.exit754 ], [ 0, %1613 ], [ 1, %499 ], [ 1, %1340 ], [ 1, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit726 ]
   ret i32 %.0
 
 1615:                                             ; preds = %381, %498, %1341, %1614, %170, %168

@@ -41647,7 +41647,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br i1 %.not1482, label %.loopexit1500, label %184
 
 .critedge:                                        ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, %175, %.loopexit1500, %857, %2, %.preheader
-  %.0 = phi i1 [ true, %.preheader ], [ false, %2 ], [ true, %175 ], [ false, %857 ], [ true, %.loopexit1500 ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
+  %.0 = phi i1 [ true, %.preheader ], [ false, %2 ], [ false, %857 ], [ true, %175 ], [ true, %.loopexit1500 ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
   %1079 = load ptr, ptr %18, align 8, !tbaa !87
   %1080 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1081 = load ptr, ptr %1080, align 8, !tbaa !86
@@ -43044,7 +43044,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %210
   br label %237
 
 .critedge:                                        ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, %.loopexit113, %59, %2, %.preheader
-  %220 = phi i1 [ true, %.preheader ], [ true, %.loopexit113 ], [ false, %2 ], [ true, %59 ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
+  %220 = phi i1 [ true, %.preheader ], [ false, %2 ], [ true, %.loopexit113 ], [ true, %59 ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
   %221 = load ptr, ptr %8, align 8, !tbaa !87
   %222 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %223 = load ptr, ptr %222, align 8, !tbaa !86

@@ -704,7 +704,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   br i1 %434, label %572, label %.loopexit
 
 .loopexit:                                        ; preds = %75, %106, %95, %203, %267, %298, %287, %398, %.critedge46, %338, %.critedge42, %241, %146, %.critedge, %52
-  %435 = phi i32 [ %54, %52 ], [ -22, %241 ], [ %433, %.critedge46 ], [ -12, %.critedge ], [ -12, %146 ], [ -12, %.critedge42 ], [ -12, %338 ], [ -22, %398 ], [ -22, %298 ], [ -22, %106 ], [ -22, %267 ], [ -22, %203 ], [ -22, %287 ], [ -22, %95 ], [ -22, %75 ]
+  %435 = phi i32 [ %54, %52 ], [ -22, %241 ], [ %433, %.critedge46 ], [ -12, %.critedge ], [ -12, %146 ], [ -12, %.critedge42 ], [ -12, %338 ], [ -22, %106 ], [ -22, %267 ], [ -22, %203 ], [ -22, %398 ], [ -22, %298 ], [ -22, %287 ], [ -22, %95 ], [ -22, %75 ]
   call void @cipso_v4_doi_free(ptr noundef nonnull %44) #8
   br label %.thread
 

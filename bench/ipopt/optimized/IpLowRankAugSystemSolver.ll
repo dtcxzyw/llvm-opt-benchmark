@@ -3112,8 +3112,8 @@ _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit298: ; preds = %615, %689,
   br label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit268
 
 _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit268: ; preds = %609, %611, %.body271, %703, %.body233, %552
-  %.sroa.0363.1 = phi ptr [ %.sroa.0363.4, %552 ], [ %.sroa.0363.2, %703 ], [ %.sroa.0363.2, %609 ], [ %.sroa.0363.2, %611 ], [ %.sroa.0363.2, %.body271 ], [ %.sroa.0363.4, %.body233 ]
-  %.pn157 = phi { ptr, i32 } [ %.pn143.pn.pn.pn.pn, %552 ], [ %.pn151.pn.pn.pn, %703 ], [ %610, %609 ], [ %612, %611 ], [ %.pn151.pn.pn.pn, %.body271 ], [ %.pn143.pn.pn.pn.pn, %.body233 ]
+  %.sroa.0363.1 = phi ptr [ %.sroa.0363.4, %552 ], [ %.sroa.0363.2, %703 ], [ %.sroa.0363.2, %.body271 ], [ %.sroa.0363.2, %611 ], [ %.sroa.0363.2, %609 ], [ %.sroa.0363.4, %.body233 ]
+  %.pn157 = phi { ptr, i32 } [ %.pn143.pn.pn.pn.pn, %552 ], [ %.pn151.pn.pn.pn, %703 ], [ %.pn151.pn.pn.pn, %.body271 ], [ %612, %611 ], [ %610, %609 ], [ %.pn143.pn.pn.pn.pn, %.body233 ]
   %.not.i.i303 = icmp eq ptr %.sroa.0363.1, null
   br i1 %.not.i.i303, label %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit304, label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit268.thread438
 

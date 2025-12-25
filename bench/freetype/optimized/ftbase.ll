@@ -8577,7 +8577,7 @@ FT_MulDiv.exit122:                                ; preds = %111, %113
   br label %208
 
 208:                                              ; preds = %.sink.split, %147, %.thread149, %79
-  %.195 = phi i32 [ 23, %147 ], [ 133, %.thread149 ], [ 133, %79 ], [ 0, %.sink.split ]
+  %.195 = phi i32 [ 133, %.thread149 ], [ 23, %147 ], [ 133, %79 ], [ 0, %.sink.split ]
   ret i32 %.195
 }
 
@@ -9050,7 +9050,7 @@ find_unicode_charmap.exit.sink.split:             ; preds = %24, %28, %34, %.lr.
   br label %find_unicode_charmap.exit
 
 find_unicode_charmap.exit:                        ; preds = %.preheader.i, %48, %find_unicode_charmap.exit.sink.split, %42, %7, %39, %4, %2
-  %.0 = phi i32 [ 6, %48 ], [ 0, %find_unicode_charmap.exit.sink.split ], [ 38, %39 ], [ 6, %4 ], [ 35, %2 ], [ 6, %42 ], [ 38, %7 ], [ 38, %.preheader.i ]
+  %.0 = phi i32 [ 0, %find_unicode_charmap.exit.sink.split ], [ 6, %48 ], [ 38, %39 ], [ 6, %4 ], [ 35, %2 ], [ 38, %7 ], [ 6, %42 ], [ 38, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -9524,8 +9524,8 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
   br i1 %.not.i, label %ft_mem_qrealloc.exit, label %52
 
 ft_mem_qrealloc.exit:                             ; preds = %41, %46, %23, %37
-  %.033.i = phi i32 [ 64, %46 ], [ 10, %37 ], [ 6, %23 ], [ 64, %41 ]
-  %.0.i = phi ptr [ %30, %46 ], [ %30, %37 ], [ %30, %23 ], [ null, %41 ]
+  %.033.i = phi i32 [ 10, %37 ], [ 64, %46 ], [ 6, %23 ], [ 64, %41 ]
+  %.0.i = phi ptr [ %30, %37 ], [ %30, %46 ], [ %30, %23 ], [ null, %41 ]
   store ptr %.0.i, ptr %29, align 8, !tbaa !337
   br label %58
 
@@ -18266,7 +18266,7 @@ select.unfold:                                    ; preds = %ft_mem_qalloc.exit.
   store ptr %.lcssa.sink.i, ptr %93, align 8, !tbaa !291
   br label %ft_mem_alloc.exit.thread101
 
-.preheader.i71:                                   ; preds = %54, %28
+.preheader.i71:                                   ; preds = %28, %54
   %.08098121 = phi i32 [ %.1, %54 ], [ 64, %28 ]
   %94 = getelementptr inbounds nuw i8, ptr %.0.i17.i.ph, i64 72
   %95 = load i32, ptr %94, align 8, !tbaa !336

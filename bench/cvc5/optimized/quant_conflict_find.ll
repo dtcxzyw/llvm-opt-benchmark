@@ -18153,9 +18153,9 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_to
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit79
 
 149:                                              ; preds = %81, %133, %104, %79, %77, %.loopexit.split-lp, %.loopexit
-  %.sroa.21.1 = phi ptr [ %.sroa.21.0, %104 ], [ %.sroa.21.0, %133 ], [ %.sroa.21.0, %81 ], [ %.sroa.21.0, %79 ], [ %.sroa.21.0, %77 ], [ %.sroa.11.1154, %.loopexit ], [ %.sroa.11.1154, %.loopexit.split-lp ]
-  %.sroa.0107.1 = phi ptr [ %.sroa.0107.0, %104 ], [ %.sroa.0107.0, %133 ], [ %.sroa.0107.0, %81 ], [ %.sroa.0107.0, %79 ], [ %.sroa.0107.0, %77 ], [ %.sroa.0107.4155, %.loopexit ], [ %.sroa.0107.4155, %.loopexit.split-lp ]
-  %.pn22.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %105, %104 ], [ %134, %133 ], [ %82, %81 ], [ %80, %79 ], [ %78, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.21.1 = phi ptr [ %.sroa.21.0, %81 ], [ %.sroa.21.0, %133 ], [ %.sroa.21.0, %104 ], [ %.sroa.21.0, %79 ], [ %.sroa.21.0, %77 ], [ %.sroa.11.1154, %.loopexit ], [ %.sroa.11.1154, %.loopexit.split-lp ]
+  %.sroa.0107.1 = phi ptr [ %.sroa.0107.0, %81 ], [ %.sroa.0107.0, %133 ], [ %.sroa.0107.0, %104 ], [ %.sroa.0107.0, %79 ], [ %.sroa.0107.0, %77 ], [ %.sroa.0107.4155, %.loopexit ], [ %.sroa.0107.4155, %.loopexit.split-lp ]
+  %.pn22.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %134, %133 ], [ %105, %104 ], [ %80, %79 ], [ %78, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %150 = ptrtoint ptr %.sroa.21.1 to i64
   %151 = ptrtoint ptr %.sroa.0107.1 to i64
@@ -21317,8 +21317,8 @@ _ZNSt6vectorImSaImEED2Ev.exit755:                 ; preds = %1054, %1058
   br label %1294
 
 .loopexit1661:                                    ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit, %799, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit.thread, %.thread2206, %3, %1048
-  %.0155 = phi i8 [ 0, %3 ], [ 1, %1048 ], [ 0, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit.thread ], [ 0, %.thread2206 ], [ 0, %799 ], [ 0, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit ]
-  %.0150 = phi i8 [ 1, %3 ], [ 0, %1048 ], [ 0, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit.thread ], [ 0, %.thread2206 ], [ 0, %799 ], [ 0, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit ]
+  %.0155 = phi i8 [ 0, %3 ], [ 1, %1048 ], [ 0, %.thread2206 ], [ 0, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit.thread ], [ 0, %799 ], [ 0, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit ]
+  %.0150 = phi i8 [ 1, %3 ], [ 0, %1048 ], [ 0, %.thread2206 ], [ 0, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit.thread ], [ 0, %799 ], [ 0, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit ]
   %1066 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %1067 = load ptr, ptr %1066, align 8, !tbaa !177
   %1068 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -21823,8 +21823,8 @@ _ZNSt3mapIN4cvc58internal8TypeNodeESt6vectorINS1_12NodeTemplateILb0EEESaIS5_EESt
   br i1 %1284, label %1272, label %.backedge2554, !llvm.loop !745
 
 .backedge2554:                                    ; preds = %1115, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %1147, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i811, %1171, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i819, %1210, %1194, %1269, %1250, %1277, %1280, %.thread1631
-  %.0170.be = phi i8 [ 0, %.thread1631 ], [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i811 ], [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i819 ], [ 1, %1250 ], [ 0, %1194 ], [ 0, %1115 ], [ 0, %1147 ], [ 0, %1171 ], [ 0, %1269 ], [ 0, %1210 ], [ 0, %1277 ], [ 0, %1280 ]
-  %.19.be = phi i8 [ 1, %.thread1631 ], [ %.19, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i811 ], [ %.19, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.19, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i819 ], [ %.19, %1250 ], [ %.19, %1194 ], [ %.19, %1115 ], [ %.19, %1147 ], [ %.19, %1171 ], [ %.19, %1269 ], [ %.19, %1210 ], [ %.19, %1280 ], [ 0, %1277 ]
+  %.0170.be = phi i8 [ 0, %.thread1631 ], [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i811 ], [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i819 ], [ 0, %1194 ], [ 1, %1250 ], [ 0, %1115 ], [ 0, %1147 ], [ 0, %1171 ], [ 0, %1269 ], [ 0, %1210 ], [ 0, %1277 ], [ 0, %1280 ]
+  %.19.be = phi i8 [ 1, %.thread1631 ], [ %.19, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i811 ], [ %.19, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.19, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i819 ], [ %.19, %1194 ], [ %.19, %1250 ], [ %.19, %1115 ], [ %.19, %1147 ], [ %.19, %1171 ], [ %.19, %1269 ], [ %.19, %1210 ], [ %.19, %1280 ], [ 0, %1277 ]
   %.2.be = phi i8 [ 1, %.thread1631 ], [ 0, %1280 ], [ 0, %1277 ], [ 0, %1250 ], [ 0, %1269 ], [ 0, %1194 ], [ 0, %1210 ], [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i819 ], [ 0, %1171 ], [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i811 ], [ 0, %1147 ], [ 0, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ 0, %1115 ]
   br label %1083, !llvm.loop !746
 
@@ -22917,8 +22917,8 @@ _ZNKSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4cvc58internal6theory11quantifiers8Ma
   br label %.critedge6
 
 .critedge6:                                       ; preds = %150, %134, %.critedge8.backedge, %.critedge6.sink.split, %128
-  %.2865 = phi i1 [ true, %.critedge6.sink.split ], [ false, %128 ], [ false, %.critedge8.backedge ], [ false, %134 ], [ false, %150 ]
-  %.7 = phi i8 [ %.7.ph, %.critedge6.sink.split ], [ 0, %128 ], [ 1, %150 ], [ 0, %134 ], [ 0, %.critedge8.backedge ]
+  %.2865 = phi i1 [ false, %128 ], [ true, %.critedge6.sink.split ], [ false, %.critedge8.backedge ], [ false, %134 ], [ false, %150 ]
+  %.7 = phi i8 [ 0, %128 ], [ %.7.ph, %.critedge6.sink.split ], [ 1, %150 ], [ 0, %134 ], [ 0, %.critedge8.backedge ]
   br label %.preheader, !llvm.loop !761
 
 154:                                              ; preds = %.thread871

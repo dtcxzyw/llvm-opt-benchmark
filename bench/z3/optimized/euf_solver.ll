@@ -10683,7 +10683,7 @@ _ZNK6vectorIPN3euf9th_solverELb0EjE3getEjRKS2_.exit.cont: ; preds = %_ZNK6vector
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %86, %.lr.ph, %.loopexit.sink.split, %69, %7
-  %.0 = phi i1 [ false, %7 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph ], [ false, %69 ], [ false, %.critedge ], [ true, %86 ]
+  %.0 = phi i1 [ false, %7 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph ], [ false, %69 ], [ true, %86 ], [ false, %.critedge ]
   ret i1 %.0
 }
 

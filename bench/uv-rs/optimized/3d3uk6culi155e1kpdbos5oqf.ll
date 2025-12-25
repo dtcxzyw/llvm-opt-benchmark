@@ -36172,7 +36172,7 @@ _ZN3log13__private_api3log17h44c5c005271c63c8E.exit: ; preds = %54
   br label %163
 
 .loopexit.split-lp:                               ; preds = %.invoke, %169, %191, %203, %176, %198
-  %.sroa.05.2.ph = phi i1 [ true, %176 ], [ true, %191 ], [ true, %198 ], [ false, %203 ], [ true, %.invoke ], [ true, %169 ]
+  %.sroa.05.2.ph = phi i1 [ true, %.invoke ], [ true, %191 ], [ true, %198 ], [ false, %203 ], [ true, %176 ], [ true, %169 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %163

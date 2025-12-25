@@ -929,7 +929,7 @@ tcp_ping6.exit:                                   ; preds = %54, %62, %70, %85, 
   br i1 %172, label %141, label %ping6.exit, !llvm.loop !13
 
 ping6.exit:                                       ; preds = %147, %147, %.thread.i, %166, %168, %109, %117, %124, %150
-  %.0.i35 = phi i8 [ 0, %109 ], [ 0, %117 ], [ 0, %124 ], [ 1, %166 ], [ 0, %150 ], [ 1, %168 ], [ 0, %.thread.i ], [ 0, %147 ], [ 0, %147 ]
+  %.0.i35 = phi i8 [ 0, %109 ], [ 0, %117 ], [ 0, %124 ], [ 0, %150 ], [ 1, %166 ], [ 1, %168 ], [ 0, %.thread.i ], [ 0, %147 ], [ 0, %147 ]
   %173 = call i32 @close(i32 noundef range(i32 0, -1) %49) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

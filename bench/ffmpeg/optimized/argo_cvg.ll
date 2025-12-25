@@ -563,7 +563,7 @@ define internal range(i32 -22, 1) i32 @argo_cvg_write_init(ptr noundef %0) #0 {
   br label %26
 
 26:                                               ; preds = %.sink.split, %20, %11
-  %.0 = phi i32 [ 0, %20 ], [ -22, %11 ], [ -22, %.sink.split ]
+  %.0 = phi i32 [ -22, %11 ], [ 0, %20 ], [ -22, %.sink.split ]
   ret i32 %.0
 }
 

@@ -15721,7 +15721,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i: ; preds = %_ZN5alloc6st
   br label %.body60.i
 
 .loopexit.split-lp.i207:                          ; preds = %.noexc70.i, %742, %694, %613
-  %.sroa.029.0.ph.i = phi i1 [ false, %.noexc70.i ], [ true, %694 ], [ false, %742 ], [ true, %613 ]
+  %.sroa.029.0.ph.i = phi i1 [ false, %742 ], [ true, %694 ], [ false, %.noexc70.i ], [ true, %613 ]
   %lpad.loopexit.split-lp.i208 = landingpad { ptr, i32 }
           cleanup
   br label %.body60.i
@@ -16254,7 +16254,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i.backedge: ; preds = %"_Z
   br label %.body.i243
 
 .loopexit.split-lp.i245:                          ; preds = %.noexc60.i, %893, %869, %774
-  %.sroa.026.0.ph.i = phi i1 [ true, %869 ], [ true, %774 ], [ false, %893 ], [ false, %.noexc60.i ]
+  %.sroa.026.0.ph.i = phi i1 [ true, %869 ], [ false, %893 ], [ true, %774 ], [ false, %.noexc60.i ]
   %lpad.loopexit.split-lp.i246 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i243
@@ -19785,7 +19785,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i: ; preds = %_ZN5alloc6st
   br label %.body60.i
 
 .loopexit.split-lp.i207:                          ; preds = %.noexc70.i, %742, %694, %613
-  %.sroa.029.0.ph.i = phi i1 [ false, %.noexc70.i ], [ true, %694 ], [ false, %742 ], [ true, %613 ]
+  %.sroa.029.0.ph.i = phi i1 [ false, %742 ], [ true, %694 ], [ false, %.noexc70.i ], [ true, %613 ]
   %lpad.loopexit.split-lp.i208 = landingpad { ptr, i32 }
           cleanup
   br label %.body60.i
@@ -20318,7 +20318,7 @@ _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i.backedge: ; preds = %"_Z
   br label %.body.i243
 
 .loopexit.split-lp.i245:                          ; preds = %.noexc60.i, %893, %869, %774
-  %.sroa.026.0.ph.i = phi i1 [ true, %869 ], [ true, %774 ], [ false, %893 ], [ false, %.noexc60.i ]
+  %.sroa.026.0.ph.i = phi i1 [ true, %869 ], [ false, %893 ], [ true, %774 ], [ false, %.noexc60.i ]
   %lpad.loopexit.split-lp.i246 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i243

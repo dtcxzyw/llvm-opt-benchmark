@@ -906,8 +906,8 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit: ; preds = %_ZN4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread50
 
-.thread50:                                        ; preds = %34, %32, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit
-  %.4 = phi ptr [ %76, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit ], [ %18, %32 ], [ %18, %34 ]
+.thread50:                                        ; preds = %32, %34, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit
+  %.4 = phi ptr [ %76, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit ], [ %18, %34 ], [ %18, %32 ]
   ret ptr %.4
 }
 
@@ -4369,7 +4369,7 @@ _ZNK4llvm5APInt8logBase2Ev.exit31:                ; preds = %150, %161
   %170 = call noundef ptr @_ZN4llvm12SCEVExpander11InsertBinopENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_4SCEV11NoWrapFlagsEb(ptr noundef nonnull align 8 dereferenceable(792) %0, i32 noundef 25, ptr noundef %.2, ptr noundef %169, i32 noundef %spec.select170, i1 noundef zeroext true)
   br label %"_ZZN4llvm12SCEVExpander12visitMulExprEPKNS_11SCEVMulExprEENK3$_0clEv.exit"
 
-171:                                              ; preds = %131, %141, %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread.i, %138, %129
+171:                                              ; preds = %141, %131, %_ZN4llvm12PatternMatch9is_power27isValueERKNS_5APIntE.exit.thread.i, %138, %129
   %172 = load i16, ptr %33, align 4, !tbaa !384
   %173 = and i16 %172, 7
   %174 = zext nneg i16 %173 to i32
@@ -6101,9 +6101,9 @@ _ZNK4llvm7PHINode10isCompleteEv.exit:             ; preds = %142
   store i8 0, ptr %4, align 1, !tbaa !420
   br label %.loopexit266
 
-_ZL23canBeCheaplyTransformedRN4llvm15ScalarEvolutionEPKNS_14SCEVAddRecExprES4_Rb.exit.thread: ; preds = %87, %169, %160, %176, %147, %165, %52, %.loopexit, %104, %140, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit, %_ZN4llvm12SCEVExpander23isExpandedAddRecExprPHIEPNS_7PHINodeEPNS_11InstructionEPKNS_4LoopE.exit, %143, %181, %.lr.ph.i.i.i.i.i.i
-  %.2109.ph = phi ptr [ %.0107283, %169 ], [ %.0107283, %.lr.ph.i.i.i.i.i.i ], [ %.0107283, %143 ], [ %spec.select.i.i132, %181 ], [ %.0107283, %_ZN4llvm12SCEVExpander23isExpandedAddRecExprPHIEPNS_7PHINodeEPNS_11InstructionEPKNS_4LoopE.exit ], [ %.0107283, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit ], [ %.0107283, %140 ], [ %.0107283, %104 ], [ %.0107283, %.loopexit ], [ %.0107283, %52 ], [ %.0107283, %165 ], [ %.0107283, %147 ], [ %.0107283, %176 ], [ %.0107283, %160 ], [ %.0107283, %87 ]
-  %.2.ph = phi ptr [ %.0105284, %169 ], [ %.0105284, %.lr.ph.i.i.i.i.i.i ], [ %.0105284, %143 ], [ %.sroa.0238.0282, %181 ], [ %.0105284, %_ZN4llvm12SCEVExpander23isExpandedAddRecExprPHIEPNS_7PHINodeEPNS_11InstructionEPKNS_4LoopE.exit ], [ %.0105284, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit ], [ %.0105284, %140 ], [ %.0105284, %104 ], [ %.0105284, %.loopexit ], [ %.0105284, %52 ], [ %.0105284, %165 ], [ %.0105284, %147 ], [ %.0105284, %176 ], [ %.0105284, %160 ], [ %.0105284, %87 ]
+_ZL23canBeCheaplyTransformedRN4llvm15ScalarEvolutionEPKNS_14SCEVAddRecExprES4_Rb.exit.thread: ; preds = %87, %169, %176, %160, %147, %165, %52, %.loopexit, %104, %140, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit, %_ZN4llvm12SCEVExpander23isExpandedAddRecExprPHIEPNS_7PHINodeEPNS_11InstructionEPKNS_4LoopE.exit, %143, %181, %.lr.ph.i.i.i.i.i.i
+  %.2109.ph = phi ptr [ %.0107283, %169 ], [ %.0107283, %.lr.ph.i.i.i.i.i.i ], [ %.0107283, %143 ], [ %spec.select.i.i132, %181 ], [ %.0107283, %_ZN4llvm12SCEVExpander23isExpandedAddRecExprPHIEPNS_7PHINodeEPNS_11InstructionEPKNS_4LoopE.exit ], [ %.0107283, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit ], [ %.0107283, %140 ], [ %.0107283, %104 ], [ %.0107283, %.loopexit ], [ %.0107283, %52 ], [ %.0107283, %165 ], [ %.0107283, %147 ], [ %.0107283, %160 ], [ %.0107283, %176 ], [ %.0107283, %87 ]
+  %.2.ph = phi ptr [ %.0105284, %169 ], [ %.0105284, %.lr.ph.i.i.i.i.i.i ], [ %.0105284, %143 ], [ %.sroa.0238.0282, %181 ], [ %.0105284, %_ZN4llvm12SCEVExpander23isExpandedAddRecExprPHIEPNS_7PHINodeEPNS_11InstructionEPKNS_4LoopE.exit ], [ %.0105284, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit ], [ %.0105284, %140 ], [ %.0105284, %104 ], [ %.0105284, %.loopexit ], [ %.0105284, %52 ], [ %.0105284, %165 ], [ %.0105284, %147 ], [ %.0105284, %160 ], [ %.0105284, %176 ], [ %.0105284, %87 ]
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.0238.0282, i64 32
   %186 = load ptr, ptr %185, align 8, !tbaa !112
   %187 = getelementptr inbounds i8, ptr %186, i64 -24
@@ -13516,7 +13516,7 @@ _ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11
   br label %_ZN4llvm15InstructionCostpLERKS0_.exit139
 
 .loopexit.i97:                                    ; preds = %.loopexit.loopexit124.i, %.lr.ph120.i, %.loopexit109.i
-  %530 = phi ptr [ %.val.i83, %.lr.ph120.i ], [ %.pre128.i, %.loopexit.loopexit124.i ], [ %.val.i83, %.loopexit109.i ]
+  %530 = phi ptr [ %.val.i83, %.loopexit109.i ], [ %.pre128.i, %.loopexit.loopexit124.i ], [ %.val.i83, %.lr.ph120.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %531 = icmp eq ptr %530, %276
   br i1 %531, label %_ZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE.exit, label %532
@@ -14693,7 +14693,7 @@ _ZN4llvm15SmallVectorImplINS_11SCEVOperandEE12emplace_backIJRjRmRKPKNS_4SCEVEEEE
   br label %_ZN4llvm11SmallVectorIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS_15SmallVectorImplIS4_EEE16OperationIndicesLj2EED2Ev.exit
 
 .loopexit:                                        ; preds = %.lr.ph120, %.loopexit.loopexit124, %.loopexit109
-  %298 = phi ptr [ %.val, %.lr.ph120 ], [ %.pre128, %.loopexit.loopexit124 ], [ %.val, %.loopexit109 ]
+  %298 = phi ptr [ %.val, %.loopexit109 ], [ %.pre128, %.loopexit.loopexit124 ], [ %.val, %.lr.ph120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %299 = icmp eq ptr %298, %19
   br i1 %299, label %_ZN4llvm11SmallVectorIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15InstructionCostERKNS_11SCEVOperandERKNS_19TargetTransformInfoENS7_14TargetCostKindERNS_15SmallVectorImplIS4_EEE16OperationIndicesLj2EED2Ev.exit, label %300
@@ -20157,7 +20157,7 @@ _ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_.exit: ;
   %55 = icmp eq i32 %54, 14
   br i1 %55, label %_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_.exit.thread58, label %_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_.exit.thread
 
-_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_.exit.thread58: ; preds = %tailrecurse.i.i.i, %48, %29, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit28.i.i, %_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_.exit
+_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_.exit.thread58: ; preds = %tailrecurse.i.i.i, %48, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit28.i.i, %29, %_ZNK12_GLOBAL__N_111LoopCompareclESt4pairIPKN4llvm4LoopEPKNS2_4SCEVEES9_.exit
   %56 = getelementptr inbounds nuw i8, ptr %.01930.i, i64 16
   br label %58
 
@@ -22223,7 +22223,7 @@ _ZSt13move_backwardIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit: ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !727
 
 _ZSt11swap_rangesIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt4moveIPPN4llvm7PHINodeES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

@@ -3102,7 +3102,7 @@ tx_helper_rollback.exit.thread294.i:              ; preds = %1044, %1042, %txp_n
   store i64 %1074, ptr %94, align 16, !tbaa !104
   br label %1075
 
-txp_should_try_staging.exit:                      ; preds = %313, %326, %tx_helper_rollback.exit.thread294.i
+txp_should_try_staging.exit:                      ; preds = %326, %313, %tx_helper_rollback.exit.thread294.i
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.thread210
 
@@ -3745,8 +3745,8 @@ txp_pkt_commit.exit:                              ; preds = %1332, %1347, %1349,
   br i1 %exitcond558.not, label %.thread210, label %1180, !llvm.loop !206
 
 .thread210:                                       ; preds = %1377, %1188, %1165, %1129, %1135, %1138, %1152, %1143, %1147, %1374, %.thread231, %.thread229, %txp_should_try_staging.exit
-  %.0115 = phi i64 [ %.1116414, %1374 ], [ 0, %txp_should_try_staging.exit ], [ 0, %1165 ], [ %.1116414, %.thread231 ], [ 0, %1129 ], [ %.1116414, %.thread229 ], [ 0, %1147 ], [ 0, %1143 ], [ 0, %1152 ], [ 0, %1138 ], [ 0, %1135 ], [ %.1116414, %1188 ], [ %.2117, %1377 ]
-  %.097 = phi i32 [ 0, %1374 ], [ 0, %txp_should_try_staging.exit ], [ 1, %1165 ], [ 0, %.thread231 ], [ 0, %1129 ], [ 0, %.thread229 ], [ 0, %1147 ], [ 0, %1143 ], [ 0, %1152 ], [ 0, %1138 ], [ 0, %1135 ], [ 2, %1188 ], [ 1, %1377 ]
+  %.0115 = phi i64 [ %.1116414, %1374 ], [ 0, %txp_should_try_staging.exit ], [ 0, %1129 ], [ %.1116414, %.thread231 ], [ 0, %1165 ], [ %.1116414, %.thread229 ], [ 0, %1147 ], [ 0, %1143 ], [ 0, %1152 ], [ 0, %1138 ], [ 0, %1135 ], [ %.1116414, %1188 ], [ %.2117, %1377 ]
+  %.097 = phi i32 [ 0, %1374 ], [ 0, %txp_should_try_staging.exit ], [ 0, %1129 ], [ 0, %.thread231 ], [ 1, %1165 ], [ 0, %.thread229 ], [ 0, %1147 ], [ 0, %1143 ], [ 0, %1152 ], [ 0, %1138 ], [ 0, %1135 ], [ 2, %1188 ], [ 1, %1377 ]
   %1378 = load ptr, ptr %39, align 8, !tbaa !66
   call void @ossl_qtx_finish_dgram(ptr noundef %1378) #10
   br label %1379

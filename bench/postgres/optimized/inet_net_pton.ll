@@ -519,7 +519,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   br label %inet_net_pton_ipv4.exit
 
 inet_net_pton_ipv4.exit:                          ; preds = %218, %.loopexit.sink.split.i, %214, %.loopexit89.i, %.critedge3.i, %.lr.ph.preheader.i, %.preheader.i, %228, %230, %232
-  %.0 = phi i32 [ -1, %232 ], [ %.246.i, %.lr.ph.preheader.i ], [ %231, %230 ], [ %229, %228 ], [ -1, %.critedge3.i ], [ -1, %.loopexit89.i ], [ %.246.i, %.preheader.i ], [ -1, %.loopexit.sink.split.i ], [ %.290.i, %214 ], [ %.290.i, %218 ]
+  %.0 = phi i32 [ -1, %232 ], [ %.246.i, %.lr.ph.preheader.i ], [ %231, %230 ], [ %229, %228 ], [ -1, %.critedge3.i ], [ -1, %.loopexit89.i ], [ %.246.i, %.preheader.i ], [ %.290.i, %214 ], [ -1, %.loopexit.sink.split.i ], [ %.290.i, %218 ]
   ret i32 %.0
 }
 

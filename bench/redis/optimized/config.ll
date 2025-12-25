@@ -5523,7 +5523,7 @@ define internal range(i32 0, 2) i32 @isValidAnnouncedHostname(ptr noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.sink.split, %.preheader
-  %.029 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %.preheader ], [ 1, %13 ]
+  %.029 = phi i32 [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %13 ]
   ret i32 %.029
 }
 
@@ -6696,7 +6696,7 @@ numericBoundaryCheck.exit:                        ; preds = %150, %163, %._crit_
   store ptr @loadbuf, ptr %3, align 8, !tbaa !14
   br label %setNumericType.exit
 
-172:                                              ; preds = %143, %159, %166
+172:                                              ; preds = %166, %159, %143
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %175 = load ptr, ptr %174, align 8, !tbaa !56
@@ -7298,7 +7298,7 @@ define internal range(i32 0, 2) i32 @updateMaxclients(ptr noundef writeonly capt
   br label %19
 
 19:                                               ; preds = %.sink.split, %16, %6
-  %.0 = phi i32 [ 1, %6 ], [ 1, %16 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %6 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -8184,7 +8184,7 @@ define internal range(i32 0, 2) i32 @applyBind(ptr noundef writeonly captures(no
   br label %30
 
 30:                                               ; preds = %.sink.split, %16, %20, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %16 ], [ 1, %20 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %15 ], [ 1, %20 ], [ 1, %16 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

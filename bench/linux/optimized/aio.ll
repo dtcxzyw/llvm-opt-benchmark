@@ -4375,7 +4375,7 @@ define internal fastcc i32 @aio_prep_rw(ptr noundef nonnull captures(none) initi
   br label %88
 
 88:                                               ; preds = %66, %71, %85, %22
-  %89 = phi i32 [ 0, %85 ], [ %26, %22 ], [ -95, %71 ], [ -95, %66 ]
+  %89 = phi i32 [ 0, %85 ], [ %26, %22 ], [ -95, %66 ], [ -95, %71 ]
   ret i32 %89
 }
 

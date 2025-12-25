@@ -3367,14 +3367,14 @@ _ZNK4llvm12ImmutableSetIPKN5clang4ExprENS_17ImutContainerInfoIS4_EEEeqERKS7_.exi
   %.not.i3.i = icmp eq ptr %792, null
   %.not4.i5.i = icmp eq ptr %.sroa.10146.2.lcssa, null
   %or.cond.i6.i = select i1 %.not.i3.i, i1 true, i1 %.not4.i5.i
-  br i1 %or.cond.i6.i, label %793, label %_ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit
+  br i1 %or.cond.i6.i, label %_ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit, label %793
 
 793:                                              ; preds = %790
-  %794 = icmp eq ptr %792, %.sroa.10146.2.lcssa
+  %794 = call noundef zeroext i1 @_ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7isEqualERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %792, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.10146.2.lcssa)
   br i1 %794, label %_ZN5clang24BackwardDataflowWorklist19enqueuePredecessorsEPKNS_8CFGBlockE.exit, label %_ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit.thread, !llvm.loop !276
 
 _ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit: ; preds = %790
-  %795 = call noundef zeroext i1 @_ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7isEqualERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %792, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.10146.2.lcssa)
+  %795 = icmp eq ptr %792, %.sroa.10146.2.lcssa
   br i1 %795, label %_ZN5clang24BackwardDataflowWorklist19enqueuePredecessorsEPKNS_8CFGBlockE.exit, label %_ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit.thread, !llvm.loop !276
 
 _ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit.thread: ; preds = %_ZNK4llvm12ImmutableSetIPKN5clang4ExprENS_17ImutContainerInfoIS4_EEEeqERKS7_.exit.i, %793, %_ZNK5clang13LiveVariables14LivenessValues6equalsERKS1_.exit, %783

@@ -36809,7 +36809,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %60
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %"_ZN4core3ptr36drop_in_place$LT$semver..Version$GT$17h261093c8647f39a3E.exit74"
 
-"_ZN57_$LT$semver..Version$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hfd152520c6240441E.exit.thread153": ; preds = %113, %104, %121, %"_ZN57_$LT$semver..Version$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hfd152520c6240441E.exit"
+"_ZN57_$LT$semver..Version$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hfd152520c6240441E.exit.thread153": ; preds = %104, %113, %121, %"_ZN57_$LT$semver..Version$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hfd152520c6240441E.exit"
   invoke void @"_ZN72_$LT$semver..identifier..Identifier$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8dee4117ef853572E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
           to label %"_ZN4core3ptr39drop_in_place$LT$semver..Prerelease$GT$17h43c9a5ac44b6667eE.llvm.5456684732158232753.exit.i" unwind label %195
 

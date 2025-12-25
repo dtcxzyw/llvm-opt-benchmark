@@ -29759,8 +29759,8 @@ lean_inc.exit:                                    ; preds = %1413, %1412, %1410,
   br i1 %.not.i929, label %1414, label %lean_dec.exit560.backedge
 
 lean_dec.exit560.backedge:                        ; preds = %lean_inc.exit, %1417, %1419, %1420, %lean_inc.exit591, %1390, %1392, %1393, %lean_inc.exit596, %1186, %1188, %1189, %lean_inc.exit615, %926, %928, %929, %lean_inc.exit626, %740, %742, %743
-  %.0468.be = phi ptr [ %.2478, %lean_inc.exit ], [ %.2478, %1417 ], [ %.2478, %1419 ], [ %.2478, %1420 ], [ %.2478, %lean_inc.exit591 ], [ %.2478, %1390 ], [ %.2478, %1392 ], [ %1174, %lean_inc.exit596 ], [ %.2478, %1393 ], [ %1174, %1186 ], [ %728, %lean_inc.exit626 ], [ %1174, %1188 ], [ %1174, %1189 ], [ %914, %lean_inc.exit615 ], [ %914, %926 ], [ %914, %928 ], [ %728, %743 ], [ %728, %742 ], [ %728, %740 ], [ %914, %929 ]
-  %.0461.be = phi ptr [ %1405, %lean_inc.exit ], [ %1405, %1417 ], [ %1405, %1419 ], [ %1405, %1420 ], [ %1378, %lean_inc.exit591 ], [ %1378, %1390 ], [ %1378, %1392 ], [ %1046, %lean_inc.exit596 ], [ %1378, %1393 ], [ %1046, %1186 ], [ %664, %lean_inc.exit626 ], [ %1046, %1188 ], [ %1046, %1189 ], [ %850, %lean_inc.exit615 ], [ %850, %926 ], [ %850, %928 ], [ %664, %743 ], [ %664, %742 ], [ %664, %740 ], [ %850, %929 ]
+  %.0468.be = phi ptr [ %914, %928 ], [ %914, %926 ], [ %1174, %1189 ], [ %1174, %1188 ], [ %.2478, %lean_inc.exit591 ], [ %1174, %1186 ], [ %.2478, %1393 ], [ %1174, %lean_inc.exit596 ], [ %.2478, %1392 ], [ %.2478, %1390 ], [ %728, %lean_inc.exit626 ], [ %.2478, %1420 ], [ %.2478, %1419 ], [ %914, %lean_inc.exit615 ], [ %.2478, %1417 ], [ %.2478, %lean_inc.exit ], [ %728, %743 ], [ %728, %742 ], [ %728, %740 ], [ %914, %929 ]
+  %.0461.be = phi ptr [ %850, %928 ], [ %850, %926 ], [ %1046, %1189 ], [ %1046, %1188 ], [ %1378, %lean_inc.exit591 ], [ %1046, %1186 ], [ %1378, %1393 ], [ %1046, %lean_inc.exit596 ], [ %1378, %1392 ], [ %1378, %1390 ], [ %664, %lean_inc.exit626 ], [ %1405, %1420 ], [ %1405, %1419 ], [ %850, %lean_inc.exit615 ], [ %1405, %1417 ], [ %1405, %lean_inc.exit ], [ %664, %743 ], [ %664, %742 ], [ %664, %740 ], [ %850, %929 ]
   br label %lean_dec.exit560
 
 1414:                                             ; preds = %lean_inc.exit
@@ -38566,8 +38566,8 @@ lean_dec.exit228:                                 ; preds = %711, %710, %708, %7
   br label %713
 
 713:                                              ; preds = %lean_dec.exit228, %lean_dec.exit238, %lean_dec.exit260, %lean_alloc_ctor.exit404
-  %.3222 = phi ptr [ %.0196615, %lean_alloc_ctor.exit404 ], [ %.0196615, %lean_dec.exit228 ], [ %596, %lean_dec.exit238 ], [ %317, %lean_dec.exit260 ]
-  %.3213 = phi ptr [ %153, %lean_alloc_ctor.exit404 ], [ %712, %lean_dec.exit228 ], [ %612, %lean_dec.exit238 ], [ %333, %lean_dec.exit260 ]
+  %.3222 = phi ptr [ %.0196615, %lean_alloc_ctor.exit404 ], [ %.0196615, %lean_dec.exit228 ], [ %317, %lean_dec.exit260 ], [ %596, %lean_dec.exit238 ]
+  %.3213 = phi ptr [ %153, %lean_alloc_ctor.exit404 ], [ %712, %lean_dec.exit228 ], [ %333, %lean_dec.exit260 ], [ %612, %lean_dec.exit238 ]
   %714 = getelementptr inbounds nuw i8, ptr %.3213, i64 8
   %715 = load ptr, ptr %714, align 8, !tbaa !4
   %716 = ptrtoint ptr %715 to i64
@@ -40721,8 +40721,8 @@ lean_dec.exit228:                                 ; preds = %711, %710, %708, %7
   br label %713
 
 713:                                              ; preds = %lean_dec.exit228, %lean_dec.exit238, %lean_dec.exit260, %lean_alloc_ctor.exit404
-  %.3222 = phi ptr [ %.0196615, %lean_alloc_ctor.exit404 ], [ %.0196615, %lean_dec.exit228 ], [ %596, %lean_dec.exit238 ], [ %317, %lean_dec.exit260 ]
-  %.3213 = phi ptr [ %153, %lean_alloc_ctor.exit404 ], [ %712, %lean_dec.exit228 ], [ %612, %lean_dec.exit238 ], [ %333, %lean_dec.exit260 ]
+  %.3222 = phi ptr [ %.0196615, %lean_alloc_ctor.exit404 ], [ %.0196615, %lean_dec.exit228 ], [ %317, %lean_dec.exit260 ], [ %596, %lean_dec.exit238 ]
+  %.3213 = phi ptr [ %153, %lean_alloc_ctor.exit404 ], [ %712, %lean_dec.exit228 ], [ %333, %lean_dec.exit260 ], [ %612, %lean_dec.exit238 ]
   %714 = getelementptr inbounds nuw i8, ptr %.3213, i64 8
   %715 = load ptr, ptr %714, align 8, !tbaa !4
   %716 = ptrtoint ptr %715 to i64

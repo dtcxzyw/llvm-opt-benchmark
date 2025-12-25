@@ -2435,7 +2435,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_777Package12findN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit115, %.loopexit.loopexit114, %.loopexit.loopexit112, %.loopexit.loopexit51, %.loopexit.loopexit, %55, %57, %1, %._crit_edge
-  %.0 = phi i32 [ -1, %1 ], [ -1, %._crit_edge ], [ %56, %57 ], [ %113, %.loopexit.loopexit ], [ %116, %.loopexit.loopexit114 ], [ %56, %55 ], [ %114, %.loopexit.loopexit51 ], [ %115, %.loopexit.loopexit112 ], [ %117, %.loopexit.loopexit115 ]
+  %.0 = phi i32 [ -1, %1 ], [ -1, %._crit_edge ], [ %56, %57 ], [ %113, %.loopexit.loopexit ], [ %115, %.loopexit.loopexit112 ], [ %56, %55 ], [ %116, %.loopexit.loopexit114 ], [ %114, %.loopexit.loopexit51 ], [ %117, %.loopexit.loopexit115 ]
   ret i32 %.0
 }
 

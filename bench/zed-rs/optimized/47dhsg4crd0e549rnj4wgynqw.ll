@@ -68494,7 +68494,7 @@ define internal { ptr, ptr } @"_ZN112_$LT$wayland_client..globals..RegistryState
   br label %115
 
 .body55:                                          ; preds = %282, %168, %130, %127, %.body.i50, %280, %279
-  %.pn22.pn = phi { ptr, i32 } [ %.pn20, %280 ], [ %.pn20, %279 ], [ %283, %282 ], [ %eh.lpad-body.i51, %.body.i50 ], [ %169, %168 ], [ %eh.lpad-body.i51, %130 ], [ %eh.lpad-body.i51, %127 ]
+  %.pn22.pn = phi { ptr, i32 } [ %.pn20, %279 ], [ %.pn20, %280 ], [ %283, %282 ], [ %eh.lpad-body.i51, %.body.i50 ], [ %169, %168 ], [ %eh.lpad-body.i51, %130 ], [ %eh.lpad-body.i51, %127 ]
   %167 = load ptr, ptr %35, align 8, !noundef !4
   %.not192 = icmp eq ptr %167, null
   br i1 %.not192, label %.body44, label %382
@@ -106275,7 +106275,7 @@ define internal fastcc { i64, ptr } @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4s
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %42, %87, %57, %62, %91, %95, %102, %106, %165, %170, %224, %229
-  %.sroa.013.1.ph.ph.ph = phi i1 [ false, %91 ], [ false, %102 ], [ false, %87 ], [ false, %57 ], [ false, %165 ], [ false, %224 ], [ false, %106 ], [ true, %42 ], [ false, %229 ], [ false, %.invoke ], [ false, %95 ], [ false, %62 ], [ false, %170 ]
+  %.sroa.013.1.ph.ph.ph = phi i1 [ false, %165 ], [ false, %102 ], [ false, %87 ], [ false, %57 ], [ false, %91 ], [ false, %224 ], [ false, %106 ], [ true, %42 ], [ false, %229 ], [ false, %.invoke ], [ false, %95 ], [ false, %62 ], [ false, %170 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -107505,7 +107505,7 @@ define internal fastcc void @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4send28_$u
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %43, %88, %58, %63, %92, %96, %103, %107, %166, %171, %225, %230
-  %.sroa.030.1.ph.ph.ph = phi i1 [ false, %92 ], [ false, %103 ], [ false, %88 ], [ false, %58 ], [ false, %166 ], [ false, %225 ], [ false, %107 ], [ true, %43 ], [ false, %230 ], [ false, %.invoke ], [ false, %96 ], [ false, %63 ], [ false, %171 ]
+  %.sroa.030.1.ph.ph.ph = phi i1 [ false, %166 ], [ false, %103 ], [ false, %88 ], [ false, %58 ], [ false, %92 ], [ false, %225 ], [ false, %107 ], [ true, %43 ], [ false, %230 ], [ false, %.invoke ], [ false, %96 ], [ false, %63 ], [ false, %171 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -108165,7 +108165,7 @@ define internal fastcc void @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4send28_$u
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %39, %84, %54, %59, %88, %92, %99, %103, %162, %167, %225, %230
-  %.sroa.021.1.ph.ph.ph = phi i1 [ false, %88 ], [ false, %99 ], [ false, %84 ], [ false, %54 ], [ false, %162 ], [ false, %225 ], [ false, %103 ], [ true, %39 ], [ false, %230 ], [ false, %.invoke ], [ false, %92 ], [ false, %59 ], [ false, %167 ]
+  %.sroa.021.1.ph.ph.ph = phi i1 [ false, %162 ], [ false, %99 ], [ false, %84 ], [ false, %54 ], [ false, %88 ], [ false, %225 ], [ false, %103 ], [ true, %39 ], [ false, %230 ], [ false, %.invoke ], [ false, %92 ], [ false, %59 ], [ false, %167 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

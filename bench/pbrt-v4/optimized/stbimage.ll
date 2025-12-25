@@ -7803,7 +7803,7 @@ _ZL21stbi__jpeg_dequantizePsPt.exit.us.i.i.i.i:   ; preds = %2383
   br i1 %2402, label %.lr.ph.i68.i.i.i, label %_ZL23stbi__decode_jpeg_imageP10stbi__jpeg.exit.i.i, !llvm.loop !151
 
 .critedge.sink.split.i.i.i:                       ; preds = %2342, %2337, %1632, %1629, %1625, %1623, %1393, %1388, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i, %1492, %1486, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit174.i.us.i.i.i.i, %1893, %1873, %2060, %2040, %.split.us.i.i.i.i, %.split304.us.i.i.i.i, %_ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i
-  %.str.70.sink.i.i.i = phi ptr [ @.str.70, %.split304.us.i.i.i.i ], [ @.str.68, %1492 ], [ @.str.70, %.split.us.i.i.i.i ], [ @.str.70, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit174.i.us.i.i.i.i ], [ @.str.65, %_ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i ], [ @.str.70, %2060 ], [ @.str.70, %2040 ], [ @.str.70, %1873 ], [ @.str.70, %1893 ], [ @.str.67, %1486 ], [ @.str.69, %1629 ], [ @.str.65, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i ], [ @.str.65, %1388 ], [ @.str.63, %2337 ], [ @.str.69, %1623 ], [ @.str.66, %1393 ], [ @.str.69, %1625 ], [ @.str.69, %1632 ], [ @.str.64, %2342 ]
+  %.str.70.sink.i.i.i = phi ptr [ @.str.70, %.split304.us.i.i.i.i ], [ @.str.70, %.split.us.i.i.i.i ], [ @.str.70, %2060 ], [ @.str.70, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit174.i.us.i.i.i.i ], [ @.str.65, %_ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i ], [ @.str.68, %1492 ], [ @.str.70, %2040 ], [ @.str.70, %1873 ], [ @.str.70, %1893 ], [ @.str.67, %1486 ], [ @.str.69, %1629 ], [ @.str.65, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i ], [ @.str.65, %1388 ], [ @.str.63, %2337 ], [ @.str.69, %1623 ], [ @.str.64, %2342 ], [ @.str.69, %1625 ], [ @.str.69, %1632 ], [ @.str.66, %1393 ]
   %2403 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr %.str.70.sink.i.i.i, ptr %2403, align 8, !tbaa !4
   br label %.loopexit366.i.i
@@ -16316,13 +16316,13 @@ _ZL10stbi__get8P13stbi__context.exit197.thread.backedge: ; preds = %649, %.threa
   br label %_ZL10stbi__get8P13stbi__context.exit197.thread.backedge
 
 _ZL10stbi__skipP13stbi__contexti.exit223.thread.sink.split: ; preds = %_ZL10stbi__get8P13stbi__context.exit, %100, %414, %393, %390, %200, %123, %131, %_ZL21stbi__mad3sizes_validiiii.exit, %26, %_ZL21stbi__mul2sizes_validii.exit.thread15.i, %9, %_ZL21stbi__mul2sizes_validii.exit12.i
-  %.str.35.sink = phi ptr [ @.str.8, %26 ], [ @.str.29, %200 ], [ @.str.28, %131 ], [ %.str.35.mux, %390 ], [ @.str.28, %123 ], [ @.str.8, %_ZL21stbi__mad3sizes_validiiii.exit ], [ @.str.6, %9 ], [ @.str.6, %_ZL21stbi__mul2sizes_validii.exit.thread15.i ], [ @.str.6, %_ZL21stbi__mul2sizes_validii.exit12.i ], [ @.str.35, %414 ], [ @.str.34, %393 ], [ @.str.30, %100 ], [ @.str.30, %_ZL10stbi__get8P13stbi__context.exit ]
+  %.str.35.sink = phi ptr [ @.str.8, %26 ], [ @.str.29, %200 ], [ @.str.28, %131 ], [ @.str.6, %9 ], [ @.str.28, %123 ], [ @.str.8, %_ZL21stbi__mad3sizes_validiiii.exit ], [ %.str.35.mux, %390 ], [ @.str.6, %_ZL21stbi__mul2sizes_validii.exit.thread15.i ], [ @.str.6, %_ZL21stbi__mul2sizes_validii.exit12.i ], [ @.str.35, %414 ], [ @.str.34, %393 ], [ @.str.30, %100 ], [ @.str.30, %_ZL10stbi__get8P13stbi__context.exit ]
   %655 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr %.str.35.sink, ptr %655, align 8, !tbaa !4
   br label %_ZL10stbi__skipP13stbi__contexti.exit223.thread
 
 _ZL10stbi__skipP13stbi__contexti.exit223.thread:  ; preds = %_ZL10stbi__get8P13stbi__context.exit, %450, %_ZL10stbi__skipP13stbi__contexti.exit223.thread.sink.split, %_ZL10stbi__get8P13stbi__context.exit.i, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit, %427, %423, %7
-  %.0 = phi ptr [ null, %7 ], [ %.0.i190, %450 ], [ null, %_ZL10stbi__get8P13stbi__context.exit.i ], [ null, %_ZL10stbi__skipP13stbi__contexti.exit223.thread.sink.split ], [ %.0.i190, %427 ], [ %.0.i190, %423 ], [ null, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit ], [ %0, %_ZL10stbi__get8P13stbi__context.exit ]
+  %.0 = phi ptr [ null, %7 ], [ null, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit ], [ null, %_ZL10stbi__get8P13stbi__context.exit.i ], [ null, %_ZL10stbi__skipP13stbi__contexti.exit223.thread.sink.split ], [ %.0.i190, %427 ], [ %.0.i190, %423 ], [ %.0.i190, %450 ], [ %0, %_ZL10stbi__get8P13stbi__context.exit ]
   ret ptr %.0
 }
 

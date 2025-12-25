@@ -420,7 +420,7 @@ list_length.exit542:                              ; preds = %.critedge535
   br label %150
 
 150:                                              ; preds = %144, %147
-  %151 = phi i1 [ %149, %147 ], [ true, %144 ]
+  %151 = phi i1 [ true, %144 ], [ %149, %147 ]
   %or.cond21 = and i1 %17, %151
   br i1 %or.cond21, label %152, label %.thread558
 
@@ -3007,7 +3007,7 @@ define internal fastcc i32 @LookupFuncNameInternal(i32 noundef %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %35, %48, %25, %.loopexit.sink.split, %7
-  %.023 = phi i32 [ %.1.us41, %35 ], [ %47, %48 ], [ 0, %7 ], [ 0, %.loopexit.sink.split ], [ %.1.us, %25 ], [ %.1.us51, %44 ]
+  %.023 = phi i32 [ %47, %48 ], [ %.1.us41, %35 ], [ 0, %7 ], [ 0, %.loopexit.sink.split ], [ %.1.us, %25 ], [ %.1.us51, %44 ]
   ret i32 %.023
 }
 

@@ -492,13 +492,13 @@ define dso_local void @input_handle_event(ptr noundef %0, i32 noundef %1, i32 no
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %129, label %.split2
 
-.thread13:                                        ; preds = %72, %120, %121, %102, %109, %93, %46, %30, %21, %9
-  %.ph.ph = phi i32 [ 3, %72 ], [ 1, %21 ], [ 3, %120 ], [ 3, %121 ], [ 3, %102 ], [ 3, %109 ], [ 3, %93 ], [ 1, %46 ], [ 1, %30 ], [ 3, %9 ]
+.thread13:                                        ; preds = %120, %21, %30, %46, %93, %109, %102, %121, %72, %9
+  %.ph.ph = phi i32 [ 3, %72 ], [ 3, %120 ], [ 1, %21 ], [ 1, %30 ], [ 1, %46 ], [ 3, %93 ], [ 3, %109 ], [ 3, %102 ], [ 3, %121 ], [ 3, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.split2
 
-.split:                                           ; preds = %10, %12, %11
-  %.ph = phi i32 [ 1, %12 ], [ 9, %11 ], [ 3, %10 ]
+.split:                                           ; preds = %10, %11, %12
+  %.ph = phi i32 [ 9, %11 ], [ 1, %12 ], [ 3, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call fastcc void @input_event_dispose(ptr noundef %0, i32 noundef %.ph, i32 noundef 0, i32 noundef %2, i32 noundef %3)
   br label %129

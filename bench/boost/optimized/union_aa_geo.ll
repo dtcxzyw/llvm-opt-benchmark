@@ -8043,7 +8043,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit46:              ; preds = %83, %_ZSt4findIPKcc
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit46.thread
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit46.thread:       ; preds = %._crit_edge.i.i.i.us86, %._crit_edge.i.i.i.us72, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46, %115, %._crit_edge.i.i.i27, %4
-  %.021 = phi ptr [ %1, %4 ], [ %1, %115 ], [ %spec.select107, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46 ], [ %1, %._crit_edge.i.i.i27 ], [ %60, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63 ], [ %74, %._crit_edge.i.i.i.us72 ], [ %19, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us ], [ %74, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77 ], [ %80, %._crit_edge.i.i.i.us86 ]
+  %.021 = phi ptr [ %1, %4 ], [ %1, %115 ], [ %spec.select107, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46 ], [ %1, %._crit_edge.i.i.i27 ], [ %60, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63 ], [ %19, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us ], [ %74, %._crit_edge.i.i.i.us72 ], [ %74, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77 ], [ %80, %._crit_edge.i.i.i.us86 ]
   ret ptr %.021
 }
 
@@ -136574,7 +136574,7 @@ _ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit67.thread: ; preds
   br label %.critedge2
 
 .critedge2:                                       ; preds = %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52.thread, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE10is_droppedEc.exit49, %59, %69, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit.preheader, %105, %104, %.critedge4, %124, %._crit_edge124
-  %.sroa.08.0 = phi ptr [ %.sroa.08.0.copyload146, %._crit_edge124 ], [ %.sroa.08.1, %.critedge4 ], [ %.sroa.08.0.copyload74, %124 ], [ %.sroa.08.0.copyload74, %105 ], [ %.sroa.08.0.copyload74, %104 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit.preheader ], [ %.sroa.08.0.copyload146, %69 ], [ %.sroa.08.0.copyload146, %59 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE10is_droppedEc.exit49 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52.thread ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52 ]
+  %.sroa.08.0 = phi ptr [ %.sroa.08.0.copyload146, %._crit_edge124 ], [ %.sroa.08.0.copyload74, %105 ], [ %.sroa.08.0.copyload74, %124 ], [ %.sroa.08.1, %.critedge4 ], [ %.sroa.08.0.copyload74, %104 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit.preheader ], [ %.sroa.08.0.copyload146, %69 ], [ %.sroa.08.0.copyload146, %59 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE10is_droppedEc.exit49 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52.thread ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52 ]
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !tbaa !174
   %167 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %168 = load i64, ptr %167, align 8, !tbaa !11
@@ -163394,8 +163394,8 @@ _ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.ex
   store double %storemerge.sroa.speculated, ptr %5, align 8, !tbaa !1473
   br label %_ZNK5boost8geometry7formula16sjoberg_geodesicIdLj1EE7k_diffsERKdRKNS3_11vertex_dataERdS9_b.exit.thread
 
-_ZNK5boost8geometry7formula16sjoberg_geodesicIdLj1EE7k_diffsERKdRKNS3_11vertex_dataERdS9_b.exit.thread: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i, %27, %25, %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit30
-  %.0.i43 = phi i1 [ true, %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit30 ], [ false, %25 ], [ false, %27 ], [ false, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i ]
+_ZNK5boost8geometry7formula16sjoberg_geodesicIdLj1EE7k_diffsERKdRKNS3_11vertex_dataERdS9_b.exit.thread: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i, %25, %27, %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit30
+  %.0.i43 = phi i1 [ true, %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit30 ], [ false, %27 ], [ false, %25 ], [ false, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i ]
   ret i1 %.0.i43
 }
 
@@ -173558,7 +173558,7 @@ _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdL
   br label %_ZN5boost8geometry6detail7overlay20approximately_equalsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESA_dEEbRKT_RKT0_RKT1_.exit
 
 _ZN5boost8geometry6detail7overlay20approximately_equalsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESA_dEEbRKT_RKT0_RKT1_.exit: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i, %125
-  %130 = phi i1 [ %129, %125 ], [ true, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i ]
+  %130 = phi i1 [ true, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i ], [ %129, %125 ]
   %131 = icmp sgt i64 %indvars.iv, -10
   %132 = and i1 %131, %130
   br i1 %132, label %134, label %.preheader
@@ -173658,7 +173658,7 @@ _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdL
   br label %_ZN5boost8geometry6detail7overlay20approximately_equalsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESA_dEEbRKT_RKT0_RKT1_.exit29
 
 _ZN5boost8geometry6detail7overlay20approximately_equalsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESA_dEEbRKT_RKT0_RKT1_.exit29: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i27, %175
-  %180 = phi i1 [ %179, %175 ], [ true, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i27 ]
+  %180 = phi i1 [ true, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i27 ], [ %179, %175 ]
   %181 = icmp samesign ult i64 %indvars.iv59, 10
   %182 = select i1 %180, i1 %181, i1 false
   br i1 %182, label %183, label %_ZN5boost8geometry6detail7overlay20approximately_equalsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESA_dEEbRKT_RKT0_RKT1_.exit29.thread
@@ -186619,7 +186619,7 @@ _ZNK5boost8geometry6detail7overlay13cluster_exitsILNS0_12overlay_typeE0ESt5deque
   br label %_ZNK5boost8geometry6detail7overlay13cluster_exitsILNS0_12overlay_typeE0ESt5dequeINS2_19traversal_turn_infoINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEESaISG_EENS2_12sort_by_side11side_sorterILb0ELb0ELS4_0ESD_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSP_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt7greaterIiEEEE5applyERlRib.exit99
 
 _ZNK5boost8geometry6detail7overlay13cluster_exitsILNS0_12overlay_typeE0ESt5dequeINS2_19traversal_turn_infoINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEESaISG_EENS2_12sort_by_side11side_sorterILb0ELb0ELS4_0ESD_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSP_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt7greaterIiEEEE5applyERlRib.exit99: ; preds = %_ZNKSt3setIlSt4lessIlESaIlEE5countERKl.exit.thread.i81, %_ZNKSt3setIlSt4lessIlESaIlEE5countERKl.exit.thread.us.i87, %_ZNK5boost8geometry6detail7overlay13cluster_exitsILNS0_12overlay_typeE0ESt5dequeINS2_19traversal_turn_infoINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEESaISG_EENS2_12sort_by_side11side_sorterILb0ELb0ELS4_0ESD_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSP_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt7greaterIiEEEE5applyERlRib.exit99.sink.split, %.critedge14.i78, %146, %143, %142
-  %.4 = phi i1 [ false, %_ZNKSt3setIlSt4lessIlESaIlEE5countERKl.exit.thread.us.i87 ], [ true, %142 ], [ false, %143 ], [ false, %.critedge14.i78 ], [ false, %146 ], [ true, %_ZNK5boost8geometry6detail7overlay13cluster_exitsILNS0_12overlay_typeE0ESt5dequeINS2_19traversal_turn_infoINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEESaISG_EENS2_12sort_by_side11side_sorterILb0ELb0ELS4_0ESD_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSP_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt7greaterIiEEEE5applyERlRib.exit99.sink.split ], [ false, %_ZNKSt3setIlSt4lessIlESaIlEE5countERKl.exit.thread.i81 ]
+  %.4 = phi i1 [ false, %146 ], [ true, %142 ], [ false, %143 ], [ false, %.critedge14.i78 ], [ false, %_ZNKSt3setIlSt4lessIlESaIlEE5countERKl.exit.thread.us.i87 ], [ true, %_ZNK5boost8geometry6detail7overlay13cluster_exitsILNS0_12overlay_typeE0ESt5dequeINS2_19traversal_turn_infoINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEESaISG_EENS2_12sort_by_side11side_sorterILb0ELb0ELS4_0ESD_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSP_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyESt7greaterIiEEEE5applyERlRib.exit99.sink.split ], [ false, %_ZNKSt3setIlSt4lessIlESaIlEE5countERKl.exit.thread.i81 ]
   %174 = load ptr, ptr %90, align 8, !tbaa !3799
   %.not.i.i.i.i100 = icmp eq ptr %174, null
   br i1 %.not.i.i.i.i100, label %_ZNSt6vectorIN5boost8geometry6detail7overlay13cluster_exitsILNS1_12overlay_typeE0ESt5dequeINS3_19traversal_turn_infoINS1_5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEENS1_13segment_ratioIdEEEESaISH_EENS3_12sort_by_side11side_sorterILb0ELb0ELS5_0ESE_NS1_10strategies6relate8services18strategy_converterINS1_8strategy12intersection19geographic_segmentsINSQ_7andoyerELm1ENS1_3srs8spheroidIdEEvEEE16altered_strategyESt7greaterIiEEEE19linked_turn_op_infoESaIS14_EED2Ev.exit.i101, label %175
@@ -187819,7 +187819,7 @@ _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdL
   br label %_ZN5boost8geometry6detail7overlay20approximately_equalsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESA_dEEbRKT_RKT0_RKT1_.exit
 
 _ZN5boost8geometry6detail7overlay20approximately_equalsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESA_dEEbRKT_RKT0_RKT1_.exit: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i, %125
-  %130 = phi i1 [ %129, %125 ], [ true, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i ]
+  %130 = phi i1 [ true, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i ], [ %129, %125 ]
   %131 = icmp sgt i64 %indvars.iv, -10
   %132 = and i1 %131, %130
   br i1 %132, label %134, label %.preheader
@@ -187919,7 +187919,7 @@ _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdL
   br label %_ZN5boost8geometry6detail7overlay20approximately_equalsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESA_dEEbRKT_RKT0_RKT1_.exit29
 
 _ZN5boost8geometry6detail7overlay20approximately_equalsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESA_dEEbRKT_RKT0_RKT1_.exit29: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i27, %175
-  %180 = phi i1 [ %179, %175 ], [ true, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i27 ]
+  %180 = phi i1 [ true, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i27 ], [ %179, %175 ]
   %181 = icmp samesign ult i64 %indvars.iv59, 10
   %182 = select i1 %180, i1 %181, i1 false
   br i1 %182, label %183, label %_ZN5boost8geometry6detail7overlay20approximately_equalsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESA_dEEbRKT_RKT0_RKT1_.exit29.thread

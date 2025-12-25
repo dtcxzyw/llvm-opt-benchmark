@@ -6352,8 +6352,8 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.loopexit:     ; preds = %31, %_ZNSt8_Rb_tree
   br label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit.loopexit.split-lp: ; preds = %.invoke, %16
-  %.sroa.19.0.ph = phi ptr [ null, %16 ], [ %.sroa.9.0197, %.invoke ]
-  %.sroa.0145.0.ph = phi ptr [ null, %16 ], [ %.sroa.0145.1198, %.invoke ]
+  %.sroa.19.0.ph = phi ptr [ %.sroa.9.0197, %.invoke ], [ null, %16 ]
+  %.sroa.0145.0.ph = phi ptr [ %.sroa.0145.1198, %.invoke ], [ null, %16 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit
@@ -15127,8 +15127,8 @@ _ZNSt7__cxx114listIjSaIjEED2Ev.exit.loopexit:     ; preds = %31, %_ZNSt8_Rb_tree
   br label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit
 
 _ZNSt7__cxx114listIjSaIjEED2Ev.exit.loopexit.split-lp: ; preds = %.invoke, %16
-  %.sroa.19.0.ph = phi ptr [ null, %16 ], [ %.sroa.9.0197, %.invoke ]
-  %.sroa.0145.0.ph = phi ptr [ null, %16 ], [ %.sroa.0145.1198, %.invoke ]
+  %.sroa.19.0.ph = phi ptr [ %.sroa.9.0197, %.invoke ], [ null, %16 ]
+  %.sroa.0145.0.ph = phi ptr [ %.sroa.0145.1198, %.invoke ], [ null, %16 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit
@@ -23908,8 +23908,8 @@ _ZNSt7__cxx114listIlSaIlEED2Ev.exit.loopexit:     ; preds = %31, %_ZNSt8_Rb_tree
   br label %_ZNSt7__cxx114listIlSaIlEED2Ev.exit
 
 _ZNSt7__cxx114listIlSaIlEED2Ev.exit.loopexit.split-lp: ; preds = %.invoke, %16
-  %.sroa.19.0.ph = phi ptr [ null, %16 ], [ %.sroa.9.0197, %.invoke ]
-  %.sroa.0146.0.ph = phi ptr [ null, %16 ], [ %.sroa.0146.1198, %.invoke ]
+  %.sroa.19.0.ph = phi ptr [ %.sroa.9.0197, %.invoke ], [ null, %16 ]
+  %.sroa.0146.0.ph = phi ptr [ %.sroa.0146.1198, %.invoke ], [ null, %16 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx114listIlSaIlEED2Ev.exit
@@ -32690,8 +32690,8 @@ _ZNSt7__cxx114listImSaImEED2Ev.exit.loopexit:     ; preds = %31, %_ZNSt8_Rb_tree
   br label %_ZNSt7__cxx114listImSaImEED2Ev.exit
 
 _ZNSt7__cxx114listImSaImEED2Ev.exit.loopexit.split-lp: ; preds = %.invoke, %16
-  %.sroa.19.0.ph = phi ptr [ null, %16 ], [ %.sroa.9.0197, %.invoke ]
-  %.sroa.0146.0.ph = phi ptr [ null, %16 ], [ %.sroa.0146.1198, %.invoke ]
+  %.sroa.19.0.ph = phi ptr [ %.sroa.9.0197, %.invoke ], [ null, %16 ]
+  %.sroa.0146.0.ph = phi ptr [ %.sroa.0146.1198, %.invoke ], [ null, %16 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx114listImSaImEED2Ev.exit

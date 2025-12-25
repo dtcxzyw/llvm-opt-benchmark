@@ -7306,7 +7306,7 @@ define internal fastcc ptr @journal_init_common(ptr noundef %0, ptr noundef %1, 
   br label %346
 
 328:                                              ; preds = %.thread20, %43, %159, %268, %308, %304, %298, %270
-  %329 = phi i32 [ -12, %308 ], [ %289, %270 ], [ %306, %304 ], [ -12, %298 ], [ %155, %159 ], [ -5, %268 ], [ -5, %43 ], [ -12, %.thread20 ]
+  %329 = phi i32 [ -12, %308 ], [ %289, %270 ], [ %306, %304 ], [ -12, %298 ], [ %155, %159 ], [ -5, %43 ], [ -5, %268 ], [ -12, %.thread20 ]
   %330 = getelementptr inbounds nuw i8, ptr %9, i64 832
   call void @percpu_counter_destroy_many(ptr noundef nonnull %330, i32 noundef 1) #20
   %331 = getelementptr inbounds nuw i8, ptr %9, i64 1368

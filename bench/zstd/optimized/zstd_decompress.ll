@@ -965,9 +965,9 @@ define i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) local_unna
 
 23:                                               ; preds = %10, %20
   %.145 = phi i64 [ %.04470, %10 ], [ %19, %20 ]
-  %.pn = phi i64 [ %14, %10 ], [ %21, %20 ]
-  %.234 = getelementptr inbounds nuw i8, ptr %.03272, i64 %.pn
-  %.242 = sub i64 %.04071, %.pn
+  %..i.pn = phi i64 [ %14, %10 ], [ %21, %20 ]
+  %.234 = getelementptr inbounds nuw i8, ptr %.03272, i64 %..i.pn
+  %.242 = sub i64 %.04071, %..i.pn
   %.not = icmp ult i64 %.242, 5
   br i1 %.not, label %._crit_edge, label %5
 

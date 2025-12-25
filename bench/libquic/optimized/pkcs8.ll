@@ -1127,7 +1127,7 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_key_gen_raw(ptr noundef reado
   br i1 %.not115, label %.loopexit.sink.split, label %.lr.ph175
 
 .loopexit.sink.split:                             ; preds = %._crit_edge139, %._crit_edge147, %56, %54, %.lr.ph175, %61, %65, %.lr.ph138, %.lr.ph152
-  %.092.ph = phi i32 [ 0, %61 ], [ 0, %.lr.ph152 ], [ 0, %.lr.ph138 ], [ 0, %65 ], [ 0, %._crit_edge147 ], [ 0, %56 ], [ 0, %54 ], [ 1, %._crit_edge139 ], [ 0, %.lr.ph175 ]
+  %.092.ph = phi i32 [ 0, %61 ], [ 0, %.lr.ph152 ], [ 0, %.lr.ph138 ], [ 0, %65 ], [ 0, %._crit_edge147 ], [ 0, %56 ], [ 0, %54 ], [ 0, %.lr.ph175 ], [ 1, %._crit_edge139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit

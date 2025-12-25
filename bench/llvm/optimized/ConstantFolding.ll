@@ -13622,7 +13622,7 @@ _ZN12_GLOBAL__N_120ConstantFoldLibCall2EN4llvm9StringRefEPNS0_4TypeENS0_8ArrayRe
   br label %_ZN12_GLOBAL__N_120ConstantFoldLibCall2EN4llvm9StringRefEPNS0_4TypeENS0_8ArrayRefIPNS0_8ConstantEEEPKNS0_17TargetLibraryInfoE.exit.thread
 
 _ZN12_GLOBAL__N_120ConstantFoldLibCall2EN4llvm9StringRefEPNS0_4TypeENS0_8ArrayRefIPNS0_8ConstantEEEPKNS0_17TargetLibraryInfoE.exit: ; preds = %1319, %.thread.i, %.thread55.i, %1405
-  %.1.i = phi ptr [ %1406, %1405 ], [ %1367, %.thread55.i ], [ %1343, %.thread.i ], [ %1320, %1319 ]
+  %.1.i = phi ptr [ %1320, %1319 ], [ %1343, %.thread.i ], [ %1367, %.thread55.i ], [ %1406, %1405 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %.not.not = icmp eq ptr %.1.i, null
   br i1 %.not.not, label %_ZN12_GLOBAL__N_120ConstantFoldLibCall2EN4llvm9StringRefEPNS0_4TypeENS0_8ArrayRefIPNS0_8ConstantEEEPKNS0_17TargetLibraryInfoE.exit.thread, label %_ZN12_GLOBAL__N_123ConstantFoldScalarCall1EN4llvm9StringRefEjPNS0_4TypeENS0_8ArrayRefIPNS0_8ConstantEEEPKNS0_17TargetLibraryInfoEPKNS0_8CallBaseE.exit

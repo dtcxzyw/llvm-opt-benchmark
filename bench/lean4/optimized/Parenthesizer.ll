@@ -28315,7 +28315,7 @@ lean_dec.exit412:                                 ; preds = %588, %587, %585, %l
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #6
   br label %lean_dec.exit410
 
-lean_dec.exit410:                                 ; preds = %lean_dec.exit360, %1109, %1111, %1112, %lean_dec.exit364, %1080, %1082, %1083, %lean_dec.exit412, %lean_dec.exit416, %592, %594, %lean_dec.exit420, %595, %563, %565, %566, %534, %536, %537
+lean_dec.exit410:                                 ; preds = %lean_dec.exit360, %1109, %1111, %1112, %lean_dec.exit364, %1080, %1082, %1083, %lean_dec.exit412, %lean_dec.exit416, %537, %536, %534, %lean_dec.exit420, %566, %565, %563, %595, %594, %592
   %596 = ptrtoint ptr %9 to i64
   %597 = and i64 %596, 1
   %.not794 = icmp eq i64 %597, 0
@@ -65899,7 +65899,7 @@ lean_inc.exit107:                                 ; preds = %283, %282, %280, %2
   br i1 %.not.i235, label %284, label %lean_dec.exit135.backedge
 
 lean_dec.exit135.backedge:                        ; preds = %lean_inc.exit107, %287, %289, %290, %lean_inc.exit115, %153, %155, %156
-  %.097.be = phi ptr [ %275, %lean_inc.exit107 ], [ %275, %287 ], [ %275, %289 ], [ %141, %lean_inc.exit115 ], [ %275, %290 ], [ %141, %156 ], [ %141, %155 ], [ %141, %153 ]
+  %.097.be = phi ptr [ %275, %290 ], [ %275, %289 ], [ %275, %287 ], [ %141, %lean_inc.exit115 ], [ %275, %lean_inc.exit107 ], [ %141, %156 ], [ %141, %155 ], [ %141, %153 ]
   br label %lean_dec.exit135
 
 284:                                              ; preds = %lean_inc.exit107

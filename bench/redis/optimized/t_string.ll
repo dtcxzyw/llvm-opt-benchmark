@@ -99,7 +99,7 @@ thread-pre-split.thread.sink.split.i:             ; preds = %thread-pre-split.i,
   call void @addReplyErrorExpireTime(ptr noundef %0) #11
   br label %getExpireMillisecondsOrReply.exit
 
-getExpireMillisecondsOrReply.exit.thread:         ; preds = %thread-pre-split.i, %23, %8
+getExpireMillisecondsOrReply.exit.thread:         ; preds = %23, %thread-pre-split.i, %8
   %29 = and i32 %1, 32
   %.not81 = icmp eq i32 %29, 0
   br i1 %.not81, label %getGenericCommand.exit.thread, label %30
@@ -962,7 +962,7 @@ thread-pre-split.thread.sink.split.i:             ; preds = %thread-pre-split.i,
   call void @addReplyErrorExpireTime(ptr noundef nonnull %0) #11
   br label %getExpireMillisecondsOrReply.exit
 
-getExpireMillisecondsOrReply.exit.thread:         ; preds = %thread-pre-split.i, %35, %21
+getExpireMillisecondsOrReply.exit.thread:         ; preds = %35, %thread-pre-split.i, %21
   call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef nonnull %17) #11
   %41 = and i32 %.pre, 192
   %or.cond = icmp eq i32 %41, 0

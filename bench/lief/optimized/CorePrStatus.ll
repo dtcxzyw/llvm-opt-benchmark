@@ -1219,8 +1219,8 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNK4LIEF3ELF12CorePrStatus3getENS1_9Registers6X86_64E.exit.thread: ; preds = %172, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i135, %174, %181, %118, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i98, %120, %127, %64, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i61, %66, %73, %10, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i, %12, %19
-  %.sroa.52.3 = phi ptr [ %.sroa.52.4321, %64 ], [ %.sroa.52.0325, %10 ], [ %.sroa.52.7317, %118 ], [ %.sroa.52.0325, %19 ], [ %.sroa.52.0325, %12 ], [ %.sroa.52.0325, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i ], [ %.sroa.52.4321, %73 ], [ %.sroa.52.4321, %66 ], [ %.sroa.52.4321, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i61 ], [ %.sroa.52.7317, %127 ], [ %.sroa.52.7317, %120 ], [ %.sroa.52.7317, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i98 ], [ %.sroa.52.10313, %181 ], [ %.sroa.52.10313, %174 ], [ %.sroa.52.10313, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i135 ], [ %.sroa.52.10313, %172 ]
-  %.sroa.0174.3 = phi ptr [ %.sroa.0174.4323, %64 ], [ %.sroa.0174.0327, %10 ], [ %.sroa.0174.7319, %118 ], [ %.sroa.0174.0327, %19 ], [ %.sroa.0174.0327, %12 ], [ %.sroa.0174.0327, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i ], [ %.sroa.0174.4323, %73 ], [ %.sroa.0174.4323, %66 ], [ %.sroa.0174.4323, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i61 ], [ %.sroa.0174.7319, %127 ], [ %.sroa.0174.7319, %120 ], [ %.sroa.0174.7319, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i98 ], [ %.sroa.0174.10315, %181 ], [ %.sroa.0174.10315, %174 ], [ %.sroa.0174.10315, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i135 ], [ %.sroa.0174.10315, %172 ]
+  %.sroa.52.3 = phi ptr [ %.sroa.52.7317, %118 ], [ %.sroa.52.0325, %10 ], [ %.sroa.52.4321, %64 ], [ %.sroa.52.0325, %19 ], [ %.sroa.52.0325, %12 ], [ %.sroa.52.0325, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i ], [ %.sroa.52.4321, %73 ], [ %.sroa.52.4321, %66 ], [ %.sroa.52.4321, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i61 ], [ %.sroa.52.7317, %127 ], [ %.sroa.52.7317, %120 ], [ %.sroa.52.7317, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i98 ], [ %.sroa.52.10313, %181 ], [ %.sroa.52.10313, %174 ], [ %.sroa.52.10313, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i135 ], [ %.sroa.52.10313, %172 ]
+  %.sroa.0174.3 = phi ptr [ %.sroa.0174.7319, %118 ], [ %.sroa.0174.0327, %10 ], [ %.sroa.0174.4323, %64 ], [ %.sroa.0174.0327, %19 ], [ %.sroa.0174.0327, %12 ], [ %.sroa.0174.0327, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i ], [ %.sroa.0174.4323, %73 ], [ %.sroa.0174.4323, %66 ], [ %.sroa.0174.4323, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i61 ], [ %.sroa.0174.7319, %127 ], [ %.sroa.0174.7319, %120 ], [ %.sroa.0174.7319, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i98 ], [ %.sroa.0174.10315, %181 ], [ %.sroa.0174.10315, %174 ], [ %.sroa.0174.10315, %_ZNK4LIEF12BinaryStream4readImEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i135 ], [ %.sroa.0174.10315, %172 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %222 = ptrtoint ptr %.sroa.52.3 to i64
   %223 = ptrtoint ptr %.sroa.0174.3 to i64
@@ -27124,7 +27124,7 @@ _ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_cont
   unreachable
 
 _ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %38, %29, %26, %36, %45
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %45 ], [ %30, %29 ], [ %.sroa.011.0.extract.trunc.i, %38 ], [ %28, %26 ], [ %37, %36 ]
+  %.0.i = phi i64 [ %37, %36 ], [ %30, %29 ], [ %.sroa.011.0.extract.trunc.i, %38 ], [ %28, %26 ], [ %.sroa.05.0.extract.trunc.i, %45 ]
   %87 = icmp ugt i64 %.0.i, 2147483647
   br i1 %87, label %_ZN3fmt3v1016visit_format_argINS0_6detail13width_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread11, label %91
 
@@ -27345,7 +27345,7 @@ _ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_
   unreachable
 
 _ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit: ; preds = %38, %29, %26, %36, %45
-  %.0.i = phi i64 [ %.sroa.05.0.extract.trunc.i, %45 ], [ %30, %29 ], [ %.sroa.011.0.extract.trunc.i, %38 ], [ %28, %26 ], [ %37, %36 ]
+  %.0.i = phi i64 [ %37, %36 ], [ %30, %29 ], [ %.sroa.011.0.extract.trunc.i, %38 ], [ %28, %26 ], [ %.sroa.05.0.extract.trunc.i, %45 ]
   %87 = icmp ugt i64 %.0.i, 2147483647
   br i1 %87, label %_ZN3fmt3v1016visit_format_argINS0_6detail17precision_checkerENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread11, label %91
 
@@ -31785,7 +31785,7 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %299 = trunc nuw i32 %298 to i1
   br i1 %299, label %.critedge149, label %.critedge151
 
-.critedge149.thread:                              ; preds = %288, %276, %224, %220, %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit166.thread, %284
+.critedge149.thread:                              ; preds = %276, %288, %224, %220, %_ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUljPcE_clEjS8_.exit166.thread, %284
   %300 = load ptr, ptr %181, align 8, !tbaa !203
   %301 = zext nneg i32 %.0211 to i64
   %302 = getelementptr i8, ptr %300, i64 %301
@@ -31855,8 +31855,8 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   store i32 %336, ptr %6, align 4, !tbaa !71
   br label %.critedge151
 
-.critedge151:                                     ; preds = %288, %276, %224, %286, %222, %.critedge, %335, %331, %292
-  %.1212 = phi i32 [ %332, %331 ], [ %.0211, %335 ], [ %.0211, %.critedge ], [ %.0211, %292 ], [ 9, %222 ], [ 18, %286 ], [ 9, %224 ], [ %.0211, %276 ], [ 18, %288 ]
+.critedge151:                                     ; preds = %276, %288, %224, %286, %222, %.critedge, %335, %331, %292
+  %.1212 = phi i32 [ %332, %331 ], [ %.0211, %335 ], [ %.0211, %.critedge ], [ %.0211, %292 ], [ 9, %222 ], [ 18, %286 ], [ 9, %224 ], [ 18, %288 ], [ %.0211, %276 ]
   %337 = zext nneg i32 %.1212 to i64
   %338 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %339 = load i64, ptr %338, align 8, !tbaa !205

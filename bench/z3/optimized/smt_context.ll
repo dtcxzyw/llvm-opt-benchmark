@@ -9317,7 +9317,7 @@ _ZN3smt7context12set_conflictERKNS_15b_justificationEN3sat7literalE.exit: ; pred
   br i1 %199, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.thread, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.thread: ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %_ZN3smt7context12set_conflictERKNS_15b_justificationEN3sat7literalE.exit, %1, %_ZN3smt10watch_list14set_end_clauseEPPNS_6clauseE.exit, %.critedge, %80, %161, %_ZN3smt7context15get_cancel_flagEv.exit.thread
-  %.1 = phi i1 [ true, %_ZN3smt7context15get_cancel_flagEv.exit.thread ], [ false, %_ZN3smt10watch_list14set_end_clauseEPPNS_6clauseE.exit ], [ false, %.critedge ], [ false, %161 ], [ false, %80 ], [ true, %1 ], [ true, %_ZN3smt7context12set_conflictERKNS_15b_justificationEN3sat7literalE.exit ], [ true, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ]
+  %.1 = phi i1 [ true, %_ZN3smt7context15get_cancel_flagEv.exit.thread ], [ false, %.critedge ], [ false, %_ZN3smt10watch_list14set_end_clauseEPPNS_6clauseE.exit ], [ false, %161 ], [ false, %80 ], [ true, %1 ], [ true, %_ZN3smt7context12set_conflictERKNS_15b_justificationEN3sat7literalE.exit ], [ true, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ]
   ret i1 %.1
 }
 
@@ -13688,7 +13688,7 @@ _ZN3smt7context12set_conflictERKNS_15b_justificationEN3sat7literalE.exit: ; pred
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %_ZN3smt7context12set_conflictERKNS_15b_justificationEN3sat7literalE.exit, %52, %1, %.critedge54.thread67, %.critedge54
-  %.4 = phi i1 [ true, %.critedge54.thread67 ], [ true, %.critedge54 ], [ true, %1 ], [ true, %19 ], [ false, %52 ], [ false, %_ZN3smt7context12set_conflictERKNS_15b_justificationEN3sat7literalE.exit ]
+  %.4 = phi i1 [ true, %.critedge54 ], [ true, %.critedge54.thread67 ], [ true, %1 ], [ true, %19 ], [ false, %52 ], [ false, %_ZN3smt7context12set_conflictERKNS_15b_justificationEN3sat7literalE.exit ]
   ret i1 %.4
 }
 
@@ -23783,7 +23783,7 @@ _ZNK14plugin_managerIN3smt6theoryEE10get_pluginEi.exit.thread: ; preds = %_ZNK6v
   br label %.critedge
 
 .critedge:                                        ; preds = %86, %_ZNK14plugin_managerIN3smt6theoryEE10get_pluginEi.exit.thread, %.critedge.sink.split, %68, %9
-  %.1 = phi i1 [ false, %68 ], [ false, %9 ], [ true, %.critedge.sink.split ], [ false, %_ZNK14plugin_managerIN3smt6theoryEE10get_pluginEi.exit.thread ], [ true, %86 ]
+  %.1 = phi i1 [ false, %68 ], [ false, %9 ], [ true, %.critedge.sink.split ], [ true, %86 ], [ false, %_ZNK14plugin_managerIN3smt6theoryEE10get_pluginEi.exit.thread ]
   ret i1 %.1
 }
 
@@ -27507,8 +27507,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %82 = phi ptr [ %33, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %83 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %82 = phi ptr [ %33, %thread-pre-split.i.i.preheader ], [ %.be138, %thread-pre-split.i.i.backedge ]
+  %83 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be138, %thread-pre-split.i.i.backedge ]
   %84 = icmp eq ptr %83, null
   br i1 %84, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -27535,7 +27535,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %.noexc57, %.noexc58
-  %.be = phi ptr [ %91, %.noexc57 ], [ %131, %.noexc58 ]
+  %.be138 = phi ptr [ %131, %.noexc58 ], [ %91, %.noexc57 ]
   br label %thread-pre-split.i.i, !llvm.loop !987
 
 92:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -98840,7 +98840,7 @@ _ZSt13move_backwardIPPN3smt6clauseES3_ET0_T_S5_S4_.exit: ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1561
 
 _ZSt11swap_rangesIPPN3smt6clauseES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN3smt6clauseES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN3smt6clauseES3_ET0_T_S5_S4_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN3smt6clauseES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN3smt6clauseES3_ET0_T_S5_S4_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN3smt6clauseES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt4moveIPPN3smt6clauseES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

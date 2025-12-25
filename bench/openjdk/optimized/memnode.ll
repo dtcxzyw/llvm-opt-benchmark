@@ -8477,7 +8477,7 @@ _ZN4Node7set_reqEjPS_.exit261:                    ; preds = %_ZN4Node7del_outEPS
   br label %_ZL10stable_phiP7PhiNodeP8PhaseGVN.exit.thread
 
 _ZL10stable_phiP7PhiNodeP8PhaseGVN.exit.thread:   ; preds = %122, %108, %104, %118, %181, %167, %163, %177, %.preheader, %150, %91, %258, %218, %210, %198, %.loopexit, %78, %71, %3, %._crit_edge, %146
-  %.0187 = phi ptr [ null, %3 ], [ null, %.preheader ], [ null, %181 ], [ %.0195, %._crit_edge ], [ null, %218 ], [ null, %210 ], [ null, %198 ], [ null, %.loopexit ], [ null, %258 ], [ %0, %146 ], [ null, %78 ], [ null, %71 ], [ null, %91 ], [ null, %150 ], [ null, %177 ], [ null, %163 ], [ null, %167 ], [ null, %118 ], [ null, %104 ], [ null, %108 ], [ null, %122 ]
+  %.0187 = phi ptr [ null, %3 ], [ null, %150 ], [ null, %181 ], [ %.0195, %._crit_edge ], [ null, %218 ], [ null, %210 ], [ null, %198 ], [ null, %.loopexit ], [ null, %258 ], [ %0, %146 ], [ null, %78 ], [ null, %71 ], [ null, %91 ], [ null, %.preheader ], [ null, %177 ], [ null, %163 ], [ null, %167 ], [ null, %118 ], [ null, %104 ], [ null, %108 ], [ null, %122 ]
   ret ptr %.0187
 }
 
@@ -17447,7 +17447,7 @@ _ZN10Node_Stack4pushEP4Nodej.exit:                ; preds = %102, %106
   br i1 %cond, label %.critedge, label %38, !llvm.loop !47
 
 .critedge:                                        ; preds = %115, %43, %43, %._crit_edge, %.critedge4, %_ZN10Node_StackC2Ei.exit
-  %.0 = phi ptr [ null, %._crit_edge ], [ null, %_ZN10Node_StackC2Ei.exit ], [ null, %.critedge4 ], [ %.02536, %43 ], [ null, %115 ], [ %.02536, %43 ]
+  %.0 = phi ptr [ null, %_ZN10Node_StackC2Ei.exit ], [ null, %._crit_edge ], [ null, %.critedge4 ], [ %.02536, %43 ], [ %.02536, %43 ], [ null, %115 ]
   %116 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %116, null
   br i1 %.not.i.i.i.i, label %118, label %117

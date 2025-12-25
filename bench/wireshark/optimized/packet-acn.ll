@@ -7243,7 +7243,7 @@ default.unreachable:                              ; preds = %123, %37, %5
   br i1 %164, label %123, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %123, %158, %.lr.ph263, %78, %._crit_edge264, %42, %.critedge
-  %.0234 = phi i32 [ %3, %.lr.ph263 ], [ %43, %42 ], [ %33, %.critedge ], [ %122, %._crit_edge264 ], [ %79, %78 ], [ %3, %123 ], [ %159, %158 ]
+  %.0234 = phi i32 [ %79, %78 ], [ %43, %42 ], [ %33, %.critedge ], [ %122, %._crit_edge264 ], [ %3, %.lr.ph263 ], [ %3, %123 ], [ %159, %158 ]
   ret i32 %.0234
 }
 
@@ -7384,7 +7384,7 @@ default.unreachable94:                            ; preds = %10, %5
   unreachable
 
 .loopexit:                                        ; preds = %53, %56, %46, %.lr.ph89, %15, %._crit_edge, %10
-  %.075 = phi i32 [ %3, %.lr.ph89 ], [ %45, %._crit_edge ], [ %3, %10 ], [ %24, %15 ], [ %3, %46 ], [ %3, %53 ], [ %66, %56 ]
+  %.075 = phi i32 [ %24, %15 ], [ %45, %._crit_edge ], [ %3, %10 ], [ %3, %.lr.ph89 ], [ %3, %46 ], [ %3, %53 ], [ %66, %56 ]
   ret i32 %.075
 }
 

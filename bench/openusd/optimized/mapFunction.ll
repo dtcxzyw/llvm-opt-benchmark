@@ -1971,7 +1971,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit79.i: ; preds = %325, %312
   br label %._crit_edge115
 
 348:                                              ; preds = %343, %330, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit79.i, %112, %99, %95
-  %.029.i = phi i1 [ %97, %112 ], [ %.130.i, %343 ], [ %97, %95 ], [ %.130.i, %330 ], [ %.130.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit79.i ], [ %97, %99 ]
+  %.029.i = phi i1 [ %97, %112 ], [ %97, %99 ], [ %.130.i, %343 ], [ %.130.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit79.i ], [ %.130.i, %330 ], [ %97, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -13739,7 +13739,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPSt4pairIN32pxrInternal_v0_2
   br label %36, !llvm.loop !140
 
 _ZSt11swap_rangesIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge70, %.lr.ph.i, %5, %3
-  %.038 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %0, %5 ], [ %35, %._crit_edge70 ], [ %35, %._crit_edge ]
+  %.038 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %35, %._crit_edge70 ], [ %35, %._crit_edge ]
   ret ptr %.038
 }
 

@@ -8870,7 +8870,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb
   br i1 %172, label %.backedge, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EEppEv.exit, !llvm.loop !667
 
 _ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES7_RjS8_.exit: ; preds = %58, %58, %.preheader.i.i.i, %_ZNK4llvm9LiveRange8overlapsERKS0_.exit, %125, %166, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit, %34, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %34 ], [ false, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ false, %5 ], [ true, %_ZNK4llvm9LiveRange8overlapsERKS0_.exit ], [ false, %166 ], [ false, %.preheader.i.i.i ], [ false, %125 ], [ false, %58 ], [ false, %58 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %34 ], [ false, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ false, %5 ], [ false, %166 ], [ false, %.preheader.i.i.i ], [ true, %_ZNK4llvm9LiveRange8overlapsERKS0_.exit ], [ false, %125 ], [ false, %58 ], [ false, %58 ]
   ret i1 %.0
 }
 
@@ -8949,7 +8949,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb
   br i1 %26, label %.critedge.backedge, label %.lr.ph, !llvm.loop !667
 
 ._crit_edge:                                      ; preds = %.preheader.i.i.i, %18, %18, %.critedge, %2
-  %.not5.lcssa = phi i1 [ false, %18 ], [ true, %.critedge ], [ true, %2 ], [ false, %18 ], [ true, %.preheader.i.i.i ]
+  %.not5.lcssa = phi i1 [ true, %2 ], [ true, %.critedge ], [ false, %18 ], [ false, %18 ], [ true, %.preheader.i.i.i ]
   ret i1 %.not5.lcssa
 }
 
@@ -26284,7 +26284,7 @@ _ZN4llvm11upper_boundIRNS_12LiveIntervalERNS_9SlotIndexEEEDaOT_OT0_.exit: ; pred
   br i1 %.not, label %.critedge, label %17
 
 .critedge:                                        ; preds = %.loopexit, %86, %75, %6, %4
-  %.0 = phi i1 [ true, %4 ], [ false, %6 ], [ true, %86 ], [ true, %75 ], [ false, %.loopexit ]
+  %.0 = phi i1 [ true, %4 ], [ true, %86 ], [ false, %6 ], [ true, %75 ], [ false, %.loopexit ]
   ret i1 %.0
 }
 

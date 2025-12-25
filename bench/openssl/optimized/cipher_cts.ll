@@ -146,7 +146,7 @@ define range(i32 0, 2) i32 @ossl_cipher_cbc_cts_block_update(ptr noundef %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %26, %19, %33, %11, %6
-  %.043 = phi i32 [ 0, %26 ], [ 0, %6 ], [ 0, %19 ], [ 0, %33 ], [ 0, %11 ], [ 1, %.thread.sink.split ]
+  %.043 = phi i32 [ 0, %19 ], [ 0, %6 ], [ 0, %26 ], [ 0, %33 ], [ 0, %11 ], [ 1, %.thread.sink.split ]
   ret i32 %.043
 }
 

@@ -8424,7 +8424,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler17GetLocalClassDeclEPKN5clang4DeclE.exit: ; pre
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %36, %36, %_ZN12_GLOBAL__N_123isLocalContainerContextEPKN5clang11DeclContextE.exit.thread.i, %52
-  %.1 = phi ptr [ %8, %52 ], [ %8, %36 ], [ %8, %_ZN12_GLOBAL__N_123isLocalContainerContextEPKN5clang11DeclContextE.exit.thread.i ], [ %8, %36 ], [ %.0, %.preheader ], [ %.0, %.preheader ]
+  %.1 = phi ptr [ %8, %52 ], [ %8, %_ZN12_GLOBAL__N_123isLocalContainerContextEPKN5clang11DeclContextE.exit.thread.i ], [ %8, %36 ], [ %8, %36 ], [ %.0, %.preheader ], [ %.0, %.preheader ]
   %.val63 = load ptr, ptr %0, align 8, !tbaa !541
   %59 = getelementptr i8, ptr %.val63, i64 8
   %.val63.val = load ptr, ptr %59, align 8, !tbaa !128
@@ -20264,7 +20264,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDec
   %160 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %159, ptr noundef nonnull %.str.17.sink.i)
   br label %_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit.thread7
 
-_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit.thread: ; preds = %156, %147, %116, %123, %130, %138, %_ZN12_GLOBAL__N_114CXXNameMangler14isStdNamespaceEPKN5clang11DeclContextE.exit48.i, %_ZN4llvm11raw_ostreamlsEPKc.exit40.i, %63, %56, %49, %_ZN12_GLOBAL__N_114CXXNameMangler14isStdNamespaceEPKN5clang11DeclContextE.exit.i, %80, %_ZNK5clang14IdentifierInfo5isStrILm13EEEbRAT__Kc.exit.i, %82, %71, %15, %7, %_ZN12_GLOBAL__N_114CXXNameMangler5isStdEPKN5clang13NamespaceDeclE.exit.i, %_ZNK5clang14IdentifierInfo5isStrILm10EEEbRAT__Kc.exit.i, %23
+_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit.thread: ; preds = %156, %147, %138, %130, %123, %116, %_ZN12_GLOBAL__N_114CXXNameMangler14isStdNamespaceEPKN5clang11DeclContextE.exit48.i, %_ZN4llvm11raw_ostreamlsEPKc.exit40.i, %63, %56, %49, %_ZN12_GLOBAL__N_114CXXNameMangler14isStdNamespaceEPKN5clang11DeclContextE.exit.i, %80, %_ZNK5clang14IdentifierInfo5isStrILm13EEEbRAT__Kc.exit.i, %82, %71, %15, %7, %_ZN12_GLOBAL__N_114CXXNameMangler5isStdEPKN5clang13NamespaceDeclE.exit.i, %_ZNK5clang14IdentifierInfo5isStrILm10EEEbRAT__Kc.exit.i, %23
   %161 = load ptr, ptr %1, align 8, !tbaa !22
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 32
   %163 = load ptr, ptr %162, align 8
@@ -20273,8 +20273,8 @@ _ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDec
   %166 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEm(ptr noundef nonnull align 8 dereferenceable(280) %0, i64 noundef %165)
   br label %_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit.thread7
 
-_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit.thread7: ; preds = %_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit, %105, %43, %103, %45, %110, %_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit.thread
-  %.0 = phi i1 [ %166, %_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit.thread ], [ true, %_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit ], [ true, %110 ], [ true, %45 ], [ true, %103 ], [ true, %43 ], [ true, %105 ]
+_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit.thread7: ; preds = %_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit, %103, %43, %110, %45, %105, %_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit.thread
+  %.0 = phi i1 [ %166, %_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit.thread ], [ true, %_ZN12_GLOBAL__N_114CXXNameMangler26mangleStandardSubstitutionEPKN5clang9NamedDeclE.exit ], [ true, %105 ], [ true, %45 ], [ true, %110 ], [ true, %43 ], [ true, %103 ]
   ret i1 %.0
 }
 
@@ -37574,7 +37574,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_14CUDA
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14CUDAGlobalAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !537
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14CUDAGlobalAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_14CUDAGlobalAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -38796,7 +38796,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i: ; preds 
   br label %.split.split.split, !llvm.loop !1260
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_.exit: ; preds = %65, %56, %.split.split.split.us, %.split.split.us.split, %47, %39, %.split.us.split.split.us, %32, %24, %.split.us.split.us, %25
-  %.0.i14 = phi ptr [ %54, %56 ], [ %45, %.split.split.us.split ], [ %38, %39 ], [ %23, %24 ], [ %31, %.split.us.split.split.us ], [ %23, %25 ], [ %23, %.split.us.split.us ], [ %31, %32 ], [ %45, %47 ], [ %54, %.split.split.split.us ], [ %63, %65 ]
+  %.0.i14 = phi ptr [ %45, %.split.split.us.split ], [ %54, %56 ], [ %38, %39 ], [ %31, %.split.us.split.split.us ], [ %23, %24 ], [ %23, %25 ], [ %23, %.split.us.split.us ], [ %31, %32 ], [ %45, %47 ], [ %54, %.split.split.split.us ], [ %63, %65 ]
   %71 = load ptr, ptr %11, align 8, !tbaa !520
   %72 = load i32, ptr %13, align 8, !tbaa !521
   %73 = zext i32 %72 to i64
@@ -44026,7 +44026,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit.thread.i:     ; preds = %_ZNK5clang9NamedDec
   %.not.i140 = icmp eq i32 %456, 1
   br i1 %.not.i140, label %_ZN12_GLOBAL__N_124ItaniumMangleContextImpl20getNextDiscriminatorEPKN5clang9NamedDeclERj.exit.thread, label %457
 
-_ZN12_GLOBAL__N_124ItaniumMangleContextImpl20getNextDiscriminatorEPKN5clang9NamedDeclERj.exit.thread: ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.thread.i, %_ZN12_GLOBAL__N_18isLambdaEPKN5clang9NamedDeclE.exit.i, %455, %429
+_ZN12_GLOBAL__N_124ItaniumMangleContextImpl20getNextDiscriminatorEPKN5clang9NamedDeclERj.exit.thread: ; preds = %455, %_ZN12_GLOBAL__N_18isLambdaEPKN5clang9NamedDeclE.exit.i, %_ZNK5clang9NamedDecl7getNameEv.exit.thread.i, %429
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm11raw_ostreamlsEc.exit148
 

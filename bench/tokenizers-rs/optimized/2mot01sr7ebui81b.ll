@@ -26440,7 +26440,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.15403
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %187, %179, %105, %217, %216, %171
-  %.3.ph.ph = phi i8 [ 1, %216 ], [ 1, %217 ], [ 0, %171 ], [ 0, %179 ], [ 1, %187 ], [ %.9, %105 ]
+  %.3.ph.ph = phi i8 [ 1, %216 ], [ 1, %217 ], [ 0, %179 ], [ 0, %171 ], [ 1, %187 ], [ %.9, %105 ]
   %lpad.loopexit.split-lp187 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -26476,7 +26476,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.15403
   br label %.body124
 
 .loopexit.split-lp190:                            ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit120.thread", %91, %131, %151
-  %.6.ph = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit120.thread" ], [ 0, %131 ], [ 1, %91 ], [ 0, %151 ]
+  %.6.ph = phi i8 [ 1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5b546449e10d9f38E.exit120.thread" ], [ 1, %91 ], [ 0, %131 ], [ 0, %151 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body124

@@ -8502,7 +8502,7 @@ mjpeg_decode_app.exit.thread:                     ; preds = %146, %..loopexit_cr
   br label %670
 
 670:                                              ; preds = %.sink.split, %152, %144
-  %.0.i = phi i32 [ -1094995529, %152 ], [ -1094995529, %144 ], [ -12, %.sink.split ]
+  %.0.i = phi i32 [ -1094995529, %144 ], [ -1094995529, %152 ], [ -12, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   %671 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.0.i, ptr noundef nonnull %16, i64 noundef 64) #14

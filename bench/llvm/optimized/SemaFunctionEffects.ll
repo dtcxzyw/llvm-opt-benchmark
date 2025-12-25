@@ -1798,12 +1798,16 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread7.i.i.i: ; preds
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 32
   %274 = load i16, ptr %273, align 8
   %275 = icmp eq i16 %274, 279
-  br i1 %275, label %_ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit.i.i, label %276
+  br i1 %275, label %_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i.i, label %276
 
 276:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %277 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %277, %271
   br i1 %.not.i.i.i.i.i.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !813
+
+_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+  %.not99.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i.i, %271
+  br i1 %.not99.i.i, label %.critedge.i.i, label %.critedge40.i.i
 
 278:                                              ; preds = %241
   %279 = load i32, ptr %217, align 4
@@ -1860,22 +1864,18 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.i: ; preds = %290, 
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 32
   %306 = load i16, ptr %305, align 8
   %307 = icmp eq i16 %306, 279
-  br i1 %307, label %_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i, label %308
+  br i1 %307, label %_ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit.i.i, label %308
 
 308:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %309 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %309, %303
   br i1 %.not.i.i.i.i.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !813
 
-_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
+_ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.not101.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i, %303
   br i1 %.not101.i.i, label %.critedge.i.i, label %.critedge40.i.i
 
-_ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %.not99.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i.i, %271
-  br i1 %.not99.i.i, label %.critedge.i.i, label %.critedge40.i.i
-
-.critedge.i.i:                                    ; preds = %276, %308, %_ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit.i.i, %_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i, %297, %294, %281, %278, %265, %261, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.i.i, %250
+.critedge.i.i:                                    ; preds = %276, %308, %_ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit.i.i, %297, %294, %281, %278, %_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i.i, %265, %261, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.i.i, %250
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %310 = load ptr, ptr %20, align 8, !tbaa !804
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
@@ -2135,7 +2135,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge40.i.i
 
-.critedge40.i.i:                                  ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit.i.i, %_ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit.i.i, %_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.i, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread7.i.i.i
+.critedge40.i.i:                                  ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit.i.i, %_ZN12_GLOBAL__N_110isNoexceptEPKN5clang12FunctionDeclE.exit.i.i, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit.i.i, %_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i.i.i, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread7.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.pre.i = load i64, ptr %58, align 8
   br label %.loopexit.i.i
@@ -11908,7 +11908,7 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit:         ; preds = %29, %34
   %spec.select.i.i.i.i.not = icmp eq i16 %38, 56
   br i1 %spec.select.i.i.i.i.not, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread11
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread11: ; preds = %9, %26, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
+_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread11: ; preds = %26, %9, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load i32, ptr %39, align 8, !tbaa !31
   tail call fastcc void @_ZN12_GLOBAL__N_18Analyzer22FunctionBodyASTVisitor25diagnoseLanguageConstructEN5clang14FunctionEffect7FlagBitENS_11ViolationIDENS2_14SourceLocationEPKNS2_4DeclE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 16, i8 noundef zeroext 3, i32 %.sroa.0.0.copyload.i)

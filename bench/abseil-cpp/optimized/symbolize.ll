@@ -791,7 +791,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread: ; preds = %45, %113, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit, %115, %72, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split, %.preheader
-  %.2 = phi i1 [ false, %72 ], [ true, %113 ], [ false, %.preheader ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split ], [ false, %115 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ false, %45 ]
+  %.2 = phi i1 [ false, %72 ], [ false, %.preheader ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit48.thread.sink.split ], [ true, %113 ], [ false, %115 ], [ false, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit.thread
 
@@ -2998,7 +2998,7 @@ _ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread: ; pr
   br label %.critedge, !llvm.loop !111
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread: ; preds = %165, %.noexc, %34, %.noexc57, %63, %88, %.critedge2.thread
-  %.0 = phi i1 [ false, %.critedge2.thread ], [ false, %88 ], [ false, %63 ], [ true, %.noexc57 ], [ true, %34 ], [ true, %.noexc ], [ true, %165 ]
+  %.0 = phi i1 [ false, %.critedge2.thread ], [ false, %63 ], [ false, %88 ], [ true, %.noexc57 ], [ true, %34 ], [ true, %.noexc ], [ true, %165 ]
   %166 = invoke i32 @close(i32 noundef %7)
           to label %_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit unwind label %167
 

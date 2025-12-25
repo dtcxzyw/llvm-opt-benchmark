@@ -25653,7 +25653,7 @@ _ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit: ; preds = %_ZN4llvm1
   br i1 %cond, label %_ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit.thread260, label %106
 
 _ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit.thread260: ; preds = %_ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i, %_ZN4llvm8ExpectedIjED2Ev.exit24.i, %_ZN4llvm5ErrorD2Ev.exit85
-  %.065315 = phi ptr [ %.065322, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i ], [ null, %_ZN4llvm5ErrorD2Ev.exit85 ], [ %.065322, %_ZN4llvm8ExpectedIjED2Ev.exit24.i ], [ %.469, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit ], [ %.065322, %_ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit ]
+  %.065315 = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit85 ], [ %.065322, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit.i ], [ %.065322, %_ZN4llvm8ExpectedIjED2Ev.exit24.i ], [ %.469, %_ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit ], [ %.065322, %_ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit ]
   call void @_ZNK5clang9ASTReader5ErrorEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16272) %0, ptr nonnull @.str.5, i64 34)
   br label %_ZN4llvm15BitstreamCursor24advanceSkippingSubblocksEj.exit.thread263
 

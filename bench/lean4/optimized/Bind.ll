@@ -3782,8 +3782,8 @@ lean_dec_ref.exit475:                             ; preds = %944, %943, %941, %l
   unreachable
 
 951:                                              ; preds = %lean_array_uset.exit571, %lean_array_uset.exit520, %lean_array_uset.exit662, %lean_array_uset.exit617
-  %.1276 = phi ptr [ %809, %lean_array_uset.exit662 ], [ %620, %lean_array_uset.exit617 ], [ %402, %lean_array_uset.exit571 ], [ %179, %lean_array_uset.exit520 ]
-  %.1267 = phi ptr [ %.0.i.i659, %lean_array_uset.exit662 ], [ %.0.i.i614, %lean_array_uset.exit617 ], [ %.0.i.i568, %lean_array_uset.exit571 ], [ %.0.i.i517, %lean_array_uset.exit520 ]
+  %.1276 = phi ptr [ %620, %lean_array_uset.exit617 ], [ %402, %lean_array_uset.exit571 ], [ %809, %lean_array_uset.exit662 ], [ %179, %lean_array_uset.exit520 ]
+  %.1267 = phi ptr [ %.0.i.i614, %lean_array_uset.exit617 ], [ %.0.i.i568, %lean_array_uset.exit571 ], [ %.0.i.i659, %lean_array_uset.exit662 ], [ %.0.i.i517, %lean_array_uset.exit520 ]
   %.1258 = add nuw i64 %.0257801, 1
   %exitcond.not = icmp eq i64 %.1258, %1
   br i1 %exitcond.not, label %._crit_edge, label %78

@@ -3617,7 +3617,7 @@ define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr noundef nonnull read
   br i1 %exitcond506.not, label %.loopexit, label %.preheader, !llvm.loop !51
 
 .loopexit:                                        ; preds = %._crit_edge.us339, %.preheader, %._crit_edge.us387, %._crit_edge383.thread539, %._crit_edge273, %77, %.preheader207.lr.ph
-  %.3163536 = phi i32 [ 0, %.preheader ], [ 0, %._crit_edge383.thread539 ], [ 0, %._crit_edge.us387 ], [ 1, %._crit_edge273 ], [ 1, %77 ], [ 1, %.preheader207.lr.ph ], [ 1, %._crit_edge.us339 ]
+  %.3163536 = phi i32 [ 0, %.preheader ], [ 0, %._crit_edge383.thread539 ], [ 0, %._crit_edge.us387 ], [ 1, %._crit_edge273 ], [ 1, %.preheader207.lr.ph ], [ 1, %77 ], [ 1, %._crit_edge.us339 ]
   ret i32 %.3163536
 }
 

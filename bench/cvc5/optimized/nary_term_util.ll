@@ -1516,9 +1516,9 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_to
   ret i1 %.1
 
 .body:                                            ; preds = %.loopexit136, %120, %327, %228, %138
-  %.sroa.21.3 = phi ptr [ %.sroa.21.1, %138 ], [ %.sroa.21.5192217, %327 ], [ %.sroa.21.1, %120 ], [ %.sroa.21.5192, %228 ], [ %.sroa.21.1, %.loopexit136 ]
-  %.sroa.092.3 = phi ptr [ %.sroa.092.1, %138 ], [ %.sroa.092.5194, %327 ], [ %.sroa.092.1, %120 ], [ %.sroa.092.5194, %228 ], [ %.sroa.092.1, %.loopexit136 ]
-  %.pn32.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %139, %138 ], [ %.pn32, %327 ], [ %121, %120 ], [ %229, %228 ], [ %lpad.loopexit138, %.loopexit136 ]
+  %.sroa.21.3 = phi ptr [ %.sroa.21.5192217, %327 ], [ %.sroa.21.1, %138 ], [ %.sroa.21.1, %120 ], [ %.sroa.21.5192, %228 ], [ %.sroa.21.1, %.loopexit136 ]
+  %.sroa.092.3 = phi ptr [ %.sroa.092.5194, %327 ], [ %.sroa.092.1, %138 ], [ %.sroa.092.1, %120 ], [ %.sroa.092.5194, %228 ], [ %.sroa.092.1, %.loopexit136 ]
+  %.pn32.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn32, %327 ], [ %139, %138 ], [ %121, %120 ], [ %229, %228 ], [ %lpad.loopexit138, %.loopexit136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i.i.i80 = icmp eq ptr %.sroa.092.3, null
   br i1 %.not.i.i.i80, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit81, label %342

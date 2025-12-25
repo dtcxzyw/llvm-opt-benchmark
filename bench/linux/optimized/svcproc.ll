@@ -285,7 +285,7 @@ define internal noundef range(i32 0, 83886081) i32 @nlmsvc_proc_sm_notify(ptr no
   %.not1 = icmp eq i32 %33, 127
   br i1 %.not1, label %36, label %.critedge
 
-.critedge:                                        ; preds = %22, %26, %1, %7, %12, %30
+.critedge:                                        ; preds = %26, %22, %1, %7, %12, %30
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(63) %2, i8 0, i64 63, i1 false), !annotation !9
   %34 = call ptr @svc_print_addr(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 63) #7
@@ -293,7 +293,7 @@ define internal noundef range(i32 0, 83886081) i32 @nlmsvc_proc_sm_notify(ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %44
 
-36:                                               ; preds = %22, %26, %30
+36:                                               ; preds = %26, %22, %30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null

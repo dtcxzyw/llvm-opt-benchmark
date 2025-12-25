@@ -1009,8 +1009,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9pus
   br i1 %109, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !100
 
 .loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9push_backES6_.exit111, %106, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9push_backES6_.exit
-  %110 = phi i32 [ %69, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9push_backES6_.exit ], [ %98, %106 ], [ %98, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9push_backES6_.exit111 ]
-  %.281 = phi ptr [ %.180, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9push_backES6_.exit ], [ %.483, %106 ], [ %.483, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9push_backES6_.exit111 ]
+  %110 = phi i32 [ %98, %106 ], [ %69, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9push_backES6_.exit ], [ %98, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9push_backES6_.exit111 ]
+  %.281 = phi ptr [ %.483, %106 ], [ %.180, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9push_backES6_.exit ], [ %.483, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9push_backES6_.exit111 ]
   %.not.i = icmp eq i32 %110, 0
   br i1 %.not.i, label %.loopexit.thread, label %114
 
@@ -7718,7 +7718,7 @@ select.unfold:                                    ; preds = %151, %140, %_ZN4llv
   br i1 %.not75, label %.critedge.loopexit.loopexit, label %50, !llvm.loop !267
 
 .loopexit:                                        ; preds = %.critedge.loopexit, %144, %142, %151, %140, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit
-  %.not.i87 = phi i1 [ false, %144 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit ], [ false, %140 ], [ false, %151 ], [ false, %142 ], [ true, %.critedge.loopexit ]
+  %.not.i87 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_10SSAUpdaterEE6BBInfoELb1EE9push_backES5_.exit ], [ false, %144 ], [ false, %140 ], [ false, %151 ], [ false, %142 ], [ true, %.critedge.loopexit ]
   %178 = load ptr, ptr %3, align 8, !tbaa !60
   %179 = icmp eq ptr %178, %5
   br i1 %179, label %_ZN4llvm11SmallVectorIPNS_7PHINodeELj20EED2Ev.exit, label %180

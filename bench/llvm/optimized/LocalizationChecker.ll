@@ -1695,8 +1695,8 @@ _ZNK5clang22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4At
   br i1 %.not.i5.i.i.i, label %"_ZSt6any_ofIN5clang22specific_attr_iteratorINS0_12AnnotateAttrEN4llvm11SmallVectorIPNS0_4AttrELj4EEEEEZNK12_GLOBAL__N_125NonLocalizedStringChecker28isAnnotatedAsTakingLocalizedEPKNS0_4DeclEE3$_0EbT_SF_T0_.exit", label %.lr.ph.i4.i.i.i, !llvm.loop !342
 
 "_ZSt6any_ofIN5clang22specific_attr_iteratorINS0_12AnnotateAttrEN4llvm11SmallVectorIPNS0_4AttrELj4EEEEEZNK12_GLOBAL__N_125NonLocalizedStringChecker28isAnnotatedAsTakingLocalizedEPKNS0_4DeclEE3$_0EbT_SF_T0_.exit": ; preds = %.lr.ph.i4.i.i.i, %61, %.lr.ph.i.i.i.i, %54, %56
-  %.sroa.07.0.i.i.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %17, %56 ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %17, %61 ], [ %17, %.lr.ph.i4.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i.i, %.lr.ph.i.i.i.i ], [ %17, %56 ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %17, %61 ], [ %.sroa.0.1.i.i.i, %.lr.ph.i4.i.i.i ]
+  %.sroa.07.0.i.i.i = phi ptr [ %17, %56 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %17, %61 ], [ %17, %.lr.ph.i4.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %17, %56 ], [ %.sroa.0.0.i.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %.sroa.0.1.i.i.i, %.lr.ph.i4.i.i.i ], [ %17, %61 ]
   %63 = icmp ne ptr %.sroa.07.0.i.i.i, %.sroa.0.0.i.i.i
   br label %64
 
@@ -4303,8 +4303,8 @@ _ZNK5clang22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4At
   br i1 %.not.i5.i.i.i, label %"_ZSt6any_ofIN5clang22specific_attr_iteratorINS0_12AnnotateAttrEN4llvm11SmallVectorIPNS0_4AttrELj4EEEEEZNK12_GLOBAL__N_125NonLocalizedStringChecker31isAnnotatedAsReturningLocalizedEPKNS0_4DeclEE3$_0EbT_SF_T0_.exit", label %.lr.ph.i4.i.i.i, !llvm.loop !342
 
 "_ZSt6any_ofIN5clang22specific_attr_iteratorINS0_12AnnotateAttrEN4llvm11SmallVectorIPNS0_4AttrELj4EEEEEZNK12_GLOBAL__N_125NonLocalizedStringChecker31isAnnotatedAsReturningLocalizedEPKNS0_4DeclEE3$_0EbT_SF_T0_.exit": ; preds = %.lr.ph.i4.i.i.i, %61, %.lr.ph.i.i.i.i, %54, %56
-  %.sroa.07.0.i.i.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %17, %56 ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %17, %61 ], [ %17, %.lr.ph.i4.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i.i, %.lr.ph.i.i.i.i ], [ %17, %56 ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %17, %61 ], [ %.sroa.0.1.i.i.i, %.lr.ph.i4.i.i.i ]
+  %.sroa.07.0.i.i.i = phi ptr [ %17, %56 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %17, %61 ], [ %17, %.lr.ph.i4.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %17, %56 ], [ %.sroa.0.0.i.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.0.0.i.i.i.i.i, %54 ], [ %.sroa.0.1.i.i.i, %.lr.ph.i4.i.i.i ], [ %17, %61 ]
   %63 = icmp ne ptr %.sroa.07.0.i.i.i, %.sroa.0.0.i.i.i
   br label %64
 

@@ -5663,9 +5663,9 @@ checkhttpprefix.exit.thread:                      ; preds = %441, %checkhttppref
   store i8 %.ph, ptr %350, align 1, !tbaa !221
   br label %494
 
-491:                                              ; preds = %419, %419, %430, %388, %388, %399
-  %492 = phi i32 [ %426, %419 ], [ %426, %419 ], [ %426, %430 ], [ %395, %388 ], [ %395, %388 ], [ %395, %399 ]
-  %.pr279 = phi i8 [ %407, %419 ], [ %407, %419 ], [ %407, %430 ], [ %376, %388 ], [ %376, %388 ], [ %376, %399 ]
+491:                                              ; preds = %419, %419, %430, %399, %388, %388
+  %492 = phi i32 [ %426, %419 ], [ %426, %419 ], [ %426, %430 ], [ %395, %399 ], [ %395, %388 ], [ %395, %388 ]
+  %.pr279 = phi i8 [ %407, %419 ], [ %407, %419 ], [ %407, %430 ], [ %376, %399 ], [ %376, %388 ], [ %376, %388 ]
   %493 = and i8 %.pr279, -2
   %switch.i241 = icmp eq i8 %493, 10
   br i1 %switch.i241, label %494, label %504
@@ -5842,7 +5842,7 @@ verify_header.exit:                               ; preds = %.critedge235.thread
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull %.str.150.sink.i) #12
   br label %.critedge235.thread
 
-573:                                              ; preds = %570, %571, %566
+573:                                              ; preds = %571, %570, %566
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %575 = load ptr, ptr %574, align 8, !tbaa !75
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -6689,8 +6689,8 @@ http_header.exit.thread:                          ; preds = %.critedge424.i, %96
   %977 = call i32 @Curl_bump_headersize(ptr noundef nonnull %0, i64 noundef %2, i1 noundef zeroext false)
   br label %.critedge235.thread
 
-.critedge235.thread:                              ; preds = %501, %504, %969, %754, %833, %933, %650, %764, %959, %465, %454, %469, %458, %473, %450, %488, %462, %401, %432, %.thread268, %verify_header.exit, %976, %http_header.exit.thread, %http_header.exit, %344
-  %.1 = phi i32 [ %.0157, %344 ], [ 27, %959 ], [ 8, %verify_header.exit ], [ %.0.i248, %http_header.exit ], [ %977, %976 ], [ %975, %http_header.exit.thread ], [ 8, %465 ], [ 1, %401 ], [ 1, %432 ], [ 8, %.thread268 ], [ 8, %462 ], [ 8, %488 ], [ 8, %450 ], [ 8, %473 ], [ 8, %458 ], [ 8, %469 ], [ 8, %454 ], [ %970, %969 ], [ 27, %754 ], [ 27, %833 ], [ %935, %933 ], [ 27, %650 ], [ 27, %764 ], [ 1, %504 ], [ 8, %501 ]
+.critedge235.thread:                              ; preds = %501, %504, %969, %754, %650, %764, %933, %833, %959, %465, %454, %469, %458, %473, %450, %488, %462, %401, %432, %.thread268, %verify_header.exit, %976, %http_header.exit.thread, %http_header.exit, %344
+  %.1 = phi i32 [ %.0157, %344 ], [ 27, %959 ], [ 8, %verify_header.exit ], [ %.0.i248, %http_header.exit ], [ %977, %976 ], [ %975, %http_header.exit.thread ], [ 8, %465 ], [ 1, %401 ], [ 1, %432 ], [ 8, %.thread268 ], [ 8, %462 ], [ 8, %488 ], [ 8, %450 ], [ 8, %473 ], [ 8, %458 ], [ 8, %469 ], [ 8, %454 ], [ %970, %969 ], [ 27, %754 ], [ 27, %650 ], [ 27, %764 ], [ %935, %933 ], [ 27, %833 ], [ 1, %504 ], [ 8, %501 ]
   ret i32 %.1
 }
 

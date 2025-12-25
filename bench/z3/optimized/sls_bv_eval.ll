@@ -3048,7 +3048,7 @@ _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %2, %_ZNK3app13get_d
   br label %"_Z6any_ofI3appZNK3sls7bv_eval10bval1_boolEPS0_E3$_1EbRKT_RKT0_.exit"
 
 "_Z6any_ofI3appZNK3sls7bv_eval10bval1_boolEPS0_E3$_1EbRKT_RKT0_.exit": ; preds = %.loopexit, %131, %_ZN7obj_refI4expr11ast_managerED2Ev.exit54, %.lr.ph75, %.lr.ph79, %.lr.ph86, %.preheader, %119, %30, %21, %_ZNK3app13get_decl_kindEv.exit, %111, %115, %99, %103, %_ZNK3app13get_decl_kindEv.exit.thread, %129, %_ZN7obj_refI4expr11ast_managerED2Ev.exit49, %55, %39
-  %.038 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ true, %.preheader ], [ %114, %111 ], [ %43, %39 ], [ %62, %55 ], [ %73, %_ZN7obj_refI4expr11ast_managerED2Ev.exit49 ], [ %127, %.lr.ph75 ], [ %106, %103 ], [ false, %119 ], [ %118, %115 ], [ false, %129 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %99 ], [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit54 ], [ true, %21 ], [ %28, %.lr.ph86 ], [ %37, %.lr.ph79 ], [ false, %30 ], [ true, %131 ], [ true, %.loopexit ]
+  %.038 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ true, %.preheader ], [ %114, %111 ], [ %43, %39 ], [ %62, %55 ], [ %73, %_ZN7obj_refI4expr11ast_managerED2Ev.exit49 ], [ false, %119 ], [ %106, %103 ], [ %127, %.lr.ph75 ], [ %118, %115 ], [ false, %129 ], [ true, %_ZNK3app13get_decl_kindEv.exit ], [ true, %99 ], [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit54 ], [ true, %21 ], [ %28, %.lr.ph86 ], [ %37, %.lr.ph79 ], [ false, %30 ], [ true, %131 ], [ true, %.loopexit ]
   ret i1 %.038
 
 171:                                              ; preds = %169, %97
@@ -6548,7 +6548,7 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.thread.sink.split: ; preds = %_ZN3sls7bv_ev
   br label %_ZNK11ast_manager5is_eqEPK4expr.exit.thread
 
 _ZNK11ast_manager5is_eqEPK4expr.exit.thread:      ; preds = %_ZNK11ast_manager5is_eqEPK4expr.exit.thread.sink.split, %90, %77, %72, %_ZNK11ast_manager5is_eqEPK4expr.exit, %87, %_ZN3sls7bv_eval13try_repair_eqEP3appj.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %90 ], [ false, %72 ], [ false, %_ZN3sls7bv_eval13try_repair_eqEP3appj.exit ], [ false, %87 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ false, %77 ], [ true, %_ZNK11ast_manager5is_eqEPK4expr.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %3 ], [ false, %72 ], [ false, %90 ], [ false, %_ZN3sls7bv_eval13try_repair_eqEP3appj.exit ], [ false, %87 ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ false, %77 ], [ true, %_ZNK11ast_manager5is_eqEPK4expr.exit.thread.sink.split ]
   ret i1 %.0
 }
 

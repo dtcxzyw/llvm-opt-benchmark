@@ -653,8 +653,8 @@ define dso_local noundef range(i32 -22, 1) i32 @cipso_v4_doi_add(ptr noundef %0,
   br label %.loopexit4
 
 .loopexit4:                                       ; preds = %20, %.split.split.us, %.split.us.split, %12, %28, %.split.split, %54, %2
-  %57 = phi i32 [ 0, %2 ], [ %55, %54 ], [ 0, %28 ], [ 0, %.split.us.split ], [ 0, %.split.split ], [ 0, %12 ], [ 0, %.split.split.us ], [ 0, %20 ]
-  %58 = phi i32 [ -22, %2 ], [ %56, %54 ], [ -22, %28 ], [ -22, %.split.us.split ], [ -22, %.split.split ], [ -22, %12 ], [ -22, %.split.split.us ], [ -22, %20 ]
+  %57 = phi i32 [ 0, %2 ], [ %55, %54 ], [ 0, %.split.us.split ], [ 0, %28 ], [ 0, %.split.split ], [ 0, %12 ], [ 0, %.split.split.us ], [ 0, %20 ]
+  %58 = phi i32 [ -22, %2 ], [ %56, %54 ], [ -22, %.split.us.split ], [ -22, %28 ], [ -22, %.split.split ], [ -22, %12 ], [ -22, %.split.split.us ], [ -22, %20 ]
   %59 = tail call ptr @netlbl_audit_start(i32 noundef 1407, ptr noundef %1) #15
   %60 = icmp eq ptr %59, null
   br i1 %60, label %67, label %61

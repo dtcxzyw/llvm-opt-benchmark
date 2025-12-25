@@ -2247,7 +2247,7 @@ get_color_code.exit283:                           ; preds = %869, %873
   br i1 %.not196, label %show_merge_base.exit, label %836, !llvm.loop !85
 
 show_merge_base.exit:                             ; preds = %532, %549, %.thread306, %890, %628, %._crit_edge368.thread, %name_commits.exit, %._crit_edge368, %537, %516, %._crit_edge372, %401
-  %.0170 = phi i32 [ 0, %._crit_edge368 ], [ 0, %name_commits.exit ], [ 0, %401 ], [ 0, %._crit_edge372 ], [ 0, %.thread306 ], [ 1, %516 ], [ 0, %537 ], [ 0, %628 ], [ 0, %549 ], [ 0, %._crit_edge368.thread ], [ 0, %890 ], [ %.1.i, %532 ]
+  %.0170 = phi i32 [ 0, %.thread306 ], [ 0, %name_commits.exit ], [ 0, %401 ], [ 0, %._crit_edge372 ], [ 0, %._crit_edge368 ], [ 1, %516 ], [ 0, %537 ], [ 0, %628 ], [ 0, %549 ], [ 0, %._crit_edge368.thread ], [ 0, %890 ], [ %.1.i, %532 ]
   br label %898
 
 895:                                              ; preds = %898

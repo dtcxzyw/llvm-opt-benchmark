@@ -3798,7 +3798,7 @@ ExecQual.exit:                                    ; preds = %.lr.ph16
   unreachable
 
 .critedge:                                        ; preds = %18, %2, %.lr.ph, %.loopexit, %37
-  %.1 = phi ptr [ %66, %37 ], [ null, %.loopexit ], [ null, %2 ], [ null, %.lr.ph ], [ null, %18 ]
+  %.1 = phi ptr [ null, %.loopexit ], [ %66, %37 ], [ null, %2 ], [ null, %.lr.ph ], [ null, %18 ]
   ret ptr %.1
 }
 

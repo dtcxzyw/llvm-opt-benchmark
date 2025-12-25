@@ -6810,7 +6810,7 @@ usePal.exit:                                      ; preds = %7, %7, %7, %7, %7, 
   br label %.loopexit
 
 24:                                               ; preds = %usePal.exit, %usePal.exit, %usePal.exit, %usePal.exit, %18, %18, %20, %19, %21
-  %.028 = phi ptr [ @sws_convertPalette8ToPacked24, %21 ], [ @gray8aToPacked32, %18 ], [ @gray8aToPacked24, %20 ], [ @gray8aToPacked32_1, %19 ], [ @gray8aToPacked32, %18 ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ]
+  %.028 = phi ptr [ @gray8aToPacked24, %20 ], [ @gray8aToPacked32, %18 ], [ @sws_convertPalette8ToPacked24, %21 ], [ @gray8aToPacked32_1, %19 ], [ @gray8aToPacked32, %18 ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ], [ @sws_convertPalette8ToPacked32, %usePal.exit ]
   %25 = icmp sgt i32 %4, 0
   br i1 %25, label %.lr.ph, label %.loopexit
 

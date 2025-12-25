@@ -12480,7 +12480,7 @@ _ZN5clang12CompoundStmt9body_backEv.exit:         ; preds = %38
   br label %.thread81
 
 .thread81:                                        ; preds = %38, %_ZN5clang12CompoundStmt9body_backEv.exit, %49, %26, %79, %67, %tailrecurse._crit_edge, %_ZN5clang4Decl14getDeclContextEv.exit, %57, %62
-  %.2 = phi ptr [ null, %67 ], [ null, %tailrecurse._crit_edge ], [ %80, %79 ], [ %22, %_ZN5clang4Decl14getDeclContextEv.exit ], [ null, %62 ], [ %56, %57 ], [ null, %26 ], [ null, %49 ], [ null, %_ZN5clang12CompoundStmt9body_backEv.exit ], [ null, %38 ]
+  %.2 = phi ptr [ %56, %57 ], [ null, %tailrecurse._crit_edge ], [ %22, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %80, %79 ], [ null, %62 ], [ null, %67 ], [ null, %26 ], [ null, %49 ], [ null, %_ZN5clang12CompoundStmt9body_backEv.exit ], [ null, %38 ]
   ret ptr %.2
 }
 

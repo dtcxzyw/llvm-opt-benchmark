@@ -589,7 +589,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #1 {
   br i1 %.not65, label %.lr.ph86, label %.loopexit, !llvm.loop !79
 
 .loopexit:                                        ; preds = %21, %.critedge, %.critedge67, %61, %.critedge78.preheader, %.critedge67.preheader, %.thread, %12
-  %.0 = phi i32 [ -12, %12 ], [ %63, %61 ], [ %57, %.thread ], [ 0, %.critedge67.preheader ], [ 0, %.critedge78.preheader ], [ %.45275, %.critedge67 ], [ -12, %.critedge ], [ -12, %21 ]
+  %.0 = phi i32 [ -12, %12 ], [ %57, %.thread ], [ 0, %.critedge78.preheader ], [ 0, %.critedge67.preheader ], [ %63, %61 ], [ %.45275, %.critedge67 ], [ -12, %.critedge ], [ -12, %21 ]
   ret i32 %.0
 }
 

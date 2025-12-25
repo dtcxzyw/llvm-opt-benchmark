@@ -1805,8 +1805,8 @@ _ZN18tracing_subscriber6filter3env7builder7Builder15from_directives17hebd67ce7d8
   br label %.critedge.thread225.i
 
 .loopexit.split-lp238.i:                          ; preds = %238, %223, %222, %214, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55713f926150d2afE.exit.thread.i", %._crit_edge.thread.i, %182, %175
-  %.sroa.010.0.ph.i = phi i1 [ true, %214 ], [ true, %222 ], [ true, %223 ], [ true, %238 ], [ false, %._crit_edge.thread.i ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55713f926150d2afE.exit.thread.i" ], [ true, %182 ], [ true, %175 ]
-  %.sroa.04.1.ph.i = phi i8 [ 0, %214 ], [ 0, %222 ], [ 0, %223 ], [ 0, %238 ], [ %.sroa.04.0.i, %._crit_edge.thread.i ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55713f926150d2afE.exit.thread.i" ], [ 1, %182 ], [ 1, %175 ]
+  %.sroa.010.0.ph.i = phi i1 [ true, %214 ], [ true, %222 ], [ true, %223 ], [ true, %238 ], [ false, %._crit_edge.thread.i ], [ true, %175 ], [ true, %182 ], [ true, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55713f926150d2afE.exit.thread.i" ]
+  %.sroa.04.1.ph.i = phi i8 [ 0, %214 ], [ 0, %222 ], [ 0, %223 ], [ 0, %238 ], [ %.sroa.04.0.i, %._crit_edge.thread.i ], [ 1, %175 ], [ 1, %182 ], [ 0, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55713f926150d2afE.exit.thread.i" ]
   %lpad.loopexit.split-lp240.i = landingpad { ptr, i32 }
           cleanup
   br label %.critedge.i

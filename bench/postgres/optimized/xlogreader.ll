@@ -1198,8 +1198,8 @@ XLogReadRecordAlloc.exit277.i:                    ; preds = %297, %292, %288, %2
   br i1 %111, label %.thread299.i, label %.thread293.i
 
 .thread299.i:                                     ; preds = %173, %128, %325, %ValidXLogRecord.exit.i, %147, %138
-  %.0218305.i = phi i64 [ %.2220.i, %325 ], [ %123, %ValidXLogRecord.exit.i ], [ %123, %138 ], [ %123, %147 ], [ %123, %128 ], [ %123, %173 ]
-  %.1226304.i = phi ptr [ %301, %325 ], [ %.0.i280.i, %ValidXLogRecord.exit.i ], [ %.0.i280.i, %138 ], [ %.0.i280.i, %147 ], [ %.0.i280.i, %128 ], [ %.0.i280.i, %173 ]
+  %.0218305.i = phi i64 [ %.2220.i, %325 ], [ %123, %ValidXLogRecord.exit.i ], [ %123, %147 ], [ %123, %138 ], [ %123, %128 ], [ %123, %173 ]
+  %.1226304.i = phi ptr [ %301, %325 ], [ %.0.i280.i, %ValidXLogRecord.exit.i ], [ %.0.i280.i, %147 ], [ %.0.i280.i, %138 ], [ %.0.i280.i, %128 ], [ %.0.i280.i, %173 ]
   store i64 %.2210.i, ptr %12, align 8
   store i64 %.0218305.i, ptr %13, align 8
   store i8 1, ptr %5, align 8
@@ -1229,8 +1229,8 @@ XLogReadRecordAlloc.exit277.i:                    ; preds = %297, %292, %288, %2
   store i32 0, ptr %334, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %217, %XLogReadRecordAlloc.exit.i, %122, %321, %324, %224, %331, %8
-  %.0.ph = phi ptr [ null, %224 ], [ null, %122 ], [ %301, %324 ], [ %301, %321 ], [ null, %8 ], [ null, %331 ], [ null, %XLogReadRecordAlloc.exit.i ], [ null, %217 ]
+.sink.split:                                      ; preds = %217, %XLogReadRecordAlloc.exit.i, %122, %321, %324, %224, %8, %331
+  %.0.ph = phi ptr [ null, %224 ], [ %301, %324 ], [ null, %122 ], [ %301, %321 ], [ null, %331 ], [ null, %8 ], [ null, %XLogReadRecordAlloc.exit.i ], [ null, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %335
 
@@ -2402,7 +2402,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none)
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %273, i32 noundef %274)
   br label %.thread324
 
-.thread324:                                       ; preds = %143, %163, %186, %171, %83, %152, %90, %51, %.thread317, %201
+.thread324:                                       ; preds = %143, %152, %171, %186, %83, %163, %90, %51, %.thread317, %201
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %276 = load ptr, ptr %275, align 8
   store ptr %276, ptr %4, align 8

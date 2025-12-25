@@ -3571,7 +3571,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i70, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %183, %187, %119, %195, %201, %216
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %119 ], [ %.sroa.03.2, %216 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %195 ], [ %.sroa.03.2, %183 ], [ %.sroa.03.2, %187 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %119 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %216 ], [ %.sroa.03.2, %195 ], [ %.sroa.03.2, %183 ], [ %.sroa.03.2, %187 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
@@ -4524,7 +4524,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i70, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %183, %187, %119, %195, %201, %216
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %119 ], [ %.sroa.03.2, %216 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %195 ], [ %.sroa.03.2, %183 ], [ %.sroa.03.2, %187 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %119 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %216 ], [ %.sroa.03.2, %195 ], [ %.sroa.03.2, %183 ], [ %.sroa.03.2, %187 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
@@ -5412,7 +5412,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i70, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %186, %190, %122, %198, %204, %219
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %122 ], [ %.sroa.03.2, %219 ], [ %.sroa.03.2, %204 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %186 ], [ %.sroa.03.2, %190 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %122 ], [ %.sroa.03.2, %204 ], [ %.sroa.03.2, %219 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %186 ], [ %.sroa.03.2, %190 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
@@ -6264,7 +6264,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i70, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %186, %190, %122, %198, %204, %219
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %122 ], [ %.sroa.03.2, %219 ], [ %.sroa.03.2, %204 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %186 ], [ %.sroa.03.2, %190 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %122 ], [ %.sroa.03.2, %204 ], [ %.sroa.03.2, %219 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %186 ], [ %.sroa.03.2, %190 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
@@ -7152,7 +7152,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i70, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %186, %190, %122, %198, %204, %219
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %122 ], [ %.sroa.03.2, %219 ], [ %.sroa.03.2, %204 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %186 ], [ %.sroa.03.2, %190 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %122 ], [ %.sroa.03.2, %204 ], [ %.sroa.03.2, %219 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %186 ], [ %.sroa.03.2, %190 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
@@ -8004,7 +8004,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i70, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %186, %190, %122, %198, %204, %219
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %122 ], [ %.sroa.03.2, %219 ], [ %.sroa.03.2, %204 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %186 ], [ %.sroa.03.2, %190 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %122 ], [ %.sroa.03.2, %204 ], [ %.sroa.03.2, %219 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %186 ], [ %.sroa.03.2, %190 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
@@ -8885,7 +8885,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i70, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %183, %187, %119, %195, %201, %216
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %119 ], [ %.sroa.03.2, %216 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %195 ], [ %.sroa.03.2, %183 ], [ %.sroa.03.2, %187 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %119 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %216 ], [ %.sroa.03.2, %195 ], [ %.sroa.03.2, %183 ], [ %.sroa.03.2, %187 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
@@ -9766,7 +9766,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i70, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %183, %187, %119, %195, %201, %216
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %119 ], [ %.sroa.03.2, %216 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %195 ], [ %.sroa.03.2, %183 ], [ %.sroa.03.2, %187 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %119 ], [ %.sroa.03.2, %201 ], [ %.sroa.03.2, %216 ], [ %.sroa.03.2, %195 ], [ %.sroa.03.2, %183 ], [ %.sroa.03.2, %187 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
@@ -10654,7 +10654,7 @@ select.unfold150:                                 ; preds = %._crit_edge.i.i70, 
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %186, %190, %122, %198, %204, %219
-  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %122 ], [ %.sroa.03.2, %219 ], [ %.sroa.03.2, %204 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %186 ], [ %.sroa.03.2, %190 ]
+  %.sroa.03.0.ph.ph.ph = phi i8 [ 1, %122 ], [ %.sroa.03.2, %204 ], [ %.sroa.03.2, %219 ], [ %.sroa.03.2, %198 ], [ %.sroa.03.2, %186 ], [ %.sroa.03.2, %190 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h0fc44847314be727E.exit"

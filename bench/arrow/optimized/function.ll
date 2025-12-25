@@ -2788,8 +2788,8 @@ _ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_E
   ret void
 
 62:                                               ; preds = %33, %_ZN5arrow6ResultIPKNS_7compute6KernelEED2Ev.exit
-  %63 = phi ptr [ %25, %33 ], [ %.pre, %_ZN5arrow6ResultIPKNS_7compute6KernelEED2Ev.exit ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %44, %_ZN5arrow6ResultIPKNS_7compute6KernelEED2Ev.exit ]
+  %63 = phi ptr [ %.pre, %_ZN5arrow6ResultIPKNS_7compute6KernelEED2Ev.exit ], [ %25, %33 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %44, %_ZN5arrow6ResultIPKNS_7compute6KernelEED2Ev.exit ], [ %34, %33 ]
   %.not.i30 = icmp eq ptr %63, null
   br i1 %.not.i30, label %_ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_EED2Ev.exit32, label %_ZNKSt14default_deleteIN5arrow7compute6detail14KernelExecutorEEclEPS3_.exit.i31
 

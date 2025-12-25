@@ -7031,7 +7031,7 @@ if.then.i.i2217:                                  ; preds = %for.cond.i.i.i2214,
   br label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7compareERKS4_.exit.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7compareERKS4_.exit.i: ; preds = %if.else.i.i5.i, %for.body.i.i.i2209, %if.then.i.i2217
-  %__r.0.i.i = phi i32 [ %retval.0.i4.i.i, %if.then.i.i2217 ], [ 1, %if.else.i.i5.i ], [ -1, %for.body.i.i.i2209 ]
+  %__r.0.i.i = phi i32 [ %retval.0.i4.i.i, %if.then.i.i2217 ], [ -1, %for.body.i.i.i2209 ], [ 1, %if.else.i.i5.i ]
   invoke void (...) @_ZN9Benchmark9DoNothingEz(ptr noundef nonnull align 8 dereferenceable(32) %ss16, i32 noundef %__r.0.i.i)
           to label %.noexc2225 unwind label %lpad400.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 

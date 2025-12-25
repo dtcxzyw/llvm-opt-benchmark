@@ -1022,7 +1022,7 @@ _ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split: ; pre
   br label %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread
 
 _ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread: ; preds = %40, %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split, %3
-  %.0 = phi ptr [ %43, %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split ], [ null, %3 ], [ null, %40 ]
+  %.0 = phi ptr [ null, %3 ], [ %43, %_ZN23btHashedSimplePairCache16internalFindPairEiii.exit.thread.sink.split ], [ null, %40 ]
   ret ptr %.0
 }
 

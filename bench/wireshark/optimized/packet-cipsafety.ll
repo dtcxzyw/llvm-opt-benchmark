@@ -2524,7 +2524,7 @@ default.unreachable41:                            ; preds = %25
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %21, %25, %33, %18, %4, %36, %9, %13
-  %.0 = phi i1 [ false, %21 ], [ false, %25 ], [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %18 ], [ false, %33 ], [ true, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %25 ], [ false, %21 ], [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %18 ], [ false, %33 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 

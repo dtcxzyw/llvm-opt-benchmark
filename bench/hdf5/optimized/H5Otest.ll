@@ -701,8 +701,8 @@ define range(i32 -1, 1) i32 @H5O__attr_dense_info_test(i64 noundef %0, ptr nound
   br label %93
 
 93:                                               ; preds = %91, %85, %77, %65
-  %.139 = phi ptr [ %.240, %91 ], [ %75, %85 ], [ null, %77 ], [ null, %65 ]
-  %.2 = phi i32 [ 0, %91 ], [ -1, %85 ], [ -1, %77 ], [ -1, %65 ]
+  %.139 = phi ptr [ null, %77 ], [ %75, %85 ], [ %.240, %91 ], [ null, %65 ]
+  %.2 = phi i32 [ -1, %77 ], [ -1, %85 ], [ 0, %91 ], [ -1, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %94 = call i32 @H5B2_close(ptr noundef nonnull %55) #4
   %95 = icmp slt i32 %94, 0

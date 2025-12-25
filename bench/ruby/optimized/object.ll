@@ -6907,7 +6907,7 @@ rb_class_of.exit:                                 ; preds = %95
   br label %120
 
 120:                                              ; preds = %112, %118, %116, %102
-  %.3 = phi i64 [ %113, %112 ], [ %119, %118 ], [ %117, %116 ], [ %104, %102 ]
+  %.3 = phi i64 [ %104, %102 ], [ %113, %112 ], [ %117, %116 ], [ %119, %118 ]
   %121 = icmp ult ptr %.482, %48
   br i1 %121, label %.preheader, label %.loopexit
 
@@ -7336,8 +7336,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fa
   store i64 %.sink, ptr %4, align 8, !tbaa !7
   br label %.thread125
 
-.thread125:                                       ; preds = %.critedge, %126, %124, %.critedge.thread, %82, %80, %.critedge.us, %.critedge.us.thread, %.thread125.sink.split, %43, %49, %RB_SYMBOL_P.exit.thread
-  %.078 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %43 ], [ %2, %49 ], [ %.280151.us, %82 ], [ %.078.ph, %.thread125.sink.split ], [ %.280151.us, %.critedge.us.thread ], [ %.280151.us, %.critedge.us ], [ %.280151.us, %80 ], [ %.280151, %.critedge.thread ], [ %.280151, %124 ], [ %.280151, %126 ], [ %.280151, %.critedge ]
+.thread125:                                       ; preds = %.critedge, %124, %126, %.critedge.thread, %82, %80, %.critedge.us, %.critedge.us.thread, %.thread125.sink.split, %43, %49, %RB_SYMBOL_P.exit.thread
+  %.078 = phi i64 [ %2, %RB_SYMBOL_P.exit.thread ], [ %2, %43 ], [ %2, %49 ], [ %.078.ph, %.thread125.sink.split ], [ %.280151.us, %82 ], [ %.280151.us, %.critedge.us.thread ], [ %.280151.us, %.critedge.us ], [ %.280151.us, %80 ], [ %.280151, %.critedge.thread ], [ %.280151, %126 ], [ %.280151, %124 ], [ %.280151, %.critedge ]
   %168 = load i64, ptr %4, align 8, !tbaa !7
   call fastcc void @rb_name_err_raise(ptr noundef nonnull @bad_const_name, i64 noundef %.078, i64 noundef %168) #28
   unreachable

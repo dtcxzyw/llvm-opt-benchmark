@@ -2794,8 +2794,8 @@ decode_subframe_length.exit.i:                    ; preds = %153, %._crit_edge11
   br label %191
 
 191:                                              ; preds = %187, %183, %172
-  %.386.i = phi i32 [ %.285112.i, %183 ], [ %186, %187 ], [ %.285112.i, %172 ]
-  %.377.i = phi i32 [ %.276114.i, %183 ], [ %190, %187 ], [ %.276114.i, %172 ]
+  %.386.i = phi i32 [ %186, %187 ], [ %.285112.i, %183 ], [ %.285112.i, %172 ]
+  %.377.i = phi i32 [ %190, %187 ], [ %.276114.i, %183 ], [ %.276114.i, %172 ]
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond149.not.i = icmp eq i64 %indvars.iv.next146.i, %wide.trip.count138.i
   br i1 %exitcond149.not.i, label %._crit_edge117.i, label %162, !llvm.loop !151

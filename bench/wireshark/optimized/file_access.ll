@@ -3088,7 +3088,7 @@ wtap_dump_file_close.exit:                        ; preds = %55, %57, %59
   br label %62
 
 62:                                               ; preds = %.sink.split, %wtap_dump_open_finish.exit, %6
-  %.0 = phi ptr [ %7, %wtap_dump_open_finish.exit ], [ null, %6 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %6 ], [ %7, %wtap_dump_open_finish.exit ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -3605,7 +3605,7 @@ wtap_dump_open_finish.exit:                       ; preds = %41, %45
   br label %61
 
 61:                                               ; preds = %.sink.split, %wtap_dump_open_finish.exit, %6
-  %.0 = phi ptr [ %7, %wtap_dump_open_finish.exit ], [ null, %6 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %6 ], [ %7, %wtap_dump_open_finish.exit ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -3716,7 +3716,7 @@ define noundef zeroext i1 @wtap_dump_flush(ptr noundef readonly captures(none) %
   br label %24
 
 24:                                               ; preds = %.sink.split, %6, %12, %18
-  %.0 = phi i1 [ true, %6 ], [ true, %12 ], [ true, %18 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %18 ], [ true, %12 ], [ true, %6 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

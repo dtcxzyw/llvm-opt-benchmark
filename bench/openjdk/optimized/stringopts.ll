@@ -2058,7 +2058,7 @@ _ZN12StringConcat11add_controlEP4Node.exit128:    ; preds = %307, %311
   br i1 %.not.not.i.not.i.i144, label %.backedge.sink.split, label %357, !llvm.loop !21
 
 .loopexit:                                        ; preds = %208, %191, %229, %_ZN12StringConcat11add_controlEP4Node.exit116, %203, %198, %195, %150, %60, %98, %42, %52, %47, %44, %188, %126, %104, %9, %190
-  %.0 = phi ptr [ %16, %188 ], [ null, %9 ], [ null, %126 ], [ null, %190 ], [ null, %104 ], [ null, %60 ], [ null, %98 ], [ null, %52 ], [ null, %47 ], [ null, %44 ], [ null, %42 ], [ null, %150 ], [ null, %195 ], [ null, %198 ], [ null, %203 ], [ null, %_ZN12StringConcat11add_controlEP4Node.exit116 ], [ null, %229 ], [ null, %191 ], [ null, %208 ]
+  %.0 = phi ptr [ %16, %188 ], [ null, %9 ], [ null, %126 ], [ null, %190 ], [ null, %104 ], [ null, %60 ], [ null, %42 ], [ null, %44 ], [ null, %47 ], [ null, %52 ], [ null, %98 ], [ null, %150 ], [ null, %195 ], [ null, %198 ], [ null, %203 ], [ null, %_ZN12StringConcat11add_controlEP4Node.exit116 ], [ null, %229 ], [ null, %191 ], [ null, %208 ]
   ret ptr %.0
 }
 

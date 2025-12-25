@@ -1214,9 +1214,9 @@ define internal void @execlists_submission_tasklet(ptr noundef readonly captures
   br label %500
 
 500:                                              ; preds = %485, %.thread62, %498
-  %501 = phi i8 [ %441, %.thread62 ], [ %spec.select, %485 ], [ 1, %498 ]
-  %502 = phi ptr [ %439, %.thread62 ], [ %spec.select70, %485 ], [ %442, %498 ]
-  %503 = phi ptr [ %438, %.thread62 ], [ %438, %485 ], [ %499, %498 ]
+  %501 = phi i8 [ %spec.select, %485 ], [ 1, %498 ], [ %441, %.thread62 ]
+  %502 = phi ptr [ %spec.select70, %485 ], [ %442, %498 ], [ %439, %.thread62 ]
+  %503 = phi ptr [ %438, %485 ], [ %499, %498 ], [ %438, %.thread62 ]
   %504 = icmp eq ptr %443, %435
   br i1 %504, label %._crit_edge, label %.lr.ph119, !llvm.loop !23
 

@@ -23846,13 +23846,13 @@ define dso_local range(i32 -1, 1) i32 @_PyEval_CheckExceptStarTypeValid(ptr noun
   br i1 %.not30, label %.thread45, label %.thread45.sink.split
 
 .thread45.sink.split:                             ; preds = %18, %12, %37, %41, %23, %21
-  %.str.66.sink = phi ptr [ @.str.66, %23 ], [ @.str.67, %37 ], [ @.str.67, %41 ], [ @.str.66, %21 ], [ @.str.66, %12 ], [ @.str.66, %18 ]
+  %.str.66.sink = phi ptr [ @.str.66, %23 ], [ @.str.67, %41 ], [ @.str.67, %37 ], [ @.str.66, %21 ], [ @.str.66, %12 ], [ @.str.66, %18 ]
   %42 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !100
   tail call void @_PyErr_SetString(ptr noundef %0, ptr noundef %42, ptr noundef nonnull %.str.66.sink) #15
   br label %.thread45
 
 .thread45:                                        ; preds = %29, %31, %.thread45.sink.split, %.loopexit.thread58, %.loopexit.thread, %41
-  %.0 = phi i32 [ 0, %.loopexit.thread58 ], [ -1, %.thread45.sink.split ], [ -1, %.loopexit.thread ], [ 0, %41 ], [ -1, %31 ], [ 0, %29 ]
+  %.0 = phi i32 [ 0, %.loopexit.thread58 ], [ -1, %.thread45.sink.split ], [ -1, %.loopexit.thread ], [ 0, %41 ], [ 0, %29 ], [ -1, %31 ]
   ret i32 %.0
 }
 
@@ -24206,7 +24206,7 @@ define dso_local range(i32 -1, 1) i32 @_PyEval_CheckExceptTypeValid(ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %10, %.thread.sink.split, %6, %23
-  %.3 = phi i32 [ -1, %.thread.sink.split ], [ 0, %6 ], [ 0, %23 ], [ 0, %10 ]
+  %.3 = phi i32 [ 0, %6 ], [ -1, %.thread.sink.split ], [ 0, %23 ], [ 0, %10 ]
   ret i32 %.3
 }
 

@@ -659,8 +659,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %78 = phi ptr [ %53, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %79 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %78 = phi ptr [ %53, %thread-pre-split.i.i.preheader ], [ %.be83, %thread-pre-split.i.i.backedge ]
+  %79 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be83, %thread-pre-split.i.i.backedge ]
   %80 = icmp eq ptr %79, null
   br i1 %80, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -687,7 +687,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %.noexc27, %.noexc28
-  %.be = phi ptr [ %87, %.noexc27 ], [ %127, %.noexc28 ]
+  %.be83 = phi ptr [ %127, %.noexc28 ], [ %87, %.noexc27 ]
   br label %thread-pre-split.i.i, !llvm.loop !263
 
 88:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -1663,8 +1663,8 @@ thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
-  %133 = phi ptr [ %78, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
-  %134 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be, %thread-pre-split.i.i.backedge ]
+  %133 = phi ptr [ %78, %thread-pre-split.i.i.preheader ], [ %.be154, %thread-pre-split.i.i.backedge ]
+  %134 = phi ptr [ %.ph, %thread-pre-split.i.i.preheader ], [ %.be154, %thread-pre-split.i.i.backedge ]
   %135 = icmp eq ptr %134, null
   br i1 %135, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -1691,7 +1691,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %thread-pre-split.i.i.backedge
 
 thread-pre-split.i.i.backedge:                    ; preds = %.noexc85, %.noexc86
-  %.be = phi ptr [ %142, %.noexc85 ], [ %182, %.noexc86 ]
+  %.be154 = phi ptr [ %182, %.noexc86 ], [ %142, %.noexc85 ]
   br label %thread-pre-split.i.i, !llvm.loop !263
 
 143:                                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i

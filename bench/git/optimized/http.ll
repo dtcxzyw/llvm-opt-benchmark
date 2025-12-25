@@ -4139,7 +4139,7 @@ strbuf_setlen.exit:                               ; preds = %70, %68
   br label %.critedge
 
 .critedge:                                        ; preds = %strbuf_setlen.exit, %.lr.ph.split, %strbuf_setlen.exit.us, %.lr.ph.split.us, %.critedge.sink.split, %update_url_from_redirect.exit.thread, %9
-  %.0 = phi i32 [ %10, %9 ], [ 3, %.critedge.sink.split ], [ %65, %strbuf_setlen.exit.us ], [ %10, %update_url_from_redirect.exit.thread ], [ 4, %.lr.ph.split.us ], [ 4, %.lr.ph.split ], [ %72, %strbuf_setlen.exit ]
+  %.0 = phi i32 [ %10, %9 ], [ 3, %.critedge.sink.split ], [ %65, %strbuf_setlen.exit.us ], [ %10, %update_url_from_redirect.exit.thread ], [ 4, %.lr.ph.split.us ], [ %72, %strbuf_setlen.exit ], [ 4, %.lr.ph.split ]
   ret i32 %.0
 }
 

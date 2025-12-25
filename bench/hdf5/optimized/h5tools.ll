@@ -1550,7 +1550,7 @@ define range(i32 -1, 1) i32 @h5tools_set_fapl_vfd(i64 noundef %0, ptr noundef re
   br label %404
 
 404:                                              ; preds = %356, %9, %91, %135, %179, %315, %296, %157, %113, %50, %402, %397
-  %.080155 = phi i32 [ -1, %397 ], [ -1, %402 ], [ 0, %9 ], [ 0, %356 ], [ 0, %315 ], [ 0, %50 ], [ 0, %296 ], [ 0, %91 ], [ 0, %113 ], [ 0, %135 ], [ 0, %157 ], [ 0, %179 ]
+  %.080155 = phi i32 [ -1, %397 ], [ -1, %402 ], [ 0, %356 ], [ 0, %179 ], [ 0, %315 ], [ 0, %91 ], [ 0, %296 ], [ 0, %157 ], [ 0, %50 ], [ 0, %135 ], [ 0, %9 ], [ 0, %113 ]
   ret i32 %.080155
 }
 
@@ -5084,7 +5084,7 @@ define noundef zeroext i1 @render_bin_output_region_points(i64 noundef %0, i64 n
   br label %.thread
 
 .thread:                                          ; preds = %72, %76, %64, %85, %97, %93, %82, %80
-  %.4 = phi i1 [ true, %80 ], [ true, %82 ], [ false, %93 ], [ false, %97 ], [ false, %85 ], [ false, %72 ], [ false, %76 ], [ false, %64 ]
+  %.4 = phi i1 [ true, %80 ], [ true, %82 ], [ false, %93 ], [ false, %97 ], [ false, %85 ], [ false, %64 ], [ false, %76 ], [ false, %72 ]
   %.not56 = icmp eq i64 %43, 0
   br i1 %.not56, label %.thread.thread, label %101
 

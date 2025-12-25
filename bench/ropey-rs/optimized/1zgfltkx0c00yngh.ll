@@ -2957,9 +2957,9 @@ _ZN5ropey4iter6Chunks22new_with_range_at_char17h09b475267a6a00cfE.exit: ; preds 
           to label %166 unwind label %164
 
 _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.lr.ph, %.noexc32, %111, %144, %.noexc53, %.noexc27
-  %.sroa.06.0254 = phi ptr [ %.sroa.06.0, %.noexc27 ], [ %.sroa.06.0255, %144 ], [ %.sroa.06.0, %.noexc32 ], [ %.sroa.06.0255, %.noexc53 ], [ %.sroa.06.0, %111 ], [ %.sroa.06.0, %.lr.ph ]
-  %.sroa.5.0252 = phi i64 [ %.sroa.5.0, %.noexc27 ], [ %.sroa.5.0253, %144 ], [ %.sroa.5.0, %.noexc32 ], [ %.sroa.5.0253, %.noexc53 ], [ %.sroa.5.0, %111 ], [ %.sroa.5.0, %.lr.ph ]
-  %.sroa.0.4.i = phi i64 [ %.sroa.5.0, %.noexc27 ], [ %.sroa.5.0253, %144 ], [ %.sroa.5.0, %111 ], [ %.sroa.8.0, %.noexc53 ], [ %.sroa.0.3.i293, %.noexc32 ], [ %.sroa.0.0.i276, %.lr.ph ]
+  %.sroa.06.0254 = phi ptr [ %.sroa.06.0255, %144 ], [ %.sroa.06.0, %.noexc27 ], [ %.sroa.06.0, %.noexc32 ], [ %.sroa.06.0255, %.noexc53 ], [ %.sroa.06.0, %111 ], [ %.sroa.06.0, %.lr.ph ]
+  %.sroa.5.0252 = phi i64 [ %.sroa.5.0253, %144 ], [ %.sroa.5.0, %.noexc27 ], [ %.sroa.5.0, %.noexc32 ], [ %.sroa.5.0253, %.noexc53 ], [ %.sroa.5.0, %111 ], [ %.sroa.5.0, %.lr.ph ]
+  %.sroa.0.4.i = phi i64 [ %.sroa.5.0253, %144 ], [ %.sroa.5.0, %.noexc27 ], [ %.sroa.5.0, %111 ], [ %.sroa.8.0, %.noexc53 ], [ %.sroa.0.3.i293, %.noexc32 ], [ %.sroa.0.0.i276, %.lr.ph ]
   %155 = sub i64 %6, %5
   %156 = sub i64 %6, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
@@ -3204,7 +3204,7 @@ define void @_ZN5ropey4iter5Chars11from_str_at17ha571226cc3a914e7E(ptr dead_on_u
   br i1 %105, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit, label %96
 
 _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.lr.ph, %.noexc101, %63, %96, %98, %.noexc96
-  %.sroa.0.4.i = phi i64 [ %2, %.noexc96 ], [ %2, %96 ], [ %2, %63 ], [ %.sroa.8471.0, %98 ], [ %.sroa.0.3.i825, %.noexc101 ], [ %.sroa.0.0.i86808, %.lr.ph ]
+  %.sroa.0.4.i = phi i64 [ %2, %.noexc96 ], [ %2, %96 ], [ %.sroa.0.3.i825, %.noexc101 ], [ %.sroa.8471.0, %98 ], [ %2, %63 ], [ %.sroa.0.0.i86808, %.lr.ph ]
   %106 = icmp eq i64 %.sroa.0.4.i, 0
   br i1 %106, label %114, label %107
 
@@ -6640,7 +6640,7 @@ define void @_ZN5ropey4iter5Lines9next_impl17h24995c215970aeddE(ptr dead_on_unwi
   br label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit187
 
 .thread:                                          ; preds = %72, %66, %69, %94, %84, %79, %76
-  %.sroa.02.1.i183.shrunk = phi i1 [ false, %76 ], [ %97, %94 ], [ %75, %72 ], [ false, %79 ], [ false, %69 ], [ false, %66 ], [ %87, %84 ]
+  %.sroa.02.1.i183.shrunk = phi i1 [ false, %76 ], [ %97, %94 ], [ false, %79 ], [ %75, %72 ], [ false, %69 ], [ false, %66 ], [ %87, %84 ]
   %89 = add nuw nsw i64 %.sroa.08.0.i1811693, 1
   %90 = icmp samesign uge i64 %89, %.sroa.0.0.sroa.speculated.i
   %or.cond.i182.not = or i1 %90, %.sroa.02.1.i183.shrunk
@@ -8024,7 +8024,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   br label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit203
 
 .thread1432:                                      ; preds = %723, %717, %720, %745, %735, %730, %727
-  %.sroa.02.1.i199.shrunk = phi i1 [ false, %727 ], [ %748, %745 ], [ %726, %723 ], [ false, %730 ], [ false, %720 ], [ false, %717 ], [ %738, %735 ]
+  %.sroa.02.1.i199.shrunk = phi i1 [ false, %727 ], [ %748, %745 ], [ false, %730 ], [ %726, %723 ], [ false, %720 ], [ false, %717 ], [ %738, %735 ]
   %740 = add nuw nsw i64 %.sroa.08.0.i1971939, 1
   %741 = icmp samesign uge i64 %740, %.sroa.0.0.sroa.speculated.i397
   %or.cond.i198.not = or i1 %741, %.sroa.02.1.i199.shrunk
@@ -8553,7 +8553,7 @@ _ZN11str_indices5lines16to_byte_idx_impl17h385babf254751b31E.exit163: ; preds = 
   br label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit219
 
 .thread1442:                                      ; preds = %962, %956, %959, %984, %974, %969, %966
-  %.sroa.02.1.i215.shrunk = phi i1 [ false, %966 ], [ %987, %984 ], [ %965, %962 ], [ false, %969 ], [ false, %959 ], [ false, %956 ], [ %977, %974 ]
+  %.sroa.02.1.i215.shrunk = phi i1 [ false, %966 ], [ %987, %984 ], [ false, %969 ], [ %965, %962 ], [ false, %959 ], [ false, %956 ], [ %977, %974 ]
   %979 = add nuw nsw i64 %.sroa.08.0.i2132003, 1
   %980 = icmp samesign uge i64 %979, %.sroa.0.0.sroa.speculated.i416
   %or.cond.i214.not = or i1 %980, %.sroa.02.1.i215.shrunk

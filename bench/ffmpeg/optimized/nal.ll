@@ -168,7 +168,7 @@ nal_find_startcode_internal.exit.loopexit12.split.loop.exit19: ; preds = %53
   br label %nal_find_startcode_internal.exit
 
 nal_find_startcode_internal.exit:                 ; preds = %16, %62, %40, %75, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19, %.thread.loopexit95.split.loop.exit.i
-  %.0.i = phi ptr [ %.24670.i, %75 ], [ %82, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19 ], [ %81, %.thread.loopexit95.split.loop.exit.i ], [ %.14566.i, %40 ], [ %59, %62 ], [ %.04456.i, %16 ]
+  %.0.i = phi ptr [ %82, %nal_find_startcode_internal.exit.loopexit12.split.loop.exit19 ], [ %81, %.thread.loopexit95.split.loop.exit.i ], [ %.24670.i, %75 ], [ %.14566.i, %40 ], [ %59, %62 ], [ %.04456.i, %16 ]
   %83 = icmp ult ptr %0, %.0.i
   %84 = icmp ult ptr %.0.i, %1
   %or.cond = and i1 %83, %84

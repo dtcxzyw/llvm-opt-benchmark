@@ -29821,10 +29821,10 @@ _ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i
   %.sroa.842.sroa.0.7 = phi i8 [ %.sroa.842.sroa.0.4.ph, %.loopexit ], [ %.sroa.842.sroa.0.0168, %108 ], [ 0, %.thread.i.i.i.i.i ], [ %.sroa.842.sroa.0.0168, %158 ], [ 0, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
   %.sroa.842.sroa.1157.4 = phi i8 [ %.sroa.842.sroa.1157.2.ph, %.loopexit ], [ %.sroa.842.sroa.1157.0169, %108 ], [ 0, %.thread.i.i.i.i.i ], [ %.sroa.842.sroa.1157.0169, %158 ], [ 0, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
   %.sroa.3246.3 = phi i64 [ %.sroa.3246.1.ph, %.loopexit ], [ 0, %108 ], [ %.sroa.3246.0170, %.thread.i.i.i.i.i ], [ -1, %158 ], [ %.sroa.3246.0170, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
-  %.sroa.039.sroa.17.0.copyload.pn = phi i64 [ %.sroa.039.sroa.17.0.copyload, %.loopexit ], [ %93, %108 ], [ %.sroa.4.1192, %.thread.i.i.i.i.i ], [ %144, %158 ], [ %.sroa.4.1, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
+  %.sroa.7.2.pn = phi i64 [ %.sroa.039.sroa.17.0.copyload, %.loopexit ], [ %93, %108 ], [ %.sroa.4.1192, %.thread.i.i.i.i.i ], [ %144, %158 ], [ %.sroa.4.1, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
   %.sroa.20.3 = phi i64 [ %.sroa.20.1.ph, %.loopexit ], [ %109, %108 ], [ %.sroa.20.0171, %.thread.i.i.i.i.i ], [ %159, %158 ], [ %.sroa.20.0171, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
   %.sroa.4.5 = phi i64 [ %.sroa.4.3.ph, %.loopexit ], [ %.sroa.4.0172, %108 ], [ %.sroa.4.1192, %.thread.i.i.i.i.i ], [ %.sroa.4.0172, %158 ], [ %.sroa.4.1, %_ZN4core3str11validations15next_code_point17hf2dfa5df22a8986bE.exit.thread.i.i.i.i.i ]
-  %.sroa.9.1 = sub i64 %.sroa.039.sroa.17.0.copyload.pn, %.sroa.42.0166
+  %.sroa.9.1 = sub i64 %.sroa.7.2.pn, %.sroa.42.0166
   %.sroa.867.1 = getelementptr inbounds i8, ptr %.sroa.039.sroa.12.0.copyload, i64 %.sroa.42.0166
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 -9223372036854775808, ptr %6, align 8
@@ -132585,10 +132585,10 @@ _ZN14deltalake_core5table5state15DeltaTableState12file_actions17h291aee9bd80ffb8
   unreachable
 
 289:                                              ; preds = %2747, %291
-  %.1233 = phi i8 [ %.2234, %2747 ], [ %.2, %291 ]
-  %.2229 = phi i8 [ %.3230, %2747 ], [ %.2, %291 ]
-  %.3 = phi i8 [ %.4, %2747 ], [ %.2, %291 ]
-  %.pn256.pn = phi { ptr, i32 } [ %.pn.pn.pn, %2747 ], [ %292, %291 ]
+  %.1233 = phi i8 [ %.2, %291 ], [ %.2234, %2747 ]
+  %.2229 = phi i8 [ %.2, %291 ], [ %.3230, %2747 ]
+  %.3 = phi i8 [ %.2, %291 ], [ %.4, %2747 ]
+  %.pn256.pn = phi { ptr, i32 } [ %292, %291 ], [ %.pn.pn.pn, %2747 ]
   %290 = trunc nuw i8 %.1233 to i1
   br i1 %290, label %2748, label %281
 

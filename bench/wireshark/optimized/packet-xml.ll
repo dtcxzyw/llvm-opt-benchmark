@@ -1571,7 +1571,7 @@ define internal noundef zeroext i1 @dissect_xml_heur(ptr noundef %0, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %14, %11
-  %.027 = phi i1 [ false, %14 ], [ false, %11 ], [ true, %.thread.sink.split ]
+  %.027 = phi i1 [ false, %11 ], [ false, %14 ], [ true, %.thread.sink.split ]
   ret i1 %.027
 }
 

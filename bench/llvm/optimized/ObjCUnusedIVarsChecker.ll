@@ -620,7 +620,7 @@ _ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i.i.i: ; preds = %_ZNK5cla
   br i1 %.not.i.i4.i.i.i.i, label %_ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !79
 
 _ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i.i.i: ; preds = %33, %.lr.ph.i.i.i.i.i.i, %26, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i.i.i, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i.i.i
-  %.sroa.0.1.i.i.i.i = phi ptr [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i.i.i ], [ null, %26 ], [ null, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i.i.i ], [ %36, %33 ], [ %.sroa.0.2.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i.i.i ], [ null, %26 ], [ null, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i.i.i ], [ %.sroa.0.2.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %36, %33 ]
   %.0.copyload.i.i.i.i.i2.i.i.i = load i64, ptr %16, align 8
   %.not.i.i.i3.i.i.i = icmp eq i64 %.0.copyload.i.i.i.i.i2.i.i.i, 0
   br i1 %.not.i.i.i3.i.i.i, label %37, label %_ZNK5clang17ObjCInterfaceDecl5ivarsEv.exit.i.i

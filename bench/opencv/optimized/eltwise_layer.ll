@@ -6773,7 +6773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194: ; preds = %27
   br i1 %328, label %.lr.ph.split, label %.loopexit, !llvm.loop !194
 
 .loopexit:                                        ; preds = %.lr.ph.split, %318, %.lr.ph.split.us, %301, %238, %283
-  %.198331 = phi i1 [ %.198, %.lr.ph.split.us ], [ true, %238 ], [ %.198, %283 ], [ %.198, %301 ], [ %.198, %318 ], [ %.198, %.lr.ph.split ]
+  %.198331 = phi i1 [ true, %238 ], [ %.198, %.lr.ph.split.us ], [ %.198, %283 ], [ %.198, %301 ], [ %.198, %318 ], [ %.198, %.lr.ph.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %144, !llvm.loop !195

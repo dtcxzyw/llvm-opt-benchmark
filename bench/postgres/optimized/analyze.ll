@@ -3601,7 +3601,7 @@ list_length.exit97:                               ; preds = %41, %59
   br i1 %or.cond6, label %138, label %.critedge
 
 .critedge:                                        ; preds = %93, %89, %128, %133, %.split.split.us, %68
-  %.us-phi = phi ptr [ %.0, %128 ], [ null, %.split.split.us ], [ null, %68 ], [ %.0, %133 ], [ %.0.us115, %89 ], [ %.0.us115, %93 ]
+  %.us-phi = phi ptr [ null, %68 ], [ null, %.split.split.us ], [ %.0, %128 ], [ %.0, %133 ], [ %.0.us115, %89 ], [ %.0.us115, %93 ]
   ret ptr %.us-phi
 
 138:                                              ; preds = %133

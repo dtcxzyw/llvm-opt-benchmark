@@ -2286,7 +2286,7 @@ Py_DECREF.exit79.i:                               ; preds = %Py_DECREF.exit79.i.
   br label %Py_DECREF.exit83.i
 
 Py_DECREF.exit83.i:                               ; preds = %73, %70, %.loopexit.i, %.critedge.i
-  %.054.i = phi i64 [ 1, %.critedge.i ], [ %.256.i, %73 ], [ %.256.i, %70 ], [ %.256.i, %.loopexit.i ]
+  %.054.i = phi i64 [ 1, %.critedge.i ], [ %.256.i, %73 ], [ %.256.i, %.loopexit.i ], [ %.256.i, %70 ]
   %74 = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67704), ptr noundef nonnull @.str.32, i64 noundef %.054.i) #6
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %78

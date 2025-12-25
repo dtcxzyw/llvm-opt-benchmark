@@ -9313,7 +9313,7 @@ _ZL14is_bmi_patternP4NodeS0_.exit.thread:         ; preds = %21, %17, %32, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %37
 
-_ZL14is_bmi_patternP4NodeS0_.exit.thread15:       ; preds = %9, %23
+_ZL14is_bmi_patternP4NodeS0_.exit.thread15:       ; preds = %23, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
@@ -9903,7 +9903,7 @@ _ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateE.exit31: ; preds = %93, %97
   br label %100
 
 100:                                              ; preds = %.sink.split, %4, %9, %_ZNK4Node7get_intEv.exit, %_ZN7Matcher10is_visitedEP4Node.exit
-  %.0 = phi i1 [ false, %4 ], [ false, %9 ], [ false, %_ZN7Matcher10is_visitedEP4Node.exit ], [ false, %_ZNK4Node7get_intEv.exit ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %9 ], [ false, %4 ], [ false, %_ZN7Matcher10is_visitedEP4Node.exit ], [ false, %_ZNK4Node7get_intEv.exit ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

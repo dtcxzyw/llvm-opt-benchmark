@@ -813,7 +813,7 @@ define noalias noundef ptr @Cmd_DeriveOptionFromSettings(i32 noundef %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %209, %197, %162, %149, %61, %50, %38, %26, %220, %208, %196, %185, %174, %161, %148, %137, %126, %115, %104, %93, %82, %71, %60, %49, %37, %25
-  %.0 = phi ptr [ null, %208 ], [ null, %25 ], [ %221, %220 ], [ null, %37 ], [ null, %196 ], [ null, %49 ], [ null, %185 ], [ null, %60 ], [ null, %174 ], [ null, %71 ], [ null, %82 ], [ null, %93 ], [ null, %104 ], [ null, %115 ], [ null, %126 ], [ null, %137 ], [ null, %148 ], [ null, %161 ], [ null, %26 ], [ null, %38 ], [ null, %50 ], [ null, %61 ], [ null, %149 ], [ null, %162 ], [ null, %197 ], [ null, %209 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %161 ], [ null, %25 ], [ %221, %220 ], [ null, %37 ], [ null, %208 ], [ null, %49 ], [ null, %174 ], [ null, %60 ], [ null, %185 ], [ null, %71 ], [ null, %82 ], [ null, %93 ], [ null, %104 ], [ null, %115 ], [ null, %126 ], [ null, %137 ], [ null, %148 ], [ null, %196 ], [ null, %26 ], [ null, %38 ], [ null, %50 ], [ null, %61 ], [ null, %149 ], [ null, %162 ], [ null, %197 ], [ null, %209 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }

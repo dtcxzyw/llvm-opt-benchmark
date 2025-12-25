@@ -45788,10 +45788,10 @@ _ZN11ide_assists8handlers23generate_delegate_trait22resolve_name_conflicts17h7c9
           to label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..ConstParam$GT$17h5da2624abb67f158E.exit197.i" unwind label %770
 
 .body775:                                         ; preds = %2388, %.thread1239, %2393, %1114, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h65f6279d8c97e388E.exit1036"
-  %.1317 = phi i8 [ %.3319, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h65f6279d8c97e388E.exit1036" ], [ %.33191245, %2388 ], [ %.0316, %1114 ], [ %.33191245, %.thread1239 ], [ %.33191245, %2393 ]
-  %.16278 = phi i8 [ %.18280, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h65f6279d8c97e388E.exit1036" ], [ %.182801246, %2388 ], [ 1, %1114 ], [ %.182801246, %.thread1239 ], [ %.182801246, %2393 ]
-  %.17 = phi i8 [ %.19, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h65f6279d8c97e388E.exit1036" ], [ %.191247, %2388 ], [ %.16, %1114 ], [ %.191247, %.thread1239 ], [ %.191247, %2393 ]
-  %.pn497 = phi { ptr, i32 } [ %.pn495, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h65f6279d8c97e388E.exit1036" ], [ %.pn4951248, %2388 ], [ %1115, %1114 ], [ %.pn4951248, %.thread1239 ], [ %.pn4951248, %2393 ]
+  %.1317 = phi i8 [ %.3319, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h65f6279d8c97e388E.exit1036" ], [ %.33191245, %.thread1239 ], [ %.0316, %1114 ], [ %.33191245, %2388 ], [ %.33191245, %2393 ]
+  %.16278 = phi i8 [ %.18280, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h65f6279d8c97e388E.exit1036" ], [ %.182801246, %.thread1239 ], [ 1, %1114 ], [ %.182801246, %2388 ], [ %.182801246, %2393 ]
+  %.17 = phi i8 [ %.19, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h65f6279d8c97e388E.exit1036" ], [ %.191247, %.thread1239 ], [ %.16, %1114 ], [ %.191247, %2388 ], [ %.191247, %2393 ]
+  %.pn497 = phi { ptr, i32 } [ %.pn495, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h65f6279d8c97e388E.exit1036" ], [ %.pn4951248, %.thread1239 ], [ %1115, %1114 ], [ %.pn4951248, %2388 ], [ %.pn4951248, %2393 ]
   %1113 = trunc nuw i8 %.1317 to i1
   br i1 %1113, label %.body775.thread, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..GenericParamList$GT$$GT$17h017b92cd0bc6780eE.exit1053"
 
@@ -51655,7 +51655,7 @@ _ZN6syntax3ast7AstNode16clone_for_update17ha1a20ba48915158fE.exit.i: ; preds = %
           cleanup
   br label %1088
 
-360:                                              ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..SelfParam$GT$17h51ea11527152f5ceE.exit.i"
+360:                                              ; preds = %.noexc205.i
   br i1 %.687.i, label %1088, label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h156ae76580f00612E.exit375.i"
 
 361:                                              ; preds = %365
@@ -51757,6 +51757,9 @@ _ZN6syntax3ast7AstNode16clone_for_update17ha1a20ba48915158fE.exit.i: ; preds = %
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #38
   unreachable
 
+.noexc205.i:                                      ; preds = %432, %.thread489.i
+  br i1 %.2.i, label %1081, label %360
+
 .thread483.i:                                     ; preds = %402, %367
   %.283.ph.i = phi i1 [ true, %367 ], [ false, %402 ]
   %lpad.thr_comm481.i = landingpad { ptr, i32 }
@@ -51840,14 +51843,11 @@ _ZN6syntax3ast7AstNode16clone_for_update17ha1a20ba48915158fE.exit.i: ; preds = %
   %430 = add i32 %429, -1
   store i32 %430, ptr %428, align 4, !noalias !10071
   %431 = icmp eq i32 %430, 0
-  br i1 %431, label %432, label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..SelfParam$GT$17h51ea11527152f5ceE.exit.i"
+  br i1 %431, label %432, label %.noexc205.i
 
 432:                                              ; preds = %.thread489.i
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %427)
-          to label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..SelfParam$GT$17h51ea11527152f5ceE.exit.i" unwind label %397
-
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..SelfParam$GT$17h51ea11527152f5ceE.exit.i": ; preds = %432, %.thread489.i
-  br i1 %.2.i, label %1081, label %360
+          to label %.noexc205.i unwind label %397
 
 433:                                              ; preds = %435, %404
   %434 = landingpad { ptr, i32 }
@@ -53541,9 +53541,9 @@ _ZN6syntax3ast7AstNode16clone_for_update17h00712489908a819fE.exit290.i: ; preds 
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %443)
           to label %.thread489.i unwind label %397
 
-1081:                                             ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..SelfParam$GT$17h51ea11527152f5ceE.exit.i", %.thread483.i
-  %.pn103477.i = phi { ptr, i32 } [ %.pn100.pn.i, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..SelfParam$GT$17h51ea11527152f5ceE.exit.i" ], [ %lpad.thr_comm481.i, %.thread483.i ]
-  %.485476.i = phi i1 [ %.687.i, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..SelfParam$GT$17h51ea11527152f5ceE.exit.i" ], [ %.283.ph.i, %.thread483.i ]
+1081:                                             ; preds = %.thread483.i, %.noexc205.i
+  %.pn103477.i = phi { ptr, i32 } [ %lpad.thr_comm481.i, %.thread483.i ], [ %.pn100.pn.i, %.noexc205.i ]
+  %.485476.i = phi i1 [ %.283.ph.i, %.thread483.i ], [ %.687.i, %.noexc205.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10699)
   call void @llvm.experimental.noalias.scope.decl(metadata !10702)
   call void @llvm.experimental.noalias.scope.decl(metadata !10705)

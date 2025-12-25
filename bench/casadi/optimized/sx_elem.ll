@@ -3684,7 +3684,7 @@ _ZNK6casadi6SXElemcvdEv.exit807:                  ; preds = %264
           to label %.critedge694.thread unwind label %305
 
 .critedge694.thread:                              ; preds = %278, %273, %280
-  %285 = phi i1 [ %284, %280 ], [ false, %278 ], [ true, %273 ]
+  %285 = phi i1 [ true, %273 ], [ false, %278 ], [ %284, %280 ]
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #32
@@ -3929,7 +3929,7 @@ _ZNK6casadi6SXElemcvdEv.exit818:                  ; preds = %349
           to label %.critedge706.thread unwind label %390
 
 .critedge706.thread:                              ; preds = %363, %358, %365
-  %370 = phi i1 [ %369, %365 ], [ false, %363 ], [ true, %358 ]
+  %370 = phi i1 [ true, %358 ], [ false, %363 ], [ %369, %365 ]
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #32
@@ -4303,7 +4303,7 @@ _ZN6casadi6SXElem8is_equalERKS0_S2_x.exit837.thread.thread1244: ; preds = %_ZNK6
           to label %.critedge726 unwind label %519
 
 .critedge726:                                     ; preds = %488, %483, %490
-  %495 = phi i1 [ %494, %490 ], [ false, %488 ], [ true, %483 ]
+  %495 = phi i1 [ %494, %490 ], [ true, %483 ], [ false, %488 ]
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #32
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %40)

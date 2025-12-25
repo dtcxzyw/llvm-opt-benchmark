@@ -54624,7 +54624,7 @@ define hidden noundef ptr @_ZN14LibraryCallKit29arraycopy_restore_alloc_stateEP1
   br label %.loopexit48
 
 .loopexit48:                                      ; preds = %102, %107, %66, %71, %3, %20, %4, %.critedge
-  %.0 = phi ptr [ %120, %.critedge ], [ null, %3 ], [ null, %20 ], [ null, %66 ], [ null, %4 ], [ null, %71 ], [ null, %107 ], [ null, %102 ]
+  %.0 = phi ptr [ %120, %.critedge ], [ null, %20 ], [ null, %3 ], [ null, %4 ], [ null, %66 ], [ null, %71 ], [ null, %107 ], [ null, %102 ]
   ret ptr %.0
 }
 

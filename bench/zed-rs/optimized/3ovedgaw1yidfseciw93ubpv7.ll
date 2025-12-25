@@ -181734,7 +181734,7 @@ define hidden void @"_ZN173_$LT$assistant..context.._..$LT$impl$u20$serde..de..D
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %58, %77, %105, %139, %55, %81, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h7204420916d9bd38E.exit.thread.thread", %130
-  %.sroa.076.1.ph = phi i1 [ true, %105 ], [ true, %77 ], [ true, %55 ], [ true, %58 ], [ true, %81 ], [ true, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h7204420916d9bd38E.exit.thread.thread" ], [ true, %130 ], [ false, %139 ]
+  %.sroa.076.1.ph = phi i1 [ true, %105 ], [ true, %77 ], [ true, %81 ], [ true, %58 ], [ true, %55 ], [ true, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$8next_key17h7204420916d9bd38E.exit.thread.thread" ], [ true, %130 ], [ false, %139 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

@@ -1343,7 +1343,7 @@ _PyUnicode_DATA.exit25.i.i:                       ; preds = %108, %106
   br label %148
 
 148:                                              ; preds = %.critedge.i, %141, %124, %120
-  %.076.i = phi i32 [ %147, %.critedge.i ], [ -1, %141 ], [ -1, %124 ], [ -1, %120 ]
+  %.076.i = phi i32 [ -1, %141 ], [ %147, %.critedge.i ], [ -1, %120 ], [ -1, %124 ]
   %.not.i.i27 = icmp eq ptr %.189.i39, null
   br i1 %.not.i.i27, label %Py_XDECREF.exit.i, label %149
 

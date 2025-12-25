@@ -3632,7 +3632,7 @@ is_andclause.exit:                                ; preds = %13
   br label %.critedge
 
 .critedge:                                        ; preds = %100, %76, %29, %list_length.exit86, %examine_opclause_args.exit95, %109, %list_length.exit, %59, %66, %56, %.lr.ph139, %128, %121, %.lr.ph, %116, %73, %141, %25, %15, %18, %21, %.thread118
-  %.1 = phi i1 [ true, %.thread118 ], [ true, %.lr.ph ], [ true, %73 ], [ false, %21 ], [ true, %141 ], [ false, %18 ], [ false, %15 ], [ true, %25 ], [ true, %116 ], [ %135, %.lr.ph139 ], [ true, %121 ], [ %135, %128 ], [ false, %56 ], [ false, %66 ], [ false, %59 ], [ false, %list_length.exit ], [ false, %109 ], [ false, %examine_opclause_args.exit95 ], [ false, %list_length.exit86 ], [ false, %29 ], [ false, %76 ], [ false, %100 ]
+  %.1 = phi i1 [ true, %.thread118 ], [ true, %116 ], [ true, %73 ], [ false, %21 ], [ true, %141 ], [ false, %18 ], [ false, %15 ], [ true, %25 ], [ true, %.lr.ph ], [ true, %121 ], [ %135, %.lr.ph139 ], [ %135, %128 ], [ false, %56 ], [ false, %66 ], [ false, %59 ], [ false, %list_length.exit ], [ false, %109 ], [ false, %examine_opclause_args.exit95 ], [ false, %list_length.exit86 ], [ false, %29 ], [ false, %76 ], [ false, %100 ]
   ret i1 %.1
 }
 

@@ -7333,7 +7333,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit46:              ; preds = %83, %_ZSt4findIPKcc
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit46.thread
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit46.thread:       ; preds = %._crit_edge.i.i.i.us86, %._crit_edge.i.i.i.us72, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46, %115, %._crit_edge.i.i.i27, %4
-  %.021 = phi ptr [ %1, %4 ], [ %1, %115 ], [ %spec.select107, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46 ], [ %1, %._crit_edge.i.i.i27 ], [ %60, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63 ], [ %74, %._crit_edge.i.i.i.us72 ], [ %19, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us ], [ %74, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77 ], [ %80, %._crit_edge.i.i.i.us86 ]
+  %.021 = phi ptr [ %1, %4 ], [ %1, %115 ], [ %spec.select107, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46 ], [ %1, %._crit_edge.i.i.i27 ], [ %60, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63 ], [ %19, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us ], [ %74, %._crit_edge.i.i.i.us72 ], [ %74, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77 ], [ %80, %._crit_edge.i.i.i.us86 ]
   ret ptr %.021
 }
 
@@ -136344,7 +136344,7 @@ _ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit67.thread: ; preds
   br label %.critedge2
 
 .critedge2:                                       ; preds = %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52.thread, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE10is_droppedEc.exit49, %59, %69, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit.preheader, %105, %104, %.critedge4, %124, %._crit_edge124
-  %.sroa.08.0 = phi ptr [ %.sroa.08.0.copyload146, %._crit_edge124 ], [ %.sroa.08.1, %.critedge4 ], [ %.sroa.08.0.copyload74, %124 ], [ %.sroa.08.0.copyload74, %105 ], [ %.sroa.08.0.copyload74, %104 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit.preheader ], [ %.sroa.08.0.copyload146, %69 ], [ %.sroa.08.0.copyload146, %59 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE10is_droppedEc.exit49 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52.thread ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52 ]
+  %.sroa.08.0 = phi ptr [ %.sroa.08.0.copyload146, %._crit_edge124 ], [ %.sroa.08.0.copyload74, %105 ], [ %.sroa.08.0.copyload74, %124 ], [ %.sroa.08.1, %.critedge4 ], [ %.sroa.08.0.copyload74, %104 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit.preheader ], [ %.sroa.08.0.copyload146, %69 ], [ %.sroa.08.0.copyload146, %59 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE10is_droppedEc.exit49 ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52.thread ], [ %.sroa.08.0.copyload146, %_ZNK5boost14char_separatorIcSt11char_traitsIcEE7is_keptEc.exit52 ]
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !tbaa !174
   %167 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %168 = load i64, ptr %167, align 8, !tbaa !11
@@ -141888,7 +141888,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5point
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2464
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit: ; preds = %._crit_edge, %._crit_edge103, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ], [ %1, %.lr.ph.i ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ], [ %21, %._crit_edge103 ], [ %21, %._crit_edge ]
+  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge103 ], [ %21, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 
@@ -145183,7 +145183,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5point
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2536
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit: ; preds = %._crit_edge, %._crit_edge103, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %1, %.lr.ph.i ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %21, %._crit_edge103 ], [ %21, %._crit_edge ]
+  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge103 ], [ %21, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 
@@ -149553,7 +149553,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5point
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2630
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit: ; preds = %._crit_edge, %._crit_edge103, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %1, %.lr.ph.i ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %21, %._crit_edge103 ], [ %21, %._crit_edge ]
+  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge103 ], [ %21, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 

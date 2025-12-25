@@ -5531,7 +5531,7 @@ return.sink.split:                                ; preds = %if.end91, %if.else9
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else93, %entry, %if.end91, %if.end87, %land.lhs.true81, %if.then75, %if.then55, %if.else
-  %retval.0 = phi i32 [ 16, %if.end91 ], [ 1, %entry ], [ 1, %if.else ], [ 1, %if.then75 ], [ 1, %land.lhs.true81 ], [ 1, %if.end87 ], [ %.mux, %if.else93 ], [ 1, %if.then55 ], [ 0, %return.sink.split ]
+  %retval.0 = phi i32 [ 16, %if.end91 ], [ 1, %if.end87 ], [ 1, %if.else ], [ 1, %if.then75 ], [ 1, %land.lhs.true81 ], [ 1, %entry ], [ %.mux, %if.else93 ], [ 1, %if.then55 ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -21460,7 +21460,7 @@ for.cond.backedge:                                ; preds = %for.end57, %if.end3
   br label %for.cond, !llvm.loop !151
 
 return:                                           ; preds = %for.end57, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit
-  %retval.0 = phi ptr [ %__middle, %for.body.i ], [ %__last, %entry ], [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
+  %retval.0 = phi ptr [ %add.ptr, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ], [ %__last, %entry ], [ %__middle, %for.body.i ], [ %add.ptr, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end57 ]
   ret ptr %retval.0
 }
 

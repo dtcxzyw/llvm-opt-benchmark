@@ -308,9 +308,9 @@ stb_include_isspace.exit116.thread:               ; preds = %stb_include_isspace
   br label %.loopexit119
 
 .loopexit119:                                     ; preds = %6, %.critedge118, %20, %20, %20, %.loopexit119.sink.split, %37, %stb_include_isspace.exit
-  %.292 = phi ptr [ %.6.lcssa.sink, %.loopexit119.sink.split ], [ %.4, %.critedge118 ], [ %19, %20 ], [ %.3, %37 ], [ %.3, %stb_include_isspace.exit ], [ %19, %20 ], [ %19, %20 ], [ %.191, %6 ]
-  %.188 = phi i32 [ %43, %.loopexit119.sink.split ], [ %.087130, %.critedge118 ], [ %.087130, %20 ], [ %.087130, %37 ], [ %.087130, %stb_include_isspace.exit ], [ %.087130, %20 ], [ %.087130, %20 ], [ %.087130, %6 ]
-  %.1 = phi ptr [ %53, %.loopexit119.sink.split ], [ %.086131, %.critedge118 ], [ %.086131, %20 ], [ %.086131, %37 ], [ %.086131, %stb_include_isspace.exit ], [ %.086131, %20 ], [ %.086131, %20 ], [ %.086131, %6 ]
+  %.292 = phi ptr [ %19, %20 ], [ %.4, %.critedge118 ], [ %.6.lcssa.sink, %.loopexit119.sink.split ], [ %.3, %37 ], [ %.3, %stb_include_isspace.exit ], [ %19, %20 ], [ %19, %20 ], [ %.191, %6 ]
+  %.188 = phi i32 [ %.087130, %20 ], [ %.087130, %.critedge118 ], [ %43, %.loopexit119.sink.split ], [ %.087130, %37 ], [ %.087130, %stb_include_isspace.exit ], [ %.087130, %20 ], [ %.087130, %20 ], [ %.087130, %6 ]
+  %.1 = phi ptr [ %.086131, %20 ], [ %.086131, %.critedge118 ], [ %53, %.loopexit119.sink.split ], [ %.086131, %37 ], [ %.086131, %stb_include_isspace.exit ], [ %.086131, %20 ], [ %.086131, %20 ], [ %.086131, %6 ]
   br label %59
 
 59:                                               ; preds = %61, %.loopexit119

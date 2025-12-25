@@ -12806,8 +12806,8 @@ _ZN4Luau8Compiler11getConstantEPNS_7AstExprE.exit229: ; preds = %260
   %292 = icmp eq i64 %.pre457, 3
   br i1 %292, label %.preheader409, label %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit
 
-.preheader409:                                    ; preds = %221, %219, %239, %241, %266, %264, %272, %226, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit219, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit, %_ZN4Luau8Compiler11getConstantEPNS_7AstExprE.exit229, %202, %193, %.thread389
-  %.2149360392506 = phi i32 [ %143, %.thread389 ], [ 34, %193 ], [ 34, %202 ], [ 34, %_ZN4Luau8Compiler11getConstantEPNS_7AstExprE.exit229 ], [ 34, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit ], [ 34, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit219 ], [ 34, %226 ], [ 34, %272 ], [ 34, %239 ], [ 34, %266 ], [ 34, %264 ], [ 34, %241 ], [ 34, %219 ], [ 34, %221 ]
+.preheader409:                                    ; preds = %221, %219, %239, %241, %266, %264, %272, %226, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit219, %_ZN4Luau8Compiler11getConstantEPNS_7AstExprE.exit229, %202, %193, %.thread389
+  %.2149360392506 = phi i32 [ %143, %.thread389 ], [ 34, %193 ], [ 34, %202 ], [ 34, %_ZN4Luau8Compiler11getConstantEPNS_7AstExprE.exit229 ], [ 34, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit219 ], [ 34, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit ], [ 34, %226 ], [ 34, %272 ], [ 34, %266 ], [ 34, %239 ], [ 34, %264 ], [ 34, %241 ], [ 34, %219 ], [ 34, %221 ]
   %293 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %294 = load ptr, ptr %293, align 8, !tbaa !569
   %295 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprLocalEE5valueE, align 4, !tbaa !4
@@ -12961,8 +12961,8 @@ _ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit: ; preds = %_ZN4Luau8Compi
   br label %.body255
 
 .critedge202:                                     ; preds = %136, %134, %187, %141, %107, %117, %112, %361, %356, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit
-  %369 = phi i1 [ false, %187 ], [ true, %361 ], [ true, %356 ], [ true, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ false, %141 ], [ false, %107 ], [ false, %112 ], [ false, %117 ], [ false, %134 ], [ false, %136 ]
-  %.2149360391 = phi i32 [ -1, %187 ], [ %.2149360392505, %361 ], [ %.2149360392505, %356 ], [ %.2149360392505, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ %143, %141 ], [ -1, %107 ], [ -1, %112 ], [ -1, %117 ], [ -1, %134 ], [ -1, %136 ]
+  %369 = phi i1 [ false, %187 ], [ true, %361 ], [ true, %356 ], [ true, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ false, %107 ], [ false, %141 ], [ false, %112 ], [ false, %117 ], [ false, %134 ], [ false, %136 ]
+  %.2149360391 = phi i32 [ -1, %187 ], [ %.2149360392505, %361 ], [ %.2149360392505, %356 ], [ %.2149360392505, %_ZN4Luau8Compiler15getExprLocalRegEPNS_7AstExprE.exit ], [ -1, %107 ], [ %143, %141 ], [ -1, %112 ], [ -1, %117 ], [ -1, %134 ], [ -1, %136 ]
   %370 = load i8, ptr %80, align 8, !tbaa !505, !range !63, !noundef !64
   %371 = trunc nuw i8 %370 to i1
   br i1 %371, label %372, label %429
@@ -18059,9 +18059,9 @@ _ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit: ; preds = %75
   br label %.thread82
 
 .thread82:                                        ; preds = %60, %62, %79, %81, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit, %3, %.thread, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61, %67
-  %.07487 = phi ptr [ %14, %67 ], [ %14, %3 ], [ %14, %.thread ], [ %.07493, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ %14, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ %14, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ %.07493, %79 ], [ %.07493, %81 ], [ %14, %62 ], [ %14, %60 ]
-  %.07586 = phi ptr [ %12, %67 ], [ %12, %3 ], [ %12, %.thread ], [ %.07592, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ %12, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ %12, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ %.07592, %79 ], [ %.07592, %81 ], [ %12, %62 ], [ %12, %60 ]
-  %.1.shrunk = phi i1 [ false, %67 ], [ false, %3 ], [ false, %.thread ], [ %86, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ false, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ false, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ true, %79 ], [ true, %81 ], [ false, %62 ], [ false, %60 ]
+  %.07487 = phi ptr [ %14, %67 ], [ %14, %3 ], [ %.07493, %79 ], [ %.07493, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ %14, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ %14, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ %14, %.thread ], [ %.07493, %81 ], [ %14, %62 ], [ %14, %60 ]
+  %.07586 = phi ptr [ %12, %67 ], [ %12, %3 ], [ %.07592, %79 ], [ %.07592, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ %12, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ %12, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ %12, %.thread ], [ %.07592, %81 ], [ %12, %62 ], [ %12, %60 ]
+  %.1.shrunk = phi i1 [ false, %67 ], [ false, %3 ], [ true, %79 ], [ %86, %_ZN4Luau8Compiler16isConstantVectorEPNS_7AstExprE.exit ], [ false, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit61 ], [ false, %_ZN4Luau8Compiler10isConstantEPNS_7AstExprE.exit.thread ], [ false, %.thread ], [ true, %81 ], [ false, %62 ], [ false, %60 ]
   %87 = invoke noundef zeroext i8 @_ZN4Luau8Compiler15compileExprAutoEPNS_7AstExprERNS0_8RegScopeE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %.07586, ptr noundef nonnull align 8 dereferenceable(12) %4)
           to label %88 unwind label %120
 
@@ -23367,7 +23367,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   br label %_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_7Compile8VariableENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread
 
 _ZN4Luau12DenseHashMapIPNS_8AstLocalENS_7Compile8VariableENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread: ; preds = %46, %50, %28, %41, %43, %tailrecurse.backedge.us, %.split.us, %.split42.us
-  %.1 = phi ptr [ %..i27, %.split42.us ], [ null, %41 ], [ null, %.split.us ], [ null, %tailrecurse.backedge.us ], [ null, %43 ], [ null, %28 ], [ null, %50 ], [ null, %46 ]
+  %.1 = phi ptr [ %..i27, %.split42.us ], [ null, %.split.us ], [ null, %41 ], [ null, %tailrecurse.backedge.us ], [ null, %43 ], [ null, %28 ], [ null, %50 ], [ null, %46 ]
   ret ptr %.1
 }
 
@@ -26986,7 +26986,7 @@ tailrecurse.backedge.i:                           ; preds = %280
   br i1 %.not.i.i248, label %_ZN4Luau8Compiler12getExprLocalEPNS_7AstExprE.exit, label %300, !llvm.loop !586
 
 _ZN4Luau8Compiler12getExprLocalEPNS_7AstExprE.exit: ; preds = %306, %304, %300
-  %.0.i.i249 = phi ptr [ %301, %300 ], [ null, %304 ], [ null, %306 ]
+  %.0.i.i249 = phi ptr [ null, %304 ], [ %301, %300 ], [ null, %306 ]
   %.not.i250 = icmp eq ptr %.0.i.i249, null
   %309 = getelementptr inbounds nuw i8, ptr %.0.i.i249, i64 8
   %310 = select i1 %.not.i250, ptr null, ptr %309
@@ -29635,7 +29635,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau8Compiler18shouldShare
   br i1 %.not, label %_ZN4Luau12DenseHashMapIPNS_15AstExprFunctionENS_8Compiler8FunctionENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread, label %38
 
 _ZN4Luau12DenseHashMapIPNS_15AstExprFunctionENS_8Compiler8FunctionENS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_.exit.thread: ; preds = %24, %26, %73, %75, %38, %42, %62, %81, %.critedge, %59, %57, %29, %2, %7
-  %.0 = phi i1 [ false, %59 ], [ false, %7 ], [ false, %2 ], [ true, %.critedge ], [ true, %29 ], [ false, %57 ], [ false, %73 ], [ false, %75 ], [ false, %38 ], [ false, %42 ], [ false, %62 ], [ false, %81 ], [ false, %26 ], [ false, %24 ]
+  %.0 = phi i1 [ true, %.critedge ], [ false, %7 ], [ false, %2 ], [ true, %29 ], [ false, %59 ], [ false, %57 ], [ false, %73 ], [ false, %75 ], [ false, %38 ], [ false, %42 ], [ false, %62 ], [ false, %81 ], [ false, %26 ], [ false, %24 ]
   ret i1 %.0
 }
 

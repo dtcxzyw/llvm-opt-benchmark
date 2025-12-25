@@ -2229,8 +2229,8 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162.thread288
 
-_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162.thread288: ; preds = %292, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i161, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162
-  %.2100291 = phi i8 [ 1, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162 ], [ %.098457, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i161 ], [ %.098457, %292 ]
+_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162.thread288: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i161, %292, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162
+  %.2100291 = phi i8 [ 1, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162 ], [ %.098457, %292 ], [ %.098457, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not296 = icmp eq i64 %indvars.iv.next, %195
@@ -6163,7 +6163,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit317.thread:   ; preds = %_ZNK5Yosys5RTLIL6Si
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit317.thread, %.thread.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179, %706, %._crit_edge
-  %.4 = phi i1 [ false, %.thread.sink.split ], [ %702, %._crit_edge ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179 ], [ true, %706 ], [ true, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit317.thread ]
+  %.4 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179 ], [ %702, %._crit_edge ], [ false, %.thread.sink.split ], [ true, %706 ], [ true, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit317.thread ]
   %795 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %796 = load ptr, ptr %795, align 8, !tbaa !183
   %.not.i.i.i.i325 = icmp eq ptr %796, null

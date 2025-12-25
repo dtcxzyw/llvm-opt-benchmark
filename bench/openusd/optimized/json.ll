@@ -1736,7 +1736,7 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
   br label %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4BoolEb.exit
 
 _ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4BoolEb.exit: ; preds = %.lr.ph, %101, %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE3KeyEPKcjb.exit, %189, %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i, %145, %125, %53, %35, %31, %10, %105, %57, %203, %201, %195, %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit, %._crit_edge, %._crit_edge47, %8
-  %.021 = phi i1 [ true, %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit ], [ %139, %145 ], [ %197, %195 ], [ %202, %201 ], [ %204, %203 ], [ %9, %8 ], [ false, %101 ], [ true, %31 ], [ true, %53 ], [ false, %57 ], [ true, %189 ], [ %104, %._crit_edge47 ], [ true, %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i ], [ false, %105 ], [ %124, %._crit_edge ], [ true, %10 ], [ true, %35 ], [ %139, %125 ], [ false, %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE3KeyEPKcjb.exit ], [ false, %.lr.ph ]
+  %.021 = phi i1 [ true, %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit ], [ %139, %145 ], [ %197, %195 ], [ %202, %201 ], [ %204, %203 ], [ %9, %8 ], [ false, %101 ], [ true, %31 ], [ true, %53 ], [ false, %57 ], [ true, %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i ], [ %104, %._crit_edge47 ], [ true, %189 ], [ false, %105 ], [ %124, %._crit_edge ], [ true, %10 ], [ true, %35 ], [ %139, %125 ], [ false, %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE3KeyEPKcjb.exit ], [ false, %.lr.ph ]
   ret i1 %.021
 }
 
@@ -2269,7 +2269,7 @@ define internal fastcc noundef zeroext i1 @_ZNK3pxr9rapidjson12GenericValueINS0_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %47, %.lr.ph45, %51, %13, %108, %106, %100, %95, %88, %71, %._crit_edge, %._crit_edge46, %11, %9, %7
-  %.021 = phi i1 [ %92, %88 ], [ %97, %95 ], [ %102, %100 ], [ %107, %106 ], [ %109, %108 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %85, %71 ], [ false, %13 ], [ false, %47 ], [ %50, %._crit_edge46 ], [ %70, %._crit_edge ], [ false, %51 ], [ false, %.lr.ph45 ], [ false, %.lr.ph ]
+  %.021 = phi i1 [ %92, %88 ], [ %97, %95 ], [ %102, %100 ], [ %107, %106 ], [ %109, %108 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %85, %71 ], [ false, %13 ], [ %70, %._crit_edge ], [ %50, %._crit_edge46 ], [ false, %47 ], [ false, %51 ], [ false, %.lr.ph45 ], [ false, %.lr.ph ]
   ret i1 %.021
 }
 
@@ -6989,7 +6989,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit.i: ; pre
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %872, %869, %863, %860, %851, %848, %841, %838, %828, %825, %810, %780, %272, %230
-  %.sroa.0.0.ph.ph.ph.ph.ph.ph.ph.i = phi ptr [ %.sroa.0.1.i, %272 ], [ %.sroa.0.1.i, %230 ], [ %.sroa.0.17.i, %780 ], [ %.sroa.0.17.i, %869 ], [ %.sroa.0.17.i, %872 ], [ %.sroa.0.17.i, %860 ], [ %.sroa.0.17.i, %863 ], [ %.sroa.0.17.i, %848 ], [ %.sroa.0.17.i, %851 ], [ %.sroa.0.17.i, %838 ], [ %.sroa.0.17.i, %841 ], [ %.sroa.0.17.i, %810 ], [ %.sroa.0.17.i, %825 ], [ %.sroa.0.17.i, %828 ]
+  %.sroa.0.0.ph.ph.ph.ph.ph.ph.ph.i = phi ptr [ %.sroa.0.1.i, %230 ], [ %.sroa.0.1.i, %272 ], [ %.sroa.0.17.i, %780 ], [ %.sroa.0.17.i, %869 ], [ %.sroa.0.17.i, %872 ], [ %.sroa.0.17.i, %860 ], [ %.sroa.0.17.i, %863 ], [ %.sroa.0.17.i, %848 ], [ %.sroa.0.17.i, %851 ], [ %.sroa.0.17.i, %838 ], [ %.sroa.0.17.i, %841 ], [ %.sroa.0.17.i, %810 ], [ %.sroa.0.17.i, %825 ], [ %.sroa.0.17.i, %828 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i

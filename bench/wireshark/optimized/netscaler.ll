@@ -4571,7 +4571,7 @@ define internal noundef zeroext i1 @nstrace_seek_read_v20(ptr noundef readonly c
   br label %526
 
 526:                                              ; preds = %.sink.split, %42, %37, %17, %11, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %37 ], [ true, %42 ], [ false, %11 ], [ false, %17 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %5 ], [ false, %37 ], [ false, %11 ], [ true, %42 ], [ false, %17 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
@@ -5579,7 +5579,7 @@ define internal noundef zeroext i1 @nstrace_seek_read_v30(ptr noundef readonly c
   br label %136
 
 136:                                              ; preds = %.sink.split, %42, %37, %17, %11, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %37 ], [ true, %42 ], [ false, %11 ], [ false, %17 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %5 ], [ false, %37 ], [ false, %11 ], [ true, %42 ], [ false, %17 ], [ true, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

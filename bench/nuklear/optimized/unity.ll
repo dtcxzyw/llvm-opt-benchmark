@@ -4406,7 +4406,7 @@ nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit
 
 nk_utf_decode.exit:                               ; preds = %14, %._crit_edge.loopexit.i, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
-  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %15, %._crit_edge.loopexit.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ 1, %._crit_edge.i ], [ 1, %14 ]
+  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %15, %._crit_edge.loopexit.i ], [ 1, %._crit_edge.i ], [ 1, %14 ]
   %34 = icmp ne i32 %.023.i, 0
   %35 = icmp sgt i32 %1, 0
   %36 = and i1 %34, %35
@@ -9928,7 +9928,7 @@ nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit
 
 nk_utf_decode.exit:                               ; preds = %57, %._crit_edge.loopexit.i, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
-  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %58, %._crit_edge.loopexit.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %58, %._crit_edge.i ], [ 1, %57 ]
+  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %58, %._crit_edge.loopexit.i ], [ %58, %._crit_edge.i ], [ 1, %57 ]
   %.not69.i = icmp ne i32 %.023.i, 0
   %85 = fcmp ogt float %.sroa.7.8.vec.extract63.pre-phi, 0.000000e+00
   %or.cond70.i = and i1 %85, %.not69.i
@@ -13733,8 +13733,8 @@ nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit
 
 nk_utf_decode.exit:                               ; preds = %75, %80, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
-  %.2109 = phi i32 [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %80 ], [ %.0.lcssa91.i, %75 ]
-  %.023.i = phi i32 [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %44, %80 ], [ %44, %75 ]
+  %.2109 = phi i32 [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %80 ], [ %.0.lcssa91.i, %75 ]
+  %.023.i = phi i32 [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %44, %80 ], [ %44, %75 ]
   %.not = icmp eq i32 %.023.i, 0
   br i1 %.not, label %nk_utf_decode.exit.thread, label %nk_utf_decode.exit.thread114
 
@@ -18906,7 +18906,7 @@ stbtt__GetCoverageIndex.exit.thread.i:            ; preds = %142, %109, %215, %1
   br i1 %.not28.i, label %stbtt__GetGlyphGPOSInfoAdvance.exit, label %304, !llvm.loop !448
 
 stbtt__GetGlyphGPOSInfoAdvance.exit:              ; preds = %.loopexit.i, %166, %154, %153, %343, %334, %293, %286, %278, %260, %253, %228, %216, %.thread.i, %21, %16, %6, %275
-  %.0 = phi i32 [ 0, %275 ], [ 0, %166 ], [ 0, %343 ], [ 0, %6 ], [ 0, %21 ], [ 0, %16 ], [ 0, %216 ], [ 0, %253 ], [ 0, %228 ], [ %274, %260 ], [ %214, %.thread.i ], [ 0, %286 ], [ %342, %334 ], [ 0, %293 ], [ 0, %278 ], [ 0, %153 ], [ 0, %154 ], [ 0, %.loopexit.i ]
+  %.0 = phi i32 [ 0, %275 ], [ %342, %334 ], [ 0, %343 ], [ 0, %6 ], [ 0, %21 ], [ 0, %16 ], [ 0, %216 ], [ 0, %253 ], [ 0, %228 ], [ %274, %260 ], [ %214, %.thread.i ], [ 0, %286 ], [ 0, %166 ], [ 0, %293 ], [ 0, %278 ], [ 0, %153 ], [ 0, %154 ], [ 0, %.loopexit.i ]
   ret i32 %.0
 }
 
@@ -23455,13 +23455,13 @@ define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) 
   br label %stbtt_GetGlyphBox.exit
 
 stbtt_GetGlyphBox.exit:                           ; preds = %192, %111
-  %.pre113.pre = phi i32 [ %.pre113.pre.pre, %111 ], [ %.pre113.pre125, %192 ]
-  %.pre112 = phi i32 [ %.pre112.pre, %111 ], [ %.pre112118, %192 ]
-  %.pre = phi i32 [ %.pre.pre, %111 ], [ %.pre114, %192 ]
-  %.082 = phi i32 [ %116, %111 ], [ %208, %192 ]
-  %.381 = phi i32 [ %118, %111 ], [ %215, %192 ]
-  %.3 = phi i32 [ %120, %111 ], [ %222, %192 ]
-  %.071 = phi i32 [ %114, %111 ], [ %201, %192 ]
+  %.pre113.pre = phi i32 [ %.pre113.pre125, %192 ], [ %.pre113.pre.pre, %111 ]
+  %.pre112 = phi i32 [ %.pre112118, %192 ], [ %.pre112.pre, %111 ]
+  %.pre = phi i32 [ %.pre114, %192 ], [ %.pre.pre, %111 ]
+  %.082 = phi i32 [ %208, %192 ], [ %116, %111 ]
+  %.381 = phi i32 [ %215, %192 ], [ %118, %111 ]
+  %.3 = phi i32 [ %222, %192 ], [ %120, %111 ]
+  %.071 = phi i32 [ %201, %192 ], [ %114, %111 ]
   %223 = sitofp i32 %.071 to float
   %224 = call float @llvm.fmuladd.f32(float %223, float %107, float 0.000000e+00)
   %225 = call float @llvm.floor.f32(float %224)
@@ -24505,8 +24505,8 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %178, %176, %243, %s
   br label %stbtt_GetGlyphBox.exit211
 
 stbtt_GetGlyphBox.exit211:                        ; preds = %368, %291
-  %.3238 = phi i32 [ %296, %291 ], [ %384, %368 ]
-  %.0222 = phi i32 [ %294, %291 ], [ %377, %368 ]
+  %.3238 = phi i32 [ %384, %368 ], [ %296, %291 ]
+  %.0222 = phi i32 [ %377, %368 ], [ %294, %291 ]
   %385 = sitofp i32 %.0222 to float
   %386 = call float @llvm.fmuladd.f32(float %385, float %.pre-phi352, float 0.000000e+00)
   %387 = call float @llvm.floor.f32(float %386)
@@ -32010,8 +32010,8 @@ nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit
 
 nk_utf_decode.exit:                               ; preds = %42, %47, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
-  %.0 = phi i32 [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %47 ], [ %.0.lcssa91.i, %42 ]
-  %.023.i = phi i32 [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %14, %47 ], [ %14, %42 ]
+  %.0 = phi i32 [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %47 ], [ %.0.lcssa91.i, %42 ]
+  %.023.i = phi i32 [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %14, %47 ], [ %14, %42 ]
   %.not11 = icmp eq i32 %.023.i, 0
   br i1 %.not11, label %nk_utf_decode.exit.thread, label %nk_utf_decode.exit.thread27
 
@@ -40301,7 +40301,7 @@ nk_stricmpn.exit.i:                               ; preds = %29, %.lr.ph25.i
   br i1 %.not.i, label %nk_find_window.exit, label %.lr.ph25.i, !llvm.loop !895
 
 nk_find_window.exit:                              ; preds = %nk_stricmpn.exit.i, %nk_strlen.exit.i, %31, %nk_strlen.exit
-  %.3.i = phi ptr [ null, %nk_strlen.exit ], [ %.01224.i, %nk_strlen.exit.i ], [ %.01224.i, %31 ], [ null, %nk_stricmpn.exit.i ]
+  %.3.i = phi ptr [ %.01224.i, %nk_strlen.exit.i ], [ null, %nk_strlen.exit ], [ %.01224.i, %31 ], [ null, %nk_stricmpn.exit.i ]
   ret ptr %.3.i
 }
 
@@ -40885,7 +40885,7 @@ nk_insert_window.exit.sink.split:                 ; preds = %._crit_edge.thread.
   br label %nk_insert_window.exit
 
 nk_insert_window.exit:                            ; preds = %nk_stricmpn.exit.i, %.lr.ph.i21, %nk_insert_window.exit.sink.split, %nk_strlen.exit, %nk_find_window.exit
-  %.3.i26 = phi ptr [ %.01224.i, %.lr.ph.i21 ], [ %.01224.i, %nk_find_window.exit ], [ %.01224.i, %nk_insert_window.exit.sink.split ], [ null, %nk_strlen.exit ], [ null, %nk_stricmpn.exit.i ]
+  %.3.i26 = phi ptr [ null, %nk_strlen.exit ], [ %.01224.i, %nk_find_window.exit ], [ %.01224.i, %nk_insert_window.exit.sink.split ], [ %.01224.i, %.lr.ph.i21 ], [ null, %nk_stricmpn.exit.i ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 18512
   store ptr %.3.i26, ptr %73, align 8, !tbaa !879
   br label %74
@@ -50103,8 +50103,8 @@ nk_utf_decode.exit.thread.i:                      ; preds = %._crit_edge.i.i, %.
   br label %nk_text_clamp.exit111.thread.i
 
 nk_utf_decode.exit.i:                             ; preds = %127, %nk_utf_validate.exit.loopexit92.i.i, %nk_utf_validate.exit.loopexit.i.i, %164, %159, %nk_utf_decode_byte.exit.i.i
-  %166 = phi i32 [ 65533, %nk_utf_decode_byte.exit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit92.i.i ], [ %.0.lcssa91.i.i, %159 ], [ 65533, %164 ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %127 ]
-  %.023.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ], [ %128, %159 ], [ %128, %164 ], [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ 1, %127 ]
+  %166 = phi i32 [ 65533, %nk_utf_decode_byte.exit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit92.i.i ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %164 ], [ %.0.lcssa91.i.i, %159 ], [ 65533, %127 ]
+  %.023.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ], [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %128, %164 ], [ %128, %159 ], [ 1, %127 ]
   %.not.i107.i = icmp ne i32 %.023.i.i, 0
   %167 = fcmp olt float %114, %50
   %or.cond.i108.i = select i1 %.not.i107.i, i1 %167, i1 false
@@ -57500,8 +57500,8 @@ nk_utf_validate.exit.loopexit92.i.i:              ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit.i
 
 nk_utf_decode.exit.i:                             ; preds = %nk_utf_validate.exit.loopexit92.i.i, %nk_utf_validate.exit.loopexit.i.i, %108, %103
-  %109 = phi i32 [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit92.i.i ], [ %.0.lcssa91.i.i, %103 ], [ 65533, %108 ]
-  %.023.i.i = phi i32 [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ], [ %72, %103 ], [ %72, %108 ]
+  %109 = phi i32 [ %.0.lcssa91.i.i, %103 ], [ 65533, %nk_utf_validate.exit.loopexit92.i.i ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %108 ]
+  %.023.i.i = phi i32 [ %72, %103 ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ], [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %72, %108 ]
   %.not.i.i.i = icmp eq i32 %.023.i.i, 0
   br i1 %.not.i.i.i, label %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i, label %.lr.ph.i.i12.i, !llvm.loop !85
 
@@ -58581,8 +58581,8 @@ nk_utf_validate.exit.loopexit92.i.i:              ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit.i
 
 nk_utf_decode.exit.i:                             ; preds = %nk_utf_validate.exit.loopexit92.i.i, %nk_utf_validate.exit.loopexit.i.i, %221, %216
-  %222 = phi i32 [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit92.i.i ], [ %.0.lcssa91.i.i, %216 ], [ 65533, %221 ]
-  %.023.i.i = phi i32 [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ], [ %185, %216 ], [ %185, %221 ]
+  %222 = phi i32 [ %.0.lcssa91.i.i, %216 ], [ 65533, %nk_utf_validate.exit.loopexit92.i.i ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %221 ]
+  %.023.i.i = phi i32 [ %185, %216 ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ], [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %185, %221 ]
   %.not.i.i.i = icmp eq i32 %.023.i.i, 0
   br i1 %.not.i.i.i, label %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i, label %.lr.ph.i.i13.i, !llvm.loop !85
 
@@ -73474,7 +73474,7 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
   br i1 %1001, label %stbtt__buf_get8.exit, label %.critedge, !llvm.loop !1281
 
 .critedge:                                        ; preds = %111, %120, %127, %134, %186, %188, %288, %290, %334, %351, %._crit_edge515, %421, %._crit_edge, %492, %699, %701, %stbtt__get_subr.exit, %791, %917, %994, %.thread, %860, %849, %stbtt__buf_get8.exit373, %875, %890, %844, %60, %stbtt__buf_get.exit28.i, %stbtt__csctx_v.exit.i, %802
-  %.2 = phi i32 [ 1, %stbtt__csctx_v.exit.i ], [ 1, %802 ], [ 0, %stbtt__buf_get.exit28.i ], [ 0, %60 ], [ 0, %844 ], [ 0, %890 ], [ 0, %875 ], [ 0, %stbtt__buf_get8.exit373 ], [ 0, %849 ], [ 0, %860 ], [ 0, %.thread ], [ 0, %994 ], [ 0, %917 ], [ 0, %791 ], [ 0, %stbtt__get_subr.exit ], [ 0, %701 ], [ 0, %699 ], [ 0, %492 ], [ 0, %._crit_edge ], [ 0, %421 ], [ 0, %._crit_edge515 ], [ 0, %351 ], [ 0, %334 ], [ 0, %290 ], [ 0, %288 ], [ 0, %188 ], [ 0, %186 ], [ 0, %134 ], [ 0, %127 ], [ 0, %120 ], [ 0, %111 ]
+  %.2 = phi i32 [ 1, %802 ], [ 1, %stbtt__csctx_v.exit.i ], [ 0, %stbtt__buf_get.exit28.i ], [ 0, %60 ], [ 0, %844 ], [ 0, %890 ], [ 0, %875 ], [ 0, %stbtt__buf_get8.exit373 ], [ 0, %849 ], [ 0, %860 ], [ 0, %.thread ], [ 0, %994 ], [ 0, %917 ], [ 0, %791 ], [ 0, %stbtt__get_subr.exit ], [ 0, %701 ], [ 0, %699 ], [ 0, %492 ], [ 0, %._crit_edge ], [ 0, %421 ], [ 0, %._crit_edge515 ], [ 0, %351 ], [ 0, %334 ], [ 0, %290 ], [ 0, %288 ], [ 0, %188 ], [ 0, %186 ], [ 0, %134 ], [ 0, %127 ], [ 0, %120 ], [ 0, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
@@ -75838,7 +75838,7 @@ nk_utf_decode_byte.exit34.i73:                    ; preds = %119
   br i1 %or.cond94, label %nk_utf_decode.exit.thread, label %66
 
 nk_utf_decode.exit.thread:                        ; preds = %20, %134, %138, %nk_utf_decode_byte.exit.i54, %._crit_edge.i57, %._crit_edge.loopexit.i79, %nk_font_find_glyph.exit, %.loopexit, %106, %nk_utf_decode_byte.exit34.i73, %126, %nk_utf_decode_byte.exit.i, %.preheader, %._crit_edge.i, %._crit_edge.loopexit.i, %nk_utf_decode.exit, %4
-  %.0 = phi float [ 0.000000e+00, %nk_utf_decode.exit ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %._crit_edge.i ], [ 0.000000e+00, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.preheader ], [ %93, %nk_utf_decode_byte.exit34.i73 ], [ 0.000000e+00, %nk_utf_decode_byte.exit.i ], [ %93, %106 ], [ %93, %134 ], [ %93, %126 ], [ %93, %.loopexit ], [ %93, %nk_font_find_glyph.exit ], [ %93, %._crit_edge.loopexit.i79 ], [ %93, %._crit_edge.i57 ], [ %93, %nk_utf_decode_byte.exit.i54 ], [ %93, %138 ], [ 0.000000e+00, %20 ]
+  %.0 = phi float [ 0.000000e+00, %nk_utf_decode.exit ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %._crit_edge.i ], [ 0.000000e+00, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.preheader ], [ %93, %134 ], [ 0.000000e+00, %nk_utf_decode_byte.exit.i ], [ %93, %106 ], [ %93, %nk_utf_decode_byte.exit34.i73 ], [ %93, %126 ], [ %93, %.loopexit ], [ %93, %nk_font_find_glyph.exit ], [ %93, %._crit_edge.loopexit.i79 ], [ %93, %._crit_edge.i57 ], [ %93, %nk_utf_decode_byte.exit.i54 ], [ %93, %138 ], [ 0.000000e+00, %20 ]
   ret float %.0
 }
 
@@ -79148,8 +79148,8 @@ nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit
 
 nk_utf_decode.exit:                               ; preds = %53, %58, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
-  %.1171 = phi i32 [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %58 ], [ %.0.lcssa91.i, %53 ]
-  %.023.i = phi i32 [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %22, %58 ], [ %22, %53 ]
+  %.1171 = phi i32 [ 65533, %nk_utf_validate.exit.loopexit92.i ], [ 65533, %nk_utf_validate.exit.loopexit.i ], [ 65533, %58 ], [ %.0.lcssa91.i, %53 ]
+  %.023.i = phi i32 [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %22, %58 ], [ %22, %53 ]
   %.not = icmp eq i32 %.023.i, 0
   br i1 %.not, label %nk_utf_decode.exit.thread, label %.lr.ph.preheader
 
@@ -80886,7 +80886,7 @@ nk_utf_validate.exit.loopexit92.i:                ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit
 
 nk_utf_decode.exit:                               ; preds = %91, %._crit_edge.loopexit.i, %._crit_edge.i, %nk_utf_decode_byte.exit.i, %nk_utf_validate.exit.loopexit.i, %nk_utf_validate.exit.loopexit92.i
-  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %92, %._crit_edge.loopexit.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %92, %._crit_edge.i ], [ 1, %91 ]
+  %.023.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i ], [ %indvars83.le.i, %nk_utf_validate.exit.loopexit92.i ], [ %indvars83.le103.i, %nk_utf_validate.exit.loopexit.i ], [ %92, %._crit_edge.loopexit.i ], [ %92, %._crit_edge.i ], [ 1, %91 ]
   %.not.i.i57 = icmp eq i32 %.023.i, 0
   br i1 %.not.i.i57, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !85
 

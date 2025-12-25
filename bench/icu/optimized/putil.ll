@@ -1402,6 +1402,9 @@ sub_187:                                          ; preds = %.tail
   %.not49 = icmp eq i32 %48, 0
   br i1 %.not49, label %.backedge.backedge, label %49
 
+.backedge.backedge:                               ; preds = %47, %.tail85.thread, %.tail85, %.tail, %78, %.thread66
+  br label %.backedge
+
 49:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6)
@@ -1489,7 +1492,7 @@ _ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit: ; preds = %.noexc
   %86 = call noalias ptr @fopen(ptr noundef readonly %80, ptr noundef nonnull @.str.23)
   store i32 0, ptr %32, align 4, !tbaa !22
   %.not.i = icmp eq ptr %86, null
-  br i1 %.not.i, label %.backedge.sink.split, label %87
+  br i1 %.not.i, label %.thread66, label %87
 
 87:                                               ; preds = %85
   %88 = load ptr, ptr %31, align 8, !tbaa !26
@@ -1564,7 +1567,7 @@ _ZN6icu_7710CharStringC2ERKS0_R10UErrorCode.exit: ; preds = %.noexc
 
 .thread69:                                        ; preds = %.lr.ph.i, %96, %87
   %124 = call i32 @fclose(ptr noundef nonnull %86)
-  br label %.backedge.sink.split
+  br label %.thread66
 
 .loopexit:                                        ; preds = %110, %119
   %125 = call i32 @fclose(ptr noundef nonnull %86)
@@ -1618,6 +1621,12 @@ _ZL16skipZoneIDPrefixPPKc.exit:                   ; preds = %131, %134
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread79
 
+.thread66:                                        ; preds = %85, %.thread69
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %.backedge.backedge
+
 148:                                              ; preds = %73, %143, %62
   %.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %74, %73 ], [ %144, %143 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #33
@@ -1627,15 +1636,6 @@ _ZL16skipZoneIDPrefixPPKc.exit:                   ; preds = %131, %134
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %148 ], [ %61, %60 ], [ %55, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %150
-
-.backedge.sink.split:                             ; preds = %85, %.thread69
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %6) #33
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %.backedge.sink.split, %47, %.tail85.thread, %.tail85, %.tail, %78
-  br label %.backedge
 
 .thread79:                                        ; preds = %78, %35, %.thread101, %.thread
   %.03483 = phi ptr [ null, %.thread ], [ %.337.ph, %.thread101 ], [ %77, %78 ], [ null, %35 ]

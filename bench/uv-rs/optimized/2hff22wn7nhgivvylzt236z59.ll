@@ -1167,7 +1167,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i: ; preds = %.lr
   br label %14
 
 .critedge:                                        ; preds = %69, %36, %.noexc34, %.preheader.i.i, %27
-  %.promoted.i71108 = phi i64 [ %.promoted.i71124, %36 ], [ %.promoted.i71124, %27 ], [ %.promoted.i71124, %.preheader.i.i ], [ %.promoted.i71124, %.noexc34 ], [ %34, %69 ]
+  %.promoted.i71108 = phi i64 [ %.promoted.i71124, %27 ], [ %.promoted.i71124, %36 ], [ %.promoted.i71124, %.preheader.i.i ], [ %.promoted.i71124, %.noexc34 ], [ %34, %69 ]
   %gepdiff96 = sub nsw i64 %2, %.promoted.i71108
   %39 = load i64, ptr %.sroa.515.0..sroa_idx, align 8, !alias.scope !279, !noundef !3
   %40 = load i64, ptr %7, align 8, !range !69, !alias.scope !279, !noundef !3

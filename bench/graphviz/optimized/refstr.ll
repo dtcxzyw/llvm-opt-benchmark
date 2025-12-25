@@ -463,7 +463,7 @@ refstr_eq.exit.thread.i18:                        ; preds = %refstr_eq.exit.i21,
   br i1 %exitcond.not.i19, label %strdict_remove.exit, label %55, !llvm.loop !30
 
 strdict_remove.exit:                              ; preds = %refstr_eq.exit.thread.i, %27, %55, %refstr_eq.exit.thread.i18, %strdict_find.exit, %40, %47, %66, %refdict.exit, %3
-  %.0 = phi i32 [ -1, %3 ], [ 0, %55 ], [ 0, %40 ], [ 0, %strdict_find.exit ], [ 0, %47 ], [ -1, %refdict.exit ], [ 0, %66 ], [ 0, %refstr_eq.exit.thread.i18 ], [ -1, %27 ], [ -1, %refstr_eq.exit.thread.i ]
+  %.0 = phi i32 [ -1, %3 ], [ -1, %refdict.exit ], [ 0, %40 ], [ 0, %strdict_find.exit ], [ 0, %47 ], [ 0, %55 ], [ 0, %66 ], [ 0, %refstr_eq.exit.thread.i18 ], [ -1, %27 ], [ -1, %refstr_eq.exit.thread.i ]
   ret i32 %.0
 }
 

@@ -978,7 +978,7 @@ _ZN5serde2de9SeqAccess12next_element17h9685abf0f1bbdb96E.exit.i: ; preds = %279,
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hef3ee3290f5d5237E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #32
           to label %common.resume unwind label %329, !noalias !163
 
-_ZN5serde2de9SeqAccess12next_element17h9685abf0f1bbdb96E.exit.i.thread103: ; preds = %256, %231, %260, %_ZN5serde2de9SeqAccess12next_element17h9685abf0f1bbdb96E.exit.i
+_ZN5serde2de9SeqAccess12next_element17h9685abf0f1bbdb96E.exit.i.thread103: ; preds = %256, %260, %231, %_ZN5serde2de9SeqAccess12next_element17h9685abf0f1bbdb96E.exit.i
   %.sroa.22.2109 = phi ptr [ %.sroa.22.0.copyload79, %_ZN5serde2de9SeqAccess12next_element17h9685abf0f1bbdb96E.exit.i ], [ %255, %256 ], [ %.sroa.22.0, %260 ], [ %.sroa.22.0, %231 ]
   %.sroa.073.1108 = phi i64 [ %.sroa.073.0.copyload75, %_ZN5serde2de9SeqAccess12next_element17h9685abf0f1bbdb96E.exit.i ], [ %253, %256 ], [ -9223372036854775803, %260 ], [ -9223372036854775803, %231 ]
   %.sroa.15.2107 = phi i8 [ %.sroa.15.0, %_ZN5serde2de9SeqAccess12next_element17h9685abf0f1bbdb96E.exit.i ], [ 0, %256 ], [ %.sroa.15.0, %260 ], [ %.sroa.15.0, %231 ]

@@ -2047,8 +2047,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %.not.i64, label %Vec_IntFree.exit65, label %Vec_IntFree.exit65.sink.split
 
 Vec_IntFree.exit65.sink.split:                    ; preds = %.critedge4, %.critedge2, %.critedge, %.preheader, %67, %.critedge4._crit_edge, %.critedge.preheader
-  %.sink121 = phi ptr [ %.pre.i101, %67 ], [ %.pre.i101, %.critedge.preheader ], [ %76, %.critedge4._crit_edge ], [ %.pre.i101, %.preheader ], [ %.pre.i101, %.critedge ], [ %.pre.i101, %.critedge2 ], [ %.pre.i101, %.critedge4 ]
-  %.049.ph = phi i32 [ %.2.lcssa, %67 ], [ 0, %.critedge.preheader ], [ 0, %.critedge4._crit_edge ], [ 0, %.critedge2 ], [ 0, %.critedge ], [ %.2.lcssa, %.preheader ], [ 0, %.critedge4 ]
+  %.sink121 = phi ptr [ %.pre.i101, %.critedge.preheader ], [ %.pre.i101, %67 ], [ %76, %.critedge4._crit_edge ], [ %.pre.i101, %.preheader ], [ %.pre.i101, %.critedge ], [ %.pre.i101, %.critedge2 ], [ %.pre.i101, %.critedge4 ]
+  %.049.ph = phi i32 [ 0, %.critedge.preheader ], [ %.2.lcssa, %67 ], [ 0, %.critedge4._crit_edge ], [ 0, %.critedge2 ], [ 0, %.critedge ], [ %.2.lcssa, %.preheader ], [ 0, %.critedge4 ]
   tail call void @free(ptr noundef nonnull %.sink121) #24
   br label %Vec_IntFree.exit65
 

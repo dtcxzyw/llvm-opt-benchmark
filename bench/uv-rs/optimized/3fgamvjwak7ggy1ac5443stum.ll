@@ -2453,7 +2453,7 @@ _ZN4core3ops8function5FnMut8call_mut17hb91ca6c52c684c85E.llvm.697765110188846001
   br label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h982f2d2bfbeb00c9E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h982f2d2bfbeb00c9E.exit.thread": ; preds = %66, %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h982f2d2bfbeb00c9E.exit", %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h667e447de2ec682aE.exit.thread5.i.i", %4, %69
-  %storemerge = phi i64 [ %44, %69 ], [ -9223372036854775808, %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h667e447de2ec682aE.exit.thread5.i.i" ], [ -9223372036854775808, %4 ], [ -9223372036854775808, %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h982f2d2bfbeb00c9E.exit" ], [ -9223372036854775808, %66 ]
+  %storemerge = phi i64 [ %44, %69 ], [ -9223372036854775808, %4 ], [ -9223372036854775808, %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h667e447de2ec682aE.exit.thread5.i.i" ], [ -9223372036854775808, %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h982f2d2bfbeb00c9E.exit" ], [ -9223372036854775808, %66 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

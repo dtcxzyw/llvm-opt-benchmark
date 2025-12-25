@@ -1925,7 +1925,7 @@ ec_point_is_compat.exit.thread:                   ; preds = %13, %17
   br label %25
 
 25:                                               ; preds = %.sink.split, %22, %ec_point_is_compat.exit.thread
-  %.0 = phi i32 [ 1, %22 ], [ 0, %ec_point_is_compat.exit.thread ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %ec_point_is_compat.exit.thread ], [ 1, %22 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2023,7 +2023,7 @@ ec_point_is_compat.exit.thread.i:                 ; preds = %17, %13
   br label %EC_POINT_set_affine_coordinates.exit
 
 EC_POINT_set_affine_coordinates.exit:             ; preds = %ec_point_is_compat.exit.thread.i, %22, %.sink.split.i
-  %.0.i = phi i32 [ 1, %22 ], [ 0, %ec_point_is_compat.exit.thread.i ], [ 0, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %ec_point_is_compat.exit.thread.i ], [ 1, %22 ], [ 0, %.sink.split.i ]
   ret i32 %.0.i
 }
 
@@ -2073,7 +2073,7 @@ ec_point_is_compat.exit.thread.i:                 ; preds = %17, %13
   br label %EC_POINT_set_affine_coordinates.exit
 
 EC_POINT_set_affine_coordinates.exit:             ; preds = %ec_point_is_compat.exit.thread.i, %22, %.sink.split.i
-  %.0.i = phi i32 [ 1, %22 ], [ 0, %ec_point_is_compat.exit.thread.i ], [ 0, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %ec_point_is_compat.exit.thread.i ], [ 1, %22 ], [ 0, %.sink.split.i ]
   ret i32 %.0.i
 }
 

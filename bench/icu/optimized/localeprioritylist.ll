@@ -1165,7 +1165,7 @@ _ZN6icu_7715MaybeStackArrayINS_12_GLOBAL__N_115LocaleAndWeightELi20EE6resizeEii.
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6icu_7712LocalPointerINS_6LocaleEED2Ev.exit
 
-.thread75:                                        ; preds = %71, %66
+.thread75:                                        ; preds = %66, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %88
 

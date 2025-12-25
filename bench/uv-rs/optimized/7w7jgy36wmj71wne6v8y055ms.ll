@@ -1898,7 +1898,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br label %32
 
 select.unfold:                                    ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he200d2296a187ed6E.llvm.10470488792943524147.exit.loopexit", %.lr.ph.split, %._crit_edge.i.i.i.i, %2, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c25d64613e9fcbdE.llvm.10470488792943524147.exit.us", %.lr.ph.split.us
-  %55 = phi i1 [ true, %._crit_edge.i.i.i.i ], [ false, %2 ], [ true, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c25d64613e9fcbdE.llvm.10470488792943524147.exit.us" ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he200d2296a187ed6E.llvm.10470488792943524147.exit.loopexit" ]
+  %55 = phi i1 [ false, %.lr.ph.split.us ], [ false, %2 ], [ true, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c25d64613e9fcbdE.llvm.10470488792943524147.exit.us" ], [ true, %._crit_edge.i.i.i.i ], [ false, %.lr.ph.split ], [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17he200d2296a187ed6E.llvm.10470488792943524147.exit.loopexit" ]
   ret i1 %55
 }
 

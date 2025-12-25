@@ -2568,8 +2568,8 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
   br label %.loopexit15.split.us
 
 .loopexit15.split.us:                             ; preds = %.loopexit15.split.us.sink.split, %85, %412, %385
-  %282 = phi i32 [ 3, %85 ], [ 4, %412 ], [ 4, %385 ], [ 4, %.loopexit15.split.us.sink.split ]
-  %283 = phi i8 [ %.fr37, %85 ], [ %406, %412 ], [ %.fr37, %385 ], [ %.ph82, %.loopexit15.split.us.sink.split ]
+  %282 = phi i32 [ 4, %412 ], [ 4, %385 ], [ 3, %85 ], [ 4, %.loopexit15.split.us.sink.split ]
+  %283 = phi i8 [ %406, %412 ], [ %.fr37, %385 ], [ %.fr37, %85 ], [ %.ph82, %.loopexit15.split.us.sink.split ]
   store i32 %282, ptr %45, align 16
   br label %.loopexit.backedge
 

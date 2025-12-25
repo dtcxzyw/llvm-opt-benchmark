@@ -367,8 +367,8 @@ _ZNSt6vectorIPhSaIS0_EED2Ev.exit49:               ; preds = %._crit_edge122, %94
   br label %105
 
 105:                                              ; preds = %.loopexit, %.loopexit.split-lp, %104
-  %106 = phi ptr [ %46, %.loopexit.split-lp ], [ %46, %.loopexit ], [ %.pre, %104 ]
-  %.pn28.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %.pn.pn.pn, %104 ]
+  %106 = phi ptr [ %46, %.loopexit ], [ %46, %.loopexit.split-lp ], [ %.pre, %104 ]
+  %.pn28.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn.pn.pn, %104 ]
   %.not.i.i.i50 = icmp eq ptr %106, null
   br i1 %.not.i.i.i50, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit51, label %.thread
 

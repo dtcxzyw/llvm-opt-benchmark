@@ -616,7 +616,7 @@ isPVD.exit:                                       ; preds = %229, %isJolietSVD.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %25, %28, %268, %isVolumePartition.exit.thread, %5, %2, %.critedge
-  %.027 = phi i32 [ 48, %268 ], [ -1, %2 ], [ -1, %5 ], [ 0, %.critedge ], [ 0, %isVolumePartition.exit.thread ], [ 0, %28 ], [ 0, %25 ]
+  %.027 = phi i32 [ 0, %.critedge ], [ -1, %2 ], [ -1, %5 ], [ 48, %268 ], [ 0, %isVolumePartition.exit.thread ], [ 0, %28 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.027
 }
@@ -858,7 +858,7 @@ choose_volume.exit:                               ; preds = %50, %25
   %.not138 = icmp eq i32 %.0.i, 0
   br i1 %.not138, label %choose_volume.exit.thread162, label %choose_volume.exit.thread
 
-choose_volume.exit.thread162:                     ; preds = %80, %77, %choose_volume.exit, %11
+choose_volume.exit.thread162:                     ; preds = %77, %80, %choose_volume.exit, %11
   store ptr null, ptr %3, align 8, !tbaa !66
   %82 = call fastcc i32 @next_cache_entry(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %3)
   %.not.i158 = icmp eq i32 %82, 0
@@ -5629,7 +5629,7 @@ cache_get_entry.exit198:                          ; preds = %479, %481, %485
   br label %rede_get_entry.exit162.thread239
 
 rede_get_entry.exit162.thread239:                 ; preds = %read_children.exit, %279, %281, %next_CE.exit.i, %314, %303, %246, %.thread150.i, %218, %198, %188, %re_get_entry.exit, %100, %rede_get_entry.exit162.thread233, %392, %.loopexit256, %cache_get_entry.exit198, %.critedge.thread, %21
-  %.0 = phi i32 [ 0, %21 ], [ %101, %100 ], [ -30, %.loopexit256 ], [ %460, %.critedge.thread ], [ %486, %cache_get_entry.exit198 ], [ 0, %392 ], [ 0, %rede_get_entry.exit162.thread233 ], [ 1, %re_get_entry.exit ], [ -20, %188 ], [ -20, %198 ], [ -30, %218 ], [ -30, %279 ], [ -30, %.thread150.i ], [ -30, %246 ], [ -30, %314 ], [ -30, %next_CE.exit.i ], [ -30, %303 ], [ -30, %281 ], [ %366, %read_children.exit ]
+  %.0 = phi i32 [ 0, %21 ], [ %101, %100 ], [ -30, %.loopexit256 ], [ %460, %.critedge.thread ], [ %486, %cache_get_entry.exit198 ], [ 0, %392 ], [ 0, %rede_get_entry.exit162.thread233 ], [ 1, %re_get_entry.exit ], [ -20, %188 ], [ -20, %198 ], [ -30, %218 ], [ -30, %314 ], [ -30, %.thread150.i ], [ -30, %246 ], [ -30, %279 ], [ -30, %next_CE.exit.i ], [ -30, %303 ], [ -30, %281 ], [ %366, %read_children.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

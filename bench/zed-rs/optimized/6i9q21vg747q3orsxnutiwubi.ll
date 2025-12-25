@@ -9641,7 +9641,7 @@ default.unreachable149:                           ; preds = %3
   call void @_ZN4gpui7element10AnyElement3new17h59d147e5354e309bE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %37)
   br label %63
 
-.body:                                            ; preds = %201, %192, %129, %214, %.thread110, %69, %109, %107, %.body32.thread
+.body:                                            ; preds = %192, %201, %129, %214, %.thread110, %69, %109, %107, %.body32.thread
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body35113, %.thread110 ], [ %193, %192 ], [ %eh.lpad-body33101, %.body32.thread ], [ %202, %201 ], [ %108, %107 ], [ %.pn.pn.pn120, %214 ], [ %lpad.thr_comm, %109 ], [ %70, %69 ], [ %.pn.pn.pn, %129 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 

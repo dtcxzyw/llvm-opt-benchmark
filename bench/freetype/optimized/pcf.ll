@@ -1302,8 +1302,8 @@ pcf_read_TOC.exit:                                ; preds = %.lr.ph.i, %82, %94,
   br label %pcf_get_properties.exit
 
 pcf_get_properties.exit:                          ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %197, %210, %135, %147, %152, %177, %182, %186, %188, %.thread127.sink.split.i
-  %.087.i = phi ptr [ %184, %182 ], [ null, %135 ], [ null, %147 ], [ %184, %186 ], [ null, %152 ], [ null, %.lr.ph.split.us.i ], [ %184, %188 ], [ %.087.ph.i, %.thread127.sink.split.i ], [ %184, %197 ], [ null, %177 ], [ %184, %210 ], [ null, %.lr.ph.split.i ]
-  %.086.i = phi ptr [ %154, %182 ], [ null, %135 ], [ null, %147 ], [ %154, %186 ], [ %154, %152 ], [ %154, %.lr.ph.split.us.i ], [ %154, %188 ], [ %.086.ph.i, %.thread127.sink.split.i ], [ %154, %197 ], [ %154, %177 ], [ %154, %210 ], [ %154, %.lr.ph.split.i ]
+  %.087.i = phi ptr [ %184, %182 ], [ null, %135 ], [ null, %147 ], [ %184, %186 ], [ null, %152 ], [ %184, %188 ], [ null, %.lr.ph.split.us.i ], [ %.087.ph.i, %.thread127.sink.split.i ], [ %184, %197 ], [ null, %177 ], [ %184, %210 ], [ null, %.lr.ph.split.i ]
+  %.086.i = phi ptr [ %154, %182 ], [ null, %135 ], [ null, %147 ], [ %154, %186 ], [ %154, %152 ], [ %154, %188 ], [ %154, %.lr.ph.split.us.i ], [ %.086.ph.i, %.thread127.sink.split.i ], [ %154, %197 ], [ %154, %177 ], [ %154, %210 ], [ %154, %.lr.ph.split.i ]
   call void @ft_mem_free(ptr noundef %119, ptr noundef %.086.i) #16
   call void @ft_mem_free(ptr noundef %119, ptr noundef %.087.i) #16
   %218 = load i32, ptr %7, align 4, !tbaa !101

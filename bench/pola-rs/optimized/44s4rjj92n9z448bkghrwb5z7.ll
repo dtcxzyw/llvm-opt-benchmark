@@ -31986,7 +31986,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   br label %.thread288.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb398164c638152abE.exit.invoke.i", %789, %729, %707, %687, %659, %608, %598, %587, %504, %496, %473, %462, %441, %394, %366, %333, %307, %302, %267, %259, %245, %234, %230
-  %.sroa.086.0.ph.ph.ph.ph.i = phi i8 [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb398164c638152abE.exit.invoke.i" ], [ 1, %307 ], [ 1, %302 ], [ 1, %333 ], [ 1, %230 ], [ 1, %267 ], [ 1, %366 ], [ 1, %234 ], [ 1, %729 ], [ 1, %394 ], [ 1, %245 ], [ 1, %687 ], [ 1, %707 ], [ 1, %441 ], [ 1, %659 ], [ 1, %789 ], [ 1, %473 ], [ 1, %462 ], [ 1, %259 ], [ %.sroa.086.5.i, %587 ], [ 1, %504 ], [ 1, %496 ], [ 1, %608 ], [ 1, %598 ]
+  %.sroa.086.0.ph.ph.ph.ph.i = phi i8 [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hb398164c638152abE.exit.invoke.i" ], [ 1, %307 ], [ 1, %302 ], [ 1, %333 ], [ 1, %230 ], [ 1, %267 ], [ 1, %366 ], [ 1, %234 ], [ 1, %729 ], [ 1, %394 ], [ 1, %245 ], [ 1, %707 ], [ 1, %687 ], [ 1, %441 ], [ 1, %659 ], [ 1, %789 ], [ 1, %473 ], [ 1, %462 ], [ 1, %259 ], [ %.sroa.086.5.i, %587 ], [ 1, %504 ], [ 1, %496 ], [ 1, %608 ], [ 1, %598 ]
   %lpad.loopexit375.i = landingpad { ptr, i32 }
           cleanup
   br label %.body145.i
@@ -41440,8 +41440,8 @@ define void @"_ZN11polars_lazy4scan14anonymous_scan47_$LT$impl$u20$polars_lazy..
           to label %41 unwind label %39
 
 .body:                                            ; preds = %.thread67, %147, %95, %84, %39
-  %.sroa.029.1 = phi i8 [ 0, %84 ], [ 0, %95 ], [ %.sroa.029.0, %39 ], [ 0, %147 ], [ 0, %.thread67 ]
-  %.pn52.pn = phi { ptr, i32 } [ %85, %84 ], [ %96, %95 ], [ %40, %39 ], [ %140, %147 ], [ %140, %.thread67 ]
+  %.sroa.029.1 = phi i8 [ 0, %95 ], [ 0, %84 ], [ %.sroa.029.0, %39 ], [ 0, %147 ], [ 0, %.thread67 ]
+  %.pn52.pn = phi { ptr, i32 } [ %96, %95 ], [ %85, %84 ], [ %40, %39 ], [ %140, %147 ], [ %140, %.thread67 ]
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 71
   %38 = load i8, ptr %37, align 1, !range !45, !noundef !4
   %.not82 = icmp eq i8 %38, -38

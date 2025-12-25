@@ -2563,7 +2563,7 @@ wb_get_type.exit288:                              ; preds = %51, %53, %57
   br label %._crit_edge358.thread
 
 ._crit_edge358.thread:                            ; preds = %.lr.ph332, %.lr.ph332, %.lr.ph339, %.lr.ph348, %.preheader, %126, %126, %114, %114, %114, %84, %84, %142, %142, %142, %142, %.thread297, %132, %127, %._crit_edge349, %._crit_edge340, %98, %97, %._crit_edge, %._crit_edge, %87, %87, %.thread, %.thread, %.thread, %72, %70, %67, %67, %67, %66, %66, %66, %63, %12, %5, %._crit_edge358, %.thread299
-  %.0247 = phi i32 [ 0, %._crit_edge358 ], [ 1, %5 ], [ 0, %142 ], [ 1, %.thread299 ], [ 1, %12 ], [ 0, %63 ], [ 1, %66 ], [ 1, %67 ], [ 0, %70 ], [ 0, %72 ], [ 0, %.thread ], [ 0, %84 ], [ 0, %87 ], [ 0, %._crit_edge ], [ 0, %97 ], [ 0, %98 ], [ 0, %._crit_edge340 ], [ 0, %114 ], [ 0, %114 ], [ 0, %._crit_edge349 ], [ 0, %126 ], [ 0, %127 ], [ 0, %132 ], [ 0, %.thread297 ], [ 1, %66 ], [ 1, %66 ], [ 1, %67 ], [ 1, %67 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %84 ], [ 0, %87 ], [ 0, %._crit_edge ], [ 0, %114 ], [ 0, %126 ], [ 0, %142 ], [ 0, %142 ], [ 0, %142 ], [ 0, %.preheader ], [ 0, %.lr.ph348 ], [ 0, %.lr.ph339 ], [ 0, %.lr.ph332 ], [ 0, %.lr.ph332 ]
+  %.0247 = phi i32 [ 0, %._crit_edge358 ], [ 1, %5 ], [ 0, %142 ], [ 1, %.thread299 ], [ 1, %12 ], [ 0, %63 ], [ 1, %66 ], [ 1, %67 ], [ 0, %70 ], [ 0, %72 ], [ 0, %.thread ], [ 0, %84 ], [ 0, %87 ], [ 0, %._crit_edge ], [ 0, %97 ], [ 0, %98 ], [ 0, %._crit_edge340 ], [ 0, %114 ], [ 0, %114 ], [ 0, %._crit_edge349 ], [ 0, %126 ], [ 0, %127 ], [ 0, %132 ], [ 0, %.thread297 ], [ 1, %66 ], [ 1, %66 ], [ 1, %67 ], [ 1, %67 ], [ 0, %.thread ], [ 0, %.thread ], [ 0, %84 ], [ 0, %87 ], [ 0, %._crit_edge ], [ 0, %114 ], [ 0, %126 ], [ 0, %142 ], [ 0, %142 ], [ 0, %142 ], [ 0, %.preheader ], [ 0, %.lr.ph339 ], [ 0, %.lr.ph348 ], [ 0, %.lr.ph332 ], [ 0, %.lr.ph332 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0247
@@ -3453,7 +3453,7 @@ unicode_lookup_property_name.exit:                ; preds = %gperf_case_strncmp.
   br label %unicode_lookup_property_name.exit.thread
 
 unicode_lookup_property_name.exit.thread:         ; preds = %13, %8, %hash.exit.i, %99, %104, %gperf_case_strncmp.exit.i, %gperf_case_strncmp.exit.thread.i, %33, %31, %unicode_lookup_property_name.exit
-  %.025 = phi i32 [ %32, %31 ], [ -223, %hash.exit.i ], [ %129, %unicode_lookup_property_name.exit ], [ -223, %99 ], [ -223, %33 ], [ -223, %gperf_case_strncmp.exit.thread.i ], [ -223, %gperf_case_strncmp.exit.i ], [ -223, %104 ], [ -223, %8 ], [ -223, %13 ]
+  %.025 = phi i32 [ %32, %31 ], [ -223, %99 ], [ %129, %unicode_lookup_property_name.exit ], [ -223, %hash.exit.i ], [ -223, %33 ], [ -223, %gperf_case_strncmp.exit.thread.i ], [ -223, %gperf_case_strncmp.exit.i ], [ -223, %104 ], [ -223, %8 ], [ -223, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.025
 }

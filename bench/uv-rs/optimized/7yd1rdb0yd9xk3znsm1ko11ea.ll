@@ -1332,7 +1332,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12with_release17h3bb39
   %184 = add nuw nsw i8 %167, 1
   br label %_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit
 
-_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread: ; preds = %169, %171, %163
+_ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.thread: ; preds = %171, %169, %163
   %185 = invoke noundef align 8 dereferenceable(136) ptr @_ZN9uv_pep4407version7Version9make_full17h80bac72c41a6d3c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
           to label %186 unwind label %161
 
@@ -1652,7 +1652,7 @@ default.unreachable:                              ; preds = %85, %60, %3
   unreachable
 
 58:                                               ; preds = %34, %49, %52
-  %.sroa.3.0.i.pn.i.pn.i = phi i64 [ %53, %52 ], [ %51, %49 ], [ %36, %34 ]
+  %.sroa.3.0.i.pn.i.pn.i = phi i64 [ %51, %49 ], [ %53, %52 ], [ %36, %34 ]
   store i64 %.sroa.3.0.i.pn.i.pn.i, ptr %16, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %59 = and i64 %.sroa.3.0.i.pn.i.pn.i, 1
@@ -3578,7 +3578,7 @@ _ZN9uv_pep5086marker7algebra5Edges5nodes17hbfe9f37cda7f75acE.exit: ; preds = %39
   br label %35
 
 _ZN9uv_pep5086marker7algebra13InternerGuard2or17h2e88bb9e17a8d154E.exit: ; preds = %140, %135, %131
-  %.sroa.3.0.i.pn.i.pn.i.in = phi ptr [ %143, %140 ], [ %136, %135 ], [ %132, %131 ]
+  %.sroa.3.0.i.pn.i.pn.i.in = phi ptr [ %136, %135 ], [ %143, %140 ], [ %132, %131 ]
   %.sroa.3.0.i.pn.i.pn.i = load i64, ptr %.sroa.3.0.i.pn.i.pn.i.in, align 8, !noundef !3
   %148 = xor i64 %.sroa.0.0, 1
   %.reass.reass = xor i64 %.sroa.3.0.i.pn.i.pn.i, %invariant.op
@@ -3927,7 +3927,7 @@ _ZN9uv_pep5086marker7algebra5Edges5nodes17hbfe9f37cda7f75acE.exit: ; preds = %10
   br label %35
 
 _ZN9uv_pep5086marker7algebra13InternerGuard2or17h2e88bb9e17a8d154E.exit: ; preds = %145, %140, %136
-  %.sroa.3.0.i.pn.i.pn.i.in = phi ptr [ %148, %145 ], [ %141, %140 ], [ %137, %136 ]
+  %.sroa.3.0.i.pn.i.pn.i.in = phi ptr [ %141, %140 ], [ %148, %145 ], [ %137, %136 ]
   %.sroa.3.0.i.pn.i.pn.i = load i64, ptr %.sroa.3.0.i.pn.i.pn.i.in, align 8, !noundef !3
   %153 = xor i64 %.sroa.0.0, 1
   %.reass.reass = xor i64 %.sroa.3.0.i.pn.i.pn.i, %invariant.op

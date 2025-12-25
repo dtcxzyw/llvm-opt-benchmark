@@ -3289,8 +3289,8 @@ _ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39: ; preds = %104
   %.not103 = icmp eq i32 %116, 69
   br i1 %.not103, label %.thread, label %.thread90
 
-.thread90:                                        ; preds = %44, %19, %40, %92, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i34, %104, %73, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i27, %85, %65, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39, %111, %113
-  %.093 = phi i64 [ 3, %92 ], [ 0, %113 ], [ 1, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24 ], [ 2, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit ], [ 3, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39 ], [ 0, %19 ], [ 2, %73 ], [ 4, %111 ], [ 0, %40 ], [ 1, %65 ], [ 2, %85 ], [ 2, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i27 ], [ 3, %104 ], [ 3, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i34 ], [ 1, %44 ]
+.thread90:                                        ; preds = %44, %19, %40, %92, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i34, %104, %73, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i27, %85, %65, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39, %111, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24, %113
+  %.093 = phi i64 [ 3, %92 ], [ 0, %113 ], [ 2, %73 ], [ 2, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit ], [ 3, %_ZN5clang8comments4Sema16isObjCMethodDeclEv.exit39 ], [ 0, %19 ], [ 1, %_ZN5clang8comments4Sema22isFunctionTemplateDeclEv.exit24 ], [ 4, %111 ], [ 0, %40 ], [ 1, %65 ], [ 2, %85 ], [ 2, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i27 ], [ 3, %104 ], [ 3, %_ZN5clang8comments4Sema14isFunctionDeclEv.exit.i34 ], [ 1, %44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 4, !tbaa !60
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4241,7 +4241,7 @@ _ZNK5clang8QualType16getTypePtrOrNullEv.exit:     ; preds = %32
   br label %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit45
 
 _ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit45: ; preds = %32, %47, %42, %40, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit.thread, %21, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit, %37, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit, %9, %1
-  %.020 = phi i1 [ false, %9 ], [ true, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit ], [ false, %1 ], [ false, %40 ], [ false, %42 ], [ %50, %47 ], [ false, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit.thread ], [ false, %21 ], [ false, %37 ], [ false, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit ], [ false, %32 ]
+  %.020 = phi i1 [ false, %9 ], [ true, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit ], [ false, %1 ], [ false, %40 ], [ %50, %47 ], [ false, %42 ], [ false, %_ZN5clang8commentsL23isClassOrStructDeclImplEPKNS_4DeclE.exit.thread ], [ false, %21 ], [ false, %37 ], [ false, %_ZNK5clang8QualType16getTypePtrOrNullEv.exit ], [ false, %32 ]
   ret i1 %.020
 }
 

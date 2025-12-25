@@ -1264,7 +1264,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit75.i:           ; preds = %314, %302
   br i1 %.not.i.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_12NoReturnAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !819
 
 _ZN5clangneENS_22specific_attr_iteratorINS_12NoReturnAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i: ; preds = %330, %.lr.ph.i.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %325, %330 ]
+  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %325, %330 ], [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %332 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i.i, %325
   br label %_ZNK5clang4Decl7hasAttrINS_12NoReturnAttrEEEbv.exit.i
 
@@ -6797,7 +6797,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %1, %8
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1402
 
 _ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %27, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %22, %27 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %22, %27 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %29 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %22
   br label %_ZNK5clang4Decl7hasAttrINS_11NoThrowAttrEEEbv.exit
 

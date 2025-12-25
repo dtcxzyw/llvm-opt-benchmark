@@ -83885,7 +83885,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %1101, %1106, %1113
   br i1 %1125, label %.thread877, label %.critedge272
 
 1127:                                             ; preds = %1077, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
-  %.3203 = phi i1 [ %1079, %1077 ], [ %1, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ]
+  %.3203 = phi i1 [ %1, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ], [ %1079, %1077 ]
   br i1 %.3203, label %.thread877, label %.critedge272
 
 .thread877:                                       ; preds = %1126, %1122, %1032, %1127

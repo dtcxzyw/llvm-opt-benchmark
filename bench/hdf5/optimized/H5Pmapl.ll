@@ -53,7 +53,7 @@ define internal range(i32 -1, 1) i32 @H5P__macc_reg_prop(ptr noundef %0) #0 {
   br label %19
 
 19:                                               ; preds = %.sink.split, %13, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %13 ], [ -1, %.sink.split ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %1 ], [ -1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

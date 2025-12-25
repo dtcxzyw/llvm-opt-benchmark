@@ -30584,7 +30584,7 @@ write_buf.exit:                                   ; preds = %94, %92, %90, %88, 
   br label %.critedge
 
 .critedge:                                        ; preds = %103, %44, %write_buf.exit, %17, %29, %8, %116, %142, %125, %120
-  %.0 = phi ptr [ %25, %17 ], [ %.2, %write_buf.exit ], [ %.1, %142 ], [ %0, %116 ], [ %0, %120 ], [ %0, %125 ], [ %0, %8 ], [ %0, %29 ], [ %.181113, %44 ], [ %0, %103 ]
+  %.0 = phi ptr [ %25, %17 ], [ %.1, %142 ], [ %.2, %write_buf.exit ], [ %0, %116 ], [ %0, %120 ], [ %0, %125 ], [ %0, %8 ], [ %0, %29 ], [ %.181113, %44 ], [ %0, %103 ]
   ret ptr %.0
 }
 
@@ -30949,7 +30949,7 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
   %127 = load ptr, ptr %126, align 8, !tbaa !26
   br label %array_initializer1.exit
 
-128:                                              ; preds = %118, %121
+128:                                              ; preds = %121, %118
   %.pre65 = load ptr, ptr %6, align 8, !tbaa !25
   br i1 %.022.i51, label %131, label %129
 
@@ -31081,7 +31081,7 @@ array_initializer1.exit:                          ; preds = %159, %.thread70, %1
   %184 = load ptr, ptr %183, align 8, !tbaa !26
   br label %struct_initializer1.exit
 
-185:                                              ; preds = %175, %178
+185:                                              ; preds = %178, %175
   %.pre = load ptr, ptr %5, align 8, !tbaa !25
   br i1 %.0.i2646, label %188, label %186
 
@@ -31679,7 +31679,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @count_array_init_elements(
   %13 = call zeroext i1 @equal(ptr noundef %12, ptr noundef nonnull @.str.69) #14
   br i1 %13, label %.loopexit, label %14
 
-14:                                               ; preds = %.lr.ph, %10
+14:                                               ; preds = %10, %.lr.ph
   %.pre = load ptr, ptr %3, align 8, !tbaa !25
   br i1 %.01017, label %17, label %15
 
@@ -34044,7 +34044,7 @@ find_tag.exit:                                    ; preds = %14
   %34 = load ptr, ptr %33, align 8, !tbaa !26
   br label %.loopexit
 
-35:                                               ; preds = %.lr.ph, %28
+35:                                               ; preds = %28, %.lr.ph
   %36 = add nuw nsw i32 %.02140, 1
   %.not25 = icmp eq i32 %.02140, 0
   %.pre = load ptr, ptr %3, align 8, !tbaa !25

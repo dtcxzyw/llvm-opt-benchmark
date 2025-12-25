@@ -3205,7 +3205,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIfLi3ELi2ELi0ELi3ELi2EEELi
   br label %64
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIfLi3ELi2ELi0ELi3ELi2EEELi3ELi1ELb1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %.lr.ph90.i.i.i.i, %51, %41
-  %61 = phi float [ %58, %.lr.ph90.i.i.i.i ], [ %44, %41 ], [ %53, %51 ], [ %49, %.lr.ph85.i.i.i.i ]
+  %61 = phi float [ %44, %41 ], [ %58, %.lr.ph90.i.i.i.i ], [ %53, %51 ], [ %49, %.lr.ph85.i.i.i.i ]
   %62 = load float, ptr %8, align 4, !tbaa !4
   %63 = fcmp ugt float %61, 0x3810000000000000
   br i1 %63, label %.critedge, label %64
@@ -13669,7 +13669,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLi3ELi2ELi0ELi3ELi2EEELi
   br label %56
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLi3ELi2ELi0ELi3ELi2EEELi3ELi1ELb1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %49, %41
-  %53 = phi double [ %42, %41 ], [ %51, %49 ], [ %47, %.lr.ph85.i.i.i.i ]
+  %53 = phi double [ %51, %49 ], [ %42, %41 ], [ %47, %.lr.ph85.i.i.i.i ]
   %54 = load double, ptr %8, align 8, !tbaa !19
   %55 = fcmp ugt double %53, 0x10000000000000
   br i1 %55, label %.critedge, label %56

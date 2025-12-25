@@ -2225,7 +2225,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
   br i1 %88, label %.split14.us, label %.split, !llvm.loop !23
 
 .split14.us:                                      ; preds = %69, %.loopexit, %.thread
-  %.us-phi = phi i1 [ %55, %69 ], [ %87, %.thread ], [ %55, %.loopexit ]
+  %.us-phi = phi i1 [ %87, %.thread ], [ %55, %69 ], [ %55, %.loopexit ]
   br i1 %.us-phi, label %.critedge, label %.critedge20
 
 .critedge:                                        ; preds = %.thread.us.lr.ph, %..split14.us_crit_edge, %30, %.split14.us, %.thread.us..split14.us_crit_edge.split

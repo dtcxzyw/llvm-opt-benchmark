@@ -1127,7 +1127,7 @@ decode_tag_internal.exit:                         ; preds = %13
   br label %decode_tag_internal.exit.thread
 
 decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, %34, %29, %23, %20, %decode_tag_internal.exit, %2, %48
-  %.0 = phi i32 [ 0, %48 ], [ -1, %34 ], [ -1, %29 ], [ -1, %2 ], [ -1, %23 ], [ -1, %decode_tag_internal.exit ], [ -1, %20 ], [ -1, %11 ], [ -1, %.preheader.i ]
+  %.0 = phi i32 [ 0, %48 ], [ -1, %34 ], [ -1, %23 ], [ -1, %2 ], [ -1, %29 ], [ -1, %decode_tag_internal.exit ], [ -1, %20 ], [ -1, %11 ], [ -1, %.preheader.i ]
   ret i32 %.0
 }
 

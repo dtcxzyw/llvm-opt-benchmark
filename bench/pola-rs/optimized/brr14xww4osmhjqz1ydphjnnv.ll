@@ -4658,7 +4658,7 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h882da03ce7dd375aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @anon.ed06e595e37926ce62257f82b3d740a0.110, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.ed06e595e37926ce62257f82b3d740a0.110, i64 4), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed06e595e37926ce62257f82b3d740a0.116)
   br label %26
 
-24:                                               ; preds = %1, %15, %10, %18
+24:                                               ; preds = %1, %18, %10, %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %25, align 8
   br label %26

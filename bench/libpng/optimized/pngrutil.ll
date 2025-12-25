@@ -596,7 +596,7 @@ define range(i32 1, 4) i32 @png_handle_unknown(ptr noalias noundef %0, ptr noali
   br label %39
 
 39:                                               ; preds = %34, %17, %37
-  %.1 = phi i32 [ %.2, %37 ], [ %.2, %34 ], [ %3, %17 ]
+  %.1 = phi i32 [ %.2, %37 ], [ %3, %17 ], [ %.2, %34 ]
   switch i32 %.1, label %.thread [
     i32 3, label %43
     i32 2, label %.thread54

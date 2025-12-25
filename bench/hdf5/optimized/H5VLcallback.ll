@@ -580,7 +580,7 @@ define range(i32 -1, -2147483648) i32 @H5VLinitialize(i64 noundef %0, i64 nounde
   br label %35
 
 35:                                               ; preds = %10, %27, %33
-  %.01326 = phi i32 [ -1, %33 ], [ %21, %27 ], [ 0, %10 ]
+  %.01326 = phi i32 [ -1, %33 ], [ 0, %10 ], [ %21, %27 ]
   ret i32 %.01326
 }
 
@@ -654,7 +654,7 @@ define range(i32 -1, -2147483648) i32 @H5VLterminate(i64 noundef %0) local_unnam
   br label %34
 
 34:                                               ; preds = %9, %26, %32
-  %.01225 = phi i32 [ -1, %32 ], [ %20, %26 ], [ 0, %9 ]
+  %.01225 = phi i32 [ -1, %32 ], [ 0, %9 ], [ %20, %26 ]
   ret i32 %.01225
 }
 
@@ -1299,7 +1299,7 @@ define range(i32 -1, -2147483648) i32 @H5VLconnector_info_to_str(ptr noundef %0,
   br label %39
 
 39:                                               ; preds = %36, %35, %29, %37
-  %.32335 = phi i32 [ -1, %37 ], [ 0, %36 ], [ 0, %35 ], [ %23, %29 ]
+  %.32335 = phi i32 [ -1, %37 ], [ 0, %36 ], [ %23, %29 ], [ 0, %35 ]
   ret i32 %.32335
 }
 
@@ -1536,7 +1536,7 @@ define range(i32 -1, -2147483648) i32 @H5VLget_wrap_ctx(ptr noundef %0, i64 noun
   br label %37
 
 37:                                               ; preds = %34, %28, %35
-  %.01528 = phi i32 [ -1, %35 ], [ %22, %28 ], [ 0, %34 ]
+  %.01528 = phi i32 [ -1, %35 ], [ 0, %34 ], [ %22, %28 ]
   ret i32 %.01528
 }
 
@@ -1845,7 +1845,7 @@ define range(i32 -1, -2147483648) i32 @H5VLfree_wrap_ctx(ptr noundef %0, i64 nou
   br label %32
 
 32:                                               ; preds = %10, %24, %30
-  %.01327 = phi i32 [ -1, %30 ], [ %18, %24 ], [ 0, %10 ]
+  %.01327 = phi i32 [ -1, %30 ], [ 0, %10 ], [ %18, %24 ]
   ret i32 %.01327
 }
 
@@ -2954,7 +2954,7 @@ define i32 @H5VLattr_specific(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   br label %29
 
 29:                                               ; preds = %23, %19, %27
-  %.01117 = phi i32 [ -1, %27 ], [ %21, %19 ], [ %21, %23 ]
+  %.01117 = phi i32 [ -1, %27 ], [ %21, %23 ], [ %21, %19 ]
   ret i32 %.01117
 }
 
@@ -3136,7 +3136,7 @@ define i32 @H5VLattr_optional(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   br label %28
 
 28:                                               ; preds = %22, %18, %26
-  %.01016 = phi i32 [ -1, %26 ], [ %20, %18 ], [ %20, %22 ]
+  %.01016 = phi i32 [ -1, %26 ], [ %20, %22 ], [ %20, %18 ]
   ret i32 %.01016
 }
 
@@ -8885,7 +8885,7 @@ define i32 @H5VLgroup_optional(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br label %28
 
 28:                                               ; preds = %22, %18, %26
-  %.01016 = phi i32 [ -1, %26 ], [ %20, %18 ], [ %20, %22 ]
+  %.01016 = phi i32 [ -1, %26 ], [ %20, %22 ], [ %20, %18 ]
   ret i32 %.01016
 }
 
@@ -10115,7 +10115,7 @@ define i32 @H5VLlink_specific(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   br label %29
 
 29:                                               ; preds = %23, %19, %27
-  %.01117 = phi i32 [ -1, %27 ], [ %21, %19 ], [ %21, %23 ]
+  %.01117 = phi i32 [ -1, %27 ], [ %21, %23 ], [ %21, %19 ]
   ret i32 %.01117
 }
 
@@ -10431,8 +10431,8 @@ define range(i32 -1, 1) i32 @H5VLlink_optional_op(ptr noundef %0, ptr noundef %1
   br label %86
 
 86:                                               ; preds = %70, %82, %76, %74
-  %.029 = phi i32 [ 0, %74 ], [ 0, %76 ], [ -1, %82 ], [ -1, %70 ]
-  %.0 = phi i1 [ false, %74 ], [ false, %76 ], [ true, %82 ], [ true, %70 ]
+  %.029 = phi i32 [ 0, %74 ], [ -1, %70 ], [ -1, %82 ], [ 0, %76 ]
+  %.0 = phi i1 [ false, %74 ], [ true, %70 ], [ true, %82 ], [ false, %76 ]
   %87 = call i32 @H5VL_reset_vol_wrapper() #7
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %.thread61, label %94, !prof !44
@@ -11216,7 +11216,7 @@ define i32 @H5VLobject_specific(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br label %29
 
 29:                                               ; preds = %23, %19, %27
-  %.01117 = phi i32 [ -1, %27 ], [ %21, %19 ], [ %21, %23 ]
+  %.01117 = phi i32 [ -1, %27 ], [ %21, %23 ], [ %21, %19 ]
   ret i32 %.01117
 }
 
@@ -11532,8 +11532,8 @@ define range(i32 -1, 1) i32 @H5VLobject_optional_op(ptr noundef %0, ptr noundef 
   br label %86
 
 86:                                               ; preds = %70, %82, %76, %74
-  %.029 = phi i32 [ 0, %74 ], [ 0, %76 ], [ -1, %82 ], [ -1, %70 ]
-  %.0 = phi i1 [ false, %74 ], [ false, %76 ], [ true, %82 ], [ true, %70 ]
+  %.029 = phi i32 [ 0, %74 ], [ -1, %70 ], [ -1, %82 ], [ 0, %76 ]
+  %.0 = phi i1 [ false, %74 ], [ true, %70 ], [ true, %82 ], [ false, %76 ]
   %87 = call i32 @H5VL_reset_vol_wrapper() #7
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %.thread61, label %94, !prof !44
@@ -14593,7 +14593,7 @@ define i32 @H5VLoptional(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nou
   br label %28
 
 28:                                               ; preds = %22, %18, %26
-  %.01016 = phi i32 [ -1, %26 ], [ %20, %18 ], [ %20, %22 ]
+  %.01016 = phi i32 [ -1, %26 ], [ %20, %22 ], [ %20, %18 ]
   ret i32 %.01016
 }
 

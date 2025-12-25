@@ -529,10 +529,10 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %159, %152, %BTreeTu
   br i1 %223, label %.outer.split.i, label %.thread218.i
 
 .thread218.i:                                     ; preds = %218, %215, %135, %.outer.i
-  %.us-phi.i = phi ptr [ %.0117.ph.i, %.outer.i ], [ %.2119.i, %215 ], [ %.2119.i, %218 ], [ %.0117.i, %135 ]
-  %.us-phi276.i = phi ptr [ %.0121.ph.i, %.outer.i ], [ %.2123194.i, %215 ], [ %.2123194.i, %218 ], [ %131, %135 ]
-  %.us-phi277.i = phi i1 [ %.0137.ph.i, %.outer.i ], [ %spec.select.i, %215 ], [ %spec.select316.i, %218 ], [ %.0137.i, %135 ]
-  %.us-phi278.i = phi i8 [ %.0148.ph.i, %.outer.i ], [ %.4152.i, %215 ], [ %.4152315.i, %218 ], [ %.0148.i, %135 ]
+  %.us-phi.i = phi ptr [ %.0117.ph.i, %.outer.i ], [ %.2119.i, %215 ], [ %.0117.i, %135 ], [ %.2119.i, %218 ]
+  %.us-phi276.i = phi ptr [ %.0121.ph.i, %.outer.i ], [ %.2123194.i, %215 ], [ %131, %135 ], [ %.2123194.i, %218 ]
+  %.us-phi277.i = phi i1 [ %.0137.ph.i, %.outer.i ], [ %spec.select.i, %215 ], [ %.0137.i, %135 ], [ %spec.select316.i, %218 ]
+  %.us-phi278.i = phi i8 [ %.0148.ph.i, %.outer.i ], [ %.4152.i, %215 ], [ %.0148.i, %135 ], [ %.4152315.i, %218 ]
   %225 = icmp ult i16 %.0124.ph.i, %.0165.ph.i.ph
   br i1 %225, label %226, label %228
 

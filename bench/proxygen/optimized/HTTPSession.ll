@@ -9834,7 +9834,7 @@ return.sink.split:                                ; preds = %invoke.cont57, %inv
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then6.i, %if.then.i, %invoke.cont94
-  %retval.0 = phi ptr [ %call95, %if.then6.i ], [ null, %invoke.cont94 ], [ %call95, %if.then.i ], [ null, %return.sink.split ]
+  %retval.0 = phi ptr [ %call95, %if.then.i ], [ null, %invoke.cont94 ], [ %call95, %if.then6.i ], [ null, %return.sink.split ]
   ret ptr %retval.0
 
 terminate.lpad:                                   ; preds = %if.end98, %invoke.cont99, %invoke.cont88, %invoke.cont84, %invoke.cont57, %invoke.cont55, %invoke.cont52, %invoke.cont50, %invoke.cont44, %invoke.cont42, %invoke.cont40, %invoke.cont38, %invoke.cont37, %if.then35, %invoke.cont29, %invoke.cont27, %invoke.cont25, %invoke.cont21, %invoke.cont17, %if.then, %lor.lhs.false, %invoke.cont8, %invoke.cont4, %invoke.cont3, %cond.false

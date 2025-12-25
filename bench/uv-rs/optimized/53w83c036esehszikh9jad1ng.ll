@@ -12261,8 +12261,8 @@ _ZN13unicode_width6tables44starts_non_ideographic_text_presentation_seq17h56bed0
   br label %._crit_edge.i.i.i.i
 
 90:                                               ; preds = %88, %87, %86, %85, %83, %82, %81, %79
-  %.sroa.11.0.i.i.i = phi i64 [ 10, %88 ], [ 4, %79 ], [ 15, %81 ], [ 10, %82 ], [ 3, %83 ], [ 4, %87 ], [ 13, %85 ], [ 22, %86 ]
-  %.sroa.01.0.i.i.i = phi ptr [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_917h33623b8f35e9d05cE, %88 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_017hf2b612aac333e665E, %79 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_217h399a5808ec50e0e4E, %81 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_317h0be3ab74eeb0340aE, %82 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_417h789f1c397a585514E, %83 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_817h58add84e2da384dbE, %87 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_617he68f9bfba53cc1fdE, %85 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_717h056dd818413cde68E, %86 ]
+  %.sroa.11.0.i.i.i = phi i64 [ 10, %88 ], [ 4, %87 ], [ 15, %81 ], [ 10, %82 ], [ 3, %83 ], [ 4, %79 ], [ 13, %85 ], [ 22, %86 ]
+  %.sroa.01.0.i.i.i = phi ptr [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_917h33623b8f35e9d05cE, %88 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_817h58add84e2da384dbE, %87 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_217h399a5808ec50e0e4E, %81 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_317h0be3ab74eeb0340aE, %82 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_417h789f1c397a585514E, %83 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_017hf2b612aac333e665E, %79 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_617he68f9bfba53cc1fdE, %85 ], [ @_ZN13unicode_width6tables24TEXT_PRESENTATION_LEAF_717h056dd818413cde68E, %86 ]
   %91 = trunc i32 %40 to i8
   br label %.lr.ph.i.i.i.i
 
@@ -23969,7 +23969,7 @@ _ZN8smallvec10deallocate17h0006bc206852a57eE.exit.i: ; preds = %48
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %46, i64 noundef 8) #58, !noalias !6466
   br label %_ZN8smallvec10infallible17h275a1c4f211112b9E.exit
 
-52:                                               ; preds = %33, %26, %29, %22
+52:                                               ; preds = %33, %26, %22, %29
   tail call void @_ZN4core9panicking5panic17had768957450a0f86E(ptr noalias noundef nonnull readonly align 1 @anon.715d7484820d0c73189c6aea66a4d20f.206, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.715d7484820d0c73189c6aea66a4d20f.207) #56
   unreachable
 

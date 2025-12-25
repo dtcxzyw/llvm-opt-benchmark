@@ -1706,7 +1706,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12MatrixOpData11Matri
   br i1 %exitcond36.not, label %.critedge27, label %.preheader, !llvm.loop !64
 
 .critedge27:                                      ; preds = %.critedge, %13, %16, %1
-  %.not2530 = phi i1 [ false, %13 ], [ true, %1 ], [ false, %16 ], [ true, %.critedge ]
+  %.not2530 = phi i1 [ true, %1 ], [ false, %13 ], [ false, %16 ], [ true, %.critedge ]
   ret i1 %.not2530
 }
 
@@ -2955,7 +2955,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12MatrixOpData15isUni
   br i1 %exitcond36.not.i, label %_ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray15isUnityDiagonalEv.exit, label %.preheader.i, !llvm.loop !64
 
 _ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray15isUnityDiagonalEv.exit: ; preds = %.critedge.i, %14, %17, %1
-  %.not2530.i = phi i1 [ false, %14 ], [ true, %1 ], [ false, %17 ], [ true, %.critedge.i ]
+  %.not2530.i = phi i1 [ true, %1 ], [ false, %14 ], [ false, %17 ], [ true, %.critedge.i ]
   ret i1 %.not2530.i
 }
 

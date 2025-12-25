@@ -14498,8 +14498,8 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit87.i.i.i: ; pre
   br label %.loopexit35.i
 
 244:                                              ; preds = %.sink.split.i.i, %222, %221, %220
-  %.sroa.02.1.i.i = phi i8 [ %.sroa.02.0.copyload.i.i, %220 ], [ %.sroa.02.0.copyload.i.i, %222 ], [ %.sroa.02.0.copyload4.i.i, %.sink.split.i.i ], [ %.sroa.02.0.copyload.i.i, %221 ]
-  %.sroa.11.1.i.i = phi i64 [ %.sroa.11.0.copyload.i.i, %220 ], [ %.sroa.11.0.copyload.i.i, %222 ], [ %.sroa.11.0.copyload12.i.i, %.sink.split.i.i ], [ %.sroa.11.0.copyload.i.i, %221 ]
+  %.sroa.02.1.i.i = phi i8 [ %.sroa.02.0.copyload.i.i, %220 ], [ %.sroa.02.0.copyload.i.i, %222 ], [ %.sroa.02.0.copyload.i.i, %221 ], [ %.sroa.02.0.copyload4.i.i, %.sink.split.i.i ]
+  %.sroa.11.1.i.i = phi i64 [ %.sroa.11.0.copyload.i.i, %220 ], [ %.sroa.11.0.copyload.i.i, %222 ], [ %.sroa.11.0.copyload.i.i, %221 ], [ %.sroa.11.0.copyload12.i.i, %.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !2703
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !2711
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !2711

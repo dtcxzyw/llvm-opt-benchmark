@@ -8513,7 +8513,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapVa
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread
 
-_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread: ; preds = %33, %22, %19, %35
+_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread: ; preds = %33, %19, %22, %35
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %40 = load i64, ptr %39, align 8, !tbaa !253
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 40

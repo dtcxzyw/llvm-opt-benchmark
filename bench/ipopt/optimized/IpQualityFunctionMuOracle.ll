@@ -14266,7 +14266,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1572:    ; preds = %_ZN5Ipopt8SmartPtrI
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1570
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1570:    ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1572, %5306, %5311, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1568, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1564, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1560, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1556
-  %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn362.pn, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1556 ], [ %.pn371.pn, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1568 ], [ %.pn368.pn, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1564 ], [ %.pn365.pn, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1560 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn, %5311 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1572 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn, %5306 ]
+  %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn362.pn, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1556 ], [ %.pn371.pn, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1568 ], [ %.pn368.pn, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1564 ], [ %.pn365.pn, %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit1560 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn, %5306 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1572 ], [ %.pn453.pn.pn.pn.pn.pn.pn.pn.pn.pn, %5311 ]
   br i1 %.not.i.i1170, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1552, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1570.thread
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1570.thread: ; preds = %3864, %3870, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit1570

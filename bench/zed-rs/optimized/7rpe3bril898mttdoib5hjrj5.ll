@@ -6425,7 +6425,7 @@ define void @_ZN8settings14settings_store25update_value_in_json_text17h3426f3ee7
   %97 = icmp eq i64 %96, 1
   br i1 %97, label %99, label %98
 
-"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread": ; preds = %.preheader.split.i.i.i, %106, %._crit_edge, %124, %126, %128, %130, %121, %122, %146, %150, %157, %176, %132, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit", %226
+"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread": ; preds = %.preheader.split.i.i.i, %106, %._crit_edge, %124, %126, %128, %130, %121, %122, %146, %157, %150, %176, %132, %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit", %226
   ret void
 
 98:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfca6d4d48fa800acE.exit24"
@@ -6529,8 +6529,8 @@ define void @_ZN8settings14settings_store25update_value_in_json_text17h3426f3ee7
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 16
   switch i64 %141, label %default.unreachable [
     i64 0, label %146
-    i64 1, label %150
-    i64 2, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit"
+    i64 1, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit"
+    i64 2, label %150
   ]
 
 default.unreachable:                              ; preds = %143
@@ -6543,9 +6543,9 @@ default.unreachable:                              ; preds = %143
   br i1 %149, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread", label %.sink.split
 
 150:                                              ; preds = %143
-  %151 = load i64, ptr %144, align 8, !alias.scope !1388, !noalias !1389, !noundef !4
-  %152 = load i64, ptr %145, align 8, !alias.scope !1389, !noalias !1388, !noundef !4
-  %153 = icmp eq i64 %151, %152
+  %151 = load double, ptr %144, align 8, !alias.scope !1388, !noalias !1389, !noundef !4
+  %152 = load double, ptr %145, align 8, !alias.scope !1389, !noalias !1388, !noundef !4
+  %153 = fcmp oeq double %151, %152
   br i1 %153, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread", label %.sink.split
 
 154:                                              ; preds = %126
@@ -6618,9 +6618,9 @@ default.unreachable:                              ; preds = %143
   br i1 %183, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit", label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread"
 
 "_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit": ; preds = %143
-  %184 = load double, ptr %144, align 8, !alias.scope !1388, !noalias !1389, !noundef !4
-  %185 = load double, ptr %145, align 8, !alias.scope !1389, !noalias !1388, !noundef !4
-  %186 = fcmp oeq double %184, %185
+  %184 = load i64, ptr %144, align 8, !alias.scope !1388, !noalias !1389, !noundef !4
+  %185 = load i64, ptr %145, align 8, !alias.scope !1389, !noalias !1388, !noundef !4
+  %186 = icmp eq i64 %184, %185
   br i1 %186, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread", label %.sink.split
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.loopexit80": ; preds = %33
@@ -8224,7 +8224,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17hf90363d48972b153E.exit.thread.i.i
   br label %553
 
 .thread25.i:                                      ; preds = %_ZN5serde3ser12SerializeMap15serialize_entry17hf90363d48972b153E.exit.thread.i.i.i, %_ZN10serde_json3ser18format_escaped_str17h95ca8582d0908f91E.exit.i.i.i.i
-  %.sroa.0.0.i.i.ph.i = phi ptr [ %484, %_ZN10serde_json3ser18format_escaped_str17h95ca8582d0908f91E.exit.i.i.i.i ], [ %.sroa.0.0.i1832.i.i.i, %_ZN5serde3ser12SerializeMap15serialize_entry17hf90363d48972b153E.exit.thread.i.i.i ]
+  %.sroa.0.0.i.i.ph.i = phi ptr [ %.sroa.0.0.i1832.i.i.i, %_ZN5serde3ser12SerializeMap15serialize_entry17hf90363d48972b153E.exit.thread.i.i.i ], [ %484, %_ZN10serde_json3ser18format_escaped_str17h95ca8582d0908f91E.exit.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !1572
   br label %547
 

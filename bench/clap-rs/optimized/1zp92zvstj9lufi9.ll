@@ -180,9 +180,9 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i9.
   store i64 -9223372036854775808, ptr %0, align 8
   br label %70
 
-65:                                               ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i.i.i, %25, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i9.i.i, %57
-  %.sroa.3.0.i6.pn.i.i.ph = phi i64 [ %61, %57 ], [ %47, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i9.i.i ], [ %29, %25 ], [ %17, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i.i.i ]
-  %.sroa.0.0.i.i.ph = phi ptr [ %59, %57 ], [ %45, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i9.i.i ], [ %27, %25 ], [ %16, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i.i.i ]
+65:                                               ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i.i.i, %25, %57, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i9.i.i
+  %.sroa.3.0.i6.pn.i.i.ph = phi i64 [ %47, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i9.i.i ], [ %61, %57 ], [ %29, %25 ], [ %17, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i.i.i ]
+  %.sroa.0.0.i.i.ph = phi ptr [ %45, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i9.i.i ], [ %59, %57 ], [ %27, %25 ], [ %16, %_ZN4core4iter8adapters5chain17and_then_or_clear17h9593bc859724dd46E.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i)
   %66 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1852f655f36c0dc7E"(i64 noundef %.sroa.3.0.i6.pn.i.i.ph, i1 noundef zeroext false), !noalias !116
   %67 = extractvalue { i64, ptr } %66, 0

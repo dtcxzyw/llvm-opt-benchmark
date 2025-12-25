@@ -1132,7 +1132,7 @@ Vec_IntPush.exit75:                               ; preds = %Vec_IntPush.exit75.
   br label %.critedge
 
 .critedge:                                        ; preds = %142, %.critedge.sink.split, %Vec_IntAlloc.exit
-  %.089 = phi ptr [ null, %.critedge.sink.split ], [ %10, %Vec_IntAlloc.exit ], [ %10, %142 ]
+  %.089 = phi ptr [ %10, %Vec_IntAlloc.exit ], [ null, %.critedge.sink.split ], [ %10, %142 ]
   %147 = getelementptr i8, ptr %.089, i64 4
   %.val3996 = load i32, ptr %147, align 4, !tbaa !41
   %148 = icmp sgt i32 %.val3996, 0

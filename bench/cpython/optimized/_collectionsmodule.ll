@@ -6659,7 +6659,7 @@ dequeiter_next.exit.thread:                       ; preds = %58, %dequeiter_next
   br i1 %75, label %.lr.ph, label %Py_DECREF.exit21, !llvm.loop !114
 
 Py_DECREF.exit21:                                 ; preds = %dequeiter_next.exit.thread, %42, %deque_iter.exit, %72, %69, %67, %10, %65, %3
-  %.0 = phi ptr [ null, %72 ], [ null, %69 ], [ null, %3 ], [ %17, %65 ], [ null, %10 ], [ null, %67 ], [ %17, %deque_iter.exit ], [ %17, %42 ], [ %17, %dequeiter_next.exit.thread ]
+  %.0 = phi ptr [ null, %69 ], [ null, %72 ], [ null, %3 ], [ %17, %65 ], [ null, %10 ], [ null, %67 ], [ %17, %deque_iter.exit ], [ %17, %42 ], [ %17, %dequeiter_next.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -6899,7 +6899,7 @@ dequereviter_next.exit.thread:                    ; preds = %57, %dequereviter_n
   br i1 %74, label %.lr.ph, label %Py_DECREF.exit21, !llvm.loop !115
 
 Py_DECREF.exit21:                                 ; preds = %dequereviter_next.exit.thread, %.lr.ph, %deque_reviter.exit, %71, %68, %66, %10, %64, %3
-  %.0 = phi ptr [ null, %71 ], [ null, %68 ], [ null, %3 ], [ %17, %64 ], [ null, %10 ], [ null, %66 ], [ %17, %deque_reviter.exit ], [ %17, %.lr.ph ], [ %17, %dequereviter_next.exit.thread ]
+  %.0 = phi ptr [ null, %68 ], [ null, %71 ], [ null, %3 ], [ %17, %64 ], [ null, %10 ], [ null, %66 ], [ %17, %deque_reviter.exit ], [ %17, %.lr.ph ], [ %17, %dequereviter_next.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0

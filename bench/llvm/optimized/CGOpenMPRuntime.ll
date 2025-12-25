@@ -23295,10 +23295,10 @@ _ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope9PrivatizeEv.exit: ; preds = 
   br i1 %.not.i.i120, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, label %.lr.ph.i.i118, !llvm.loop !1909
 
 _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds = %455, %.lr.ph.i.i118, %221, %.lr.ph.i.i91, %446, %212
-  %.sroa.720.4 = phi i8 [ %.sroa.720.0280, %221 ], [ %.sroa.720.0280, %212 ], [ %.sroa.720.3, %446 ], [ %.sroa.720.0280, %.lr.ph.i.i91 ], [ %.sroa.720.3, %.lr.ph.i.i118 ], [ %.sroa.720.3, %455 ]
-  %.sroa.7.4 = phi i8 [ %.sroa.7.0281, %221 ], [ %.sroa.7.0281, %212 ], [ %.sroa.7.3, %446 ], [ %.sroa.7.0281, %.lr.ph.i.i91 ], [ %.sroa.7.3, %.lr.ph.i.i118 ], [ %.sroa.7.3, %455 ]
-  %.sroa.48.4 = phi i8 [ %.sroa.48.0282, %221 ], [ %.sroa.48.0282, %212 ], [ %.sroa.48.3, %446 ], [ %.sroa.48.0282, %.lr.ph.i.i91 ], [ %.sroa.48.3, %.lr.ph.i.i118 ], [ %.sroa.48.3, %455 ]
-  %.sroa.0216.5 = phi ptr [ %224, %221 ], [ %215, %212 ], [ %449, %446 ], [ %.sroa.0216.1, %.lr.ph.i.i91 ], [ %458, %455 ], [ %.sroa.0216.3, %.lr.ph.i.i118 ]
+  %.sroa.720.4 = phi i8 [ %.sroa.720.3, %446 ], [ %.sroa.720.0280, %212 ], [ %.sroa.720.0280, %221 ], [ %.sroa.720.0280, %.lr.ph.i.i91 ], [ %.sroa.720.3, %.lr.ph.i.i118 ], [ %.sroa.720.3, %455 ]
+  %.sroa.7.4 = phi i8 [ %.sroa.7.3, %446 ], [ %.sroa.7.0281, %212 ], [ %.sroa.7.0281, %221 ], [ %.sroa.7.0281, %.lr.ph.i.i91 ], [ %.sroa.7.3, %.lr.ph.i.i118 ], [ %.sroa.7.3, %455 ]
+  %.sroa.48.4 = phi i8 [ %.sroa.48.3, %446 ], [ %.sroa.48.0282, %212 ], [ %.sroa.48.0282, %221 ], [ %.sroa.48.0282, %.lr.ph.i.i91 ], [ %.sroa.48.3, %.lr.ph.i.i118 ], [ %.sroa.48.3, %455 ]
+  %.sroa.0216.5 = phi ptr [ %449, %446 ], [ %215, %212 ], [ %224, %221 ], [ %.sroa.0216.1, %.lr.ph.i.i91 ], [ %458, %455 ], [ %.sroa.0216.3, %.lr.ph.i.i118 ]
   %459 = getelementptr inbounds nuw i8, ptr %.0284, i64 40
   %.not80 = icmp eq ptr %459, %167
   br i1 %.not80, label %._crit_edge, label %205
@@ -39297,7 +39297,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.e
   unreachable
 
 _ZL28getNestedDistributeDirectiveRN5clang10ASTContextERKNS_22OMPExecutableDirectiveE.exit: ; preds = %103, %11, %14, %61, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit48.i
-  %.018 = phi ptr [ %2, %14 ], [ %2, %11 ], [ %53, %61 ], [ %95, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit48.i ], [ %53, %103 ]
+  %.018 = phi ptr [ %2, %14 ], [ %2, %11 ], [ %95, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit48.i ], [ %53, %61 ], [ %53, %103 ]
   %106 = call noundef ptr %3(i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull align 8 dereferenceable(36) %.018) #30
   %.not21 = icmp eq ptr %106, null
   br i1 %.not21, label %.sink.split, label %110
@@ -75298,7 +75298,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %149, %_ZNK5clang4Ty
   br label %.loopexit
 
 .loopexit:                                        ; preds = %195, %.loopexit.sink.split, %46, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_4DeclEEEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findERKS6_.exit.i
-  %.0 = phi i1 [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_4DeclEEEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findERKS6_.exit.i ], [ true, %.loopexit.sink.split ], [ false, %46 ], [ false, %195 ]
+  %.0 = phi i1 [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_4DeclEEEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findERKS6_.exit.i ], [ false, %46 ], [ true, %.loopexit.sink.split ], [ false, %195 ]
   ret i1 %.0
 }
 
@@ -92728,8 +92728,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit156.i: ; pr
   br label %1957
 
 1948:                                             ; preds = %1936, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEEbNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E4findERKS6_.exit.i
-  %.sroa.0.1.i122.pn.i = phi ptr [ %.sroa.0.1.i.i80, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEEbNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E4findERKS6_.exit.i ], [ %.sroa.0.1.i122.i, %1936 ]
-  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i122.pn.i, i64 8
+  %.sroa.0.1.i.pn.i = phi ptr [ %.sroa.0.1.i.i80, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEEbNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E4findERKS6_.exit.i ], [ %.sroa.0.1.i122.i, %1936 ]
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.pn.i, i64 8
   %.0.i = load i8, ptr %.0.in.i, align 1, !tbaa !785, !range !292, !noundef !293
   %1949 = load ptr, ptr %86, align 8, !tbaa !309
   %1950 = load i32, ptr %88, align 8, !tbaa !8

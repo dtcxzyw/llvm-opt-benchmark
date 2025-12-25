@@ -63573,9 +63573,9 @@ define internal void @"_ZN4repl7session11EditorBlock27create_output_area_rendere
           to label %202 unwind label %200
 
 .body34:                                          ; preds = %200, %.thread140
-  %.pn15 = phi { ptr, i32 } [ %.pn138, %.thread140 ], [ %201, %200 ]
-  %.sroa.010.4 = phi i8 [ 1, %.thread140 ], [ %.sroa.06.0, %200 ]
-  %.sroa.06.1 = phi i8 [ %.sroa.06.3139, %.thread140 ], [ %.sroa.06.0, %200 ]
+  %.pn15 = phi { ptr, i32 } [ %201, %200 ], [ %.pn138, %.thread140 ]
+  %.sroa.010.4 = phi i8 [ %.sroa.06.0, %200 ], [ 1, %.thread140 ]
+  %.sroa.06.1 = phi i8 [ %.sroa.06.0, %200 ], [ %.sroa.06.3139, %.thread140 ]
   %199 = trunc nuw i8 %.sroa.06.1 to i1
   br i1 %199, label %.thread114, label %"_ZN4core3ptr259drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$editor..display_map..block_map..CustomBlockId$C$$RF$mut$u20$gpui..window..WindowContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h1fc5aed25b4bea68E.exit"
 

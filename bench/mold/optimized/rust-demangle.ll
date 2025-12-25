@@ -4789,7 +4789,7 @@ parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, 
   %452 = trunc nuw i8 %451 to i1
   br i1 %452, label %common.ret421, label %453
 
-common.ret421:                                    ; preds = %462, %458, %455, %print_str.exit218.thread, %print_str.exit206.thread, %print_str.exit198.thread, %print_str.exit185, %print_str.exit191, %print_str.exit226.thread, %print_str.exit226, %print_str.exit218, %print_str.exit206, %print_str.exit198, %117, %113, %print_str.exit181, %75, %.thread, %22, %18, %parse_hex_nibbles_for_const_uint.exit180.thread, %70, %next.exit212.thread, %next.exit.thread, %.critedge, %27, %print_str.exit152, %153, %parse_integer_62.exit, %454, %7, %453
+common.ret421:                                    ; preds = %462, %458, %455, %print_str.exit206.thread, %print_str.exit198.thread, %print_str.exit218.thread, %print_str.exit185, %print_str.exit226.thread, %print_str.exit191, %print_str.exit226, %print_str.exit218, %print_str.exit206, %print_str.exit198, %117, %113, %print_str.exit181, %75, %.thread, %22, %18, %parse_hex_nibbles_for_const_uint.exit180.thread, %70, %next.exit212.thread, %next.exit.thread, %.critedge, %27, %print_str.exit152, %153, %parse_integer_62.exit, %454, %7, %453
   ret void
 
 453:                                              ; preds = %parse_integer_62.exit
@@ -4805,7 +4805,7 @@ next.exit.thread:                                 ; preds = %peek.exit.i, %8, %n
 454:                                              ; preds = %next.exit212
   br i1 %1, label %common.ret421, label %455
 
-455:                                              ; preds = %print_str.exit185.thread, %print_str.exit218.thread, %print_str.exit206.thread, %print_str.exit198.thread, %print_str.exit185, %print_str.exit191, %print_str.exit226.thread, %454
+455:                                              ; preds = %print_str.exit185.thread, %print_str.exit206.thread, %print_str.exit198.thread, %print_str.exit218.thread, %print_str.exit185, %print_str.exit226.thread, %print_str.exit191, %454
   %456 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %457 = trunc nuw i8 %456 to i1
   br i1 %457, label %common.ret421, label %458

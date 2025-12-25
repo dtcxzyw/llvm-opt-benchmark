@@ -1524,9 +1524,9 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr noundef read
   br i1 %.not61, label %74, label %.thread83
 
 74:                                               ; preds = %.thread98, %72, %65, %69, %.thread
-  %.14372 = phi ptr [ %.04291, %.thread ], [ %.04291, %65 ], [ %.04291, %69 ], [ %.04291, %72 ], [ %62, %.thread98 ]
-  %.14670 = phi ptr [ %29, %.thread ], [ %.04590, %65 ], [ %.04590, %69 ], [ %.04590, %72 ], [ %64, %.thread98 ]
-  %.25068 = phi ptr [ %.04889, %.thread ], [ %.250, %65 ], [ %.250, %69 ], [ %.250, %72 ], [ %.250103, %.thread98 ]
+  %.14372 = phi ptr [ %.04291, %69 ], [ %.04291, %65 ], [ %.04291, %.thread ], [ %.04291, %72 ], [ %62, %.thread98 ]
+  %.14670 = phi ptr [ %.04590, %69 ], [ %.04590, %65 ], [ %29, %.thread ], [ %.04590, %72 ], [ %64, %.thread98 ]
+  %.25068 = phi ptr [ %.250, %69 ], [ %.250, %65 ], [ %.04889, %.thread ], [ %.250, %72 ], [ %.250103, %.thread98 ]
   %75 = load ptr, ptr %.14670, align 8
   %.not = icmp eq ptr %75, null
   br i1 %.not, label %.critedge, label %.lr.ph

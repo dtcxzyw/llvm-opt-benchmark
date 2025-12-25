@@ -3379,7 +3379,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133
   br label %.thread222
 
 .thread222:                                       ; preds = %.thread222.sink.split, %.thread239, %2, %94
-  %.0179192204227 = phi i32 [ %.0179, %.thread239 ], [ %5, %2 ], [ %.0179, %94 ], [ %.0179, %.thread222.sink.split ]
+  %.0179192204227 = phi i32 [ %5, %2 ], [ %.0179, %.thread239 ], [ %.0179, %94 ], [ %.0179, %.thread222.sink.split ]
   %140 = and i32 %.0179192204227, 1
   %.not184 = icmp eq i32 %140, 0
   br i1 %.not184, label %161, label %141
@@ -6930,7 +6930,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133
   br label %.thread222
 
 .thread222:                                       ; preds = %.thread222.sink.split, %.thread239, %2, %94
-  %.0179192204227 = phi i32 [ %.0179, %.thread239 ], [ %5, %2 ], [ %.0179, %94 ], [ %.0179, %.thread222.sink.split ]
+  %.0179192204227 = phi i32 [ %5, %2 ], [ %.0179, %.thread239 ], [ %.0179, %94 ], [ %.0179, %.thread222.sink.split ]
   %140 = and i32 %.0179192204227, 1
   %.not184 = icmp eq i32 %140, 0
   br i1 %.not184, label %161, label %141

@@ -6690,7 +6690,7 @@ init_satip_stream.exit:                           ; preds = %238, %240
   %.not170 = icmp eq i32 %.4, 0
   br i1 %.not170, label %.preheader.preheader, label %init_satip_stream.exit.thread
 
-.preheader.preheader:                             ; preds = %init_rtp_handler.exit.thread31.i, %init_rtp_handler.exit.i, %init_rtp_handler.exit.thread.i, %204, %223, %237, %init_satip_stream.exit
+.preheader.preheader:                             ; preds = %init_rtp_handler.exit.thread31.i, %init_rtp_handler.exit.i, %init_rtp_handler.exit.thread.i, %204, %237, %223, %init_satip_stream.exit
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %263

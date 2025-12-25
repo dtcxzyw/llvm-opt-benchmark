@@ -6689,7 +6689,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
   br label %.loopexit590
 
 742:                                              ; preds = %.split.us.i.i, %712, %691, %split.i.i.i, %498, %492, %466
-  %.0.i528 = phi i32 [ %471, %466 ], [ %713, %712 ], [ %490, %492 ], [ %spec.store.select.i.i, %691 ], [ %490, %498 ], [ %.1.i.i.i, %split.i.i.i ], [ %739, %.split.us.i.i ]
+  %.0.i528 = phi i32 [ %471, %466 ], [ %713, %712 ], [ %490, %492 ], [ %spec.store.select.i.i, %691 ], [ %490, %498 ], [ %739, %.split.us.i.i ], [ %.1.i.i.i, %split.i.i.i ]
   store i32 %.0.i528, ptr %460, align 8, !tbaa !96
   %.not481 = icmp eq i32 %.0.i528, 0
   br i1 %.not481, label %.loopexit590, label %.thread557

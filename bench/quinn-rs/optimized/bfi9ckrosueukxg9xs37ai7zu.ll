@@ -3129,8 +3129,8 @@ define hidden { i64, i32 } @_ZN11quinn_proto10connection5paths12RttEstimator8pto
   unreachable
 
 32:                                               ; preds = %28, %22
-  %.sroa.4.0.i = phi i32 [ %24, %22 ], [ %29, %28 ]
-  %.sroa.0.0.i9 = phi i64 [ %23, %22 ], [ %30, %28 ]
+  %.sroa.4.0.i = phi i32 [ %29, %28 ], [ %24, %22 ]
+  %.sroa.0.0.i9 = phi i64 [ %30, %28 ], [ %23, %22 ]
   %33 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.i9, 0
   %34 = insertvalue { i64, i32 } %33, i32 %.sroa.4.0.i, 1
   ret { i64, i32 } %34
@@ -3201,8 +3201,8 @@ define hidden void @_ZN11quinn_proto10connection5paths12RttEstimator6update17hb6
   br label %167
 
 38:                                               ; preds = %27, %21
-  %.sroa.4.0.i = phi i32 [ %23, %21 ], [ %28, %27 ]
-  %.sroa.0.0.i = phi i64 [ %22, %21 ], [ %29, %27 ]
+  %.sroa.4.0.i = phi i32 [ %28, %27 ], [ %23, %21 ]
+  %.sroa.0.0.i = phi i64 [ %29, %27 ], [ %22, %21 ]
   %39 = icmp eq i64 %.sroa.0.0.i, %3
   br i1 %39, label %41, label %42
 
@@ -3257,8 +3257,8 @@ define hidden void @_ZN11quinn_proto10connection5paths12RttEstimator6update17hb6
   unreachable
 
 60:                                               ; preds = %52, %56, %42, %41
-  %.sroa.6.0 = phi i32 [ %4, %42 ], [ %4, %41 ], [ %.sroa.04.0.i, %52 ], [ %58, %56 ]
-  %.sroa.01.0 = phi i64 [ %3, %42 ], [ %3, %41 ], [ %.sroa.02.0.i, %52 ], [ %57, %56 ]
+  %.sroa.6.0 = phi i32 [ %4, %42 ], [ %4, %41 ], [ %58, %56 ], [ %.sroa.04.0.i, %52 ]
+  %.sroa.01.0 = phi i64 [ %3, %42 ], [ %3, %41 ], [ %57, %56 ], [ %.sroa.02.0.i, %52 ]
   %61 = icmp eq i64 %18, %.sroa.01.0
   %62 = icmp ugt i64 %18, %.sroa.01.0
   %63 = icmp samesign ugt i32 %16, %.sroa.6.0
@@ -3348,8 +3348,8 @@ define hidden void @_ZN11quinn_proto10connection5paths12RttEstimator6update17hb6
   unreachable
 
 _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit73: ; preds = %94, %90, %77, %73
-  %.sroa.3.0 = phi i32 [ %79, %77 ], [ %.sroa.04.0.i70, %73 ], [ %.sroa.04.0.i77, %90 ], [ %96, %94 ]
-  %.sroa.0.0.i72.pn = phi i64 [ %78, %77 ], [ %.sroa.02.0.i68, %73 ], [ %.sroa.02.0.i75, %90 ], [ %95, %94 ]
+  %.sroa.3.0 = phi i32 [ %.sroa.04.0.i70, %73 ], [ %79, %77 ], [ %96, %94 ], [ %.sroa.04.0.i77, %90 ]
+  %.sroa.0.0.i72.pn = phi i64 [ %.sroa.02.0.i68, %73 ], [ %78, %77 ], [ %95, %94 ], [ %.sroa.02.0.i75, %90 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %100 = load i64, ptr %99, align 8, !noundef !3
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3396,8 +3396,8 @@ _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit73: ; preds = %94, %
   unreachable
 
 126:                                              ; preds = %122, %116
-  %.sroa.4.0.i83 = phi i32 [ %118, %116 ], [ %123, %122 ]
-  %.sroa.0.0.i84 = phi i64 [ %117, %116 ], [ %124, %122 ]
+  %.sroa.4.0.i83 = phi i32 [ %123, %122 ], [ %118, %116 ]
+  %.sroa.0.0.i84 = phi i64 [ %124, %122 ], [ %117, %116 ]
   %127 = lshr i64 %.sroa.0.0.i84, 2
   %128 = lshr i32 %.sroa.4.0.i83, 2
   %129 = trunc i64 %.sroa.0.0.i84 to i32
@@ -3449,8 +3449,8 @@ _ZN4core4time8Duration11checked_sub17h366c2e4ca015d589E.exit73: ; preds = %94, %
   unreachable
 
 159:                                              ; preds = %155, %149
-  %.sroa.4.0.i91 = phi i32 [ %151, %149 ], [ %156, %155 ]
-  %.sroa.0.0.i92 = phi i64 [ %150, %149 ], [ %157, %155 ]
+  %.sroa.4.0.i91 = phi i32 [ %156, %155 ], [ %151, %149 ]
+  %.sroa.0.0.i92 = phi i64 [ %157, %155 ], [ %150, %149 ]
   %160 = lshr i64 %.sroa.0.0.i92, 3
   %161 = lshr i32 %.sroa.4.0.i91, 3
   %162 = trunc i64 %.sroa.0.0.i92 to i32

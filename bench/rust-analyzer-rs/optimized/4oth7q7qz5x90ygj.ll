@@ -42652,7 +42652,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha58a0ab297ef129fE.exit: ; preds = %_ZN4
           cleanup
   br label %.thread309
 
-.thread333:                                       ; preds = %335, %334
+.thread333:                                       ; preds = %334, %335
   %lpad.thr_comm331 = landingpad { ptr, i32 }
           cleanup
   br label %.thread317
@@ -48057,7 +48057,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i: ; preds = %
   br label %.body53
 
 .body53:                                          ; preds = %219, %225, %236
-  %eh.lpad-body54 = phi { ptr, i32 } [ %237, %236 ], [ %220, %219 ], [ %220, %225 ]
+  %eh.lpad-body54 = phi { ptr, i32 } [ %237, %236 ], [ %220, %225 ], [ %220, %219 ]
   br i1 %198, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..NameRef$GT$17h073e4fb1952eda7eE.exit", label %238
 
 238:                                              ; preds = %.body53

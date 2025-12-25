@@ -2123,7 +2123,7 @@ BufferGetPage.exit:                               ; preds = %180, %186
   %225 = icmp eq i32 %224, 0
   br i1 %225, label %._crit_edge, label %25
 
-226:                                              ; preds = %209, %201
+226:                                              ; preds = %201, %209
   %227 = load ptr, ptr %8, align 8
   %228 = load i32, ptr %22, align 8
   call void @_bt_unlockbuf(ptr noundef %227, i32 noundef %228) #7

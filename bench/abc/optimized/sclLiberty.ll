@@ -1159,8 +1159,8 @@ Scl_LibertySkipSpaces.exit187:                    ; preds = %42, %Scl_LibertyCha
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %70, %68, %.critedge, %.loopexit194.split.loop.exit, %.loopexit194.split.loop.exit211, %.loopexit194.split.loop.exit215, %176, %165, %137, %74, %61, %54, %47
-  %210 = phi i64 [ %102, %137 ], [ %49, %74 ], [ %49, %47 ], [ %49, %54 ], [ %49, %61 ], [ %207, %.loopexit194.split.loop.exit215 ], [ %102, %176 ], [ %102, %165 ], [ %201, %.loopexit194.split.loop.exit ], [ %203, %.loopexit194.split.loop.exit211 ], [ %49, %.critedge ], [ %49, %68 ], [ %49, %70 ], [ %49, %.preheader ]
-  %.sroa.844.0 = phi i64 [ %104, %137 ], [ %51, %74 ], [ %51, %47 ], [ %51, %54 ], [ %51, %61 ], [ %209, %.loopexit194.split.loop.exit215 ], [ %104, %176 ], [ %104, %165 ], [ 0, %.loopexit194.split.loop.exit ], [ %205, %.loopexit194.split.loop.exit211 ], [ %51, %.critedge ], [ %51, %68 ], [ %51, %70 ], [ %51, %.preheader ]
+  %210 = phi i64 [ %207, %.loopexit194.split.loop.exit215 ], [ %49, %74 ], [ %49, %47 ], [ %49, %54 ], [ %49, %61 ], [ %102, %137 ], [ %102, %165 ], [ %102, %176 ], [ %203, %.loopexit194.split.loop.exit211 ], [ %201, %.loopexit194.split.loop.exit ], [ %49, %.critedge ], [ %49, %68 ], [ %49, %70 ], [ %49, %.preheader ]
+  %.sroa.844.0 = phi i64 [ %209, %.loopexit194.split.loop.exit215 ], [ %51, %74 ], [ %51, %47 ], [ %51, %54 ], [ %51, %61 ], [ %104, %137 ], [ %104, %165 ], [ %104, %176 ], [ %205, %.loopexit194.split.loop.exit211 ], [ 0, %.loopexit194.split.loop.exit ], [ %51, %.critedge ], [ %51, %68 ], [ %51, %70 ], [ %51, %.preheader ]
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %212 = load ptr, ptr %211, align 8, !tbaa !46
   %213 = icmp eq ptr %212, null
@@ -2466,7 +2466,7 @@ Scl_LibertyItem.exit65:                           ; preds = %Scl_LibertyCompare.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Scl_LibertyCompare.exit54.thread, %Scl_LibertyItem.exit65, %.loopexit.sink.split, %2, %Scl_LibertyItem.exit52
-  %.038 = phi ptr [ null, %2 ], [ %78, %.loopexit.sink.split ], [ null, %Scl_LibertyItem.exit52 ], [ null, %Scl_LibertyItem.exit65 ], [ null, %Scl_LibertyCompare.exit54.thread ]
+  %.038 = phi ptr [ %78, %.loopexit.sink.split ], [ null, %2 ], [ null, %Scl_LibertyItem.exit52 ], [ null, %Scl_LibertyItem.exit65 ], [ null, %Scl_LibertyCompare.exit54.thread ]
   ret ptr %.038
 }
 
@@ -2617,7 +2617,7 @@ Scl_LibertyItem.exit24:                           ; preds = %Scl_LibertyCompare.
   br i1 %.not, label %.loopexit, label %11, !llvm.loop !72
 
 .loopexit:                                        ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit24, %.lr.ph, %2, %Scl_LibertyItem.exit
-  %.015 = phi i32 [ 0, %Scl_LibertyItem.exit ], [ 1, %.lr.ph ], [ 0, %2 ], [ 0, %Scl_LibertyItem.exit24 ], [ 0, %Scl_LibertyCompare.exit.thread ]
+  %.015 = phi i32 [ 0, %Scl_LibertyItem.exit ], [ 0, %2 ], [ 1, %.lr.ph ], [ 0, %Scl_LibertyItem.exit24 ], [ 0, %Scl_LibertyCompare.exit.thread ]
   ret i32 %.015
 }
 
@@ -6771,7 +6771,7 @@ Scl_LibertyItem.exit30:                           ; preds = %Scl_LibertyCompare.
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !95
 
 .loopexit:                                        ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit30, %33, %3, %Scl_LibertyItem.exit
-  %.01938 = phi ptr [ %.01942, %33 ], [ null, %Scl_LibertyItem.exit ], [ null, %3 ], [ null, %Scl_LibertyItem.exit30 ], [ null, %Scl_LibertyCompare.exit.thread ]
+  %.01938 = phi ptr [ null, %3 ], [ null, %Scl_LibertyItem.exit ], [ %.01942, %33 ], [ null, %Scl_LibertyItem.exit30 ], [ null, %Scl_LibertyCompare.exit.thread ]
   ret ptr %.01938
 }
 

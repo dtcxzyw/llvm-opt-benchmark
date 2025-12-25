@@ -1228,7 +1228,7 @@ define internal void @_ZNK4ncnn15DetectionOutput7forwardERKSt6vectorINS_3MatESaI
   br i1 %98, label %.invoke, label %_ZNKSt6vectorIN4ncnn8BBoxRectESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 .invoke:                                          ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit.i, %178, %115, %93, %365, %336
-  %99 = phi ptr [ @.str.2, %115 ], [ @.str.2, %365 ], [ @.str.2, %336 ], [ @.str.2, %93 ], [ @.str, %178 ], [ @.str.3, %_ZNSt6vectorImSaImEE5clearEv.exit.i ]
+  %99 = phi ptr [ @.str.2, %365 ], [ @.str.2, %115 ], [ @.str.2, %336 ], [ @.str.2, %93 ], [ @.str.3, %_ZNSt6vectorImSaImEE5clearEv.exit.i ], [ @.str, %178 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %99) #21
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

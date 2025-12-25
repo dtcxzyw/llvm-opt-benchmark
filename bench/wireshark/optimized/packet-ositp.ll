@@ -1287,7 +1287,7 @@ proto_item_set_generated.exit.thread.i:           ; preds = %.thread259.i
   br label %335
 
 335:                                              ; preds = %.sink.split260, %331, %324, %327
-  %.6 = phi i1 [ true, %331 ], [ true, %324 ], [ %.0155192, %327 ], [ %.0155192, %.sink.split260 ]
+  %.6 = phi i1 [ true, %324 ], [ true, %331 ], [ %.0155192, %327 ], [ %.0155192, %.sink.split260 ]
   %336 = call i32 @tvb_captured_length_remaining(ptr noundef %.1110, i32 noundef %292)
   %337 = add i32 %336, %292
   br label %ositp_decode_DT.exit
@@ -1521,7 +1521,7 @@ ositp_decode_DT.exit:                             ; preds = %156, %157, %165, %2
   br label %445
 
 445:                                              ; preds = %.sink.split261, %441, %438
-  %.8 = phi i1 [ true, %441 ], [ true, %438 ], [ %.0155192, %.sink.split261 ]
+  %.8 = phi i1 [ true, %438 ], [ true, %441 ], [ %.0155192, %.sink.split261 ]
   %446 = call i32 @tvb_captured_length_remaining(ptr noundef %.1110, i32 noundef %436)
   %447 = add i32 %446, %436
   br label %ositp_decode_ED.exit
@@ -2131,9 +2131,9 @@ ositp_decode_DR.exit.thread.thread:               ; preds = %793
   br label %.loopexit
 
 ositp_decode_DR.exit:                             ; preds = %764, %._crit_edge.i141, %619, %589, %544, %506, %142, %ositp_decode_UD.exit, %ositp_decode_ED.exit, %ositp_decode_DT.exit, %ositp_decode_CR_CC.exit
-  %.1156 = phi i1 [ %.0155192, %764 ], [ %.0155192, %589 ], [ %.5, %ositp_decode_CR_CC.exit ], [ %.10, %ositp_decode_UD.exit ], [ %.7, %ositp_decode_DT.exit ], [ %.9, %ositp_decode_ED.exit ], [ %.0155192, %142 ], [ %.0155192, %506 ], [ %.0155192, %544 ], [ %.0155192, %619 ], [ %.0155192, %._crit_edge.i141 ]
-  %.0106 = phi i32 [ %766, %764 ], [ %591, %589 ], [ %.0.i, %ositp_decode_CR_CC.exit ], [ %792, %ositp_decode_UD.exit ], [ %.0.i117, %ositp_decode_DT.exit ], [ %.0.i120, %ositp_decode_ED.exit ], [ %149, %142 ], [ %507, %506 ], [ %546, %544 ], [ %621, %619 ], [ %725, %._crit_edge.i141 ]
-  %.1 = phi i1 [ %.0199, %764 ], [ %.0199, %589 ], [ %.0199, %ositp_decode_CR_CC.exit ], [ true, %ositp_decode_UD.exit ], [ %.0199, %ositp_decode_DT.exit ], [ %.0199, %ositp_decode_ED.exit ], [ %.0199, %142 ], [ %.0199, %506 ], [ %.0199, %544 ], [ %.0199, %619 ], [ %.0199, %._crit_edge.i141 ]
+  %.1156 = phi i1 [ %.0155192, %589 ], [ %.0155192, %764 ], [ %.5, %ositp_decode_CR_CC.exit ], [ %.10, %ositp_decode_UD.exit ], [ %.7, %ositp_decode_DT.exit ], [ %.9, %ositp_decode_ED.exit ], [ %.0155192, %142 ], [ %.0155192, %506 ], [ %.0155192, %544 ], [ %.0155192, %619 ], [ %.0155192, %._crit_edge.i141 ]
+  %.0106 = phi i32 [ %591, %589 ], [ %766, %764 ], [ %.0.i, %ositp_decode_CR_CC.exit ], [ %792, %ositp_decode_UD.exit ], [ %.0.i117, %ositp_decode_DT.exit ], [ %.0.i120, %ositp_decode_ED.exit ], [ %149, %142 ], [ %507, %506 ], [ %546, %544 ], [ %621, %619 ], [ %725, %._crit_edge.i141 ]
+  %.1 = phi i1 [ %.0199, %589 ], [ %.0199, %764 ], [ %.0199, %ositp_decode_CR_CC.exit ], [ true, %ositp_decode_UD.exit ], [ %.0199, %ositp_decode_DT.exit ], [ %.0199, %ositp_decode_ED.exit ], [ %.0199, %142 ], [ %.0199, %506 ], [ %.0199, %544 ], [ %.0199, %619 ], [ %.0199, %._crit_edge.i141 ]
   %795 = icmp eq i32 %.0106, -1
   br i1 %795, label %ositp_decode_DR.exit.thread, label %798
 

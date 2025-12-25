@@ -546,7 +546,7 @@ CBS_get_bytes.exit53.sink.split.i:                ; preds = %45
   br label %cbs_get_any_asn1_element.exit
 
 cbs_get_any_asn1_element.exit:                    ; preds = %4, %6, %21, %cbs_get_u.exit.i, %33, %CBS_get_bytes.exit.i, %45, %CBS_get_bytes.exit53.sink.split.i
-  %.0.i = phi i32 [ 0, %cbs_get_u.exit.i ], [ 0, %6 ], [ 1, %CBS_get_bytes.exit53.sink.split.i ], [ 0, %4 ], [ 0, %CBS_get_bytes.exit.i ], [ 1, %45 ], [ 0, %33 ], [ 0, %21 ]
+  %.0.i = phi i32 [ 0, %33 ], [ 0, %6 ], [ 1, %CBS_get_bytes.exit53.sink.split.i ], [ 0, %4 ], [ 0, %CBS_get_bytes.exit.i ], [ 1, %45 ], [ 0, %cbs_get_u.exit.i ], [ 0, %21 ]
   ret i32 %.0.i
 }
 
@@ -687,7 +687,7 @@ CBS_get_bytes.exit53.sink.split.i:                ; preds = %55, %.thread.i
   br label %cbs_get_any_asn1_element.exit
 
 cbs_get_any_asn1_element.exit:                    ; preds = %4, %7, %10, %31, %.thread.i, %33, %cbs_get_u.exit.i, %43, %CBS_get_bytes.exit.i, %55, %CBS_get_bytes.exit53.sink.split.i
-  %.0.i = phi i32 [ 0, %cbs_get_u.exit.i ], [ 0, %10 ], [ 0, %4 ], [ 0, %7 ], [ 0, %CBS_get_bytes.exit.i ], [ 1, %55 ], [ 0, %43 ], [ 1, %.thread.i ], [ 0, %31 ], [ 0, %33 ], [ 1, %CBS_get_bytes.exit53.sink.split.i ]
+  %.0.i = phi i32 [ 0, %43 ], [ 0, %10 ], [ 0, %4 ], [ 0, %7 ], [ 0, %CBS_get_bytes.exit.i ], [ 1, %55 ], [ 0, %cbs_get_u.exit.i ], [ 1, %.thread.i ], [ 0, %31 ], [ 0, %33 ], [ 1, %CBS_get_bytes.exit53.sink.split.i ]
   ret i32 %.0.i
 }
 
@@ -798,7 +798,7 @@ CBS_get_any_asn1_element.exit.i.thread:           ; preds = %41
   br label %cbs_get_asn1.exit
 
 cbs_get_asn1.exit:                                ; preds = %CBS_get_any_asn1_element.exit.i.thread, %3, %5, %18, %cbs_get_u.exit.i.i.i, %30, %CBS_get_bytes.exit.sink.split.i.i.i, %CBS_get_any_asn1_element.exit.i, %.cont.i, %.else15.i
-  %.0.i = phi i32 [ 0, %CBS_get_any_asn1_element.exit.i ], [ 0, %CBS_get_any_asn1_element.exit.i.thread ], [ 0, %18 ], [ 1, %.else15.i ], [ %spec.select.i, %.cont.i ], [ 0, %cbs_get_u.exit.i.i.i ], [ 0, %5 ], [ 0, %30 ], [ 0, %3 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i ]
+  %.0.i = phi i32 [ 0, %CBS_get_any_asn1_element.exit.i ], [ 0, %CBS_get_any_asn1_element.exit.i.thread ], [ 0, %18 ], [ 1, %.else15.i ], [ %spec.select.i, %.cont.i ], [ 0, %30 ], [ 0, %5 ], [ 0, %cbs_get_u.exit.i.i.i ], [ 0, %3 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i ]
   ret i32 %.0.i
 }
 
@@ -894,7 +894,7 @@ CBS_get_any_asn1_element.exit.i:                  ; preds = %.else18.i, %41
   br label %cbs_get_asn1.exit
 
 cbs_get_asn1.exit:                                ; preds = %CBS_get_any_asn1_element.exit.i, %3, %5, %18, %cbs_get_u.exit.i.i.i, %30, %CBS_get_bytes.exit.sink.split.i.i.i
-  %.0.i = phi i32 [ %spec.select, %CBS_get_any_asn1_element.exit.i ], [ 0, %30 ], [ 0, %18 ], [ 0, %3 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i ], [ 0, %cbs_get_u.exit.i.i.i ], [ 0, %5 ]
+  %.0.i = phi i32 [ %spec.select, %CBS_get_any_asn1_element.exit.i ], [ 0, %cbs_get_u.exit.i.i.i ], [ 0, %18 ], [ 0, %3 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i ], [ 0, %30 ], [ 0, %5 ]
   ret i32 %.0.i
 }
 
@@ -1045,8 +1045,8 @@ CBS_get_bytes.exit.sink.split.i.i.i.i:            ; preds = %33, %13
   %exitcond.not = icmp eq i64 %62, %44
   br i1 %exitcond.not, label %CBS_get_asn1.exit.thread, label %.lr.ph, !llvm.loop !23
 
-CBS_get_asn1.exit.thread:                         ; preds = %.lr.ph, %56, %27, %3, %cbs_get_u.exit.i.i.i.i, %2, %15, %38, %CBS_get_bytes.exit.sink.split.i.i.i.i, %51, %46, %42
-  %.0 = phi i32 [ 0, %3 ], [ 0, %42 ], [ 0, %46 ], [ 0, %51 ], [ 0, %27 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i ], [ 0, %38 ], [ 0, %15 ], [ 0, %2 ], [ 0, %cbs_get_u.exit.i.i.i.i ], [ 0, %.lr.ph ], [ 1, %56 ]
+CBS_get_asn1.exit.thread:                         ; preds = %.lr.ph, %56, %cbs_get_u.exit.i.i.i.i, %3, %27, %2, %15, %38, %CBS_get_bytes.exit.sink.split.i.i.i.i, %51, %46, %42
+  %.0 = phi i32 [ 0, %3 ], [ 0, %42 ], [ 0, %46 ], [ 0, %51 ], [ 0, %cbs_get_u.exit.i.i.i.i ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i ], [ 0, %38 ], [ 0, %15 ], [ 0, %2 ], [ 0, %27 ], [ 0, %.lr.ph ], [ 1, %56 ]
   ret i32 %.0
 }
 
@@ -1166,8 +1166,8 @@ CBS_peek_asn1_tag.exit.thread:                    ; preds = %CBS_get_any_asn1_el
   store i32 %.0, ptr %2, align 4, !tbaa !21
   br label %CBS_get_asn1.exit.thread
 
-CBS_get_asn1.exit.thread:                         ; preds = %CBS_get_bytes.exit.sink.split.i.i.i.i, %11, %36, %13, %cbs_get_u.exit.i.i.i.i, %24, %CBS_get_any_asn1_element.exit.i.thread.i, %CBS_get_any_asn1_element.exit.i.i, %CBS_peek_asn1_tag.exit.thread, %53
-  %.08 = phi i32 [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i ], [ 1, %53 ], [ 1, %CBS_peek_asn1_tag.exit.thread ], [ 0, %CBS_get_any_asn1_element.exit.i.i ], [ 0, %CBS_get_any_asn1_element.exit.i.thread.i ], [ 0, %24 ], [ 0, %cbs_get_u.exit.i.i.i.i ], [ 0, %13 ], [ 0, %36 ], [ 0, %11 ]
+CBS_get_asn1.exit.thread:                         ; preds = %CBS_get_bytes.exit.sink.split.i.i.i.i, %11, %cbs_get_u.exit.i.i.i.i, %13, %36, %24, %CBS_get_any_asn1_element.exit.i.thread.i, %CBS_get_any_asn1_element.exit.i.i, %CBS_peek_asn1_tag.exit.thread, %53
+  %.08 = phi i32 [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i ], [ 1, %53 ], [ 1, %CBS_peek_asn1_tag.exit.thread ], [ 0, %CBS_get_any_asn1_element.exit.i.i ], [ 0, %CBS_get_any_asn1_element.exit.i.thread.i ], [ 0, %24 ], [ 0, %36 ], [ 0, %13 ], [ 0, %cbs_get_u.exit.i.i.i.i ], [ 0, %11 ]
   ret i32 %.08
 }
 
@@ -1361,7 +1361,7 @@ CBS_get_asn1.exit:                                ; preds = %CBS_get_any_asn1_el
   %or.cond = and i1 %93, %.not9
   br i1 %or.cond, label %95, label %CBS_get_optional_asn1.exit.thread
 
-94:                                               ; preds = %4, %CBS_peek_asn1_tag.exit.i
+94:                                               ; preds = %CBS_peek_asn1_tag.exit.i, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %95
 
@@ -1374,8 +1374,8 @@ CBS_get_asn1.exit:                                ; preds = %CBS_get_any_asn1_el
   store i32 %.01326, ptr %2, align 4, !tbaa !21
   br label %CBS_get_optional_asn1.exit.thread
 
-CBS_get_optional_asn1.exit.thread:                ; preds = %CBS_get_bytes.exit.sink.split.i.i.i.i, %50, %78, %54, %cbs_get_u.exit.i.i.i.i, %66, %CBS_get_any_asn1_element.exit.i.thread.i, %CBS_get_any_asn1_element.exit.i.i, %cbs_get_u.exit.i.i.i.i.i, %23, %46, %35, %11, %12, %CBS_get_bytes.exit.sink.split.i.i.i.i.i, %95, %96, %CBS_get_asn1.exit, %CBS_get_asn1.exit.thread31
-  %.0 = phi i32 [ 0, %cbs_get_u.exit.i.i.i.i.i ], [ 0, %CBS_get_asn1.exit ], [ 0, %CBS_get_asn1.exit.thread31 ], [ 1, %96 ], [ 1, %95 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i.i ], [ 0, %12 ], [ 0, %11 ], [ 0, %35 ], [ 0, %46 ], [ 0, %23 ], [ 0, %CBS_get_any_asn1_element.exit.i.i ], [ 0, %CBS_get_any_asn1_element.exit.i.thread.i ], [ 0, %66 ], [ 0, %cbs_get_u.exit.i.i.i.i ], [ 0, %54 ], [ 0, %78 ], [ 0, %50 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i ]
+CBS_get_optional_asn1.exit.thread:                ; preds = %CBS_get_bytes.exit.sink.split.i.i.i.i, %50, %cbs_get_u.exit.i.i.i.i, %54, %78, %66, %CBS_get_any_asn1_element.exit.i.thread.i, %CBS_get_any_asn1_element.exit.i.i, %35, %23, %46, %cbs_get_u.exit.i.i.i.i.i, %11, %12, %CBS_get_bytes.exit.sink.split.i.i.i.i.i, %95, %96, %CBS_get_asn1.exit, %CBS_get_asn1.exit.thread31
+  %.0 = phi i32 [ 0, %35 ], [ 0, %CBS_get_asn1.exit ], [ 0, %CBS_get_asn1.exit.thread31 ], [ 1, %96 ], [ 1, %95 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i.i ], [ 0, %12 ], [ 0, %11 ], [ 0, %cbs_get_u.exit.i.i.i.i.i ], [ 0, %46 ], [ 0, %23 ], [ 0, %CBS_get_any_asn1_element.exit.i.i ], [ 0, %CBS_get_any_asn1_element.exit.i.thread.i ], [ 0, %66 ], [ 0, %78 ], [ 0, %54 ], [ 0, %cbs_get_u.exit.i.i.i.i ], [ 0, %50 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i ]
   ret i32 %.0
 }
 
@@ -1483,15 +1483,15 @@ CBS_get_bytes.exit.sink.split.i.i.i.i.i:          ; preds = %42, %22
   %or.cond = select i1 %.not6, i1 %.not7, i1 false
   br i1 %or.cond, label %57, label %CBS_get_optional_asn1.exit.thread
 
-56:                                               ; preds = %4, %CBS_peek_asn1_tag.exit.i
+56:                                               ; preds = %CBS_peek_asn1_tag.exit.i, %4
   store i64 %3, ptr %1, align 8, !tbaa !15
   br label %57
 
 57:                                               ; preds = %51, %56
   br label %CBS_get_optional_asn1.exit.thread
 
-CBS_get_optional_asn1.exit.thread:                ; preds = %cbs_get_u.exit.i.i.i.i.i, %24, %47, %36, %12, %13, %CBS_get_bytes.exit.sink.split.i.i.i.i.i, %51, %57
-  %.0 = phi i32 [ 0, %51 ], [ 1, %57 ], [ 0, %cbs_get_u.exit.i.i.i.i.i ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i.i ], [ 0, %13 ], [ 0, %12 ], [ 0, %36 ], [ 0, %47 ], [ 0, %24 ]
+CBS_get_optional_asn1.exit.thread:                ; preds = %36, %24, %47, %cbs_get_u.exit.i.i.i.i.i, %12, %13, %CBS_get_bytes.exit.sink.split.i.i.i.i.i, %51, %57
+  %.0 = phi i32 [ 0, %51 ], [ 1, %57 ], [ 0, %36 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i.i ], [ 0, %13 ], [ 0, %12 ], [ 0, %cbs_get_u.exit.i.i.i.i.i ], [ 0, %47 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -1679,13 +1679,13 @@ CBS_get_bytes.exit.sink.split.i.i.i.i:            ; preds = %83, %63
 95:                                               ; preds = %92
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %CBS_peek_asn1_tag.exit.i, %4, %95, %92
-  %.sink = phi i32 [ 0, %92 ], [ 1, %95 ], [ %3, %4 ], [ %3, %CBS_peek_asn1_tag.exit.i ]
+.critedge.sink.split:                             ; preds = %4, %CBS_peek_asn1_tag.exit.i, %95, %92
+  %.sink = phi i32 [ 0, %92 ], [ 1, %95 ], [ %3, %CBS_peek_asn1_tag.exit.i ], [ %3, %4 ]
   store i32 %.sink, ptr %1, align 4, !tbaa !21
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %77, %53, %cbs_get_u.exit.i.i.i.i, %50, %65, %88, %CBS_get_bytes.exit.sink.split.i.i.i.i, %cbs_get_u.exit.i.i.i.i.i, %23, %46, %35, %11, %12, %CBS_get_bytes.exit.sink.split.i.i.i.i.i, %90, %92
-  %.0 = phi i32 [ 0, %cbs_get_u.exit.i.i.i.i.i ], [ 0, %53 ], [ 0, %cbs_get_u.exit.i.i.i.i ], [ 0, %92 ], [ 0, %90 ], [ 0, %77 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i.i ], [ 0, %12 ], [ 0, %11 ], [ 0, %35 ], [ 0, %46 ], [ 0, %23 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i ], [ 0, %88 ], [ 0, %65 ], [ 0, %50 ], [ 1, %.critedge.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %cbs_get_u.exit.i.i.i.i, %53, %77, %50, %65, %88, %CBS_get_bytes.exit.sink.split.i.i.i.i, %35, %23, %46, %cbs_get_u.exit.i.i.i.i.i, %11, %12, %CBS_get_bytes.exit.sink.split.i.i.i.i.i, %90, %92
+  %.0 = phi i32 [ 0, %35 ], [ 0, %77 ], [ 0, %53 ], [ 0, %92 ], [ 0, %90 ], [ 0, %cbs_get_u.exit.i.i.i.i ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i.i ], [ 0, %12 ], [ 0, %11 ], [ 0, %cbs_get_u.exit.i.i.i.i.i ], [ 0, %46 ], [ 0, %23 ], [ 0, %CBS_get_bytes.exit.sink.split.i.i.i.i ], [ 0, %88 ], [ 0, %65 ], [ 0, %50 ], [ 1, %.critedge.sink.split ]
   ret i32 %.0
 }
 

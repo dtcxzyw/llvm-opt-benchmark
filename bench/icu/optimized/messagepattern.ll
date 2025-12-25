@@ -2264,7 +2264,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit85.thread: ; preds = %196, %_ZNK6icu_771
   br label %.thread
 
 .thread:                                          ; preds = %188, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit, %112, %.thread.sink.split, %205, %_ZN6icu_7714MessagePattern22inMessageFormatPatternEi.exit, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %.thread.sink.split ], [ %185, %205 ], [ %185, %_ZN6icu_7714MessagePattern22inMessageFormatPatternEi.exit ], [ %185, %188 ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit ], [ 0, %112 ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %.thread.sink.split ], [ %185, %205 ], [ %185, %_ZN6icu_7714MessagePattern22inMessageFormatPatternEi.exit ], [ 0, %112 ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit ], [ %185, %188 ]
   ret i32 %.0
 }
 
@@ -2979,7 +2979,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit181.thread: ; preds = %_ZNK6icu_7713Unic
   br label %.thread201
 
 .thread201:                                       ; preds = %237, %281, %315, %.thread201.sink.split, %65, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %.thread201.sink.split ], [ %36, %65 ], [ 0, %315 ], [ 0, %281 ], [ 0, %237 ]
+  %.0 = phi i32 [ 0, %6 ], [ %36, %65 ], [ 0, %.thread201.sink.split ], [ 0, %315 ], [ 0, %281 ], [ 0, %237 ]
   ret i32 %.0
 }
 
@@ -4357,7 +4357,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182.thread: ; preds = %_ZNK6icu_7713Unic
 331:                                              ; preds = %328
   switch i32 %309, label %.thread193 [
     i32 6, label %332
-    i32 13, label %336
+    i32 13, label %344
   ]
 
 332:                                              ; preds = %331
@@ -4368,53 +4368,53 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182.thread: ; preds = %_ZNK6icu_7713Unic
 334:                                              ; preds = %332
   %335 = tail call noundef signext i8 @_ZN6icu_7714MessagePattern8isPluralEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %286)
   %.not142 = icmp eq i8 %335, 0
-  br i1 %.not142, label %352, label %.thread200.thread
+  br i1 %.not142, label %336, label %.thread200.thread
 
-336:                                              ; preds = %331
+336:                                              ; preds = %334
   %337 = tail call noundef signext i8 @_ZN6icu_7714MessagePattern8isSelectEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %286)
-  %.not139 = icmp eq i8 %337, 0
-  br i1 %.not139, label %.thread193, label %338
+  %.not143 = icmp eq i8 %337, 0
+  %338 = select i1 %.not143, i16 1, i16 4
+  %339 = load ptr, ptr %9, align 8, !tbaa !22
+  %340 = sext i32 %8 to i64
+  %341 = load ptr, ptr %339, align 8, !tbaa !23
+  %342 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %341, i64 %340
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 10
+  store i16 %338, ptr %343, align 2, !tbaa !50
+  br i1 %.not143, label %.thread257, label %360
 
-338:                                              ; preds = %336
-  %339 = add nsw i32 %286, 6
-  %340 = tail call noundef signext i8 @_ZN6icu_7714MessagePattern9isOrdinalEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %339)
-  %.not140 = icmp eq i8 %340, 0
-  %341 = select i1 %.not140, i16 1, i16 5
-  %342 = load ptr, ptr %9, align 8, !tbaa !22
-  %343 = sext i32 %8 to i64
-  %344 = load ptr, ptr %342, align 8, !tbaa !23
-  %345 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %344, i64 %343
-  %346 = getelementptr inbounds nuw i8, ptr %345, i64 10
-  store i16 %341, ptr %346, align 2, !tbaa !50
-  br i1 %.not140, label %.thread257, label %360
+344:                                              ; preds = %331
+  %345 = tail call noundef signext i8 @_ZN6icu_7714MessagePattern8isSelectEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %286)
+  %.not139 = icmp eq i8 %345, 0
+  br i1 %.not139, label %.thread193, label %351
 
-.thread193:                                       ; preds = %331, %336
-  %347 = load ptr, ptr %9, align 8, !tbaa !22
-  %348 = sext i32 %8 to i64
-  %349 = load ptr, ptr %347, align 8, !tbaa !23
-  %350 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %349, i64 %348
-  %351 = getelementptr inbounds nuw i8, ptr %350, i64 10
-  store i16 1, ptr %351, align 2, !tbaa !50
+.thread193:                                       ; preds = %331, %344
+  %346 = load ptr, ptr %9, align 8, !tbaa !22
+  %347 = sext i32 %8 to i64
+  %348 = load ptr, ptr %346, align 8, !tbaa !23
+  %349 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %348, i64 %347
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 10
+  store i16 1, ptr %350, align 2, !tbaa !50
   br label %.thread257
 
-352:                                              ; preds = %334
-  %353 = tail call noundef signext i8 @_ZN6icu_7714MessagePattern8isSelectEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %286)
-  %.not143 = icmp eq i8 %353, 0
-  %354 = select i1 %.not143, i16 1, i16 4
+351:                                              ; preds = %344
+  %352 = add nsw i32 %286, 6
+  %353 = tail call noundef signext i8 @_ZN6icu_7714MessagePattern9isOrdinalEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %352)
+  %.not140 = icmp eq i8 %353, 0
+  %354 = select i1 %.not140, i16 1, i16 5
   %355 = load ptr, ptr %9, align 8, !tbaa !22
   %356 = sext i32 %8 to i64
   %357 = load ptr, ptr %355, align 8, !tbaa !23
   %358 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %357, i64 %356
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 10
   store i16 %354, ptr %359, align 2, !tbaa !50
-  br i1 %.not143, label %.thread257, label %360
+  br i1 %.not140, label %.thread257, label %360
 
-360:                                              ; preds = %338, %352
-  %.2122195 = phi i32 [ 5, %338 ], [ 4, %352 ]
+360:                                              ; preds = %336, %351
+  %.2122195 = phi i32 [ 4, %336 ], [ 5, %351 ]
   %361 = icmp eq i16 %327, 125
   br i1 %361, label %.thread204, label %.thread209
 
-.thread257:                                       ; preds = %352, %.thread193, %338
+.thread257:                                       ; preds = %351, %.thread193, %336
   tail call void @_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef 9, i32 noundef %286, i32 noundef %309, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %362 = icmp eq i16 %327, 125
   br i1 %362, label %.thread261, label %375
@@ -5364,10 +5364,10 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread
 
 _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit: ; preds = %19, %39, %45, %41, %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %89 = phi i32 [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %20, %45 ], [ %20, %41 ], [ %.pre57, %39 ], [ %20, %19 ]
-  %90 = phi i16 [ %21, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %21, %45 ], [ %21, %41 ], [ %.pre, %39 ], [ %21, %19 ]
-  %.136 = phi i32 [ %.03553, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %46, %45 ], [ %42, %41 ], [ %.03553, %39 ], [ %.03553, %19 ]
-  %.133 = phi i32 [ %25, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %25, %45 ], [ %25, %41 ], [ %40, %39 ], [ %25, %19 ]
+  %89 = phi i32 [ %20, %45 ], [ %20, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %20, %41 ], [ %.pre57, %39 ], [ %20, %19 ]
+  %90 = phi i16 [ %21, %45 ], [ %21, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %21, %41 ], [ %.pre, %39 ], [ %21, %19 ]
+  %.136 = phi i32 [ %46, %45 ], [ %.03553, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %42, %41 ], [ %.03553, %39 ], [ %.03553, %19 ]
+  %.133 = phi i32 [ %25, %45 ], [ %25, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %25, %41 ], [ %40, %39 ], [ %25, %19 ]
   %91 = icmp slt i16 %90, 0
   %92 = ashr i16 %90, 5
   %93 = sext i16 %92 to i32

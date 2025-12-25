@@ -34092,7 +34092,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vecto
   br i1 %98, label %.lr.ph.i.i.i.backedge, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIPFbPKS4_SE_EEEEvT_T0_.exit.i.i
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIPFbPKS4_SE_EEEEvT_T0_.exit.i.i: ; preds = %.thread.i64, %97, %.lr.ph.i.i.i.us, %.thread.i64.us, %.thread.i69.thread, %.lr.ph.i.i.i.preheader, %.thread, %52, %71, %.thread.i69, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i
-  %.sink.i.i = phi ptr [ %.sroa.080.1, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i ], [ %.sroa.0.021.i.ptr.i, %71 ], [ %.sroa.0.021.i.ptr.i, %52 ], [ %.sroa.0.021.i.ptr.i, %.thread ], [ %.sroa.0.021.i.ptr.i, %.thread.i69 ], [ %.sroa.0.021.i.ptr.i, %.thread.i69.thread ], [ %.pn20.i.i, %.lr.ph.i.i.i.preheader ], [ %.sroa.0.0.i.i.i.us155, %.lr.ph.i.i.i.us ], [ %.sroa.0.010.i.i.i.us154, %.thread.i64.us ], [ %.sroa.0.010.i.i.i, %97 ], [ %.sroa.0.010.i.i.i, %.thread.i64 ]
+  %.sink.i.i = phi ptr [ %.sroa.080.1, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i ], [ %.sroa.0.021.i.ptr.i, %71 ], [ %.sroa.0.021.i.ptr.i, %.thread ], [ %.sroa.0.021.i.ptr.i, %52 ], [ %.sroa.0.021.i.ptr.i, %.thread.i69 ], [ %.sroa.0.021.i.ptr.i, %.thread.i69.thread ], [ %.pn20.i.i, %.lr.ph.i.i.i.preheader ], [ %.sroa.0.0.i.i.i.us155, %.lr.ph.i.i.i.us ], [ %.sroa.0.010.i.i.i.us154, %.thread.i64.us ], [ %.sroa.0.010.i.i.i, %97 ], [ %.sroa.0.010.i.i.i, %.thread.i64 ]
   store ptr %21, ptr %.sink.i.i, align 8, !tbaa !392
   %.sroa.0.021.i.add.i = add nuw nsw i64 %.sroa.0.021.i.idx.i, 8
   %.not.i.i39 = icmp eq i64 %.sroa.0.021.i.add.i, 128
@@ -34213,7 +34213,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6ve
   br i1 %146, label %.lr.ph.i.i13.i.backedge, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIPFbPKS4_SE_EEEEvT_T0_.exit.i11.i
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIPFbPKS4_SE_EEEEvT_T0_.exit.i11.i: ; preds = %.thread.i54, %145, %.lr.ph.i.i13.i.us, %.thread.i54.us, %.thread.i59.thread, %.lr.ph.i.i13.i.preheader.split.us, %107, %120, %.thread.i59
-  %.sroa.05.0.lcssa.i.i.i = phi ptr [ %.sroa.0.08.i.i, %120 ], [ %.sroa.0.08.i.i, %107 ], [ %.sroa.0.08.i.i, %.thread.i59 ], [ %.sroa.0.08.i.i, %.thread.i59.thread ], [ %.sroa.0.08.i.i.i, %.lr.ph.i.i13.i.preheader.split.us ], [ %.sroa.0.0.i.i16.i.us162, %.lr.ph.i.i13.i.us ], [ %.sroa.0.010.i.i14.i.us161, %.thread.i54.us ], [ %.sroa.0.010.i.i14.i, %145 ], [ %.sroa.0.010.i.i14.i, %.thread.i54 ]
+  %.sroa.05.0.lcssa.i.i.i = phi ptr [ %.sroa.0.08.i.i, %120 ], [ %.sroa.0.08.i.i, %.thread.i59 ], [ %.sroa.0.08.i.i, %107 ], [ %.sroa.0.08.i.i, %.thread.i59.thread ], [ %.sroa.0.08.i.i.i, %.lr.ph.i.i13.i.preheader.split.us ], [ %.sroa.0.0.i.i16.i.us162, %.lr.ph.i.i13.i.us ], [ %.sroa.0.010.i.i14.i.us161, %.thread.i54.us ], [ %.sroa.0.010.i.i14.i, %145 ], [ %.sroa.0.010.i.i14.i, %.thread.i54 ]
   store ptr %100, ptr %.sroa.05.0.lcssa.i.i.i, align 8, !tbaa !392
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 8
   %.not.i12.i = icmp eq ptr %147, %.sroa.12.1
@@ -34399,7 +34399,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vecto
   br i1 %232, label %.lr.ph.i.i27.i.backedge, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIPFbPKS4_SE_EEEEvT_T0_.exit.i23.i
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIPFbPKS4_SE_EEEEvT_T0_.exit.i23.i: ; preds = %.thread.i, %231, %.lr.ph.i.i27.i.us, %.thread.i.us, %.thread.i44.thread, %.lr.ph.i.i27.i.preheader, %.thread108, %186, %205, %.thread.i44, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i31.i
-  %.sink.i24.i = phi ptr [ %.sroa.080.1, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i31.i ], [ %.sroa.0.021.i21.i, %205 ], [ %.sroa.0.021.i21.i, %186 ], [ %.sroa.0.021.i21.i, %.thread108 ], [ %.sroa.0.021.i21.i, %.thread.i44 ], [ %.sroa.0.021.i21.i, %.thread.i44.thread ], [ %.pn20.i22.i, %.lr.ph.i.i27.i.preheader ], [ %.sroa.0.0.i.i30.i.us148, %.lr.ph.i.i27.i.us ], [ %.sroa.0.010.i.i28.i.us147, %.thread.i.us ], [ %.sroa.0.010.i.i28.i, %231 ], [ %.sroa.0.010.i.i28.i, %.thread.i ]
+  %.sink.i24.i = phi ptr [ %.sroa.080.1, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN5Yosys5RTLIL4WireESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i31.i ], [ %.sroa.0.021.i21.i, %205 ], [ %.sroa.0.021.i21.i, %.thread108 ], [ %.sroa.0.021.i21.i, %186 ], [ %.sroa.0.021.i21.i, %.thread.i44 ], [ %.sroa.0.021.i21.i, %.thread.i44.thread ], [ %.pn20.i22.i, %.lr.ph.i.i27.i.preheader ], [ %.sroa.0.0.i.i30.i.us148, %.lr.ph.i.i27.i.us ], [ %.sroa.0.010.i.i28.i.us147, %.thread.i.us ], [ %.sroa.0.010.i.i28.i, %231 ], [ %.sroa.0.010.i.i28.i, %.thread.i ]
   store ptr %149, ptr %.sink.i24.i, align 8, !tbaa !392
   %.sroa.0.0.i25.i = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i21.i, i64 8
   %.not.i26.i = icmp eq ptr %.sroa.0.0.i25.i, %.sroa.12.1
@@ -191016,7 +191016,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Yosys5RTLIL6Si
   br label %.split, !llvm.loop !1557
 
 .split19.us:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Yosys5RTLIL6SigBitESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit, %28, %24, %12, %16, %.split.us.split.us
-  %.us-phi = phi ptr [ %.sroa.015.0, %.split.us.split.us ], [ %.sroa.015.1.us.us25, %12 ], [ %17, %16 ], [ %.sroa.015.1, %24 ], [ %.sroa.015.1, %28 ], [ %.sroa.015.1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Yosys5RTLIL6SigBitESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit ]
+  %.us-phi = phi ptr [ %.sroa.015.1.us.us25, %12 ], [ %.sroa.015.0, %.split.us.split.us ], [ %17, %16 ], [ %.sroa.015.1, %24 ], [ %.sroa.015.1, %28 ], [ %.sroa.015.1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Yosys5RTLIL6SigBitESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit ]
   br label %39
 
 39:                                               ; preds = %.backedge, %.split19.us

@@ -724,7 +724,7 @@ define internal fastcc ptr @i915_gem_create_context(ptr noundef %0, ptr noundef 
   br label %.loopexit95
 
 .loopexit95:                                      ; preds = %281, %213, %.loopexit90, %244, %71
-  %312 = phi ptr [ %311, %.loopexit90 ], [ %69, %71 ], [ %69, %213 ], [ %242, %244 ], [ %242, %281 ]
+  %312 = phi ptr [ %69, %213 ], [ %69, %71 ], [ %311, %.loopexit90 ], [ %242, %244 ], [ %242, %281 ]
   %313 = icmp ugt ptr %312, inttoptr (i64 -4096 to ptr)
   br i1 %313, label %.thread85, label %317
 

@@ -169,7 +169,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8GenericS
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph, %59, %.preheader141.backedge, %.critedge.thread.loopexit.split.loop.exit, %.critedge
-  %.2100 = phi ptr [ %.199.lcssa, %.critedge ], [ %46, %.preheader141.backedge ], [ %100, %.critedge.thread.loopexit.split.loop.exit ], [ %.3227, %59 ], [ %.199154, %.lr.ph ]
+  %.2100 = phi ptr [ %.199.lcssa, %.critedge ], [ %100, %.critedge.thread.loopexit.split.loop.exit ], [ %46, %.preheader141.backedge ], [ %.3227, %59 ], [ %.199154, %.lr.ph ]
   %101 = icmp ult ptr %.2100, %10
   br i1 %101, label %.lr.ph158, label %.critedge.thread._crit_edge
 
@@ -318,7 +318,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal24UTF8GenericS
   br i1 %35, label %.lr.ph55, label %.critedge2, !llvm.loop !25
 
 .critedge2:                                       ; preds = %.lr.ph, %33, %.lr.ph55, %.critedge
-  %.2 = phi ptr [ %.354, %.lr.ph55 ], [ %.1.lcssa, %.critedge ], [ %34, %33 ], [ %.152, %.lr.ph ]
+  %.2 = phi ptr [ %.1.lcssa, %.critedge ], [ %.354, %.lr.ph55 ], [ %34, %33 ], [ %.152, %.lr.ph ]
   %36 = icmp ult ptr %.2, %9
   br i1 %36, label %.lr.ph60, label %.critedge4
 
@@ -428,7 +428,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal23IsStructurallyValidUTF8
   br i1 %33, label %.lr.ph55.i, label %.critedge2.i, !llvm.loop !25
 
 .critedge2.i:                                     ; preds = %.lr.ph.i, %31, %.lr.ph55.i, %.critedge.i
-  %.2.i = phi ptr [ %.354.i, %.lr.ph55.i ], [ %.1.lcssa.i, %.critedge.i ], [ %32, %31 ], [ %.152.i, %.lr.ph.i ]
+  %.2.i = phi ptr [ %.1.lcssa.i, %.critedge.i ], [ %.354.i, %.lr.ph55.i ], [ %32, %31 ], [ %.152.i, %.lr.ph.i ]
   %34 = icmp ult ptr %.2.i, %7
   br i1 %34, label %.lr.ph60.i, label %.critedge4.i
 
@@ -542,7 +542,7 @@ define noundef i32 @_ZN6google8protobuf8internal24UTF8SpnStructurallyValidENS0_1
   br i1 %35, label %.lr.ph55.i, label %.critedge2.i, !llvm.loop !25
 
 .critedge2.i:                                     ; preds = %.lr.ph.i, %33, %.lr.ph55.i, %.critedge.i
-  %.2.i = phi ptr [ %.354.i, %.lr.ph55.i ], [ %.1.lcssa.i, %.critedge.i ], [ %34, %33 ], [ %.152.i, %.lr.ph.i ]
+  %.2.i = phi ptr [ %.1.lcssa.i, %.critedge.i ], [ %.354.i, %.lr.ph55.i ], [ %34, %33 ], [ %.152.i, %.lr.ph.i ]
   %36 = icmp ult ptr %.2.i, %9
   br i1 %36, label %.lr.ph60.i, label %.critedge4.i
 

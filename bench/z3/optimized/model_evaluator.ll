@@ -12974,8 +12974,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   call void @__clang_call_terminate(ptr %212) #24
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit47:       ; preds = %96, %107, %110, %.preheader.i.i.i.i, %_ZNK10model_core15get_func_interpEP9func_decl.exit, %.critedge31, %204, %209
-  %213 = phi i1 [ true, %204 ], [ true, %209 ], [ false, %.critedge31 ], [ false, %107 ], [ false, %_ZNK10model_core15get_func_interpEP9func_decl.exit ], [ false, %.preheader.i.i.i.i ], [ false, %110 ], [ false, %96 ]
+_ZN7obj_refI4expr11ast_managerED2Ev.exit47:       ; preds = %96, %107, %110, %_ZNK10model_core15get_func_interpEP9func_decl.exit, %.preheader.i.i.i.i, %.critedge31, %204, %209
+  %213 = phi i1 [ true, %204 ], [ true, %209 ], [ false, %.critedge31 ], [ false, %107 ], [ false, %.preheader.i.i.i.i ], [ false, %_ZNK10model_core15get_func_interpEP9func_decl.exit ], [ false, %110 ], [ false, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK17array_recognizers11is_as_arrayEP9func_declRS1_.exit.thread
 
@@ -15504,7 +15504,7 @@ _ZNK14core_hashtableI18default_hash_entryIPKP4exprEN3mev13evaluator_cfg9args_has
   br i1 %.not27, label %_ZNK14core_hashtableI18default_hash_entryIPKP4exprEN3mev13evaluator_cfg9args_hashENS7_7args_eqEE6equalsERKS4_SC_.exit.thread, label %.lr.ph52.split, !llvm.loop !489
 
 _ZNK14core_hashtableI18default_hash_entryIPKP4exprEN3mev13evaluator_cfg9args_hashENS7_7args_eqEE6equalsERKS4_SC_.exit.thread: ; preds = %.lr.ph.split, %44, %.lr.ph.split.us, %23, %_ZNK14core_hashtableI18default_hash_entryIPKP4exprEN3mev13evaluator_cfg9args_hashENS7_7args_eqEE6equalsERKS4_SC_.exit36, %.lr.ph52.split, %57, %_ZNK14core_hashtableI18default_hash_entryIPKP4exprEN3mev13evaluator_cfg9args_hashENS7_7args_eqEE6equalsERKS4_SC_.exit36.us, %.lr.ph52.split.us, %33, %.preheader
-  %.026 = phi ptr [ %.047, %44 ], [ %.151.us, %33 ], [ %.151, %57 ], [ null, %_ZNK14core_hashtableI18default_hash_entryIPKP4exprEN3mev13evaluator_cfg9args_hashENS7_7args_eqEE6equalsERKS4_SC_.exit36 ], [ null, %.preheader ], [ %.047.us, %23 ], [ null, %.lr.ph52.split.us ], [ null, %_ZNK14core_hashtableI18default_hash_entryIPKP4exprEN3mev13evaluator_cfg9args_hashENS7_7args_eqEE6equalsERKS4_SC_.exit36.us ], [ null, %.lr.ph52.split ], [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ]
+  %.026 = phi ptr [ %.047, %44 ], [ %.151, %57 ], [ null, %.lr.ph.split.us ], [ null, %_ZNK14core_hashtableI18default_hash_entryIPKP4exprEN3mev13evaluator_cfg9args_hashENS7_7args_eqEE6equalsERKS4_SC_.exit36 ], [ null, %.preheader ], [ %.151.us, %33 ], [ null, %.lr.ph52.split.us ], [ null, %_ZNK14core_hashtableI18default_hash_entryIPKP4exprEN3mev13evaluator_cfg9args_hashENS7_7args_eqEE6equalsERKS4_SC_.exit36.us ], [ null, %.lr.ph52.split ], [ %.047.us, %23 ], [ null, %.lr.ph.split ]
   ret ptr %.026
 }
 

@@ -726,7 +726,7 @@ mi_bitmap_try_find_claim_field_across.exit:       ; preds = %34, %84
   store i64 %104, ptr %4, align 8, !tbaa !5
   br label %.critedge
 
-.loopexit:                                        ; preds = %tailrecurse.i, %46, %.loopexit.i, %45, %mi_bitmap_mask_.exit.i, %13, %26, %mi_bitmap_mask_.exit.i.i
+.loopexit:                                        ; preds = %46, %tailrecurse.i, %.loopexit.i, %45, %mi_bitmap_mask_.exit.i, %26, %13, %mi_bitmap_mask_.exit.i.i
   %105 = add nuw i64 %.01943, 1
   %106 = add i64 %spec.store.select, 1
   %exitcond.not = icmp eq i64 %105, %1

@@ -2981,7 +2981,7 @@ define range(i32 -46, 1) i32 @prte_rmaps_base_check_oversubscribed(ptr noundef c
   br label %58
 
 58:                                               ; preds = %.sink.split, %8, %._crit_edge, %47, %36, %14, %4
-  %.0 = phi i32 [ 0, %4 ], [ -46, %8 ], [ 0, %._crit_edge ], [ -43, %47 ], [ 0, %14 ], [ -43, %36 ], [ -43, %.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ -46, %8 ], [ -43, %47 ], [ 0, %._crit_edge ], [ 0, %14 ], [ -43, %36 ], [ -43, %.sink.split ]
   ret i32 %.0
 }
 

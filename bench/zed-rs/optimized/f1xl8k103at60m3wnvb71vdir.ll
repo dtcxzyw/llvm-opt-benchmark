@@ -1133,7 +1133,7 @@ _ZN5serde2de10EnumAccess7variant17h87e9180c8b4cb350E.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 

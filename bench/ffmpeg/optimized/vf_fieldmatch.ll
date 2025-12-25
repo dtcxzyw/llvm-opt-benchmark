@@ -1981,7 +1981,7 @@ get_width.exit.i138:                              ; preds = %get_height.exit.i13
   unreachable
 
 .critedge:                                        ; preds = %355, %358, %get_width.exit.i138, %262, %265, %get_width.exit.i114, %169, %172, %get_width.exit.i90, %76, %79, %get_width.exit.i66, %13, %11
-  %.1 = phi ptr [ null, %13 ], [ %12, %11 ], [ %19, %262 ], [ %19, %76 ], [ %19, %169 ], [ %19, %get_width.exit.i66 ], [ %19, %79 ], [ %19, %get_width.exit.i90 ], [ %19, %172 ], [ %19, %get_width.exit.i114 ], [ %19, %265 ], [ %19, %get_width.exit.i138 ], [ %19, %358 ], [ %19, %355 ]
+  %.1 = phi ptr [ null, %13 ], [ %12, %11 ], [ %19, %76 ], [ %19, %169 ], [ %19, %262 ], [ %19, %get_width.exit.i66 ], [ %19, %79 ], [ %19, %get_width.exit.i90 ], [ %19, %172 ], [ %19, %get_width.exit.i114 ], [ %19, %265 ], [ %19, %get_width.exit.i138 ], [ %19, %358 ], [ %19, %355 ]
   ret ptr %.1
 }
 

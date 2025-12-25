@@ -616,7 +616,7 @@ define internal fastcc noundef zeroext i1 @valid_regdb(ptr noundef %0, i32 nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit8, %46, %39, %33, %115, %94, %84, %76, %71, %.preheader7, %121, %27, %18, %9, %6, %2
-  %122 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %121 ], [ true, %27 ], [ false, %115 ], [ false, %.preheader7 ], [ false, %71 ], [ false, %76 ], [ false, %84 ], [ false, %94 ], [ false, %39 ], [ false, %46 ], [ true, %.loopexit8 ], [ true, %33 ]
+  %122 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %9 ], [ false, %18 ], [ false, %121 ], [ true, %27 ], [ false, %115 ], [ false, %.preheader7 ], [ false, %71 ], [ false, %76 ], [ false, %84 ], [ false, %94 ], [ false, %46 ], [ false, %39 ], [ true, %33 ], [ true, %.loopexit8 ]
   ret i1 %122
 }
 
@@ -3531,7 +3531,7 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   %cond = icmp eq i32 %269, 0
   br i1 %cond, label %.thread36, label %.thread33
 
-.thread39:                                        ; preds = %127, %76
+.thread39:                                        ; preds = %76, %127
   %270 = load volatile ptr, ptr @last_request, align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 37
   store i8 1, ptr %271, align 1
@@ -3554,9 +3554,9 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   br label %.thread33.sink.split
 
 .thread33.sink.split:                             ; preds = %241, %246, %250, %144, %149, %153, %.thread33.sink.split.sink.split, %228, %131
-  %.sink77 = phi i8 [ %.pre45, %.thread33.sink.split.sink.split ], [ %21, %144 ], [ %21, %131 ], [ %21, %228 ], [ %21, %153 ], [ %21, %149 ], [ %21, %250 ], [ %21, %246 ], [ %21, %241 ]
-  %.sink.in = phi i8 [ %.pre, %.thread33.sink.split.sink.split ], [ %16, %144 ], [ %16, %131 ], [ %16, %228 ], [ %16, %153 ], [ %16, %149 ], [ %16, %250 ], [ %16, %246 ], [ %16, %241 ]
-  %.ph = phi i1 [ %.ph.ph, %.thread33.sink.split.sink.split ], [ false, %144 ], [ false, %131 ], [ false, %228 ], [ false, %153 ], [ false, %149 ], [ false, %250 ], [ false, %246 ], [ false, %241 ]
+  %.sink77 = phi i8 [ %21, %228 ], [ %21, %144 ], [ %21, %131 ], [ %.pre45, %.thread33.sink.split.sink.split ], [ %21, %153 ], [ %21, %149 ], [ %21, %250 ], [ %21, %246 ], [ %21, %241 ]
+  %.sink.in = phi i8 [ %16, %228 ], [ %16, %144 ], [ %16, %131 ], [ %.pre, %.thread33.sink.split.sink.split ], [ %16, %153 ], [ %16, %149 ], [ %16, %250 ], [ %16, %246 ], [ %16, %241 ]
+  %.ph = phi i1 [ false, %228 ], [ false, %144 ], [ false, %131 ], [ %.ph.ph, %.thread33.sink.split.sink.split ], [ false, %153 ], [ false, %149 ], [ false, %250 ], [ false, %246 ], [ false, %241 ]
   %.sink = zext i8 %.sink.in to i32
   %278 = zext i8 %.sink77 to i32
   %279 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %.sink, i32 noundef %278) #30

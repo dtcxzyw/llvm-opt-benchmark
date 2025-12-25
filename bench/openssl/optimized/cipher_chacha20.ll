@@ -106,7 +106,7 @@ ossl_param_is_empty.exit.thread.sink.split:       ; preds = %16, %14, %10, %8
   br label %ossl_param_is_empty.exit.thread
 
 ossl_param_is_empty.exit.thread:                  ; preds = %ossl_param_is_empty.exit.thread.sink.split, %2, %12, %16, %ossl_param_is_empty.exit
-  %.0 = phi i32 [ 1, %2 ], [ 1, %12 ], [ 1, %16 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %16 ], [ 1, %12 ], [ 1, %ossl_param_is_empty.exit ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -260,7 +260,7 @@ define internal range(i32 0, 2) i32 @chacha20_get_ctx_params(ptr readnone captur
   br label %10
 
 10:                                               ; preds = %.sink.split, %6, %8
-  %.0 = phi i32 [ 1, %6 ], [ 1, %8 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %8 ], [ 1, %6 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

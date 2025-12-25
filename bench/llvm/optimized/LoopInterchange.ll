@@ -2186,7 +2186,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit.i.i.i: ; preds = 
   br label %.critedge79.i.i.i
 
 .critedge79.i.i.i:                                ; preds = %365, %358, %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit.i.i.i, %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i.i.i.i, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i.i
-  %.8.i.i.i = phi i1 [ false, %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i.i.i.i ], [ true, %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit.i.i.i ], [ false, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i.i ], [ false, %358 ], [ false, %365 ]
+  %.8.i.i.i = phi i1 [ false, %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i.i.i.i ], [ true, %_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit.i.i.i ], [ false, %_ZN4llvm30DiagnosticInfoOptimizationBaseD2Ev.exit.i.i.i.i ], [ false, %358 ], [ false, %365 ]
   %631 = load ptr, ptr %11, align 8, !tbaa !25
   %632 = icmp eq ptr %631, %343
   br i1 %632, label %_ZL24populateDependencyMatrixRSt6vectorIS_IcSaIcEESaIS1_EEjPN4llvm4LoopEPNS5_14DependenceInfoEPNS5_15ScalarEvolutionEPNS5_25OptimizationRemarkEmitterE.exit.i.i, label %633
@@ -11128,7 +11128,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %.thread90, %92
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %37, %51, %_ZNSt14_Function_baseD2Ev.exit, %_ZN4llvm10BasicBlock13getTerminatorEv.exit
-  %.7 = phi i1 [ true, %51 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ %.549, %_ZNSt14_Function_baseD2Ev.exit ], [ false, %37 ], [ false, %28 ]
+  %.7 = phi i1 [ %.549, %_ZNSt14_Function_baseD2Ev.exit ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ true, %51 ], [ false, %37 ], [ false, %28 ]
   ret i1 %.7
 }
 

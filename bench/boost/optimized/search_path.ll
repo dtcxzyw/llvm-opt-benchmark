@@ -6794,7 +6794,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit46:              ; preds = %83, %_ZSt4findIPKcc
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit46.thread
 
 _ZSt4findIPKccET_S2_S2_RKT0_.exit46.thread:       ; preds = %._crit_edge.i.i.i.us86, %._crit_edge.i.i.i.us72, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46, %115, %._crit_edge.i.i.i27, %4
-  %.021 = phi ptr [ %1, %4 ], [ %1, %115 ], [ %spec.select107, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46 ], [ %1, %._crit_edge.i.i.i27 ], [ %60, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63 ], [ %74, %._crit_edge.i.i.i.us72 ], [ %19, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us ], [ %74, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77 ], [ %80, %._crit_edge.i.i.i.us86 ]
+  %.021 = phi ptr [ %1, %4 ], [ %1, %115 ], [ %spec.select107, %_ZSt4findIPKccET_S2_S2_RKT0_.exit46 ], [ %1, %._crit_edge.i.i.i27 ], [ %60, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us63 ], [ %19, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us ], [ %74, %._crit_edge.i.i.i.us72 ], [ %74, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.us77 ], [ %80, %._crit_edge.i.i.i.us86 ]
   ret ptr %.021
 }
 
@@ -117090,8 +117090,8 @@ _ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environme
   br label %_ZN5boost9algorithm14split_iteratorIPKcE9incrementEv.exit.i
 
 _ZN5boost9algorithm14split_iteratorIPKcE9incrementEv.exit.i: ; preds = %._crit_edge.i.i.i.i.i.i, %48, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i.i.i, %62, %.lr.ph.i.i.i, %60, %3
-  %.sroa.7.0 = phi ptr [ %10, %3 ], [ %12, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i.i.i ], [ %.028.i.i.i.i.i.i, %62 ], [ %12, %48 ], [ %12, %._crit_edge.i.i.i.i.i.i ], [ %.028.i.i.i.i.i.i, %.lr.ph.i.i.i ], [ %.028.i.i.i.i.i.i, %60 ]
-  %64 = phi ptr [ %10, %3 ], [ %12, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i.i.i ], [ %63, %62 ], [ %12, %48 ], [ %12, %._crit_edge.i.i.i.i.i.i ], [ %scevgep.i.i.i, %60 ], [ %.028.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.7.0 = phi ptr [ %10, %3 ], [ %12, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i.i.i ], [ %.028.i.i.i.i.i.i, %62 ], [ %12, %._crit_edge.i.i.i.i.i.i ], [ %12, %48 ], [ %.028.i.i.i.i.i.i, %.lr.ph.i.i.i ], [ %.028.i.i.i.i.i.i, %60 ]
+  %64 = phi ptr [ %10, %3 ], [ %12, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i.i.i ], [ %63, %62 ], [ %12, %._crit_edge.i.i.i.i.i.i ], [ %12, %48 ], [ %scevgep.i.i.i, %60 ], [ %.028.i.i.i, %.lr.ph.i.i.i ]
   store ptr %14, ptr %4, align 8, !tbaa !304, !alias.scope !2113
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %65, align 8
@@ -117745,8 +117745,8 @@ _ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environme
   br label %_ZNK5boost9algorithm6detail13token_finderFIZNKS_7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterEclIPKcEENS_14iterator_rangeIT_EESJ_SJ_.exit
 
 _ZNK5boost9algorithm6detail13token_finderFIZNKS_7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterEclIPKcEENS_14iterator_rangeIT_EESJ_SJ_.exit: ; preds = %.lr.ph.i, %53, %._crit_edge.i.i.i.i, %39, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i, %55
-  %.sroa.3.0.i = phi ptr [ %2, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i ], [ %56, %55 ], [ %2, %39 ], [ %2, %._crit_edge.i.i.i.i ], [ %scevgep.i, %53 ], [ %.028.i, %.lr.ph.i ]
-  %.sroa.0.0.i = phi ptr [ %2, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i ], [ %.028.i.i.i.i, %55 ], [ %2, %39 ], [ %2, %._crit_edge.i.i.i.i ], [ %.028.i.i.i.i, %53 ], [ %.028.i.i.i.i, %.lr.ph.i ]
+  %.sroa.3.0.i = phi ptr [ %2, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i ], [ %56, %55 ], [ %2, %._crit_edge.i.i.i.i ], [ %2, %39 ], [ %scevgep.i, %53 ], [ %.028.i, %.lr.ph.i ]
+  %.sroa.0.0.i = phi ptr [ %2, %_ZSt7find_ifIPKcZNK5boost7process2v16detail11const_entryIcKNS4_22basic_environment_implIcNS5_5posix23native_environment_implEEEE9to_vectorB5cxx11EvE8splitterET_SE_SE_T0_.exit.i ], [ %.028.i.i.i.i, %55 ], [ %2, %._crit_edge.i.i.i.i ], [ %2, %39 ], [ %.028.i.i.i.i, %53 ], [ %.028.i.i.i.i, %.lr.ph.i ]
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %.sroa.3.0.i, 1
   ret { ptr, ptr } %.fca.1.insert.i
@@ -134873,7 +134873,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36: ; preds = %44
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36, %63, %60, %22, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
-  %.0 = phi i1 [ false, %22 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit ], [ %69, %63 ], [ true, %60 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit ], [ true, %60 ], [ %69, %63 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34 ]
   ret i1 %.0
 }
 

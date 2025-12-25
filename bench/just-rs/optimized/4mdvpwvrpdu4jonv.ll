@@ -3799,7 +3799,7 @@ _ZN3std4path4Path12strip_prefix17h93ad17499da5bf50E.exit.i: ; preds = %336
   br label %.body366
 
 .loopexit.split-lp.loopexit:                      ; preds = %489, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h9f8ffec103fb84f8E.exit", %451, %437, %461
-  %.5283.ph.ph = phi i8 [ 0, %489 ], [ 1, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h9f8ffec103fb84f8E.exit" ], [ 1, %461 ], [ 1, %437 ], [ 1, %451 ]
+  %.5283.ph.ph = phi i8 [ 0, %489 ], [ 1, %437 ], [ 1, %461 ], [ 1, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h9f8ffec103fb84f8E.exit" ], [ 1, %451 ]
   %lpad.loopexit712 = landingpad { ptr, i32 }
           cleanup
   br label %.body366
@@ -9586,7 +9586,7 @@ select.unfold.i:                                  ; preds = %.noexc420, %158
   br label %.thread717
 
 .loopexit.split-lp883:                            ; preds = %.invoke, %_ZN4clap4args11arg_matches10ArgMatches9values_of17h492cf31636f10e15E.exit, %710, %160, %.noexc416, %.noexc417, %.noexc418, %.noexc419, %174, %.noexc424, %.noexc425, %.noexc426, %.noexc427
-  %.0291.ph = phi i8 [ 1, %.noexc418 ], [ 1, %.noexc417 ], [ 1, %.noexc416 ], [ 1, %160 ], [ 1, %.noexc427 ], [ 1, %.noexc426 ], [ 1, %174 ], [ 1, %.noexc424 ], [ 1, %.noexc425 ], [ 1, %.invoke ], [ 1, %.noexc419 ], [ 1, %_ZN4clap4args11arg_matches10ArgMatches9values_of17h492cf31636f10e15E.exit ], [ %.4295792, %710 ]
+  %.0291.ph = phi i8 [ 1, %.noexc418 ], [ 1, %.noexc417 ], [ 1, %.noexc416 ], [ 1, %160 ], [ 1, %.noexc427 ], [ 1, %.noexc426 ], [ 1, %.noexc425 ], [ 1, %.noexc424 ], [ 1, %174 ], [ 1, %.invoke ], [ 1, %.noexc419 ], [ 1, %_ZN4clap4args11arg_matches10ArgMatches9values_of17h492cf31636f10e15E.exit ], [ %.4295792, %710 ]
   %lpad.loopexit.split-lp885 = landingpad { ptr, i32 }
           cleanup
   br label %178

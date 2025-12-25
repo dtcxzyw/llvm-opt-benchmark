@@ -8450,9 +8450,9 @@ _ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_de
   br label %_ZNKSt14default_deleteIN3net33ValidateClientHelloResultCallback6ResultEEclEPS2_.exit.i91.sink.split
 
 _ZN4base8AutoLockD2Ev.exit49:                     ; preds = %165, %160, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78, %108
-  %.sroa.0100.0 = phi ptr [ %58, %165 ], [ %58, %108 ], [ %58, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ %58, %160 ], [ null, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ]
-  %.sroa.0104.1 = phi ptr [ null, %165 ], [ %23, %108 ], [ null, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ null, %160 ], [ null, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ]
-  %.pn35.pn = phi { ptr, i32 } [ %145, %165 ], [ %109, %108 ], [ %182, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ %145, %160 ], [ %145, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ]
+  %.sroa.0100.0 = phi ptr [ %58, %160 ], [ %58, %108 ], [ %58, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ %58, %165 ], [ null, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ]
+  %.sroa.0104.1 = phi ptr [ null, %160 ], [ %23, %108 ], [ null, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ null, %165 ], [ null, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ]
+  %.pn35.pn = phi { ptr, i32 } [ %145, %160 ], [ %109, %108 ], [ %182, %_ZNSt10unique_ptrIN3net33ValidateClientHelloResultCallback6ResultESt14default_deleteIS2_EED2Ev.exit78 ], [ %145, %165 ], [ %145, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit66 ]
   br i1 %.not.i.i41, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit87, label %206
 
 206:                                              ; preds = %_ZN4base8AutoLockD2Ev.exit49

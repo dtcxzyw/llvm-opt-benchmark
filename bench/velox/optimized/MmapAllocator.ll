@@ -1467,7 +1467,7 @@ if.then2.i:                                       ; preds = %if.end.i
   store i32 0, ptr %injectedFailure_.i405, align 8
   br label %if.then270
 
-if.then270:                                       ; preds = %"_ZN8facebook5velox6memory5Stats14recordAllocateIZNS1_13MmapAllocator33allocateNonContiguousWithoutRetryEmRNS1_10AllocationESt8functionIFvlbEEmE3$_0EEvliT_.exit", %_ZN8facebook5velox10ClockTimerD2Ev.exit.i, %if.then2.i, %if.end.i
+if.then270:                                       ; preds = %"_ZN8facebook5velox6memory5Stats14recordAllocateIZNS1_13MmapAllocator33allocateNonContiguousWithoutRetryEmRNS1_10AllocationESt8functionIFvlbEEmE3$_0EEvliT_.exit", %_ZN8facebook5velox10ClockTimerD2Ev.exit.i, %if.end.i, %if.then2.i
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %retval.i.sroa.0.0.insert.ext.i222 = and i64 %indvars.iv, 4294967295
   %78 = load i32, ptr %arrayidx.i.i214, align 4, !noalias !25

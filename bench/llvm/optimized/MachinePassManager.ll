@@ -3684,7 +3684,7 @@ _ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30.sink.split: ; pred
   br label %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30
 
 _ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30: ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i.i24, %.lr.ph.i.i5.i.i, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30.sink.split, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i, %_ZNK4llvm17PreservedAnalyses25allAnalysesInSetPreservedINS_13AllAnalysesOnINS_15MachineFunctionEEEEEbv.exit, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit
-  %.0 = phi i1 [ true, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30.sink.split ], [ false, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit ], [ false, %.lr.ph.i.i5.i.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i ], [ false, %_ZNK4llvm17PreservedAnalyses25allAnalysesInSetPreservedINS_13AllAnalysesOnINS_15MachineFunctionEEEEEbv.exit ], [ false, %.lr.ph.i.i.i.i24 ], [ false, %.lr.ph.i.i.i ]
+  %.0 = phi i1 [ true, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30.sink.split ], [ false, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i ], [ false, %.lr.ph.i.i5.i.i ], [ false, %_ZNK4llvm17PreservedAnalyses25allAnalysesInSetPreservedINS_13AllAnalysesOnINS_15MachineFunctionEEEEEbv.exit ], [ false, %.lr.ph.i.i.i.i24 ], [ false, %.lr.ph.i.i.i ]
   ret i1 %.0
 }
 
@@ -3979,7 +3979,7 @@ _ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30.sink.split: ; pred
   br label %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30
 
 _ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30: ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i.i24, %.lr.ph.i.i5.i.i, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30.sink.split, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i, %_ZNK4llvm17PreservedAnalyses25allAnalysesInSetPreservedINS_13AllAnalysesOnINS_15MachineFunctionEEEEEbv.exit, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit
-  %.0 = phi i1 [ true, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30.sink.split ], [ false, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit ], [ false, %.lr.ph.i.i5.i.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i ], [ false, %_ZNK4llvm17PreservedAnalyses25allAnalysesInSetPreservedINS_13AllAnalysesOnINS_15MachineFunctionEEEEEbv.exit ], [ false, %.lr.ph.i.i.i.i24 ], [ false, %.lr.ph.i.i.i ]
+  %.0 = phi i1 [ true, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread30.sink.split ], [ false, %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i.i ], [ false, %.lr.ph.i.i5.i.i ], [ false, %_ZNK4llvm17PreservedAnalyses25allAnalysesInSetPreservedINS_13AllAnalysesOnINS_15MachineFunctionEEEEEbv.exit ], [ false, %.lr.ph.i.i.i.i24 ], [ false, %.lr.ph.i.i.i ]
   ret i1 %.0
 }
 

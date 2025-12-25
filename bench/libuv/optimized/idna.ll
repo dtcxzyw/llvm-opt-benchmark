@@ -962,7 +962,7 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %249, %258, %254, %2
   br i1 %.not142, label %uv__utf8_decode1.exit.thread, label %.preheader206
 
 uv__utf8_decode1.exit.thread:                     ; preds = %57, %37, %46, %42, %14, %12, %319, %._crit_edge226, %273, %.loopexit
-  %.0124 = phi i32 [ -7, %273 ], [ 0, %319 ], [ %.0120.lcssa296, %.loopexit ], [ -7, %._crit_edge226 ], [ -22, %12 ], [ -22, %14 ], [ -22, %42 ], [ -22, %46 ], [ -22, %37 ], [ -22, %57 ]
+  %.0124 = phi i32 [ 0, %319 ], [ -7, %273 ], [ %.0120.lcssa296, %.loopexit ], [ -7, %._crit_edge226 ], [ -22, %12 ], [ -22, %14 ], [ -22, %42 ], [ -22, %46 ], [ -22, %37 ], [ -22, %57 ]
   ret i32 %.0124
 }
 

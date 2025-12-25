@@ -95281,8 +95281,8 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
           to label %common.resume unwind label %129
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h4a2147a16a932a4fE.exit": ; preds = %.noexc3, %77
-  %.sroa.8.1 = phi ptr [ %75, %.noexc3 ], [ null, %77 ]
-  %.sroa.9.1 = phi i64 [ %76, %.noexc3 ], [ undef, %77 ]
+  %.sroa.8.1 = phi ptr [ null, %77 ], [ %75, %.noexc3 ]
+  %.sroa.9.1 = phi i64 [ undef, %77 ], [ %76, %.noexc3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   %79 = icmp eq ptr %.sroa.4.0.ph.i, null
   br i1 %79, label %106, label %80

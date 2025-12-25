@@ -706,7 +706,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   br i1 %284, label %_ZN20unicode_segmentation8grapheme10check_pair17h1dfefd2f721c3dc8E.exit.thread117.i.i, label %_ZN20unicode_segmentation8grapheme10check_pair17h1dfefd2f721c3dc8E.exit.thread110.i.i
 
 _ZN20unicode_segmentation8grapheme10check_pair17h1dfefd2f721c3dc8E.exit.i.i: ; preds = %278, %277, %276, %273
-  %.0.i.i.i = phi i8 [ %switch.select17.i.i.i, %277 ], [ %..i.i.i, %273 ], [ %switch.select21.i.i.i, %278 ], [ %switch.select.i.i.i, %276 ]
+  %.0.i.i.i = phi i8 [ %switch.select17.i.i.i, %277 ], [ %switch.select21.i.i.i, %278 ], [ %..i.i.i, %273 ], [ %switch.select.i.i.i, %276 ]
   switch i8 %.0.i.i.i, label %default.unreachable [
     i8 0, label %_ZN20unicode_segmentation8grapheme10check_pair17h1dfefd2f721c3dc8E.exit.thread.i.i
     i8 1, label %_ZN20unicode_segmentation8grapheme10check_pair17h1dfefd2f721c3dc8E.exit.thread110.i.i
@@ -799,8 +799,8 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f2
   br label %320
 
 _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hb55bb4b6f266f29aE.exit.thread88.i: ; preds = %.critedge.i.i, %155, %154
-  %314 = phi i64 [ %.pre159.i, %154 ], [ %157, %155 ], [ 0, %.critedge.i.i ]
-  %.ph.i = phi i64 [ 3, %154 ], [ 0, %155 ], [ 0, %.critedge.i.i ]
+  %314 = phi i64 [ %.pre159.i, %154 ], [ 0, %.critedge.i.i ], [ %157, %155 ]
+  %.ph.i = phi i64 [ 3, %154 ], [ 0, %.critedge.i.i ], [ 0, %155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !30
   br label %.loopexit
 

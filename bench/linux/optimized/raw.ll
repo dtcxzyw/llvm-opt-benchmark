@@ -2467,7 +2467,7 @@ select.unfold.sink.split:                         ; preds = %79, %.thread
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.sink.split, %73, %43, %.thread13
-  %83 = phi i32 [ -99, %73 ], [ -19, %.thread13 ], [ -22, %43 ], [ 0, %select.unfold.sink.split ]
+  %83 = phi i32 [ -19, %.thread13 ], [ -99, %73 ], [ -22, %43 ], [ 0, %select.unfold.sink.split ]
   tail call void @__rcu_read_unlock() #13
   br label %84
 

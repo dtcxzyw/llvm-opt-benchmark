@@ -1296,8 +1296,8 @@ default.unreachable:                              ; preds = %861, %1493
   br label %.loopexit226.i.i
 
 .loopexit226.i.i:                                 ; preds = %.lr.ph240.i.i, %485, %148, %get_bitsz.exit.i.i, %.loopexit226.loopexit269.i.i, %665, %661, %578, %._crit_edge.i.i, %.preheader230.i.i, %417, %344, %343, %.preheader227.i.i, %220, %130, %127
-  %722 = phi i32 [ %624, %661 ], [ %303, %.preheader230.i.i ], [ %183, %get_bitsz.exit.i.i ], [ %89, %127 ], [ %303, %344 ], [ %183, %220 ], [ %89, %130 ], [ %303, %578 ], [ %303, %._crit_edge.i.i ], [ %183, %.preheader227.i.i ], [ %303, %417 ], [ %624, %665 ], [ %303, %485 ], [ %.pre.i.i, %.loopexit226.loopexit269.i.i ], [ %303, %343 ], [ %89, %148 ], [ %303, %.lr.ph240.i.i ]
-  %.0185.i.i = phi i32 [ %614, %661 ], [ 0, %.preheader230.i.i ], [ %89, %get_bitsz.exit.i.i ], [ 0, %127 ], [ 0, %344 ], [ %89, %220 ], [ 0, %130 ], [ 0, %578 ], [ 0, %._crit_edge.i.i ], [ %89, %.preheader227.i.i ], [ 0, %417 ], [ %614, %665 ], [ 0, %485 ], [ %614, %.loopexit226.loopexit269.i.i ], [ 0, %343 ], [ 0, %148 ], [ 0, %.lr.ph240.i.i ]
+  %722 = phi i32 [ %624, %661 ], [ %303, %.preheader230.i.i ], [ %.pre.i.i, %.loopexit226.loopexit269.i.i ], [ %89, %127 ], [ %303, %344 ], [ %183, %220 ], [ %89, %130 ], [ %303, %578 ], [ %303, %._crit_edge.i.i ], [ %183, %.preheader227.i.i ], [ %303, %417 ], [ %624, %665 ], [ %303, %485 ], [ %183, %get_bitsz.exit.i.i ], [ %303, %343 ], [ %89, %148 ], [ %303, %.lr.ph240.i.i ]
+  %.0185.i.i = phi i32 [ %614, %661 ], [ 0, %.preheader230.i.i ], [ %614, %.loopexit226.loopexit269.i.i ], [ 0, %127 ], [ 0, %344 ], [ %89, %220 ], [ 0, %130 ], [ 0, %578 ], [ 0, %._crit_edge.i.i ], [ %89, %.preheader227.i.i ], [ 0, %417 ], [ %614, %665 ], [ 0, %485 ], [ %89, %get_bitsz.exit.i.i ], [ 0, %343 ], [ 0, %148 ], [ 0, %.lr.ph240.i.i ]
   switch i32 %722, label %.loopexit.i.i [
     i32 2, label %723
     i32 3, label %751

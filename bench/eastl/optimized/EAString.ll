@@ -9476,9 +9476,9 @@ if.end122.loopexit155:                            ; preds = %if.end113, %if.end1
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then62, %for.cond78, %if.end122.loopexit155, %for.cond101.preheader, %for.cond78.preheader, %if.then90, %if.else98, %while.end
-  %nDigitCountAfterDecimal.0.ph.lcssa173 = phi i32 [ %nDigitCountAfterDecimal.0.ph.lcssa, %while.end ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.then90 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.else98 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond101.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.end122.loopexit155 ], [ %nDigitCountAfterDecimal.0.ph125, %if.then62 ]
-  %t.3.idx.ph.lcssa98172 = phi i64 [ %t.3.idx.ph.lcssa98, %while.end ], [ %t.3.idx.ph.lcssa98, %if.then90 ], [ %t.3.idx.ph.lcssa98, %for.cond78.preheader ], [ %t.3.idx.ph.lcssa98, %if.else98 ], [ %t.3.idx.ph.lcssa98, %for.cond78 ], [ %t.3.idx.ph.lcssa98, %for.cond101.preheader ], [ %t.3.idx.ph.lcssa98, %if.end122.loopexit155 ], [ %t.3.idx.ph128, %if.then62 ]
-  %neg.1 = phi i1 [ %cmp9, %while.end ], [ %cmp9, %if.then90 ], [ %cmp9, %for.cond78.preheader ], [ false, %if.else98 ], [ %cmp9, %for.cond78 ], [ true, %for.cond101.preheader ], [ %22, %if.end122.loopexit155 ], [ %cmp9, %if.then62 ]
+  %nDigitCountAfterDecimal.0.ph.lcssa173 = phi i32 [ %nDigitCountAfterDecimal.0.ph.lcssa, %while.end ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.then90 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.else98 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond101.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.end122.loopexit155 ], [ %nDigitCountAfterDecimal.0.ph125, %if.then62 ]
+  %t.3.idx.ph.lcssa98172 = phi i64 [ %t.3.idx.ph.lcssa98, %while.end ], [ %t.3.idx.ph.lcssa98, %if.then90 ], [ %t.3.idx.ph.lcssa98, %if.else98 ], [ %t.3.idx.ph.lcssa98, %for.cond78.preheader ], [ %t.3.idx.ph.lcssa98, %for.cond78 ], [ %t.3.idx.ph.lcssa98, %for.cond101.preheader ], [ %t.3.idx.ph.lcssa98, %if.end122.loopexit155 ], [ %t.3.idx.ph128, %if.then62 ]
+  %neg.1 = phi i1 [ %cmp9, %while.end ], [ %cmp9, %if.then90 ], [ false, %if.else98 ], [ %cmp9, %for.cond78.preheader ], [ %cmp9, %for.cond78 ], [ true, %for.cond101.preheader ], [ %22, %if.end122.loopexit155 ], [ %cmp9, %if.then62 ]
   %t.3.ptr.le97174 = getelementptr i8, ptr %buffer, i64 %t.3.idx.ph.lcssa98172
   %tobool128.not151 = icmp slt i32 %nDigitCountAfterDecimal.0.ph.lcssa173, 1
   br i1 %tobool128.not151, label %while.end131, label %while.body129.preheader
@@ -9730,7 +9730,7 @@ if.end95.loopexit103:                             ; preds = %if.end86, %if.end77
   br label %if.end95
 
 if.end95:                                         ; preds = %for.cond51, %if.end95.loopexit103, %for.cond74.preheader, %for.cond51.preheader, %if.then63, %if.else71, %while.end
-  %neg.1 = phi i1 [ %cmp9, %while.end ], [ %cmp9, %if.then63 ], [ %cmp9, %for.cond51.preheader ], [ false, %if.else71 ], [ %20, %if.end95.loopexit103 ], [ true, %for.cond74.preheader ], [ %cmp9, %for.cond51 ]
+  %neg.1 = phi i1 [ %cmp9, %while.end ], [ %cmp9, %if.then63 ], [ false, %if.else71 ], [ %cmp9, %for.cond51.preheader ], [ %20, %if.end95.loopexit103 ], [ true, %for.cond74.preheader ], [ %cmp9, %for.cond51 ]
   %tobool98.not99 = icmp eq i32 %nDigitCountAfterDecimal.addr.0.lcssa, 0
   br i1 %tobool98.not99, label %while.end101, label %while.body99.preheader
 

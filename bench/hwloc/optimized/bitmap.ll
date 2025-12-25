@@ -1513,7 +1513,7 @@ hwloc_bitmap_set_range.exit.thread.sink.split:    ; preds = %.lr.ph.i.i27, %hwlo
   br label %hwloc_bitmap_set_range.exit.thread
 
 hwloc_bitmap_set_range.exit.thread:               ; preds = %hwloc_bitmap_set.exit, %hwloc_bitmap_set.exit.thread, %hwloc_bitmap_set_range.exit.thread.sink.split, %hwloc_bitmap_zero.exit, %43
-  %.0 = phi i32 [ %.0.ph, %hwloc_bitmap_set_range.exit.thread.sink.split ], [ 0, %43 ], [ 0, %hwloc_bitmap_zero.exit ], [ 0, %hwloc_bitmap_set.exit.thread ], [ 0, %hwloc_bitmap_set.exit ]
+  %.0 = phi i32 [ 0, %hwloc_bitmap_zero.exit ], [ %.0.ph, %hwloc_bitmap_set_range.exit.thread.sink.split ], [ 0, %43 ], [ 0, %hwloc_bitmap_set.exit.thread ], [ 0, %hwloc_bitmap_set.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

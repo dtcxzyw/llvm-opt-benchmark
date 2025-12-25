@@ -26931,8 +26931,8 @@ if.then11.i29:                                    ; preds = %if.then7
   %25 = extractvalue { ptr, i32 } %call15.i31, 1
   br label %if.end10
 
-if.end10:                                         ; preds = %if.then7, %if.then11.i29, %while.end.i, %if.else.i6, %if.then.i7, %if.then
-  %p.sroa.5.0 = phi i32 [ %13, %if.then ], [ %13, %while.end.i ], [ %13, %if.then.i7 ], [ %13, %if.else.i6 ], [ %25, %if.then11.i29 ], [ %conv3.i.i.i21, %if.then7 ]
+if.end10:                                         ; preds = %if.then7, %if.then11.i29, %while.end.i, %if.then.i7, %if.else.i6, %if.then
+  %p.sroa.5.0 = phi i32 [ %13, %if.then ], [ %13, %while.end.i ], [ %13, %if.else.i6 ], [ %13, %if.then.i7 ], [ %25, %if.then11.i29 ], [ %conv3.i.i.i21, %if.then7 ]
   %26 = load ptr, ptr %table_.i.i, align 8
   %idxprom.i.i46 = zext i32 %p.sroa.5.0 to i64
   %arrayidx.i.i47 = getelementptr inbounds nuw i64, ptr %26, i64 %idxprom.i.i46
@@ -27144,8 +27144,8 @@ if.then10.i28:                                    ; preds = %if.then7
   %23 = extractvalue { ptr, i32 } %call13.i30, 1
   br label %if.end10
 
-if.end10:                                         ; preds = %if.then7, %if.then10.i28, %while.end.i, %if.else.i6, %if.then.i7, %if.then
-  %p.sroa.5.0 = phi i32 [ %12, %if.then ], [ %12, %while.end.i ], [ %12, %if.then.i7 ], [ %12, %if.else.i6 ], [ %23, %if.then10.i28 ], [ %conv3.i.i.i20, %if.then7 ]
+if.end10:                                         ; preds = %if.then7, %if.then10.i28, %while.end.i, %if.then.i7, %if.else.i6, %if.then
+  %p.sroa.5.0 = phi i32 [ %12, %if.then ], [ %12, %while.end.i ], [ %12, %if.else.i6 ], [ %12, %if.then.i7 ], [ %23, %if.then10.i28 ], [ %conv3.i.i.i20, %if.then7 ]
   %24 = load ptr, ptr %table_.i.i, align 8
   %idxprom.i.i44 = zext i32 %p.sroa.5.0 to i64
   %arrayidx.i.i45 = getelementptr inbounds nuw i64, ptr %24, i64 %idxprom.i.i44
@@ -27355,8 +27355,8 @@ if.then10.i28:                                    ; preds = %if.then7
   %23 = extractvalue { ptr, i32 } %call13.i29, 1
   br label %if.end10
 
-if.end10:                                         ; preds = %if.then7, %if.then10.i28, %while.end.i, %if.else.i6, %if.then.i7, %if.then
-  %p.sroa.5.0 = phi i32 [ %12, %if.then ], [ %12, %while.end.i ], [ %12, %if.then.i7 ], [ %12, %if.else.i6 ], [ %23, %if.then10.i28 ], [ %conv3.i.i.i20, %if.then7 ]
+if.end10:                                         ; preds = %if.then7, %if.then10.i28, %while.end.i, %if.then.i7, %if.else.i6, %if.then
+  %p.sroa.5.0 = phi i32 [ %12, %if.then ], [ %12, %while.end.i ], [ %12, %if.else.i6 ], [ %12, %if.then.i7 ], [ %23, %if.then10.i28 ], [ %conv3.i.i.i20, %if.then7 ]
   %24 = load ptr, ptr %table_.i.i, align 8
   %idxprom.i.i43 = zext i32 %p.sroa.5.0 to i64
   %arrayidx.i.i44 = getelementptr inbounds nuw i64, ptr %24, i64 %idxprom.i.i43
@@ -27492,8 +27492,8 @@ if.then8:                                         ; preds = %while.end.i, %if.th
   %11 = extractvalue { ptr, i32 } %call12, 1
   br label %if.end13
 
-if.end13:                                         ; preds = %while.end.i, %if.else.i, %if.then.i, %if.then8, %if.then
-  %p.sroa.5.0 = phi i32 [ %3, %if.then ], [ %11, %if.then8 ], [ %3, %if.then.i ], [ %3, %if.else.i ], [ %3, %while.end.i ]
+if.end13:                                         ; preds = %while.end.i, %if.then.i, %if.else.i, %if.then8, %if.then
+  %p.sroa.5.0 = phi i32 [ %3, %if.then ], [ %11, %if.then8 ], [ %3, %if.else.i ], [ %3, %if.then.i ], [ %3, %while.end.i ]
   %table_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %12 = load ptr, ptr %table_.i.i, align 8
   %idxprom.i.i = zext i32 %p.sroa.5.0 to i64

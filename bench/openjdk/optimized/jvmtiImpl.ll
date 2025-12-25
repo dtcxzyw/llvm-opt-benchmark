@@ -2557,7 +2557,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %85, %95
   br label %102
 
 102:                                              ; preds = %.sink.split, %70, %98, %16
-  %.0 = phi i1 [ true, %70 ], [ true, %98 ], [ true, %16 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %98 ], [ true, %70 ], [ true, %16 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2639,7 +2639,7 @@ define hidden noundef zeroext i1 @_ZN20VM_BaseGetOrSetLocal22check_slot_type_no_
   br label %49
 
 49:                                               ; preds = %.sink.split, %43, %45
-  %.0 = phi i1 [ true, %43 ], [ true, %45 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %45 ], [ true, %43 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 
@@ -2814,7 +2814,7 @@ _ZN20VM_BaseGetOrSetLocal22check_slot_type_no_lvtEP10javaVFrame.exit: ; preds = 
   store i32 %.sink.i, ptr %92, align 4
   br label %273
 
-93:                                               ; preds = %87, %89
+93:                                               ; preds = %89, %87
   %94 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 28

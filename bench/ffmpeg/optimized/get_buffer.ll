@@ -337,7 +337,7 @@ define i32 @avcodec_default_get_buffer2(ptr noundef %0, ptr noundef %1, i32 noun
   br label %update_frame_pool.exit
 
 update_frame_pool.exit:                           ; preds = %.thread.i, %171
-  %.053.i = phi i32 [ %.1.i, %171 ], [ -12, %.thread.i ]
+  %.053.i = phi i32 [ -12, %.thread.i ], [ %.1.i, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %video_get_buffer.exit
 

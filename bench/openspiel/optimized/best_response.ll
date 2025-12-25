@@ -4996,9 +4996,9 @@ _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
 166:                                              ; preds = %83, %.loopexit.split-lp, %160
-  %167 = phi ptr [ %158, %160 ], [ %84, %83 ], [ %158, %.loopexit.split-lp ]
-  %168 = phi ptr [ %99, %160 ], [ %85, %83 ], [ %99, %.loopexit.split-lp ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %160 ], [ %86, %83 ], [ %.pn, %.loopexit.split-lp ]
+  %167 = phi ptr [ %158, %.loopexit.split-lp ], [ %84, %83 ], [ %158, %160 ]
+  %168 = phi ptr [ %99, %.loopexit.split-lp ], [ %85, %83 ], [ %99, %160 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp ], [ %86, %83 ], [ %.pn, %160 ]
   call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %38) #28
   %.not.i.i.i50 = icmp eq ptr %168, null
   br i1 %.not.i.i.i50, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit, label %169

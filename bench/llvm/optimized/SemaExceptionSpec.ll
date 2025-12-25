@@ -6911,7 +6911,7 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread: ; preds = %_ZN
   br label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit69
 
 _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit69: ; preds = %158, %115, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread138, %178
-  %.025 = phi ptr [ %116, %115 ], [ %159, %158 ], [ %183, %178 ], [ %175, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread138 ]
+  %.025 = phi ptr [ %183, %178 ], [ %159, %158 ], [ %116, %115 ], [ %175, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread138 ]
   %.not43 = icmp eq ptr %.025, null
   br i1 %.not43, label %.critedge, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit69.thread
 
@@ -7849,7 +7849,7 @@ _ZNK5clang13ObjCAtTryStmt14getFinallyStmtEv.exit.thread: ; preds = %315, %325, %
   br i1 %342, label %common.ret, label %332
 
 common.ret:                                       ; preds = %271, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %334, %.critedge.thread, %231, %218, %.lr.ph459, %124, %.lr.ph467, %23, %60, %129, %139, %151, %187, %20, %17, %9, %38, %.thread, %57, %52, %44, %77, %.thread308, %109, %115, %131, %292, %294, %313, %103, %106, %143, %64, %118, %_ZNK5clang8DeclStmt5declsEv.exit, %.thread316.loopexit602, %.thread316.loopexit704, %._crit_edge
-  %.0.sink = phi i32 [ %346, %._crit_edge ], [ %59, %57 ], [ %314, %313 ], [ 2, %231 ], [ %24, %23 ], [ 2, %17 ], [ 2, %38 ], [ %63, %60 ], [ 2, %52 ], [ 2, %9 ], [ %293, %292 ], [ 2, %77 ], [ 2, %103 ], [ 2, %109 ], [ %117, %115 ], [ %130, %129 ], [ %83, %.thread308 ], [ %140, %139 ], [ %156, %151 ], [ %.0.ph705, %.thread316.loopexit704 ], [ 1, %tailrecurse ], [ %108, %106 ], [ 2, %131 ], [ %300, %294 ], [ 0, %_ZNK5clang8DeclStmt5declsEv.exit ], [ 0, %.thread316.loopexit602 ], [ 2, %.lr.ph459 ], [ 2, %44 ], [ 2, %143 ], [ %43, %.thread ], [ %188, %187 ], [ %22, %20 ], [ 0, %118 ], [ %339, %334 ], [ 0, %64 ], [ %72, %.lr.ph467 ], [ %128, %124 ], [ 2, %218 ], [ %.2213, %.critedge.thread ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ %265, %271 ]
+  %.0.sink = phi i32 [ %346, %._crit_edge ], [ %59, %57 ], [ %314, %313 ], [ 2, %231 ], [ %24, %23 ], [ 2, %17 ], [ 2, %38 ], [ %63, %60 ], [ 2, %52 ], [ 2, %9 ], [ %293, %292 ], [ 2, %77 ], [ 2, %103 ], [ 2, %109 ], [ %117, %115 ], [ %130, %129 ], [ %83, %.thread308 ], [ %140, %139 ], [ %156, %151 ], [ %.0.ph705, %.thread316.loopexit704 ], [ 1, %tailrecurse ], [ %108, %106 ], [ 2, %131 ], [ %300, %294 ], [ 0, %_ZNK5clang8DeclStmt5declsEv.exit ], [ 0, %.thread316.loopexit602 ], [ 2, %.lr.ph459 ], [ 2, %44 ], [ 2, %143 ], [ %43, %.thread ], [ %188, %187 ], [ %22, %20 ], [ 0, %64 ], [ %339, %334 ], [ 0, %118 ], [ %72, %.lr.ph467 ], [ %128, %124 ], [ 2, %218 ], [ %.2213, %.critedge.thread ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ %265, %271 ]
   %accumulator.ret.tr340 = tail call noundef i32 @llvm.smax.i32(i32 %.0.sink, i32 %accumulator.tr.ph)
   ret i32 %accumulator.ret.tr340
 

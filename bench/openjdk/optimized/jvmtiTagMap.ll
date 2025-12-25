@@ -12810,7 +12810,7 @@ _ZN15CallbackInvoker29report_static_field_referenceEP7oopDescS1_i.exit: ; preds 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %150, %_ZN15CallbackInvoker30report_constant_pool_referenceEP7oopDescS1_i.exit, %174, %_ZN15CallbackInvoker26report_interface_referenceEP7oopDescS1_.exit, %.loopexit.sink.split, %69, %61, %51, %37, %2, %_ZN15CallbackInvoker24report_signers_referenceEP7oopDescS1_.exit, %_ZN15CallbackInvoker34report_protection_domain_referenceEP7oopDescS1_.exit, %_ZN15CallbackInvoker29report_class_loader_referenceEP7oopDescS1_.exit, %_ZN15CallbackInvoker27report_superclass_referenceEP7oopDescS1_.exit, %9
-  %.0 = phi i1 [ false, %_ZN15CallbackInvoker24report_signers_referenceEP7oopDescS1_.exit ], [ %.0.ph, %.loopexit.sink.split ], [ false, %61 ], [ false, %174 ], [ false, %51 ], [ false, %_ZN15CallbackInvoker34report_protection_domain_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker29report_class_loader_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker27report_superclass_referenceEP7oopDescS1_.exit ], [ true, %9 ], [ false, %69 ], [ true, %2 ], [ false, %37 ], [ false, %_ZN15CallbackInvoker26report_interface_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker30report_constant_pool_referenceEP7oopDescS1_i.exit ], [ false, %150 ]
+  %.0 = phi i1 [ false, %_ZN15CallbackInvoker24report_signers_referenceEP7oopDescS1_.exit ], [ false, %69 ], [ false, %61 ], [ false, %51 ], [ false, %174 ], [ false, %_ZN15CallbackInvoker34report_protection_domain_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker29report_class_loader_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker27report_superclass_referenceEP7oopDescS1_.exit ], [ true, %9 ], [ %.0.ph, %.loopexit.sink.split ], [ true, %2 ], [ false, %37 ], [ false, %_ZN15CallbackInvoker26report_interface_referenceEP7oopDescS1_.exit ], [ false, %_ZN15CallbackInvoker30report_constant_pool_referenceEP7oopDescS1_i.exit ], [ false, %150 ]
   ret i1 %.0
 }
 
@@ -13151,7 +13151,7 @@ _ZNK7oopDesc5klassEv.exit32:                      ; preds = %78, %86
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %60, %_ZN15CallbackInvoker22report_field_referenceEP7oopDescS1_i.exit, %27, %90, %_ZN15CallbackInvoker22report_class_referenceEP7oopDescS1_.exit, %92
-  %.0 = phi i1 [ false, %27 ], [ false, %_ZN15CallbackInvoker22report_class_referenceEP7oopDescS1_.exit ], [ true, %92 ], [ false, %90 ], [ false, %_ZN15CallbackInvoker22report_field_referenceEP7oopDescS1_i.exit ], [ false, %60 ], [ false, %54 ]
+  %.0 = phi i1 [ false, %90 ], [ false, %_ZN15CallbackInvoker22report_class_referenceEP7oopDescS1_.exit ], [ true, %92 ], [ false, %27 ], [ false, %_ZN15CallbackInvoker22report_field_referenceEP7oopDescS1_i.exit ], [ false, %60 ], [ false, %54 ]
   ret i1 %.0
 }
 

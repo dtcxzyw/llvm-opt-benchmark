@@ -5687,9 +5687,9 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_to
   ret i1 %.2
 
 .body:                                            ; preds = %.loopexit83, %83, %95, %91, %85, %172, %170, %119
-  %.sroa.21.2 = phi ptr [ %.sroa.21.4128, %170 ], [ %.sroa.11.1129, %172 ], [ %.sroa.21.1, %119 ], [ %.sroa.21.1, %83 ], [ %.sroa.21.1, %85 ], [ %.sroa.21.1, %91 ], [ %.sroa.21.1, %95 ], [ %.sroa.21.1, %.loopexit83 ]
-  %.sroa.061.2 = phi ptr [ %.sroa.061.4130, %170 ], [ %.sroa.061.4130, %172 ], [ %.sroa.061.1, %119 ], [ %.sroa.061.1, %83 ], [ %.sroa.061.1, %85 ], [ %.sroa.061.1, %91 ], [ %.sroa.061.1, %95 ], [ %.sroa.061.1, %.loopexit83 ]
-  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %171, %170 ], [ %lpad.phi, %172 ], [ %120, %119 ], [ %84, %83 ], [ %86, %85 ], [ %.pn29, %91 ], [ %96, %95 ], [ %lpad.loopexit85, %.loopexit83 ]
+  %.sroa.21.2 = phi ptr [ %.sroa.11.1129, %172 ], [ %.sroa.21.4128, %170 ], [ %.sroa.21.1, %119 ], [ %.sroa.21.1, %83 ], [ %.sroa.21.1, %85 ], [ %.sroa.21.1, %91 ], [ %.sroa.21.1, %95 ], [ %.sroa.21.1, %.loopexit83 ]
+  %.sroa.061.2 = phi ptr [ %.sroa.061.4130, %172 ], [ %.sroa.061.4130, %170 ], [ %.sroa.061.1, %119 ], [ %.sroa.061.1, %83 ], [ %.sroa.061.1, %85 ], [ %.sroa.061.1, %91 ], [ %.sroa.061.1, %95 ], [ %.sroa.061.1, %.loopexit83 ]
+  %.pn29.pn.pn.pn = phi { ptr, i32 } [ %lpad.phi, %172 ], [ %171, %170 ], [ %120, %119 ], [ %84, %83 ], [ %86, %85 ], [ %.pn29, %91 ], [ %96, %95 ], [ %lpad.loopexit85, %.loopexit83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i.i.i51 = icmp eq ptr %.sroa.061.2, null
   br i1 %.not.i.i.i51, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit52, label %187
@@ -6506,9 +6506,9 @@ _ZN4cvc58internal6StringD2Ev.exit343._crit_edge:  ; preds = %274, %_ZN4cvc58inte
   br i1 %.2207, label %.thread, label %.backedge
 
 .backedge:                                        ; preds = %_ZN4cvc58internal6StringD2Ev.exit343._crit_edge, %288, %.thread
-  %.0220.be = phi i32 [ %.4224, %_ZN4cvc58internal6StringD2Ev.exit343._crit_edge ], [ %.2222506, %.thread ], [ %292, %288 ]
-  %.0214.be = phi i32 [ %.4218, %_ZN4cvc58internal6StringD2Ev.exit343._crit_edge ], [ %.2216507, %.thread ], [ %293, %288 ]
-  %.0208.be = phi i32 [ %.4212, %_ZN4cvc58internal6StringD2Ev.exit343._crit_edge ], [ %286, %.thread ], [ %286, %288 ]
+  %.0220.be = phi i32 [ %.2222506, %.thread ], [ %.4224, %_ZN4cvc58internal6StringD2Ev.exit343._crit_edge ], [ %292, %288 ]
+  %.0214.be = phi i32 [ %.2216507, %.thread ], [ %.4218, %_ZN4cvc58internal6StringD2Ev.exit343._crit_edge ], [ %293, %288 ]
+  %.0208.be = phi i32 [ %286, %.thread ], [ %.4212, %_ZN4cvc58internal6StringD2Ev.exit343._crit_edge ], [ %286, %288 ]
   br label %162, !llvm.loop !115
 
 .thread:                                          ; preds = %226, %217, %_ZN4cvc58internal6StringD2Ev.exit343._crit_edge

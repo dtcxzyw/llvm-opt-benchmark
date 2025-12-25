@@ -1412,7 +1412,7 @@ default.unreachable15:                            ; preds = %2
   br i1 %.not12.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h78203cb76ea4a401E.llvm.16324883343328763678.exit", label %.lr.ph.i.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h78203cb76ea4a401E.llvm.16324883343328763678.exit": ; preds = %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.loopexit.i", %48, %40, %13, %11, %.lr.ph.i, %18, %2
-  %.sroa.0.0.shrunk = phi i1 [ true, %48 ], [ true, %2 ], [ false, %.lr.ph.i ], [ false, %18 ], [ %.not.not.not.i.not.not.not, %13 ], [ %.not.not.not.i.not.not.not, %11 ], [ true, %40 ], [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.loopexit.i" ]
+  %.sroa.0.0.shrunk = phi i1 [ %.not.not.not.i.not.not.not, %13 ], [ true, %2 ], [ false, %.lr.ph.i ], [ false, %18 ], [ true, %48 ], [ %.not.not.not.i.not.not.not, %11 ], [ true, %40 ], [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.loopexit.i" ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -1523,7 +1523,7 @@ default.unreachable15:                            ; preds = %2
   br i1 %.not15.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h285ecef3dac782b8E.exit", label %.lr.ph.i.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h285ecef3dac782b8E.exit": ; preds = %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hd5470a01799f2fdcE.exit.loopexit.i", %47, %39, %13, %11, %.lr.ph.i, %17, %2
-  %.sroa.0.0.shrunk = phi i1 [ true, %47 ], [ true, %2 ], [ false, %.lr.ph.i ], [ false, %17 ], [ %.not.not.not.i.not.not.not, %13 ], [ %.not.not.not.i.not.not.not, %11 ], [ true, %39 ], [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hd5470a01799f2fdcE.exit.loopexit.i" ]
+  %.sroa.0.0.shrunk = phi i1 [ %.not.not.not.i.not.not.not, %13 ], [ true, %2 ], [ false, %.lr.ph.i ], [ false, %17 ], [ true, %47 ], [ %.not.not.not.i.not.not.not, %11 ], [ true, %39 ], [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17hd5470a01799f2fdcE.exit.loopexit.i" ]
   ret i1 %.sroa.0.0.shrunk
 }
 
@@ -11959,8 +11959,8 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   br i1 %.not12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a82bca7ed84c8c6E.llvm.16324883343328763678.exit.sink.split", label %.lr.ph.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a82bca7ed84c8c6E.llvm.16324883343328763678.exit.sink.split": ; preds = %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.loopexit", %19, %27, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.us"
-  %.us-phi.sink = phi ptr [ %10, %19 ], [ %8, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.us" ], [ %10, %27 ], [ %10, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.loopexit" ]
-  %.ph = phi i1 [ true, %19 ], [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.us" ], [ true, %27 ], [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.loopexit" ]
+  %.us-phi.sink = phi ptr [ %8, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.us" ], [ %10, %19 ], [ %10, %27 ], [ %10, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.loopexit" ]
+  %.ph = phi i1 [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.us" ], [ true, %19 ], [ true, %27 ], [ false, %"_ZN21uv_distribution_types4hash6Hashed9satisfies28_$u7b$$u7b$closure$u7d$$u7d$17h8e87140a886a1875E.llvm.16324883343328763678.exit.loopexit" ]
   store ptr %.us-phi.sink, ptr %0, align 8, !alias.scope !3648
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5a82bca7ed84c8c6E.llvm.16324883343328763678.exit"
 

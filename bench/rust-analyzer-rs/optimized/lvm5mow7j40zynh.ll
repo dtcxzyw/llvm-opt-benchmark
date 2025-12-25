@@ -37550,7 +37550,7 @@ _ZN8smallvec10deallocate17hb66e02d02da6e99aE.exit.i: ; preds = %43
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %45, i64 noundef 4) #45, !noalias !5269
   br label %_ZN8smallvec10infallible17h7538e96c459630deE.exit
 
-47:                                               ; preds = %33, %30
+47:                                               ; preds = %30, %33
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.41b2814d765c6afec554d9a1074a4f57.168.llvm.8225647753450622592, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.41b2814d765c6afec554d9a1074a4f57.169.llvm.8225647753450622592) #43
   unreachable
 
@@ -37682,7 +37682,7 @@ _ZN8smallvec10deallocate17h910f7449d4cefdb8E.exit.i: ; preds = %46
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %48, i64 noundef 8) #45, !noalias !5282
   br label %_ZN8smallvec10infallible17h7538e96c459630deE.exit
 
-52:                                               ; preds = %34, %29
+52:                                               ; preds = %29, %34
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.41b2814d765c6afec554d9a1074a4f57.168.llvm.8225647753450622592, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.41b2814d765c6afec554d9a1074a4f57.169.llvm.8225647753450622592) #43
   unreachable
 

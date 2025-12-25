@@ -598,7 +598,7 @@ _ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i36
 _ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit37: ; preds = %36, %33, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit28.thread126, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i36
   ret void
 
-_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i39: ; preds = %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31.thread116, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i33
+_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i39: ; preds = %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i33, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31.thread116
   %.pn.pn140 = phi { ptr, i32 } [ %39, %_ZNSt10unique_ptrIN5boost6locale11gnu_gettext6lambda4exprESt14default_deleteIS4_EED2Ev.exit31.thread116 ], [ %.pn109113, %_ZNKSt14default_deleteIN5boost6locale11gnu_gettext6lambda4exprEEclEPS4_.exit.i33 ]
   %64 = load ptr, ptr %35, align 8, !tbaa !15
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16

@@ -2091,7 +2091,7 @@ _.exit61.i:                                       ; preds = %96, %94
   store i32 %104, ptr %105, align 4, !tbaa !55
   br label %106
 
-106:                                              ; preds = %103, %99, %.critedge.i, %34, %49
+106:                                              ; preds = %49, %103, %99, %34, %.critedge.i
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %108 = tail call ptr @string_list_append(ptr noundef nonnull %107, ptr noundef nonnull %scevgep) #25
   br label %read_worktree_config.exit
@@ -3792,7 +3792,7 @@ set_git_dir.exit.i41:                             ; preds = %175, %strbuf_setlen
   unreachable
 
 setup_discovered_git_dir.exit:                    ; preds = %176, %set_git_dir.exit.i41, %151, %128, %strbuf_addch.exit.i, %98, %set_git_dir.exit.i, %64, %42, %26
-  %.0 = phi ptr [ %29, %26 ], [ null, %set_git_dir.exit.i41 ], [ null, %98 ], [ null, %176 ], [ %153, %151 ], [ null, %128 ], [ %115, %strbuf_addch.exit.i ], [ %65, %64 ], [ null, %42 ], [ null, %set_git_dir.exit.i ]
+  %.0 = phi ptr [ %29, %26 ], [ null, %128 ], [ null, %98 ], [ %153, %151 ], [ null, %176 ], [ null, %set_git_dir.exit.i41 ], [ %115, %strbuf_addch.exit.i ], [ %65, %64 ], [ null, %42 ], [ null, %set_git_dir.exit.i ]
   br i1 %.not, label %203, label %setup_discovered_git_dir.exit.thread
 
 setup_discovered_git_dir.exit.thread:             ; preds = %setup_discovered_git_dir.exit

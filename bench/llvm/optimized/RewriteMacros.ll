@@ -1581,12 +1581,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %_Z
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %258, %.critedge4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156, %193
-  %.sroa.0261.1 = phi i32 [ %.sroa.0261.0410, %193 ], [ %.sroa.0261.3, %.critedge4 ], [ %.sroa.0261.0.copyload267, %258 ], [ %.sroa.0261.0410, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.sroa.0261.2.le, %.critedge2.loopexit ]
-  %.sroa.12.1 = phi i32 [ %.sroa.12.0411, %193 ], [ %.sroa.12.4, %.critedge4 ], [ %.sroa.12.0.copyload275, %258 ], [ %.sroa.12.0411, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.sroa.12.2.le, %.critedge2.loopexit ]
-  %.sroa.13.1 = phi ptr [ %.sroa.13.0412, %193 ], [ %.sroa.13.3, %.critedge4 ], [ %.sroa.13.0.copyload285, %258 ], [ %.sroa.13.0412, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.sroa.13.2.le, %.critedge2.loopexit ]
-  %.sroa.15.1 = phi i16 [ %.sroa.15.0413, %193 ], [ %.sroa.15.3, %.critedge4 ], [ %.sroa.15.0.copyload295, %258 ], [ %.sroa.15.0413, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.sroa.15.1.ph, %.critedge2.loopexit ]
-  %.sroa.21.1 = phi i16 [ %.sroa.21.0414, %193 ], [ %.sroa.21.3, %.critedge4 ], [ %.sroa.21.0.copyload308, %258 ], [ %.sroa.21.0414, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.sroa.21.2.lcssa, %.critedge2.loopexit ]
-  %.1 = phi i32 [ %.0336415, %193 ], [ %.4, %.critedge4 ], [ %265, %258 ], [ %.0336415, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.2.lcssa, %.critedge2.loopexit ]
+  %.sroa.0261.1 = phi i32 [ %.sroa.0261.3, %.critedge4 ], [ %.sroa.0261.0410, %193 ], [ %.sroa.0261.0.copyload267, %258 ], [ %.sroa.0261.0410, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.sroa.0261.2.le, %.critedge2.loopexit ]
+  %.sroa.12.1 = phi i32 [ %.sroa.12.4, %.critedge4 ], [ %.sroa.12.0411, %193 ], [ %.sroa.12.0.copyload275, %258 ], [ %.sroa.12.0411, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.sroa.12.2.le, %.critedge2.loopexit ]
+  %.sroa.13.1 = phi ptr [ %.sroa.13.3, %.critedge4 ], [ %.sroa.13.0412, %193 ], [ %.sroa.13.0.copyload285, %258 ], [ %.sroa.13.0412, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.sroa.13.2.le, %.critedge2.loopexit ]
+  %.sroa.15.1 = phi i16 [ %.sroa.15.3, %.critedge4 ], [ %.sroa.15.0413, %193 ], [ %.sroa.15.0.copyload295, %258 ], [ %.sroa.15.0413, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.sroa.15.1.ph, %.critedge2.loopexit ]
+  %.sroa.21.1 = phi i16 [ %.sroa.21.3, %.critedge4 ], [ %.sroa.21.0414, %193 ], [ %.sroa.21.0.copyload308, %258 ], [ %.sroa.21.0414, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.sroa.21.2.lcssa, %.critedge2.loopexit ]
+  %.1 = phi i32 [ %.4, %.critedge4 ], [ %.0336415, %193 ], [ %265, %258 ], [ %.0336415, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156 ], [ %.2.lcssa, %.critedge2.loopexit ]
   %619 = icmp ne i16 %.sroa.15.1, 1
   %620 = load i16, ptr %82, align 8
   %621 = icmp ne i16 %620, 1

@@ -2040,7 +2040,7 @@ _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit89: ; preds = %244, %239, %_ZN5
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit95.thread
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit95:      ; preds = %200, %188, %191, %196
-  %.pn25.pn.pn = phi { ptr, i32 } [ %189, %196 ], [ %189, %191 ], [ %189, %188 ], [ %201, %200 ]
+  %.pn25.pn.pn = phi { ptr, i32 } [ %189, %191 ], [ %189, %196 ], [ %189, %188 ], [ %201, %200 ]
   %.not.i.i96 = icmp eq ptr %.sroa.0109.0172, null
   br i1 %.not.i.i96, label %_ZN5Ipopt8SmartPtrINS_11DenseVectorEED2Ev.exit97, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit95.thread
 

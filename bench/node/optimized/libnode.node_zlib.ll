@@ -11325,7 +11325,7 @@ cleanup.sink.split:                               ; preds = %if.then76, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %for.inc, %cleanup.sink.split, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %.sink91 = phi i64 [ 632, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 640, %cleanup.sink.split ], [ 632, %for.inc ]
+  %.sink91 = phi i64 [ 640, %cleanup.sink.split ], [ 632, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 632, %for.inc ]
   %62 = load ptr, ptr %args, align 8
   %arrayidx.i665 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %arrayidx.i737 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -13990,7 +13990,7 @@ cleanup.sink.split:                               ; preds = %if.then76, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %for.inc, %cleanup.sink.split, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %.sink91 = phi i64 [ 632, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 640, %cleanup.sink.split ], [ 632, %for.inc ]
+  %.sink91 = phi i64 [ 640, %cleanup.sink.split ], [ 632, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 632, %for.inc ]
   %62 = load ptr, ptr %args, align 8
   %arrayidx.i665 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %arrayidx.i737 = getelementptr inbounds nuw i8, ptr %62, i64 8

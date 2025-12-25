@@ -4056,8 +4056,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit501: ; preds = %13
   br label %.body
 
 .loopexit.split-lp962.loopexit.split-lp.loopexit.split-lp: ; preds = %1483, %1493, %1536, %1608, %1412
-  %.sroa.0681.12.ph.ph.ph989 = phi ptr [ %.sroa.0681.14, %1483 ], [ %.sroa.0681.14, %1493 ], [ %.sroa.0681.32279, %1412 ], [ %.sroa.0681.11, %1608 ], [ %.sroa.0681.14, %1536 ]
-  %.sroa.16.12.ph.ph.ph990 = phi ptr [ %.sroa.16.14, %1483 ], [ %.sroa.16.14, %1493 ], [ %.sroa.16.32281, %1412 ], [ %.sroa.16.11, %1608 ], [ %.sroa.16.14, %1536 ]
+  %.sroa.0681.12.ph.ph.ph989 = phi ptr [ %.sroa.0681.14, %1483 ], [ %.sroa.0681.11, %1608 ], [ %.sroa.0681.32279, %1412 ], [ %.sroa.0681.14, %1493 ], [ %.sroa.0681.14, %1536 ]
+  %.sroa.16.12.ph.ph.ph990 = phi ptr [ %.sroa.16.14, %1483 ], [ %.sroa.16.11, %1608 ], [ %.sroa.16.32281, %1412 ], [ %.sroa.16.14, %1493 ], [ %.sroa.16.14, %1536 ]
   %lpad.loopexit.split-lp992 = landingpad { ptr, i32 }
           cleanup
   br label %.body

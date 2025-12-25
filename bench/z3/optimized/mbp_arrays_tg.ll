@@ -5606,7 +5606,7 @@ _ZN3mbp12mbp_array_tg4impl12is_wr_on_rhsEP4exprS3_.exit: ; preds = %_ZNK17array_
   %46 = tail call noundef zeroext i1 @_Z13contains_varsP4exprRK13obj_hashtableI3appER11ast_managerii(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(20) %44, ptr noundef nonnull align 8 dereferenceable(976) %45, i32 noundef -1, i32 noundef -1)
   br i1 %46, label %_ZN3mbp12mbp_array_tg4impl12is_wr_on_rhsEP4exprS3_.exit.thread, label %_ZN3mbp12mbp_array_tg4impl12is_wr_on_rhsEP4exprS3_.exit.thread11
 
-_ZN3mbp12mbp_array_tg4impl12is_wr_on_rhsEP4exprS3_.exit.thread11: ; preds = %_ZNK17array_recognizers8is_storeEP4expr.exit.i4.i, %27, %33, %_ZN3mbp12mbp_array_tg4impl12is_wr_on_rhsEP4exprS3_.exit
+_ZN3mbp12mbp_array_tg4impl12is_wr_on_rhsEP4exprS3_.exit.thread11: ; preds = %33, %27, %_ZNK17array_recognizers8is_storeEP4expr.exit.i4.i, %_ZN3mbp12mbp_array_tg4impl12is_wr_on_rhsEP4exprS3_.exit
   br label %_ZN3mbp12mbp_array_tg4impl12is_wr_on_rhsEP4exprS3_.exit.thread
 
 _ZN3mbp12mbp_array_tg4impl12is_wr_on_rhsEP4exprS3_.exit.thread: ; preds = %5, %_ZNK17array_recognizers8is_storeEP4expr.exit.i.i, %12, %_ZN3mbp12mbp_array_tg4impl12is_arr_writeEP4expr.exit.i, %_ZN3mbp12mbp_array_tg4impl12is_wr_on_rhsEP4exprS3_.exit.thread11, %_ZN3mbp12mbp_array_tg4impl12is_wr_on_rhsEP4exprS3_.exit
@@ -7733,7 +7733,7 @@ _ZNK17array_recognizers8is_storeEP4expr.exit.thread: ; preds = %23, %30, %_Z17is
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %.loopexit.sink.split, %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, %.loopexit24, %5, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %.loopexit.sink.split ], [ false, %_ZNK17array_recognizers8is_storeEP4expr.exit.thread ], [ false, %5 ], [ false, %.loopexit24 ], [ false, %57 ]
+  %.0 = phi i1 [ true, %2 ], [ false, %.loopexit24 ], [ false, %_ZNK17array_recognizers8is_storeEP4expr.exit.thread ], [ false, %5 ], [ true, %.loopexit.sink.split ], [ false, %57 ]
   ret i1 %.0
 }
 

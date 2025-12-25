@@ -328,7 +328,7 @@ rvermUnalign.exit:                                ; preds = %147, %151
   br label %rvermicelliExec.exit
 
 rvermicelliExec.exit:                             ; preds = %.preheader, %117, %rvermSearchAligned.exit, %.thread, %rvermUnalign.exit
-  %.0.i64 = phi ptr [ %133, %.thread ], [ %146, %rvermSearchAligned.exit ], [ %159, %rvermUnalign.exit ], [ %.046.i, %117 ], [ %.046.i, %.preheader ]
+  %.0.i64 = phi ptr [ %146, %rvermSearchAligned.exit ], [ %133, %.thread ], [ %159, %rvermUnalign.exit ], [ %.046.i, %117 ], [ %.046.i, %.preheader ]
   %160 = ptrtoint ptr %.0.i64 to i64
   %161 = sub i64 %107, %115
   %162 = add i64 %161, %160
@@ -448,7 +448,7 @@ rvermUnalignNocase.exit:                          ; preds = %210, %215
   br label %rvermicelliExec.exit83
 
 rvermicelliExec.exit83:                           ; preds = %.preheader474, %177, %rvermSearchAlignedNocase.exit, %.thread311, %rvermUnalignNocase.exit
-  %.0.i73 = phi ptr [ %195, %.thread311 ], [ %209, %rvermSearchAlignedNocase.exit ], [ %223, %rvermUnalignNocase.exit ], [ %.046.i80, %177 ], [ %.046.i80, %.preheader474 ]
+  %.0.i73 = phi ptr [ %209, %rvermSearchAlignedNocase.exit ], [ %195, %.thread311 ], [ %223, %rvermUnalignNocase.exit ], [ %.046.i80, %177 ], [ %.046.i80, %.preheader474 ]
   %224 = ptrtoint ptr %.0.i73 to i64
   %225 = sub i64 %167, %175
   %226 = add i64 %225, %224
@@ -1246,8 +1246,8 @@ mmbit_sparse_iter_begin.exit:                     ; preds = %mmbit_mask_index.ex
   %.not78.i609 = icmp eq i32 %654, -1
   br i1 %.not78.i609, label %._crit_edge613, label %.lr.ph612
 
-.lr.ph612:                                        ; preds = %628, %579, %mmbit_sparse_iter_begin.exit
-  %.0.i155860 = phi i32 [ %654, %mmbit_sparse_iter_begin.exit ], [ %633, %628 ], [ %581, %579 ]
+.lr.ph612:                                        ; preds = %579, %628, %mmbit_sparse_iter_begin.exit
+  %.0.i155860 = phi i32 [ %654, %mmbit_sparse_iter_begin.exit ], [ %581, %579 ], [ %633, %628 ]
   %695 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %696 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %697 = getelementptr inbounds nuw i8, ptr %0, i64 236

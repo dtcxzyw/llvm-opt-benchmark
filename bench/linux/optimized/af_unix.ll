@@ -6695,7 +6695,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.critedge
 
 .critedge:                                        ; preds = %267, %276, %246, %151, %241, %245, %.loopexit28, %166, %159, %119, %115
-  %302 = phi ptr [ %51, %115 ], [ %51, %119 ], [ %163, %166 ], [ %163, %.loopexit28 ], [ null, %159 ], [ null, %241 ], [ null, %245 ], [ null, %246 ], [ null, %151 ], [ %163, %276 ], [ %163, %267 ]
+  %302 = phi ptr [ %51, %115 ], [ %51, %119 ], [ %163, %166 ], [ %163, %.loopexit28 ], [ null, %159 ], [ null, %245 ], [ null, %241 ], [ null, %246 ], [ null, %151 ], [ %163, %276 ], [ %163, %267 ]
   call void @kfree_skb_reason(ptr noundef nonnull %88, i32 noundef 2) #19
   br label %304
 
@@ -6704,7 +6704,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.thread24
 
 304:                                              ; preds = %.critedge, %82, %68, %65
-  %305 = phi ptr [ %51, %65 ], [ %302, %.critedge ], [ %51, %68 ], [ %51, %82 ]
+  %305 = phi ptr [ %302, %.critedge ], [ %51, %65 ], [ %51, %68 ], [ %51, %82 ]
   %306 = icmp eq ptr %305, null
   br i1 %306, label %.thread24, label %307
 

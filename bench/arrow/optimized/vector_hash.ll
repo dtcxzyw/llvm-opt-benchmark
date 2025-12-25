@@ -86541,7 +86541,7 @@ _ZN5arrow6StatusD2Ev.exit32.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %122, label %_ZN5arrow6StatusD2Ev.exit34.i.i.i, label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_10BinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlS9_E_clES9_.exit
 
 _ZN5arrow6StatusD2Ev.exit34.i.i.i:                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i, %101, %_ZN5arrow6StatusD2Ev.exit32.i.i.i, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i
-  %.sink14.i.i.i = phi i32 [ %110, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i ], [ %110, %_ZN5arrow6StatusD2Ev.exit32.i.i.i ], [ %89, %101 ], [ %89, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i ]
+  %.sink14.i.i.i = phi i32 [ %110, %_ZN5arrow6StatusD2Ev.exit32.i.i.i ], [ %110, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i ], [ %89, %101 ], [ %89, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i ]
   %123 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %124 = load ptr, ptr %123, align 8, !tbaa !899, !noalias !4929
   %125 = getelementptr inbounds nuw i8, ptr %.val, i64 184
@@ -87776,7 +87776,7 @@ _ZN5arrow6StatusD2Ev.exit32.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %118, label %_ZN5arrow6StatusD2Ev.exit34.i.i.i, label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_15LargeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlS9_E_clES9_.exit
 
 _ZN5arrow6StatusD2Ev.exit34.i.i.i:                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i, %97, %_ZN5arrow6StatusD2Ev.exit32.i.i.i, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i
-  %.sink15.i.i.i = phi i32 [ %106, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i ], [ %106, %_ZN5arrow6StatusD2Ev.exit32.i.i.i ], [ %89, %97 ], [ %89, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i ]
+  %.sink15.i.i.i = phi i32 [ %106, %_ZN5arrow6StatusD2Ev.exit32.i.i.i ], [ %106, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i ], [ %89, %97 ], [ %89, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i ]
   %119 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %120 = load ptr, ptr %119, align 8, !tbaa !899, !noalias !5041
   %121 = getelementptr inbounds nuw i8, ptr %.val, i64 184
@@ -89015,7 +89015,7 @@ _ZN5arrow6StatusD2Ev.exit32.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %142, label %_ZN5arrow6StatusD2Ev.exit34.i.i.i, label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_14BinaryViewTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlS9_E_clES9_.exit
 
 _ZN5arrow6StatusD2Ev.exit34.i.i.i:                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i, %121, %_ZN5arrow6StatusD2Ev.exit32.i.i.i, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i
-  %.sink14.i.i.i = phi i32 [ %130, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i ], [ %130, %_ZN5arrow6StatusD2Ev.exit32.i.i.i ], [ %109, %121 ], [ %109, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i ]
+  %.sink14.i.i.i = phi i32 [ %130, %_ZN5arrow6StatusD2Ev.exit32.i.i.i ], [ %130, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i ], [ %109, %121 ], [ %109, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i ]
   %143 = getelementptr inbounds nuw i8, ptr %.val8, i64 152
   %144 = load ptr, ptr %143, align 8, !tbaa !899, !noalias !5152
   %145 = getelementptr inbounds nuw i8, ptr %.val8, i64 184
@@ -90215,7 +90215,7 @@ _ZN5arrow6StatusD2Ev.exit32.i.i.i:                ; preds = %_ZN5arrow6StatusD2E
   br i1 %113, label %_ZN5arrow6StatusD2Ev.exit34.i.i.i, label %_ZZN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS_19FixedSizeBinaryTypeENS2_16DictEncodeActionESt17basic_string_viewIcSt11char_traitsIcEELb0EE8DoAppendILb0EEENSt9enable_ifIXntT_ENS_6StatusEE4typeERKNS_9ArraySpanEENKUlS9_E_clES9_.exit
 
 _ZN5arrow6StatusD2Ev.exit34.i.i.i:                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i, %92, %_ZN5arrow6StatusD2Ev.exit32.i.i.i, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i
-  %.sink14.i.i.i = phi i32 [ %101, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i ], [ %101, %_ZN5arrow6StatusD2Ev.exit32.i.i.i ], [ %80, %92 ], [ %80, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i ]
+  %.sink14.i.i.i = phi i32 [ %101, %_ZN5arrow6StatusD2Ev.exit32.i.i.i ], [ %101, %_ZN5arrow6StatusD2Ev.exit32.thread.i.i.i ], [ %80, %92 ], [ %80, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i ]
   %114 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %115 = load ptr, ptr %114, align 8, !tbaa !899, !noalias !5256
   %116 = getelementptr inbounds nuw i8, ptr %.val, i64 184

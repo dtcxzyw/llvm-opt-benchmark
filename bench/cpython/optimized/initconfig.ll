@@ -2474,7 +2474,7 @@ Py_DECREF.exit25.sink.split:                      ; preds = %24, %11
   br label %Py_DECREF.exit25
 
 Py_DECREF.exit25:                                 ; preds = %4, %Py_DECREF.exit25.sink.split, %24, %22, %11, %.critedge, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %Py_DECREF.exit25.sink.split ], [ null, %24 ], [ null, %.critedge ], [ null, %11 ], [ null, %22 ], [ %2, %4 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %24 ], [ null, %Py_DECREF.exit25.sink.split ], [ null, %.critedge ], [ null, %11 ], [ null, %22 ], [ %2, %4 ]
   ret ptr %.0
 }
 
@@ -3521,7 +3521,7 @@ config_dict_get_wstrlist.exit:                    ; preds = %291
   br label %.critedge58
 
 .critedge58:                                      ; preds = %100, %109, %205, %207, %Py_DECREF.exit45.i, %121, %123, %Py_DECREF.exit33.i, %73, %75, %97, %94, %91, %34, %56, %53, %32, %50, %config_dict_get_wstrlist.exit.thread105, %config_dict_get_wstrlist.exit.thread100, %config_dict_get_xoptions.exit.thread96, %config_dict_get_xoptions.exit.thread91, %.thread, %310, %317, %106, %313, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %310 ], [ -1, %317 ], [ -1, %205 ], [ -1, %207 ], [ -1, %106 ], [ -1, %config_dict_get_wstrlist.exit.thread105 ], [ -1, %config_dict_get_xoptions.exit.thread96 ], [ -1, %34 ], [ 0, %313 ], [ -1, %config_dict_get_wstrlist.exit.thread100 ], [ -1, %.thread ], [ -1, %73 ], [ -1, %config_dict_get_xoptions.exit.thread91 ], [ -1, %121 ], [ -1, %50 ], [ -1, %32 ], [ -1, %53 ], [ -1, %56 ], [ -1, %91 ], [ -1, %94 ], [ -1, %97 ], [ -1, %75 ], [ -1, %Py_DECREF.exit33.i ], [ -1, %123 ], [ -1, %Py_DECREF.exit45.i ], [ -1, %109 ], [ -1, %100 ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %310 ], [ -1, %317 ], [ -1, %207 ], [ -1, %205 ], [ -1, %106 ], [ -1, %config_dict_get_wstrlist.exit.thread105 ], [ -1, %config_dict_get_xoptions.exit.thread96 ], [ -1, %34 ], [ 0, %313 ], [ -1, %config_dict_get_wstrlist.exit.thread100 ], [ -1, %.thread ], [ -1, %73 ], [ -1, %config_dict_get_xoptions.exit.thread91 ], [ -1, %121 ], [ -1, %50 ], [ -1, %32 ], [ -1, %53 ], [ -1, %56 ], [ -1, %91 ], [ -1, %94 ], [ -1, %97 ], [ -1, %75 ], [ -1, %Py_DECREF.exit33.i ], [ -1, %123 ], [ -1, %Py_DECREF.exit45.i ], [ -1, %109 ], [ -1, %100 ]
   ret i32 %.0
 }
 
@@ -5787,13 +5787,13 @@ warnoptions_extend.exit.loopexit133.i.i:          ; preds = %499, %warnoptions_a
   br label %warnoptions_extend.exit.i.i
 
 warnoptions_extend.exit.i.i:                      ; preds = %warnoptions_extend.exit.loopexit133.i.i, %warnoptions_extend.exit.loopexit129.i.i, %warnoptions_extend.exit.loopexit.i.i, %.warnoptions_extend.exit_crit_edge.i.i, %632, %591, %583, %549, %507
-  %640 = phi i64 [ %.pre.i34.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ %602, %warnoptions_extend.exit.loopexit.i.i ], [ %519, %549 ], [ %519, %warnoptions_extend.exit.loopexit129.i.i ], [ %557, %583 ], [ %602, %632 ], [ %477, %warnoptions_extend.exit.loopexit133.i.i ], [ %477, %507 ], [ %557, %591 ]
-  %.sroa.15.sroa.24.0.i.i = phi i32 [ %.sroa.15.sroa.24.0.copyload.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ 0, %warnoptions_extend.exit.loopexit.i.i ], [ 0, %549 ], [ 0, %warnoptions_extend.exit.loopexit129.i.i ], [ 0, %583 ], [ 0, %632 ], [ 0, %warnoptions_extend.exit.loopexit133.i.i ], [ 0, %507 ], [ 0, %591 ]
-  %.sroa.15.sroa.19.0.i.i = phi i32 [ %.sroa.15.sroa.19.0.copyload.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ 0, %warnoptions_extend.exit.loopexit.i.i ], [ 0, %549 ], [ 0, %warnoptions_extend.exit.loopexit129.i.i ], [ 0, %583 ], [ 0, %632 ], [ 0, %warnoptions_extend.exit.loopexit133.i.i ], [ 0, %507 ], [ 0, %591 ]
-  %.sroa.15.sroa.14.0.i.i = phi ptr [ %.sroa.15.sroa.14.0.copyload.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ %.sroa.15.sroa.14.0.ph.i.i, %warnoptions_extend.exit.loopexit.i.i ], [ @.str, %549 ], [ %.sroa.15.sroa.14.0.ph130.i.i, %warnoptions_extend.exit.loopexit129.i.i ], [ @.str, %583 ], [ @.str, %632 ], [ %.sroa.15.sroa.14.0.ph134.i.i, %warnoptions_extend.exit.loopexit133.i.i ], [ @.str, %507 ], [ @.str, %591 ]
-  %.sroa.15.sroa.9.0.i.i = phi ptr [ %.sroa.15.sroa.9.0.copyload.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ @__func__.PyWideStringList_Insert, %warnoptions_extend.exit.loopexit.i.i ], [ @__func__.PyWideStringList_Insert, %549 ], [ @__func__.PyWideStringList_Insert, %warnoptions_extend.exit.loopexit129.i.i ], [ @__func__.PyWideStringList_Insert, %583 ], [ @__func__.PyWideStringList_Insert, %632 ], [ @__func__.PyWideStringList_Insert, %warnoptions_extend.exit.loopexit133.i.i ], [ @__func__.PyWideStringList_Insert, %507 ], [ @__func__.PyWideStringList_Insert, %591 ]
-  %.sroa.15.sroa.0.0.i.i = phi i32 [ %.sroa.15.sroa.0.0.copyload.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ 0, %warnoptions_extend.exit.loopexit.i.i ], [ 0, %549 ], [ 0, %warnoptions_extend.exit.loopexit129.i.i ], [ 0, %583 ], [ 0, %632 ], [ 0, %warnoptions_extend.exit.loopexit133.i.i ], [ 0, %507 ], [ 0, %591 ]
-  %.sroa.0.0.i.i = phi i32 [ %.sroa.0.0.copyload10.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ 1, %warnoptions_extend.exit.loopexit.i.i ], [ 1, %549 ], [ 1, %warnoptions_extend.exit.loopexit129.i.i ], [ 1, %583 ], [ 1, %632 ], [ 1, %warnoptions_extend.exit.loopexit133.i.i ], [ 1, %507 ], [ 1, %591 ]
+  %640 = phi i64 [ %.pre.i34.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ %519, %549 ], [ %557, %591 ], [ %477, %warnoptions_extend.exit.loopexit133.i.i ], [ %557, %583 ], [ %602, %632 ], [ %519, %warnoptions_extend.exit.loopexit129.i.i ], [ %477, %507 ], [ %602, %warnoptions_extend.exit.loopexit.i.i ]
+  %.sroa.15.sroa.24.0.i.i = phi i32 [ %.sroa.15.sroa.24.0.copyload.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ 0, %549 ], [ 0, %591 ], [ 0, %warnoptions_extend.exit.loopexit133.i.i ], [ 0, %583 ], [ 0, %632 ], [ 0, %warnoptions_extend.exit.loopexit129.i.i ], [ 0, %507 ], [ 0, %warnoptions_extend.exit.loopexit.i.i ]
+  %.sroa.15.sroa.19.0.i.i = phi i32 [ %.sroa.15.sroa.19.0.copyload.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ 0, %549 ], [ 0, %591 ], [ 0, %warnoptions_extend.exit.loopexit133.i.i ], [ 0, %583 ], [ 0, %632 ], [ 0, %warnoptions_extend.exit.loopexit129.i.i ], [ 0, %507 ], [ 0, %warnoptions_extend.exit.loopexit.i.i ]
+  %.sroa.15.sroa.14.0.i.i = phi ptr [ %.sroa.15.sroa.14.0.copyload.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ @.str, %549 ], [ @.str, %591 ], [ %.sroa.15.sroa.14.0.ph134.i.i, %warnoptions_extend.exit.loopexit133.i.i ], [ @.str, %583 ], [ @.str, %632 ], [ %.sroa.15.sroa.14.0.ph130.i.i, %warnoptions_extend.exit.loopexit129.i.i ], [ @.str, %507 ], [ %.sroa.15.sroa.14.0.ph.i.i, %warnoptions_extend.exit.loopexit.i.i ]
+  %.sroa.15.sroa.9.0.i.i = phi ptr [ %.sroa.15.sroa.9.0.copyload.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ @__func__.PyWideStringList_Insert, %549 ], [ @__func__.PyWideStringList_Insert, %591 ], [ @__func__.PyWideStringList_Insert, %warnoptions_extend.exit.loopexit133.i.i ], [ @__func__.PyWideStringList_Insert, %583 ], [ @__func__.PyWideStringList_Insert, %632 ], [ @__func__.PyWideStringList_Insert, %warnoptions_extend.exit.loopexit129.i.i ], [ @__func__.PyWideStringList_Insert, %507 ], [ @__func__.PyWideStringList_Insert, %warnoptions_extend.exit.loopexit.i.i ]
+  %.sroa.15.sroa.0.0.i.i = phi i32 [ %.sroa.15.sroa.0.0.copyload.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ 0, %549 ], [ 0, %591 ], [ 0, %warnoptions_extend.exit.loopexit133.i.i ], [ 0, %583 ], [ 0, %632 ], [ 0, %warnoptions_extend.exit.loopexit129.i.i ], [ 0, %507 ], [ 0, %warnoptions_extend.exit.loopexit.i.i ]
+  %.sroa.0.0.i.i = phi i32 [ %.sroa.0.0.copyload10.i.i, %.warnoptions_extend.exit_crit_edge.i.i ], [ 1, %549 ], [ 1, %591 ], [ 1, %warnoptions_extend.exit.loopexit133.i.i ], [ 1, %583 ], [ 1, %632 ], [ 1, %warnoptions_extend.exit.loopexit129.i.i ], [ 1, %507 ], [ 1, %warnoptions_extend.exit.loopexit.i.i ]
   %641 = icmp sgt i64 %640, 0
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !24, !noalias !365
@@ -5820,13 +5820,13 @@ warnoptions_extend.exit.i.i:                      ; preds = %warnoptions_extend.
   br i1 %exitcond.not.i37.i, label %config_init_warnoptions.exit.i, label %644, !llvm.loop !27
 
 config_init_warnoptions.exit.i:                   ; preds = %644, %.loopexit.i.thread.i.i, %469, %.loopexit.i67.thread.i.i, %warnoptions_extend.exit.i.i
-  %.sroa.0.0256.i.i = phi i32 [ 1, %.loopexit.i67.thread.i.i ], [ %.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ], [ 1, %.loopexit.i.thread.i.i ], [ 1, %469 ], [ %.sroa.0.0270.i.i, %644 ]
-  %.sroa.15.sroa.0.0254.i.i = phi i32 [ 0, %.loopexit.i67.thread.i.i ], [ %.sroa.15.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ], [ 0, %.loopexit.i.thread.i.i ], [ 0, %469 ], [ %.sroa.15.sroa.0.0269.i.i, %644 ]
-  %.sroa.15.sroa.9.0252.i.i = phi ptr [ @__func__.PyWideStringList_Insert, %.loopexit.i67.thread.i.i ], [ %.sroa.15.sroa.9.0.i.i, %warnoptions_extend.exit.i.i ], [ @__func__.PyWideStringList_Insert, %.loopexit.i.thread.i.i ], [ @__func__.PyWideStringList_Insert, %469 ], [ %.sroa.15.sroa.9.0268.i.i, %644 ]
-  %.sroa.15.sroa.14.0250.i.i = phi ptr [ @.str.5, %.loopexit.i67.thread.i.i ], [ %.sroa.15.sroa.14.0.i.i, %warnoptions_extend.exit.i.i ], [ @.str, %.loopexit.i.thread.i.i ], [ @.str, %469 ], [ %.sroa.15.sroa.14.0267.i.i, %644 ]
-  %.sroa.15.sroa.19.0248.i.i = phi i32 [ 0, %.loopexit.i67.thread.i.i ], [ %.sroa.15.sroa.19.0.i.i, %warnoptions_extend.exit.i.i ], [ 0, %.loopexit.i.thread.i.i ], [ 0, %469 ], [ %.sroa.15.sroa.19.0266.i.i, %644 ]
-  %.sroa.15.sroa.24.0246.i.i = phi i32 [ 0, %.loopexit.i67.thread.i.i ], [ %.sroa.15.sroa.24.0.i.i, %warnoptions_extend.exit.i.i ], [ 0, %.loopexit.i.thread.i.i ], [ 0, %469 ], [ %.sroa.15.sroa.24.0265.i.i, %644 ]
-  %648 = phi ptr [ %556, %.loopexit.i67.thread.i.i ], [ %.pre.i, %warnoptions_extend.exit.i.i ], [ null, %.loopexit.i.thread.i.i ], [ null, %469 ], [ %642, %644 ]
+  %.sroa.0.0256.i.i = phi i32 [ 1, %.loopexit.i67.thread.i.i ], [ %.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ], [ 1, %469 ], [ 1, %.loopexit.i.thread.i.i ], [ %.sroa.0.0270.i.i, %644 ]
+  %.sroa.15.sroa.0.0254.i.i = phi i32 [ 0, %.loopexit.i67.thread.i.i ], [ %.sroa.15.sroa.0.0.i.i, %warnoptions_extend.exit.i.i ], [ 0, %469 ], [ 0, %.loopexit.i.thread.i.i ], [ %.sroa.15.sroa.0.0269.i.i, %644 ]
+  %.sroa.15.sroa.9.0252.i.i = phi ptr [ @__func__.PyWideStringList_Insert, %.loopexit.i67.thread.i.i ], [ %.sroa.15.sroa.9.0.i.i, %warnoptions_extend.exit.i.i ], [ @__func__.PyWideStringList_Insert, %469 ], [ @__func__.PyWideStringList_Insert, %.loopexit.i.thread.i.i ], [ %.sroa.15.sroa.9.0268.i.i, %644 ]
+  %.sroa.15.sroa.14.0250.i.i = phi ptr [ @.str.5, %.loopexit.i67.thread.i.i ], [ %.sroa.15.sroa.14.0.i.i, %warnoptions_extend.exit.i.i ], [ @.str, %469 ], [ @.str, %.loopexit.i.thread.i.i ], [ %.sroa.15.sroa.14.0267.i.i, %644 ]
+  %.sroa.15.sroa.19.0248.i.i = phi i32 [ 0, %.loopexit.i67.thread.i.i ], [ %.sroa.15.sroa.19.0.i.i, %warnoptions_extend.exit.i.i ], [ 0, %469 ], [ 0, %.loopexit.i.thread.i.i ], [ %.sroa.15.sroa.19.0266.i.i, %644 ]
+  %.sroa.15.sroa.24.0246.i.i = phi i32 [ 0, %.loopexit.i67.thread.i.i ], [ %.sroa.15.sroa.24.0.i.i, %warnoptions_extend.exit.i.i ], [ 0, %469 ], [ 0, %.loopexit.i.thread.i.i ], [ %.sroa.15.sroa.24.0265.i.i, %644 ]
+  %648 = phi ptr [ %556, %.loopexit.i67.thread.i.i ], [ %.pre.i, %warnoptions_extend.exit.i.i ], [ null, %469 ], [ null, %.loopexit.i.thread.i.i ], [ %642, %644 ]
   call void @PyMem_RawFree(ptr noundef %648) #30, !noalias !365
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !365
   br label %.thread188.i

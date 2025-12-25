@@ -1208,7 +1208,7 @@ _ZL27hasUnrollAndJamEnablePragmaPKN4llvm4LoopE.exit.i.i: ; preds = %_ZL28unrollA
   br i1 %.not104.i.i, label %.critedge.i28.i, label %334, !llvm.loop !164
 
 .critedge.i28.i:                                  ; preds = %337, %334, %.preheader145.i.i, %327, %318
-  %spec.select.i.i163.i20.i = phi i1 [ %spec.select.i.i163.i21.i, %318 ], [ %spec.select.i.i163.i.i, %327 ], [ %spec.select.i.i163.i2225.i, %.preheader145.i.i ], [ %spec.select.i.i163.i2225.i, %334 ], [ %spec.select.i.i163.i2225.i, %337 ]
+  %spec.select.i.i163.i20.i = phi i1 [ %spec.select.i.i163.i.i, %327 ], [ %spec.select.i.i163.i21.i, %318 ], [ %spec.select.i.i163.i2225.i, %.preheader145.i.i ], [ %spec.select.i.i163.i2225.i, %334 ], [ %spec.select.i.i163.i2225.i, %337 ]
   br i1 %spec.select.i.i163.i20.i, label %_ZL24computeUnrollAndJamCountPN4llvm4LoopES1_RKNS_19TargetTransformInfoERNS_13DominatorTreeEPNS_8LoopInfoEPNS_15AssumptionCacheERNS_15ScalarEvolutionERKNS_15SmallPtrSetImplIPKNS_5ValueEEEPNS_25OptimizationRemarkEmitterEjjRKNS_19UnrollCostEstimatorEjjRNS2_20UnrollingPreferencesERNS2_18PeelingPreferencesE.exit.i, label %338
 
 338:                                              ; preds = %.critedge.i28.i

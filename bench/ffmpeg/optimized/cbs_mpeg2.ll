@@ -2077,7 +2077,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   br label %.thread
 
 cbs_mpeg2_read_extension_data.exit:               ; preds = %534, %603, %cbs_mpeg2_read_quant_matrix_extension.exit.i, %cbs_mpeg2_read_picture_display_extension.exit.i
-  %.133.i = phi i32 [ %spec.select.i36.i, %603 ], [ %.242.i.i, %cbs_mpeg2_read_picture_display_extension.exit.i ], [ %spec.select.i.i, %534 ], [ %.181.i.i, %cbs_mpeg2_read_quant_matrix_extension.exit.i ]
+  %.133.i = phi i32 [ %.242.i.i, %cbs_mpeg2_read_picture_display_extension.exit.i ], [ %spec.select.i36.i, %603 ], [ %spec.select.i.i, %534 ], [ %.181.i.i, %cbs_mpeg2_read_quant_matrix_extension.exit.i ]
   %883 = icmp sgt i32 %.133.i, -1
   br i1 %883, label %cbs_mpeg2_read_extension_data.exit.thread103, label %.thread
 

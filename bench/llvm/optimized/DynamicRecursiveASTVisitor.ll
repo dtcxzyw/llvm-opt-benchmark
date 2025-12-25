@@ -12495,7 +12495,7 @@ _ZNK5clang12RedeclarableINS_12FunctionDeclEE8DeclLink11getPreviousEPKS1_.exit.i:
   br i1 %.not.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE30TraverseTemplateInstantiationsEPNS_20FunctionTemplateDeclE.exit, label %.lr.ph26.i
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE30TraverseTemplateInstantiationsEPNS_20FunctionTemplateDeclE.exit: ; preds = %._crit_edge.i, %21, %26, %2
-  %.not17.i = phi i1 [ false, %21 ], [ true, %2 ], [ false, %26 ], [ true, %._crit_edge.i ]
+  %.not17.i = phi i1 [ true, %2 ], [ false, %21 ], [ false, %26 ], [ true, %._crit_edge.i ]
   ret i1 %.not17.i
 }
 
@@ -87883,7 +87883,7 @@ _ZNK5clang12RedeclarableINS_12FunctionDeclEE8DeclLink11getPreviousEPKS1_.exit.i:
   br i1 %.not.i, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE30TraverseTemplateInstantiationsEPNS_20FunctionTemplateDeclE.exit, label %.lr.ph26.i
 
 _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE30TraverseTemplateInstantiationsEPNS_20FunctionTemplateDeclE.exit: ; preds = %._crit_edge.i, %21, %26, %2
-  %.not17.i = phi i1 [ false, %21 ], [ true, %2 ], [ false, %26 ], [ true, %._crit_edge.i ]
+  %.not17.i = phi i1 [ true, %2 ], [ false, %21 ], [ false, %26 ], [ true, %._crit_edge.i ]
   ret i1 %.not17.i
 }
 

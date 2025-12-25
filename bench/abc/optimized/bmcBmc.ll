@@ -1268,7 +1268,7 @@ Vec_IntFree.exit:                                 ; preds = %.loopexit, %301
   br label %.critedge
 
 .critedge:                                        ; preds = %303, %.critedge.sink.split, %Abc_Clock.exit203, %Vec_IntFree.exit, %302
-  %.0141 = phi i32 [ -1, %302 ], [ -1, %Abc_Clock.exit203 ], [ %.0141.ph, %.critedge.sink.split ], [ 0, %Vec_IntFree.exit ], [ -1, %303 ]
+  %.0141 = phi i32 [ -1, %Abc_Clock.exit203 ], [ -1, %302 ], [ %.0141.ph, %.critedge.sink.split ], [ 0, %Vec_IntFree.exit ], [ -1, %303 ]
   br i1 %.not162, label %309, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %184, %183, %.critedge

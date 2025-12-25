@@ -714,7 +714,7 @@ uriAppendQueryItemA.exit103:                      ; preds = %._crit_edge
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %uriAppendQueryItemA.exit103.thread117, label %uriFreeQueryListMmA.exit
 
-uriAppendQueryItemA.exit103.thread117:            ; preds = %108, %97, %uriAppendQueryItemA.exit103
+uriAppendQueryItemA.exit103.thread117:            ; preds = %97, %108, %uriAppendQueryItemA.exit103
   store i32 0, ptr %12, align 4, !tbaa !3
   %125 = load ptr, ptr %0, align 8, !tbaa !22
   %126 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7
@@ -1583,7 +1583,7 @@ uriAppendQueryItemW.exit103:                      ; preds = %._crit_edge
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %uriAppendQueryItemW.exit103.thread117, label %uriFreeQueryListMmW.exit
 
-uriAppendQueryItemW.exit103.thread117:            ; preds = %112, %100, %uriAppendQueryItemW.exit103
+uriAppendQueryItemW.exit103.thread117:            ; preds = %100, %112, %uriAppendQueryItemW.exit103
   store i32 0, ptr %10, align 4, !tbaa !3
   %130 = load ptr, ptr %0, align 8, !tbaa !33
   %131 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7

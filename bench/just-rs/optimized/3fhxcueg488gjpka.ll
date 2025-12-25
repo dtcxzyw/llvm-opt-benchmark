@@ -1245,7 +1245,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h16796444bc8cdb0eE(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17hd6956dd5a1d7ed18E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit84:                                      ; preds = %.noexc48, %87, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.noexc48 ], [ %50, %87 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %50, %87 ], [ %.06.i, %.noexc48 ]
   %104 = add i64 %.sroa.0.0.i, %.0134
   %105 = icmp ugt i64 %.0134, %104
   br i1 %105, label %.invoke, label %106
@@ -2885,7 +2885,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h63e4dcd83bb92a6dE(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17he1df5f2370627a06E.exit unwind label %.loopexit79
 
 .loopexit77:                                      ; preds = %.lr.ph7.i, %80, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %49, %80 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %49, %80 ], [ %.06.i, %.lr.ph7.i ]
   %98 = add i64 %.sroa.0.0.i, %.0108
   %99 = icmp ugt i64 %.0108, %98
   br i1 %99, label %.invoke, label %100
@@ -3486,7 +3486,7 @@ _ZN4core5slice4sort11insert_tail17h4d6aaa78d8bdfecfE.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17hb7340e55aaa8f027E.exit.loopexit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h40c14b5c10dee8bbE.exit.i.i"
 
 .loopexit74:                                      ; preds = %.lr.ph7.i, %63, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %48, %63 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %48, %63 ], [ %.06.i, %.lr.ph7.i ]
   %94 = add i64 %.sroa.0.0.i, %.0104
   %95 = icmp ugt i64 %.0104, %94
   br i1 %95, label %.invoke197, label %96
@@ -4128,7 +4128,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h67440b34237dc310E(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17he8d95bf89e3fb652E.exit unwind label %.loopexit79
 
 .loopexit77:                                      ; preds = %.lr.ph7.i, %80, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %49, %80 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %49, %80 ], [ %.06.i, %.lr.ph7.i ]
   %98 = add i64 %.sroa.0.0.i, %.0108
   %99 = icmp ugt i64 %.0108, %98
   br i1 %99, label %.invoke, label %100
@@ -4724,7 +4724,7 @@ _ZN4core5slice4sort11insert_tail17h19643a291296110cE.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17h39635ab9ad9fcca1E.exit.loopexit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0c9f6cb5606d3ad1E.exit.i.i"
 
 .loopexit74:                                      ; preds = %.lr.ph7.i, %60, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %48, %60 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %48, %60 ], [ %.06.i, %.lr.ph7.i ]
   %88 = add i64 %.sroa.0.0.i, %.0104
   %89 = icmp ugt i64 %.0104, %88
   br i1 %89, label %.invoke197, label %90
@@ -5362,7 +5362,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hbff3e472bc16beb2E(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17h3a53cff51832c057E.exit unwind label %.loopexit79
 
 .loopexit77:                                      ; preds = %.lr.ph7.i, %80, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %49, %80 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %49, %80 ], [ %.06.i, %.lr.ph7.i ]
   %98 = add i64 %.sroa.0.0.i, %.0108
   %99 = icmp ugt i64 %.0108, %98
   br i1 %99, label %.invoke, label %100
@@ -5959,7 +5959,7 @@ _ZN4core5slice4sort11insert_tail17h24b5a2e116455e7dE.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17h73872b52b1b2691aE.exit.loopexit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h937a6eb19af4a15dE.exit.i.i"
 
 .loopexit74:                                      ; preds = %.lr.ph7.i, %63, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %48, %63 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %48, %63 ], [ %.06.i, %.lr.ph7.i ]
   %95 = add i64 %.sroa.0.0.i, %.0104
   %96 = icmp ugt i64 %.0104, %95
   br i1 %96, label %.invoke196, label %97
@@ -6594,7 +6594,7 @@ _ZN4core5slice4sort11insert_tail17h11065f1acd86e4d8E.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17hc28045dcc905bd8dE.exit.loopexit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0c9f6cb5606d3ad1E.exit.i.i"
 
 .loopexit74:                                      ; preds = %.lr.ph7.i, %60, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.lr.ph7.i ], [ %48, %60 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %48, %60 ], [ %.06.i, %.lr.ph7.i ]
   %88 = add i64 %.sroa.0.0.i, %.0104
   %89 = icmp ugt i64 %.0104, %88
   br i1 %89, label %.invoke197, label %90
@@ -8812,7 +8812,7 @@ common.resume:                                    ; preds = %248, %470, %307, %2
   br label %248
 
 .loopexit.split-lp:                               ; preds = %458, %"_ZN102_$LT$similar..algorithms..replace..Replace$LT$D$GT$$u20$as$u20$similar..algorithms..hook..DiffHook$GT$6finish17h2dca23d483cd2149E.exit.i", %443, %429, %421, %403, %388, %299, %262
-  %.044.ph.ph = phi i8 [ %.2, %458 ], [ %.2, %421 ], [ %.2, %403 ], [ %.2, %"_ZN102_$LT$similar..algorithms..replace..Replace$LT$D$GT$$u20$as$u20$similar..algorithms..hook..DiffHook$GT$6finish17h2dca23d483cd2149E.exit.i" ], [ 1, %388 ], [ 1, %299 ], [ 1, %262 ], [ %.2, %443 ], [ %.2, %429 ]
+  %.044.ph.ph = phi i8 [ %.2, %458 ], [ %.2, %421 ], [ %.2, %403 ], [ %.2, %443 ], [ 1, %388 ], [ 1, %299 ], [ 1, %262 ], [ %.2, %"_ZN102_$LT$similar..algorithms..replace..Replace$LT$D$GT$$u20$as$u20$similar..algorithms..hook..DiffHook$GT$6finish17h2dca23d483cd2149E.exit.i" ], [ %.2, %429 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %248

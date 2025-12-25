@@ -11582,9 +11582,9 @@ for.inc128:                                       ; preds = %invoke.cont56, %if.
 
 cleanup130:                                       ; preds = %for.inc128, %if.end33, %for.inc128.us, %if.end33.us, %if.end20.thread, %if.end20
   %retval.sroa.0.0.copyload.i1187 = phi i16 [ %retval.sroa.0.0.copyload.i, %if.end20 ], [ %retval.sroa.0.0.copyload.i1181, %if.end20.thread ], [ %retval.sroa.0.0.copyload.i, %for.inc128.us ], [ %retval.sroa.0.0.copyload.i, %if.end33.us ], [ %retval.sroa.0.0.copyload.i1181, %if.end33 ], [ %retval.sroa.0.0.copyload.i1181, %for.inc128 ]
-  %draw_order.sroa.32.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %for.inc128.us ], [ null, %if.end33.us ], [ %draw_order.sroa.32.01090, %if.end33 ], [ %draw_order.sroa.32.4.ph, %for.inc128 ]
-  %draw_order.sroa.15.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %for.inc128.us ], [ null, %if.end33.us ], [ %draw_order.sroa.15.01091, %if.end33 ], [ %draw_order.sroa.15.4.ph, %for.inc128 ]
-  %draw_order.sroa.0.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %for.inc128.us ], [ null, %if.end33.us ], [ %draw_order.sroa.0.01092, %if.end33 ], [ %draw_order.sroa.0.4.ph, %for.inc128 ]
+  %draw_order.sroa.32.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %for.inc128.us ], [ null, %if.end33.us ], [ %draw_order.sroa.32.4.ph, %for.inc128 ], [ %draw_order.sroa.32.01090, %if.end33 ]
+  %draw_order.sroa.15.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %for.inc128.us ], [ null, %if.end33.us ], [ %draw_order.sroa.15.4.ph, %for.inc128 ], [ %draw_order.sroa.15.01091, %if.end33 ]
+  %draw_order.sroa.0.0.lcssa = phi ptr [ null, %if.end20 ], [ null, %if.end20.thread ], [ null, %for.inc128.us ], [ null, %if.end33.us ], [ %draw_order.sroa.0.4.ph, %for.inc128 ], [ %draw_order.sroa.0.01092, %if.end33 ]
   %__begin2.sroa.0.01115 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !132
   %cmp.i594.not1116 = icmp eq ptr %__begin2.sroa.0.01115, null
   br i1 %cmp.i594.not1116, label %for.cond.cleanup154, label %for.body155

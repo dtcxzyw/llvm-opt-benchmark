@@ -11363,7 +11363,7 @@ define hidden void @_ZN21uv_distribution_types24prioritized_distribution15Priori
   br label %"_ZN4core3ptr93drop_in_place$LT$uv_distribution_types..prioritized_distribution..SourceDistCompatibility$GT$17h6db67325f1572a06E.exit"
 
 "_ZN4core3ptr93drop_in_place$LT$uv_distribution_types..prioritized_distribution..SourceDistCompatibility$GT$17h6db67325f1572a06E.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$uv_distribution_types..prioritized_distribution..SourceDistCompatibility$GT$17h6db67325f1572a06E.exit.sink.split", %57, %.noexc11, %48, %44, %41, %39, %42, %.noexc12
-  %.sroa.04.2 = phi i8 [ 1, %57 ], [ 1, %.noexc11 ], [ 1, %.noexc12 ], [ 1, %42 ], [ 1, %39 ], [ 1, %41 ], [ 1, %44 ], [ 1, %48 ], [ 0, %"_ZN4core3ptr93drop_in_place$LT$uv_distribution_types..prioritized_distribution..SourceDistCompatibility$GT$17h6db67325f1572a06E.exit.sink.split" ]
+  %.sroa.04.2 = phi i8 [ 1, %.noexc11 ], [ 1, %57 ], [ 1, %.noexc12 ], [ 1, %42 ], [ 1, %39 ], [ 1, %41 ], [ 1, %44 ], [ 1, %48 ], [ 0, %"_ZN4core3ptr93drop_in_place$LT$uv_distribution_types..prioritized_distribution..SourceDistCompatibility$GT$17h6db67325f1572a06E.exit.sink.split" ]
   %38 = trunc nuw i8 %.sroa.02.3 to i1
   br i1 %38, label %71, label %69
 
@@ -11616,7 +11616,7 @@ define hidden void @_ZN21uv_distribution_types24prioritized_distribution15Priori
   br label %"_ZN4core3ptr93drop_in_place$LT$uv_distribution_types..prioritized_distribution..SourceDistCompatibility$GT$17h6db67325f1572a06E.exit"
 
 "_ZN4core3ptr93drop_in_place$LT$uv_distribution_types..prioritized_distribution..SourceDistCompatibility$GT$17h6db67325f1572a06E.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$uv_distribution_types..prioritized_distribution..SourceDistCompatibility$GT$17h6db67325f1572a06E.exit.sink.split", %54, %.noexc11, %45, %41, %38, %36, %39, %.noexc12
-  %.sroa.04.2 = phi i8 [ 1, %54 ], [ 1, %.noexc11 ], [ 1, %.noexc12 ], [ 1, %39 ], [ 1, %36 ], [ 1, %38 ], [ 1, %41 ], [ 1, %45 ], [ 0, %"_ZN4core3ptr93drop_in_place$LT$uv_distribution_types..prioritized_distribution..SourceDistCompatibility$GT$17h6db67325f1572a06E.exit.sink.split" ]
+  %.sroa.04.2 = phi i8 [ 1, %.noexc11 ], [ 1, %54 ], [ 1, %.noexc12 ], [ 1, %39 ], [ 1, %36 ], [ 1, %38 ], [ 1, %41 ], [ 1, %45 ], [ 0, %"_ZN4core3ptr93drop_in_place$LT$uv_distribution_types..prioritized_distribution..SourceDistCompatibility$GT$17h6db67325f1572a06E.exit.sink.split" ]
   %35 = trunc nuw i8 %.sroa.02.3 to i1
   br i1 %35, label %67, label %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hdd41c7a0cb5eef2fE.exit"
 
@@ -62743,8 +62743,8 @@ define void @"_ZN11uv_resolver10resolution6output150_$LT$impl$u20$core..convert.
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke416, %.invoke414, %select.unfold.invoke, %.invoke, %59, %._crit_edge230, %101, %148
-  %.sroa.06.2.ph.ph.ph.ph.ph = phi i8 [ 0, %101 ], [ 0, %._crit_edge230 ], [ 1, %59 ], [ 1, %148 ], [ 1, %.invoke416 ], [ 1, %.invoke414 ], [ 1, %select.unfold.invoke ], [ 1, %.invoke ]
-  %.sroa.07.4.ph.ph.ph.ph.ph = phi i8 [ 0, %101 ], [ 1, %._crit_edge230 ], [ 1, %59 ], [ 1, %148 ], [ 1, %.invoke416 ], [ 1, %.invoke414 ], [ 1, %select.unfold.invoke ], [ 1, %.invoke ]
+  %.sroa.06.2.ph.ph.ph.ph.ph = phi i8 [ 1, %148 ], [ 1, %.invoke ], [ 1, %59 ], [ 0, %101 ], [ 1, %.invoke416 ], [ 1, %select.unfold.invoke ], [ 1, %.invoke414 ], [ 0, %._crit_edge230 ]
+  %.sroa.07.4.ph.ph.ph.ph.ph = phi i8 [ 1, %148 ], [ 1, %.invoke ], [ 1, %59 ], [ 0, %101 ], [ 1, %.invoke416 ], [ 1, %select.unfold.invoke ], [ 1, %.invoke414 ], [ 1, %._crit_edge230 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

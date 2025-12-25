@@ -1009,7 +1009,7 @@ pcap_read_erf_pseudoheader.exit.thread:           ; preds = %235, %413, %346, %3
   br label %447
 
 pcap_read_erf_pseudoheader.exit:                  ; preds = %355, %385, %415
-  %.0.i120 = phi i32 [ %409, %415 ], [ %379, %385 ], [ %349, %355 ]
+  %.0.i120 = phi i32 [ %409, %415 ], [ %349, %355 ], [ %379, %385 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %447

@@ -1339,7 +1339,7 @@ define range(i32 0, 2) i32 @N_VConstrMask_Serial(ptr noundef readonly captures(n
   br label %32
 
 32:                                               ; preds = %.sink.split, %26, %27, %21, %.lr.ph
-  %.1 = phi i32 [ %.035, %.lr.ph ], [ %.035, %26 ], [ %.035, %21 ], [ %.035, %27 ], [ 0, %.sink.split ]
+  %.1 = phi i32 [ %.035, %.lr.ph ], [ %.035, %27 ], [ %.035, %21 ], [ %.035, %26 ], [ 0, %.sink.split ]
   %33 = add nuw nsw i64 %.03134, 1
   %exitcond.not = icmp eq i64 %33, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76

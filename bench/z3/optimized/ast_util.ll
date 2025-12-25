@@ -1009,8 +1009,8 @@ _Z7is_atomR11ast_managerP4expr.exit._Z7is_atomR11ast_managerP4expr.exit.thread18
   %.pre = load i32, ptr %3, align 4
   br label %_Z7is_atomR11ast_managerP4expr.exit.thread18
 
-_Z7is_atomR11ast_managerP4expr.exit.thread18:     ; preds = %_Z7is_atomR11ast_managerP4expr.exit._Z7is_atomR11ast_managerP4expr.exit.thread18_crit_edge, %7, %2
-  %34 = phi i32 [ %.pre, %_Z7is_atomR11ast_managerP4expr.exit._Z7is_atomR11ast_managerP4expr.exit.thread18_crit_edge ], [ %.pre20, %7 ], [ %4, %2 ]
+_Z7is_atomR11ast_managerP4expr.exit.thread18:     ; preds = %_Z7is_atomR11ast_managerP4expr.exit._Z7is_atomR11ast_managerP4expr.exit.thread18_crit_edge, %2, %7
+  %34 = phi i32 [ %.pre, %_Z7is_atomR11ast_managerP4expr.exit._Z7is_atomR11ast_managerP4expr.exit.thread18_crit_edge ], [ %4, %2 ], [ %.pre20, %7 ]
   %35 = and i32 %34, 65535
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %_Z7is_atomR11ast_managerP4expr.exit15
@@ -1164,7 +1164,7 @@ _Z7is_atomR11ast_managerP4expr.exit:              ; preds = %27, %_ZNK11ast_mana
   %36 = icmp eq ptr %1, %35
   br i1 %36, label %_Z7is_atomR11ast_managerP4expr.exit.thread, label %_Z7is_atomR11ast_managerP4expr.exit.thread11
 
-_Z7is_atomR11ast_managerP4expr.exit.thread11:     ; preds = %9, %4, %_Z7is_atomR11ast_managerP4expr.exit
+_Z7is_atomR11ast_managerP4expr.exit.thread11:     ; preds = %4, %9, %_Z7is_atomR11ast_managerP4expr.exit
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   br label %_Z7is_atomR11ast_managerP4expr.exit.thread

@@ -2862,7 +2862,7 @@ _ZNK6vectorISt5tupleIJPN3euf5enodeEbbEELb0EjE4sizeEv.exit5: ; preds = %_ZNK6vect
   br i1 %43, label %_ZNK6vectorISt5tupleIJPN3euf5enodeEbbEELb0EjE4sizeEv.exit5.thread, label %_ZNK6vectorISt5tupleIJPN3euf5enodeEbbEELb0EjE4sizeEv.exit5, !llvm.loop !597
 
 _ZNK6vectorISt5tupleIJPN3euf5enodeEbbEELb0EjE4sizeEv.exit5.thread: ; preds = %_ZNK6vectorISt5tupleIJPN3euf5enodeEbbEELb0EjE4sizeEv.exit5, %37, %23, %1, %_ZNK6vectorISt5tupleIJPN3euf5enodeEbbEELb0EjE4sizeEv.exit
-  %.not8 = phi i1 [ false, %1 ], [ false, %_ZNK6vectorISt5tupleIJPN3euf5enodeEbbEELb0EjE4sizeEv.exit ], [ true, %23 ], [ true, %37 ], [ true, %_ZNK6vectorISt5tupleIJPN3euf5enodeEbbEELb0EjE4sizeEv.exit5 ]
+  %.not8 = phi i1 [ false, %_ZNK6vectorISt5tupleIJPN3euf5enodeEbbEELb0EjE4sizeEv.exit ], [ false, %1 ], [ true, %23 ], [ true, %37 ], [ true, %_ZNK6vectorISt5tupleIJPN3euf5enodeEbbEELb0EjE4sizeEv.exit5 ]
   ret i1 %.not8
 }
 

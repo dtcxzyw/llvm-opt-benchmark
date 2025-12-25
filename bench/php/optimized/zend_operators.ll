@@ -2281,7 +2281,7 @@ is_numeric_string_ex.exit.thread:                 ; preds = %33, %zend_dval_to_l
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %.loopexit.loopexit, %zend_dval_to_lval.exit, %32, %29, %83, %61, %is_numeric_string_ex.exit.thread, %13, %9
-  %.0 = phi i64 [ %.2, %83 ], [ 0, %.loopexit.loopexit ], [ %12, %9 ], [ %14, %13 ], [ %.0.i, %zend_dval_to_lval.exit ], [ %.1, %is_numeric_string_ex.exit.thread ], [ %65, %61 ], [ %.0.i, %32 ], [ %.0.i, %29 ], [ 1, %6 ]
+  %.0 = phi i64 [ %.2, %83 ], [ 0, %.loopexit.loopexit ], [ %12, %9 ], [ %14, %13 ], [ %.0.i, %29 ], [ %.1, %is_numeric_string_ex.exit.thread ], [ %65, %61 ], [ %.0.i, %32 ], [ %.0.i, %zend_dval_to_lval.exit ], [ 1, %6 ]
   ret i64 %.0
 }
 
@@ -4161,7 +4161,7 @@ define internal fastcc range(i32 0, 3) i32 @div_function_base(ptr noundef writeo
   br label %47
 
 47:                                               ; preds = %.sink.split, %3, %39, %32, %26, %10
-  %.0 = phi i32 [ 1, %39 ], [ 2, %3 ], [ 1, %10 ], [ 1, %32 ], [ 1, %26 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %39 ], [ 1, %26 ], [ 1, %10 ], [ 2, %3 ], [ 1, %32 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

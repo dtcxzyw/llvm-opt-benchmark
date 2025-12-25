@@ -3833,9 +3833,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread186
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread186: ; preds = %447, %443, %369, %_ZN4llvmltERKNS_12VersionTupleES2_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94
-  %.sroa.6.1 = phi i64 [ %419, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %.sroa.6.0196, %369 ], [ %.sroa.6.0196, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %423, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ], [ %.sroa.6.0196, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.6.0196, %443 ], [ %.sroa.6.0196, %447 ]
-  %.sroa.0165.1 = phi i64 [ %418, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %.sroa.0165.0197, %369 ], [ %.sroa.0165.0197, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %422, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ], [ %.sroa.0165.0197, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.0165.0197, %443 ], [ %.sroa.0165.0197, %447 ]
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread186: ; preds = %443, %447, %369, %_ZN4llvmltERKNS_12VersionTupleES2_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94
+  %.sroa.6.1 = phi i64 [ %419, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %.sroa.6.0196, %369 ], [ %.sroa.6.0196, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %423, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ], [ %.sroa.6.0196, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.6.0196, %447 ], [ %.sroa.6.0196, %443 ]
+  %.sroa.0165.1 = phi i64 [ %418, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %.sroa.0165.0197, %369 ], [ %.sroa.0165.0197, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ %422, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109 ], [ %.sroa.0165.0197, %_ZN4llvmltERKNS_12VersionTupleES2_.exit ], [ %.sroa.0165.0197, %447 ], [ %.sroa.0165.0197, %443 ]
   %486 = load ptr, ptr %27, align 8, !tbaa !75
   %487 = load ptr, ptr %486, align 8, !tbaa !73
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 16
@@ -8559,8 +8559,8 @@ _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.e
   %52 = icmp eq ptr %41, null
   br label %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread116
 
-_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread116: ; preds = %.thread25.i.i.i.i, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.loopexit, %29, %26
-  %53 = phi i1 [ false, %29 ], [ false, %26 ], [ true, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i ], [ %52, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.loopexit ], [ true, %.thread25.i.i.i.i ]
+_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread116: ; preds = %.thread25.i.i.i.i, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.loopexit, %26, %29
+  %53 = phi i1 [ false, %26 ], [ false, %29 ], [ true, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i ], [ %52, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.loopexit ], [ true, %.thread25.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !406
   store i32 2060, ptr %6, align 4, !noalias !406
   %54 = call i64 @_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr nonnull %6, i64 1) #20, !noalias !406

@@ -342,8 +342,8 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %.sroa.0.2.ph, i64 %41, i1 false)
   br label %56
 
-42:                                               ; preds = %37, %27, %35
-  %.sink91 = phi i32 [ %39, %37 ], [ %28, %27 ], [ %36, %35 ]
+42:                                               ; preds = %37, %35, %27
+  %.sink91 = phi i32 [ %39, %37 ], [ %36, %35 ], [ %28, %27 ]
   %43 = call ptr @pgtypes_alloc(i64 noundef 20) #12
   %.not65.not = icmp eq ptr %43, null
   br i1 %.not65.not, label %.critedge, label %44

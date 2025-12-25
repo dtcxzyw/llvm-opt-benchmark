@@ -540,7 +540,7 @@ lean_dec.exit30.thread:                           ; preds = %lean_dec.exit32
   br label %lean_dec.exit31.backedge
 
 lean_dec.exit31.backedge:                         ; preds = %46, %50, %56, %58, %59
-  %.024.be = phi ptr [ %53, %59 ], [ %53, %58 ], [ %53, %56 ], [ %51, %50 ], [ %49, %46 ]
+  %.024.be = phi ptr [ %53, %59 ], [ %53, %56 ], [ %53, %58 ], [ %51, %50 ], [ %49, %46 ]
   br label %lean_dec.exit31
 
 50:                                               ; preds = %.thread71

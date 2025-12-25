@@ -1942,7 +1942,7 @@ cmp_idx_or_pack_name.exit.i:                      ; preds = %23, %.critedge.i.i
   br i1 %.not, label %midx_contains_pack_1.exit, label %.lr.ph, !llvm.loop !87
 
 midx_contains_pack_1.exit:                        ; preds = %.loopexit, %cmp_idx_or_pack_name.exit.i, %23, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %cmp_idx_or_pack_name.exit.i ], [ 1, %23 ], [ 0, %.loopexit ]
+  %.0 = phi i32 [ 1, %cmp_idx_or_pack_name.exit.i ], [ 0, %2 ], [ 1, %23 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 

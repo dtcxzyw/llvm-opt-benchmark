@@ -232,7 +232,7 @@ define internal range(i32 -1094995529, 1) i32 @thp_read_header(ptr noundef %0) #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %93, %60, %._crit_edge, %21, %1
-  %.0 = phi i32 [ %., %._crit_edge ], [ -1094995529, %1 ], [ -1094995529, %21 ], [ -12, %60 ], [ -12, %93 ]
+  %.0 = phi i32 [ -1094995529, %21 ], [ -1094995529, %1 ], [ %., %._crit_edge ], [ -12, %60 ], [ -12, %93 ]
   ret i32 %.0
 }
 

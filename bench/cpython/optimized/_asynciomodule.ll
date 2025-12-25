@@ -10687,7 +10687,7 @@ Py_DECREF.exit.i:                                 ; preds = %162, %159, %157
   br label %_asyncio_Task___init___impl.exit
 
 _asyncio_Task___init___impl.exit:                 ; preds = %170, %167, %165, %163, %154, %Py_XDECREF.exit83.i, %Py_XDECREF.exit.i, %73, %is_coroutine.exit.i, %71, %54, %40, %35, %14
-  %.044 = phi i32 [ -1, %35 ], [ -1, %14 ], [ -1, %40 ], [ -1, %54 ], [ -1, %73 ], [ %.0.i.i, %is_coroutine.exit.i ], [ -1, %Py_XDECREF.exit.i ], [ -1, %Py_XDECREF.exit83.i ], [ 0, %170 ], [ -1, %165 ], [ 0, %167 ], [ -1, %71 ], [ %..i, %163 ], [ -1, %154 ]
+  %.044 = phi i32 [ -1, %35 ], [ -1, %14 ], [ -1, %40 ], [ -1, %71 ], [ -1, %73 ], [ %.0.i.i, %is_coroutine.exit.i ], [ -1, %Py_XDECREF.exit.i ], [ -1, %Py_XDECREF.exit83.i ], [ 0, %170 ], [ -1, %165 ], [ 0, %167 ], [ -1, %54 ], [ %..i, %163 ], [ -1, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.044
 }

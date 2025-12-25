@@ -36119,7 +36119,7 @@ define noundef zeroext i1 @"_ZN86_$LT$yara_x..modules..protos..dotnet..Dotnet$u2
   br i1 %103, label %"_ZN86_$LT$yara_x..modules..protos..dotnet..Stream$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he0bf8795046cfd1cE.exit.thread", label %.lr.ph64
 
 "_ZN86_$LT$yara_x..modules..protos..dotnet..Stream$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he0bf8795046cfd1cE.exit.thread": ; preds = %9, %"_ZN86_$LT$yara_x..modules..protos..dotnet..Stream$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he0bf8795046cfd1cE.exit", %"_ZN87_$LT$yara_x..modules..protos..dotnet..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hc4afcec099c2751eE.exit.i.us", %24, %21, %19, %.lr.ph59, %"_ZN87_$LT$yara_x..modules..protos..dotnet..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hc4afcec099c2751eE.exit.i30", %43, %38, %40, %"_ZN85_$LT$yara_x..modules..protos..dotnet..Class$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h5ca04904a5e5113cE.exit", %.lr.ph64, %56, %59, %61, %64, %85, %87, %.lr.ph.i, %76, %79, %82, %.lr.ph.i.i, %.lr.ph.split.us, %"_ZN91_$LT$yara_x..modules..protos..dotnet..AssemblyRef$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he081764cadb6ef96E.exit._crit_edge"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN87_$LT$yara_x..modules..protos..dotnet..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hc4afcec099c2751eE.exit.i30" ], [ false, %85 ], [ false, %"_ZN87_$LT$yara_x..modules..protos..dotnet..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hc4afcec099c2751eE.exit.i.us" ], [ true, %"_ZN91_$LT$yara_x..modules..protos..dotnet..AssemblyRef$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he081764cadb6ef96E.exit._crit_edge" ], [ false, %.lr.ph59 ], [ false, %64 ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.i.i ], [ false, %82 ], [ false, %79 ], [ false, %76 ], [ false, %.lr.ph.i ], [ false, %87 ], [ false, %61 ], [ false, %59 ], [ false, %56 ], [ false, %.lr.ph64 ], [ true, %"_ZN85_$LT$yara_x..modules..protos..dotnet..Class$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h5ca04904a5e5113cE.exit" ], [ false, %40 ], [ false, %38 ], [ false, %43 ], [ false, %19 ], [ false, %21 ], [ false, %24 ], [ false, %"_ZN86_$LT$yara_x..modules..protos..dotnet..Stream$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he0bf8795046cfd1cE.exit" ], [ false, %9 ]
+  %.sroa.0.0 = phi i1 [ false, %"_ZN87_$LT$yara_x..modules..protos..dotnet..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hc4afcec099c2751eE.exit.i.us" ], [ false, %"_ZN87_$LT$yara_x..modules..protos..dotnet..Version$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hc4afcec099c2751eE.exit.i30" ], [ false, %.lr.ph.split.us ], [ false, %85 ], [ false, %.lr.ph.i.i ], [ false, %64 ], [ false, %.lr.ph59 ], [ true, %"_ZN91_$LT$yara_x..modules..protos..dotnet..AssemblyRef$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he081764cadb6ef96E.exit._crit_edge" ], [ false, %82 ], [ false, %79 ], [ false, %76 ], [ false, %.lr.ph.i ], [ false, %87 ], [ false, %61 ], [ false, %59 ], [ false, %56 ], [ false, %.lr.ph64 ], [ true, %"_ZN85_$LT$yara_x..modules..protos..dotnet..Class$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h5ca04904a5e5113cE.exit" ], [ false, %40 ], [ false, %38 ], [ false, %43 ], [ false, %19 ], [ false, %21 ], [ false, %24 ], [ false, %"_ZN86_$LT$yara_x..modules..protos..dotnet..Stream$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he0bf8795046cfd1cE.exit" ], [ false, %9 ]
   ret i1 %.sroa.0.0
 }
 
@@ -69446,7 +69446,7 @@ define noundef zeroext i1 @"_ZN83_$LT$yara_x..modules..protos..macho..File$u20$a
   br i1 %.not2.i49.not, label %"_ZN84_$LT$yara_x..modules..protos..macho..Dylib$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he4d9e7d0a76765b0E.exit.thread", label %24
 
 "_ZN84_$LT$yara_x..modules..protos..macho..Dylib$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he4d9e7d0a76765b0E.exit.thread": ; preds = %11, %9, %14, %"_ZN84_$LT$yara_x..modules..protos..macho..Dylib$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he4d9e7d0a76765b0E.exit", %26, %28, %"_ZN90_$LT$yara_x..modules..protos..macho..Certificate$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h535e9cff8d9ea4c6E.exit", %24
-  %.sroa.0.0 = phi i1 [ true, %24 ], [ false, %26 ], [ false, %"_ZN90_$LT$yara_x..modules..protos..macho..Certificate$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h535e9cff8d9ea4c6E.exit" ], [ false, %28 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..macho..Dylib$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he4d9e7d0a76765b0E.exit" ], [ false, %14 ], [ false, %9 ], [ false, %11 ]
+  %.sroa.0.0 = phi i1 [ false, %26 ], [ true, %24 ], [ false, %"_ZN90_$LT$yara_x..modules..protos..macho..Certificate$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h535e9cff8d9ea4c6E.exit" ], [ false, %28 ], [ false, %"_ZN84_$LT$yara_x..modules..protos..macho..Dylib$u20$as$u20$protobuf..message..Message$GT$14is_initialized17he4d9e7d0a76765b0E.exit" ], [ false, %14 ], [ false, %9 ], [ false, %11 ]
   ret i1 %.sroa.0.0
 }
 
@@ -83535,10 +83535,10 @@ define void @"_ZN6yara_x7modules3crx6parser124_$LT$impl$u20$core..convert..From$
   br i1 %.sroa.042.1, label %194, label %193
 
 188:                                              ; preds = %64, %137, %147, %153
-  %.sroa.042.1 = phi i1 [ false, %147 ], [ false, %153 ], [ %.sroa.042.0, %64 ], [ false, %137 ]
-  %.sroa.041.1 = phi i1 [ true, %147 ], [ false, %153 ], [ %.sroa.041.0, %64 ], [ false, %137 ]
-  %.sroa.029.4 = phi i8 [ 1, %147 ], [ 1, %153 ], [ 0, %64 ], [ 0, %137 ]
-  %.pn112 = phi { ptr, i32 } [ %148, %147 ], [ %154, %153 ], [ %.pn, %64 ], [ %138, %137 ]
+  %.sroa.042.1 = phi i1 [ %.sroa.042.0, %64 ], [ false, %153 ], [ false, %147 ], [ false, %137 ]
+  %.sroa.041.1 = phi i1 [ %.sroa.041.0, %64 ], [ false, %153 ], [ true, %147 ], [ false, %137 ]
+  %.sroa.029.4 = phi i8 [ 0, %64 ], [ 1, %153 ], [ 1, %147 ], [ 0, %137 ]
+  %.pn112 = phi { ptr, i32 } [ %.pn, %64 ], [ %154, %153 ], [ %148, %147 ], [ %138, %137 ]
   %189 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %190 = load i64, ptr %189, align 8, !range !139, !alias.scope !3883, !noundef !3
   %191 = icmp eq i64 %190, -9223372036854775808

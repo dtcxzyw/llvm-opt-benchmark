@@ -6949,7 +6949,7 @@ smart_str_appendc_ex.exit1691:                    ; preds = %469, %474
   br label %zend_ast_export_list.exit
 
 .loopexit:                                        ; preds = %6, %6, %6, %smart_str_alloc.exit1218, %637, %smart_str_appendc_ex.exit1661, %smart_str_alloc.exit1213, %smart_str_alloc.exit1208, %702, %smart_str_alloc.exit1228
-  %.1 = phi ptr [ %596, %637 ], [ %596, %smart_str_appendc_ex.exit1661 ], [ %.02021, %smart_str_alloc.exit1208 ], [ %.02021, %smart_str_alloc.exit1218 ], [ %.02021, %smart_str_alloc.exit1228 ], [ %703, %702 ], [ %.02021, %smart_str_alloc.exit1213 ], [ %.02021, %6 ], [ %.02021, %6 ], [ %.02021, %6 ]
+  %.1 = phi ptr [ %.02021, %smart_str_alloc.exit1208 ], [ %596, %smart_str_appendc_ex.exit1661 ], [ %596, %637 ], [ %.02021, %smart_str_alloc.exit1218 ], [ %.02021, %smart_str_alloc.exit1228 ], [ %703, %702 ], [ %.02021, %smart_str_alloc.exit1213 ], [ %.02021, %6 ], [ %.02021, %6 ], [ %.02021, %6 ]
   %480 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %481 = load i32, ptr %480, align 8, !tbaa !77
   %.not2030 = icmp eq i32 %481, 0

@@ -1508,7 +1508,7 @@ parse_long_opt.exit.thread:                       ; preds = %._crit_edge.thread.
   store ptr null, ptr %7, align 8, !tbaa !47
   br label %.loopexit
 
-.loopexit:                                        ; preds = %102, %parse_long_opt.exit, %52, %271, %parse_nodash_opt.exit
+.loopexit:                                        ; preds = %102, %parse_long_opt.exit, %52, %parse_nodash_opt.exit, %271
   %279 = load i32, ptr %8, align 8, !tbaa !4
   %280 = add nsw i32 %279, -1
   store i32 %280, ptr %8, align 8, !tbaa !4
@@ -1526,8 +1526,8 @@ parse_long_opt.exit.thread:                       ; preds = %._crit_edge.thread.
   %.mux.le = select i1 %or.cond114.not136, i32 0, i32 3
   br label %.thread123
 
-.thread123:                                       ; preds = %.loopexit, %parse_long_opt.exit, %88, %49, %21, %parse_long_opt.exit.thread, %104, %.thread123.loopexit142.split.loop.exit241, %3, %118, %125, %120, %127, %parse_subcommand.exit.thread, %parse_subcommand.exit, %84, %87, %133, %.loopexit143
-  %.2 = phi i32 [ 0, %127 ], [ -2, %.loopexit143 ], [ 0, %125 ], [ 0, %118 ], [ 2, %parse_subcommand.exit.thread ], [ 0, %120 ], [ 0, %parse_subcommand.exit ], [ -3, %84 ], [ -3, %87 ], [ -2, %133 ], [ %.mux.le, %.thread123.loopexit142.split.loop.exit241 ], [ %105, %104 ], [ 0, %3 ], [ 1, %49 ], [ %89, %88 ], [ 0, %21 ], [ 0, %.loopexit ], [ %.2.i, %parse_long_opt.exit ], [ 0, %parse_long_opt.exit.thread ]
+.thread123:                                       ; preds = %.loopexit, %parse_long_opt.exit, %88, %49, %21, %parse_long_opt.exit.thread, %104, %.thread123.loopexit142.split.loop.exit241, %3, %125, %127, %120, %118, %parse_subcommand.exit.thread, %parse_subcommand.exit, %84, %87, %133, %.loopexit143
+  %.2 = phi i32 [ 0, %118 ], [ -2, %.loopexit143 ], [ 0, %127 ], [ 0, %125 ], [ 2, %parse_subcommand.exit.thread ], [ %.mux.le, %.thread123.loopexit142.split.loop.exit241 ], [ 0, %parse_subcommand.exit ], [ -3, %84 ], [ -3, %87 ], [ -2, %133 ], [ 0, %120 ], [ %105, %104 ], [ 0, %3 ], [ 1, %49 ], [ %89, %88 ], [ 0, %21 ], [ 0, %.loopexit ], [ %.2.i, %parse_long_opt.exit ], [ 0, %parse_long_opt.exit.thread ]
   ret i32 %.2
 }
 

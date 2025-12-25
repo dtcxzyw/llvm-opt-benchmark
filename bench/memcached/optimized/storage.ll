@@ -2565,7 +2565,7 @@ storage_compact_readback.exit:                    ; preds = %.thread194.i, %398
   br label %.loopexit
 
 411:                                              ; preds = %402, %storage_compact_readback.exit, %187
-  %.349 = phi i32 [ %.24898, %187 ], [ %401, %storage_compact_readback.exit ], [ %.24898, %402 ]
+  %.349 = phi i32 [ %.24898, %402 ], [ %401, %storage_compact_readback.exit ], [ %.24898, %187 ]
   %412 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #21
   br label %179, !llvm.loop !206
 }

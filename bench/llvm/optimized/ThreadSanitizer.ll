@@ -5993,8 +5993,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115ThreadSanitizer30chooseInstructi
   %9 = load ptr, ptr %0, align 8, !tbaa !25, !noalias !344
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !26, !noalias !344
-  %.not28 = icmp eq i32 %11, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not27 = icmp eq i32 %11, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %12 = zext i32 %11 to i64
@@ -6014,8 +6014,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115ThreadSanitizer30chooseInstructi
 
 ._crit_edge.loopexit:                             ; preds = %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread
   %.pre = load ptr, ptr %7, align 8, !tbaa !355
-  %.pre30 = load i32, ptr %21, align 8, !tbaa !358
-  %24 = zext i32 %.pre30 to i64
+  %.pre29 = load i32, ptr %21, align 8, !tbaa !358
+  %24 = zext i32 %.pre29 to i64
   %25 = shl nuw nsw i64 %24, 4
   br label %._crit_edge
 
@@ -6028,8 +6028,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115ThreadSanitizer30chooseInstructi
   ret void
 
 28:                                               ; preds = %.lr.ph, %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread
-  %.sroa.09.029 = phi ptr [ %13, %.lr.ph ], [ %29, %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread ]
-  %29 = getelementptr inbounds i8, ptr %.sroa.09.029, i64 -8
+  %.sroa.09.028 = phi ptr [ %13, %.lr.ph ], [ %29, %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread ]
+  %29 = getelementptr inbounds i8, ptr %.sroa.09.028, i64 -8
   %30 = load ptr, ptr %29, align 8, !tbaa !298
   %31 = load i8, ptr %30, align 8, !tbaa !268
   %32 = icmp eq i8 %31, 62
@@ -6152,7 +6152,7 @@ _ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit: ; pre
   br i1 %.not18.i, label %81, label %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread
 
 81:                                               ; preds = %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit
-  br i1 %32, label %.thread21, label %82
+  br i1 %32, label %.thread20, label %82
 
 82:                                               ; preds = %81
   %83 = load ptr, ptr %8, align 8, !tbaa !206
@@ -6203,8 +6203,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEmNS_12DenseMapInfoIS3_vEENS_6deta
   %110 = trunc nuw i8 %109 to i1
   %111 = zext i32 %85 to i64
   %112 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %84, i64 %111
-  %.not24 = icmp eq ptr %.sroa.0.1.i, %112
-  %or.cond = select i1 %110, i1 true, i1 %.not24
+  %.not23 = icmp eq ptr %.sroa.0.1.i, %112
+  %or.cond = select i1 %110, i1 true, i1 %.not23
   br i1 %or.cond, label %.critedge, label %113
 
 113:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E4findEPKS2_.exit
@@ -6220,16 +6220,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEmNS_12DenseMapInfoIS3_vEENS_6deta
   %120 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %121 = load i16, ptr %120, align 2, !tbaa !297
   %122 = and i16 %121, 1
-  %.not25 = icmp eq i16 %122, 0
-  br i1 %.not25, label %123, label %.critedge
+  %.not24 = icmp eq i16 %122, 0
+  br i1 %.not24, label %123, label %.critedge
 
 123:                                              ; preds = %119
   %124 = load ptr, ptr %116, align 8, !tbaa !288
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 2
   %126 = load i16, ptr %125, align 2, !tbaa !297
   %127 = and i16 %126, 1
-  %.not26 = icmp eq i16 %127, 0
-  br i1 %.not26, label %.thread14, label %.critedge
+  %.not25 = icmp eq i16 %127, 0
+  br i1 %.not25, label %.thread14, label %.critedge
 
 .thread14:                                        ; preds = %113, %123
   %128 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -6257,79 +6257,79 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEmNS_12DenseMapInfoIS3_vEENS_6deta
 140:                                              ; preds = %132, %.critedge
   %141 = phi i8 [ %.pre.i22, %132 ], [ %131, %.critedge ]
   %.013.i = phi ptr [ %139, %132 ], [ %83, %.critedge ]
-  switch i8 %141, label %.thread21 [
-    i8 3, label %142
-    i8 61, label %146
+  switch i8 %141, label %.thread20 [
+    i8 3, label %_ZN12_GLOBAL__N_115ThreadSanitizer24addrPointsToConstantDataEPN4llvm5ValueE.exit
+    i8 61, label %142
   ]
 
 142:                                              ; preds = %140
-  %143 = getelementptr inbounds nuw i8, ptr %.013.i, i64 80
-  %144 = load i8, ptr %143, align 8
-  %.fr = freeze i8 %144
-  %145 = trunc i8 %.fr to i1
-  br i1 %145, label %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread, label %.thread21
+  %143 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
+  %144 = load i32, ptr %143, align 4
+  %145 = and i32 %144, 536870912
+  %.not.i.i.i.i = icmp eq i32 %145, 0
+  br i1 %.not.i.i.i.i, label %.thread20, label %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i
 
-146:                                              ; preds = %140
-  %147 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
-  %148 = load i32, ptr %147, align 4
-  %149 = and i32 %148, 536870912
-  %.not.i.i.i.i = icmp eq i32 %149, 0
-  br i1 %.not.i.i.i.i, label %.thread21, label %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i
+_ZNK4llvm11Instruction11getMetadataEj.exit.i.i:   ; preds = %142
+  %146 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %.013.i, i32 noundef 1) #20
+  %.not.not.i.i = icmp eq ptr %146, null
+  br i1 %.not.not.i.i, label %.thread20, label %_ZL14isVtableAccessPN4llvm11InstructionE.exit.i
 
-_ZNK4llvm11Instruction11getMetadataEj.exit.i.i:   ; preds = %146
-  %150 = call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %.013.i, i32 noundef 1) #20
-  %.not.not.i.i = icmp eq ptr %150, null
-  br i1 %.not.not.i.i, label %.thread21, label %_ZN12_GLOBAL__N_115ThreadSanitizer24addrPointsToConstantDataEPN4llvm5ValueE.exit
+_ZL14isVtableAccessPN4llvm11InstructionE.exit.i:  ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i
+  %147 = call noundef zeroext i1 @_ZNK4llvm6MDNode18isTBAAVtableAccessEv(ptr noundef nonnull align 8 dereferenceable(16) %146) #20
+  br i1 %147, label %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread, label %.thread20
 
-_ZN12_GLOBAL__N_115ThreadSanitizer24addrPointsToConstantDataEPN4llvm5ValueE.exit: ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i
-  %151 = call noundef zeroext i1 @_ZNK4llvm6MDNode18isTBAAVtableAccessEv(ptr noundef nonnull align 8 dereferenceable(16) %150) #20
-  br i1 %151, label %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread, label %.thread21
+_ZN12_GLOBAL__N_115ThreadSanitizer24addrPointsToConstantDataEPN4llvm5ValueE.exit: ; preds = %140
+  %148 = getelementptr inbounds nuw i8, ptr %.013.i, i64 80
+  %149 = load i8, ptr %148, align 8
+  %.fr = freeze i8 %149
+  %150 = trunc i8 %.fr to i1
+  br i1 %150, label %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread, label %.thread20
 
-.thread21:                                        ; preds = %140, %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i, %146, %142, %_ZN12_GLOBAL__N_115ThreadSanitizer24addrPointsToConstantDataEPN4llvm5ValueE.exit, %81
-  %152 = load ptr, ptr %8, align 8, !tbaa !206
-  %153 = call noundef ptr @_ZN4llvm19getUnderlyingObjectEPKNS_5ValueEj(ptr noundef %152, i32 noundef 6) #20
-  %154 = load i8, ptr %153, align 8, !tbaa !268
-  %155 = icmp eq i8 %154, 60
-  br i1 %155, label %156, label %.critedge4
+.thread20:                                        ; preds = %140, %_ZNK4llvm11Instruction11getMetadataEj.exit.i.i, %142, %_ZL14isVtableAccessPN4llvm11InstructionE.exit.i, %_ZN12_GLOBAL__N_115ThreadSanitizer24addrPointsToConstantDataEPN4llvm5ValueE.exit, %81
+  %151 = load ptr, ptr %8, align 8, !tbaa !206
+  %152 = call noundef ptr @_ZN4llvm19getUnderlyingObjectEPKNS_5ValueEj(ptr noundef %151, i32 noundef 6) #20
+  %153 = load i8, ptr %152, align 8, !tbaa !268
+  %154 = icmp eq i8 %153, 60
+  br i1 %154, label %155, label %.critedge4
 
-156:                                              ; preds = %.thread21
-  %157 = load ptr, ptr %8, align 8, !tbaa !206
-  %158 = call noundef zeroext i1 @_ZN4llvm20PointerMayBeCapturedEPKNS_5ValueEbbj(ptr noundef %157, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 0) #20
-  br i1 %158, label %.critedge4, label %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread
+155:                                              ; preds = %.thread20
+  %156 = load ptr, ptr %8, align 8, !tbaa !206
+  %157 = call noundef zeroext i1 @_ZN4llvm20PointerMayBeCapturedEPKNS_5ValueEbbj(ptr noundef %156, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 0) #20
+  br i1 %157, label %.critedge4, label %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread
 
-.critedge4:                                       ; preds = %.thread21, %156
-  %159 = load i32, ptr %22, align 8, !tbaa !26
-  %160 = load i32, ptr %23, align 4, !tbaa !27
-  %.not.i23 = icmp ult i32 %159, %160
-  br i1 %.not.i23, label %162, label %161, !prof !33
+.critedge4:                                       ; preds = %.thread20, %155
+  %158 = load i32, ptr %22, align 8, !tbaa !26
+  %159 = load i32, ptr %23, align 4, !tbaa !27
+  %.not.i23 = icmp ult i32 %158, %159
+  br i1 %.not.i23, label %161, label %160, !prof !33
 
-161:                                              ; preds = %.critedge4
+160:                                              ; preds = %.critedge4
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115ThreadSanitizer15InstructionInfoELb1EE18growAndEmplaceBackIJRPNS_11InstructionEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull %30)
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ThreadSanitizer15InstructionInfoEE12emplace_backIJRPNS_11InstructionEEEERS3_DpOT_.exit
 
-162:                                              ; preds = %.critedge4
-  %163 = zext i32 %159 to i64
+161:                                              ; preds = %.critedge4
+  %162 = zext i32 %158 to i64
   %.val.i = load ptr, ptr %1, align 8, !tbaa !25
-  %164 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ThreadSanitizer::InstructionInfo", ptr %.val.i, i64 %163
-  store ptr %30, ptr %164, align 8, !tbaa !288
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  store i32 0, ptr %165, align 8, !tbaa !376
-  %166 = add nuw i32 %159, 1
-  store i32 %166, ptr %22, align 8, !tbaa !26
+  %163 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ThreadSanitizer::InstructionInfo", ptr %.val.i, i64 %162
+  store ptr %30, ptr %163, align 8, !tbaa !288
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  store i32 0, ptr %164, align 8, !tbaa !376
+  %165 = add nuw i32 %158, 1
+  store i32 %165, ptr %22, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ThreadSanitizer15InstructionInfoEE12emplace_backIJRPNS_11InstructionEEEERS3_DpOT_.exit
 
-_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ThreadSanitizer15InstructionInfoEE12emplace_backIJRPNS_11InstructionEEEERS3_DpOT_.exit: ; preds = %161, %162
-  br i1 %32, label %167, label %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread
+_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ThreadSanitizer15InstructionInfoEE12emplace_backIJRPNS_11InstructionEEEERS3_DpOT_.exit: ; preds = %160, %161
+  br i1 %32, label %166, label %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread
 
-167:                                              ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ThreadSanitizer15InstructionInfoEE12emplace_backIJRPNS_11InstructionEEEERS3_DpOT_.exit
-  %168 = load i32, ptr %22, align 8, !tbaa !26
-  %169 = zext i32 %168 to i64
-  %170 = add nsw i64 %169, -1
-  %171 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store i64 %170, ptr %171, align 8, !tbaa !53
+166:                                              ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ThreadSanitizer15InstructionInfoEE12emplace_backIJRPNS_11InstructionEEEERS3_DpOT_.exit
+  %167 = load i32, ptr %22, align 8, !tbaa !26
+  %168 = zext i32 %167 to i64
+  %169 = add nsw i64 %168, -1
+  %170 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  store i64 %169, ptr %170, align 8, !tbaa !53
   br label %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread
 
-_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread: ; preds = %_ZN12_GLOBAL__N_115ThreadSanitizer24addrPointsToConstantDataEPN4llvm5ValueE.exit, %142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %156, %.thread14, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ThreadSanitizer15InstructionInfoEE12emplace_backIJRPNS_11InstructionEEEERS3_DpOT_.exit, %167, %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit
+_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit.thread: ; preds = %_ZN12_GLOBAL__N_115ThreadSanitizer24addrPointsToConstantDataEPN4llvm5ValueE.exit, %_ZL14isVtableAccessPN4llvm11InstructionE.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %155, %.thread14, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ThreadSanitizer15InstructionInfoEE12emplace_backIJRPNS_11InstructionEEEERS3_DpOT_.exit, %166, %_ZL36shouldInstrumentReadWriteFromAddressPKN4llvm6ModuleEPNS_5ValueE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq ptr %29, %9
   br i1 %.not, label %._crit_edge.loopexit, label %28

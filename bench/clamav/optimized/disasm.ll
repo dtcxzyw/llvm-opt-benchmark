@@ -2020,7 +2020,7 @@ spam_x86.exit:                                    ; preds = %717
   br i1 %exitcond.not, label %.loopexit, label %730
 
 .loopexit:                                        ; preds = %464, %.lr.ph794.preheader.i, %.lr.ph804.preheader.i, %368, %343, %330, %330, %306, %283, %129, %111, %84, %78, %47, %.lr.ph.i, %.lr.ph777.i, %.lr.ph785.i, %.lr.ph814.i, %.lr.ph822.i, %.lr.ph829.i, %763, %612
-  %.042 = phi ptr [ null, %612 ], [ null, %.lr.ph785.i ], [ null, %.lr.ph814.i ], [ null, %.lr.ph777.i ], [ null, %.lr.ph.i ], [ %.0518.i, %763 ], [ null, %.lr.ph829.i ], [ null, %.lr.ph822.i ], [ null, %47 ], [ null, %78 ], [ null, %84 ], [ null, %111 ], [ null, %129 ], [ null, %283 ], [ null, %306 ], [ null, %330 ], [ null, %330 ], [ null, %343 ], [ null, %368 ], [ null, %.lr.ph804.preheader.i ], [ null, %.lr.ph794.preheader.i ], [ null, %464 ]
+  %.042 = phi ptr [ null, %612 ], [ null, %.lr.ph785.i ], [ null, %.lr.ph777.i ], [ null, %.lr.ph814.i ], [ null, %.lr.ph822.i ], [ null, %.lr.ph829.i ], [ %.0518.i, %763 ], [ null, %.lr.ph.i ], [ null, %47 ], [ null, %78 ], [ null, %84 ], [ null, %111 ], [ null, %129 ], [ null, %283 ], [ null, %306 ], [ null, %330 ], [ null, %330 ], [ null, %343 ], [ null, %368 ], [ null, %.lr.ph804.preheader.i ], [ null, %.lr.ph794.preheader.i ], [ null, %464 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.042
 }

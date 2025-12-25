@@ -609,10 +609,10 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %229, %218
   br label %268
 
 H5C__encode_cache_image_header.exit.i:            ; preds = %._crit_edge.i.i, %74
-  %263 = phi i32 [ %75, %74 ], [ %.pre49.i, %._crit_edge.i.i ]
-  %264 = phi i8 [ 1, %74 ], [ %.pre47.i, %._crit_edge.i.i ]
-  %265 = phi i8 [ 0, %74 ], [ %.pre.i, %._crit_edge.i.i ]
-  %.2.i = phi ptr [ %.03343.i, %74 ], [ %258, %._crit_edge.i.i ]
+  %263 = phi i32 [ %.pre49.i, %._crit_edge.i.i ], [ %75, %74 ]
+  %264 = phi i8 [ %.pre47.i, %._crit_edge.i.i ], [ 1, %74 ]
+  %265 = phi i8 [ %.pre.i, %._crit_edge.i.i ], [ 0, %74 ]
+  %.2.i = phi ptr [ %258, %._crit_edge.i.i ], [ %.03343.i, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %266 = zext i32 %263 to i64

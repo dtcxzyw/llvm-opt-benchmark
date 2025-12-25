@@ -1692,7 +1692,7 @@ impliedp.exit.thread:                             ; preds = %bitVectorRead.exit4
   %285 = add nsw i32 %.0334, 2
   br label %.outer, !llvm.loop !56
 
-beforep.exit.thread16:                            ; preds = %163, %161, %158
+beforep.exit.thread16:                            ; preds = %163, %158, %161
   %.not59 = icmp eq i32 %80, 2147483647
   br i1 %.not59, label %286, label %327
 
@@ -2031,7 +2031,7 @@ beforep.exit474.thread:                           ; preds = %443, %439, %421, %b
   %.not407 = icmp eq ptr %470, null
   br i1 %.not407, label %.thread, label %449, !llvm.loop !57
 
-beforep.exit474.thread32:                         ; preds = %441, %437, %beforep.exit474
+beforep.exit474.thread32:                         ; preds = %437, %441, %beforep.exit474
   %471 = getelementptr inbounds nuw i8, ptr %.437499, i64 16
   %472 = load ptr, ptr %471, align 8, !tbaa !55
   br label %473
@@ -2262,8 +2262,8 @@ beforep.exit475.thread:                           ; preds = %.lr.ph112.beforep.e
   %583 = load ptr, ptr %582, align 8, !tbaa !55
   br label %612
 
-beforep.exit475.thread41:                         ; preds = %.beforep.exit475.thread41_crit_edge, %548, %544, %beforep.exit475
-  %584 = phi i16 [ %.pre144, %.beforep.exit475.thread41_crit_edge ], [ %535, %548 ], [ %535, %544 ], [ %535, %beforep.exit475 ]
+beforep.exit475.thread41:                         ; preds = %.beforep.exit475.thread41_crit_edge, %544, %548, %beforep.exit475
+  %584 = phi i16 [ %.pre144, %.beforep.exit475.thread41_crit_edge ], [ %535, %544 ], [ %535, %548 ], [ %535, %beforep.exit475 ]
   %585 = shl nsw i64 %indvars.iv.next, 1
   %586 = getelementptr inbounds i32, ptr %506, i64 %585
   store i32 %.pre, ptr %586, align 4, !tbaa !36
@@ -2307,9 +2307,9 @@ beforep.exit475.thread41:                         ; preds = %.beforep.exit475.th
   br i1 %615, label %.lr.ph112, label %.loopexit, !llvm.loop !62
 
 .loopexit68:                                      ; preds = %286, %impliedp.exit469.thread27, %87, %166, %impliedp.exit.thread21, %476, %452, %406, %409, %._crit_edge, %510
-  %.0379 = phi ptr [ %.438398, %476 ], [ %.438398, %452 ], [ null, %._crit_edge ], [ null, %510 ], [ %407, %409 ], [ %.1380.ph, %406 ], [ %.1380.ph, %impliedp.exit.thread21 ], [ %.1380.ph, %166 ], [ %.1380.ph, %87 ], [ %.1380.ph, %impliedp.exit469.thread27 ], [ %.1380.ph, %286 ]
-  %.0370 = phi ptr [ %.437499, %476 ], [ %.437499, %452 ], [ null, %._crit_edge ], [ null, %510 ], [ %.1371.ph252, %409 ], [ %.1371.ph252, %406 ], [ %.1371.ph252, %impliedp.exit.thread21 ], [ %.1371.ph252, %166 ], [ %.1371.ph252, %87 ], [ %.1371.ph252, %impliedp.exit469.thread27 ], [ %.1371.ph252, %286 ]
-  %.0359 = phi ptr [ %.636590, %476 ], [ %.236194, %452 ], [ %.5364, %._crit_edge ], [ %.5364, %510 ], [ null, %409 ], [ null, %406 ], [ null, %impliedp.exit.thread21 ], [ null, %166 ], [ null, %87 ], [ null, %impliedp.exit469.thread27 ], [ null, %286 ]
+  %.0379 = phi ptr [ %.438398, %476 ], [ %.1380.ph, %406 ], [ %407, %409 ], [ null, %510 ], [ null, %._crit_edge ], [ %.438398, %452 ], [ %.1380.ph, %impliedp.exit.thread21 ], [ %.1380.ph, %166 ], [ %.1380.ph, %87 ], [ %.1380.ph, %impliedp.exit469.thread27 ], [ %.1380.ph, %286 ]
+  %.0370 = phi ptr [ %.437499, %476 ], [ %.1371.ph252, %406 ], [ %.1371.ph252, %409 ], [ null, %510 ], [ null, %._crit_edge ], [ %.437499, %452 ], [ %.1371.ph252, %impliedp.exit.thread21 ], [ %.1371.ph252, %166 ], [ %.1371.ph252, %87 ], [ %.1371.ph252, %impliedp.exit469.thread27 ], [ %.1371.ph252, %286 ]
+  %.0359 = phi ptr [ %.636590, %476 ], [ null, %406 ], [ null, %409 ], [ %.5364, %510 ], [ %.5364, %._crit_edge ], [ %.236194, %452 ], [ null, %impliedp.exit.thread21 ], [ null, %166 ], [ null, %87 ], [ null, %impliedp.exit469.thread27 ], [ null, %286 ]
   %616 = load ptr, ptr %12, align 8, !tbaa !34
   %.not.i476 = icmp eq ptr %616, null
   br i1 %.not.i476, label %618, label %617

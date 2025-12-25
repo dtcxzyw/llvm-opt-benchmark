@@ -17472,7 +17472,7 @@ _ZNK3fmt3v1115generic_contextIPccE3argEi.exit.thread39: ; preds = %_ZNK3fmt3v111
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_15generic_contextIPccEEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit: ; preds = %79, %74, %76, %78, %80
-  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
+  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
   %91 = icmp ugt i64 %.0.i, 2147483647
   br i1 %91, label %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextIPccEEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextIPccEEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread44
 
@@ -20316,7 +20316,7 @@ _ZNK3fmt3v1115generic_contextISt19ostreambuf_iteratorIcSt11char_traitsIcEEcE3arg
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt19ostreambuf_iteratorIcSt11char_traitsIcEEcEEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit: ; preds = %79, %74, %76, %78, %80
-  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
+  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
   %91 = icmp ugt i64 %.0.i, 2147483647
   br i1 %91, label %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt19ostreambuf_iteratorIcSt11char_traitsIcEEcEEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt19ostreambuf_iteratorIcSt11char_traitsIcEEcEEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread44
 
@@ -24416,7 +24416,7 @@ _ZNK3fmt3v117context3argEi.exit.thread39:         ; preds = %_ZNK3fmt3v117contex
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit: ; preds = %79, %74, %76, %78, %80
-  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
+  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
   %91 = icmp ugt i64 %.0.i, 2147483647
   br i1 %91, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread44
 
@@ -38450,7 +38450,7 @@ _ZNK3fmt3v1115generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_string
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit: ; preds = %79, %74, %76, %78, %80
-  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
+  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
   %91 = icmp ugt i64 %.0.i, 2147483647
   br i1 %91, label %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread44
 
@@ -43446,7 +43446,7 @@ _ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEE
   %248 = trunc nuw i32 %247 to i1
   br i1 %248, label %.critedge134, label %.critedge136
 
-.critedge134.thread:                              ; preds = %237, %225, %173, %169, %_ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEENKUljPcE_clEjSA_.exit147.thread, %233
+.critedge134.thread:                              ; preds = %225, %237, %173, %169, %_ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEENKUljPcE_clEjSA_.exit147.thread, %233
   %249 = load ptr, ptr %4, align 8, !tbaa !413
   %250 = zext nneg i32 %.0187 to i64
   %251 = getelementptr i8, ptr %249, i64 %250
@@ -43516,8 +43516,8 @@ _ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEE
   store i32 %285, ptr %6, align 4, !tbaa !184
   br label %.critedge136
 
-.critedge136:                                     ; preds = %237, %225, %173, %235, %171, %.critedge, %284, %280, %241
-  %.1188 = phi i32 [ %281, %280 ], [ %.0187, %284 ], [ %.0187, %.critedge ], [ %.0187, %241 ], [ 9, %171 ], [ 18, %235 ], [ 9, %173 ], [ %.0187, %225 ], [ 18, %237 ]
+.critedge136:                                     ; preds = %225, %237, %173, %235, %171, %.critedge, %284, %280, %241
+  %.1188 = phi i32 [ %281, %280 ], [ %.0187, %284 ], [ %.0187, %.critedge ], [ %.0187, %241 ], [ 9, %171 ], [ 18, %235 ], [ 9, %173 ], [ 18, %237 ], [ %.0187, %225 ]
   %286 = zext nneg i32 %.1188 to i64
   %287 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %288 = load i64, ptr %287, align 8, !tbaa !416
@@ -61969,7 +61969,7 @@ _ZNK3fmt3v1115generic_contextISt20back_insert_iteratorINS0_6detail15iterator_buf
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINS0_6detail15iterator_bufferIPccNS4_19fixed_buffer_traitsEEEEcEEE5visitINS4_19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit: ; preds = %79, %74, %76, %78, %80
-  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
+  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
   %91 = icmp ugt i64 %.0.i, 2147483647
   br i1 %91, label %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINS0_6detail15iterator_bufferIPccNS4_19fixed_buffer_traitsEEEEcEEE5visitINS4_19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINS0_6detail15iterator_bufferIPccNS4_19fixed_buffer_traitsEEEEcEEE5visitINS4_19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread44
 

@@ -379,11 +379,11 @@ define range(i64 -1, -9223372036854775808) i64 @H5Gcreate1(i64 noundef %0, ptr n
   br label %128
 
 128:                                              ; preds = %.thread, %120, %124, %116, %106, %97
-  %.054 = phi i1 [ false, %.thread ], [ true, %120 ], [ true, %124 ], [ false, %116 ], [ false, %97 ], [ false, %106 ]
-  %.053 = phi ptr [ undef, %.thread ], [ %104, %120 ], [ %104, %124 ], [ %104, %116 ], [ undef, %97 ], [ null, %106 ]
-  %.050 = phi i64 [ %.151.ph, %.thread ], [ %.252, %120 ], [ %.252, %124 ], [ %.252, %116 ], [ %.252, %97 ], [ %.252, %106 ]
-  %.046 = phi i64 [ -1, %.thread ], [ %122, %120 ], [ -1, %124 ], [ -1, %116 ], [ -1, %97 ], [ -1, %106 ]
-  %.044 = phi i1 [ true, %.thread ], [ false, %120 ], [ true, %124 ], [ true, %116 ], [ true, %97 ], [ true, %106 ]
+  %.054 = phi i1 [ false, %116 ], [ true, %124 ], [ true, %120 ], [ false, %.thread ], [ false, %97 ], [ false, %106 ]
+  %.053 = phi ptr [ %104, %116 ], [ %104, %124 ], [ %104, %120 ], [ undef, %.thread ], [ undef, %97 ], [ null, %106 ]
+  %.050 = phi i64 [ %.252, %116 ], [ %.252, %124 ], [ %.252, %120 ], [ %.151.ph, %.thread ], [ %.252, %97 ], [ %.252, %106 ]
+  %.046 = phi i64 [ -1, %116 ], [ -1, %124 ], [ %122, %120 ], [ -1, %.thread ], [ -1, %97 ], [ -1, %106 ]
+  %.044 = phi i1 [ true, %116 ], [ true, %124 ], [ false, %120 ], [ true, %.thread ], [ true, %97 ], [ true, %106 ]
   %.not69 = icmp eq i64 %.050, -1
   %129 = load i64, ptr @H5P_LST_GROUP_CREATE_ID_g, align 8
   %.not70 = icmp eq i64 %.050, %129

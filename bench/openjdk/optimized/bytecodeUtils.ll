@@ -2152,9 +2152,9 @@ _ZN21SimulatedOperandStackD2Ev.exit:              ; preds = %623, %629
   br label %_ZN21SimulatedOperandStack3popEi.exit
 
 _ZN21SimulatedOperandStack3popEi.exit:            ; preds = %379, %387, %_ZN21SimulatedOperandStack3popEi.exit450, %_ZN21SimulatedOperandStack3popEi.exit454, %641
-  %.0327540 = phi i32 [ %.0327.ph, %641 ], [ %613, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ %622, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ %393, %387 ], [ %386, %379 ]
-  %.sroa.25.0538 = phi ptr [ %.sroa.25.0.ph, %641 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ %43, %387 ], [ %43, %379 ]
-  %.sroa.0497.0534 = phi i32 [ %.sroa.0497.0.ph, %641 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ 0, %387 ], [ 0, %379 ]
+  %.0327540 = phi i32 [ %.0327.ph, %641 ], [ %393, %387 ], [ %622, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ %613, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ %386, %379 ]
+  %.sroa.25.0538 = phi ptr [ %.sroa.25.0.ph, %641 ], [ %43, %387 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ %43, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ %43, %379 ]
+  %.sroa.0497.0534 = phi i32 [ %.sroa.0497.0.ph, %641 ], [ 0, %387 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit454 ], [ 0, %_ZN21SimulatedOperandStack3popEi.exit450 ], [ 0, %379 ]
   %.not339 = icmp eq i32 %.0327540, -1
   br i1 %.not339, label %_ZN21SimulatedOperandStack3popEi.exit.thread542, label %642
 

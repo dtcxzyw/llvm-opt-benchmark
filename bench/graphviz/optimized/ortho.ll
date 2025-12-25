@@ -2928,9 +2928,9 @@ is_parallel.exit.thread.i.i:                      ; preds = %is_parallel.exit.i.
   br i1 %exitcond.not.i.i.i, label %.loopexit221.i, label %111, !llvm.loop !166
 
 .loopexit221.i:                                   ; preds = %93, %69, %138, %66
-  %.0134199.ph.i = phi i32 [ %.0134.ph205.i, %138 ], [ %..i, %66 ], [ %.0134.ph205.i, %69 ], [ %.0134.ph205.i, %93 ]
-  %.sroa.6.5.ph.i = phi i32 [ %spec.select25.i.i.i, %138 ], [ 0, %66 ], [ 0, %69 ], [ 0, %93 ]
-  %.sroa.0.5.ph.i = phi i32 [ %.02454.i.i, %138 ], [ 0, %66 ], [ %.02454.i.i, %69 ], [ %94, %93 ]
+  %.0134199.ph.i = phi i32 [ %..i, %66 ], [ %.0134.ph205.i, %138 ], [ %.0134.ph205.i, %69 ], [ %.0134.ph205.i, %93 ]
+  %.sroa.6.5.ph.i = phi i32 [ 0, %66 ], [ %spec.select25.i.i.i, %138 ], [ 0, %69 ], [ 0, %93 ]
+  %.sroa.0.5.ph.i = phi i32 [ 0, %66 ], [ %.02454.i.i, %138 ], [ %.02454.i.i, %69 ], [ %94, %93 ]
   %140 = xor i32 %.0134199.ph.i, 1
   %.0.in.i50.i143.i = getelementptr inbounds nuw i8, ptr %25, i64 64
   %.0.i51.i144.i = load ptr, ptr %.0.in.i50.i143.i, align 8, !tbaa !90
@@ -3075,8 +3075,8 @@ is_parallel.exit.thread.i155.i:                   ; preds = %is_parallel.exit.i1
   br i1 %exitcond.not.i.i167.i, label %.loopexit.i, label %183, !llvm.loop !166
 
 .loopexit.i:                                      ; preds = %165, %141, %210, %.loopexit221.i
-  %.sroa.6.6.ph.i = phi i32 [ %spec.select25.i.i166.i, %210 ], [ 0, %.loopexit221.i ], [ 0, %141 ], [ 0, %165 ]
-  %.sroa.0.6.ph.i = phi i32 [ %.02454.i150.i, %210 ], [ 0, %.loopexit221.i ], [ %.02454.i150.i, %141 ], [ %166, %165 ]
+  %.sroa.6.6.ph.i = phi i32 [ 0, %.loopexit221.i ], [ %spec.select25.i.i166.i, %210 ], [ 0, %141 ], [ 0, %165 ]
+  %.sroa.0.6.ph.i = phi i32 [ 0, %.loopexit221.i ], [ %.02454.i150.i, %210 ], [ %.02454.i150.i, %141 ], [ %166, %165 ]
   switch i32 %.sroa.6.5.ph.i, label %default.unreachable [
     i32 -1, label %212
     i32 0, label %283

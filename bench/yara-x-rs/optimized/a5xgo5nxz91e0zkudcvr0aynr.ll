@@ -17095,8 +17095,8 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
   br i1 %36, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i
 
 37:                                               ; preds = %26, %._crit_edge.i.i
-  %.sroa.23.0 = phi i8 [ %.sroa.020.043.i.i, %26 ], [ %.sroa.020.0.lcssa.i.i, %._crit_edge.i.i ]
-  %.pn = phi { ptr, i64 } [ %27, %26 ], [ %19, %._crit_edge.i.i ]
+  %.sroa.23.0 = phi i8 [ %.sroa.020.0.lcssa.i.i, %._crit_edge.i.i ], [ %.sroa.020.043.i.i, %26 ]
+  %.pn = phi { ptr, i64 } [ %19, %._crit_edge.i.i ], [ %27, %26 ]
   %.sroa.9.0.in = extractvalue { ptr, i64 } %.pn, 0
   %.sroa.16.0 = extractvalue { ptr, i64 } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2981
@@ -25344,12 +25344,12 @@ define hidden void @"_ZN77_$LT$nom..multi..Count$LT$F$GT$$u20$as$u20$nom..intern
   br label %163
 
 161:                                              ; preds = %105, %98
-  %.sroa.25.sroa.0.sroa.9.sroa.0.0.ph = phi i24 [ %.sroa.25.sroa.0.sroa.9.0.extract.trunc103, %98 ], [ %.sroa.8151.i.i.sroa.0.0.copyload, %105 ]
-  %.sroa.25.sroa.0.sroa.0.0.ph = phi i8 [ %.sroa.25.sroa.0.sroa.0.0.extract.trunc93, %98 ], [ %.sroa.7150.0.copyload.i.i, %105 ]
-  %.sroa.25.sroa.10.0.ph = phi i32 [ %.sroa.7185.0.copyload, %98 ], [ %.sroa.8151.i.i.sroa.5.0.copyload, %105 ]
-  %.sroa.21.0.ph = phi i64 [ %94, %98 ], [ %.sroa.6149.0.copyload.i.i, %105 ]
-  %.sroa.15.0.ph = phi i64 [ %99, %98 ], [ %.sroa.5148.0.copyload.i.i, %105 ]
-  %.sroa.8.0.ph = phi i64 [ %92, %98 ], [ %106, %105 ]
+  %.sroa.25.sroa.0.sroa.9.sroa.0.0.ph = phi i24 [ %.sroa.8151.i.i.sroa.0.0.copyload, %105 ], [ %.sroa.25.sroa.0.sroa.9.0.extract.trunc103, %98 ]
+  %.sroa.25.sroa.0.sroa.0.0.ph = phi i8 [ %.sroa.7150.0.copyload.i.i, %105 ], [ %.sroa.25.sroa.0.sroa.0.0.extract.trunc93, %98 ]
+  %.sroa.25.sroa.10.0.ph = phi i32 [ %.sroa.8151.i.i.sroa.5.0.copyload, %105 ], [ %.sroa.7185.0.copyload, %98 ]
+  %.sroa.21.0.ph = phi i64 [ %.sroa.6149.0.copyload.i.i, %105 ], [ %94, %98 ]
+  %.sroa.15.0.ph = phi i64 [ %.sroa.5148.0.copyload.i.i, %105 ], [ %99, %98 ]
+  %.sroa.8.0.ph = phi i64 [ %106, %105 ], [ %92, %98 ]
   %.sroa.25.sroa.0.sroa.9.0.insert.ext = zext i24 %.sroa.25.sroa.0.sroa.9.sroa.0.0.ph to i64
   %.sroa.25.sroa.0.sroa.9.0.insert.shift = shl nuw nsw i64 %.sroa.25.sroa.0.sroa.9.0.insert.ext, 8
   %.sroa.25.sroa.0.sroa.0.0.insert.ext = zext i8 %.sroa.25.sroa.0.sroa.0.0.ph to i64
@@ -26619,11 +26619,11 @@ define hidden void @"_ZN77_$LT$nom..multi..Count$LT$F$GT$$u20$as$u20$nom..intern
   br label %152
 
 135:                                              ; preds = %134, %129, %119
-  %.sroa.33.sroa.0.sroa.0.0.ph = phi i32 [ %116, %119 ], [ %126, %129 ], [ %.sroa.33.sroa.0.sroa.0.0.extract.trunc102, %134 ]
-  %.sroa.33.sroa.13.0.ph = phi i32 [ %.sroa.7242.0.copyload, %119 ], [ %.sroa.7247.0.copyload, %129 ], [ %.sroa.33.sroa.13.0.extract.trunc92, %134 ]
-  %.sroa.27.0.ph = phi i64 [ %115, %119 ], [ %125, %129 ], [ %.sroa.5204.0.copyload.i, %134 ]
-  %.sroa.19.0.ph.in = phi ptr [ %114, %119 ], [ %124, %129 ], [ %.sroa.0203.0.copyload.i, %134 ]
-  %.sroa.10.0.ph = phi i64 [ %113, %119 ], [ %123, %129 ], [ %133, %134 ]
+  %.sroa.33.sroa.0.sroa.0.0.ph = phi i32 [ %.sroa.33.sroa.0.sroa.0.0.extract.trunc102, %134 ], [ %126, %129 ], [ %116, %119 ]
+  %.sroa.33.sroa.13.0.ph = phi i32 [ %.sroa.33.sroa.13.0.extract.trunc92, %134 ], [ %.sroa.7247.0.copyload, %129 ], [ %.sroa.7242.0.copyload, %119 ]
+  %.sroa.27.0.ph = phi i64 [ %.sroa.5204.0.copyload.i, %134 ], [ %125, %129 ], [ %115, %119 ]
+  %.sroa.19.0.ph.in = phi ptr [ %.sroa.0203.0.copyload.i, %134 ], [ %124, %129 ], [ %114, %119 ]
+  %.sroa.10.0.ph = phi i64 [ %133, %134 ], [ %123, %129 ], [ %113, %119 ]
   %.sroa.19.0.ph = ptrtoint ptr %.sroa.19.0.ph.in to i64
   %.sroa.33.sroa.13.0.insert.ext = zext i32 %.sroa.33.sroa.13.0.ph to i64
   %.sroa.33.sroa.13.0.insert.shift = shl nuw i64 %.sroa.33.sroa.13.0.insert.ext, 32

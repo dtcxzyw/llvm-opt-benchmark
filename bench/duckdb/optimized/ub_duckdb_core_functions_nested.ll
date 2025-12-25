@@ -91510,7 +91510,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tESt4pairIKS2_mENS_10_Select1st
   br label %_ZNSt10_HashtableIN6duckdb8string_tESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stENS0_14StringEqualityENS0_10StringHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit29
 
 _ZNKSt10_HashtableIN6duckdb8string_tESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stENS0_14StringEqualityENS0_10StringHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %19, %22, %15, %61, %58, %45
-  %.sroa.042.0.ph = phi ptr [ %.0.i.i, %61 ], [ %.sroa.034.065.us, %15 ], [ %.0.us.i.i, %45 ], [ %.0.i.i, %58 ], [ %.sroa.034.065, %22 ], [ %.sroa.034.065, %19 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.065.us, %15 ], [ %.0.us.i.i, %45 ], [ %.0.i.i, %61 ], [ %.0.i.i, %58 ], [ %.sroa.034.065, %22 ], [ %.sroa.034.065, %19 ]
   tail call void @_ZdlPv(ptr noundef nonnull %3) #29
   br label %_ZNSt10_HashtableIN6duckdb8string_tESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stENS0_14StringEqualityENS0_10StringHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -91910,7 +91910,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tESt4pairIKS2_mENS_10_Select1st
   br label %_ZNSt10_HashtableIN6duckdb8string_tESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stENS0_14StringEqualityENS0_10StringHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit29
 
 _ZNKSt10_HashtableIN6duckdb8string_tESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stENS0_14StringEqualityENS0_10StringHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %22, %25, %18, %64, %61, %48
-  %.sroa.042.0.ph = phi ptr [ %.0.i.i, %64 ], [ %.sroa.034.065.us, %18 ], [ %.0.us.i.i, %48 ], [ %.0.i.i, %61 ], [ %.sroa.034.065, %25 ], [ %.sroa.034.065, %22 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.065.us, %18 ], [ %.0.us.i.i, %48 ], [ %.0.i.i, %64 ], [ %.0.i.i, %61 ], [ %.sroa.034.065, %25 ], [ %.sroa.034.065, %22 ]
   tail call void @_ZdlPv(ptr noundef nonnull %3) #29
   br label %_ZNSt10_HashtableIN6duckdb8string_tESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stENS0_14StringEqualityENS0_10StringHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

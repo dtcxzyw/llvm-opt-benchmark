@@ -373,8 +373,8 @@ mem_read.exit.thread:                             ; preds = %mem_read.exit.mem_r
   store i8 0, ptr %48, align 1, !tbaa !25
   br label %mem_read.exit.thread31
 
-mem_read.exit.thread31:                           ; preds = %44, %42, %mem_read.exit, %mem_read.exit.thread, %10, %12
-  %.0 = phi i32 [ 0, %10 ], [ 0, %12 ], [ %.1.i29, %mem_read.exit.thread ], [ %46, %mem_read.exit ], [ 0, %44 ], [ %.0.i, %42 ]
+mem_read.exit.thread31:                           ; preds = %42, %44, %mem_read.exit, %mem_read.exit.thread, %10, %12
+  %.0 = phi i32 [ 0, %10 ], [ 0, %12 ], [ %.1.i29, %mem_read.exit.thread ], [ %46, %mem_read.exit ], [ %.0.i, %42 ], [ 0, %44 ]
   ret i32 %.0
 }
 

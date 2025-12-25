@@ -702,7 +702,7 @@ get_ws_frame.exit.thread66:                       ; preds = %67
   %74 = icmp eq ptr %73, null
   br i1 %74, label %94, label %96
 
-get_ws_frame.exit.thread58:                       ; preds = %45, %.loopexit.i
+get_ws_frame.exit.thread58:                       ; preds = %.loopexit.i, %45
   %.253.ph = phi ptr [ %64, %.loopexit.i ], [ %46, %45 ]
   %.2.ph = phi i64 [ %.069.i, %.loopexit.i ], [ 0, %45 ]
   %75 = ptrtoint ptr %.253.ph to i64

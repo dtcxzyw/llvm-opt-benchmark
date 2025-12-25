@@ -125,7 +125,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen17forgLoopTableIterEP9lua_S
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.sink.split, %._crit_edge
-  %.2 = phi i1 [ true, %.loopexit.sink.split ], [ false, %._crit_edge ], [ false, %58 ]
+  %.2 = phi i1 [ false, %._crit_edge ], [ true, %.loopexit.sink.split ], [ false, %58 ]
   ret i1 %.2
 }
 

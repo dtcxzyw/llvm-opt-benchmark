@@ -11611,7 +11611,7 @@ _ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_1
   br label %.backedge, !llvm.loop !897
 
 _ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_15binding_eq_procEE6equalsERKPS2_S9_.exit: ; preds = %55, %48, %84, %_ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_15binding_eq_procEE6equalsERKPS2_S9_.exit35.thread, %77, %.preheader
-  %.026 = phi ptr [ %.148, %77 ], [ null, %84 ], [ null, %.preheader ], [ %.046, %48 ], [ null, %_ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_15binding_eq_procEE6equalsERKPS2_S9_.exit35.thread ], [ null, %55 ]
+  %.026 = phi ptr [ null, %84 ], [ %.148, %77 ], [ null, %.preheader ], [ %.046, %48 ], [ null, %_ZNK14core_hashtableI14ptr_hash_entryIN1q7bindingEENS1_17binding_hash_procENS1_15binding_eq_procEE6equalsERKPS2_S9_.exit35.thread ], [ null, %55 ]
   ret ptr %.026
 }
 

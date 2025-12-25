@@ -6229,7 +6229,7 @@ dissect_segment_safety.exit.i:                    ; preds = %807, %806, %584, %5
   br label %proto_item_set_generated.exit71.i
 
 proto_item_set_generated.exit71.i:                ; preds = %809, %dissect_segment_safety.exit.i, %dissect_segment_network_extended.exit.i, %dissect_segment_network_production_inhibit_us.exit.i
-  %.0.i285 = phi i32 [ 0, %809 ], [ %808, %dissect_segment_safety.exit.i ], [ %.050.i.i, %dissect_segment_network_extended.exit.i ], [ %493, %dissect_segment_network_production_inhibit_us.exit.i ]
+  %.0.i285 = phi i32 [ 0, %809 ], [ %808, %dissect_segment_safety.exit.i ], [ %493, %dissect_segment_network_production_inhibit_us.exit.i ], [ %.050.i.i, %dissect_segment_network_extended.exit.i ]
   br i1 %5, label %.critedge257, label %proto_item_set_generated.exit71.thread90.i
 
 proto_item_set_generated.exit71.thread90.sink.split.i: ; preds = %449, %435, %421
@@ -7733,7 +7733,7 @@ define hidden range(i32 0, 131073) i32 @dissect_cip_get_attribute_list_req(ptr n
   br i1 %77, label %cip_get_attribute.exit, label %72
 
 cip_get_attribute.exit:                           ; preds = %.preheader.i, %46, %61
-  %.0.i = phi ptr [ %39, %46 ], [ %54, %61 ], [ %74, %.preheader.i ]
+  %.0.i = phi ptr [ %54, %61 ], [ %39, %46 ], [ %74, %.preheader.i ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %cip_get_attribute.exit.thread, label %78
 
@@ -7915,7 +7915,7 @@ define hidden noundef i32 @dissect_cip_set_attribute_list_req(ptr noundef %0, pt
   br i1 %80, label %cip_get_attribute.exit, label %75
 
 cip_get_attribute.exit:                           ; preds = %.preheader.i, %49, %64
-  %.0.i = phi ptr [ %42, %49 ], [ %57, %64 ], [ %77, %.preheader.i ]
+  %.0.i = phi ptr [ %57, %64 ], [ %42, %49 ], [ %77, %.preheader.i ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %cip_get_attribute.exit.thread, label %81
 
@@ -8796,7 +8796,7 @@ cip_get_service.exit208:                          ; preds = %208, %213, %cip_get
   br i1 %313, label %cip_get_attribute.exit.i, label %308
 
 cip_get_attribute.exit.i:                         ; preds = %282, %297, %.preheader.i.i
-  %.0.i.i = phi ptr [ %310, %.preheader.i.i ], [ %290, %297 ], [ %275, %282 ]
+  %.0.i.i = phi ptr [ %290, %297 ], [ %310, %.preheader.i.i ], [ %275, %282 ]
   %.not.i212 = icmp eq ptr %.0.i.i, null
   br i1 %.not.i212, label %dissect_cip_set_attribute_single_req.exit, label %314
 
@@ -9089,7 +9089,7 @@ define hidden noundef i32 @dissect_cip_set_attribute_list_rsp(ptr noundef %0, pt
   br i1 %82, label %cip_get_attribute.exit, label %77
 
 cip_get_attribute.exit:                           ; preds = %.preheader.i, %51, %66
-  %.0.i = phi ptr [ %44, %51 ], [ %59, %66 ], [ %79, %.preheader.i ]
+  %.0.i = phi ptr [ %59, %66 ], [ %44, %51 ], [ %79, %.preheader.i ]
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %cip_get_attribute.exit.thread, label %83
 
@@ -9396,7 +9396,7 @@ switch.early.test:                                ; preds = %load_cip_request_da
   br i1 %114, label %cip_get_attribute.exit.i, label %109
 
 cip_get_attribute.exit.i:                         ; preds = %.preheader.i.i, %84, %99
-  %.0.i.i = phi ptr [ %77, %84 ], [ %92, %99 ], [ %111, %.preheader.i.i ]
+  %.0.i.i = phi ptr [ %92, %99 ], [ %77, %84 ], [ %111, %.preheader.i.i ]
   %.not.i62 = icmp eq ptr %.0.i.i, null
   br i1 %.not.i62, label %115, label %.thread104.i
 
@@ -9575,7 +9575,7 @@ dissect_cip_get_attribute_list_rsp.exit:          ; preds = %41, %.thread73.i
   br i1 %201, label %cip_get_attribute.exit.i75, label %196
 
 cip_get_attribute.exit.i75:                       ; preds = %170, %185, %.preheader.i.i72
-  %.0.i.i76 = phi ptr [ %198, %.preheader.i.i72 ], [ %178, %185 ], [ %163, %170 ]
+  %.0.i.i76 = phi ptr [ %178, %185 ], [ %198, %.preheader.i.i72 ], [ %163, %170 ]
   %.not.i77 = icmp eq ptr %.0.i.i76, null
   br i1 %.not.i77, label %dissect_cip_get_attribute_single_rsp.exit, label %202
 
@@ -12905,7 +12905,7 @@ default.unreachable45:                            ; preds = %25
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %21, %25, %33, %18, %4, %36, %9, %13
-  %.0 = phi i1 [ false, %21 ], [ false, %25 ], [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %18 ], [ false, %33 ], [ true, %.thread.sink.split ]
+  %.0 = phi i1 [ false, %25 ], [ false, %21 ], [ false, %13 ], [ false, %9 ], [ false, %36 ], [ false, %4 ], [ false, %18 ], [ false, %33 ], [ true, %.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -13208,7 +13208,7 @@ define internal range(i32 -2147483648, 262143) i32 @dissect_time_sync_port_state
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ %5, %.loopexit.sink.split ], [ %14, %.preheader ], [ %14, %18 ]
+  %.0 = phi i32 [ %14, %.preheader ], [ %5, %.loopexit.sink.split ], [ %14, %18 ]
   ret i32 %.0
 }
 
@@ -13257,7 +13257,7 @@ define internal range(i32 -2147483648, 262143) i32 @dissect_time_sync_port_enabl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ %5, %.loopexit.sink.split ], [ %14, %.preheader ], [ %14, %18 ]
+  %.0 = phi i32 [ %14, %.preheader ], [ %5, %.loopexit.sink.split ], [ %14, %18 ]
   ret i32 %.0
 }
 
@@ -13306,7 +13306,7 @@ define internal range(i32 -2147483648, 262143) i32 @dissect_time_sync_port_log_a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ %5, %.loopexit.sink.split ], [ %14, %.preheader ], [ %14, %18 ]
+  %.0 = phi i32 [ %14, %.preheader ], [ %5, %.loopexit.sink.split ], [ %14, %18 ]
   ret i32 %.0
 }
 
@@ -13355,7 +13355,7 @@ define internal range(i32 -2147483648, 262143) i32 @dissect_time_sync_port_log_s
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ %5, %.loopexit.sink.split ], [ %14, %.preheader ], [ %14, %18 ]
+  %.0 = phi i32 [ %14, %.preheader ], [ %5, %.loopexit.sink.split ], [ %14, %18 ]
   ret i32 %.0
 }
 
@@ -13581,7 +13581,7 @@ define internal range(i32 -2147483648, 655353) i32 @dissect_time_sync_port_profi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ %5, %.loopexit.sink.split ], [ %14, %.preheader ], [ %14, %18 ]
+  %.0 = phi i32 [ %14, %.preheader ], [ %5, %.loopexit.sink.split ], [ %14, %18 ]
   ret i32 %.0
 }
 
@@ -13642,7 +13642,7 @@ define internal range(i32 -2147483648, 2359263) i32 @dissect_time_sync_port_phys
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ %5, %.loopexit.sink.split ], [ %15, %.preheader ], [ %15, %21 ]
+  %.0 = phi i32 [ %15, %.preheader ], [ %5, %.loopexit.sink.split ], [ %15, %21 ]
   ret i32 %.0
 }
 
@@ -13699,7 +13699,7 @@ define internal range(i32 -2147483648, 1441773) i32 @dissect_time_sync_port_prot
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ %5, %.loopexit.sink.split ], [ %14, %.preheader ], [ %14, %20 ]
+  %.0 = phi i32 [ %14, %.preheader ], [ %5, %.loopexit.sink.split ], [ %14, %20 ]
   ret i32 %.0
 }
 

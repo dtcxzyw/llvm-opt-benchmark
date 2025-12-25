@@ -14835,7 +14835,7 @@ define internal fastcc { i64, i64 } @_ZN11file_finder7Matches8position17h3be09f0
   br label %"_ZN11file_finder7Matches8position28_$u7b$$u7b$closure$u7d$$u7d$17hbefbda84520fed05E.exit.i.us"
 
 "_ZN11file_finder7Matches8position28_$u7b$$u7b$closure$u7d$$u7d$17hbefbda84520fed05E.exit.i.us": ; preds = %67, %65
-  %.sroa.04.0.i.i.i.us = phi i8 [ %switch.offset.i.i.i.i.i.us, %67 ], [ %.sroa.0.1.i.i.i.i.us, %65 ]
+  %.sroa.04.0.i.i.i.us = phi i8 [ %.sroa.0.1.i.i.i.i.us, %65 ], [ %switch.offset.i.i.i.i.i.us, %67 ]
   %73 = icmp eq i8 %.sroa.04.0.i.i.i.us, 1
   %74 = add nuw i64 %28, 1
   %spec.select = select i1 %73, i64 %74, i64 %.sroa.03.037.i.us
@@ -14849,8 +14849,8 @@ define internal fastcc { i64, i64 } @_ZN11file_finder7Matches8position17h3be09f0
   br label %.thread33.i.us
 
 .thread33.i.us:                                   ; preds = %41, %.thread29.i.us, %"_ZN11file_finder7Matches8position28_$u7b$$u7b$closure$u7d$$u7d$17hbefbda84520fed05E.exit.i.us", %52, %39, %37
-  %79 = phi i64 [ %76, %"_ZN11file_finder7Matches8position28_$u7b$$u7b$closure$u7d$$u7d$17hbefbda84520fed05E.exit.i.us" ], [ %.sroa.09.036.i.us, %.thread29.i.us ], [ %28, %37 ], [ %28, %39 ], [ %28, %52 ], [ %28, %41 ]
-  %80 = phi i64 [ %spec.select, %"_ZN11file_finder7Matches8position28_$u7b$$u7b$closure$u7d$$u7d$17hbefbda84520fed05E.exit.i.us" ], [ %78, %.thread29.i.us ], [ %.sroa.03.037.i.us, %37 ], [ %.sroa.03.037.i.us, %39 ], [ %.sroa.03.037.i.us, %52 ], [ %.sroa.03.037.i.us, %41 ]
+  %79 = phi i64 [ %76, %"_ZN11file_finder7Matches8position28_$u7b$$u7b$closure$u7d$$u7d$17hbefbda84520fed05E.exit.i.us" ], [ %.sroa.09.036.i.us, %.thread29.i.us ], [ %28, %37 ], [ %28, %52 ], [ %28, %39 ], [ %28, %41 ]
+  %80 = phi i64 [ %spec.select, %"_ZN11file_finder7Matches8position28_$u7b$$u7b$closure$u7d$$u7d$17hbefbda84520fed05E.exit.i.us" ], [ %78, %.thread29.i.us ], [ %.sroa.03.037.i.us, %37 ], [ %.sroa.03.037.i.us, %52 ], [ %.sroa.03.037.i.us, %39 ], [ %.sroa.03.037.i.us, %41 ]
   %81 = sub i64 %79, %80
   %82 = icmp ult i64 %80, %79
   br i1 %82, label %.lr.ph.i.split.us, label %._crit_edge.i
@@ -18431,7 +18431,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i: ; preds = %.
   br label %43
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i": ; preds = %76, %62, %.noexc9.i, %.preheader.i.i.i, %53
-  %.promoted.i1962.i = phi i64 [ %.promoted.i1978.i, %62 ], [ %.promoted.i1978.i, %53 ], [ %.promoted.i1978.i, %.preheader.i.i.i ], [ %.promoted.i1978.i, %.noexc9.i ], [ %60, %76 ]
+  %.promoted.i1962.i = phi i64 [ %.promoted.i1978.i, %53 ], [ %.promoted.i1978.i, %62 ], [ %.promoted.i1978.i, %.preheader.i.i.i ], [ %.promoted.i1978.i, %.noexc9.i ], [ %60, %76 ]
   %gepdiff50.i = sub nsw i64 %42, %.promoted.i1962.i
   %65 = load i64, ptr %.sroa.55.0..sroa_idx.i, align 8, !alias.scope !3502, !noalias !3492, !noundef !4
   %66 = load i64, ptr %31, align 8, !alias.scope !3502, !noalias !3492, !noundef !4
@@ -21214,7 +21214,7 @@ default.unreachable:                              ; preds = %.noexc66.i
   br label %.loopexit69.i.i
 
 .loopexit.i.i:                                    ; preds = %561, %446, %402, %.sink.split.i.us.i.i, %502, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i.i"
-  %.sroa.0.0110.i.i = phi i64 [ %.sroa.0.0.us.i.i, %446 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i.i" ], [ %.sroa.0.0.us.i.i, %502 ], [ %.sroa.0.0.us.i.i, %.sink.split.i.us.i.i ], [ %.sroa.0.0.us.i.i, %402 ], [ %.sroa.0.0146.i.i, %561 ]
+  %.sroa.0.0110.i.i = phi i64 [ %.sroa.0.0.us.i.i, %446 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i.i" ], [ %.sroa.0.0.us.i.i, %.sink.split.i.us.i.i ], [ %.sroa.0.0.us.i.i, %502 ], [ %.sroa.0.0.us.i.i, %402 ], [ %.sroa.0.0146.i.i, %561 ]
   %gepdiff64.i.i = sub nsw i64 %379, %.sroa.0.0110.i.i
   %576 = load i64, ptr %.sroa.55.0..sroa_idx.i.i, align 8, !alias.scope !3907, !noalias !3864, !noundef !4
   %577 = load i64, ptr %20, align 8, !alias.scope !3907, !noalias !3864, !noundef !4

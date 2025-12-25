@@ -601,7 +601,7 @@ default.unreachable:                              ; preds = %_ZN20unicode_segmen
   br i1 %232, label %_ZN20unicode_segmentation8grapheme10check_pair17h018467ae3946d83dE.exit.thread90.i.i, label %.loopexit.sink.split
 
 _ZN20unicode_segmentation8grapheme10check_pair17h018467ae3946d83dE.exit.i.i: ; preds = %226, %225, %224, %221
-  %.sroa.03.0.i.i.i = phi i8 [ %switch.select9.i.i.i, %225 ], [ %..i.i.i, %221 ], [ %switch.select13.i.i.i, %226 ], [ %switch.select.i.i.i, %224 ]
+  %.sroa.03.0.i.i.i = phi i8 [ %switch.select9.i.i.i, %225 ], [ %switch.select13.i.i.i, %226 ], [ %..i.i.i, %221 ], [ %switch.select.i.i.i, %224 ]
   switch i8 %.sroa.03.0.i.i.i, label %default.unreachable [
     i8 0, label %_ZN20unicode_segmentation8grapheme10check_pair17h018467ae3946d83dE.exit.thread.i.i
     i8 1, label %.loopexit.sink.split

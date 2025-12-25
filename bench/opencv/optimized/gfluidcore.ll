@@ -37859,7 +37859,7 @@ _ZNSt11_Tuple_implILm0EJN2cv8GMatDescES1_S1_EED2Ev.exit: ; preds = %_ZNSt10_Head
   br label %.loopexit
 
 108:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i18, %.noexc.i.i.i.i.i20, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i11, %.noexc.i.i.i.i.i13
-  %.0.ph = phi ptr [ %34, %.noexc.i.i.i.i.i13 ], [ %58, %.noexc.i.i.i.i.i20 ], [ %34, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i11 ], [ %58, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i18 ]
+  %.0.ph = phi ptr [ %58, %.noexc.i.i.i.i.i20 ], [ %34, %.noexc.i.i.i.i.i13 ], [ %34, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i11 ], [ %58, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i18 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %109
@@ -39402,7 +39402,7 @@ _ZNSt11_Tuple_implILm0EJN2cv8GMatDescES1_S1_S1_EED2Ev.exit: ; preds = %_ZNSt10_H
   br label %.loopexit
 
 134:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i25, %.noexc.i.i.i.i.i27, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i18, %.noexc.i.i.i.i.i20, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i11, %.noexc.i.i.i.i.i13
-  %.0.ph = phi ptr [ %34, %.noexc.i.i.i.i.i13 ], [ %58, %.noexc.i.i.i.i.i20 ], [ %82, %.noexc.i.i.i.i.i27 ], [ %34, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i11 ], [ %58, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i18 ], [ %82, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i25 ]
+  %.0.ph = phi ptr [ %34, %.noexc.i.i.i.i.i13 ], [ %82, %.noexc.i.i.i.i.i27 ], [ %58, %.noexc.i.i.i.i.i20 ], [ %34, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i11 ], [ %58, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i18 ], [ %82, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i25 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %135

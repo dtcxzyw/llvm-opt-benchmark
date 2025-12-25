@@ -182,7 +182,7 @@ u_hasBinaryProperty_77.exit43.thread:             ; preds = %38, %36, %16, %18
   br label %u_hasBinaryProperty_77.exit
 
 u_hasBinaryProperty_77.exit:                      ; preds = %43, %44, %8, %7, %u_hasBinaryProperty_77.exit43.thread, %51, %3
-  %.034 = phi i8 [ 0, %7 ], [ 0, %u_hasBinaryProperty_77.exit43.thread ], [ 0, %3 ], [ %54, %51 ], [ %15, %8 ], [ 0, %43 ], [ %49, %44 ]
+  %.034 = phi i8 [ 0, %7 ], [ 0, %u_hasBinaryProperty_77.exit43.thread ], [ 0, %3 ], [ %54, %51 ], [ %15, %8 ], [ %49, %44 ], [ 0, %43 ]
   ret i8 %.034
 }
 

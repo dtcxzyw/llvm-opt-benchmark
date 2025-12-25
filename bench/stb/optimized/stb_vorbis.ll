@@ -5363,8 +5363,8 @@ prep_huffman.exit.i375.us.us:                     ; preds = %380, %next_segment.
   br label %codebook_decode_scalar_raw.exit.us.us
 
 codebook_decode_scalar_raw.exit.us.us:            ; preds = %538, %502
-  %.sink.i.us.us = phi i32 [ %540, %538 ], [ %508, %502 ]
-  %.0.ph.i377.us.us = phi i32 [ %.2.i.us.us, %538 ], [ %504, %502 ]
+  %.sink.i.us.us = phi i32 [ %508, %502 ], [ %540, %538 ]
+  %.0.ph.i377.us.us = phi i32 [ %504, %502 ], [ %.2.i.us.us, %538 ]
   store i32 %.sink.i.us.us, ptr %82, align 8, !tbaa !80
   %541 = icmp slt i32 %.0.ph.i377.us.us, 0
   br i1 %541, label %.thread.i, label %codebook_decode_start.exit.us.us
@@ -6094,8 +6094,8 @@ prep_huffman.exit.i405.us.us.us.us:               ; preds = %751, %next_segment.
   br label %codebook_decode_scalar_raw.exit437.us.us.us.us
 
 codebook_decode_scalar_raw.exit437.us.us.us.us:   ; preds = %858, %822
-  %.sink.i410.us.us.us.us = phi i32 [ %860, %858 ], [ %828, %822 ]
-  %.0.ph.i411.us.us.us.us = phi i32 [ %.2.i427.us.us.us.us, %858 ], [ %824, %822 ]
+  %.sink.i410.us.us.us.us = phi i32 [ %828, %822 ], [ %860, %858 ]
+  %.0.ph.i411.us.us.us.us = phi i32 [ %824, %822 ], [ %.2.i427.us.us.us.us, %858 ]
   store i32 %.sink.i410.us.us.us.us, ptr %82, align 8, !tbaa !80
   %861 = icmp slt i32 %.0.ph.i411.us.us.us.us, 0
   br i1 %861, label %.thread.i365, label %codebook_decode_start.exit374.us.us.us.us
@@ -8816,7 +8816,7 @@ get_bits.exit66:                                  ; preds = %173, %.get_bits.exi
   br label %.loopexit79
 
 .loopexit79:                                      ; preds = %.critedge, %27, %6, %157, %ilog.exit, %232, %50
-  %.0 = phi i32 [ 0, %157 ], [ 0, %50 ], [ 1, %232 ], [ 0, %ilog.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
+  %.0 = phi i32 [ 1, %232 ], [ 0, %50 ], [ 0, %157 ], [ 0, %ilog.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -16582,7 +16582,7 @@ skip.exit:                                        ; preds = %289, %293, %294
   br label %308
 
 308:                                              ; preds = %.sink.split, %302, %._crit_edge208, %64, %66
-  %.0 = phi i32 [ 1, %302 ], [ 0, %64 ], [ 0, %._crit_edge208 ], [ 1, %66 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 0, %64 ], [ 1, %66 ], [ 1, %302 ], [ 0, %._crit_edge208 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

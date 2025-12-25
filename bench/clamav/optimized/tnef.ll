@@ -155,8 +155,8 @@ fmap_readn.exit35.i:                              ; preds = %54
   %.not25.i = icmp ugt i64 %55, 3
   br i1 %.not25.i, label %58, label %.loopexit181
 
-.loopexit:                                        ; preds = %.lr.ph, %fmap_readn.exit.i, %156, %.preheader, %48
-  %.0109196 = phi ptr [ %.0109233, %48 ], [ null, %.preheader ], [ %.0109233, %.lr.ph ], [ %.0109233, %fmap_readn.exit.i ], [ %.1110, %156 ]
+.loopexit:                                        ; preds = %156, %fmap_readn.exit.i, %.lr.ph, %.preheader, %48
+  %.0109196 = phi ptr [ %.0109233, %48 ], [ null, %.preheader ], [ %.1110, %156 ], [ %.0109233, %fmap_readn.exit.i ], [ %.0109233, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread169
 

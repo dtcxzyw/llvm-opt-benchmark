@@ -1328,7 +1328,7 @@ common.resume:                                    ; preds = %.body, %84, %88, %6
   br label %.body
 
 73:                                               ; preds = %40, %._crit_edge.i
-  %.sroa.5.0 = phi i8 [ 2, %40 ], [ %.1.i, %._crit_edge.i ]
+  %.sroa.5.0 = phi i8 [ %.1.i, %._crit_edge.i ], [ 2, %40 ]
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %.val = load ptr, ptr %74, align 8, !nonnull !9, !noundef !9
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 96

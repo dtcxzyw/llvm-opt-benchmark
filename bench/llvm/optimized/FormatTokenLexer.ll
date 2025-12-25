@@ -4238,9 +4238,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split: ; preds = %245, 
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread191: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96, %.lr.ph232, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit
-  %253 = phi ptr [ %.sink311.in, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %224, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %224, %.lr.ph232 ], [ %224, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
-  %.066.lcssa287294 = phi i32 [ %.066.lcssa287294.ph, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %.066227.lcssa, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %.066227.lcssa, %.lr.ph232 ], [ %.066227.lcssa, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
-  %254 = phi i8 [ %252, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %227, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %227, %.lr.ph232 ], [ %227, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
+  %253 = phi ptr [ %224, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %.sink311.in, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %224, %.lr.ph232 ], [ %224, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
+  %.066.lcssa287294 = phi i32 [ %.066227.lcssa, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %.066.lcssa287294.ph, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %.066227.lcssa, %.lr.ph232 ], [ %.066227.lcssa, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
+  %254 = phi i8 [ %227, %_ZN5clang6format11FormatToken7setTypeENS0_9TokenTypeE.exit ], [ %252, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.sink.split ], [ %227, %.lr.ph232 ], [ %227, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i96 ]
   %255 = icmp eq i8 %254, 10
   br i1 %255, label %256, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread191.thread
 
@@ -7197,7 +7197,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit55.thread: ; preds = %_ZNK4llvm9StringR
   br i1 %.not.i56, label %.lr.ph.split.split.i, label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread, !llvm.loop !755
 
 _ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit: ; preds = %.lr.ph.split.split.i, %80, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit24.us47.i", %60, %37, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit24.us.us.i"
-  %spec.select.i = phi ptr [ %.033.us46.i, %80 ], [ %.033.us.us.i, %37 ], [ %.033.us.i, %60 ], [ %.033.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit24.us.us.i" ], [ %.033.us46.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit24.us47.i" ], [ %.033.i, %.lr.ph.split.split.i ]
+  %spec.select.i = phi ptr [ %.033.us46.i, %80 ], [ %.033.us.i, %60 ], [ %.033.us.us.i, %37 ], [ %.033.us.us.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit24.us.us.i" ], [ %.033.us46.i, %"_ZZN5clang6formatL15lexCSharpStringEPKcS2_bbENK3$_0clEv.exit24.us47.i" ], [ %.033.i, %.lr.ph.split.split.i ]
   %.not = icmp ult ptr %spec.select.i, %33
   br i1 %.not, label %92, label %_ZN5clang6formatL15lexCSharpStringEPKcS2_bb.exit.thread
 

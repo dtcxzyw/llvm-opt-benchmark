@@ -368,7 +368,7 @@ parse_adaptation_sets.exit.thread.sink.split:     ; preds = %92, %101, %104, %10
   br label %parse_adaptation_sets.exit.thread
 
 parse_adaptation_sets.exit.thread:                ; preds = %sub_1.i, %sub_0.i, %80, %42, %76, %.tail.i, %parse_adaptation_sets.exit.thread.sink.split, %._crit_edge113.i
-  %.0.i.ph = phi i32 [ -22, %parse_adaptation_sets.exit.thread.sink.split ], [ -22, %._crit_edge113.i ], [ -1, %.tail.i ], [ -1, %76 ], [ -12, %42 ], [ -1, %sub_1.i ], [ -1, %sub_0.i ], [ %90, %80 ]
+  %.0.i.ph = phi i32 [ -22, %parse_adaptation_sets.exit.thread.sink.split ], [ -22, %._crit_edge113.i ], [ -12, %42 ], [ -1, %76 ], [ -1, %.tail.i ], [ -1, %sub_1.i ], [ -1, %sub_0.i ], [ %90, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %write_adaptation_set.exit.thread
 
@@ -684,9 +684,9 @@ get_duration.exit:                                ; preds = %211, %193
   br i1 %or.cond139.not, label %281, label %.thread.i, !llvm.loop !71
 
 .thread.i:                                        ; preds = %281, %263, %274, %273, %244, %243
-  %.0121.i = phi i1 [ true, %243 ], [ true, %274 ], [ false, %273 ], [ true, %263 ], [ true, %244 ], [ %.not.i152.i, %281 ]
-  %.0120.i = phi i1 [ false, %243 ], [ true, %274 ], [ true, %273 ], [ %.not.i146.i, %263 ], [ true, %244 ], [ true, %281 ]
-  %.0119.i = phi i1 [ false, %243 ], [ true, %274 ], [ true, %273 ], [ %.not.i.i76, %263 ], [ true, %244 ], [ true, %281 ]
+  %.0121.i = phi i1 [ true, %243 ], [ true, %274 ], [ false, %273 ], [ true, %244 ], [ true, %263 ], [ %.not.i152.i, %281 ]
+  %.0120.i = phi i1 [ false, %243 ], [ true, %274 ], [ true, %273 ], [ true, %244 ], [ %.not.i146.i, %263 ], [ true, %281 ]
+  %.0119.i = phi i1 [ false, %243 ], [ true, %274 ], [ true, %273 ], [ true, %244 ], [ %.not.i.i76, %263 ], [ true, %281 ]
   %291 = call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %238, ptr noundef nonnull @.str.55, ptr noundef %228) #9
   %292 = load i32, ptr %237, align 8, !tbaa !65
   %293 = icmp eq i32 %292, 0

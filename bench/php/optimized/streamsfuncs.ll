@@ -408,7 +408,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %38
   br label %.critedge
 
 .critedge:                                        ; preds = %46, %.critedge.fold.split, %36, %45
-  %.1220 = phi ptr [ null, %45 ], [ %47, %46 ], [ null, %36 ], [ null, %.critedge.fold.split ]
+  %.1220 = phi ptr [ null, %45 ], [ null, %36 ], [ %47, %46 ], [ null, %.critedge.fold.split ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %52, align 8, !tbaa !4
   br i1 %.3227, label %53, label %57

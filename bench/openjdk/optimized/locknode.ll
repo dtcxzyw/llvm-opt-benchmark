@@ -263,7 +263,7 @@ define hidden noundef nonnull ptr @_ZN11BoxLockNode8IdentityEP8PhaseGVN(ptr noun
   br label %22
 
 22:                                               ; preds = %.sink.split, %21, %2, %5, %15, %9
-  %.0 = phi ptr [ %12, %15 ], [ %0, %9 ], [ %0, %2 ], [ %12, %21 ], [ %0, %5 ], [ %12, %.sink.split ]
+  %.0 = phi ptr [ %12, %15 ], [ %0, %9 ], [ %0, %5 ], [ %12, %21 ], [ %0, %2 ], [ %12, %.sink.split ]
   ret ptr %.0
 }
 

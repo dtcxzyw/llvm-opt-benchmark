@@ -2192,7 +2192,7 @@ _ZN19brotli_decompressor6decode21ReadSymbolCodeLengths17hf294041fa4dec71bE.exit:
   br i1 %190, label %.backedge, label %.preheader.preheader
 
 _ZN19brotli_decompressor6decode24ReadSimpleHuffmanSymbols17hd3dd43b43f857365E.exit: ; preds = %.loopexit.i, %38, %68, %249, %271, %109, %.loopexit31.i, %.loopexit, %288, %209, %195, %191
-  %.sroa.06.0 = phi i32 [ %.sroa.0.2.i, %.loopexit31.i ], [ 2, %191 ], [ -7, %.loopexit ], [ 1, %209 ], [ 2, %195 ], [ 2, %109 ], [ 1, %288 ], [ 2, %249 ], [ -5, %68 ], [ 2, %271 ], [ 2, %38 ], [ -6, %.loopexit.i ]
+  %.sroa.06.0 = phi i32 [ %.sroa.0.2.i, %.loopexit31.i ], [ 2, %191 ], [ -7, %.loopexit ], [ 1, %209 ], [ 2, %195 ], [ 2, %109 ], [ 1, %288 ], [ 2, %249 ], [ -5, %68 ], [ 2, %271 ], [ -6, %.loopexit.i ], [ 2, %38 ]
   ret i32 %.sroa.06.0
 
 .backedge:                                        ; preds = %72, %188, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e1d1da7814ca4afE.exit26.i", %.preheader.preheader, %192, %217
@@ -5089,7 +5089,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17h09d23f3d267f813fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
           to label %184 unwind label %182
 
-.thread32:                                        ; preds = %14, %38, %48
+.thread32:                                        ; preds = %14, %48, %38
   %lpad.thr_comm30 = landingpad { ptr, i32 }
           cleanup
   br label %.thread23

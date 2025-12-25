@@ -1556,7 +1556,7 @@ is_notclause.exit.i.i:                            ; preds = %77
   br i1 %90, label %.lr.ph45.i, label %pathkey_is_redundant.exit
 
 .loopexit:                                        ; preds = %45, %69, %83, %.loopexit51, %34
-  %.232.ph = phi ptr [ %.03056, %69 ], [ %50, %.loopexit51 ], [ %.03056, %34 ], [ %.03056, %83 ], [ %.03056, %45 ]
+  %.232.ph = phi ptr [ %50, %.loopexit51 ], [ %.03056, %69 ], [ %.03056, %34 ], [ %.03056, %83 ], [ %.03056, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = load i16, ptr %7, align 2
   %92 = sext i16 %91 to i64

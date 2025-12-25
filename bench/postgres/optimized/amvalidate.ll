@@ -289,7 +289,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   %.pre315348 = load i32, ptr %48, align 4
   br label %166
 
-.split109.us.thread341:                           ; preds = %.lr.ph.split.split.split, %116, %121
+.split109.us.thread341:                           ; preds = %116, %121, %.lr.ph.split.split.split
   %150 = tail call ptr @palloc(i64 noundef 24) #7
   br label %.split109.us._crit_edge
 

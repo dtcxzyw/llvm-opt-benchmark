@@ -14122,7 +14122,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   resume { ptr, i32 } %74
 
 _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N9grpc_core11RlsLbConfig10KeyBuilderEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread: ; preds = %.lr.ph.split.us, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N9grpc_core11RlsLbConfig10KeyBuilderEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i, %49
-  %.sroa.037.0.ph = phi ptr [ %.0.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N9grpc_core11RlsLbConfig10KeyBuilderEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i ], [ %.0.us.i.i, %49 ], [ %.sroa.033.055.us, %.lr.ph.split.us ]
+  %.sroa.037.0.ph = phi ptr [ %.0.us.i.i, %49 ], [ %.0.i.i, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N9grpc_core11RlsLbConfig10KeyBuilderEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS8_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i ], [ %.sroa.033.055.us, %.lr.ph.split.us ]
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core11RlsLbConfig10KeyBuilderEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N9grpc_core11RlsLbConfig10KeyBuilderEENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISC_Lb1EEE.exit.thread.thread
 
@@ -27796,7 +27796,7 @@ _ZNSt5dequeIN9grpc_core9TimestampESaIS1_EE9pop_frontEv.exit.us.i.i: ; preds = %7
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.i.i:       ; preds = %752, %748, %.thread.i.i.i, %743, %.lr.ph.split.i.i
-  %.sroa.04.0.i.i.i = phi i64 [ %753, %752 ], [ 9223372036854775807, %743 ], [ 9223372036854775807, %748 ], [ 9223372036854775807, %.thread.i.i.i ], [ %spec.select.i.i.i, %.lr.ph.split.i.i ]
+  %.sroa.04.0.i.i.i = phi i64 [ 9223372036854775807, %748 ], [ 9223372036854775807, %743 ], [ %753, %752 ], [ 9223372036854775807, %.thread.i.i.i ], [ %spec.select.i.i.i, %.lr.ph.split.i.i ]
   %.sroa.010.0.copyload.i.i = load i64, ptr %707, align 8, !tbaa !22
   %754 = icmp sgt i64 %.sroa.04.0.i.i.i, %.sroa.010.0.copyload.i.i
   br i1 %754, label %755, label %.critedge.i.i150
@@ -27893,7 +27893,7 @@ _ZNSt5dequeIN9grpc_core9TimestampESaIS1_EE9pop_frontEv.exit.i.i: ; preds = %760,
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit22.i.i
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit22.i.i:     ; preds = %795, %791, %.thread.i19.i.i, %785, %782
-  %.sroa.04.0.i17.i.i = phi i64 [ %796, %795 ], [ 9223372036854775807, %785 ], [ 9223372036854775807, %791 ], [ 9223372036854775807, %.thread.i19.i.i ], [ %spec.select.i16.i.i, %782 ]
+  %.sroa.04.0.i17.i.i = phi i64 [ 9223372036854775807, %791 ], [ 9223372036854775807, %785 ], [ %796, %795 ], [ 9223372036854775807, %.thread.i19.i.i ], [ %spec.select.i16.i.i, %782 ]
   %.sroa.0.0.copyload.i.i = load i64, ptr %707, align 8, !tbaa !22
   %797 = icmp sgt i64 %.sroa.04.0.i17.i.i, %.sroa.0.0.copyload.i.i
   br i1 %797, label %798, label %.critedge2.loopexit.i.i

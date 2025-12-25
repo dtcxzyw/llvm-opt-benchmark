@@ -2897,7 +2897,7 @@ select.unfold53:                                  ; preds = %193, %213, %181, %_
   br i1 %.not.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !197
 
 _ZN5clangneENS_22specific_attr_iteratorINS_12NoEscapeAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %231, %.lr.ph.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %226, %231 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %226, %231 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %233 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %226
   %234 = or i1 %.06.i, %233
   br i1 %234, label %_ZZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterEEN12LocalVisitor15findLambdaInArgEPNS1_4ExprE.exit.thread, label %235

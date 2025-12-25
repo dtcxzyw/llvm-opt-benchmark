@@ -840,8 +840,8 @@ Ree_ManCutMergeOne.exit.sink.split:               ; preds = %270, %265
   br label %Ree_ManCutMergeOne.exit
 
 Ree_ManCutMergeOne.exit:                          ; preds = %._crit_edge.i, %.preheader.i143, %110, %Ree_ManCutMergeOne.exit.sink.split, %269
-  %.2104 = phi i32 [ %.3105, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1103195, %110 ], [ %.3105, %269 ], [ %.1103195, %.preheader.i143 ], [ %.1103195, %._crit_edge.i ]
-  %.2 = phi i32 [ %.3, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1196, %110 ], [ %.3, %269 ], [ %.1196, %.preheader.i143 ], [ %.1196, %._crit_edge.i ]
+  %.2104 = phi i32 [ %.3105, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1103195, %.preheader.i143 ], [ %.3105, %269 ], [ %.1103195, %110 ], [ %.1103195, %._crit_edge.i ]
+  %.2 = phi i32 [ %.3, %Ree_ManCutMergeOne.exit.sink.split ], [ %.1196, %.preheader.i143 ], [ %.3, %269 ], [ %.1196, %110 ], [ %.1196, %._crit_edge.i ]
   %275 = add nuw nsw i32 %.0116192, 1
   %276 = load i32, ptr %.0109193, align 4, !tbaa !16
   %277 = sext i32 %276 to i64

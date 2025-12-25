@@ -13035,8 +13035,8 @@ _ZL28assignedRegPartiallyOverlapsRKN4llvm18TargetRegisterInfoERKNS_10VirtRegMapE
   br i1 %.not.i.i.i.i.i.i, label %_ZL10hasTiedDefPN4llvm19MachineRegisterInfoEj.exit.thread.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %108, %102
-  %.ph136 = phi i32 [ %103, %102 ], [ %109, %108 ]
-  %.sroa.01.09.i.ph = phi ptr [ %.0.i.i.i.i, %102 ], [ %107, %108 ]
+  %.ph136 = phi i32 [ %109, %108 ], [ %103, %102 ]
+  %.sroa.01.09.i.ph = phi ptr [ %107, %108 ], [ %.0.i.i.i.i, %102 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %116
@@ -13093,8 +13093,8 @@ _ZL10hasTiedDefPN4llvm19MachineRegisterInfoEj.exit: ; preds = %.lr.ph.i
   br i1 %.not.i.i.i.i.i.i64, label %_ZL10hasTiedDefPN4llvm19MachineRegisterInfoEj.exit65.thread, label %.lr.ph.i57.preheader
 
 .lr.ph.i57.preheader:                             ; preds = %134, %128
-  %.ph = phi i32 [ %129, %128 ], [ %135, %134 ]
-  %.sroa.01.09.i58.ph = phi ptr [ %.0.i.i.i.i52, %128 ], [ %133, %134 ]
+  %.ph = phi i32 [ %135, %134 ], [ %129, %128 ]
+  %.sroa.01.09.i58.ph = phi ptr [ %133, %134 ], [ %.0.i.i.i.i52, %128 ]
   br label %.lr.ph.i57
 
 .lr.ph.i57:                                       ; preds = %.lr.ph.i57.preheader, %142

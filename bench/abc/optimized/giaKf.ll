@@ -885,7 +885,7 @@ Kf_SetRemoveDuplicatesOrder.exit:                 ; preds = %Kf_SetCutIsContaine
   store i32 %49, ptr %118, align 4, !tbaa !37
   br label %Kf_SetMergeOrderOne.exit.thread
 
-Kf_SetMergeOrderOne.exit.thread:                  ; preds = %84, %.lr.ph118.i, %.preheader.i.i, %144, %130, %.preheader104.i, %87, %100, %39, %Kf_SetRemoveDuplicatesOrder.exit
+Kf_SetMergeOrderOne.exit.thread:                  ; preds = %84, %.lr.ph118.i, %.preheader.i.i, %144, %130, %87, %100, %.preheader104.i, %39, %Kf_SetRemoveDuplicatesOrder.exit
   %165 = getelementptr inbounds nuw i8, ptr %.05594, i64 96
   %166 = load i32, ptr %7, align 8, !tbaa !78
   %167 = sext i32 %166 to i64

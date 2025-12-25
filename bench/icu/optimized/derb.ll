@@ -2203,7 +2203,7 @@ _ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit: ; preds =
   br i1 %exitcond.not, label %.critedge, label %338, !llvm.loop !40
 
 .critedge:                                        ; preds = %.backedge, %321, %430, %.lr.ph, %.preheader, %324
-  %.1135 = phi ptr [ %.3, %430 ], [ null, %324 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %314, %321 ], [ %314, %.backedge ]
+  %.1135 = phi ptr [ null, %.lr.ph ], [ null, %324 ], [ null, %.preheader ], [ %.3, %430 ], [ %314, %321 ], [ %314, %.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6icu_7713UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %2, i32 noundef 32, i32 noundef %2)
   %432 = getelementptr inbounds nuw i8, ptr %6, i64 8

@@ -23516,7 +23516,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %_ZNSt1
   br label %.thread, !llvm.loop !745
 
 .thread:                                          ; preds = %36, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %30, %.lr.ph.split, %22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %12, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us, %0, %..thread.loopexit9_crit_edge13
-  %.3 = phi i64 [ -1, %22 ], [ -1, %0 ], [ -1, %12 ], [ %.us-phi20, %..thread.loopexit9_crit_edge13 ], [ %.02111.us, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ -1, %36 ], [ %21, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ -1, %.lr.ph.split ], [ %21, %30 ]
+  %.3 = phi i64 [ -1, %0 ], [ -1, %12 ], [ -1, %22 ], [ %.us-phi20, %..thread.loopexit9_crit_edge13 ], [ %.02111.us, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.us ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ -1, %36 ], [ %21, %30 ], [ %21, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ -1, %.lr.ph.split ]
   ret i64 %.3
 }
 
@@ -24253,8 +24253,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split:
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread: ; preds = %29, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split, %23, %22, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
-  %.sroa.411.0.copyload12 = phi ptr [ %.str.84.sink, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split ], [ %.sroa.411.0.copyload12.pre.pre, %23 ], [ %.sroa.411.0.copyload12.pre.pre, %22 ], [ %.sroa.411.0.copyload12.pre.pre, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit ], [ %.sroa.411.0.copyload12.pre.pre, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.411.0.copyload12.pre.pre, %29 ]
-  %.sroa.09.0.copyload10 = phi i64 [ %.sink, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split ], [ %.pre, %23 ], [ 0, %22 ], [ %.pre, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit ], [ %.pre, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.pre, %29 ]
+  %.sroa.411.0.copyload12 = phi ptr [ %.sroa.411.0.copyload12.pre.pre, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit ], [ %.sroa.411.0.copyload12.pre.pre, %23 ], [ %.sroa.411.0.copyload12.pre.pre, %22 ], [ %.str.84.sink, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split ], [ %.sroa.411.0.copyload12.pre.pre, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.sroa.411.0.copyload12.pre.pre, %29 ]
+  %.sroa.09.0.copyload10 = phi i64 [ %.pre, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit ], [ %.pre, %23 ], [ 0, %22 ], [ %.sink, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.sink.split ], [ %.pre, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.pre, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %36
 

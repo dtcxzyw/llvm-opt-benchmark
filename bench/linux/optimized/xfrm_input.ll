@@ -1976,9 +1976,9 @@ xfrm_parse_spi.exit:                              ; preds = %110, %119, %138, %3
   %1087 = load i32, ptr %1086, align 4
   br label %xfrm_parse_spi.exit52.thread77
 
-xfrm_parse_spi.exit52.thread77:                   ; preds = %1050, %1077
-  %.9.ph = phi i32 [ %1085, %1077 ], [ %1061, %1050 ]
-  %.6.ph = phi i32 [ %1087, %1077 ], [ 0, %1050 ]
+xfrm_parse_spi.exit52.thread77:                   ; preds = %1077, %1050
+  %.9.ph = phi i32 [ %1061, %1050 ], [ %1085, %1077 ]
+  %.6.ph = phi i32 [ 0, %1050 ], [ %1087, %1077 ]
   %1088 = getelementptr inbounds nuw i8, ptr %398, i64 80
   br label %257
 

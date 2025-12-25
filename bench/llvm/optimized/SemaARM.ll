@@ -38047,7 +38047,7 @@ _ZNK5clang4Decl7getAttrINS_10ArmNewAttrEEEPT_v.exit: ; preds = %29, %.lr.ph.i.i.
   br i1 %.not.i.i.i.i.i56, label %_ZN5clangneENS_22specific_attr_iteratorINS_23ArmLocallyStreamingAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i54, !llvm.loop !83
 
 _ZN5clangneENS_22specific_attr_iteratorINS_23ArmLocallyStreamingAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %56, %.lr.ph.i.i.i.i.i54
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i55, %.lr.ph.i.i.i.i.i54 ], [ %51, %56 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %51, %56 ], [ %.sroa.07.1.i.i.i.i55, %.lr.ph.i.i.i.i.i54 ]
   %58 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %51
   br label %_ZNK5clang4Decl7hasAttrINS_23ArmLocallyStreamingAttrEEEbv.exit
 

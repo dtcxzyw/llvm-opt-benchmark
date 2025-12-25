@@ -2370,7 +2370,7 @@ ivi_decode_coded_blocks.exit.i.i:                 ; preds = %819
   br label %859
 
 .loopexit.i:                                      ; preds = %612, %609, %603, %597, %592, %586, %578, %568, %840, %825, %ivi_decode_coded_blocks.exit.i.i, %ivi_decode_coded_blocks.exit.thread.i.i
-  %.4.i.ph.i = phi i32 [ %823, %ivi_decode_coded_blocks.exit.i.i ], [ -1094995529, %ivi_decode_coded_blocks.exit.thread.i.i ], [ %841, %840 ], [ -1094995529, %825 ], [ -1094995529, %568 ], [ -1094995529, %578 ], [ -1094995529, %586 ], [ -1094995529, %592 ], [ -1094995529, %597 ], [ -1094995529, %603 ], [ -1094995529, %609 ], [ -1094995529, %612 ]
+  %.4.i.ph.i = phi i32 [ -1094995529, %ivi_decode_coded_blocks.exit.thread.i.i ], [ %823, %ivi_decode_coded_blocks.exit.i.i ], [ %841, %840 ], [ -1094995529, %825 ], [ -1094995529, %568 ], [ -1094995529, %578 ], [ -1094995529, %586 ], [ -1094995529, %592 ], [ -1094995529, %597 ], [ -1094995529, %603 ], [ -1094995529, %609 ], [ -1094995529, %612 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.24) #10
   br label %ivi_process_empty_tile.exit.i

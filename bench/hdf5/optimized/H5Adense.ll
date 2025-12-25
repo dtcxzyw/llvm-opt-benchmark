@@ -688,7 +688,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef reado
   br label %.thread152
 
 54:                                               ; preds = %45, %47
-  %.2 = phi ptr [ null, %45 ], [ %48, %47 ]
+  %.2 = phi ptr [ %48, %47 ], [ null, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 

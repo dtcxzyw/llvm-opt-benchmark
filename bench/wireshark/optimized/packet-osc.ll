@@ -1425,7 +1425,7 @@ is_valid_format.exit:                             ; preds = %.preheader.i308
   br label %is_valid_path.exit.thread
 
 is_valid_path.exit.thread:                        ; preds = %28, %24, %41, %38, %17, %._crit_edge
-  %.0 = phi i32 [ %., %._crit_edge ], [ -1, %41 ], [ -1, %17 ], [ -1, %38 ], [ -1, %24 ], [ -1, %28 ]
+  %.0 = phi i32 [ %., %._crit_edge ], [ -1, %38 ], [ -1, %17 ], [ -1, %41 ], [ -1, %24 ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

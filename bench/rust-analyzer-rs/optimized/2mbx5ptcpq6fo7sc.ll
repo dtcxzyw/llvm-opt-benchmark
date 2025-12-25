@@ -29821,7 +29821,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i.i.i.i.con
   br label %.body406
 
 .loopexit.split-lp:                               ; preds = %672, %.invoke1149, %.invoke1147, %.invoke1145, %267, %284, %316, %264, %291, %343, %659, %682
-  %.2295.ph = phi i8 [ 1, %682 ], [ 1, %.invoke1145 ], [ 1, %.invoke1147 ], [ 1, %291 ], [ 1, %.invoke1149 ], [ 1, %264 ], [ 1, %267 ], [ 1, %672 ], [ 1, %659 ], [ 1, %284 ], [ %.4, %343 ], [ 0, %316 ]
+  %.2295.ph = phi i8 [ 1, %682 ], [ 1, %.invoke1145 ], [ 1, %.invoke1147 ], [ 1, %291 ], [ %.4, %343 ], [ 1, %264 ], [ 1, %267 ], [ 1, %659 ], [ 1, %672 ], [ 1, %284 ], [ 1, %.invoke1149 ], [ 0, %316 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body406
@@ -32835,8 +32835,8 @@ _ZN15ra_ap_rustc_abi3Abi8to_union17hb67f99cf13ca45a3E.exit: ; preds = %94, %94, 
 103:                                              ; preds = %101
   switch i8 %.sroa.014.1.ph444, label %default.unreachable578 [
     i8 1, label %104
-    i8 2, label %112
-    i8 3, label %125
+    i8 2, label %110
+    i8 3, label %126
     i8 4, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
   ]
 
@@ -32847,7 +32847,7 @@ _ZN15ra_ap_rustc_abi3Abi8to_union17hb67f99cf13ca45a3E.exit: ; preds = %94, %94, 
 106:                                              ; preds = %104
   switch i8 %.sroa.9.sroa.6.0.ph407, label %.thread [
     i8 0, label %107
-    i8 5, label %110
+    i8 5, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit"
   ]
 
 107:                                              ; preds = %106
@@ -32856,88 +32856,88 @@ _ZN15ra_ap_rustc_abi3Abi8to_union17hb67f99cf13ca45a3E.exit: ; preds = %94, %94, 
   %or.cond265 = select i1 %108, i1 %109, i1 false
   br i1 %or.cond265, label %.thread, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
 
-110:                                              ; preds = %106
-  %111 = icmp eq i32 %.sroa.9.sroa.10.0.ph416, %.sroa.16.sroa.24186.2
-  br i1 %111, label %.thread, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
+110:                                              ; preds = %103
+  %111 = icmp eq i8 %.sroa.9.sroa.6.0.ph407, %.sroa.16.sroa.0.2
+  br i1 %111, label %112, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
 
-112:                                              ; preds = %103
-  %113 = icmp eq i8 %.sroa.9.sroa.6.0.ph407, %.sroa.16.sroa.0.2
-  br i1 %113, label %114, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
-
-114:                                              ; preds = %112
-  switch i8 %.sroa.9.sroa.6.0.ph407, label %120 [
-    i8 0, label %115
-    i8 5, label %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit7.i"
+112:                                              ; preds = %110
+  switch i8 %.sroa.9.sroa.6.0.ph407, label %119 [
+    i8 0, label %113
+    i8 5, label %117
   ]
 
-115:                                              ; preds = %114
-  %116 = icmp eq i8 %.sroa.9.sroa.7.0.ph409, %.sroa.16.sroa.12.2
-  %117 = icmp eq i8 %.sroa.9.sroa.8.0.ph412, %.sroa.16.sroa.18.2
-  %or.cond267 = select i1 %116, i1 %117, i1 false
-  %118 = icmp eq i8 %.sroa.9.sroa.15.0.ph419, %.sroa.51.sroa.0.2
-  %or.cond281 = select i1 %or.cond267, i1 %118, i1 false
-  br i1 %or.cond281, label %121, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
+113:                                              ; preds = %112
+  %114 = icmp eq i8 %.sroa.9.sroa.7.0.ph409, %.sroa.16.sroa.12.2
+  %115 = icmp eq i8 %.sroa.9.sroa.8.0.ph412, %.sroa.16.sroa.18.2
+  %or.cond267 = select i1 %114, i1 %115, i1 false
+  %116 = icmp eq i8 %.sroa.9.sroa.15.0.ph419, %.sroa.51.sroa.0.2
+  %or.cond281 = select i1 %or.cond267, i1 %116, i1 false
+  br i1 %or.cond281, label %120, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
 
-"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit7.i": ; preds = %114
-  %119 = icmp eq i32 %.sroa.9.sroa.10.0.ph416, %.sroa.16.sroa.24186.2
+117:                                              ; preds = %112
+  %118 = icmp eq i32 %.sroa.9.sroa.10.0.ph416, %.sroa.16.sroa.24186.2
   %.old280 = icmp eq i8 %.sroa.9.sroa.15.0.ph419, %.sroa.51.sroa.0.2
-  %or.cond282 = select i1 %119, i1 %.old280, i1 false
-  br i1 %or.cond282, label %121, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
+  %or.cond282 = select i1 %118, i1 %.old280, i1 false
+  br i1 %or.cond282, label %120, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
 
-120:                                              ; preds = %114
+119:                                              ; preds = %112
   %.old280.old = icmp eq i8 %.sroa.9.sroa.15.0.ph419, %.sroa.51.sroa.0.2
-  br i1 %.old280.old, label %121, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
+  br i1 %.old280.old, label %120, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
 
-121:                                              ; preds = %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit7.i", %115, %120
+120:                                              ; preds = %117, %113, %119
   switch i8 %.sroa.9.sroa.15.0.ph419, label %.thread [
-    i8 0, label %122
-    i8 5, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit"
+    i8 0, label %121
+    i8 5, label %124
   ]
 
-122:                                              ; preds = %121
-  %123 = icmp eq i8 %.sroa.9.sroa.16.0.ph431, %.sroa.51.sroa.6.2
-  %124 = icmp eq i8 %.sroa.9.sroa.17.0.ph433, %.sroa.51.sroa.8.2
-  %or.cond268 = select i1 %123, i1 %124, i1 false
+121:                                              ; preds = %120
+  %122 = icmp eq i8 %.sroa.9.sroa.16.0.ph431, %.sroa.51.sroa.6.2
+  %123 = icmp eq i8 %.sroa.9.sroa.17.0.ph433, %.sroa.51.sroa.8.2
+  %or.cond268 = select i1 %122, i1 %123, i1 false
   br i1 %or.cond268, label %.thread, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
 
-125:                                              ; preds = %103
-  %126 = icmp eq i8 %.sroa.9.sroa.6.0.ph407, %.sroa.16.sroa.0.2
-  br i1 %126, label %127, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
+124:                                              ; preds = %120
+  %125 = icmp eq i32 %.sroa.9.sroa.19.0.ph438, %.sroa.51.sroa.10171.2
+  br i1 %125, label %.thread, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
 
-127:                                              ; preds = %125
+126:                                              ; preds = %103
+  %127 = icmp eq i8 %.sroa.9.sroa.6.0.ph407, %.sroa.16.sroa.0.2
+  br i1 %127, label %128, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
+
+128:                                              ; preds = %126
   switch i8 %.sroa.9.sroa.6.0.ph407, label %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.thread22.i" [
-    i8 0, label %128
-    i8 5, label %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.i"
+    i8 0, label %129
+    i8 5, label %133
   ]
 
-128:                                              ; preds = %127
-  %129 = icmp eq i8 %.sroa.9.sroa.7.0.ph409, %.sroa.16.sroa.12.2
-  %130 = icmp eq i8 %.sroa.9.sroa.8.0.ph412, %.sroa.16.sroa.18.2
-  %or.cond270 = select i1 %129, i1 %130, i1 false
-  %131 = icmp eq i64 %.sroa.9.sroa.4.0.ph403, %.sroa.8120.2
-  %or.cond271 = select i1 %or.cond270, i1 %131, i1 false
+129:                                              ; preds = %128
+  %130 = icmp eq i8 %.sroa.9.sroa.7.0.ph409, %.sroa.16.sroa.12.2
+  %131 = icmp eq i8 %.sroa.9.sroa.8.0.ph412, %.sroa.16.sroa.18.2
+  %or.cond270 = select i1 %130, i1 %131, i1 false
+  %132 = icmp eq i64 %.sroa.9.sroa.4.0.ph403, %.sroa.8120.2
+  %or.cond271 = select i1 %or.cond270, i1 %132, i1 false
   br i1 %or.cond271, label %.thread, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
 
-"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.i": ; preds = %127
-  %132 = icmp eq i32 %.sroa.9.sroa.10.0.ph416, %.sroa.16.sroa.24186.2
+133:                                              ; preds = %128
+  %134 = icmp eq i32 %.sroa.9.sroa.10.0.ph416, %.sroa.16.sroa.24186.2
   %.old = icmp eq i64 %.sroa.9.sroa.4.0.ph403, %.sroa.8120.2
-  %or.cond272 = select i1 %132, i1 %.old, i1 false
+  %or.cond272 = select i1 %134, i1 %.old, i1 false
   br i1 %or.cond272, label %.thread, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
 
-"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.thread22.i": ; preds = %127
+"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.thread22.i": ; preds = %128
   %.old.old = icmp eq i64 %.sroa.9.sroa.4.0.ph403, %.sroa.8120.2
   br i1 %.old.old, label %.thread, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
 
-"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit": ; preds = %121
-  %133 = icmp eq i32 %.sroa.9.sroa.19.0.ph438, %.sroa.51.sroa.10171.2
-  br i1 %133, label %.thread, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
+"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit": ; preds = %106
+  %135 = icmp eq i32 %.sroa.9.sroa.10.0.ph416, %.sroa.16.sroa.24186.2
+  br i1 %135, label %.thread, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread"
 
-.thread:                                          ; preds = %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit", %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.i", %128, %122, %107, %121, %106, %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.thread22.i", %110
-  %134 = icmp eq i8 %.sroa.11.1.ph443, %67
-  br i1 %134, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread", label %135
+.thread:                                          ; preds = %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit", %133, %129, %121, %107, %106, %120, %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.thread22.i", %124
+  %136 = icmp eq i8 %.sroa.11.1.ph443, %67
+  br i1 %136, label %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread", label %137
 
-135:                                              ; preds = %.thread
-  %136 = getelementptr inbounds nuw i8, ptr %65, i64 344
+137:                                              ; preds = %.thread
+  %138 = getelementptr inbounds nuw i8, ptr %65, i64 344
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.587d3abf880d71f6962e708781e6ae09.137, ptr %7, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -32946,11 +32946,11 @@ _ZN15ra_ap_rustc_abi3Abi8to_union17hb67f99cf13ca45a3E.exit: ; preds = %94, %94, 
   store ptr @anon.587d3abf880d71f6962e708781e6ae09.13, ptr %.sroa.512.0..sroa_idx, align 8
   %.sroa.613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.613.0..sroa_idx, i8 0, i64 16, i1 false)
-  call void @_ZN4core9panicking13assert_failed17h3ef24ac60db16ec8E(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %136, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.587d3abf880d71f6962e708781e6ae09.138) #64
+  call void @_ZN4core9panicking13assert_failed17h3ef24ac60db16ec8E(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %138, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.587d3abf880d71f6962e708781e6ae09.138) #64
   unreachable
 
-"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread": ; preds = %103, %112, %120, %122, %115, %104, %107, %128, %125, %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit7.i", %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.i", %101, %110, %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.thread22.i", %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit", %.thread
-  %.sroa.014.3 = phi i8 [ %.sroa.014.1.ph444, %.thread ], [ 6, %115 ], [ 6, %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit" ], [ 6, %112 ], [ 6, %122 ], [ 6, %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.thread22.i" ], [ 6, %110 ], [ 6, %101 ], [ 6, %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.i" ], [ 6, %120 ], [ 6, %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit7.i" ], [ %.sroa.014.1.ph444, %103 ], [ 6, %107 ], [ 6, %104 ], [ 6, %125 ], [ 6, %128 ]
+"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit.thread": ; preds = %103, %110, %119, %121, %113, %133, %104, %107, %129, %126, %117, %101, %124, %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.thread22.i", %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit", %.thread
+  %.sroa.014.3 = phi i8 [ %.sroa.014.1.ph444, %.thread ], [ 6, %133 ], [ 6, %"_ZN61_$LT$ra_ap_rustc_abi..Abi$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ffeaeab38ab2771E.exit" ], [ 6, %121 ], [ 6, %110 ], [ 6, %"_ZN64_$LT$ra_ap_rustc_abi..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3a08981922a1dcaE.exit17.thread22.i" ], [ 6, %124 ], [ 6, %101 ], [ 6, %113 ], [ 6, %117 ], [ 6, %119 ], [ %.sroa.014.1.ph444, %103 ], [ 6, %107 ], [ 6, %104 ], [ 6, %126 ], [ 6, %129 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.outer
 }
@@ -36416,13 +36416,13 @@ switch.lookup678:                                 ; preds = %.thread857.i
   br label %.thread841.thread876.i
 
 switch.lookup681:                                 ; preds = %946, %1010, %1020, %switch.lookup675, %1038, %1031, %.thread858.i, %.thread857.i, %1033, %switch.lookup678, %1047, %997, %997, %997, %1003, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i", %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i", %962, %.thread841.i, %.thread841.thread876.i
-  %.sroa.12232.0875.i = phi i128 [ %.sroa.12232.0892.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.12232.1.i, %.thread841.i ], [ undef, %962 ], [ undef, %1010 ], [ %.sroa.12232.0892.i, %.thread841.thread876.i ], [ undef, %997 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ undef, %1003 ], [ undef, %997 ], [ undef, %997 ], [ undef, %1047 ], [ undef, %switch.lookup678 ], [ undef, %1033 ], [ undef, %.thread857.i ], [ undef, %.thread858.i ], [ undef, %1031 ], [ undef, %1038 ], [ undef, %switch.lookup675 ], [ undef, %1020 ], [ undef, %946 ]
-  %.sroa.11228.0874.i = phi i128 [ %.sroa.11228.0891.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.11228.1.i, %.thread841.i ], [ undef, %962 ], [ undef, %1010 ], [ %.sroa.11228.0891.i, %.thread841.thread876.i ], [ undef, %997 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ undef, %1003 ], [ undef, %997 ], [ undef, %997 ], [ undef, %1047 ], [ undef, %switch.lookup678 ], [ undef, %1033 ], [ undef, %.thread857.i ], [ undef, %.thread858.i ], [ undef, %1031 ], [ undef, %1038 ], [ undef, %switch.lookup675 ], [ undef, %1020 ], [ undef, %946 ]
-  %.sroa.10224.0873.i = phi i32 [ %.sroa.10224.0890.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.10224.1.i, %.thread841.i ], [ undef, %962 ], [ undef, %1010 ], [ %.sroa.10224.0890.i, %.thread841.thread876.i ], [ undef, %997 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ undef, %1003 ], [ undef, %997 ], [ undef, %997 ], [ undef, %1047 ], [ undef, %switch.lookup678 ], [ undef, %1033 ], [ undef, %.thread857.i ], [ undef, %.thread858.i ], [ undef, %1031 ], [ undef, %1038 ], [ undef, %switch.lookup675 ], [ undef, %1020 ], [ undef, %946 ]
-  %.sroa.9220.0872.i = phi i64 [ %.sroa.9220.0889.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.9220.1.i, %.thread841.i ], [ undef, %962 ], [ undef, %1010 ], [ %.sroa.9220.0889.i, %.thread841.thread876.i ], [ undef, %997 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ undef, %1003 ], [ undef, %997 ], [ undef, %997 ], [ undef, %1047 ], [ undef, %switch.lookup678 ], [ undef, %1033 ], [ undef, %.thread857.i ], [ undef, %.thread858.i ], [ undef, %1031 ], [ undef, %1038 ], [ undef, %switch.lookup675 ], [ undef, %1020 ], [ undef, %946 ]
-  %.sroa.8216.0871.i = phi i32 [ %.sroa.8216.0888.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.8216.1.i, %.thread841.i ], [ undef, %962 ], [ undef, %1010 ], [ %.sroa.8216.0888.i, %.thread841.thread876.i ], [ undef, %997 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ undef, %1003 ], [ undef, %997 ], [ undef, %997 ], [ undef, %1047 ], [ undef, %switch.lookup678 ], [ undef, %1033 ], [ undef, %.thread857.i ], [ undef, %.thread858.i ], [ undef, %1031 ], [ undef, %1038 ], [ undef, %switch.lookup675 ], [ undef, %1020 ], [ undef, %946 ]
-  %.sroa.7210.0870.i = phi i8 [ %.sroa.7210.0887.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.7210.1.i, %.thread841.i ], [ 1, %962 ], [ 1, %1010 ], [ %.sroa.7210.0887.i, %.thread841.thread876.i ], [ 1, %997 ], [ 1, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ 1, %1003 ], [ 1, %997 ], [ 1, %997 ], [ 1, %1047 ], [ 1, %switch.lookup678 ], [ 1, %1033 ], [ 1, %.thread857.i ], [ 1, %.thread858.i ], [ 1, %1031 ], [ 1, %1038 ], [ 1, %switch.lookup675 ], [ 1, %1020 ], [ 1, %946 ]
-  %.sroa.0207.0869.i = phi i8 [ %.sroa.0207.0886.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.0207.1.i, %.thread841.i ], [ 4, %962 ], [ 4, %1010 ], [ %.sroa.0207.0886.i, %.thread841.thread876.i ], [ 4, %997 ], [ 4, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ 4, %1003 ], [ 4, %997 ], [ 4, %997 ], [ 4, %1047 ], [ 4, %switch.lookup678 ], [ 4, %1033 ], [ 4, %.thread857.i ], [ 4, %.thread858.i ], [ 4, %1031 ], [ 4, %1038 ], [ 4, %switch.lookup675 ], [ 4, %1020 ], [ 0, %946 ]
+  %.sroa.12232.0875.i = phi i128 [ %.sroa.12232.0892.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.12232.1.i, %.thread841.i ], [ undef, %962 ], [ undef, %997 ], [ %.sroa.12232.0892.i, %.thread841.thread876.i ], [ undef, %1010 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ undef, %1003 ], [ undef, %997 ], [ undef, %997 ], [ undef, %1047 ], [ undef, %switch.lookup678 ], [ undef, %1033 ], [ undef, %.thread857.i ], [ undef, %.thread858.i ], [ undef, %1031 ], [ undef, %1038 ], [ undef, %switch.lookup675 ], [ undef, %1020 ], [ undef, %946 ]
+  %.sroa.11228.0874.i = phi i128 [ %.sroa.11228.0891.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.11228.1.i, %.thread841.i ], [ undef, %962 ], [ undef, %997 ], [ %.sroa.11228.0891.i, %.thread841.thread876.i ], [ undef, %1010 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ undef, %1003 ], [ undef, %997 ], [ undef, %997 ], [ undef, %1047 ], [ undef, %switch.lookup678 ], [ undef, %1033 ], [ undef, %.thread857.i ], [ undef, %.thread858.i ], [ undef, %1031 ], [ undef, %1038 ], [ undef, %switch.lookup675 ], [ undef, %1020 ], [ undef, %946 ]
+  %.sroa.10224.0873.i = phi i32 [ %.sroa.10224.0890.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.10224.1.i, %.thread841.i ], [ undef, %962 ], [ undef, %997 ], [ %.sroa.10224.0890.i, %.thread841.thread876.i ], [ undef, %1010 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ undef, %1003 ], [ undef, %997 ], [ undef, %997 ], [ undef, %1047 ], [ undef, %switch.lookup678 ], [ undef, %1033 ], [ undef, %.thread857.i ], [ undef, %.thread858.i ], [ undef, %1031 ], [ undef, %1038 ], [ undef, %switch.lookup675 ], [ undef, %1020 ], [ undef, %946 ]
+  %.sroa.9220.0872.i = phi i64 [ %.sroa.9220.0889.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.9220.1.i, %.thread841.i ], [ undef, %962 ], [ undef, %997 ], [ %.sroa.9220.0889.i, %.thread841.thread876.i ], [ undef, %1010 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ undef, %1003 ], [ undef, %997 ], [ undef, %997 ], [ undef, %1047 ], [ undef, %switch.lookup678 ], [ undef, %1033 ], [ undef, %.thread857.i ], [ undef, %.thread858.i ], [ undef, %1031 ], [ undef, %1038 ], [ undef, %switch.lookup675 ], [ undef, %1020 ], [ undef, %946 ]
+  %.sroa.8216.0871.i = phi i32 [ %.sroa.8216.0888.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.8216.1.i, %.thread841.i ], [ undef, %962 ], [ undef, %997 ], [ %.sroa.8216.0888.i, %.thread841.thread876.i ], [ undef, %1010 ], [ undef, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ undef, %1003 ], [ undef, %997 ], [ undef, %997 ], [ undef, %1047 ], [ undef, %switch.lookup678 ], [ undef, %1033 ], [ undef, %.thread857.i ], [ undef, %.thread858.i ], [ undef, %1031 ], [ undef, %1038 ], [ undef, %switch.lookup675 ], [ undef, %1020 ], [ undef, %946 ]
+  %.sroa.7210.0870.i = phi i8 [ %.sroa.7210.0887.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.7210.1.i, %.thread841.i ], [ 1, %962 ], [ 1, %997 ], [ %.sroa.7210.0887.i, %.thread841.thread876.i ], [ 1, %1010 ], [ 1, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ 1, %1003 ], [ 1, %997 ], [ 1, %997 ], [ 1, %1047 ], [ 1, %switch.lookup678 ], [ 1, %1033 ], [ 1, %.thread857.i ], [ 1, %.thread858.i ], [ 1, %1031 ], [ 1, %1038 ], [ 1, %switch.lookup675 ], [ 1, %1020 ], [ 1, %946 ]
+  %.sroa.0207.0869.i = phi i8 [ %.sroa.0207.0886.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ %.sroa.0207.1.i, %.thread841.i ], [ 4, %962 ], [ 4, %997 ], [ %.sroa.0207.0886.i, %.thread841.thread876.i ], [ 4, %1010 ], [ 4, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i561.i" ], [ 4, %1003 ], [ 4, %997 ], [ 4, %997 ], [ 4, %1047 ], [ 4, %switch.lookup678 ], [ 4, %1033 ], [ 4, %.thread857.i ], [ 4, %.thread858.i ], [ 4, %1031 ], [ 4, %1038 ], [ 4, %switch.lookup675 ], [ 4, %1020 ], [ 0, %946 ]
   %1127 = zext nneg i8 %.2411.i to i64
   %switch.gep682 = getelementptr inbounds nuw i64, ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1099, i64 %1127
   %switch.load683 = load i64, ptr %switch.gep682, align 8
@@ -80919,8 +80919,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hb2b48fd6af560e3dE.llvm.43518522
   br label %194
 
 .body13.i:                                        ; preds = %123, %.body.i, %.body18.i
-  %.1.i = phi i1 [ %.3.lpad-body.i, %123 ], [ %.2.i, %.body18.i ], [ %.3.lpad-body.i, %.body.i ]
-  %.pn11.i = phi { ptr, i32 } [ %eh.lpad-body.i, %123 ], [ %.pn.i, %.body18.i ], [ %eh.lpad-body.i, %.body.i ]
+  %.1.i = phi i1 [ %.2.i, %.body18.i ], [ %.3.lpad-body.i, %.body.i ], [ %.3.lpad-body.i, %123 ]
+  %.pn11.i = phi { ptr, i32 } [ %.pn.i, %.body18.i ], [ %eh.lpad-body.i, %.body.i ], [ %eh.lpad-body.i, %123 ]
   br i1 %.1.i, label %.body13.thread.i, label %.body.thread
 
 .body13.thread.i:                                 ; preds = %.body13.i, %85, %81, %79
@@ -88503,8 +88503,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hb2b48fd6af560e3dE.llvm.43518522
   br label %184
 
 .body13:                                          ; preds = %.body, %120, %.body18
-  %.1 = phi i1 [ %.3.lpad-body, %120 ], [ %.2, %.body18 ], [ %.3.lpad-body, %.body ]
-  %.pn11 = phi { ptr, i32 } [ %eh.lpad-body, %120 ], [ %.pn, %.body18 ], [ %eh.lpad-body, %.body ]
+  %.1 = phi i1 [ %.2, %.body18 ], [ %.3.lpad-body, %.body ], [ %.3.lpad-body, %120 ]
+  %.pn11 = phi { ptr, i32 } [ %.pn, %.body18 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %120 ]
   br i1 %.1, label %.body13.thread, label %.body13.thread54
 
 .body13.thread54:                                 ; preds = %71, %.body13.thread, %.body13

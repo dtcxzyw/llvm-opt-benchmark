@@ -335,7 +335,7 @@ pem_read_bio_key_decoder.exit:                    ; preds = %37, %51, %65, %71, 
   br label %145
 
 145:                                              ; preds = %142, %136, %.thread.i, %104
-  %.166.i = phi ptr [ %139, %136 ], [ %144, %142 ], [ %101, %104 ], [ %.267.ph.i, %.thread.i ]
+  %.166.i = phi ptr [ %101, %104 ], [ %144, %142 ], [ %139, %136 ], [ %.267.ph.i, %.thread.i ]
   %146 = icmp eq ptr %.166.i, null
   br i1 %146, label %.thread4.i, label %pem_read_bio_key_legacy.exit
 

@@ -855,7 +855,7 @@ asn1_str2tag.exit.thread.sink.split:              ; preds = %39, %.tail
   br label %asn1_str2tag.exit.thread
 
 asn1_str2tag.exit.thread:                         ; preds = %35, %19, %asn1_str2tag.exit.thread.sink.split, %39, %asn1_str2tag.exit, %3
-  %.0 = phi i32 [ 0, %asn1_str2tag.exit ], [ 0, %19 ], [ 0, %3 ], [ 1, %asn1_str2tag.exit.thread.sink.split ], [ 0, %39 ], [ 0, %35 ]
+  %.0 = phi i32 [ 0, %asn1_str2tag.exit ], [ 1, %asn1_str2tag.exit.thread.sink.split ], [ 0, %3 ], [ 0, %19 ], [ 0, %39 ], [ 0, %35 ]
   ret i32 %.0
 }
 

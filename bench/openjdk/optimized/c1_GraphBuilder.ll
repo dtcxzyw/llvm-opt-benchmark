@@ -19318,8 +19318,8 @@ _ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8
   call void @_ZN12GraphBuilder12profile_callEP8ciMethodP11InstructionP7ciKlassP13GrowableArrayIS3_Eb(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %.0194394, ptr noundef %765, ptr noundef %.0193, ptr noundef %792, i1 noundef zeroext false)
   br label %.critedge249
 
-.critedge249:                                     ; preds = %_ZN12GraphBuilder12is_profilingEv.exit306.thread, %_ZN12GraphBuilder12is_profilingEv.exit.thread, %_ZNK10ciMetadata9is_loadedEv.exit301, %_ZN12GraphBuilder12is_profilingEv.exit, %_ZN12GraphBuilder12is_profilingEv.exit306, %_ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8ciMethodb.exit
-  %836 = phi ptr [ %734, %_ZNK10ciMetadata9is_loadedEv.exit301 ], [ %734, %_ZN12GraphBuilder12is_profilingEv.exit ], [ %765, %_ZN12GraphBuilder12is_profilingEv.exit306 ], [ %765, %_ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8ciMethodb.exit ], [ %734, %_ZN12GraphBuilder12is_profilingEv.exit.thread ], [ %765, %_ZN12GraphBuilder12is_profilingEv.exit306.thread ]
+.critedge249:                                     ; preds = %_ZN12GraphBuilder12is_profilingEv.exit306.thread, %_ZN12GraphBuilder12is_profilingEv.exit.thread, %_ZN12GraphBuilder12is_profilingEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit301, %_ZN12GraphBuilder12is_profilingEv.exit306, %_ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8ciMethodb.exit
+  %836 = phi ptr [ %734, %_ZN12GraphBuilder12is_profilingEv.exit ], [ %734, %_ZNK10ciMetadata9is_loadedEv.exit301 ], [ %765, %_ZN12GraphBuilder12is_profilingEv.exit306 ], [ %765, %_ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8ciMethodb.exit ], [ %734, %_ZN12GraphBuilder12is_profilingEv.exit.thread ], [ %765, %_ZN12GraphBuilder12is_profilingEv.exit306.thread ]
   %837 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %838 = load ptr, ptr %837, align 8
   %839 = getelementptr inbounds nuw i8, ptr %838, i64 1808

@@ -9323,7 +9323,7 @@ define dso_local void @_ZN4llvm15MachineFunction22finalizeDebugInstrRefsEv(ptr n
   br i1 %.not.i.i.i.i.i.i, label %.thread95, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %63, %57
-  %.sroa.0.0.i.i.i = phi ptr [ %62, %63 ], [ %.0.i.i.i.i, %57 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %57 ], [ %62, %63 ]
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !70
   %.not.i.i.i.i.i.i.i = icmp eq ptr %67, null

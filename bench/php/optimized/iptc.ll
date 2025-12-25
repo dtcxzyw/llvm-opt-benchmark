@@ -514,8 +514,8 @@ php_iptc_next_marker.exit.sink.split:             ; preds = %php_iptc_get1.exit2
   br label %php_iptc_next_marker.exit
 
 php_iptc_next_marker.exit:                        ; preds = %php_iptc_get1.exit23.us29.i, %php_iptc_get1.exit23.us.us.i, %php_iptc_next_marker.exit.sink.split
-  %170 = phi ptr [ %.promoted280, %php_iptc_get1.exit23.us.us.i ], [ %.lcssa362.sink, %php_iptc_next_marker.exit.sink.split ], [ %.promoted280, %php_iptc_get1.exit23.us29.i ]
-  %.017.i = phi i32 [ %155, %php_iptc_get1.exit23.us.us.i ], [ %.017.i.ph, %php_iptc_next_marker.exit.sink.split ], [ %161, %php_iptc_get1.exit23.us29.i ]
+  %170 = phi ptr [ %.lcssa362.sink, %php_iptc_next_marker.exit.sink.split ], [ %.promoted280, %php_iptc_get1.exit23.us.us.i ], [ %.promoted280, %php_iptc_get1.exit23.us29.i ]
+  %.017.i = phi i32 [ %.017.i.ph, %php_iptc_next_marker.exit.sink.split ], [ %155, %php_iptc_get1.exit23.us.us.i ], [ %161, %php_iptc_get1.exit23.us29.i ]
   switch i32 %.017.i, label %171 [
     i32 217, label %php_iptc_next_marker.exit.thread
     i32 237, label %181

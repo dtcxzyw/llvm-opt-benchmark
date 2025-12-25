@@ -2066,7 +2066,7 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit32.thread: ; pre
   br label %.thread
 
 .thread:                                          ; preds = %159, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20, %111, %.thread.sink.split, %.preheader, %68, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, %2
-  %.1 = phi i1 [ true, %.thread.sink.split ], [ false, %.preheader ], [ false, %2 ], [ false, %68 ], [ false, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit ], [ false, %111 ], [ false, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20 ], [ false, %159 ]
+  %.1 = phi i1 [ false, %.preheader ], [ true, %.thread.sink.split ], [ false, %2 ], [ false, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit ], [ false, %68 ], [ false, %111 ], [ false, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit20 ], [ false, %159 ]
   ret i1 %.1
 }
 

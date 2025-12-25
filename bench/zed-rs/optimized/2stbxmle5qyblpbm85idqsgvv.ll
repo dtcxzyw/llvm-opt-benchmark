@@ -2811,9 +2811,9 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17heedaacfa7fb261d5E.exit53.i:
   br i1 %365, label %.noexc76, label %.invoke
 
 .invoke:                                          ; preds = %312, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ae56d322860042fE.exit.thread.i", %364, %237, %211
-  %366 = phi i64 [ %231, %364 ], [ %206, %211 ], [ %231, %237 ], [ %302, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ae56d322860042fE.exit.thread.i" ], [ %302, %312 ]
-  %367 = phi i64 [ %362, %364 ], [ %209, %211 ], [ %234, %237 ], [ %315, %312 ], [ %.sroa.3.0.i45.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ae56d322860042fE.exit.thread.i" ]
-  %368 = phi ptr [ @anon.72078518b5671d82acf9f52227e21e95.11, %364 ], [ @anon.72078518b5671d82acf9f52227e21e95.8, %211 ], [ @anon.72078518b5671d82acf9f52227e21e95.10, %237 ], [ @anon.72078518b5671d82acf9f52227e21e95.9, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ae56d322860042fE.exit.thread.i" ], [ @anon.72078518b5671d82acf9f52227e21e95.9, %312 ]
+  %366 = phi i64 [ %206, %211 ], [ %231, %364 ], [ %231, %237 ], [ %302, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ae56d322860042fE.exit.thread.i" ], [ %302, %312 ]
+  %367 = phi i64 [ %209, %211 ], [ %362, %364 ], [ %234, %237 ], [ %315, %312 ], [ %.sroa.3.0.i45.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ae56d322860042fE.exit.thread.i" ]
+  %368 = phi ptr [ @anon.72078518b5671d82acf9f52227e21e95.8, %211 ], [ @anon.72078518b5671d82acf9f52227e21e95.11, %364 ], [ @anon.72078518b5671d82acf9f52227e21e95.10, %237 ], [ @anon.72078518b5671d82acf9f52227e21e95.9, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ae56d322860042fE.exit.thread.i" ], [ @anon.72078518b5671d82acf9f52227e21e95.9, %312 ]
   call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %366, i64 noundef %367, ptr noalias noundef readonly align 8 dereferenceable(24) %368) #50
   unreachable
 

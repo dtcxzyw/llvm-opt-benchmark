@@ -371,7 +371,7 @@ ff_q_equal.exit.thread17.i44.i:                   ; preds = %152, %149, %ff_cie_
   %or.cond50 = or i1 %or.cond5.i.i12.i54.i.not53, %169
   br i1 %or.cond50, label %av_cmp_q.exit.thread, label %ff_prim_equal.exit.thread48
 
-ff_prim_equal.exit.thread48:                      ; preds = %166, %ff_q_equal.exit.thread17.i44.i, %163
+ff_prim_equal.exit.thread48:                      ; preds = %166, %163, %ff_q_equal.exit.thread17.i44.i
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %172 = load i64, ptr %170, align 4

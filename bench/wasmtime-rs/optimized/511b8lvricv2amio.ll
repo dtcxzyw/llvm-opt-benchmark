@@ -1668,7 +1668,7 @@ default.unreachable592:                           ; preds = %._crit_edge
   br label %617
 
 613:                                              ; preds = %598, %617, %624, %625, %629, %633
-  %.3256.ph = phi i8 [ 1, %625 ], [ 1, %624 ], [ 1, %598 ], [ %.5258, %617 ], [ %.5258, %629 ], [ %.5258, %633 ]
+  %.3256.ph = phi i8 [ 1, %625 ], [ 1, %598 ], [ 1, %624 ], [ %.5258, %617 ], [ %.5258, %629 ], [ %.5258, %633 ]
   %lpad.thr_comm.split-lp413 = landingpad { ptr, i32 }
           cleanup
   %614 = trunc nuw i8 %.3256.ph to i1
@@ -1945,7 +1945,7 @@ default.unreachable135:                           ; preds = %53
   br i1 %125, label %.loopexit, label %253
 
 .loopexit:                                        ; preds = %233, %236, %228, %224, %216, %120, %116, %110, %190, %184, %177, %98, %253, %245, %239, %133, %126, %90, %85, %77, %61, %47
-  %.0.shrunk = phi i1 [ %52, %47 ], [ %66, %61 ], [ %131, %126 ], [ %84, %77 ], [ %89, %85 ], [ %97, %90 ], [ %140, %133 ], [ true, %116 ], [ true, %177 ], [ true, %120 ], [ %217, %216 ], [ %258, %253 ], [ true, %110 ], [ true, %190 ], [ false, %184 ], [ true, %98 ], [ %244, %239 ], [ %252, %245 ], [ true, %224 ], [ true, %228 ], [ true, %236 ], [ true, %233 ]
+  %.0.shrunk = phi i1 [ %52, %47 ], [ %66, %61 ], [ %131, %126 ], [ %84, %77 ], [ %89, %85 ], [ %97, %90 ], [ %140, %133 ], [ true, %116 ], [ true, %177 ], [ true, %120 ], [ %252, %245 ], [ true, %110 ], [ %258, %253 ], [ true, %190 ], [ false, %184 ], [ true, %98 ], [ %244, %239 ], [ %217, %216 ], [ true, %224 ], [ true, %228 ], [ true, %236 ], [ true, %233 ]
   ret i1 %.0.shrunk
 
 126:                                              ; preds = %67
@@ -2417,7 +2417,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_exp
   br i1 %135, label %.loopexit57, label %123
 
 .loopexit57:                                      ; preds = %143, %157, %163, %170, %123, %79, %82, %136
-  %.1 = phi i1 [ true, %79 ], [ %131, %123 ], [ true, %82 ], [ true, %136 ], [ true, %170 ], [ true, %163 ], [ true, %157 ], [ true, %143 ]
+  %.1 = phi i1 [ true, %79 ], [ %131, %123 ], [ true, %136 ], [ true, %82 ], [ true, %170 ], [ true, %163 ], [ true, %157 ], [ true, %143 ]
   call void @"_ZN4core3ptr54drop_in_place$LT$cranelift_isle..sema..ExternalSig$GT$17hff1c4745da4a339cE"(ptr nonnull align 8 %24)
   ret i1 %.1
 
@@ -2828,7 +2828,7 @@ default.unreachable143:                           ; preds = %._crit_edge
   br i1 %166, label %.loopexit, label %161
 
 .loopexit:                                        ; preds = %181, %185, %172, %161, %205, %212, %77, %163, %128, %126, %119, %219, %189, %61
-  %.0.shrunk = phi i1 [ true, %119 ], [ true, %205 ], [ true, %128 ], [ %162, %161 ], [ true, %212 ], [ true, %163 ], [ false, %126 ], [ true, %77 ], [ %66, %61 ], [ %194, %189 ], [ %225, %219 ], [ true, %172 ], [ true, %185 ], [ true, %181 ]
+  %.0.shrunk = phi i1 [ true, %119 ], [ true, %205 ], [ true, %128 ], [ true, %77 ], [ true, %212 ], [ true, %163 ], [ false, %126 ], [ %162, %161 ], [ %66, %61 ], [ %194, %189 ], [ %225, %219 ], [ true, %172 ], [ true, %185 ], [ true, %181 ]
   ret i1 %.0.shrunk
 
 167:                                              ; preds = %156

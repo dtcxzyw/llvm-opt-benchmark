@@ -11681,7 +11681,7 @@ if.then.i.sink.split:                             ; preds = %_ZN8proxygen13HTTPE
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.then.i.sink.split, %invoke.cont2, %invoke.cont22
-  %retval.0 = phi i1 [ true, %invoke.cont22 ], [ false, %invoke.cont2 ], [ false, %if.then.i.sink.split ]
+  %retval.0 = phi i1 [ false, %invoke.cont2 ], [ true, %invoke.cont22 ], [ false, %if.then.i.sink.split ]
   %15 = load i32, ptr %guardCount_.i, align 8
   %dec.i = add i32 %15, -1
   store i32 %dec.i, ptr %guardCount_.i, align 8

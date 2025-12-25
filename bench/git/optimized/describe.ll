@@ -1967,8 +1967,8 @@ sane_qsort.exit:                                  ; preds = %.thread212, %222
   br i1 %.not36.i, label %.loopexit.i, label %.lr.ph56.i, !llvm.loop !110
 
 finish_depth_computation.exit:                    ; preds = %.loopexit.i, %.preheader.i, %240, %226
-  %263 = phi ptr [ %.02950.i, %240 ], [ null, %226 ], [ null, %.preheader.i ], [ null, %.loopexit.i ]
-  %.1.i = phi i64 [ %235, %240 ], [ 0, %226 ], [ %235, %.preheader.i ], [ %235, %.loopexit.i ]
+  %263 = phi ptr [ null, %226 ], [ %.02950.i, %240 ], [ null, %.preheader.i ], [ null, %.loopexit.i ]
+  %.1.i = phi i64 [ 0, %226 ], [ %235, %240 ], [ %235, %.preheader.i ], [ %235, %.loopexit.i ]
   %264 = add i64 %.1.i, %.2137
   call void @free_commit_list(ptr noundef %263) #16
   %265 = load i32, ptr @debug, align 4, !tbaa !4

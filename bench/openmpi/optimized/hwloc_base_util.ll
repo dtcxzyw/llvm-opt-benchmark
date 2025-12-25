@@ -2860,8 +2860,8 @@ define internal fastcc void @bitmap_list_snprintf_exp(ptr noalias noundef writeo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %.loopexit.sink.split, %.preheader
-  %.263 = phi ptr [ %.061, %.loopexit.sink.split ], [ %.061, %.preheader ], [ %.465, %15 ]
-  %.256 = phi i32 [ %18, %.loopexit.sink.split ], [ %.054, %.preheader ], [ %16, %15 ]
+  %.263 = phi ptr [ %.061, %.preheader ], [ %.061, %.loopexit.sink.split ], [ %.465, %15 ]
+  %.256 = phi i32 [ %.054, %.preheader ], [ %18, %.loopexit.sink.split ], [ %16, %15 ]
   %19 = icmp slt i32 %.256, 0
   br i1 %19, label %.thread81, label %20
 

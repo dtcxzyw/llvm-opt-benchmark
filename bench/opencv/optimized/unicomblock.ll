@@ -748,7 +748,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMinPointE
   br label %39
 
 39:                                               ; preds = %.sink.split, %5, %8
-  %.0 = phi i32 [ -1, %5 ], [ -1, %8 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %5 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -810,7 +810,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMaxPointE
   br label %39
 
 39:                                               ; preds = %.sink.split, %5, %8
-  %.0 = phi i32 [ -1, %5 ], [ -1, %8 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %5 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

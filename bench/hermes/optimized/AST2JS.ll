@@ -2669,7 +2669,7 @@ return.loopexit:                                  ; preds = %if.end, %if.end, %i
   br label %return
 
 return:                                           ; preds = %tailrecurse.backedge, %if.end, %return.loopexit, %entry
-  %retval.0 = phi i1 [ true, %return.loopexit ], [ false, %entry ], [ false, %if.end ], [ false, %tailrecurse.backedge ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %return.loopexit ], [ false, %if.end ], [ false, %tailrecurse.backedge ]
   ret i1 %retval.0
 }
 

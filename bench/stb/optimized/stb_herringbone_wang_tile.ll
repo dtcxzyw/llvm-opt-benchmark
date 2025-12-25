@@ -2704,7 +2704,7 @@ stbhw__draw_h_tile.exit399:                       ; preds = %..loopexit_crit_edg
   br i1 %.not302, label %316, label %.critedge324, !llvm.loop !87
 
 .critedge324:                                     ; preds = %._crit_edge, %268, %232, %._crit_edge478, %374, %338, %._crit_edge466, %304, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %304 ], [ 1, %._crit_edge466 ], [ 0, %374 ], [ 1, %._crit_edge478 ], [ 0, %268 ], [ 0, %338 ], [ 0, %232 ], [ 1, %._crit_edge ]
+  %.0 = phi i32 [ 0, %15 ], [ 1, %._crit_edge478 ], [ 1, %304 ], [ 0, %268 ], [ 1, %._crit_edge466 ], [ 0, %374 ], [ 0, %338 ], [ 0, %232 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 

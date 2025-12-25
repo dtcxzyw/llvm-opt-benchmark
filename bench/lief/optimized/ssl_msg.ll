@@ -5016,7 +5016,7 @@ ssl_get_next_record.exit.thread74:                ; preds = %224, %226, %379
   br label %.backedge.backedge
 
 ssl_get_next_record.exit:                         ; preds = %150, %159, %ssl_check_client_reconnect.exit.i, %235, %367, %380
-  %.078.i = phi i32 [ %.3.i.ph.i, %380 ], [ %149, %150 ], [ %234, %235 ], [ %.3.i.ph.i, %367 ], [ %223, %ssl_check_client_reconnect.exit.i ], [ %154, %159 ]
+  %.078.i = phi i32 [ %154, %159 ], [ %149, %150 ], [ %234, %235 ], [ %.3.i.ph.i, %367 ], [ %223, %ssl_check_client_reconnect.exit.i ], [ %.3.i.ph.i, %380 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %cond = icmp eq i32 %.078.i, -25984
   br i1 %cond, label %.backedge.backedge, label %.thread83

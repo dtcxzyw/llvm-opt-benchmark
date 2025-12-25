@@ -268,7 +268,7 @@ define dso_local range(i32 0, 3) i32 @php_stream_from_persistent_id(ptr noundef 
   br label %.critedge35
 
 .critedge35:                                      ; preds = %.critedge35.sink.split, %2, %5, %11
-  %.128 = phi i32 [ 2, %2 ], [ 1, %5 ], [ 0, %11 ], [ 0, %.critedge35.sink.split ]
+  %.128 = phi i32 [ 1, %5 ], [ 2, %2 ], [ 0, %11 ], [ 0, %.critedge35.sink.split ]
   ret i32 %.128
 }
 
@@ -5259,7 +5259,7 @@ zend_string_release_ex.exit171.thread:            ; preds = %123, %127, %131, %1
   br label %zend_string_release_ex.exit175
 
 zend_string_release_ex.exit171:                   ; preds = %140, %137
-  %.3117 = phi i32 [ %70, %140 ], [ %.0114, %137 ]
+  %.3117 = phi i32 [ %.0114, %137 ], [ %70, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %163
 

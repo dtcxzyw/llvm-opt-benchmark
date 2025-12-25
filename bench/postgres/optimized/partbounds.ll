@@ -2224,7 +2224,7 @@ define dso_local noundef zeroext i1 @partition_bounds_equal(i32 noundef %0, ptr 
   br i1 %79, label %.preheader.us, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %34, %..critedge_crit_edge.us, %58, %47, %.preheader.lr.ph, %._crit_edge, %23, %18, %13, %8, %5
-  %.047 = phi i1 [ true, %._crit_edge ], [ false, %5 ], [ false, %8 ], [ false, %13 ], [ false, %18 ], [ false, %23 ], [ true, %.preheader.lr.ph ], [ true, %..critedge_crit_edge.us ], [ false, %58 ], [ false, %47 ], [ false, %34 ]
+  %.047 = phi i1 [ true, %._crit_edge ], [ false, %5 ], [ false, %8 ], [ false, %13 ], [ false, %18 ], [ false, %23 ], [ false, %58 ], [ true, %..critedge_crit_edge.us ], [ true, %.preheader.lr.ph ], [ false, %47 ], [ false, %34 ]
   ret i1 %.047
 }
 
@@ -5497,7 +5497,7 @@ partition_hbound_cmp.exit.thread.i:               ; preds = %56
   br i1 %74, label %.outer.i.backedge, label %56
 
 partition_hash_bsearch.exit:                      ; preds = %.thread.i, %.outer.i.backedge, %63, %.backedge.i
-  %.1.i = phi i32 [ %.018.ph.i274, %63 ], [ %.018.ph.i274, %.backedge.i ], [ %64, %.outer.i.backedge ], [ %58, %.thread.i ]
+  %.1.i = phi i32 [ %.018.ph.i274, %63 ], [ %.018.ph.i274, %.backedge.i ], [ %58, %.thread.i ], [ %64, %.outer.i.backedge ]
   %75 = icmp slt i32 %.1.i, 0
   br i1 %75, label %partition_hash_bsearch.exit.thread, label %91
 
@@ -6059,9 +6059,9 @@ partition_range_bsearch.exit:                     ; preds = %._crit_edge.i.us.i,
   %398 = load i32, ptr %397, align 8
   br label %.critedge.thread217
 
-.critedge.thread217:                              ; preds = %205, %143, %.split.us, %395, %370
-  %.0222 = phi i32 [ %383, %370 ], [ %142, %143 ], [ %204, %.split.us ], [ %349, %395 ], [ %206, %205 ]
-  %.0141221 = phi i32 [ %378, %370 ], [ %145, %143 ], [ %169, %.split.us ], [ %398, %395 ], [ %169, %205 ]
+.critedge.thread217:                              ; preds = %205, %143, %395, %370, %.split.us
+  %.0222 = phi i32 [ %204, %.split.us ], [ %142, %143 ], [ %349, %395 ], [ %383, %370 ], [ %206, %205 ]
+  %.0141221 = phi i32 [ %169, %.split.us ], [ %145, %143 ], [ %398, %395 ], [ %378, %370 ], [ %169, %205 ]
   %399 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %400 = tail call i32 @errcode(i32 noundef 117833860) #12
   %401 = getelementptr inbounds nuw i8, ptr %6, i64 8

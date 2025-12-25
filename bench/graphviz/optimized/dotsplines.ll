@@ -6165,8 +6165,8 @@ edge_normalize.exit.sink.split:                   ; preds = %place_vnlabel.exit.
   br label %edge_normalize.exit
 
 edge_normalize.exit:                              ; preds = %._crit_edge.i504, %edge_normalize.exit.sink.split, %3054, %._crit_edge903
-  %3097 = phi ptr [ undef, %edge_normalize.exit.sink.split ], [ %487, %3054 ], [ %487, %._crit_edge903 ], [ %487, %._crit_edge.i504 ]
-  %.0329 = phi ptr [ null, %edge_normalize.exit.sink.split ], [ %.1330.lcssa, %3054 ], [ %.1330.lcssa, %._crit_edge903 ], [ %.1330.lcssa, %._crit_edge.i504 ]
+  %3097 = phi ptr [ %487, %3054 ], [ undef, %edge_normalize.exit.sink.split ], [ %487, %._crit_edge903 ], [ %487, %._crit_edge.i504 ]
+  %.0329 = phi ptr [ %.1330.lcssa, %3054 ], [ null, %edge_normalize.exit.sink.split ], [ %.1330.lcssa, %._crit_edge903 ], [ %.1330.lcssa, %._crit_edge.i504 ]
   %3098 = load ptr, ptr @E_headlabel, align 8, !tbaa !164
   %3099 = icmp ne ptr %3098, null
   %3100 = load ptr, ptr @E_taillabel, align 8
@@ -8269,7 +8269,7 @@ pathscross.exit:                                  ; preds = %56, %109
   br i1 %140, label %15, label %.critedge, !llvm.loop !265
 
 .critedge:                                        ; preds = %15, %pathscross.exit, %26, %34, %.thread.i, %17, %137, %94, %123, %119, %133, %127, %3
-  %.021 = phi ptr [ null, %3 ], [ %21, %137 ], [ %21, %127 ], [ %21, %133 ], [ %21, %119 ], [ %21, %123 ], [ %21, %94 ], [ %21, %34 ], [ %21, %26 ], [ %21, %.thread.i ], [ null, %pathscross.exit ], [ null, %15 ], [ %21, %17 ]
+  %.021 = phi ptr [ %21, %137 ], [ null, %3 ], [ %21, %127 ], [ %21, %133 ], [ %21, %119 ], [ %21, %123 ], [ %21, %94 ], [ %21, %26 ], [ %21, %.thread.i ], [ null, %pathscross.exit ], [ null, %15 ], [ %21, %17 ], [ %21, %34 ]
   ret ptr %.021
 }
 

@@ -10551,8 +10551,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
     i32 18, label %50
     i32 19, label %56
     i32 20, label %62
-    i32 21, label %68
-    i32 22, label %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit
+    i32 21, label %_ZN4core3cmp9PartialEq2ne17hae6b4b806d168ad4E.exit
+    i32 22, label %68
   ]
 
 20:                                               ; preds = %19

@@ -585,7 +585,7 @@ _ZeqRK7QStringS1_.exit77:                         ; preds = %72
   br label %.critedge
 
 .critedge:                                        ; preds = %84, %88
-  %93 = phi i1 [ %92, %88 ], [ false, %84 ]
+  %93 = phi i1 [ false, %84 ], [ %92, %88 ]
   %94 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %94, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i

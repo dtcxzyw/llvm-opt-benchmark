@@ -42429,7 +42429,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb974
   %81 = icmp eq i32 %.val5.i, %.val3.i.i
   br i1 %81, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge"
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge": ; preds = %74, %72, %80, %76, %78, %.lr.ph
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge": ; preds = %74, %72, %78, %76, %80, %.lr.ph
   %.not.i4 = icmp eq i16 %59, 0
   br i1 %.not.i4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split", label %.lr.ph
 
@@ -42438,8 +42438,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb974
   %84 = add i64 %.sroa.01.0.i, %83
   br label %.split
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread": ; preds = %74, %72, %80, %76, %78, %71, %48, %46, %44, %42, %40, %38, %37
-  %.pre-phi = phi i64 [ %28, %48 ], [ %28, %37 ], [ %28, %38 ], [ %28, %40 ], [ %28, %42 ], [ %28, %44 ], [ %28, %46 ], [ %62, %71 ], [ %62, %78 ], [ %62, %76 ], [ %62, %80 ], [ %62, %72 ], [ %62, %74 ]
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread": ; preds = %74, %72, %78, %76, %80, %71, %48, %46, %44, %42, %40, %38, %37
+  %.pre-phi = phi i64 [ %28, %48 ], [ %28, %37 ], [ %28, %38 ], [ %28, %40 ], [ %28, %42 ], [ %28, %44 ], [ %28, %46 ], [ %62, %71 ], [ %62, %80 ], [ %62, %76 ], [ %62, %78 ], [ %62, %72 ], [ %62, %74 ]
   %85 = getelementptr inbounds { { i32, [1 x i32] }, ptr }, ptr %8, i64 %.pre-phi
   br label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.15956212377945586164.exit
 

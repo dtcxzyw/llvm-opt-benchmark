@@ -10216,7 +10216,7 @@ tailrecurse.backedge:                             ; preds = %39, %4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.loopexit.loopexit, %18, %50, %35, %31, %27, %24, %21, %14, %10, %6
-  %.sroa.0.0.shrunk = phi i1 [ %38, %35 ], [ true, %18 ], [ %34, %31 ], [ %9, %6 ], [ %13, %10 ], [ %17, %14 ], [ %61, %50 ], [ true, %.loopexit.loopexit ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ]
+  %.sroa.0.0.shrunk = phi i1 [ true, %.loopexit.loopexit ], [ true, %18 ], [ %34, %31 ], [ %9, %6 ], [ %13, %10 ], [ %17, %14 ], [ %61, %50 ], [ %38, %35 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ]
   ret i1 %.sroa.0.0.shrunk
 
 39:                                               ; preds = %tailrecurse, %tailrecurse, %30

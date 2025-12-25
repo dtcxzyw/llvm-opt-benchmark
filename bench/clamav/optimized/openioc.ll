@@ -614,7 +614,7 @@ openioc_read.exit.thread.sink.split:              ; preds = %13, %79
   br label %openioc_read.exit.thread
 
 openioc_read.exit.thread:                         ; preds = %96, %openioc_parse_indicatoritem.exit.thread, %.lr.ph, %openioc_read.exit.thread.sink.split, %2
-  %.016 = phi i32 [ %.016.ph, %openioc_read.exit.thread.sink.split ], [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %openioc_parse_indicatoritem.exit.thread ], [ 0, %96 ]
+  %.016 = phi i32 [ 0, %2 ], [ %.016.ph, %openioc_read.exit.thread.sink.split ], [ 0, %.lr.ph ], [ 0, %openioc_parse_indicatoritem.exit.thread ], [ 0, %96 ]
   ret i32 %.016
 }
 

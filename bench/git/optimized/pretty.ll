@@ -2296,8 +2296,8 @@ match_placeholder_bool_arg.exit:                  ; preds = %99, %100
   store i32 %.sink.i, ptr %12, align 4, !tbaa !125
   br label %.critedge
 
-.loopexit163:                                     ; preds = %84, %..loopexit163_crit_edge, %95, %89
-  %104 = phi ptr [ %.pre, %..loopexit163_crit_edge ], [ %18, %89 ], [ %18, %95 ], [ %18, %84 ]
+.loopexit163:                                     ; preds = %84, %..loopexit163_crit_edge, %89, %95
+  %104 = phi ptr [ %.pre, %..loopexit163_crit_edge ], [ %18, %95 ], [ %18, %89 ], [ %18, %84 ]
   %scevgep191 = getelementptr i8, ptr %104, i64 6
   br label %105
 
@@ -2367,8 +2367,8 @@ match_placeholder_bool_arg.exit84:                ; preds = %121, %122
   store i32 %.sink.i82, ptr %15, align 4, !tbaa !125
   br label %.critedge
 
-.loopexit162:                                     ; preds = %106, %..loopexit162_crit_edge, %117, %111
-  %126 = phi ptr [ %.pre197, %..loopexit162_crit_edge ], [ %104, %111 ], [ %104, %117 ], [ %104, %106 ]
+.loopexit162:                                     ; preds = %106, %..loopexit162_crit_edge, %111, %117
+  %126 = phi ptr [ %.pre197, %..loopexit162_crit_edge ], [ %104, %117 ], [ %104, %111 ], [ %104, %106 ]
   %scevgep193 = getelementptr i8, ptr %126, i64 7
   br label %127
 
@@ -2438,8 +2438,8 @@ match_placeholder_bool_arg.exit97:                ; preds = %143, %144
   store i32 %.sink.i95, ptr %16, align 4, !tbaa !125
   br label %.critedge
 
-.loopexit161:                                     ; preds = %128, %..loopexit161_crit_edge, %139, %133
-  %148 = phi ptr [ %.pre198, %..loopexit161_crit_edge ], [ %126, %133 ], [ %126, %139 ], [ %126, %128 ]
+.loopexit161:                                     ; preds = %128, %..loopexit161_crit_edge, %133, %139
+  %148 = phi ptr [ %.pre198, %..loopexit161_crit_edge ], [ %126, %139 ], [ %126, %133 ], [ %126, %128 ]
   %scevgep195 = getelementptr i8, ptr %148, i64 9
   br label %149
 
@@ -2505,7 +2505,7 @@ match_placeholder_bool_arg.exit110:               ; preds = %165, %166
   store i32 %.sink.i108, ptr %17, align 4, !tbaa !125
   br label %.critedge
 
-.loopexit:                                        ; preds = %166, %161, %155, %150
+.loopexit:                                        ; preds = %166, %155, %161, %150
   %.not52 = icmp eq ptr %5, null
   br i1 %.not52, label %.critedge.thread, label %170
 
@@ -6312,8 +6312,8 @@ match_placeholder_arg_value.exit43:               ; preds = %77, %79
   %83 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %1, ptr noundef nonnull @.str.76, ptr noundef %63, i32 noundef %82, ptr noundef %.6) #20
   br label %.backedge
 
-match_placeholder_bool_arg.exit.thread:           ; preds = %66, %38, %12, %28, %71, %77, %43, %49, %17, %23, %4
-  %.368 = phi ptr [ %.166115, %4 ], [ %.166115, %49 ], [ %.166115, %38 ], [ %.166115, %77 ], [ %.166115, %17 ], [ %.166115, %12 ], [ %.166115, %43 ], [ %.017.sink.i.i, %28 ], [ %.166115, %71 ], [ %.166115, %23 ], [ %.166115, %66 ]
+match_placeholder_bool_arg.exit.thread:           ; preds = %66, %38, %12, %28, %71, %77, %43, %49, %23, %17, %4
+  %.368 = phi ptr [ %.166115, %4 ], [ %.166115, %38 ], [ %.166115, %77 ], [ %.166115, %49 ], [ %.166115, %17 ], [ %.166115, %12 ], [ %.166115, %43 ], [ %.017.sink.i.i, %28 ], [ %.166115, %71 ], [ %.166115, %23 ], [ %.166115, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = icmp samesign ult i64 %indvars.iv, 3
   br i1 %84, label %.backedge, label %85
@@ -6433,6 +6433,9 @@ define internal fastcc void @parse_decoration_options(ptr noundef nonnull captur
     i8 41, label %31
   ]
 
+.loopexit100.preheader:                           ; preds = %20, %31, %25
+  br label %.loopexit100
+
 27:                                               ; preds = %25
   %28 = getelementptr i8, ptr %18, i64 7
   %29 = call i64 @strcspn(ptr noundef nonnull %28, ptr noundef nonnull @.str.23) #21
@@ -6449,9 +6452,6 @@ define internal fastcc void @parse_decoration_options(ptr noundef nonnull captur
     i8 44, label %33
     i8 41, label %35
   ]
-
-.loopexit100.preheader:                           ; preds = %20, %25, %31
-  br label %.loopexit100
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 1
@@ -6729,7 +6729,7 @@ parse_decoration_option.exit23:                   ; preds = %111, %strbuf_setlen
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge.backedge
 
-.loopexit99:                                      ; preds = %67, %72, %78
+.loopexit99:                                      ; preds = %67, %78, %72
   %scevgep115 = getelementptr i8, ptr %18, i64 9
   br label %114
 
@@ -6788,7 +6788,7 @@ parse_decoration_option.exit33:                   ; preds = %126, %128
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge.backedge
 
-.loopexit98:                                      ; preds = %115, %120, %126
+.loopexit98:                                      ; preds = %115, %126, %120
   %scevgep117 = getelementptr i8, ptr %18, i64 7
   br label %132
 
@@ -6847,7 +6847,7 @@ parse_decoration_option.exit43:                   ; preds = %144, %146
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge.backedge
 
-.loopexit97:                                      ; preds = %133, %138, %144
+.loopexit97:                                      ; preds = %133, %144, %138
   %scevgep119 = getelementptr i8, ptr %18, i64 3
   br label %150
 
@@ -6909,7 +6909,7 @@ parse_decoration_option.exit53:                   ; preds = %162, %164
 .critedge.backedge:                               ; preds = %parse_decoration_option.exit53, %parse_decoration_option.exit43, %parse_decoration_option.exit33, %parse_decoration_option.exit23, %parse_decoration_option.exit
   br label %.critedge, !llvm.loop !225
 
-.loopexit:                                        ; preds = %156, %162, %151
+.loopexit:                                        ; preds = %162, %156, %151
   ret void
 }
 

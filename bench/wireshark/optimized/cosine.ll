@@ -81,7 +81,7 @@ define hidden range(i32 -1, 2) i32 @cosine_open(ptr noundef %0, ptr noundef %1, 
   %22 = sext i1 %switch.selectcmp.not to i32
   br label %35
 
-23:                                               ; preds = %16, %18
+23:                                               ; preds = %18, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = load ptr, ptr %0, align 8
   %25 = call i64 @file_seek(ptr noundef %24, i64 noundef 0, i32 noundef 0, ptr noundef %1)

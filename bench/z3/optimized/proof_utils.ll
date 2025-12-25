@@ -6502,8 +6502,8 @@ _ZN6bufferIP3appLb0ELj16EE6expandEv.exit.i92.us:  ; preds = %.noexc97.us, %._cri
   br i1 %91, label %.lr.ph136.split.split.us182, label %.lr.ph136.split.split.us.us
 
 _ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread.us: ; preds = %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us.us.us, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us.us.us, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us.us177, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.thread.i.us.us174, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us.us173, %.lr.ph136.split.split.us.us, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us140.us, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us145.us, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us164, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us160, %.lr.ph136.split.split.us182
-  %174 = phi ptr [ %184, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us.us177 ], [ %225, %.lr.ph136.split.split.us.us ], [ %111, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us164 ], [ %111, %.lr.ph136.split.split.us182 ], [ %111, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us160 ], [ %225, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us145.us ], [ %225, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us140.us ], [ %184, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us.us173 ], [ %184, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.thread.i.us.us174 ], [ %269, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us.us.us ], [ %269, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us.us.us ]
-  %.us-phi.us = phi i64 [ %indvars.iv220, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us.us177 ], [ %indvars.iv225, %.lr.ph136.split.split.us.us ], [ %indvars.iv230, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us164 ], [ %indvars.iv230, %.lr.ph136.split.split.us182 ], [ %indvars.iv230, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us160 ], [ %indvars.iv225, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us145.us ], [ %indvars.iv225, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us140.us ], [ %indvars.iv220, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us.us173 ], [ %indvars.iv220, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.thread.i.us.us174 ], [ %indvars.iv215, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us.us.us ], [ %indvars.iv215, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us.us.us ]
+  %174 = phi ptr [ %225, %.lr.ph136.split.split.us.us ], [ %184, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us.us177 ], [ %111, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us164 ], [ %111, %.lr.ph136.split.split.us182 ], [ %111, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us160 ], [ %225, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us145.us ], [ %225, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us140.us ], [ %184, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us.us173 ], [ %184, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.thread.i.us.us174 ], [ %269, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us.us.us ], [ %269, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us.us.us ]
+  %.us-phi.us = phi i64 [ %indvars.iv225, %.lr.ph136.split.split.us.us ], [ %indvars.iv220, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us.us177 ], [ %indvars.iv230, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us164 ], [ %indvars.iv230, %.lr.ph136.split.split.us182 ], [ %indvars.iv230, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us160 ], [ %indvars.iv225, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us145.us ], [ %indvars.iv225, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us140.us ], [ %indvars.iv220, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us.us173 ], [ %indvars.iv220, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.thread.i.us.us174 ], [ %indvars.iv215, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.us.us.us ], [ %indvars.iv215, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.i.us.us.us ]
   %175 = getelementptr inbounds nuw ptr, ptr %2, i64 %.us-phi.us
   %176 = load i32, ptr %9, align 8, !tbaa !207
   %177 = load i32, ptr %10, align 4, !tbaa !208
@@ -9746,7 +9746,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
           cleanup
   br label %.loopexit.split-lp509
 
-_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread493: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i7.i, %792, %787, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit
+_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread493: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i7.i, %787, %792, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit
   %indvars.iv.next610 = add nuw nsw i64 %indvars.iv609894, 1
   br label %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, !llvm.loop !264
 
@@ -9952,7 +9952,7 @@ _ZNK11ast_manager13is_complementEPK4exprS2_.exit346: ; preds = %_ZNK11ast_manage
   %975 = icmp eq ptr %974, %938
   br i1 %975, label %_ZNK11ast_manager13is_complementEPK4exprS2_.exit346.thread.loopexit, label %_ZNK11ast_manager13is_complementEPK4exprS2_.exit346.thread498
 
-_ZNK11ast_manager13is_complementEPK4exprS2_.exit346.thread498: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i7.i342, %964, %960, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit346
+_ZNK11ast_manager13is_complementEPK4exprS2_.exit346.thread498: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i7.i342, %960, %964, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit346
   %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612896, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next613, %wide.trip.count
   br i1 %exitcond.not, label %.critedge137, label %.lr.ph
@@ -13701,7 +13701,7 @@ _ZNK11ast_manager13is_complementEPK4exprS2_.exit: ; preds = %_ZNK11ast_manager6i
   %270 = icmp eq ptr %269, %235
   br i1 %270, label %_ZN6vectorIP4exprLb0EjE6resizeEj.exit, label %_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread34
 
-_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread34: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i7.i, %259, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.thread.i, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit
+_ZNK11ast_manager13is_complementEPK4exprS2_.exit.thread34: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i7.i, %_ZNK11ast_manager18is_complement_coreEPK4exprS2_.exit.thread.i, %259, %_ZNK11ast_manager13is_complementEPK4exprS2_.exit
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
   br i1 %exitcond119.not, label %_ZN6vectorIP4exprLb0EjE6resizeEj.exit, label %.lr.ph.split.split

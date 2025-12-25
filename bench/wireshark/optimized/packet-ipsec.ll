@@ -4028,7 +4028,7 @@ define internal fastcc noundef zeroext i1 @get_full_ipv4_addr(ptr noundef %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %113, %.loopexit.sink.split, %39, %2, %8
-  %.096 = phi i1 [ %.096.ph, %.loopexit.sink.split ], [ false, %39 ], [ false, %2 ], [ false, %113 ], [ false, %8 ], [ false, %71 ]
+  %.096 = phi i1 [ false, %39 ], [ false, %113 ], [ false, %2 ], [ %.096.ph, %.loopexit.sink.split ], [ false, %8 ], [ false, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

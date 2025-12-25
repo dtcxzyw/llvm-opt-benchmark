@@ -5867,7 +5867,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI10quantifierEE13obj_map
   br i1 %.not, label %.loopexit, label %20
 
 .loopexit:                                        ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI10quantifierEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8iteratorppEv.exit, %.preheader.i.i.i, %45, %59, %56, %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit
-  %.not44 = phi i1 [ false, %59 ], [ false, %.preheader.i.i.i ], [ false, %45 ], [ true, %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit ], [ false, %56 ], [ true, %_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI10quantifierEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8iteratorppEv.exit ]
+  %.not44 = phi i1 [ false, %59 ], [ false, %.preheader.i.i.i ], [ true, %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit ], [ false, %45 ], [ false, %56 ], [ true, %_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI10quantifierEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8iteratorppEv.exit ]
   ret i1 %.not44
 }
 
@@ -13020,7 +13020,7 @@ _ZNK9func_decl14is_commutativeEv.exit.thread.sink.split: ; preds = %_ZNK9func_de
   br label %_ZNK9func_decl14is_commutativeEv.exit.thread
 
 _ZNK9func_decl14is_commutativeEv.exit.thread:     ; preds = %_ZNK9func_decl14is_commutativeEv.exit.thread.sink.split, %2, %70, %65, %60, %10, %_ZNK9func_decl14is_commutativeEv.exit
-  %.0 = phi i1 [ false, %_ZNK9func_decl14is_commutativeEv.exit ], [ false, %60 ], [ false, %10 ], [ false, %2 ], [ false, %65 ], [ false, %70 ], [ true, %_ZNK9func_decl14is_commutativeEv.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %_ZNK9func_decl14is_commutativeEv.exit ], [ false, %60 ], [ false, %10 ], [ false, %65 ], [ false, %2 ], [ false, %70 ], [ true, %_ZNK9func_decl14is_commutativeEv.exit.thread.sink.split ]
   ret i1 %.0
 }
 

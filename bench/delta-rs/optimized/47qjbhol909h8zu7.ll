@@ -86634,8 +86634,8 @@ define internal fastcc void @_ZN17datafusion_common6scalar11ScalarValue13iter_to
   br label %170
 
 162:                                              ; preds = %.body, %164
-  %.1 = phi i8 [ %.4, %.body ], [ %.01097, %164 ]
-  %.pn1167.pn = phi { ptr, i32 } [ %.pn1163, %.body ], [ %165, %164 ]
+  %.1 = phi i8 [ %.01097, %164 ], [ %.4, %.body ]
+  %.pn1167.pn = phi { ptr, i32 } [ %165, %164 ], [ %.pn1163, %.body ]
   %163 = trunc nuw i8 %.1 to i1
   br i1 %163, label %.thread, label %1190
 
@@ -90208,8 +90208,8 @@ define hidden void @_ZN17datafusion_common6scalar11ScalarValue13iter_to_array17h
           to label %173 unwind label %171
 
 169:                                              ; preds = %.body, %171
-  %.1 = phi i8 [ %.4, %.body ], [ %.01097, %171 ]
-  %.pn1167.pn = phi { ptr, i32 } [ %.pn1163, %.body ], [ %172, %171 ]
+  %.1 = phi i8 [ %.01097, %171 ], [ %.4, %.body ]
+  %.pn1167.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn1163, %.body ]
   %170 = trunc nuw i8 %.1 to i1
   br i1 %170, label %.thread, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$$LT$deltalake_core..operations..transaction..state..AddContainer$u20$as$u20$datafusion..physical_optimizer..pruning..PruningStatistics$GT$..null_counts..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h085644549ce3c523E.exit1388"
 
@@ -93797,8 +93797,8 @@ define hidden void @_ZN17datafusion_common6scalar11ScalarValue13iter_to_array17h
           to label %173 unwind label %171
 
 169:                                              ; preds = %.body, %171
-  %.1 = phi i8 [ %.4, %.body ], [ %.01097, %171 ]
-  %.pn1167.pn = phi { ptr, i32 } [ %.pn1163, %.body ], [ %172, %171 ]
+  %.1 = phi i8 [ %.01097, %171 ], [ %.4, %.body ]
+  %.pn1167.pn = phi { ptr, i32 } [ %172, %171 ], [ %.pn1163, %.body ]
   %170 = trunc nuw i8 %.1 to i1
   br i1 %170, label %.thread, label %"_ZN4core3ptr291drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..operations..transaction..state..AddContainer..get_prune_stats..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h64bffc35f44ca11fE.exit1388"
 
@@ -130346,7 +130346,7 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
           to label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit58.thread" unwind label %21
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit58": ; preds = %29, %12, %.thread106
-  %.pn43111 = phi { ptr, i32 } [ %28, %.thread106 ], [ %13, %12 ], [ %13, %29 ]
+  %.pn43111 = phi { ptr, i32 } [ %28, %.thread106 ], [ %13, %29 ], [ %13, %12 ]
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 272
   invoke void @"_ZN4core3ptr56drop_in_place$LT$reqwest..async_impl..client..Client$GT$17h5c9b8816fead7d3aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %60) #52
           to label %61 unwind label %21

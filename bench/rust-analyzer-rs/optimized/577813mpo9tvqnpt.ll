@@ -21791,8 +21791,8 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i.i.i.i.i.i: ; preds =
   unreachable
 
 .body:                                            ; preds = %171, %178, %156
-  %.1 = phi ptr [ %.val.i.i.i.i.i, %171 ], [ %.0152, %156 ], [ %.val.i.i.i.i.i, %178 ]
-  %.pn = phi { ptr, i32 } [ %172, %171 ], [ %157, %156 ], [ %172, %178 ]
+  %.1 = phi ptr [ %.val.i.i.i.i.i, %178 ], [ %.0152, %156 ], [ %.val.i.i.i.i.i, %171 ]
+  %.pn = phi { ptr, i32 } [ %172, %178 ], [ %157, %156 ], [ %172, %171 ]
   %149 = icmp eq ptr %.1, null
   br i1 %149, label %"_ZN4core3ptr315drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..sources..successors..Successors$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxNode..parent$GT$$C$$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$..from$GT$$GT$17h3fea97e5c71c7167E.exit", label %150
 

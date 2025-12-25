@@ -11256,9 +11256,9 @@ parse_posix_bracket.exit.thread.loopexit:         ; preds = %106
   br label %parse_posix_bracket.exit.thread
 
 parse_posix_bracket.exit.thread:                  ; preds = %306, %223, %465, %434, %CC_ESC_WARN.exit427, %116, %460, %437, %429, %parse_posix_bracket.exit, %187, %381, %.thread465, %375, %.thread478, %.thread491, %498, %491, %487, %106, %parse_posix_bracket.exit.thread.loopexit, %586, %.thread448, %527, %522, %518
-  %.1304 = phi ptr [ %.0303.ph, %106 ], [ %.0303.ph, %518 ], [ %.0303.ph, %522 ], [ %.4307543, %586 ], [ %.0303.ph, %.thread448 ], [ %.0300.ph, %527 ], [ %.0303.ph, %306 ], [ %.0303.ph, %223 ], [ %.0303.ph, %465 ], [ %.0303.ph, %434 ], [ %.0303.ph, %CC_ESC_WARN.exit427 ], [ %.0303.ph, %116 ], [ %.0303.ph, %460 ], [ %.0303.ph, %437 ], [ %.0303.ph, %429 ], [ %.0303.ph, %parse_posix_bracket.exit ], [ %.0303.ph, %187 ], [ %.0303.ph, %487 ], [ %.0303.ph, %491 ], [ %.0303.ph, %498 ], [ %.0303.ph, %.thread478 ], [ %.2305507, %.thread491 ], [ %.0303.ph, %375 ], [ %.0303.ph, %.thread465 ], [ %.0303.ph, %381 ], [ %.0303.ph, %parse_posix_bracket.exit.thread.loopexit ]
-  %.2296 = phi ptr [ %.1295.ph, %106 ], [ %.1295.ph, %518 ], [ %.1295.ph, %522 ], [ %.5299546, %586 ], [ %.1295.ph, %.thread448 ], [ %.1295.ph, %527 ], [ %.1295.ph, %306 ], [ %.1295.ph, %223 ], [ %.1295.ph, %465 ], [ %.1295.ph, %434 ], [ %.1295.ph, %CC_ESC_WARN.exit427 ], [ %.1295.ph, %116 ], [ %.1295.ph, %460 ], [ %.1295.ph, %437 ], [ %.1295.ph, %429 ], [ %.1295.ph, %parse_posix_bracket.exit ], [ %.1295.ph, %187 ], [ %.1295.ph, %487 ], [ %.1295.ph, %491 ], [ %.1295.ph, %498 ], [ %.1295.ph, %.thread478 ], [ %.3297511, %.thread491 ], [ %.1295.ph, %375 ], [ %.1295.ph, %.thread465 ], [ %.1295.ph, %381 ], [ %.1295.ph, %parse_posix_bracket.exit.thread.loopexit ]
-  %.3273 = phi i32 [ -11, %106 ], [ %520, %518 ], [ %523, %522 ], [ %587, %586 ], [ %.6.ph, %.thread448 ], [ %528, %527 ], [ -121, %223 ], [ %188, %187 ], [ %114, %116 ], [ %.0126.i, %parse_posix_bracket.exit ], [ -121, %306 ], [ %430, %429 ], [ %182, %CC_ESC_WARN.exit427 ], [ %439, %437 ], [ %461, %460 ], [ -112, %434 ], [ -112, %465 ], [ %489, %487 ], [ %492, %491 ], [ %499, %498 ], [ %.10, %.thread478 ], [ %513, %.thread491 ], [ %378, %375 ], [ -110, %.thread465 ], [ %384, %381 ], [ -103, %parse_posix_bracket.exit.thread.loopexit ]
+  %.1304 = phi ptr [ %.0303.ph, %106 ], [ %.0303.ph, %518 ], [ %.0303.ph, %522 ], [ %.4307543, %586 ], [ %.0303.ph, %.thread448 ], [ %.0300.ph, %527 ], [ %.0303.ph, %306 ], [ %.0303.ph, %223 ], [ %.0303.ph, %465 ], [ %.0303.ph, %434 ], [ %.0303.ph, %CC_ESC_WARN.exit427 ], [ %.0303.ph, %116 ], [ %.0303.ph, %460 ], [ %.0303.ph, %437 ], [ %.0303.ph, %429 ], [ %.0303.ph, %parse_posix_bracket.exit ], [ %.0303.ph, %187 ], [ %.0303.ph, %487 ], [ %.0303.ph, %491 ], [ %.0303.ph, %498 ], [ %.2305507, %.thread491 ], [ %.0303.ph, %.thread478 ], [ %.0303.ph, %375 ], [ %.0303.ph, %.thread465 ], [ %.0303.ph, %381 ], [ %.0303.ph, %parse_posix_bracket.exit.thread.loopexit ]
+  %.2296 = phi ptr [ %.1295.ph, %106 ], [ %.1295.ph, %518 ], [ %.1295.ph, %522 ], [ %.5299546, %586 ], [ %.1295.ph, %.thread448 ], [ %.1295.ph, %527 ], [ %.1295.ph, %306 ], [ %.1295.ph, %223 ], [ %.1295.ph, %465 ], [ %.1295.ph, %434 ], [ %.1295.ph, %CC_ESC_WARN.exit427 ], [ %.1295.ph, %116 ], [ %.1295.ph, %460 ], [ %.1295.ph, %437 ], [ %.1295.ph, %429 ], [ %.1295.ph, %parse_posix_bracket.exit ], [ %.1295.ph, %187 ], [ %.1295.ph, %487 ], [ %.1295.ph, %491 ], [ %.1295.ph, %498 ], [ %.3297511, %.thread491 ], [ %.1295.ph, %.thread478 ], [ %.1295.ph, %375 ], [ %.1295.ph, %.thread465 ], [ %.1295.ph, %381 ], [ %.1295.ph, %parse_posix_bracket.exit.thread.loopexit ]
+  %.3273 = phi i32 [ -11, %106 ], [ %520, %518 ], [ %523, %522 ], [ %587, %586 ], [ %.6.ph, %.thread448 ], [ %528, %527 ], [ -121, %223 ], [ %188, %187 ], [ %114, %116 ], [ %.0126.i, %parse_posix_bracket.exit ], [ -121, %306 ], [ %430, %429 ], [ %182, %CC_ESC_WARN.exit427 ], [ %439, %437 ], [ %461, %460 ], [ -112, %434 ], [ -112, %465 ], [ %489, %487 ], [ %492, %491 ], [ %499, %498 ], [ %513, %.thread491 ], [ %.10, %.thread478 ], [ %378, %375 ], [ -110, %.thread465 ], [ %384, %381 ], [ -103, %parse_posix_bracket.exit.thread.loopexit ]
   %592 = load ptr, ptr %0, align 8, !tbaa !89
   %.not407 = icmp eq ptr %.1304, %592
   br i1 %.not407, label %bbuf_free.exit434, label %593
@@ -11354,7 +11354,7 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr noundef readon
   br label %30
 
 30:                                               ; preds = %21, %19, %8
-  %.030 = phi i32 [ -1, %8 ], [ %15, %19 ], [ %spec.store.select, %21 ]
+  %.030 = phi i32 [ -1, %8 ], [ %spec.store.select, %21 ], [ %15, %19 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %32
 
@@ -14122,7 +14122,7 @@ bbuf_clone.exit.sink.split:                       ; preds = %25, %14
   br label %bbuf_clone.exit
 
 bbuf_clone.exit:                                  ; preds = %and_code_range1.exit, %115, %and_code_range1.exit.us, %77, %66, %._crit_edge.us, %101, %bbuf_clone.exit.sink.split, %.preheader111, %.preheader, %.thread, %25, %22, %14, %11, %21, %8
-  %.0 = phi i32 [ 0, %._crit_edge.us ], [ %67, %66 ], [ %18, %14 ], [ 0, %8 ], [ 0, %21 ], [ %29, %25 ], [ 0, %.thread ], [ 0, %.preheader ], [ 0, %.preheader111 ], [ -5, %11 ], [ %104, %101 ], [ -5, %22 ], [ 0, %and_code_range1.exit.us ], [ 0, %bbuf_clone.exit.sink.split ], [ %78, %77 ], [ %116, %115 ], [ 0, %and_code_range1.exit ]
+  %.0 = phi i32 [ 0, %._crit_edge.us ], [ %67, %66 ], [ %18, %14 ], [ 0, %8 ], [ 0, %21 ], [ %29, %25 ], [ 0, %.thread ], [ 0, %.preheader ], [ 0, %.preheader111 ], [ -5, %11 ], [ %104, %101 ], [ -5, %22 ], [ 0, %and_code_range1.exit.us ], [ 0, %bbuf_clone.exit.sink.split ], [ %78, %77 ], [ 0, %and_code_range1.exit ], [ %116, %115 ]
   ret i32 %.0
 }
 

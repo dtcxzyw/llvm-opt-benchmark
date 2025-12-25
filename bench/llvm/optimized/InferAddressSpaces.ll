@@ -2172,7 +2172,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i: ; preds = %741, %_ZNK12_GLO
   br label %_ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i
 
 _ZNK12_GLOBAL__N_122InferAddressSpacesImpl17joinAddressSpacesEjj.exit.i.i: ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i, %607, %605, %._crit_edge.i.i, %601, %598
-  %.268.i.i = phi i32 [ %609, %607 ], [ %.5.i.i, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i ], [ %552, %601 ], [ %589, %598 ], [ %.val83.mux.mux.i.i, %._crit_edge.i.i ], [ %..i.i.i, %605 ]
+  %.268.i.i = phi i32 [ %609, %607 ], [ %.5.i.i, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i ], [ %589, %598 ], [ %552, %601 ], [ %.val83.mux.mux.i.i, %._crit_edge.i.i ], [ %..i.i.i, %605 ]
   %742 = load ptr, ptr %56, align 8, !tbaa !192
   %743 = load i32, ptr %439, align 8, !tbaa !195
   %744 = icmp eq i32 %743, 0

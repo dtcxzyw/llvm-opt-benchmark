@@ -4017,7 +4017,7 @@ _ZN6icu_7712LocalPointerINS_10UnicodeSetEEC2EPS1_R10UErrorCode.exit: ; preds = %
   br label %_ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit
 
 _ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit: ; preds = %31, %28, %21, %.critedge
-  %129 = phi ptr [ %128, %.critedge ], [ %17, %21 ], [ %17, %28 ], [ %17, %31 ]
+  %129 = phi ptr [ %17, %28 ], [ %17, %21 ], [ %128, %.critedge ], [ %17, %31 ]
   %130 = icmp eq ptr %129, null
   br i1 %130, label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit, label %_ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit.thread
 

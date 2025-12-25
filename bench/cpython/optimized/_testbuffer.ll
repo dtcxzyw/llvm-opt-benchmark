@@ -829,7 +829,7 @@ get_ascii_order.exit:                             ; preds = %Py_DECREF.exit.i, %
   br label %44
 
 43:                                               ; preds = %40, %36
-  %.010 = phi ptr [ %42, %40 ], [ null, %36 ]
+  %.010 = phi ptr [ null, %36 ], [ %42, %40 ]
   call void @PyBuffer_Release(ptr noundef nonnull %6) #14
   call void @PyMem_Free(ptr noundef nonnull %32) #14
   br label %44

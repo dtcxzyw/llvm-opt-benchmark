@@ -531,9 +531,9 @@ _ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17Con
   br label %156
 
 156:                                              ; preds = %.loopexit, %.loopexit.split-lp, %152, %154
-  %.sroa.19.2 = phi ptr [ %.sroa.19.3.lcssa, %154 ], [ %.sroa.19.5, %152 ], [ %.sroa.12.2111, %.loopexit ], [ %.sroa.12.2111, %.loopexit.split-lp ]
-  %.sroa.070.2 = phi ptr [ %.sroa.070.3.lcssa, %154 ], [ %.sroa.070.5, %152 ], [ %.sroa.070.3112, %.loopexit ], [ %.sroa.070.3112, %.loopexit.split-lp ]
-  %.pn15 = phi { ptr, i32 } [ %155, %154 ], [ %153, %152 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.5, %152 ], [ %.sroa.19.3.lcssa, %154 ], [ %.sroa.12.2111, %.loopexit ], [ %.sroa.12.2111, %.loopexit.split-lp ]
+  %.sroa.070.2 = phi ptr [ %.sroa.070.5, %152 ], [ %.sroa.070.3.lcssa, %154 ], [ %.sroa.070.3112, %.loopexit ], [ %.sroa.070.3112, %.loopexit.split-lp ]
+  %.pn15 = phi { ptr, i32 } [ %153, %152 ], [ %155, %154 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i57 = icmp eq ptr %.sroa.070.2, null
   br i1 %.not.i.i.i57, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit58, label %157
 

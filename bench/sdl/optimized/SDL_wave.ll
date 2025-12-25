@@ -871,13 +871,13 @@ WaveLoad.exit:                                    ; preds = %WaveFreeChunkData.e
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %311, label %314, label %312
 
-312:                                              ; preds = %135, %154, %.loopexit.thread.i, %218, %251, %.critedge.i, %256, %192, %.thread.i, %275, %308, %164, %306, %100, %.thread213.i, %82, %WaveLoad.exit.thread, %WaveLoad.exit
+312:                                              ; preds = %135, %154, %.loopexit.thread.i, %218, %251, %.critedge.i, %256, %100, %.thread.i, %275, %308, %.thread213.i, %306, %192, %164, %82, %WaveLoad.exit.thread, %WaveLoad.exit
   %313 = load ptr, ptr %3, align 8
   call void @SDL_free_REAL(ptr noundef %313) #8
   br label %314
 
-314:                                              ; preds = %135, %154, %.loopexit.thread.i, %218, %251, %.critedge.i, %256, %192, %.thread.i, %275, %308, %164, %306, %100, %.thread213.i, %82, %WaveLoad.exit.thread41, %312, %WaveLoad.exit
-  %.0.i3640 = phi i1 [ false, %312 ], [ true, %WaveLoad.exit ], [ true, %WaveLoad.exit.thread41 ], [ true, %82 ], [ true, %.thread213.i ], [ true, %100 ], [ true, %306 ], [ true, %164 ], [ true, %308 ], [ true, %275 ], [ true, %.thread.i ], [ true, %192 ], [ true, %256 ], [ true, %.critedge.i ], [ true, %251 ], [ true, %218 ], [ true, %.loopexit.thread.i ], [ true, %154 ], [ true, %135 ]
+314:                                              ; preds = %135, %154, %.loopexit.thread.i, %218, %251, %.critedge.i, %256, %100, %.thread.i, %275, %308, %.thread213.i, %306, %192, %164, %82, %WaveLoad.exit.thread41, %312, %WaveLoad.exit
+  %.0.i3640 = phi i1 [ false, %312 ], [ true, %WaveLoad.exit ], [ true, %WaveLoad.exit.thread41 ], [ true, %82 ], [ true, %164 ], [ true, %192 ], [ true, %306 ], [ true, %.thread213.i ], [ true, %308 ], [ true, %275 ], [ true, %.thread.i ], [ true, %100 ], [ true, %256 ], [ true, %.critedge.i ], [ true, %251 ], [ true, %218 ], [ true, %.loopexit.thread.i ], [ true, %154 ], [ true, %135 ]
   br i1 %1, label %319, label %315
 
 315:                                              ; preds = %314

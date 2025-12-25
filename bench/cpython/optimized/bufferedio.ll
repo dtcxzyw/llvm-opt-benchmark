@@ -2777,7 +2777,7 @@ define internal fastcc noundef ptr @_bufferedwriter_flush_unlocked(ptr noundef c
   br label %_set_BlockingIOError.exit
 
 _set_BlockingIOError.exit:                        ; preds = %49, %32, %48, %45, %42, %37, %19, %.loopexit
-  %.0 = phi ptr [ @_Py_NoneStruct, %.loopexit ], [ null, %48 ], [ null, %45 ], [ null, %19 ], [ null, %37 ], [ null, %42 ], [ null, %32 ], [ null, %49 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %.loopexit ], [ null, %45 ], [ null, %48 ], [ null, %19 ], [ null, %37 ], [ null, %42 ], [ null, %32 ], [ null, %49 ]
   ret ptr %.0
 }
 
@@ -5862,7 +5862,7 @@ Py_DECREF.exit.i:                                 ; preds = %133, %130, %128, %1
   br label %_io__Buffered_seek_impl.exit
 
 _io__Buffered_seek_impl.exit:                     ; preds = %165, %118, %113, %111, %77, %65, %.critedge.i, %.thread32, %32, %31, %15, %5
-  %.011 = phi ptr [ null, %5 ], [ null, %15 ], [ null, %31 ], [ null, %.thread32 ], [ null, %.critedge.i ], [ null, %32 ], [ null, %118 ], [ null, %65 ], [ %.2103.i, %165 ], [ null, %77 ], [ %114, %113 ], [ %112, %111 ]
+  %.011 = phi ptr [ null, %5 ], [ null, %15 ], [ null, %31 ], [ null, %.thread32 ], [ null, %.critedge.i ], [ null, %32 ], [ null, %118 ], [ null, %65 ], [ %.2103.i, %165 ], [ null, %77 ], [ %112, %111 ], [ %114, %113 ]
   ret ptr %.011
 }
 

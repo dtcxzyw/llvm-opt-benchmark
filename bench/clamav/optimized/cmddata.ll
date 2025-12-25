@@ -797,7 +797,7 @@ _ZN11CommandData9ExclCheckEPKwbbb.exit.thread49:  ; preds = %18, %_ZN11CommandDa
 _ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit:  ; preds = %80
   br i1 %.3.i, label %_ZN11CommandData9ExclCheckEPKwbbb.exit.thread, label %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread53
 
-_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread53: ; preds = %83, %46, %56, %35, %67, %79, %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit
+_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread53: ; preds = %83, %35, %56, %67, %46, %79, %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %91 = load i32, ptr %90, align 4, !tbaa !55
   %92 = load i32, ptr %0, align 8, !tbaa !56

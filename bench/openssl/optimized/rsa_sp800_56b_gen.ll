@@ -125,8 +125,8 @@ define range(i32 0, 2) i32 @ossl_rsa_fips186_4_gen_prob_primes(ptr noundef captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.lr.ph, %47, %30, %.thread, %.preheader, %.thread90, %12, %54
-  %.not77 = phi i1 [ false, %12 ], [ false, %30 ], [ false, %.thread ], [ false, %.thread90 ], [ true, %54 ], [ false, %.preheader ], [ false, %47 ], [ false, %.lr.ph ], [ false, %.backedge ]
-  %.067 = phi i32 [ 0, %12 ], [ 0, %30 ], [ 0, %.thread ], [ 0, %.thread90 ], [ 1, %54 ], [ 0, %.preheader ], [ 0, %47 ], [ 0, %.lr.ph ], [ 0, %.backedge ]
+  %.not77 = phi i1 [ false, %12 ], [ false, %30 ], [ false, %.thread ], [ true, %54 ], [ false, %.thread90 ], [ false, %.preheader ], [ false, %47 ], [ false, %.lr.ph ], [ false, %.backedge ]
+  %.067 = phi i32 [ 0, %12 ], [ 0, %30 ], [ 0, %.thread ], [ 1, %54 ], [ 0, %.thread90 ], [ 0, %.preheader ], [ 0, %47 ], [ 0, %.lr.ph ], [ 0, %.backedge ]
   tail call void @BN_clear(ptr noundef %14) #2
   tail call void @BN_clear(ptr noundef %15) #2
   tail call void @BN_clear(ptr noundef %13) #2

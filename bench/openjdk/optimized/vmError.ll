@@ -4234,7 +4234,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
   br label %_ZL13add_if_absentPhPS_i.exit
 
 _ZL13add_if_absentPhPS_i.exit:                    ; preds = %27, %.preheader61, %53, %.preheader59, %71, %.preheader, %87, %85, %16, %15, %59, %60, %43, %54, %28
-  %.0 = phi i1 [ true, %28 ], [ true, %87 ], [ true, %54 ], [ false, %71 ], [ false, %43 ], [ false, %60 ], [ false, %53 ], [ false, %59 ], [ false, %15 ], [ false, %16 ], [ true, %85 ], [ false, %.preheader ], [ false, %.preheader59 ], [ false, %.preheader61 ], [ false, %27 ]
+  %.0 = phi i1 [ true, %28 ], [ true, %85 ], [ true, %54 ], [ false, %53 ], [ false, %43 ], [ false, %60 ], [ true, %87 ], [ false, %59 ], [ false, %15 ], [ false, %16 ], [ false, %71 ], [ false, %.preheader ], [ false, %.preheader59 ], [ false, %.preheader61 ], [ false, %27 ]
   ret i1 %.0
 }
 

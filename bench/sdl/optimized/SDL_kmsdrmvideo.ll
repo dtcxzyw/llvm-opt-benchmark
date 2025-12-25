@@ -479,7 +479,7 @@ define hidden noundef zeroext i1 @KMSDRM_WaitPageflip(ptr noundef readonly captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %2
-  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %2 ], [ true, %.backedge ]
+  %.0 = phi i1 [ true, %2 ], [ false, %.loopexit.sink.split ], [ true, %.backedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0

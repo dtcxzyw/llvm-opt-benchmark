@@ -22195,8 +22195,8 @@ define dso_local void @_ZN4llvm18AArch64InstPrinter9printInstEPKNS_6MCInstEmNS_9
 60:                                               ; preds = %53
   br i1 %35, label %.thread451, label %..thread455_crit_edge
 
-.thread451:                                       ; preds = %59, %57, %56, %58, %60
-  %.0334454 = phi ptr [ @.str.84, %60 ], [ @.str.83, %59 ], [ @.str.81, %57 ], [ @.str.80, %56 ], [ @.str.82, %58 ]
+.thread451:                                       ; preds = %59, %57, %58, %56, %60
+  %.0334454 = phi ptr [ @.str.84, %60 ], [ @.str.83, %59 ], [ @.str.82, %58 ], [ @.str.81, %57 ], [ @.str.80, %56 ]
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !25
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 24

@@ -1699,7 +1699,7 @@ adjust_hunk_tail.exit.i:                          ; preds = %596, %595
   br i1 %.not129.i.not, label %.lr.ph.i254, label %.critedge2.thread154.i, !llvm.loop !167
 
 .critedge2.thread154.i:                           ; preds = %.critedge2.i, %603, %602, %.critedge.preheader.i
-  %.0105178.i = phi i64 [ %.0105185.i, %603 ], [ %589, %.critedge.preheader.i ], [ %.0105185.i, %602 ], [ %.0105.i, %.critedge2.i ]
+  %.0105178.i = phi i64 [ %589, %.critedge.preheader.i ], [ %.0105185.i, %603 ], [ %.0105185.i, %602 ], [ %.0105.i, %.critedge2.i ]
   %610 = icmp ult i64 %.2103182.i, %.0105178.i
   br i1 %610, label %.lr.ph194.i, label %.thread161.i
 

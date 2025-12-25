@@ -2000,7 +2000,7 @@ define internal fastcc ptr @copy_grouping(ptr noundef readonly captures(none) %0
   ]
 
 .critedge2:                                       ; preds = %25, %25, %24, %21, %19, %.critedge, %4
-  %.0 = phi ptr [ %5, %4 ], [ null, %24 ], [ null, %.critedge ], [ null, %21 ], [ null, %19 ], [ %9, %25 ], [ %9, %25 ]
+  %.0 = phi ptr [ %5, %4 ], [ null, %21 ], [ null, %.critedge ], [ null, %24 ], [ null, %19 ], [ %9, %25 ], [ %9, %25 ]
   ret ptr %.0
 }
 

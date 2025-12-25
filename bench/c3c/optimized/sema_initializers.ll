@@ -547,7 +547,7 @@ type_flatten.exit:                                ; preds = %48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %97, %.loopexit.sink.split, %16, %27, %14, %14
-  %.058 = phi ptr [ %spec.select65, %.loopexit.sink.split ], [ %spec.select, %14 ], [ %spec.select65, %16 ], [ %spec.select, %14 ], [ %spec.select65, %27 ], [ %spec.select65, %97 ]
+  %.058 = phi ptr [ %spec.select65, %16 ], [ %spec.select, %14 ], [ %spec.select65, %.loopexit.sink.split ], [ %spec.select, %14 ], [ %spec.select65, %27 ], [ %spec.select65, %97 ]
   ret ptr %.058
 }
 
@@ -2370,7 +2370,7 @@ sema_create_const_initializer_value.exit.i:       ; preds = %type_flatten.exit.i
   br label %sema_expr_analyse_designated_initializer.exit
 
 sema_expr_analyse_designated_initializer.exit:    ; preds = %545, %.loopexit431.i, %452, %314, %._crit_edge.i91, %.lr.ph.i75, %138, %sema_expr_analyse_designator.exit.thread123.i, %._crit_edge521.i, %595, %588, %.thread611.i, %551, %369, %310, %.loopexit434.i, %283, %._crit_edge.i79, %256, %sema_create_const_initializer_from_designated_init.exit.i, %184, %sema_expr_analyse_designator.exit.thread.i, %722, %.critedge72, %.loopexit
-  %.064 = phi i1 [ %725, %722 ], [ false, %.loopexit ], [ true, %.critedge72 ], [ false, %._crit_edge.i91 ], [ false, %138 ], [ true, %sema_create_const_initializer_from_designated_init.exit.i ], [ false, %sema_expr_analyse_designator.exit.thread.i ], [ true, %184 ], [ false, %588 ], [ false, %256 ], [ true, %._crit_edge.i79 ], [ false, %.lr.ph.i75 ], [ true, %._crit_edge521.i ], [ false, %369 ], [ true, %595 ], [ false, %.loopexit434.i ], [ false, %551 ], [ false, %283 ], [ false, %310 ], [ false, %.thread611.i ], [ false, %sema_expr_analyse_designator.exit.thread123.i ], [ false, %314 ], [ false, %452 ], [ false, %.loopexit431.i ], [ false, %545 ]
+  %.064 = phi i1 [ %725, %722 ], [ false, %.loopexit ], [ true, %.critedge72 ], [ false, %588 ], [ false, %138 ], [ true, %sema_create_const_initializer_from_designated_init.exit.i ], [ false, %sema_expr_analyse_designator.exit.thread.i ], [ true, %184 ], [ false, %._crit_edge.i91 ], [ false, %256 ], [ true, %._crit_edge.i79 ], [ false, %.thread611.i ], [ false, %283 ], [ false, %369 ], [ true, %595 ], [ false, %.loopexit434.i ], [ false, %551 ], [ true, %._crit_edge521.i ], [ false, %310 ], [ false, %.lr.ph.i75 ], [ false, %sema_expr_analyse_designator.exit.thread123.i ], [ false, %314 ], [ false, %452 ], [ false, %.loopexit431.i ], [ false, %545 ]
   ret i1 %.064
 }
 
@@ -3538,7 +3538,7 @@ sema_create_const_initializer_value.exit311:      ; preds = %type_flatten.exit.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %229, %213, %._crit_edge363.thread, %._crit_edge368, %sema_create_const_initializer_value.exit, %sema_not_enough_elements_error.exit292, %sema_not_enough_elements_error.exit, %46, %37, %14
-  %.0238 = phi i1 [ false, %14 ], [ false, %37 ], [ false, %46 ], [ false, %sema_not_enough_elements_error.exit292 ], [ true, %._crit_edge363.thread ], [ true, %._crit_edge368 ], [ false, %sema_not_enough_elements_error.exit ], [ true, %sema_create_const_initializer_value.exit ], [ false, %213 ], [ false, %229 ]
+  %.0238 = phi i1 [ false, %14 ], [ false, %37 ], [ false, %46 ], [ false, %sema_not_enough_elements_error.exit292 ], [ true, %._crit_edge368 ], [ true, %._crit_edge363.thread ], [ false, %sema_not_enough_elements_error.exit ], [ true, %sema_create_const_initializer_value.exit ], [ false, %213 ], [ false, %229 ]
   ret i1 %.0238
 }
 

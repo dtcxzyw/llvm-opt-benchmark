@@ -2027,8 +2027,8 @@ _ZNK4pkpy3Str10u8_getitemEi.exit34:               ; preds = %_ZN4pkpy7utf8lenEhb
   br label %common.resume
 
 .thread47:                                        ; preds = %95, %163, %173, %.preheader.i.i, %.thread45
-  %.02487 = phi i32 [ %.024, %.thread45 ], [ 0, %.preheader.i.i ], [ %.024, %163 ], [ %.024, %173 ], [ %.09.i.i, %95 ]
-  %.023 = phi i32 [ %.09.i.i, %.thread45 ], [ 0, %.preheader.i.i ], [ %.165, %163 ], [ %.024, %173 ], [ %.09.i.i, %95 ]
+  %.02487 = phi i32 [ %.024, %.thread45 ], [ %.024, %163 ], [ 0, %.preheader.i.i ], [ %.024, %173 ], [ %.09.i.i, %95 ]
+  %.023 = phi i32 [ %.09.i.i, %.thread45 ], [ %.165, %163 ], [ 0, %.preheader.i.i ], [ %.024, %173 ], [ %.09.i.i, %95 ]
   call void @_ZNK4pkpy3Str8u8_sliceEiii(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.02487, i32 noundef %.023, i32 noundef 1)
   ret void
 }
@@ -7140,7 +7140,7 @@ _ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit.loo
   br label %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit
 
 _ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit: ; preds = %93, %._crit_edge.i.i46, %101, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit65, %110, %107, %18, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit.loopexit.split.loop.exit, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit.loopexit.split.loop.exit124, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit.loopexit.split.loop.exit126, %54, %50, %44, %38, %4
-  %.034 = phi ptr [ %.02946.i.i, %18 ], [ %.028.i.i52, %107 ], [ %0, %4 ], [ %.029.lcssa.i.i, %38 ], [ %.2.i.i, %50 ], [ %.1.i.i, %44 ], [ %1, %54 ], [ %115, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit.loopexit.split.loop.exit126 ], [ %113, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit.loopexit.split.loop.exit ], [ %114, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit.loopexit.split.loop.exit124 ], [ %1, %110 ], [ %1, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit65 ], [ %1, %101 ], [ %1, %._crit_edge.i.i46 ], [ %1, %93 ]
+  %.034 = phi ptr [ %.2.i.i, %50 ], [ %.028.i.i52, %107 ], [ %0, %4 ], [ %.029.lcssa.i.i, %38 ], [ %.02946.i.i, %18 ], [ %.1.i.i, %44 ], [ %1, %54 ], [ %114, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit.loopexit.split.loop.exit124 ], [ %113, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit.loopexit.split.loop.exit ], [ %115, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit.loopexit.split.loop.exit126 ], [ %1, %110 ], [ %1, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops17_Iter_equals_iterIS0_EEET_S5_S5_T0_.exit65 ], [ %1, %101 ], [ %1, %._crit_edge.i.i46 ], [ %1, %93 ]
   ret ptr %.034
 }
 

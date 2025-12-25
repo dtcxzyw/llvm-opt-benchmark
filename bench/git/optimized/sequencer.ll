@@ -2647,7 +2647,7 @@ is_command.exit16.thread.sink.split:              ; preds = %skip_prefix.exit.th
   br label %is_command.exit16.thread
 
 is_command.exit16.thread:                         ; preds = %32, %is_command.exit16.thread.sink.split, %skip_prefix.exit.thread.i14
-  %.0 = phi i32 [ 0, %is_command.exit16.thread.sink.split ], [ -1, %skip_prefix.exit.thread.i14 ], [ -1, %32 ]
+  %.0 = phi i32 [ -1, %skip_prefix.exit.thread.i14 ], [ 0, %is_command.exit16.thread.sink.split ], [ -1, %32 ]
   call void @strbuf_release(ptr noundef nonnull %3) #20
   br label %38
 
@@ -3244,12 +3244,12 @@ parse_insn_line.exit.thread:                      ; preds = %parse_insn_line.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %253
 
-parse_insn_line.exit.thread74:                    ; preds = %_.exit.i, %command_to_string.exit.i, %219, %command_to_string.exit70, %228
+parse_insn_line.exit.thread74:                    ; preds = %228, %_.exit.i, %command_to_string.exit.i, %219, %command_to_string.exit70
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %242
 
 parse_insn_line.exit:                             ; preds = %check_label_or_ref_arg.exit, %238
-  %.076.i = phi i32 [ %.0.i66, %check_label_or_ref_arg.exit ], [ %240, %238 ]
+  %.076.i = phi i32 [ %240, %238 ], [ %.0.i66, %check_label_or_ref_arg.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not52 = icmp eq i32 %.076.i, 0
   br i1 %.not52, label %253, label %242

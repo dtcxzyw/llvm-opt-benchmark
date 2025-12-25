@@ -2168,7 +2168,7 @@ parse_source_parameters.exit.thread:              ; preds = %.thread492, %1268, 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1405
 
-parse_source_parameters.exit.thread118:           ; preds = %1339, %1322, %1336, %1338, %1273
+parse_source_parameters.exit.thread118:           ; preds = %1338, %1336, %1322, %1339, %1273
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1352

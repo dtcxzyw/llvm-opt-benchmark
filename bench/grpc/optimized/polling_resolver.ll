@@ -1173,7 +1173,7 @@ common.resume:                                    ; preds = %"_ZZN9grpc_core15Po
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %123
 
-.thread:                                          ; preds = %69, %61, %57, %_ZN9grpc_coremiENS_9TimestampES0_.exit, %12
+.thread:                                          ; preds = %61, %69, %57, %_ZN9grpc_coremiENS_9TimestampES0_.exit, %12
   tail call void @_ZN9grpc_core15PollingResolver20StartResolvingLockedEv(ptr noundef nonnull align 8 dereferenceable(536) %0)
   br label %123
 

@@ -570,7 +570,7 @@ _ZL10_hb_ucd_dmj.exit.thread.sink.split:          ; preds = %61, %64, %73, %_ZL2
   br label %_ZL10_hb_ucd_dmj.exit.thread
 
 _ZL10_hb_ucd_dmj.exit.thread:                     ; preds = %_ZL10_hb_ucd_dmj.exit.thread.sink.split, %_ZL24_hb_ucd_decompose_hanguljPjS_.exit, %_ZL10_hb_ucd_dmj.exit
-  %.0 = phi i32 [ 0, %_ZL24_hb_ucd_decompose_hanguljPjS_.exit ], [ 0, %_ZL10_hb_ucd_dmj.exit ], [ 1, %_ZL10_hb_ucd_dmj.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %_ZL10_hb_ucd_dmj.exit ], [ 0, %_ZL24_hb_ucd_decompose_hanguljPjS_.exit ], [ 1, %_ZL10_hb_ucd_dmj.exit.thread.sink.split ]
   ret i32 %.0
 }
 

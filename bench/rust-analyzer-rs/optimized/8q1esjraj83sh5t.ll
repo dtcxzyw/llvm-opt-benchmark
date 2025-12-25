@@ -14428,8 +14428,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.not25 = icmp eq i64 %1, 0
   br i1 %.not25, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %_ZN4core3cmp9PartialEq2ne17h6cd77de4d1c111caE.exit, %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9e15d19f6bea8649E.exit.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd32c990c9b399d88E.exit.i.i", %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9e15d19f6bea8649E.exit.thread.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd18a67dd1ff86711E.exit.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17he68c724928b6cd62E.exit.i.i", %27, %_ZN4core3cmp9PartialEq2ne17h08bd40be119337cfE.llvm.10169251571672223956.exit.i.i.i.i, %41, %43, %.lr.ph.i.i.i.i, %59, %64, %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.exit.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h4cb7c8656f62bd91E.exit.i.i.i.i, %50, %.lr.ph.i.i31.i.i, %91, %83, %.critedge.i.i.i.i.i.i, %106, %_ZN4core3cmp9PartialEq2ne17hdb7332873554deafE.llvm.15095859440380444305.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %.preheader, %4
-  %.0 = phi i1 [ false, %.lr.ph.i.i31.i.i ], [ false, %4 ], [ false, %106 ], [ false, %27 ], [ false, %41 ], [ false, %59 ], [ true, %.preheader ], [ false, %.lr.ph.i.i.i.i.i.i.i.i ], [ false, %_ZN4core3cmp9PartialEq2ne17hdb7332873554deafE.llvm.15095859440380444305.exit.i.i.i.i.i.i.i.i ], [ false, %.critedge.i.i.i.i.i.i ], [ false, %83 ], [ false, %91 ], [ false, %50 ], [ false, %_ZN4core3cmp9PartialEq2ne17h4cb7c8656f62bd91E.exit.i.i.i.i ], [ false, %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.exit.i.i.i.i.i.i" ], [ false, %64 ], [ false, %.lr.ph.i.i.i.i ], [ false, %43 ], [ false, %_ZN4core3cmp9PartialEq2ne17h08bd40be119337cfE.llvm.10169251571672223956.exit.i.i.i.i ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd18a67dd1ff86711E.exit.i.i" ], [ false, %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9e15d19f6bea8649E.exit.thread.i.i" ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd32c990c9b399d88E.exit.i.i" ], [ false, %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9e15d19f6bea8649E.exit.i.i" ], [ true, %_ZN4core3cmp9PartialEq2ne17h6cd77de4d1c111caE.exit ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17he68c724928b6cd62E.exit.i.i" ]
+.thread:                                          ; preds = %_ZN4core3cmp9PartialEq2ne17h6cd77de4d1c111caE.exit, %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9e15d19f6bea8649E.exit.i.i", %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9e15d19f6bea8649E.exit.thread.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd32c990c9b399d88E.exit.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd18a67dd1ff86711E.exit.i.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17he68c724928b6cd62E.exit.i.i", %27, %_ZN4core3cmp9PartialEq2ne17h08bd40be119337cfE.llvm.10169251571672223956.exit.i.i.i.i, %41, %43, %.lr.ph.i.i.i.i, %59, %64, %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.exit.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h4cb7c8656f62bd91E.exit.i.i.i.i, %50, %.critedge.i.i.i.i.i.i, %.lr.ph.i.i31.i.i, %91, %83, %106, %_ZN4core3cmp9PartialEq2ne17hdb7332873554deafE.llvm.15095859440380444305.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i, %.preheader, %4
+  %.0 = phi i1 [ false, %27 ], [ false, %4 ], [ false, %106 ], [ false, %59 ], [ false, %41 ], [ false, %.critedge.i.i.i.i.i.i ], [ true, %.preheader ], [ false, %.lr.ph.i.i.i.i.i.i.i.i ], [ false, %_ZN4core3cmp9PartialEq2ne17hdb7332873554deafE.llvm.15095859440380444305.exit.i.i.i.i.i.i.i.i ], [ false, %83 ], [ false, %91 ], [ false, %.lr.ph.i.i31.i.i ], [ false, %50 ], [ false, %_ZN4core3cmp9PartialEq2ne17h4cb7c8656f62bd91E.exit.i.i.i.i ], [ false, %"_ZN61_$LT$hir_ty..mir..MirSpan$u20$as$u20$core..cmp..PartialEq$GT$2eq17h705ea4d6728c8dd0E.exit.i.i.i.i.i.i" ], [ false, %64 ], [ false, %.lr.ph.i.i.i.i ], [ false, %43 ], [ false, %_ZN4core3cmp9PartialEq2ne17h08bd40be119337cfE.llvm.10169251571672223956.exit.i.i.i.i ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd32c990c9b399d88E.exit.i.i" ], [ false, %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9e15d19f6bea8649E.exit.thread.i.i" ], [ true, %_ZN4core3cmp9PartialEq2ne17h6cd77de4d1c111caE.exit ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17he68c724928b6cd62E.exit.i.i" ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hd18a67dd1ff86711E.exit.i.i" ], [ false, %"_ZN68_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9e15d19f6bea8649E.exit.i.i" ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN4core3cmp9PartialEq2ne17h6cd77de4d1c111caE.exit
@@ -23761,7 +23761,7 @@ _ZN6hir_ty3mir8borrowck24record_usage_for_operand17hab06cb6b88cbca7eE.exit190.i:
   unreachable
 
 .invoke720.i:                                     ; preds = %.noexc138.i, %._crit_edge354.i, %245, %234, %420, %411, %376, %345, %270, %444
-  %450 = phi ptr [ @anon.8ee6e441894c40610342b4e80829890a.385, %270 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %420 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %444 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %345 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %376 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %411 ], [ @anon.4c1c81faaf4119674ab18ffb6752df2c.463.llvm.15095859440380444305, %._crit_edge354.i ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %245 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %234 ], [ @anon.4c1c81faaf4119674ab18ffb6752df2c.463.llvm.15095859440380444305, %.noexc138.i ]
+  %450 = phi ptr [ @anon.8ee6e441894c40610342b4e80829890a.385, %444 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %420 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %270 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %345 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %376 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %411 ], [ @anon.4c1c81faaf4119674ab18ffb6752df2c.463.llvm.15095859440380444305, %._crit_edge354.i ], [ @anon.4c1c81faaf4119674ab18ffb6752df2c.463.llvm.15095859440380444305, %.noexc138.i ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %234 ], [ @anon.8ee6e441894c40610342b4e80829890a.385, %245 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %450) #65
           to label %.cont.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !3704
 
@@ -42665,7 +42665,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i6276: ; preds = %1161
   br i1 %1342, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit6136", label %2051
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5970.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5898", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5894", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5882"
-  %.not.i58757168718572127230724972597278728885348549857385848619863086598670870587168760.ph.ph = phi i1 [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5898" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5894" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5882" ]
+  %.not.i58757168718572127230724972597278728885348549857385848619863086598670870587168760.ph.ph = phi i1 [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5894" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5898" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5882" ]
   br i1 %.not.i58517045705770707085709971167130.ph, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5974", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5998.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5974": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5966.thread.thread8907", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9a641eefabb8cdcbE.exit5970.thread"
@@ -51759,7 +51759,7 @@ _ZN6hir_ty3mir4eval8Interval19write_from_interval17h87ab53f94c670d52E.exit.i.i.i
   br label %.body378.i.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i100.loopexit.i.i: ; preds = %704, %.noexc392.i.i.i, %682, %448, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i.i, %421, %399, %397
-  %.1.ph.ph.i.ph.i.i = phi i8 [ 1, %704 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i.i ], [ 1, %399 ], [ %.9.i.i.i, %682 ], [ 1, %397 ], [ 1, %448 ], [ 1, %421 ], [ %.9.i.i.i, %.noexc392.i.i.i ]
+  %.1.ph.ph.i.ph.i.i = phi i8 [ 1, %704 ], [ %.9.i.i.i, %682 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i.i ], [ 1, %397 ], [ 1, %421 ], [ 1, %399 ], [ 1, %448 ], [ %.9.i.i.i, %.noexc392.i.i.i ]
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body378.i.i.i
@@ -60304,7 +60304,7 @@ _ZN6hir_ty3mir4eval8Interval19write_from_interval17h87ab53f94c670d52E.exit.i: ; 
   br label %.body378.i
 
 .loopexit.split-lp.loopexit.split-lp.i100.loopexit: ; preds = %326, %350, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i, %377, %611, %.noexc392.i, %633, %328
-  %.1.ph.ph.i.ph = phi i8 [ 1, %633 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i ], [ 1, %328 ], [ %.9.i, %611 ], [ 1, %326 ], [ 1, %377 ], [ 1, %350 ], [ %.9.i, %.noexc392.i ]
+  %.1.ph.ph.i.ph = phi i8 [ 1, %633 ], [ %.9.i, %611 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i ], [ 1, %326 ], [ 1, %350 ], [ 1, %328 ], [ 1, %377 ], [ %.9.i, %.noexc392.i ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body378.i
@@ -63116,7 +63116,7 @@ _ZN6hir_ty3mir4eval8Interval19write_from_interval17h87ab53f94c670d52E.exit.i: ; 
   br label %.body157
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %348, %369, %622, %603, %.noexc155, %346, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %396
-  %.1.i.ph.ph.ph = phi i8 [ 1, %622 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ 1, %348 ], [ %.9.i, %603 ], [ 1, %346 ], [ 1, %396 ], [ 1, %369 ], [ %.9.i, %.noexc155 ]
+  %.1.i.ph.ph.ph = phi i8 [ 1, %622 ], [ %.9.i, %603 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ 1, %346 ], [ 1, %369 ], [ 1, %348 ], [ 1, %396 ], [ %.9.i, %.noexc155 ]
   %lpad.loopexit890 = landingpad { ptr, i32 }
           cleanup
   br label %.body157
@@ -85036,7 +85036,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i.i: ; preds = %313
   br label %.body378.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %488, %493, %514, %747, %.noexc392.i, %764, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i267, %541
-  %.1.i.ph.ph.ph = phi i8 [ 1, %764 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i267 ], [ 1, %493 ], [ %.9.i, %747 ], [ 1, %488 ], [ 1, %541 ], [ 1, %514 ], [ %.9.i, %.noexc392.i ]
+  %.1.i.ph.ph.ph = phi i8 [ 1, %764 ], [ %.9.i, %747 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i267 ], [ 1, %488 ], [ 1, %514 ], [ 1, %493 ], [ 1, %541 ], [ %.9.i, %.noexc392.i ]
   %lpad.loopexit891 = landingpad { ptr, i32 }
           cleanup
   br label %.body378.i
@@ -90783,7 +90783,7 @@ define internal fastcc void @_ZN6hir_ty3mir4eval9Evaluator23exec_looked_up_funct
   br label %.body378.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %214, %219, %240, %473, %.noexc392.i, %490, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i133, %267
-  %.1.i.ph.ph.ph = phi i8 [ 1, %490 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i133 ], [ 1, %219 ], [ %.9.i, %473 ], [ 1, %214 ], [ 1, %267 ], [ 1, %240 ], [ %.9.i, %.noexc392.i ]
+  %.1.i.ph.ph.ph = phi i8 [ 1, %490 ], [ %.9.i, %473 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i133 ], [ 1, %214 ], [ 1, %240 ], [ 1, %219 ], [ 1, %267 ], [ %.9.i, %.noexc392.i ]
   %lpad.loopexit922 = landingpad { ptr, i32 }
           cleanup
   br label %.body378.i
@@ -92957,7 +92957,7 @@ define internal fastcc void @_ZN6hir_ty3mir4eval9Evaluator13exec_fn_trait17h287f
   br label %.body421
 
 .loopexit.split-lp:                               ; preds = %.invoke1168, %.invoke, %266, %274, %271, %531, %156, %157, %159, %.loopexit687, %295, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e537f0c8d98627fE.llvm.6150282900714191917.exit.i", %318, %.noexc419, %341, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e537f0c8d98627fE.llvm.6150282900714191917.exit.i434", %353, %565, %.noexc453, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %128, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i464, %225
-  %.2346.ph = phi i8 [ 1, %318 ], [ 1, %.invoke1168 ], [ 1, %295 ], [ 1, %.noexc419 ], [ 1, %274 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i464 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e537f0c8d98627fE.llvm.6150282900714191917.exit.i434" ], [ 1, %353 ], [ 1, %.noexc453 ], [ 0, %531 ], [ 1, %565 ], [ 1, %.invoke ], [ 1, %271 ], [ 1, %128 ], [ 1, %341 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ 1, %157 ], [ 1, %156 ], [ 1, %159 ], [ 1, %266 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e537f0c8d98627fE.llvm.6150282900714191917.exit.i" ], [ 1, %.loopexit687 ], [ 1, %225 ]
+  %.2346.ph = phi i8 [ 1, %318 ], [ 1, %.invoke1168 ], [ 1, %295 ], [ 1, %.noexc419 ], [ 1, %274 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i464 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e537f0c8d98627fE.llvm.6150282900714191917.exit.i434" ], [ 1, %353 ], [ 1, %.noexc453 ], [ 0, %531 ], [ 1, %565 ], [ 1, %.invoke ], [ 1, %271 ], [ 1, %128 ], [ 1, %.loopexit687 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ 1, %157 ], [ 1, %156 ], [ 1, %159 ], [ 1, %266 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e537f0c8d98627fE.llvm.6150282900714191917.exit.i" ], [ 1, %341 ], [ 1, %225 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body421

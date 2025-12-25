@@ -1256,7 +1256,7 @@ heur_dissect_fp_fach1.exit:                       ; preds = %102, %134
   %162 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-163:                                              ; preds = %128, %124, %102, %105, %108, %110, %114, %117, %126
+163:                                              ; preds = %126, %124, %102, %105, %108, %110, %114, %117, %128
   %164 = load i32, ptr %5, align 4
   %165 = load i32, ptr %9, align 8
   %166 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %165)
@@ -1417,7 +1417,7 @@ heur_dissect_fp_fach2.exit:                       ; preds = %173, %210
   %240 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-241:                                              ; preds = %204, %200, %173, %176, %179, %181, %185, %188, %193, %202
+241:                                              ; preds = %202, %200, %173, %176, %179, %181, %185, %188, %193, %204
   %242 = load i32, ptr %5, align 4
   %243 = load i32, ptr %9, align 8
   %244 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %243)
@@ -1561,7 +1561,7 @@ heur_dissect_fp_rach.exit:                        ; preds = %251, %284
   %314 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-315:                                              ; preds = %278, %274, %251, %254, %257, %259, %263, %266, %271, %276
+315:                                              ; preds = %276, %274, %251, %254, %257, %259, %263, %266, %271, %278
   %316 = load i32, ptr %5, align 4
   %317 = load i32, ptr %9, align 8
   %318 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %317)
@@ -1816,7 +1816,7 @@ heur_dissect_fp_pch.exit:                         ; preds = %332, %424
   %427 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-428:                                              ; preds = %415, %340, %341, %344, %348, %351, %400, %361, %378, %359, %354, %421, %369
+428:                                              ; preds = %400, %340, %341, %344, %348, %351, %415, %361, %378, %359, %354, %421, %369
   %429 = load i32, ptr %5, align 4
   %430 = load i32, ptr %9, align 8
   %431 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %430)
@@ -1987,7 +1987,7 @@ heur_dissect_fp_hsdsch_type_1.exit:               ; preds = %441, %494
   %516 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-.loopexit:                                        ; preds = %482, %441, %438, %446, %450, %453, %456, %459, %463, %467, %488, %.critedge.i, %473, %470
+.loopexit:                                        ; preds = %482, %488, %441, %438, %446, %450, %453, %456, %459, %463, %467, %.critedge.i, %473, %470
   %517 = tail call fastcc zeroext i1 @heur_dissect_fp_hsdsch_type_2(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %517, label %heur_dissect_fp_dcch_over_dch.exit, label %518
 
@@ -2742,7 +2742,7 @@ make_fake_lchid.exit.i:                           ; preds = %328, %323
   br label %fp_set_per_packet_inf_from_conv.exit
 
 425:                                              ; preds = %411, %._crit_edge.i, %367, %._crit_edge371.i, %243
-  %.0328.i = phi i32 [ 0, %411 ], [ 2, %._crit_edge.i ], [ 2, %367 ], [ 2, %._crit_edge371.i ], [ 3, %243 ]
+  %.0328.i = phi i32 [ 2, %._crit_edge371.i ], [ 2, %._crit_edge.i ], [ 2, %367 ], [ 0, %411 ], [ 3, %243 ]
   %426 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %427 = load i32, ptr %426, align 8
   %428 = icmp sgt i32 %427, 0
@@ -8191,7 +8191,7 @@ define internal fastcc noundef zeroext i1 @heur_dissect_fp_hsdsch_type_2(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %60, %71, %74, %.thread.sink.split, %19, %22, %91, %88, %83, %46, %41, %38, %35, %31, %27
-  %.099 = phi i1 [ true, %.thread.sink.split ], [ false, %22 ], [ false, %19 ], [ false, %27 ], [ false, %31 ], [ false, %35 ], [ false, %38 ], [ false, %41 ], [ false, %46 ], [ false, %91 ], [ false, %88 ], [ false, %83 ], [ false, %74 ], [ false, %71 ], [ false, %60 ], [ false, %.preheader ]
+  %.099 = phi i1 [ false, %91 ], [ false, %22 ], [ false, %19 ], [ false, %27 ], [ false, %31 ], [ false, %35 ], [ false, %38 ], [ false, %41 ], [ false, %46 ], [ true, %.thread.sink.split ], [ false, %88 ], [ false, %83 ], [ false, %74 ], [ false, %71 ], [ false, %60 ], [ false, %.preheader ]
   ret i1 %.099
 }
 
@@ -8420,7 +8420,7 @@ define internal fastcc noundef zeroext i1 @heur_dissect_fp_edch_type_1(ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %54, %48, %44, %.preheader2, %.thread.sink.split, %19, %22, %87, %84, %81, %40, %38, %35, %32, %28
-  %.0 = phi i1 [ true, %.thread.sink.split ], [ false, %22 ], [ false, %19 ], [ false, %28 ], [ false, %32 ], [ false, %35 ], [ false, %38 ], [ false, %40 ], [ false, %87 ], [ false, %81 ], [ false, %84 ], [ false, %.preheader2 ], [ false, %44 ], [ false, %48 ], [ false, %54 ]
+  %.0 = phi i1 [ true, %.thread.sink.split ], [ false, %84 ], [ false, %19 ], [ false, %28 ], [ false, %32 ], [ false, %35 ], [ false, %38 ], [ false, %40 ], [ false, %81 ], [ false, %87 ], [ false, %22 ], [ false, %.preheader2 ], [ false, %44 ], [ false, %48 ], [ false, %54 ]
   ret i1 %.0
 }
 
@@ -8537,7 +8537,7 @@ check_control_frame_crc_for_heur.exit.thread.sink.split: ; preds = %35, %19, %65
   br label %check_control_frame_crc_for_heur.exit.thread
 
 check_control_frame_crc_for_heur.exit.thread:     ; preds = %check_control_frame_crc_for_heur.exit.thread.sink.split, %49, %52, %check_control_frame_crc_for_heur.exit, %46, %43, %40, %30, %35, %27, %19
-  %.0 = phi i1 [ false, %49 ], [ false, %check_control_frame_crc_for_heur.exit ], [ false, %19 ], [ false, %27 ], [ false, %52 ], [ false, %30 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ false, %35 ], [ true, %check_control_frame_crc_for_heur.exit.thread.sink.split ]
+  %.0 = phi i1 [ false, %35 ], [ false, %check_control_frame_crc_for_heur.exit ], [ false, %19 ], [ false, %27 ], [ false, %52 ], [ false, %30 ], [ false, %40 ], [ false, %43 ], [ false, %46 ], [ false, %49 ], [ true, %check_control_frame_crc_for_heur.exit.thread.sink.split ]
   ret i1 %.0
 }
 

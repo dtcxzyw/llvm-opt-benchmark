@@ -237,9 +237,9 @@ _ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us: ; preds = %78, %.loopexit.loop
   br label %.critedge
 
 .critedge:                                        ; preds = %39, %.outer.us, %.lr.ph.us, %.backedge.us, %.split99.us, %.critedge.sink.split, %.preheader
-  %.057 = phi ptr [ %14, %.preheader ], [ %.057.ph, %.critedge.sink.split ], [ %14, %.split99.us ], [ %14, %.outer.us ], [ %14, %.backedge.us ], [ %14, %.lr.ph.us ], [ %14, %39 ]
-  %.051 = phi ptr [ %12, %.preheader ], [ %.051.ph, %.critedge.sink.split ], [ %.253.us, %.split99.us ], [ %.253.us, %.outer.us ], [ %.253.us, %.backedge.us ], [ %.253.us, %.lr.ph.us ], [ %.253.us, %39 ]
-  %.048 = phi i32 [ 0, %.preheader ], [ %.048.ph, %.critedge.sink.split ], [ %spec.select, %.split99.us ], [ 0, %.outer.us ], [ 0, %.backedge.us ], [ 0, %.lr.ph.us ], [ 0, %39 ]
+  %.057 = phi ptr [ %14, %.preheader ], [ %.057.ph, %.critedge.sink.split ], [ %14, %.split99.us ], [ %14, %.backedge.us ], [ %14, %.outer.us ], [ %14, %.lr.ph.us ], [ %14, %39 ]
+  %.051 = phi ptr [ %12, %.preheader ], [ %.051.ph, %.critedge.sink.split ], [ %.253.us, %.split99.us ], [ %.253.us, %.backedge.us ], [ %.253.us, %.outer.us ], [ %.253.us, %.lr.ph.us ], [ %.253.us, %39 ]
+  %.048 = phi i32 [ 0, %.preheader ], [ %.048.ph, %.critedge.sink.split ], [ %spec.select, %.split99.us ], [ 0, %.backedge.us ], [ 0, %.outer.us ], [ 0, %.lr.ph.us ], [ 0, %39 ]
   tail call void @uprv_free_77(ptr noundef %.057)
   tail call void @uprv_free_77(ptr noundef %.051)
   tail call void @T_FileStream_close(ptr noundef %7)

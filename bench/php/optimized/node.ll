@@ -4977,7 +4977,7 @@ tailrecurse.backedge:                             ; preds = %91, %98
   br i1 %.not, label %tailrecurse.backedge, label %.thread71
 
 .thread71:                                        ; preds = %94, %98, %tailrecurse, %tailrecurse, %91, %88, %._crit_edge.split, %31, %._crit_edge.split.us.us, %79, %83, %16, %10, %.split86.us
-  %.045 = phi ptr [ %59, %.split86.us ], [ @.str.8, %16 ], [ null, %31 ], [ @.str.7, %10 ], [ %81, %79 ], [ null, %83 ], [ null, %88 ], [ null, %._crit_edge.split.us.us ], [ null, %._crit_edge.split ], [ null, %91 ], [ null, %tailrecurse ], [ null, %tailrecurse ], [ null, %98 ], [ null, %94 ]
+  %.045 = phi ptr [ %59, %.split86.us ], [ @.str.8, %16 ], [ null, %83 ], [ @.str.7, %10 ], [ %81, %79 ], [ null, %31 ], [ null, %88 ], [ null, %._crit_edge.split.us.us ], [ null, %._crit_edge.split ], [ null, %91 ], [ null, %tailrecurse ], [ null, %tailrecurse ], [ null, %98 ], [ null, %94 ]
   ret ptr %.045
 }
 

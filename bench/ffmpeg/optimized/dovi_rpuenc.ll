@@ -840,8 +840,8 @@ try_reuse_ext.exit:                               ; preds = %.loopexit.i, %162, 
   br label %cmp_dm_level0.exit.thread
 
 cmp_dm_level0.exit.thread:                        ; preds = %80, %94, %99, %113, %116, %130, %try_reuse_ext.exit, %cmp_dm_level0.exit, %71
-  %.not490 = phi i1 [ true, %cmp_dm_level0.exit ], [ true, %71 ], [ %.2.i, %try_reuse_ext.exit ], [ true, %99 ], [ true, %116 ], [ true, %130 ], [ true, %113 ], [ true, %94 ], [ true, %80 ]
-  %.0429 = phi i32 [ 0, %cmp_dm_level0.exit ], [ 0, %71 ], [ %spec.select511, %try_reuse_ext.exit ], [ 0, %99 ], [ 0, %116 ], [ 0, %130 ], [ 0, %113 ], [ 0, %94 ], [ 0, %80 ]
+  %.not490 = phi i1 [ true, %cmp_dm_level0.exit ], [ true, %71 ], [ %.2.i, %try_reuse_ext.exit ], [ true, %116 ], [ true, %99 ], [ true, %130 ], [ true, %113 ], [ true, %94 ], [ true, %80 ]
+  %.0429 = phi i32 [ 0, %cmp_dm_level0.exit ], [ 0, %71 ], [ %spec.select511, %try_reuse_ext.exit ], [ 0, %116 ], [ 0, %99 ], [ 0, %130 ], [ 0, %113 ], [ 0, %94 ], [ 0, %80 ]
   %171 = load i32, ptr %53, align 8, !tbaa !84
   %.not492983 = icmp sgt i32 %171, 0
   br i1 %.not492983, label %.lr.ph, label %._crit_edge

@@ -310,7 +310,7 @@ define dso_local range(i32 0, 2) i32 @ts_main(i32 noundef %0, ptr noundef %1) lo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %._crit_edge.thread, %138, %148, %132, %124, %123, %115, %114, %82, %._crit_edge
-  %.1115 = phi ptr [ null, %._crit_edge ], [ null, %82 ], [ null, %.loopexit.sink.split ], [ null, %._crit_edge.thread ], [ %93, %114 ], [ %93, %115 ], [ %93, %123 ], [ %93, %124 ], [ %93, %132 ], [ %93, %138 ], [ %93, %148 ], [ null, %.lr.ph ]
+  %.1115 = phi ptr [ null, %._crit_edge ], [ null, %82 ], [ null, %._crit_edge.thread ], [ null, %.loopexit.sink.split ], [ %93, %114 ], [ %93, %115 ], [ %93, %123 ], [ %93, %124 ], [ %93, %132 ], [ %93, %138 ], [ %93, %148 ], [ null, %.lr.ph ]
   %14 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %15 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.131, ptr noundef %9) #7
   br label %load_config_file.exit
@@ -648,8 +648,8 @@ define dso_local range(i32 0, 2) i32 @ts_main(i32 noundef %0, ptr noundef %1) lo
   br label %load_config_file.exit
 
 load_config_file.exit:                            ; preds = %69, %34, %32, %17, %92, %118, %150, %136, %110, %80, %2, %89, %.loopexit
-  %.0114 = phi ptr [ null, %2 ], [ %.1115, %.loopexit ], [ null, %80 ], [ null, %17 ], [ null, %89 ], [ %93, %110 ], [ null, %92 ], [ %93, %118 ], [ %93, %136 ], [ %93, %150 ], [ null, %32 ], [ null, %34 ], [ null, %69 ]
-  %.0111 = phi i32 [ 1, %2 ], [ 1, %.loopexit ], [ 1, %80 ], [ 0, %17 ], [ 1, %89 ], [ 1, %110 ], [ 1, %92 ], [ %121, %118 ], [ %137, %136 ], [ %153, %150 ], [ 1, %32 ], [ 1, %34 ], [ 1, %69 ]
+  %.0114 = phi ptr [ null, %2 ], [ %.1115, %.loopexit ], [ null, %80 ], [ %93, %110 ], [ null, %89 ], [ null, %17 ], [ null, %92 ], [ %93, %118 ], [ %93, %136 ], [ %93, %150 ], [ null, %32 ], [ null, %34 ], [ null, %69 ]
+  %.0111 = phi i32 [ 1, %2 ], [ 1, %.loopexit ], [ 1, %80 ], [ 1, %110 ], [ 1, %89 ], [ 0, %17 ], [ 1, %92 ], [ %121, %118 ], [ %137, %136 ], [ %153, %150 ], [ 1, %32 ], [ 1, %34 ], [ 1, %69 ]
   call void @X509_VERIFY_PARAM_free(ptr noundef %6) #7
   %154 = load ptr, ptr %4, align 8, !tbaa !9
   call void @EVP_MD_free(ptr noundef %154) #7
@@ -1292,7 +1292,7 @@ create_verify_ctx.exit:                           ; preds = %108, %112, %.thread
   br label %124
 
 121:                                              ; preds = %116, %118
-  %.0 = phi i32 [ %119, %118 ], [ %117, %116 ]
+  %.0 = phi i32 [ %117, %116 ], [ %119, %118 ]
   %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.169)
   %.not33 = icmp eq i32 %.0, 0
   br i1 %.not33, label %124, label %123

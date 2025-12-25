@@ -2189,7 +2189,7 @@ _ZN8QuantLib12_GLOBAL__N_17matchesERKNS_23UnitOfMeasureConversionES3_.exit: ; pr
   %64 = icmp eq i32 %bcmp.i.i112.i, 0
   br i1 %64, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %land.rhs.i.i53.i, %land.rhs.i.i109.i, %_ZN8QuantLibeqERKNS_13UnitOfMeasureES2_.exit61.i, %_ZN8QuantLib12_GLOBAL__N_17matchesERKNS_23UnitOfMeasureConversionES3_.exit
+if.then:                                          ; preds = %land.rhs.i.i53.i, %_ZN8QuantLibeqERKNS_13UnitOfMeasureES2_.exit61.i, %land.rhs.i.i109.i, %_ZN8QuantLib12_GLOBAL__N_17matchesERKNS_23UnitOfMeasureConversionES3_.exit
   %_M_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %65 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !29
   %sub.i.i.i = add i64 %65, -1
@@ -2963,7 +2963,7 @@ _ZN8QuantLib12_GLOBAL__N_17matchesERKNS_23UnitOfMeasureConversionERKNS_13Commodi
   %54 = icmp eq i32 %bcmp.i.i86.i, 0
   br i1 %54, label %if.then, label %for.inc
 
-if.then:                                          ; preds = %land.rhs.i.i37.i, %land.rhs.i.i83.i, %_ZN8QuantLibeqERKNS_13UnitOfMeasureES2_.exit45.i, %_ZN8QuantLib12_GLOBAL__N_17matchesERKNS_23UnitOfMeasureConversionERKNS_13CommodityTypeERKNS_13UnitOfMeasureES9_.exit
+if.then:                                          ; preds = %land.rhs.i.i37.i, %_ZN8QuantLibeqERKNS_13UnitOfMeasureES2_.exit45.i, %land.rhs.i.i83.i, %_ZN8QuantLib12_GLOBAL__N_17matchesERKNS_23UnitOfMeasureConversionERKNS_13CommodityTypeERKNS_13UnitOfMeasureES9_.exit
   %55 = load ptr, ptr %_M_storage.i.i, align 8, !tbaa !18
   store ptr %55, ptr %agg.result, align 8, !tbaa !18
   %pn.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8

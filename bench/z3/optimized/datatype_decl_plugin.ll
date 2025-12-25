@@ -7415,9 +7415,9 @@ _ZN6vectorIPN8datatype10param_size4sizeELb0EjED2Ev.exit162: ; preds = %_ZN15ref_
   %.not.i.i163 = icmp eq ptr %.sroa.0209.2, null
   br i1 %.not.i.i163, label %_ZN6vectorI6symbolLb0EjED2Ev.exit, label %584
 
-.sink.split:                                      ; preds = %121, %119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %256, %299, %301
-  %.pn79.pn.pn.pn.pn.pn.pn239.ph = phi { ptr, i32 } [ %302, %301 ], [ %251, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %257, %256 ], [ %300, %299 ], [ %122, %121 ], [ %120, %119 ]
-  %.sroa.0209.2238.ph = phi ptr [ %.sroa.0209.3.lcssa471, %301 ], [ %.sroa.0209.4324, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %.sroa.0209.4324, %256 ], [ %.sroa.0209.3.lcssa471, %299 ], [ %.sroa.0209.0348, %121 ], [ %.sroa.0209.0348, %119 ]
+.sink.split:                                      ; preds = %119, %121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i, %256, %299, %301
+  %.pn79.pn.pn.pn.pn.pn.pn239.ph = phi { ptr, i32 } [ %302, %301 ], [ %251, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %257, %256 ], [ %300, %299 ], [ %120, %119 ], [ %122, %121 ]
+  %.sroa.0209.2238.ph = phi ptr [ %.sroa.0209.3.lcssa471, %301 ], [ %.sroa.0209.4324, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i ], [ %.sroa.0209.4324, %256 ], [ %.sroa.0209.3.lcssa471, %299 ], [ %.sroa.0209.0348, %119 ], [ %.sroa.0209.0348, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %584
 

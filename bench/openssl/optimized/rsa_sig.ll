@@ -2589,7 +2589,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_setup_mgf1_md(ptr noundef nonnul
   tail call void @EVP_MD_free(ptr noundef nonnull %10) #11
   br label %43
 
-31:                                               ; preds = %25, %19, %16, %22
+31:                                               ; preds = %19, %25, %16, %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %33 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %32, ptr noundef nonnull %1, i64 noundef 50) #11
   %34 = icmp ugt i64 %33, 49
@@ -2705,7 +2705,7 @@ rsa_check_padding.exit:                           ; preds = %25, %31, %22
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #11
   br label %67
 
-35:                                               ; preds = %25, %28, %22, %31
+35:                                               ; preds = %28, %25, %22, %31
   %36 = icmp ugt i64 %10, 49
   br i1 %36, label %37, label %38
 
@@ -2892,7 +2892,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_check_padding(ptr noundef readon
   br label %26
 
 26:                                               ; preds = %.sink.split, %7, %10, %21, %22, %13, %4
-  %.0 = phi i32 [ 1, %7 ], [ 1, %10 ], [ 1, %21 ], [ 1, %4 ], [ 1, %13 ], [ 1, %22 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %21 ], [ 1, %10 ], [ 1, %7 ], [ 1, %4 ], [ 1, %13 ], [ 1, %22 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

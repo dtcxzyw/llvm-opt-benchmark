@@ -273,8 +273,8 @@ select.unfold.i.i.i:                              ; preds = %"_ZN4core3ptr61drop
   br i1 %30, label %_ZN4core4iter6traits8iterator8Iterator4find17h3183a97596cecd54E.exit, label %.lr.ph.i.i.i
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb49a1200f9b257f5E.exit.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hdd922145a70285e3E.exit.i.i.i.i.i", %8
-  %.sroa.3.0.i.i.i = phi ptr [ %spec.select.i16.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hdd922145a70285e3E.exit.i.i.i.i.i" ], [ %9, %8 ]
-  %.sroa.0.0.i.i.i = phi i64 [ 1, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hdd922145a70285e3E.exit.i.i.i.i.i" ], [ 0, %8 ]
+  %.sroa.3.0.i.i.i = phi ptr [ %9, %8 ], [ %spec.select.i16.i.i.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hdd922145a70285e3E.exit.i.i.i.i.i" ]
+  %.sroa.0.0.i.i.i = phi i64 [ 0, %8 ], [ 1, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hdd922145a70285e3E.exit.i.i.i.i.i" ]
   %31 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i.i, 0
   %32 = insertvalue { i64, ptr } %31, ptr %.sroa.3.0.i.i.i, 1
   br label %_ZN4core4iter6traits8iterator8Iterator4find17h3183a97596cecd54E.exit

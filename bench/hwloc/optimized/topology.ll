@@ -1009,9 +1009,9 @@ hwloc__object_cpusets_compare_first.exit.i:       ; preds = %324, %317
   br i1 %.not112.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !64
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.thread.i, %319, %321, %hwloc__object_cpusets_compare_first.exit.i, %329, %327, %hwloc_obj_cmp_sets.exit.i
-  %.195.ph.i = phi ptr [ %.094230.i, %hwloc_obj_cmp_sets.exit.i ], [ %.1101229.in.i, %.thread.i ], [ %.094230.i, %327 ], [ %.094230.i, %329 ], [ %.1101229.in.i, %hwloc__object_cpusets_compare_first.exit.i ], [ %.1101229.in.i, %321 ], [ %.1101229.in.i, %319 ], [ %.094230.i, %.lr.ph.i ]
-  %.192.ph.i = phi ptr [ %.091231.i, %hwloc_obj_cmp_sets.exit.i ], [ %.091231.i, %.thread.i ], [ %.1101229.in.i, %327 ], [ %.1101229.in.i, %329 ], [ %.091231.i, %hwloc__object_cpusets_compare_first.exit.i ], [ %.091231.i, %321 ], [ %.091231.i, %319 ], [ %.1101229.in.i, %.lr.ph.i ]
-  %.187.ph.i = phi ptr [ %.086232.i, %hwloc_obj_cmp_sets.exit.i ], [ %.086232.i, %.thread.i ], [ %.086232.i, %327 ], [ %.086232.i, %329 ], [ %spec.select.i, %hwloc__object_cpusets_compare_first.exit.i ], [ null, %321 ], [ null, %319 ], [ %.086232.i, %.lr.ph.i ]
+  %.195.ph.i = phi ptr [ %.094230.i, %hwloc_obj_cmp_sets.exit.i ], [ %.094230.i, %327 ], [ %.1101229.in.i, %.thread.i ], [ %.094230.i, %329 ], [ %.1101229.in.i, %hwloc__object_cpusets_compare_first.exit.i ], [ %.1101229.in.i, %321 ], [ %.1101229.in.i, %319 ], [ %.094230.i, %.lr.ph.i ]
+  %.192.ph.i = phi ptr [ %.091231.i, %hwloc_obj_cmp_sets.exit.i ], [ %.1101229.in.i, %327 ], [ %.091231.i, %.thread.i ], [ %.1101229.in.i, %329 ], [ %.091231.i, %hwloc__object_cpusets_compare_first.exit.i ], [ %.091231.i, %321 ], [ %.091231.i, %319 ], [ %.1101229.in.i, %.lr.ph.i ]
+  %.187.ph.i = phi ptr [ %.086232.i, %hwloc_obj_cmp_sets.exit.i ], [ %.086232.i, %327 ], [ %.086232.i, %.thread.i ], [ %.086232.i, %329 ], [ %spec.select.i, %hwloc__object_cpusets_compare_first.exit.i ], [ null, %321 ], [ null, %319 ], [ %.086232.i, %.lr.ph.i ]
   %.not117.i = icmp eq ptr %.1101229.i, null
   br i1 %.not117.i, label %._crit_edge.i, label %103, !llvm.loop !65
 
@@ -1111,8 +1111,8 @@ hwloc__object_cpusets_compare_first.exit133.i:    ; preds = %360, %353
   %.not115.i = icmp eq ptr %367, null
   br i1 %.not115.i, label %hwloc___insert_object_by_cpuset.exit, label %.lr.ph259.i, !llvm.loop !67
 
-.loopexit:                                        ; preds = %174, %172, %._crit_edge.i, %306, %302, %268, %264, %261, %259, %147, %154, %148, %189
-  %.4.i.ph.ph = phi ptr [ %2, %._crit_edge.i ], [ %.083233.i, %306 ], [ %.083233.i, %302 ], [ %.083233.i, %268 ], [ %.083233.i, %264 ], [ %.083233.i, %261 ], [ %.083233.i, %259 ], [ %.083233.i, %147 ], [ %.083233.i, %154 ], [ %.083233.i, %148 ], [ %.083233.i, %189 ], [ %.083233.i, %172 ], [ %.083233.i, %174 ]
+.loopexit:                                        ; preds = %174, %172, %._crit_edge.i, %306, %302, %268, %264, %261, %259, %147, %189, %148, %154
+  %.4.i.ph.ph = phi ptr [ %2, %._crit_edge.i ], [ %.083233.i, %306 ], [ %.083233.i, %302 ], [ %.083233.i, %268 ], [ %.083233.i, %264 ], [ %.083233.i, %261 ], [ %.083233.i, %259 ], [ %.083233.i, %147 ], [ %.083233.i, %189 ], [ %.083233.i, %148 ], [ %.083233.i, %154 ], [ %.083233.i, %172 ], [ %.083233.i, %174 ]
   %.pr = load i32, ptr %.4.i.ph.ph, align 8, !tbaa !35
   %368 = icmp eq i32 %.pr, 4
   br i1 %368, label %369, label %hwloc___insert_object_by_cpuset.exit

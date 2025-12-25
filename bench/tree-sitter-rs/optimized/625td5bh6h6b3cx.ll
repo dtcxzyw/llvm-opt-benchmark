@@ -1559,7 +1559,7 @@ _ZN14regex_automata4util6search5Input8set_span17h7ff3ee01fe0086b5E.exit141.i.i: 
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hc434291fded31a22E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hc434291fded31a22E.exit": ; preds = %.backedge.i, %23, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h095a25446b7855b5E.exit.thread.sink.split.i"
-  %184 = phi i1 [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h095a25446b7855b5E.exit.thread.sink.split.i" ], [ true, %23 ], [ true, %.backedge.i ]
+  %184 = phi i1 [ true, %23 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h095a25446b7855b5E.exit.thread.sink.split.i" ], [ true, %.backedge.i ]
   ret i1 %184
 
 185:                                              ; preds = %5
@@ -17460,7 +17460,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17h541806212575ee2dE.exit.i.i.i.i: ;
           to label %337 unwind label %280, !noalias !3762
 
 273:                                              ; preds = %.noexc8.i.i, %.noexc6.i.i
-  %.1.i.i.i.i = phi ptr [ %251, %.noexc6.i.i ], [ %269, %.noexc8.i.i ]
+  %.1.i.i.i.i = phi ptr [ %269, %.noexc8.i.i ], [ %251, %.noexc6.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3750
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3744
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3885
@@ -18371,10 +18371,10 @@ _ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread.i: ; preds 
   br i1 %251, label %.critedge94, label %.lr.ph
 
 .critedge94:                                      ; preds = %227, %249, %320, %341, %311, %299, %.critedge, %322, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %199, %268, %315
-  %.sroa.330.0202 = phi i64 [ %.sroa.330.0, %268 ], [ %.sroa.330.0, %315 ], [ %.fca.1.extract27, %199 ], [ %.sroa.330.0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ %.sroa.330.0, %320 ], [ %.sroa.330.0, %322 ], [ %.sroa.330.0, %.critedge ], [ %.sroa.330.0, %299 ], [ %.sroa.330.0, %311 ], [ %.sroa.330.0, %341 ], [ %.fca.1.extract27, %249 ], [ %.fca.1.extract27, %227 ]
-  %.not86187201 = phi i1 [ false, %268 ], [ false, %315 ], [ true, %199 ], [ false, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ false, %320 ], [ false, %322 ], [ false, %.critedge ], [ false, %299 ], [ false, %311 ], [ false, %341 ], [ true, %249 ], [ true, %227 ]
-  %.281 = phi i64 [ %243, %268 ], [ %317, %315 ], [ 0, %199 ], [ %243, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ %243, %320 ], [ %243, %322 ], [ %243, %.critedge ], [ %243, %299 ], [ %243, %311 ], [ %243, %341 ], [ %243, %249 ], [ %.079292, %227 ]
-  %.077 = phi i8 [ 0, %268 ], [ 1, %315 ], [ 0, %199 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ 0, %320 ], [ 0, %322 ], [ 0, %.critedge ], [ 0, %299 ], [ 0, %311 ], [ 0, %341 ], [ 0, %249 ], [ 0, %227 ]
+  %.sroa.330.0202 = phi i64 [ %.sroa.330.0, %315 ], [ %.sroa.330.0, %268 ], [ %.fca.1.extract27, %199 ], [ %.sroa.330.0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ %.sroa.330.0, %320 ], [ %.sroa.330.0, %322 ], [ %.sroa.330.0, %.critedge ], [ %.sroa.330.0, %299 ], [ %.sroa.330.0, %311 ], [ %.sroa.330.0, %341 ], [ %.fca.1.extract27, %249 ], [ %.fca.1.extract27, %227 ]
+  %.not86187201 = phi i1 [ false, %315 ], [ false, %268 ], [ true, %199 ], [ false, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ false, %320 ], [ false, %322 ], [ false, %.critedge ], [ false, %299 ], [ false, %311 ], [ false, %341 ], [ true, %249 ], [ true, %227 ]
+  %.281 = phi i64 [ %317, %315 ], [ %243, %268 ], [ 0, %199 ], [ %243, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ %243, %320 ], [ %243, %322 ], [ %243, %.critedge ], [ %243, %299 ], [ %243, %311 ], [ %243, %341 ], [ %.079292, %227 ], [ %243, %249 ]
+  %.077 = phi i8 [ 1, %315 ], [ 0, %268 ], [ 0, %199 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i" ], [ 0, %320 ], [ 0, %322 ], [ 0, %.critedge ], [ 0, %299 ], [ 0, %311 ], [ 0, %341 ], [ 0, %249 ], [ 0, %227 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", ptr %17, align 8
   %252 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN94_$LT$tree_sitter_cli..query_testing..CAPTURE_NAME_REGEX$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hdd35a4fe4b1627f8E", i64 32) acquire, align 8, !noalias !4025
@@ -23289,10 +23289,10 @@ _ZN15tree_sitter_cli4test11format_sexp17hf10cd9697887bbf1E.exit514: ; preds = %7
   br label %796
 
 795:                                              ; preds = %706, %728, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit523"
-  %.sroa.10.1711 = phi i64 [ %.sroa.10.0746, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit523" ], [ %.sroa.10.0746, %706 ], [ %.sroa.10.3, %728 ]
-  %.sroa.9.1705 = phi ptr [ %.sroa.9.0744, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit523" ], [ %.sroa.9.0744, %706 ], [ %.sroa.9.3, %728 ]
-  %.sroa.6578.1703 = phi i64 [ %.sroa.6578.0743, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit523" ], [ %.sroa.6578.0743, %706 ], [ %.sroa.6578.3, %728 ]
-  %.sroa.5577.1701 = phi ptr [ %.sroa.5577.0742, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit523" ], [ %.sroa.5577.0742, %706 ], [ %.sroa.5577.3, %728 ]
+  %.sroa.10.1711 = phi i64 [ %.sroa.10.0746, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit523" ], [ %.sroa.10.3, %728 ], [ %.sroa.10.0746, %706 ]
+  %.sroa.9.1705 = phi ptr [ %.sroa.9.0744, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit523" ], [ %.sroa.9.3, %728 ], [ %.sroa.9.0744, %706 ]
+  %.sroa.6578.1703 = phi i64 [ %.sroa.6578.0743, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit523" ], [ %.sroa.6578.3, %728 ], [ %.sroa.6578.0743, %706 ]
+  %.sroa.5577.1701 = phi ptr [ %.sroa.5577.0742, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit523" ], [ %.sroa.5577.3, %728 ], [ %.sroa.5577.0742, %706 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %801
 

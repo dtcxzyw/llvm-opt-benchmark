@@ -1116,7 +1116,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_ii.exit120: ; preds = %131, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6icu_7712LocalPointerINS_6NFRuleEED2Ev.exit122.thread
 
-.thread211:                                       ; preds = %111, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit117, %97, %88
+.thread211:                                       ; preds = %111, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit117, %88, %97
   %lpad.thr_comm209 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #9
@@ -1212,8 +1212,8 @@ _ZN6icu_7712LocalPointerINS_6NFRuleEED2Ev.exit122: ; preds = %_ZNK6icu_7713Unico
           cleanup
   br label %_ZN6icu_7712LocalPointerINS_6NFRuleEED2Ev.exit122.thread
 
-_ZN6icu_7712LocalPointerINS_6NFRuleEED2Ev.exit122.thread: ; preds = %.thread204, %.thread, %141, %143, %_ZN6icu_7712LocalPointerINS_6NFRuleEED2Ev.exit122, %44, %15
-  %.pn97.pn.pn183 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZN6icu_7712LocalPointerINS_6NFRuleEED2Ev.exit122 ], [ %45, %44 ], [ %16, %15 ], [ %lpad.thr_comm, %.thread204 ], [ %74, %.thread ], [ %lpad.thr_comm.split-lp210, %141 ], [ %lpad.phi215, %143 ]
+_ZN6icu_7712LocalPointerINS_6NFRuleEED2Ev.exit122.thread: ; preds = %.thread204, %.thread, %143, %141, %_ZN6icu_7712LocalPointerINS_6NFRuleEED2Ev.exit122, %44, %15
+  %.pn97.pn.pn183 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZN6icu_7712LocalPointerINS_6NFRuleEED2Ev.exit122 ], [ %45, %44 ], [ %16, %15 ], [ %lpad.thr_comm, %.thread204 ], [ %74, %.thread ], [ %lpad.phi215, %143 ], [ %lpad.thr_comm.split-lp210, %141 ]
   call void @_ZN6icu_776NFRuleD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #9
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %9) #9
   br label %_ZN6icu_7712LocalPointerINS_6NFRuleEED2Ev.exit124

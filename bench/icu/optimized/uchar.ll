@@ -2861,7 +2861,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %26, %.sink.split.i
   br i1 %77, label %.backedge.backedge, label %.loopexit
 
 .backedge.backedge:                               ; preds = %71, %.thread
-  %.029.be = phi i32 [ %78, %.thread ], [ %76, %71 ]
+  %.029.be = phi i32 [ %76, %71 ], [ %78, %.thread ]
   br label %.backedge, !llvm.loop !21
 
 .thread:                                          ; preds = %.backedge

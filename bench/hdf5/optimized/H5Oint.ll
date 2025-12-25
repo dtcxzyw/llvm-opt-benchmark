@@ -1465,7 +1465,7 @@ H5O__obj_class_real.exit.thread11.sink.split:     ; preds = %24, %.preheader.i
   br label %H5O__obj_class_real.exit.thread11
 
 H5O__obj_class_real.exit.thread11:                ; preds = %33, %H5O__obj_class_real.exit.thread11.sink.split, %17
-  %.113 = phi ptr [ null, %H5O__obj_class_real.exit.thread11.sink.split ], [ null, %17 ], [ %28, %33 ]
+  %.113 = phi ptr [ null, %17 ], [ null, %H5O__obj_class_real.exit.thread11.sink.split ], [ %28, %33 ]
   %40 = call i32 @H5O_unprotect(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 0)
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %46
@@ -4548,8 +4548,8 @@ H5O_open_by_loc.exit:                             ; preds = %61
   %.not72 = icmp eq i64 %75, -1
   br i1 %.not72, label %.thread90, label %.thread84
 
-.thread84:                                        ; preds = %80, %84, %.thread, %85, %152
-  %.15089 = phi i32 [ -1, %152 ], [ -1, %80 ], [ %78, %84 ], [ %.2, %.thread ], [ 0, %85 ]
+.thread84:                                        ; preds = %80, %.thread, %84, %85, %152
+  %.15089 = phi i32 [ -1, %152 ], [ -1, %80 ], [ %.2, %.thread ], [ %78, %84 ], [ 0, %85 ]
   %156 = call i32 @H5I_dec_app_ref(i64 noundef %75) #12
   %157 = icmp slt i32 %156, 0
   br i1 %157, label %158, label %172

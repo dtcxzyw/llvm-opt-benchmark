@@ -1123,7 +1123,7 @@ vaapi_vpp_render_single_pipeline_buffer.exit:     ; preds = %25
   br label %.sink.split
 
 .sink.split:                                      ; preds = %59, %50, %22, %65, %.preheader
-  %.047.ph = phi i32 [ 0, %.preheader ], [ -5, %22 ], [ -5, %65 ], [ 0, %50 ], [ 0, %59 ]
+  %.047.ph = phi i32 [ 0, %.preheader ], [ -5, %65 ], [ -5, %22 ], [ 0, %50 ], [ 0, %59 ]
   call void @av_freep(ptr noundef nonnull %5) #7
   br label %70
 

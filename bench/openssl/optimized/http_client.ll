@@ -1651,7 +1651,7 @@ check_max_len.exit.outer.backedge:                ; preds = %parse_http_line1.ex
   br label %.loopexit
 
 .loopexit:                                        ; preds = %370, %72, %69, %306, %.thread297, %287, %check_max_len.exit.thread, %.thread, %132, %118, %65, %380, %356, %347, %337, %334, %330, %323, %319, %260, %174, %170, %158, %148, %135, %121, %77, %68, %63, %20, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %20 ], [ 0, %63 ], [ 0, %287 ], [ 0, %68 ], [ -1, %65 ], [ 0, %306 ], [ 1, %380 ], [ 0, %77 ], [ %.4.ph, %.thread ], [ -1, %118 ], [ 0, %135 ], [ 0, %.thread297 ], [ 0, %121 ], [ 0, %148 ], [ 0, %158 ], [ -1, %132 ], [ 0, %170 ], [ 0, %174 ], [ 0, %260 ], [ 0, %323 ], [ 0, %334 ], [ 0, %347 ], [ 0, %356 ], [ 0, %check_max_len.exit.thread ], [ 1, %337 ], [ 0, %330 ], [ 0, %319 ], [ 0, %69 ], [ 0, %72 ], [ 0, %370 ]
+  %.0 = phi i32 [ 0, %7 ], [ 0, %20 ], [ 0, %63 ], [ 0, %287 ], [ 0, %68 ], [ -1, %65 ], [ 0, %.thread297 ], [ 1, %380 ], [ 0, %77 ], [ %.4.ph, %.thread ], [ -1, %118 ], [ 0, %135 ], [ 0, %306 ], [ 0, %121 ], [ 0, %148 ], [ 0, %158 ], [ -1, %132 ], [ 0, %170 ], [ 0, %174 ], [ 0, %260 ], [ 0, %323 ], [ 0, %334 ], [ 0, %347 ], [ 0, %356 ], [ 0, %check_max_len.exit.thread ], [ 1, %337 ], [ 0, %330 ], [ 0, %319 ], [ 0, %69 ], [ 0, %72 ], [ 0, %370 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -2517,7 +2517,7 @@ redirection_ok.exit:                              ; preds = %49, %57
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink4.i, ptr noundef nonnull @__func__.redirection_ok) #9
   br label %103
 
-60:                                               ; preds = %54, %57, %51
+60:                                               ; preds = %57, %54, %51
   %61 = call i64 @time(ptr noundef null) #9
   br i1 %.not.i, label %68, label %62
 

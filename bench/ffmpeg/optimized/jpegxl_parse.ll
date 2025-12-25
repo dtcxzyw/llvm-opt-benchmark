@@ -2916,7 +2916,7 @@ bytestream2_get_be32.exit70.thread:               ; preds = %bytestream2_get_be3
   %.not62 = icmp slt i32 %91, %3
   br i1 %.not62, label %11, label %92
 
-92:                                               ; preds = %90, %85
+92:                                               ; preds = %85, %90
   %93 = tail call i64 @llvm.smin.i64(i64 %.244, i64 2147483647)
   %94 = trunc i64 %93 to i32
   br label %.thread131

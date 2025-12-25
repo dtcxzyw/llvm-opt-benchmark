@@ -506,7 +506,7 @@ define hidden { i64, ptr } @_ZN8async_io6driver8block_on17h2fdc2333357ce770E(ptr
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %269
-  %.sroa.017.0.ph.ph178 = phi i8 [ 1, %.invoke ], [ %.sroa.017.3, %269 ]
+  %.sroa.017.0.ph.ph178 = phi i8 [ %.sroa.017.3, %269 ], [ 1, %.invoke ]
   %lpad.loopexit.split-lp180 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -548,7 +548,7 @@ _ZN4core3ops8function6FnOnce9call_once17h08552ee6b5edc499E.exit.i: ; preds = %20
   br label %210
 
 .loopexit.split-lp174:                            ; preds = %246, %248, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h1b250865eeafbd08E.exit", %264, %266, %276, %278, %281, %283, %253, %257, %259, %262
-  %.sroa.017.2.ph = phi i8 [ 0, %253 ], [ 1, %246 ], [ 1, %248 ], [ 0, %262 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h1b250865eeafbd08E.exit" ], [ 0, %264 ], [ 0, %266 ], [ 0, %257 ], [ 1, %276 ], [ 1, %278 ], [ 0, %259 ], [ 1, %281 ], [ 1, %283 ]
+  %.sroa.017.2.ph = phi i8 [ 0, %253 ], [ 1, %246 ], [ 1, %248 ], [ 0, %262 ], [ 0, %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h1b250865eeafbd08E.exit" ], [ 0, %264 ], [ 0, %266 ], [ 0, %259 ], [ 1, %276 ], [ 1, %278 ], [ 0, %257 ], [ 1, %281 ], [ 1, %283 ]
   %lpad.loopexit.split-lp176 = landingpad { ptr, i32 }
           cleanup
   br label %210

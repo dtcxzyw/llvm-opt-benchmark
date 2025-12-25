@@ -342,7 +342,7 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
   br label %230
 
 160:                                              ; preds = %._crit_edge, %147, %100
-  %.pr = phi i32 [ %.pr.pre, %._crit_edge ], [ %.pr.pre117, %100 ], [ %.pr.pre117, %147 ]
+  %.pr = phi i32 [ %.pr.pre, %._crit_edge ], [ %.pr.pre117, %147 ], [ %.pr.pre117, %100 ]
   %161 = icmp eq i32 %.pr, 2
   br i1 %161, label %164, label %162
 
@@ -816,8 +816,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef
   br label %.thread113.i
 
 .thread113.i:                                     ; preds = %.thread126.i, %125, %100, %83
-  %.277118.i = phi i64 [ %.277.i, %125 ], [ %.277124129.i, %.thread126.i ], [ %.075102.i, %83 ], [ %.075102.i, %100 ]
-  %.166.i = phi ptr [ %72, %125 ], [ %129, %.thread126.i ], [ %72, %83 ], [ %72, %100 ]
+  %.277118.i = phi i64 [ %.277124129.i, %.thread126.i ], [ %.277.i, %125 ], [ %.075102.i, %83 ], [ %.075102.i, %100 ]
+  %.166.i = phi ptr [ %129, %.thread126.i ], [ %72, %125 ], [ %72, %83 ], [ %72, %100 ]
   %.not84.i = icmp eq ptr %.166.i, null
   br i1 %.not84.i, label %.critedge.i, label %63
 

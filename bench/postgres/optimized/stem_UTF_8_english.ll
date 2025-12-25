@@ -281,8 +281,8 @@ define hidden range(i32 -2147483648, 2) i32 @english_UTF_8_stem(ptr noundef init
 58:                                               ; preds = %55, %24, %25, %28, %31, %34, %37, %40, %43, %46, %49, %52
   br label %.critedge
 
-59:                                               ; preds = %14, %20, %8, %18, %1
-  %60 = phi i32 [ %7, %14 ], [ %.pre, %20 ], [ %7, %8 ], [ %.pre, %18 ], [ %7, %1 ]
+59:                                               ; preds = %20, %14, %1, %18, %8
+  %60 = phi i32 [ %.pre, %20 ], [ %7, %14 ], [ %7, %1 ], [ %.pre, %18 ], [ %7, %8 ]
   store i32 %3, ptr %2, align 8
   %61 = load ptr, ptr %0, align 8
   %62 = tail call i32 @skip_utf8(ptr noundef %61, i32 noundef %3, i32 noundef %60, i32 noundef 3) #3

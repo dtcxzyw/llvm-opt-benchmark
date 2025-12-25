@@ -1622,9 +1622,9 @@ write_packed_entry.exit131.i:                     ; preds = %133, %132
   br label %select.unfold.i.backedge
 
 select.unfold.i.backedge:                         ; preds = %write_packed_entry.exit131.i, %123, %.thread163.i
-  %.090.i.be = phi i32 [ %.292148.i, %write_packed_entry.exit131.i ], [ %.292148.i, %123 ], [ %121, %.thread163.i ]
-  %.085.i.be = phi i64 [ %137, %write_packed_entry.exit131.i ], [ %124, %123 ], [ %.287158.i, %.thread163.i ]
-  %.3.i.be = phi ptr [ %.6150.i, %write_packed_entry.exit131.i ], [ %.6150.i, %123 ], [ %spec.select121.i, %.thread163.i ]
+  %.090.i.be = phi i32 [ %121, %.thread163.i ], [ %.292148.i, %123 ], [ %.292148.i, %write_packed_entry.exit131.i ]
+  %.085.i.be = phi i64 [ %.287158.i, %.thread163.i ], [ %124, %123 ], [ %137, %write_packed_entry.exit131.i ]
+  %.3.i.be = phi ptr [ %spec.select121.i, %.thread163.i ], [ %.6150.i, %123 ], [ %.6150.i, %write_packed_entry.exit131.i ]
   br label %select.unfold.i
 
 138:                                              ; preds = %66

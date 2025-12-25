@@ -1466,7 +1466,7 @@ dissect_rf4ce_profile_zrc20_attrs.exit:           ; preds = %82, %190
   br label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
 
 dissect_rf4ce_profile_zrc20_attrs.exit.thread:    ; preds = %.lr.ph.i99, %.lr.ph.i, %.loopexit.sink.split.i, %196, %179, %173, %165, %142, %._crit_edge.i, %76, %77, %dissect_rf4ce_profile_zrc20_attrs.exit
-  %.191103 = phi i8 [ %.090107, %76 ], [ %.191102, %77 ], [ %.191102, %dissect_rf4ce_profile_zrc20_attrs.exit ], [ %.191102, %.loopexit.sink.split.i ], [ %.191102, %._crit_edge.i ], [ %.191102, %142 ], [ %.191102, %165 ], [ %.191102, %173 ], [ %.191102, %179 ], [ %.191102, %.lr.ph.i ], [ %.191102, %196 ], [ %.191102, %.lr.ph.i99 ]
+  %.191103 = phi i8 [ %.090107, %76 ], [ %.191102, %77 ], [ %.191102, %dissect_rf4ce_profile_zrc20_attrs.exit ], [ %.191102, %.loopexit.sink.split.i ], [ %.191102, %._crit_edge.i ], [ %.191102, %142 ], [ %.191102, %165 ], [ %.191102, %173 ], [ %.191102, %179 ], [ %.191102, %196 ], [ %.191102, %.lr.ph.i ], [ %.191102, %.lr.ph.i99 ]
   %267 = load i32, ptr %2, align 4
   %268 = icmp eq i32 %.089108, %267
   br i1 %268, label %269, label %279

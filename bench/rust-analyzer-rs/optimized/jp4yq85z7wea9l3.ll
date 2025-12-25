@@ -48036,8 +48036,8 @@ _ZN4stdx4rand7shuffle17he4a035d56c5306e9E.exit:   ; preds = %_ZN4stdx4rand7shuff
   br label %.body100
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %select.unfold273, %140, %129
-  %.068.ph.ph = phi i1 [ true, %129 ], [ false, %140 ], [ true, %select.unfold273 ]
-  %.0.ph.ph = phi i1 [ false, %129 ], [ false, %140 ], [ true, %select.unfold273 ]
+  %.068.ph.ph = phi i1 [ false, %140 ], [ true, %129 ], [ true, %select.unfold273 ]
+  %.0.ph.ph = phi i1 [ false, %140 ], [ false, %129 ], [ true, %select.unfold273 ]
   %lpad.loopexit.split-lp298 = landingpad { ptr, i32 }
           cleanup
   br label %.body100

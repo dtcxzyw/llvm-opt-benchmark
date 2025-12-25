@@ -1869,7 +1869,7 @@ define dso_local i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %32, %21, %.lr.ph, %18, %.preheader, %.critedge.loopexit.split.loop.exit13.i, %13
-  %.0 = phi i32 [ %14, %18 ], [ %19, %.critedge.loopexit.split.loop.exit13.i ], [ 0, %13 ], [ 0, %.preheader ], [ %33, %32 ], [ %.01725, %21 ], [ %.01725, %.lr.ph ]
+  %.0 = phi i32 [ 0, %13 ], [ %19, %.critedge.loopexit.split.loop.exit13.i ], [ %14, %18 ], [ 0, %.preheader ], [ %33, %32 ], [ %.01725, %21 ], [ %.01725, %.lr.ph ]
   ret i32 %.0
 }
 

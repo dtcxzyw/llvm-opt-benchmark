@@ -787,7 +787,7 @@ define hidden range(i32 0, 2) i32 @DIST_POINT_set_dpname(ptr noundef captures(ad
   br label %23
 
 23:                                               ; preds = %.sink.split, %._crit_edge, %5, %2, %3
-  %.0 = phi i32 [ 1, %2 ], [ 1, %._crit_edge ], [ 1, %3 ], [ 0, %5 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %2 ], [ 1, %3 ], [ 1, %._crit_edge ], [ 0, %5 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

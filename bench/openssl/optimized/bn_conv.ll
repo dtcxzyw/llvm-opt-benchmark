@@ -227,7 +227,7 @@ define ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
   br label %62
 
 .critedge:                                        ; preds = %36, %32, %52, %._crit_edge, %18, %1
-  %.052.ph = phi ptr [ %19, %._crit_edge ], [ %19, %52 ], [ null, %18 ], [ null, %1 ], [ %19, %32 ], [ %19, %36 ]
+  %.052.ph = phi ptr [ %19, %._crit_edge ], [ null, %18 ], [ %19, %52 ], [ null, %1 ], [ %19, %32 ], [ %19, %36 ]
   tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 110) #3
   tail call void @BN_free(ptr noundef %.052.ph) #3
   tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.1, i32 noundef 114) #3
@@ -552,7 +552,7 @@ bn_expand.exit.thread62:                          ; preds = %28, %bn_expand.exit
   br label %63
 
 .critedge.thread:                                 ; preds = %14, %49, %51, %26, %bn_expand.exit, %.critedge
-  %.046 = phi ptr [ null, %.critedge ], [ %.147, %bn_expand.exit ], [ %.147, %26 ], [ %.147, %49 ], [ %.147, %51 ], [ null, %14 ]
+  %.046 = phi ptr [ null, %.critedge ], [ %.147, %bn_expand.exit ], [ %.147, %49 ], [ %.147, %26 ], [ %.147, %51 ], [ null, %14 ]
   %60 = load ptr, ptr %0, align 8, !tbaa !21
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %63

@@ -976,7 +976,7 @@ proc_findnode.exit.sink.split:                    ; preds = %split, %.tail, %20,
   br label %proc_findnode.exit
 
 proc_findnode.exit:                               ; preds = %45, %proc_findnode.exit.sink.split, %20, %16, %12
-  %.0 = phi i32 [ -2, %20 ], [ -2, %12 ], [ 0, %proc_findnode.exit.sink.split ], [ -2, %16 ], [ -2, %45 ]
+  %.0 = phi i32 [ -2, %20 ], [ -2, %12 ], [ -2, %16 ], [ 0, %proc_findnode.exit.sink.split ], [ -2, %45 ]
   ret i32 %.0
 }
 

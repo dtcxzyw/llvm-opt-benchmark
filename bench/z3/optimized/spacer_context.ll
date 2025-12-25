@@ -34372,7 +34372,7 @@ _ZNK7obj_mapI4expr10ptr_bufferIN6spacer3pobELj1EEE8containsEPS0_.exit: ; preds =
   br i1 %.not, label %_ZNK7obj_mapI4expr10ptr_bufferIN6spacer3pobELj1EEE8containsEPS0_.exit.thread, label %.lr.ph
 
 _ZNK7obj_mapI4expr10ptr_bufferIN6spacer3pobELj1EEE8containsEPS0_.exit.thread: ; preds = %57, %71, %68, %102, %106, %.loopexit, %.preheader.i.i.i
-  %.3 = phi ptr [ null, %71 ], [ null, %.preheader.i.i.i ], [ %.4.ph, %106 ], [ null, %.loopexit ], [ %98, %102 ], [ null, %68 ], [ null, %57 ]
+  %.3 = phi ptr [ %.4.ph, %106 ], [ null, %.preheader.i.i.i ], [ null, %71 ], [ null, %.loopexit ], [ %98, %102 ], [ null, %68 ], [ null, %57 ]
   call void @_ZN6spacer3pobD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.3
@@ -43489,7 +43489,7 @@ _ZN6spacer9pob_queue9inc_levelEv.exit:            ; preds = %.noexc, %104, %.cri
   br label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread
 
 _ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread: ; preds = %32, %46, %43, %81, %90, %.preheader.i.i.i, %139, %._crit_edge
-  %.016 = phi i32 [ 0, %._crit_edge ], [ -1, %46 ], [ 0, %139 ], [ -1, %.preheader.i.i.i ], [ -1, %90 ], [ 1, %81 ], [ -1, %43 ], [ -1, %32 ]
+  %.016 = phi i32 [ 0, %._crit_edge ], [ -1, %90 ], [ 0, %139 ], [ -1, %.preheader.i.i.i ], [ -1, %46 ], [ 1, %81 ], [ -1, %43 ], [ -1, %32 ]
   %141 = load i8, ptr %5, align 8, !tbaa !203, !range !156, !noundef !157
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %_ZN12scoped_watchD2Ev.exit
@@ -67189,7 +67189,7 @@ _ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit:   ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1139
 
 _ZSt11swap_rangesIPP3appS2_ET0_T_S4_S3_.exit:     ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

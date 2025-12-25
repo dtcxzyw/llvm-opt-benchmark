@@ -576,7 +576,7 @@ define void @_ZN5ZXing12CenterOfRingERKNS_9BitMatrixENS_6PointTIiEEiib(ptr dead_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %50, %22, %56, %6, %58
-  %.sink = phi i8 [ 0, %6 ], [ 0, %56 ], [ 1, %58 ], [ 0, %22 ], [ 0, %50 ], [ 0, %42 ]
+  %.sink = phi i8 [ 0, %6 ], [ 1, %58 ], [ 0, %56 ], [ 0, %22 ], [ 0, %50 ], [ 0, %42 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %62, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -1056,7 +1056,7 @@ ifilter_alloc.exit:                               ; preds = %73
   br label %.thread118
 
 .thread118:                                       ; preds = %70, %68, %73, %110, %159, %116, %92, %164, %37, %169, %163
-  %.066 = phi i32 [ %41, %37 ], [ %167, %164 ], [ %167, %169 ], [ -38, %163 ], [ -12, %159 ], [ -38, %92 ], [ -12, %116 ], [ -12, %110 ], [ -12, %73 ], [ -12, %68 ], [ -12, %70 ]
+  %.066 = phi i32 [ %41, %37 ], [ %167, %164 ], [ %167, %169 ], [ -38, %163 ], [ -38, %92 ], [ -12, %159 ], [ -12, %116 ], [ -12, %110 ], [ -12, %73 ], [ -12, %68 ], [ -12, %70 ]
   %.066.fr = freeze i32 %.066
   call void @avfilter_inout_free(ptr noundef nonnull %6) #17
   call void @avfilter_inout_free(ptr noundef nonnull %7) #17
@@ -2511,7 +2511,7 @@ send_eof.exit:                                    ; preds = %.lr.ph.i.i101, %541
   br label %.loopexit
 
 574:                                              ; preds = %570, %551, %send_command.exit
-  %.3 = phi i32 [ -541478725, %551 ], [ 0, %570 ], [ %.2, %send_command.exit ]
+  %.3 = phi i32 [ -541478725, %551 ], [ %.2, %send_command.exit ], [ 0, %570 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %70
 

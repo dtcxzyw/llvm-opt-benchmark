@@ -859,16 +859,16 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %6
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !210
   %24 = icmp ult i32 %23, 65
-  br i1 %24, label %_ZNK4llvm9KnownBits9isUnknownEv.exit, label %25
+  br i1 %24, label %25, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
 
 25:                                               ; preds = %20
-  %26 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %21) #22
-  %27 = icmp eq i32 %26, %23
+  %26 = load i64, ptr %21, align 8, !tbaa !186
+  %27 = icmp eq i64 %26, 0
   br i1 %27, label %77, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %20
-  %28 = load i64, ptr %21, align 8, !tbaa !186
-  %29 = icmp eq i64 %28, 0
+  %28 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %21) #22
+  %29 = icmp eq i32 %28, %23
   br i1 %29, label %77, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit.thread:      ; preds = %15, %_ZNK4llvm5APInt6isZeroEv.exit.i, %25, %_ZNK4llvm9KnownBits9isUnknownEv.exit
@@ -1923,17 +1923,17 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm9KnownBitsD
   %370 = load i32, ptr %181, align 8, !tbaa !210
   %.fr = freeze i32 %370
   %371 = icmp ult i32 %.fr, 65
-  br i1 %371, label %_ZNK4llvm9KnownBits9isUnknownEv.exit, label %372
+  br i1 %371, label %372, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
 
 372:                                              ; preds = %369
-  %373 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %180) #22
-  %374 = icmp eq i32 %373, %.fr
+  %373 = load i64, ptr %180, align 8, !tbaa !186
+  %.fr550 = freeze i64 %373
+  %374 = icmp eq i64 %.fr550, 0
   br i1 %374, label %.loopexit, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 _ZNK4llvm9KnownBits9isUnknownEv.exit:             ; preds = %369
-  %375 = load i64, ptr %180, align 8, !tbaa !186
-  %.fr550 = freeze i64 %375
-  %376 = icmp eq i64 %.fr550, 0
+  %375 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %180) #22
+  %376 = icmp eq i32 %375, %.fr
   br i1 %376, label %.loopexit, label %_ZNK4llvm9KnownBits9isUnknownEv.exit.thread
 
 .critedge398:                                     ; preds = %302, %298, %292, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit411
@@ -5048,7 +5048,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit133: ; preds = %104, %1
   br label %tailrecurse.outer
 
 common.ret:                                       ; preds = %67, %70, %56, %_ZNK4llvm5APIntntEv.exit, %62, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130, %82, %88, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %93, %38, %40, %47, %50, %54, %242, %251, %_ZN4llvm9KnownBitsD2Ev.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit, %154, %151, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit146, %181, %178, %267, %149, %280, %275, %128
-  %.sroa.speculated191.pn = phi i32 [ %.sroa.speculated191, %128 ], [ %.0.i.le365, %267 ], [ %203, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit146 ], [ 1, %178 ], [ 0, %38 ], [ %48, %47 ], [ %46, %40 ], [ %53, %50 ], [ %55, %54 ], [ %177, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ %.12585, %_ZN4llvm9KnownBitsD2Ev.exit ], [ 1, %151 ], [ %.0.i.le, %275 ], [ %281, %280 ], [ %150, %149 ], [ %182, %181 ], [ %155, %154 ], [ %241, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ %250, %242 ], [ %259, %251 ], [ 1, %93 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ 1, %88 ], [ 1, %82 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130 ], [ 1, %62 ], [ 1, %_ZNK4llvm5APIntntEv.exit ], [ 1, %56 ], [ 1, %70 ], [ 1, %67 ]
+  %.sroa.speculated191.pn = phi i32 [ %.sroa.speculated191, %128 ], [ %182, %181 ], [ %.0.i.le365, %267 ], [ %.0.i.le, %275 ], [ 0, %38 ], [ %48, %47 ], [ %46, %40 ], [ %53, %50 ], [ %55, %54 ], [ 1, %151 ], [ %.12585, %_ZN4llvm9KnownBitsD2Ev.exit ], [ %177, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ %281, %280 ], [ 1, %178 ], [ %150, %149 ], [ %203, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit146 ], [ %155, %154 ], [ %241, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ %250, %242 ], [ %259, %251 ], [ 1, %93 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ 1, %88 ], [ 1, %82 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130 ], [ 1, %62 ], [ 1, %_ZNK4llvm5APIntntEv.exit ], [ 1, %56 ], [ 1, %70 ], [ 1, %67 ]
   %common.ret.op = add i32 %.sroa.speculated191.pn, %accumulator.tr.ph
   ret i32 %common.ret.op
 

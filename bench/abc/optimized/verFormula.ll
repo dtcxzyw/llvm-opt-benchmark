@@ -446,8 +446,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.not143267 = icmp eq i32 %.val152266, 0
   br i1 %.not143267, label %.loopexit, label %.lr.ph269
 
-.preheader.sink.split:                            ; preds = %73, %75, %76, %74
-  %.sink = phi i32 [ 4, %74 ], [ 2, %76 ], [ 5, %75 ], [ 6, %73 ]
+.preheader.sink.split:                            ; preds = %73, %74, %76, %75
+  %.sink = phi i32 [ 4, %74 ], [ 5, %75 ], [ 2, %76 ], [ 6, %73 ]
   tail call fastcc void @Vec_IntPush(ptr noundef %4, i32 noundef %.sink)
   br label %.preheader
 

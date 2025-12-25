@@ -5402,8 +5402,8 @@ _ZNSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14Strin
   resume { ptr, i32 } %72
 
 _ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit: ; preds = %22, %19, %15, %57, %60, %44, %.critedge
-  %.sroa.031.1 = phi ptr [ %71, %.critedge ], [ %.0.i.i, %57 ], [ %.sroa.028.046.us, %15 ], [ %.0.us.i.i, %44 ], [ %.0.i.i, %60 ], [ %.sroa.028.046, %19 ], [ %.sroa.028.046, %22 ]
-  %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %57 ], [ 0, %15 ], [ 0, %44 ], [ 0, %60 ], [ 0, %19 ], [ 0, %22 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.046.us, %15 ], [ %71, %.critedge ], [ %.0.us.i.i, %44 ], [ %.0.i.i, %57 ], [ %.0.i.i, %60 ], [ %.sroa.028.046, %19 ], [ %.sroa.028.046, %22 ]
+  %.sroa.432.1 = phi i8 [ 0, %15 ], [ 1, %.critedge ], [ 0, %44 ], [ 0, %57 ], [ 0, %60 ], [ 0, %19 ], [ 0, %22 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -5787,8 +5787,8 @@ _ZNSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14Strin
   resume { ptr, i32 } %72
 
 _ZNKSt10_HashtableIN6duckdb8string_tES1_SaIS1_ENSt8__detail9_IdentityENS0_14StringEqualityENS0_10StringHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit: ; preds = %22, %19, %15, %57, %60, %44, %.critedge
-  %.sroa.031.1 = phi ptr [ %71, %.critedge ], [ %.0.i.i, %57 ], [ %.sroa.028.046.us, %15 ], [ %.0.us.i.i, %44 ], [ %.0.i.i, %60 ], [ %.sroa.028.046, %19 ], [ %.sroa.028.046, %22 ]
-  %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %57 ], [ 0, %15 ], [ 0, %44 ], [ 0, %60 ], [ 0, %19 ], [ 0, %22 ]
+  %.sroa.031.1 = phi ptr [ %.sroa.028.046.us, %15 ], [ %71, %.critedge ], [ %.0.us.i.i, %44 ], [ %.0.i.i, %57 ], [ %.0.i.i, %60 ], [ %.sroa.028.046, %19 ], [ %.sroa.028.046, %22 ]
+  %.sroa.432.1 = phi i8 [ 0, %15 ], [ 1, %.critedge ], [ 0, %44 ], [ 0, %57 ], [ 0, %60 ], [ 0, %19 ], [ 0, %22 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -6144,7 +6144,7 @@ _ZNKSt8__detail15_Hashtable_baseIN6duckdb8string_tESt4pairIKS2_jENS_10_Select1st
   br label %_ZNSt10_HashtableIN6duckdb8string_tESt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stENS0_14StringEqualityENS0_10StringHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit29
 
 _ZNKSt10_HashtableIN6duckdb8string_tESt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stENS0_14StringEqualityENS0_10StringHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %19, %22, %15, %61, %58, %45
-  %.sroa.042.0.ph = phi ptr [ %.0.i.i, %61 ], [ %.sroa.034.065.us, %15 ], [ %.0.us.i.i, %45 ], [ %.0.i.i, %58 ], [ %.sroa.034.065, %22 ], [ %.sroa.034.065, %19 ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.034.065.us, %15 ], [ %.0.us.i.i, %45 ], [ %.0.i.i, %61 ], [ %.0.i.i, %58 ], [ %.sroa.034.065, %22 ], [ %.sroa.034.065, %19 ]
   tail call void @_ZdlPv(ptr noundef nonnull %3) #31
   br label %_ZNSt10_HashtableIN6duckdb8string_tESt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stENS0_14StringEqualityENS0_10StringHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 

@@ -2065,7 +2065,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
   br i1 %.not, label %.thread166, label %37
 
 .thread166:                                       ; preds = %39, %.loopexit, %101, %103, %51, %82, %16
-  %.0 = phi i32 [ 1, %16 ], [ 1, %101 ], [ 1, %51 ], [ 1, %103 ], [ 1, %82 ], [ 0, %.loopexit ], [ 0, %39 ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %103 ], [ 1, %51 ], [ 1, %101 ], [ 1, %82 ], [ 0, %.loopexit ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

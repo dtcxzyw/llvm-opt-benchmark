@@ -356,7 +356,7 @@ list_length.exit201:                              ; preds = %160, %161
   br i1 %172, label %.lr.ph238, label %.critedge183
 
 .critedge183:                                     ; preds = %169, %53, %.critedge, %.lr.ph230, %.thread, %59, %62
-  %.2 = phi ptr [ %28, %62 ], [ %29, %.thread ], [ %61, %59 ], [ %.3.lcssa, %.critedge ], [ %.3.lcssa, %.lr.ph230 ], [ %28, %53 ], [ %.7, %169 ]
+  %.2 = phi ptr [ %28, %62 ], [ %61, %59 ], [ %29, %.thread ], [ %.3.lcssa, %.critedge ], [ %.3.lcssa, %.lr.ph230 ], [ %28, %53 ], [ %.7, %169 ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 4

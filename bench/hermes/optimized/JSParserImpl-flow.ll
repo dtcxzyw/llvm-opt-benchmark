@@ -2160,8 +2160,8 @@ _ZN6hermes6ESTree16DeclareClassNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEE
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end39, %do.body, %if.end54, %do.body49, %if.end69, %if.end64, %if.end26, %if.then21, %if.then12, %entry, %_ZN6hermes6ESTree16DeclareClassNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES7_S7_S3_.exit
-  %retval.sroa.0.0 = phi i64 [ %88, %_ZN6hermes6ESTree16DeclareClassNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES7_S7_S3_.exit ], [ undef, %if.end64 ], [ undef, %if.end69 ], [ undef, %entry ], [ undef, %if.end54 ], [ undef, %if.then12 ], [ undef, %if.end26 ], [ undef, %if.then21 ], [ undef, %do.body49 ], [ undef, %do.body ], [ undef, %if.end39 ]
-  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree16DeclareClassNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES7_S7_S3_.exit ], [ 0, %if.end64 ], [ 0, %if.end69 ], [ 0, %entry ], [ 0, %if.end54 ], [ 0, %if.then12 ], [ 0, %if.end26 ], [ 0, %if.then21 ], [ 0, %do.body49 ], [ 0, %do.body ], [ 0, %if.end39 ]
+  %retval.sroa.0.0 = phi i64 [ %88, %_ZN6hermes6ESTree16DeclareClassNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES7_S7_S3_.exit ], [ undef, %if.end64 ], [ undef, %entry ], [ undef, %if.end69 ], [ undef, %if.then12 ], [ undef, %if.end54 ], [ undef, %if.end26 ], [ undef, %if.then21 ], [ undef, %do.body49 ], [ undef, %do.body ], [ undef, %if.end39 ]
+  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree16DeclareClassNodeC2EPNS0_4NodeES3_ON4llvh12simple_ilistIS2_JEEES7_S7_S3_.exit ], [ 0, %if.end64 ], [ 0, %entry ], [ 0, %if.end69 ], [ 0, %if.then12 ], [ 0, %if.end54 ], [ 0, %if.end26 ], [ 0, %if.then21 ], [ 0, %do.body49 ], [ 0, %do.body ], [ 0, %if.end39 ]
   store i8 %frombool.i, ptr %strictMode_.i.i.i, align 8
   %seenDirectives_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1176
   %conv.i = zext i32 %1 to i64
@@ -11122,9 +11122,9 @@ if.else82:                                        ; preds = %while.body
   br i1 %call85, label %while.cond, label %if.end88, !llvm.loop !17
 
 if.end88:                                         ; preds = %if.else82, %while.cond, %if.else82.us, %while.cond.us, %if.end61, %if.then79, %land.lhs.true66
-  %type.088 = phi ptr [ %type.089, %if.then79 ], [ %30, %if.end61 ], [ %type.089, %land.lhs.true66 ], [ %type.089, %if.else82.us ], [ %type.089, %while.cond.us ], [ %type.089, %while.cond ], [ %type.089, %if.else82 ]
-  %rest.1 = phi ptr [ %39, %if.then79 ], [ null, %if.end61 ], [ %rest.090, %land.lhs.true66 ], [ null, %if.else82.us ], [ null, %while.cond.us ], [ %rest.090, %while.cond ], [ %rest.090, %if.else82 ]
-  %isFunction.2 = phi i8 [ 1, %if.then79 ], [ 0, %if.end61 ], [ %isFunction.091, %land.lhs.true66 ], [ 1, %if.else82.us ], [ 1, %while.cond.us ], [ 1, %while.cond ], [ 1, %if.else82 ]
+  %type.088 = phi ptr [ %type.089, %if.then79 ], [ %type.089, %land.lhs.true66 ], [ %30, %if.end61 ], [ %type.089, %if.else82.us ], [ %type.089, %while.cond.us ], [ %type.089, %while.cond ], [ %type.089, %if.else82 ]
+  %rest.1 = phi ptr [ %39, %if.then79 ], [ %rest.090, %land.lhs.true66 ], [ null, %if.end61 ], [ null, %if.else82.us ], [ null, %while.cond.us ], [ %rest.090, %while.cond ], [ %rest.090, %if.else82 ]
+  %isFunction.2 = phi i8 [ 1, %if.then79 ], [ %isFunction.091, %land.lhs.true66 ], [ 0, %if.end61 ], [ 1, %if.else82.us ], [ 1, %while.cond.us ], [ 1, %while.cond ], [ 1, %if.else82 ]
   %call91 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, ptr %retval.sroa.0.0.copyload.i.i) #10
   br i1 %call91, label %if.end93, label %return
 
@@ -16646,8 +16646,8 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40: ; preds = %_ZN4llv
   br label %while.body, !llvm.loop !51
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us98, %while.body.us83, %while.body.us50, %land.rhs.i.i.us65, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
-  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
-  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %if.then.i.us ], [ true, %while.body.us50 ], [ true, %land.rhs.i.i.us98 ], [ true, %if.then.i.us.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
+  %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us89, %land.rhs.i.i.us98 ], [ %add.ptr.us56, %while.body.us50 ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us56, %land.rhs.i.i.us65 ], [ %add.ptr.us89, %while.body.us83 ], [ %add.ptr, %land.rhs.i.i ]
+  %retval.0 = phi i1 [ false, %if.then15 ], [ false, %entry ], [ true, %land.rhs.i.i.us98 ], [ true, %while.body.us50 ], [ true, %if.then.i.us.us ], [ true, %if.then.i.us ], [ true, %if.end19.i.us.us ], [ true, %while.body.us.us ], [ true, %if.end19.i.us ], [ true, %land.rhs.i.i.us65 ], [ true, %while.body.us83 ], [ true, %land.rhs.i.i ]
   store ptr %cond.sink, ptr %FoundBucket, align 8
   ret i1 %retval.0
 }

@@ -2794,7 +2794,7 @@ _ZN4llvm9KnownBitsD2Ev.exit181:                   ; preds = %_ZN4llvm5APIntD2Ev.
   br label %.critedge128
 
 .critedge128:                                     ; preds = %121, %_ZNK4llvm4User10getOperandEj.exit, %.lr.ph.split.us.split.us.split.us272, %_ZNK4llvm4User10getOperandEj.exit.us.us, %_ZN4llvm9KnownBitsD2Ev.exit181, %_ZN4llvm9KnownBitsD2Ev.exit162, %387, %386, %.critedge132, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %_ZN4llvm9KnownBitsD2Ev.exit162 ], [ null, %.critedge132 ], [ %390, %387 ], [ null, %386 ], [ null, %.lr.ph.split.us.split.us.split.us272 ], [ null, %_ZNK4llvm4User10getOperandEj.exit.us.us ], [ null, %_ZN4llvm9KnownBitsD2Ev.exit181 ], [ null, %_ZNK4llvm4User10getOperandEj.exit ], [ null, %121 ]
+  %.0 = phi ptr [ null, %1 ], [ null, %_ZN4llvm9KnownBitsD2Ev.exit162 ], [ null, %.critedge132 ], [ %390, %387 ], [ null, %386 ], [ null, %.lr.ph.split.us.split.us.split.us272 ], [ null, %_ZN4llvm9KnownBitsD2Ev.exit181 ], [ null, %_ZNK4llvm4User10getOperandEj.exit.us.us ], [ null, %_ZNK4llvm4User10getOperandEj.exit ], [ null, %121 ]
   ret ptr %.0
 }
 

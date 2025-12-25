@@ -2920,10 +2920,10 @@ SSL_CIPHER_get_bits.exit.us.us:                   ; preds = %32, %.split.i.us.us
   br label %.split.us
 
 .split.us:                                        ; preds = %62, %61, %SSL_CIPHER_get_bits.exit.us.us, %.split.split, %.split.split.us
-  %.us-phi = phi ptr [ %27, %SSL_CIPHER_get_bits.exit.us.us ], [ %74, %.split.split.us ], [ %84, %.split.split ], [ %42, %61 ], [ %42, %62 ]
-  %.us-phi150 = phi ptr [ %28, %SSL_CIPHER_get_bits.exit.us.us ], [ %75, %.split.split.us ], [ %83, %.split.split ], [ %43, %61 ], [ %43, %62 ]
-  %.us-phi151 = phi ptr [ %29, %SSL_CIPHER_get_bits.exit.us.us ], [ %68, %.split.split.us ], [ %77, %.split.split ], [ %44, %61 ], [ %44, %62 ]
-  %.us-phi152 = phi ptr [ %.1146.us.us, %SSL_CIPHER_get_bits.exit.us.us ], [ %.1146.us161, %.split.split.us ], [ %.1146, %.split.split ], [ %.1146.us, %61 ], [ %.1146.us, %62 ]
+  %.us-phi = phi ptr [ %84, %.split.split ], [ %74, %.split.split.us ], [ %27, %SSL_CIPHER_get_bits.exit.us.us ], [ %42, %61 ], [ %42, %62 ]
+  %.us-phi150 = phi ptr [ %83, %.split.split ], [ %75, %.split.split.us ], [ %28, %SSL_CIPHER_get_bits.exit.us.us ], [ %43, %61 ], [ %43, %62 ]
+  %.us-phi151 = phi ptr [ %77, %.split.split ], [ %68, %.split.split.us ], [ %29, %SSL_CIPHER_get_bits.exit.us.us ], [ %44, %61 ], [ %44, %62 ]
+  %.us-phi152 = phi ptr [ %.1146, %.split.split ], [ %.1146.us161, %.split.split.us ], [ %.1146.us.us, %SSL_CIPHER_get_bits.exit.us.us ], [ %.1146.us, %61 ], [ %.1146.us, %62 ]
   switch i32 %6, label %117 [
     i32 1, label %85
     i32 4, label %101

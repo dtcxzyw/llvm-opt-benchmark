@@ -6332,8 +6332,8 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i319.invoke, %if.then.i.i.i.i204, %if.then.i.i.i.i, %invoke.cont43, %for.end35
-  %fields1.sroa.0.1535 = phi ptr [ %fields1.sroa.0.1.lcssa, %if.then.i.i.i319.invoke ], [ %fields1.sroa.0.1549, %if.then.i.i.i.i ], [ %fields1.sroa.0.1.lcssa, %if.then.i.i.i.i204 ], [ %fields1.sroa.0.1.lcssa, %invoke.cont43 ], [ %fields1.sroa.0.1.lcssa, %for.end35 ]
-  %fields2.sroa.0.0.ph.ph.ph.ph.ph.ph = phi ptr [ %fields2.sroa.0.1.lcssa, %if.then.i.i.i319.invoke ], [ %fields2.sroa.19.1, %if.then.i.i.i.i ], [ %fields2.sroa.0.1560, %if.then.i.i.i.i204 ], [ %fields2.sroa.0.1.lcssa, %invoke.cont43 ], [ %fields2.sroa.0.1.lcssa, %for.end35 ]
+  %fields1.sroa.0.1535 = phi ptr [ %fields1.sroa.0.1.lcssa, %if.then.i.i.i.i204 ], [ %fields1.sroa.0.1.lcssa, %if.then.i.i.i319.invoke ], [ %fields1.sroa.0.1549, %if.then.i.i.i.i ], [ %fields1.sroa.0.1.lcssa, %invoke.cont43 ], [ %fields1.sroa.0.1.lcssa, %for.end35 ]
+  %fields2.sroa.0.0.ph.ph.ph.ph.ph.ph = phi ptr [ %fields2.sroa.0.1560, %if.then.i.i.i.i204 ], [ %fields2.sroa.0.1.lcssa, %if.then.i.i.i319.invoke ], [ %fields2.sroa.19.1, %if.then.i.i.i.i ], [ %fields2.sroa.0.1.lcssa, %invoke.cont43 ], [ %fields2.sroa.0.1.lcssa, %for.end35 ]
   %lpad.loopexit.split-lp473 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -6618,7 +6618,7 @@ invoke.cont65:                                    ; preds = %if.end.i229
   br i1 %cmp15.i, label %if.then67, label %if.else
 
 if.then67:                                        ; preds = %while.body.us, %land.lhs.true62.us, %invoke.cont65.us, %while.body, %invoke.cont65, %land.lhs.true62
-  %.us-phi564 = phi i64 [ %sub.ptr.div.i215, %while.body ], [ %index2.0.ph468, %invoke.cont65 ], [ %index2.0.ph468, %land.lhs.true62 ], [ %index2.0.us, %invoke.cont65.us ], [ %index2.0.us, %land.lhs.true62.us ], [ %index2.0.us, %while.body.us ]
+  %.us-phi564 = phi i64 [ %index2.0.ph468, %land.lhs.true62 ], [ %sub.ptr.div.i215, %while.body ], [ %index2.0.ph468, %invoke.cont65 ], [ %index2.0.us, %invoke.cont65.us ], [ %index2.0.us, %land.lhs.true62.us ], [ %index2.0.us, %while.body.us ]
   %40 = load ptr, ptr %23, align 8
   br label %if.end136
 
@@ -6648,9 +6648,9 @@ invoke.cont74:                                    ; preds = %if.end.i239
   br i1 %cmp15.i244, label %if.end136, label %if.else83
 
 if.else83:                                        ; preds = %if.end.i239.us, %invoke.cont74.us, %invoke.cont74, %if.end.i239
-  %.us-phi565 = phi i64 [ %index2.0.ph468, %invoke.cont74 ], [ %index2.0.ph468, %if.end.i239 ], [ %index2.0.us, %invoke.cont74.us ], [ %index2.0.us, %if.end.i239.us ]
-  %.us-phi566 = phi ptr [ %.pre630, %invoke.cont74 ], [ %.pre630, %if.end.i239 ], [ %call72.val.us, %invoke.cont74.us ], [ %call72.val.us, %if.end.i239.us ]
-  %.us-phi567 = phi ptr [ %call73.val, %invoke.cont74 ], [ %call73.val, %if.end.i239 ], [ %call73.val.us, %invoke.cont74.us ], [ %call73.val.us, %if.end.i239.us ]
+  %.us-phi565 = phi i64 [ %index2.0.ph468, %if.end.i239 ], [ %index2.0.ph468, %invoke.cont74 ], [ %index2.0.us, %invoke.cont74.us ], [ %index2.0.us, %if.end.i239.us ]
+  %.us-phi566 = phi ptr [ %.pre630, %if.end.i239 ], [ %.pre630, %invoke.cont74 ], [ %call72.val.us, %invoke.cont74.us ], [ %call72.val.us, %if.end.i239.us ]
+  %.us-phi567 = phi ptr [ %call73.val, %if.end.i239 ], [ %call73.val, %invoke.cont74 ], [ %call73.val.us, %invoke.cont74.us ], [ %call73.val.us, %if.end.i239.us ]
   %type_.i = getelementptr inbounds nuw i8, ptr %.us-phi567, i64 4
   %45 = load i32, ptr %type_.i, align 4
   switch i32 %45, label %if.end136 [
@@ -13661,7 +13661,7 @@ for.end214:                                       ; preds = %for.inc212, %for.co
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then111, %if.then52, %while.end, %invoke.cont29, %for.end214
-  %retval.1 = phi i1 [ %lnot216, %for.end214 ], [ false, %while.end ], [ false, %invoke.cont29 ], [ false, %if.then52 ], [ false, %if.then111 ]
+  %retval.1 = phi i1 [ %lnot216, %for.end214 ], [ false, %invoke.cont29 ], [ false, %while.end ], [ false, %if.then52 ], [ false, %if.then111 ]
   %112 = load ptr, ptr %match_list2, align 8
   %tobool.not.i.i.i396 = icmp eq ptr %112, null
   br i1 %tobool.not.i.i.i396, label %_ZNSt6vectorIiSaIiEED2Ev.exit398, label %if.then.i.i.i397
@@ -14907,8 +14907,8 @@ invoke.cont160:                                   ; preds = %if.end158
   br i1 %cmp.not.i.i225, label %invoke.cont163, label %if.then.i.i226.invoke
 
 if.then.i.i226.invoke:                            ; preds = %invoke.cont46, %if.then44, %invoke.cont160, %if.end158, %invoke.cont153, %land.lhs.true146, %if.then108, %for.body60
-  %101 = phi i64 [ %indvars.iv362, %if.end158 ], [ %indvars.iv358, %if.then108 ], [ %indvars.iv358, %for.body60 ], [ %conv155, %invoke.cont153 ], [ %conv147, %land.lhs.true146 ], [ %conv162, %invoke.cont160 ], [ %indvars.iv, %if.then44 ], [ %indvars.iv, %invoke.cont46 ]
-  %102 = phi i64 [ %sub.ptr.div.i.i.i214, %if.end158 ], [ %sub.ptr.div.i.i.i161, %if.then108 ], [ %sub.ptr.div.i.i.i130, %for.body60 ], [ %sub.ptr.div.i.i.i204, %invoke.cont153 ], [ %sub.ptr.div.i.i.i184, %land.lhs.true146 ], [ %sub.ptr.div.i.i.i224, %invoke.cont160 ], [ %sub.ptr.div.i.i.i120, %invoke.cont46 ], [ %sub.ptr.div.i.i.i, %if.then44 ]
+  %101 = phi i64 [ %indvars.iv358, %if.then108 ], [ %indvars.iv362, %if.end158 ], [ %indvars.iv358, %for.body60 ], [ %conv155, %invoke.cont153 ], [ %conv147, %land.lhs.true146 ], [ %conv162, %invoke.cont160 ], [ %indvars.iv, %if.then44 ], [ %indvars.iv, %invoke.cont46 ]
+  %102 = phi i64 [ %sub.ptr.div.i.i.i161, %if.then108 ], [ %sub.ptr.div.i.i.i214, %if.end158 ], [ %sub.ptr.div.i.i.i130, %for.body60 ], [ %sub.ptr.div.i.i.i204, %invoke.cont153 ], [ %sub.ptr.div.i.i.i184, %land.lhs.true146 ], [ %sub.ptr.div.i.i.i224, %invoke.cont160 ], [ %sub.ptr.div.i.i.i120, %invoke.cont46 ], [ %sub.ptr.div.i.i.i, %if.then44 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.76, i64 noundef %101, i64 noundef %102) #33
           to label %if.then.i.i226.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -19366,7 +19366,7 @@ return.sink.split:                                ; preds = %land.lhs.true, %lan
   br label %return
 
 return:                                           ; preds = %for.inc34, %return.sink.split, %entry, %for.cond11.preheader
-  %retval.0 = phi i1 [ true, %return.sink.split ], [ false, %entry ], [ false, %for.cond11.preheader ], [ false, %for.inc34 ]
+  %retval.0 = phi i1 [ false, %entry ], [ true, %return.sink.split ], [ false, %for.cond11.preheader ], [ false, %for.inc34 ]
   ret i1 %retval.0
 }
 

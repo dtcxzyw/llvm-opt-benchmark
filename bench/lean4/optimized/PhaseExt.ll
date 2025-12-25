@@ -413,8 +413,8 @@ lean_nat_le.exit.thread:                          ; preds = %62
   br label %lean_dec.exit43.backedge
 
 lean_dec.exit43.backedge:                         ; preds = %74, %78, %85, %87, %88
-  %.035.be = phi ptr [ %82, %88 ], [ %82, %87 ], [ %82, %85 ], [ %79, %78 ], [ %77, %74 ]
-  %.032.be = phi ptr [ %81, %88 ], [ %81, %87 ], [ %81, %85 ], [ %70, %78 ], [ %70, %74 ]
+  %.035.be = phi ptr [ %82, %88 ], [ %82, %85 ], [ %82, %87 ], [ %79, %78 ], [ %77, %74 ]
+  %.032.be = phi ptr [ %81, %88 ], [ %81, %85 ], [ %81, %87 ], [ %70, %78 ], [ %70, %74 ]
   br label %lean_dec.exit43
 
 78:                                               ; preds = %69
@@ -3419,7 +3419,7 @@ lean_dec.exit91:                                  ; preds = %117, %116, %114, %l
   br label %lean_dec.exit90.backedge
 
 lean_dec.exit90.backedge:                         ; preds = %121, %125, %131, %133, %134
-  %.079.be = phi ptr [ %128, %134 ], [ %128, %133 ], [ %128, %131 ], [ %126, %125 ], [ %124, %121 ]
+  %.079.be = phi ptr [ %128, %134 ], [ %128, %131 ], [ %128, %133 ], [ %126, %125 ], [ %124, %121 ]
   br label %lean_dec.exit90
 
 125:                                              ; preds = %118

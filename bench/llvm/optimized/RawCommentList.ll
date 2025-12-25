@@ -265,7 +265,7 @@ _ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit.thread: ; preds = 
   br label %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit
 
 _ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit: ; preds = %42, %44, %54, %57, %59
-  %.sroa.0.0.in.i = phi i64 [ %64, %59 ], [ %.0.i, %57 ], [ 1, %44 ], [ 2, %54 ], [ 1, %42 ]
+  %.sroa.0.0.in.i = phi i64 [ 1, %44 ], [ %.0.i, %57 ], [ %64, %59 ], [ 2, %54 ], [ 1, %42 ]
   %.sroa.05.0.extract.trunc = trunc i64 %.sroa.0.0.in.i to i32
   %65 = add i32 %.sroa.05.0.extract.trunc, -1
   %66 = icmp ult i32 %65, 2

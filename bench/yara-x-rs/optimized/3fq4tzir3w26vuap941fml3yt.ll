@@ -43479,8 +43479,8 @@ _ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit
   %.sroa.0156.1 = getelementptr inbounds nuw i8, ptr %.sroa.0156.1707, i64 %.sroa.0156.1.idx
   br i1 %182, label %.loopexit, label %155
 
-_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452: ; preds = %166, %168, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge
-  %183 = phi i64 [ %.pre, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge ], [ %156, %168 ], [ %156, %166 ]
+_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452: ; preds = %168, %166, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge
+  %183 = phi i64 [ %.pre, %_ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit._ZN6yara_x2re4fast6fastvm6FastVM21try_match_literal_bck17h4184f5ecf480171dE.exit.thread452_crit_edge ], [ %156, %166 ], [ %156, %168 ]
   %184 = add i64 %183, %105
   call fastcc void @"_ZN6yara_x2re9bitmapset18BitmapSet$LT$T$GT$6insert17hd952a3ef5fff615bE"(ptr noalias noundef align 8 dereferenceable(104) %51, i64 noundef %184)
   br label %.backedge518

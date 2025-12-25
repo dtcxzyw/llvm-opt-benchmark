@@ -822,7 +822,7 @@ _ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243.sink.split: ; preds 
   br label %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243
 
 _ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243: ; preds = %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243.sink.split, %.noexc241, %.noexc240, %338, %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit, %279
-  %.2174 = phi i32 [ %.1173, %.noexc241 ], [ %.1173, %279 ], [ %.1173, %.noexc240 ], [ %.1173, %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit ], [ %.1173, %338 ], [ %.3175, %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243.sink.split ]
+  %.2174 = phi i32 [ %.1173, %.noexc240 ], [ %.1173, %279 ], [ %.1173, %.noexc241 ], [ %.1173, %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit ], [ %.1173, %338 ], [ %.3175, %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond271.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond271.not, label %._crit_edge265, label %192, !llvm.loop !41
@@ -2061,7 +2061,7 @@ _ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit: ; preds = %159, %154
   br i1 %.not52, label %.thread64, label %.split, !llvm.loop !56
 
 .thread64:                                        ; preds = %.split, %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit, %154, %159, %._crit_edge.us, %34, %32, %.split.us, %_ZN6icu_77L9matches16EPKDsS1_i.exit.i.us82, %74, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us83, %123, %125, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us.us
-  %.1 = phi i32 [ %2, %.split.us ], [ %18, %123 ], [ %18, %_ZN6icu_77L9matches16EPKDsS1_i.exit.i.us82 ], [ %18, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us.us ], [ %18, %125 ], [ %18, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us83 ], [ %18, %74 ], [ %18, %32 ], [ %18, %34 ], [ %2, %._crit_edge.us ], [ %140, %159 ], [ %140, %154 ], [ %2, %.split ], [ %2, %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit ]
+  %.1 = phi i32 [ %2, %._crit_edge.us ], [ %18, %_ZN6icu_77L9matches16EPKDsS1_i.exit.i.us82 ], [ %18, %123 ], [ %18, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us.us ], [ %18, %125 ], [ %18, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us83 ], [ %18, %74 ], [ %18, %32 ], [ %18, %34 ], [ %2, %.split.us ], [ %140, %159 ], [ %140, %154 ], [ %2, %.split ], [ %2, %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit ]
   ret i32 %.1
 }
 
@@ -2988,7 +2988,7 @@ _ZN6icu_77L11spanOneBackERKNS_10UnicodeSetEPKDsi.exit: ; preds = %122, %117
   br i1 %.not40, label %.thread52, label %.split, !llvm.loop !63
 
 .thread52:                                        ; preds = %.split, %_ZN6icu_77L11spanOneBackERKNS_10UnicodeSetEPKDsi.exit, %117, %122, %._crit_edge.us, %33, %31, %.split.us, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us, %88, %86
-  %.1 = phi i32 [ 0, %._crit_edge.us ], [ %13, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us ], [ %13, %86 ], [ %13, %88 ], [ %13, %31 ], [ %13, %33 ], [ 0, %.split.us ], [ 0, %_ZN6icu_77L11spanOneBackERKNS_10UnicodeSetEPKDsi.exit ], [ %99, %122 ], [ %99, %117 ], [ 0, %.split ]
+  %.1 = phi i32 [ 0, %._crit_edge.us ], [ %13, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.us ], [ %13, %86 ], [ %13, %88 ], [ %13, %31 ], [ %13, %33 ], [ 0, %.split.us ], [ %99, %117 ], [ 0, %.split ], [ 0, %_ZN6icu_77L11spanOneBackERKNS_10UnicodeSetEPKDsi.exit ], [ %99, %122 ]
   ret i32 %.1
 }
 

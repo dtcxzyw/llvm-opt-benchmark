@@ -8047,8 +8047,8 @@ define hidden i32 @psa_key_derivation_output_key_custom(ptr noundef readonly cap
   br i1 %.not46.i.i, label %psa_generate_derived_ecc_key_weierstrass_helper.exit.i, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %81, %77, %72, %70, %84, %._crit_edge.i.i, %61, %54, %52, %45
-  %.4.i = phi ptr [ null, %45 ], [ null, %61 ], [ %62, %84 ], [ %62, %._crit_edge.i.i ], [ null, %52 ], [ null, %54 ], [ %62, %72 ], [ %62, %70 ], [ %62, %77 ], [ %62, %81 ]
-  %.051.i.i = phi i32 [ -104, %45 ], [ -106, %61 ], [ %85, %84 ], [ %83, %._crit_edge.i.i ], [ %53, %52 ], [ %60, %54 ], [ %73, %72 ], [ %71, %70 ], [ %82, %81 ], [ %80, %77 ]
+  %.4.i = phi ptr [ null, %45 ], [ null, %61 ], [ %62, %84 ], [ %62, %._crit_edge.i.i ], [ null, %54 ], [ null, %52 ], [ %62, %72 ], [ %62, %70 ], [ %62, %77 ], [ %62, %81 ]
+  %.051.i.i = phi i32 [ -104, %45 ], [ -106, %61 ], [ %85, %84 ], [ %83, %._crit_edge.i.i ], [ %60, %54 ], [ %53, %52 ], [ %73, %72 ], [ %71, %70 ], [ %82, %81 ], [ %80, %77 ]
   %86 = call i32 @mbedtls_to_psa_error(i32 noundef %.051.i.i)
   %.not47.i.i = icmp eq i32 %86, 0
   br i1 %.not47.i.i, label %psa_generate_derived_ecc_key_weierstrass_helper.exit.i, label %.thread56.i.i
@@ -9102,7 +9102,7 @@ psa_key_derivation_check_input_type.exit:         ; preds = %220, %psa_tls12_prf
   br i1 %.not33, label %psa_key_derivation_check_input_type.exit.thread51, label %psa_key_derivation_check_input_type.exit.thread46
 
 psa_key_derivation_check_input_type.exit.thread46: ; preds = %14, %13, %12, %5, %15, %229, %225, %209, %167, %170, %213, %psa_key_derivation_check_input_type.exit
-  %.03049 = phi i32 [ %.030, %psa_key_derivation_check_input_type.exit ], [ -135, %229 ], [ -135, %225 ], [ -137, %209 ], [ -135, %167 ], [ -141, %170 ], [ -135, %13 ], [ -135, %14 ], [ -141, %213 ], [ -135, %12 ], [ -135, %15 ], [ -135, %5 ]
+  %.03049 = phi i32 [ %.030, %psa_key_derivation_check_input_type.exit ], [ -135, %229 ], [ -135, %225 ], [ -137, %209 ], [ -135, %167 ], [ -141, %170 ], [ -135, %12 ], [ -135, %13 ], [ -141, %213 ], [ -135, %14 ], [ -135, %15 ], [ -135, %5 ]
   %233 = call i32 @psa_key_derivation_abort(ptr noundef nonnull %0)
   br label %psa_key_derivation_check_input_type.exit.thread51
 
@@ -9269,7 +9269,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %14
   br label %psa_key_agreement_raw_internal.exit.i
 
 psa_key_agreement_raw_internal.exit.i:            ; preds = %38, %36
-  %.0.i.i = phi i32 [ %37, %36 ], [ %39, %38 ]
+  %.0.i.i = phi i32 [ %39, %38 ], [ %37, %36 ]
   %.not.i26 = icmp eq i32 %.0.i.i, 0
   %.pre11.i = load i64, ptr %7, align 8, !tbaa !25
   br i1 %.not.i26, label %psa_crypto_local_input_alloc.exit, label %psa_crypto_local_input_alloc.exit.thread51

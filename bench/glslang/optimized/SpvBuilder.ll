@@ -39802,38 +39802,38 @@ _ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormali
 
 33:                                               ; preds = %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
   switch i32 %1, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit [
-    i32 1, label %36
-    i32 2, label %46
-    i32 3, label %34
+    i32 1, label %38
+    i32 2, label %34
+    i32 3, label %36
   ]
 
 34:                                               ; preds = %33
-  %35 = icmp slt i32 %.sroa.0.0.copyload.i.i.i, 0
+  %35 = icmp sgt i32 %.sroa.0.0.copyload.i.i.i, -1
   br i1 %35, label %.critedge18, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit
 
 36:                                               ; preds = %33
-  %37 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE17first_rounded_bit, align 4
-  %38 = and i32 %37, %30
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit, label %40
+  %37 = icmp slt i32 %.sroa.0.0.copyload.i.i.i, 0
+  br i1 %37, label %.critedge18, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit
 
-40:                                               ; preds = %36
-  %41 = xor i32 %37, -1
-  %42 = and i32 %31, %41
-  %.not15 = icmp eq i32 %42, 0
-  br i1 %.not15, label %43, label %.critedge18
+38:                                               ; preds = %33
+  %39 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE17first_rounded_bit, align 4
+  %40 = and i32 %39, %30
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit, label %42
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE20last_significant_bit, align 4
-  %45 = and i32 %44, %30
-  %.not16.not = icmp eq i32 %45, 0
+42:                                               ; preds = %38
+  %43 = xor i32 %39, -1
+  %44 = and i32 %31, %43
+  %.not15 = icmp eq i32 %44, 0
+  br i1 %.not15, label %45, label %.critedge18
+
+45:                                               ; preds = %42
+  %46 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE20last_significant_bit, align 4
+  %47 = and i32 %46, %30
+  %.not16.not = icmp eq i32 %47, 0
   br i1 %.not16.not, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit, label %.critedge18
 
-46:                                               ; preds = %33
-  %47 = icmp sgt i32 %.sroa.0.0.copyload.i.i.i, -1
-  br i1 %47, label %.critedge18, label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit
-
-.critedge18:                                      ; preds = %34, %43, %40, %46
+.critedge18:                                      ; preds = %36, %34, %42, %45
   %48 = load i32, ptr @_ZZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoundedNormalizedSignificandINS0_INS1_INS_7Float16EEENS3_IS8_EEEEEENT_9uint_typeENS_15round_directionEPbE20last_significant_bit, align 4
   %49 = add i32 %48, %30
   %50 = and i32 %49, 8388608
@@ -39846,8 +39846,8 @@ _ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormali
   %53 = and i32 %52, 2143289343
   br label %_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit
 
-_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit: ; preds = %46, %36, %33, %43, %34, %51, %.critedge18, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
-  %.012.in.in = phi i32 [ %49, %.critedge18 ], [ %30, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit ], [ %53, %51 ], [ %30, %34 ], [ %30, %43 ], [ %30, %33 ], [ %30, %36 ], [ %30, %46 ]
+_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE20incrementSignificandEjjPb.exit: ; preds = %45, %38, %33, %34, %36, %51, %.critedge18, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit
+  %.012.in.in = phi i32 [ %49, %.critedge18 ], [ %30, %_ZNK8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE24getNormalizedSignificandEv.exit ], [ %53, %51 ], [ %30, %36 ], [ %30, %34 ], [ %30, %33 ], [ %30, %38 ], [ %30, %45 ]
   %.012.in = lshr i32 %.012.in.in, 13
   %.012 = trunc i32 %.012.in to i16
   ret i16 %.012

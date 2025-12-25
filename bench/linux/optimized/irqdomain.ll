@@ -1787,7 +1787,7 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
   br i1 %150, label %.loopexit30, label %.preheader29, !llvm.loop !58
 
 .thread:                                          ; preds = %.preheader33, %.preheader32, %100, %.loopexit41, %72
-  %151 = phi i32 [ %73, %72 ], [ -38, %.loopexit41 ], [ -22, %.preheader32 ], [ -22, %100 ], [ -22, %.preheader33 ]
+  %151 = phi i32 [ %73, %72 ], [ -22, %.preheader32 ], [ -38, %.loopexit41 ], [ -22, %100 ], [ -22, %.preheader33 ]
   br i1 %20, label %.loopexit26, label %.preheader25
 
 .preheader25:                                     ; preds = %.thread, %.loopexit

@@ -19699,7 +19699,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i.i: ; preds = 
   br label %158
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread.i.i": ; preds = %203, %180, %.noexc9.i.i, %.preheader.i.i.i.i, %171
-  %.promoted.i1962.i.i = phi i64 [ %.promoted.i1978.i.i, %180 ], [ %.promoted.i1978.i.i, %171 ], [ %.promoted.i1978.i.i, %.preheader.i.i.i.i ], [ %.promoted.i1978.i.i, %.noexc9.i.i ], [ %178, %203 ]
+  %.promoted.i1962.i.i = phi i64 [ %.promoted.i1978.i.i, %171 ], [ %.promoted.i1978.i.i, %180 ], [ %.promoted.i1978.i.i, %.preheader.i.i.i.i ], [ %.promoted.i1978.i.i, %.noexc9.i.i ], [ %178, %203 ]
   %gepdiff50.i.i = sub nsw i64 %157, %.promoted.i1962.i.i
   %183 = load i64, ptr %.sroa.55.0..sroa_idx.i.i, align 8, !alias.scope !5134, !noalias !5103, !noundef !9
   %184 = load i64, ptr %24, align 8, !alias.scope !5134, !noalias !5103, !noundef !9
@@ -43033,8 +43033,8 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   br label %.loopexit69.i
 
 .loopexit.i:                                      ; preds = %180, %65, %21, %.sink.split.i.us.i, %120, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i"
-  %195 = phi i64 [ %17, %65 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %17, %120 ], [ %17, %.sink.split.i.us.i ], [ %17, %21 ], [ %126, %180 ]
-  %.sroa.0.0110.i = phi i64 [ %.sroa.0.0.us.i, %65 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %.sroa.0.0.us.i, %120 ], [ %.sroa.0.0.us.i, %.sink.split.i.us.i ], [ %.sroa.0.0.us.i, %21 ], [ %.sroa.0.0146.i, %180 ]
+  %195 = phi i64 [ %17, %65 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %17, %.sink.split.i.us.i ], [ %17, %120 ], [ %17, %21 ], [ %126, %180 ]
+  %.sroa.0.0110.i = phi i64 [ %.sroa.0.0.us.i, %65 ], [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i" ], [ %.sroa.0.0.us.i, %.sink.split.i.us.i ], [ %.sroa.0.0.us.i, %120 ], [ %.sroa.0.0.us.i, %21 ], [ %.sroa.0.0146.i, %180 ]
   %gepdiff64.i = sub nsw i64 %2, %.sroa.0.0110.i
   %196 = load i64, ptr %5, align 8, !alias.scope !11922, !noalias !11862, !noundef !9
   %197 = sub i64 %196, %195

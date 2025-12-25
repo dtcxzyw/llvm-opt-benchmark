@@ -907,12 +907,12 @@ verify_layout.exit358.thread:                     ; preds = %.lr.ph.i353, %390, 
   br label %.thread
 
 472:                                              ; preds = %._crit_edge688, %276
-  %473 = phi ptr [ %277, %276 ], [ %.pre, %._crit_edge688 ]
-  %.5193 = phi i64 [ %.3191545, %276 ], [ %288, %._crit_edge688 ]
-  %.6187 = phi i64 [ %.4185546, %276 ], [ %326, %._crit_edge688 ]
-  %.6180 = phi i64 [ %.4178547, %276 ], [ %307, %._crit_edge688 ]
-  %.6173 = phi i64 [ %.4171548, %276 ], [ %345, %._crit_edge688 ]
-  %.7 = phi i32 [ %.5549, %276 ], [ %.9, %._crit_edge688 ]
+  %473 = phi ptr [ %.pre, %._crit_edge688 ], [ %277, %276 ]
+  %.5193 = phi i64 [ %288, %._crit_edge688 ], [ %.3191545, %276 ]
+  %.6187 = phi i64 [ %326, %._crit_edge688 ], [ %.4185546, %276 ]
+  %.6180 = phi i64 [ %307, %._crit_edge688 ], [ %.4178547, %276 ]
+  %.6173 = phi i64 [ %345, %._crit_edge688 ], [ %.4171548, %276 ]
+  %.7 = phi i32 [ %.9, %._crit_edge688 ], [ %.5549, %276 ]
   %474 = add i32 %.1161550, 1
   %475 = zext i32 %474 to i64
   %476 = getelementptr inbounds nuw i8, ptr %473, i64 16

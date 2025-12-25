@@ -3076,7 +3076,7 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
   br label %.loopexit.i.i
 
 .critedge.i.i:                                    ; preds = %321, %204, %160, %.sink.split.i.us.i.i, %263, %"_ZN59_$LT$$RF$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h25a965012e3c280eE.exit.split.i.i"
-  %.sroa.07.0174.i.i = phi i64 [ %.sroa.07.0.us.i.i, %204 ], [ 0, %"_ZN59_$LT$$RF$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h25a965012e3c280eE.exit.split.i.i" ], [ %.sroa.07.0.us.i.i, %263 ], [ %.sroa.07.0.us.i.i, %.sink.split.i.us.i.i ], [ %.sroa.07.0.us.i.i, %160 ], [ %.sroa.07.0210.i.i, %321 ]
+  %.sroa.07.0174.i.i = phi i64 [ %.sroa.07.0.us.i.i, %204 ], [ 0, %"_ZN59_$LT$$RF$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h25a965012e3c280eE.exit.split.i.i" ], [ %.sroa.07.0.us.i.i, %.sink.split.i.us.i.i ], [ %.sroa.07.0.us.i.i, %263 ], [ %.sroa.07.0.us.i.i, %160 ], [ %.sroa.07.0210.i.i, %321 ]
   %gepdiff129.i.i = sub nsw i64 %143, %.sroa.07.0174.i.i
   %336 = load i64, ptr %.sroa.515.0..sroa_idx.i.i, align 8, !alias.scope !365, !noalias !308, !noundef !4
   %337 = load i64, ptr %25, align 8, !range !106, !alias.scope !365, !noalias !308, !noundef !4

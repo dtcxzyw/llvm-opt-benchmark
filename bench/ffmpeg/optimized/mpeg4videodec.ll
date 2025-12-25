@@ -3177,8 +3177,8 @@ get_vlc2.exit223.i:                               ; preds = %246, %229
   br i1 %exitcond.i, label %.thread248.i, label %340, !llvm.loop !141
 
 .thread244.i:                                     ; preds = %328, %276
-  %.sink471.i = phi ptr [ %282, %276 ], [ %333, %328 ]
-  %.sink469.i = phi i16 [ 0, %276 ], [ %336, %328 ]
+  %.sink471.i = phi ptr [ %333, %328 ], [ %282, %276 ]
+  %.sink469.i = phi i16 [ %336, %328 ], [ 0, %276 ]
   %356 = getelementptr i8, ptr %.sink471.i, i64 6
   store i16 %.sink469.i, ptr %356, align 2, !tbaa !76
   %357 = getelementptr i8, ptr %.sink471.i, i64 2
@@ -10929,8 +10929,8 @@ mpeg4_decode_dpcm_macroblock.exit:                ; preds = %.thread.i, %455, %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %413, i32 noundef 16, ptr noundef nonnull %.str.135.sink.i) #16
   br label %next_start_code_studio.exit
 
-.loopexit:                                        ; preds = %._crit_edge.us.i, %.preheader.i, %.lr.ph118.i
-  %548 = phi i32 [ %469, %.lr.ph118.i ], [ %469, %.preheader.i ], [ %520, %._crit_edge.us.i ]
+.loopexit:                                        ; preds = %._crit_edge.us.i, %.lr.ph118.i, %.preheader.i
+  %548 = phi i32 [ %469, %.preheader.i ], [ %469, %.lr.ph118.i ], [ %520, %._crit_edge.us.i ]
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next111, 3
   br i1 %exitcond.not, label %.loopexit58, label %433, !llvm.loop !269
@@ -11017,7 +11017,7 @@ align_get_bits.exit.i:                            ; preds = %561
   br label %next_start_code_studio.exit
 
 next_start_code_studio.exit:                      ; preds = %349, %327, %302, %574, %.lr.ph.i, %check_marker.exit.thread.i, %269, %align_get_bits.exit.i, %mpeg4_decode_dpcm_macroblock.exit, %582, %578, %.thread56
-  %.032 = phi i32 [ -2, %574 ], [ -2, %582 ], [ -1094995529, %mpeg4_decode_dpcm_macroblock.exit ], [ -2, %578 ], [ 0, %.thread56 ], [ -2, %align_get_bits.exit.i ], [ -1094995529, %check_marker.exit.thread.i ], [ -1094995529, %269 ], [ -2, %.lr.ph.i ], [ -1094995529, %302 ], [ -1094995529, %327 ], [ -1094995529, %349 ]
+  %.032 = phi i32 [ -1094995529, %check_marker.exit.thread.i ], [ -2, %582 ], [ -1094995529, %mpeg4_decode_dpcm_macroblock.exit ], [ -2, %578 ], [ 0, %.thread56 ], [ -2, %align_get_bits.exit.i ], [ -2, %574 ], [ -1094995529, %269 ], [ -2, %.lr.ph.i ], [ -1094995529, %302 ], [ -1094995529, %327 ], [ -1094995529, %349 ]
   ret i32 %.032
 }
 
@@ -12536,7 +12536,7 @@ get_vlc2.exit:                                    ; preds = %632, %650
   br label %.loopexit501
 
 .loopexit501:                                     ; preds = %319, %326, %282, %276, %.loopexit504, %766, %.thread494, %.loopexit, %794, %789, %303, %291, %812, %820, %714, %671, %165, %110
-  %.1 = phi i32 [ -1094995529, %766 ], [ -1094995529, %789 ], [ -2, %820 ], [ 0, %812 ], [ -2, %794 ], [ -1094995529, %110 ], [ -1094995529, %714 ], [ -1094995529, %282 ], [ -1094995529, %165 ], [ 0, %.loopexit ], [ -1094995529, %.loopexit504 ], [ -1094995529, %291 ], [ -1094995529, %671 ], [ -1094995529, %.thread494 ], [ -1094995529, %303 ], [ -1094995529, %276 ], [ -1094995529, %326 ], [ -1094995529, %319 ]
+  %.1 = phi i32 [ -1094995529, %766 ], [ -1094995529, %789 ], [ -2, %820 ], [ 0, %812 ], [ -2, %794 ], [ -1094995529, %110 ], [ -1094995529, %714 ], [ -1094995529, %.thread494 ], [ -1094995529, %165 ], [ 0, %.loopexit ], [ -1094995529, %.loopexit504 ], [ -1094995529, %291 ], [ -1094995529, %671 ], [ -1094995529, %282 ], [ -1094995529, %303 ], [ -1094995529, %276 ], [ -1094995529, %326 ], [ -1094995529, %319 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1

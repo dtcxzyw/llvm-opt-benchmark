@@ -2823,7 +2823,7 @@ H5S_select_iter_init.exit.thread:                 ; preds = %123, %H5S_select_it
   br label %.thread190
 
 .thread190:                                       ; preds = %261, %259, %.lr.ph295, %222, %.lr.ph297, %.lr.ph300, %.lr.ph303, %278, %268, %255, %245, %182, %172, %162
-  %.6.ph = phi i32 [ -1, %182 ], [ -1, %162 ], [ 0, %.lr.ph300 ], [ -1, %172 ], [ 0, %.lr.ph297 ], [ -1, %278 ], [ -1, %268 ], [ 0, %.lr.ph303 ], [ -1, %255 ], [ -1, %245 ], [ 0, %.lr.ph295 ], [ 0, %222 ], [ 0, %261 ], [ 1, %259 ]
+  %.6.ph = phi i32 [ 0, %.lr.ph300 ], [ -1, %162 ], [ -1, %182 ], [ -1, %172 ], [ 0, %.lr.ph297 ], [ -1, %278 ], [ -1, %268 ], [ 0, %.lr.ph295 ], [ -1, %255 ], [ -1, %245 ], [ 0, %.lr.ph303 ], [ 0, %222 ], [ 1, %259 ], [ 0, %261 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4442,7 +4442,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Sselect_project_intersection(i
   br label %93
 
 93:                                               ; preds = %89, %81
-  %94 = phi ptr [ %86, %89 ], [ %.pre57, %81 ]
+  %94 = phi ptr [ %.pre57, %81 ], [ %86, %89 ]
   %.not56 = icmp eq ptr %94, null
   br i1 %.not56, label %.thread53, label %95
 

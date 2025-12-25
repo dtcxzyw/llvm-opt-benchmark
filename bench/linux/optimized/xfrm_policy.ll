@@ -6486,8 +6486,8 @@ select.unfold:                                    ; preds = %.thread61, %56, %.t
   br i1 %521, label %.thread90, label %.preheader, !llvm.loop !63
 
 .thread90:                                        ; preds = %.preheader94, %480, %.thread92, %479, %354, %.thread81
-  %522 = phi ptr [ %188, %354 ], [ %.ph84, %.thread81 ], [ %.ph84, %.thread92 ], [ %188, %479 ], [ %188, %480 ], [ %188, %.preheader94 ]
-  %523 = phi i32 [ -19, %354 ], [ %.ph85, %.thread81 ], [ %.ph85, %.thread92 ], [ -22, %479 ], [ %483, %480 ], [ -22, %.preheader94 ]
+  %522 = phi ptr [ %188, %354 ], [ %.ph84, %.thread81 ], [ %188, %479 ], [ %.ph84, %.thread92 ], [ %188, %480 ], [ %188, %.preheader94 ]
+  %523 = phi i32 [ -19, %354 ], [ %.ph85, %.thread81 ], [ -22, %479 ], [ %.ph85, %.thread92 ], [ %483, %480 ], [ -22, %.preheader94 ]
   %524 = icmp eq ptr %522, null
   br i1 %524, label %526, label %525
 
@@ -8557,7 +8557,7 @@ define internal noundef ptr @xfrm_dst_check(ptr noundef %0, i32 %1) #1 align 16 
   br label %171
 
 171:                                              ; preds = %163, %168
-  %172 = phi ptr [ null, %163 ], [ %170, %168 ]
+  %172 = phi ptr [ %170, %168 ], [ null, %163 ]
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %174 = load ptr, ptr %173, align 8
   %175 = icmp eq ptr %174, null
@@ -8606,7 +8606,7 @@ define internal noundef ptr @xfrm_dst_check(ptr noundef %0, i32 %1) #1 align 16 
   br i1 %207, label %.sink.split, label %.preheader, !llvm.loop !86
 
 .sink.split:                                      ; preds = %135, %69, %59, %.preheader10, %.preheader, %35, %41, %46, %176, %178
-  %.ph = phi ptr [ %0, %46 ], [ null, %35 ], [ %0, %178 ], [ %0, %176 ], [ %0, %.preheader ], [ null, %41 ], [ null, %.preheader10 ], [ null, %59 ], [ null, %69 ], [ null, %135 ]
+  %.ph = phi ptr [ %0, %46 ], [ null, %35 ], [ %0, %178 ], [ %0, %176 ], [ null, %41 ], [ %0, %.preheader ], [ null, %.preheader10 ], [ null, %59 ], [ null, %69 ], [ null, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %208
 
@@ -10822,8 +10822,8 @@ define internal fastcc ptr @xfrm_policy_inexact_insert_node(ptr noundef readonly
   br label %119
 
 119:                                              ; preds = %116, %102, %98
-  %120 = phi ptr [ %101, %116 ], [ %101, %102 ], [ %88, %98 ]
-  %121 = phi i32 [ %118, %116 ], [ %103, %102 ], [ %100, %98 ]
+  %120 = phi ptr [ %88, %98 ], [ %101, %102 ], [ %101, %116 ]
+  %121 = phi i32 [ %100, %98 ], [ %103, %102 ], [ %118, %116 ]
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %.thread37, label %.thread39, !llvm.loop !133
 
@@ -11683,7 +11683,7 @@ define internal fastcc ptr @xfrm_policy_lookup_inexact_addr(ptr noundef %0, ptr 
   br i1 %96, label %.thread16, label %.split
 
 .thread16:                                        ; preds = %._crit_edge.split.split.us.us, %79, %64, %._crit_edge.split.us.us, %.lr.ph.us, %32, %94, %.loopexit
-  %97 = phi ptr [ %49, %79 ], [ %16, %.lr.ph.us ], [ %92, %.loopexit ], [ null, %._crit_edge.split.us.us ], [ null, %94 ], [ %16, %32 ], [ %49, %64 ], [ null, %._crit_edge.split.split.us.us ]
+  %97 = phi ptr [ null, %94 ], [ %49, %79 ], [ null, %._crit_edge.split.us.us ], [ %16, %.lr.ph.us ], [ %92, %.loopexit ], [ %16, %32 ], [ %49, %64 ], [ null, %._crit_edge.split.split.us.us ]
   ret ptr %97
 }
 

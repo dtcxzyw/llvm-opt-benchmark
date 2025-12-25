@@ -1160,7 +1160,7 @@ define internal i32 @ext4_readdir(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %.thread37
 
 442:                                              ; preds = %.loopexit58, %399, %436
-  %443 = phi i32 [ %324, %399 ], [ %299, %.loopexit58 ], [ %405, %436 ]
+  %443 = phi i32 [ %405, %436 ], [ %299, %.loopexit58 ], [ %324, %399 ]
   %444 = load i64, ptr %98, align 8
   store i64 %444, ptr %118, align 8
   %445 = tail call i32 @llvm.smin.i32(i32 %443, i32 0)

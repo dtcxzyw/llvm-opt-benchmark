@@ -10170,7 +10170,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !1196
 
 _ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i, %25
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %20, %25 ]
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %20, %25 ], [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %27 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %20
   br label %_ZNK5clang4Decl7hasAttrINS_10BlocksAttrEEEbv.exit.thread
 

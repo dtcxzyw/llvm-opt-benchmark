@@ -2354,7 +2354,7 @@ define internal noundef range(i32 -2, 1) i32 @ieee80211_get_key(ptr readnone cap
   br label %70
 
 70:                                               ; preds = %67, %58
-  %71 = phi ptr [ %69, %67 ], [ %61, %58 ]
+  %71 = phi ptr [ %61, %58 ], [ %69, %67 ]
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.thread, label %73
 
@@ -2718,7 +2718,7 @@ define internal noundef range(i32 -2, 1) i32 @ieee80211_del_key(ptr readnone cap
   br label %65
 
 65:                                               ; preds = %62, %53
-  %66 = phi ptr [ %64, %62 ], [ %56, %53 ]
+  %66 = phi ptr [ %56, %53 ], [ %64, %62 ]
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread, label %68
 

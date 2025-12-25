@@ -36800,7 +36800,7 @@ _ZNK5clang7targets13X86TargetInfo30validateGlobalRegisterVariableEN4llvm9StringR
   br label %_ZNK5clang7targets13X86TargetInfo30validateGlobalRegisterVariableEN4llvm9StringRefEjRb.exit
 
 _ZNK5clang7targets13X86TargetInfo30validateGlobalRegisterVariableEN4llvm9StringRefEjRb.exit: ; preds = %_ZNK5clang7targets13X86TargetInfo30validateGlobalRegisterVariableEN4llvm9StringRefEjRb.exit.sink.split, %5, %_ZN4llvmeqENS_9StringRefES0_.exit9.i
-  %.0 = phi i1 [ false, %5 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit9.i ], [ true, %_ZNK5clang7targets13X86TargetInfo30validateGlobalRegisterVariableEN4llvm9StringRefEjRb.exit.sink.split ]
+  %.0 = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit9.i ], [ false, %5 ], [ true, %_ZNK5clang7targets13X86TargetInfo30validateGlobalRegisterVariableEN4llvm9StringRefEjRb.exit.sink.split ]
   ret i1 %.0
 }
 

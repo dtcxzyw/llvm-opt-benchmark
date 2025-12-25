@@ -251,7 +251,7 @@ bytestream2_put_be32.exit:                        ; preds = %41, %45
   br label %.critedge3.loopexit.i
 
 .critedge.i:                                      ; preds = %.critedge1190.i, %.critedge3.loopexit.i, %105, %.lr.ph1350.i, %.critedge3.preheader.i
-  %.11083.i = phi i32 [ 0, %.critedge3.preheader.i ], [ 0, %.lr.ph1350.i ], [ %.0108213451368.i, %105 ], [ 256, %.critedge1190.i ], [ %96, %.critedge3.loopexit.i ]
+  %.11083.i = phi i32 [ %.0108213451368.i, %105 ], [ 0, %.lr.ph1350.i ], [ 0, %.critedge3.preheader.i ], [ 256, %.critedge1190.i ], [ %96, %.critedge3.loopexit.i ]
   %121 = icmp sgt i32 %.09641628.fr.i, 0
   %122 = icmp slt i32 %.09641628.fr.i, %69
   %or.cond11921384.i = and i1 %121, %122

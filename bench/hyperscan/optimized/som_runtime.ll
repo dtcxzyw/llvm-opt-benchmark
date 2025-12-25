@@ -4169,7 +4169,7 @@ mmbit_get_flat_block.exit264:                     ; preds = %265, %268, %271, %2
   br label %.backedge
 
 mmbit_iterate.exit56:                             ; preds = %309, %196, %.thread334, %249, %286
-  %.011.i55 = phi i32 [ %254, %249 ], [ %289, %286 ], [ %241, %.thread334 ], [ %198, %196 ], [ %313, %309 ]
+  %.011.i55 = phi i32 [ %241, %.thread334 ], [ %289, %286 ], [ %254, %249 ], [ %198, %196 ], [ %313, %309 ]
   %.not.i = icmp eq i32 %.011.i55, -1
   br i1 %.not.i, label %.critedge32.i, label %163
 
@@ -4736,7 +4736,7 @@ mmbit_get_flat_block.exit284:                     ; preds = %575, %578, %581, %5
   br label %.backedge445
 
 mmbit_iterate.exit66:                             ; preds = %619, %506, %.thread370, %559, %596
-  %.011.i65 = phi i32 [ %564, %559 ], [ %599, %596 ], [ %551, %.thread370 ], [ %508, %506 ], [ %623, %619 ]
+  %.011.i65 = phi i32 [ %551, %.thread370 ], [ %599, %596 ], [ %564, %559 ], [ %508, %506 ], [ %623, %619 ]
   %.not.i39 = icmp eq i32 %.011.i65, -1
   br i1 %.not.i39, label %._crit_edge469, label %477
 
@@ -5291,7 +5291,7 @@ mmbit_get_flat_block.exit304:                     ; preds = %873, %876, %879, %8
   br label %.backedge442
 
 mmbit_iterate.exit76:                             ; preds = %917, %804, %.thread408, %857, %894
-  %.011.i75 = phi i32 [ %862, %857 ], [ %897, %894 ], [ %849, %.thread408 ], [ %806, %804 ], [ %921, %917 ]
+  %.011.i75 = phi i32 [ %849, %.thread408 ], [ %897, %894 ], [ %862, %857 ], [ %806, %804 ], [ %921, %917 ]
   %.not.i46.not = icmp eq i32 %.011.i75, -1
   br i1 %.not.i46.not, label %.critedge32.i49, label %771
 

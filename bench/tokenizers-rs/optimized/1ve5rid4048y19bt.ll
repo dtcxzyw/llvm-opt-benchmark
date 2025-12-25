@@ -14898,7 +14898,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h22
   br label %.loopexit.i.i.i.i
 
 "_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h06f1317c82bbf717E.exit.thread.i.i.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread.i.i.i.i.i.i.i", %96, %53, %217, %.sink.split.i.us.i.i.i.i, %160, %.split.i.i.i.i
-  %.0146.i.i.i.i = phi i64 [ %.0.us.i.i.i.i, %96 ], [ %.0.us.i.i.i.i, %160 ], [ %.0.us.i.i.i.i, %.sink.split.i.us.i.i.i.i ], [ %.0186.i.i.i.i, %217 ], [ 0, %.split.i.i.i.i ], [ %.0.us.i.i.i.i, %53 ], [ %.0186.i.i.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread.i.i.i.i.i.i.i" ]
+  %.0146.i.i.i.i = phi i64 [ %.0.us.i.i.i.i, %96 ], [ %.0.us.i.i.i.i, %160 ], [ %.0186.i.i.i.i, %217 ], [ 0, %.split.i.i.i.i ], [ %.0.us.i.i.i.i, %.sink.split.i.us.i.i.i.i ], [ %.0.us.i.i.i.i, %53 ], [ %.0186.i.i.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.llvm.12993343960315125427.exit.thread.i.i.i.i.i.i.i" ]
   %231 = sub i64 %31, %.0146.i.i.i.i
   %232 = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !4680, !noalias !4689, !noundef !14
   %233 = load i64, ptr %11, align 8, !alias.scope !4680, !noalias !4689, !noundef !14

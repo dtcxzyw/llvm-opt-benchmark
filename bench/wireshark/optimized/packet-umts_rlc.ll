@@ -1599,7 +1599,7 @@ define internal fastcc void @rlc_call_subdissector(i32 noundef range(i32 0, 9) %
   br label %.critedge
 
 13:                                               ; preds = %4, %4, %4, %10, %11, %4
-  %.039 = phi i32 [ %0, %4 ], [ 1, %10 ], [ 6, %11 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ]
+  %.039 = phi i32 [ 6, %11 ], [ 1, %10 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ]
   %14 = call ptr @wmem_file_scope()
   %15 = load i32, ptr @proto_fp, align 4
   %16 = call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef 0)

@@ -111473,8 +111473,8 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitESt4pairIN12_GLOBAL__N_16InvB
   resume { ptr, i32 } %239
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairIN12_GLOBAL__N_16InvBitEPNS2_4WireEENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj.exit: ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i, %58, %.noexc28, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitESt4pairIN12_GLOBAL__N_16InvBitEPNS3_4WireEENS1_8hash_opsIS4_EEE7entry_tESaISE_EE12emplace_backIJS5_IS4_SA_ERiEEERSE_DpOT_.exit.i
-  %.val14 = phi ptr [ %.val8.pre.i, %.noexc28 ], [ %.val.i20, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitESt4pairIN12_GLOBAL__N_16InvBitEPNS3_4WireEENS1_8hash_opsIS4_EEE7entry_tESaISE_EE12emplace_backIJS5_IS4_SA_ERiEEERSE_DpOT_.exit.i ], [ %.val20.i, %58 ], [ %.val20.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i ]
-  %.08 = phi i32 [ %.pre50.i, %.noexc28 ], [ %235, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitESt4pairIN12_GLOBAL__N_16InvBitEPNS3_4WireEENS1_8hash_opsIS4_EEE7entry_tESaISE_EE12emplace_backIJS5_IS4_SA_ERiEEERSE_DpOT_.exit.i ], [ %.022.i.us, %58 ], [ %.022.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i ]
+  %.val14 = phi ptr [ %.val.i20, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitESt4pairIN12_GLOBAL__N_16InvBitEPNS3_4WireEENS1_8hash_opsIS4_EEE7entry_tESaISE_EE12emplace_backIJS5_IS4_SA_ERiEEERSE_DpOT_.exit.i ], [ %.val8.pre.i, %.noexc28 ], [ %.val20.i, %58 ], [ %.val20.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i ]
+  %.08 = phi i32 [ %235, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitESt4pairIN12_GLOBAL__N_16InvBitEPNS3_4WireEENS1_8hash_opsIS4_EEE7entry_tESaISE_EE12emplace_backIJS5_IS4_SA_ERiEEERSE_DpOT_.exit.i ], [ %.pre50.i, %.noexc28 ], [ %.022.i.us, %58 ], [ %.022.i, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i ]
   %240 = sext i32 %.08 to i64
   %241 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::SigBit, std::pair<(anonymous namespace)::InvBit, Yosys::RTLIL::Wire *>>::entry_t", ptr %.val14, i64 %240
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 16

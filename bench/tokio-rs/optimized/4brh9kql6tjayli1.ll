@@ -2383,13 +2383,13 @@ common.resume:                                    ; preds = %.invoke, %.thread22
           to label %142 unwind label %140
 
 136:                                              ; preds = %269, %242, %165
-  %.sroa.2.0..sroa_idx.val193 = phi i64 [ %.sroa.0.0.copyload, %269 ], [ %133, %242 ], [ 1, %165 ]
-  %137 = phi ptr [ %270, %269 ], [ %131, %242 ], [ %129, %165 ]
-  %.143 = phi i1 [ %.not180.not.not.not.not, %269 ], [ %.not.not.not.not.not.not, %242 ], [ %172, %165 ]
-  %.141 = phi i1 [ true, %269 ], [ false, %242 ], [ true, %165 ]
-  %.039 = phi i1 [ true, %269 ], [ true, %242 ], [ false, %165 ]
-  %.138 = phi i1 [ false, %269 ], [ true, %242 ], [ true, %165 ]
-  %.pn52 = phi { ptr, i32 } [ %.pn46, %269 ], [ %.pn48, %242 ], [ %.pn50, %165 ]
+  %.sroa.2.0..sroa_idx.val193 = phi i64 [ %133, %242 ], [ %.sroa.0.0.copyload, %269 ], [ 1, %165 ]
+  %137 = phi ptr [ %131, %242 ], [ %270, %269 ], [ %129, %165 ]
+  %.143 = phi i1 [ %.not.not.not.not.not.not, %242 ], [ %.not180.not.not.not.not, %269 ], [ %172, %165 ]
+  %.141 = phi i1 [ false, %242 ], [ true, %269 ], [ true, %165 ]
+  %.039 = phi i1 [ true, %242 ], [ true, %269 ], [ false, %165 ]
+  %.138 = phi i1 [ true, %242 ], [ false, %269 ], [ true, %165 ]
+  %.pn52 = phi { ptr, i32 } [ %.pn48, %242 ], [ %.pn46, %269 ], [ %.pn50, %165 ]
   br i1 %.143, label %307, label %.thread127
 
 .thread145.split.loop.exit:                       ; preds = %305

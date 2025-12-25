@@ -3812,7 +3812,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %98, %96
   br i1 %100, label %72, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %72, %_ZN12ResourceMarkD2Ev.exit, %67, %_ZN12ResourceMarkD2Ev.exit.us, %.lr.ph.split.us, %.lr.ph.split, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
-  %.0121.lcssa = phi i1 [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ true, %67 ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %_ZN12ResourceMarkD2Ev.exit.us ], [ true, %_ZN12ResourceMarkD2Ev.exit ], [ true, %72 ]
+  %.0121.lcssa = phi i1 [ false, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %67 ], [ true, %_ZN12ResourceMarkD2Ev.exit.us ], [ true, %_ZN12ResourceMarkD2Ev.exit ], [ true, %72 ]
   %101 = load volatile i8, ptr %10, align 1
   %102 = icmp eq i8 %101, 3
   br i1 %102, label %103, label %146
@@ -8893,7 +8893,7 @@ _ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexi
   br label %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread
 
 _ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread: ; preds = %48, %28, %177, %._crit_edge.i46.us95, %138, %._crit_edge.i46.us, %111, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit54.us, %.lr.ph108, %.backedge, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit154, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit160, %._crit_edge, %77, %29, %13, %78, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit
-  %.0 = phi i32 [ %.0.i69, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit ], [ %.04180.us92, %._crit_edge.i46.us95 ], [ %.0.i69, %77 ], [ %.0.i69, %78 ], [ -1, %28 ], [ -1, %13 ], [ -1, %29 ], [ %.04180.us84, %138 ], [ -1, %.lr.ph108 ], [ -1, %._crit_edge ], [ %.04180.us, %111 ], [ %.04180, %177 ], [ %219, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit154 ], [ %218, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit ], [ %220, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit160 ], [ -1, %.backedge ], [ %.04180.us, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit54.us ], [ %.04180.us84, %._crit_edge.i46.us ], [ -1, %48 ]
+  %.0 = phi i32 [ %.0.i69, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit ], [ %.0.i69, %78 ], [ %.0.i69, %77 ], [ %.04180.us92, %._crit_edge.i46.us95 ], [ -1, %28 ], [ -1, %13 ], [ -1, %29 ], [ %.04180, %177 ], [ -1, %._crit_edge ], [ %.04180.us84, %138 ], [ %.04180.us, %111 ], [ -1, %.lr.ph108 ], [ %219, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit154 ], [ %218, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit ], [ %220, %_ZN13InstanceKlass12quick_searchEPK5ArrayIP6MethodEPK6Symbol.exit.thread.loopexit.split.loop.exit160 ], [ -1, %.backedge ], [ %.04180.us, %_ZL14method_matchesPK6MethodPK6Symbolbbb.exit54.us ], [ %.04180.us84, %._crit_edge.i46.us ], [ -1, %48 ]
   ret i32 %.0
 }
 

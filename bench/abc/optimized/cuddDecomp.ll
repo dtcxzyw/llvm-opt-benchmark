@@ -2872,7 +2872,7 @@ define internal fastcc noundef ptr @PickOnePair(ptr noundef %0, ptr noundef nonn
   br label %106
 
 106:                                              ; preds = %.sink.split, %103, %7
-  %.052 = phi ptr [ %9, %103 ], [ null, %7 ], [ null, %.sink.split ]
+  %.052 = phi ptr [ null, %7 ], [ %9, %103 ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.052
 }

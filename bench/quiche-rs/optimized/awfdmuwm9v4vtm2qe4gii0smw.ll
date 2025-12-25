@@ -2056,9 +2056,9 @@ define hidden void @_ZN7inquire5utils8paginate17hf3ce1d03ad40a313E(ptr dead_on_u
   br label %23
 
 23:                                               ; preds = %20, %16
-  %.sroa.09.0 = phi i64 [ %18, %16 ], [ %21, %20 ]
-  %.sroa.5.0 = phi i64 [ %10, %16 ], [ %22, %20 ]
-  %.sroa.0.0 = phi i64 [ %19, %16 ], [ %3, %20 ]
+  %.sroa.09.0 = phi i64 [ %21, %20 ], [ %18, %16 ]
+  %.sroa.5.0 = phi i64 [ %22, %20 ], [ %10, %16 ]
+  %.sroa.0.0 = phi i64 [ %3, %20 ], [ %19, %16 ]
   %24 = icmp eq i64 %.sroa.09.0, 0
   %25 = icmp ult i64 %.sroa.0.0, %.sroa.09.0
   br i1 %25, label %28, label %.thread, !prof !120
@@ -2965,7 +2965,7 @@ define void @_ZN3h3i6client11sync_client7connect17h9144acda92c265a6E(ptr dead_on
   br label %.body355
 
 .loopexit.split-lp520:                            ; preds = %297, %351, %355, %945, %1003, %._crit_edge, %302, %357, %376
-  %.sroa.075.11.ph = phi i8 [ 1, %._crit_edge ], [ 1, %302 ], [ 0, %357 ], [ 1, %355 ], [ 0, %376 ], [ 0, %945 ], [ 0, %1003 ], [ 1, %351 ], [ 1, %297 ]
+  %.sroa.075.11.ph = phi i8 [ 1, %._crit_edge ], [ 1, %297 ], [ 0, %357 ], [ 1, %355 ], [ 0, %376 ], [ 0, %945 ], [ 0, %1003 ], [ 1, %351 ], [ 1, %302 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body355

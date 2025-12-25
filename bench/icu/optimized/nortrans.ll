@@ -806,8 +806,8 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit64:       ; preds = %35
   br label %104
 
 104:                                              ; preds = %68, %90, %94
-  %.142 = phi i32 [ %.041, %90 ], [ %103, %94 ], [ %.041, %68 ]
-  %.2 = phi i32 [ %33, %90 ], [ %101, %94 ], [ %33, %68 ]
+  %.142 = phi i32 [ %103, %94 ], [ %.041, %90 ], [ %.041, %68 ]
+  %.2 = phi i32 [ %101, %94 ], [ %33, %90 ], [ %33, %68 ]
   %105 = icmp slt i32 %.2, %.142
   br i1 %105, label %_ZNK6icu_7711Replaceable8char32AtEi.exit, label %.thread66, !llvm.loop !30
 

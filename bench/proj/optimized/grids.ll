@@ -14545,7 +14545,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit114: ; pred
   %or.cond178 = or i1 %or.cond15.i, %spec.select.i
   br i1 %or.cond178, label %_ZN5osgeo4projL6IsTIFFEmPKh.exit.thread148, label %_ZN5osgeo4projL6IsTIFFEmPKh.exit.thread149
 
-_ZN5osgeo4projL6IsTIFFEmPKh.exit.thread148:       ; preds = %246, %243, %241
+_ZN5osgeo4projL6IsTIFFEmPKh.exit.thread148:       ; preds = %246, %241, %243
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %250 = load i64, ptr %4, align 8, !tbaa !80
   store i64 %250, ptr %13, align 8, !tbaa !80

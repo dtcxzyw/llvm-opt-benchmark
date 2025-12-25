@@ -10002,7 +10002,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer7addLockERNS
   %33 = load i8, ptr %32, align 8, !tbaa !31
   switch i8 %33, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread [
     i8 4, label %34
-    i8 12, label %48
+    i8 12, label %53
   ]
 
 34:                                               ; preds = %29
@@ -10023,75 +10023,75 @@ define internal fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer7addLockERNS
   %43 = icmp eq i64 %42, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %45 = inttoptr i64 %44 to ptr
-  br i1 %43, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, label %46
+  br i1 %43, label %_ZNK5clang4Decl14getDeclContextEv.exit.i, label %46
 
 46:                                               ; preds = %40
   %47 = load ptr, ptr %45, align 8, !tbaa !624
-  br label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit
+  br label %_ZNK5clang4Decl14getDeclContextEv.exit.i
 
-48:                                               ; preds = %29
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %50 = load ptr, ptr %49, align 8, !tbaa !627
-  %.not.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread, label %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i
-
-_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i: ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 28
-  %52 = load i32, ptr %51, align 4
-  %53 = and i32 %52, 127
-  %54 = add nsw i32 %53, -33
-  %55 = icmp ult i32 %54, 4
-  br i1 %55, label %56, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
-
-56:                                               ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i
-  %57 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  %58 = load ptr, ptr %57, align 8, !tbaa !628
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i = load i64, ptr %59, align 8
-  %60 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i, 4
-  %61 = icmp eq i64 %60, 0
-  %62 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i, -8
-  %63 = inttoptr i64 %62 to ptr
-  br i1 %61, label %_ZNK5clang4Decl14getDeclContextEv.exit27.i, label %64
-
-64:                                               ; preds = %56
-  %65 = load ptr, ptr %63, align 8, !tbaa !624
-  br label %_ZNK5clang4Decl14getDeclContextEv.exit27.i
-
-_ZNK5clang4Decl14getDeclContextEv.exit27.i:       ; preds = %64, %56
-  %.0.i.i26.i = phi ptr [ %65, %64 ], [ %63, %56 ]
-  %66 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i = load i64, ptr %66, align 8
-  %67 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i, 4
-  %68 = icmp eq i64 %67, 0
-  %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i, -8
-  %70 = inttoptr i64 %69 to ptr
-  br i1 %68, label %_ZNK5clang4Decl14getDeclContextEv.exit30.i, label %71
-
-71:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit27.i
-  %72 = load ptr, ptr %70, align 8, !tbaa !624
-  br label %_ZNK5clang4Decl14getDeclContextEv.exit30.i
-
-_ZNK5clang4Decl14getDeclContextEv.exit30.i:       ; preds = %71, %_ZNK5clang4Decl14getDeclContextEv.exit27.i
-  %.0.i.i29.i = phi ptr [ %72, %71 ], [ %70, %_ZNK5clang4Decl14getDeclContextEv.exit27.i ]
-  %73 = icmp eq ptr %.0.i.i26.i, %.0.i.i29.i
-  br i1 %73, label %79, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
-
-_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit: ; preds = %40, %46
+_ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %46, %40
   %.0.i.i.i = phi ptr [ %47, %46 ], [ %45, %40 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %75 = load i16, ptr %74, align 8
-  %76 = and i16 %75, 127
-  %77 = add nsw i16 %76, -60
-  %78 = icmp ult i16 %77, -3
-  br i1 %78, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit._crit_edge, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %49 = load i16, ptr %48, align 8
+  %50 = and i16 %49, 127
+  %51 = add nsw i16 %50, -60
+  %52 = icmp ult i16 %51, -3
+  br i1 %52, label %_ZNK5clang4Decl14getDeclContextEv.exit.i._crit_edge, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
 
-_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit._crit_edge: ; preds = %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit
+_ZNK5clang4Decl14getDeclContextEv.exit.i._crit_edge: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i
   %.val19.pre = load ptr, ptr %2, align 8, !tbaa !129
   br label %79
 
-79:                                               ; preds = %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit._crit_edge, %_ZNK5clang4Decl14getDeclContextEv.exit30.i
-  %.val19 = phi ptr [ %.val19.pre, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit._crit_edge ], [ %.val30, %_ZNK5clang4Decl14getDeclContextEv.exit30.i ]
+53:                                               ; preds = %29
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %55 = load ptr, ptr %54, align 8, !tbaa !627
+  %.not.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread, label %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i
+
+_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i: ; preds = %53
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 28
+  %57 = load i32, ptr %56, align 4
+  %58 = and i32 %57, 127
+  %59 = add nsw i32 %58, -33
+  %60 = icmp ult i32 %59, 4
+  br i1 %60, label %61, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
+
+61:                                               ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i
+  %62 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %63 = load ptr, ptr %62, align 8, !tbaa !628
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i = load i64, ptr %64, align 8
+  %65 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i, 4
+  %66 = icmp eq i64 %65, 0
+  %67 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i, -8
+  %68 = inttoptr i64 %67 to ptr
+  br i1 %66, label %_ZNK5clang4Decl14getDeclContextEv.exit27.i, label %69
+
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %68, align 8, !tbaa !624
+  br label %_ZNK5clang4Decl14getDeclContextEv.exit27.i
+
+_ZNK5clang4Decl14getDeclContextEv.exit27.i:       ; preds = %69, %61
+  %.0.i.i26.i = phi ptr [ %70, %69 ], [ %68, %61 ]
+  %71 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i = load i64, ptr %71, align 8
+  %72 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i, 4
+  %73 = icmp eq i64 %72, 0
+  %74 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i, -8
+  %75 = inttoptr i64 %74 to ptr
+  br i1 %73, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, label %76
+
+76:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit27.i
+  %77 = load ptr, ptr %75, align 8, !tbaa !624
+  br label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit
+
+_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit27.i, %76
+  %.0.i.i29.i = phi ptr [ %77, %76 ], [ %75, %_ZNK5clang4Decl14getDeclContextEv.exit27.i ]
+  %78 = icmp eq ptr %.0.i.i26.i, %.0.i.i29.i
+  br i1 %78, label %79, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
+
+79:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i._crit_edge, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit
+  %.val19 = phi ptr [ %.val19.pre, %_ZNK5clang4Decl14getDeclContextEv.exit.i._crit_edge ], [ %.val30, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit ]
   %80 = getelementptr i8, ptr %.val19, i64 32
   %.val14 = load i32, ptr %80, align 8
   %81 = and i32 %.val14, 16711680
@@ -10154,7 +10154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread
 
-_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread: ; preds = %48, %29, %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i, %34, %37, %_ZNK5clang4Decl14getDeclContextEv.exit30.i, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41, %28
+_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit.thread: ; preds = %53, %29, %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i, %34, %37, %_ZNK5clang4Decl14getDeclContextEv.exit.i, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, %79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.val31.pre55.pre = load ptr, ptr %2, align 8, !tbaa !129
   br label %109
@@ -17618,7 +17618,7 @@ _ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEP
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
 _ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit: ; preds = %319, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i279, %307, %300, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i, %292, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i275, %284, %238, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i271, %230, %222, %116, %114, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i266, %99, %40, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i, %28, %192, %177, %162, %84, %69, %54, %270, %245, %253, %207, %215, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130, %200, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124, %185, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118, %170, %155, %142, %148, %135, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100, %92, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94, %77, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88, %62, %47, %13, %tailrecurse, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit443, %121, %282, %280, %277, %129, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103, %24, %22, %11, %268, %266, %264, %262, %260, %26
-  %.0 = phi i1 [ %265, %264 ], [ false, %121 ], [ false, %192 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103 ], [ false, %277 ], [ %134, %129 ], [ %27, %26 ], [ %263, %262 ], [ %23, %22 ], [ true, %280 ], [ %25, %24 ], [ %283, %282 ], [ %261, %260 ], [ %12, %11 ], [ %267, %266 ], [ %269, %268 ], [ false, %tailrecurse ], [ false, %13 ], [ false, %47 ], [ false, %62 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88 ], [ false, %77 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94 ], [ false, %92 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100 ], [ false, %135 ], [ false, %148 ], [ false, %142 ], [ false, %155 ], [ false, %170 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118 ], [ false, %185 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124 ], [ false, %200 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130 ], [ false, %215 ], [ false, %207 ], [ false, %253 ], [ false, %245 ], [ false, %270 ], [ false, %54 ], [ false, %69 ], [ false, %84 ], [ false, %162 ], [ false, %177 ], [ false, %292 ], [ false, %300 ], [ false, %28 ], [ false, %284 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i279 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i271 ], [ false, %222 ], [ false, %238 ], [ false, %319 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i266 ], [ true, %114 ], [ false, %116 ], [ false, %307 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i ], [ false, %40 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i275 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i ], [ false, %99 ], [ false, %230 ], [ true, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit443 ]
+  %.0 = phi i1 [ %12, %11 ], [ %283, %282 ], [ false, %192 ], [ true, %280 ], [ false, %277 ], [ %261, %260 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %263, %262 ], [ %265, %264 ], [ %267, %266 ], [ %134, %129 ], [ %269, %268 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103 ], [ false, %121 ], [ false, %tailrecurse ], [ false, %13 ], [ false, %47 ], [ false, %62 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88 ], [ false, %77 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94 ], [ false, %92 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100 ], [ false, %135 ], [ false, %148 ], [ false, %142 ], [ false, %155 ], [ false, %170 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118 ], [ false, %185 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124 ], [ false, %200 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130 ], [ false, %215 ], [ false, %207 ], [ false, %253 ], [ false, %245 ], [ false, %270 ], [ false, %54 ], [ false, %69 ], [ false, %84 ], [ false, %162 ], [ false, %177 ], [ false, %284 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i279 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i271 ], [ false, %222 ], [ false, %238 ], [ false, %319 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i266 ], [ true, %114 ], [ false, %116 ], [ false, %307 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i ], [ false, %40 ], [ false, %300 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i ], [ false, %230 ], [ false, %28 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i275 ], [ false, %99 ], [ false, %292 ], [ true, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit443 ]
   ret i1 %.0
 }
 
@@ -25576,7 +25576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   %83 = load i8, ptr %82, align 8, !tbaa !31
   switch i8 %83, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit [
     i8 4, label %84
-    i8 12, label %98
+    i8 12, label %103
   ]
 
 84:                                               ; preds = %80
@@ -25597,70 +25597,70 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   %93 = icmp eq i64 %92, 0
   %94 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %95 = inttoptr i64 %94 to ptr
-  br i1 %93, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, label %96
+  br i1 %93, label %_ZNK5clang4Decl14getDeclContextEv.exit.i, label %96
 
 96:                                               ; preds = %90
   %97 = load ptr, ptr %95, align 8, !tbaa !624
-  br label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit
+  br label %_ZNK5clang4Decl14getDeclContextEv.exit.i
 
-98:                                               ; preds = %80
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %100 = load ptr, ptr %99, align 8, !tbaa !627
-  %.not.i.i.i79 = icmp eq ptr %100, null
+_ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %96, %90
+  %.0.i.i.i80 = phi ptr [ %97, %96 ], [ %95, %90 ]
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i80, i64 8
+  %99 = load i16, ptr %98, align 8
+  %100 = and i16 %99, 127
+  %101 = add nsw i16 %100, -60
+  %102 = icmp ult i16 %101, -3
+  br i1 %102, label %129, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
+
+103:                                              ; preds = %80
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %105 = load ptr, ptr %104, align 8, !tbaa !627
+  %.not.i.i.i79 = icmp eq ptr %105, null
   br i1 %.not.i.i.i79, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit, label %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i
 
-_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i: ; preds = %98
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 28
-  %102 = load i32, ptr %101, align 4
-  %103 = and i32 %102, 127
-  %104 = add nsw i32 %103, -33
-  %105 = icmp ult i32 %104, 4
-  br i1 %105, label %106, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
+_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i: ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 28
+  %107 = load i32, ptr %106, align 4
+  %108 = and i32 %107, 127
+  %109 = add nsw i32 %108, -33
+  %110 = icmp ult i32 %109, 4
+  br i1 %110, label %111, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
 
-106:                                              ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i
-  %107 = getelementptr inbounds nuw i8, ptr %82, i64 64
-  %108 = load ptr, ptr %107, align 8, !tbaa !628
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i = load i64, ptr %109, align 8
-  %110 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i, 4
-  %111 = icmp eq i64 %110, 0
-  %112 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i, -8
-  %113 = inttoptr i64 %112 to ptr
-  br i1 %111, label %_ZNK5clang4Decl14getDeclContextEv.exit27.i, label %114
+111:                                              ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i
+  %112 = getelementptr inbounds nuw i8, ptr %82, i64 64
+  %113 = load ptr, ptr %112, align 8, !tbaa !628
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i = load i64, ptr %114, align 8
+  %115 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i, 4
+  %116 = icmp eq i64 %115, 0
+  %117 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i25.i, -8
+  %118 = inttoptr i64 %117 to ptr
+  br i1 %116, label %_ZNK5clang4Decl14getDeclContextEv.exit27.i, label %119
 
-114:                                              ; preds = %106
-  %115 = load ptr, ptr %113, align 8, !tbaa !624
+119:                                              ; preds = %111
+  %120 = load ptr, ptr %118, align 8, !tbaa !624
   br label %_ZNK5clang4Decl14getDeclContextEv.exit27.i
 
-_ZNK5clang4Decl14getDeclContextEv.exit27.i:       ; preds = %114, %106
-  %.0.i.i26.i = phi ptr [ %115, %114 ], [ %113, %106 ]
-  %116 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i = load i64, ptr %116, align 8
-  %117 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i, 4
-  %118 = icmp eq i64 %117, 0
-  %119 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i, -8
-  %120 = inttoptr i64 %119 to ptr
-  br i1 %118, label %_ZNK5clang4Decl14getDeclContextEv.exit30.i, label %121
+_ZNK5clang4Decl14getDeclContextEv.exit27.i:       ; preds = %119, %111
+  %.0.i.i26.i = phi ptr [ %120, %119 ], [ %118, %111 ]
+  %121 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i = load i64, ptr %121, align 8
+  %122 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i, 4
+  %123 = icmp eq i64 %122, 0
+  %124 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i28.i, -8
+  %125 = inttoptr i64 %124 to ptr
+  br i1 %123, label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, label %126
 
-121:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit27.i
-  %122 = load ptr, ptr %120, align 8, !tbaa !624
-  br label %_ZNK5clang4Decl14getDeclContextEv.exit30.i
+126:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit27.i
+  %127 = load ptr, ptr %125, align 8, !tbaa !624
+  br label %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit
 
-_ZNK5clang4Decl14getDeclContextEv.exit30.i:       ; preds = %121, %_ZNK5clang4Decl14getDeclContextEv.exit27.i
-  %.0.i.i29.i = phi ptr [ %122, %121 ], [ %120, %_ZNK5clang4Decl14getDeclContextEv.exit27.i ]
-  %123 = icmp eq ptr %.0.i.i26.i, %.0.i.i29.i
-  br i1 %123, label %129, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
-
-_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit: ; preds = %90, %96
-  %.0.i.i.i80 = phi ptr [ %97, %96 ], [ %95, %90 ]
-  %124 = getelementptr inbounds nuw i8, ptr %.0.i.i.i80, i64 8
-  %125 = load i16, ptr %124, align 8
-  %126 = and i16 %125, 127
-  %127 = add nsw i16 %126, -60
-  %128 = icmp ult i16 %127, -3
+_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit27.i, %126
+  %.0.i.i29.i = phi ptr [ %127, %126 ], [ %125, %_ZNK5clang4Decl14getDeclContextEv.exit27.i ]
+  %128 = icmp eq ptr %.0.i.i26.i, %.0.i.i29.i
   br i1 %128, label %129, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
 
-129:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit30.i, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit
+129:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit
   %130 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_17FactSet8findLockERNS_11FactManagerERKN5clang12threadSafety14CapabilityExprE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %17)
   %.not56 = icmp eq ptr %130, null
   br i1 %.not56, label %131, label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
@@ -26168,7 +26168,7 @@ _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5c
   br label %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i
 
 _ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i.i.i.i.i, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit252, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit254, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit256, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit258, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit260, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit262, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit264, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit266, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit124.thread131.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit124.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i122.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i115.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit111.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i109.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i102.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit98.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i96.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i89.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit111.i.i.i.i ], [ %.1.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i102.i.i.i.i ], [ %.2.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i115.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i96.i.i.i.i ], [ %147, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit124.thread131.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i89.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit98.i.i.i.i ], [ %.2.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit124.i.i.i.i ], [ %.2.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i122.i.i.i.i ], [ %.1.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i109.i.i.i.i ], [ %296, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit252 ], [ %302, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit264 ], [ %303, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit266 ], [ %299, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit258 ], [ %295, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %297, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit254 ], [ %301, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit262 ], [ %300, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit260 ], [ %298, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit256 ], [ %.029171.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i.i.i.i.i ], [ %.029171.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.i.i.i.i ], [ %.029171.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit111.i.i.i.i ], [ %.1.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i102.i.i.i.i ], [ %.2.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i115.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i96.i.i.i.i ], [ %147, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit124.thread131.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i89.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit98.i.i.i.i ], [ %.2.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit124.i.i.i.i ], [ %.2.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i122.i.i.i.i ], [ %.1.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i109.i.i.i.i ], [ %299, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit258 ], [ %296, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit252 ], [ %303, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit266 ], [ %302, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit264 ], [ %298, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit256 ], [ %297, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit254 ], [ %300, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit260 ], [ %301, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit262 ], [ %295, %_ZSt7find_ifIPKtZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_ET_SC_SC_T0_.exit.i.loopexit.split.loop.exit ], [ %.029171.i.i.i.i, %_ZNK5clang12threadSafety14CapabilityExpr11isUniversalEv.exit.i.i.i.i.i.i.i ], [ %.029171.i.i.i.i, %_ZN5clang12threadSafety3til15MatchComparator12compareExprsEPKNS1_5SExprES5_.exit.i.i.i.i.i.i.i.i.i ], [ %.029171.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_17FactSet12findLockUnivERNS2_11FactManagerERKN5clang12threadSafety14CapabilityExprEEUltE_EclIPKtEEbT_.exit.i.i.i.i ]
   %.val6.i = load ptr, ptr %1, align 8, !tbaa !123
   %.val7.i = load i64, ptr %146, align 8, !tbaa !222
   %304 = getelementptr inbounds nuw i16, ptr %.val6.i, i64 %.val7.i
@@ -26652,7 +26652,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %50
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit
 
-_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115, %98, %80, %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i, %84, %87, %9, %.thread140, %_ZNK5clang4Decl14getDeclContextEv.exit30.i, %42, %40, %37, %503, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %129
+_ZL15warnInvalidLockRN5clang12threadSafety19ThreadSafetyHandlerEPKNS_4ExprEPKNS_9NamedDeclES5_N4llvm9StringRefE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115, %103, %80, %_ZN4llvm15isa_and_nonnullIJN5clang13CXXMethodDeclEEPKNS1_12FunctionDeclEEEbRKT0_.exit.i, %84, %87, %9, %.thread140, %_ZNK5clang4Decl14getDeclContextEv.exit.i, %42, %40, %37, %503, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78, %_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer14inCurrentScopeERKN5clang12threadSafety14CapabilityExprE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %129
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
 }

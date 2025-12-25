@@ -2878,7 +2878,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %.not.i = icmp eq i8 %.fr.i, 0
   br i1 %.not.i, label %moduleVerifyResourceName.exit, label %.lr.ph.i, !llvm.loop !179
 
-24:                                               ; preds = %9, %15, %18
+24:                                               ; preds = %9, %18, %15
   %25 = tail call ptr @__errno_location() #40
   store i32 22, ptr %25, align 4, !tbaa !22
   br label %38
@@ -2961,8 +2961,8 @@ switch.early.test:                                ; preds = %.lr.ph
   %.not = icmp eq i8 %.fr, 0
   br i1 %.not, label %.thread40, label %.lr.ph, !llvm.loop !179
 
-.thread40:                                        ; preds = %12, %7, %10, %1
-  %.0 = phi i32 [ 1, %1 ], [ 1, %7 ], [ 1, %10 ], [ 0, %12 ]
+.thread40:                                        ; preds = %12, %10, %7, %1
+  %.0 = phi i32 [ 1, %1 ], [ 1, %10 ], [ 1, %7 ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -11471,14 +11471,14 @@ moduleCreateEmptyKey.exit:                        ; preds = %.thread, %.sink.spl
   %103 = call i32 @hashTypeDelete(ptr noundef %100, ptr noundef %102, i32 noundef 1) #35
   br i1 %.not79, label %104, label %.thread92.outer.backedge
 
+.thread92.outer.backedge:                         ; preds = %99, %117, %104
+  %.pn = phi i32 [ %103, %104 ], [ %115, %117 ], [ %103, %99 ]
+  %.061.ph.be = add nsw i32 %.pn, %.061.ph
+  br label %.thread92.outer
+
 104:                                              ; preds = %99
   call void @decrRefCount(ptr noundef nonnull %.3) #35
   br label %.thread92.outer.backedge
-
-.thread92.outer.backedge:                         ; preds = %104, %117, %99
-  %.pn = phi i32 [ %103, %99 ], [ %115, %117 ], [ %103, %104 ]
-  %.061.ph.be = add nsw i32 %.pn, %.061.ph
-  br label %.thread92.outer
 
 105:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -28841,7 +28841,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %.not.i36 = icmp eq i8 %.fr.i, 0
   br i1 %.not.i36, label %moduleVerifyResourceName.exit, label %.lr.ph.i, !llvm.loop !179
 
-68:                                               ; preds = %53, %59, %62
+68:                                               ; preds = %53, %62, %59
   %69 = tail call ptr @__errno_location() #40
   store i32 22, ptr %69, align 4, !tbaa !22
   br label %82

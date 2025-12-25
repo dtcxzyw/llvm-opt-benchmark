@@ -2683,7 +2683,7 @@ mbedtls_aes_crypt_ecb.exit.thread:                ; preds = %41, %mbedtls_aes_cr
   br i1 %exitcond365.not, label %50, label %.backedge456.backedge
 
 .backedge456.backedge:                            ; preds = %46, %.thread, %.thread409
-  %.0157327.be = phi i32 [ %48, %.thread409 ], [ %49, %.thread ], [ %47, %46 ]
+  %.0157327.be = phi i32 [ %49, %.thread ], [ %48, %.thread409 ], [ %47, %46 ]
   br label %.backedge456, !llvm.loop !39
 
 .thread409:                                       ; preds = %45
@@ -2838,7 +2838,7 @@ mbedtls_aes_crypt_cbc.exit245:                    ; preds = %mbedtls_aes_crypt_e
   br i1 %exitcond368.not, label %89, label %.thread408.backedge
 
 .thread408.backedge:                              ; preds = %85, %.thread412, %.thread415
-  %.1158332.be = phi i32 [ %87, %.thread415 ], [ %88, %.thread412 ], [ %86, %85 ]
+  %.1158332.be = phi i32 [ %86, %85 ], [ %88, %.thread412 ], [ %87, %.thread415 ]
   br label %.thread408, !llvm.loop !41
 
 .thread415:                                       ; preds = %84
@@ -2994,7 +2994,7 @@ mbedtls_aes_crypt_ecb.exit53.i:                   ; preds = %129
   br i1 %exitcond369.not, label %146, label %.thread414.backedge
 
 .thread414.backedge:                              ; preds = %142, %.thread418, %.thread424
-  %.2159336.be = phi i32 [ %144, %.thread424 ], [ %145, %.thread418 ], [ %143, %142 ]
+  %.2159336.be = phi i32 [ %143, %142 ], [ %145, %.thread418 ], [ %144, %.thread424 ]
   br label %.thread414, !llvm.loop !42
 
 .thread424:                                       ; preds = %141
@@ -3125,7 +3125,7 @@ mbedtls_aes_crypt_ecb.exit.i261:                  ; preds = %173
   br i1 %exitcond370.not, label %191, label %.backedge443.backedge
 
 .backedge443.backedge:                            ; preds = %187, %.thread429, %.thread435
-  %.3160341.be = phi i32 [ %189, %.thread435 ], [ %190, %.thread429 ], [ %188, %187 ]
+  %.3160341.be = phi i32 [ %188, %187 ], [ %190, %.thread429 ], [ %189, %.thread435 ]
   br label %.backedge443, !llvm.loop !43
 
 .thread435:                                       ; preds = %186

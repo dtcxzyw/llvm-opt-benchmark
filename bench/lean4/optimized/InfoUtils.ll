@@ -90975,7 +90975,7 @@ lean_inc.exit388:                                 ; preds = %593, %592, %590, %5
   br label %lean_dec.exit382
 
 603:                                              ; preds = %529, %566, %lean_dec.exit348
-  %.0327 = phi i8 [ 0, %lean_dec.exit348 ], [ 0, %566 ], [ 1, %529 ]
+  %.0327 = phi i8 [ 0, %lean_dec.exit348 ], [ 1, %529 ], [ 0, %566 ]
   %604 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %605 = load ptr, ptr %604, align 8, !tbaa !9
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 16

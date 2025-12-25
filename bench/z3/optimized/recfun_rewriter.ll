@@ -751,7 +751,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %288, %281, %278
   br label %common.resume
 
 _ZNK6recfun4util10is_definedEP9func_decl.exit.thread: ; preds = %45, %59, %56, %273, %89, %92, %.preheader.i.i.i.i.i, %5, %_ZNK4decl13get_family_idEv.exit.thread.i.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %_ZNK6recfun4util10is_definedEP9func_decl.exit, %_ZN6recfun4util7get_defEP9func_decl.exit
-  %.0 = phi i32 [ 5, %5 ], [ 5, %_ZN6recfun4util7get_defEP9func_decl.exit ], [ 5, %59 ], [ 5, %_ZNK6recfun4util10is_definedEP9func_decl.exit ], [ 3, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ 5, %273 ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread.i.i ], [ 5, %.preheader.i.i.i.i.i ], [ 5, %92 ], [ 5, %89 ], [ 5, %56 ], [ 5, %45 ]
+  %.0 = phi i32 [ 5, %5 ], [ 5, %_ZN6recfun4util7get_defEP9func_decl.exit ], [ 5, %59 ], [ 5, %_ZNK6recfun4util10is_definedEP9func_decl.exit ], [ 3, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ 5, %273 ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread.i.i ], [ 5, %.preheader.i.i.i.i.i ], [ 5, %89 ], [ 5, %92 ], [ 5, %56 ], [ 5, %45 ]
   ret i32 %.0
 }
 

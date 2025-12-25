@@ -13804,7 +13804,7 @@ define internal fastcc void @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4recv28_$u
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %39, %84, %228, %54, %59, %88, %92, %99, %103, %162, %167, %220, %225
-  %.sroa.06.1.ph.ph.ph = phi i1 [ false, %88 ], [ false, %99 ], [ false, %84 ], [ false, %54 ], [ false, %162 ], [ false, %220 ], [ false, %228 ], [ false, %103 ], [ true, %39 ], [ false, %225 ], [ false, %92 ], [ false, %59 ], [ false, %167 ]
+  %.sroa.06.1.ph.ph.ph = phi i1 [ false, %162 ], [ false, %99 ], [ false, %84 ], [ false, %54 ], [ false, %88 ], [ false, %220 ], [ false, %228 ], [ false, %103 ], [ true, %39 ], [ false, %225 ], [ false, %92 ], [ false, %59 ], [ false, %167 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

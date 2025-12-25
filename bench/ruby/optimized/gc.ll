@@ -22490,7 +22490,7 @@ heap_page_resurrect.exit:                         ; preds = %6
   br i1 %.not.i.i.i, label %heap_page_body_allocate.exit.i, label %heap_page_body_allocate.exit.thread.i
 
 heap_page_body_allocate.exit.i:                   ; preds = %31, %27, %26
-  %.1.i.i = phi ptr [ %22, %26 ], [ %22, %27 ], [ %33, %31 ]
+  %.1.i.i = phi ptr [ %22, %27 ], [ %22, %26 ], [ %33, %31 ]
   %34 = icmp eq ptr %.1.i.i, null
   br i1 %34, label %heap_page_body_allocate.exit.thread.i, label %35
 

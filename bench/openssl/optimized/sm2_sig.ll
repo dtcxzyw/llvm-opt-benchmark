@@ -138,7 +138,7 @@ define internal range(i32 0, 2) i32 @sm2sig_sign(ptr noundef readonly captures(n
   br label %26
 
 26:                                               ; preds = %.sink.split, %18, %15, %13
-  %.0 = phi i32 [ 0, %18 ], [ 0, %15 ], [ 0, %13 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ 0, %15 ], [ 0, %18 ], [ 0, %13 ], [ 1, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -353,7 +353,7 @@ define internal range(i32 0, 2) i32 @sm2sig_digest_sign_final(ptr noundef captur
   br label %sm2sig_sign.exit
 
 sm2sig_sign.exit:                                 ; preds = %23, %30, %34, %.sink.split.i
-  %.0.i = phi i32 [ 0, %34 ], [ 0, %30 ], [ 0, %23 ], [ 1, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %30 ], [ 0, %34 ], [ 0, %23 ], [ 1, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 

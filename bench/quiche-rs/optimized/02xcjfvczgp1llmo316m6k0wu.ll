@@ -5210,8 +5210,8 @@ define internal fastcc void @_ZN6quiche8recovery10congestion8recovery14LegacyRec
   unreachable
 
 "_ZN104_$LT$quiche..recovery..congestion..recovery..LegacyRecovery$u20$as$u20$quiche..recovery..RecoveryOps$GT$3pto17hcd95990cf80e6a65E.exit": ; preds = %27, %33
-  %.sroa.4.0.i.i = phi i32 [ %29, %27 ], [ %34, %33 ]
-  %.sroa.0.0.i8.i = phi i64 [ %28, %27 ], [ %35, %33 ]
+  %.sroa.4.0.i.i = phi i32 [ %34, %33 ], [ %29, %27 ]
+  %.sroa.0.0.i8.i = phi i64 [ %35, %33 ], [ %28, %27 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 2312
   %39 = load i32, ptr %38, align 8, !noundef !3
   %40 = icmp eq i32 %39, 0
@@ -7762,8 +7762,8 @@ define { i64, i32 } @"_ZN104_$LT$quiche..recovery..congestion..recovery..LegacyR
   unreachable
 
 32:                                               ; preds = %28, %22
-  %.sroa.4.0.i = phi i32 [ %24, %22 ], [ %29, %28 ]
-  %.sroa.0.0.i8 = phi i64 [ %23, %22 ], [ %30, %28 ]
+  %.sroa.4.0.i = phi i32 [ %29, %28 ], [ %24, %22 ]
+  %.sroa.0.0.i8 = phi i64 [ %30, %28 ], [ %23, %22 ]
   %33 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.i8, 0
   %34 = insertvalue { i64, i32 } %33, i32 %.sroa.4.0.i, 1
   ret { i64, i32 } %34
@@ -8732,8 +8732,8 @@ define hidden void @_ZN6quiche8recovery3rtt8RttStats10update_rtt17h9ca2c75d62d2b
   br label %124
 
 146:                                              ; preds = %135, %128
-  %.sroa.4.0.i = phi i32 [ %131, %128 ], [ %136, %135 ]
-  %.sroa.0.0.i = phi i64 [ %130, %128 ], [ %137, %135 ]
+  %.sroa.4.0.i = phi i32 [ %136, %135 ], [ %131, %128 ]
+  %.sroa.0.0.i = phi i64 [ %137, %135 ], [ %130, %128 ]
   %147 = icmp eq i64 %1, %.sroa.0.0.i
   %148 = icmp uge i64 %1, %.sroa.0.0.i
   %149 = icmp samesign uge i32 %2, %.sroa.4.0.i
@@ -8745,8 +8745,8 @@ define hidden void @_ZN6quiche8recovery3rtt8RttStats10update_rtt17h9ca2c75d62d2b
   unreachable
 
 151:                                              ; preds = %173, %177, %146
-  %.sroa.13.0 = phi i32 [ %2, %146 ], [ %.sroa.04.0.i, %173 ], [ %179, %177 ]
-  %.sroa.0.0 = phi i64 [ %1, %146 ], [ %.sroa.02.0.i, %173 ], [ %178, %177 ]
+  %.sroa.13.0 = phi i32 [ %2, %146 ], [ %179, %177 ], [ %.sroa.04.0.i, %173 ]
+  %.sroa.0.0 = phi i64 [ %1, %146 ], [ %178, %177 ], [ %.sroa.02.0.i, %173 ]
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %153 = load i64, ptr %152, align 8, !noundef !3
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 56

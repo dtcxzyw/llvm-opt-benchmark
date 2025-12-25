@@ -1424,7 +1424,7 @@ define noundef zeroext i1 @_ZN5ImGui14ButtonBehaviorERK6ImRectjPbS3_i(ptr nounde
   br label %116
 
 116:                                              ; preds = %.sink.split287, %99, %101, %83, %.critedge
-  %.3 = phi i8 [ %.0201, %.critedge ], [ %.0201, %83 ], [ %.0201, %101 ], [ %.0201, %99 ], [ 1, %.sink.split287 ]
+  %.3 = phi i8 [ %.0201, %83 ], [ %.0201, %.critedge ], [ %.0201, %101 ], [ %.0201, %99 ], [ 1, %.sink.split287 ]
   %117 = and i32 %4, 128
   %118 = icmp ne i32 %117, 0
   %119 = icmp ne i32 %.1210, -1
@@ -9851,7 +9851,7 @@ define noundef zeroext i1 @_ZN5ImGui13DataTypeClampEiPvPKvS2_(i32 noundef %0, pt
   br label %_ZL14DataTypeClampTIaEbPT_PKS0_S3_.exit
 
 _ZL14DataTypeClampTIaEbPT_PKS0_S3_.exit:          ; preds = %.sink.split.i73, %101, %100, %.sink.split.i68, %91, %90, %.sink.split.i63, %81, %80, %.sink.split.i58, %71, %70, %.sink.split.i53, %61, %60, %.sink.split.i48, %51, %50, %.sink.split.i44, %41, %40, %.sink.split.i39, %31, %30, %.sink.split.i34, %21, %20, %.sink.split.i, %11, %10, %4
-  %.0 = phi i1 [ true, %.sink.split.i68 ], [ false, %4 ], [ true, %.sink.split.i ], [ true, %.sink.split.i34 ], [ true, %.sink.split.i39 ], [ true, %.sink.split.i44 ], [ true, %.sink.split.i48 ], [ true, %.sink.split.i53 ], [ true, %.sink.split.i58 ], [ true, %.sink.split.i63 ], [ false, %10 ], [ false, %11 ], [ false, %20 ], [ false, %21 ], [ false, %30 ], [ false, %31 ], [ false, %40 ], [ false, %41 ], [ false, %50 ], [ false, %51 ], [ false, %60 ], [ false, %61 ], [ false, %70 ], [ false, %71 ], [ false, %80 ], [ false, %81 ], [ false, %90 ], [ false, %91 ], [ false, %100 ], [ false, %101 ], [ true, %.sink.split.i73 ]
+  %.0 = phi i1 [ true, %.sink.split.i68 ], [ false, %4 ], [ true, %.sink.split.i ], [ true, %.sink.split.i34 ], [ true, %.sink.split.i39 ], [ true, %.sink.split.i44 ], [ true, %.sink.split.i48 ], [ true, %.sink.split.i53 ], [ true, %.sink.split.i58 ], [ true, %.sink.split.i63 ], [ false, %11 ], [ false, %10 ], [ false, %21 ], [ false, %20 ], [ false, %31 ], [ false, %30 ], [ false, %41 ], [ false, %40 ], [ false, %51 ], [ false, %50 ], [ false, %61 ], [ false, %60 ], [ false, %71 ], [ false, %70 ], [ false, %81 ], [ false, %80 ], [ false, %91 ], [ false, %90 ], [ false, %101 ], [ false, %100 ], [ true, %.sink.split.i73 ]
   ret i1 %.0
 }
 
@@ -14143,9 +14143,9 @@ _ZN5ImGui17TempInputIsActiveEj.exit.thread:       ; preds = %66, %62, %_ZN5ImGui
   %spec.select211 = select i1 %.not212, ptr null, ptr %5
   br label %.thread201
 
-.thread201:                                       ; preds = %.thread200, %137, %.thread197, %142, %133, %.thread193
-  %147 = phi ptr [ %spec.select, %.thread200 ], [ %4, %137 ], [ null, %142 ], [ null, %.thread193 ], [ null, %133 ], [ %4, %.thread197 ]
-  %148 = phi ptr [ %spec.select211, %.thread200 ], [ %5, %137 ], [ null, %142 ], [ null, %.thread193 ], [ null, %133 ], [ %5, %.thread197 ]
+.thread201:                                       ; preds = %.thread200, %.thread197, %137, %142, %133, %.thread193
+  %147 = phi ptr [ %spec.select, %.thread200 ], [ %4, %.thread197 ], [ null, %142 ], [ null, %.thread193 ], [ null, %133 ], [ %4, %137 ]
+  %148 = phi ptr [ %spec.select211, %.thread200 ], [ %5, %.thread197 ], [ null, %142 ], [ null, %.thread193 ], [ null, %133 ], [ %5, %137 ]
   %149 = call noundef zeroext i1 @_ZN5ImGui15TempInputScalarERK6ImRectjPKciPvS4_PKvS7_(ptr noundef nonnull align 4 dereferenceable(16) %10, i32 noundef %22, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0153, ptr noundef %147, ptr noundef %148)
   br label %181
 

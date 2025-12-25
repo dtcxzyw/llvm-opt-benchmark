@@ -3029,7 +3029,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr noundef readonly
   br label %284
 
 284:                                              ; preds = %.sink.split, %260, %263, %266, %277
-  %.0 = phi i1 [ true, %260 ], [ true, %263 ], [ true, %266 ], [ true, %277 ], [ false, %.sink.split ]
+  %.0 = phi i1 [ true, %277 ], [ true, %266 ], [ true, %263 ], [ true, %260 ], [ false, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

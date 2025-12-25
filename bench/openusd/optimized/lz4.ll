@@ -6844,8 +6844,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.
   br i1 %499, label %.loopexit1487.i, label %.lr.ph.i, !llvm.loop !8
 
 .loopexit1487.i:                                  ; preds = %497, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.preheader.i, %.critedge15.i, %316, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.i, %473
-  %.01280.i = phi ptr [ %.112811546.fr.i, %316 ], [ %.51304.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.i ], [ %.51304.i, %473 ], [ %.51304.i, %497 ], [ %.112811546.fr.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.preheader.i ], [ %.112811546.fr.i, %.critedge15.i ]
-  %.01264.i = phi ptr [ %.112651547.i, %316 ], [ %.7.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.i ], [ %.7.i, %473 ], [ %.7.i, %497 ], [ %.112651547.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.preheader.i ], [ %.112651547.i, %.critedge15.i ]
+  %.01280.i = phi ptr [ %.112811546.fr.i, %316 ], [ %.51304.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.i ], [ %.51304.i, %473 ], [ %.51304.i, %497 ], [ %.112811546.fr.i, %.critedge15.i ], [ %.112811546.fr.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.preheader.i ]
+  %.01264.i = phi ptr [ %.112651547.i, %316 ], [ %.7.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.i ], [ %.7.i, %473 ], [ %.7.i, %497 ], [ %.112651547.i, %.critedge15.i ], [ %.112651547.i, %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.preheader.i ]
   %500 = ptrtoint ptr %280 to i64
   %501 = ptrtoint ptr %.01280.i to i64
   %502 = sub i64 %500, %501

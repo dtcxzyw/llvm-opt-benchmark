@@ -361,10 +361,10 @@ luaRegisterFunctionReadFlags.exit.i.i:            ; preds = %._crit_edge.loopexi
   br label %89
 
 luaRegisterFunctionReadArgs.exit:                 ; preds = %75, %65
-  %.sroa.0.0 = phi ptr [ %.245.i.i, %65 ], [ %71, %75 ]
-  %.sroa.7.0 = phi ptr [ %.242.i.i, %65 ], [ null, %75 ]
-  %.sroa.11.0 = phi ptr [ %.239.i.i, %65 ], [ %77, %75 ]
-  %.sroa.16.0 = phi i64 [ %.166.i.i, %65 ], [ 0, %75 ]
+  %.sroa.0.0 = phi ptr [ %71, %75 ], [ %.245.i.i, %65 ]
+  %.sroa.7.0 = phi ptr [ null, %75 ], [ %.242.i.i, %65 ]
+  %.sroa.11.0 = phi ptr [ %77, %75 ], [ %.239.i.i, %65 ]
+  %.sroa.16.0 = phi i64 [ 0, %75 ], [ %.166.i.i, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !22
   %80 = load ptr, ptr %3, align 8, !tbaa !23

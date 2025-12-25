@@ -970,7 +970,7 @@ _ZNK6BitMap7iterateIN17ArchiveHeapLoader25PatchLoadedRegionPointersEEEbPT_.exit.
   br label %_ZNK6BitMap7iterateIN17ArchiveHeapLoader25PatchLoadedRegionPointersEEEbPT_.exit
 
 _ZNK6BitMap7iterateIN17ArchiveHeapLoader25PatchLoadedRegionPointersEEEbPT_.exit: ; preds = %78, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, %74, %.preheader.i.i.i, %_ZNK6BitMap7iterateIN17ArchiveHeapLoader25PatchLoadedRegionPointersEEEbPT_.exit.sink.split, %32
-  %.0 = phi i1 [ true, %.preheader.i.i.i ], [ false, %_ZNK6BitMap7iterateIN17ArchiveHeapLoader25PatchLoadedRegionPointersEEEbPT_.exit.sink.split ], [ true, %32 ], [ true, %74 ], [ true, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i ], [ true, %78 ]
+  %.0 = phi i1 [ false, %_ZNK6BitMap7iterateIN17ArchiveHeapLoader25PatchLoadedRegionPointersEEEbPT_.exit.sink.split ], [ true, %.preheader.i.i.i ], [ true, %32 ], [ true, %74 ], [ true, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i ], [ true, %78 ]
   ret i1 %.0
 }
 

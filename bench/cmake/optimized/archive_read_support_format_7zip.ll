@@ -3262,7 +3262,7 @@ parse_7zip_uint64.exit373:                        ; preds = %107, %114
   br i1 %380, label %262, label %parse_7zip_uint64.exit.thread380, !llvm.loop !183
 
 parse_7zip_uint64.exit.thread380:                 ; preds = %parse_7zip_uint64.exit, %25, %31, %.lr.ph455, %.loopexit421, %172, %parse_7zip_uint64.exit373, %125, %127, %131, %146, %149, %151, %155, %160, %163, %165, %169, %.split, %96, %175, %178, %185, %187, %181, %221, %215, %218, %227, %104, %237, %.lr.ph464, %.lr.ph475, %.critedge4, %288, %376, %.preheader, %364, %.preheader432, %.preheader428, %255, %51, %79, %parse_7zip_uint64.exit366, %48, %45, %42, %38, %12, %10, %7, %50
-  %.0256 = phi i32 [ -1, %.preheader ], [ -1, %7 ], [ -1, %10 ], [ -1, %.lr.ph475 ], [ -1, %12 ], [ -1, %38 ], [ -1, %42 ], [ -1, %45 ], [ -1, %50 ], [ 0, %48 ], [ -1, %.preheader428 ], [ -1, %parse_7zip_uint64.exit366 ], [ -1, %.lr.ph455 ], [ -1, %79 ], [ -1, %237 ], [ -1, %364 ], [ -1, %104 ], [ -1, %51 ], [ -1, %.critedge4 ], [ -1, %31 ], [ -1, %.preheader432 ], [ 0, %255 ], [ -1, %.loopexit421 ], [ -1, %.lr.ph464 ], [ 0, %376 ], [ -1, %288 ], [ -1, %227 ], [ -1, %218 ], [ -1, %215 ], [ -1, %221 ], [ -1, %181 ], [ -1, %187 ], [ -1, %185 ], [ -1, %178 ], [ -1, %175 ], [ -1, %96 ], [ -1, %.split ], [ -1, %169 ], [ -1, %165 ], [ -1, %163 ], [ -1, %160 ], [ -1, %155 ], [ -1, %151 ], [ -1, %149 ], [ -1, %146 ], [ -1, %131 ], [ -1, %127 ], [ -1, %125 ], [ -1, %parse_7zip_uint64.exit373 ], [ -1, %172 ], [ -1, %25 ], [ -1, %parse_7zip_uint64.exit ]
+  %.0256 = phi i32 [ -1, %31 ], [ -1, %7 ], [ -1, %10 ], [ -1, %237 ], [ -1, %12 ], [ -1, %38 ], [ -1, %42 ], [ -1, %45 ], [ -1, %50 ], [ 0, %48 ], [ -1, %.preheader428 ], [ -1, %parse_7zip_uint64.exit366 ], [ -1, %.lr.ph455 ], [ -1, %79 ], [ 0, %376 ], [ -1, %.loopexit421 ], [ -1, %364 ], [ -1, %51 ], [ -1, %104 ], [ -1, %.critedge4 ], [ -1, %.preheader432 ], [ 0, %255 ], [ -1, %.lr.ph475 ], [ -1, %.lr.ph464 ], [ -1, %.preheader ], [ -1, %288 ], [ -1, %227 ], [ -1, %218 ], [ -1, %215 ], [ -1, %221 ], [ -1, %181 ], [ -1, %187 ], [ -1, %185 ], [ -1, %178 ], [ -1, %175 ], [ -1, %96 ], [ -1, %.split ], [ -1, %169 ], [ -1, %165 ], [ -1, %163 ], [ -1, %160 ], [ -1, %155 ], [ -1, %151 ], [ -1, %149 ], [ -1, %146 ], [ -1, %131 ], [ -1, %127 ], [ -1, %125 ], [ -1, %parse_7zip_uint64.exit373 ], [ -1, %172 ], [ -1, %25 ], [ -1, %parse_7zip_uint64.exit ]
   ret i32 %.0256
 }
 
@@ -4515,10 +4515,10 @@ decompress.exit:                                  ; preds = %492, %.thread366.i
   %switch = icmp ult i32 %.8302.i, 2
   br i1 %switch, label %decompress.exit.thread131, label %.critedge
 
-decompress.exit.thread131:                        ; preds = %162, %182, %180, %decompress.exit
-  %.2.i138 = phi i32 [ %.8302.i, %decompress.exit ], [ %spec.select.i, %162 ], [ %spec.select329.i, %182 ], [ 0, %180 ]
-  %.3137 = phi i64 [ %.3, %decompress.exit ], [ %163, %162 ], [ %181, %182 ], [ %181, %180 ]
-  %.0125136 = phi i64 [ %278, %decompress.exit ], [ 0, %162 ], [ 0, %182 ], [ 0, %180 ]
+decompress.exit.thread131:                        ; preds = %180, %182, %162, %decompress.exit
+  %.2.i138 = phi i32 [ %.8302.i, %decompress.exit ], [ %spec.select.i, %162 ], [ 0, %180 ], [ %spec.select329.i, %182 ]
+  %.3137 = phi i64 [ %.3, %decompress.exit ], [ %163, %162 ], [ %181, %180 ], [ %181, %182 ]
+  %.0125136 = phi i64 [ %278, %decompress.exit ], [ 0, %162 ], [ 0, %180 ], [ 0, %182 ]
   %507 = load i64, ptr %81, align 8, !tbaa !151
   %508 = sub i64 %507, %.0125136
   store i64 %508, ptr %81, align 8, !tbaa !151
@@ -5109,13 +5109,13 @@ define internal fastcc i64 @Bcj2_Decode(ptr noundef captures(none) %0, ptr nound
   br label %220
 
 220:                                              ; preds = %219, %.thread248, %149
-  %.3221 = phi ptr [ %.7225.ph, %.thread248 ], [ %.6224, %219 ], [ %.4222, %149 ]
-  %.1214 = phi i64 [ %.3216.ph, %.thread248 ], [ %.4217, %219 ], [ %.0213, %149 ]
-  %.1205 = phi i64 [ %.3207.ph, %.thread248 ], [ %.4208, %219 ], [ %.0204, %149 ]
-  %.2201 = phi i32 [ %.3202.ph, %.thread248 ], [ 0, %219 ], [ 0, %149 ]
-  %.1195 = phi ptr [ %.3197.ph, %.thread248 ], [ %.4198, %219 ], [ %.0194, %149 ]
-  %.1189 = phi ptr [ %.3191.ph, %.thread248 ], [ %.4192, %219 ], [ %.0188, %149 ]
-  %.4185 = phi i64 [ %.6187.ph, %.thread248 ], [ %210, %219 ], [ %.2183, %149 ]
+  %.3221 = phi ptr [ %.6224, %219 ], [ %.7225.ph, %.thread248 ], [ %.4222, %149 ]
+  %.1214 = phi i64 [ %.4217, %219 ], [ %.3216.ph, %.thread248 ], [ %.0213, %149 ]
+  %.1205 = phi i64 [ %.4208, %219 ], [ %.3207.ph, %.thread248 ], [ %.0204, %149 ]
+  %.2201 = phi i32 [ 0, %219 ], [ %.3202.ph, %.thread248 ], [ 0, %149 ]
+  %.1195 = phi ptr [ %.4198, %219 ], [ %.3197.ph, %.thread248 ], [ %.0194, %149 ]
+  %.1189 = phi ptr [ %.4192, %219 ], [ %.3191.ph, %.thread248 ], [ %.0188, %149 ]
+  %.4185 = phi i64 [ %210, %219 ], [ %.6187.ph, %.thread248 ], [ %.2183, %149 ]
   switch i32 %.2201, label %.thread278 [
     i32 0, label %90
     i32 11, label %.thread264
@@ -7194,7 +7194,7 @@ read_SubStreamsInfo.exit:                         ; preds = %._crit_edge255.i, %
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph97.i, %.lr.ph112.i, %.lr.ph106.i, %154, %147, %647, %636, %643, %.lr.ph226.i, %parse_7zip_uint64.exit.i107, %.lr.ph220.i, %folder_uncompressed_size.exit.i, %parse_7zip_uint64.exit167.i, %.lr.ph241.i, %.lr.ph233.i, %header_bytes.exit.i, %760, %114, %parse_7zip_uint64.exit.thread.i, %.critedge.i.i, %713, %._crit_edge227.i, %721, %834, %._crit_edge.i93, %.thread179.i, %69, %parse_7zip_uint64.exit.i, %14, %122, %._crit_edge113.i, %71, %66, %parse_7zip_uint64.exit54.i, %112, %127, %read_CodersInfo.exit.thread, %read_PackInfo.exit, %read_PackInfo.exit.thread109, %134, %917, %914, %read_SubStreamsInfo.exit, %2, %._crit_edge, %._crit_edge212
-  %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %154 ], [ -1, %read_SubStreamsInfo.exit ], [ %.79, %917 ], [ -1, %914 ], [ -1, %._crit_edge212 ], [ -1, %2 ], [ -1, %134 ], [ -1, %.critedge.i.i ], [ -1, %read_PackInfo.exit.thread109 ], [ -1, %read_PackInfo.exit ], [ -1, %647 ], [ -1, %.lr.ph226.i ], [ -1, %parse_7zip_uint64.exit.thread.i ], [ -1, %114 ], [ -1, %69 ], [ -1, %read_CodersInfo.exit.thread ], [ -1, %127 ], [ -1, %112 ], [ -1, %.lr.ph106.i ], [ -1, %parse_7zip_uint64.exit54.i ], [ -1, %66 ], [ -1, %71 ], [ -1, %.lr.ph97.i ], [ -1, %._crit_edge113.i ], [ -1, %122 ], [ -1, %14 ], [ -1, %parse_7zip_uint64.exit.i ], [ -1, %.lr.ph112.i ], [ -1, %.lr.ph233.i ], [ -1, %.thread179.i ], [ -1, %._crit_edge.i93 ], [ -1, %834 ], [ -1, %folder_uncompressed_size.exit.i ], [ -1, %721 ], [ -1, %._crit_edge227.i ], [ -1, %parse_7zip_uint64.exit167.i ], [ -1, %713 ], [ -1, %.lr.ph220.i ], [ -1, %760 ], [ -1, %header_bytes.exit.i ], [ -1, %.lr.ph241.i ], [ -1, %parse_7zip_uint64.exit.i107 ], [ -1, %643 ], [ -1, %636 ], [ -1, %147 ], [ -1, %.lr.ph.i ]
+  %.0 = phi i32 [ -1, %._crit_edge ], [ -1, %folder_uncompressed_size.exit.i ], [ -1, %read_SubStreamsInfo.exit ], [ %.79, %917 ], [ -1, %914 ], [ -1, %._crit_edge212 ], [ -1, %2 ], [ -1, %134 ], [ -1, %154 ], [ -1, %read_PackInfo.exit.thread109 ], [ -1, %read_PackInfo.exit ], [ -1, %.critedge.i.i ], [ -1, %.lr.ph106.i ], [ -1, %parse_7zip_uint64.exit.thread.i ], [ -1, %.lr.ph226.i ], [ -1, %69 ], [ -1, %read_CodersInfo.exit.thread ], [ -1, %127 ], [ -1, %112 ], [ -1, %114 ], [ -1, %parse_7zip_uint64.exit54.i ], [ -1, %66 ], [ -1, %71 ], [ -1, %647 ], [ -1, %._crit_edge113.i ], [ -1, %122 ], [ -1, %14 ], [ -1, %parse_7zip_uint64.exit.i ], [ -1, %.lr.ph112.i ], [ -1, %.lr.ph233.i ], [ -1, %.thread179.i ], [ -1, %._crit_edge.i93 ], [ -1, %834 ], [ -1, %parse_7zip_uint64.exit167.i ], [ -1, %721 ], [ -1, %._crit_edge227.i ], [ -1, %.lr.ph97.i ], [ -1, %713 ], [ -1, %.lr.ph220.i ], [ -1, %760 ], [ -1, %header_bytes.exit.i ], [ -1, %.lr.ph241.i ], [ -1, %parse_7zip_uint64.exit.i107 ], [ -1, %643 ], [ -1, %636 ], [ -1, %147 ], [ -1, %.lr.ph.i ]
   ret i32 %.0
 }
 

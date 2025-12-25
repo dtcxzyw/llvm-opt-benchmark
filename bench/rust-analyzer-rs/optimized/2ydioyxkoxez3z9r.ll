@@ -64325,7 +64325,7 @@ thread-pre-split:                                 ; preds = %47, %"_ZN4core6resu
   br label %23
 
 .loopexit.split-lp:                               ; preds = %.invoke100, %.invoke, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb92c6ed525f620b7E.exit.thread"
-  %.2.ph = phi i1 [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb92c6ed525f620b7E.exit.thread" ], [ true, %.invoke100 ], [ true, %.invoke ]
+  %.2.ph = phi i1 [ true, %.invoke100 ], [ false, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb92c6ed525f620b7E.exit.thread" ], [ true, %.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %23
@@ -70291,8 +70291,8 @@ _ZN13rust_analyzer3lsp8to_proto20completion_item_kind17h42257fe6caa3d3cfE.exit.i
           to label %.critedge287.i unwind label %671, !noalias !14929
 
 .critedge287.i:                                   ; preds = %1113, %498
-  %.6150.i = phi i1 [ true, %498 ], [ false, %1113 ]
-  %.pn258.pn.i = phi { ptr, i32 } [ %499, %498 ], [ %eh.lpad-body303.i, %1113 ]
+  %.6150.i = phi i1 [ false, %1113 ], [ true, %498 ]
+  %.pn258.pn.i = phi { ptr, i32 } [ %eh.lpad-body303.i, %1113 ], [ %499, %498 ]
   %1114 = load i64, ptr %113, align 8, !range !167, !alias.scope !15420, !noalias !14931, !noundef !4
   %1115 = icmp eq i64 %1114, -9223372036854775808
   br i1 %1115, label %1117, label %1116

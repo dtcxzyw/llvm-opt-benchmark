@@ -2765,7 +2765,7 @@ define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr noundef readonl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %28, %.loopexit.sink.split, %.critedge._crit_edge, %95
-  %.096 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %28 ], [ 0, %.critedge._crit_edge ], [ 0, %95 ], [ 0, %50 ]
+  %.096 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %95 ], [ 0, %.critedge._crit_edge ], [ 0, %28 ], [ 0, %50 ]
   ret i32 %.096
 }
 

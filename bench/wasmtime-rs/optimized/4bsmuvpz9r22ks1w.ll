@@ -9263,8 +9263,8 @@ _ZN17cranelift_codegen8machinst3abi15ArgsAccumulator8args_mut17h309ebf22ef8f38d0
     i64 1, label %97
     i64 2, label %98
     i64 3, label %99
-    i64 4, label %100
-    i64 5, label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit
+    i64 4, label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit
+    i64 5, label %100
   ]
 
 96:                                               ; preds = %95
@@ -9360,7 +9360,7 @@ common.resume:                                    ; preds = %396, %533, %367, %4
   br label %143
 
 _ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit.thread: ; preds = %97, %96, %99, %98, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit, %100
-  %.sroa.12.0.i440 = phi i8 [ 8, %100 ], [ 9, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit ], [ %spec.select2.i, %97 ], [ %spec.select1.i, %96 ], [ %spec.select4.i, %99 ], [ %spec.select3.i, %98 ]
+  %.sroa.12.0.i440 = phi i8 [ 9, %100 ], [ 8, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit ], [ %spec.select2.i, %97 ], [ %spec.select1.i, %96 ], [ %spec.select4.i, %99 ], [ %spec.select3.i, %98 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %124 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 0, ptr %124, align 8, !alias.scope !918
@@ -10265,7 +10265,7 @@ _ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit3
   %445 = add i64 %.2183738, 1
   br label %483
 
-_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980: ; preds = %438, %462, %461, %428, %440, %448, %437
+_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980: ; preds = %438, %462, %461, %428, %440, %437, %448
   %446 = add i64 %.2183738, 1
   br label %468
 
@@ -10346,8 +10346,8 @@ default.unreachable.i336:                         ; preds = %460
 467:                                              ; preds = %461
   br label %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread
 
-468:                                              ; preds = %442, %452, %458, %434, %464, %432, %456, %454, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325
-  %469 = phi i64 [ %446, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980 ], [ %447, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325 ], [ %455, %454 ], [ %457, %456 ], [ %433, %432 ], [ %466, %464 ], [ %435, %434 ], [ %459, %458 ], [ %453, %452 ], [ %443, %442 ]
+468:                                              ; preds = %458, %442, %452, %434, %464, %432, %456, %454, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325
+  %469 = phi i64 [ %446, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread980 ], [ %447, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325 ], [ %455, %454 ], [ %457, %456 ], [ %433, %432 ], [ %466, %464 ], [ %435, %434 ], [ %453, %452 ], [ %443, %442 ], [ %459, %458 ]
   %470 = load i16, ptr %404, align 2, !noundef !4
   %471 = icmp ugt i16 %470, 255
   br i1 %471, label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit344, label %472
@@ -10376,9 +10376,9 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i341
   %482 = lshr exact i32 %481, 3
   br label %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit344
 
-483:                                              ; preds = %442, %452, %458, %434, %464, %432, %456, %454, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325
-  %484 = phi i64 [ %445, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread ], [ %447, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325 ], [ %455, %454 ], [ %457, %456 ], [ %433, %432 ], [ %466, %464 ], [ %435, %434 ], [ %459, %458 ], [ %453, %452 ], [ %443, %442 ]
-  %.sroa.14.0.i.pn978 = phi i8 [ %.sroa.14.0.i.pn.ph, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread ], [ %.sroa.14.0.i.pn, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325 ], [ 69, %454 ], [ 70, %456 ], [ 8, %432 ], [ 64, %464 ], [ 9, %434 ], [ 71, %458 ], [ 68, %452 ], [ 1, %442 ]
+483:                                              ; preds = %458, %442, %452, %434, %464, %432, %456, %454, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325
+  %484 = phi i64 [ %445, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread ], [ %447, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325 ], [ %455, %454 ], [ %457, %456 ], [ %433, %432 ], [ %466, %464 ], [ %435, %434 ], [ %453, %452 ], [ %443, %442 ], [ %459, %458 ]
+  %.sroa.14.0.i.pn978 = phi i8 [ %.sroa.14.0.i.pn.ph, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325.thread ], [ %.sroa.14.0.i.pn, %_ZN17cranelift_codegen3isa3x643abi18get_intreg_for_arg17hb0b293eab17c8be1E.exit325 ], [ 69, %454 ], [ 70, %456 ], [ 8, %432 ], [ 64, %464 ], [ 9, %434 ], [ 68, %452 ], [ 1, %442 ], [ 71, %458 ]
   %485 = zext i1 %408 to i64
   %.4188 = add i64 %.3187737, %485
   %not. = xor i1 %408, true
@@ -10648,7 +10648,7 @@ switch.lookup:                                    ; preds = %.split1.i
   br label %_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread7
 
 _ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread7: ; preds = %switch.lookup, %24, %_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread7.fold.split, %25, %23, %23, %27
-  %.0.i9 = phi i8 [ 4, %25 ], [ %switch.masked, %switch.lookup ], [ 1, %27 ], [ 2, %24 ], [ 0, %23 ], [ 0, %23 ], [ 3, %_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread7.fold.split ]
+  %.0.i9 = phi i8 [ 4, %25 ], [ 2, %24 ], [ 1, %27 ], [ %switch.masked, %switch.lookup ], [ 0, %23 ], [ 0, %23 ], [ 3, %_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread7.fold.split ]
   br i1 %3, label %38, label %36
 
 36:                                               ; preds = %_ZN17cranelift_codegen3isa3x644inst4args7ExtMode3new17h50d4518686870385E.exit.thread7
@@ -33930,7 +33930,7 @@ define void @"_ZN17cranelift_codegen3isa3x644inst131_$LT$impl$u20$cranelift_code
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.llvm.17911367524062806024.exit.thread"
 
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.llvm.17911367524062806024.exit.thread": ; preds = %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.llvm.17911367524062806024.exit.thread.sink.split", %2, %4, %8, %16
-  %storemerge.sink = phi i32 [ 0, %16 ], [ 0, %2 ], [ 0, %4 ], [ 0, %8 ], [ 1, %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.llvm.17911367524062806024.exit.thread.sink.split" ]
+  %storemerge.sink = phi i32 [ 0, %16 ], [ 0, %4 ], [ 0, %2 ], [ 0, %8 ], [ 1, %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.llvm.17911367524062806024.exit.thread.sink.split" ]
   store i32 %storemerge.sink, ptr %0, align 4
   ret void
 
@@ -34881,9 +34881,9 @@ _ZN17cranelift_codegen8settings5Value7as_bool17hfc0a463c4d9597d7E.exit: ; preds 
   br label %39
 
 39:                                               ; preds = %_ZN17cranelift_codegen8settings5Value7as_bool17hfc0a463c4d9597d7E.exit, %"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT$9to_string17h7954dc04557c5e71E.exit", %30
-  %.sroa.10.sroa.0.1 = phi ptr [ %28, %_ZN17cranelift_codegen8settings5Value7as_bool17hfc0a463c4d9597d7E.exit ], [ %.sroa.4.0.copyload, %"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT$9to_string17h7954dc04557c5e71E.exit" ], [ %37, %30 ]
-  %.sroa.10.sroa.6.1 = phi i64 [ %..i, %_ZN17cranelift_codegen8settings5Value7as_bool17hfc0a463c4d9597d7E.exit ], [ %.sroa.5.0.copyload, %"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT$9to_string17h7954dc04557c5e71E.exit" ], [ %34, %30 ]
-  %.sroa.0.1 = phi i64 [ %27, %_ZN17cranelift_codegen8settings5Value7as_bool17hfc0a463c4d9597d7E.exit ], [ %.sroa.0.0.copyload, %"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT$9to_string17h7954dc04557c5e71E.exit" ], [ %36, %30 ]
+  %.sroa.10.sroa.0.1 = phi ptr [ %.sroa.4.0.copyload, %"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT$9to_string17h7954dc04557c5e71E.exit" ], [ %28, %_ZN17cranelift_codegen8settings5Value7as_bool17hfc0a463c4d9597d7E.exit ], [ %37, %30 ]
+  %.sroa.10.sroa.6.1 = phi i64 [ %.sroa.5.0.copyload, %"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT$9to_string17h7954dc04557c5e71E.exit" ], [ %..i, %_ZN17cranelift_codegen8settings5Value7as_bool17hfc0a463c4d9597d7E.exit ], [ %34, %30 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0.copyload, %"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT$9to_string17h7954dc04557c5e71E.exit" ], [ %27, %_ZN17cranelift_codegen8settings5Value7as_bool17hfc0a463c4d9597d7E.exit ], [ %36, %30 ]
   %40 = icmp eq i64 %.sroa.0.1, -9223372036854775808
   br i1 %40, label %.thread, label %68
 
@@ -43799,8 +43799,8 @@ _ZN17cranelift_codegen8verifier8Verifier15block_integrity17h52392460704a4eeaE.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %324)
   br i1 %.not2053, label %._crit_edge, label %1304
 
-.loopexit334:                                     ; preds = %1352, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit35.i", %2012, %1958, %1929, %1994, %1985, %1950, %2008, %1973, %1988, %1991, %2023, %2021, %2010, %2025, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i", %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i250", %_ZN17cranelift_codegen8verifier8Verifier21immediate_constraints17ha2723e7684895b11E.exit.thread3981, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread3979, %_ZN17cranelift_codegen8verifier8Verifier15block_integrity17h52392460704a4eeaE.exit.thread, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread, %_ZN17cranelift_codegen8verifier8Verifier21immediate_constraints17ha2723e7684895b11E.exit.thread277, %1335
-  %.1 = phi i1 [ %1342, %1335 ], [ true, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread3979 ], [ true, %_ZN17cranelift_codegen8verifier8Verifier21immediate_constraints17ha2723e7684895b11E.exit.thread277 ], [ true, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread ], [ true, %_ZN17cranelift_codegen8verifier8Verifier15block_integrity17h52392460704a4eeaE.exit.thread ], [ true, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit35.i" ], [ true, %_ZN17cranelift_codegen8verifier8Verifier21immediate_constraints17ha2723e7684895b11E.exit.thread3981 ], [ true, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i250" ], [ true, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit ], [ true, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i" ], [ true, %2025 ], [ true, %2010 ], [ true, %2021 ], [ true, %2023 ], [ true, %1991 ], [ true, %1988 ], [ true, %1973 ], [ true, %2008 ], [ true, %1950 ], [ true, %1985 ], [ true, %1994 ], [ true, %1929 ], [ true, %1958 ], [ true, %2012 ], [ true, %1352 ]
+.loopexit334:                                     ; preds = %1352, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit35.i", %1950, %1991, %1929, %2025, %1985, %2012, %1958, %1973, %1994, %1988, %2023, %2021, %2010, %2008, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i", %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i250", %_ZN17cranelift_codegen8verifier8Verifier21immediate_constraints17ha2723e7684895b11E.exit.thread3981, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread3979, %_ZN17cranelift_codegen8verifier8Verifier15block_integrity17h52392460704a4eeaE.exit.thread, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread, %_ZN17cranelift_codegen8verifier8Verifier21immediate_constraints17ha2723e7684895b11E.exit.thread277, %1335
+  %.1 = phi i1 [ %1342, %1335 ], [ true, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit35.i" ], [ true, %_ZN17cranelift_codegen8verifier8Verifier21immediate_constraints17ha2723e7684895b11E.exit.thread277 ], [ true, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread ], [ true, %_ZN17cranelift_codegen8verifier8Verifier15block_integrity17h52392460704a4eeaE.exit.thread ], [ true, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread3979 ], [ true, %_ZN17cranelift_codegen8verifier8Verifier21immediate_constraints17ha2723e7684895b11E.exit.thread3981 ], [ true, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i250" ], [ true, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit ], [ true, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i" ], [ true, %2008 ], [ true, %2010 ], [ true, %2021 ], [ true, %2023 ], [ true, %1988 ], [ true, %1994 ], [ true, %1973 ], [ true, %1958 ], [ true, %2012 ], [ true, %1985 ], [ true, %2025 ], [ true, %1929 ], [ true, %1991 ], [ true, %1950 ], [ true, %1352 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %324)
   br label %._crit_edge.thread
 
@@ -46144,7 +46144,7 @@ _ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a0
   call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %2114
 
-_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread3979: ; preds = %1941, %1945, %_ZN17cranelift_codegen8verifier8Verifier15verify_inst_arg17hd4fdf49c1e0bd171E.exit.thread.i.i, %1984, %_ZN17cranelift_codegen8verifier8Verifier18verify_inst_result17h7f47d599998617e2E.exit.thread.i.i, %_ZN17cranelift_codegen8verifier8Verifier18verify_inst_result17h7f47d599998617e2E.exit.thread235.i.i
+_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread3979: ; preds = %1945, %1941, %_ZN17cranelift_codegen8verifier8Verifier15verify_inst_arg17hd4fdf49c1e0bd171E.exit.thread.i.i, %1984, %_ZN17cranelift_codegen8verifier8Verifier18verify_inst_result17h7f47d599998617e2E.exit.thread235.i.i, %_ZN17cranelift_codegen8verifier8Verifier18verify_inst_result17h7f47d599998617e2E.exit.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %211), !noalias !5465
   call void @llvm.lifetime.end.p0(ptr nonnull %223), !noalias !5465
   call void @llvm.lifetime.end.p0(ptr nonnull %224), !noalias !5465
@@ -46165,7 +46165,7 @@ _ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a0
   call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br i1 %2113, label %.loopexit334, label %2114
 
-2114:                                             ; preds = %2012, %1958, %1929, %1994, %1985, %1950, %2008, %1973, %1988, %1991, %2023, %2021, %2010, %2025, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread3976, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i", %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit
+2114:                                             ; preds = %1950, %1991, %1929, %2025, %1985, %2012, %1958, %1973, %1994, %1988, %2023, %2021, %2010, %2008, %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit.thread3976, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h54c497a9b0da5c0eE.exit.i", %_ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a09bE.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !6051)
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
   call void @llvm.experimental.noalias.scope.decl(metadata !6054)

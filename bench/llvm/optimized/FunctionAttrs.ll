@@ -15094,16 +15094,16 @@ _ZNK4llvm5APInteqERKS0_.exit.i.i.i.i.i.i.i.i:     ; preds = %.lr.ph.i.i.i.i.i.i8
   %1709 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 24
   %1710 = load i32, ptr %1709, align 8, !tbaa !361
   %1711 = icmp ult i32 %1710, 65
-  br i1 %1711, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit.i.i.i.i.i.i.i, label %1712
+  br i1 %1711, label %1712, label %_ZNK4llvm13ConstantRangeeqERKS0_.exit.i.i.i.i.i.i.i
 
 1712:                                             ; preds = %1706
-  %1713 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1707, ptr noundef nonnull align 8 dereferenceable(12) %1708) #24
-  br i1 %1713, label %1717, label %.loopexit.i
+  %1713 = load i64, ptr %1707, align 8, !tbaa !151
+  %1714 = load i64, ptr %1708, align 8, !tbaa !151
+  %1715 = icmp eq i64 %1713, %1714
+  br i1 %1715, label %1717, label %.loopexit.i
 
 _ZNK4llvm13ConstantRangeeqERKS0_.exit.i.i.i.i.i.i.i: ; preds = %1706
-  %1714 = load i64, ptr %1707, align 8, !tbaa !151
-  %1715 = load i64, ptr %1708, align 8, !tbaa !151
-  %1716 = icmp eq i64 %1714, %1715
+  %1716 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %1707, ptr noundef nonnull align 8 dereferenceable(12) %1708) #24
   br i1 %1716, label %1717, label %.loopexit.i
 
 1717:                                             ; preds = %_ZNK4llvm13ConstantRangeeqERKS0_.exit.i.i.i.i.i.i.i, %1712

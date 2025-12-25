@@ -17449,8 +17449,8 @@ define internal void @"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace.
           to label %58 unwind label %56
 
 .body55:                                          ; preds = %479, %205, %209, %213, %56, %510
-  %.sroa.07.1 = phi i8 [ %.sroa.07.2, %205 ], [ %.sroa.07.3.ph, %510 ], [ %.sroa.07.5, %479 ], [ %.sroa.07.0, %56 ], [ %.sroa.07.2, %209 ], [ %.sroa.07.2, %213 ]
-  %.pn28 = phi { ptr, i32 } [ %206, %205 ], [ %.pn25.pn.ph, %510 ], [ %.pn25, %479 ], [ %57, %56 ], [ %206, %209 ], [ %206, %213 ]
+  %.sroa.07.1 = phi i8 [ %.sroa.07.2, %205 ], [ %.sroa.07.3.ph, %510 ], [ %.sroa.07.2, %209 ], [ %.sroa.07.0, %56 ], [ %.sroa.07.5, %479 ], [ %.sroa.07.2, %213 ]
+  %.pn28 = phi { ptr, i32 } [ %206, %205 ], [ %.pn25.pn.ph, %510 ], [ %206, %209 ], [ %57, %56 ], [ %.pn25, %479 ], [ %206, %213 ]
   %55 = trunc nuw i8 %.sroa.07.1 to i1
   br i1 %55, label %.body55.thread188, label %"_ZN4core3ptr109drop_in_place$LT$gpui..view..WeakView$LT$markdown_preview..markdown_preview_view..MarkdownPreviewView$GT$$GT$17h233fca92f08f25d3E.exit109"
 

@@ -836,7 +836,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.tail, %153, %.loopexit.sink.split, %4
-  %.074 = phi i32 [ -43, %.loopexit.sink.split ], [ 0, %4 ], [ 0, %153 ], [ 0, %.tail ]
+  %.074 = phi i32 [ 0, %4 ], [ -43, %.loopexit.sink.split ], [ 0, %153 ], [ 0, %.tail ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.074
 }

@@ -5360,7 +5360,7 @@ switch.early.test66.i.i:                          ; preds = %136
   br label %unicode_cp_is_allowed.exit.i
 
 unicode_cp_is_allowed.exit.i:                     ; preds = %137, %133, %122
-  %.0.shrunk.i.i = phi i1 [ %spec.select.i.i, %137 ], [ %135, %133 ], [ %124, %122 ]
+  %.0.shrunk.i.i = phi i1 [ %124, %122 ], [ %135, %133 ], [ %spec.select.i.i, %137 ]
   %.0.shrunk.i.not.i = xor i1 %.0.shrunk.i.i, true
   %141 = icmp eq i32 %111, 13
   %or.cond.i = select i1 %76, i1 %141, i1 false
@@ -6393,8 +6393,8 @@ unicode_cp_is_allowed.exit230:                    ; preds = %285
   br label %.thread407
 
 .thread407:                                       ; preds = %261, %226, %unicode_cp_is_allowed.exit230, %276, %241, %switch.early.test66.i214, %switch.early.test66.i214, %switch.early.test66.i214, %286, %switch.early.test.i228, %switch.early.test.i228, %switch.early.test.i228, %284, %285, %270, %235, %.thread436, %unicode_cp_is_allowed.exit212.thread.thread, %unicode_cp_is_allowed.exit.thread.thread, %141, %find_entity_for_char.exit.thread, %280, %146
-  %.0131 = phi ptr [ %138, %146 ], [ %138, %find_entity_for_char.exit.thread ], [ %138, %141 ], [ %138, %280 ], [ %138, %switch.early.test66.i214 ], [ %138, %switch.early.test66.i214 ], [ %138, %unicode_cp_is_allowed.exit.thread.thread ], [ %138, %286 ], [ %138, %switch.early.test66.i214 ], [ %138, %unicode_cp_is_allowed.exit212.thread.thread ], [ %138, %unicode_cp_is_allowed.exit230 ], [ %.0143, %235 ], [ %.0143, %.thread436 ], [ %.0143, %276 ], [ %.0143, %270 ], [ %138, %285 ], [ %138, %284 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %.0143, %226 ], [ %.0143, %241 ], [ %.0143, %261 ]
-  %.0130 = phi i64 [ %140, %146 ], [ %140, %find_entity_for_char.exit.thread ], [ %140, %141 ], [ %140, %280 ], [ %140, %switch.early.test66.i214 ], [ %140, %switch.early.test66.i214 ], [ %140, %unicode_cp_is_allowed.exit.thread.thread ], [ %140, %286 ], [ %140, %switch.early.test66.i214 ], [ %140, %unicode_cp_is_allowed.exit212.thread.thread ], [ %140, %unicode_cp_is_allowed.exit230 ], [ %.0142, %235 ], [ %.0142, %.thread436 ], [ %.0142, %276 ], [ %.0142, %270 ], [ %140, %285 ], [ %140, %284 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %.0142, %226 ], [ %.0142, %241 ], [ %.0142, %261 ]
+  %.0131 = phi ptr [ %138, %146 ], [ %138, %find_entity_for_char.exit.thread ], [ %138, %141 ], [ %138, %280 ], [ %138, %switch.early.test66.i214 ], [ %138, %switch.early.test66.i214 ], [ %138, %unicode_cp_is_allowed.exit.thread.thread ], [ %138, %286 ], [ %138, %switch.early.test66.i214 ], [ %138, %unicode_cp_is_allowed.exit212.thread.thread ], [ %138, %unicode_cp_is_allowed.exit230 ], [ %.0143, %235 ], [ %.0143, %.thread436 ], [ %.0143, %261 ], [ %.0143, %270 ], [ %138, %285 ], [ %138, %284 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %138, %switch.early.test.i228 ], [ %.0143, %241 ], [ %.0143, %226 ], [ %.0143, %276 ]
+  %.0130 = phi i64 [ %140, %146 ], [ %140, %find_entity_for_char.exit.thread ], [ %140, %141 ], [ %140, %280 ], [ %140, %switch.early.test66.i214 ], [ %140, %switch.early.test66.i214 ], [ %140, %unicode_cp_is_allowed.exit.thread.thread ], [ %140, %286 ], [ %140, %switch.early.test66.i214 ], [ %140, %unicode_cp_is_allowed.exit212.thread.thread ], [ %140, %unicode_cp_is_allowed.exit230 ], [ %.0142, %235 ], [ %.0142, %.thread436 ], [ %.0142, %261 ], [ %.0142, %270 ], [ %140, %285 ], [ %140, %284 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %140, %switch.early.test.i228 ], [ %.0142, %241 ], [ %.0142, %226 ], [ %.0142, %276 ]
   %289 = icmp ugt i64 %.0130, 1
   br i1 %289, label %290, label %294
 
@@ -7394,7 +7394,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
-.thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit164, %13, %39
+.thread:                                          ; preds = %zend_parse_arg_long_ex.exit164, %zend_parse_arg_long_ex.exit, %13, %39
   %.0128194 = phi i32 [ 3, %39 ], [ 2, %zend_parse_arg_long_ex.exit164 ], [ 1, %zend_parse_arg_long_ex.exit ], [ 0, %13 ]
   %.0131193 = phi ptr [ %34, %39 ], [ %26, %zend_parse_arg_long_ex.exit164 ], [ %17, %zend_parse_arg_long_ex.exit ], [ null, %13 ]
   %.0132192 = phi i32 [ 4, %39 ], [ 0, %zend_parse_arg_long_ex.exit164 ], [ 0, %zend_parse_arg_long_ex.exit ], [ 0, %13 ]
@@ -8423,7 +8423,7 @@ unimap_bsearch.exit.thread.sink.split:            ; preds = %99, %96, %70, %41, 
   br label %unimap_bsearch.exit.thread
 
 unimap_bsearch.exit.thread:                       ; preds = %91, %61, %36, %unimap_bsearch.exit.thread.sink.split, %72, %44, %19, %3, %99, %96, %unimap_bsearch.exit97, %66, %unimap_bsearch.exit89, %unimap_bsearch.exit, %11, %13, %13, %13, %4
-  %.072 = phi i32 [ -1, %99 ], [ -1, %96 ], [ -1, %3 ], [ -1, %4 ], [ -1, %13 ], [ -1, %11 ], [ -1, %unimap_bsearch.exit ], [ -1, %unimap_bsearch.exit89 ], [ -1, %66 ], [ -1, %unimap_bsearch.exit97 ], [ -1, %36 ], [ -1, %13 ], [ -1, %13 ], [ -1, %72 ], [ -1, %44 ], [ -1, %19 ], [ 0, %unimap_bsearch.exit.thread.sink.split ], [ -1, %61 ], [ -1, %91 ]
+  %.072 = phi i32 [ -1, %99 ], [ -1, %96 ], [ -1, %3 ], [ -1, %4 ], [ -1, %13 ], [ -1, %11 ], [ -1, %unimap_bsearch.exit ], [ -1, %unimap_bsearch.exit89 ], [ -1, %66 ], [ -1, %unimap_bsearch.exit97 ], [ -1, %36 ], [ -1, %13 ], [ -1, %13 ], [ -1, %61 ], [ 0, %unimap_bsearch.exit.thread.sink.split ], [ -1, %19 ], [ -1, %44 ], [ -1, %72 ], [ -1, %91 ]
   ret i32 %.072
 }
 

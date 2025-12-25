@@ -993,7 +993,7 @@ define dso_local range(i32 0, 2) i32 @mempacket_swap_epoch(ptr noundef %0) local
   br i1 %67, label %.loopexit, label %17, !llvm.loop !35
 
 .loopexit:                                        ; preds = %17, %63, %11, %54, %41, %39, %6, %1, %62, %53
-  %.0 = phi i32 [ 1, %54 ], [ 0, %1 ], [ 0, %6 ], [ 0, %41 ], [ 0, %62 ], [ 0, %39 ], [ 0, %53 ], [ 0, %11 ], [ 0, %63 ], [ 0, %17 ]
+  %.0 = phi i32 [ 1, %54 ], [ 0, %1 ], [ 0, %6 ], [ 0, %62 ], [ 0, %41 ], [ 0, %39 ], [ 0, %53 ], [ 0, %11 ], [ 0, %63 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -1315,7 +1315,7 @@ mempacket_free.exit:                              ; preds = %119, %123
   br i1 %126, label %119, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %117, %72, %91, %95, %mempacket_free.exit, %88, %30, %23, %18, %5
-  %.0 = phi i32 [ %2, %72 ], [ -1, %5 ], [ -1, %18 ], [ -1, %23 ], [ -1, %mempacket_free.exit ], [ -1, %30 ], [ %2, %88 ], [ %2, %91 ], [ %2, %95 ], [ %2, %117 ]
+  %.0 = phi i32 [ %2, %91 ], [ -1, %5 ], [ -1, %18 ], [ -1, %23 ], [ -1, %mempacket_free.exit ], [ -1, %30 ], [ %2, %88 ], [ %2, %72 ], [ %2, %95 ], [ %2, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1972,7 +1972,7 @@ define dso_local range(i32 0, 2) i32 @create_test_sockets(ptr noundef writeonly 
   br label %54
 
 .thread64:                                        ; preds = %42, %47, %._crit_edge
-  %.071 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %47 ], [ %36, %42 ]
+  %.071 = phi i32 [ %.2.lcssa, %47 ], [ %.2.lcssa, %._crit_edge ], [ %36, %42 ]
   %51 = call i32 @close(i32 noundef %31) #14
   %.not55 = icmp eq i32 %.071, -1
   br i1 %.not55, label %54, label %52

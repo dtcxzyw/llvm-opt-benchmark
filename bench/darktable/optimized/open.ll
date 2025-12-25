@@ -1914,7 +1914,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %.loopexit785
 
 .loopexit785:                                     ; preds = %655, %625, %696, %667
-  %.0334 = phi i32 [ 2, %667 ], [ 2, %696 ], [ 6, %625 ], [ 6, %655 ]
+  %.0334 = phi i32 [ 2, %696 ], [ 2, %667 ], [ 6, %625 ], [ 6, %655 ]
   %697 = getelementptr inbounds nuw i8, ptr %0, i64 182
   %.rhs.trunc728 = trunc nuw nsw i32 %.0334 to i16
   br label %698

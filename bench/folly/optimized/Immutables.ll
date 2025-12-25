@@ -2730,7 +2730,7 @@ _ZN5folly20partialLoadUnalignedImEET_PKvm.exit.i.i.i: ; preds = %59, %57
   br i1 %.not.i, label %.thread, label %.noexc5, !llvm.loop !142
 
 .thread:                                          ; preds = %.critedge.i._crit_edge.split, %134, %130, %92, %.critedge.i._crit_edge.split.us.us, %.noexc6.us.us
-  %137 = phi i1 [ true, %130 ], [ true, %.noexc6.us.us ], [ false, %92 ], [ false, %.critedge.i._crit_edge.split.us.us ], [ false, %134 ], [ false, %.critedge.i._crit_edge.split ]
+  %137 = phi i1 [ true, %.noexc6.us.us ], [ true, %130 ], [ false, %92 ], [ false, %.critedge.i._crit_edge.split.us.us ], [ false, %134 ], [ false, %.critedge.i._crit_edge.split ]
   %138 = load i16, ptr %13, align 8, !tbaa !139
   switch i16 %138, label %158 [
     i16 0, label %_ZN5folly9LockedPtrINS_12SynchronizedINS_10F14FastSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaIS8_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSK_22SynchronizedMutexLevelE2ELNSK_23SynchronizedMutexMethodE0EEEED2Ev.exit
@@ -3342,7 +3342,7 @@ _ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char
   br i1 %.not.i, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE8findImplISt17basic_string_viewIcS7_EEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit, label %_ZNK5folly3f146detail21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEE14computeKeyHashISt17basic_string_viewIcS6_EEEmRKT_.exit.split, !llvm.loop !142
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvvvvSt17integral_constantIbLb1EEEEE8findImplISt17basic_string_viewIcS7_EEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSD_8PrefetchE.exit: ; preds = %.critedge.i._crit_edge.split, %110, %106, %68, %.critedge.i._crit_edge.split.us.us, %74
-  %113 = phi i1 [ true, %106 ], [ true, %74 ], [ false, %68 ], [ false, %.critedge.i._crit_edge.split.us.us ], [ false, %110 ], [ false, %.critedge.i._crit_edge.split ]
+  %113 = phi i1 [ true, %74 ], [ true, %106 ], [ false, %68 ], [ false, %.critedge.i._crit_edge.split.us.us ], [ false, %110 ], [ false, %.critedge.i._crit_edge.split ]
   ret i1 %113
 }
 

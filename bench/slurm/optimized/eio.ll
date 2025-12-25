@@ -565,7 +565,7 @@ _poll_dispatch.exit:                              ; preds = %_poll_handle_event.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_poll_setup_pollfds.exit, %27, %_poll_internal.exit, %200
-  %.0 = phi i32 [ -1, %200 ], [ -1, %_poll_internal.exit ], [ 0, %27 ], [ 0, %_poll_setup_pollfds.exit ]
+  %.0 = phi i32 [ -1, %_poll_internal.exit ], [ -1, %200 ], [ 0, %27 ], [ 0, %_poll_setup_pollfds.exit ]
   call void @slurm_xfree(ptr noundef nonnull %5) #10
   call void @slurm_xfree(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

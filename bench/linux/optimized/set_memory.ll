@@ -1974,7 +1974,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   br label %.thread
 
 .loopexit:                                        ; preds = %165, %227, %304
-  %316 = phi i32 [ 0, %304 ], [ -22, %165 ], [ 0, %227 ]
+  %316 = phi i32 [ 0, %304 ], [ 0, %227 ], [ -22, %165 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_raw_spin_unlock(ptr noundef nonnull @pgd_lock) #11
   br label %535

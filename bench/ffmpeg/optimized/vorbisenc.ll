@@ -4251,7 +4251,7 @@ put_main_header.exit:                             ; preds = %1832
   br label %create_vorbis_context.exit.thread
 
 create_vorbis_context.exit.thread:                ; preds = %.lr.ph313.i, %cb_lookup_vals.exit.i, %cb_lookup_vals.exit.i.i, %.lr.ph322.i, %382, %384, %11, %._crit_edge.i, %188, %202, %._crit_edge332.i, %264, %276, %279, %283, %._crit_edge336.i, %._crit_edge339.i, %327, %331, %268, %._crit_edge327.i, %380, %put_main_header.exit.thread, %put_main_header.exit, %create_vorbis_context.exit, %1846, %10
-  %.0 = phi i32 [ -1, %10 ], [ 0, %1846 ], [ %387, %create_vorbis_context.exit ], [ %1844, %put_main_header.exit ], [ -12, %put_main_header.exit.thread ], [ -12, %.lr.ph322.i ], [ -12, %380 ], [ -12, %._crit_edge327.i ], [ -12, %382 ], [ -12, %384 ], [ -12, %11 ], [ -12, %._crit_edge.i ], [ -12, %188 ], [ -12, %202 ], [ -558323010, %._crit_edge332.i ], [ -12, %264 ], [ %277, %276 ], [ -12, %279 ], [ -12, %283 ], [ -12, %._crit_edge336.i ], [ -12, %._crit_edge339.i ], [ -12, %327 ], [ -12, %331 ], [ -12, %268 ], [ -12, %cb_lookup_vals.exit.i.i ], [ -12, %cb_lookup_vals.exit.i ], [ -12, %.lr.ph313.i ]
+  %.0 = phi i32 [ -1, %10 ], [ 0, %1846 ], [ %387, %create_vorbis_context.exit ], [ %1844, %put_main_header.exit ], [ -12, %put_main_header.exit.thread ], [ -12, %._crit_edge327.i ], [ -12, %380 ], [ -12, %.lr.ph322.i ], [ -12, %382 ], [ -12, %384 ], [ -12, %11 ], [ -12, %._crit_edge.i ], [ -12, %188 ], [ -12, %202 ], [ -558323010, %._crit_edge332.i ], [ -12, %264 ], [ %277, %276 ], [ -12, %279 ], [ -12, %283 ], [ -12, %._crit_edge336.i ], [ -12, %._crit_edge339.i ], [ -12, %327 ], [ -12, %331 ], [ -12, %268 ], [ -12, %cb_lookup_vals.exit.i.i ], [ -12, %cb_lookup_vals.exit.i ], [ -12, %.lr.ph313.i ]
   ret i32 %.0
 }
 

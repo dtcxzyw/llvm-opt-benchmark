@@ -2258,8 +2258,8 @@ ShouldAttemptSensorFusion.exit:                   ; preds = %236
   %337 = tail call zeroext i1 @SDL_GetStringBoolean(ptr noundef nonnull %233, i1 noundef zeroext false) #13
   br i1 %337, label %ShouldAttemptSensorFusion.exit.thread146, label %ShouldAttemptSensorFusion.exit.thread
 
-ShouldAttemptSensorFusion.exit.thread146:         ; preds = %._crit_edge.loopexit.i.i, %288, %SDL_FreeVIDPIDList.exit.i, %290, %ShouldAttemptSensorFusion.exit
-  %.0134149 = phi i1 [ false, %ShouldAttemptSensorFusion.exit ], [ false, %290 ], [ false, %288 ], [ false, %SDL_FreeVIDPIDList.exit.i ], [ true, %._crit_edge.loopexit.i.i ]
+ShouldAttemptSensorFusion.exit.thread146:         ; preds = %._crit_edge.loopexit.i.i, %288, %290, %SDL_FreeVIDPIDList.exit.i, %ShouldAttemptSensorFusion.exit
+  %.0134149 = phi i1 [ false, %ShouldAttemptSensorFusion.exit ], [ false, %288 ], [ false, %290 ], [ false, %SDL_FreeVIDPIDList.exit.i ], [ true, %._crit_edge.loopexit.i.i ]
   call fastcc void @AttemptSensorFusion(ptr noundef %47, i1 noundef zeroext %.0134149)
   br label %ShouldAttemptSensorFusion.exit.thread
 

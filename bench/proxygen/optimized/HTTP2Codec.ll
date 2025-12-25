@@ -11510,7 +11510,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont300, %in
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %cond.false286, %cond.false241, %cond.false143, %cond.false95, %cond.false49, %for.end, %if.then328, %cond.end288, %cond.end243, %cond.end145, %cond.end97, %cond.end51
-  %retval.0 = phi i8 [ 1, %cond.false286 ], [ 1, %cond.false49 ], [ 1, %cond.false95 ], [ 1, %cond.false143 ], [ 1, %cond.false241 ], [ 1, %cond.end51 ], [ 0, %for.end ], [ 1, %cond.end97 ], [ 0, %if.then328 ], [ 1, %cond.end145 ], [ 1, %cond.end288 ], [ 1, %cond.end243 ], [ 1, %cleanup.sink.split ]
+  %retval.0 = phi i8 [ 1, %cond.false286 ], [ 1, %cond.false49 ], [ 1, %cond.false95 ], [ 1, %cond.false143 ], [ 1, %cond.false241 ], [ 1, %cond.end51 ], [ 0, %if.then328 ], [ 1, %cond.end97 ], [ 1, %cond.end288 ], [ 1, %cond.end145 ], [ 0, %for.end ], [ 1, %cond.end243 ], [ 1, %cleanup.sink.split ]
   %55 = load ptr, ptr %settingsList, align 8
   %tobool.not.i.i.i63 = icmp eq ptr %55, null
   br i1 %tobool.not.i.i.i63, label %_ZNSt6vectorIN8proxygen11HTTPSettingESaIS1_EED2Ev.exit, label %if.then.i.i.i64

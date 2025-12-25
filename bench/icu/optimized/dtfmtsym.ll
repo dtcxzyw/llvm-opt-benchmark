@@ -16905,8 +16905,8 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit261: ; preds =
   br label %304
 
 304:                                              ; preds = %.thread291, %302
-  %.1129 = phi i32 [ %.0128378, %302 ], [ %303, %.thread291 ]
-  %.2126 = phi i8 [ 1, %302 ], [ %.0124379, %.thread291 ]
+  %.1129 = phi i32 [ %303, %.thread291 ], [ %.0128378, %302 ]
+  %.2126 = phi i8 [ %.0124379, %.thread291 ], [ 1, %302 ]
   %305 = load i32, ptr %30, align 8, !tbaa !167
   %.not201 = icmp slt i32 %.1129, %305
   br i1 %.not201, label %.lr.ph, label %.thread299, !llvm.loop !178

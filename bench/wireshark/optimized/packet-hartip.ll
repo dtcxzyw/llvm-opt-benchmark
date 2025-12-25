@@ -1611,7 +1611,7 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %dissect_parse_hart_cmds.exit.i
 
 dissect_parse_hart_cmds.exit.i:                   ; preds = %524, %529, %428, %287, %264
-  %.0.i.i = phi i32 [ %530, %529 ], [ %429, %428 ], [ %265, %264 ], [ %288, %287 ], [ %191, %524 ]
+  %.0.i.i = phi i32 [ %530, %529 ], [ %288, %287 ], [ %265, %264 ], [ %429, %428 ], [ %191, %524 ]
   %531 = icmp eq i32 %.0.i.i, 0
   br i1 %531, label %dissect_parse_hart_cmds.exit.thread182.i, label %.thread184.i
 

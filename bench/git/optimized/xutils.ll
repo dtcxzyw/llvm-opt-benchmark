@@ -936,9 +936,9 @@ define dso_local i64 @xdl_hash_record(ptr noundef captures(none) %0, ptr noundef
   br i1 %110, label %90, label %xdl_hash_record_with_whitespace.exit, !llvm.loop !45
 
 xdl_hash_record_with_whitespace.exit:             ; preds = %90, %.critedge2.i, %65, %.loopexit.us.i, %41, %.critedge2.us.us.thread.i, %19, %33, %10, %.lr.ph76.split.us.i, %.lr.ph76.split.i
-  %.051.lcssa.i = phi ptr [ %5, %10 ], [ %58, %41 ], [ %5, %.lr.ph76.split.us.i ], [ %34, %19 ], [ %88, %65 ], [ %5, %.lr.ph76.split.i ], [ %scevgep.i, %33 ], [ %58, %.critedge2.us.us.thread.i ], [ %88, %.loopexit.us.i ], [ %109, %.critedge2.i ], [ %109, %90 ]
-  %.0.lcssa.i = phi i64 [ 5381, %10 ], [ %.1.us100.us.i, %41 ], [ 5381, %.lr.ph76.split.us.i ], [ %.1.us.i, %19 ], [ %.1.us100.i, %65 ], [ 5381, %.lr.ph76.split.i ], [ %.1.us.i, %33 ], [ %.1.us100.us.i, %.critedge2.us.us.thread.i ], [ %.1.us100.i, %.loopexit.us.i ], [ %.1.i, %.critedge2.i ], [ %.1.i, %90 ]
-  %.lcssa70.i = phi i64 [ 0, %10 ], [ 1, %41 ], [ 1, %.lr.ph76.split.us.i ], [ 1, %19 ], [ 1, %65 ], [ 1, %.lr.ph76.split.i ], [ 0, %33 ], [ 0, %.critedge2.us.us.thread.i ], [ 0, %.loopexit.us.i ], [ 1, %90 ], [ 0, %.critedge2.i ]
+  %.051.lcssa.i = phi ptr [ %5, %10 ], [ %5, %.lr.ph76.split.us.i ], [ %5, %.lr.ph76.split.i ], [ %88, %65 ], [ %34, %19 ], [ %58, %41 ], [ %scevgep.i, %33 ], [ %58, %.critedge2.us.us.thread.i ], [ %88, %.loopexit.us.i ], [ %109, %.critedge2.i ], [ %109, %90 ]
+  %.0.lcssa.i = phi i64 [ 5381, %10 ], [ 5381, %.lr.ph76.split.us.i ], [ 5381, %.lr.ph76.split.i ], [ %.1.us100.i, %65 ], [ %.1.us.i, %19 ], [ %.1.us100.us.i, %41 ], [ %.1.us.i, %33 ], [ %.1.us100.us.i, %.critedge2.us.us.thread.i ], [ %.1.us100.i, %.loopexit.us.i ], [ %.1.i, %.critedge2.i ], [ %.1.i, %90 ]
+  %.lcssa70.i = phi i64 [ 0, %10 ], [ 1, %.lr.ph76.split.us.i ], [ 1, %.lr.ph76.split.i ], [ 1, %65 ], [ 1, %19 ], [ 1, %41 ], [ 0, %33 ], [ 0, %.critedge2.us.us.thread.i ], [ 0, %.loopexit.us.i ], [ 1, %90 ], [ 0, %.critedge2.i ]
   %111 = getelementptr inbounds nuw i8, ptr %.051.lcssa.i, i64 %.lcssa70.i
   br label %119
 

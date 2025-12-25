@@ -752,7 +752,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.outer560
 
 .loopexit556:                                     ; preds = %392, %304, %256, %179, %315, %183
-  %.2 = phi i32 [ %58, %183 ], [ %58, %315 ], [ %.1, %256 ], [ %.1, %179 ], [ %.3, %304 ], [ %.3, %392 ]
+  %.2 = phi i32 [ %58, %183 ], [ %.1, %256 ], [ %58, %315 ], [ %.1, %179 ], [ %.3, %304 ], [ %.3, %392 ]
   %brmerge = or i1 %110, %115
   br i1 %brmerge, label %.sink.split765, label %393
 

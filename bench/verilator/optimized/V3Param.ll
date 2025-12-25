@@ -7746,7 +7746,7 @@ _ZN7AstNode11privateCastI20AstBracketArrayDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit:
   br label %239
 
 _ZN7AstNode11privateCastI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = %_ZN7AstNode11privateCastI16AstIfaceRefDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit, %103, %92
-  %.060 = phi ptr [ %90, %92 ], [ %84, %_ZN7AstNode11privateCastI16AstIfaceRefDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit ], [ %101, %103 ]
+  %.060 = phi ptr [ %84, %_ZN7AstNode11privateCastI16AstIfaceRefDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit ], [ %90, %92 ], [ %101, %103 ]
   %108 = getelementptr inbounds nuw i8, ptr %.060, i64 280
   %109 = load ptr, ptr %108, align 8, !tbaa !258
   %.not80 = icmp eq ptr %109, null
@@ -16380,7 +16380,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !504
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge101, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %5, %3
-  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
+  %.sroa.024.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP13AstNodeModuleSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.024.0
 }
 

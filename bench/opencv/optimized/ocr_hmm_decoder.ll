@@ -16990,9 +16990,9 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
   br i1 %1219, label %560, label %._crit_edge1494, !llvm.loop !419
 
 1220:                                             ; preds = %.loopexit895, %.loopexit.split-lp896, %.loopexit890, %.loopexit.split-lp891, %.body530, %924, %1034
-  %.sroa.0693.2 = phi ptr [ %.sroa.0693.3.lcssa, %.body530 ], [ %.sroa.0693.31476, %1034 ], [ %.sroa.0693.31476, %924 ], [ %.sroa.0693.3.lcssa, %.loopexit.split-lp891 ], [ %.sroa.0693.3.lcssa, %.loopexit.split-lp896 ], [ %.sroa.0693.3.lcssa, %.loopexit895 ], [ %.sroa.0693.3.lcssa, %.loopexit890 ]
-  %.sroa.17.2 = phi ptr [ %.sroa.17.3.lcssa, %.body530 ], [ %.sroa.17.31477, %1034 ], [ %.sroa.17.31477, %924 ], [ %.sroa.17.3.lcssa, %.loopexit.split-lp891 ], [ %.sroa.17.3.lcssa, %.loopexit.split-lp896 ], [ %.sroa.17.3.lcssa, %.loopexit895 ], [ %.sroa.17.3.lcssa, %.loopexit890 ]
-  %.pn287 = phi { ptr, i32 } [ %.pn278, %.body530 ], [ %.pn284, %1034 ], [ %.pn282, %924 ], [ %lpad.loopexit.split-lp893, %.loopexit.split-lp891 ], [ %lpad.loopexit.split-lp898, %.loopexit.split-lp896 ], [ %lpad.loopexit897, %.loopexit895 ], [ %lpad.loopexit892, %.loopexit890 ]
+  %.sroa.0693.2 = phi ptr [ %.sroa.0693.3.lcssa, %.body530 ], [ %.sroa.0693.31476, %1034 ], [ %.sroa.0693.31476, %924 ], [ %.sroa.0693.3.lcssa, %.loopexit.split-lp891 ], [ %.sroa.0693.3.lcssa, %.loopexit895 ], [ %.sroa.0693.3.lcssa, %.loopexit.split-lp896 ], [ %.sroa.0693.3.lcssa, %.loopexit890 ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.3.lcssa, %.body530 ], [ %.sroa.17.31477, %1034 ], [ %.sroa.17.31477, %924 ], [ %.sroa.17.3.lcssa, %.loopexit.split-lp891 ], [ %.sroa.17.3.lcssa, %.loopexit895 ], [ %.sroa.17.3.lcssa, %.loopexit.split-lp896 ], [ %.sroa.17.3.lcssa, %.loopexit890 ]
+  %.pn287 = phi { ptr, i32 } [ %.pn278, %.body530 ], [ %.pn284, %1034 ], [ %.pn282, %924 ], [ %lpad.loopexit.split-lp893, %.loopexit.split-lp891 ], [ %lpad.loopexit897, %.loopexit895 ], [ %lpad.loopexit.split-lp898, %.loopexit.split-lp896 ], [ %lpad.loopexit892, %.loopexit890 ]
   %.not4.i.i.i.i612 = icmp eq ptr %.sroa.0693.2, %.sroa.17.2
   br i1 %.not4.i.i.i.i612, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i620, label %.lr.ph.i.i.i.i613.preheader
 
@@ -21160,9 +21160,9 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
   br i1 %1310, label %601, label %._crit_edge1610, !llvm.loop !466
 
 1311:                                             ; preds = %.loopexit1013, %.loopexit.split-lp1014, %.loopexit1008, %.loopexit.split-lp1009, %.body583, %1015, %1125
-  %.sroa.0746.2 = phi ptr [ %.sroa.0746.3.lcssa, %.body583 ], [ %.sroa.0746.31592, %1125 ], [ %.sroa.0746.31592, %1015 ], [ %.sroa.0746.3.lcssa, %.loopexit.split-lp1009 ], [ %.sroa.0746.3.lcssa, %.loopexit.split-lp1014 ], [ %.sroa.0746.3.lcssa, %.loopexit1013 ], [ %.sroa.0746.3.lcssa, %.loopexit1008 ]
-  %.sroa.17.2 = phi ptr [ %.sroa.17.3.lcssa, %.body583 ], [ %.sroa.17.31593, %1125 ], [ %.sroa.17.31593, %1015 ], [ %.sroa.17.3.lcssa, %.loopexit.split-lp1009 ], [ %.sroa.17.3.lcssa, %.loopexit.split-lp1014 ], [ %.sroa.17.3.lcssa, %.loopexit1013 ], [ %.sroa.17.3.lcssa, %.loopexit1008 ]
-  %.pn317 = phi { ptr, i32 } [ %.pn308, %.body583 ], [ %.pn314, %1125 ], [ %.pn312, %1015 ], [ %lpad.loopexit.split-lp1011, %.loopexit.split-lp1009 ], [ %lpad.loopexit.split-lp1016, %.loopexit.split-lp1014 ], [ %lpad.loopexit1015, %.loopexit1013 ], [ %lpad.loopexit1010, %.loopexit1008 ]
+  %.sroa.0746.2 = phi ptr [ %.sroa.0746.3.lcssa, %.body583 ], [ %.sroa.0746.31592, %1125 ], [ %.sroa.0746.31592, %1015 ], [ %.sroa.0746.3.lcssa, %.loopexit.split-lp1009 ], [ %.sroa.0746.3.lcssa, %.loopexit1013 ], [ %.sroa.0746.3.lcssa, %.loopexit.split-lp1014 ], [ %.sroa.0746.3.lcssa, %.loopexit1008 ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.3.lcssa, %.body583 ], [ %.sroa.17.31593, %1125 ], [ %.sroa.17.31593, %1015 ], [ %.sroa.17.3.lcssa, %.loopexit.split-lp1009 ], [ %.sroa.17.3.lcssa, %.loopexit1013 ], [ %.sroa.17.3.lcssa, %.loopexit.split-lp1014 ], [ %.sroa.17.3.lcssa, %.loopexit1008 ]
+  %.pn317 = phi { ptr, i32 } [ %.pn308, %.body583 ], [ %.pn314, %1125 ], [ %.pn312, %1015 ], [ %lpad.loopexit.split-lp1011, %.loopexit.split-lp1009 ], [ %lpad.loopexit1015, %.loopexit1013 ], [ %lpad.loopexit.split-lp1016, %.loopexit.split-lp1014 ], [ %lpad.loopexit1010, %.loopexit1008 ]
   %.not4.i.i.i.i665 = icmp eq ptr %.sroa.0746.2, %.sroa.17.2
   br i1 %.not4.i.i.i.i665, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i673, label %.lr.ph.i.i.i.i666.preheader
 

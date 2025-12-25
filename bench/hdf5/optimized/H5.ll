@@ -2404,7 +2404,7 @@ define range(i32 -1, 1) i32 @H5open() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %15, %9, %19
-  %.047 = phi i32 [ -1, %19 ], [ 0, %9 ], [ 0, %15 ]
+  %.047 = phi i32 [ -1, %19 ], [ 0, %15 ], [ 0, %9 ]
   ret i32 %.047
 }
 

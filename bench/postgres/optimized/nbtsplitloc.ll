@@ -542,9 +542,9 @@ _bt_afternewitemoff.exit:                         ; preds = %247
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph506, !llvm.loop !8
 
-.loopexit:                                        ; preds = %264, %_bt_afternewitemoff.exit, %._bt_afternewitemoff.exit.thread419_crit_edge, %.preheader, %241, %208, %247, %244, %202, %194, %BTreeTupleIsPosting.exit.i201, %189, %192
-  %.0415.shrunk = phi i1 [ true, %192 ], [ true, %_bt_afternewitemoff.exit ], [ %47, %189 ], [ false, %247 ], [ false, %BTreeTupleIsPosting.exit.i201 ], [ false, %194 ], [ false, %241 ], [ false, %208 ], [ false, %202 ], [ false, %244 ], [ false, %.preheader ], [ true, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ false, %264 ]
-  %.078 = phi double [ %193, %192 ], [ %254, %_bt_afternewitemoff.exit ], [ 0x3FE6666666666666, %189 ], [ 5.000000e-01, %247 ], [ 5.000000e-01, %BTreeTupleIsPosting.exit.i201 ], [ 5.000000e-01, %194 ], [ 5.000000e-01, %241 ], [ 5.000000e-01, %208 ], [ 5.000000e-01, %202 ], [ 5.000000e-01, %244 ], [ 5.000000e-01, %.preheader ], [ %.pre, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ 5.000000e-01, %264 ]
+.loopexit:                                        ; preds = %264, %_bt_afternewitemoff.exit, %._bt_afternewitemoff.exit.thread419_crit_edge, %.preheader, %244, %208, %247, %241, %202, %194, %BTreeTupleIsPosting.exit.i201, %189, %192
+  %.0415.shrunk = phi i1 [ true, %192 ], [ true, %_bt_afternewitemoff.exit ], [ %47, %189 ], [ false, %247 ], [ false, %BTreeTupleIsPosting.exit.i201 ], [ false, %194 ], [ false, %244 ], [ false, %208 ], [ false, %202 ], [ false, %241 ], [ false, %.preheader ], [ true, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ false, %264 ]
+  %.078 = phi double [ %193, %192 ], [ %254, %_bt_afternewitemoff.exit ], [ 0x3FE6666666666666, %189 ], [ 5.000000e-01, %247 ], [ 5.000000e-01, %BTreeTupleIsPosting.exit.i201 ], [ 5.000000e-01, %194 ], [ 5.000000e-01, %244 ], [ 5.000000e-01, %208 ], [ 5.000000e-01, %202 ], [ 5.000000e-01, %241 ], [ 5.000000e-01, %.preheader ], [ %.pre, %._bt_afternewitemoff.exit.thread419_crit_edge ], [ 5.000000e-01, %264 ]
   %.sroa.3242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 6
   %.sroa.3242.0.copyload = load i16, ptr %.sroa.3242.0..sroa_idx, align 2
   %.sroa.4243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8

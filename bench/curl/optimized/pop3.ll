@@ -1330,7 +1330,7 @@ pop3_state_auth_resp.exit:                        ; preds = %147, %151, %153, %1
   br label %pop3_state_servergreet_resp.exit.thread
 
 pop3_state_servergreet_resp.exit:                 ; preds = %.sink.split.i, %145, %143, %132, %116, %pop3_state_auth_resp.exit
-  %.1 = phi i32 [ %.0.ph.i, %.sink.split.i ], [ %117, %116 ], [ %133, %132 ], [ %144, %143 ], [ %.0.i, %pop3_state_auth_resp.exit ], [ %146, %145 ]
+  %.1 = phi i32 [ %117, %116 ], [ %.0.ph.i, %.sink.split.i ], [ %133, %132 ], [ %144, %143 ], [ %.0.i, %pop3_state_auth_resp.exit ], [ %146, %145 ]
   %.not44 = icmp eq i32 %.1, 0
   br i1 %.not44, label %pop3_state_servergreet_resp.exit.thread, label %.critedge
 
@@ -1343,8 +1343,8 @@ pop3_state_servergreet_resp.exit.thread:          ; preds = %187, %127, %77, %82
   %225 = call zeroext i1 @Curl_pp_moredata(ptr noundef nonnull %7) #6
   br i1 %225, label %23, label %.critedge, !llvm.loop !136
 
-.critedge:                                        ; preds = %124, %135, %.critedge.i, %51, %181, %210, %224, %25, %pop3_state_servergreet_resp.exit, %pop3_state_servergreet_resp.exit.thread, %23, %134, %36, %142, %177, %.thread.i, %190, %21, %11
-  %.0 = phi i32 [ %12, %11 ], [ %22, %21 ], [ 64, %142 ], [ 67, %190 ], [ 67, %177 ], [ 67, %.thread.i ], [ 8, %36 ], [ 64, %134 ], [ %213, %210 ], [ %186, %181 ], [ 27, %51 ], [ %64, %.critedge.i ], [ 8, %135 ], [ %126, %124 ], [ 0, %25 ], [ 0, %pop3_state_servergreet_resp.exit.thread ], [ 0, %224 ], [ %.1, %pop3_state_servergreet_resp.exit ], [ %24, %23 ]
+.critedge:                                        ; preds = %.critedge.i, %51, %135, %181, %124, %210, %224, %25, %pop3_state_servergreet_resp.exit, %pop3_state_servergreet_resp.exit.thread, %23, %190, %.thread.i, %177, %36, %142, %134, %21, %11
+  %.0 = phi i32 [ %12, %11 ], [ %22, %21 ], [ 67, %.thread.i ], [ 67, %177 ], [ 64, %142 ], [ 64, %134 ], [ 8, %36 ], [ 67, %190 ], [ %213, %210 ], [ %126, %124 ], [ %186, %181 ], [ 8, %135 ], [ 27, %51 ], [ %64, %.critedge.i ], [ 0, %25 ], [ 0, %pop3_state_servergreet_resp.exit.thread ], [ 0, %224 ], [ %.1, %pop3_state_servergreet_resp.exit ], [ %24, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -1402,7 +1402,7 @@ define internal noundef zeroext i1 @pop3_endofresp(ptr readnone captures(none) %
   br label %23
 
 23:                                               ; preds = %.sink.split, %20, %.thread
-  %.0 = phi i1 [ false, %20 ], [ false, %.thread ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %.thread ], [ false, %20 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

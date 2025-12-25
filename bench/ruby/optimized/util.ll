@@ -2579,8 +2579,8 @@ Bfree.exit802.backedge:                           ; preds = %938, %Bfree.exit798
   br i1 %.not12.i801, label %Bfree.exit802.backedge, label %.backedge1621, !prof !49
 
 cmp.exit782.thread:                               ; preds = %648, %626, %646, %.thread870, %681, %.thread872, %678, %cmp.exit782, %cmp.exit.thread860, %622, %cmp.exit782.thread864._crit_edge, %667
-  %.sroa.0103.13 = phi double [ %.sroa.0103.12, %cmp.exit.thread860 ], [ %.sroa.0103.12, %622 ], [ %.sroa.0103.12, %.thread870 ], [ %687, %.thread872 ], [ %677, %cmp.exit782.thread864._crit_edge ], [ %.sroa.0103.12, %cmp.exit782 ], [ %.sroa.0103.12, %626 ], [ %668, %667 ], [ %684, %681 ], [ %.sroa.0103.12, %678 ], [ %.sroa.0103.12, %646 ], [ %.sroa.0103.12, %648 ]
-  %.3 = phi ptr [ %594, %cmp.exit.thread860 ], [ %594, %622 ], [ %594, %.thread870 ], [ %594, %.thread872 ], [ %.4, %cmp.exit782.thread864._crit_edge ], [ %631, %cmp.exit782 ], [ %594, %626 ], [ %594, %667 ], [ %594, %681 ], [ %594, %678 ], [ %631, %646 ], [ %631, %648 ]
+  %.sroa.0103.13 = phi double [ %.sroa.0103.12, %cmp.exit.thread860 ], [ %.sroa.0103.12, %622 ], [ %684, %681 ], [ %687, %.thread872 ], [ %677, %cmp.exit782.thread864._crit_edge ], [ %.sroa.0103.12, %cmp.exit782 ], [ %.sroa.0103.12, %626 ], [ %668, %667 ], [ %.sroa.0103.12, %.thread870 ], [ %.sroa.0103.12, %678 ], [ %.sroa.0103.12, %646 ], [ %.sroa.0103.12, %648 ]
+  %.3 = phi ptr [ %594, %cmp.exit.thread860 ], [ %594, %622 ], [ %594, %681 ], [ %594, %.thread872 ], [ %.4, %cmp.exit782.thread864._crit_edge ], [ %631, %cmp.exit782 ], [ %594, %626 ], [ %594, %667 ], [ %594, %.thread870 ], [ %594, %678 ], [ %631, %646 ], [ %631, %648 ]
   br i1 %.not716, label %.thread874, label %.thread878
 
 .thread878:                                       ; preds = %674, %cmp.exit782.thread

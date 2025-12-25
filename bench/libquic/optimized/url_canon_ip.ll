@@ -519,7 +519,7 @@ select.unfold10.i:                                ; preds = %25, %23
   br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit, label %.lr.ph.i, !llvm.loop !25
 
 _ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit: ; preds = %35, %37, %.lr.ph.i, %3, %23, %29, %select.unfold10.i
-  %.039.i = phi i1 [ false, %3 ], [ false, %23 ], [ true, %select.unfold10.i ], [ true, %.lr.ph.i ], [ %or.cond49.i, %29 ], [ false, %37 ], [ false, %35 ]
+  %.039.i = phi i1 [ false, %3 ], [ false, %23 ], [ %or.cond49.i, %29 ], [ true, %select.unfold10.i ], [ true, %.lr.ph.i ], [ false, %37 ], [ false, %35 ]
   ret i1 %.039.i
 }
 
@@ -626,7 +626,7 @@ select.unfold10.i:                                ; preds = %25, %23
   br i1 %exitcond.not.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit, label %.lr.ph.i, !llvm.loop !29
 
 _ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit: ; preds = %35, %37, %.lr.ph.i, %3, %23, %29, %select.unfold10.i
-  %.039.i = phi i1 [ false, %3 ], [ false, %23 ], [ true, %select.unfold10.i ], [ true, %.lr.ph.i ], [ %or.cond50.i, %29 ], [ false, %37 ], [ false, %35 ]
+  %.039.i = phi i1 [ false, %3 ], [ false, %23 ], [ %or.cond50.i, %29 ], [ true, %select.unfold10.i ], [ true, %.lr.ph.i ], [ false, %37 ], [ false, %35 ]
   ret i1 %.039.i
 }
 

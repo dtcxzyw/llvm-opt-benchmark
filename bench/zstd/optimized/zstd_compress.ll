@@ -9464,7 +9464,7 @@ ZSTD_setBufferExpectations.exit:                  ; preds = %.ZSTD_setBufferExpe
   br i1 %196, label %.thread150, label %.split.backedge
 
 .thread150:                                       ; preds = %154, %152, %136, %133, %132, %194, %188, %191, %187, %.thread145
-  %.us-phi161 = phi i64 [ %160, %194 ], [ %122, %136 ], [ 0, %.thread145 ], [ %160, %187 ], [ %160, %191 ], [ %160, %188 ], [ %122, %132 ], [ %122, %133 ], [ 0, %152 ], [ %142, %154 ]
+  %.us-phi161 = phi i64 [ 0, %.thread145 ], [ %122, %136 ], [ %160, %194 ], [ %160, %187 ], [ %160, %191 ], [ %160, %188 ], [ %122, %132 ], [ %122, %133 ], [ %142, %154 ], [ 0, %152 ]
   %197 = load i32, ptr %66, align 4, !tbaa !321
   %198 = icmp eq i32 %197, 1
   br i1 %198, label %199, label %201
@@ -14701,7 +14701,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %45, %48, %51
   br label %ZSTD_postProcessSequenceProducerResult.exit
 
 ZSTD_postProcessSequenceProducerResult.exit:      ; preds = %116, %124
-  %.0.i = phi i64 [ %113, %116 ], [ %125, %124 ]
+  %.0.i = phi i64 [ %125, %124 ], [ %113, %116 ]
   %126 = icmp ult i64 %.0.i, -119
   br i1 %126, label %127, label %ZSTD_postProcessSequenceProducerResult.exit.thread
 

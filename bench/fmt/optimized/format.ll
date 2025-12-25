@@ -7024,7 +7024,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit:          ; preds = %70, %73
   br label %_ZN3fmt3v116detail17do_format_decimalIcoEEPT_S4_T0_i.exit
 
 _ZN3fmt3v116detail17do_format_decimalIcoEEPT_S4_T0_i.exit: ; preds = %54, %62, %79
-  %.sroa.027.1 = phi ptr [ %80, %79 ], [ %0, %62 ], [ %0, %54 ]
+  %.sroa.027.1 = phi ptr [ %80, %79 ], [ %0, %54 ], [ %0, %62 ]
   ret ptr %.sroa.027.1
 }
 
@@ -7300,7 +7300,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; 
   br label %_ZN3fmt3v116detail17do_format_decimalIcoEEPT_S4_T0_i.exit
 
 _ZN3fmt3v116detail17do_format_decimalIcoEEPT_S4_T0_i.exit: ; preds = %46, %54, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread
-  %.sroa.027.1 = phi ptr [ %60, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread ], [ %0, %54 ], [ %0, %46 ]
+  %.sroa.027.1 = phi ptr [ %60, %_ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread ], [ %0, %46 ], [ %0, %54 ]
   ret ptr %.sroa.027.1
 }
 
@@ -21664,7 +21664,7 @@ _ZNK3fmt3v117context3argEi.exit.thread39:         ; preds = %_ZNK3fmt3v117contex
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit: ; preds = %79, %74, %76, %78, %80
-  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
+  %.0.i = phi i64 [ %.sroa.012.sroa.0.sroa.0.0.insert.insert, %78 ], [ %77, %76 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert70, %80 ], [ %75, %74 ], [ %.sroa.012.sroa.0.sroa.0.0.insert.insert73, %79 ]
   %91 = icmp ugt i64 %.0.i, 2147483647
   br i1 %91, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread, label %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread44
 
@@ -23955,7 +23955,7 @@ _ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEE
   %286 = trunc nuw i32 %285 to i1
   br i1 %286, label %.critedge134, label %.critedge136
 
-.critedge134.thread:                              ; preds = %275, %263, %211, %207, %_ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEENKUljPcE_clEjSA_.exit147.thread, %271
+.critedge134.thread:                              ; preds = %263, %275, %211, %207, %_ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEENKUljPcE_clEjSA_.exit147.thread, %271
   %287 = load ptr, ptr %4, align 8, !tbaa !16
   %288 = zext nneg i32 %.0187 to i64
   %289 = getelementptr i8, ptr %287, i64 %288
@@ -24025,8 +24025,8 @@ _ZZN3fmt3v116detail12format_floatIdEEiT_iRKNS0_12format_specsEbRNS1_6bufferIcEEE
   store i32 %323, ptr %6, align 4, !tbaa !64
   br label %.critedge136
 
-.critedge136:                                     ; preds = %275, %263, %211, %273, %209, %.critedge, %322, %318, %279
-  %.1188 = phi i32 [ %319, %318 ], [ %.0187, %322 ], [ %.0187, %.critedge ], [ %.0187, %279 ], [ 9, %209 ], [ 18, %273 ], [ 9, %211 ], [ %.0187, %263 ], [ 18, %275 ]
+.critedge136:                                     ; preds = %263, %275, %211, %273, %209, %.critedge, %322, %318, %279
+  %.1188 = phi i32 [ %319, %318 ], [ %.0187, %322 ], [ %.0187, %.critedge ], [ %.0187, %279 ], [ 9, %209 ], [ 18, %273 ], [ 9, %211 ], [ 18, %275 ], [ %.0187, %263 ]
   %324 = zext nneg i32 %.1188 to i64
   %325 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %326 = load i64, ptr %325, align 8, !tbaa !17

@@ -1515,7 +1515,7 @@ _ZNK7datalog8ddnf_mgr7displayERSo.exit40.thread:  ; preds = %.noexc44, %192
   br i1 %208, label %.thread, label %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjE4backEv.exit
 
 .thread:                                          ; preds = %.loopexit83, %_ZNK15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrEEE4sizeEv.exit.i35, %.noexc39, %_ZNK6vectorIPN7datalog9ddnf_nodeELb0EjE5emptyEv.exit.lr.ph, %_ZNK7datalog8ddnf_mgr7displayERSo.exit, %144
-  %209 = phi i1 [ true, %_ZNK6vectorIPN7datalog9ddnf_nodeELb0EjE5emptyEv.exit.lr.ph ], [ false, %144 ], [ false, %_ZNK7datalog8ddnf_mgr7displayERSo.exit ], [ false, %_ZNK15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrEEE4sizeEv.exit.i35 ], [ false, %.noexc39 ], [ true, %.loopexit83 ]
+  %209 = phi i1 [ false, %_ZNK15ref_vector_coreIN7datalog9ddnf_nodeE19ref_manager_wrapperIS1_NS0_8ddnf_mgrEEE4sizeEv.exit.i35 ], [ false, %144 ], [ false, %_ZNK7datalog8ddnf_mgr7displayERSo.exit ], [ true, %_ZNK6vectorIPN7datalog9ddnf_nodeELb0EjE5emptyEv.exit.lr.ph ], [ false, %.noexc39 ], [ true, %.loopexit83 ]
   %.pr = load ptr, ptr %2, align 8, !tbaa !10
   %.not.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i, label %_ZN6vectorIPN7datalog9ddnf_nodeELb0EjED2Ev.exit, label %210

@@ -2521,7 +2521,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   switch i32 %0, label %.thread.thread.i [
     i32 1, label %51
     i32 2, label %53
-    i32 3, label %61
+    i32 3, label %59
   ]
 
 .thread.thread.i:                                 ; preds = %50
@@ -2553,16 +2553,16 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
 
 58:                                               ; preds = %56, %55
   %.not93.i = icmp eq i32 %.371.i, 0
-  br i1 %.not93.i, label %.thread.i, label %59
+  br i1 %.not93.i, label %.thread.i, label %61
 
-59:                                               ; preds = %58
-  %60 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %.371.i, i32 noundef %3) #16
-  br i1 %60, label %.thread108.i, label %.thread.i
-
-61:                                               ; preds = %50
-  %62 = load i32, ptr %33, align 8
-  %.not88.i = icmp eq i32 %62, 0
+59:                                               ; preds = %50
+  %60 = load i32, ptr %33, align 8
+  %.not88.i = icmp eq i32 %60, 0
   br i1 %.not88.i, label %.thread.i, label %.thread108.i
+
+61:                                               ; preds = %58
+  %62 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %.371.i, i32 noundef %3) #16
+  br i1 %62, label %.thread108.i, label %.thread.i
 
 .thread.i:                                        ; preds = %61, %59, %58, %53, %51, %42
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
@@ -3386,7 +3386,7 @@ validate_sync_standby_slots.exit.thread:          ; preds = %8
   br label %.split39.us.i
 
 .split39.us.i:                                    ; preds = %32, %.lr.ph.split.i, %.lr.ph.split.us.split.i, %.split39.us.sink.split.i, %16
-  %.us-phi40.i = phi i1 [ true, %16 ], [ false, %.split39.us.sink.split.i ], [ true, %.lr.ph.split.i ], [ true, %.lr.ph.split.us.split.i ], [ true, %32 ]
+  %.us-phi40.i = phi i1 [ true, %16 ], [ true, %.lr.ph.split.i ], [ false, %.split39.us.sink.split.i ], [ true, %.lr.ph.split.us.split.i ], [ true, %32 ]
   %22 = load ptr, ptr @MainLWLockArray, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4736
   call void @LWLockRelease(ptr noundef nonnull %23) #16

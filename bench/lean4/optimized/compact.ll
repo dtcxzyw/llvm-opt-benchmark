@@ -2184,7 +2184,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   %121 = tail call noundef zeroext i1 @_ZN4lean16object_compactor12insert_arrayEP11lean_object(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %71)
   br i1 %121, label %.critedge, label %124
 
-.critedge:                                        ; preds = %110, %108, %106, %104, %118, %101, %102, %103, %120
+.critedge:                                        ; preds = %106, %108, %110, %104, %118, %101, %102, %103, %120
   %122 = load ptr, ptr %35, align 8, !tbaa !67
   %123 = getelementptr inbounds i8, ptr %122, i64 -8
   br label %.sink.split
@@ -2194,7 +2194,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   store ptr %.sink, ptr %35, align 8, !tbaa !67
   br label %124
 
-124:                                              ; preds = %.sink.split, %110, %108, %106, %104, %118, %120
+124:                                              ; preds = %.sink.split, %106, %108, %110, %104, %118, %120
   %125 = load ptr, ptr %34, align 8, !tbaa !86
   %126 = load ptr, ptr %35, align 8, !tbaa !86
   %127 = icmp eq ptr %125, %126

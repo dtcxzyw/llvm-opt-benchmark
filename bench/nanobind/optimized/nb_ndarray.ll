@@ -3791,7 +3791,7 @@ switch.lookup76:                                  ; preds = %.split1
   br label %39
 
 39:                                               ; preds = %switch.lookup76, %switch.lookup, %9, %33, %28, %32, %31, %36
-  %.051 = phi ptr [ @.str.51, %33 ], [ @.str.52, %36 ], [ %switch.load78, %switch.lookup76 ], [ @.str.53, %9 ], [ @.str.49, %31 ], [ %switch.load, %switch.lookup ], [ @.str.48, %28 ], [ @.str.50, %32 ]
+  %.051 = phi ptr [ %switch.load78, %switch.lookup76 ], [ @.str.49, %31 ], [ @.str.52, %36 ], [ @.str.53, %9 ], [ @.str.48, %28 ], [ %switch.load, %switch.lookup ], [ @.str.50, %32 ], [ @.str.51, %33 ]
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %41 = load i16, ptr %40, align 2
   %.not53 = icmp eq i16 %41, 1

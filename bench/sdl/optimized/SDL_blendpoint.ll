@@ -3248,16 +3248,16 @@ define hidden zeroext i1 @SDL_BlendPoints(ptr noundef %0, ptr noundef readonly c
   %.056 = phi i8 [ %31, %22 ], [ %5, %20 ]
   %.054 = phi i8 [ %27, %22 ], [ %4, %20 ]
   switch i8 %16, label %.thread [
-    i8 15, label %45
-    i8 16, label %37
+    i8 15, label %37
+    i8 16, label %45
     i8 32, label %40
   ]
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %39 = load i32, ptr %38, align 4
-  %cond1.not = icmp eq i32 %39, 63488
-  br i1 %cond1.not, label %50, label %.thread
+  %cond2.not = icmp eq i32 %39, 31744
+  br i1 %cond2.not, label %50, label %.thread
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -3275,8 +3275,8 @@ define hidden zeroext i1 @SDL_BlendPoints(ptr noundef %0, ptr noundef readonly c
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %47 = load i32, ptr %46, align 4
-  %cond2.not = icmp eq i32 %47, 31744
-  br i1 %cond2.not, label %50, label %.thread
+  %cond1.not = icmp eq i32 %47, 63488
+  br i1 %cond1.not, label %50, label %.thread
 
 .thread:                                          ; preds = %40, %36, %37, %45
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 20
@@ -3286,7 +3286,7 @@ define hidden zeroext i1 @SDL_BlendPoints(ptr noundef %0, ptr noundef readonly c
   br label %50
 
 50:                                               ; preds = %37, %.thread72, %.thread, %45
-  %.152 = phi ptr [ @SDL_BlendPoint_RGB555, %45 ], [ %SDL_BlendPoint_RGB.SDL_BlendPoint_RGBA, %.thread ], [ %SDL_BlendPoint_XRGB8888.SDL_BlendPoint_ARGB8888, %.thread72 ], [ @SDL_BlendPoint_RGB565, %37 ]
+  %.152 = phi ptr [ @SDL_BlendPoint_RGB565, %45 ], [ %SDL_BlendPoint_RGB.SDL_BlendPoint_RGBA, %.thread ], [ %SDL_BlendPoint_XRGB8888.SDL_BlendPoint_ARGB8888, %.thread72 ], [ @SDL_BlendPoint_RGB555, %37 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 108

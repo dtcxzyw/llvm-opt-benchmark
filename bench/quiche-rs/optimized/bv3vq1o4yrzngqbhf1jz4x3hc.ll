@@ -11015,7 +11015,7 @@ _ZN11quiche_apps6common15hdrs_to_strings17h6e1a00223858160aE.exit: ; preds = %35
   br label %537
 
 .loopexit.split-lp.i:                             ; preds = %565, %553, %546, %536, %528
-  %.sroa.076.1.ph.i = phi i8 [ %.sroa.076.0.i, %546 ], [ %.sroa.076.0.i, %528 ], [ %.sroa.076.0.i, %553 ], [ %.sroa.076.0.i, %565 ], [ 0, %536 ]
+  %.sroa.076.1.ph.i = phi i8 [ %.sroa.076.0.i, %546 ], [ 0, %536 ], [ %.sroa.076.0.i, %553 ], [ %.sroa.076.0.i, %565 ], [ %.sroa.076.0.i, %528 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %537

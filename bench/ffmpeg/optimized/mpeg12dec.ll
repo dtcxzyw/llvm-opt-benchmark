@@ -1158,7 +1158,7 @@ slice_end.exit.thread.sink.split:                 ; preds = %172, %161
   br label %slice_end.exit.thread
 
 slice_end.exit.thread:                            ; preds = %slice_end.exit.thread.sink.split, %169, %166, %150, %134, %.critedge.i, %mpeg12_execute_slice_threads.exit, %._crit_edge
-  %177 = phi ptr [ %107, %169 ], [ %107, %166 ], [ %1911, %._crit_edge ], [ %107, %mpeg12_execute_slice_threads.exit ], [ %107, %150 ], [ %107, %134 ], [ %107, %.critedge.i ], [ %107, %slice_end.exit.thread.sink.split ]
+  %177 = phi ptr [ %107, %169 ], [ %107, %166 ], [ %107, %mpeg12_execute_slice_threads.exit ], [ %1911, %._crit_edge ], [ %107, %150 ], [ %107, %134 ], [ %107, %.critedge.i ], [ %107, %slice_end.exit.thread.sink.split ]
   %178 = getelementptr inbounds nuw i8, ptr %10, i64 1480
   store i32 0, ptr %178, align 8, !tbaa !132
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -4647,7 +4647,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mpeg_field_start(ptr nound
   br label %.loopexit170
 
 .loopexit170:                                     ; preds = %.preheader.split, %.preheader.split.us, %.loopexit170.sink.split
-  %.not162 = phi i1 [ false, %.preheader.split.us ], [ true, %.loopexit170.sink.split ], [ false, %.preheader.split ]
+  %.not162 = phi i1 [ true, %.loopexit170.sink.split ], [ false, %.preheader.split.us ], [ false, %.preheader.split ]
   %146 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %147 = load ptr, ptr %146, align 8, !tbaa !124
   %.not161 = icmp eq ptr %147, null

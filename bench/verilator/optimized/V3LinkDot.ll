@@ -24704,7 +24704,7 @@ _ZN7AstNode9privateIsI16AstIfaceRefDTypeKPK12AstNodeDTypeEEbPKS_.exit99: ; preds
   br i1 %97, label %_ZN7AstNode9privateAsI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit, label %_ZN7AstNode9privateAsI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit.thread
 
 _ZN7AstNode9privateAsI16AstIfaceRefDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = %_ZN7AstNode9privateIsI16AstIfaceRefDTypeKPK12AstNodeDTypeEEbPKS_.exit, %_ZN7AstNode9privateIsI16AstIfaceRefDTypeKPK12AstNodeDTypeEEbPKS_.exit99, %_ZN7AstNode9privateIsI16AstIfaceRefDTypeKPK12AstNodeDTypeEEbPKS_.exit85
-  %.052 = phi ptr [ %88, %_ZN7AstNode9privateIsI16AstIfaceRefDTypeKPK12AstNodeDTypeEEbPKS_.exit85 ], [ %85, %_ZN7AstNode9privateIsI16AstIfaceRefDTypeKPK12AstNodeDTypeEEbPKS_.exit ], [ %95, %_ZN7AstNode9privateIsI16AstIfaceRefDTypeKPK12AstNodeDTypeEEbPKS_.exit99 ]
+  %.052 = phi ptr [ %85, %_ZN7AstNode9privateIsI16AstIfaceRefDTypeKPK12AstNodeDTypeEEbPKS_.exit ], [ %88, %_ZN7AstNode9privateIsI16AstIfaceRefDTypeKPK12AstNodeDTypeEEbPKS_.exit85 ], [ %95, %_ZN7AstNode9privateIsI16AstIfaceRefDTypeKPK12AstNodeDTypeEEbPKS_.exit99 ]
   %98 = getelementptr inbounds nuw i8, ptr %.052, i64 288
   %99 = load ptr, ptr %98, align 8, !tbaa !221
   %.not60 = icmp eq ptr %99, null
@@ -37360,7 +37360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit384: ; preds = %54
   br i1 %.not196, label %_ZN7AstNode11privateCastI7AstCellPS_EEPT_S2_.exit388.thread, label %.thread492
 
 .thread492:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit363, %.critedge219, %555, %_ZNK7VSymEnt10findIdFlatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %315, %520, %_ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit, %519, %.thread484
-  %.897495 = phi ptr [ %.897, %.thread484 ], [ %517, %520 ], [ %517, %_ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit ], [ %517, %519 ], [ %314, %315 ], [ %407, %_ZNK7VSymEnt10findIdFlatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %554, %555 ], [ %416, %.critedge219 ], [ %416, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit363 ]
+  %.897495 = phi ptr [ %.897, %.thread484 ], [ %517, %520 ], [ %517, %_ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit ], [ %517, %519 ], [ %407, %_ZNK7VSymEnt10findIdFlatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %314, %315 ], [ %554, %555 ], [ %416, %.critedge219 ], [ %416, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit363 ]
   %558 = getelementptr inbounds nuw i8, ptr %.897495, i64 48
   %559 = load ptr, ptr %558, align 8, !tbaa !177
   %.not.i385 = icmp eq ptr %559, null
@@ -65326,7 +65326,7 @@ _ZN7AstNode9privateAsI16AstClassRefDTypePKS_EEPKT_S3_.exit.i30.i: ; preds = %.lr
   %.not8.i31.i.not = icmp eq ptr %856, null
   br i1 %.not8.i31.i.not, label %_ZN21LinkDotResolveVisitor17isParamedClassRefEPK7AstNode.exit.thread, label %_ZN21LinkDotResolveVisitor17isParamedClassRefEPK7AstNode.exit.thread767
 
-_ZN21LinkDotResolveVisitor17isParamedClassRefEPK7AstNode.exit.thread767: ; preds = %.lr.ph.i26.i, %.lr.ph.i.i, %_ZN7AstNode11privateCastI20AstClassOrPackageRefPKS_EEPKT_S3_.exit.i, %_ZN7AstNode9privateAsI16AstClassRefDTypePKS_EEPKT_S3_.exit.i.i, %_ZN7AstNode9privateAsI16AstClassRefDTypePKS_EEPKT_S3_.exit.i30.i
+_ZN21LinkDotResolveVisitor17isParamedClassRefEPK7AstNode.exit.thread767: ; preds = %.lr.ph.i26.i, %.lr.ph.i.i, %_ZN7AstNode11privateCastI20AstClassOrPackageRefPKS_EEPKT_S3_.exit.i, %_ZN7AstNode9privateAsI16AstClassRefDTypePKS_EEPKT_S3_.exit.i30.i, %_ZN7AstNode9privateAsI16AstClassRefDTypePKS_EEPKT_S3_.exit.i.i
   %857 = invoke noundef i32 @_ZL5debugv()
           to label %858 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -65461,7 +65461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit595: ; preds = %90
   store i8 1, ptr %907, align 2, !tbaa !1271
   br label %_ZN21LinkDotResolveVisitor17isParamedClassRefEPK7AstNode.exit.thread
 
-_ZN21LinkDotResolveVisitor17isParamedClassRefEPK7AstNode.exit.thread: ; preds = %.lr.ph.i26.i, %.noexc573, %841, %.lr.ph.i.i, %.noexc572, %836, %829, %_ZN7AstNode9privateAsI16AstClassRefDTypePKS_EEPKT_S3_.exit.i.i, %_ZN7AstNode9privateAsI16AstClassRefDTypePKS_EEPKT_S3_.exit.i30.i, %906, %823
+_ZN21LinkDotResolveVisitor17isParamedClassRefEPK7AstNode.exit.thread: ; preds = %.lr.ph.i26.i, %.noexc573, %841, %.lr.ph.i.i, %.noexc572, %836, %829, %_ZN7AstNode9privateAsI16AstClassRefDTypePKS_EEPKT_S3_.exit.i30.i, %_ZN7AstNode9privateAsI16AstClassRefDTypePKS_EEPKT_S3_.exit.i.i, %906, %823
   %908 = getelementptr inbounds nuw i8, ptr %0, i64 305
   %909 = load i8, ptr %908, align 1, !tbaa !1275, !range !103, !noundef !104
   %910 = trunc nuw i8 %909 to i1
@@ -73068,8 +73068,8 @@ _ZN7AstNode9privateIsI6AstVarPS_EEbPKS_.exit:     ; preds = %1173
   br label %.critedge624
 
 .critedge624:                                     ; preds = %..critedge624_crit_edge, %1200, %1202
-  %1205 = phi ptr [ %.pre1469, %1200 ], [ %.pre1469, %1202 ], [ %.pre, %..critedge624_crit_edge ]
-  %1206 = phi i1 [ true, %1200 ], [ %1204, %1202 ], [ false, %..critedge624_crit_edge ]
+  %1205 = phi ptr [ %.pre1469, %1200 ], [ %.pre, %..critedge624_crit_edge ], [ %.pre1469, %1202 ]
+  %1206 = phi i1 [ true, %1200 ], [ false, %..critedge624_crit_edge ], [ %1204, %1202 ]
   %1207 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %1208 = icmp eq ptr %1205, %1207
   br i1 %1208, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1010, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1009

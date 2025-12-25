@@ -4464,8 +4464,8 @@ Vec_IntPush.exit93.sink.split:                    ; preds = %96, %98, %88, %90
   br label %Vec_IntPush.exit93
 
 Vec_IntPush.exit93:                               ; preds = %Vec_IntPush.exit93.sink.split, %._crit_edge, %.loopexit
-  %100 = phi i32 [ 0, %._crit_edge ], [ %.pre, %.loopexit ], [ %.pre, %Vec_IntPush.exit93.sink.split ]
-  %101 = phi ptr [ %4, %._crit_edge ], [ %.pre.i115, %.loopexit ], [ %.sink131, %Vec_IntPush.exit93.sink.split ]
+  %100 = phi i32 [ %.pre, %.loopexit ], [ 0, %._crit_edge ], [ %.pre, %Vec_IntPush.exit93.sink.split ]
+  %101 = phi ptr [ %.pre.i115, %.loopexit ], [ %4, %._crit_edge ], [ %.sink131, %Vec_IntPush.exit93.sink.split ]
   %102 = add nsw i32 %100, 1
   store i32 %102, ptr %3, align 4, !tbaa !17
   %103 = sext i32 %100 to i64

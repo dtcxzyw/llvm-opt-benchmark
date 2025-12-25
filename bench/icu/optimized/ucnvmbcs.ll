@@ -1503,14 +1503,14 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %569, %561, %515, %509, %.loopexit.sink.split
-  %577 = phi ptr [ %.ph, %.loopexit.sink.split ], [ %518, %515 ], [ %474, %509 ], [ %521, %561 ], [ %573, %569 ]
-  %578 = phi ptr [ %.ph768, %.loopexit.sink.split ], [ %516, %515 ], [ %475, %509 ], [ %523, %561 ], [ %571, %569 ]
-  %.1246 = phi i32 [ %.1246.ph, %.loopexit.sink.split ], [ %.0245446, %515 ], [ %.0245446, %509 ], [ %.2247, %561 ], [ %.5242, %569 ]
-  %.1238 = phi i32 [ %.1238.ph, %.loopexit.sink.split ], [ %.0237447, %515 ], [ %.0237447, %509 ], [ %.2239, %561 ], [ %.5242, %569 ]
-  %.2233 = phi i32 [ %.2233.ph, %.loopexit.sink.split ], [ %.1232, %515 ], [ %481, %509 ], [ %529, %561 ], [ %.4235, %569 ]
+  %577 = phi ptr [ %.ph, %.loopexit.sink.split ], [ %518, %515 ], [ %474, %509 ], [ %573, %569 ], [ %521, %561 ]
+  %578 = phi ptr [ %.ph768, %.loopexit.sink.split ], [ %516, %515 ], [ %475, %509 ], [ %571, %569 ], [ %523, %561 ]
+  %.1246 = phi i32 [ %.1246.ph, %.loopexit.sink.split ], [ %.0245446, %515 ], [ %.0245446, %509 ], [ %.5242, %569 ], [ %.2247, %561 ]
+  %.1238 = phi i32 [ %.1238.ph, %.loopexit.sink.split ], [ %.0237447, %515 ], [ %.0237447, %509 ], [ %.5242, %569 ], [ %.2239, %561 ]
+  %.2233 = phi i32 [ %.2233.ph, %.loopexit.sink.split ], [ %.1232, %515 ], [ %481, %509 ], [ %.4235, %569 ], [ %529, %561 ]
   %.2226 = phi i8 [ 1, %.loopexit.sink.split ], [ 0, %515 ], [ 0, %509 ], [ 0, %561 ], [ 0, %569 ]
-  %.5221 = phi i8 [ %.5221.ph, %.loopexit.sink.split ], [ %.4220, %515 ], [ %.3219, %509 ], [ %.6222, %561 ], [ %.7223, %569 ]
-  %.4 = phi i32 [ %.4.ph, %.loopexit.sink.split ], [ %.3, %515 ], [ %.2, %509 ], [ %.5, %561 ], [ %.6, %569 ]
+  %.5221 = phi i8 [ %.5221.ph, %.loopexit.sink.split ], [ %.4220, %515 ], [ %.3219, %509 ], [ %.7223, %569 ], [ %.6222, %561 ]
+  %.4 = phi i32 [ %.4.ph, %.loopexit.sink.split ], [ %.3, %515 ], [ %.2, %509 ], [ %.6, %569 ], [ %.5, %561 ]
   %.not294 = icmp ult ptr %578, %433
   br i1 %.not294, label %579, label %.critedge316
 
@@ -1872,12 +1872,12 @@ _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit: ; preds = %._crit_edge.i
   br label %.backedge
 
 _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread.sink.split: ; preds = %731, %732, %705, %626
-  %.9.ph = phi i8 [ %611, %705 ], [ %611, %626 ], [ %.8, %732 ], [ %611, %731 ]
+  %.9.ph = phi i8 [ %.8, %732 ], [ %611, %705 ], [ %611, %626 ], [ %611, %731 ]
   store i32 12, ptr %1, align 4, !tbaa !35
   br label %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread
 
 _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread: ; preds = %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread.sink.split, %628, %._crit_edge.i, %731, %705, %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit
-  %.9 = phi i8 [ %611, %628 ], [ %611, %705 ], [ %611, %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit ], [ %611, %._crit_edge.i ], [ %611, %731 ], [ %.9.ph, %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread.sink.split ]
+  %.9 = phi i8 [ %611, %628 ], [ %611, %731 ], [ %611, %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit ], [ %611, %._crit_edge.i ], [ %611, %705 ], [ %.9.ph, %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread.sink.split ]
   %743 = icmp eq i8 %.3227, 0
   br i1 %743, label %.backedge, label %744
 

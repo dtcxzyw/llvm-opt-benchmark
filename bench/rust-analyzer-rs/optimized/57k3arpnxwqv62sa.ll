@@ -320,7 +320,7 @@ _ZN4core5slice4sort11insert_tail17h5d7c4415eeb510edE.exit.i.i: ; preds = %.threa
   br i1 %exitcond.not.i.i, label %_ZN4core5slice4sort20provide_sorted_batch17haf06b41e4fcbfb92E.exit.loopexit, label %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h8f89c8de4911ae8eE.exit.i.i"
 
 .loopexit83:                                      ; preds = %.noexc41, %66, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.noexc41 ], [ %49, %66 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %49, %66 ], [ %.06.i, %.noexc41 ]
   %97 = add i64 %.sroa.0.0.i, %.0141
   %98 = icmp ugt i64 %.0141, %97
   br i1 %98, label %.invoke277, label %99
@@ -994,7 +994,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17hfa237d32bb8cc797E(ptr noal
           to label %_ZN4core5slice4sort20provide_sorted_batch17hec8f06d639fa12e1E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit77:                                      ; preds = %.noexc41, %71, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.06.i, %.noexc41 ], [ %49, %71 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %49, %71 ], [ %.06.i, %.noexc41 ]
   %88 = add i64 %.sroa.0.0.i, %.0127
   %89 = icmp ugt i64 %.0127, %88
   br i1 %89, label %.invoke, label %90

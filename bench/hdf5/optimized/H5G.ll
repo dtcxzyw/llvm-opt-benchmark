@@ -2171,8 +2171,8 @@ define range(i32 -1, 1) i32 @H5Gclose_async(ptr noundef %0, ptr noundef %1, i32 
   br label %76
 
 76:                                               ; preds = %65, %67, %72, %61
-  %.027 = phi i32 [ 0, %65 ], [ 0, %67 ], [ -1, %72 ], [ -1, %61 ]
-  %.0 = phi i1 [ false, %65 ], [ false, %67 ], [ true, %72 ], [ true, %61 ]
+  %.027 = phi i32 [ 0, %65 ], [ -1, %61 ], [ -1, %72 ], [ 0, %67 ]
+  %.0 = phi i1 [ false, %65 ], [ true, %61 ], [ true, %72 ], [ false, %67 ]
   %.not36 = icmp eq ptr %.131, null
   br i1 %.not36, label %85, label %77
 

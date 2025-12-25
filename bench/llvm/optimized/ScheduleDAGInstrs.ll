@@ -3796,7 +3796,7 @@ _ZNK4llvm14SparseMultiSetINS_17VReg2SUnitOperIdxENS_20VirtReg2IndexFunctorEhE13i
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %199, %193
-  %.sroa.0.0.i.i.i = phi ptr [ %198, %199 ], [ %.0.i.i.i.i, %193 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %193 ], [ %198, %199 ]
   %202 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %203 = load ptr, ptr %202, align 8, !tbaa !309
   %.not.i.i.i.i.i.i.i = icmp eq ptr %203, null

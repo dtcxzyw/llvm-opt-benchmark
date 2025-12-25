@@ -5356,7 +5356,7 @@ define internal void @pointerHandleButton(ptr readnone captures(none) %0, ptr re
   br label %68
 
 68:                                               ; preds = %27, %43, %51, %59, %63
-  %.0 = phi i32 [ %.43, %63 ], [ 6, %59 ], [ %., %43 ], [ 1, %27 ], [ %.42, %51 ]
+  %.0 = phi i32 [ 6, %59 ], [ %.43, %63 ], [ %., %43 ], [ 1, %27 ], [ %.42, %51 ]
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 960
   %70 = load ptr, ptr %69, align 8, !tbaa !235
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133928), align 8, !tbaa !252

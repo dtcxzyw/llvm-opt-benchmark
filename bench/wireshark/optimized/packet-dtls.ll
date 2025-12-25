@@ -3365,7 +3365,7 @@ looks_like_dtls.exit117.thread129:                ; preds = %106, %106, %106, %l
   br label %.thread
 
 .thread:                                          ; preds = %106, %looks_like_dtls.exit117, %27, %32, %42, %.thread.sink.split, %119, %123, %.critedge
-  %.2 = phi i1 [ true, %.thread.sink.split ], [ false, %27 ], [ false, %.critedge ], [ false, %123 ], [ false, %119 ], [ false, %42 ], [ false, %32 ], [ false, %looks_like_dtls.exit117 ], [ false, %106 ]
+  %.2 = phi i1 [ false, %119 ], [ false, %.critedge ], [ false, %123 ], [ true, %.thread.sink.split ], [ false, %27 ], [ false, %42 ], [ false, %32 ], [ false, %looks_like_dtls.exit117 ], [ false, %106 ]
   ret i1 %.2
 }
 

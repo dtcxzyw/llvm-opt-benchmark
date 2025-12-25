@@ -1862,7 +1862,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit374:           ; preds = %847, %849
   br i1 %exitcond592.not, label %.critedge292thread-pre-split, label %810, !llvm.loop !339
 
 .critedge292thread-pre-split:                     ; preds = %._crit_edge, %688, %_ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit344, %582, %473, %599, %630, %654, %658, %_ZNK4llvm3LLT13getSizeInBitsEv.exit374, %818, %815, %815, %815, %.thread521, %801, %_ZNSt6vectorIN4llvm14MachineOperandESaIS1_EED2Ev.exit351
-  %.15.ph = phi i1 [ true, %.thread521 ], [ false, %_ZNSt6vectorIN4llvm14MachineOperandESaIS1_EED2Ev.exit351 ], [ true, %801 ], [ false, %815 ], [ false, %818 ], [ false, %815 ], [ false, %815 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit374 ], [ false, %658 ], [ false, %654 ], [ false, %630 ], [ false, %599 ], [ false, %473 ], [ false, %582 ], [ false, %_ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit344 ], [ false, %688 ], [ false, %._crit_edge ]
+  %.15.ph = phi i1 [ true, %801 ], [ false, %_ZNSt6vectorIN4llvm14MachineOperandESaIS1_EED2Ev.exit351 ], [ true, %.thread521 ], [ false, %815 ], [ false, %818 ], [ false, %815 ], [ false, %815 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit374 ], [ false, %658 ], [ false, %654 ], [ false, %630 ], [ false, %599 ], [ false, %473 ], [ false, %582 ], [ false, %_ZNKSt8functionIFN4llvm8ArrayRefINS0_8RegisterEEERKNS0_5ValueEEEclES6_.exit344 ], [ false, %688 ], [ false, %._crit_edge ]
   %.val2.i.pr = load i32, ptr %321, align 8, !tbaa !15
   br label %.critedge292
 

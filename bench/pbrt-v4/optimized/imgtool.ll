@@ -22608,8 +22608,8 @@ _ZNK4pbrt4HalfcvfEv.exit.i42.i.i:                 ; preds = %397, %393, %391
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit51.i.i
 
 .invoke215:                                       ; preds = %.sink.split91.i65.cont.thread.i.i, %.sink.split91.i.cont.thread.i.i, %265, %344
-  %416 = phi i32 [ 142, %344 ], [ 142, %265 ], [ 273, %.sink.split91.i.cont.thread.i.i ], [ 273, %.sink.split91.i65.cont.thread.i.i ]
-  %417 = phi ptr [ @.str.257, %344 ], [ @.str.257, %265 ], [ @.str.255, %.sink.split91.i.cont.thread.i.i ], [ @.str.255, %.sink.split91.i65.cont.thread.i.i ]
+  %416 = phi i32 [ 142, %265 ], [ 142, %344 ], [ 273, %.sink.split91.i.cont.thread.i.i ], [ 273, %.sink.split91.i65.cont.thread.i.i ]
+  %417 = phi ptr [ @.str.257, %265 ], [ @.str.257, %344 ], [ @.str.255, %.sink.split91.i.cont.thread.i.i ], [ @.str.255, %.sink.split91.i65.cont.thread.i.i ]
   invoke void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.250, i32 noundef %416, ptr noundef nonnull %417) #41
           to label %.cont216 unwind label %.loopexit.split-lp.loopexit.split-lp
 

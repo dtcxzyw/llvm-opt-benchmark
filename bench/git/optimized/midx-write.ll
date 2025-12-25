@@ -758,7 +758,7 @@ _.exit323:                                        ; preds = %thread-pre-split.th
   br label %.thread420
 
 291:                                              ; preds = %._crit_edge, %thread-pre-split, %_.exit323
-  %292 = phi i32 [ %284, %._crit_edge ], [ %.pre589, %_.exit323 ], [ %244, %thread-pre-split ]
+  %292 = phi i32 [ %284, %._crit_edge ], [ %244, %thread-pre-split ], [ %.pre589, %_.exit323 ]
   %293 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %294 = icmp sgt i32 %292, -1
   br i1 %294, label %295, label %.thread420

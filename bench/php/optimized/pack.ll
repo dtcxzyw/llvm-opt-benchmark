@@ -1542,11 +1542,11 @@ zend_parse_arg_long_ex.exit:                      ; preds = %39
   br i1 %98, label %.lr.ph645, label %.critedge12
 
 .critedge12:                                      ; preds = %86, %.lr.ph645, %95, %67, %.critedge
-  %.1733 = phi ptr [ %.1, %.critedge ], [ %69, %67 ], [ %.1740, %.lr.ph645 ], [ %.1740, %95 ], [ %scevgep, %86 ]
-  %.0412732 = phi i32 [ %.0412, %.critedge ], [ 1, %67 ], [ %.0412738, %.lr.ph645 ], [ %.0412738, %95 ], [ %83, %86 ]
-  %.5387.lcssa = phi i64 [ %.1383, %.critedge ], [ 0, %67 ], [ %.5387643, %.lr.ph645 ], [ 0, %95 ], [ 0, %86 ]
-  %.5.lcssa = phi ptr [ %.1, %.critedge ], [ %69, %67 ], [ %.5644, %.lr.ph645 ], [ %scevgep703, %95 ], [ %scevgep, %86 ]
-  %.lcssa = phi i1 [ false, %.critedge ], [ false, %67 ], [ %.not467, %.lr.ph645 ], [ %.not467, %95 ], [ false, %86 ]
+  %.1733 = phi ptr [ %.1, %.critedge ], [ %.1740, %.lr.ph645 ], [ %69, %67 ], [ %.1740, %95 ], [ %scevgep, %86 ]
+  %.0412732 = phi i32 [ %.0412, %.critedge ], [ %.0412738, %.lr.ph645 ], [ 1, %67 ], [ %.0412738, %95 ], [ %83, %86 ]
+  %.5387.lcssa = phi i64 [ %.1383, %.critedge ], [ %.5387643, %.lr.ph645 ], [ 0, %67 ], [ 0, %95 ], [ 0, %86 ]
+  %.5.lcssa = phi ptr [ %.1, %.critedge ], [ %.5644, %.lr.ph645 ], [ %69, %67 ], [ %scevgep703, %95 ], [ %scevgep, %86 ]
+  %.lcssa = phi i1 [ false, %.critedge ], [ %.not467, %.lr.ph645 ], [ false, %67 ], [ %.not467, %95 ], [ false, %86 ]
   %99 = ptrtoint ptr %.5.lcssa to i64
   %100 = ptrtoint ptr %.1733 to i64
   %101 = sub i64 %99, %100

@@ -234,7 +234,7 @@ fmap_readn.exit.thread.sink.split:                ; preds = %fmap_readn.exit92, 
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %64, %69, %fmap_readn.exit, %16, %.backedge, %8, %fmap_readn.exit.thread.sink.split, %1
-  %.148 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 0, %8 ], [ %71, %69 ], [ 0, %.backedge ], [ 0, %16 ], [ 0, %fmap_readn.exit ], [ %66, %64 ]
+  %.148 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ %71, %69 ], [ 0, %8 ], [ 0, %.backedge ], [ 0, %16 ], [ 0, %fmap_readn.exit ], [ %66, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.148
@@ -445,7 +445,7 @@ fmap_readn.exit.thread.sink.split:                ; preds = %65, %fmap_readn.exi
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %71, %75, %fmap_readn.exit, %23, %.backedge, %15, %fmap_readn.exit.thread.sink.split, %1
-  %.128 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 0, %15 ], [ %79, %75 ], [ 1, %71 ], [ 0, %fmap_readn.exit ], [ 0, %.backedge ], [ 0, %23 ]
+  %.128 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 0, %fmap_readn.exit ], [ 1, %71 ], [ %79, %75 ], [ 0, %15 ], [ 0, %.backedge ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -694,7 +694,7 @@ fmap_readn.exit.thread.sink.split:                ; preds = %77, %fmap_readn.exi
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %83, %87, %fmap_readn.exit, %23, %.backedge, %15, %fmap_readn.exit.thread.sink.split, %2
-  %.133 = phi i32 [ 0, %2 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 0, %15 ], [ %91, %87 ], [ 1, %83 ], [ 0, %fmap_readn.exit ], [ 0, %.backedge ], [ 0, %23 ]
+  %.133 = phi i32 [ 0, %2 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 0, %fmap_readn.exit ], [ 1, %83 ], [ %91, %87 ], [ 0, %15 ], [ 0, %.backedge ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

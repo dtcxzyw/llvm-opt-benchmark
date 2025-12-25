@@ -486,8 +486,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.not.i.i.i.i = icmp eq i64 %.val1.i.i, %.val3.i.i
   br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread: ; preds = %5, %256, %262, %268, %274, %280, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h70bf1bfaae5606b9E.exit.i.i", %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit, %.preheader, %.lr.ph.i.i.i.i, %28, %41, %50, %62, %63, %64, %70, %91, %104, %105, %106, %112, %"_ZN99_$LT$ruff_annotate_snippets..renderer..display_list..Annotation$u20$as$u20$core..cmp..PartialEq$GT$2eq17habb33f2b6d83aa6bE.exit.i.i.i.i.i.i.i", %123, %129, %130, %131, %137, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h27a3fb75ed167fb3E.exit27.i.i.i.i.i.i", %154, %160, %166, %"_ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplaySourceLine$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd925abad9175e8d5E.exit.i.i.i.i.i.i", %"_ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplaySourceLine$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd925abad9175e8d5E.exit.thread33.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h078e05cc1b556892E.exit.i.i.i.i, %75, %33, %142, %195, %196, %197, %203, %"_ZN99_$LT$ruff_annotate_snippets..renderer..display_list..Annotation$u20$as$u20$core..cmp..PartialEq$GT$2eq17habb33f2b6d83aa6bE.exit.i.i.i.i.i.i.i.i", %229, %235, %241, %243, %.lr.ph.i.i.i.i.i.i, %208, %4
-  %.sroa.0.0 = phi i1 [ false, %4 ], [ false, %208 ], [ false, %33 ], [ false, %142 ], [ false, %195 ], [ false, %.lr.ph.i.i.i.i ], [ false, %75 ], [ false, %.lr.ph.i.i.i.i.i.i ], [ false, %243 ], [ false, %241 ], [ false, %235 ], [ false, %229 ], [ false, %"_ZN99_$LT$ruff_annotate_snippets..renderer..display_list..Annotation$u20$as$u20$core..cmp..PartialEq$GT$2eq17habb33f2b6d83aa6bE.exit.i.i.i.i.i.i.i.i" ], [ false, %203 ], [ false, %197 ], [ false, %196 ], [ false, %_ZN4core3cmp9PartialEq2ne17h078e05cc1b556892E.exit.i.i.i.i ], [ false, %"_ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplaySourceLine$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd925abad9175e8d5E.exit.thread33.i.i.i.i.i.i" ], [ false, %"_ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplaySourceLine$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd925abad9175e8d5E.exit.i.i.i.i.i.i" ], [ false, %166 ], [ false, %160 ], [ false, %154 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h27a3fb75ed167fb3E.exit27.i.i.i.i.i.i" ], [ false, %137 ], [ false, %131 ], [ false, %130 ], [ false, %129 ], [ false, %123 ], [ false, %"_ZN99_$LT$ruff_annotate_snippets..renderer..display_list..Annotation$u20$as$u20$core..cmp..PartialEq$GT$2eq17habb33f2b6d83aa6bE.exit.i.i.i.i.i.i.i" ], [ false, %112 ], [ false, %106 ], [ false, %105 ], [ false, %104 ], [ false, %91 ], [ false, %70 ], [ false, %64 ], [ false, %63 ], [ false, %62 ], [ false, %50 ], [ false, %41 ], [ false, %28 ], [ %exitcond.not, %.preheader ], [ %exitcond.not, %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit ], [ %exitcond.not, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h70bf1bfaae5606b9E.exit.i.i" ], [ %exitcond.not, %280 ], [ %exitcond.not, %274 ], [ %exitcond.not, %268 ], [ %exitcond.not, %262 ], [ %exitcond.not, %256 ], [ %exitcond.not, %5 ]
+_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread: ; preds = %5, %256, %262, %268, %274, %280, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h70bf1bfaae5606b9E.exit.i.i", %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit, %.preheader, %.lr.ph.i.i.i.i, %28, %41, %50, %62, %63, %64, %70, %91, %104, %105, %106, %112, %118, %"_ZN99_$LT$ruff_annotate_snippets..renderer..display_list..Annotation$u20$as$u20$core..cmp..PartialEq$GT$2eq17habb33f2b6d83aa6bE.exit.i.i.i.i.i.i.i", %129, %130, %131, %137, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h27a3fb75ed167fb3E.exit27.i.i.i.i.i.i", %154, %160, %166, %"_ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplaySourceLine$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd925abad9175e8d5E.exit.i.i.i.i.i.i", %"_ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplaySourceLine$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd925abad9175e8d5E.exit.thread33.i.i.i.i.i.i", %_ZN4core3cmp9PartialEq2ne17h078e05cc1b556892E.exit.i.i.i.i, %75, %33, %142, %195, %196, %197, %203, %"_ZN99_$LT$ruff_annotate_snippets..renderer..display_list..Annotation$u20$as$u20$core..cmp..PartialEq$GT$2eq17habb33f2b6d83aa6bE.exit.i.i.i.i.i.i.i.i", %229, %235, %241, %243, %.lr.ph.i.i.i.i.i.i, %208, %4
+  %.sroa.0.0 = phi i1 [ false, %4 ], [ false, %.lr.ph.i.i.i.i ], [ false, %33 ], [ false, %142 ], [ false, %208 ], [ false, %195 ], [ false, %75 ], [ false, %.lr.ph.i.i.i.i.i.i ], [ false, %243 ], [ false, %241 ], [ false, %235 ], [ false, %229 ], [ false, %"_ZN99_$LT$ruff_annotate_snippets..renderer..display_list..Annotation$u20$as$u20$core..cmp..PartialEq$GT$2eq17habb33f2b6d83aa6bE.exit.i.i.i.i.i.i.i.i" ], [ false, %203 ], [ false, %197 ], [ false, %196 ], [ false, %_ZN4core3cmp9PartialEq2ne17h078e05cc1b556892E.exit.i.i.i.i ], [ false, %"_ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplaySourceLine$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd925abad9175e8d5E.exit.thread33.i.i.i.i.i.i" ], [ false, %"_ZN106_$LT$ruff_annotate_snippets..renderer..display_list..DisplaySourceLine$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd925abad9175e8d5E.exit.i.i.i.i.i.i" ], [ false, %166 ], [ false, %160 ], [ false, %154 ], [ false, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h27a3fb75ed167fb3E.exit27.i.i.i.i.i.i" ], [ false, %137 ], [ false, %131 ], [ false, %130 ], [ false, %129 ], [ false, %"_ZN99_$LT$ruff_annotate_snippets..renderer..display_list..Annotation$u20$as$u20$core..cmp..PartialEq$GT$2eq17habb33f2b6d83aa6bE.exit.i.i.i.i.i.i.i" ], [ false, %118 ], [ false, %112 ], [ false, %106 ], [ false, %105 ], [ false, %104 ], [ false, %91 ], [ false, %70 ], [ false, %64 ], [ false, %63 ], [ false, %62 ], [ false, %50 ], [ false, %41 ], [ false, %28 ], [ %exitcond.not, %.preheader ], [ %exitcond.not, %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit ], [ %exitcond.not, %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h70bf1bfaae5606b9E.exit.i.i" ], [ %exitcond.not, %280 ], [ %exitcond.not, %274 ], [ %exitcond.not, %268 ], [ %exitcond.not, %262 ], [ %exitcond.not, %256 ], [ %exitcond.not, %5 ]
   ret i1 %.sroa.0.0
 
 .preheader.i.i.i.i:                               ; preds = %5
@@ -681,7 +681,7 @@ default.unreachable:                              ; preds = %21
   br i1 %103, label %106, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread
 
 105:                                              ; preds = %97
-  br i1 %103, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread, label %_ZN4core3cmp9PartialEq2ne17h078e05cc1b556892E.exit.i.i.i.i
+  br i1 %103, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread, label %118
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -697,23 +697,23 @@ default.unreachable:                              ; preds = %21
   %115 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %116 = load i64, ptr %115, align 8, !alias.scope !96, !noalias !97, !noundef !3
   %117 = icmp eq i64 %114, %116
-  br i1 %117, label %_ZN4core3cmp9PartialEq2ne17h078e05cc1b556892E.exit.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread
+  br i1 %117, label %118, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread
+
+118:                                              ; preds = %112, %105
+  %119 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %120 = load i8, ptr %119, align 8, !range !5, !alias.scope !94, !noalias !95, !noundef !3
+  %121 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %122 = load i8, ptr %121, align 8, !range !5, !alias.scope !96, !noalias !97, !noundef !3
+  %123 = icmp eq i8 %120, %122
+  br i1 %123, label %.backedge.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread
 
 "_ZN99_$LT$ruff_annotate_snippets..renderer..display_list..Annotation$u20$as$u20$core..cmp..PartialEq$GT$2eq17habb33f2b6d83aa6bE.exit.i.i.i.i.i.i.i": ; preds = %.preheader.split.i.i.i.i.i.i.i.i.i.i
-  %118 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %119 = load i8, ptr %118, align 8, !range !5, !alias.scope !94, !noalias !95, !noundef !3
-  %120 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %121 = load i8, ptr %120, align 8, !range !5, !alias.scope !96, !noalias !97, !noundef !3
-  %122 = icmp eq i8 %119, %121
-  br i1 %122, label %123, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread
-
-123:                                              ; preds = %"_ZN99_$LT$ruff_annotate_snippets..renderer..display_list..Annotation$u20$as$u20$core..cmp..PartialEq$GT$2eq17habb33f2b6d83aa6bE.exit.i.i.i.i.i.i.i"
-  %124 = getelementptr inbounds nuw i8, ptr %14, i64 57
-  %125 = load i8, ptr %124, align 1, !range !5, !alias.scope !94, !noalias !95, !noundef !3
-  %126 = getelementptr inbounds nuw i8, ptr %15, i64 57
-  %127 = load i8, ptr %126, align 1, !range !5, !alias.scope !96, !noalias !97, !noundef !3
+  %124 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %125 = load i8, ptr %124, align 8, !range !5, !alias.scope !94, !noalias !95, !noundef !3
+  %126 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %127 = load i8, ptr %126, align 8, !range !5, !alias.scope !96, !noalias !97, !noundef !3
   %128 = icmp eq i8 %125, %127
-  br i1 %128, label %.backedge.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread
+  br i1 %128, label %_ZN4core3cmp9PartialEq2ne17h078e05cc1b556892E.exit.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread
 
 129:                                              ; preds = %22
   br i1 %27, label %131, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread
@@ -956,15 +956,15 @@ default.unreachable:                              ; preds = %21
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %181, %.val11.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %.backedge.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-_ZN4core3cmp9PartialEq2ne17h078e05cc1b556892E.exit.i.i.i.i: ; preds = %112, %105
-  %246 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %247 = load i8, ptr %246, align 8, !range !5, !alias.scope !94, !noalias !95, !noundef !3
-  %248 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %249 = load i8, ptr %248, align 8, !range !5, !alias.scope !96, !noalias !97, !noundef !3
+_ZN4core3cmp9PartialEq2ne17h078e05cc1b556892E.exit.i.i.i.i: ; preds = %"_ZN99_$LT$ruff_annotate_snippets..renderer..display_list..Annotation$u20$as$u20$core..cmp..PartialEq$GT$2eq17habb33f2b6d83aa6bE.exit.i.i.i.i.i.i.i"
+  %246 = getelementptr inbounds nuw i8, ptr %14, i64 57
+  %247 = load i8, ptr %246, align 1, !range !5, !alias.scope !94, !noalias !95, !noundef !3
+  %248 = getelementptr inbounds nuw i8, ptr %15, i64 57
+  %249 = load i8, ptr %248, align 1, !range !5, !alias.scope !96, !noalias !97, !noundef !3
   %250 = icmp eq i8 %247, %249
   br i1 %250, label %.backedge.i.i.i.i, label %_ZN4core3cmp9PartialEq2ne17h383f708ff4a979a7E.exit.thread
 
-.backedge.i.i.i.i:                                ; preds = %.preheader.split.i.i.i.i.i.i.i.i, %.critedge.backedge.i.i.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17h078e05cc1b556892E.exit.i.i.i.i, %.critedge.preheader.i.i.i.i.i.i, %123
+.backedge.i.i.i.i:                                ; preds = %.preheader.split.i.i.i.i.i.i.i.i, %.critedge.backedge.i.i.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17h078e05cc1b556892E.exit.i.i.i.i, %.critedge.preheader.i.i.i.i.i.i, %118
   %exitcond.not.i.i.i.i = icmp eq i64 %13, %.val1.i.i
   br i1 %exitcond.not.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h70bf1bfaae5606b9E.exit.i.i", label %.lr.ph.i.i.i.i
 

@@ -2883,7 +2883,7 @@ define dso_local ptr @build_physical_tlist(ptr noundef readonly captures(none) %
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph81, %91, %.lr.ph93, %80, %.lr.ph.split, %57, %.lr.ph85, %.thread
-  %.3 = phi ptr [ %.1, %.thread ], [ null, %.lr.ph.split ], [ null, %57 ], [ null, %.lr.ph85 ], [ %76, %.lr.ph93 ], [ null, %80 ], [ null, %.lr.ph81 ], [ %95, %91 ]
+  %.3 = phi ptr [ %.1, %.thread ], [ null, %.lr.ph.split ], [ null, %57 ], [ null, %.lr.ph85 ], [ null, %80 ], [ %76, %.lr.ph93 ], [ null, %.lr.ph81 ], [ %95, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.3
 }

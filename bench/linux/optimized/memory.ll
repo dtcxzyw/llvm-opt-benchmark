@@ -858,9 +858,9 @@ define dso_local void @free_pgtables(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.loopexit11, !llvm.loop !24
 
 .loopexit11:                                      ; preds = %98, %89, %67, %48, %35, %..loopexit_crit_edge, %.preheader, %33
-  %.ph.pn = phi ptr [ %45, %67 ], [ %9, %33 ], [ %.us-phi19, %..loopexit_crit_edge ], [ %9, %35 ], [ %9, %.preheader ], [ %45, %48 ], [ %94, %89 ], [ %94, %98 ]
-  %102 = phi ptr [ null, %67 ], [ null, %33 ], [ %.us-phi20, %..loopexit_crit_edge ], [ %15, %35 ], [ %15, %.preheader ], [ %55, %48 ], [ null, %98 ], [ %99, %89 ]
-  %103 = phi i64 [ %4, %67 ], [ %4, %33 ], [ %101, %..loopexit_crit_edge ], [ %36, %35 ], [ %36, %.preheader ], [ %70, %48 ], [ %4, %98 ], [ %84, %89 ]
+  %.ph.pn = phi ptr [ %.us-phi19, %..loopexit_crit_edge ], [ %9, %33 ], [ %45, %67 ], [ %9, %35 ], [ %9, %.preheader ], [ %45, %48 ], [ %94, %89 ], [ %94, %98 ]
+  %102 = phi ptr [ %.us-phi20, %..loopexit_crit_edge ], [ null, %33 ], [ null, %67 ], [ %15, %35 ], [ %15, %.preheader ], [ %55, %48 ], [ null, %98 ], [ %99, %89 ]
+  %103 = phi i64 [ %101, %..loopexit_crit_edge ], [ %4, %33 ], [ %4, %67 ], [ %36, %35 ], [ %36, %.preheader ], [ %70, %48 ], [ %4, %98 ], [ %84, %89 ]
   %.in = getelementptr inbounds nuw i8, ptr %.ph.pn, i64 8
   %104 = load i64, ptr %.in, align 8
   tail call void @free_pgd_range(ptr noundef %0, i64 noundef %10, i64 noundef %104, i64 noundef %3, i64 noundef %103)
@@ -5980,7 +5980,7 @@ define dso_local range(i32 -22, 1) i32 @remap_pfn_range_notrack(ptr noundef %0, 
   br i1 %331, label %.thread27, label %.split46, !llvm.loop !110
 
 .thread27:                                        ; preds = %.split45, %225, %209, %243, %240, %268, %265, %.split34, %.split45.us.us, %92, %76, %107, %110, %135, %132, %.split34.us.us.us.us.us, %.thread19, %25, %22, %16
-  %332 = phi i32 [ -22, %16 ], [ -22, %25 ], [ -22, %22 ], [ 0, %.split45.us.us ], [ -12, %.thread19 ], [ %187, %.split34.us.us.us.us.us ], [ -12, %135 ], [ -12, %268 ], [ -12, %243 ], [ -12, %107 ], [ %321, %.split34 ], [ -12, %132 ], [ -12, %110 ], [ -12, %76 ], [ -12, %92 ], [ -12, %265 ], [ -12, %240 ], [ -12, %209 ], [ -12, %225 ], [ 0, %.split45 ]
+  %332 = phi i32 [ -22, %16 ], [ -22, %25 ], [ -22, %22 ], [ -12, %107 ], [ -12, %.thread19 ], [ %321, %.split34 ], [ -12, %243 ], [ -12, %135 ], [ %187, %.split34.us.us.us.us.us ], [ 0, %.split45.us.us ], [ -12, %268 ], [ -12, %132 ], [ -12, %110 ], [ -12, %76 ], [ -12, %92 ], [ -12, %265 ], [ -12, %240 ], [ -12, %225 ], [ -12, %209 ], [ 0, %.split45 ]
   ret i32 %332
 }
 
@@ -6624,7 +6624,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   br i1 %301, label %.thread37, label %23, !llvm.loop !141
 
 .thread37:                                        ; preds = %49, %65, %.loopexit44, %106, %109, %167, %170, %291, %.thread28, %212, %145, %11
-  %302 = phi i32 [ -22, %11 ], [ %.ph, %.thread28 ], [ %288, %291 ], [ -12, %106 ], [ -12, %167 ], [ -22, %212 ], [ -22, %145 ], [ -12, %170 ], [ -12, %109 ], [ -12, %49 ], [ -12, %65 ], [ 0, %.loopexit44 ]
+  %302 = phi i32 [ -22, %11 ], [ %.ph, %.thread28 ], [ -22, %212 ], [ -12, %106 ], [ %288, %291 ], [ -12, %167 ], [ -22, %145 ], [ -12, %170 ], [ -12, %109 ], [ 0, %.loopexit44 ], [ -12, %49 ], [ -12, %65 ]
   ret i32 %302
 }
 

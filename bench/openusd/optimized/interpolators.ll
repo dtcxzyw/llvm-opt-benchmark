@@ -21087,7 +21087,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_11SdfT
   br label %.loopexit
 
 .loopexit:                                        ; preds = %115, %.loopexit.sink.split, %109, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_11SdfTimeCodeEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit
-  %.0.i.i60 = phi i1 [ true, %.loopexit.sink.split ], [ true, %109 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_11SdfTimeCodeEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %115 ]
+  %.0.i.i60 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__19Usd_QueryTimeSampleINS_7VtArrayINS_11SdfTimeCodeEEEEEbRKSt10shared_ptrINS_11Usd_ClipSetEERKNS_7SdfPathEdPNS_20Usd_InterpolatorBaseEPT_.exit ], [ true, %109 ], [ true, %.loopexit.sink.split ], [ true, %115 ]
   %128 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %129 = load ptr, ptr %128, align 8
   %.not.i.i = icmp eq ptr %129, null

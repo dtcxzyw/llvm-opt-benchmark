@@ -5352,7 +5352,7 @@ mvp_data.exit.i.i:                                ; preds = %1985, %1984
   br i1 %2050, label %2031, label %intra_data.exit.thread.i, !llvm.loop !296
 
 intra_data.exit.i:                                ; preds = %1684, %1320, %988
-  %.080.i = phi i32 [ %1322, %1320 ], [ %1685, %1684 ], [ %989, %988 ]
+  %.080.i = phi i32 [ %989, %988 ], [ %1322, %1320 ], [ %1685, %1684 ]
   %2051 = icmp slt i32 %.080.i, 0
   br i1 %2051, label %hls_coding_unit.exit, label %intra_data.exit.thread.i
 

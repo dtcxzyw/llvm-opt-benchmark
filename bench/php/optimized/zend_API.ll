@@ -14953,7 +14953,7 @@ instanceof_function.exit.i.thread:                ; preds = %336, %instanceof_fu
   br i1 %.not397.i.not, label %.thread174, label %.thread168
 
 .thread168:                                       ; preds = %260, %263, %get_scope.exit104, %284, %328, %instanceof_function.exit415.i.thread, %get_scope.exit110.thread, %256, %342
-  %.0322.i171 = phi i1 [ false, %342 ], [ false, %260 ], [ false, %256 ], [ false, %263 ], [ false, %get_scope.exit110.thread ], [ false, %get_scope.exit104 ], [ false, %284 ], [ false, %328 ], [ %319, %instanceof_function.exit415.i.thread ]
+  %.0322.i171 = phi i1 [ false, %342 ], [ false, %260 ], [ %319, %instanceof_function.exit415.i.thread ], [ false, %263 ], [ false, %256 ], [ false, %get_scope.exit104 ], [ false, %284 ], [ false, %328 ], [ false, %get_scope.exit110.thread ]
   %345 = load ptr, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !283
   %346 = icmp eq ptr %345, null
   %or.cond6.i = select i1 %346, i1 true, i1 %.0322.i171
@@ -15078,7 +15078,7 @@ get_scope.exit107:                                ; preds = %375, %376, %379
   %413 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull @.str.187, ptr noundef %404, ptr noundef nonnull %408, ptr noundef nonnull %412) #35
   br label %.thread179
 
-.thread174:                                       ; preds = %314, %299, %327, %thread-pre-split, %342
+.thread174:                                       ; preds = %thread-pre-split, %327, %299, %314, %342
   br i1 %.not, label %.thread179, label %414
 
 414:                                              ; preds = %.thread174

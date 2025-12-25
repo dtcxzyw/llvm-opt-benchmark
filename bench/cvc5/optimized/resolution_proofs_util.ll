@@ -7061,8 +7061,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %247, %241, %.lr.p
   br i1 %319, label %.lr.ph208, label %.critedge116.thread, !llvm.loop !187
 
 .critedge116.thread:                              ; preds = %.critedge120, %311, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %.preheader, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, %.critedge116
-  %320 = phi ptr [ %131, %.critedge116 ], [ %131, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ], [ %131, %.preheader ], [ %251, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %251, %311 ], [ %251, %.critedge120 ]
-  %.2 = phi i64 [ %35, %.critedge116 ], [ %35, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ], [ %.083206, %.preheader ], [ %.3207, %.critedge120 ], [ %312, %311 ], [ %.3207, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ]
+  %320 = phi ptr [ %131, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ], [ %131, %.critedge116 ], [ %131, %.preheader ], [ %251, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ], [ %251, %311 ], [ %251, %.critedge120 ]
+  %.2 = phi i64 [ %35, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ], [ %35, %.critedge116 ], [ %.083206, %.preheader ], [ %.3207, %.critedge120 ], [ %312, %311 ], [ %.3207, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ]
   %321 = load i64, ptr %320, align 8
   %322 = and i64 %321, 1152920405095219200
   %.not.i.i160 = icmp eq i64 %322, 1152920405095219200

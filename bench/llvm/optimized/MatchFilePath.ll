@@ -403,8 +403,8 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   %199 = icmp eq i64 %1, %.lcssa
   br label %.thread214
 
-.thread214:                                       ; preds = %177, %85, %74, %.thread, %26, %30, %142, %33, %15, %.critedge7, %.lr.ph272.split, %115, %.critedge7.us, %.loopexit.thread, %92, %68, %.loopexit, %.critedge9, %4
-  %.1 = phi i1 [ false, %4 ], [ %199, %.critedge9 ], [ %111, %.critedge7.us ], [ false, %.loopexit ], [ true, %.critedge7 ], [ %70, %68 ], [ %93, %92 ], [ false, %.loopexit.thread ], [ false, %.lr.ph272.split ], [ false, %115 ], [ false, %15 ], [ false, %33 ], [ false, %142 ], [ false, %30 ], [ false, %26 ], [ false, %.thread ], [ false, %74 ], [ false, %85 ], [ false, %177 ]
+.thread214:                                       ; preds = %74, %85, %177, %.thread, %26, %30, %142, %33, %15, %.critedge7, %.lr.ph272.split, %115, %.critedge7.us, %.loopexit.thread, %68, %92, %.loopexit, %.critedge9, %4
+  %.1 = phi i1 [ false, %4 ], [ %199, %.critedge9 ], [ %111, %.critedge7.us ], [ false, %.loopexit.thread ], [ true, %.critedge7 ], [ false, %.loopexit ], [ %70, %68 ], [ %93, %92 ], [ false, %.lr.ph272.split ], [ false, %115 ], [ false, %15 ], [ false, %33 ], [ false, %142 ], [ false, %30 ], [ false, %26 ], [ false, %.thread ], [ false, %177 ], [ false, %85 ], [ false, %74 ]
   ret i1 %.1
 }
 

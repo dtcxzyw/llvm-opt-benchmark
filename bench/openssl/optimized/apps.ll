@@ -1972,13 +1972,13 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   br label %.critedge
 
 184:                                              ; preds = %.thread296, %178, %134
-  %.2207 = phi ptr [ %.1206343, %134 ], [ %.1206343, %.thread296 ], [ %.3208, %178 ]
-  %.2196 = phi ptr [ %.1195344, %134 ], [ %.1195344, %.thread296 ], [ %.3197, %178 ]
-  %.2192 = phi i32 [ %.1191345, %134 ], [ %.1191345, %.thread296 ], [ %.3193, %178 ]
-  %.2188 = phi i32 [ %.1187346, %134 ], [ %.1187346, %.thread296 ], [ %.3189, %178 ]
-  %.2176 = phi ptr [ %.1175347, %134 ], [ %.3177.ph, %.thread296 ], [ %.3177, %178 ]
-  %.2169 = phi ptr [ %.1168348, %134 ], [ %.3170.ph, %.thread296 ], [ %.3170, %178 ]
-  %.2166 = phi ptr [ %.1165349, %134 ], [ %.1165349, %.thread296 ], [ %.3, %178 ]
+  %.2207 = phi ptr [ %.1206343, %134 ], [ %.3208, %178 ], [ %.1206343, %.thread296 ]
+  %.2196 = phi ptr [ %.1195344, %134 ], [ %.3197, %178 ], [ %.1195344, %.thread296 ]
+  %.2192 = phi i32 [ %.1191345, %134 ], [ %.3193, %178 ], [ %.1191345, %.thread296 ]
+  %.2188 = phi i32 [ %.1187346, %134 ], [ %.3189, %178 ], [ %.1187346, %.thread296 ]
+  %.2176 = phi ptr [ %.1175347, %134 ], [ %.3177, %178 ], [ %.3177.ph, %.thread296 ]
+  %.2169 = phi ptr [ %.1168348, %134 ], [ %.3170, %178 ], [ %.3170.ph, %.thread296 ]
+  %.2166 = phi ptr [ %.1165349, %134 ], [ %.3, %178 ], [ %.1165349, %.thread296 ]
   %185 = icmp ne ptr %.2166, null
   %186 = icmp ne ptr %.2169, null
   %or.cond = select i1 %185, i1 true, i1 %186
@@ -1996,21 +1996,21 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   %190 = tail call i32 @OSSL_STORE_close(ptr noundef null) #27
   br label %212
 
-.critedge.thread379:                              ; preds = %96, %95, %76, %77, %.thread291.thread, %111, %119, %118
-  %.0200.ph = phi ptr [ %.3203, %118 ], [ %.3203, %119 ], [ null, %111 ], [ null, %.thread291.thread ], [ null, %77 ], [ null, %76 ], [ null, %95 ], [ null, %96 ]
-  %.0178.ph = phi ptr [ %88, %118 ], [ %88, %119 ], [ %88, %111 ], [ %88, %.thread291.thread ], [ %70, %77 ], [ %70, %76 ], [ %88, %95 ], [ %88, %96 ]
-  %.0161.ph = phi ptr [ %.2163, %118 ], [ %.2163, %119 ], [ %.2163331, %111 ], [ %.2163331, %.thread291.thread ], [ %0, %77 ], [ %0, %76 ], [ null, %95 ], [ null, %96 ]
+.critedge.thread379:                              ; preds = %95, %96, %76, %77, %.thread291.thread, %111, %119, %118
+  %.0200.ph = phi ptr [ %.3203, %118 ], [ %.3203, %119 ], [ null, %111 ], [ null, %.thread291.thread ], [ null, %77 ], [ null, %76 ], [ null, %96 ], [ null, %95 ]
+  %.0178.ph = phi ptr [ %88, %118 ], [ %88, %119 ], [ %88, %111 ], [ %88, %.thread291.thread ], [ %70, %77 ], [ %70, %76 ], [ %88, %96 ], [ %88, %95 ]
+  %.0161.ph = phi ptr [ %.2163, %118 ], [ %.2163, %119 ], [ %.2163331, %111 ], [ %.2163331, %.thread291.thread ], [ %0, %77 ], [ %0, %76 ], [ null, %96 ], [ null, %95 ]
   %191 = call i32 @OSSL_STORE_close(ptr noundef %.0200.ph) #27
   br label %212
 
 .critedge.thread391:                              ; preds = %.lr.ph, %184, %122
-  %.0205.ph = phi ptr [ null, %122 ], [ null, %184 ], [ %.1206343, %.lr.ph ]
-  %.0194.ph = phi ptr [ null, %122 ], [ null, %184 ], [ %.1195344, %.lr.ph ]
-  %.0190.ph = phi i32 [ 0, %122 ], [ %.2192, %184 ], [ %.1191345, %.lr.ph ]
-  %.0186.ph = phi i32 [ 0, %122 ], [ %.2188, %184 ], [ %.1187346, %.lr.ph ]
-  %.0174.ph = phi ptr [ null, %122 ], [ null, %184 ], [ %.1175347, %.lr.ph ]
-  %.0167.ph = phi ptr [ null, %122 ], [ null, %184 ], [ %.1168348, %.lr.ph ]
-  %.0164.ph = phi ptr [ null, %122 ], [ null, %184 ], [ %.1165349, %.lr.ph ]
+  %.0205.ph = phi ptr [ null, %122 ], [ %.1206343, %.lr.ph ], [ null, %184 ]
+  %.0194.ph = phi ptr [ null, %122 ], [ %.1195344, %.lr.ph ], [ null, %184 ]
+  %.0190.ph = phi i32 [ 0, %122 ], [ %.1191345, %.lr.ph ], [ %.2192, %184 ]
+  %.0186.ph = phi i32 [ 0, %122 ], [ %.1187346, %.lr.ph ], [ %.2188, %184 ]
+  %.0174.ph = phi ptr [ null, %122 ], [ %.1175347, %.lr.ph ], [ null, %184 ]
+  %.0167.ph = phi ptr [ null, %122 ], [ %.1168348, %.lr.ph ], [ null, %184 ]
+  %.0164.ph = phi ptr [ null, %122 ], [ %.1165349, %.lr.ph ], [ null, %184 ]
   %192 = call i32 @OSSL_STORE_close(ptr noundef nonnull %.3203) #27
   br label %195
 
@@ -4498,10 +4498,10 @@ define dso_local ptr @parse_name(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.preheader.split.us, %.preheader.split.us, %.preheader.split, %.preheader.split, %.critedge2.loopexit147
-  %.us-phi = phi ptr [ %.163, %.critedge2.loopexit147 ], [ %.163, %.preheader.split ], [ %.163, %.preheader.split ], [ %.163.us, %.preheader.split.us ], [ %.163.us, %.preheader.split.us ]
-  %.us-phi89 = phi ptr [ %.1.pn, %.critedge2.loopexit147 ], [ %.1.pn, %.preheader.split ], [ %.1.pn, %.preheader.split ], [ %.1.pn.us, %.preheader.split.us ], [ %.1.pn.us, %.preheader.split.us ]
-  %.us-phi90 = phi ptr [ %.3, %.critedge2.loopexit147 ], [ %.3, %.preheader.split ], [ %.3, %.preheader.split ], [ %.3.us, %.preheader.split.us ], [ %.3.us, %.preheader.split.us ]
-  %.us-phi91 = phi i32 [ 1, %.critedge2.loopexit147 ], [ 0, %.preheader.split ], [ 0, %.preheader.split ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split.us ]
+  %.us-phi = phi ptr [ %.163, %.preheader.split ], [ %.163, %.critedge2.loopexit147 ], [ %.163, %.preheader.split ], [ %.163.us, %.preheader.split.us ], [ %.163.us, %.preheader.split.us ]
+  %.us-phi89 = phi ptr [ %.1.pn, %.preheader.split ], [ %.1.pn, %.critedge2.loopexit147 ], [ %.1.pn, %.preheader.split ], [ %.1.pn.us, %.preheader.split.us ], [ %.1.pn.us, %.preheader.split.us ]
+  %.us-phi90 = phi ptr [ %.3, %.preheader.split ], [ %.3, %.critedge2.loopexit147 ], [ %.3, %.preheader.split ], [ %.3.us, %.preheader.split.us ], [ %.3.us, %.preheader.split.us ]
+  %.us-phi91 = phi i32 [ 0, %.preheader.split ], [ 1, %.critedge2.loopexit147 ], [ 0, %.preheader.split ], [ 0, %.preheader.split.us ], [ 0, %.preheader.split.us ]
   store i8 0, ptr %.us-phi, align 1, !tbaa !13
   %58 = load i8, ptr %.us-phi90, align 1, !tbaa !13
   %.not74 = icmp eq i8 %58, 0

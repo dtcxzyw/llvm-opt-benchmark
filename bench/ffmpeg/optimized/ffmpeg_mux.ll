@@ -493,9 +493,9 @@ sync_queue_process.exit95.thread158.i:            ; preds = %215, %197
   br i1 %.not89.i, label %sync_queue_process.exit95.thread158.i.thread36, label %mux_packet_filter.exit.thread44
 
 sync_queue_process.exit.thread.i:                 ; preds = %sync_queue_process.exit.i, %184, %217, %186, %sync_queue_process.exit95.i, %215, %209, %178, %.thread112.i, %122
-  %.2 = phi i32 [ %.3, %209 ], [ %.3, %215 ], [ %.3, %217 ], [ %.030, %.thread112.i ], [ %.030, %178 ], [ %.030, %186 ], [ 0, %122 ], [ 0, %sync_queue_process.exit95.i ], [ %.030, %184 ], [ %.030, %sync_queue_process.exit.i ]
-  %.065.i = phi ptr [ @.str.15, %209 ], [ @.str.15, %215 ], [ @.str.15, %217 ], [ @.str.13, %.thread112.i ], [ @.str.15, %178 ], [ @.str.15, %186 ], [ undef, %122 ], [ @.str.15, %sync_queue_process.exit95.i ], [ @.str.15, %184 ], [ @.str.15, %sync_queue_process.exit.i ]
-  %.063.i = phi i32 [ %207, %209 ], [ %213, %215 ], [ %223, %217 ], [ %149, %.thread112.i ], [ %176, %178 ], [ %192, %186 ], [ %135, %122 ], [ %225, %sync_queue_process.exit95.i ], [ %182, %184 ], [ %195, %sync_queue_process.exit.i ]
+  %.2 = phi i32 [ %.3, %209 ], [ %.3, %215 ], [ %.3, %217 ], [ %.030, %.thread112.i ], [ %.030, %178 ], [ 0, %sync_queue_process.exit95.i ], [ 0, %122 ], [ %.030, %186 ], [ %.030, %184 ], [ %.030, %sync_queue_process.exit.i ]
+  %.065.i = phi ptr [ @.str.15, %209 ], [ @.str.15, %215 ], [ @.str.15, %217 ], [ @.str.13, %.thread112.i ], [ @.str.15, %178 ], [ @.str.15, %sync_queue_process.exit95.i ], [ undef, %122 ], [ @.str.15, %186 ], [ @.str.15, %184 ], [ @.str.15, %sync_queue_process.exit.i ]
+  %.063.i = phi i32 [ %207, %209 ], [ %213, %215 ], [ %223, %217 ], [ %149, %.thread112.i ], [ %176, %178 ], [ %225, %sync_queue_process.exit95.i ], [ %135, %122 ], [ %192, %186 ], [ %182, %184 ], [ %195, %sync_queue_process.exit.i ]
   %.not90.i = icmp eq i32 %.063.i, -541478725
   br i1 %.not90.i, label %mux_packet_filter.exit.thread44, label %227
 

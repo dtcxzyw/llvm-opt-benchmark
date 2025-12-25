@@ -6921,7 +6921,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %190
   br label %.critedge70
 
 .critedge70:                                      ; preds = %.critedge, %.critedge70.sink.split, %_ZNK5osgeo4proj5datum9Ellipsoid25computedInverseFlatteningEv.exit, %172, %117, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit94, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
-  %.not114 = phi i1 [ true, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit ], [ true, %172 ], [ true, %117 ], [ true, %.critedge70.sink.split ], [ true, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit94 ], [ false, %_ZNK5osgeo4proj5datum9Ellipsoid25computedInverseFlatteningEv.exit ], [ false, %.critedge ]
+  %.not114 = phi i1 [ true, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit ], [ true, %172 ], [ true, %117 ], [ false, %_ZNK5osgeo4proj5datum9Ellipsoid25computedInverseFlatteningEv.exit ], [ true, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit94 ], [ true, %.critedge70.sink.split ], [ false, %.critedge ]
   ret i1 %.not114
 }
 

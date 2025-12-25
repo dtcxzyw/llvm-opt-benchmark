@@ -2374,7 +2374,7 @@ mbedtls_camellia_crypt_ctr.exit129:               ; preds = %.loopexit.i121
   br i1 %exitcond179.not, label %.loopexit, label %.loopexit203.backedge
 
 .loopexit203.backedge:                            ; preds = %218, %.thread198
-  %.2160.be = phi i32 [ %220, %.thread198 ], [ %219, %218 ]
+  %.2160.be = phi i32 [ %219, %218 ], [ %220, %.thread198 ]
   br label %.loopexit203, !llvm.loop !40
 
 .thread198:                                       ; preds = %217

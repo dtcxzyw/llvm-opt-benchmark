@@ -1510,8 +1510,8 @@ _build_sock_gres_by_topo.exit.thread:             ; preds = %_handle_gres_exc_ba
   %.not144 = icmp eq ptr %79, null
   br i1 %.not144, label %.thread, label %.thread.sink.split
 
-_build_sock_gres_by_topo.exit.thread184:          ; preds = %505, %679, %_build_sock_gres_by_topo.exit
-  %.0109187 = phi ptr [ %.0109, %_build_sock_gres_by_topo.exit ], [ %154, %505 ], [ %680, %679 ]
+_build_sock_gres_by_topo.exit.thread184:          ; preds = %679, %505, %_build_sock_gres_by_topo.exit
+  %.0109187 = phi ptr [ %.0109, %_build_sock_gres_by_topo.exit ], [ %680, %679 ], [ %154, %505 ]
   %687 = getelementptr inbounds nuw i8, ptr %.0109187, i64 80
   store i8 %26, ptr %687, align 8
   %688 = getelementptr inbounds nuw i8, ptr %.0109187, i64 32
@@ -1528,7 +1528,7 @@ _build_sock_gres_by_topo.exit.thread184:          ; preds = %505, %679, %_build_
   br label %.thread
 
 .thread:                                          ; preds = %_build_sock_gres_by_topo.exit.thread184, %.thread.sink.split, %78, %_build_sock_gres_by_topo.exit.thread, %105
-  %.1 = phi ptr [ null, %_build_sock_gres_by_topo.exit.thread ], [ null, %105 ], [ null, %.thread.sink.split ], [ %79, %78 ], [ %79, %_build_sock_gres_by_topo.exit.thread184 ]
+  %.1 = phi ptr [ null, %_build_sock_gres_by_topo.exit.thread ], [ null, %105 ], [ %79, %78 ], [ null, %.thread.sink.split ], [ %79, %_build_sock_gres_by_topo.exit.thread184 ]
   call void @slurm_list_iterator_destroy(ptr noundef %80) #5
   %691 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %692 = and i64 %691, 64

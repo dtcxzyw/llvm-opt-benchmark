@@ -4100,7 +4100,7 @@ SetTextureScaleMode.exit112.thread.i:             ; preds = %switch.lookup320, %
 SetCopyState.exit:                                ; preds = %306
   br i1 %212, label %357, label %SetCopyState.exit.thread
 
-357:                                              ; preds = %198, %344, %209, %355, %SetCopyState.exit
+357:                                              ; preds = %209, %198, %344, %355, %SetCopyState.exit
   %358 = icmp eq i32 %66, 5
   %spec.store.select = select i1 %358, i32 0, i32 4
   %359 = load ptr, ptr %51, align 8
@@ -4108,8 +4108,8 @@ SetCopyState.exit:                                ; preds = %306
   call void %359(i32 noundef %spec.store.select, i32 noundef 0, i32 noundef %360) #10
   br label %SetCopyState.exit.thread
 
-SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit108.i, %SetTextureScaleMode.exit.i, %SetTextureScaleMode.exit110.i, %SetTextureScaleMode.exit112.i, %198, %344, %209, %355, %SetCopyState.exit, %357, %127, %.thread, %77, %79, %67, %70, %121, %119, %65
-  %.1 = phi ptr [ %.0142251, %65 ], [ %.0142251, %77 ], [ %.0142251, %121 ], [ %.0157.lcssa, %.thread ], [ %.0142251, %67 ], [ %.0142251, %119 ], [ %.0142251, %70 ], [ %.0142251, %79 ], [ %.0142251, %127 ], [ %.0149.lcssa, %357 ], [ %.0149.lcssa, %SetCopyState.exit ], [ %.0149.lcssa, %198 ], [ %.0149.lcssa, %355 ], [ %.0149.lcssa, %209 ], [ %.0149.lcssa, %344 ], [ %.0149.lcssa, %SetTextureScaleMode.exit112.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit110.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit108.i ]
+SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit108.i, %SetTextureScaleMode.exit.i, %SetTextureScaleMode.exit110.i, %SetTextureScaleMode.exit112.i, %209, %198, %344, %355, %SetCopyState.exit, %357, %127, %.thread, %77, %79, %67, %70, %121, %119, %65
+  %.1 = phi ptr [ %.0142251, %65 ], [ %.0142251, %77 ], [ %.0142251, %121 ], [ %.0157.lcssa, %.thread ], [ %.0142251, %67 ], [ %.0142251, %119 ], [ %.0142251, %70 ], [ %.0142251, %79 ], [ %.0142251, %127 ], [ %.0149.lcssa, %357 ], [ %.0149.lcssa, %SetCopyState.exit ], [ %.0149.lcssa, %209 ], [ %.0149.lcssa, %355 ], [ %.0149.lcssa, %344 ], [ %.0149.lcssa, %198 ], [ %.0149.lcssa, %SetTextureScaleMode.exit112.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit110.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit.i ], [ %.0149.lcssa, %SetTextureScaleMode.exit108.i ]
   %361 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   %362 = load ptr, ptr %361, align 8
   %.not170 = icmp eq ptr %362, null

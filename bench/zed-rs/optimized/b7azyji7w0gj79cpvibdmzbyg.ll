@@ -1267,7 +1267,7 @@ _ZN5serde2de10EnumAccess7variant17h525f5003f05e44e1E.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 
@@ -1937,7 +1937,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17h1d1ad64c5a841289E.exit.i: ; preds
           cleanup
   br label %.body.thread
 
-.body.thread119:                                  ; preds = %199, %161, %.body.i, %208, %.body.thread, %.body.thread
+.body.thread119:                                  ; preds = %.body.i, %199, %161, %208, %.body.thread, %.body.thread
   %.pn12115 = phi { ptr, i32 } [ %.pn12116, %208 ], [ %.pn12116, %.body.thread ], [ %.pn12116, %.body.thread ], [ %162, %161 ], [ %191, %.body.i ], [ %191, %199 ]
   resume { ptr, i32 } %.pn12115
 
@@ -2526,7 +2526,7 @@ _ZN5serde2de10EnumAccess7variant17h582bbfe580e946d4E.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 
@@ -3115,7 +3115,7 @@ _ZN5serde2de10EnumAccess7variant17ha6c1b1760078889fE.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 
@@ -3769,7 +3769,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17ha808af8ff5dd5fbbE.exit._crit_edge
           cleanup
   br label %.body.thread
 
-.body.thread119:                                  ; preds = %190, %152, %.body.i, %199, %.body.thread, %.body.thread
+.body.thread119:                                  ; preds = %.body.i, %190, %152, %199, %.body.thread, %.body.thread
   %.pn12115 = phi { ptr, i32 } [ %.pn12116, %199 ], [ %.pn12116, %.body.thread ], [ %.pn12116, %.body.thread ], [ %153, %152 ], [ %182, %.body.i ], [ %182, %190 ]
   resume { ptr, i32 } %.pn12115
 
@@ -4364,7 +4364,7 @@ _ZN5serde2de10EnumAccess7variant17h5be92e7da68b8ed4E.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread116:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
+.body.thread116:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
   %.pn12112 = phi { ptr, i32 } [ %.pn12113, %186 ], [ %.pn12113, %.body.thread ], [ %.pn12113, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12112
 
@@ -4982,7 +4982,7 @@ default.unreachable:                              ; preds = %58
           cleanup
   br label %.body.thread
 
-.body.thread118:                                  ; preds = %183, %145, %.body.i, %192, %.body.thread, %.body.thread
+.body.thread118:                                  ; preds = %.body.i, %183, %145, %192, %.body.thread, %.body.thread
   %.pn12114 = phi { ptr, i32 } [ %.pn12115, %192 ], [ %.pn12115, %.body.thread ], [ %.pn12115, %.body.thread ], [ %146, %145 ], [ %175, %.body.i ], [ %175, %183 ]
   resume { ptr, i32 } %.pn12114
 
@@ -5571,7 +5571,7 @@ _ZN5serde2de10EnumAccess7variant17h6743490324a9da1dE.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 
@@ -6160,7 +6160,7 @@ _ZN5serde2de10EnumAccess7variant17he4c25d07f19def93E.exit.i: ; preds = %41
           cleanup
   br label %.body.thread
 
-.body.thread115:                                  ; preds = %177, %139, %.body.i, %186, %.body.thread, %.body.thread
+.body.thread115:                                  ; preds = %.body.i, %177, %139, %186, %.body.thread, %.body.thread
   %.pn12111 = phi { ptr, i32 } [ %.pn12112, %186 ], [ %.pn12112, %.body.thread ], [ %.pn12112, %.body.thread ], [ %140, %139 ], [ %169, %.body.i ], [ %169, %177 ]
   resume { ptr, i32 } %.pn12111
 

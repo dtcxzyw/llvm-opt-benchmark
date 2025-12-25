@@ -4243,7 +4243,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit25:              ; preds = %41
   %43 = icmp eq i32 %bcmp.i24, 0
   br i1 %43, label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread30, label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit25.thread30:     ; preds = %33, %41, %_ZN4llvmeqENS_9StringRefES0_.exit25
+_ZN4llvmeqENS_9StringRefES0_.exit25.thread30:     ; preds = %41, %33, %_ZN4llvmeqENS_9StringRefES0_.exit25
   %44 = tail call noundef zeroext i1 @_ZN5clang5Lexer3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(20) %3) #22
   br label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread
 

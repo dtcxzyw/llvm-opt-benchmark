@@ -5915,7 +5915,7 @@ _ZNK10RegionNode7is_copyEv.exit.i59:              ; preds = %179
   br i1 %.not.i57, label %_ZL12next_controlP4Node.exit53, label %.preheader.i54.sink.split, !llvm.loop !29
 
 _ZL12next_controlP4Node.exit53:                   ; preds = %197, %189, %186, %169, %161, %158, %_ZNK10RegionNode7is_copyEv.exit.i59, %179, %_ZNK10RegionNode7is_copyEv.exit.i52, %151
-  %.3 = phi ptr [ %.013.i48, %_ZNK10RegionNode7is_copyEv.exit.i52 ], [ %.013.i55, %_ZNK10RegionNode7is_copyEv.exit.i59 ], [ %.013.i48, %169 ], [ %.013.i48, %151 ], [ %.013.i55, %179 ], [ %.013.i48, %158 ], [ %.013.i48, %161 ], [ %.013.i55, %186 ], [ %.013.i55, %189 ], [ %.013.i55, %197 ]
+  %.3 = phi ptr [ %.013.i48, %169 ], [ %.013.i48, %_ZNK10RegionNode7is_copyEv.exit.i52 ], [ %.013.i55, %_ZNK10RegionNode7is_copyEv.exit.i59 ], [ %.013.i48, %151 ], [ %.013.i55, %179 ], [ %.013.i48, %158 ], [ %.013.i48, %161 ], [ %.013.i55, %186 ], [ %.013.i55, %189 ], [ %.013.i55, %197 ]
   %200 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null

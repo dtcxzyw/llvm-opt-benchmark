@@ -546,7 +546,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_123RangeOfValuesUsedByListIlEESt4pairIl
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %94, %88, %129, %127
-  %.sroa.098.0.i.ph.i = phi i64 [ 0, %127 ], [ %130, %129 ], [ 0, %88 ], [ 0, %94 ]
+  %.sroa.098.0.i.ph.i = phi i64 [ %130, %129 ], [ 0, %127 ], [ 0, %88 ], [ 0, %94 ]
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %132 = load ptr, ptr %131, align 8, !tbaa !72
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8

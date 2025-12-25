@@ -11368,16 +11368,16 @@ define hidden zeroext i1 @SDL_BlendFillRects(ptr noundef %0, ptr noundef %1, i32
   %.039 = phi i8 [ %32, %23 ], [ %5, %21 ]
   %.038 = phi i8 [ %36, %23 ], [ %6, %21 ]
   switch i8 %17, label %.thread [
-    i8 15, label %46
-    i8 16, label %38
+    i8 15, label %38
+    i8 16, label %46
     i8 32, label %41
   ]
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %40 = load i32, ptr %39, align 4
-  %cond1.not = icmp eq i32 %40, 63488
-  br i1 %cond1.not, label %51, label %.thread
+  %cond2.not = icmp eq i32 %40, 31744
+  br i1 %cond2.not, label %51, label %.thread
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -11395,8 +11395,8 @@ define hidden zeroext i1 @SDL_BlendFillRects(ptr noundef %0, ptr noundef %1, i32
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %48 = load i32, ptr %47, align 4
-  %cond2.not = icmp eq i32 %48, 31744
-  br i1 %cond2.not, label %51, label %.thread
+  %cond1.not = icmp eq i32 %48, 63488
+  br i1 %cond1.not, label %51, label %.thread
 
 .thread:                                          ; preds = %41, %37, %38, %46
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -11406,7 +11406,7 @@ define hidden zeroext i1 @SDL_BlendFillRects(ptr noundef %0, ptr noundef %1, i32
   br label %51
 
 51:                                               ; preds = %38, %.thread48, %.thread, %46
-  %.135 = phi ptr [ @SDL_BlendFillRect_RGB555, %46 ], [ %SDL_BlendFillRect_RGB.SDL_BlendFillRect_RGBA, %.thread ], [ %SDL_BlendFillRect_XRGB8888.SDL_BlendFillRect_ARGB8888, %.thread48 ], [ @SDL_BlendFillRect_RGB565, %38 ]
+  %.135 = phi ptr [ @SDL_BlendFillRect_RGB565, %46 ], [ %SDL_BlendFillRect_RGB.SDL_BlendFillRect_RGBA, %.thread ], [ %SDL_BlendFillRect_XRGB8888.SDL_BlendFillRect_ARGB8888, %.thread48 ], [ @SDL_BlendFillRect_RGB555, %38 ]
   %52 = icmp sgt i32 %2, 0
   br i1 %52, label %.lr.ph, label %.loopexit
 

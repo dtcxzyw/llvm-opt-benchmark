@@ -2065,8 +2065,8 @@ parse_double.exit587:                             ; preds = %.preheader690
   br label %.loopexit698
 
 569:                                              ; preds = %parse_double.exit566, %parse_double.exit563, %483, %487
-  %.1349 = phi i32 [ 1, %487 ], [ 0, %parse_double.exit566 ], [ 0, %parse_double.exit563 ], [ 1, %483 ]
-  %.1346 = phi i32 [ 5, %487 ], [ 3, %parse_double.exit566 ], [ 2, %parse_double.exit563 ], [ 4, %483 ]
+  %.1349 = phi i32 [ 0, %parse_double.exit566 ], [ 1, %487 ], [ 1, %483 ], [ 0, %parse_double.exit563 ]
+  %.1346 = phi i32 [ 3, %parse_double.exit566 ], [ 5, %487 ], [ 4, %483 ], [ 2, %parse_double.exit563 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.outer.backedge
 

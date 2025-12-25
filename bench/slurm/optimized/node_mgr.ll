@@ -3892,7 +3892,7 @@ _valid_features_act.exit:                         ; preds = %.lr.ph30.i, %201
   call void @slurm_xfree(ptr noundef nonnull %4) #15
   br label %_valid_features_act.exit.thread619
 
-_valid_features_act.exit.thread619:               ; preds = %192, %191, %_valid_features_act.exit
+_valid_features_act.exit.thread619:               ; preds = %191, %192, %_valid_features_act.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4538,8 +4538,8 @@ _valid_node_state_change.exit:                    ; preds = %377, %378, %384, %3
   br label %.thread641
 
 .thread641:                                       ; preds = %.thread641.sink.split, %._crit_edge, %469
-  %.2452 = phi i32 [ %.pre, %._crit_edge ], [ %.pre704, %469 ], [ %.pre704, %.thread641.sink.split ]
-  %.2437 = phi i1 [ false, %._crit_edge ], [ %or.cond.not, %469 ], [ %.2437.ph, %.thread641.sink.split ]
+  %.2452 = phi i32 [ %.pre704, %469 ], [ %.pre, %._crit_edge ], [ %.pre704, %.thread641.sink.split ]
+  %.2437 = phi i1 [ %or.cond.not, %469 ], [ false, %._crit_edge ], [ %.2437.ph, %.thread641.sink.split ]
   switch i32 %.2452, label %565 [
     i32 6, label %.thread641.thread749
     i32 1, label %.thread641.thread749
@@ -4634,7 +4634,7 @@ _valid_node_state_change.exit:                    ; preds = %377, %378, %384, %3
   br label %523
 
 523:                                              ; preds = %.sink.split, %519, %.thread646
-  %.5440 = phi i1 [ %.2437649, %.thread646 ], [ %.2437649, %519 ], [ true, %.sink.split ]
+  %.5440 = phi i1 [ %.2437649, %519 ], [ %.2437649, %.thread646 ], [ true, %.sink.split ]
   %524 = load i32, ptr %367, align 8
   %525 = and i32 %524, -8705
   store i32 %525, ptr %367, align 8

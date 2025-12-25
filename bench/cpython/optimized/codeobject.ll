@@ -7933,9 +7933,9 @@ define internal fastcc ptr @code_new_impl(i32 noundef %0, i32 noundef %1, i32 no
   br label %59
 
 59:                                               ; preds = %57, %40, %48, %55
-  %.049 = phi ptr [ %58, %57 ], [ null, %55 ], [ null, %48 ], [ null, %40 ]
-  %.045 = phi ptr [ %.146, %57 ], [ %.146, %55 ], [ null, %48 ], [ null, %40 ]
-  %.0 = phi ptr [ %.1, %57 ], [ null, %55 ], [ null, %48 ], [ null, %40 ]
+  %.049 = phi ptr [ null, %55 ], [ %58, %57 ], [ null, %40 ], [ null, %48 ]
+  %.045 = phi ptr [ %.146, %55 ], [ %.146, %57 ], [ null, %40 ], [ null, %48 ]
+  %.0 = phi ptr [ null, %55 ], [ %.1, %57 ], [ null, %40 ], [ null, %48 ]
   %60 = load i32, ptr %38, align 8, !tbaa !97
   %.not.i.i = icmp sgt i32 %60, -1
   br i1 %.not.i.i, label %61, label %Py_XDECREF.exit
@@ -8098,7 +8098,7 @@ Py_DECREF.exit26.sink.split:                      ; preds = %34, %26
   br label %Py_DECREF.exit26
 
 Py_DECREF.exit26:                                 ; preds = %Py_INCREF.exit, %Py_DECREF.exit26.sink.split, %.preheader, %34, %32, %26, %20, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %Py_DECREF.exit26.sink.split ], [ %3, %.preheader ], [ null, %20 ], [ null, %26 ], [ null, %32 ], [ null, %34 ], [ %3, %Py_INCREF.exit ]
+  %.0 = phi ptr [ null, %1 ], [ %3, %.preheader ], [ null, %Py_DECREF.exit26.sink.split ], [ null, %20 ], [ null, %26 ], [ null, %32 ], [ null, %34 ], [ %3, %Py_INCREF.exit ]
   ret ptr %.0
 }
 

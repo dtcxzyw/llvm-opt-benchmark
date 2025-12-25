@@ -14537,8 +14537,8 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeEN
   br label %.loopexit2135
 
 .loopexit2135:                                    ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i333, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_ERiEEERSB_DpOT_.exit.i.i, %.noexc347
-  %.val9.i = phi ptr [ %.val14.i937, %.noexc347 ], [ %.val12.i.i, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_ERiEEERSB_DpOT_.exit.i.i ], [ %.val20.i.i329, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i333 ]
-  %.0.i = phi i32 [ %.pre43.i.i, %.noexc347 ], [ %526, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_ERiEEERSB_DpOT_.exit.i.i ], [ %.022.i.i331, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i333 ]
+  %.val9.i = phi ptr [ %.val12.i.i, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_ERiEEERSB_DpOT_.exit.i.i ], [ %.val14.i937, %.noexc347 ], [ %.val20.i.i329, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i333 ]
+  %.0.i = phi i32 [ %526, %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitEPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS4_EEE7entry_tESaISB_EE12emplace_backIJSt4pairIS4_S7_ERiEEERSB_DpOT_.exit.i.i ], [ %.pre43.i.i, %.noexc347 ], [ %.022.i.i331, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.i333 ]
   %529 = sext i32 %.0.i to i64
   %530 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::SigBit, (anonymous namespace)::GraphNode *>::entry_t", ptr %.val9.i, i64 %529
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 16
@@ -23890,7 +23890,7 @@ _ZNK5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_8hash_opsIS4_EEE7do_hashE
   br i1 %1085, label %1078, label %.thread45.i.i, !llvm.loop !212
 
 .thread45.i.i:                                    ; preds = %._crit_edge.i.i997, %.lr.ph.i.i.i.i.i491, %._crit_edge.i.i989, %.lr.ph.i13.i.i.i.i, %922, %915, %1082, %.preheader.i11.i.i.i.i, %.loopexit.i.i.i.i, %_ZNSt4pairIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS5_EEEES8_EC2ERKS9_.exit29.i.i
-  %1086 = phi i1 [ true, %_ZNSt4pairIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS5_EEEES8_EC2ERKS9_.exit29.i.i ], [ false, %.preheader.i11.i.i.i.i ], [ false, %922 ], [ true, %.loopexit.i.i.i.i ], [ true, %1082 ], [ true, %915 ], [ true, %.lr.ph.i13.i.i.i.i ], [ true, %._crit_edge.i.i989 ], [ true, %.lr.ph.i.i.i.i.i491 ], [ true, %._crit_edge.i.i997 ]
+  %1086 = phi i1 [ true, %_ZNSt4pairIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS5_EEEES8_EC2ERKS9_.exit29.i.i ], [ false, %.preheader.i11.i.i.i.i ], [ true, %1082 ], [ true, %.loopexit.i.i.i.i ], [ false, %922 ], [ true, %915 ], [ true, %.lr.ph.i13.i.i.i.i ], [ true, %._crit_edge.i.i989 ], [ true, %.lr.ph.i.i.i.i.i491 ], [ true, %._crit_edge.i.i997 ]
   %.val.i.i32.i.i = load ptr, ptr %50, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i32.i.i, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_8hash_opsIS5_EEE7entry_tESaIS9_EED2Ev.exit.i.i.i.i, label %1087

@@ -28492,7 +28492,7 @@ lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
   br label %lpad9
 
 lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then.i.i.i, %if.then.i.i.i133
-  %valueArrayInsert.sroa.0.1.ph1472.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %valueArrayInsert.sroa.0.6, %if.then.i.i.i133 ], [ %valueArrayInsert.sroa.0.21607, %if.then.i.i.i ]
+  %valueArrayInsert.sroa.0.1.ph1472.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %valueArrayInsert.sroa.0.21607, %if.then.i.i.i ], [ %valueArrayInsert.sroa.0.6, %if.then.i.i.i133 ]
   %lpad.loopexit1572 = landingpad { ptr, i32 }
           cleanup
   br label %lpad9
@@ -30548,8 +30548,8 @@ lpad207.loopexit.split-lp.loopexit:               ; preds = %_ZN5eastl6rbtreeIii
   br label %lpad207
 
 lpad207.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then.i.i.i638, %if.then.i.i.i672, %if.then.i.i.i713, %if.then.i.i.i747
-  %valueArrayInsert2.sroa.0.0.ph.ph.ph = phi ptr [ %valueArrayInsert2.sroa.0.3, %if.then.i.i.i747 ], [ %valueArrayInsert2.sroa.0.3, %if.then.i.i.i713 ], [ %valueArrayInsert2.sroa.0.11628, %if.then.i.i.i638 ], [ %valueArrayInsert2.sroa.0.11628, %if.then.i.i.i672 ]
-  %valueArrayInsert1.sroa.0.0.ph.ph.ph = phi ptr [ %valueArrayInsert1.sroa.0.4, %if.then.i.i.i747 ], [ %valueArrayInsert1.sroa.0.3, %if.then.i.i.i713 ], [ %valueArrayInsert1.sroa.0.11631, %if.then.i.i.i638 ], [ %valueArrayInsert1.sroa.0.3, %if.then.i.i.i672 ]
+  %valueArrayInsert2.sroa.0.0.ph.ph.ph = phi ptr [ %valueArrayInsert2.sroa.0.3, %if.then.i.i.i713 ], [ %valueArrayInsert2.sroa.0.3, %if.then.i.i.i747 ], [ %valueArrayInsert2.sroa.0.11628, %if.then.i.i.i638 ], [ %valueArrayInsert2.sroa.0.11628, %if.then.i.i.i672 ]
+  %valueArrayInsert1.sroa.0.0.ph.ph.ph = phi ptr [ %valueArrayInsert1.sroa.0.3, %if.then.i.i.i713 ], [ %valueArrayInsert1.sroa.0.4, %if.then.i.i.i747 ], [ %valueArrayInsert1.sroa.0.11631, %if.then.i.i.i638 ], [ %valueArrayInsert1.sroa.0.3, %if.then.i.i.i672 ]
   %lpad.loopexit1515 = landingpad { ptr, i32 }
           cleanup
   br label %lpad207

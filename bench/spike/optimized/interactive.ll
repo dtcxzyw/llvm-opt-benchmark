@@ -12116,7 +12116,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br label %1872
 
 1862:                                             ; preds = %40, %1857
-  %.2 = phi i64 [ 32, %1857 ], [ %44, %40 ]
+  %.2 = phi i64 [ %44, %40 ], [ 32, %1857 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %1863
 

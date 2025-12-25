@@ -535,8 +535,8 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   %.not256 = icmp eq ptr %.5191, null
   br i1 %.not256, label %.critedge, label %15, !llvm.loop !34
 
-.critedge:                                        ; preds = %.thread297, %uriIsHostSetA.exit.thread, %70, %72, %.thread309, %168, %4, %6
-  %.0 = phi i32 [ 1, %uriIsHostSetA.exit.thread ], [ 1, %4 ], [ 1, %6 ], [ 0, %168 ], [ 1, %.thread309 ], [ 1, %72 ], [ 1, %70 ], [ 1, %.thread297 ]
+.critedge:                                        ; preds = %.thread297, %72, %70, %uriIsHostSetA.exit.thread, %.thread309, %168, %4, %6
+  %.0 = phi i32 [ 1, %72 ], [ 1, %4 ], [ 1, %6 ], [ 0, %168 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetA.exit.thread ], [ 1, %70 ], [ 1, %.thread297 ]
   ret i32 %.0
 }
 
@@ -1489,8 +1489,8 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   %.not256 = icmp eq ptr %.5191, null
   br i1 %.not256, label %.critedge, label %15, !llvm.loop !62
 
-.critedge:                                        ; preds = %.thread297, %uriIsHostSetW.exit.thread, %72, %74, %.thread309, %170, %4, %6
-  %.0 = phi i32 [ 1, %uriIsHostSetW.exit.thread ], [ 1, %4 ], [ 1, %6 ], [ 0, %170 ], [ 1, %.thread309 ], [ 1, %74 ], [ 1, %72 ], [ 1, %.thread297 ]
+.critedge:                                        ; preds = %.thread297, %74, %72, %uriIsHostSetW.exit.thread, %.thread309, %170, %4, %6
+  %.0 = phi i32 [ 1, %74 ], [ 1, %4 ], [ 1, %6 ], [ 0, %170 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetW.exit.thread ], [ 1, %72 ], [ 1, %.thread297 ]
   ret i32 %.0
 }
 

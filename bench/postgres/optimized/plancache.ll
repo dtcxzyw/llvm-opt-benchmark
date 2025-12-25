@@ -2340,7 +2340,7 @@ define dso_local noundef zeroext i1 @CachedPlanAllowsSimpleValidityCheck(ptr nou
   br label %.critedge76
 
 .critedge76:                                      ; preds = %27, %.critedge, %36, %33, %49, %65, %.critedge79, %71, %15, %11, %7, %3
-  %.0 = phi i1 [ true, %.critedge79 ], [ false, %3 ], [ false, %7 ], [ false, %11 ], [ false, %15 ], [ false, %65 ], [ true, %71 ], [ false, %49 ], [ false, %33 ], [ false, %36 ], [ false, %.critedge ], [ false, %27 ]
+  %.0 = phi i1 [ true, %.critedge79 ], [ false, %3 ], [ false, %7 ], [ false, %11 ], [ false, %15 ], [ false, %49 ], [ true, %71 ], [ false, %65 ], [ false, %33 ], [ false, %36 ], [ false, %.critedge ], [ false, %27 ]
   ret i1 %.0
 }
 

@@ -1872,7 +1872,7 @@ define dso_local void @trace_event_eval_update(ptr noundef readonly captures(non
   br i1 %139, label %.loopexit19, label %.backedge
 
 .backedge:                                        ; preds = %134, %118
-  %.be = phi ptr [ %137, %134 ], [ %120, %118 ]
+  %.be = phi ptr [ %120, %118 ], [ %137, %134 ]
   br label %118, !llvm.loop !64
 
 .loopexit:                                        ; preds = %130, %129, %103, %77, %75, %62, %60, %56

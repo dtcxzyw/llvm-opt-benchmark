@@ -531,8 +531,8 @@ parse_bag.exit.thread:                            ; preds = %28, %38, %63, %23, 
   %70 = icmp slt i32 %68, %69
   br i1 %70, label %12, label %parse_bag.exit.thread15, !llvm.loop !28
 
-parse_bag.exit.thread15:                          ; preds = %parse_bag.exit, %parse_bag.exit.thread, %44, %28, %35, %38, %6, %65, %.critedge.i, %53
-  %.011 = phi i32 [ 0, %53 ], [ 0, %.critedge.i ], [ 0, %65 ], [ 1, %6 ], [ 0, %35 ], [ 0, %28 ], [ 0, %44 ], [ 1, %parse_bag.exit.thread ], [ 0, %parse_bag.exit ], [ 0, %38 ]
+parse_bag.exit.thread15:                          ; preds = %parse_bag.exit, %parse_bag.exit.thread, %44, %28, %35, %38, %6, %.critedge.i, %65, %53
+  %.011 = phi i32 [ 0, %53 ], [ 0, %65 ], [ 0, %.critedge.i ], [ 1, %6 ], [ 0, %35 ], [ 0, %28 ], [ 0, %44 ], [ 1, %parse_bag.exit.thread ], [ 0, %parse_bag.exit ], [ 0, %38 ]
   ret i32 %.011
 }
 

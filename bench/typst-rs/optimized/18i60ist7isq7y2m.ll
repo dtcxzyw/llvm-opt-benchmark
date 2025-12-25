@@ -4300,7 +4300,7 @@ _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.threa
   br label %_ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread
 
 _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread: ; preds = %.lr.ph.i.i, %66, %_ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread.sink.split, %52, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he63e5c5b055c32a6E.exit.i.i", %75, %69, %4
-  %.6 = phi i1 [ %.6.ph, %_ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread.sink.split ], [ false, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he63e5c5b055c32a6E.exit.i.i" ], [ false, %52 ], [ false, %4 ], [ false, %69 ], [ false, %75 ], [ false, %66 ], [ false, %.lr.ph.i.i ]
+  %.6 = phi i1 [ false, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he63e5c5b055c32a6E.exit.i.i" ], [ %.6.ph, %_ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit.thread.sink.split ], [ false, %52 ], [ false, %4 ], [ false, %69 ], [ false, %75 ], [ false, %66 ], [ false, %.lr.ph.i.i ]
   ret i1 %.6
 
 305:                                              ; preds = %182, %271, %"_ZN4core3ptr36drop_in_place$LT$usvg_tree..Tree$GT$17h54c5804abd70b314E.exit", %165, %100, %.body

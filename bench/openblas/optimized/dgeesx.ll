@@ -389,7 +389,7 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %196
 
 196:                                              ; preds = %.sink.split, %191, %165, %164
-  %.3 = phi i32 [ %.1, %164 ], [ %.1, %165 ], [ %.4, %191 ], [ %.4, %.sink.split ]
+  %.3 = phi i32 [ %.4, %191 ], [ %.1, %165 ], [ %.1, %164 ], [ %.4, %.sink.split ]
   br i1 %.not, label %197, label %198
 
 197:                                              ; preds = %196

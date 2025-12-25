@@ -2595,7 +2595,7 @@ define internal fastcc void @psh_glyph_interpolate_other_points(ptr noundef nonn
   br i1 %.not118, label %.loopexit, label %.preheader137.backedge
 
 .loopexit:                                        ; preds = %130, %.preheader137, %57, %17
-  %.2 = phi i64 [ %.1.ph, %57 ], [ %.086153, %17 ], [ %.086153, %.preheader137 ], [ %.086153, %130 ]
+  %.2 = phi i64 [ %.086153, %17 ], [ %.1.ph, %57 ], [ %.086153, %.preheader137 ], [ %.086153, %130 ]
   %131 = add i32 %.0101151, -1
   %132 = getelementptr inbounds nuw i8, ptr %.087152, i64 16
   %.not = icmp eq i32 %131, 0
@@ -3095,9 +3095,9 @@ psh_blues_snap_stem.exit.thread:                  ; preds = %37
   br i1 %.not.i, label %.loopexit50.i, label %64, !llvm.loop !211
 
 .loopexit50.i:                                    ; preds = %82, %64, %79, %75, %48
-  %.sroa.9136.1 = phi i64 [ 0, %48 ], [ %81, %79 ], [ 0, %75 ], [ 0, %64 ], [ 0, %82 ]
-  %.sroa.0.1 = phi i32 [ 0, %48 ], [ 1, %79 ], [ 0, %75 ], [ 0, %64 ], [ 0, %82 ]
-  %85 = phi i32 [ 2, %48 ], [ 3, %79 ], [ 2, %75 ], [ 2, %64 ], [ 2, %82 ]
+  %.sroa.9136.1 = phi i64 [ 0, %48 ], [ 0, %75 ], [ %81, %79 ], [ 0, %64 ], [ 0, %82 ]
+  %.sroa.0.1 = phi i32 [ 0, %48 ], [ 0, %75 ], [ 1, %79 ], [ 0, %64 ], [ 0, %82 ]
+  %85 = phi i32 [ 2, %48 ], [ 2, %75 ], [ 3, %79 ], [ 2, %64 ], [ 2, %82 ]
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 1600
   %87 = load i32, ptr %86, align 8, !tbaa !117
   %.not4758.i = icmp eq i32 %87, 0

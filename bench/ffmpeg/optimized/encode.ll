@@ -926,7 +926,7 @@ encode_simple_internal.exit.i:                    ; preds = %104, %98
   br i1 %105, label %encode_simple_receive_packet.exit, label %.preheader, !llvm.loop !94
 
 encode_simple_receive_packet.exit.thread41:       ; preds = %.preheader, %54, %48, %50
-  %.0.ph = phi i32 [ %45, %50 ], [ %45, %48 ], [ 0, %54 ], [ 0, %.preheader ]
+  %.0.ph = phi i32 [ %45, %48 ], [ %45, %50 ], [ 0, %54 ], [ 0, %.preheader ]
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %107 = load i32, ptr %106, align 8, !tbaa !96
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 40

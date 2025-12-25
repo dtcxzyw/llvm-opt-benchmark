@@ -48829,7 +48829,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3vcg7SVertexESt6vectorIS4_
   br label %24, !llvm.loop !380
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPPN3vcg7SVertexESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %._crit_edge, %._crit_edge94, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3vcg7SVertexESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3vcg7SVertexESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
-  %.sroa.021.0 = phi ptr [ %1, %.lr.ph.i ], [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3vcg7SVertexESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3vcg7SVertexESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %23, %._crit_edge94 ], [ %23, %._crit_edge ]
+  %.sroa.021.0 = phi ptr [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3vcg7SVertexESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3vcg7SVertexESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge94 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.021.0
 }
 
@@ -50836,8 +50836,8 @@ _ZN3vcg3tri2io11ImporterOBJINS_5SMeshEE12GoodObjIndexERii.exit470: ; preds = %59
           to label %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJINS0_5SMeshEE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit unwind label %.loopexit763
 
 _ZNSt6vectorIN3vcg3tri2io11ImporterOBJINS0_5SMeshEE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit: ; preds = %555, %.preheader759, %579, %.preheader757, %590, %.preheader756, %562, %568, %.noexc472, %599
-  %.4313 = phi i32 [ %593, %.noexc472 ], [ %.33121075, %579 ], [ %.33121075, %590 ], [ %.33121075, %562 ], [ %593, %599 ], [ %.33121075, %568 ], [ %.33121075, %.preheader756 ], [ %.33121075, %.preheader757 ], [ %.33121075, %.preheader759 ], [ %.33121075, %555 ]
-  %.4279 = phi i32 [ %.32781076, %.noexc472 ], [ %.32781076, %579 ], [ %.32781076, %590 ], [ 9, %562 ], [ %.32781076, %599 ], [ 9, %568 ], [ %.32781076, %.preheader756 ], [ %.32781076, %.preheader757 ], [ %.32781076, %.preheader759 ], [ %.32781076, %555 ]
+  %.4313 = phi i32 [ %593, %599 ], [ %.33121075, %579 ], [ %.33121075, %562 ], [ %593, %.noexc472 ], [ %.33121075, %590 ], [ %.33121075, %568 ], [ %.33121075, %.preheader756 ], [ %.33121075, %.preheader757 ], [ %.33121075, %.preheader759 ], [ %.33121075, %555 ]
+  %.4279 = phi i32 [ %.32781076, %599 ], [ %.32781076, %579 ], [ 9, %562 ], [ %.32781076, %.noexc472 ], [ %.32781076, %590 ], [ 9, %568 ], [ %.32781076, %.preheader756 ], [ %.32781076, %.preheader757 ], [ %.32781076, %.preheader759 ], [ %.32781076, %555 ]
   %600 = add i64 %.03441073, 3
   %601 = load ptr, ptr %118, align 8
   %602 = load ptr, ptr %20, align 8
@@ -108589,9 +108589,9 @@ _ZN3vcg23InterpolationParametersINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProvider
   br label %_ZN3vcg23InterpolationParametersINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCFaceEfEEbT_iRKNS_6Point3IT0_EERSB_.exit
 
 _ZN3vcg23InterpolationParametersINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCFaceEfEEbT_iRKNS_6Point3IT0_EERSB_.exit: ; preds = %_ZN3vcg23InterpolationParametersINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCFaceEfEEbT_iRKNS_6Point3IT0_EERSB_.exit.sink.split, %166, %136, %94, %56
-  %.sink69 = phi float [ %156, %166 ], [ %126, %136 ], [ %83, %94 ], [ %45, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCFaceEfEEbT_iRKNS_6Point3IT0_EERSB_.exit.sink.split ]
-  %.sink66 = phi float [ %162, %166 ], [ %132, %136 ], [ %90, %94 ], [ %52, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCFaceEfEEbT_iRKNS_6Point3IT0_EERSB_.exit.sink.split ]
-  %.sink63 = phi float [ %164, %166 ], [ %134, %136 ], [ %92, %94 ], [ %54, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCFaceEfEEbT_iRKNS_6Point3IT0_EERSB_.exit.sink.split ]
+  %.sink69 = phi float [ %83, %94 ], [ %126, %136 ], [ %156, %166 ], [ %45, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCFaceEfEEbT_iRKNS_6Point3IT0_EERSB_.exit.sink.split ]
+  %.sink66 = phi float [ %90, %94 ], [ %132, %136 ], [ %162, %166 ], [ %52, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCFaceEfEEbT_iRKNS_6Point3IT0_EERSB_.exit.sink.split ]
+  %.sink63 = phi float [ %92, %94 ], [ %134, %136 ], [ %164, %166 ], [ %54, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS3_EEE6MCFaceEfEEbT_iRKNS_6Point3IT0_EERSB_.exit.sink.split ]
   %170 = fcmp oge float %.sink69, 0xBF1A36E2E0000000
   %171 = fcmp ole float %.sink69, 0x3FF00068E0000000
   %narrow.i.i31.i21 = and i1 %170, %171
@@ -131880,9 +131880,9 @@ _ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.
   br label %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit
 
 _ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit: ; preds = %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split, %174, %144, %99, %56
-  %.sink54 = phi float [ %164, %174 ], [ %134, %144 ], [ %88, %99 ], [ %45, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
-  %.sink51 = phi float [ %170, %174 ], [ %140, %144 ], [ %95, %99 ], [ %52, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
-  %.sink48 = phi float [ %172, %174 ], [ %142, %144 ], [ %97, %99 ], [ %54, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink54 = phi float [ %88, %99 ], [ %134, %144 ], [ %164, %174 ], [ %45, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink51 = phi float [ %95, %99 ], [ %140, %144 ], [ %170, %174 ], [ %52, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
+  %.sink48 = phi float [ %97, %99 ], [ %142, %144 ], [ %172, %174 ], [ %54, %56 ], [ 0x3FD5555560000000, %_ZN3vcg23InterpolationParametersI6CFaceOfEEbT_iRKNS_6Point3IT0_EERS5_.exit.sink.split ]
   %178 = fcmp oge float %.sink54, 0xBF1A36E2E0000000
   %179 = fcmp ole float %.sink54, 0x3FF00068E0000000
   %narrow.i.i31.i21 = and i1 %178, %179

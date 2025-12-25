@@ -3167,7 +3167,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   br label %.thread58
 
 .thread58:                                        ; preds = %336, %.thread58.sink.split, %259, %276, %279, %284, %290, %361, %306, %298, %304, %216
-  %505 = phi i32 [ -22, %.thread58.sink.split ], [ -22, %216 ], [ -22, %279 ], [ %260, %259 ], [ %291, %290 ], [ -22, %298 ], [ -19, %306 ], [ -22, %304 ], [ -22, %284 ], [ -22, %276 ], [ -22, %361 ], [ %340, %336 ]
+  %505 = phi i32 [ -22, %276 ], [ -22, %216 ], [ -22, %279 ], [ %260, %259 ], [ %291, %290 ], [ -22, %304 ], [ -19, %306 ], [ -22, %.thread58.sink.split ], [ -22, %284 ], [ -22, %298 ], [ -22, %361 ], [ %340, %336 ]
   %506 = getelementptr inbounds nuw i8, ptr %176, i64 68
   store i8 1, ptr %506, align 4
   %507 = getelementptr inbounds nuw i8, ptr %176, i64 112
@@ -3736,7 +3736,7 @@ define internal fastcc i32 @fib_get_nhs(ptr noundef nonnull captures(none) %0, p
   br label %.thread
 
 .thread:                                          ; preds = %107, %86, %.thread.sink.split, %73, %96, %.critedge, %57, %79, %159, %170, %165, %158, %150, %149
-  %171 = phi i32 [ -22, %.critedge ], [ -22, %57 ], [ -22, %149 ], [ -22, %.thread.sink.split ], [ -22, %170 ], [ -22, %73 ], [ 0, %165 ], [ 0, %150 ], [ 0, %159 ], [ 0, %158 ], [ -22, %79 ], [ -22, %96 ], [ %115, %107 ], [ %87, %86 ]
+  %171 = phi i32 [ -22, %.critedge ], [ -22, %57 ], [ -22, %149 ], [ -22, %96 ], [ -22, %170 ], [ -22, %73 ], [ 0, %165 ], [ 0, %150 ], [ 0, %159 ], [ 0, %158 ], [ -22, %79 ], [ -22, %.thread.sink.split ], [ %115, %107 ], [ %87, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %171
 }

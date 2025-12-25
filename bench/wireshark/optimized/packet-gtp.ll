@@ -11001,8 +11001,8 @@ define internal fastcc i32 @dissect_gtp_common(ptr noundef %0, ptr noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %314, %.thread.sink.split, %141, %138, %117
-  %.0376 = phi i1 [ true, %.thread.sink.split ], [ false, %117 ], [ %.not389, %141 ], [ %.not389, %138 ], [ %.not389, %314 ]
-  %.1372 = phi i32 [ %.sink539, %.thread.sink.split ], [ 8, %117 ], [ 12, %141 ], [ 12, %138 ], [ %321, %314 ]
+  %.0376 = phi i1 [ %.not389, %141 ], [ false, %117 ], [ true, %.thread.sink.split ], [ %.not389, %138 ], [ %.not389, %314 ]
+  %.1372 = phi i32 [ 12, %141 ], [ 8, %117 ], [ %.sink539, %.thread.sink.split ], [ 12, %138 ], [ %321, %314 ]
   %327 = load i8, ptr %83, align 1
   %.not405 = icmp eq i8 %327, -1
   br i1 %.not405, label %424, label %328

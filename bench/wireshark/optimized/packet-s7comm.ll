@@ -4170,10 +4170,10 @@ s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i:    ; preds = %279, %277
   br label %319
 
 319:                                              ; preds = %.sink.split.i, %314, %313, %302, %298, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i
-  %320 = phi i8 [ %307, %313 ], [ %274, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %301, %298 ], [ %307, %314 ], [ %305, %302 ], [ %307, %.sink.split.i ]
-  %321 = phi ptr [ %308, %313 ], [ %273, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %300, %298 ], [ %308, %314 ], [ %304, %302 ], [ %308, %.sink.split.i ]
-  %.0172.i = phi ptr [ %312, %313 ], [ %0, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %0, %298 ], [ %312, %314 ], [ %0, %302 ], [ %.0172.ph.i, %.sink.split.i ]
-  %.3.i = phi i32 [ 0, %313 ], [ %.0.i181.i, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %235, %298 ], [ 0, %314 ], [ %.2.i, %302 ], [ 0, %.sink.split.i ]
+  %320 = phi i8 [ %307, %313 ], [ %301, %298 ], [ %274, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %307, %314 ], [ %305, %302 ], [ %307, %.sink.split.i ]
+  %321 = phi ptr [ %308, %313 ], [ %300, %298 ], [ %273, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %308, %314 ], [ %304, %302 ], [ %308, %.sink.split.i ]
+  %.0172.i = phi ptr [ %312, %313 ], [ %0, %298 ], [ %0, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ %312, %314 ], [ %0, %302 ], [ %.0172.ph.i, %.sink.split.i ]
+  %.3.i = phi i32 [ 0, %313 ], [ %235, %298 ], [ %.0.i181.i, %s7comm_decode_ud_pbc_bsend_pre_reass.exit.i ], [ 0, %314 ], [ %.2.i, %302 ], [ 0, %.sink.split.i ]
   store i8 %320, ptr %321, align 8
   %322 = call i32 @tvb_reported_length_remaining(ptr noundef %.0172.i, i32 noundef %.3.i)
   %323 = icmp eq i8 %.0200, 0

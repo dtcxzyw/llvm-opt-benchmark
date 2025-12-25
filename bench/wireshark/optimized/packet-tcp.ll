@@ -4388,10 +4388,10 @@ find_maxnextseq.exit104.i.i.us:                   ; preds = %.lr.ph.i96.i.i.us, 
   br label %msp_add_out_of_order.exit.i.us
 
 msp_add_out_of_order.exit.i.us:                   ; preds = %.loopexit.i.i.us, %find_maxnextseq.exit104.i.i.us, %._crit_edge.i.i.us, %138, %118
-  %.04981087.i.us = phi i8 [ %.0498.us.us.lcssa.i.us, %find_maxnextseq.exit104.i.i.us ], [ %.0498.us.us.lcssa.i.us, %._crit_edge.i.i.us ], [ %.0498.ph.i.us, %118 ], [ %.0498.ph.i.us, %138 ], [ %.0498.us.us.lcssa.i.us, %.loopexit.i.i.us ]
-  %.04791072.i.us = phi i32 [ %.0479.us.us.i.us, %find_maxnextseq.exit104.i.i.us ], [ %.0479.us.us.i.us, %._crit_edge.i.i.us ], [ %.0479.ph.i.us, %118 ], [ %.0479.ph.i.us, %138 ], [ %.0479.us.us.i.us, %.loopexit.i.i.us ]
-  %.01056.i.us = phi i32 [ %.0.us.us.i.us, %find_maxnextseq.exit104.i.i.us ], [ %.0.us.us.i.us, %._crit_edge.i.i.us ], [ %.0.ph.i.us, %118 ], [ %.0.ph.i.us, %138 ], [ %.0.us.us.i.us, %.loopexit.i.i.us ]
-  %.2504.i.us = phi ptr [ %.0.lcssa.i.i.us, %find_maxnextseq.exit104.i.i.us ], [ %.0.lcssa.i.i.us, %._crit_edge.i.i.us ], [ %.1503669.i.us, %118 ], [ %.1503669.i.us, %138 ], [ %.0110.i.i.us, %.loopexit.i.i.us ]
+  %.04981087.i.us = phi i8 [ %.0498.us.us.lcssa.i.us, %find_maxnextseq.exit104.i.i.us ], [ %.0498.ph.i.us, %118 ], [ %.0498.us.us.lcssa.i.us, %._crit_edge.i.i.us ], [ %.0498.ph.i.us, %138 ], [ %.0498.us.us.lcssa.i.us, %.loopexit.i.i.us ]
+  %.04791072.i.us = phi i32 [ %.0479.us.us.i.us, %find_maxnextseq.exit104.i.i.us ], [ %.0479.ph.i.us, %118 ], [ %.0479.us.us.i.us, %._crit_edge.i.i.us ], [ %.0479.ph.i.us, %138 ], [ %.0479.us.us.i.us, %.loopexit.i.i.us ]
+  %.01056.i.us = phi i32 [ %.0.us.us.i.us, %find_maxnextseq.exit104.i.i.us ], [ %.0.ph.i.us, %118 ], [ %.0.us.us.i.us, %._crit_edge.i.i.us ], [ %.0.ph.i.us, %138 ], [ %.0.us.us.i.us, %.loopexit.i.i.us ]
+  %.2504.i.us = phi ptr [ %.0.lcssa.i.i.us, %find_maxnextseq.exit104.i.i.us ], [ %.1503669.i.us, %118 ], [ %.0.lcssa.i.i.us, %._crit_edge.i.i.us ], [ %.1503669.i.us, %138 ], [ %.0110.i.i.us, %.loopexit.i.i.us ]
   br i1 %or.cond17.i, label %402, label %msp_add_out_of_order.exit.thread.i.us
 
 402:                                              ; preds = %msp_add_out_of_order.exit.i.us
@@ -4570,7 +4570,7 @@ msp_add_out_of_order.exit.thread.i.us:            ; preds = %418, %412, %407, %4
   br label %500
 
 500:                                              ; preds = %496, %493
-  %.1513.i.us = phi i32 [ %spec.select615.i.us, %496 ], [ 0, %493 ]
+  %.1513.i.us = phi i32 [ 0, %493 ], [ %spec.select615.i.us, %496 ]
   %.not591.i.us = icmp eq ptr %467, null
   br i1 %.not591.i.us, label %proto_item_set_generated.exit636.thread.i, label %501
 
@@ -11729,7 +11729,7 @@ define internal i32 @dissect_tcpopt_sack(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %158, %.loopexit.sink.split, %.thread
-  %.0136176 = phi i32 [ %.0136177, %.loopexit.sink.split ], [ 0, %.thread ], [ %.1, %158 ]
+  %.0136176 = phi i32 [ 0, %.thread ], [ %.0136177, %.loopexit.sink.split ], [ %.1, %158 ]
   %162 = load i32, ptr @hf_tcp_option_sack_range_count, align 4
   %163 = tail call ptr @proto_tree_add_uint(ptr noundef %82, i32 noundef %162, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0136176)
   %.not.i = icmp eq ptr %163, null

@@ -475,7 +475,7 @@ sockhash_destroy.exit:                            ; preds = %.lr.ph.i42, %._crit
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %23, %1, %3, %sockhash_destroy.exit, %6
-  %.3 = phi i32 [ 1, %1 ], [ 0, %sockhash_destroy.exit ], [ 8, %6 ], [ 1, %3 ], [ 1, %23 ], [ 1, %.lr.ph ]
+  %.3 = phi i32 [ 1, %3 ], [ 0, %sockhash_destroy.exit ], [ 8, %6 ], [ 1, %1 ], [ 1, %23 ], [ 1, %.lr.ph ]
   ret i32 %.3
 }
 
@@ -3684,7 +3684,7 @@ mstate.exit184:                                   ; preds = %mstate.exit184threa
   br label %.thread246.thread
 
 .thread246.thread:                                ; preds = %.thread246.thread.sink.split, %685, %mstate.exit184, %239, %276, %278, %295, %398, %406, %423, %428, %450, %466, %652, %.thread246
-  %.1136265.ph = phi i32 [ %.2137, %685 ], [ %.2137, %mstate.exit184 ], [ -1, %239 ], [ %.1136.ph, %.thread246 ], [ -1, %276 ], [ -1, %652 ], [ -1, %278 ], [ -1, %466 ], [ -1, %295 ], [ -1, %450 ], [ -1, %398 ], [ -1, %406 ], [ -1, %423 ], [ -1, %428 ], [ -1, %.thread246.thread.sink.split ]
+  %.1136265.ph = phi i32 [ -1, %450 ], [ %.1136.ph, %.thread246 ], [ -1, %239 ], [ -1, %466 ], [ -1, %276 ], [ %.2137, %mstate.exit184 ], [ -1, %278 ], [ %.2137, %685 ], [ -1, %295 ], [ -1, %652 ], [ -1, %398 ], [ -1, %406 ], [ -1, %423 ], [ -1, %428 ], [ -1, %.thread246.thread.sink.split ]
   %.pr269 = load i32, ptr %22, align 4, !tbaa !25
   %.not172 = icmp eq i32 %.pr269, 0
   br i1 %.not172, label %.thread246.thread.thread, label %691

@@ -2729,7 +2729,7 @@ html_tag_arg_value.exit:                          ; preds = %906
   br label %.critedge1469
 
 .critedge1469:                                    ; preds = %905, %.critedge1469.sink.split, %901, %html_tag_arg_value.exit, %922
-  %.61099 = phi i32 [ 15, %.critedge1469.sink.split ], [ 1, %901 ], [ 1, %922 ], [ 1, %html_tag_arg_value.exit ], [ 1, %905 ]
+  %.61099 = phi i32 [ 1, %901 ], [ 15, %.critedge1469.sink.split ], [ 1, %922 ], [ 1, %html_tag_arg_value.exit ], [ 1, %905 ]
   %933 = icmp ne ptr %.211792362, null
   %or.cond53 = select i1 %29, i1 true, i1 %933
   br i1 %or.cond53, label %html_output_c.exit1662, label %934

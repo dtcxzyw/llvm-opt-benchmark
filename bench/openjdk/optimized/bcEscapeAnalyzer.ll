@@ -1226,8 +1226,8 @@ _ZNK8ciMethod15is_final_methodEv.exit129:         ; preds = %204
   %.not101 = icmp eq ptr %211, null
   br i1 %.not101, label %.thread, label %.thread257
 
-.thread257:                                       ; preds = %204, %_ZNK8ciMethod15is_final_methodEv.exit129, %200, %210
-  %.095260 = phi ptr [ %211, %210 ], [ %3, %200 ], [ %3, %_ZNK8ciMethod15is_final_methodEv.exit129 ], [ %3, %204 ]
+.thread257:                                       ; preds = %204, %200, %_ZNK8ciMethod15is_final_methodEv.exit129, %210
+  %.095260 = phi ptr [ %211, %210 ], [ %3, %_ZNK8ciMethod15is_final_methodEv.exit129 ], [ %3, %200 ], [ %3, %204 ]
   br label %212
 
 212:                                              ; preds = %216, %.thread257

@@ -10659,7 +10659,7 @@ _ZNK5clang17InitializedEntity24isVariableLengthArrayNewEv.exit: ; preds = %145, 
   br label %.critedge
 
 "_ZZL33TryOrBuildParenListInitializationRN5clang4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm8ArrayRefIPNS_4ExprEEERNS_22InitializationSequenceEbPNS_12ActionResultISB_Lb1EEEENK3$_0clES4_S7_SB_PSB_.exit": ; preds = %178, %183
-  %.3 = phi ptr [ %185, %183 ], [ null, %178 ]
+  %.3 = phi ptr [ null, %178 ], [ %185, %183 ]
   call void @_ZN5clang22InitializationSequenceD1Ev(ptr noundef nonnull align 8 dereferenceable(6868) %10) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -20468,8 +20468,8 @@ _ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit.thread: ; preds 
   %.not638 = icmp eq ptr %2138, %879
   br i1 %.not638, label %._crit_edge.loopexit, label %937, !llvm.loop !1493
 
-.critedge669.thread1274:                          ; preds = %937, %_ZN4llvm11SmallVectorIPN5clang16CXXBaseSpecifierELj4EED2Ev.exit, %949, %995, %1015, %1021, %1088, %.thread1187, %_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit, %1341, %1407, %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit, %_ZN5clang19StreamingDiagnosticD2Ev.exit, %"_ZZN5clang22InitializationSequence7PerformERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm15MutableArrayRefIPNS_4ExprEEEPNS_8QualTypeEENK3$_0clESE_.exit", %1135, %1140, %.critedge681, %.thread1234, %.thread1221, %1603, %.thread1230, %.critedge680
-  %.sroa.01146.4.ph = phi i64 [ %1905, %.critedge680 ], [ 1, %.thread1230 ], [ 1, %1603 ], [ 1, %.thread1234 ], [ %2014, %.critedge681 ], [ 1, %.thread1221 ], [ 1, %"_ZZN5clang22InitializationSequence7PerformERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm15MutableArrayRefIPNS_4ExprEEEPNS_8QualTypeEENK3$_0clESE_.exit" ], [ %.sroa.01146.8, %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit ], [ 1, %_ZN5clang19StreamingDiagnosticD2Ev.exit ], [ 1, %937 ], [ 1, %1407 ], [ 1, %1341 ], [ 1, %_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit ], [ 1, %.thread1187 ], [ 1, %1088 ], [ 1, %1021 ], [ 1, %1015 ], [ 1, %995 ], [ 1, %949 ], [ %.sroa.01146.7, %_ZN4llvm11SmallVectorIPN5clang16CXXBaseSpecifierELj4EED2Ev.exit ], [ 1, %1135 ], [ 1, %1140 ]
+.critedge669.thread1274:                          ; preds = %937, %_ZN4llvm11SmallVectorIPN5clang16CXXBaseSpecifierELj4EED2Ev.exit, %949, %995, %1015, %1021, %1088, %_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit, %1341, %1407, %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit, %_ZN5clang19StreamingDiagnosticD2Ev.exit, %.thread1187, %"_ZZN5clang22InitializationSequence7PerformERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm15MutableArrayRefIPNS_4ExprEEEPNS_8QualTypeEENK3$_0clESE_.exit", %1135, %1140, %.critedge681, %.thread1234, %.thread1221, %1603, %.thread1230, %.critedge680
+  %.sroa.01146.4.ph = phi i64 [ %1905, %.critedge680 ], [ 1, %.thread1230 ], [ 1, %1603 ], [ 1, %.thread1234 ], [ %2014, %.critedge681 ], [ 1, %.thread1221 ], [ 1, %"_ZZN5clang22InitializationSequence7PerformERNS_4SemaERKNS_17InitializedEntityERKNS_18InitializationKindEN4llvm15MutableArrayRefIPNS_4ExprEEEPNS_8QualTypeEENK3$_0clESE_.exit" ], [ 1, %_ZN5clang19StreamingDiagnosticD2Ev.exit ], [ 1, %.thread1187 ], [ 1, %937 ], [ 1, %1407 ], [ 1, %1341 ], [ 1, %_ZL19getAssignmentActionRKN5clang17InitializedEntityEb.exit ], [ %.sroa.01146.8, %_ZN4llvm11SmallVectorIPN5clang4ExprELj8EED2Ev.exit ], [ 1, %1088 ], [ 1, %1021 ], [ 1, %1015 ], [ 1, %995 ], [ 1, %949 ], [ %.sroa.01146.7, %_ZN4llvm11SmallVectorIPN5clang16CXXBaseSpecifierELj4EED2Ev.exit ], [ 1, %1135 ], [ 1, %1140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %2323
 
@@ -29452,7 +29452,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i: ; preds = %368
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.backedge
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.backedge: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i, %368, %359, %354, %345, %340, %337, %333, %330, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i
-  %storemerge.i.be = phi ptr [ %332, %330 ], [ %storemerge.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i ], [ %339, %337 ], [ %353, %345 ], [ %367, %359 ], [ %storemerge.i, %333 ], [ %storemerge.i, %340 ], [ %storemerge.i, %354 ], [ %storemerge.i, %368 ], [ %spec.select.i.i45, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i ]
+  %storemerge.i.be = phi ptr [ %332, %330 ], [ %367, %359 ], [ %339, %337 ], [ %353, %345 ], [ %storemerge.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i ], [ %storemerge.i, %333 ], [ %storemerge.i, %340 ], [ %storemerge.i, %354 ], [ %storemerge.i, %368 ], [ %spec.select.i.i45, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i ]
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i, !llvm.loop !1600
 
 _ZL23updateStringLiteralTypePN5clang4ExprENS_8QualTypeE.exit: ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i
@@ -30094,7 +30094,7 @@ _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i77: ; preds = %683
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i75.backedge
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i75.backedge: ; preds = %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i77, %683, %674, %669, %660, %655, %652, %648, %645, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i75
-  %storemerge.i73.be = phi ptr [ %647, %645 ], [ %storemerge.i73, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i75 ], [ %654, %652 ], [ %668, %660 ], [ %682, %674 ], [ %storemerge.i73, %648 ], [ %storemerge.i73, %655 ], [ %storemerge.i73, %669 ], [ %storemerge.i73, %683 ], [ %spec.select.i.i79, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i77 ]
+  %storemerge.i73.be = phi ptr [ %647, %645 ], [ %682, %674 ], [ %654, %652 ], [ %668, %660 ], [ %storemerge.i73, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i75 ], [ %storemerge.i73, %648 ], [ %storemerge.i73, %655 ], [ %storemerge.i73, %669 ], [ %storemerge.i73, %683 ], [ %spec.select.i.i79, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i77 ]
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i75, !llvm.loop !1600
 
 _ZL23updateStringLiteralTypePN5clang4ExprENS_8QualTypeE.exit82: ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i75, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i75, %_ZN4llvm5APIntD2Ev.exit
@@ -30284,7 +30284,7 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit: ; preds = %_ZN5clang22IgnoreP
   ]
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.backedge: ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit, %6, %9, %13, %16, %21, %30, %35, %44, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i
-  %storemerge.be = phi ptr [ %8, %6 ], [ %storemerge, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit ], [ %15, %13 ], [ %29, %21 ], [ %43, %35 ], [ %storemerge, %9 ], [ %storemerge, %16 ], [ %storemerge, %30 ], [ %storemerge, %44 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ]
+  %storemerge.be = phi ptr [ %8, %6 ], [ %43, %35 ], [ %15, %13 ], [ %29, %21 ], [ %storemerge, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit ], [ %storemerge, %9 ], [ %storemerge, %16 ], [ %storemerge, %30 ], [ %storemerge, %44 ], [ %spec.select.i, %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i ]
   br label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit, !llvm.loop !1601
 
 6:                                                ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
@@ -40898,8 +40898,8 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit256:   ; preds = %305, %312
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread479
 
-.thread471:                                       ; preds = %257, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit, %.thread476
-  %.2160474 = phi i8 [ %.3161, %.thread476 ], [ %.0158570, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit ], [ %.0158570, %257 ]
+.thread471:                                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit, %257, %.thread476
+  %.2160474 = phi i8 [ %.3161, %.thread476 ], [ %.0158570, %257 ], [ %.0158570, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit ]
   %319 = getelementptr inbounds nuw i8, ptr %.0169569, i64 24
   %.not179 = icmp eq ptr %319, %5
   br i1 %.not179, label %._crit_edge, label %205, !llvm.loop !1743
@@ -55962,7 +55962,7 @@ _ZL25isNonReferenceableGLValuePN5clang4ExprE.exit.thread: ; preds = %55, %59, %6
   br label %258
 
 258:                                              ; preds = %248, %253, %_ZL25isNonReferenceableGLValuePN5clang4ExprE.exit.thread, %235, %255
-  %.0 = phi i32 [ %254, %255 ], [ %254, %253 ], [ 1, %248 ], [ 0, %_ZL25isNonReferenceableGLValuePN5clang4ExprE.exit.thread ], [ 0, %235 ]
+  %.0 = phi i32 [ %254, %255 ], [ %254, %253 ], [ 0, %_ZL25isNonReferenceableGLValuePN5clang4ExprE.exit.thread ], [ 1, %248 ], [ 0, %235 ]
   br i1 %37, label %259, label %.thread
 
 259:                                              ; preds = %258
@@ -59951,7 +59951,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_10Bloc
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_10BlocksAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !2025
 
 _ZN5clangneENS_22specific_attr_iteratorINS_10BlocksAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_10BlocksAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 

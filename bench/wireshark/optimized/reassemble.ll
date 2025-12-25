@@ -4370,7 +4370,7 @@ fragment_items_removed.exit319.thread:            ; preds = %.split244, %234, %2
   br label %.preheader
 
 fragment_items_removed.exit319:                   ; preds = %.split242.fragment_items_removed.exit319_crit_edge, %._crit_edge.i.i.i315, %205
-  %.3386 = phi ptr [ %.3386.pre, %.split242.fragment_items_removed.exit319_crit_edge ], [ %.3386.pre412, %205 ], [ %.3386.pre412, %._crit_edge.i.i.i315 ]
+  %.3386 = phi ptr [ %.3386.pre, %.split242.fragment_items_removed.exit319_crit_edge ], [ %.3386.pre412, %._crit_edge.i.i.i315 ], [ %.3386.pre412, %205 ]
   %237 = getelementptr inbounds nuw i8, ptr %.2236, i64 24
   store i32 0, ptr %237, align 8
   %.not276387 = icmp eq ptr %.3386, null

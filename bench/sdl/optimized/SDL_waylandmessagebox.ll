@@ -126,8 +126,8 @@ get_zenity_version.exit.sink.split:               ; preds = %31, %22
   br label %get_zenity_version.exit
 
 get_zenity_version.exit:                          ; preds = %get_zenity_version.exit.sink.split, %31, %28
-  %.0105 = phi i32 [ 0, %28 ], [ %34, %31 ], [ 0, %get_zenity_version.exit.sink.split ]
-  %.0.i.i = phi i1 [ true, %28 ], [ true, %31 ], [ %38, %get_zenity_version.exit.sink.split ]
+  %.0105 = phi i32 [ %34, %31 ], [ 0, %28 ], [ 0, %get_zenity_version.exit.sink.split ]
+  %.0.i.i = phi i1 [ true, %31 ], [ true, %28 ], [ %38, %get_zenity_version.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @SDL_free_REAL(ptr noundef nonnull %21) #4
   call void @SDL_DestroyProcess_REAL(ptr noundef nonnull %19) #4

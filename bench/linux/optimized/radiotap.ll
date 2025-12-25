@@ -371,8 +371,8 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nou
   br i1 %153, label %.thread21, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %151, %.thread11, %.thread14
-  %.pre.be = phi i32 [ %154, %151 ], [ %149, %.thread14 ], [ %143, %.thread11 ]
-  %.be = phi i32 [ %155, %151 ], [ %150, %.thread14 ], [ %148, %.thread11 ]
+  %.pre.be = phi i32 [ %154, %151 ], [ %143, %.thread11 ], [ %149, %.thread14 ]
+  %.be = phi i32 [ %155, %151 ], [ %148, %.thread11 ], [ %150, %.thread14 ]
   br label %.outer
 
 .thread21:                                        ; preds = %151, %64, %131, %32, %21, %.thread16

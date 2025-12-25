@@ -54198,7 +54198,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7xgboost4tree16MultiExpandEntry11IsV
   br label %_ZZNK7xgboost4tree16MultiExpandEntry11IsValidImplERKNS0_10TrainParamEiENKUlRKT_E_clISt6vectorINS_6detail20GradientPairInternalIdEESaISD_EEEEDaS7_.exit
 
 _ZZNK7xgboost4tree16MultiExpandEntry11IsValidImplERKNS0_10TrainParamEiENKUlRKT_E_clISt6vectorINS_6detail20GradientPairInternalIdEESaISD_EEEEDaS7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %38, %44, %50, %.loopexit.split.loop.exit35.i.i.i.i.i, %.loopexit.split.loop.exit37.i.i.i.i.i, %.loopexit.split.loop.exit39.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i.i, %44 ], [ %54, %.loopexit.split.loop.exit35.i.i.i.i.i ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %38 ], [ %56, %.loopexit.split.loop.exit39.i.i.i.i.i ], [ %.sroa.025.2.i.i.i.i.i, %50 ], [ %55, %.loopexit.split.loop.exit37.i.i.i.i.i ], [ %.sroa.025.044.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i.i, %44 ], [ %56, %.loopexit.split.loop.exit39.i.i.i.i.i ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %38 ], [ %54, %.loopexit.split.loop.exit35.i.i.i.i.i ], [ %.sroa.025.2.i.i.i.i.i, %50 ], [ %55, %.loopexit.split.loop.exit37.i.i.i.i.i ], [ %.sroa.025.044.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %57 = icmp eq ptr %11, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %57, label %_ZZNK7xgboost4tree16MultiExpandEntry11IsValidImplERKNS0_10TrainParamEiENKUlRKT_E_clISt6vectorINS_6detail20GradientPairInternalIdEESaISD_EEEEDaS7_.exit.thread, label %58
 
@@ -54307,7 +54307,7 @@ _ZZNK7xgboost4tree16MultiExpandEntry11IsValidImplERKNS0_10TrainParamEiENKUlRKT_E
   br label %_ZZNK7xgboost4tree16MultiExpandEntry11IsValidImplERKNS0_10TrainParamEiENKUlRKT_E_clISt6vectorINS_6detail20GradientPairInternalIdEESaISD_EEEEDaS7_.exit29
 
 _ZZNK7xgboost4tree16MultiExpandEntry11IsValidImplERKNS0_10TrainParamEiENKUlRKT_E_clISt6vectorINS_6detail20GradientPairInternalIdEESaISD_EEEEDaS7_.exit29: ; preds = %.lr.ph.i.i.i.i.i20, %89, %95, %101, %.loopexit.split.loop.exit35.i.i.i.i.i28, %.loopexit.split.loop.exit37.i.i.i.i.i27, %.loopexit.split.loop.exit39.i.i.i.i.i26
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i16 = phi ptr [ %.sroa.025.1.i.i.i.i.i17, %95 ], [ %105, %.loopexit.split.loop.exit35.i.i.i.i.i28 ], [ %.sroa.025.0.lcssa.i.i.i.i.i14, %89 ], [ %107, %.loopexit.split.loop.exit39.i.i.i.i.i26 ], [ %.sroa.025.2.i.i.i.i.i15, %101 ], [ %106, %.loopexit.split.loop.exit37.i.i.i.i.i27 ], [ %.sroa.025.044.i.i.i.i.i22, %.lr.ph.i.i.i.i.i20 ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i16 = phi ptr [ %.sroa.025.1.i.i.i.i.i17, %95 ], [ %107, %.loopexit.split.loop.exit39.i.i.i.i.i26 ], [ %.sroa.025.0.lcssa.i.i.i.i.i14, %89 ], [ %105, %.loopexit.split.loop.exit35.i.i.i.i.i28 ], [ %.sroa.025.2.i.i.i.i.i15, %101 ], [ %106, %.loopexit.split.loop.exit37.i.i.i.i.i27 ], [ %.sroa.025.044.i.i.i.i.i22, %.lr.ph.i.i.i.i.i20 ]
   %108 = icmp eq ptr %62, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i16
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %110 = load float, ptr %109, align 8
@@ -134750,7 +134750,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3761
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
+  %.sroa.025.0 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %23, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 

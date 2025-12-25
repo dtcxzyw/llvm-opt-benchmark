@@ -10490,12 +10490,12 @@ _ZN4llvm9StringRefC2EPKc.exit361.i:               ; preds = %860, %.lr.ph595.i
   br label %.loopexit.i
 
 .thread529.sink.split.i:                          ; preds = %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.i.i, %.lr.ph.i343.i, %.thread.i344.i, %629, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.preheader.i.i
-  %.sroa.083.1131.i.sink.i = phi ptr [ %633, %.thread.i344.i ], [ %.sroa.083.1145.i.i, %629 ], [ null, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.preheader.i.i ], [ null, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.i.i ], [ %.sroa.083.1145.i.i, %.lr.ph.i343.i ]
-  %.sroa.10.1125.i.sink.i = phi i64 [ %634, %.thread.i344.i ], [ %.sroa.10.1146.i.i, %629 ], [ %.sroa.10.1142.i.i, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.preheader.i.i ], [ %.sroa.10.1.i.i, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.i.i ], [ %.sroa.10.1146.i.i, %.lr.ph.i343.i ]
+  %.sink882.i = phi ptr [ %633, %.thread.i344.i ], [ %.sroa.083.1145.i.i, %629 ], [ null, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.preheader.i.i ], [ null, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.i.i ], [ %.sroa.083.1145.i.i, %.lr.ph.i343.i ]
+  %.sink.i = phi i64 [ %634, %.thread.i344.i ], [ %.sroa.10.1146.i.i, %629 ], [ %.sroa.10.1142.i.i, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.preheader.i.i ], [ %.sroa.10.1.i.i, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.i.i ], [ %.sroa.10.1146.i.i, %.lr.ph.i343.i ]
   %.6.ph.ph.i = phi i1 [ %.16.i, %.thread.i344.i ], [ %.16.i, %629 ], [ %.3525596.i, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.preheader.i.i ], [ %652, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.i.i ], [ %.16.i, %.lr.ph.i343.i ]
   %.0203.ph.ph.i = phi ptr [ %.032144.i.i, %.thread.i344.i ], [ %.032144.i.i, %629 ], [ %618, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.preheader.i.i ], [ %693, %_ZL13getOptionPredN4llvm9StringRefERmPFbPKNS_2cl6OptionEERKNS_9StringMapIPS3_NS_15MallocAllocatorEEE.exit.i.i ], [ %.032144.i.i, %.lr.ph.i343.i ]
-  store ptr %.sroa.083.1131.i.sink.i, ptr %42, align 8, !tbaa !61
-  store i64 %.sroa.10.1125.i.sink.i, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !tbaa !59
+  store ptr %.sink882.i, ptr %42, align 8, !tbaa !61
+  store i64 %.sink.i, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !tbaa !59
   br label %.thread529.i
 
 .thread529.i:                                     ; preds = %.thread529.sink.split.i, %571, %_ZN4llvm9StringRef13consume_frontES0_.exit333.i, %543
@@ -21562,7 +21562,7 @@ _ZNK4llvm9StringRef4findEcm.exit.i:               ; preds = %5
   br label %_ZN12_GLOBAL__N_117CommandLineParser12LookupOptionERN4llvm2cl10SubCommandERNS1_9StringRefES6_.exit
 
 _ZN12_GLOBAL__N_117CommandLineParser12LookupOptionERN4llvm2cl10SubCommandERNS1_9StringRefES6_.exit: ; preds = %25, %49
-  %.0.i = phi ptr [ %44, %49 ], [ %29, %25 ]
+  %.0.i = phi ptr [ %29, %25 ], [ %44, %49 ]
   %56 = icmp ne ptr %.0.i, null
   %or.cond = and i1 %3, %56
   %or.cond.not = xor i1 %or.cond, true

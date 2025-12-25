@@ -310,7 +310,7 @@ define hidden noundef ptr @phpdbg_btree_next(ptr noundef captures(none) %0) loca
   br i1 %.not47.i, label %phpdbg_btree_find_closest.exit.thread12, label %.preheader50.i
 
 phpdbg_btree_find_closest.exit:                   ; preds = %.lr.ph.i, %.lr.ph67.i, %.preheader.i, %.preheader48.i
-  %.037.i = phi ptr [ %.23563.i, %.preheader.i ], [ %.459.i, %.preheader48.i ], [ %.235.i, %.lr.ph67.i ], [ %.4.i, %.lr.ph.i ]
+  %.037.i = phi ptr [ %.459.i, %.preheader48.i ], [ %.23563.i, %.preheader.i ], [ %.235.i, %.lr.ph67.i ], [ %.4.i, %.lr.ph.i ]
   %54 = icmp eq ptr %.037.i, null
   br i1 %54, label %phpdbg_btree_find_closest.exit.thread, label %phpdbg_btree_find_closest.exit.thread12
 

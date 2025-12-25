@@ -8368,8 +8368,8 @@ define void @"_ZN70_$LT$influxdb3_write..wal..WalImpl$u20$as$u20$influxdb3_write
           to label %39 unwind label %37, !noalias !1706
 
 .body.i.i:                                        ; preds = %117, %84, %37
-  %.1.i.i = phi i8 [ %.2.i.i, %84 ], [ %.3.i.i, %117 ], [ %.0.i.i, %37 ]
-  %.pn55.i.i = phi { ptr, i32 } [ %.pn.i.i, %84 ], [ %118, %117 ], [ %38, %37 ]
+  %.1.i.i = phi i8 [ %.2.i.i, %84 ], [ %.0.i.i, %37 ], [ %.3.i.i, %117 ]
+  %.pn55.i.i = phi { ptr, i32 } [ %.pn.i.i, %84 ], [ %38, %37 ], [ %118, %117 ]
   %36 = trunc nuw i8 %.1.i.i to i1
   br i1 %36, label %.body.thread.i.i, label %common.resume.i
 

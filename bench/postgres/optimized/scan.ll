@@ -2268,7 +2268,7 @@ addlit.exit812:                                   ; preds = %1133, %1142
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.lr.ph1401, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit1921, %.critedge30.preheader, %1284, %1270
-  %.1696 = phi i32 [ %.0695, %1270 ], [ %.0695, %1284 ], [ 1, %.critedge30.backedge ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit1921 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ]
+  %.1696 = phi i32 [ %.0695, %1270 ], [ %.0695, %1284 ], [ 1, %.critedge30.preheader ], [ 1, %.critedge30.backedge ], [ %indvars.le, %.critedge.loopexit.split.loop.exit1921 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ], [ %.0695, %.lr.ph1401 ]
   %1301 = load ptr, ptr %2, align 8
   %1302 = load ptr, ptr %1301, align 8
   %1303 = ptrtoint ptr %1302 to i64
@@ -2876,9 +2876,9 @@ yy_get_previous_state.exit:                       ; preds = %.lr.ph.i, %1641
   br i1 %.not722, label %.loopexit869.backedge, label %1665
 
 .loopexit869.backedge:                            ; preds = %.lr.ph.i842, %yy_get_previous_state.exit, %yy_get_next_buffer.exit.thread862
-  %.1685.be = phi ptr [ %1905, %yy_get_next_buffer.exit.thread862 ], [ %1647, %yy_get_previous_state.exit ], [ %1905, %.lr.ph.i842 ]
-  %.2680.be = phi ptr [ %1907, %yy_get_next_buffer.exit.thread862 ], [ %1649, %yy_get_previous_state.exit ], [ %1907, %.lr.ph.i842 ]
-  %.2676.be = phi ptr [ %1911, %yy_get_next_buffer.exit.thread862 ], [ %.0.lcssa.i, %yy_get_previous_state.exit ], [ %1919, %.lr.ph.i842 ]
+  %.1685.be = phi ptr [ %1647, %yy_get_previous_state.exit ], [ %1905, %yy_get_next_buffer.exit.thread862 ], [ %1905, %.lr.ph.i842 ]
+  %.2680.be = phi ptr [ %1649, %yy_get_previous_state.exit ], [ %1907, %yy_get_next_buffer.exit.thread862 ], [ %1907, %.lr.ph.i842 ]
+  %.2676.be = phi ptr [ %.0.lcssa.i, %yy_get_previous_state.exit ], [ %1911, %yy_get_next_buffer.exit.thread862 ], [ %1919, %.lr.ph.i842 ]
   br label %.loopexit869
 
 1665:                                             ; preds = %yy_get_previous_state.exit
@@ -4986,7 +4986,7 @@ core_yy_delete_buffer.exit.i:                     ; preds = %36, %33, %.critedge
   br label %core_yypop_buffer_state.exit
 
 core_yypop_buffer_state.exit:                     ; preds = %27, %46, %49
-  %58 = phi ptr [ %45, %49 ], [ %26, %27 ], [ %45, %46 ]
+  %58 = phi ptr [ %45, %46 ], [ %26, %27 ], [ %45, %49 ]
   %59 = load i64, ptr %4, align 8
   %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8

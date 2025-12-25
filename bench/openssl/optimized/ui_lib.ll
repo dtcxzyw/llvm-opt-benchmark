@@ -106,7 +106,7 @@ UI_free.exit:                                     ; preds = %18, %22
   br label %31
 
 31:                                               ; preds = %.sink.split, %.thread, %1
-  %.0 = phi ptr [ %2, %.thread ], [ null, %1 ], [ null, %.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ %2, %.thread ], [ null, %.sink.split ]
   ret ptr %.0
 }
 
@@ -1025,10 +1025,10 @@ define range(i32 -2, 1) i32 @UI_process(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %43, %47, %.loopexit.sink.split, %36, %34, %5
-  %54 = phi i1 [ false, %36 ], [ true, %5 ], [ true, %43 ], [ true, %34 ], [ false, %.loopexit.sink.split ], [ false, %47 ], [ true, %21 ]
-  %.033 = phi i32 [ 0, %36 ], [ -1, %5 ], [ -1, %43 ], [ -1, %34 ], [ -2, %.loopexit.sink.split ], [ 0, %47 ], [ -1, %21 ]
-  %spec.store.select = phi ptr [ @.str.6, %36 ], [ @.str.2, %5 ], [ @.str.5, %43 ], [ @.str.4, %34 ], [ @.str.1, %.loopexit.sink.split ], [ @.str.6, %47 ], [ @.str.3, %21 ]
-  %.0 = phi ptr [ null, %36 ], [ @.str.2, %5 ], [ @.str.5, %43 ], [ @.str.4, %34 ], [ @.str.1, %.loopexit.sink.split ], [ null, %47 ], [ @.str.3, %21 ]
+  %54 = phi i1 [ false, %36 ], [ true, %5 ], [ false, %47 ], [ true, %34 ], [ false, %.loopexit.sink.split ], [ true, %43 ], [ true, %21 ]
+  %.033 = phi i32 [ 0, %36 ], [ -1, %5 ], [ 0, %47 ], [ -1, %34 ], [ -2, %.loopexit.sink.split ], [ -1, %43 ], [ -1, %21 ]
+  %spec.store.select = phi ptr [ @.str.6, %36 ], [ @.str.2, %5 ], [ @.str.6, %47 ], [ @.str.4, %34 ], [ @.str.1, %.loopexit.sink.split ], [ @.str.5, %43 ], [ @.str.3, %21 ]
+  %.0 = phi ptr [ null, %36 ], [ @.str.2, %5 ], [ null, %47 ], [ @.str.4, %34 ], [ @.str.1, %.loopexit.sink.split ], [ @.str.5, %43 ], [ @.str.3, %21 ]
   %55 = load ptr, ptr %0, align 8, !tbaa !14
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !39

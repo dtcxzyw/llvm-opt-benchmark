@@ -12691,7 +12691,7 @@ Abc_ObjFanin0Ntk.exit78:                          ; preds = %83, %97
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge42, %.loopexit.sink.split, %.critedge42.preheader
-  %.3 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %.critedge42.preheader ], [ 1, %.critedge42 ]
+  %.3 = phi i32 [ 1, %.critedge42.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %.critedge42 ]
   ret i32 %.3
 }
 

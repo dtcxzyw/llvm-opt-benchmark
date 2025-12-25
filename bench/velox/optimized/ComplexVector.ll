@@ -7712,7 +7712,7 @@ lpad.loopexit:                                    ; preds = %for.body4.i, %if.th
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %invoke.cont100, %invoke.cont107, %if.then112, %invoke.cont119, %if.then.i.i.i.i.i.i
-  %outRanges.sroa.0.0.ph.ph = phi ptr [ %outRanges.sroa.0.7, %invoke.cont100 ], [ %outRanges.sroa.0.4, %if.then.i.i.i.i.i.i ], [ %outRanges.sroa.0.7, %invoke.cont107 ], [ %outRanges.sroa.0.7, %if.then112 ], [ %outRanges.sroa.0.7, %invoke.cont119 ]
+  %outRanges.sroa.0.0.ph.ph = phi ptr [ %outRanges.sroa.0.7, %invoke.cont119 ], [ %outRanges.sroa.0.4, %if.then.i.i.i.i.i.i ], [ %outRanges.sroa.0.7, %if.then112 ], [ %outRanges.sroa.0.7, %invoke.cont107 ], [ %outRanges.sroa.0.7, %invoke.cont100 ]
   %lpad.loopexit.split-lp141 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -19476,7 +19476,7 @@ for.cond.backedge:                                ; preds = %for.end59, %if.end3
   br label %for.cond, !llvm.loop !143
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit
-  %retval.0 = phi ptr [ %__middle, %for.body.i ], [ %__last, %entry ], [ %add.ptr, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ], [ %add.ptr, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end59 ]
+  %retval.0 = phi ptr [ %add.ptr, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ], [ %__last, %entry ], [ %__middle, %for.body.i ], [ %add.ptr, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %__first, %if.else ], [ %add.ptr, %for.end ], [ %add.ptr, %for.end59 ]
   ret ptr %retval.0
 }
 

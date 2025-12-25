@@ -1331,7 +1331,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_extractP9lua_StateP10lu
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %24, %26, %30, %6, %9, %13
-  %.3 = phi i32 [ -1, %24 ], [ -1, %26 ], [ -1, %6 ], [ -1, %13 ], [ -1, %9 ], [ -1, %30 ], [ 1, %.thread.sink.split ]
+  %.3 = phi i32 [ -1, %26 ], [ -1, %24 ], [ -1, %6 ], [ -1, %13 ], [ -1, %9 ], [ -1, %30 ], [ 1, %.thread.sink.split ]
   ret i32 %.3
 }
 
@@ -1499,7 +1499,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_replaceP9lua_StateP10lu
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %32, %36, %40, %6, %9, %13, %17
-  %.3 = phi i32 [ -1, %32 ], [ -1, %36 ], [ -1, %6 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %40 ], [ 1, %.thread.sink.split ]
+  %.3 = phi i32 [ -1, %36 ], [ -1, %32 ], [ -1, %6 ], [ -1, %17 ], [ -1, %13 ], [ -1, %9 ], [ -1, %40 ], [ 1, %.thread.sink.split ]
   ret i32 %.3
 }
 
@@ -2416,7 +2416,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_vectorP9lua_StateP10lua
   br label %61
 
 61:                                               ; preds = %.sink.split, %16, %12, %10, %46, %42, %38, %36, %26
-  %.1 = phi i32 [ -1, %16 ], [ -1, %26 ], [ -1, %12 ], [ -1, %36 ], [ -1, %38 ], [ -1, %42 ], [ -1, %46 ], [ -1, %10 ], [ 1, %.sink.split ]
+  %.1 = phi i32 [ -1, %12 ], [ -1, %26 ], [ -1, %16 ], [ -1, %36 ], [ -1, %38 ], [ -1, %42 ], [ -1, %46 ], [ -1, %10 ], [ 1, %.sink.split ]
   ret i32 %.1
 }
 
@@ -2583,7 +2583,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_rawlenP9lua_StateP10lua
   br label %22
 
 22:                                               ; preds = %.sink.split, %6, %9
-  %.0 = phi i32 [ -1, %6 ], [ -1, %9 ], [ 1, %.sink.split ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %6 ], [ 1, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2793,7 +2793,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tonumberP9lua_StateP10l
   br label %18
 
 18:                                               ; preds = %.sink.split, %13, %10
-  %.sink = phi i32 [ 0, %13 ], [ 0, %10 ], [ 3, %.sink.split ]
+  %.sink = phi i32 [ 0, %10 ], [ 0, %13 ], [ 3, %.sink.split ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %.sink, ptr %19, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

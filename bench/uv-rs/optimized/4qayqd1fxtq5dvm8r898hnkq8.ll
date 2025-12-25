@@ -1503,12 +1503,15 @@ define internal fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load i16, ptr %50, align 8, !range !196, !alias.scope !186, !noalias !185, !noundef !3
   %trunc2.i.i = trunc nuw i16 %51 to i1
-  br i1 %trunc.i.i, label %52, label %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
+  br i1 %trunc.i.i, label %53, label %52
 
 52:                                               ; preds = %.thread.i.i
-  br i1 %trunc2.i.i, label %53, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit"
+  br i1 %trunc2.i.i, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit", label %59
 
-53:                                               ; preds = %52
+53:                                               ; preds = %.thread.i.i
+  br i1 %trunc2.i.i, label %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit", label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit"
+
+"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit": ; preds = %53
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %55 = load i16, ptr %54, align 2, !alias.scope !185, !noalias !186, !noundef !3
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 26
@@ -1516,10 +1519,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..
   %58 = icmp eq i16 %55, %57
   br i1 %58, label %59, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit"
 
-"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit": ; preds = %.thread.i.i
-  br i1 %trunc2.i.i, label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit", label %59
-
-59:                                               ; preds = %13, %53, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
+59:                                               ; preds = %13, %52, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
@@ -1551,8 +1551,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..
   %72 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit"
 
-"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit": ; preds = %21, %35, %43, %52, %37, %36, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i", %2, %9, %69, %66, %59, %13, %53, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
-  %.sroa.0.0 = phi i1 [ false, %13 ], [ false, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit" ], [ %72, %69 ], [ false, %53 ], [ false, %66 ], [ %.mux.i.i, %59 ], [ false, %9 ], [ false, %2 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i" ], [ false, %36 ], [ false, %37 ], [ false, %52 ], [ false, %43 ], [ false, %35 ], [ false, %21 ]
+"_ZN71_$LT$uv_auth..credentials..Username$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80b205ae63924709E.exit": ; preds = %21, %35, %43, %53, %37, %36, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i", %2, %9, %69, %66, %59, %13, %52, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit"
+  %.sroa.0.0 = phi i1 [ false, %13 ], [ false, %"_ZN65_$LT$uv_auth..cache..FetchUrl$u20$as$u20$core..cmp..PartialEq$GT$2eq17he6f58a19f143a2feE.exit" ], [ %72, %69 ], [ false, %52 ], [ false, %66 ], [ %.mux.i.i, %59 ], [ false, %9 ], [ false, %2 ], [ false, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.i.i" ], [ false, %36 ], [ false, %37 ], [ false, %53 ], [ false, %43 ], [ false, %35 ], [ false, %21 ]
   ret i1 %.sroa.0.0
 }
 

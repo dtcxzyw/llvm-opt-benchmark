@@ -5579,7 +5579,7 @@ define hidden noundef zeroext i1 @_ZNK13IdealLoopTree23policy_maximally_unrollEP
   br label %_ZN14PhaseIdealLoop17may_require_nodesEjj.exit
 
 _ZN14PhaseIdealLoop17may_require_nodesEjj.exit:   ; preds = %66, %66, %66, %66, %66, %66, %66, %66, %._crit_edge.thread, %._crit_edge, %42, %26, %46, %48, %21, %10, %17, %6, %2
-  %.0 = phi i1 [ false, %6 ], [ false, %10 ], [ %81, %._crit_edge.thread ], [ false, %21 ], [ false, %46 ], [ %45, %42 ], [ false, %2 ], [ false, %17 ], [ false, %48 ], [ false, %._crit_edge ], [ false, %26 ], [ false, %66 ], [ false, %66 ], [ false, %66 ], [ false, %66 ], [ false, %66 ], [ false, %66 ], [ false, %66 ], [ false, %66 ]
+  %.0 = phi i1 [ false, %6 ], [ false, %10 ], [ false, %._crit_edge ], [ false, %21 ], [ false, %46 ], [ %45, %42 ], [ false, %2 ], [ false, %17 ], [ false, %48 ], [ %81, %._crit_edge.thread ], [ false, %26 ], [ false, %66 ], [ false, %66 ], [ false, %66 ], [ false, %66 ], [ false, %66 ], [ false, %66 ], [ false, %66 ], [ false, %66 ]
   ret i1 %.0
 }
 
@@ -6348,7 +6348,7 @@ _ZNK19BaseCountedLoopNode3phiEv.exit.thread:      ; preds = %218, %226, %213, %2
   br label %_ZN14PhaseIdealLoop17may_require_nodesEjj.exit
 
 _ZN14PhaseIdealLoop17may_require_nodesEjj.exit:   ; preds = %355, %355, %355, %355, %355, %355, %355, %355, %166, %174, %_ZNK19BaseCountedLoopNode9init_tripEv.exit, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i, %194, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i141, %490, %475, %470, %455, %440, %425, %450, %424, %474, %447, %324, %333, %297, %302, %280, %285, %_ZNK19BaseCountedLoopNode5limitEv.exit, %86, %90, %52, %36, %29, %25, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %25 ], [ false, %29 ], [ false, %36 ], [ false, %52 ], [ false, %86 ], [ false, %_ZNK19BaseCountedLoopNode5limitEv.exit ], [ false, %297 ], [ false, %324 ], [ false, %166 ], [ %493, %490 ], [ false, %424 ], [ %443, %440 ], [ false, %450 ], [ false, %280 ], [ false, %6 ], [ false, %90 ], [ false, %285 ], [ false, %302 ], [ false, %333 ], [ false, %174 ], [ false, %_ZNK19BaseCountedLoopNode9init_tripEv.exit ], [ false, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i ], [ false, %194 ], [ false, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i141 ], [ false, %475 ], [ false, %455 ], [ %473, %470 ], [ false, %474 ], [ false, %447 ], [ false, %425 ], [ false, %355 ], [ false, %355 ], [ false, %355 ], [ false, %355 ], [ false, %355 ], [ false, %355 ], [ false, %355 ], [ false, %355 ]
+  %.0 = phi i1 [ false, %2 ], [ false, %25 ], [ false, %29 ], [ false, %36 ], [ false, %52 ], [ false, %86 ], [ false, %_ZNK19BaseCountedLoopNode5limitEv.exit ], [ false, %297 ], [ false, %324 ], [ false, %455 ], [ %493, %490 ], [ false, %424 ], [ %443, %440 ], [ false, %450 ], [ false, %280 ], [ false, %6 ], [ false, %90 ], [ false, %285 ], [ false, %302 ], [ false, %333 ], [ false, %475 ], [ false, %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i141 ], [ false, %194 ], [ false, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i ], [ false, %_ZNK19BaseCountedLoopNode9init_tripEv.exit ], [ false, %174 ], [ false, %166 ], [ %473, %470 ], [ false, %474 ], [ false, %447 ], [ false, %425 ], [ false, %355 ], [ false, %355 ], [ false, %355 ], [ false, %355 ], [ false, %355 ], [ false, %355 ], [ false, %355 ], [ false, %355 ]
   ret i1 %.0
 }
 
@@ -16417,7 +16417,7 @@ _ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split: ; preds = %55,
   br label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
 _ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166: ; preds = %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split, %246, %244, %169, %176, %230, %225, %217, %215, %155, %150, %142, %140, %162, %281, %275, %273, %324, %322, %349, %344, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread, %301, %237, %362, %354, %335, %329, %294, %286, %265, %190, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit, %55
-  %.0 = phi i1 [ false, %354 ], [ true, %55 ], [ false, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit ], [ true, %362 ], [ true, %190 ], [ false, %246 ], [ true, %265 ], [ false, %286 ], [ true, %294 ], [ false, %329 ], [ true, %335 ], [ false, %230 ], [ false, %225 ], [ false, %217 ], [ false, %244 ], [ false, %215 ], [ false, %155 ], [ false, %176 ], [ false, %150 ], [ false, %237 ], [ false, %169 ], [ false, %301 ], [ false, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread ], [ false, %344 ], [ false, %349 ], [ false, %322 ], [ false, %324 ], [ false, %273 ], [ false, %275 ], [ false, %281 ], [ false, %162 ], [ false, %140 ], [ false, %142 ], [ true, %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split ]
+  %.0 = phi i1 [ false, %354 ], [ true, %55 ], [ false, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit ], [ true, %362 ], [ true, %190 ], [ false, %246 ], [ true, %265 ], [ false, %286 ], [ true, %294 ], [ false, %329 ], [ true, %335 ], [ false, %150 ], [ false, %155 ], [ false, %215 ], [ false, %244 ], [ false, %217 ], [ false, %225 ], [ false, %176 ], [ false, %230 ], [ false, %237 ], [ false, %169 ], [ false, %301 ], [ false, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread ], [ false, %344 ], [ false, %349 ], [ false, %322 ], [ false, %324 ], [ false, %273 ], [ false, %275 ], [ false, %281 ], [ false, %162 ], [ false, %140 ], [ false, %142 ], [ true, %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split ]
   ret i1 %.0
 }
 
@@ -23151,7 +23151,7 @@ _ZNK9Node_List8containsEPK4Node.exit.thread:      ; preds = %_ZNK9Node_List8cont
   br label %.critedge200
 
 .critedge200:                                     ; preds = %516, %521, %_ZNK9Node_List8containsEPK4Node.exit.thread, %.lr.ph272, %550, %.lr.ph277, %171, %.critedge.thread, %.critedge200.critedge, %._crit_edge, %switch.early.test, %.critedge196, %.critedge
-  %.0 = phi i1 [ false, %._crit_edge ], [ false, %.critedge ], [ false, %.critedge200.critedge ], [ false, %.critedge196 ], [ false, %switch.early.test ], [ false, %550 ], [ true, %.lr.ph277 ], [ false, %.critedge.thread ], [ false, %171 ], [ false, %.lr.ph272 ], [ true, %_ZNK9Node_List8containsEPK4Node.exit.thread ], [ false, %521 ], [ false, %516 ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ false, %.critedge ], [ false, %.critedge200.critedge ], [ false, %.critedge196 ], [ false, %switch.early.test ], [ true, %.lr.ph277 ], [ false, %171 ], [ false, %.critedge.thread ], [ false, %550 ], [ false, %.lr.ph272 ], [ true, %_ZNK9Node_List8containsEPK4Node.exit.thread ], [ false, %521 ], [ false, %516 ]
   ret i1 %.0
 }
 

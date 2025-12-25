@@ -2046,8 +2046,8 @@ string_to_const.exit:                             ; preds = %string_to_datum.exi
   br label %.thread134
 
 .thread134:                                       ; preds = %._crit_edge.split.us.us, %104, %.thread134.sink.split, %._crit_edge141, %select.unfold, %.split.us
-  %.097131156174179.sink = phi ptr [ %.198, %.thread134.sink.split ], [ %.198, %.split.us ], [ %86, %104 ], [ %.198, %._crit_edge141 ], [ %86, %select.unfold ], [ %86, %._crit_edge.split.us.us ]
-  %.4 = phi ptr [ %.4.ph, %.thread134.sink.split ], [ %131, %.split.us ], [ %108, %104 ], [ null, %._crit_edge141 ], [ null, %select.unfold ], [ null, %._crit_edge.split.us.us ]
+  %.097131156174179.sink = phi ptr [ %.198, %.thread134.sink.split ], [ %.198, %.split.us ], [ %86, %select.unfold ], [ %.198, %._crit_edge141 ], [ %86, %104 ], [ %86, %._crit_edge.split.us.us ]
+  %.4 = phi ptr [ %.4.ph, %.thread134.sink.split ], [ %131, %.split.us ], [ null, %select.unfold ], [ null, %._crit_edge141 ], [ %108, %104 ], [ null, %._crit_edge.split.us.us ]
   tail call void @pfree(ptr noundef %.097131156174179.sink) #10
   ret ptr %.4
 }

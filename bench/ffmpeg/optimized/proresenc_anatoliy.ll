@@ -2292,11 +2292,11 @@ encode_slice_data.exit251.i.us:                   ; preds = %770, %.preheader.en
   br label %.critedge.i.us
 
 .critedge.i.us:                                   ; preds = %.critedge.i.us.loopexit506, %.critedge.i.us.loopexit, %720, %718, %encode_slice_data.exit.i.us
-  %.3.us = phi i32 [ %.1293386.us, %encode_slice_data.exit.i.us ], [ %.1293386.us, %718 ], [ %796, %.critedge.i.us.loopexit ], [ %.1293386.us, %720 ], [ %797, %.critedge.i.us.loopexit506 ]
-  %.0339.i.us = phi i32 [ %603, %encode_slice_data.exit.i.us ], [ %688, %718 ], [ %767, %.critedge.i.us.loopexit ], [ %688, %720 ], [ %733, %.critedge.i.us.loopexit506 ]
-  %.0332.i.us = phi i32 [ %.3335.i.us, %encode_slice_data.exit.i.us ], [ %.4336.i.us, %718 ], [ %.5337.i.us, %.critedge.i.us.loopexit ], [ %.4336.i.us, %720 ], [ %.6338.i.us, %.critedge.i.us.loopexit506 ]
-  %.0331.i.us = phi i32 [ %.3.i.us, %encode_slice_data.exit.i.us ], [ %.4.i.us, %718 ], [ %.5.i.us, %.critedge.i.us.loopexit ], [ %.4.i.us, %720 ], [ %.6.i.us, %.critedge.i.us.loopexit506 ]
-  %.0232.i.us = phi i32 [ %624, %encode_slice_data.exit.i.us ], [ %709, %718 ], [ %787, %.critedge.i.us.loopexit ], [ %709, %720 ], [ %753, %.critedge.i.us.loopexit506 ]
+  %.3.us = phi i32 [ %.1293386.us, %718 ], [ %.1293386.us, %encode_slice_data.exit.i.us ], [ %.1293386.us, %720 ], [ %796, %.critedge.i.us.loopexit ], [ %797, %.critedge.i.us.loopexit506 ]
+  %.0339.i.us = phi i32 [ %688, %718 ], [ %603, %encode_slice_data.exit.i.us ], [ %688, %720 ], [ %767, %.critedge.i.us.loopexit ], [ %733, %.critedge.i.us.loopexit506 ]
+  %.0332.i.us = phi i32 [ %.4336.i.us, %718 ], [ %.3335.i.us, %encode_slice_data.exit.i.us ], [ %.4336.i.us, %720 ], [ %.5337.i.us, %.critedge.i.us.loopexit ], [ %.6338.i.us, %.critedge.i.us.loopexit506 ]
+  %.0331.i.us = phi i32 [ %.4.i.us, %718 ], [ %.3.i.us, %encode_slice_data.exit.i.us ], [ %.4.i.us, %720 ], [ %.5.i.us, %.critedge.i.us.loopexit ], [ %.6.i.us, %.critedge.i.us.loopexit506 ]
+  %.0232.i.us = phi i32 [ %709, %718 ], [ %624, %encode_slice_data.exit.i.us ], [ %709, %720 ], [ %787, %.critedge.i.us.loopexit ], [ %753, %.critedge.i.us.loopexit506 ]
   %.tr.i.us = trunc i32 %74 to i8
   %798 = shl i8 %.tr.i.us, 3
   store i8 %798, ptr %.178389.us, align 1, !tbaa !47

@@ -392,7 +392,7 @@ get_unit_type.exit.thread.sink.split:             ; preds = %4, %2
   br label %get_unit_type.exit.thread
 
 get_unit_type.exit.thread:                        ; preds = %.lr.ph, %get_unit_type.exit.thread.sink.split, %.preheader, %get_unit_type.exit
-  %.07 = phi i32 [ -1, %get_unit_type.exit ], [ -1, %get_unit_type.exit.thread.sink.split ], [ 0, %.preheader ], [ %.1, %.lr.ph ]
+  %.07 = phi i32 [ -1, %get_unit_type.exit ], [ 0, %.preheader ], [ -1, %get_unit_type.exit.thread.sink.split ], [ %.1, %.lr.ph ]
   ret i32 %.07
 }
 
@@ -4463,9 +4463,9 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
   br label %17
 
 .critedge:                                        ; preds = %101, %.thread, %112, %.split.us, %22, %66, %96
-  %.05699 = phi ptr [ %.056, %.thread ], [ null, %96 ], [ %.056, %66 ], [ %.056, %22 ], [ %.056, %.split.us ], [ %.056, %112 ], [ %.056, %101 ]
-  %.not6474 = phi i1 [ true, %.thread ], [ false, %66 ], [ false, %96 ], [ false, %.split.us ], [ false, %22 ], [ true, %112 ], [ true, %101 ]
-  %.05872 = phi i32 [ 0, %.thread ], [ -1, %66 ], [ -1, %96 ], [ -1, %.split.us ], [ -1, %22 ], [ 0, %112 ], [ 0, %101 ]
+  %.05699 = phi ptr [ null, %96 ], [ %.056, %.thread ], [ %.056, %66 ], [ %.056, %22 ], [ %.056, %.split.us ], [ %.056, %112 ], [ %.056, %101 ]
+  %.not6474 = phi i1 [ false, %66 ], [ true, %112 ], [ false, %96 ], [ false, %.split.us ], [ false, %22 ], [ true, %.thread ], [ true, %101 ]
+  %.05872 = phi i32 [ -1, %66 ], [ 0, %112 ], [ -1, %96 ], [ -1, %.split.us ], [ -1, %22 ], [ 0, %.thread ], [ 0, %101 ]
   %.not67 = icmp eq ptr %.05699, %2
   br i1 %.not67, label %122, label %121
 

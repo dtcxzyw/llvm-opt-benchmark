@@ -28643,8 +28643,8 @@ _ZN4CGAL7Point_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   ret void
 
 .body:                                            ; preds = %.preheader.i.i.i.i.i7, %.preheader.i.i.i.i.i15, %.preheader.i.i.i.i.i23, %22, %38, %30
-  %.0.lpad-body = phi ptr [ %.ptr46, %38 ], [ %.ptr40, %.preheader.i.i.i.i.i15 ], [ %.ptr34, %22 ], [ %.ptr46, %.preheader.i.i.i.i.i23 ], [ %.ptr40, %30 ], [ %.ptr34, %.preheader.i.i.i.i.i7 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %31, %.preheader.i.i.i.i.i15 ], [ %23, %22 ], [ %39, %.preheader.i.i.i.i.i23 ], [ %31, %30 ], [ %23, %.preheader.i.i.i.i.i7 ]
+  %.0.lpad-body = phi ptr [ %.ptr40, %.preheader.i.i.i.i.i15 ], [ %.ptr46, %38 ], [ %.ptr34, %22 ], [ %.ptr46, %.preheader.i.i.i.i.i23 ], [ %.ptr40, %30 ], [ %.ptr34, %.preheader.i.i.i.i.i7 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %31, %.preheader.i.i.i.i.i15 ], [ %39, %38 ], [ %23, %22 ], [ %39, %.preheader.i.i.i.i.i23 ], [ %31, %30 ], [ %23, %.preheader.i.i.i.i.i7 ]
   br label %41
 
 41:                                               ; preds = %.body, %41

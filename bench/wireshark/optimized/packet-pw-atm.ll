@@ -979,7 +979,7 @@ pw_cell_header_size.exit268.thread.thread313.sink.split: ; preds = %104, %102
   br label %pw_cell_header_size.exit268.thread.thread313
 
 pw_cell_header_size.exit268.thread.thread313:     ; preds = %pw_cell_header_size.exit268.thread.thread313.sink.split, %30, %pw_cell_header_size.exit268.thread.thread309, %104, %pw_cell_header_size.exit268.thread
-  %.0225272311 = phi i32 [ %.0225272312, %pw_cell_header_size.exit268.thread.thread309 ], [ %.0225272312, %104 ], [ 1, %30 ], [ %.0225272, %pw_cell_header_size.exit268.thread ], [ %.0225272312, %pw_cell_header_size.exit268.thread.thread313.sink.split ]
+  %.0225272311 = phi i32 [ %.0225272312, %pw_cell_header_size.exit268.thread.thread309 ], [ %.0225272312, %104 ], [ %.0225272, %pw_cell_header_size.exit268.thread ], [ 1, %30 ], [ %.0225272312, %pw_cell_header_size.exit268.thread.thread313.sink.split ]
   %105 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %106 = zext i8 %105 to i32
   %107 = lshr i32 %106, 7

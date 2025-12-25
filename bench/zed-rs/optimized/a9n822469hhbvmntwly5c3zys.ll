@@ -4992,8 +4992,8 @@ define void @_ZN4text6Buffer8apply_op17h16c22230f4565105E(ptr noalias noundef al
   br label %.thread.i
 
 173:                                              ; preds = %520, %516, %491
-  %.sroa.078.8720729.i = phi i1 [ %.sroa.078.7.i, %491 ], [ true, %520 ], [ true, %516 ]
-  %.pn122722728.i = phi { ptr, i32 } [ %492, %491 ], [ %517, %520 ], [ %517, %516 ]
+  %.sroa.078.8720729.i = phi i1 [ true, %516 ], [ true, %520 ], [ %.sroa.078.7.i, %491 ]
+  %.pn122722728.i = phi { ptr, i32 } [ %517, %516 ], [ %517, %520 ], [ %492, %491 ]
   %.sroa.50.5695.i = extractvalue { ptr, i32 } %.pn122722728.i, 1
   %.sroa.096.5696.i = extractvalue { ptr, i32 } %.pn122722728.i, 0
   br label %1396

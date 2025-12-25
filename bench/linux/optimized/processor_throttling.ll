@@ -503,7 +503,7 @@ define dso_local void @acpi_processor_reevaluate_tstate(ptr noundef %0, i1 nound
   br label %44
 
 44:                                               ; preds = %41, %37
-  %45 = phi i32 [ %43, %41 ], [ %40, %37 ]
+  %45 = phi i32 [ %40, %37 ], [ %43, %41 ]
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %.thread
 

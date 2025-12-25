@@ -251,7 +251,7 @@ use_hole.exit84.sink.split:                       ; preds = %100, %105, %73, %77
   br label %use_hole.exit84
 
 use_hole.exit84:                                  ; preds = %use_hole.exit84.sink.split, %67, %51, %36, %96, %use_hole.exit.thread114, %3
-  %.035 = phi i32 [ -1, %36 ], [ -1, %use_hole.exit.thread114 ], [ -1, %3 ], [ -1, %96 ], [ -1, %51 ], [ -1, %67 ], [ 0, %use_hole.exit84.sink.split ]
+  %.035 = phi i32 [ -1, %51 ], [ -1, %use_hole.exit.thread114 ], [ -1, %3 ], [ -1, %96 ], [ -1, %36 ], [ -1, %67 ], [ 0, %use_hole.exit84.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.035
 }

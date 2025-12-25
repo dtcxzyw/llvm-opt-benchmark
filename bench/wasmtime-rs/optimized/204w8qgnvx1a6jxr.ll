@@ -920,7 +920,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h96bc56
           to label %36 unwind label %34
 
 32:                                               ; preds = %62, %58, %34
-  %.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %63, %62 ], [ %35, %34 ]
+  %.pn.i = phi { ptr, i32 } [ %63, %62 ], [ %59, %58 ], [ %35, %34 ]
   %33 = load i64, ptr %13, align 8, !range !17, !noundef !3
   %.not71.i = icmp eq i64 %33, -9223372036854775808
   br i1 %.not71.i, label %.thread7, label %69

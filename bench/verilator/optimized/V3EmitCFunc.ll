@@ -1547,7 +1547,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121.invoke: ; preds 
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.invoke unwind label %.loopexit.split-lp
 
 184:                                              ; preds = %106, %107, %108, %80
-  %.0 = phi ptr [ %1, %80 ], [ %5, %108 ], [ %4, %107 ], [ %3, %106 ]
+  %.0 = phi ptr [ %4, %107 ], [ %5, %108 ], [ %1, %80 ], [ %3, %106 ]
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.0214.0268, i64 2
   %186 = load i8, ptr %185, align 1, !tbaa !14
   switch i8 %186, label %270 [

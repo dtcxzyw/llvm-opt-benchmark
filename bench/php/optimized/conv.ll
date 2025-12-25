@@ -269,10 +269,10 @@ define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, 
   br i1 %35, label %.lr.ph106, label %.critedge
 
 .critedge:                                        ; preds = %21, %.lr.ph106, %34, %10, %.preheader, %24
-  %.07893 = phi i32 [ %.07894, %.preheader ], [ %.07894, %24 ], [ %.07894, %.lr.ph106 ], [ 0, %10 ], [ %.07894, %34 ], [ %.179, %21 ]
-  %.275 = phi ptr [ %.376.ptr101, %.preheader ], [ %.073.ptr.ptr97, %24 ], [ %.376.ptr105, %.lr.ph106 ], [ %3, %10 ], [ %.376.ptr, %34 ], [ %.073.ptr.ptr, %21 ]
-  %.165 = phi ptr [ %.266100, %.preheader ], [ %.06496, %24 ], [ %.266104, %.lr.ph106 ], [ %11, %10 ], [ %.266, %34 ], [ %22, %21 ]
-  %.0 = phi i32 [ 0, %.preheader ], [ 0, %24 ], [ %.1103, %.lr.ph106 ], [ 0, %10 ], [ %.2, %34 ], [ 0, %21 ]
+  %.07893 = phi i32 [ %.07894, %24 ], [ %.07894, %.preheader ], [ 0, %10 ], [ %.07894, %.lr.ph106 ], [ %.07894, %34 ], [ %.179, %21 ]
+  %.275 = phi ptr [ %.073.ptr.ptr97, %24 ], [ %.376.ptr101, %.preheader ], [ %3, %10 ], [ %.376.ptr105, %.lr.ph106 ], [ %.376.ptr, %34 ], [ %.073.ptr.ptr, %21 ]
+  %.165 = phi ptr [ %.06496, %24 ], [ %.266100, %.preheader ], [ %11, %10 ], [ %.266104, %.lr.ph106 ], [ %.266, %34 ], [ %22, %21 ]
+  %.0 = phi i32 [ 0, %24 ], [ 0, %.preheader ], [ 0, %10 ], [ %.1103, %.lr.ph106 ], [ %.2, %34 ], [ 0, %21 ]
   %36 = getelementptr inbounds nuw i8, ptr %.165, i64 1
   %37 = icmp ult ptr %36, %5
   br i1 %37, label %38, label %64

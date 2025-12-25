@@ -3503,7 +3503,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i:                   ; preds = %_ZN20btAlignedObjec
   br i1 %.not133, label %._crit_edge409, label %.lr.ph408, !llvm.loop !86
 
 ._crit_edge409:                                   ; preds = %.backedge, %381
-  %454 = phi i32 [ %453, %.backedge ], [ %375, %381 ]
+  %454 = phi i32 [ %375, %381 ], [ %453, %.backedge ]
   %.not136411 = icmp eq i32 %454, 0
   br i1 %.not136411, label %.thread, label %.lr.ph413.preheader
 

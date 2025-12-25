@@ -181,7 +181,7 @@ define ptr @H5B2_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   br label %49
 
 49:                                               ; preds = %36, %43, %47
-  %.1 = phi ptr [ %20, %47 ], [ null, %43 ], [ null, %36 ]
+  %.1 = phi ptr [ null, %36 ], [ null, %43 ], [ %20, %47 ]
   %50 = tail call i32 @H5B2__hdr_unprotect(ptr noundef nonnull %27, i32 noundef 0) #7
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %.thread33
@@ -1588,8 +1588,8 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   br label %.thread136
 
 182:                                              ; preds = %.thread129, %143, %151
-  %.0106 = phi ptr [ %.2108.lcssa, %151 ], [ %.2108.lcssa, %143 ], [ %.3109.ph, %.thread129 ]
-  %.1101 = phi i32 [ -1, %151 ], [ -1, %143 ], [ %.3103.ph, %.thread129 ]
+  %.0106 = phi ptr [ %.2108.lcssa, %143 ], [ %.2108.lcssa, %151 ], [ %.3109.ph, %.thread129 ]
+  %.1101 = phi i32 [ -1, %143 ], [ -1, %151 ], [ %.3103.ph, %.thread129 ]
   %.not121 = icmp eq ptr %.0106, null
   %.not122 = icmp eq ptr %.0106, %19
   %or.cond = or i1 %.not121, %.not122

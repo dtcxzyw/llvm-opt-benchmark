@@ -437,7 +437,7 @@ define internal ptr @H5FD__sec2_open(ptr noundef %0, i32 noundef %1, i64 noundef
   br label %.thread91
 
 .thread91:                                        ; preds = %15, %27, %21, %42, %112, %101, %104, %96, %4, %114
-  %.059 = phi ptr [ null, %114 ], [ null, %112 ], [ null, %4 ], [ %60, %96 ], [ %60, %104 ], [ %60, %101 ], [ null, %42 ], [ null, %21 ], [ null, %27 ], [ null, %15 ]
+  %.059 = phi ptr [ null, %114 ], [ null, %112 ], [ null, %4 ], [ %60, %101 ], [ %60, %104 ], [ %60, %96 ], [ null, %42 ], [ null, %21 ], [ null, %27 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.059
 }

@@ -1944,7 +1944,7 @@ define internal fastcc i32 @calculate_mic(ptr noundef %0, i8 noundef zeroext %1,
   br label %20
 
 20:                                               ; preds = %16, %.sink.split, %3
-  %.0 = phi i32 [ 0, %.sink.split ], [ %spec.select, %16 ], [ 0, %3 ]
+  %.0 = phi i32 [ 0, %.sink.split ], [ 0, %3 ], [ %spec.select, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

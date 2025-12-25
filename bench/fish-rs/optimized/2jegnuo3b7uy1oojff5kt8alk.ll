@@ -25615,8 +25615,8 @@ default.unreachable:                              ; preds = %241
           to label %"_ZN4core6option15Option$LT$T$GT$6map_or17h04fd567616645978E.exit.i.i" unwind label %.loopexit.split-lp.loopexit.i.i, !noalias !2483
 
 .body161.i.i:                                     ; preds = %.thread205.i.i, %.body154.i.i, %423, %.split11.i.i.i, %301, %.thread221.loopexit.split-lp.loopexit.split-lp.i.i, %.thread221.loopexit.split-lp.loopexit.i.i, %.thread221.loopexit.i.i, %.loopexit.split-lp.loopexit.i.i
-  %.sroa.035.1.i.i = phi i8 [ %.sroa.035.3.i.i, %.thread205.i.i ], [ %.sroa.035.3.i.i, %.thread221.loopexit.split-lp.loopexit.split-lp.i.i ], [ %.sroa.035.3.i.i, %423 ], [ %.sroa.035.3.i.i, %.split11.i.i.i ], [ %.sroa.035.3.i.i, %301 ], [ %.sroa.035.3.i.i, %.body154.i.i ], [ %.sroa.035.3.i.i, %.thread221.loopexit.split-lp.loopexit.i.i ], [ %.sroa.035.0.ph.ph.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %.sroa.035.3.i.i, %.thread221.loopexit.i.i ]
-  %.pn102.pn.i.i = phi { ptr, i32 } [ %.pn102208.i.i, %.thread205.i.i ], [ %lpad.loopexit.split-lp261.i.i, %.thread221.loopexit.split-lp.loopexit.split-lp.i.i ], [ %424, %423 ], [ %382, %.split11.i.i.i ], [ %302, %301 ], [ %.pn100.i.i, %.body154.i.i ], [ %lpad.loopexit260.i.i, %.thread221.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit247.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.i.i, %.thread221.loopexit.i.i ]
+  %.sroa.035.1.i.i = phi i8 [ %.sroa.035.3.i.i, %.thread205.i.i ], [ %.sroa.035.3.i.i, %.thread221.loopexit.split-lp.loopexit.i.i ], [ %.sroa.035.3.i.i, %423 ], [ %.sroa.035.3.i.i, %.split11.i.i.i ], [ %.sroa.035.3.i.i, %301 ], [ %.sroa.035.3.i.i, %.body154.i.i ], [ %.sroa.035.3.i.i, %.thread221.loopexit.split-lp.loopexit.split-lp.i.i ], [ %.sroa.035.0.ph.ph.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %.sroa.035.3.i.i, %.thread221.loopexit.i.i ]
+  %.pn102.pn.i.i = phi { ptr, i32 } [ %.pn102208.i.i, %.thread205.i.i ], [ %lpad.loopexit260.i.i, %.thread221.loopexit.split-lp.loopexit.i.i ], [ %424, %423 ], [ %382, %.split11.i.i.i ], [ %302, %301 ], [ %.pn100.i.i, %.body154.i.i ], [ %lpad.loopexit.split-lp261.i.i, %.thread221.loopexit.split-lp.loopexit.split-lp.i.i ], [ %lpad.loopexit247.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.i.i, %.thread221.loopexit.i.i ]
   %205 = trunc nuw i8 %.sroa.035.1.i.i to i1
   br i1 %205, label %.thread198.i.i, label %.loopexit.split-lp243.i.i
 
@@ -25631,7 +25631,7 @@ default.unreachable:                              ; preds = %241
   br label %.thread198.i.i
 
 .loopexit.split-lp.loopexit.i.i:                  ; preds = %472, %283, %282, %280, %264, %245, %"_ZN4core6option15Option$LT$T$GT$6map_or17h04fd567616645978E.exit.thread.i.i", %206, %203, %201
-  %.sroa.035.0.ph.ph.i.i = phi i8 [ 0, %264 ], [ 1, %283 ], [ 1, %282 ], [ 1, %280 ], [ 1, %206 ], [ 1, %203 ], [ 1, %201 ], [ 1, %472 ], [ 1, %245 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17h04fd567616645978E.exit.thread.i.i" ]
+  %.sroa.035.0.ph.ph.i.i = phi i8 [ 0, %264 ], [ 1, %283 ], [ 1, %282 ], [ 1, %280 ], [ 1, %206 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17h04fd567616645978E.exit.thread.i.i" ], [ 1, %201 ], [ 1, %472 ], [ 1, %245 ], [ 1, %203 ]
   %lpad.loopexit247.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body161.i.i
@@ -35121,8 +35121,8 @@ default.unreachable506:                           ; preds = %154
           to label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc11b4c998e252006E.exit" unwind label %.loopexit.split-lp.loopexit
 
 .body161:                                         ; preds = %.thread221.loopexit, %.thread221.loopexit.split-lp.loopexit.split-lp, %.thread221.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %336, %.body154, %.split11.i, %214, %.thread205
-  %.sroa.035.1 = phi i8 [ %.sroa.035.3, %.thread205 ], [ %.sroa.035.3, %.thread221.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.035.3, %336 ], [ %.sroa.035.3, %.split11.i ], [ %.sroa.035.3, %214 ], [ %.sroa.035.3, %.body154 ], [ %.sroa.035.3, %.thread221.loopexit.split-lp.loopexit ], [ %.sroa.035.0.ph.ph, %.loopexit.split-lp.loopexit ], [ %.sroa.035.3, %.thread221.loopexit ]
-  %.pn102.pn = phi { ptr, i32 } [ %.pn102208, %.thread205 ], [ %lpad.loopexit.split-lp261, %.thread221.loopexit.split-lp.loopexit.split-lp ], [ %337, %336 ], [ %295, %.split11.i ], [ %215, %214 ], [ %.pn100, %.body154 ], [ %lpad.loopexit260, %.thread221.loopexit.split-lp.loopexit ], [ %lpad.loopexit247, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.thread221.loopexit ]
+  %.sroa.035.1 = phi i8 [ %.sroa.035.3, %.thread205 ], [ %.sroa.035.3, %.thread221.loopexit.split-lp.loopexit ], [ %.sroa.035.3, %336 ], [ %.sroa.035.3, %.split11.i ], [ %.sroa.035.3, %214 ], [ %.sroa.035.3, %.body154 ], [ %.sroa.035.3, %.thread221.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.035.0.ph.ph, %.loopexit.split-lp.loopexit ], [ %.sroa.035.3, %.thread221.loopexit ]
+  %.pn102.pn = phi { ptr, i32 } [ %.pn102208, %.thread205 ], [ %lpad.loopexit260, %.thread221.loopexit.split-lp.loopexit ], [ %337, %336 ], [ %295, %.split11.i ], [ %215, %214 ], [ %.pn100, %.body154 ], [ %lpad.loopexit.split-lp261, %.thread221.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit247, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.thread221.loopexit ]
   %118 = trunc nuw i8 %.sroa.035.1 to i1
   br i1 %118, label %.thread198, label %101
 
@@ -35137,7 +35137,7 @@ default.unreachable506:                           ; preds = %154
   br label %.thread198
 
 .loopexit.split-lp.loopexit:                      ; preds = %385, %116, %196, %195, %193, %177, %158, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc11b4c998e252006E.exit.thread", %119, %114
-  %.sroa.035.0.ph.ph = phi i8 [ 0, %177 ], [ 1, %196 ], [ 1, %195 ], [ 1, %193 ], [ 1, %119 ], [ 1, %116 ], [ 1, %114 ], [ 1, %385 ], [ 1, %158 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc11b4c998e252006E.exit.thread" ]
+  %.sroa.035.0.ph.ph = phi i8 [ 0, %177 ], [ 1, %196 ], [ 1, %195 ], [ 1, %193 ], [ 1, %119 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc11b4c998e252006E.exit.thread" ], [ 1, %114 ], [ 1, %385 ], [ 1, %158 ], [ 1, %116 ]
   %lpad.loopexit247 = landingpad { ptr, i32 }
           cleanup
   br label %.body161

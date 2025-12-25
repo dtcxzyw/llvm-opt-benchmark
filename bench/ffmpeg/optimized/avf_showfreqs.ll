@@ -1025,7 +1025,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   br i1 %167, label %.lr.ph150, label %._crit_edge151, !llvm.loop !106
 
 .loopexit:                                        ; preds = %.lr.ph141, %87, %143, %._crit_edge151, %128, %._crit_edge146, %._crit_edge142, %55, %51, %47, %._crit_edge, %115, %27
-  %.0 = phi i32 [ %19, %27 ], [ -12, %55 ], [ -22, %115 ], [ -12, %._crit_edge146 ], [ %141, %128 ], [ -12, %._crit_edge142 ], [ 0, %._crit_edge151 ], [ -12, %51 ], [ -12, %47 ], [ -12, %._crit_edge ], [ 0, %143 ], [ -12, %87 ], [ -12, %.lr.ph141 ]
+  %.0 = phi i32 [ %19, %27 ], [ -12, %55 ], [ -22, %115 ], [ -12, %._crit_edge146 ], [ %141, %128 ], [ -12, %._crit_edge142 ], [ 0, %143 ], [ -12, %51 ], [ -12, %47 ], [ -12, %._crit_edge ], [ 0, %._crit_edge151 ], [ -12, %87 ], [ -12, %.lr.ph141 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

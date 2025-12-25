@@ -1321,9 +1321,9 @@ define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr noundef captu
   br i1 %319, label %arkRelaxNewtonSolve.exit.thread48.i, label %253
 
 arkRelaxNewtonSolve.exit.thread52.sink.split.i:   ; preds = %66, %48, %99, %.preheader.i.i, %228, %211
-  %.lcssa175.sink.i = phi i64 [ %96, %99 ], [ %225, %228 ], [ %225, %211 ], [ %96, %.preheader.i.i ], [ %63, %48 ], [ %63, %66 ]
-  %.lcssa178.sink.i = phi ptr [ %95, %99 ], [ %224, %228 ], [ %224, %211 ], [ %95, %.preheader.i.i ], [ %62, %48 ], [ %62, %66 ]
-  %.0.i.ph.ph.i = phi i32 [ 1, %99 ], [ 1, %228 ], [ -45, %211 ], [ -45, %.preheader.i.i ], [ 1, %66 ], [ -45, %48 ]
+  %.lcssa175.sink.i = phi i64 [ %225, %228 ], [ %96, %99 ], [ %225, %211 ], [ %96, %.preheader.i.i ], [ %63, %48 ], [ %63, %66 ]
+  %.lcssa178.sink.i = phi ptr [ %224, %228 ], [ %95, %99 ], [ %224, %211 ], [ %95, %.preheader.i.i ], [ %62, %48 ], [ %62, %66 ]
+  %.0.i.ph.ph.i = phi i32 [ 1, %228 ], [ 1, %99 ], [ -45, %211 ], [ -45, %.preheader.i.i ], [ 1, %66 ], [ -45, %48 ]
   %320 = add nsw i64 %.lcssa175.sink.i, 2
   store i64 %320, ptr %.lcssa178.sink.i, align 8, !tbaa !29
   br label %arkRelaxNewtonSolve.exit.thread52.i

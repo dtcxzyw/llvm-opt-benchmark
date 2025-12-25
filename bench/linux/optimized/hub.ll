@@ -3105,7 +3105,7 @@ define dso_local i32 @usb_port_resume(ptr noundef %0, i32 %1) local_unnamed_addr
   br label %.thread67
 
 .thread66:                                        ; preds = %190, %.thread23, %.loopexit32, %.thread25, %201
-  %292 = phi i32 [ -19, %.thread25 ], [ %.fr, %.loopexit32 ], [ -19, %.thread23 ], [ -19, %201 ], [ -19, %190 ]
+  %292 = phi i32 [ %.fr, %.loopexit32 ], [ -19, %201 ], [ -19, %.thread25 ], [ -19, %.thread23 ], [ -19, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %295
@@ -8554,7 +8554,7 @@ define internal fastcc noundef i32 @hub_port_reset(ptr noundef %0, i32 noundef %
   br label %.thread3.i
 
 215:                                              ; preds = %204, %207, %209
-  %storemerge = phi i32 [ 3, %207 ], [ 1, %204 ], [ 2, %209 ]
+  %storemerge = phi i32 [ 2, %209 ], [ 3, %207 ], [ 1, %204 ]
   store i32 %storemerge, ptr %56, align 8
   store i32 6, ptr %57, align 4
   br label %.loopexit

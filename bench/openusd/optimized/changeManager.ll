@@ -4056,7 +4056,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit: ; preds = %430, %434
   call void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList13DidChangeInfoERKNS_7SdfPathERKNS_7TfTokenEONS_7VtValueERKS7_(ptr noundef nonnull align 8 dereferenceable(224) %493, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %.critedge200
 
-.critedge200:                                     ; preds = %94, %92, %102, %112, %110, %482, %476, %470, %.critedge6, %463, %460, %438, %400, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEptEv.exit, %.critedge198, %488
+.critedge200:                                     ; preds = %400, %94, %92, %102, %112, %110, %438, %460, %463, %.critedge6, %470, %476, %482, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEptEv.exit, %.critedge198, %488
   ret void
 }
 

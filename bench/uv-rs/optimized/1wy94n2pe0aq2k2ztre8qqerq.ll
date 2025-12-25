@@ -309,7 +309,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i.i.i.i: ; preds 
   br label %56
 
 .critedge.i.i.i:                                  ; preds = %111, %78, %.noexc34.i.i.i, %.preheader.i.i.i.i.i, %69
-  %.promoted.i69106.i.i.i = phi i64 [ %.promoted.i69122.i.i.i, %78 ], [ %.promoted.i69122.i.i.i, %69 ], [ %.promoted.i69122.i.i.i, %.preheader.i.i.i.i.i ], [ %.promoted.i69122.i.i.i, %.noexc34.i.i.i ], [ %76, %111 ]
+  %.promoted.i69106.i.i.i = phi i64 [ %.promoted.i69122.i.i.i, %69 ], [ %.promoted.i69122.i.i.i, %78 ], [ %.promoted.i69122.i.i.i, %.preheader.i.i.i.i.i ], [ %.promoted.i69122.i.i.i, %.noexc34.i.i.i ], [ %76, %111 ]
   %81 = getelementptr inbounds i8, ptr %41, i64 %.promoted.i69106.i.i.i
   %gepdiff94.i.i.i = sub nsw i64 %44, %.promoted.i69106.i.i.i
   %82 = load i64, ptr %.sroa.515.0..sroa_idx.i.i.i, align 8, !alias.scope !48, !noalias !35, !noundef !3

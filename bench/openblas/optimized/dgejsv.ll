@@ -1336,10 +1336,10 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.loopexit2360.sink.split3492
 
 .loopexit2360.sink.split3492:                     ; preds = %626, %636, %.lr.ph2458.split.us, %616, %.lr.ph2458.split, %569, %560, %..loopexit2361_crit_edge2462
-  %.lcssa3422.sink.sink = phi double [ %554, %569 ], [ %589, %.lr.ph2458.split.us ], [ %.us-phi2473, %..loopexit2361_crit_edge2462 ], [ %610, %616 ], [ %554, %560 ], [ %610, %.lr.ph2458.split ], [ %632, %636 ], [ %632, %626 ]
-  %storemerge2146.lcssa.sink.ph = phi i32 [ %narrow3351, %569 ], [ %578, %.lr.ph2458.split.us ], [ %.us-phi2474, %..loopexit2361_crit_edge2462 ], [ %599, %616 ], [ %562, %560 ], [ %599, %.lr.ph2458.split ], [ %628, %626 ], [ %narrow3348, %636 ]
-  %.ph3493 = phi i32 [ %552, %569 ], [ %573, %.lr.ph2458.split.us ], [ %573, %..loopexit2361_crit_edge2462 ], [ %573, %616 ], [ %552, %560 ], [ %573, %.lr.ph2458.split ], [ %573, %636 ], [ %573, %626 ]
-  %.ph3494 = phi i32 [ %570, %569 ], [ %577, %.lr.ph2458.split.us ], [ %638, %..loopexit2361_crit_edge2462 ], [ %598, %616 ], [ %561, %560 ], [ %598, %.lr.ph2458.split ], [ %627, %626 ], [ %637, %636 ]
+  %.lcssa3422.sink.sink = phi double [ %554, %569 ], [ %.us-phi2473, %..loopexit2361_crit_edge2462 ], [ %589, %.lr.ph2458.split.us ], [ %610, %616 ], [ %554, %560 ], [ %610, %.lr.ph2458.split ], [ %632, %636 ], [ %632, %626 ]
+  %storemerge2146.lcssa.sink.ph = phi i32 [ %narrow3351, %569 ], [ %.us-phi2474, %..loopexit2361_crit_edge2462 ], [ %578, %.lr.ph2458.split.us ], [ %599, %616 ], [ %562, %560 ], [ %599, %.lr.ph2458.split ], [ %628, %626 ], [ %narrow3348, %636 ]
+  %.ph3493 = phi i32 [ %552, %569 ], [ %573, %..loopexit2361_crit_edge2462 ], [ %573, %.lr.ph2458.split.us ], [ %573, %616 ], [ %552, %560 ], [ %573, %.lr.ph2458.split ], [ %573, %636 ], [ %573, %626 ]
+  %.ph3494 = phi i32 [ %570, %569 ], [ %638, %..loopexit2361_crit_edge2462 ], [ %577, %.lr.ph2458.split.us ], [ %598, %616 ], [ %561, %560 ], [ %598, %.lr.ph2458.split ], [ %627, %626 ], [ %637, %636 ]
   store double %.lcssa3422.sink.sink, ptr %22, align 8, !tbaa !7
   br label %.loopexit2360
 

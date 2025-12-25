@@ -3780,7 +3780,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   br i1 %exitcond436.not.i.i.i, label %._crit_edge212.i.i.i, label %.preheader8.i1344.i.i.backedge
 
 .preheader8.i1344.i.i.backedge:                   ; preds = %._crit_edge204.i.i.i, %._crit_edge204.i.i.i.thread
-  %indvars.iv432.i.i.i.be = phi i64 [ %indvars.iv.next433.i.i.i322, %._crit_edge204.i.i.i.thread ], [ %indvars.iv.next433.i.i.i, %._crit_edge204.i.i.i ]
+  %indvars.iv432.i.i.i.be = phi i64 [ %indvars.iv.next433.i.i.i, %._crit_edge204.i.i.i ], [ %indvars.iv.next433.i.i.i322, %._crit_edge204.i.i.i.thread ]
   br label %.preheader8.i1344.i.i, !llvm.loop !92
 
 ._crit_edge204.i.i.i.thread:                      ; preds = %.lr.ph203.i.i.i

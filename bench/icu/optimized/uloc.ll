@@ -3464,8 +3464,8 @@ _ZN6icu_7710CharString6appendERKS0_R10UErrorCode.exit231: ; preds = %214
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %254
 
-.thread262:                                       ; preds = %219, %208
-  %.4157.ph = phi i8 [ %.6159, %208 ], [ 1, %219 ]
+.thread262:                                       ; preds = %208, %219
+  %.4157.ph = phi i8 [ 1, %219 ], [ %.6159, %208 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %13) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %228 = trunc nuw i8 %.4157.ph to i1

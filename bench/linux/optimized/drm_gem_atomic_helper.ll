@@ -120,7 +120,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
   br label %52
 
 52:                                               ; preds = %48, %50
-  %53 = phi ptr [ %46, %48 ], [ %51, %50 ]
+  %53 = phi ptr [ %51, %50 ], [ %46, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = add nuw nsw i64 %29, 1
   %55 = load ptr, ptr %18, align 8

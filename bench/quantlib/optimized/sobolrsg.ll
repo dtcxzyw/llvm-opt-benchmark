@@ -40252,7 +40252,7 @@ for.end583:                                       ; preds = %for.cond.cleanup546
   br label %if.end585
 
 if.end585:                                        ; preds = %for.cond.cleanup, %for.end583, %sw.epilog
-  %164 = phi i64 [ %163, %for.end583 ], [ %46, %sw.epilog ], [ %46, %for.cond.cleanup ]
+  %164 = phi i64 [ %46, %sw.epilog ], [ %163, %for.end583 ], [ %46, %for.cond.cleanup ]
   %cmp588743 = icmp ugt i64 %164, 1
   br i1 %cmp588743, label %for.body589.lr.ph, label %for.end639
 

@@ -2751,7 +2751,7 @@ _ZN4llvm14SmallBitVector3setEj.exit.i10.i.i.i:    ; preds = %230, %244, %233, %_
   br i1 %.not.i11.i.i.i, label %_ZN12_GLOBAL__N_115getNonNullAttrsERKN5clang7AnyCallE.exit.thread.i, label %.lr.ph.i7.i.i.i
 
 _ZN12_GLOBAL__N_115getNonNullAttrsERKN5clang7AnyCallE.exit.thread.i: ; preds = %_ZN4llvm14SmallBitVector3setEj.exit.i10.i.i.i, %_ZNK4llvm14SmallBitVector4sizeEv.exit.i8.i.i.i, %_ZNK5clang7AnyCall10parametersEv.exit.i.i.i.i, %182
-  %.sroa.09.624.i = phi i64 [ %.sroa.09.3.i, %_ZNK5clang7AnyCall10parametersEv.exit.i.i.i.i ], [ %.sroa.09.3.i, %182 ], [ %.sroa.09.4.i, %_ZNK4llvm14SmallBitVector4sizeEv.exit.i8.i.i.i ], [ %.sroa.09.5.i, %_ZN4llvm14SmallBitVector3setEj.exit.i10.i.i.i ]
+  %.sroa.09.624.i = phi i64 [ %.sroa.09.3.i, %_ZNK5clang7AnyCall10parametersEv.exit.i.i.i.i ], [ %.sroa.09.3.i, %182 ], [ %.sroa.09.5.i, %_ZN4llvm14SmallBitVector3setEj.exit.i10.i.i.i ], [ %.sroa.09.4.i, %_ZNK4llvm14SmallBitVector4sizeEv.exit.i8.i.i.i ]
   %257 = load i32, ptr %23, align 4
   %258 = and i32 %257, 126
   %259 = add nsw i32 %258, -38

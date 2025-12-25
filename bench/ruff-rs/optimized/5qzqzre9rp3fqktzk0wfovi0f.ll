@@ -973,10 +973,10 @@ _ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8ea
   %.not.i.i = icmp eq i64 %.sroa.058.1, -9223372036854775808
   br i1 %.not.i.i, label %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit.thread", label %215
 
-"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit.thread": ; preds = %85, %86, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit"
-  %.sroa.1263.2123.ph = phi i64 [ %.sroa.1263.2, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit" ], [ %.sroa.1263.0232, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ %.sroa.1263.0232, %86 ], [ %.sroa.1263.0232, %85 ]
-  %.sroa.962.2121.ph = phi ptr [ %.sroa.962.2, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit" ], [ %.sroa.962.0231, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ %.sroa.962.0231, %86 ], [ %.sroa.962.0231, %85 ]
-  %.sroa.077.5119.ph = phi i64 [ %.sroa.077.5, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit" ], [ 0, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ 0, %86 ], [ 0, %85 ]
+"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit.thread": ; preds = %86, %85, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit"
+  %.sroa.1263.2123.ph = phi i64 [ %.sroa.1263.2, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit" ], [ %.sroa.1263.0232, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ %.sroa.1263.0232, %85 ], [ %.sroa.1263.0232, %86 ]
+  %.sroa.962.2121.ph = phi ptr [ %.sroa.962.2, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit" ], [ %.sroa.962.0231, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ %.sroa.962.0231, %85 ], [ %.sroa.962.0231, %86 ]
+  %.sroa.077.5119.ph = phi i64 [ %.sroa.077.5, %"_ZN14ruff_formatter6buffer14clean_interned28_$u7b$$u7b$closure$u7d$$u7d$17h7f5e8e2f4350248aE.exit" ], [ 0, %_ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit.i ], [ 0, %85 ], [ 0, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %205 = add nuw nsw i64 %.sroa.975.0226, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.557.sroa.0)
@@ -1159,7 +1159,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit30: ; preds = %"_ZN
   br label %.body.thread
 
 _ZN14ruff_formatter6buffer25RemoveSoftLineBreaksState11should_drop17hf540915b8eaaee20E.exit: ; preds = %247, %.noexc, %234, %252
-  %.sroa.077.3 = phi i64 [ %253, %252 ], [ 0, %.noexc ], [ %.sroa.077.0234, %234 ], [ %.sroa.077.0234, %247 ]
+  %.sroa.077.3 = phi i64 [ %.sroa.077.0234, %234 ], [ 0, %.noexc ], [ %253, %252 ], [ %.sroa.077.0234, %247 ]
   br label %.backedge
 
 258:                                              ; preds = %236

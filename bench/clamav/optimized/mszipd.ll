@@ -356,7 +356,7 @@ define i32 @mszipd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   br i1 %138, label %.loopexit, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %119, %57, %68, %._crit_edge167, %.preheader, %18, %116
-  %.sink = phi i32 [ 3, %57 ], [ 11, %._crit_edge167 ], [ %118, %116 ], [ 4, %18 ], [ 11, %.preheader ], [ 3, %68 ], [ 4, %119 ]
+  %.sink = phi i32 [ 3, %57 ], [ 11, %.preheader ], [ %118, %116 ], [ 4, %18 ], [ 11, %._crit_edge167 ], [ 3, %68 ], [ 4, %119 ]
   store i32 %.sink, ptr %6, align 8, !tbaa !20
   br label %.loopexit
 
@@ -769,7 +769,7 @@ define internal fastcc range(i32 -14, 4) i32 @inflate(ptr noundef %0) unnamed_ad
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge758, %.lr.ph750, %187, %.thread.sink.split
-  %.2308.ph = phi i32 [ 3, %.thread.sink.split ], [ -3, %187 ], [ -4, %.lr.ph750 ], [ -2, %._crit_edge758 ]
+  %.2308.ph = phi i32 [ 3, %.thread.sink.split ], [ -4, %.lr.ph750 ], [ -3, %187 ], [ -2, %._crit_edge758 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread477
 
@@ -2478,7 +2478,7 @@ define range(i32 -14, 12) i32 @mszipd_decompress_kwaj(ptr noundef %0) local_unna
   br i1 %.not110, label %14, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %162, %34, %23, %67, %56, %103, %92, %136, %125, %159
-  %.sink = phi i32 [ 3, %136 ], [ 3, %103 ], [ %161, %159 ], [ 3, %67 ], [ 3, %34 ], [ 3, %125 ], [ 3, %92 ], [ 3, %56 ], [ 3, %23 ], [ 4, %162 ]
+  %.sink = phi i32 [ 3, %34 ], [ %161, %159 ], [ 3, %67 ], [ 3, %136 ], [ 3, %103 ], [ 3, %125 ], [ 3, %92 ], [ 3, %56 ], [ 3, %23 ], [ 4, %162 ]
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sink, ptr %170, align 8, !tbaa !20
   br label %.loopexit

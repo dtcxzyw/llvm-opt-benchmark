@@ -457,7 +457,7 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr noundef c
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.preheader, %85, %77, %89, %.critedge2.thread, %94
-  %.8 = phi ptr [ %.2.lcssa, %.critedge2.thread ], [ %.2.lcssa, %77 ], [ %95, %94 ], [ %91, %89 ], [ %83, %85 ], [ %83, %.preheader ]
+  %.8 = phi ptr [ %.2.lcssa, %.critedge2.thread ], [ %.2.lcssa, %77 ], [ %91, %89 ], [ %95, %94 ], [ %83, %85 ], [ %83, %.preheader ]
   %96 = icmp ugt ptr %.8, %.090
   br i1 %96, label %97, label %101
 

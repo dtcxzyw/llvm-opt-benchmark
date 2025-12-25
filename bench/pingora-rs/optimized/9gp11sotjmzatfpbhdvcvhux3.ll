@@ -14412,9 +14412,9 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17h2e450fa43788516eE.exit.i.i: ; pre
           to label %.critedge.thread142 unwind label %237
 
 .critedge:                                        ; preds = %.body54, %.body
-  %.sroa.010.1 = phi i8 [ %.sroa.011.1, %.body ], [ %.sroa.010.3, %.body54 ]
-  %.sroa.011.2 = phi i8 [ %.sroa.011.1, %.body ], [ %.sroa.011.4, %.body54 ]
-  %.pn31.pn = phi { ptr, i32 } [ %242, %.body ], [ %.pn.pn, %.body54 ]
+  %.sroa.010.1 = phi i8 [ %.sroa.010.3, %.body54 ], [ %.sroa.011.1, %.body ]
+  %.sroa.011.2 = phi i8 [ %.sroa.011.4, %.body54 ], [ %.sroa.011.1, %.body ]
+  %.pn31.pn = phi { ptr, i32 } [ %.pn.pn, %.body54 ], [ %242, %.body ]
   %239 = trunc nuw i8 %.sroa.010.1 to i1
   br i1 %239, label %.critedge.thread142, label %87
 

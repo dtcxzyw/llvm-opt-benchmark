@@ -2166,7 +2166,7 @@ define internal fastcc range(i32 -1, 2) i32 @ALSA_pcm_cfg_hw_chans_n_scan(ptr no
   br label %.thread92
 
 .thread92:                                        ; preds = %124, %121, %17, %15, %.thread92.sink.split
-  %.176 = phi i32 [ -1, %.thread92.sink.split ], [ 1, %15 ], [ 1, %17 ], [ 0, %124 ], [ -1, %121 ]
+  %.176 = phi i32 [ -1, %.thread92.sink.split ], [ 1, %15 ], [ -1, %121 ], [ 0, %124 ], [ 1, %17 ]
   ret i32 %.176
 }
 

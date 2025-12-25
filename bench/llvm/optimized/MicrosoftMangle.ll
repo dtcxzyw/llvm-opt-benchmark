@@ -1456,7 +1456,7 @@ _ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread..critedge_crit_edge: ;
   br label %.preheader, !llvm.loop !488
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread..critedge_crit_edge, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit
-  %59 = phi i16 [ %49, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit ], [ %.pre, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread..critedge_crit_edge ], [ %54, %.preheader ], [ %54, %.preheader ]
+  %59 = phi i16 [ %.pre, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread..critedge_crit_edge ], [ %49, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit ], [ %54, %.preheader ], [ %54, %.preheader ]
   %60 = and i16 %59, 127
   %61 = icmp eq i16 %60, 0
   br i1 %61, label %62, label %.thread50
@@ -7833,7 +7833,7 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit.thread:  ; preds = %_ZNK5clang4Decl21ge
   store i8 51, ptr %78, align 1, !tbaa !392
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread127: ; preds = %47, %62, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
+_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread127: ; preds = %62, %47, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !556
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
@@ -12602,7 +12602,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_14CUDA
   br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14CUDAGlobalAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !555
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14CUDAGlobalAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i: ; preds = %16, %.lr.ph.i.i.i.i
-  %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %16 ]
+  %.sroa.07.0.i.i.ph.i = phi ptr [ %11, %16 ], [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ]
   %18 = icmp ne ptr %.sroa.07.0.i.i.ph.i, %11
   br label %_ZN5clang15hasSpecificAttrINS_14CUDAGlobalAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEbRKT0_.exit
 
@@ -33789,7 +33789,7 @@ _ZNK5clang7TagDecl17hasNameForLinkageEv.exit:     ; preds = %35
   br label %67
 
 67:                                               ; preds = %.sink.split, %45, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit
-  %.0 = phi i1 [ false, %45 ], [ false, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit ], [ false, %45 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

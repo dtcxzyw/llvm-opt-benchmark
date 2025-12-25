@@ -6554,7 +6554,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit70.thread103:    ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvmeqENS_9StringRefES0_.exit74
 
 _ZN4llvmeqENS_9StringRefES0_.exit74:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit70.thread103, %33, %35
-  %38 = phi i32 [ 0, %33 ], [ %2, %_ZN4llvmeqENS_9StringRefES0_.exit70.thread103 ], [ %37, %35 ]
+  %38 = phi i32 [ %37, %35 ], [ %2, %_ZN4llvmeqENS_9StringRefES0_.exit70.thread103 ], [ 0, %33 ]
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %40 = icmp eq ptr %30, %39
   br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

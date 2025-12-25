@@ -1993,7 +1993,7 @@ _ZN4llvm3isaIN5clang13NamespaceDeclENS1_15LinkageSpecDeclEJNS1_22ObjCImplementat
   br i1 %.not168, label %_ZN4llvm11raw_ostreamlsEPKc.exit57, label %_ZN4llvm9StringRefC2EPKc.exit.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %361, %342, %374, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit53, %372
-  %.018 = phi ptr [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit ], [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit53 ], [ @.str.2, %372 ], [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread ], [ @.str.3, %374 ], [ @.str.2, %342 ], [ @.str.2, %361 ]
+  %.018 = phi ptr [ @.str.2, %372 ], [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit ], [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit53 ], [ @.str.2, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread ], [ @.str.3, %374 ], [ @.str.2, %342 ], [ @.str.2, %361 ]
   %376 = load ptr, ptr %0, align 8, !tbaa !36
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 24
   %378 = load ptr, ptr %377, align 8, !tbaa !39
@@ -4714,7 +4714,7 @@ _ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i: ; preds = %120, %114
   br label %_ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i58, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i, %123, %130
-  %132 = phi ptr [ %131, %130 ], [ %126, %123 ], [ null, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i ], [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i58 ]
+  %132 = phi ptr [ %126, %123 ], [ %131, %130 ], [ null, %_ZNK5clang17ObjCInterfaceDecl18getSuperClassTInfoEv.exit.i ], [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i58 ]
   %133 = ptrtoint ptr %132 to i64
   %134 = and i64 %133, -16
   store i64 %134, ptr %5, align 8
@@ -4910,7 +4910,7 @@ _ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i: ; preds = %_ZNK5clang17
   br i1 %.not.i.i4.i.i, label %_ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !225
 
 _ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit.i: ; preds = %226, %.lr.ph.i.i.i.i, %219, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i
-  %.sroa.0.1.i.i = phi ptr [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i ], [ null, %219 ], [ null, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i ], [ %229, %226 ], [ %.sroa.0.2.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.0.1.i.i = phi ptr [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i ], [ null, %219 ], [ null, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i.i ], [ %.sroa.0.2.i.i, %.lr.ph.i.i.i.i ], [ %229, %226 ]
   %.0.copyload.i.i.i.i.i2.i = load i64, ptr %10, align 8
   %.not.i.i.i3.i = icmp eq i64 %.0.copyload.i.i.i.i.i2.i, 0
   br i1 %.not.i.i.i3.i, label %230, label %_ZNK5clang17ObjCInterfaceDecl5ivarsEv.exit
@@ -16715,7 +16715,7 @@ _ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i: ; preds = %_ZNK5clang17Ob
   br i1 %.not.i.i4.i, label %_ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit, label %.lr.ph.i.i.i, !llvm.loop !225
 
 _ZNK5clang17ObjCInterfaceDecl10ivar_beginEv.exit: ; preds = %.lr.ph.i.i.i, %19, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i, %12
-  %.sroa.0.1.i = phi ptr [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i ], [ null, %12 ], [ null, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i ], [ %.sroa.0.2.i, %.lr.ph.i.i.i ], [ %22, %19 ]
+  %.sroa.0.1.i = phi ptr [ null, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i ], [ null, %12 ], [ null, %_ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit.i ], [ %22, %19 ], [ %.sroa.0.2.i, %.lr.ph.i.i.i ]
   %.0.copyload.i.i.i.i.i2 = load i64, ptr %2, align 8
   %.not.i.i.i3 = icmp eq i64 %.0.copyload.i.i.i.i.i2, 0
   br i1 %.not.i.i.i3, label %23, label %_ZNK5clang17ObjCInterfaceDecl8ivar_endEv.exit

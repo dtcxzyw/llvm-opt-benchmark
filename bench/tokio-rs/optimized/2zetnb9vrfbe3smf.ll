@@ -5815,7 +5815,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h
           to label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i.preheader unwind label %.loopexit.split-lp.i.loopexit, !noalias !971
 
 _ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i: ; preds = %432, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i, %490, %.noexc17.i, %.noexc3.i, %399
-  %.1.i = phi ptr [ %437, %490 ], [ %437, %.noexc17.i ], [ %.2.i, %399 ], [ %.2.i, %.noexc3.i ], [ %.2.i64, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i ], [ %.2.i64, %432 ]
+  %.1.i = phi ptr [ %437, %.noexc17.i ], [ %437, %490 ], [ %.2.i, %399 ], [ %.2.i, %.noexc3.i ], [ %.2.i64, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i ], [ %.2.i64, %432 ]
   %424 = load ptr, ptr %0, align 8, !noalias !971, !nonnull !19, !noundef !19
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 16
   %426 = load ptr, ptr %425, align 8, !nonnull !19, !noundef !19

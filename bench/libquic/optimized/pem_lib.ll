@@ -643,9 +643,9 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader140, %.critedge7, %.critedge9, %130, %144
-  %145 = phi i32 [ %.0110.lcssa, %144 ], [ %127, %.critedge9 ], [ %127, %130 ], [ %98, %.critedge7 ], [ %98, %.preheader140 ]
-  %.1106 = phi ptr [ %12, %144 ], [ %11, %.critedge9 ], [ %11, %130 ], [ %11, %.critedge7 ], [ %11, %.preheader140 ]
-  %.1 = phi ptr [ %11, %144 ], [ %12, %.critedge9 ], [ %12, %130 ], [ %12, %.critedge7 ], [ %12, %.preheader140 ]
+  %145 = phi i32 [ %.0110.lcssa, %144 ], [ %127, %130 ], [ %127, %.critedge9 ], [ %98, %.critedge7 ], [ %98, %.preheader140 ]
+  %.1106 = phi ptr [ %12, %144 ], [ %11, %130 ], [ %11, %.critedge9 ], [ %11, %.critedge7 ], [ %11, %.preheader140 ]
+  %.1 = phi ptr [ %11, %144 ], [ %12, %130 ], [ %12, %.critedge9 ], [ %12, %.critedge7 ], [ %12, %.preheader140 ]
   %bcmp133 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %9, ptr noundef nonnull dereferenceable(9) @.str.13, i64 9)
   %.not134 = icmp eq i32 %bcmp133, 0
   br i1 %.not134, label %146, label %156

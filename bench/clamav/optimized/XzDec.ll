@@ -341,7 +341,7 @@ define internal range(i32 0, 5) i32 @BraState_Code(ptr noundef %0, ptr noundef w
   br label %.lr.ph
 
 .loopexit124:                                     ; preds = %83, %32, %23, %8
-  %.1 = phi i64 [ %.0109.ph141, %23 ], [ %10, %8 ], [ %41, %32 ], [ %41, %83 ]
+  %.1 = phi i64 [ %10, %8 ], [ %.0109.ph141, %23 ], [ %41, %32 ], [ %41, %83 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %87 = load i64, ptr %86, align 8, !tbaa !30
   %88 = load i64, ptr %0, align 8, !tbaa !28
@@ -1038,7 +1038,7 @@ Xz_ReadVarInt.exit109:                            ; preds = %.split.loop.exit18.
   br i1 %.not98, label %.preheader, label %.critedge
 
 .critedge:                                        ; preds = %20, %47, %.split.loop.exit18.i120, %.split.loop.exit18.i113, %107, %73, %94, %.preheader, %124, %.split.loop.exit18.i106, %.split.loop.exit18.i, %33, %2
-  %.0 = phi i32 [ 16, %.split.loop.exit18.i ], [ 16, %94 ], [ 16, %2 ], [ 16, %47 ], [ 16, %33 ], [ 0, %.preheader ], [ 16, %73 ], [ 16, %.split.loop.exit18.i106 ], [ 16, %.split.loop.exit18.i120 ], [ 16, %124 ], [ 16, %107 ], [ 16, %.split.loop.exit18.i113 ], [ 16, %20 ]
+  %.0 = phi i32 [ 16, %.split.loop.exit18.i ], [ 16, %.split.loop.exit18.i120 ], [ 16, %2 ], [ 16, %47 ], [ 16, %33 ], [ 16, %73 ], [ 16, %94 ], [ 16, %.split.loop.exit18.i106 ], [ 0, %.preheader ], [ 16, %124 ], [ 16, %107 ], [ 16, %.split.loop.exit18.i113 ], [ 16, %20 ]
   ret i32 %.0
 }
 

@@ -8188,7 +8188,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   br i1 %.not.i.i52, label %103, label %.loopexit
 
 Gia_ManDivCover.exit.thread68:                    ; preds = %.preheader91.i.i, %.preheader88.i.i, %.preheader.i.i.us, %.preheader85.i.i.us, %103, %93, %72, %83
-  %.04483.in = phi i64 [ %indvars.iv143, %83 ], [ %indvars.iv, %103 ], [ %indvars.iv143, %72 ], [ %indvars.iv143, %.preheader.i.i.us ], [ %indvars.iv, %93 ], [ %indvars.iv143, %.preheader85.i.i.us ], [ %indvars.iv, %.preheader88.i.i ], [ %indvars.iv, %.preheader91.i.i ]
+  %.04483.in = phi i64 [ %indvars.iv143, %83 ], [ %indvars.iv, %93 ], [ %indvars.iv, %103 ], [ %indvars.iv143, %.preheader.i.i.us ], [ %indvars.iv143, %72 ], [ %indvars.iv143, %.preheader85.i.i.us ], [ %indvars.iv, %.preheader88.i.i ], [ %indvars.iv, %.preheader91.i.i ]
   %.04483 = trunc i64 %.04483.in to i32
   %112 = shl i32 %.04483, 17
   %113 = shl i32 %.fr109, 1
@@ -8478,7 +8478,7 @@ Gia_ManDivCover.exit.us:                          ; preds = %.lr.ph103.i.i.us, %
   br i1 %.not.i.i55, label %98, label %Gia_ManDivCover.exit
 
 .thread68:                                        ; preds = %.preheader91.i.i, %.preheader88.i.i, %.preheader.i.i.us, %.preheader85.i.i.us, %98, %88, %68, %79
-  %.04783.in = phi i64 [ %indvars.iv149209, %79 ], [ %indvars.iv146206, %98 ], [ %indvars.iv149209, %68 ], [ %indvars.iv149209, %.preheader.i.i.us ], [ %indvars.iv146206, %88 ], [ %indvars.iv149209, %.preheader85.i.i.us ], [ %indvars.iv146206, %.preheader88.i.i ], [ %indvars.iv146206, %.preheader91.i.i ]
+  %.04783.in = phi i64 [ %indvars.iv149209, %79 ], [ %indvars.iv146206, %88 ], [ %indvars.iv146206, %98 ], [ %indvars.iv149209, %.preheader.i.i.us ], [ %indvars.iv149209, %68 ], [ %indvars.iv149209, %.preheader85.i.i.us ], [ %indvars.iv146206, %.preheader88.i.i ], [ %indvars.iv146206, %.preheader91.i.i ]
   %.04783 = trunc i64 %.04783.in to i32
   %.048111138 = trunc i64 %indvars.iv152 to i32
   %107 = shl i32 %.04783, 17
@@ -8495,7 +8495,7 @@ Gia_ManDivCover.exit:                             ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %112, label %.critedge2, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %Gia_ManDivCover.exit, %.critedge2, %Gia_ManDivCover.exit.us, %.critedge2.us, %.critedge2.preheader, %.critedge2.us.preheader, %44
-  %.val50 = phi i32 [ %.val.us, %Gia_ManDivCover.exit.us ], [ %.val91, %44 ], [ %.val91, %.critedge2.us.preheader ], [ %.val91, %.critedge2.preheader ], [ %.val.us, %.critedge2.us ], [ %.val, %.critedge2 ], [ %.val, %Gia_ManDivCover.exit ]
+  %.val50 = phi i32 [ %.val91, %.critedge2.preheader ], [ %.val91, %44 ], [ %.val91, %.critedge2.us.preheader ], [ %.val.us, %Gia_ManDivCover.exit.us ], [ %.val.us, %.critedge2.us ], [ %.val, %.critedge2 ], [ %.val, %Gia_ManDivCover.exit ]
   %113 = sext i32 %.val50 to i64
   %114 = icmp slt i64 %indvars.iv.next153, %113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

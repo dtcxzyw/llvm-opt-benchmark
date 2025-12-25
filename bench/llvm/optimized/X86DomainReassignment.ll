@@ -6160,7 +6160,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6de
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread, label %.lr.ph.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %50, %44
-  %.sroa.0.0.i.i.i = phi ptr [ %49, %50 ], [ %.0.i.i.i.i, %44 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.0.i.i.i.i, %44 ], [ %49, %50 ]
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !617
   %.not.i.i.i.i.i.i.i = icmp eq ptr %54, null

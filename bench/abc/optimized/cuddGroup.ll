@@ -2007,7 +2007,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %127, %166, %.loopexit, %._crit_edge, %202, %..critedge.loopexit_crit_edge
-  %.0177 = phi i32 [ 1, %._crit_edge ], [ 0, %202 ], [ 0, %..critedge.loopexit_crit_edge ], [ 1, %127 ], [ 1, %.loopexit ], [ 1, %166 ], [ 1, %13 ]
+  %.0177 = phi i32 [ 0, %202 ], [ 1, %._crit_edge ], [ 0, %..critedge.loopexit_crit_edge ], [ 1, %127 ], [ 1, %.loopexit ], [ 1, %166 ], [ 1, %13 ]
   ret i32 %.0177
 }
 

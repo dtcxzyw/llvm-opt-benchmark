@@ -12606,7 +12606,7 @@ define internal fastcc void @getDependencies(ptr noundef %0) unnamed_addr #4 {
   br label %48
 
 48:                                               ; preds = %.sink.split, %.thread, %31
-  %.152 = phi ptr [ null, %31 ], [ %.151, %.thread ], [ %.151, %.sink.split ]
+  %.152 = phi ptr [ %.151, %.thread ], [ null, %31 ], [ %.151, %.sink.split ]
   %49 = add nuw nsw i32 %.054, 1
   %exitcond.not = icmp eq i32 %49, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
@@ -29019,7 +29019,7 @@ dumpTableComment.exit.i:                          ; preds = %1187, %1300, %findC
   br i1 %.not56.i.i727.i, label %findSecLabels.exit.i.i, label %.lr.ph80.i.i.i, !llvm.loop !150
 
 findSecLabels.exit.i.i:                           ; preds = %1367, %1364, %.lr.ph80.i.i.i, %._crit_edge68.i.i.i
-  %.048.i.i.i = phi i32 [ %.0.lcssa.i.i726.i, %._crit_edge68.i.i.i ], [ %.178.i.i.i, %.lr.ph80.i.i.i ], [ %.178.i.i.i, %1364 ], [ %1369, %1367 ]
+  %.048.i.i.i = phi i32 [ %.0.lcssa.i.i726.i, %._crit_edge68.i.i.i ], [ %.178.i.i.i, %.lr.ph80.i.i.i ], [ %1369, %1367 ], [ %.178.i.i.i, %1364 ]
   %1370 = icmp slt i32 %.048.i.i.i, 1
   br i1 %1370, label %dumpTableSecLabel.exit.i, label %1371
 
@@ -30579,12 +30579,12 @@ define internal fastcc void @dumpSecLabel(ptr noundef %0, ptr noundef %1, ptr no
   %.not56.i = icmp ugt ptr %78, %.04264.i
   br i1 %.not56.i, label %findSecLabels.exit, label %.lr.ph80.i, !llvm.loop !150
 
-findSecLabels.exit.thread:                        ; preds = %60, %26, %29
+findSecLabels.exit.thread:                        ; preds = %60, %29, %26
   %80 = tail call ptr @createPQExpBuffer() #13
   br label %._crit_edge
 
 findSecLabels.exit:                               ; preds = %.lr.ph80.i, %74, %77, %._crit_edge68.i
-  %.048.i = phi i32 [ %.0.lcssa.i, %._crit_edge68.i ], [ %.178.i, %.lr.ph80.i ], [ %.178.i, %74 ], [ %79, %77 ]
+  %.048.i = phi i32 [ %.0.lcssa.i, %._crit_edge68.i ], [ %79, %77 ], [ %.178.i, %74 ], [ %.178.i, %.lr.ph80.i ]
   %81 = tail call ptr @createPQExpBuffer() #13
   %82 = icmp sgt i32 %.048.i, 0
   br i1 %82, label %.lr.ph, label %._crit_edge

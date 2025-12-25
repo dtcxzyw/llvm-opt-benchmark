@@ -333,7 +333,7 @@ define ptr @Abc_FlowRetime_MinReg(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %121
 
 121:                                              ; preds = %.sink.split.i, %118, %115, %99
-  %.0.i = phi i32 [ 0, %99 ], [ 0, %115 ], [ 1024, %118 ], [ 1024, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %115 ], [ 0, %99 ], [ 1024, %118 ], [ 1024, %.sink.split.i ]
   %122 = and i32 %.val159, 1024
   %123 = xor i32 %122, %.0.i
   %124 = getelementptr inbounds nuw i8, ptr %108, i64 20

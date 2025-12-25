@@ -1498,7 +1498,7 @@ define internal range(i32 0, 2) i32 @final_renegotiate(ptr noundef %0, i32 %1, i
   br label %23
 
 23:                                               ; preds = %.sink.split, %14, %17, %6, %10
-  %.0 = phi i32 [ 1, %6 ], [ 1, %14 ], [ 1, %17 ], [ 1, %10 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %6 ], [ 1, %17 ], [ 1, %14 ], [ 1, %10 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2175,7 +2175,7 @@ define internal range(i32 0, 2) i32 @final_ems(ptr noundef %0, i32 %1, i32 %2) #
   br label %20
 
 20:                                               ; preds = %.sink.split, %8, %11, %14
-  %.0 = phi i32 [ 1, %8 ], [ 1, %11 ], [ 1, %14 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %11 ], [ 1, %8 ], [ 1, %14 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -2749,7 +2749,7 @@ define internal range(i32 0, 3) i32 @tls_construct_certificate_authorities(ptr n
   br label %19
 
 19:                                               ; preds = %.sink.split, %17, %15, %5, %8
-  %.0 = phi i32 [ 1, %17 ], [ 0, %15 ], [ 2, %8 ], [ 2, %5 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 2, %8 ], [ 0, %15 ], [ 1, %17 ], [ 2, %5 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 

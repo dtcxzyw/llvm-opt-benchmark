@@ -2381,7 +2381,7 @@ common.resume.i:                                  ; preds = %31, %15
   unreachable
 
 "_ZN89_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hb820016d0f7f94b0E.exit": ; preds = %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message17h400af44974825245E.exit7.sink.split.i", %18
-  %.sroa.0.0.i = phi i1 [ true, %18 ], [ false, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message17h400af44974825245E.exit7.sink.split.i" ]
+  %.sroa.0.0.i = phi i1 [ false, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message17h400af44974825245E.exit7.sink.split.i" ], [ true, %18 ]
   ret i1 %.sroa.0.0.i
 }
 

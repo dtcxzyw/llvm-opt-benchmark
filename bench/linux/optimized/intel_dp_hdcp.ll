@@ -1066,7 +1066,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
   br label %141
 
 138:                                              ; preds = %134, %131, %128
-  %.in = phi i8 [ %135, %134 ], [ %133, %131 ], [ %130, %128 ]
+  %.in = phi i8 [ %133, %131 ], [ %135, %134 ], [ %130, %128 ]
   %.in.fr = freeze i8 %.in
   %139 = and i8 %.in.fr, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

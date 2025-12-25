@@ -6771,7 +6771,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.
   br label %288
 
 288:                                              ; preds = %283, %278, %273, %263, %259, %255
-  %.080.i = phi ptr [ %287, %283 ], [ %258, %255 ], [ %262, %259 ], [ %266, %263 ], [ %282, %278 ], [ %277, %273 ]
+  %.080.i = phi ptr [ %277, %273 ], [ %258, %255 ], [ %262, %259 ], [ %266, %263 ], [ %282, %278 ], [ %287, %283 ]
   %.not91.i = icmp eq ptr %.080.i, null
   br i1 %.not91.i, label %.critedge95.i, label %289
 

@@ -179,7 +179,7 @@ save_senderNonce_if_waiting.exit.thread.sink.split: ; preds = %38, %34
   br label %save_senderNonce_if_waiting.exit.thread
 
 save_senderNonce_if_waiting.exit.thread:          ; preds = %save_senderNonce_if_waiting.exit.thread.sink.split, %22, %38, %26, %4
-  %.0 = phi i32 [ 0, %22 ], [ 0, %4 ], [ 0, %26 ], [ 1, %38 ], [ 0, %save_senderNonce_if_waiting.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %22 ], [ 0, %26 ], [ 1, %38 ], [ 0, %save_senderNonce_if_waiting.exit.thread.sink.split ]
   ret i32 %.0
 }
 

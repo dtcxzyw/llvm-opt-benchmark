@@ -1183,8 +1183,8 @@ select.unfold.i:                                  ; preds = %87, %50
   br label %45
 
 89:                                               ; preds = %87, %74, %50
-  %90 = phi i32 [ %82, %74 ], [ %51, %50 ], [ %82, %87 ]
-  %.162.ph.i = phi i32 [ %.263.i, %74 ], [ 0, %50 ], [ 0, %87 ]
+  %90 = phi i32 [ %51, %50 ], [ %82, %87 ], [ %82, %74 ]
+  %.162.ph.i = phi i32 [ 0, %50 ], [ 0, %87 ], [ %.263.i, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %91 = getelementptr inbounds nuw i8, ptr %.064.i, i64 6
   %92 = load i16, ptr %91, align 2
@@ -1342,12 +1342,12 @@ select.unfold.i:                                  ; preds = %87, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
-.thread101:                                       ; preds = %34, %137, %36, %95, %138, %97, %93, %105
+.thread101:                                       ; preds = %34, %137, %36, %93, %138, %97, %95, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %159
 
 158:                                              ; preds = %123, %124
-  %.0 = phi i32 [ %.mux93, %123 ], [ %.mux, %124 ]
+  %.0 = phi i32 [ %.mux, %124 ], [ %.mux93, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %cond = icmp eq i32 %.0, 4
   br i1 %cond, label %159, label %.loopexit

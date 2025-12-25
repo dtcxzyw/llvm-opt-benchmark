@@ -253,9 +253,9 @@ mxg_find_startmarker.exit150:                     ; preds = %.lr.ph41.i141
   br i1 %.not130, label %mxg_find_startmarker.exit, label %.critedge
 
 mxg_find_startmarker.exit:                        ; preds = %75, %.lr.ph41.i, %.thread.loopexit27.split.loop.exit34.i, %.thread.loopexit27.split.loop.exit32.i, %.thread.loopexit27.split.loop.exit30.i, %101
-  %104 = phi ptr [ %62, %101 ], [ %65, %.thread.loopexit27.split.loop.exit34.i ], [ %65, %.lr.ph41.i ], [ %65, %.thread.loopexit27.split.loop.exit30.i ], [ %65, %.thread.loopexit27.split.loop.exit32.i ], [ %65, %75 ]
-  %.0116 = phi ptr [ %.12340.i142, %101 ], [ %95, %.thread.loopexit27.split.loop.exit34.i ], [ %.12340.i, %.lr.ph41.i ], [ %93, %.thread.loopexit27.split.loop.exit30.i ], [ %94, %.thread.loopexit27.split.loop.exit32.i ], [ %.02239.i, %75 ]
-  %.0115 = phi ptr [ %62, %101 ], [ %67, %.thread.loopexit27.split.loop.exit34.i ], [ %67, %.lr.ph41.i ], [ %67, %.thread.loopexit27.split.loop.exit30.i ], [ %67, %.thread.loopexit27.split.loop.exit32.i ], [ %67, %75 ]
+  %104 = phi ptr [ %62, %101 ], [ %65, %.thread.loopexit27.split.loop.exit32.i ], [ %65, %.lr.ph41.i ], [ %65, %.thread.loopexit27.split.loop.exit30.i ], [ %65, %.thread.loopexit27.split.loop.exit34.i ], [ %65, %75 ]
+  %.0116 = phi ptr [ %.12340.i142, %101 ], [ %94, %.thread.loopexit27.split.loop.exit32.i ], [ %.12340.i, %.lr.ph41.i ], [ %93, %.thread.loopexit27.split.loop.exit30.i ], [ %95, %.thread.loopexit27.split.loop.exit34.i ], [ %.02239.i, %75 ]
+  %.0115 = phi ptr [ %62, %101 ], [ %67, %.thread.loopexit27.split.loop.exit32.i ], [ %67, %.lr.ph41.i ], [ %67, %.thread.loopexit27.split.loop.exit30.i ], [ %67, %.thread.loopexit27.split.loop.exit34.i ], [ %67, %75 ]
   %.not131 = icmp eq ptr %.0116, %.0115
   br i1 %.not131, label %mxg_find_startmarker.exit.thread, label %105
 

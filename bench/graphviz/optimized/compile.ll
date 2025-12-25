@@ -1560,7 +1560,7 @@ define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr 
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %41, %38, %26, %29, %32, %35, %.thread92, %78, %73, %68, %64, %60, %56, %.thread, %17, %16, %11, %8, %4
-  %.0 = phi i32 [ -1, %8 ], [ -1, %4 ], [ -1, %16 ], [ -1, %17 ], [ 0, %78 ], [ -1, %.thread ], [ 0, %56 ], [ 0, %60 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ 0, %41 ], [ -1, %11 ], [ %.0699194, %.thread92 ], [ 0, %38 ], [ 0, %26 ], [ 0, %29 ], [ 0, %32 ], [ 0, %35 ], [ 0, %.critedge.sink.split ]
+  %.0 = phi i32 [ -1, %8 ], [ -1, %4 ], [ -1, %16 ], [ -1, %17 ], [ 0, %78 ], [ -1, %.thread ], [ 0, %56 ], [ 0, %60 ], [ 0, %64 ], [ 0, %68 ], [ 0, %73 ], [ 0, %35 ], [ -1, %11 ], [ %.0699194, %.thread92 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %38 ], [ 0, %41 ], [ 0, %.critedge.sink.split ]
   ret i32 %.0
 }
 
@@ -6546,9 +6546,9 @@ define internal fastcc zeroext i16 @typeChk(i16 noundef zeroext %0, ptr noundef 
   %.not26 = icmp eq i16 %39, 0
   br i1 %.not26, label %.thread, label %.thread36
 
-.thread36:                                        ; preds = %28, %16, %31, %27, %36
-  %.041 = phi i16 [ %41, %36 ], [ 8, %27 ], [ 8, %31 ], [ 8, %16 ], [ 8, %28 ]
-  %.02440 = phi i16 [ %39, %36 ], [ 112, %27 ], [ 112, %31 ], [ 112, %16 ], [ 112, %28 ]
+.thread36:                                        ; preds = %31, %28, %16, %27, %36
+  %.041 = phi i16 [ %41, %36 ], [ 8, %27 ], [ 8, %16 ], [ 8, %28 ], [ 8, %31 ]
+  %.02440 = phi i16 [ %39, %36 ], [ 112, %27 ], [ 112, %16 ], [ 112, %28 ], [ 112, %31 ]
   %.not28 = icmp eq i16 %0, 0
   %spec.store.select = select i1 %.not28, i16 112, i16 %0
   %42 = and i16 %.02440, %spec.store.select

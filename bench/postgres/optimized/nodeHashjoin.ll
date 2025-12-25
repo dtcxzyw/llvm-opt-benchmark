@@ -589,7 +589,7 @@ ExecHashJoinOuterGetTuple.exit:                   ; preds = %179, %.thread.i
   %.not163.i = icmp eq i16 %184, 0
   br i1 %.not163.i, label %188, label %ExecHashJoinOuterGetTuple.exit.thread
 
-ExecHashJoinOuterGetTuple.exit.thread:            ; preds = %144, %.lr.ph.i, %118, %148, %ExecHashJoinGetSavedTuple.exit.i, %179, %ExecHashJoinGetSavedTuple.exit.thread.i, %152, %ExecHashJoinOuterGetTuple.exit
+ExecHashJoinOuterGetTuple.exit.thread:            ; preds = %144, %.lr.ph.i, %118, %152, %ExecHashJoinGetSavedTuple.exit.i, %179, %ExecHashJoinGetSavedTuple.exit.thread.i, %148, %ExecHashJoinOuterGetTuple.exit
   %185 = load ptr, ptr %31, align 8
   %.not167.i = icmp eq ptr %185, null
   br i1 %.not167.i, label %187, label %186

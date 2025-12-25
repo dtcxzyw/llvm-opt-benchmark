@@ -1035,7 +1035,7 @@ mythread_condtime_set.exit.i:                     ; preds = %257, %242
   br i1 %293, label %wait_for_work.exit, label %.lr.ph.i, !llvm.loop !87
 
 wait_for_work.exit:                               ; preds = %.lr.ph.i, %292, %264, %266, %268, %.split.i126
-  %.us-phi.i = phi i8 [ 0, %.split.i126 ], [ %.2.us.us.us.i, %264 ], [ %.2.us.us.us.i, %268 ], [ %.2.us.us.us.i, %266 ], [ %.3.i127, %292 ], [ %.232.i, %.lr.ph.i ]
+  %.us-phi.i = phi i8 [ 0, %.split.i126 ], [ %.2.us.us.us.i, %264 ], [ %.2.us.us.us.i, %268 ], [ %.2.us.us.us.i, %266 ], [ %.232.i, %.lr.ph.i ], [ %.3.i127, %292 ]
   %294 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #12
   %295 = trunc nuw i8 %.us-phi.i to i1
   br i1 %295, label %threads_stop.exit.thread, label %.outer

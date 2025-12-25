@@ -6081,7 +6081,7 @@ _ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.thread: ; pre
   br label %_ZN16Unique_Node_List4pushEP4Node.exit
 
 _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %173, %.critedge, %_ZN9Node_List4pushEP4Node.exit.i, %_ZN9VectorSet8test_setEj.exit.i, %138, %154, %150, %148, %143, %142, %176, %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit, %178, %141, %137
-  %.059 = phi ptr [ %182, %178 ], [ %2, %137 ], [ %2, %141 ], [ null, %176 ], [ %2, %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit ], [ %2, %_ZN9Node_List4pushEP4Node.exit.i ], [ %2, %_ZN9VectorSet8test_setEj.exit.i ], [ null, %138 ], [ null, %142 ], [ null, %143 ], [ null, %148 ], [ null, %150 ], [ null, %154 ], [ null, %.critedge ], [ null, %173 ]
+  %.059 = phi ptr [ %182, %178 ], [ %2, %137 ], [ %2, %141 ], [ null, %176 ], [ %2, %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit ], [ %2, %_ZN9VectorSet8test_setEj.exit.i ], [ %2, %_ZN9Node_List4pushEP4Node.exit.i ], [ null, %138 ], [ null, %142 ], [ null, %143 ], [ null, %148 ], [ null, %150 ], [ null, %154 ], [ null, %.critedge ], [ null, %173 ]
   ret ptr %.059
 }
 

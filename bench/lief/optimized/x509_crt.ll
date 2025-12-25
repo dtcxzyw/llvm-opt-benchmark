@@ -1483,7 +1483,7 @@ define hidden i32 @mbedtls_x509_crt_verify_info(ptr noundef writeonly captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %13, %24, %27, %31
-  %.037 = phi i32 [ %33, %31 ], [ -10624, %24 ], [ -10624, %27 ], [ -10624, %13 ], [ -10624, %10 ]
+  %.037 = phi i32 [ %33, %31 ], [ -10624, %27 ], [ -10624, %24 ], [ -10624, %13 ], [ -10624, %10 ]
   ret i32 %.037
 }
 

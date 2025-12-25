@@ -15483,7 +15483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %105
   br label %121
 
 121:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18, %118, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21
-  %.111 = phi i1 [ %120, %118 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.111 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21 ], [ %120, %118 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
@@ -16193,7 +16193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %73,
   br label %99
 
 99:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29, %96, %84
-  %.114 = phi i1 [ %98, %96 ], [ false, %84 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.114 = phi i1 [ false, %84 ], [ %98, %96 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge26
 
@@ -22643,7 +22643,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit64.thread126:    ; preds = %_ZN4llvmeqENS_9Stri
   br label %.thread
 
 .thread:                                          ; preds = %125, %_ZL12parseHexOctaRN12_GLOBAL__N_110MasmParserERmS2_.exit, %191, %139, %_ZN4llvmeqENS_9StringRefES0_.exit64.thread126, %.critedge6, %.critedge8, %.critedge10
-  %.4.ph = phi i1 [ %198, %_ZN4llvmeqENS_9StringRefES0_.exit64.thread126 ], [ true, %.critedge6 ], [ true, %.critedge10 ], [ true, %.critedge8 ], [ true, %139 ], [ true, %191 ], [ true, %_ZL12parseHexOctaRN12_GLOBAL__N_110MasmParserERmS2_.exit ], [ true, %125 ]
+  %.4.ph = phi i1 [ true, %.critedge6 ], [ %198, %_ZN4llvmeqENS_9StringRefES0_.exit64.thread126 ], [ true, %.critedge10 ], [ true, %.critedge8 ], [ true, %139 ], [ true, %191 ], [ true, %_ZL12parseHexOctaRN12_GLOBAL__N_110MasmParserERmS2_.exit ], [ true, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread135
 

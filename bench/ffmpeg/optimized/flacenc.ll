@@ -6328,7 +6328,7 @@ lpc_encode_with_residual_limit_33bps.exit.sink.split: ; preds = %.thread109, %54
   br label %lpc_encode_with_residual_limit_33bps.exit
 
 lpc_encode_with_residual_limit_33bps.exit:        ; preds = %88, %.preheader.i57, %51, %.preheader.i, %62, %._crit_edge.us.i79, %25, %._crit_edge.us.i, %lpc_encode_with_residual_limit_33bps.exit.sink.split, %.preheader42.i68, %.preheader42.i
-  %.049 = phi i32 [ 0, %.preheader42.i ], [ 0, %lpc_encode_with_residual_limit_33bps.exit.sink.split ], [ 0, %.preheader42.i68 ], [ 0, %51 ], [ 1, %._crit_edge.us.i79 ], [ 1, %._crit_edge.us.i ], [ 0, %25 ], [ 0, %62 ], [ 1, %.preheader.i ], [ 1, %.preheader.i57 ], [ 0, %88 ]
+  %.049 = phi i32 [ 0, %.preheader42.i ], [ 0, %lpc_encode_with_residual_limit_33bps.exit.sink.split ], [ 0, %.preheader42.i68 ], [ 0, %51 ], [ 1, %._crit_edge.us.i79 ], [ 1, %._crit_edge.us.i ], [ 0, %25 ], [ 0, %62 ], [ 1, %.preheader.i ], [ 0, %88 ], [ 1, %.preheader.i57 ]
   ret i32 %.049
 }
 

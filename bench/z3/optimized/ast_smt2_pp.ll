@@ -22656,7 +22656,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
   br label %.thread
 
 .thread:                                          ; preds = %62, %.thread.sink.split, %3
-  %68 = phi i1 [ false, %.thread.sink.split ], [ true, %3 ], [ true, %62 ]
+  %68 = phi i1 [ true, %3 ], [ false, %.thread.sink.split ], [ true, %62 ]
   ret i1 %68
 }
 

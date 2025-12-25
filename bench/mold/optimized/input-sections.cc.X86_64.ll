@@ -3420,7 +3420,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i: ; p
   br i1 %.not.i, label %_ZN4moldL9find_nullESt17basic_string_viewIcSt11char_traitsIcEEll.exit.thread, label %.lr.ph.i, !llvm.loop !470
 
 _ZN4moldL9find_nullESt17basic_string_viewIcSt11char_traitsIcEEll.exit: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i, %72, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
-  %.0.i = phi i64 [ %.01023.i, %72 ], [ %64, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.01023.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i ], [ %.01023.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
+  %.0.i = phi i64 [ %64, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ %.01023.i, %72 ], [ %.01023.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i ], [ %.01023.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
   %77 = icmp eq i64 %.0.i, -1
   br i1 %77, label %_ZN4moldL9find_nullESt17basic_string_viewIcSt11char_traitsIcEEll.exit.thread, label %29
 

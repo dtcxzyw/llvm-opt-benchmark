@@ -412,7 +412,7 @@ define dso_local range(i32 0, 2) i32 @fake_pipeline_aead_set_ctx_params(ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %.loopexit.sink.split, %.preheader, %2
-  %.010 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %.preheader ], [ 1, %2 ], [ 1, %13 ]
+  %.010 = phi i32 [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %2 ], [ 1, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

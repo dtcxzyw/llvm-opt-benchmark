@@ -3626,7 +3626,7 @@ Curl_use_http_1_1plus.exit.i:                     ; preds = %51
   %.not24.i = icmp eq i32 %63, 0
   br i1 %.not24.i, label %addexpect.exit.thread, label %addexpect.exit.thread79
 
-addexpect.exit.thread:                            ; preds = %62, %41, %47, %Curl_use_http_1_1plus.exit.i, %43, %60, %51, %.thread72.thread, %10
+addexpect.exit.thread:                            ; preds = %62, %41, %60, %Curl_use_http_1_1plus.exit.i, %43, %47, %51, %.thread72.thread, %10
   %.068 = phi i1 [ false, %10 ], [ false, %47 ], [ %42, %41 ], [ false, %43 ], [ false, %Curl_use_http_1_1plus.exit.i ], [ false, %60 ], [ false, %.thread72.thread ], [ false, %51 ], [ true, %62 ]
   %64 = tail call i32 @Curl_dyn_addn(ptr noundef %1, ptr noundef nonnull @.str.49, i64 noundef 2) #12
   %.not63 = icmp eq i32 %64, 0
@@ -6424,8 +6424,8 @@ checkhttpprefix.exit.thread:                      ; preds = %439, %checkhttppref
   store i32 %491, ptr %489, align 1
   br label %.critedge235.thread
 
-.critedge235:                                     ; preds = %417, %417, %428, %385, %385, %396, %checkhttpprefix.exit.thread, %488
-  %492 = phi ptr [ %348, %417 ], [ %348, %417 ], [ %348, %428 ], [ %348, %385 ], [ %348, %385 ], [ %348, %396 ], [ %.pre, %checkhttpprefix.exit.thread ], [ %348, %488 ]
+.critedge235:                                     ; preds = %417, %417, %428, %396, %385, %385, %checkhttpprefix.exit.thread, %488
+  %492 = phi ptr [ %348, %417 ], [ %348, %417 ], [ %348, %428 ], [ %348, %396 ], [ %348, %385 ], [ %348, %385 ], [ %.pre, %checkhttpprefix.exit.thread ], [ %348, %488 ]
   %493 = tail call i32 @Curl_http_statusline(ptr noundef nonnull %0, ptr noundef %492)
   %.not212 = icmp eq i32 %493, 0
   br i1 %.not212, label %494, label %.critedge235.thread
@@ -6462,7 +6462,7 @@ verify_header.exit:                               ; preds = %494, %502
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull %.str.157.sink.i) #12
   br label %.critedge235.thread
 
-504:                                              ; preds = %501, %502, %496
+504:                                              ; preds = %502, %501, %496
   %505 = tail call i32 @Curl_http_header(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2)
   %.not214 = icmp eq i32 %505, 0
   br i1 %.not214, label %506, label %.critedge235.thread

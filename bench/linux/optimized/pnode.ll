@@ -473,7 +473,7 @@ select.unfold29:                                  ; preds = %115, %109
   br i1 %123, label %.thread24, label %.preheader40, !llvm.loop !14
 
 .thread24:                                        ; preds = %13, %38, %select.unfold, %.thread27, %67, %96, %select.unfold29, %.thread
-  %124 = phi i32 [ 0, %.thread ], [ 0, %38 ], [ 0, %96 ], [ 0, %.thread27 ], [ %69, %67 ], [ 0, %select.unfold29 ], [ 0, %select.unfold ], [ %14, %13 ]
+  %124 = phi i32 [ 0, %.thread ], [ 0, %96 ], [ 0, %38 ], [ 0, %.thread27 ], [ %69, %67 ], [ 0, %select.unfold29 ], [ 0, %select.unfold ], [ %14, %13 ]
   tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mount_lock, i64 4)) #4
   %125 = load ptr, ptr %3, align 8
   %126 = icmp eq ptr %125, null

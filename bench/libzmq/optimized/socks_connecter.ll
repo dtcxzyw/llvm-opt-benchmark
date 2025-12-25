@@ -737,7 +737,7 @@ _ZN3zmq26socks_basic_auth_request_tD2Ev.exit:     ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %246
 
-176:                                              ; preds = %69, %50
+176:                                              ; preds = %50, %69
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %177 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %177, ptr %8, align 8, !tbaa !75

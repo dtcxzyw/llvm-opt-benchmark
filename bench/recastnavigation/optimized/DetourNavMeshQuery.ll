@@ -1748,7 +1748,7 @@ _Z11dtVisfinitePKf.exit.thread.sink.split:        ; preds = %._crit_edge53, %56
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %_Z11dtVisfinitePKf.exit.thread.sink.split, %18, %22, %_Z11dtVisfinitePKf.exit, %14
-  %.0 = phi i32 [ -2147483640, %14 ], [ -2147483640, %18 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %22 ], [ 1073741824, %_Z11dtVisfinitePKf.exit.thread.sink.split ]
+  %.0 = phi i32 [ -2147483640, %14 ], [ -2147483640, %22 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %18 ], [ 1073741824, %_Z11dtVisfinitePKf.exit.thread.sink.split ]
   ret i32 %.0
 }
 

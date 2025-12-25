@@ -423,7 +423,7 @@ get_decompress_stream.exit.i:                     ; preds = %123, %111
   br label %decompress.exit
 
 decompress.exit:                                  ; preds = %104, %181
-  %.1.i = phi ptr [ %187, %181 ], [ %110, %104 ]
+  %.1.i = phi ptr [ %110, %104 ], [ %187, %181 ]
   %.not93 = icmp eq ptr %.1.i, null
   br i1 %.not93, label %decompress.exit.thread, label %195
 

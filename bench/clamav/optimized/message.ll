@@ -4047,7 +4047,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br label %136
 
 136:                                              ; preds = %133, %128, %127, %.preheader.split.us.i
-  %.1167.us.i = phi i64 [ %.2168.us.i, %127 ], [ %.0166.us.i, %.preheader.split.us.i ], [ %.2168.us.i, %128 ], [ %.2168.us.i, %133 ]
+  %.1167.us.i = phi i64 [ %.2168.us.i, %127 ], [ %.0166.us.i, %.preheader.split.us.i ], [ %.2168.us.i, %133 ], [ %.2168.us.i, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %137 = getelementptr inbounds nuw i8, ptr %.1160.us.i, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !44
@@ -4569,7 +4569,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br label %130
 
 130:                                              ; preds = %127, %122, %121, %.preheader.split.us.i
-  %.1167.us.i = phi i64 [ %.2168.us.i, %121 ], [ %.0166.us.i, %.preheader.split.us.i ], [ %.2168.us.i, %122 ], [ %.2168.us.i, %127 ]
+  %.1167.us.i = phi i64 [ %.2168.us.i, %121 ], [ %.0166.us.i, %.preheader.split.us.i ], [ %.2168.us.i, %127 ], [ %.2168.us.i, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %131 = getelementptr inbounds nuw i8, ptr %.1160.us.i, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !44
@@ -5813,7 +5813,7 @@ decode.exit:                                      ; preds = %197, %.lr.ph249.i, 
   br label %.preheader
 
 .critedge.thread:                                 ; preds = %21, %21, %.preheader, %258, %254, %249, %251, %233, %229, %226, %223, %218, %decode.exit, %217, %79, %72, %.critedge, %248, %18
-  %.195 = phi ptr [ %3, %249 ], [ %3, %251 ], [ %3, %254 ], [ %71, %.critedge ], [ %.7, %.preheader ], [ %3, %218 ], [ %3, %223 ], [ %3, %226 ], [ %3, %229 ], [ %19, %18 ], [ %3, %233 ], [ %.6, %248 ], [ %3, %72 ], [ %.0129.i, %217 ], [ %.0129.i, %decode.exit ], [ %3, %79 ], [ %.7, %258 ], [ %.296174, %21 ], [ %.296174, %21 ]
+  %.195 = phi ptr [ %3, %249 ], [ %3, %251 ], [ %3, %254 ], [ %19, %18 ], [ %71, %.critedge ], [ %3, %218 ], [ %3, %223 ], [ %3, %226 ], [ %3, %229 ], [ %.7, %.preheader ], [ %3, %233 ], [ %.6, %248 ], [ %3, %72 ], [ %.0129.i, %217 ], [ %.0129.i, %decode.exit ], [ %3, %79 ], [ %.7, %258 ], [ %.296174, %21 ], [ %.296174, %21 ]
   store i8 0, ptr %.195, align 1, !tbaa !24
   br label %269
 

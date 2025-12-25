@@ -2376,7 +2376,7 @@ _Z9is_app_ofPK4exprii.exit19.thread.sink.split:   ; preds = %_Z9is_app_ofPK4expr
   br label %_Z9is_app_ofPK4exprii.exit19.thread
 
 _Z9is_app_ofPK4exprii.exit19.thread:              ; preds = %_Z9is_app_ofPK4exprii.exit19.thread.sink.split, %10, %3, %_Z9is_app_ofPK4exprii.exit19
-  %.0 = phi i1 [ false, %10 ], [ false, %3 ], [ false, %_Z9is_app_ofPK4exprii.exit19 ], [ true, %_Z9is_app_ofPK4exprii.exit19.thread.sink.split ]
+  %.0 = phi i1 [ false, %3 ], [ false, %10 ], [ false, %_Z9is_app_ofPK4exprii.exit19 ], [ true, %_Z9is_app_ofPK4exprii.exit19.thread.sink.split ]
   ret i1 %.0
 }
 
@@ -2408,7 +2408,7 @@ _Z9is_app_ofPK4exprii.exit.i:                     ; preds = %9
   br label %_ZN15fpa_decl_plugin13is_rm_numeralEP4exprR17mpf_rounding_mode.exit
 
 _ZN15fpa_decl_plugin13is_rm_numeralEP4exprR17mpf_rounding_mode.exit: ; preds = %_Z9is_app_ofPK4exprii.exit.i, %2, %9
-  %.0.i = phi i1 [ false, %9 ], [ false, %2 ], [ %or.cond8, %_Z9is_app_ofPK4exprii.exit.i ]
+  %.0.i = phi i1 [ false, %2 ], [ false, %9 ], [ %or.cond8, %_Z9is_app_ofPK4exprii.exit.i ]
   ret i1 %.0.i
 }
 

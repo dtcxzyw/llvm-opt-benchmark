@@ -450,7 +450,7 @@ hwloc_internal_distances_dup_one.exit.thread.sink.split: ; preds = %103, %49, %2
   br label %hwloc_internal_distances_dup_one.exit.thread
 
 hwloc_internal_distances_dup_one.exit.thread:     ; preds = %121, %hwloc_tma_malloc.exit.i, %hwloc_internal_distances_dup_one.exit.thread.sink.split, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %hwloc_internal_distances_dup_one.exit.thread.sink.split ], [ -1, %hwloc_tma_malloc.exit.i ], [ 0, %121 ]
+  %.0 = phi i32 [ 0, %2 ], [ -1, %hwloc_internal_distances_dup_one.exit.thread.sink.split ], [ 0, %121 ], [ -1, %hwloc_tma_malloc.exit.i ]
   ret i32 %.0
 }
 
@@ -3647,7 +3647,7 @@ is_nvswitch.exit63.thread.i:                      ; preds = %144, %is_nvswitch.e
   br label %hwloc__distances_transform_links.exit
 
 hwloc__distances_transform_links.exit:            ; preds = %.loopexit.i, %.lr.ph61.i, %100, %hwloc__distances_transform_merge_switch_ports.exit, %.loopexit.sink.split.i, %._crit_edge.i, %.preheader51.i, %.loopexit, %160, %11, %8
-  %.011 = phi i32 [ -1, %8 ], [ -1, %160 ], [ %12, %11 ], [ %99, %.loopexit ], [ -1, %.loopexit.sink.split.i ], [ -1, %hwloc__distances_transform_merge_switch_ports.exit ], [ 0, %.lr.ph61.i ], [ 0, %._crit_edge.i ], [ 0, %.preheader51.i ], [ 0, %100 ], [ 0, %.loopexit.i ]
+  %.011 = phi i32 [ -1, %8 ], [ -1, %160 ], [ %12, %11 ], [ %99, %.loopexit ], [ -1, %.loopexit.sink.split.i ], [ -1, %hwloc__distances_transform_merge_switch_ports.exit ], [ 0, %.preheader51.i ], [ 0, %._crit_edge.i ], [ 0, %.lr.ph61.i ], [ 0, %100 ], [ 0, %.loopexit.i ]
   ret i32 %.011
 }
 

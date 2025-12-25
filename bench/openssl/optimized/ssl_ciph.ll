@@ -781,7 +781,7 @@ ssl_cipher_info_find.exit:                        ; preds = %8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %ssl_cipher_info_find.exit, %21, %15, %28
-  %.1 = phi i32 [ 0, %ssl_cipher_info_find.exit ], [ 0, %21 ], [ 1, %28 ], [ 1, %15 ], [ 1, %.critedge.sink.split ]
+  %.1 = phi i32 [ 0, %21 ], [ 0, %ssl_cipher_info_find.exit ], [ 1, %28 ], [ 1, %15 ], [ 1, %.critedge.sink.split ]
   ret i32 %.1
 }
 
@@ -4429,7 +4429,7 @@ SSL_COMP_get_compression_methods.exit.thread.sink.split: ; preds = %SSL_COMP_get
   br label %SSL_COMP_get_compression_methods.exit.thread
 
 SSL_COMP_get_compression_methods.exit.thread:     ; preds = %SSL_COMP_get_compression_methods.exit.thread.sink.split, %2, %18, %12, %7, %SSL_COMP_get_compression_methods.exit
-  %.0 = phi i32 [ 1, %2 ], [ 1, %SSL_COMP_get_compression_methods.exit ], [ 1, %7 ], [ 0, %18 ], [ 1, %12 ], [ 1, %SSL_COMP_get_compression_methods.exit.thread.sink.split ]
+  %.0 = phi i32 [ 1, %12 ], [ 1, %SSL_COMP_get_compression_methods.exit ], [ 1, %7 ], [ 0, %18 ], [ 1, %2 ], [ 1, %SSL_COMP_get_compression_methods.exit.thread.sink.split ]
   ret i32 %.0
 }
 

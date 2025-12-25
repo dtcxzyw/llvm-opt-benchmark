@@ -5207,7 +5207,7 @@ Py_DECREF.exit22.sink.split.i:                    ; preds = %70, %46
   br label %create_sentinel_wr.exit
 
 create_sentinel_wr.exit:                          ; preds = %65, %70, %Py_DECREF.exit22.sink.split.i
-  %.0.i32 = phi ptr [ %.0.ph.i, %Py_DECREF.exit22.sink.split.i ], [ %68, %65 ], [ %68, %70 ]
+  %.0.i32 = phi ptr [ %68, %65 ], [ %.0.ph.i, %Py_DECREF.exit22.sink.split.i ], [ %68, %70 ]
   %73 = icmp eq ptr %.0.i32, null
   br i1 %73, label %create_sentinel_wr.exit.thread, label %79
 

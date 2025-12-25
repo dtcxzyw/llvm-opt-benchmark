@@ -197,7 +197,7 @@ define internal fastcc range(i32 0, 2) i32 @fnmatch_one(ptr noundef %0, i32 noun
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %8, %.thread78, %.preheader81, %.preheader81, %.lr.ph103, %46, %39, %._crit_edge
-  %.053 = phi i32 [ %., %._crit_edge ], [ 1, %.preheader81 ], [ 1, %39 ], [ 1, %46 ], [ 0, %.lr.ph103 ], [ 1, %.preheader81 ], [ 1, %.thread78 ], [ 1, %8 ], [ 1, %10 ]
+  %.053 = phi i32 [ %., %._crit_edge ], [ 1, %39 ], [ 1, %46 ], [ 1, %.preheader81 ], [ 0, %.lr.ph103 ], [ 1, %.preheader81 ], [ 1, %.thread78 ], [ 1, %8 ], [ 1, %10 ]
   ret i32 %.053
 }
 

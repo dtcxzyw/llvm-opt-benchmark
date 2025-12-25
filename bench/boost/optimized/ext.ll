@@ -28298,7 +28298,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36: ; preds = %44
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36, %63, %60, %22, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
-  %.0 = phi i1 [ false, %22 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit ], [ %69, %63 ], [ true, %60 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34 ]
+  %.0 = phi i1 [ false, %22 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit ], [ true, %60 ], [ %69, %63 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit36 ], [ false, %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit34 ]
   ret i1 %.0
 }
 

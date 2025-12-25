@@ -31262,7 +31262,7 @@ stbi__jpeg_dequantize.exit.us.i.i.i.i:            ; preds = %2282
   br i1 %2301, label %.lr.ph.i66.i.i.i, label %stbi__decode_jpeg_image.exit.i.i
 
 .critedge.sink.split.i.i.i:                       ; preds = %2240, %2235, %1533, %1530, %1526, %1524, %1294, %1289, %stbi__get8.exit.i.i.i.i, %1393, %1387, %stbi__jpeg_huff_decode.exit179.i.us.i.i.i.i, %1796, %1794, %1774, %1948, %1946, %1926, %1899, %.split.us.i.i.i.i, %.split296.us.i.i.i.i, %stbi__get8.exit.thread.i.i.i.i
-  %.str.158.sink.i.i.i = phi ptr [ @.str.153, %stbi__get8.exit.thread.i.i.i.i ], [ @.str.158, %.split296.us.i.i.i.i ], [ @.str.158, %1948 ], [ @.str.158, %.split.us.i.i.i.i ], [ @.str.158, %stbi__jpeg_huff_decode.exit179.i.us.i.i.i.i ], [ @.str.156, %1393 ], [ @.str.158, %1899 ], [ @.str.158, %1926 ], [ @.str.158, %1946 ], [ @.str.158, %1774 ], [ @.str.158, %1794 ], [ @.str.158, %1796 ], [ @.str.155, %1387 ], [ @.str.153, %stbi__get8.exit.i.i.i.i ], [ @.str.154, %1294 ], [ @.str.157, %1524 ], [ @.str.157, %1530 ], [ @.str.157, %1533 ], [ @.str.152, %2240 ], [ @.str.157, %1526 ], [ @.str.151, %2235 ], [ @.str.153, %1289 ]
+  %.str.158.sink.i.i.i = phi ptr [ @.str.158, %.split296.us.i.i.i.i ], [ @.str.158, %.split.us.i.i.i.i ], [ @.str.158, %1948 ], [ @.str.158, %stbi__jpeg_huff_decode.exit179.i.us.i.i.i.i ], [ @.str.156, %1393 ], [ @.str.153, %stbi__get8.exit.thread.i.i.i.i ], [ @.str.158, %1899 ], [ @.str.158, %1926 ], [ @.str.158, %1946 ], [ @.str.158, %1774 ], [ @.str.158, %1794 ], [ @.str.158, %1796 ], [ @.str.155, %1387 ], [ @.str.153, %stbi__get8.exit.i.i.i.i ], [ @.str.152, %2240 ], [ @.str.157, %1526 ], [ @.str.151, %2235 ], [ @.str.153, %1289 ], [ @.str.157, %1530 ], [ @.str.157, %1524 ], [ @.str.154, %1294 ], [ @.str.157, %1533 ]
   store ptr %.str.158.sink.i.i.i, ptr @stbi__g_failure_reason, align 8
   br label %.loopexit366.i.i
 
@@ -37876,12 +37876,12 @@ stbi__get8.exit197.thread.backedge:               ; preds = %643, %.thread.i231
   br label %stbi__get8.exit197.thread.backedge
 
 stbi__skip.exit223.thread.sink.split:             ; preds = %stbi__get8.exit, %100, %408, %388, %385, %195, %123, %131, %stbi__mad3sizes_valid.exit, %26, %stbi__mul2sizes_valid.exit.thread15.i, %9, %stbi__mul2sizes_valid.exit12.i
-  %.str.129.sink = phi ptr [ @.str.106, %26 ], [ @.str.123, %195 ], [ @.str.122, %131 ], [ %.str.129.mux, %385 ], [ @.str.122, %123 ], [ @.str.106, %stbi__mad3sizes_valid.exit ], [ @.str.91, %9 ], [ @.str.91, %stbi__mul2sizes_valid.exit.thread15.i ], [ @.str.91, %stbi__mul2sizes_valid.exit12.i ], [ @.str.129, %408 ], [ @.str.128, %388 ], [ @.str.124, %100 ], [ @.str.124, %stbi__get8.exit ]
+  %.str.129.sink = phi ptr [ @.str.106, %26 ], [ @.str.123, %195 ], [ @.str.122, %131 ], [ @.str.91, %9 ], [ @.str.122, %123 ], [ @.str.106, %stbi__mad3sizes_valid.exit ], [ %.str.129.mux, %385 ], [ @.str.91, %stbi__mul2sizes_valid.exit.thread15.i ], [ @.str.91, %stbi__mul2sizes_valid.exit12.i ], [ @.str.129, %408 ], [ @.str.128, %388 ], [ @.str.124, %100 ], [ @.str.124, %stbi__get8.exit ]
   store ptr %.str.129.sink, ptr @stbi__g_failure_reason, align 8
   br label %stbi__skip.exit223.thread
 
 stbi__skip.exit223.thread:                        ; preds = %stbi__get8.exit, %444, %stbi__skip.exit223.thread.sink.split, %stbi__get8.exit.i, %stbi__process_gif_raster.exit, %421, %417, %7
-  %.0 = phi ptr [ null, %7 ], [ %.0.i190, %444 ], [ null, %stbi__get8.exit.i ], [ null, %stbi__skip.exit223.thread.sink.split ], [ %.0.i190, %421 ], [ %.0.i190, %417 ], [ null, %stbi__process_gif_raster.exit ], [ %0, %stbi__get8.exit ]
+  %.0 = phi ptr [ null, %7 ], [ null, %stbi__process_gif_raster.exit ], [ null, %stbi__get8.exit.i ], [ null, %stbi__skip.exit223.thread.sink.split ], [ %.0.i190, %421 ], [ %.0.i190, %417 ], [ %.0.i190, %444 ], [ %0, %stbi__get8.exit ]
   ret ptr %.0
 }
 
@@ -41426,7 +41426,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef nonn
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %.loopexit, %.loopexit65.sink.split, %47
-  %.0 = phi i32 [ 0, %.loopexit65.sink.split ], [ 1, %47 ], [ 1, %.loopexit ]
+  %.0 = phi i32 [ 1, %47 ], [ 0, %.loopexit65.sink.split ], [ 1, %.loopexit ]
   ret i32 %.0
 }
 
@@ -42051,7 +42051,7 @@ stbi__extend_receive.exit95:                      ; preds = %198, %201
   br label %.thread118.sink.split
 
 .thread118.sink.split:                            ; preds = %170, %168, %148, %119, %.thread118.sink.split.sink.split, %stbi__mul2shorts_valid.exit, %100, %stbi__addints_valid.exit, %stbi__jpeg_huff_decode.exit, %20, %44, %46
-  %.str.158.sink = phi ptr [ @.str.158, %.thread118.sink.split.sink.split ], [ @.str.160, %stbi__mul2shorts_valid.exit ], [ @.str.159, %stbi__addints_valid.exit ], [ @.str.158, %stbi__jpeg_huff_decode.exit ], [ @.str.158, %46 ], [ @.str.158, %44 ], [ @.str.158, %20 ], [ @.str.160, %100 ], [ @.str.158, %119 ], [ @.str.158, %148 ], [ @.str.158, %168 ], [ @.str.158, %170 ]
+  %.str.158.sink = phi ptr [ @.str.160, %100 ], [ @.str.160, %stbi__mul2shorts_valid.exit ], [ @.str.159, %stbi__addints_valid.exit ], [ @.str.158, %stbi__jpeg_huff_decode.exit ], [ @.str.158, %46 ], [ @.str.158, %44 ], [ @.str.158, %20 ], [ @.str.158, %.thread118.sink.split.sink.split ], [ @.str.158, %119 ], [ @.str.158, %148 ], [ @.str.158, %168 ], [ @.str.158, %170 ]
   store ptr %.str.158.sink, ptr @stbi__g_failure_reason, align 8
   br label %.thread118
 
@@ -42758,7 +42758,7 @@ define internal fastcc range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef non
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %79, %.loopexit70.sink.split, %40
-  %.062 = phi i32 [ 0, %.loopexit70.sink.split ], [ 1, %40 ], [ 1, %79 ]
+  %.062 = phi i32 [ 1, %40 ], [ 0, %.loopexit70.sink.split ], [ 1, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.062

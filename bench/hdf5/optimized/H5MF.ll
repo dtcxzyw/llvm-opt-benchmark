@@ -1711,7 +1711,7 @@ H5MF__alloc_pagefs.exit.thread:                   ; preds = %232, %128, %146, %1
   br label %H5MF__alloc_pagefs.exit
 
 H5MF__alloc_pagefs.exit:                          ; preds = %221, %225, %172, %150, %86, %249, %252, %H5MF__alloc_pagefs.exit.thread, %82, %74, %57
-  %256 = phi i64 [ -1, %57 ], [ %.pre66, %86 ], [ %250, %249 ], [ -1, %252 ], [ -1, %H5MF__alloc_pagefs.exit.thread ], [ -1, %82 ], [ -1, %74 ], [ %183, %221 ], [ %183, %225 ], [ %144, %150 ], [ %144, %172 ]
+  %256 = phi i64 [ -1, %57 ], [ %.pre66, %86 ], [ %250, %249 ], [ -1, %252 ], [ -1, %H5MF__alloc_pagefs.exit.thread ], [ -1, %82 ], [ -1, %74 ], [ %183, %221 ], [ %183, %225 ], [ %144, %172 ], [ %144, %150 ]
   %257 = load i32, ptr %4, align 4, !tbaa !11
   %.not34 = icmp eq i32 %257, 0
   br i1 %.not34, label %259, label %258

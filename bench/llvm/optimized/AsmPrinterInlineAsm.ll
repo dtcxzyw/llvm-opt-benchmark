@@ -1218,16 +1218,16 @@ _ZN4llvm5TwineC2EPKc.exit213.i:                   ; preds = %334, %329
   %383 = and i64 %382, 7
   %384 = icmp eq i64 %383, 6
   %385 = load ptr, ptr %0, align 8, !tbaa !313
-  br i1 %384, label %390, label %386
+  br i1 %384, label %386, label %390
 
 386:                                              ; preds = %380
-  %387 = getelementptr inbounds nuw i8, ptr %385, i64 440
+  %387 = getelementptr inbounds nuw i8, ptr %385, i64 448
   %388 = load ptr, ptr %387, align 8
   %389 = call noundef zeroext i1 %388(ptr noundef nonnull align 8 dereferenceable(777) %0, ptr noundef nonnull %1, i32 noundef %364, ptr noundef %.not159.i, ptr noundef nonnull align 8 dereferenceable(48) %43) #17
   br i1 %389, label %.critedge171.i, label %.critedge173.i
 
 390:                                              ; preds = %380
-  %391 = getelementptr inbounds nuw i8, ptr %385, i64 448
+  %391 = getelementptr inbounds nuw i8, ptr %385, i64 440
   %392 = load ptr, ptr %391, align 8
   %393 = call noundef zeroext i1 %392(ptr noundef nonnull align 8 dereferenceable(777) %0, ptr noundef nonnull %1, i32 noundef %364, ptr noundef %.not159.i, ptr noundef nonnull align 8 dereferenceable(48) %43) #17
   br i1 %393, label %.critedge171.i, label %.critedge173.i

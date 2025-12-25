@@ -4706,7 +4706,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br label %.thread952
 
 .loopexit.split-lp1398.loopexit.split-lp:         ; preds = %748, %745, %257, %246, %._crit_edge1733
-  %.6.ph.ph = phi i8 [ 1, %._crit_edge1733 ], [ 1, %745 ], [ 1, %748 ], [ 0, %257 ], [ 0, %246 ]
+  %.6.ph.ph = phi i8 [ 1, %._crit_edge1733 ], [ 1, %745 ], [ 0, %257 ], [ 1, %748 ], [ 0, %246 ]
   %lpad.loopexit.split-lp1403 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp1398
@@ -5112,8 +5112,8 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   br label %.thread985
 
 .thread1028.loopexit.split-lp.loopexit:           ; preds = %321, %302, %.thread1034
-  %.0446.ph.ph.ph = phi i1 [ true, %302 ], [ true, %.thread1034 ], [ false, %321 ]
-  %.0442.ph.ph.ph = phi i1 [ false, %302 ], [ true, %.thread1034 ], [ false, %321 ]
+  %.0446.ph.ph.ph = phi i1 [ true, %302 ], [ false, %321 ], [ true, %.thread1034 ]
+  %.0442.ph.ph.ph = phi i1 [ false, %302 ], [ false, %321 ], [ true, %.thread1034 ]
   %lpad.loopexit1389 = landingpad { ptr, i32 }
           cleanup
   br label %.thread985

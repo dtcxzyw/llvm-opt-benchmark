@@ -1550,7 +1550,7 @@ define internal range(i32 0, 16388) i32 @check_mcfg_resource(ptr noundef %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %12, %6, %38, %33, %23, %20
-  %44 = phi i32 [ 0, %12 ], [ 0, %6 ], [ 0, %20 ], [ 0, %23 ], [ 0, %38 ], [ 0, %33 ], [ 16387, %.thread.sink.split ]
+  %44 = phi i32 [ 0, %6 ], [ 0, %12 ], [ 0, %20 ], [ 0, %23 ], [ 0, %38 ], [ 0, %33 ], [ 16387, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %44
 }

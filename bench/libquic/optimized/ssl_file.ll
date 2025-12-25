@@ -202,7 +202,7 @@ define hidden range(i32 0, 2) i32 @SSL_add_file_cert_subjects_to_stack(ptr nound
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %8, %9, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %8 ], [ 0, %9 ], [ 0, %16 ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %9 ], [ 0, %8 ], [ 0, %16 ], [ 0, %.lr.ph ]
   %27 = call i32 @BIO_free(ptr noundef %6) #4
   %28 = load ptr, ptr %3, align 8, !tbaa !6
   call void @X509_free(ptr noundef %28) #4

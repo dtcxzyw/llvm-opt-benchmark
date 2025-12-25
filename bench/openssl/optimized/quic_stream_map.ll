@@ -511,8 +511,8 @@ stream_has_data_to_send.exit:                     ; preds = %97
   %.pre81 = load i64, ptr %6, align 8
   br i1 %narrow.i64, label %.critedge54, label %.critedge
 
-.critedge54:                                      ; preds = %stream_has_data_to_send.exit, %86, %88, %._crit_edge
-  %115 = phi i64 [ %91, %._crit_edge ], [ %.pre80, %86 ], [ %.pre78, %88 ], [ %.pre81, %stream_has_data_to_send.exit ]
+.critedge54:                                      ; preds = %stream_has_data_to_send.exit, %88, %86, %._crit_edge
+  %115 = phi i64 [ %91, %._crit_edge ], [ %.pre78, %88 ], [ %.pre80, %86 ], [ %.pre81, %stream_has_data_to_send.exit ]
   %116 = and i64 %115, 16777216
   %.not.i65 = icmp eq i64 %116, 0
   br i1 %.not.i65, label %117, label %stream_map_mark_active.exit

@@ -3930,7 +3930,7 @@ _ZN6vectorIP3astLb0EjE13expand_vectorEv.exit267:  ; preds = %678, %716
   br label %.critedgethread-pre-split
 
 .sink.split.sink.split:                           ; preds = %.preheader.i.i.i.i222, %.preheader.i.i.i.i195, %.preheader.i.i.i.i159, %.preheader.i.i.i.i, %653, %664, %667, %520, %531, %534, %345, %356, %359, %210, %221, %224
-  %.0123668.sink.ph = phi ptr [ %.0123, %664 ], [ %497, %520 ], [ %497, %531 ], [ %187, %.preheader.i.i.i.i ], [ %.0123, %653 ], [ %.0125, %356 ], [ %497, %.preheader.i.i.i.i195 ], [ %.0125, %.preheader.i.i.i.i159 ], [ %.0125, %345 ], [ %187, %210 ], [ %187, %221 ], [ %187, %224 ], [ %.0125, %359 ], [ %497, %534 ], [ %.0123, %667 ], [ %.0123, %.preheader.i.i.i.i222 ]
+  %.0123668.sink.ph = phi ptr [ %.0123, %664 ], [ %497, %520 ], [ %.0125, %.preheader.i.i.i.i159 ], [ %187, %.preheader.i.i.i.i ], [ %187, %221 ], [ %.0123, %653 ], [ %497, %.preheader.i.i.i.i195 ], [ %.0125, %356 ], [ %497, %531 ], [ %187, %210 ], [ %.0125, %345 ], [ %187, %224 ], [ %.0125, %359 ], [ %497, %534 ], [ %.0123, %667 ], [ %.0123, %.preheader.i.i.i.i222 ]
   %733 = load i32, ptr %26, align 8, !tbaa !130
   %734 = add i32 %733, 1
   store i32 %734, ptr %26, align 8, !tbaa !130

@@ -16283,7 +16283,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1b3bc341ec193eccE.exit"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1b3bc341ec193eccE.exit": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd30a5341144fe15cE.exit31.i", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hced065b4072495b3E.exit20.i.i", %81, %74, %67, %58, %42
-  %.sink37.i = phi i64 [ %197, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd30a5341144fe15cE.exit31.i" ], [ %80, %74 ], [ %48, %42 ], [ %119, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hced065b4072495b3E.exit20.i.i" ], [ %73, %67 ], [ %64, %58 ], [ %88, %81 ]
+  %.sink37.i = phi i64 [ %197, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd30a5341144fe15cE.exit31.i" ], [ %73, %67 ], [ %48, %42 ], [ %119, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hced065b4072495b3E.exit20.i.i" ], [ %80, %74 ], [ %64, %58 ], [ %88, %81 ]
   %198 = icmp ugt i64 %.sink37.i, %18
   br i1 %198, label %199, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc1fb0ef65bc5eeb7E.exit.i", !prof !4692
 

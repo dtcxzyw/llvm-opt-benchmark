@@ -1837,7 +1837,7 @@ is_blank_line.exit.i:                             ; preds = %43
   br label %.loopexit161.i, !llvm.loop !80
 
 .loopexit161.i:                                   ; preds = %is_blank_line.exit.i, %.preheader160.i, %.preheader160.i, %..loopexit161.i.loopexit101_crit_edge
-  %.pre-phi = phi i64 [ %38, %.preheader160.i ], [ %.pre120, %..loopexit161.i.loopexit101_crit_edge ], [ %38, %.preheader160.i ], [ %38, %is_blank_line.exit.i ]
+  %.pre-phi = phi i64 [ %.pre120, %..loopexit161.i.loopexit101_crit_edge ], [ %38, %.preheader160.i ], [ %38, %.preheader160.i ], [ %38, %is_blank_line.exit.i ]
   %56 = ptrtoint ptr %1 to i64
   %57 = sub i64 %.pre-phi, %56
   %58 = add i64 %34, -2
@@ -2102,7 +2102,7 @@ last_line.exit118.i:                              ; preds = %147, %145, %139, %1
   br label %find_trailer_block_start.exit
 
 find_trailer_block_start.exit:                    ; preds = %last_line.exit118.i, %find_end_of_log_message.exit, %last_line.exit.i, %83, %.thread139.sink.split.i
-  %.2.i = phi i64 [ %34, %83 ], [ 0, %find_end_of_log_message.exit ], [ %156, %.thread139.sink.split.i ], [ %34, %last_line.exit.i ], [ %34, %last_line.exit118.i ]
+  %.2.i = phi i64 [ 0, %find_end_of_log_message.exit ], [ %156, %.thread139.sink.split.i ], [ %34, %83 ], [ %34, %last_line.exit.i ], [ %34, %last_line.exit118.i ]
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 %.2.i
   %158 = sub i64 %34, %.2.i
   %159 = tail call ptr @strbuf_split_buf(ptr noundef nonnull %157, i64 noundef %158, i32 noundef 10, i32 noundef 0) #17

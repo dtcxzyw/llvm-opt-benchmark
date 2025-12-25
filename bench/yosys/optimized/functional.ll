@@ -108710,9 +108710,9 @@ _ZNSt6vectorIN5Yosys10Functional4NodeESaIS2_EED2Ev.exit224: ; preds = %_ZNSt6vec
   br label %_ZNSt6vectorIN5Yosys10Functional4NodeESaIS2_EED2Ev.exit226
 
 _ZNSt6vectorIN5Yosys10Functional4NodeESaIS2_EED2Ev.exit226: ; preds = %.loopexit255, %.loopexit.split-lp, %410, %407, %144, %378, %311
-  %.sroa.16.1 = phi ptr [ %.sroa.16.3, %410 ], [ %.sroa.16.3, %407 ], [ %.sroa.16.2324, %378 ], [ %.sroa.16.0, %144 ], [ %.sroa.16.2324, %311 ], [ %.sroa.16.2324.lcssa338, %.loopexit255 ], [ %.sroa.10.0325, %.loopexit.split-lp ]
-  %.sroa.0238.1 = phi ptr [ %.sroa.0238.3, %410 ], [ %.sroa.0238.3, %407 ], [ %.sroa.0238.2326, %378 ], [ %.sroa.0238.0, %144 ], [ %.sroa.0238.2326, %311 ], [ %.sroa.0238.2326, %.loopexit255 ], [ %.sroa.0238.2326, %.loopexit.split-lp ]
-  %.pn137.pn.pn = phi { ptr, i32 } [ %408, %410 ], [ %408, %407 ], [ %.pn115.pn, %378 ], [ %145, %144 ], [ %312, %311 ], [ %lpad.loopexit, %.loopexit255 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.16.1 = phi ptr [ %.sroa.16.3, %407 ], [ %.sroa.16.0, %144 ], [ %.sroa.16.2324, %311 ], [ %.sroa.16.3, %410 ], [ %.sroa.16.2324, %378 ], [ %.sroa.16.2324.lcssa338, %.loopexit255 ], [ %.sroa.10.0325, %.loopexit.split-lp ]
+  %.sroa.0238.1 = phi ptr [ %.sroa.0238.3, %407 ], [ %.sroa.0238.0, %144 ], [ %.sroa.0238.2326, %311 ], [ %.sroa.0238.3, %410 ], [ %.sroa.0238.2326, %378 ], [ %.sroa.0238.2326, %.loopexit255 ], [ %.sroa.0238.2326, %.loopexit.split-lp ]
+  %.pn137.pn.pn = phi { ptr, i32 } [ %408, %407 ], [ %145, %144 ], [ %312, %311 ], [ %408, %410 ], [ %.pn115.pn, %378 ], [ %lpad.loopexit, %.loopexit255 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i227 = icmp eq ptr %.sroa.0238.1, null
   br i1 %.not.i.i.i227, label %_ZNSt6vectorIN5Yosys10Functional4NodeESaIS2_EED2Ev.exit228, label %415
 

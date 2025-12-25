@@ -16710,7 +16710,7 @@ if.end9.i.i.i.i.i.i.i131.i:                       ; preds = %if.end.i36.i.i.i.i.
   br i1 %cmp15.i.i.i.i.i.i.i134.i, label %if.then.i.i.i.i.i.i135.i, label %for.inc.i.i.i.i.i.i127.i
 
 if.then.i.i.i.i.i.i135.i:                         ; preds = %if.end9.i.i.i.i.i.i.i131.i, %if.then4.i37.i.i.i.i.i.i.i, %if.then4.i37.us109.i.i.i.i.i.i.i, %if.end9.i.us103.i.i.i.i.i.i.i, %if.then4.i37.us.i.i.i.i.i.i.i, %if.end9.i.us.i.i.i.i.i.i.i, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.i.i.i.i.i.i, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.us.i.i.i.i.i.i
-  %.us-phi.in.i.i.i.i.i.i.i = phi i64 [ %indvars.iv184.i.i.i.i.i.i.i, %if.then4.i37.us.i.i.i.i.i.i.i ], [ 0, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.us.i.i.i.i.i.i ], [ %indvars.iv178.i.i.i.i.i.i.i, %if.then4.i37.us109.i.i.i.i.i.i.i ], [ 0, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.i.i.i.i.i.i ], [ %indvars.iv184.i.i.i.i.i.i.i, %if.end9.i.us.i.i.i.i.i.i.i ], [ %indvars.iv178.i.i.i.i.i.i.i, %if.end9.i.us103.i.i.i.i.i.i.i ], [ %indvars.iv.i.i.i.i.i.i124.i, %if.then4.i37.i.i.i.i.i.i.i ], [ %indvars.iv.i.i.i.i.i.i124.i, %if.end9.i.i.i.i.i.i.i131.i ]
+  %.us-phi.in.i.i.i.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.us.i.i.i.i.i.i ], [ %indvars.iv178.i.i.i.i.i.i.i, %if.then4.i37.us109.i.i.i.i.i.i.i ], [ %indvars.iv184.i.i.i.i.i.i.i, %if.then4.i37.us.i.i.i.i.i.i.i ], [ 0, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.i.i.i.i.i.i ], [ %indvars.iv184.i.i.i.i.i.i.i, %if.end9.i.us.i.i.i.i.i.i.i ], [ %indvars.iv178.i.i.i.i.i.i.i, %if.end9.i.us103.i.i.i.i.i.i.i ], [ %indvars.iv.i.i.i.i.i.i124.i, %if.then4.i37.i.i.i.i.i.i.i ], [ %indvars.iv.i.i.i.i.i.i124.i, %if.end9.i.i.i.i.i.i.i131.i ]
   %.us-phi.i.i.i.i.i.i.i4335 = trunc i64 %.us-phi.in.i.i.i.i.i.i.i to i32
   %add11.i.i.i.i.i.i.i4336 = add nuw i64 %.us-phi.in.i.i.i.i.i.i.i, 1
   %conv12.i.i.i.i.i.i136.i = and i64 %add11.i.i.i.i.i.i.i4336, 4294967295
@@ -17984,7 +17984,7 @@ if.end9.i.i.i.i.i.i.i131.i4805:                   ; preds = %if.end.i36.i.i.i.i.
   br i1 %cmp15.i.i.i.i.i.i.i134.i4808, label %if.then.i.i.i.i.i.i135.i4809, label %for.inc.i.i.i.i.i.i127.i4800
 
 if.then.i.i.i.i.i.i135.i4809:                     ; preds = %if.end9.i.i.i.i.i.i.i131.i4805, %if.then4.i37.i.i.i.i.i.i.i4835, %if.then4.i37.us109.i.i.i.i.i.i.i4895, %if.end9.i.us103.i.i.i.i.i.i.i4891, %if.then4.i37.us.i.i.i.i.i.i.i4927, %if.end9.i.us.i.i.i.i.i.i.i4923, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.i.i.i.i.i.i4857, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.us.i.i.i.i.i.i4860
-  %.us-phi.in.i.i.i.i.i.i.i4810 = phi i64 [ %indvars.iv184.i.i.i.i.i.i.i4905, %if.then4.i37.us.i.i.i.i.i.i.i4927 ], [ 0, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.us.i.i.i.i.i.i4860 ], [ %indvars.iv178.i.i.i.i.i.i.i4866, %if.then4.i37.us109.i.i.i.i.i.i.i4895 ], [ 0, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.i.i.i.i.i.i4857 ], [ %indvars.iv184.i.i.i.i.i.i.i4905, %if.end9.i.us.i.i.i.i.i.i.i4923 ], [ %indvars.iv178.i.i.i.i.i.i.i4866, %if.end9.i.us103.i.i.i.i.i.i.i4891 ], [ %indvars.iv.i.i.i.i.i.i124.i4785, %if.then4.i37.i.i.i.i.i.i.i4835 ], [ %indvars.iv.i.i.i.i.i.i124.i4785, %if.end9.i.i.i.i.i.i.i131.i4805 ]
+  %.us-phi.in.i.i.i.i.i.i.i4810 = phi i64 [ 0, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.us.i.i.i.i.i.i4860 ], [ %indvars.iv178.i.i.i.i.i.i.i4866, %if.then4.i37.us109.i.i.i.i.i.i.i4895 ], [ %indvars.iv184.i.i.i.i.i.i.i4905, %if.then4.i37.us.i.i.i.i.i.i.i4927 ], [ 0, %for.body.lr.ph.split.split.split.us.split.i.split.us.split.i.i.i.i.i.i4857 ], [ %indvars.iv184.i.i.i.i.i.i.i4905, %if.end9.i.us.i.i.i.i.i.i.i4923 ], [ %indvars.iv178.i.i.i.i.i.i.i4866, %if.end9.i.us103.i.i.i.i.i.i.i4891 ], [ %indvars.iv.i.i.i.i.i.i124.i4785, %if.then4.i37.i.i.i.i.i.i.i4835 ], [ %indvars.iv.i.i.i.i.i.i124.i4785, %if.end9.i.i.i.i.i.i.i131.i4805 ]
   %.us-phi.i.i.i.i.i.i.i4811 = trunc i64 %.us-phi.in.i.i.i.i.i.i.i4810 to i32
   %add11.i.i.i.i.i.i.i4812 = add nuw i64 %.us-phi.in.i.i.i.i.i.i.i4810, 1
   %conv12.i.i.i.i.i.i136.i4813 = and i64 %add11.i.i.i.i.i.i.i4812, 4294967295
@@ -49501,7 +49501,7 @@ if.end9.i:                                        ; preds = %if.end.i36
   br i1 %cmp15.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %if.end9.i, %if.then4.i37, %if.end9.i.us139, %if.then4.i37.us145, %if.then4.i37.us107, %if.end9.i.us101, %if.end9.i.us, %if.then4.i37.us
-  %.us-phi.in = phi i64 [ %indvars.iv176, %if.then4.i37.us107 ], [ %indvars.iv182, %if.end9.i.us ], [ %indvars.iv170, %if.end9.i.us139 ], [ %indvars.iv182, %if.then4.i37.us ], [ %indvars.iv176, %if.end9.i.us101 ], [ %indvars.iv170, %if.then4.i37.us145 ], [ %indvars.iv, %if.then4.i37 ], [ %indvars.iv, %if.end9.i ]
+  %.us-phi.in = phi i64 [ %indvars.iv170, %if.end9.i.us139 ], [ %indvars.iv182, %if.end9.i.us ], [ %indvars.iv176, %if.then4.i37.us107 ], [ %indvars.iv182, %if.then4.i37.us ], [ %indvars.iv176, %if.end9.i.us101 ], [ %indvars.iv170, %if.then4.i37.us145 ], [ %indvars.iv, %if.then4.i37 ], [ %indvars.iv, %if.end9.i ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %54 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %55 = load ptr, ptr %54, align 8
@@ -50121,7 +50121,7 @@ if.end9.i:                                        ; preds = %if.end.i36
   br i1 %cmp15.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %if.end9.i, %if.then4.i37, %if.end9.i.us139, %if.then4.i37.us145, %if.then4.i37.us107, %if.end9.i.us101, %if.end9.i.us, %if.then4.i37.us
-  %.us-phi.in = phi i64 [ %indvars.iv176, %if.then4.i37.us107 ], [ %indvars.iv182, %if.end9.i.us ], [ %indvars.iv170, %if.end9.i.us139 ], [ %indvars.iv182, %if.then4.i37.us ], [ %indvars.iv176, %if.end9.i.us101 ], [ %indvars.iv170, %if.then4.i37.us145 ], [ %indvars.iv, %if.then4.i37 ], [ %indvars.iv, %if.end9.i ]
+  %.us-phi.in = phi i64 [ %indvars.iv170, %if.end9.i.us139 ], [ %indvars.iv182, %if.end9.i.us ], [ %indvars.iv176, %if.then4.i37.us107 ], [ %indvars.iv182, %if.then4.i37.us ], [ %indvars.iv176, %if.end9.i.us101 ], [ %indvars.iv170, %if.then4.i37.us145 ], [ %indvars.iv, %if.then4.i37 ], [ %indvars.iv, %if.end9.i ]
   %.us-phi = trunc i64 %.us-phi.in to i32
   %54 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %55 = load ptr, ptr %54, align 8

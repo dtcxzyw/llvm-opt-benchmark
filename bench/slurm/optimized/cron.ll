@@ -794,7 +794,7 @@ _next_day_of_week.exit101:                        ; preds = %136, %.lr.ph33.i95,
   br label %_next_day_of_week.exit
 
 _next_day_of_week.exit:                           ; preds = %65, %.lr.ph33.i, %93, %.lr.ph38.i, %_next_day_of_week.exit101
-  %.0 = phi i32 [ %.12536.i, %.lr.ph38.i ], [ %147, %_next_day_of_week.exit101 ], [ %.12031.i, %.lr.ph33.i ], [ %.02433.i, %93 ], [ %.01928.i, %65 ]
+  %.0 = phi i32 [ %.02433.i, %93 ], [ %147, %_next_day_of_week.exit101 ], [ %.12031.i, %.lr.ph33.i ], [ %.12536.i, %.lr.ph38.i ], [ %.01928.i, %65 ]
   %.not33 = icmp eq i32 %.0, 0
   br i1 %.not33, label %_next_day_of_week.exit.thread.preheader, label %_next_day_of_week.exit._next_day_of_week.exit.thread105_crit_edge
 

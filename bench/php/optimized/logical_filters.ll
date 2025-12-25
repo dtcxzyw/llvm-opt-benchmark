@@ -605,7 +605,7 @@ define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nound
   %.not65 = icmp eq i32 %31, 0
   br i1 %.not65, label %.thread, label %.critedge60
 
-.critedge60:                                      ; preds = %21, %26, %28, %16, %.critedge52, %30
+.critedge60:                                      ; preds = %21, %28, %26, %16, %.critedge52, %30
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
   %.not50 = icmp eq ptr %32, null
   br i1 %.not50, label %33, label %39
@@ -625,8 +625,8 @@ define hidden void @php_filter_boolean(ptr noundef %0, i64 noundef %1, ptr nound
   store i32 2, ptr %35, align 8, !tbaa !4
   br label %39
 
-.thread:                                          ; preds = %.critedge2, %4, %18, %16, %17, %.critedge52, %23, %21, %26, %28, %30
-  %.not4963 = phi i32 [ 2, %21 ], [ 3, %30 ], [ 2, %28 ], [ 2, %26 ], [ 3, %23 ], [ 3, %18 ], [ 3, %16 ], [ 2, %17 ], [ 2, %.critedge52 ], [ 2, %4 ], [ 2, %.critedge2 ]
+.thread:                                          ; preds = %.critedge2, %4, %18, %16, %23, %17, %.critedge52, %21, %28, %26, %30
+  %.not4963 = phi i32 [ 2, %21 ], [ 3, %30 ], [ 2, %26 ], [ 2, %28 ], [ 2, %.critedge52 ], [ 3, %18 ], [ 3, %16 ], [ 3, %23 ], [ 2, %17 ], [ 2, %4 ], [ 2, %.critedge2 ]
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #15
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.not4963, ptr %38, align 8, !tbaa !4
@@ -2906,7 +2906,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   br label %_php_filter_validate_ipv4.exit.thread
 
 _php_filter_validate_ipv4.exit.thread:            ; preds = %37, %19, %43, %17, %44, %30, %113, %79, %66, %61, %77, %_php_filter_validate_ipv4.exit, %3, %.loopexit
-  %.0 = phi i32 [ 0, %_php_filter_validate_ipv4.exit ], [ 0, %3 ], [ 0, %113 ], [ 0, %30 ], [ %148, %.loopexit ], [ 0, %77 ], [ 0, %61 ], [ 0, %66 ], [ 0, %79 ], [ 0, %44 ], [ 0, %17 ], [ 0, %43 ], [ 0, %19 ], [ 0, %37 ]
+  %.0 = phi i32 [ 0, %_php_filter_validate_ipv4.exit ], [ 0, %3 ], [ 0, %113 ], [ 0, %77 ], [ %148, %.loopexit ], [ 0, %30 ], [ 0, %61 ], [ 0, %66 ], [ 0, %79 ], [ 0, %44 ], [ 0, %17 ], [ 0, %43 ], [ 0, %19 ], [ 0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

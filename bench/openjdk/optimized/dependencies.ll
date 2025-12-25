@@ -6319,7 +6319,7 @@ _ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split: ; pre
   br label %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit
 
 _ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit: ; preds = %.lr.ph.i, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split, %121, %116, %124, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57, %.loopexit, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
-  %.0 = phi i1 [ false, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ false, %121 ], [ false, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split ], [ false, %.loopexit ], [ false, %116 ], [ true, %124 ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ false, %.lr.ph.i ]
+  %.0 = phi i1 [ false, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread ], [ false, %121 ], [ true, %124 ], [ false, %.loopexit ], [ false, %116 ], [ false, %_ZN28AbstractClassHierarchyWalker14is_participantEP5Klass.exit.sink.split ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread57 ], [ true, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit44.thread ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -8992,7 +8992,7 @@ _ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange
   br label %_ZN12Dependencies9DepStream21trace_and_log_witnessEP5Klass.exit
 
 _ZN12Dependencies28check_call_site_target_valueEP7oopDescS1_P17CallSiteDepChange.exit: ; preds = %115, %105, %80, %70
-  %.0 = phi ptr [ %116, %115 ], [ %114, %105 ], [ %81, %80 ], [ %79, %70 ]
+  %.0 = phi ptr [ %116, %115 ], [ %79, %70 ], [ %81, %80 ], [ %114, %105 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %117 = load i8, ptr @_ZN12Dependencies19_verify_in_progressE, align 1
   %118 = trunc i8 %117 to i1

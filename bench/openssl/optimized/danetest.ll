@@ -615,7 +615,7 @@ verify_chain.exit.i:                              ; preds = %181, %165, %160, %1
   br label %.critedge.i
 
 209:                                              ; preds = %205, %.lr.ph, %.lr.ph
-  %.144.i = phi i32 [ %.04349.i58, %.lr.ph ], [ %.04349.i58, %.lr.ph ], [ %42, %205 ]
+  %.144.i = phi i32 [ %.04349.i58, %.lr.ph ], [ %42, %205 ], [ %.04349.i58, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

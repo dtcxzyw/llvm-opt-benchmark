@@ -4826,7 +4826,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %1365, %_ZN4llvm11In
   br label %_ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike12getTrueValueEb.exit.i.i
 
 _ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike12getTrueValueEb.exit.i.i: ; preds = %1392, %1390, %1387
-  %.in.i.i = phi ptr [ %1391, %1390 ], [ %1400, %1392 ], [ %1388, %1387 ]
+  %.in.i.i = phi ptr [ %1391, %1390 ], [ %1388, %1387 ], [ %1400, %1392 ]
   %1401 = load ptr, ptr %.in.i.i, align 8, !tbaa !212
   %.not15.i.i = icmp eq ptr %1401, null
   br i1 %.not15.i.i, label %"_ZZN12_GLOBAL__N_118SelectOptimizeImpl25convertProfitableSIGroupsERN4llvm11SmallVectorINS0_11SelectGroupELj2EEEENK3$_1clERS3_b.exit371.thread.i", label %1378
@@ -10261,7 +10261,7 @@ _ZN4llvm13ScaledNumbers10getLgFloorImEEiT_s.exit43.i.i: ; preds = %481, %480
   br label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit.i
 
 _ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit.i: ; preds = %498, %495, %448
-  %.0.i351.i = phi i32 [ %497, %495 ], [ %449, %448 ], [ %501, %498 ]
+  %.0.i351.i = phi i32 [ %501, %498 ], [ %449, %448 ], [ %497, %495 ]
   %.0.i351.fr.i = freeze i32 %.0.i351.i
   %502 = icmp slt i32 %.0.i351.fr.i, 0
   br i1 %502, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit.thread626.i, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit.thread.i
@@ -10384,7 +10384,7 @@ _ZN4llvm13ScaledNumbers10getLgFloorImEEiT_s.exit43.i365.i: ; preds = %543, %542
   br label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit376.i
 
 _ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit376.i: ; preds = %560, %557, %510
-  %.0.i372.i = phi i32 [ %559, %557 ], [ %511, %510 ], [ %563, %560 ]
+  %.0.i372.i = phi i32 [ %563, %560 ], [ %511, %510 ], [ %559, %557 ]
   %.0.i372.fr.i = freeze i32 %.0.i372.i
   %564 = icmp slt i32 %.0.i372.fr.i, 0
   br i1 %564, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit376.thread633.i, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit376.thread.i
@@ -11570,7 +11570,7 @@ _ZN4llvm13ScaledNumbers10getLgFloorImEEiT_s.exit43.i394.i: ; preds = %1016, %101
   br label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit405.i
 
 _ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit405.i: ; preds = %1033, %1030, %983
-  %.0.i401.i = phi i32 [ %1032, %1030 ], [ %984, %983 ], [ %1036, %1033 ]
+  %.0.i401.i = phi i32 [ %1036, %1033 ], [ %984, %983 ], [ %1032, %1030 ]
   %.0.i401.fr.i = freeze i32 %.0.i401.i
   %1037 = icmp slt i32 %.0.i401.fr.i, 0
   br i1 %1037, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit405.thread641.i, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit405.thread.i
@@ -11907,7 +11907,7 @@ _ZN4llvm13ScaledNumbers10getLgFloorImEEiT_s.exit43.i499.i: ; preds = %1177, %117
   br label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit510.i
 
 _ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit510.i: ; preds = %1193, %1191, %1147
-  %.0.i506.i = phi i32 [ %1192, %1191 ], [ %1148, %1147 ], [ %1196, %1193 ]
+  %.0.i506.i = phi i32 [ %1196, %1193 ], [ %1148, %1147 ], [ %1192, %1191 ]
   %.0.i506.fr.i = freeze i32 %.0.i506.i
   %1197 = icmp slt i32 %.0.i506.fr.i, 0
   br i1 %1197, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit510.thread648.i, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit510.thread.i
@@ -12545,7 +12545,7 @@ _ZN4llvm13ScaledNumbers10getLgFloorImEEiT_s.exit43.i528.i: ; preds = %1459, %145
   br label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit539.i
 
 _ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit539.i: ; preds = %1476, %1473, %1426
-  %.0.i535.i = phi i32 [ %1475, %1473 ], [ %1427, %1426 ], [ %1479, %1476 ]
+  %.0.i535.i = phi i32 [ %1479, %1476 ], [ %1427, %1426 ], [ %1475, %1473 ]
   %.0.i535.fr.i = freeze i32 %.0.i535.i
   %1480 = icmp slt i32 %.0.i535.fr.i, 0
   br i1 %1480, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit539.thread664.i, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit539.thread.i
@@ -12664,7 +12664,7 @@ _ZN4llvm13ScaledNumbers10getLgFloorImEEiT_s.exit43.i553.i: ; preds = %1517, %151
   br label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit564.i
 
 _ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit564.i: ; preds = %1534, %1531, %1484
-  %.0.i560.i = phi i32 [ %1533, %1531 ], [ %1485, %1484 ], [ %1537, %1534 ]
+  %.0.i560.i = phi i32 [ %1537, %1534 ], [ %1485, %1484 ], [ %1533, %1531 ]
   %.0.i560.fr.i = freeze i32 %.0.i560.i
   %1538 = icmp slt i32 %.0.i560.fr.i, 0
   br i1 %1538, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit564.thread671.i, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit564.thread.i
@@ -13017,7 +13017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114.i: ; preds = %
   br label %.critedge73.i
 
 .critedge73.i:                                    ; preds = %.critedge73.sink.split.i, %1647, %1629
-  %.1.i = phi i1 [ true, %1629 ], [ true, %1647 ], [ false, %.critedge73.sink.split.i ]
+  %.1.i = phi i1 [ true, %1647 ], [ true, %1629 ], [ false, %.critedge73.sink.split.i ]
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm30DiagnosticInfoOptimizationBaseE, i64 16), ptr %8, align 8, !tbaa !3
   %1653 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %1654 = load ptr, ptr %1653, align 8, !tbaa !25
@@ -13406,7 +13406,7 @@ _ZN4llvm13ScaledNumbers10getLgFloorImEEiT_s.exit43.i: ; preds = %1809, %1808
   br label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit
 
 _ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit: ; preds = %1776, %1823, %1826
-  %.0.i162 = phi i32 [ %1825, %1823 ], [ %1777, %1776 ], [ %1829, %1826 ]
+  %.0.i162 = phi i32 [ %1829, %1826 ], [ %1777, %1776 ], [ %1825, %1823 ]
   %.0.i162.fr = freeze i32 %.0.i162
   %1830 = icmp slt i32 %.0.i162.fr, 0
   br i1 %1830, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit.thread231, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit.thread
@@ -13677,7 +13677,7 @@ _ZN4llvm13ScaledNumbers10getLgFloorImEEiT_s.exit43.i188: ; preds = %1939, %1938
   br label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit199
 
 _ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit199: ; preds = %1906, %1953, %1956
-  %.0.i195 = phi i32 [ %1955, %1953 ], [ %1907, %1906 ], [ %1959, %1956 ]
+  %.0.i195 = phi i32 [ %1959, %1956 ], [ %1907, %1906 ], [ %1955, %1953 ]
   %.0.i195.fr = freeze i32 %.0.i195
   %1960 = icmp slt i32 %.0.i195.fr, 0
   br i1 %1960, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit199.thread238, label %_ZN4llvm13ScaledNumbers7compareImEEiT_sS2_s.exit199.thread
@@ -13993,8 +13993,8 @@ define internal fastcc { i64, i16 } @_ZN12_GLOBAL__N_118SelectOptimizeImpl10Sele
   br label %_ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike12getTrueValueEb.exit
 
 _ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike12getTrueValueEb.exit: ; preds = %39, %37, %34, %30, %20, %18
-  %48 = phi i8 [ 86, %18 ], [ 86, %30 ], [ 86, %34 ], [ %14, %20 ], [ %14, %39 ], [ 86, %37 ]
-  %.in = phi ptr [ %19, %18 ], [ %31, %30 ], [ %35, %34 ], [ %28, %20 ], [ %47, %39 ], [ %38, %37 ]
+  %48 = phi i8 [ 86, %18 ], [ 86, %30 ], [ %14, %39 ], [ %14, %20 ], [ 86, %34 ], [ 86, %37 ]
+  %.in = phi ptr [ %19, %18 ], [ %31, %30 ], [ %47, %39 ], [ %28, %20 ], [ %35, %34 ], [ %38, %37 ]
   %49 = load ptr, ptr %.in, align 8, !tbaa !212
   %.not = icmp eq ptr %49, null
   br i1 %.not, label %_ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike12getTrueValueEb.exit.thread, label %50
@@ -15401,7 +15401,7 @@ define internal fastcc noundef ptr @_ZL19getTrueOrFalseValueRN12_GLOBAL__N_118Se
   br label %_ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike12getTrueValueEb.exit
 
 _ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike12getTrueValueEb.exit: ; preds = %34, %32, %29, %25, %15, %13
-  %.in109 = phi ptr [ %14, %13 ], [ %26, %25 ], [ %30, %29 ], [ %23, %15 ], [ %42, %34 ], [ %33, %32 ]
+  %.in109 = phi ptr [ %14, %13 ], [ %26, %25 ], [ %42, %34 ], [ %23, %15 ], [ %30, %29 ], [ %33, %32 ]
   %43 = load ptr, ptr %.in109, align 8, !tbaa !212
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %_ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike12getTrueValueEb.exit.thread, label %44

@@ -389,9 +389,9 @@ define dso_local i64 @netfs_limit_iter(ptr noundef readonly captures(none) %0, i
   %.not18 = select i1 %140, i1 true, i1 %142
   br i1 %.not18, label %.thread22, label %.thread24
 
-.thread24:                                        ; preds = %.preheader27, %98, %131
-  %143 = phi i32 [ %139, %131 ], [ %95, %98 ], [ %95, %.preheader27 ]
-  %144 = phi i64 [ %138, %131 ], [ %96, %98 ], [ %96, %.preheader27 ]
+.thread24:                                        ; preds = %98, %.preheader27, %131
+  %143 = phi i32 [ %139, %131 ], [ %95, %.preheader27 ], [ %95, %98 ]
+  %144 = phi i64 [ %138, %131 ], [ %96, %.preheader27 ], [ %96, %98 ]
   %145 = load ptr, ptr %84, align 8
   %146 = ptrtoint ptr %145 to i64
   %147 = and i64 %146, 3

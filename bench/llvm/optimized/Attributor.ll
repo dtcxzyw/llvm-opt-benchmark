@@ -3449,7 +3449,7 @@ _ZNK4llvm8CallBase12isConvergentEv.exit.thread:   ; preds = %13, %10, %_ZNK4llvm
   br label %_ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE39ENS_17AbstractAttributeEEEbRNS_10AttributorEPKS4_RKNS_10IRPositionENS_10DepClassTyERbbPPKT0_.exit
 
 _ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE39ENS_17AbstractAttributeEEEbRNS_10AttributorEPKS4_RKNS_10IRPositionENS_10DepClassTyERbbPPKT0_.exit: ; preds = %23, %17, %21
-  %.0.i = phi i1 [ false, %21 ], [ %26, %23 ], [ true, %17 ]
+  %.0.i = phi i1 [ %26, %23 ], [ false, %21 ], [ true, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit.thread25
 
@@ -4937,7 +4937,7 @@ _ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE51ENS_17AbstractAttributeE
   store i8 %.lobit.sink.i, ptr %4, align 1, !tbaa !82
   br label %.critedge
 
-_ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE51ENS_17AbstractAttributeEEEbRNS_10AttributorEPKS4_RKNS_10IRPositionENS_10DepClassTyERbbPPKT0_.exit.thread: ; preds = %22, %20, %9
+_ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE51ENS_17AbstractAttributeEEEbRNS_10AttributorEPKS4_RKNS_10IRPositionENS_10DepClassTyERbbPPKT0_.exit.thread: ; preds = %20, %22, %9
   %.0.copyload.i.i.i.i.i = load i64, ptr %1, align 8
   %30 = trunc i64 %.0.copyload.i.i.i.i.i to i8
   %31 = and i8 %30, 3
@@ -5737,7 +5737,7 @@ _ZN4llvm10IRPosition5valueERKNS_5ValueEPKNS_8CallBaseE.exit: ; preds = %8
   br label %_ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE89ENS_17AbstractAttributeEEEbRNS_10AttributorEPKS4_RKNS_10IRPositionENS_10DepClassTyERbbPPKT0_.exit
 
 _ZN4llvm2AA16hasAssumedIRAttrILNS_9Attribute8AttrKindE89ENS_17AbstractAttributeEEEbRNS_10AttributorEPKS4_RKNS_10IRPositionENS_10DepClassTyERbbPPKT0_.exit: ; preds = %19, %_ZN4llvm10IRPosition5valueERKNS_5ValueEPKNS_8CallBaseE.exit, %17
-  %.0.i = phi i1 [ false, %17 ], [ %23, %19 ], [ true, %_ZN4llvm10IRPosition5valueERKNS_5ValueEPKNS_8CallBaseE.exit ]
+  %.0.i = phi i1 [ %23, %19 ], [ false, %17 ], [ true, %_ZN4llvm10IRPosition5valueERKNS_5ValueEPKNS_8CallBaseE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
@@ -10739,7 +10739,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10IRPositionELb1EE9push_backES1_.exit101: ;
   br i1 %263, label %.lr.ph132, label %.critedge, !llvm.loop !549
 
 .critedge:                                        ; preds = %116, %113, %_ZN4llvm2AA14isValidInScopeERKNS_5ValueEPKNS_8FunctionE.exit, %91, %.critedge171, %198, %156, %197
-  %.368 = phi i32 [ 3, %197 ], [ 0, %198 ], [ 1, %156 ], [ 0, %.critedge171 ], [ 1, %91 ], [ 1, %_ZN4llvm2AA14isValidInScopeERKNS_5ValueEPKNS_8FunctionE.exit ], [ 1, %113 ], [ 1, %116 ]
+  %.368 = phi i32 [ 3, %197 ], [ 1, %156 ], [ 0, %198 ], [ 0, %.critedge171 ], [ 1, %91 ], [ 1, %_ZN4llvm2AA14isValidInScopeERKNS_5ValueEPKNS_8FunctionE.exit ], [ 1, %113 ], [ 1, %116 ]
   %264 = load ptr, ptr %11, align 8, !tbaa !32
   %265 = load i32, ptr %25, align 8, !tbaa !33
   %.not4.i.i = icmp eq i32 %265, 0
@@ -12979,7 +12979,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65.sink.
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65
 
 _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65: ; preds = %.lr.ph.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65.sink.split, %59, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit, %96, %111, %104, %101, %72, %56, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit ], [ false, %101 ], [ false, %56 ], [ true, %72 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65.sink.split ], [ true, %111 ], [ false, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit ], [ true, %96 ], [ false, %59 ], [ false, %104 ], [ false, %.lr.ph.i.i ]
+  %.0 = phi i1 [ false, %8 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit ], [ false, %101 ], [ false, %56 ], [ true, %72 ], [ false, %104 ], [ true, %111 ], [ false, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit ], [ true, %96 ], [ false, %59 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.thread65.sink.split ], [ false, %.lr.ph.i.i ]
   ret i1 %.0
 }
 
@@ -13974,7 +13974,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_3UseELb1EE9push_backES3_.exit.us.i136: ; 
   br label %.backedge
 
 272:                                              ; preds = %"_ZZN4llvm10Attributor15checkForAllUsesENS_12function_refIFbRKNS_3UseERbEEERKNS_17AbstractAttributeERKNS_5ValueEbNS_10DepClassTyEbNS1_IFbS4_S4_EEEENK3$_0clESD_PS3_.exit139", %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit
-  %.359 = phi i32 [ %.763, %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit ], [ %.864, %"_ZZN4llvm10Attributor15checkForAllUsesENS_12function_refIFbRKNS_3UseERbEEERKNS_17AbstractAttributeERKNS_5ValueEbNS_10DepClassTyEbNS1_IFbS4_S4_EEEENK3$_0clESD_PS3_.exit139" ]
+  %.359 = phi i32 [ %.864, %"_ZZN4llvm10Attributor15checkForAllUsesENS_12function_refIFbRKNS_3UseERbEEERKNS_17AbstractAttributeERKNS_5ValueEbNS_10DepClassTyEbNS1_IFbS4_S4_EEEENK3$_0clESD_PS3_.exit139" ], [ %.763, %_ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   switch i32 %.359, label %._crit_edge174 [
     i32 0, label %.backedge
@@ -36924,7 +36924,7 @@ _ZN4llvm11IRAttributeILNS_9Attribute8AttrKindE0ENS_12StateWrapperINS_15BitIntege
   br label %33
 
 33:                                               ; preds = %.sink.split, %22, %21, %17
-  %.0 = phi i1 [ false, %21 ], [ false, %17 ], [ false, %22 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %22 ], [ false, %17 ], [ false, %21 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

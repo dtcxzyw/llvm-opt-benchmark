@@ -1935,7 +1935,7 @@ _ZNK4llvm14MCRegisterInfo17isSuperRegisterEqENS_10MCRegisterES1_.exit.thread158:
   br label %.critedge8
 
 .critedge8:                                       ; preds = %_ZN4llvm17MCRegUnitIteratorppEv.exit, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, %81, %.critedge8.thread174.loopexit, %13, %.thread155, %2
-  %.sroa.0125.0 = phi i32 [ 0, %2 ], [ %10, %13 ], [ 0, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit ], [ 0, %.thread155 ], [ %146, %.critedge8.thread174.loopexit ], [ 0, %81 ], [ 0, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit ], [ %10, %_ZN4llvm17MCRegUnitIteratorppEv.exit ]
+  %.sroa.0125.0 = phi i32 [ 0, %2 ], [ %146, %.critedge8.thread174.loopexit ], [ 0, %_ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit ], [ 0, %.thread155 ], [ %10, %13 ], [ 0, %81 ], [ 0, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit ], [ %10, %_ZN4llvm17MCRegUnitIteratorppEv.exit ]
   ret i32 %.sroa.0125.0
 }
 

@@ -7412,7 +7412,7 @@ _ZNK4llvm12MachineInstr12isConvergentENS0_9QueryTypeE.exit.thread32.i: ; preds =
   br i1 %.not.i.i.i.i.i.i.i156, label %_ZL28mayLoadFromGOTOrConstantPoolRN4llvm12MachineInstrE.exit.i, label %.lr.ph.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %2625, %2619
-  %.sroa.0.0.i.i.i.i154 = phi ptr [ %2624, %2625 ], [ %.0.i.i.i.i.i152, %2619 ]
+  %.sroa.0.0.i.i.i.i154 = phi ptr [ %.0.i.i.i.i.i152, %2619 ], [ %2624, %2625 ]
   %2628 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i154, i64 24
   %2629 = load ptr, ptr %2628, align 8, !tbaa !472
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %2629, null
@@ -11859,7 +11859,7 @@ _ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstr
   br label %.thread105.thread
 
 .thread105.thread:                                ; preds = %225, %_ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstrEPNS1_17MachineBasicBlockERNS1_13SmallDenseMapIS5_NS1_11SmallVectorIS5_Lj4EEELj4ENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEE.exit, %226, %53, %59, %78, %63, %221, %.critedge, %5, %234, %230, %.thread105
-  %.9 = phi ptr [ null, %.thread105 ], [ null, %221 ], [ null, %230 ], [ %spec.select, %.critedge ], [ null, %234 ], [ null, %5 ], [ null, %63 ], [ null, %78 ], [ null, %59 ], [ null, %53 ], [ null, %226 ], [ null, %_ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstrEPNS1_17MachineBasicBlockERNS1_13SmallDenseMapIS5_NS1_11SmallVectorIS5_Lj4EEELj4ENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEE.exit ], [ null, %225 ]
+  %.9 = phi ptr [ null, %.thread105 ], [ null, %5 ], [ null, %230 ], [ null, %221 ], [ null, %234 ], [ %spec.select, %.critedge ], [ null, %63 ], [ null, %78 ], [ null, %59 ], [ null, %53 ], [ null, %226 ], [ null, %_ZNK12_GLOBAL__N_114MachineSinking22GetAllSortedSuccessorsERN4llvm12MachineInstrEPNS1_17MachineBasicBlockERNS1_13SmallDenseMapIS5_NS1_11SmallVectorIS5_Lj4EEELj4ENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEE.exit ], [ null, %225 ]
   ret ptr %.9
 }
 
@@ -14495,7 +14495,7 @@ _ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit: ; preds = 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !892
 
 _ZSt11swap_rangesIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit ], [ %23, %_ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

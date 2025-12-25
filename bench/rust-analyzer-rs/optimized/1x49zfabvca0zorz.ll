@@ -1141,7 +1141,7 @@ define internal fastcc void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT
   br i1 %92, label %"_ZN4core3ptr435drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$$LP$bool$C$itertools..groupbylazy..Group$LT$bool$C$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxElementChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$hir..precise_macro_call_location..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$hir..precise_macro_call_location..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$RP$$GT$$GT$17h79e3b69c11f6e2efE.exit.i", label %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h10c6dfd891d54a3dE.exit.thread27.i.i.i"
 
 "_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h10c6dfd891d54a3dE.exit.thread27.i.i.i": ; preds = %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h10c6dfd891d54a3dE.exit.i.i.i", %73, %40
-  %.0.i29.i.i.i = phi ptr [ %.0.i.i.i.i, %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h10c6dfd891d54a3dE.exit.i.i.i" ], [ %41, %40 ], [ %45, %73 ]
+  %.0.i29.i.i.i = phi ptr [ %.0.i.i.i.i, %"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$4step17h10c6dfd891d54a3dE.exit.i.i.i" ], [ %45, %73 ], [ %41, %40 ]
   %93 = invoke noundef zeroext i1 @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$9group_key17h32b939adfd948847E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8, i64 noundef %18)
           to label %"_ZN106_$LT$itertools..groupbylazy..Groups$LT$K$C$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c5bc9ecbff07704E.exit.i.i" unwind label %94, !noalias !158
 
@@ -59073,7 +59073,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h9821fd0d9d62a004E.exit.loopexi
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9821fd0d9d62a004E.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h9821fd0d9d62a004E.exit: ; preds = %.critedge.backedge, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h71e963fd2944c666E.exit", %4, %tailrecurse, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9821fd0d9d62a004E.exit.loopexit54, %8
-  %.0.shrunk = phi i1 [ true, %4 ], [ false, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9821fd0d9d62a004E.exit.loopexit54 ], [ false, %8 ], [ true, %tailrecurse ], [ true, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h71e963fd2944c666E.exit" ], [ false, %.critedge.backedge ]
+  %.0.shrunk = phi i1 [ false, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9821fd0d9d62a004E.exit.loopexit54 ], [ true, %4 ], [ false, %8 ], [ true, %tailrecurse ], [ true, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h71e963fd2944c666E.exit" ], [ false, %.critedge.backedge ]
   ret i1 %.0.shrunk
 }
 

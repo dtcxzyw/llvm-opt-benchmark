@@ -168,7 +168,7 @@ define noundef zeroext i1 @_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm(ptr 
   br i1 %43, label %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
 
 _ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit: ; preds = %38, %29, %20, %11, %4
-  %.0 = phi i32 [ %8, %4 ], [ %35, %29 ], [ %26, %20 ], [ %17, %11 ], [ %42, %38 ]
+  %.0 = phi i32 [ %35, %29 ], [ %8, %4 ], [ %17, %11 ], [ %26, %20 ], [ %42, %38 ]
   %44 = zext i32 %.0 to i64
   store i64 %44, ptr %2, align 8, !tbaa !6
   br label %_ZN13duckdb_snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
@@ -2684,7 +2684,7 @@ define noundef zeroext i1 @_ZN13duckdb_snappy10UncompressEPKcmPNSt7__cxx1112basi
   br i1 %44, label %45, label %_ZN13duckdb_snappy21GetUncompressedLengthEPKcmPm.exit.thread
 
 45:                                               ; preds = %5, %12, %21, %30, %39
-  %.0.i = phi i32 [ %9, %5 ], [ %36, %30 ], [ %27, %21 ], [ %18, %12 ], [ %43, %39 ]
+  %.0.i = phi i32 [ %36, %30 ], [ %9, %5 ], [ %18, %12 ], [ %27, %21 ], [ %43, %39 ]
   %46 = zext i32 %.0.i to i64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %46, i8 noundef signext 0)
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8

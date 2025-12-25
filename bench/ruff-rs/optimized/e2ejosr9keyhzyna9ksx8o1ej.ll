@@ -70414,7 +70414,7 @@ define internal fastcc void @"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8
   unreachable
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hca9230ffb8626ad6E.exit.thread.i": ; preds = %59, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hca9230ffb8626ad6E.exit.us.us.i", %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27ed3d6c28ad9493E.exit15.us.us.i", %.lr.ph193.i
-  %.us-phi.i = phi i64 [ %60, %59 ], [ %48, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hca9230ffb8626ad6E.exit.us.us.i" ], [ %48, %.lr.ph193.i ], [ %48, %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27ed3d6c28ad9493E.exit15.us.us.i" ]
+  %.us-phi.i = phi i64 [ %48, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hca9230ffb8626ad6E.exit.us.us.i" ], [ %60, %59 ], [ %48, %.lr.ph193.i ], [ %48, %"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27ed3d6c28ad9493E.exit15.us.us.i" ]
   %64 = icmp ugt i64 %.us-phi.i, %28
   br i1 %64, label %66, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hca9230ffb8626ad6E.exit.thread.thread.i"
 
@@ -70726,7 +70726,7 @@ define internal fastcc void @"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8
   unreachable
 
 .split.us.i:                                      ; preds = %63, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65344830fbb6243bE.exit17.us.us.i", %.lr.ph187.i
-  %.us-phi.i = phi i64 [ %64, %63 ], [ %50, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65344830fbb6243bE.exit17.us.us.i" ], [ %50, %.lr.ph187.i ]
+  %.us-phi.i = phi i64 [ %50, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65344830fbb6243bE.exit17.us.us.i" ], [ %64, %63 ], [ %50, %.lr.ph187.i ]
   %68 = icmp ugt i64 %.us-phi.i, %26
   br i1 %68, label %70, label %.split.us.thread.i
 
@@ -71038,7 +71038,7 @@ define internal fastcc void @"_ZN7similar10algorithms7replace16Replace$LT$D$GT$8
   unreachable
 
 "_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h956cdb96955b8da6E.exit.thread.i": ; preds = %63, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h956cdb96955b8da6E.exit.us.us.i", %"_ZN100_$LT$similar..text..inline..MultiLookup$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17hcd7b5189cd4a9addE.exit15.us.us.i", %.lr.ph184.i
-  %.us-phi.i = phi i64 [ %64, %63 ], [ %48, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h956cdb96955b8da6E.exit.us.us.i" ], [ %48, %.lr.ph184.i ], [ %48, %"_ZN100_$LT$similar..text..inline..MultiLookup$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17hcd7b5189cd4a9addE.exit15.us.us.i" ]
+  %.us-phi.i = phi i64 [ %48, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h956cdb96955b8da6E.exit.us.us.i" ], [ %64, %63 ], [ %48, %.lr.ph184.i ], [ %48, %"_ZN100_$LT$similar..text..inline..MultiLookup$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17hcd7b5189cd4a9addE.exit15.us.us.i" ]
   %68 = icmp ugt i64 %.us-phi.i, %26
   br i1 %68, label %70, label %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h956cdb96955b8da6E.exit.thread.thread.i"
 

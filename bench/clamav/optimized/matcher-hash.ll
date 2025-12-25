@@ -624,7 +624,7 @@ hm_cmp.exit.thread.i:                             ; preds = %hm_cmp.exit.i, %41
   br i1 %.not38.i, label %hm_scan.exit, label %35
 
 hm_scan.exit:                                     ; preds = %55, %hm_cmp.exit.thread.i, %50, %49, %21, %18, %16, %5, %10
-  %.0 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %10 ], [ 1, %50 ], [ 0, %18 ], [ 0, %21 ], [ 1, %49 ], [ 0, %hm_cmp.exit.thread.i ], [ 0, %55 ]
+  %.0 = phi i32 [ 0, %16 ], [ 0, %5 ], [ 0, %10 ], [ 1, %49 ], [ 0, %18 ], [ 0, %21 ], [ 1, %50 ], [ 0, %hm_cmp.exit.thread.i ], [ 0, %55 ]
   ret i32 %.0
 }
 
@@ -710,7 +710,7 @@ hm_cmp.exit.thread.i:                             ; preds = %hm_cmp.exit.i, %30
   br i1 %.not38.i, label %hm_scan.exit, label %24
 
 hm_scan.exit:                                     ; preds = %44, %hm_cmp.exit.thread.i, %39, %38, %4, %7
-  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %39 ], [ 1, %38 ], [ 0, %hm_cmp.exit.thread.i ], [ 0, %44 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %38 ], [ 1, %39 ], [ 0, %hm_cmp.exit.thread.i ], [ 0, %44 ]
   ret i32 %.0
 }
 

@@ -541,7 +541,7 @@ define dso_local zeroext i1 @VariableHasHook(ptr noundef readonly captures(none)
   br i1 %16, label %.thread16, label %3
 
 .thread16:                                        ; preds = %15, %3, %11, %8
-  %.2 = phi i1 [ %14, %11 ], [ true, %8 ], [ false, %3 ], [ false, %15 ]
+  %.2 = phi i1 [ true, %8 ], [ %14, %11 ], [ false, %3 ], [ false, %15 ]
   ret i1 %.2
 }
 

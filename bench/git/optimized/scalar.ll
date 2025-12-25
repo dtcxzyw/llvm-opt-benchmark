@@ -2339,7 +2339,7 @@ have_fsmonitor_support.exit.thread.sink.split:    ; preds = %have_fsmonitor_supp
   br label %have_fsmonitor_support.exit.thread
 
 have_fsmonitor_support.exit.thread:               ; preds = %have_fsmonitor_support.exit.thread.sink.split, %27, %23, %have_fsmonitor_support.exit, %start_fsmonitor_daemon.exit
-  %.0 = phi i32 [ 0, %27 ], [ 0, %23 ], [ 0, %have_fsmonitor_support.exit ], [ 0, %start_fsmonitor_daemon.exit ], [ -1, %have_fsmonitor_support.exit.thread.sink.split ]
+  %.0 = phi i32 [ 0, %have_fsmonitor_support.exit ], [ 0, %23 ], [ 0, %27 ], [ 0, %start_fsmonitor_daemon.exit ], [ -1, %have_fsmonitor_support.exit.thread.sink.split ]
   ret i32 %.0
 }
 

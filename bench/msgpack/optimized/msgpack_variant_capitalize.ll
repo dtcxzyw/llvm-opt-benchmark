@@ -3371,7 +3371,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   br label %244
 
 244:                                              ; preds = %.sink.split, %211, %222, %230, %214, %207, %28
-  %.1391 = phi i1 [ %.0390, %28 ], [ false, %214 ], [ false, %211 ], [ false, %230 ], [ false, %207 ], [ false, %222 ], [ false, %.sink.split ]
+  %.1391 = phi i1 [ %.0390, %28 ], [ false, %207 ], [ false, %211 ], [ false, %222 ], [ false, %214 ], [ false, %230 ], [ false, %.sink.split ]
   %245 = load i32, ptr %22, align 8, !tbaa !188
   %246 = icmp ne i32 %245, 0
   %or.cond61 = or i1 %.1391, %246

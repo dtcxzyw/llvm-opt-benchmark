@@ -2593,7 +2593,7 @@ _ZNK7obj_mapI3appP4exprE9find_coreEPS0_.exit.i.i: ; preds = %44, %55
   br label %200
 
 68:                                               ; preds = %_ZNK7obj_mapI3appP4exprE9find_coreEPS0_.exit.i.i, %.noexc48
-  %.059 = phi ptr [ %28, %.noexc48 ], [ %65, %_ZNK7obj_mapI3appP4exprE9find_coreEPS0_.exit.i.i ]
+  %.059 = phi ptr [ %65, %_ZNK7obj_mapI3appP4exprE9find_coreEPS0_.exit.i.i ], [ %28, %.noexc48 ]
   %69 = load ptr, ptr %12, align 8, !tbaa !80
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %4, align 8, !tbaa !229

@@ -372,7 +372,7 @@ siftBackwardProb.exit.thread.i:                   ; preds = %103, %100, %96, %93
   br i1 %.not187196.i, label %ddExchange.exit.thread, label %.lr.ph.i130
 
 .lr.ph.i130:                                      ; preds = %133, %130, %112, %106, %87, %81, %78, %72, %.lr.ph.i.i, %siftBackwardProb.exit.thread.i
-  %.1168221.i = phi ptr [ %.0167.i, %siftBackwardProb.exit.thread.i ], [ %.3.i, %.lr.ph.i.i ], [ %104, %106 ], [ %104, %112 ], [ %79, %87 ], [ %79, %81 ], [ %70, %78 ], [ %70, %72 ], [ %.sink229.i, %130 ], [ %.sink229.i, %133 ]
+  %.1168221.i = phi ptr [ %.0167.i, %siftBackwardProb.exit.thread.i ], [ %104, %106 ], [ %.3.i, %.lr.ph.i.i ], [ %104, %112 ], [ %79, %87 ], [ %79, %81 ], [ %70, %78 ], [ %70, %72 ], [ %.sink229.i, %130 ], [ %.sink229.i, %133 ]
   %.promoted198.i = load ptr, ptr %31, align 8, !tbaa !38
   br label %180
 

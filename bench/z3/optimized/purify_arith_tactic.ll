@@ -9177,7 +9177,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17purify_arith_proc6rw_cfg9get
   br label %24
 
 24:                                               ; preds = %.sink.split, %16, %13
-  %.0 = phi i1 [ false, %16 ], [ false, %13 ], [ true, %.sink.split ]
+  %.0 = phi i1 [ false, %13 ], [ false, %16 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

@@ -282,7 +282,7 @@ define internal range(i32 1635, 0) i32 @decode_frame(ptr noundef %0, ptr noundef
   br label %135
 
 .thread649:                                       ; preds = %107, %110, %123
-  %.1379651 = phi i32 [ %.0.i437, %123 ], [ %.0.i437, %107 ], [ %.0.i439, %110 ]
+  %.1379651 = phi i32 [ %.0.i437, %123 ], [ %.0.i439, %110 ], [ %.0.i437, %107 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %130 = load ptr, ptr %11, align 8, !tbaa !4
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 1920

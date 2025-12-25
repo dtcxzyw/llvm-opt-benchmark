@@ -3216,7 +3216,7 @@ HeadMatchesArray.exit:                            ; preds = %.preheader151
   %.not88 = icmp eq ptr %201, null
   br i1 %.not88, label %.critedge.thread, label %.thread.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph.i118, %.lr.ph.i110, %.lr.ph.i101, %.lr.ph.i95, %163, %147, %179, %131, %125, %HeadMatchesArray.exit, %.preheader151, %.critedge
+.critedge.thread:                                 ; preds = %.lr.ph.i118, %.lr.ph.i110, %.lr.ph.i101, %.lr.ph.i95, %179, %147, %163, %131, %125, %HeadMatchesArray.exit, %.preheader151, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 904
   br i1 %exitcond.not, label %.loopexit, label %.preheader151, !llvm.loop !11

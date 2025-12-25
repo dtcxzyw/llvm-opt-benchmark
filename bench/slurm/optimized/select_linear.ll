@@ -1326,7 +1326,7 @@ _find_job_mate.exit.thread.i:                     ; preds = %.backedge.i.i, %252
   br label %._crit_edge96.i.i
 
 ._crit_edge96.i.i:                                ; preds = %._crit_edge96.sink.split.i.i, %474, %467, %464
-  %.169.i.i = phi i64 [ %.06890.i.i, %._crit_edge96.sink.split.i.i ], [ %.pre97.i.i, %467 ], [ %.06890.i.i, %464 ], [ %spec.select102.i.i, %474 ]
+  %.169.i.i = phi i64 [ %.pre97.i.i, %467 ], [ %.06890.i.i, %._crit_edge96.sink.split.i.i ], [ %.06890.i.i, %464 ], [ %spec.select102.i.i, %474 ]
   %477 = call i32 @set_job_resources_node(ptr noundef nonnull %392, i32 noundef %437) #11
   %.not87.i.i = icmp eq i32 %477, 0
   br i1 %.not87.i.i, label %480, label %478

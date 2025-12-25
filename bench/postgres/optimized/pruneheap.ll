@@ -601,10 +601,10 @@ HeapTupleHeaderGetXmin.exit.i:                    ; preds = %220, %216
   br label %HeapTupleHeaderGetUpdateXid.exit.i
 
 HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %249, %247, %205
-  %.183.i = phi i32 [ %.2.i, %249 ], [ %.2.i, %247 ], [ %.082115.i, %205 ]
-  %.181.i = phi i32 [ %224, %249 ], [ %224, %247 ], [ %206, %205 ]
-  %.179.i = phi i16 [ %.val86.i, %249 ], [ %.val86.i, %247 ], [ %211, %205 ]
-  %.177.i = phi i32 [ %.val.i87.i, %249 ], [ %248, %247 ], [ %.076118.i, %205 ]
+  %.183.i = phi i32 [ %.2.i, %247 ], [ %.082115.i, %205 ], [ %.2.i, %249 ]
+  %.181.i = phi i32 [ %224, %247 ], [ %206, %205 ], [ %224, %249 ]
+  %.179.i = phi i16 [ %.val86.i, %247 ], [ %211, %205 ], [ %.val86.i, %249 ]
+  %.177.i = phi i32 [ %248, %247 ], [ %.076118.i, %205 ], [ %.val.i87.i, %249 ]
   %251 = add i16 %.179.i, -1
   %or.cond85.not.i = icmp ult i16 %251, %85
   br i1 %or.cond85.not.i, label %.lr.ph.i, label %._crit_edge.i165
@@ -1021,13 +1021,13 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %381, %389
 464:                                              ; preds = %449
   br i1 %452, label %.threadthread-pre-split, label %.thread178
 
-.thread178:                                       ; preds = %453, %426, %462, %455, %464
+.thread178:                                       ; preds = %453, %426, %455, %462, %464
   %465 = getelementptr inbounds nuw i8, ptr %13, i64 2376
   %466 = load i32, ptr %39, align 4
   call void @heap_pre_freeze_checks(i32 noundef %1, ptr noundef nonnull %465, i32 noundef %466) #7
   br label %470
 
-.threadthread-pre-split:                          ; preds = %464, %455, %462, %422, %458, %457, %445, %436
+.threadthread-pre-split:                          ; preds = %464, %462, %455, %422, %458, %457, %445, %436
   %.pr = load i32, ptr %39, align 4
   br label %.thread
 

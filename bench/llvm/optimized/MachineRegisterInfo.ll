@@ -2206,7 +2206,7 @@ define dso_local noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8Reg
   br i1 %.not.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.thread, label %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit
 
 _ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit: ; preds = %14, %20
-  %.sroa.0.0.i = phi ptr [ %19, %20 ], [ %.0.i.i, %14 ]
+  %.sroa.0.0.i = phi ptr [ %.0.i.i, %14 ], [ %19, %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !279
   br label %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit.thread
@@ -3501,7 +3501,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isPhysRegMo
   br i1 %.not.i.i.i.i, label %.critedge18, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %37
-  %.sroa.0.0.i = phi ptr [ %36, %37 ], [ %.0.i.i, %31 ]
+  %.sroa.0.0.i = phi ptr [ %.0.i.i, %31 ], [ %36, %37 ]
   br i1 %2, label %.critedge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %82
@@ -3601,7 +3601,7 @@ _ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit: ; preds = %_ZL17getCalledFunct
   br i1 %.not37.not, label %.critedge, label %.lr.ph59, !llvm.loop !413
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge18, %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %54, %59, %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.exit.i, %47, %64, %select.unfold.i.i, %14, %3
-  %.0 = phi i1 [ true, %3 ], [ true, %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit ], [ false, %14 ], [ true, %select.unfold.i.i ], [ true, %64 ], [ true, %47 ], [ true, %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.exit.i ], [ true, %59 ], [ true, %54 ], [ true, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i ], [ true, %.lr.ph ], [ false, %.critedge18 ]
+  %.0 = phi i1 [ true, %3 ], [ true, %_ZL13isNoReturnDefRKN4llvm14MachineOperandE.exit ], [ true, %select.unfold.i.i ], [ false, %14 ], [ true, %64 ], [ true, %47 ], [ true, %_ZL17getCalledFunctionRKN4llvm12MachineInstrE.exit.i ], [ true, %59 ], [ true, %54 ], [ true, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i ], [ true, %.lr.ph ], [ false, %.critedge18 ]
   ret i1 %.0
 }
 

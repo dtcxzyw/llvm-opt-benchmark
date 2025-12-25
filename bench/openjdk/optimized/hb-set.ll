@@ -4462,7 +4462,7 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit74.thread:     ; preds = %_ZNR9hb_iter_tI10hb
   br i1 %exitcond185.not, label %_ZNK13hb_bit_page_t8is_emptyEv.exit62.thread82, label %87, !llvm.loop !41
 
 _ZNK13hb_bit_page_t8is_emptyEv.exit62.thread82:   ; preds = %_ZNK13hb_bit_page_t8is_emptyEv.exit45.thread79, %_ZNK13hb_bit_page_t8is_equalERKS_.exit, %79, %.lr.ph.i.i.i54, %_ZNK13hb_bit_page_t8is_emptyEv.exit74.thread, %87, %.lr.ph.i.i.i66, %.preheader, %5
-  %.032 = phi i1 [ false, %.lr.ph.i.i.i66 ], [ false, %5 ], [ false, %.lr.ph.i.i.i54 ], [ false, %87 ], [ false, %79 ], [ true, %.preheader ], [ true, %_ZNK13hb_bit_page_t8is_emptyEv.exit74.thread ], [ false, %_ZNK13hb_bit_page_t8is_equalERKS_.exit ], [ false, %_ZNK13hb_bit_page_t8is_emptyEv.exit45.thread79 ]
+  %.032 = phi i1 [ false, %87 ], [ false, %5 ], [ false, %79 ], [ false, %.lr.ph.i.i.i66 ], [ false, %.lr.ph.i.i.i54 ], [ true, %.preheader ], [ true, %_ZNK13hb_bit_page_t8is_emptyEv.exit74.thread ], [ false, %_ZNK13hb_bit_page_t8is_equalERKS_.exit ], [ false, %_ZNK13hb_bit_page_t8is_emptyEv.exit45.thread79 ]
   ret i1 %.032
 }
 
@@ -5178,7 +5178,7 @@ _ZNR9hb_iter_tI10hb_array_tIKyERS1_EppEv.exit.i.i.i38: ; preds = %.lr.ph.i.i.i32
   br i1 %exitcond.not, label %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread42, label %67, !llvm.loop !47
 
 _ZNK13hb_bit_page_t8is_emptyEv.exit.thread42:     ; preds = %44, %48, %.lr.ph.i.i.i, %.preheader.i, %.critedge.backedge, %67, %.lr.ph.i.i.i32, %.critedge.preheader, %2
-  %.0 = phi i1 [ false, %.preheader.i ], [ false, %.lr.ph.i.i.i32 ], [ false, %2 ], [ false, %67 ], [ false, %.lr.ph.i.i.i ], [ true, %.critedge.preheader ], [ true, %.critedge.backedge ], [ false, %48 ], [ false, %44 ]
+  %.0 = phi i1 [ false, %67 ], [ false, %.lr.ph.i.i.i ], [ false, %2 ], [ false, %.lr.ph.i.i.i32 ], [ false, %.preheader.i ], [ true, %.critedge.preheader ], [ true, %.critedge.backedge ], [ false, %48 ], [ false, %44 ]
   ret i1 %.0
 }
 

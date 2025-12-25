@@ -37047,7 +37047,7 @@ define void @_ZN12polars_arrow6legacy5array15fixed_size_list16AnonymousBuilder6f
   br label %26
 
 .loopexit.split-lp:                               ; preds = %16, %25, %28, %55, %75, %90, %.loopexit
-  %.sroa.017.0.ph = phi i1 [ true, %28 ], [ true, %16 ], [ true, %25 ], [ true, %55 ], [ true, %.loopexit ], [ false, %90 ], [ true, %75 ]
+  %.sroa.017.0.ph = phi i1 [ true, %28 ], [ true, %25 ], [ true, %16 ], [ true, %55 ], [ true, %.loopexit ], [ false, %90 ], [ true, %75 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %26

@@ -2556,7 +2556,7 @@ define internal noundef i32 @ti12xx_override(ptr noundef %0) #2 align 16 {
   br label %144
 
 144:                                              ; preds = %141, %138, %84
-  %145 = phi i32 [ %85, %84 ], [ %135, %138 ], [ %135, %141 ]
+  %145 = phi i32 [ %85, %84 ], [ %135, %141 ], [ %135, %138 ]
   %146 = icmp slt i32 %145, 1
   br i1 %146, label %.thread20, label %.thread
 

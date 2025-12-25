@@ -2268,12 +2268,12 @@ tar_read_header.exit.thread:                      ; preds = %604, %615
   br label %tar_flush_unconsumed.exit
 
 tar_read_header.exit.thread231:                   ; preds = %80, %81, %84, %tar_flush_unconsumed.exit211.i
-  %.0.i.ph.ph230 = phi i32 [ %..i, %tar_flush_unconsumed.exit211.i ], [ -30, %84 ], [ 1, %80 ], [ -30, %81 ]
+  %.0.i.ph.ph230 = phi i32 [ 1, %80 ], [ -30, %84 ], [ -30, %81 ], [ %..i, %tar_flush_unconsumed.exit211.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %tar_flush_unconsumed.exit
 
 tar_read_header.exit:                             ; preds = %134, %226, %237, %269, %313, %324, %329, %header_gnutar.exit.i, %header_pax_global.exit.i, %archive_block_is_null.exit208.thread.i, %609, %is_mac_metadata_entry.exit.i, %625, %629, %.thread252.i, %641, %.thread251.i
-  %.0.i.ph.ph = phi i32 [ 1, %archive_block_is_null.exit208.thread.i ], [ -30, %609 ], [ %561, %is_mac_metadata_entry.exit.i ], [ -20, %625 ], [ %642, %641 ], [ %561, %.thread252.i ], [ %561, %629 ], [ -20, %.thread251.i ], [ -30, %header_pax_global.exit.i ], [ -30, %header_gnutar.exit.i ], [ -30, %329 ], [ -30, %324 ], [ -30, %313 ], [ -30, %269 ], [ -30, %237 ], [ -30, %226 ], [ -30, %134 ]
+  %.0.i.ph.ph = phi i32 [ -20, %.thread251.i ], [ %561, %.thread252.i ], [ %561, %629 ], [ 1, %archive_block_is_null.exit208.thread.i ], [ -30, %609 ], [ %561, %is_mac_metadata_entry.exit.i ], [ -20, %625 ], [ %642, %641 ], [ -30, %header_pax_global.exit.i ], [ -30, %header_gnutar.exit.i ], [ -30, %329 ], [ -30, %324 ], [ -30, %313 ], [ -30, %269 ], [ -30, %237 ], [ -30, %226 ], [ -30, %134 ]
   %.pr.pr = load i64, ptr %9, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i64 = icmp eq i64 %.pr.pr, 0
@@ -2876,7 +2876,7 @@ define internal fastcc i64 @tar_atol(ptr noundef nonnull readonly captures(none)
   br label %tar_atol256.exit
 
 tar_atol256.exit:                                 ; preds = %.critedge2.i.i, %42, %40, %.critedge4.i.i, %.critedge53.i.i, %27, %18, %9
-  %.0 = phi i64 [ %30, %27 ], [ %10, %9 ], [ %19, %18 ], [ 0, %.critedge53.i.i ], [ %spec.select.i.i, %.critedge4.i.i ], [ %.04295.i.i, %42 ], [ %.04295.i.i, %40 ], [ 0, %.critedge2.i.i ]
+  %.0 = phi i64 [ %30, %27 ], [ %10, %9 ], [ %19, %18 ], [ %.04295.i.i, %42 ], [ 0, %.critedge53.i.i ], [ %spec.select.i.i, %.critedge4.i.i ], [ %.04295.i.i, %40 ], [ 0, %.critedge2.i.i ]
   ret i64 %.0
 }
 
@@ -3506,7 +3506,7 @@ tar_flush_unconsumed.exit:                        ; preds = %._crit_edge, %38
   br label %gnu_add_sparse_entry.exit.thread
 
 gnu_add_sparse_entry.exit.thread:                 ; preds = %19, %.lr.ph, %33, %25, %46, %tar_flush_unconsumed.exit, %gnu_clear_sparse_list.exit
-  %.0 = phi i64 [ %spec.select, %46 ], [ -30, %gnu_clear_sparse_list.exit ], [ -30, %33 ], [ -30, %25 ], [ -30, %tar_flush_unconsumed.exit ], [ -30, %.lr.ph ], [ -30, %19 ]
+  %.0 = phi i64 [ %spec.select, %46 ], [ -30, %gnu_clear_sparse_list.exit ], [ -30, %25 ], [ -30, %33 ], [ -30, %tar_flush_unconsumed.exit ], [ -30, %.lr.ph ], [ -30, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
@@ -4751,7 +4751,7 @@ tar_flush_unconsumed.exit:                        ; preds = %16, %13
   br label %tar_atol10.exit
 
 tar_atol10.exit:                                  ; preds = %.critedge2.i.i, %32, %34, %read_bytes_to_string.exit, %20, %.critedge53.i.i, %.critedge4.i.i
-  %.044.i.i = phi i64 [ 0, %.critedge53.i.i ], [ 0, %20 ], [ %spec.select.i.i, %.critedge4.i.i ], [ 0, %read_bytes_to_string.exit ], [ %.04295.i.i, %32 ], [ %.04295.i.i, %34 ], [ 0, %.critedge2.i.i ]
+  %.044.i.i = phi i64 [ %spec.select.i.i, %.critedge4.i.i ], [ 0, %.critedge53.i.i ], [ 0, %20 ], [ %.04295.i.i, %32 ], [ 0, %read_bytes_to_string.exit ], [ %.04295.i.i, %34 ], [ 0, %.critedge2.i.i ]
   store i64 %.044.i.i, ptr %2, align 8, !tbaa !45
   call void @archive_string_free(ptr noundef nonnull %4) #13
   %44 = load i64, ptr %2, align 8, !tbaa !45
@@ -6154,7 +6154,7 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_old_parse(ptr noundef %
   br i1 %30, label %7, label %.critedge, !llvm.loop !109
 
 .critedge:                                        ; preds = %7, %25, %24, %15
-  %.09 = phi i32 [ -30, %24 ], [ -30, %15 ], [ 0, %25 ], [ 0, %7 ]
+  %.09 = phi i32 [ -30, %15 ], [ -30, %24 ], [ 0, %25 ], [ 0, %7 ]
   ret i32 %.09
 }
 
@@ -6293,8 +6293,8 @@ readline.exit.thread:                             ; preds = %tar_flush_unconsume
   br label %.loopexit
 
 readline.exit:                                    ; preds = %26, %40
-  %.2 = phi ptr [ %12, %26 ], [ %41, %40 ]
-  %.044.i = phi i64 [ %23, %26 ], [ %39, %40 ]
+  %.2 = phi ptr [ %41, %40 ], [ %12, %26 ]
+  %.044.i = phi i64 [ %39, %40 ], [ %23, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %58 = icmp slt i64 %.044.i, 1
   br i1 %58, label %.loopexit, label %59

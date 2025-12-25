@@ -601,7 +601,7 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %intset_binsrch_uint64.exit54, %89, %._crit_edge, %.split.loop.exit39.i, %79, %68, %62, %intset_binsrch_leaf.exit, %23, %intset_binsrch_uint64.exit, %18
-  %.0 = phi i1 [ false, %intset_binsrch_uint64.exit ], [ %22, %18 ], [ false, %89 ], [ false, %23 ], [ false, %intset_binsrch_leaf.exit ], [ %92, %.split.loop.exit39.i ], [ true, %62 ], [ false, %._crit_edge ], [ false, %68 ], [ %82, %79 ], [ false, %intset_binsrch_uint64.exit54 ], [ false, %.lr.ph ]
+  %.0 = phi i1 [ false, %intset_binsrch_uint64.exit ], [ %22, %18 ], [ %92, %.split.loop.exit39.i ], [ false, %23 ], [ false, %intset_binsrch_leaf.exit ], [ false, %89 ], [ true, %62 ], [ false, %._crit_edge ], [ false, %68 ], [ %82, %79 ], [ false, %intset_binsrch_uint64.exit54 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

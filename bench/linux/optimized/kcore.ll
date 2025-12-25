@@ -1041,7 +1041,7 @@ define internal i64 @read_kcore_iter(ptr noundef captures(none) %0, ptr noundef 
   br label %334
 
 334:                                              ; preds = %331, %323
-  %335 = phi i32 [ %333, %331 ], [ %324, %323 ]
+  %335 = phi i32 [ %324, %323 ], [ %333, %331 ]
   %336 = icmp eq i32 %335, 0
   %337 = load i64, ptr @vmemmap_base, align 8
   %338 = inttoptr i64 %337 to ptr

@@ -944,7 +944,7 @@ define hidden i32 @lj_lib_checkopt(ptr noundef %0, i32 noundef %1, i32 noundef %
   unreachable
 
 lj_lib_optstr.exit:                               ; preds = %41, %36, %26, %21
-  %46 = phi ptr [ %27, %26 ], [ %42, %41 ], [ %38, %36 ], [ %23, %21 ]
+  %46 = phi ptr [ %27, %26 ], [ %38, %36 ], [ %42, %41 ], [ %23, %21 ]
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %lj_lib_optstr.exit.thread, label %47
 

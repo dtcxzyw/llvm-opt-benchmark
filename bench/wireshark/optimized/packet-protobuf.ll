@@ -953,7 +953,7 @@ define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %55
 
 55:                                               ; preds = %51, %53, %23
-  %.1 = phi ptr [ %25, %23 ], [ %54, %53 ], [ %52, %51 ]
+  %.1 = phi ptr [ %25, %23 ], [ %52, %51 ], [ %54, %53 ]
   %.not119 = icmp eq ptr %.1, null
   br i1 %.not119, label %find_message_type_by_udp_port.exit.thread, label %56
 
@@ -1087,8 +1087,8 @@ find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, 
   %110 = tail call ptr @pbw_DescriptorPool_FindMessageTypeByName(ptr noundef %109, ptr noundef %107)
   br label %.thread155
 
-.thread155:                                       ; preds = %58, %56, %find_message_type_by_udp_port.exit, %108, %104
-  %.9 = phi ptr [ %106, %104 ], [ %110, %108 ], [ %87, %find_message_type_by_udp_port.exit ], [ %.1, %56 ], [ %.1, %58 ]
+.thread155:                                       ; preds = %56, %58, %find_message_type_by_udp_port.exit, %108, %104
+  %.9 = phi ptr [ %106, %104 ], [ %110, %108 ], [ %87, %find_message_type_by_udp_port.exit ], [ %.1, %58 ], [ %.1, %56 ]
   %111 = load i8, ptr @display_json_mapping, align 1, !range !6, !noundef !7
   %112 = trunc nuw i8 %111 to i1
   %113 = icmp ne ptr %.9, null
@@ -4754,7 +4754,7 @@ define internal fastcc noundef zeroext i1 @load_all_files_in_dir(ptr noundef %0,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %24, %.sink.split.sink.split, %.preheader
-  %.0.ph = phi i1 [ true, %.preheader ], [ false, %.sink.split.sink.split ], [ true, %24 ]
+  %.0.ph = phi i1 [ false, %.sink.split.sink.split ], [ true, %.preheader ], [ true, %24 ]
   tail call void @g_dir_close(ptr noundef nonnull %9)
   br label %26
 

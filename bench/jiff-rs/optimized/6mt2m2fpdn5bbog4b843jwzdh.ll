@@ -3178,7 +3178,7 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_minute17h8f2807bf1fa12388E.e
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d44431613945E.exit.i
 
 _ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d44431613945E.exit.thread.i: ; preds = %925, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit301.i", %922, %920
-  %.sroa.552.0277.i = phi i64 [ %.sroa.564.0.copyload.i.i, %920 ], [ 0, %922 ], [ %.sroa.564.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit301.i" ], [ %.sroa.564.0.copyload.i.i, %925 ]
+  %.sroa.552.0277.i = phi i64 [ %.sroa.564.0.copyload.i.i, %920 ], [ %.sroa.564.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit301.i" ], [ 0, %922 ], [ %.sroa.564.0.copyload.i.i, %925 ]
   %930 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17hd49e999ac00eade0E"(i8 noundef %.sroa.660.0.copyload.i.i), !noalias !238
   %931 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17h1a493077950fa652E"(i8 noundef %.sroa.665.0.copyload.i.i), !noalias !238
   %932 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17h1a493077950fa652E"(i8 noundef 0), !noalias !238
@@ -6704,8 +6704,8 @@ _ZN4jiff3fmt8temporal6parser14DateTimeParser12parse_minute17h8f2807bf1fa12388E.e
   %900 = getelementptr inbounds nuw i8, ptr %880, i64 1
   br label %_ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d44431613945E.exit
 
-_ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d44431613945E.exit.thread: ; preds = %896, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit279", %893, %891
-  %.sroa.5359.0583 = phi i64 [ %.sroa.564.0.copyload.i, %891 ], [ 0, %893 ], [ %.sroa.564.0.copyload.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit279" ], [ %.sroa.564.0.copyload.i, %896 ]
+_ZN4jiff3fmt8temporal6parser14DateTimeParser20parse_time_separator17h7ed0d44431613945E.exit.thread: ; preds = %896, %893, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit279", %891
+  %.sroa.5359.0583 = phi i64 [ %.sroa.564.0.copyload.i, %891 ], [ %.sroa.564.0.copyload.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h4dbf5acf57ad2eefE.exit279" ], [ 0, %893 ], [ %.sroa.564.0.copyload.i, %896 ]
   %901 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17hd49e999ac00eade0E"(i8 noundef %.sroa.660.0.copyload.i), !noalias !653
   %902 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17h1a493077950fa652E"(i8 noundef %.sroa.665.0.copyload.i), !noalias !653
   %903 = call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17h1a493077950fa652E"(i8 noundef 0), !noalias !653

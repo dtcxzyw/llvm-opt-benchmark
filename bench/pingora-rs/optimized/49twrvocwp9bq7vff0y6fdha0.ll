@@ -1286,14 +1286,14 @@ define internal fastcc void @_ZN10serde_yaml2de22DeserializerFromEvents13visit_m
   br label %218
 
 .loopexit.split-lp.i.i.i:                         ; preds = %616, %.invoke.i.i.i, %.thread3027.i.i.i
-  %.sroa.0313.1.ph.i.i.i = phi i1 [ true, %.thread3027.i.i.i ], [ false, %616 ], [ true, %.invoke.i.i.i ]
-  %.sroa.0314.1.ph.i.i.i = phi i1 [ true, %.thread3027.i.i.i ], [ %.not378.not.i.i.i, %616 ], [ true, %.invoke.i.i.i ]
-  %.sroa.0315.1.ph.i.i.i = phi i1 [ true, %.thread3027.i.i.i ], [ %.not375.not.i.i.i, %616 ], [ true, %.invoke.i.i.i ]
-  %.sroa.0316.1.ph.i.i.i = phi i1 [ true, %.thread3027.i.i.i ], [ %.not373.not.i.i.i, %616 ], [ true, %.invoke.i.i.i ]
-  %.sroa.0317.1.ph.i.i.i = phi i1 [ true, %.thread3027.i.i.i ], [ %.not372.not.i.i.i, %616 ], [ true, %.invoke.i.i.i ]
-  %.sroa.0318.1.ph.i.i.i = phi i1 [ true, %.thread3027.i.i.i ], [ %.not371.not.i.i.i, %616 ], [ true, %.invoke.i.i.i ]
-  %.sroa.0319.1.ph.i.i.i = phi i1 [ true, %.thread3027.i.i.i ], [ %.not370.not.i.i.i, %616 ], [ true, %.invoke.i.i.i ]
-  %.sroa.0320.1.ph.i.i.i = phi i1 [ true, %.thread3027.i.i.i ], [ %.not369.not.i.i.i, %616 ], [ true, %.invoke.i.i.i ]
+  %.sroa.0313.1.ph.i.i.i = phi i1 [ true, %.invoke.i.i.i ], [ false, %616 ], [ true, %.thread3027.i.i.i ]
+  %.sroa.0314.1.ph.i.i.i = phi i1 [ true, %.invoke.i.i.i ], [ %.not378.not.i.i.i, %616 ], [ true, %.thread3027.i.i.i ]
+  %.sroa.0315.1.ph.i.i.i = phi i1 [ true, %.invoke.i.i.i ], [ %.not375.not.i.i.i, %616 ], [ true, %.thread3027.i.i.i ]
+  %.sroa.0316.1.ph.i.i.i = phi i1 [ true, %.invoke.i.i.i ], [ %.not373.not.i.i.i, %616 ], [ true, %.thread3027.i.i.i ]
+  %.sroa.0317.1.ph.i.i.i = phi i1 [ true, %.invoke.i.i.i ], [ %.not372.not.i.i.i, %616 ], [ true, %.thread3027.i.i.i ]
+  %.sroa.0318.1.ph.i.i.i = phi i1 [ true, %.invoke.i.i.i ], [ %.not371.not.i.i.i, %616 ], [ true, %.thread3027.i.i.i ]
+  %.sroa.0319.1.ph.i.i.i = phi i1 [ true, %.invoke.i.i.i ], [ %.not370.not.i.i.i, %616 ], [ true, %.thread3027.i.i.i ]
+  %.sroa.0320.1.ph.i.i.i = phi i1 [ true, %.invoke.i.i.i ], [ %.not369.not.i.i.i, %616 ], [ true, %.thread3027.i.i.i ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %218

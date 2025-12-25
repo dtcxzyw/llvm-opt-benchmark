@@ -2894,7 +2894,7 @@ define internal ptr @_io_StringIO___getstate__(ptr noundef captures(none) %0, pt
   br label %_io_StringIO_getvalue_impl.exit.i
 
 _io_StringIO_getvalue_impl.exit.i:                ; preds = %19, %17
-  %.0.i.i = phi ptr [ %24, %19 ], [ %18, %17 ]
+  %.0.i.i = phi ptr [ %18, %17 ], [ %24, %19 ]
   %25 = icmp eq ptr %.0.i.i, null
   br i1 %25, label %_io_StringIO___getstate___impl.exit, label %26
 

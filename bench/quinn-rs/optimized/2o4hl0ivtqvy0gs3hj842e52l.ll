@@ -10769,14 +10769,14 @@ define hidden void @_ZN11quinn_proto6packet13PartialDecode3new17hac03d8144a4c7b7
   br label %136
 
 119:                                              ; preds = %87, %105, %113, %40, %55
-  %.sroa.26.sroa.0.1 = phi i8 [ undef, %105 ], [ %.sroa.612.i.sroa.7.sroa.0.0.copyload230, %40 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %113 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %87 ], [ %.sroa.0150.i.sroa.0.0.copyload, %55 ]
-  %.sroa.26.sroa.8.sroa.0.1 = phi i8 [ undef, %105 ], [ %.sroa.612.i.sroa.7.sroa.7.0.copyload232, %40 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload225, %113 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload224, %87 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %55 ]
-  %.sroa.89.sroa.0.1 = phi i64 [ %111, %105 ], [ 0, %40 ], [ 0, %113 ], [ 0, %87 ], [ 0, %55 ]
-  %.sroa.26.sroa.8.sroa.8.1 = phi i32 [ undef, %105 ], [ %.sroa.612.i.sroa.7.sroa.8.0.copyload234, %40 ], [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload229, %113 ], [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload227, %87 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.8.1.copyload, %55 ]
-  %.sroa.91.1 = phi i48 [ %.sroa.5180.0.copyload.i, %105 ], [ undef, %40 ], [ undef, %113 ], [ undef, %87 ], [ undef, %55 ]
-  %.sroa.90.1 = phi ptr [ %.sroa.4179.0.copyload.i, %105 ], [ undef, %40 ], [ undef, %113 ], [ undef, %87 ], [ undef, %55 ]
-  %.sroa.21.1 = phi i8 [ undef, %105 ], [ %.sroa.612.i.sroa.0.0.copyload159, %40 ], [ %.sroa.0150.i.sroa.0.0.copyload, %113 ], [ %.sroa.0150.i.sroa.0.0.copyload, %87 ], [ %56, %55 ]
-  %.sroa.0.2 = phi i8 [ 0, %105 ], [ 3, %40 ], [ 1, %113 ], [ 2, %87 ], [ 4, %55 ]
+  %.sroa.26.sroa.0.1 = phi i8 [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %113 ], [ %.sroa.612.i.sroa.7.sroa.0.0.copyload230, %40 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %87 ], [ undef, %105 ], [ %.sroa.0150.i.sroa.0.0.copyload, %55 ]
+  %.sroa.26.sroa.8.sroa.0.1 = phi i8 [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload225, %113 ], [ %.sroa.612.i.sroa.7.sroa.7.0.copyload232, %40 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.0.0.copyload224, %87 ], [ undef, %105 ], [ %.sroa.0150.i.sroa.8.sroa.0.0.copyload, %55 ]
+  %.sroa.89.sroa.0.1 = phi i64 [ 0, %113 ], [ 0, %40 ], [ 0, %87 ], [ %111, %105 ], [ 0, %55 ]
+  %.sroa.26.sroa.8.sroa.8.1 = phi i32 [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload229, %113 ], [ %.sroa.612.i.sroa.7.sroa.8.0.copyload234, %40 ], [ %.sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.0150.i.sroa.8.sroa.8.1..sroa.26.sroa.8.sroa.8.0.copyload227, %87 ], [ undef, %105 ], [ %.sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.0150.i.sroa.8.sroa.8.0..sroa.26.sroa.8.sroa.8.1.copyload, %55 ]
+  %.sroa.91.1 = phi i48 [ undef, %113 ], [ undef, %40 ], [ undef, %87 ], [ %.sroa.5180.0.copyload.i, %105 ], [ undef, %55 ]
+  %.sroa.90.1 = phi ptr [ undef, %113 ], [ undef, %40 ], [ undef, %87 ], [ %.sroa.4179.0.copyload.i, %105 ], [ undef, %55 ]
+  %.sroa.21.1 = phi i8 [ %.sroa.0150.i.sroa.0.0.copyload, %113 ], [ %.sroa.612.i.sroa.0.0.copyload159, %40 ], [ %.sroa.0150.i.sroa.0.0.copyload, %87 ], [ undef, %105 ], [ %56, %55 ]
+  %.sroa.0.2 = phi i8 [ 1, %113 ], [ 3, %40 ], [ 2, %87 ], [ 0, %105 ], [ 4, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0150.i.sroa.8.sroa.8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.27, i64 16, i1 false)
   %.sroa.6.sroa.6.23.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16

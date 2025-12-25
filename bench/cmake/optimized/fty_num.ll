@@ -205,8 +205,8 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noun
   br i1 %.not52, label %.thread.preheader, label %.preheader, !llvm.loop !27
 
 .thread.preheader:                                ; preds = %25, %.preheader, %31, %.loopexit56, %28
-  %.ph = phi i8 [ %30, %31 ], [ %20, %28 ], [ 0, %.loopexit56 ], [ 0, %.preheader ], [ 0, %25 ]
-  %.5.ph = phi ptr [ %.4, %.preheader ], [ %.263, %28 ], [ %.1, %.loopexit56 ], [ %.4, %31 ], [ %26, %25 ]
+  %.ph = phi i8 [ %30, %31 ], [ 0, %.loopexit56 ], [ %20, %28 ], [ 0, %.preheader ], [ 0, %25 ]
+  %.5.ph = phi ptr [ %.4, %.preheader ], [ %.1, %.loopexit56 ], [ %.263, %28 ], [ %.4, %31 ], [ %26, %25 ]
   br label %.thread
 
 .thread:                                          ; preds = %.thread.preheader, %37

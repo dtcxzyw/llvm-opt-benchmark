@@ -5764,7 +5764,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit35:           ; preds = %_ZNK6vectorIP4exprL
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %13, %38, %.loopexit.sink.split, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %.critedge
-  %.not45 = phi i1 [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ false, %.critedge ], [ true, %38 ], [ true, %13 ], [ false, %.loopexit.sink.split ], [ true, %48 ]
+  %.not45 = phi i1 [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ false, %.critedge ], [ true, %13 ], [ true, %38 ], [ false, %.loopexit.sink.split ], [ true, %48 ]
   %.pr = load ptr, ptr %6, align 8, !tbaa !555
   %.not.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i, label %_ZN6vectorIP4exprLb0EjED2Ev.exit, label %71

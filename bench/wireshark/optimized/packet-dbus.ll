@@ -1557,7 +1557,7 @@ add_conversation.exit.i:                          ; preds = %proto_item_set_gene
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.158, ptr noundef nonnull @.str.159, i32 noundef 1328) #10
   unreachable
 
-dissect_dbus_header_fields.exit.thread:           ; preds = %.loopexit.i, %169, %345, %337, %187, %192, %225, %259, %292, %312, %332, %150, %147, %.preheader.i, %.lr.ph.i198.i, %.lr.ph.i, %.lr.ph.i.i, %128, %177, %159, %.critedge181.i, %343, %is_dbus_interface_valid.exit.thread.i, %319, %299, %is_dbus_interface_valid.exit213.thread.i, %is_dbus_member_name_valid.exit.thread.i
+dissect_dbus_header_fields.exit.thread:           ; preds = %.loopexit.i, %169, %345, %337, %187, %192, %225, %259, %292, %312, %332, %150, %147, %.preheader.i, %.lr.ph.i198.i, %.lr.ph.i, %.lr.ph.i.i, %128, %is_dbus_interface_valid.exit213.thread.i, %.critedge181.i, %343, %is_dbus_interface_valid.exit.thread.i, %159, %319, %177, %299, %is_dbus_member_name_valid.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_dbus_body.exit
@@ -2541,8 +2541,8 @@ is_basic_type.exit351:                            ; preds = %285, %switch.lookup
   br label %414
 
 414:                                              ; preds = %.sink.split, %344, %403, %.thread
-  %.7295 = phi i32 [ %.0288, %344 ], [ %.10, %.thread ], [ %.10, %403 ], [ %.10, %.sink.split ]
-  %.3 = phi ptr [ %.0287, %344 ], [ %.4, %.thread ], [ %.4, %403 ], [ %.4, %.sink.split ]
+  %.7295 = phi i32 [ %.0288, %344 ], [ %.10, %403 ], [ %.10, %.thread ], [ %.10, %.sink.split ]
+  %.3 = phi ptr [ %.0287, %344 ], [ %.4, %403 ], [ %.4, %.thread ], [ %.4, %.sink.split ]
   %.not333 = icmp eq i32 %.7295, 0
   br i1 %.not333, label %reader_cleanup.exit, label %415
 
@@ -3215,7 +3215,7 @@ skip_enclosed_container.exit.loopexit45:          ; preds = %2, %2, %2, %2, %2, 
   br label %skip_enclosed_container.exit
 
 skip_enclosed_container.exit:                     ; preds = %20, %15, %12, %7, %2, %skip_enclosed_container.exit.loopexit45, %13, %5
-  %.0 = phi ptr [ %3, %skip_enclosed_container.exit.loopexit45 ], [ null, %13 ], [ null, %12 ], [ null, %2 ], [ null, %5 ], [ %.01623.i, %7 ], [ null, %20 ], [ %.01623.i12, %15 ]
+  %.0 = phi ptr [ %3, %skip_enclosed_container.exit.loopexit45 ], [ null, %13 ], [ null, %2 ], [ null, %12 ], [ null, %5 ], [ %.01623.i, %7 ], [ null, %20 ], [ %.01623.i12, %15 ]
   ret ptr %.0
 }
 

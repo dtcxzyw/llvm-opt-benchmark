@@ -310,7 +310,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   br i1 %173, label %.thread, label %.preheader43, !llvm.loop !10
 
 .thread:                                          ; preds = %28, %40, %36, %104, %.thread25, %89, %85, %77, %.loopexit, %164, %149, %145, %137, %.thread28, %15, %11, %2, %.loopexit47, %44
-  %174 = phi i32 [ %7, %44 ], [ %58, %.loopexit47 ], [ %58, %104 ], [ %58, %164 ], [ %58, %.loopexit ], [ %7, %2 ], [ %7, %11 ], [ %7, %15 ], [ %58, %89 ], [ %58, %149 ], [ %58, %.thread28 ], [ %58, %.thread25 ], [ %58, %137 ], [ %58, %145 ], [ %58, %77 ], [ %58, %85 ], [ %7, %36 ], [ %7, %40 ], [ %7, %28 ]
+  %174 = phi i32 [ %7, %44 ], [ %58, %.loopexit47 ], [ %58, %.thread25 ], [ %58, %164 ], [ %58, %149 ], [ %7, %2 ], [ %7, %11 ], [ %7, %15 ], [ %58, %.loopexit ], [ %58, %89 ], [ %58, %.thread28 ], [ %58, %104 ], [ %58, %137 ], [ %58, %145 ], [ %58, %77 ], [ %58, %85 ], [ %7, %36 ], [ %7, %40 ], [ %7, %28 ]
   %175 = icmp eq ptr %1, null
   br i1 %175, label %.thread33, label %202
 
@@ -1007,7 +1007,7 @@ define internal fastcc noundef ptr @memtype_match(i64 noundef %0, i64 noundef %1
   br i1 %117, label %.thread, label %45, !llvm.loop !14
 
 .thread:                                          ; preds = %24, %36, %32, %.loopexit, %59, %52, %45, %108, %93, %89, %81, %.thread15, %11, %7, %3, %40
-  %118 = phi ptr [ null, %40 ], [ null, %108 ], [ null, %11 ], [ %46, %59 ], [ null, %.thread15 ], [ null, %7 ], [ null, %3 ], [ null, %93 ], [ null, %81 ], [ null, %89 ], [ %46, %52 ], [ null, %45 ], [ null, %.loopexit ], [ null, %32 ], [ null, %36 ], [ null, %24 ]
+  %118 = phi ptr [ null, %40 ], [ null, %7 ], [ null, %11 ], [ null, %108 ], [ null, %.thread15 ], [ %46, %59 ], [ null, %3 ], [ null, %93 ], [ null, %81 ], [ null, %89 ], [ %46, %52 ], [ null, %45 ], [ null, %.loopexit ], [ null, %32 ], [ null, %36 ], [ null, %24 ]
   ret ptr %118
 }
 

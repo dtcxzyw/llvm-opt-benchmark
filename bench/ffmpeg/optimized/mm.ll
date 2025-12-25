@@ -249,7 +249,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %9, %.loopexit.sink.split, %2, %40, %36, %20, %15
-  %.0 = phi i32 [ -541478725, %2 ], [ -1094995529, %36 ], [ %43, %40 ], [ %18, %15 ], [ 0, %.loopexit.sink.split ], [ %25, %20 ], [ %10, %9 ], [ -541478725, %51 ]
+  %.0 = phi i32 [ -541478725, %2 ], [ -1094995529, %36 ], [ %43, %40 ], [ %18, %15 ], [ 0, %.loopexit.sink.split ], [ %25, %20 ], [ -541478725, %51 ], [ %10, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

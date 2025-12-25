@@ -14332,7 +14332,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$imp
   br i1 %136, label %.preheader.split.backedge.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd2ae78e65f22b23E.exit"
 
 _ZN4core3cmp9PartialEq2ne17h61b068e6791b7d46E.exit.i: ; preds = %129, %94, %59
-  %.sroa.0.0.shrunk.i.i.i = phi i1 [ %.mux.i9.i.i.i, %129 ], [ %.mux.i.i.i.i, %59 ], [ %.mux.i5.i.i.i, %94 ]
+  %.sroa.0.0.shrunk.i.i.i = phi i1 [ %.mux.i5.i.i.i, %94 ], [ %.mux.i.i.i.i, %59 ], [ %.mux.i9.i.i.i, %129 ]
   br i1 %.sroa.0.0.shrunk.i.i.i, label %.preheader.split.backedge.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd2ae78e65f22b23E.exit"
 
 .preheader.split.backedge.i:                      ; preds = %_ZN4core3cmp9PartialEq2ne17h61b068e6791b7d46E.exit.i, %135, %100, %65
@@ -14340,7 +14340,7 @@ _ZN4core3cmp9PartialEq2ne17h61b068e6791b7d46E.exit.i: ; preds = %129, %94, %59
   br i1 %exitcond.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd2ae78e65f22b23E.exit", label %.lr.ph
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd2ae78e65f22b23E.exit": ; preds = %_ZN4core3cmp9PartialEq2ne17h61b068e6791b7d46E.exit.i, %135, %123, %117, %113, %107, %102, %100, %88, %82, %78, %72, %67, %65, %57, %56, %55, %43, %37, %33, %27, %23, %.lr.ph, %.preheader.split.backedge.i, %.preheader.split.i.preheader, %0
-  %.sroa.0.0.i = phi i1 [ false, %0 ], [ true, %.preheader.split.i.preheader ], [ false, %.lr.ph ], [ false, %23 ], [ false, %100 ], [ false, %33 ], [ false, %65 ], [ false, %56 ], [ false, %43 ], [ false, %37 ], [ false, %27 ], [ false, %57 ], [ false, %55 ], [ false, %78 ], [ false, %88 ], [ false, %82 ], [ false, %72 ], [ false, %113 ], [ false, %123 ], [ false, %117 ], [ false, %107 ], [ false, %135 ], [ false, %_ZN4core3cmp9PartialEq2ne17h61b068e6791b7d46E.exit.i ], [ false, %102 ], [ false, %67 ], [ true, %.preheader.split.backedge.i ]
+  %.sroa.0.0.i = phi i1 [ false, %0 ], [ true, %.preheader.split.i.preheader ], [ false, %.lr.ph ], [ false, %23 ], [ false, %100 ], [ false, %33 ], [ false, %65 ], [ false, %56 ], [ false, %43 ], [ false, %37 ], [ false, %27 ], [ false, %57 ], [ false, %55 ], [ false, %78 ], [ false, %88 ], [ false, %82 ], [ false, %72 ], [ false, %113 ], [ false, %123 ], [ false, %117 ], [ false, %107 ], [ false, %135 ], [ false, %67 ], [ false, %_ZN4core3cmp9PartialEq2ne17h61b068e6791b7d46E.exit.i ], [ false, %102 ], [ true, %.preheader.split.backedge.i ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -16669,7 +16669,7 @@ define internal fastcc noundef zeroext i1 @"_ZN76_$LT$ruff_python_ast..generated
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bfb327b0fb1d7b6E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bfb327b0fb1d7b6E.exit.thread": ; preds = %23, %86, %58, %44, %57, %68, %.lr.ph, %56, %64, %72, %76, %80, %95, %108, %121, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bfb327b0fb1d7b6E.exit7", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3ef84ba274f7430aE.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bfb327b0fb1d7b6E.exit", %14, %8, %2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bfb327b0fb1d7b6E.exit11"
-  %.sroa.0.0 = phi i1 [ %130, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bfb327b0fb1d7b6E.exit11" ], [ false, %86 ], [ false, %121 ], [ false, %95 ], [ false, %8 ], [ false, %2 ], [ false, %14 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bfb327b0fb1d7b6E.exit" ], [ false, %108 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bfb327b0fb1d7b6E.exit7" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3ef84ba274f7430aE.exit" ], [ false, %80 ], [ false, %76 ], [ false, %72 ], [ false, %64 ], [ false, %56 ], [ false, %.lr.ph ], [ false, %68 ], [ false, %57 ], [ false, %44 ], [ false, %58 ], [ false, %23 ]
+  %.sroa.0.0 = phi i1 [ %130, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bfb327b0fb1d7b6E.exit11" ], [ false, %86 ], [ false, %121 ], [ false, %95 ], [ false, %8 ], [ false, %2 ], [ false, %14 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bfb327b0fb1d7b6E.exit" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0bfb327b0fb1d7b6E.exit7" ], [ false, %108 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3ef84ba274f7430aE.exit" ], [ false, %80 ], [ false, %76 ], [ false, %72 ], [ false, %64 ], [ false, %56 ], [ false, %.lr.ph ], [ false, %68 ], [ false, %57 ], [ false, %44 ], [ false, %58 ], [ false, %23 ]
   ret i1 %.sroa.0.0
 }
 

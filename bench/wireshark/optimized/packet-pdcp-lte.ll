@@ -2739,7 +2739,7 @@ calculate_digest.exit:                            ; preds = %765, %693, %688, %6
   br label %lookup_rrc_dissector_handle.exit
 
 lookup_rrc_dissector_handle.exit:                 ; preds = %797, %793, %789, %786, %782, %777, %779, %785, %792, %796
-  %.0.i448.in = phi ptr [ @lte_rrc_bcch_bch_nb, %793 ], [ %lte_rrc_ul_ccch.lte_rrc_dl_ccch, %779 ], [ @lte_rrc_pcch_nb, %792 ], [ @lte_rrc_bcch_dl_sch_nb, %796 ], [ %lte_rrc_ul_dcch_nb.lte_rrc_dl_dcch_nb, %797 ], [ @lte_rrc_pcch, %777 ], [ @lte_rrc_bcch_dl_sch, %785 ], [ %lte_rrc_ul_dcch.lte_rrc_dl_dcch, %786 ], [ @lte_rrc_bcch_bch, %782 ], [ %lte_rrc_ul_ccch_nb.lte_rrc_dl_ccch_nb, %789 ]
+  %.0.i448.in = phi ptr [ @lte_rrc_bcch_dl_sch_nb, %796 ], [ %lte_rrc_ul_ccch.lte_rrc_dl_ccch, %779 ], [ @lte_rrc_pcch_nb, %792 ], [ @lte_rrc_bcch_bch_nb, %793 ], [ %lte_rrc_ul_dcch_nb.lte_rrc_dl_dcch_nb, %797 ], [ @lte_rrc_pcch, %777 ], [ @lte_rrc_bcch_dl_sch, %785 ], [ %lte_rrc_ul_dcch.lte_rrc_dl_dcch, %786 ], [ @lte_rrc_bcch_bch, %782 ], [ %lte_rrc_ul_ccch_nb.lte_rrc_dl_ccch_nb, %789 ]
   %.0.i448 = load ptr, ptr %.0.i448.in, align 8
   %.not428 = icmp eq ptr %.0.i448, null
   br i1 %.not428, label %lookup_rrc_dissector_handle.exit.thread, label %800

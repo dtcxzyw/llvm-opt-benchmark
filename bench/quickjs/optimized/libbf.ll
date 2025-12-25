@@ -5192,7 +5192,7 @@ mp_add_ui.exit125:                                ; preds = %mp_sub_ui.exit.thre
   br label %131
 
 131:                                              ; preds = %.sink.split, %.thread, %73, %mp_sub.exit, %11
-  %.083 = phi i32 [ -1, %.thread ], [ -1, %mp_sub.exit ], [ -1, %11 ], [ -1, %73 ], [ 0, %.sink.split ]
+  %.083 = phi i32 [ -1, %73 ], [ -1, %mp_sub.exit ], [ -1, %11 ], [ -1, %.thread ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.083
 }
@@ -8153,7 +8153,7 @@ bf_can_round.exit:                                ; preds = %196, %177, %179, %g
   br label %.preheader.split
 
 bf_can_round.exit.thread:                         ; preds = %175, %bf_can_round.exit, %get_bit.exit38.i, %bf_can_round.exit.us, %145, %149, %bf_can_round.exit.us.us116, %129, %133, %113, %bf_can_round.exit.us.us, %117
-  %209 = phi i32 [ %176, %get_bit.exit38.i ], [ %146, %bf_can_round.exit.us ], [ %114, %117 ], [ %130, %133 ], [ 0, %113 ], [ %114, %bf_can_round.exit.us.us ], [ %130, %bf_can_round.exit.us.us116 ], [ 0, %129 ], [ 0, %145 ], [ %146, %149 ], [ %176, %bf_can_round.exit ], [ 0, %175 ]
+  %209 = phi i32 [ %176, %get_bit.exit38.i ], [ %130, %133 ], [ %146, %bf_can_round.exit.us ], [ %114, %117 ], [ 0, %113 ], [ %114, %bf_can_round.exit.us.us ], [ %130, %bf_can_round.exit.us.us116 ], [ 0, %129 ], [ 0, %145 ], [ %146, %149 ], [ %176, %bf_can_round.exit ], [ 0, %175 ]
   %210 = load i64, ptr %101, align 8, !tbaa !32
   %211 = icmp eq i64 %210, 0
   br i1 %211, label %bf_round.exit96, label %212
@@ -8572,9 +8572,9 @@ bf_set_inf.exit:                                  ; preds = %strcasestart.exit29
   %spec.select781 = select i1 %90, i32 10, i32 %4
   br label %.thread485.thread
 
-.thread485.thread:                                ; preds = %.thread485, %47, %to_digit.exit, %48, %.thread488
-  %.4480701 = phi ptr [ %.2478, %48 ], [ %.2478, %.thread485 ], [ %.3479, %to_digit.exit ], [ %.2478, %.thread488 ], [ %.2478, %47 ]
-  %91 = phi i32 [ 10, %48 ], [ %spec.select781, %.thread485 ], [ %.0169, %to_digit.exit ], [ 10, %.thread488 ], [ %4, %47 ]
+.thread485.thread:                                ; preds = %.thread485, %to_digit.exit, %47, %48, %.thread488
+  %.4480701 = phi ptr [ %.2478, %48 ], [ %.2478, %.thread485 ], [ %.2478, %47 ], [ %.2478, %.thread488 ], [ %.3479, %to_digit.exit ]
+  %91 = phi i32 [ 10, %48 ], [ %spec.select781, %.thread485 ], [ %4, %47 ], [ 10, %.thread488 ], [ %.0169, %to_digit.exit ]
   %.not259 = icmp eq i32 %7, 0
   br i1 %.not259, label %92, label %ceil_log2.exit
 
@@ -24069,7 +24069,7 @@ limb_to_a.exit:                                   ; preds = %.lr.ph.i113, %.lr.p
   br label %.thread
 
 .thread:                                          ; preds = %161, %.thread.sink.split, %92
-  %.1 = phi ptr [ %8, %.thread.sink.split ], [ %.073, %92 ], [ %.073, %161 ]
+  %.1 = phi ptr [ %.073, %92 ], [ %8, %.thread.sink.split ], [ %.073, %161 ]
   %.not99 = icmp eq ptr %.1, %1
   br i1 %.not99, label %bf_delete.exit, label %173
 

@@ -2370,7 +2370,7 @@ avifDecoderItemValidateProperties.exit:           ; preds = %587, %.loopexit.i48
   br label %avifMetaFindAlphaItem.exit
 
 avifMetaFindAlphaItem.exit:                       ; preds = %449, %avifDecoderItemOperatingPoint.exit.i, %468, %avifDecoderItemOperatingPoint.exit.i.i, %407, %avifPropertyArrayFind.exit.i.i475, %.lr.ph649, %710, %702, %693, %692, %794, %.loopexit.i.i, %435, %385, %390, %448, %avifDecoderItemValidateProperties.exit.thread, %301, %255, %.loopexit, %.thread, %318, %211, %142, %136, %121, %avifSampleTableGetCodecType.exit437._crit_edge.thread, %84, %15, %1, %.loopexit525, %194, %.loopexit516, %avifSampleTableGetCodecType.exit._crit_edge.thread
-  %.0 = phi i32 [ 3, %avifSampleTableGetCodecType.exit._crit_edge.thread ], [ 26, %15 ], [ 26, %avifSampleTableGetCodecType.exit437._crit_edge.thread ], [ 26, %136 ], [ 9, %avifDecoderItemValidateProperties.exit.thread ], [ %797, %794 ], [ 18, %448 ], [ 18, %.loopexit.i.i ], [ 18, %435 ], [ %824, %.loopexit ], [ 9, %.lr.ph649 ], [ 26, %avifDecoderItemOperatingPoint.exit.i.i ], [ %132, %121 ], [ %86, %84 ], [ 9, %.loopexit516 ], [ 10, %194 ], [ %151, %142 ], [ %214, %211 ], [ 0, %1 ], [ %322, %318 ], [ %328, %.thread ], [ %300, %301 ], [ 10, %.loopexit525 ], [ 26, %255 ], [ 18, %385 ], [ 18, %390 ], [ 9, %692 ], [ 9, %710 ], [ %706, %702 ], [ %701, %693 ], [ 26, %avifPropertyArrayFind.exit.i.i475 ], [ %414, %407 ], [ %475, %468 ], [ 26, %avifDecoderItemOperatingPoint.exit.i ], [ 10, %449 ]
+  %.0 = phi i32 [ 3, %avifSampleTableGetCodecType.exit._crit_edge.thread ], [ 26, %15 ], [ 26, %avifSampleTableGetCodecType.exit437._crit_edge.thread ], [ 26, %136 ], [ 9, %avifDecoderItemValidateProperties.exit.thread ], [ %797, %794 ], [ 18, %448 ], [ 18, %.loopexit.i.i ], [ 18, %435 ], [ %824, %.loopexit ], [ 9, %.lr.ph649 ], [ 26, %avifDecoderItemOperatingPoint.exit.i.i ], [ %132, %121 ], [ %86, %84 ], [ 9, %.loopexit516 ], [ 10, %194 ], [ %151, %142 ], [ %214, %211 ], [ 0, %1 ], [ %322, %318 ], [ %328, %.thread ], [ 26, %255 ], [ 10, %.loopexit525 ], [ %300, %301 ], [ 18, %385 ], [ 18, %390 ], [ 9, %692 ], [ 9, %710 ], [ %706, %702 ], [ %701, %693 ], [ 26, %avifPropertyArrayFind.exit.i.i475 ], [ %414, %407 ], [ %475, %468 ], [ 26, %avifDecoderItemOperatingPoint.exit.i ], [ 10, %449 ]
   ret i32 %.0
 }
 
@@ -3850,7 +3850,7 @@ avifSampleTableCreate.exit.thread.i.i.i.i.i.i:    ; preds = %369, %389
   br i1 %436, label %415, label %avifParseSampleToChunkBox.exit.i.i.i.i.i.i, !llvm.loop !33
 
 avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i: ; preds = %411, %406, %422, %419, %417, %415, %431, %429
-  %.0.i68.ph.i.i.i.i.i.i = phi i32 [ 9, %417 ], [ 9, %429 ], [ 9, %431 ], [ 9, %422 ], [ 9, %419 ], [ 26, %415 ], [ 9, %406 ], [ 9, %411 ]
+  %.0.i68.ph.i.i.i.i.i.i = phi i32 [ 9, %429 ], [ 9, %417 ], [ 9, %431 ], [ 9, %422 ], [ 9, %419 ], [ 26, %415 ], [ 9, %406 ], [ 9, %411 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -4201,7 +4201,7 @@ avifParseMediaInformationBox.exit.i.i.i.i:        ; preds = %358
   br i1 %.not17.i.i.i.i, label %avifParseMediaBox.exit.thread.i.i.i, label %319, !llvm.loop !40
 
 avifParseMediaBox.exit.thread.i.i.i:              ; preds = %537, %321, %avifParseMediaInformationBox.exit.thread.i.i.i.i, %avifParseMediaHeaderBox.exit.thread.i.i.i.i
-  %.0.i69.ph.i.i.i = phi i32 [ %.0.i22.ph.i.i.i.i, %avifParseMediaInformationBox.exit.thread.i.i.i.i ], [ 9, %avifParseMediaHeaderBox.exit.thread.i.i.i.i ], [ 9, %321 ], [ 9, %537 ]
+  %.0.i69.ph.i.i.i = phi i32 [ 9, %avifParseMediaHeaderBox.exit.thread.i.i.i.i ], [ %.0.i22.ph.i.i.i.i, %avifParseMediaInformationBox.exit.thread.i.i.i.i ], [ 9, %321 ], [ 9, %537 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
@@ -8316,7 +8316,7 @@ avifCheckItemID.exit.i:                           ; preds = %176
   br i1 %250, label %.lr.ph86.i, label %avifParseItemLocationBox.exit, !llvm.loop !76
 
 avifParseItemLocationBox.exit.thread:             ; preds = %153, %130, %142, %140, %158, %163, %144, %211, %174, %179, %190, %195, %205, %207, %169, %220, %224, %216, %138, %151, %avifCheckItemID.exit.i, %185, %194, %199, %231, %240
-  %.0.i79.ph = phi i32 [ 9, %240 ], [ 9, %216 ], [ 9, %231 ], [ 9, %199 ], [ 9, %194 ], [ 9, %185 ], [ 9, %avifCheckItemID.exit.i ], [ 9, %169 ], [ 9, %138 ], [ 9, %151 ], [ 9, %220 ], [ 26, %224 ], [ 9, %211 ], [ 9, %174 ], [ %180, %179 ], [ 9, %190 ], [ 9, %195 ], [ 9, %205 ], [ 9, %207 ], [ 9, %144 ], [ 9, %163 ], [ 9, %158 ], [ 9, %140 ], [ 9, %142 ], [ 9, %130 ], [ 9, %153 ]
+  %.0.i79.ph = phi i32 [ 9, %240 ], [ 9, %138 ], [ 9, %231 ], [ 9, %199 ], [ 9, %194 ], [ 9, %185 ], [ 9, %avifCheckItemID.exit.i ], [ 9, %216 ], [ 9, %169 ], [ 9, %151 ], [ 9, %220 ], [ 26, %224 ], [ 9, %211 ], [ 9, %174 ], [ %180, %179 ], [ 9, %190 ], [ 9, %195 ], [ 9, %205 ], [ 9, %207 ], [ 9, %144 ], [ 9, %163 ], [ 9, %158 ], [ 9, %140 ], [ 9, %142 ], [ 9, %130 ], [ 9, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
@@ -8821,7 +8821,7 @@ avifParseItemPropertyAssociation.exit.i:          ; preds = %._crit_edge.i.i, %.
   br label %avifParseItemPropertiesBox.exit.thread
 
 avifParseItemPropertiesBox.exit.thread:           ; preds = %285, %294, %300, %._crit_edge.thread.i, %304, %293, %401, %395, %397, %avifParseItemPropertyAssociation.exit.thread.i
-  %.023.i.ph = phi i32 [ 9, %293 ], [ 9, %._crit_edge.thread.i ], [ 9, %401 ], [ %.0.i.ph.i, %avifParseItemPropertyAssociation.exit.thread.i ], [ 9, %397 ], [ 9, %395 ], [ 9, %304 ], [ %299, %294 ], [ 9, %300 ], [ 9, %285 ]
+  %.023.i.ph = phi i32 [ 9, %._crit_edge.thread.i ], [ 9, %293 ], [ 9, %401 ], [ %.0.i.ph.i, %avifParseItemPropertyAssociation.exit.thread.i ], [ 9, %397 ], [ 9, %395 ], [ 9, %304 ], [ %299, %294 ], [ 9, %300 ], [ 9, %285 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
@@ -9061,7 +9061,7 @@ avifParseItemInfoEntry.exit.thread.i:             ; preds = %463, %460, %458, %4
   br i1 %.not19.i, label %avifParseItemInfoBox.exit.thread, label %422
 
 avifParseItemInfoBox.exit.thread:                 ; preds = %411, %416, %404, %467, %.lr.ph.i111, %466, %avifParseItemInfoEntry.exit.thread.i, %418
-  %.0.i113.ph = phi i32 [ 9, %466 ], [ 9, %467 ], [ %.0.i.ph.i118, %avifParseItemInfoEntry.exit.thread.i ], [ 9, %418 ], [ 9, %.lr.ph.i111 ], [ 9, %404 ], [ 9, %416 ], [ 9, %411 ]
+  %.0.i113.ph = phi i32 [ 9, %467 ], [ 9, %466 ], [ %.0.i.ph.i118, %avifParseItemInfoEntry.exit.thread.i ], [ 9, %418 ], [ 9, %.lr.ph.i111 ], [ 9, %404 ], [ 9, %416 ], [ 9, %411 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -9271,8 +9271,8 @@ avifCheckItemID.exit61.thread.i:                  ; preds = %507, %501
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.33, i32 noundef 0) #13
   br label %avifParseItemReferenceBox.exit.thread
 
-avifParseItemReferenceBox.exit.thread:            ; preds = %476, %.lr.ph78.i, %491, %485, %avifCheckItemID.exit.thread.i, %499, %526, %505, %511, %.loopexit.sink.split.i
-  %.0.i127.ph = phi i32 [ 9, %.loopexit.sink.split.i ], [ 9, %.lr.ph78.i ], [ %512, %511 ], [ 9, %499 ], [ %528, %526 ], [ 9, %505 ], [ 9, %avifCheckItemID.exit.thread.i ], [ 9, %485 ], [ 9, %491 ], [ 9, %476 ]
+avifParseItemReferenceBox.exit.thread:            ; preds = %476, %491, %.lr.ph78.i, %485, %avifCheckItemID.exit.thread.i, %499, %526, %505, %511, %.loopexit.sink.split.i
+  %.0.i127.ph = phi i32 [ 9, %.loopexit.sink.split.i ], [ %512, %511 ], [ 9, %491 ], [ 9, %499 ], [ %528, %526 ], [ 9, %505 ], [ 9, %avifCheckItemID.exit.thread.i ], [ 9, %485 ], [ 9, %.lr.ph78.i ], [ 9, %476 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -9315,7 +9315,7 @@ avifParseItemReferenceBox.exit:                   ; preds = %483, %._crit_edge.i
   br label %avifParseItemDataBox.exit.thread
 
 avifParseItemDataBox.exit.thread:                 ; preds = %543, %avifParseItemDataBox.exit, %avifParseHandlerBox.exit, %104, %281, %278, %avifParseItemReferenceBox.exit.thread, %uniqueBoxSeen.exit122.thread, %avifParseItemInfoBox.exit.thread, %uniqueBoxSeen.exit106.thread, %avifParseItemPropertiesBox.exit.thread, %uniqueBoxSeen.exit97.thread, %uniqueBoxSeen.exit90.thread, %avifParsePrimaryItemBox.exit.thread, %uniqueBoxSeen.exit83.thread, %avifParseItemLocationBox.exit.thread, %uniqueBoxSeen.exit77.thread, %avifParseHandlerBox.exit.thread, %uniqueBoxSeen.exit.thread, %546, %5, %547, %126
-  %.0 = phi i32 [ 9, %126 ], [ %.0.i127.ph, %avifParseItemReferenceBox.exit.thread ], [ 9, %uniqueBoxSeen.exit.thread ], [ 9, %281 ], [ 9, %uniqueBoxSeen.exit122.thread ], [ %.0.i113.ph, %avifParseItemInfoBox.exit.thread ], [ 9, %uniqueBoxSeen.exit106.thread ], [ %.023.i.ph, %avifParseItemPropertiesBox.exit.thread ], [ 9, %uniqueBoxSeen.exit97.thread ], [ 9, %278 ], [ 9, %uniqueBoxSeen.exit90.thread ], [ 9, %avifParsePrimaryItemBox.exit.thread ], [ 9, %uniqueBoxSeen.exit83.thread ], [ %.0.i79.ph, %avifParseItemLocationBox.exit.thread ], [ 9, %uniqueBoxSeen.exit77.thread ], [ 9, %avifParseHandlerBox.exit.thread ], [ 9, %5 ], [ 9, %547 ], [ 0, %546 ], [ 9, %104 ], [ 9, %avifParseHandlerBox.exit ], [ 9, %avifParseItemDataBox.exit ], [ 9, %543 ]
+  %.0 = phi i32 [ 9, %126 ], [ %.0.i127.ph, %avifParseItemReferenceBox.exit.thread ], [ 9, %uniqueBoxSeen.exit.thread ], [ 0, %546 ], [ 9, %uniqueBoxSeen.exit122.thread ], [ %.0.i113.ph, %avifParseItemInfoBox.exit.thread ], [ 9, %uniqueBoxSeen.exit106.thread ], [ %.023.i.ph, %avifParseItemPropertiesBox.exit.thread ], [ 9, %uniqueBoxSeen.exit97.thread ], [ 9, %avifParseHandlerBox.exit.thread ], [ 9, %uniqueBoxSeen.exit90.thread ], [ 9, %avifParsePrimaryItemBox.exit.thread ], [ 9, %uniqueBoxSeen.exit83.thread ], [ %.0.i79.ph, %avifParseItemLocationBox.exit.thread ], [ 9, %uniqueBoxSeen.exit77.thread ], [ 9, %278 ], [ 9, %5 ], [ 9, %547 ], [ 9, %281 ], [ 9, %104 ], [ 9, %avifParseHandlerBox.exit ], [ 9, %avifParseItemDataBox.exit ], [ 9, %543 ]
   ret i32 %.0
 }
 

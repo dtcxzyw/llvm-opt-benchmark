@@ -4780,7 +4780,7 @@ define ptr @ossl_quic_get0_listener(ptr noundef readonly captures(address_is_nul
   br label %expect_quic_as.exit
 
 expect_quic_as.exit:                              ; preds = %4, %3, %15, %6, %10, %7
-  %16 = phi ptr [ null, %3 ], [ %14, %10 ], [ %9, %7 ], [ null, %6 ], [ null, %15 ], [ %0, %4 ]
+  %16 = phi ptr [ %14, %10 ], [ null, %3 ], [ %9, %7 ], [ null, %6 ], [ null, %15 ], [ %0, %4 ]
   ret ptr %16
 }
 
@@ -9155,9 +9155,9 @@ wrong_type.exit117:                               ; preds = %93, %95, %96, %.fol
   br label %qctx_lock_for_io.exit123.thread
 
 qctx_lock_for_io.exit123:                         ; preds = %105, %76, %74, %quic_mutation_allowed.exit, %wrong_type.exit113, %69
-  %.091 = phi i32 [ %.1, %105 ], [ 1, %69 ], [ 1, %76 ], [ 1, %74 ], [ %.2126, %wrong_type.exit113 ], [ 1, %quic_mutation_allowed.exit ]
-  %or.cond3 = phi i1 [ %5, %105 ], [ false, %69 ], [ false, %76 ], [ false, %74 ], [ false, %wrong_type.exit113 ], [ false, %quic_mutation_allowed.exit ]
-  %.090 = phi i32 [ 1, %105 ], [ 0, %69 ], [ 0, %76 ], [ 0, %74 ], [ 0, %wrong_type.exit113 ], [ 0, %quic_mutation_allowed.exit ]
+  %.091 = phi i32 [ %.2126, %wrong_type.exit113 ], [ 1, %74 ], [ 1, %76 ], [ 1, %69 ], [ %.1, %105 ], [ 1, %quic_mutation_allowed.exit ]
+  %or.cond3 = phi i1 [ false, %wrong_type.exit113 ], [ false, %74 ], [ false, %76 ], [ false, %69 ], [ %5, %105 ], [ false, %quic_mutation_allowed.exit ]
+  %.090 = phi i32 [ 0, %wrong_type.exit113 ], [ 0, %74 ], [ 0, %76 ], [ 0, %69 ], [ 1, %105 ], [ 0, %quic_mutation_allowed.exit ]
   %.not100 = icmp eq i32 %.091, 0
   %brmerge = or i1 %.not100, %or.cond3
   br i1 %brmerge, label %qctx_lock_for_io.exit123.thread, label %121
@@ -9170,8 +9170,8 @@ qctx_lock_for_io.exit123:                         ; preds = %105, %76, %74, %qui
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %123) #12
   br label %qctx_lock_for_io.exit123.thread
 
-qctx_lock_for_io.exit123.thread:                  ; preds = %108, %113, %115, %117, %119, %wrong_type.exit108, %wrong_type.exit117, %wrong_type.exit, %104, %18, %qctx_lock_for_io.exit123, %121
-  %.090134 = phi i32 [ %.090, %121 ], [ %.090, %qctx_lock_for_io.exit123 ], [ 0, %18 ], [ 0, %104 ], [ 0, %wrong_type.exit ], [ 0, %wrong_type.exit117 ], [ 0, %wrong_type.exit108 ], [ 1, %119 ], [ 1, %117 ], [ 1, %115 ], [ 1, %113 ], [ 1, %108 ]
+qctx_lock_for_io.exit123.thread:                  ; preds = %108, %119, %117, %115, %113, %wrong_type.exit108, %wrong_type.exit117, %wrong_type.exit, %104, %18, %qctx_lock_for_io.exit123, %121
+  %.090134 = phi i32 [ %.090, %121 ], [ %.090, %qctx_lock_for_io.exit123 ], [ 0, %18 ], [ 0, %104 ], [ 0, %wrong_type.exit ], [ 0, %wrong_type.exit117 ], [ 0, %wrong_type.exit108 ], [ 1, %119 ], [ 1, %113 ], [ 1, %115 ], [ 1, %117 ], [ 1, %108 ]
   ret i32 %.090134
 }
 

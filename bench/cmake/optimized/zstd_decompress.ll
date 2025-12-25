@@ -783,9 +783,9 @@ define dso_local i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) 
 
 28:                                               ; preds = %12, %25
   %.145 = phi i64 [ %.04471, %12 ], [ %24, %25 ]
-  %.pn = phi i64 [ %16, %12 ], [ %26, %25 ]
-  %.234 = getelementptr inbounds nuw i8, ptr %.03273, i64 %.pn
-  %.242 = sub i64 %.04072, %.pn
+  %..i.pn = phi i64 [ %16, %12 ], [ %26, %25 ]
+  %.234 = getelementptr inbounds nuw i8, ptr %.03273, i64 %..i.pn
+  %.242 = sub i64 %.04072, %..i.pn
   %.not = icmp ult i64 %.242, 5
   br i1 %.not, label %._crit_edge, label %7
 

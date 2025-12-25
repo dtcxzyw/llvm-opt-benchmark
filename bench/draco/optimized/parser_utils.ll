@@ -563,7 +563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %56, %
   br i1 %73, label %74, label %.critedge58
 
 74:                                               ; preds = %62, %65, %71, %68
-  %.349 = phi double [ 0x7FF8000000000000, %71 ], [ 0x7FF8000000000000, %68 ], [ 0x7FF0000000000000, %65 ], [ 0x7FF0000000000000, %62 ]
+  %.349 = phi double [ 0x7FF8000000000000, %68 ], [ 0x7FF8000000000000, %71 ], [ 0x7FF0000000000000, %65 ], [ 0x7FF0000000000000, %62 ]
   %75 = load ptr, ptr %3, align 8, !tbaa !26
   %76 = icmp eq ptr %75, %52
   br i1 %76, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63

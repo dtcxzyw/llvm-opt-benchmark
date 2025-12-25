@@ -955,7 +955,7 @@ Bal_SetSortByDelay.exit.i166.us:                  ; preds = %.lr.ph.i8.i190.us, 
   br label %Bal_SetAddCut.exit211.us
 
 Bal_SetAddCut.exit211.us:                         ; preds = %156, %.lr.ph139.i.us, %191, %218, %203, %213, %Bal_SetSortByDelay.exit.i166.us, %Bal_SetLastCutIsContained.exit165.thread238.us, %145, %129, %.preheader125.i.us, %87
-  %.7.us = phi i32 [ %.6313.us, %87 ], [ %.6313.us, %.preheader125.i.us ], [ 1, %Bal_SetLastCutIsContained.exit165.thread238.us ], [ %309, %Bal_SetSortByDelay.exit.i166.us ], [ %.6313.us, %191 ], [ %.6313.us, %213 ], [ %.6313.us, %.lr.ph139.i.us ], [ %.6313.us, %145 ], [ %.6313.us, %129 ], [ %.6313.us, %203 ], [ %.6313.us, %218 ], [ %.6313.us, %156 ]
+  %.7.us = phi i32 [ %.6313.us, %87 ], [ %.6313.us, %213 ], [ 1, %Bal_SetLastCutIsContained.exit165.thread238.us ], [ %309, %Bal_SetSortByDelay.exit.i166.us ], [ %.6313.us, %191 ], [ %.6313.us, %.preheader125.i.us ], [ %.6313.us, %.lr.ph139.i.us ], [ %.6313.us, %145 ], [ %.6313.us, %129 ], [ %.6313.us, %203 ], [ %.6313.us, %218 ], [ %.6313.us, %156 ]
   %310 = getelementptr inbounds nuw i8, ptr %.179312.us, i64 40
   %311 = icmp ult ptr %310, %73
   br i1 %311, label %87, label %._crit_edge316.us, !llvm.loop !69

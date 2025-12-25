@@ -1545,7 +1545,7 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
   %59 = tail call fastcc zeroext i1 @ExecCheckPermissionsModified(i32 noundef %12, i32 noundef %20, ptr noundef %58, i64 noundef 4)
   br i1 %59, label %.critedge, label %.loopexit
 
-.loopexit:                                        ; preds = %32, %24, %51, %56, %42, %44
+.loopexit:                                        ; preds = %24, %32, %51, %56, %42, %44
   br i1 %2, label %60, label %.thread35
 
 60:                                               ; preds = %.loopexit

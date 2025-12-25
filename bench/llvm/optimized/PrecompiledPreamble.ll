@@ -4353,7 +4353,7 @@ _ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit180:    ; preds = %430, %428, %_ZNKSt7
   br label %.thread
 
 .thread:                                          ; preds = %287, %295, %_ZN5clangneERKNS_19PrecompiledPreamble16PreambleFileHashES3_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i160, %400, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt9nullopt_tEEKNS_14StringMapEntryIS2_EEEppEv.exit.loopexit, %_ZNK4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE5beginEv.exit, %_ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit180
-  %.10 = phi i1 [ %.not248, %400 ], [ false, %_ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit180 ], [ true, %_ZNK4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE5beginEv.exit ], [ %.not248, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt9nullopt_tEEKNS_14StringMapEntryIS2_EEEppEv.exit.loopexit ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i160 ], [ false, %_ZN5clangneERKNS_19PrecompiledPreamble16PreambleFileHashES3_.exit ], [ false, %295 ], [ false, %287 ]
+  %.10 = phi i1 [ false, %_ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit180 ], [ %.not248, %400 ], [ true, %_ZNK4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE5beginEv.exit ], [ %.not248, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt9nullopt_tEEKNS_14StringMapEntryIS2_EEEppEv.exit.loopexit ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i160 ], [ false, %_ZN5clangneERKNS_19PrecompiledPreamble16PreambleFileHashES3_.exit ], [ false, %295 ], [ false, %287 ]
   %435 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %436 = load i32, ptr %435, align 4, !tbaa !13
   %437 = icmp eq i32 %436, 0

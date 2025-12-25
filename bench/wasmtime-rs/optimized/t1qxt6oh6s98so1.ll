@@ -6966,7 +6966,7 @@ define hidden noundef align 8 ptr @"_ZN16wasmtime_environ9component9artifacts1_1
   br label %"_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h98165bd9035dacd6E.exit"
 
 "_ZN83_$LT$bincode..ser..Compound$LT$W$C$O$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h98165bd9035dacd6E.exit": ; preds = %29, %25, %2, %12
-  %.1 = phi ptr [ %31, %29 ], [ %27, %25 ], [ %10, %2 ], [ %14, %12 ]
+  %.1 = phi ptr [ %31, %29 ], [ %27, %25 ], [ %14, %12 ], [ %10, %2 ]
   ret ptr %.1
 }
 
@@ -16339,8 +16339,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %exitcond.not = icmp eq i64 %.sroa.01.0, %1
   br i1 %exitcond.not, label %.thread, label %5
 
-.thread:                                          ; preds = %52, %5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h02ce9766e1570f79E.exit.i.i", %.preheader.split, %_ZN4core3cmp9PartialEq2ne17hf23fb2b21f204691E.exit, %.lr.ph.i.i.i, %26, %32, %40, %72, %78, %86, %.lr.ph.i5.i.i, %4
-  %.0 = phi i1 [ false, %.lr.ph.i.i.i ], [ false, %4 ], [ false, %72 ], [ false, %.lr.ph.i5.i.i ], [ false, %86 ], [ false, %78 ], [ false, %40 ], [ false, %32 ], [ false, %26 ], [ %exitcond.not, %_ZN4core3cmp9PartialEq2ne17hf23fb2b21f204691E.exit ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h02ce9766e1570f79E.exit.i.i" ], [ %exitcond.not, %5 ], [ %exitcond.not, %52 ]
+.thread:                                          ; preds = %5, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h02ce9766e1570f79E.exit.i.i", %52, %.preheader.split, %_ZN4core3cmp9PartialEq2ne17hf23fb2b21f204691E.exit, %.lr.ph.i.i.i, %26, %32, %40, %72, %78, %86, %.lr.ph.i5.i.i, %4
+  %.0 = phi i1 [ false, %72 ], [ false, %4 ], [ false, %.lr.ph.i.i.i ], [ false, %.lr.ph.i5.i.i ], [ false, %86 ], [ false, %78 ], [ false, %40 ], [ false, %32 ], [ false, %26 ], [ %exitcond.not, %_ZN4core3cmp9PartialEq2ne17hf23fb2b21f204691E.exit ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %52 ], [ %exitcond.not, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h02ce9766e1570f79E.exit.i.i" ], [ %exitcond.not, %5 ]
   ret i1 %.0
 
 5:                                                ; preds = %.preheader.split

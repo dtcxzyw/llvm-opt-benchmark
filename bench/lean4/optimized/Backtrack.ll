@@ -38033,8 +38033,8 @@ lean_alloc_ctor.exit688:                          ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit416.backedge
 
 lean_dec.exit416.backedge:                        ; preds = %lean_alloc_ctor.exit688, %lean_alloc_ctor.exit703, %lean_alloc_ctor.exit630, %lean_alloc_ctor.exit644, %lean_alloc_ctor.exit634
-  %.0309.be = phi ptr [ %843, %lean_alloc_ctor.exit703 ], [ %182, %lean_alloc_ctor.exit630 ], [ %736, %lean_alloc_ctor.exit688 ], [ %439, %lean_alloc_ctor.exit644 ], [ %234, %lean_alloc_ctor.exit634 ]
-  %.0298.be = phi ptr [ %866, %lean_alloc_ctor.exit703 ], [ %.0287, %lean_alloc_ctor.exit630 ], [ %757, %lean_alloc_ctor.exit688 ], [ %.0287, %lean_alloc_ctor.exit644 ], [ %.0287, %lean_alloc_ctor.exit634 ]
+  %.0309.be = phi ptr [ %843, %lean_alloc_ctor.exit703 ], [ %182, %lean_alloc_ctor.exit630 ], [ %439, %lean_alloc_ctor.exit644 ], [ %736, %lean_alloc_ctor.exit688 ], [ %234, %lean_alloc_ctor.exit634 ]
+  %.0298.be = phi ptr [ %866, %lean_alloc_ctor.exit703 ], [ %.0287, %lean_alloc_ctor.exit630 ], [ %.0287, %lean_alloc_ctor.exit644 ], [ %757, %lean_alloc_ctor.exit688 ], [ %.0287, %lean_alloc_ctor.exit634 ]
   br label %lean_dec.exit416
 
 763:                                              ; preds = %lean_obj_tag.exit680

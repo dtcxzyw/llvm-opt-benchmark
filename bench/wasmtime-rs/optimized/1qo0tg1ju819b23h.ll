@@ -19096,7 +19096,7 @@ _ZN18wasmtime_cranelift5debug9transform4refs11UnitRefsMap6insert17h5638f96c2c934
   br label %.body468
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %285, %288, %421, %593
-  %.4338.ph.ph.ph = phi i8 [ 1, %285 ], [ 1, %.invoke ], [ 1, %593 ], [ 1, %421 ], [ 0, %288 ]
+  %.4338.ph.ph.ph = phi i8 [ 1, %593 ], [ 1, %.invoke ], [ 1, %285 ], [ 1, %421 ], [ 0, %288 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body468

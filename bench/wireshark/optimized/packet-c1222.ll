@@ -2268,7 +2268,7 @@ canonify_unencrypted_header.exit:                 ; preds = %90
   br label %canonify_unencrypted_header.exit.thread
 
 canonify_unencrypted_header.exit.thread:          ; preds = %25, %75, %98, %.preheader.i, %94, %103, %canonify_unencrypted_header.exit, %3
-  %.011 = phi i1 [ false, %3 ], [ false, %98 ], [ false, %canonify_unencrypted_header.exit ], [ %110, %103 ], [ false, %.preheader.i ], [ false, %94 ], [ false, %75 ], [ false, %25 ]
+  %.011 = phi i1 [ false, %3 ], [ false, %.preheader.i ], [ false, %canonify_unencrypted_header.exit ], [ %110, %103 ], [ false, %98 ], [ false, %94 ], [ false, %75 ], [ false, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.011

@@ -2470,8 +2470,8 @@ _ZN6icu_7712LocalPointerINS_18AnnualTimeZoneRuleEED2Ev.exit285: ; preds = %_ZN6i
   br label %.critedge266
 
 .critedge266:                                     ; preds = %187, %.thread351
-  %.1177 = phi i8 [ %.4180, %.thread351 ], [ %.0176422, %187 ]
-  %.1172 = phi i8 [ %.4175, %.thread351 ], [ %.0171423, %187 ]
+  %.1177 = phi i8 [ %.0176422, %187 ], [ %.4180, %.thread351 ]
+  %.1172 = phi i8 [ %.0171423, %187 ], [ %.4175, %.thread351 ]
   %.not214 = icmp eq i8 %.1172, 0
   %.not215 = icmp eq i8 %.1177, 0
   %398 = select i1 %.not214, i1 true, i1 %.not215

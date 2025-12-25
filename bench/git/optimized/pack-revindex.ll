@@ -1267,7 +1267,7 @@ midx_pack_order_cmp.exit:                         ; preds = %72
   %.not26 = icmp sgt i64 %74, %73
   br i1 %.not26, label %midx_pack_order_cmp.exit.thread21, label %bsearch.exit
 
-midx_pack_order_cmp.exit.thread21:                ; preds = %70, %67, %midx_pack_order_cmp.exit
+midx_pack_order_cmp.exit.thread21:                ; preds = %67, %70, %midx_pack_order_cmp.exit
   %76 = add nuw i64 %27, 1
   br label %midx_pack_order_cmp.exit.thread
 

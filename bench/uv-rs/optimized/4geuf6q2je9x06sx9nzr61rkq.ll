@@ -14689,7 +14689,7 @@ thread-pre-split.i.i.i:                           ; preds = %.loopexit.i.i.i.loo
   br label %thread-pre-split.i.i.i
 
 .loopexit.split-lp.i.i.i:                         ; preds = %337, %333, %314, %286, %267, %248, %.invoke.i.i.i
-  %.sroa.075.1.ph.i.i.i = phi i8 [ %.sroa.075.6.i.i.i, %337 ], [ 1, %.invoke.i.i.i ], [ 1, %314 ], [ 1, %286 ], [ 1, %248 ], [ 1, %267 ], [ %.sroa.075.6.i.i.i, %333 ]
+  %.sroa.075.1.ph.i.i.i = phi i8 [ %.sroa.075.6.i.i.i, %333 ], [ 1, %.invoke.i.i.i ], [ 1, %248 ], [ 1, %286 ], [ 1, %314 ], [ 1, %267 ], [ %.sroa.075.6.i.i.i, %337 ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %thread-pre-split.i.i.i
@@ -16024,7 +16024,7 @@ thread-pre-split.i.i.i75:                         ; preds = %.loopexit.i.i.i73.l
   br label %thread-pre-split.i.i.i75
 
 .loopexit.split-lp.i.i.i169:                      ; preds = %632, %628, %609, %581, %562, %543, %.invoke.i.i.i168
-  %.sroa.075.1.ph.i.i.i170 = phi i8 [ %.sroa.075.6.i.i.i336, %632 ], [ 1, %.invoke.i.i.i168 ], [ 1, %609 ], [ 1, %581 ], [ 1, %543 ], [ 1, %562 ], [ %.sroa.075.6.i.i.i336, %628 ]
+  %.sroa.075.1.ph.i.i.i170 = phi i8 [ %.sroa.075.6.i.i.i336, %628 ], [ 1, %.invoke.i.i.i168 ], [ 1, %543 ], [ 1, %581 ], [ 1, %609 ], [ 1, %562 ], [ %.sroa.075.6.i.i.i336, %632 ]
   %lpad.loopexit.split-lp.i.i.i171 = landingpad { ptr, i32 }
           cleanup
   br label %thread-pre-split.i.i.i75
@@ -19645,7 +19645,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr107dro
   br label %220
 
 .loopexit.split-lp.i.i.i:                         ; preds = %296, %292, %272, %253, %.invoke.i.i.i, %234
-  %.sroa.046.1.ph.i.i.i = phi i8 [ 1, %.invoke.i.i.i ], [ %.sroa.046.6.i.i.i, %296 ], [ 1, %253 ], [ %.sroa.046.6.i.i.i, %292 ], [ 1, %234 ], [ 1, %272 ]
+  %.sroa.046.1.ph.i.i.i = phi i8 [ %.sroa.046.6.i.i.i, %292 ], [ %.sroa.046.6.i.i.i, %296 ], [ 1, %253 ], [ 1, %.invoke.i.i.i ], [ 1, %234 ], [ 1, %272 ]
   %lpad.loopexit.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %220

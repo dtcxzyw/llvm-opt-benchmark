@@ -16846,8 +16846,8 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit323:     ; preds = %1087, %1082, %_ZN5I
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit325
 
 _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit325:      ; preds = %1091, %1092, %1097
-  %.sroa.0421.1 = phi ptr [ %.sroa.0421.3480, %1097 ], [ %.sroa.0421.3480, %1092 ], [ %.sroa.0421.3, %1091 ]
-  %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn482, %1097 ], [ %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn482, %1092 ], [ %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1091 ]
+  %.sroa.0421.1 = phi ptr [ %.sroa.0421.3480, %1092 ], [ %.sroa.0421.3480, %1097 ], [ %.sroa.0421.3, %1091 ]
+  %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn482, %1092 ], [ %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn482, %1097 ], [ %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1091 ]
   %.not.i.i326 = icmp eq ptr %.sroa.0421.1, null
   br i1 %.not.i.i326, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit327, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit325.thread
 

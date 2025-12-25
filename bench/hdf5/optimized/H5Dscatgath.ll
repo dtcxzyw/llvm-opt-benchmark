@@ -646,8 +646,8 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read(ptr noundef readonly captures(no
   br i1 %197, label %101, label %.thread169, !llvm.loop !62
 
 .thread169:                                       ; preds = %194, %.preheader, %.thread164, %190, %151, %162, %139, %133, %77, %97
-  %.0127 = phi i1 [ true, %.thread164 ], [ false, %77 ], [ false, %97 ], [ true, %133 ], [ true, %139 ], [ true, %162 ], [ true, %151 ], [ true, %190 ], [ true, %.preheader ], [ true, %194 ]
-  %.1120 = phi i32 [ -1, %.thread164 ], [ -1, %77 ], [ -1, %97 ], [ -1, %133 ], [ -1, %139 ], [ -1, %162 ], [ -1, %151 ], [ -1, %190 ], [ 0, %.preheader ], [ 0, %194 ]
+  %.0127 = phi i1 [ true, %.thread164 ], [ false, %97 ], [ false, %77 ], [ true, %133 ], [ true, %139 ], [ true, %162 ], [ true, %151 ], [ true, %190 ], [ true, %.preheader ], [ true, %194 ]
+  %.1120 = phi i32 [ -1, %.thread164 ], [ -1, %97 ], [ -1, %77 ], [ -1, %133 ], [ -1, %139 ], [ -1, %162 ], [ -1, %151 ], [ -1, %190 ], [ 0, %.preheader ], [ 0, %194 ]
   %198 = call i32 @H5S_select_iter_release(ptr noundef nonnull %52) #8
   %199 = icmp slt i32 %198, 0
   br i1 %199, label %200, label %.thread173
@@ -1501,8 +1501,8 @@ H5D__scatter_file.exit:                           ; preds = %254, %.preheader.i,
   br i1 %273, label %122, label %.thread171, !llvm.loop !79
 
 .thread171:                                       ; preds = %270, %.preheader, %.thread163, %145, %.loopexit, %208, %177, %93, %118
-  %.0125 = phi i1 [ true, %.thread163 ], [ false, %93 ], [ false, %118 ], [ true, %177 ], [ true, %208 ], [ true, %.loopexit ], [ true, %145 ], [ true, %.preheader ], [ true, %270 ]
-  %.1117 = phi i32 [ -1, %.thread163 ], [ -1, %93 ], [ -1, %118 ], [ -1, %177 ], [ -1, %208 ], [ -1, %.loopexit ], [ -1, %145 ], [ 0, %.preheader ], [ 0, %270 ]
+  %.0125 = phi i1 [ true, %.thread163 ], [ false, %118 ], [ false, %93 ], [ true, %177 ], [ true, %208 ], [ true, %.loopexit ], [ true, %145 ], [ true, %.preheader ], [ true, %270 ]
+  %.1117 = phi i32 [ -1, %.thread163 ], [ -1, %118 ], [ -1, %93 ], [ -1, %177 ], [ -1, %208 ], [ -1, %.loopexit ], [ -1, %145 ], [ 0, %.preheader ], [ 0, %270 ]
   %274 = call i32 @H5S_select_iter_release(ptr noundef nonnull %68) #8
   %275 = icmp slt i32 %274, 0
   br i1 %275, label %276, label %.thread176
@@ -2075,7 +2075,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr noundef readonly capt
   br label %340
 
 .thread258:                                       ; preds = %310, %.preheader296, %.thread266, %316, %198, %66, %132, %176, %.thread258.thread284
-  %.10291 = phi i32 [ -1, %.thread258.thread284 ], [ -1, %316 ], [ -1, %.thread266 ], [ -1, %176 ], [ -1, %132 ], [ -1, %66 ], [ -1, %198 ], [ 0, %.preheader296 ], [ 0, %310 ]
+  %.10291 = phi i32 [ -1, %.thread258.thread284 ], [ -1, %316 ], [ -1, %.thread266 ], [ -1, %66 ], [ -1, %132 ], [ -1, %176 ], [ -1, %198 ], [ 0, %.preheader296 ], [ 0, %310 ]
   %320 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %20) #8
   call void @free(ptr noundef %13) #8
   %.not228 = icmp eq ptr %29, null
@@ -2815,13 +2815,13 @@ H5D__compound_opt_write.exit._crit_edge:          ; preds = %H5D__compound_opt_w
   br label %415
 
 .thread394:                                       ; preds = %.thread355.thread, %394, %.thread370, %368, %290, %74, %.loopexit, %388, %.thread394.thread450
-  %.17469 = phi i32 [ -1, %.thread394.thread450 ], [ -1, %394 ], [ -1, %.thread355.thread ], [ -1, %.thread370 ], [ 0, %.loopexit ], [ -1, %388 ], [ -1, %74 ], [ -1, %368 ], [ -1, %290 ]
-  %.0268405468 = phi ptr [ null, %.thread394.thread450 ], [ %.0268423, %394 ], [ %.0268423, %.thread355.thread ], [ %.1269.lcssa, %.thread370 ], [ %.1269.lcssa, %.loopexit ], [ %.1269.lcssa, %388 ], [ %.1269601, %74 ], [ %.1269.lcssa, %368 ], [ %.1269.lcssa, %290 ]
-  %.0261406467 = phi ptr [ null, %.thread394.thread450 ], [ %.0261424, %394 ], [ %.0261424, %.thread355.thread ], [ %.1262.lcssa, %.thread370 ], [ %.1262.lcssa, %.loopexit ], [ %.1262.lcssa, %388 ], [ %.1262602, %74 ], [ %.1262.lcssa, %368 ], [ %.1262.lcssa, %290 ]
-  %.0254407466 = phi ptr [ null, %.thread394.thread450 ], [ %.0254425, %394 ], [ %.0254425, %.thread355.thread ], [ %.1255.lcssa, %.thread370 ], [ %.1255.lcssa, %.loopexit ], [ %.1255.lcssa, %388 ], [ %.1255603, %74 ], [ %.1255.lcssa, %368 ], [ %.1255.lcssa, %290 ]
-  %.0247408465 = phi ptr [ null, %.thread394.thread450 ], [ %.0247426, %394 ], [ %.0247426, %.thread355.thread ], [ %.1248.lcssa, %.thread370 ], [ %.1248.lcssa, %.loopexit ], [ %.1248.lcssa, %388 ], [ %.1248604, %74 ], [ %.1248.lcssa, %368 ], [ %.1248.lcssa, %290 ]
-  %.0240409464 = phi ptr [ null, %.thread394.thread450 ], [ %.0240427, %394 ], [ %.0240427, %.thread355.thread ], [ %.1241.lcssa, %.thread370 ], [ %.1241.lcssa, %.loopexit ], [ %.1241.lcssa, %388 ], [ %.1241605, %74 ], [ %.1241.lcssa, %368 ], [ %.1241.lcssa, %290 ]
-  %.0217411462 = phi i64 [ 0, %.thread394.thread450 ], [ %.0217430, %394 ], [ %.0217430, %.thread355.thread ], [ %.1218.lcssa, %.thread370 ], [ %.1218.lcssa, %.loopexit ], [ %.1218.lcssa, %388 ], [ %.0232607, %74 ], [ %.1218.lcssa, %368 ], [ %.1218.lcssa, %290 ]
+  %.17469 = phi i32 [ -1, %.thread394.thread450 ], [ -1, %394 ], [ -1, %.thread355.thread ], [ -1, %388 ], [ 0, %.loopexit ], [ -1, %.thread370 ], [ -1, %74 ], [ -1, %290 ], [ -1, %368 ]
+  %.0268405468 = phi ptr [ null, %.thread394.thread450 ], [ %.0268423, %394 ], [ %.0268423, %.thread355.thread ], [ %.1269.lcssa, %388 ], [ %.1269.lcssa, %.loopexit ], [ %.1269.lcssa, %.thread370 ], [ %.1269601, %74 ], [ %.1269.lcssa, %290 ], [ %.1269.lcssa, %368 ]
+  %.0261406467 = phi ptr [ null, %.thread394.thread450 ], [ %.0261424, %394 ], [ %.0261424, %.thread355.thread ], [ %.1262.lcssa, %388 ], [ %.1262.lcssa, %.loopexit ], [ %.1262.lcssa, %.thread370 ], [ %.1262602, %74 ], [ %.1262.lcssa, %290 ], [ %.1262.lcssa, %368 ]
+  %.0254407466 = phi ptr [ null, %.thread394.thread450 ], [ %.0254425, %394 ], [ %.0254425, %.thread355.thread ], [ %.1255.lcssa, %388 ], [ %.1255.lcssa, %.loopexit ], [ %.1255.lcssa, %.thread370 ], [ %.1255603, %74 ], [ %.1255.lcssa, %290 ], [ %.1255.lcssa, %368 ]
+  %.0247408465 = phi ptr [ null, %.thread394.thread450 ], [ %.0247426, %394 ], [ %.0247426, %.thread355.thread ], [ %.1248.lcssa, %388 ], [ %.1248.lcssa, %.loopexit ], [ %.1248.lcssa, %.thread370 ], [ %.1248604, %74 ], [ %.1248.lcssa, %290 ], [ %.1248.lcssa, %368 ]
+  %.0240409464 = phi ptr [ null, %.thread394.thread450 ], [ %.0240427, %394 ], [ %.0240427, %.thread355.thread ], [ %.1241.lcssa, %388 ], [ %.1241.lcssa, %.loopexit ], [ %.1241.lcssa, %.thread370 ], [ %.1241605, %74 ], [ %.1241.lcssa, %290 ], [ %.1241.lcssa, %368 ]
+  %.0217411462 = phi i64 [ 0, %.thread394.thread450 ], [ %.0217430, %394 ], [ %.0217430, %.thread355.thread ], [ %.1218.lcssa, %388 ], [ %.1218.lcssa, %.loopexit ], [ %.1218.lcssa, %.thread370 ], [ %.0232607, %74 ], [ %.1218.lcssa, %290 ], [ %.1218.lcssa, %368 ]
   %398 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %21) #8
   call void @free(ptr noundef %14) #8
   %.not316 = icmp eq ptr %30, null

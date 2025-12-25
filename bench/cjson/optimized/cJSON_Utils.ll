@@ -1948,7 +1948,7 @@ compare_strings.exit.thread:                      ; preds = %104, %compare_strin
   br label %.thread
 
 .thread:                                          ; preds = %compare_strings.exit.thread, %compare_strings.exit, %97, %compare_strings.exit.thread.us, %59, %.preheader.i.us, %81, %47, %22, %13, %.split, %.split85.us, %49, %34, %17, %3, %6
-  %.049.shrunk = phi i1 [ false, %6 ], [ %not.or.cond5, %.split85.us ], [ false, %3 ], [ true, %13 ], [ %.not61, %34 ], [ false, %17 ], [ false, %compare_strings.exit.thread.us ], [ %not.or.cond3, %49 ], [ %33, %22 ], [ true, %.split ], [ false, %47 ], [ false, %81 ], [ false, %.preheader.i.us ], [ false, %59 ], [ false, %97 ], [ false, %compare_strings.exit ], [ false, %compare_strings.exit.thread ]
+  %.049.shrunk = phi i1 [ false, %6 ], [ %not.or.cond5, %.split85.us ], [ false, %3 ], [ true, %13 ], [ %.not61, %34 ], [ false, %17 ], [ true, %.split ], [ %not.or.cond3, %49 ], [ %33, %22 ], [ false, %compare_strings.exit.thread.us ], [ false, %81 ], [ false, %47 ], [ false, %.preheader.i.us ], [ false, %59 ], [ false, %97 ], [ false, %compare_strings.exit ], [ false, %compare_strings.exit.thread ]
   %.049 = zext i1 %.049.shrunk to i32
   ret i32 %.049
 }

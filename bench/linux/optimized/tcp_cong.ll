@@ -1179,7 +1179,7 @@ define dso_local noundef range(i32 -12, 1) i32 @tcp_set_allowed_congestion_contr
   br i1 %53, label %.critedge, label %.preheader8, !llvm.loop !36
 
 .critedge:                                        ; preds = %20, %.preheader10, %51, %.preheader8, %.loopexit
-  %54 = phi i32 [ 0, %.loopexit ], [ -2, %.preheader10 ], [ 0, %51 ], [ 0, %.preheader8 ], [ -2, %20 ]
+  %54 = phi i32 [ 0, %.loopexit ], [ 0, %51 ], [ -2, %.preheader10 ], [ 0, %.preheader8 ], [ -2, %20 ]
   call void @_raw_spin_unlock(ptr noundef nonnull @tcp_cong_list_lock) #15
   call void @kfree(ptr noundef nonnull %4) #15
   br label %55

@@ -2383,10 +2383,10 @@ sub_0:                                            ; preds = %get_encoded_outfile
   br label %conditional_fclose.exit
 
 122:                                              ; preds = %104, %102, %95
-  %123 = phi i1 [ true, %95 ], [ false, %102 ], [ false, %104 ]
-  %124 = phi i1 [ false, %95 ], [ true, %102 ], [ false, %104 ]
-  %125 = phi i1 [ false, %95 ], [ false, %102 ], [ true, %104 ]
-  %.0240 = phi i32 [ 1, %95 ], [ 4, %102 ], [ 5, %104 ]
+  %123 = phi i1 [ true, %95 ], [ false, %104 ], [ false, %102 ]
+  %124 = phi i1 [ false, %95 ], [ false, %104 ], [ true, %102 ]
+  %125 = phi i1 [ false, %95 ], [ true, %104 ], [ false, %102 ]
+  %.0240 = phi i32 [ 1, %95 ], [ 5, %104 ], [ 4, %102 ]
   %126 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 144), align 8, !tbaa !72
   %.not282 = icmp eq i32 %126, 0
   %127 = icmp sgt i64 %.0236, 4294967294

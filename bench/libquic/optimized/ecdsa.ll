@@ -654,7 +654,7 @@ define internal fastcc range(i32 0, 2) i32 @digest_to_bn(ptr noundef nonnull %0,
   br label %19
 
 19:                                               ; preds = %.sink.split, %12, %15
-  %.0 = phi i32 [ 1, %12 ], [ 1, %15 ], [ 0, %.sink.split ]
+  %.0 = phi i32 [ 1, %15 ], [ 1, %12 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -901,7 +901,7 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br label %83
 
 .loopexit:                                        ; preds = %.split118, %57, %.split118.us.us, %35, %25, %29, %76, %72, %79, %.split125.us, %.split123.us, %.split121.us, %.split116.us
-  %.080.ph = phi ptr [ %27, %.split116.us ], [ null, %25 ], [ null, %29 ], [ %27, %.split121.us ], [ %27, %.split123.us ], [ %27, %.split125.us ], [ %27, %79 ], [ %27, %72 ], [ %27, %76 ], [ %27, %.split118.us.us ], [ %27, %35 ], [ %27, %57 ], [ %27, %.split118 ]
+  %.080.ph = phi ptr [ %27, %.split116.us ], [ null, %29 ], [ null, %25 ], [ %27, %.split121.us ], [ %27, %.split123.us ], [ %27, %.split125.us ], [ %27, %79 ], [ %27, %72 ], [ %27, %76 ], [ %27, %.split118.us.us ], [ %27, %35 ], [ %27, %57 ], [ %27, %.split118 ]
   tail call void @BN_clear_free(ptr noundef %19) #5
   tail call void @BN_clear_free(ptr noundef %20) #5
   br label %83

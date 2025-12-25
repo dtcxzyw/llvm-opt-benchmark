@@ -14706,7 +14706,7 @@ return.sink.split:                                ; preds = %if.end18, %if.end5.
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end18, %if.end
-  %retval.sroa.0.0 = phi i16 [ 1, %if.end18 ], [ 0, %if.end ], [ 257, %return.sink.split ]
+  %retval.sroa.0.0 = phi i16 [ 0, %if.end ], [ 1, %if.end18 ], [ 257, %return.sink.split ]
   ret i16 %retval.sroa.0.0
 }
 
@@ -17214,7 +17214,7 @@ do.body24:                                        ; preds = %do.body18.us, %do.b
   unreachable
 
 return:                                           ; preds = %for.body.us, %for.inc42.split.split.us60, %for.cond28.us50, %for.body.us.us83, %for.inc42.split.split.us.us.us, %for.cond28.us39.us.us, %for.body.us.us, %for.inc42.split.us.split.us71.us, %for.cond28.us.us69.us, %for.body.us.us.us, %for.inc42.split.us.split.us.us.us.us, %for.cond28.us.us.us.us.us, %do.end5
-  %retval.0 = phi i64 [ %1, %for.body.us.us83 ], [ %sub.ptr.sub.i.us.us.us, %for.cond28.us.us.us.us.us ], [ %1, %for.body.us.us.us ], [ %1, %do.end5 ], [ %1, %for.body.us.us ], [ %sub.ptr.sub.i.us.us96, %for.cond28.us39.us.us ], [ %retval.0.i.us, %for.cond28.us50 ], [ %retval.0.i.us.us, %for.cond28.us.us69.us ], [ %1, %for.inc42.split.us.split.us.us.us.us ], [ %1, %for.inc42.split.us.split.us71.us ], [ %1, %for.inc42.split.split.us.us.us ], [ %1, %for.inc42.split.split.us60 ], [ %1, %for.body.us ]
+  %retval.0 = phi i64 [ %retval.0.i.us, %for.cond28.us50 ], [ %sub.ptr.sub.i.us.us96, %for.cond28.us39.us.us ], [ %retval.0.i.us.us, %for.cond28.us.us69.us ], [ %1, %do.end5 ], [ %1, %for.body.us.us.us ], [ %1, %for.body.us.us83 ], [ %1, %for.body.us.us ], [ %sub.ptr.sub.i.us.us.us, %for.cond28.us.us.us.us.us ], [ %1, %for.inc42.split.us.split.us.us.us.us ], [ %1, %for.inc42.split.us.split.us71.us ], [ %1, %for.inc42.split.split.us.us.us ], [ %1, %for.inc42.split.split.us60 ], [ %1, %for.body.us ]
   ret i64 %retval.0
 }
 

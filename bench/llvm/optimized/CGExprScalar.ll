@@ -5435,8 +5435,8 @@ _ZNK5clang4Type13isIntegerTypeEv.exit._crit_edge: ; preds = %_ZNK5clang4Type13is
   unreachable
 
 .critedge140.critedge:                            ; preds = %186, %187, %188, %189, %190
-  %.0129 = phi i32 [ 29, %190 ], [ 30, %189 ], [ 28, %188 ], [ 15, %187 ], [ 13, %186 ]
-  %.0128 = phi i32 [ 5, %190 ], [ 6, %189 ], [ 3, %188 ], [ 2, %187 ], [ 1, %186 ]
+  %.0129 = phi i32 [ 29, %190 ], [ 15, %187 ], [ 28, %188 ], [ 30, %189 ], [ 13, %186 ]
+  %.0128 = phi i32 [ 5, %190 ], [ 2, %187 ], [ 3, %188 ], [ 6, %189 ], [ 1, %186 ]
   %192 = load ptr, ptr %53, align 8, !tbaa !72
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %.sroa.0.0.copyload.i169 = load i64, ptr %193, align 8, !tbaa !3
@@ -6558,16 +6558,16 @@ _ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %38
   %60 = getelementptr inbounds nuw i8, ptr %.val41, i64 32
   %61 = load i32, ptr %60, align 8, !tbaa !1177
   %62 = icmp ult i32 %61, 65
-  br i1 %62, label %63, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit
+  br i1 %62, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit, label %63
 
 63:                                               ; preds = %58
-  %64 = load i64, ptr %59, align 8, !tbaa !3
-  %65 = icmp eq i64 %64, 0
+  %64 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %59) #22
+  %65 = icmp eq i32 %64, %61
   br i1 %65, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit.thread, label %68
 
 _ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit: ; preds = %58
-  %66 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %59) #22
-  %67 = icmp eq i32 %66, %61
+  %66 = load i64, ptr %59, align 8, !tbaa !3
+  %67 = icmp eq i64 %66, 0
   br i1 %67, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit.thread, label %68
 
 68:                                               ; preds = %63, %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit
@@ -7106,16 +7106,16 @@ _ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %31
   %53 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %54 = load i32, ptr %53, align 8, !tbaa !1177
   %55 = icmp ult i32 %54, 65
-  br i1 %55, label %56, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit
+  br i1 %55, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit, label %56
 
 56:                                               ; preds = %51
-  %57 = load i64, ptr %52, align 8, !tbaa !3
-  %58 = icmp eq i64 %57, 0
+  %57 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %52) #22
+  %58 = icmp eq i32 %57, %54
   br i1 %58, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit.thread, label %61
 
 _ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit: ; preds = %51
-  %59 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull readonly align 8 dereferenceable(12) %52) #22
-  %60 = icmp eq i32 %59, %54
+  %59 = load i64, ptr %52, align 8, !tbaa !3
+  %60 = icmp eq i64 %59, 0
   br i1 %60, label %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit.thread, label %61
 
 61:                                               ; preds = %56, %_ZNK12_GLOBAL__N_19BinOpInfo28mayHaveIntegerDivisionByZeroEv.exit
@@ -18872,7 +18872,7 @@ _ZN4llvmleERKNS_12VersionTupleES2_.exit:          ; preds = %33
   %spec.select.i.not.i = select i1 %35, i1 true, i1 %36
   br i1 %spec.select.i.not.i, label %_ZN4llvmleERKNS_12VersionTupleES2_.exit.thread2, label %_ZN4llvmleERKNS_12VersionTupleES2_.exit.thread
 
-_ZN4llvmleERKNS_12VersionTupleES2_.exit.thread2:  ; preds = %31, %27, %_ZN4llvmleERKNS_12VersionTupleES2_.exit
+_ZN4llvmleERKNS_12VersionTupleES2_.exit.thread2:  ; preds = %27, %31, %_ZN4llvmleERKNS_12VersionTupleES2_.exit
   %37 = getelementptr inbounds nuw i8, ptr %.8.val, i64 72
   %38 = load ptr, ptr %37, align 8, !tbaa !37
   %39 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %38) #21
@@ -20052,7 +20052,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit186: ; preds = %267, %2
   br label %286
 
 286:                                              ; preds = %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit183, %283
-  %.5261 = phi ptr [ %.0256303, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit183 ], [ %285, %283 ]
+  %.5261 = phi ptr [ %285, %283 ], [ %.0256303, %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit183 ]
   %.not.i187 = icmp eq i32 %265, 0
   br i1 %.not.i187, label %.preheader282, label %_ZN4llvm15SmallVectorImplIiE6resizeEmi.exit221
 
@@ -24705,8 +24705,8 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14AlignValueAttrEN4llvm11SmallVectorI
   %144 = icmp eq i16 %143, 402
   br i1 %144, label %.loopexit, label %.lr.ph.i.i.i.i56, !llvm.loop !1525
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i44, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i56, %64, %99, %134
-  %.5.ph = phi ptr [ %65, %64 ], [ %135, %134 ], [ %71, %.lr.ph.i.i.i.i ], [ %100, %99 ], [ %141, %.lr.ph.i.i.i.i56 ], [ %106, %.lr.ph.i.i.i.i44 ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i44, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i56, %99, %64, %134
+  %.5.ph = phi ptr [ %71, %.lr.ph.i.i.i.i ], [ %135, %134 ], [ %65, %64 ], [ %100, %99 ], [ %141, %.lr.ph.i.i.i.i56 ], [ %106, %.lr.ph.i.i.i.i44 ]
   %145 = load ptr, ptr %0, align 8, !tbaa !638
   %146 = getelementptr inbounds nuw i8, ptr %.5.ph, i64 40
   %147 = load ptr, ptr %146, align 8, !tbaa !1526

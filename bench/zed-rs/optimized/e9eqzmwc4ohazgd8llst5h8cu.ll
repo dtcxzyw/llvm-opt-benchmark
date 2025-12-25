@@ -940,7 +940,7 @@ define internal fastcc noundef ptr @"_ZN18alacritty_terminal10event_loop22EventL
   br label %31
 
 .loopexit.split-lp.loopexit.loopexit.split-lp:    ; preds = %62, %.split132.us, %56
-  %.sroa.069.1.ph.ph.ph = phi ptr [ null, %.split132.us ], [ null, %56 ], [ %.sroa.069.4, %62 ]
+  %.sroa.069.1.ph.ph.ph = phi ptr [ %.sroa.069.4, %62 ], [ null, %.split132.us ], [ null, %56 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

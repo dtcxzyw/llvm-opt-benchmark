@@ -731,7 +731,7 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
   br label %123
 
 123:                                              ; preds = %.sink.split, %108, %80, %54
-  %.0110 = phi ptr [ %52, %54 ], [ %106, %108 ], [ %78, %80 ], [ null, %.sink.split ]
+  %.0110 = phi ptr [ %78, %80 ], [ %106, %108 ], [ %52, %54 ], [ null, %.sink.split ]
   tail call void @free(ptr noundef %.0110) #8
   tail call void @free(ptr noundef nonnull %41) #8
   br label %124

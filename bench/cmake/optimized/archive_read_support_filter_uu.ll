@@ -294,7 +294,7 @@ define internal range(i32 0, 61) i32 @uudecode_bidder_bid(ptr readnone captures(
   br label %.loopexit84
 
 .loopexit84:                                      ; preds = %.thread, %12, %.lr.ph, %.lr.ph98, %.thread78, %92, %89, %116, %69, %64, %61, %50, %46, %2, %114, %109
-  %.042 = phi i32 [ 0, %.lr.ph98 ], [ 0, %2 ], [ 0, %46 ], [ 0, %61 ], [ 0, %64 ], [ 0, %69 ], [ 0, %89 ], [ 0, %.lr.ph ], [ 0, %50 ], [ %spec.select68, %.thread78 ], [ %110, %109 ], [ %115, %114 ], [ %spec.select, %92 ], [ 0, %116 ], [ 0, %12 ], [ 0, %.thread ]
+  %.042 = phi i32 [ 0, %116 ], [ 0, %2 ], [ 0, %46 ], [ 0, %61 ], [ 0, %64 ], [ 0, %69 ], [ 0, %89 ], [ 0, %.lr.ph ], [ 0, %50 ], [ %spec.select68, %.thread78 ], [ %110, %109 ], [ %115, %114 ], [ %spec.select, %92 ], [ 0, %.lr.ph98 ], [ 0, %12 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1282,10 +1282,10 @@ ensure_in_buff_size.exit308:                      ; preds = %107
   %352 = icmp slt i64 %350, %351
   br i1 %352, label %.lr.ph.i.preheader, label %.critedge.thread389, !llvm.loop !41
 
-.critedge.thread389:                              ; preds = %24, %58, %257, %181, %.thread322, %119, %88
-  %353 = phi i64 [ %61, %88 ], [ %61, %257 ], [ %.pre715, %119 ], [ %61, %181 ], [ %351, %.thread322 ], [ %59, %58 ], [ %25, %24 ]
-  %.0237 = phi i64 [ %61, %88 ], [ %.1238571, %257 ], [ %61, %119 ], [ %.1238571, %181 ], [ %350, %.thread322 ], [ 0, %58 ], [ %25, %24 ]
-  %.0226 = phi i64 [ %.1227573, %88 ], [ %.1227573, %257 ], [ %.1227573, %119 ], [ %.1227573, %181 ], [ %.2228.ph, %.thread322 ], [ 0, %58 ], [ 0, %24 ]
+.critedge.thread389:                              ; preds = %24, %58, %181, %257, %.thread322, %119, %88
+  %353 = phi i64 [ %61, %88 ], [ %61, %181 ], [ %.pre715, %119 ], [ %61, %257 ], [ %351, %.thread322 ], [ %59, %58 ], [ %25, %24 ]
+  %.0237 = phi i64 [ %61, %88 ], [ %.1238571, %181 ], [ %61, %119 ], [ %.1238571, %257 ], [ %350, %.thread322 ], [ 0, %58 ], [ %25, %24 ]
+  %.0226 = phi i64 [ %.1227573, %88 ], [ %.1227573, %181 ], [ %.1227573, %119 ], [ %.1227573, %257 ], [ %.2228.ph, %.thread322 ], [ 0, %58 ], [ 0, %24 ]
   %354 = icmp slt i64 %25, %353
   %.neg = sub i64 %25, %353
   %355 = select i1 %354, i64 %.neg, i64 0

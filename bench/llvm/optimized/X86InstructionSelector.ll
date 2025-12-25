@@ -6094,7 +6094,7 @@ _ZNK12_GLOBAL__N_122X86InstructionSelector18selectTurnIntoCOPYERN4llvm12MachineI
   br label %_ZNK12_GLOBAL__N_122X86InstructionSelector18selectTurnIntoCOPYERN4llvm12MachineInstrERNS1_19MachineRegisterInfoEjPKNS1_19TargetRegisterClassEjS8_.exit
 
 _ZNK12_GLOBAL__N_122X86InstructionSelector18selectTurnIntoCOPYERN4llvm12MachineInstrERNS1_19MachineRegisterInfoEjPKNS1_19TargetRegisterClassEjS8_.exit: ; preds = %_ZNK12_GLOBAL__N_122X86InstructionSelector18selectTurnIntoCOPYERN4llvm12MachineInstrERNS1_19MachineRegisterInfoEjPKNS1_19TargetRegisterClassEjS8_.exit.sink.split, %56, %54, %_ZL15canTurnIntoCOPYPKN4llvm19TargetRegisterClassES2_.exit.thread, %71, %67, %65, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit51
-  %.0 = phi i1 [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit51 ], [ false, %67 ], [ false, %71 ], [ false, %_ZL15canTurnIntoCOPYPKN4llvm19TargetRegisterClassES2_.exit.thread ], [ false, %54 ], [ false, %65 ], [ false, %56 ], [ true, %_ZNK12_GLOBAL__N_122X86InstructionSelector18selectTurnIntoCOPYERN4llvm12MachineInstrERNS1_19MachineRegisterInfoEjPKNS1_19TargetRegisterClassEjS8_.exit.sink.split ]
+  %.0 = phi i1 [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit51 ], [ false, %67 ], [ false, %71 ], [ false, %_ZL15canTurnIntoCOPYPKN4llvm19TargetRegisterClassES2_.exit.thread ], [ false, %56 ], [ false, %65 ], [ false, %54 ], [ true, %_ZNK12_GLOBAL__N_122X86InstructionSelector18selectTurnIntoCOPYERN4llvm12MachineInstrERNS1_19MachineRegisterInfoEjPKNS1_19TargetRegisterClassEjS8_.exit.sink.split ]
   ret i1 %.0
 }
 

@@ -11039,8 +11039,8 @@ define hidden void @_ZN14semantic_index8chunking32chunk_text_with_syntactic_rang
   br i1 %103, label %106, label %.invoke
 
 .invoke:                                          ; preds = %98, %90, %.loopexit, %94, %102, %123, %131, %127, %135
-  %104 = phi i64 [ %.sroa.11.0, %123 ], [ %.sroa.11.0, %131 ], [ %.sroa.11.0, %127 ], [ %.sroa.11.0, %135 ], [ %.sroa.11.1, %102 ], [ %.sroa.11.1, %94 ], [ %.sroa.11.1, %.loopexit ], [ %.sroa.11.1, %90 ], [ %.sroa.11.1, %98 ]
-  %105 = phi ptr [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %123 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %131 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %127 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %135 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %102 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %94 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %.loopexit ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %90 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %98 ]
+  %104 = phi i64 [ %.sroa.11.0, %123 ], [ %.sroa.11.0, %135 ], [ %.sroa.11.0, %127 ], [ %.sroa.11.0, %131 ], [ %.sroa.11.1, %102 ], [ %.sroa.11.1, %94 ], [ %.sroa.11.1, %.loopexit ], [ %.sroa.11.1, %90 ], [ %.sroa.11.1, %98 ]
+  %105 = phi ptr [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %123 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %135 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %127 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.176, %131 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %102 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %94 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %.loopexit ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %90 ], [ @anon.c4f4b5776c2869f4e7faa738b13f1ab9.175, %98 ]
   invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %.sroa.11.0.ph, i64 noundef %104, ptr noalias noundef readonly align 8 dereferenceable(24) %105) #36
           to label %.cont unwind label %.loopexit.split-lp
 

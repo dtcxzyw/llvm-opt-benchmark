@@ -2637,7 +2637,7 @@ text_import__delete_buffer.exit.i:                ; preds = %32, %.critedge.i.i
   br label %text_import_pop_buffer_state.exit
 
 text_import_pop_buffer_state.exit:                ; preds = %26, %44, %47
-  %56 = phi ptr [ %43, %47 ], [ %25, %26 ], [ %43, %44 ]
+  %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8

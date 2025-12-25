@@ -3902,9 +3902,9 @@ Abc_TtFindFirstDiffBit.exit.thread.loopexit332:   ; preds = %._crit_edge
   br label %Abc_TtFindFirstDiffBit.exit.thread
 
 Abc_TtFindFirstDiffBit.exit.thread:               ; preds = %Abc_TtFindFirstDiffBit.exit, %Abc_Clock.exit184, %159, %130, %114, %.thread203, %._crit_edge, %Abc_TtFindFirstDiffBit.exit.thread.loopexit332, %Abc_TtElemInit2.exit
-  %.0151237 = phi i32 [ %.0151247, %159 ], [ %.0151247, %130 ], [ %.0151247, %._crit_edge ], [ 0, %Abc_TtElemInit2.exit ], [ %.0151247, %.thread203 ], [ %.0151247, %114 ], [ %50, %Abc_TtFindFirstDiffBit.exit ], [ 0, %Abc_Clock.exit184 ], [ %.0151247, %Abc_TtFindFirstDiffBit.exit.thread.loopexit332 ]
-  %.2150 = phi i32 [ %27, %159 ], [ -1, %130 ], [ %136, %._crit_edge ], [ %27, %Abc_TtElemInit2.exit ], [ -1, %.thread203 ], [ -1, %114 ], [ %27, %Abc_Clock.exit184 ], [ %27, %Abc_TtFindFirstDiffBit.exit ], [ %27, %Abc_TtFindFirstDiffBit.exit.thread.loopexit332 ]
-  %.2 = phi i64 [ %158, %159 ], [ %.0147248, %130 ], [ %.0147248, %._crit_edge ], [ 0, %Abc_TtElemInit2.exit ], [ %.0147248, %.thread203 ], [ %.0147248, %114 ], [ %158, %Abc_TtFindFirstDiffBit.exit ], [ %158, %Abc_Clock.exit184 ], [ %.0147248, %Abc_TtFindFirstDiffBit.exit.thread.loopexit332 ]
+  %.0151237 = phi i32 [ %.0151247, %130 ], [ %.0151247, %._crit_edge ], [ 0, %Abc_TtElemInit2.exit ], [ %.0151247, %159 ], [ %.0151247, %.thread203 ], [ %.0151247, %114 ], [ %50, %Abc_TtFindFirstDiffBit.exit ], [ 0, %Abc_Clock.exit184 ], [ %.0151247, %Abc_TtFindFirstDiffBit.exit.thread.loopexit332 ]
+  %.2150 = phi i32 [ -1, %130 ], [ %136, %._crit_edge ], [ %27, %Abc_TtElemInit2.exit ], [ %27, %159 ], [ -1, %.thread203 ], [ -1, %114 ], [ %27, %Abc_Clock.exit184 ], [ %27, %Abc_TtFindFirstDiffBit.exit ], [ %27, %Abc_TtFindFirstDiffBit.exit.thread.loopexit332 ]
+  %.2 = phi i64 [ %.0147248, %130 ], [ %.0147248, %._crit_edge ], [ 0, %Abc_TtElemInit2.exit ], [ %158, %159 ], [ %.0147248, %.thread203 ], [ %.0147248, %114 ], [ %158, %Abc_TtFindFirstDiffBit.exit ], [ %158, %Abc_Clock.exit184 ], [ %.0147248, %Abc_TtFindFirstDiffBit.exit.thread.loopexit332 ]
   %197 = call i32 @sat_solver_nconflicts(ptr noundef %48) #21
   %198 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %.0151237, i32 noundef %197)
   call void @sat_solver_delete(ptr noundef %48) #21

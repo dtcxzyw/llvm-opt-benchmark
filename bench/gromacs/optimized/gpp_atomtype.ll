@@ -2996,7 +2996,7 @@ _ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96: ; pred
   br label %._crit_edge15.split.us.us.us
 
 ._crit_edge15.split.us.us.us:                     ; preds = %._crit_edge15.split.us.us.us.loopexit7, %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader, %.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader, %.lr.ph14.split.us.split.us.us.us.split.us.split.preheader
-  %.us-phi17.us.us = phi i1 [ %99, %.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader ], [ %102, %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader ], [ %100, %.lr.ph14.split.us.split.us.us.us.split.us.split.preheader ], [ %95, %._crit_edge15.split.us.us.us.loopexit7 ]
+  %.us-phi17.us.us = phi i1 [ %100, %.lr.ph14.split.us.split.us.us.us.split.us.split.preheader ], [ %102, %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader ], [ %99, %.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader ], [ %95, %._crit_edge15.split.us.us.us.loopexit7 ]
   br i1 %.us-phi17.us.us, label %._crit_edge32.loopexit185, label %89
 
 .lr.ph14.split.us.split.us.us.us:                 ; preds = %.preheader.us.us65

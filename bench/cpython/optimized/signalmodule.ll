@@ -3591,7 +3591,7 @@ Py_DECREF.exit21.sink.split:                      ; preds = %24, %11
   br label %Py_DECREF.exit21
 
 Py_DECREF.exit21:                                 ; preds = %Py_DECREF.exit, %Py_DECREF.exit21.sink.split, %24, %Py_DECREF.exit19, %11, %9, %1
-  %.013 = phi ptr [ null, %1 ], [ null, %Py_DECREF.exit21.sink.split ], [ null, %24 ], [ null, %9 ], [ null, %11 ], [ null, %Py_DECREF.exit19 ], [ %2, %Py_DECREF.exit ]
+  %.013 = phi ptr [ null, %1 ], [ null, %24 ], [ null, %Py_DECREF.exit21.sink.split ], [ null, %9 ], [ null, %11 ], [ null, %Py_DECREF.exit19 ], [ %2, %Py_DECREF.exit ]
   ret ptr %.013
 }
 

@@ -9492,10 +9492,10 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
   br label %.critedge83
 
 .critedge83:                                      ; preds = %27, %35, %.critedge, %19, %13
-  %.sroa.07.0.in = phi ptr [ %15, %13 ], [ %23, %19 ], [ %31, %27 ], [ %phi.call.in, %.critedge ], [ %39, %35 ]
-  %.sroa.12.1 = phi i8 [ 0, %13 ], [ 1, %19 ], [ 1, %27 ], [ %.sroa.12.0, %.critedge ], [ 1, %35 ]
-  %.sroa.1810.1.in = phi ptr [ %14, %13 ], [ %22, %19 ], [ %30, %27 ], [ %.sroa.1810.0.in, %.critedge ], [ %38, %35 ]
-  %.sroa.24.0 = phi ptr [ null, %13 ], [ null, %19 ], [ null, %27 ], [ %75, %.critedge ], [ null, %35 ]
+  %.sroa.07.0.in = phi ptr [ %31, %27 ], [ %23, %19 ], [ %15, %13 ], [ %phi.call.in, %.critedge ], [ %39, %35 ]
+  %.sroa.12.1 = phi i8 [ 1, %27 ], [ 1, %19 ], [ 0, %13 ], [ %.sroa.12.0, %.critedge ], [ 1, %35 ]
+  %.sroa.1810.1.in = phi ptr [ %30, %27 ], [ %22, %19 ], [ %14, %13 ], [ %.sroa.1810.0.in, %.critedge ], [ %38, %35 ]
+  %.sroa.24.0 = phi ptr [ null, %27 ], [ null, %19 ], [ null, %13 ], [ %75, %.critedge ], [ null, %35 ]
   %.sroa.1810.1 = load ptr, ptr %.sroa.1810.1.in, align 8, !tbaa !298
   %.sroa.07.0 = load ptr, ptr %.sroa.07.0.in, align 8, !tbaa !256
   %.not74 = icmp eq ptr %.sroa.07.0, null

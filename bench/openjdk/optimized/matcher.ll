@@ -8841,7 +8841,7 @@ _ZN10Node_Array3mapEjP4Node.exit:                 ; preds = %198, %203
   br label %_ZN7Matcher16find_shared_nodeEP4Nodej.exit
 
 _ZN7Matcher16find_shared_nodeEP4Nodej.exit:       ; preds = %57, %50, %32, %209
-  %.054 = phi ptr [ %100, %209 ], [ %25, %57 ], [ %25, %50 ], [ %25, %32 ]
+  %.054 = phi ptr [ %100, %209 ], [ %25, %50 ], [ %25, %57 ], [ %25, %32 ]
   ret ptr %.054
 }
 

@@ -7983,7 +7983,7 @@ Abc_TtIsConst0.exit.loopexit:                     ; preds = %.lr.ph.i26
   br i1 %.not.i, label %43, label %Abc_TtIsConst0.exit.loopexit
 
 Abc_TtIsConst0.exit.thread:                       ; preds = %Abc_TtIsConst0.exit.loopexit, %.lr.ph, %43, %27
-  %.1 = phi i32 [ %38, %43 ], [ 0, %27 ], [ %38, %.lr.ph ], [ %38, %Abc_TtIsConst0.exit.loopexit ]
+  %.1 = phi i32 [ 0, %27 ], [ %38, %43 ], [ %38, %.lr.ph ], [ %38, %Abc_TtIsConst0.exit.loopexit ]
   br i1 %.not, label %.split, label %.split19
 
 .split19:                                         ; preds = %Abc_TtIsConst0.exit.thread

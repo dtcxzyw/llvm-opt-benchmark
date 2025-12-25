@@ -4454,7 +4454,7 @@ zend_string_equals_cstr.exit.thread.sink.split:   ; preds = %zend_string_equals_
   br label %zend_string_equals_cstr.exit.thread
 
 zend_string_equals_cstr.exit.thread:              ; preds = %zend_string_equals_cstr.exit.thread.sink.split, %zend_string_equals_cstr.exit44, %zend_string_equals.exit.thread227, %zend_string_equals_cstr.exit89, %zend_string_equals_cstr.exit92, %zend_string_equals_cstr.exit
-  %.0 = phi i32 [ -1, %zend_string_equals_cstr.exit44 ], [ -1, %zend_string_equals_cstr.exit89 ], [ -1, %zend_string_equals_cstr.exit92 ], [ -1, %zend_string_equals.exit.thread227 ], [ -1, %zend_string_equals_cstr.exit ], [ 0, %zend_string_equals_cstr.exit.thread.sink.split ]
+  %.0 = phi i32 [ -1, %zend_string_equals_cstr.exit ], [ -1, %zend_string_equals.exit.thread227 ], [ -1, %zend_string_equals_cstr.exit92 ], [ -1, %zend_string_equals_cstr.exit89 ], [ -1, %zend_string_equals_cstr.exit44 ], [ 0, %zend_string_equals_cstr.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -4497,7 +4497,7 @@ zend_string_equals_cstr.exit.thread.sink.split:   ; preds = %zend_string_equals_
   br label %zend_string_equals_cstr.exit.thread
 
 zend_string_equals_cstr.exit.thread:              ; preds = %zend_string_equals_cstr.exit.thread.sink.split, %6, %zend_string_equals_cstr.exit10, %zend_string_equals_cstr.exit7, %zend_string_equals_cstr.exit
-  %.0 = phi i32 [ -1, %zend_string_equals_cstr.exit10 ], [ -1, %6 ], [ -1, %zend_string_equals_cstr.exit7 ], [ -1, %zend_string_equals_cstr.exit ], [ 0, %zend_string_equals_cstr.exit.thread.sink.split ]
+  %.0 = phi i32 [ -1, %zend_string_equals_cstr.exit ], [ -1, %zend_string_equals_cstr.exit7 ], [ -1, %6 ], [ -1, %zend_string_equals_cstr.exit10 ], [ 0, %zend_string_equals_cstr.exit.thread.sink.split ]
   ret i32 %.0
 }
 

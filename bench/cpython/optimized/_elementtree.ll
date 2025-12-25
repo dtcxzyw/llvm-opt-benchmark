@@ -1209,7 +1209,7 @@ Py_DECREF.exit13.sink.split:                      ; preds = %36, %18
   br label %Py_DECREF.exit13
 
 Py_DECREF.exit13:                                 ; preds = %Py_DECREF.exit13.sink.split, %Py_DECREF.exit11, %31, %36, %34, %18, %11, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %Py_DECREF.exit11 ], [ %.pre, %31 ], [ null, %11 ], [ null, %18 ], [ null, %34 ], [ null, %36 ], [ null, %Py_DECREF.exit13.sink.split ]
+  %.0 = phi ptr [ null, %1 ], [ %.pre, %31 ], [ null, %Py_DECREF.exit11 ], [ null, %11 ], [ null, %18 ], [ null, %34 ], [ null, %36 ], [ null, %Py_DECREF.exit13.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -12949,7 +12949,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit51, %
   br label %Py_DECREF.exit55
 
 Py_DECREF.exit55:                                 ; preds = %72, %69, %Py_DECREF.exit57, %Py_DECREF.exit
-  %.2 = phi ptr [ %.0.i, %72 ], [ %91, %Py_DECREF.exit ], [ %.0.i, %69 ], [ %.0.i, %Py_DECREF.exit57 ]
+  %.2 = phi ptr [ %.0.i, %Py_DECREF.exit57 ], [ %91, %Py_DECREF.exit ], [ %.0.i, %69 ], [ %.0.i, %72 ]
   %.not.i66 = icmp eq ptr %.2, null
   br i1 %.not.i66, label %.critedge, label %102
 
@@ -12968,7 +12968,7 @@ Py_DECREF.exit55:                                 ; preds = %72, %69, %Py_DECREF
   call void @_Py_Dealloc(ptr noundef nonnull %.2) #12
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %14, %73, %107, %104, %102, %Py_DECREF.exit55, %87, %84, %82, %31, %28, %26, %76, %20, %3
+.critedge:                                        ; preds = %14, %17, %73, %107, %104, %102, %Py_DECREF.exit55, %87, %84, %82, %31, %28, %26, %76, %20, %3
   ret void
 }
 
@@ -13078,8 +13078,8 @@ treebuilder_handle_end_ns.exit:                   ; preds = %49, %46, %42
   %.not.i24 = icmp eq ptr %44, null
   br i1 %.not.i24, label %Py_XDECREF.exit, label %treebuilder_handle_end_ns.exit.thread28
 
-treebuilder_handle_end_ns.exit.thread28:          ; preds = %32, %30, %35, %treebuilder_handle_end_ns.exit
-  %.131 = phi ptr [ %44, %treebuilder_handle_end_ns.exit ], [ @_Py_NoneStruct, %35 ], [ @_Py_NoneStruct, %30 ], [ @_Py_NoneStruct, %32 ]
+treebuilder_handle_end_ns.exit.thread28:          ; preds = %30, %35, %32, %treebuilder_handle_end_ns.exit
+  %.131 = phi ptr [ %44, %treebuilder_handle_end_ns.exit ], [ @_Py_NoneStruct, %32 ], [ @_Py_NoneStruct, %35 ], [ @_Py_NoneStruct, %30 ]
   %50 = load i32, ptr %.131, align 8, !tbaa !21
   %.not.i.i = icmp sgt i32 %50, -1
   br i1 %.not.i.i, label %51, label %Py_XDECREF.exit
@@ -13788,7 +13788,7 @@ define internal void @expat_end_handler(ptr noundef readonly captures(none) %0, 
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %26, %23, %19, %12
-  %.0 = phi ptr [ %13, %12 ], [ %21, %26 ], [ %21, %23 ], [ %21, %19 ]
+  %.0 = phi ptr [ %13, %12 ], [ %21, %23 ], [ %21, %26 ], [ %21, %19 ]
   %.not.i16 = icmp eq ptr %.0, null
   br i1 %.not.i16, label %Py_XDECREF.exit, label %27
 

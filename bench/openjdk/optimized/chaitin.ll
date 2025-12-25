@@ -5639,7 +5639,7 @@ _ZN3LRG6InsertEi.exit:                            ; preds = %241, %243
   br label %_ZL12is_legal_regR3LRGii.exit.thread
 
 _ZL12is_legal_regR3LRGii.exit.thread:             ; preds = %89, %86, %144, %140, %_ZN7RegMask3ANDERKS_.exit, %249, %193
-  %.0 = phi i32 [ %126, %144 ], [ %196, %193 ], [ %250, %249 ], [ %185, %_ZN7RegMask3ANDERKS_.exit ], [ %126, %140 ], [ %74, %86 ], [ %74, %89 ]
+  %.0 = phi i32 [ %126, %140 ], [ %196, %193 ], [ %250, %249 ], [ %185, %_ZN7RegMask3ANDERKS_.exit ], [ %126, %144 ], [ %74, %86 ], [ %74, %89 ]
   ret i32 %.0
 }
 

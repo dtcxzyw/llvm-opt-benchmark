@@ -8964,7 +8964,7 @@ decNumberFromUInt32.exit.i:                       ; preds = %79, %77, %83, %81, 
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i, %134, %132, %113, %182, %184
-  %.064 = phi ptr [ null, %113 ], [ null, %134 ], [ null, %132 ], [ null, %182 ], [ %.1, %184 ], [ null, %.lr.ph.preheader.i ]
+  %.064 = phi ptr [ null, %132 ], [ null, %134 ], [ null, %113 ], [ null, %182 ], [ %.1, %184 ], [ null, %.lr.ph.preheader.i ]
   %.not87 = icmp eq ptr %.167, null
   br i1 %.not87, label %192, label %191
 
@@ -10804,7 +10804,7 @@ split.thread:                                     ; preds = %218, %226, %split
   br label %254
 
 254:                                              ; preds = %211, %245, %split.thread
-  %.0157 = phi ptr [ null, %211 ], [ %.1158, %245 ], [ %.2, %split.thread ]
+  %.0157 = phi ptr [ %.1158, %245 ], [ null, %211 ], [ %.2, %split.thread ]
   %.not208 = icmp eq ptr %.1155, null
   br i1 %.not208, label %256, label %255
 
@@ -10841,7 +10841,7 @@ split.thread:                                     ; preds = %218, %226, %split
   br label %decStatus.exit
 
 .thread250:                                       ; preds = %169, %143, %125, %117, %94, %85, %72, %28, %32, %.thread243.thread.thread
-  %263 = phi i32 [ %258, %.thread243.thread.thread ], [ 128, %143 ], [ 128, %72 ], [ 128, %125 ], [ 128, %85 ], [ 128, %28 ], [ 128, %94 ], [ 128, %32 ], [ 128, %117 ], [ 16, %169 ]
+  %263 = phi i32 [ %258, %.thread243.thread.thread ], [ 128, %94 ], [ 128, %72 ], [ 128, %125 ], [ 128, %85 ], [ 128, %28 ], [ 128, %143 ], [ 128, %32 ], [ 128, %117 ], [ 16, %169 ]
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %265, align 4, !tbaa !9
@@ -13749,8 +13749,8 @@ condstore.split:                                  ; preds = %418
   br label %decNumberCopy.exit
 
 decNumberCopy.exit:                               ; preds = %.lr.ph.preheader.i256, %.lr.ph.preheader.i280, %435, %433, %182, %180, %115
-  %.0198 = phi ptr [ %111, %115 ], [ %.1199, %.lr.ph.preheader.i280 ], [ %.1199, %435 ], [ %.1199, %433 ], [ %.1199, %182 ], [ %.1199, %180 ], [ %.1199, %.lr.ph.preheader.i256 ]
-  %.0196 = phi ptr [ %112, %115 ], [ %.1197, %.lr.ph.preheader.i280 ], [ %.1197, %435 ], [ %.1197, %433 ], [ %.1197, %182 ], [ %.1197, %180 ], [ %.1197, %.lr.ph.preheader.i256 ]
+  %.0198 = phi ptr [ %.1199, %433 ], [ %.1199, %.lr.ph.preheader.i280 ], [ %.1199, %435 ], [ %111, %115 ], [ %.1199, %180 ], [ %.1199, %182 ], [ %.1199, %.lr.ph.preheader.i256 ]
+  %.0196 = phi ptr [ %.1197, %433 ], [ %.1197, %.lr.ph.preheader.i280 ], [ %.1197, %435 ], [ %112, %115 ], [ %.1197, %180 ], [ %.1197, %182 ], [ %.1197, %.lr.ph.preheader.i256 ]
   %.not231 = icmp eq ptr %.1192, null
   br i1 %.not231, label %463, label %462
 

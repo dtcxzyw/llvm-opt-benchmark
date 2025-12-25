@@ -7271,7 +7271,7 @@ keyboard_input_get_text.exit.thread:              ; preds = %keyboard_repeat_get
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %keyboard_repeat_set_text.exit
 
-keyboard_input_get_text.exit.thread26:            ; preds = %46, %35
+keyboard_input_get_text.exit.thread26:            ; preds = %35, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %58
 

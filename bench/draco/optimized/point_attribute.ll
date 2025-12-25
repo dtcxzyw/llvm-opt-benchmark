@@ -807,7 +807,7 @@ define noundef range(i32 1, 0) i32 @_ZN5draco14PointAttribute17DeduplicateValues
   br label %_ZN5draco14PointAttribute22DeduplicateTypedValuesIfEEjRKNS_17GeometryAttributeENS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEE.exit
 
 _ZN5draco14PointAttribute22DeduplicateTypedValuesIfEEjRKNS_17GeometryAttributeENS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEE.exit: ; preds = %81, %79, %77, %75, %70, %68, %66, %64, %59, %57, %55, %53, %48, %46, %44, %42, %37, %35, %33, %31, %26, %24, %22, %20, %15, %13, %11, %9
-  %.024 = phi i32 [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %82, %81 ], [ %69, %68 ], [ %67, %66 ], [ %16, %15 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %27, %26 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %38, %37 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %49, %48 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %60, %59 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %71, %70 ], [ %65, %64 ]
+  %.024 = phi i32 [ %67, %66 ], [ %69, %68 ], [ %82, %81 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %16, %15 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %27, %26 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %38, %37 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %49, %48 ], [ %43, %42 ], [ %45, %44 ], [ %47, %46 ], [ %60, %59 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %71, %70 ], [ %65, %64 ]
   %83 = icmp eq i32 %.024, 0
   br i1 %83, label %_ZN5draco14PointAttribute22DeduplicateTypedValuesIfEEjRKNS_17GeometryAttributeENS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEE.exit.thread, label %84
 

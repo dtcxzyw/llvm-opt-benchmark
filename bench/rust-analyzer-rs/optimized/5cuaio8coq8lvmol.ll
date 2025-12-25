@@ -5318,7 +5318,7 @@ define hidden noundef ptr @"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$11try_to_node17
   br label %.body
 
 .body:                                            ; preds = %77, %82, %92
-  %eh.lpad-body = phi { ptr, i32 } [ %93, %92 ], [ %lpad.phi.i.i, %77 ], [ %lpad.phi.i.i, %82 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %93, %92 ], [ %lpad.phi.i.i, %82 ], [ %lpad.phi.i.i, %77 ]
   %94 = icmp eq ptr %.sroa.4.2, null
   br i1 %94, label %"_ZN4core3ptr246drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..ast..SyntaxNodePtr$LT$syntax..syntax_node..RustLanguage$GT$..try_to_node..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9a8a029a24e024dcE.exit", label %95
 
@@ -5868,8 +5868,8 @@ define internal noundef zeroext i1 @"_ZN68_$LT$rowan..api..SyntaxNode$LT$L$GT$$u
   br i1 %exitcond.not, label %93, label %94
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hb383a76d626f0329E.exit": ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit
-  %.sroa.2.0.copyload.i186 = phi i64 [ %.sroa.2.0.copyload.i187, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.2.0.copyload.i.lcssa181, %.loopexit.split-lp.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp127, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit126, %.loopexit.split-lp.loopexit ]
+  %.sroa.2.0.copyload.i186 = phi i64 [ %.sroa.2.0.copyload.i.lcssa181, %.loopexit.split-lp.loopexit ], [ %.sroa.2.0.copyload.i187, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit126, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp127, %.loopexit.split-lp.loopexit.split-lp ]
   %91 = icmp eq i64 %.sroa.2.0.copyload.i186, 0
   br i1 %91, label %160, label %.thread89
 
@@ -10971,7 +10971,7 @@ _ZN10hir_expand2db25token_tree_to_syntax_node17hd756cde1288c7b53E.exit: ; preds 
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %.invoke456, label %663
 
 663:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h9121cab0c78b90d2E.exit.i.i.i.i.i.i.i.i.i.i.i", %655
-  %.sroa.4.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ 0, %655 ], [ %662, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9121cab0c78b90d2E.exit.i.i.i.i.i.i.i.i.i.i.i" ]
+  %.sroa.4.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %662, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9121cab0c78b90d2E.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ 0, %655 ]
   %664 = invoke { i64, ptr } @_ZN5rowan6cursor10SyntaxNode16covering_element17h4ed76c5a167238ecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %38, i32 noundef %.sroa.4.0.i.i.i.i.i.i.i.i.i.i, i32 noundef %651)
           to label %.noexc247 unwind label %.loopexit
 

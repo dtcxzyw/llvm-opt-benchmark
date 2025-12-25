@@ -66463,8 +66463,8 @@ define void @_ZN14deltalake_core12data_catalog7storage20normalize_table_name17h7
   br label %21
 
 .sink.split.i.i:                                  ; preds = %96, %54, %.loopexit.i.i.i, %18
-  %74 = phi i64 [ %24, %54 ], [ 0, %18 ], [ %24, %.loopexit.i.i.i ], [ %101, %96 ]
-  %.023.i = phi i64 [ %.lcssa133, %54 ], [ 0, %18 ], [ %.lcssa133, %.loopexit.i.i.i ], [ %68, %96 ]
+  %74 = phi i64 [ 0, %18 ], [ %24, %54 ], [ %24, %.loopexit.i.i.i ], [ %101, %96 ]
+  %.023.i = phi i64 [ 0, %18 ], [ %.lcssa133, %54 ], [ %.lcssa133, %.loopexit.i.i.i ], [ %68, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !13990
   %75 = sub i64 %.sroa.719.0, %.023.i
   %76 = load i64, ptr %6, align 8, !alias.scope !14019, !noalias !14026, !noundef !4
@@ -100824,11 +100824,11 @@ _ZN14deltalake_core5table6config11TableConfig11append_only17h01b8e16b19562dd8E.e
   br label %202
 
 202:                                              ; preds = %.sink.split, %156, %162
-  %.sroa.11.i71.sroa.0.0 = phi ptr [ undef, %156 ], [ undef, %162 ], [ %.sroa.8133.sroa.0.0.copyload, %.sink.split ]
-  %.sroa.11.i71.sroa.5.0 = phi i64 [ undef, %156 ], [ undef, %162 ], [ %.sroa.8133.sroa.6.0.copyload, %.sink.split ]
-  %.sroa.11.i71.sroa.6.0 = phi i64 [ undef, %156 ], [ undef, %162 ], [ %.sroa.8133.sroa.7.0.copyload, %.sink.split ]
-  %.sroa.7.0.i73 = phi i64 [ %160, %156 ], [ %160, %162 ], [ %125, %.sink.split ]
-  %.sroa.0.0.i74 = phi i64 [ 38, %156 ], [ 34, %162 ], [ %.sroa.0.0.i74.ph, %.sink.split ]
+  %.sroa.11.i71.sroa.0.0 = phi ptr [ undef, %162 ], [ undef, %156 ], [ %.sroa.8133.sroa.0.0.copyload, %.sink.split ]
+  %.sroa.11.i71.sroa.5.0 = phi i64 [ undef, %162 ], [ undef, %156 ], [ %.sroa.8133.sroa.6.0.copyload, %.sink.split ]
+  %.sroa.11.i71.sroa.6.0 = phi i64 [ undef, %162 ], [ undef, %156 ], [ %.sroa.8133.sroa.7.0.copyload, %.sink.split ]
+  %.sroa.7.0.i73 = phi i64 [ %160, %162 ], [ %160, %156 ], [ %125, %.sink.split ]
+  %.sroa.0.0.i74 = phi i64 [ 34, %162 ], [ 38, %156 ], [ %.sroa.0.0.i74.ph, %.sink.split ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.16, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.11.i71.sroa.7, i64 48, i1 false), !noalias !20009
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i71.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
@@ -135261,9 +135261,9 @@ default.unreachable519:                           ; preds = %1799, %1748, %1719,
   br label %953
 
 962:                                              ; preds = %.body103.i.i.i, %1074, %1073, %1072, %955, %946
-  %.022.i.i.i = phi i8 [ 1, %946 ], [ 1, %955 ], [ %.123.i.i.i, %1072 ], [ %.123.i.i.i, %1073 ], [ %.123.i.i.i, %1074 ], [ %.123.i.i.i, %.body103.i.i.i ]
-  %.0.i.i.i = phi i8 [ 1, %946 ], [ 0, %955 ], [ %.1.i.i.i, %1072 ], [ %.1.i.i.i, %1073 ], [ %.1.i.i.i, %1074 ], [ %.1.i.i.i, %.body103.i.i.i ]
-  %.pn49.pn.i.i.i = phi { ptr, i32 } [ %947, %946 ], [ %956, %955 ], [ %.pn44.i.i.i, %1072 ], [ %.pn42.i.i.i, %1073 ], [ %1075, %1074 ], [ %eh.lpad-body104.i.i.i, %.body103.i.i.i ]
+  %.022.i.i.i = phi i8 [ 1, %955 ], [ 1, %946 ], [ %.123.i.i.i, %1072 ], [ %.123.i.i.i, %1073 ], [ %.123.i.i.i, %1074 ], [ %.123.i.i.i, %.body103.i.i.i ]
+  %.0.i.i.i = phi i8 [ 0, %955 ], [ 1, %946 ], [ %.1.i.i.i, %1072 ], [ %.1.i.i.i, %1073 ], [ %.1.i.i.i, %1074 ], [ %.1.i.i.i, %.body103.i.i.i ]
+  %.pn49.pn.i.i.i = phi { ptr, i32 } [ %956, %955 ], [ %947, %946 ], [ %.pn44.i.i.i, %1072 ], [ %.pn42.i.i.i, %1073 ], [ %1075, %1074 ], [ %eh.lpad-body104.i.i.i, %.body103.i.i.i ]
   %963 = load i64, ptr %100, align 8, !range !729, !noalias !25411, !noundef !4
   %964 = icmp ne i64 %963, 2
   %965 = trunc nuw i8 %.022.i.i.i to i1

@@ -895,7 +895,7 @@ read_major_sync.exit:                             ; preds = %52
   br label %379
 
 379:                                              ; preds = %372, %368
-  %.1176 = phi i32 [ %.0175427, %368 ], [ %.0181, %372 ]
+  %.1176 = phi i32 [ %.0181, %372 ], [ %.0175427, %368 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %380 = load i8, ptr %282, align 1, !tbaa !65
   %381 = zext i8 %380 to i64

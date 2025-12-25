@@ -2613,7 +2613,7 @@ _ZL12readPrefixesPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.loop
   store i64 %67, ptr %17, align 8, !tbaa !58
   br label %_ZL12readPrefixesPN4llvm15X86Disassembler19InternalInstructionE.exit.thread
 
-_ZL12readPrefixesPN4llvm15X86Disassembler19InternalInstructionE.exit.thread: ; preds = %960, %853, %855, %871, %887, %889, %891, %893, %895, %844, %914, %932, %946, %1194, %987, %994, %980, %1001, %1026, %1033, %1019, %1040, %1192, %1186, %_ZL12readPrefixesPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.loopexit74, %406, %368, %363, %359, %355, %349, %345, %341, %337, %333, %329, %325, %319, %315, %311, %307, %303, %299, %295, %390, %383, %375, %353, %323, %293, %404, %397, %118, %179, %155, %114, %125, %225, %195, %_ZL16getInstructionIDPN4llvm15X86Disassembler19InternalInstructionEPKNS_11MCInstrInfoE.exit.thread, %_ZL12readOperandsPN4llvm15X86Disassembler19InternalInstructionE.exit, %_ZL16getInstructionIDPN4llvm15X86Disassembler19InternalInstructionEPKNS_11MCInstrInfoE.exit, %7
+_ZL12readPrefixesPN4llvm15X86Disassembler19InternalInstructionE.exit.thread: ; preds = %960, %853, %855, %871, %887, %889, %891, %893, %895, %844, %914, %932, %946, %1194, %987, %994, %980, %1001, %1026, %1033, %1019, %1040, %1192, %1186, %_ZL12readPrefixesPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.loopexit74, %406, %368, %363, %359, %355, %349, %345, %341, %337, %333, %329, %325, %319, %315, %311, %307, %303, %299, %295, %390, %383, %375, %353, %323, %293, %404, %397, %118, %179, %155, %125, %114, %225, %195, %_ZL16getInstructionIDPN4llvm15X86Disassembler19InternalInstructionEPKNS_11MCInstrInfoE.exit.thread, %_ZL12readOperandsPN4llvm15X86Disassembler19InternalInstructionE.exit, %_ZL16getInstructionIDPN4llvm15X86Disassembler19InternalInstructionEPKNS_11MCInstrInfoE.exit, %7
   %1199 = load i64, ptr %17, align 8, !tbaa !58
   %1200 = sub i64 %1199, %5
   store i64 %1200, ptr %2, align 8, !tbaa !20
@@ -3448,8 +3448,8 @@ _ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS
   %.not27 = icmp eq ptr %321, %22
   br i1 %.not27, label %.thread, label %46
 
-.thread:                                          ; preds = %.critedge, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit, %83, %74, %74, %72, %62, %75, %tailrecurse.i, %16, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %16 ], [ true, %tailrecurse.i ], [ true, %74 ], [ true, %75 ], [ true, %74 ], [ true, %83 ], [ true, %72 ], [ true, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit ], [ false, %.critedge ], [ true, %62 ]
+.thread:                                          ; preds = %.critedge, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit, %83, %72, %74, %74, %62, %75, %tailrecurse.i, %16, %3
+  %.0 = phi i1 [ true, %3 ], [ false, %16 ], [ true, %tailrecurse.i ], [ true, %75 ], [ true, %74 ], [ true, %72 ], [ true, %74 ], [ true, %83 ], [ true, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit ], [ false, %.critedge ], [ true, %62 ]
   ret i1 %.0
 }
 

@@ -8905,7 +8905,7 @@ Py_DECREF.exit:                                   ; preds = %112, %116, %119
   br label %Py_DECREF.exit64
 
 Py_DECREF.exit64:                                 ; preds = %111, %108, %106, %94, %97, %70, %73, %38, %35, %32, %29, %27, %Py_DECREF.exit, %124, %18, %14, %33, %_Py_NewRef.exit86.thread, %3
-  %.0 = phi ptr [ @_Py_NoneStruct, %3 ], [ %2, %38 ], [ %16, %18 ], [ null, %32 ], [ null, %33 ], [ %2, %94 ], [ %113, %Py_DECREF.exit ], [ null, %124 ], [ %2, %70 ], [ null, %14 ], [ null, %_Py_NewRef.exit86.thread ], [ null, %27 ], [ null, %29 ], [ %2, %35 ], [ %2, %73 ], [ %2, %97 ], [ null, %106 ], [ null, %108 ], [ null, %111 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %3 ], [ %2, %38 ], [ %16, %18 ], [ null, %32 ], [ null, %33 ], [ %2, %97 ], [ %113, %Py_DECREF.exit ], [ null, %124 ], [ %2, %70 ], [ null, %14 ], [ null, %_Py_NewRef.exit86.thread ], [ null, %27 ], [ null, %29 ], [ %2, %35 ], [ %2, %73 ], [ %2, %94 ], [ null, %106 ], [ null, %108 ], [ null, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -9202,7 +9202,7 @@ Py_DECREF.exit:                                   ; preds = %112, %116, %119
   br label %Py_DECREF.exit64
 
 Py_DECREF.exit64:                                 ; preds = %111, %108, %106, %94, %97, %70, %73, %38, %35, %32, %29, %27, %Py_DECREF.exit, %124, %18, %14, %33, %_Py_NewRef.exit86.thread, %3
-  %.0 = phi ptr [ @_Py_NoneStruct, %3 ], [ %2, %38 ], [ %16, %18 ], [ null, %32 ], [ null, %33 ], [ %2, %94 ], [ %113, %Py_DECREF.exit ], [ null, %124 ], [ %2, %70 ], [ null, %14 ], [ null, %_Py_NewRef.exit86.thread ], [ null, %27 ], [ null, %29 ], [ %2, %35 ], [ %2, %73 ], [ %2, %97 ], [ null, %106 ], [ null, %108 ], [ null, %111 ]
+  %.0 = phi ptr [ @_Py_NoneStruct, %3 ], [ %2, %38 ], [ %16, %18 ], [ null, %32 ], [ null, %33 ], [ %2, %97 ], [ %113, %Py_DECREF.exit ], [ null, %124 ], [ %2, %70 ], [ null, %14 ], [ null, %_Py_NewRef.exit86.thread ], [ null, %27 ], [ null, %29 ], [ %2, %35 ], [ %2, %73 ], [ %2, %94 ], [ null, %106 ], [ null, %108 ], [ null, %111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

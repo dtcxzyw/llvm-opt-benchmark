@@ -3052,7 +3052,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %.body120
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %221, %.loopexit172, %.noexc122, %212, %206, %187, %167, %216, %181
-  %.2.ph.ph = phi i1 [ false, %.loopexit172 ], [ true, %.noexc122 ], [ true, %206 ], [ true, %181 ], [ false, %221 ], [ true, %167 ], [ true, %216 ], [ true, %187 ], [ true, %212 ]
+  %.2.ph.ph = phi i1 [ true, %212 ], [ true, %.noexc122 ], [ true, %206 ], [ true, %181 ], [ true, %216 ], [ true, %167 ], [ false, %221 ], [ true, %187 ], [ false, %.loopexit172 ]
   %lpad.loopexit.split-lp174 = landingpad { ptr, i32 }
           cleanup
   br label %.body120
@@ -3763,7 +3763,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit: ;
   br label %.body120
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %222, %.loopexit172, %.noexc122, %213, %207, %188, %168, %217, %182
-  %.2.ph.ph = phi i1 [ false, %.loopexit172 ], [ true, %.noexc122 ], [ true, %207 ], [ true, %182 ], [ false, %222 ], [ true, %168 ], [ true, %217 ], [ true, %188 ], [ true, %213 ]
+  %.2.ph.ph = phi i1 [ true, %213 ], [ true, %.noexc122 ], [ true, %207 ], [ true, %182 ], [ true, %217 ], [ true, %168 ], [ false, %222 ], [ true, %188 ], [ false, %.loopexit172 ]
   %lpad.loopexit.split-lp174 = landingpad { ptr, i32 }
           cleanup
   br label %.body120
@@ -46712,7 +46712,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17hfefd6b2ba46b6d1dE.exit: ; preds = 
   br label %.thread
 
 .thread:                                          ; preds = %5, %.preheader.split, %.preheader.split.us, %.thread.loopexit18, %.thread.loopexit15, %.thread.loopexit13, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17"
-  %.sroa.02.1 = phi i64 [ %.sroa.02.3, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17" ], [ %8, %.thread.loopexit13 ], [ %15, %.thread.loopexit15 ], [ %6, %.thread.loopexit18 ], [ 3, %.preheader.split ], [ 3, %.preheader.split.us ], [ 3, %5 ]
+  %.sroa.02.1 = phi i64 [ %.sroa.02.3, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h8df38e2a1e7c79a7E.exit.thread17" ], [ 3, %.preheader.split ], [ %8, %.thread.loopexit13 ], [ %6, %.thread.loopexit18 ], [ %15, %.thread.loopexit15 ], [ 3, %.preheader.split.us ], [ 3, %5 ]
   ret i64 %.sroa.02.1
 }
 
@@ -56630,7 +56630,7 @@ default.unreachable:                              ; preds = %82
   br i1 %93, label %.noexc, label %_ZN3std2io5Write9write_all17he1eb72c6105fd67aE.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h90be76f607614798E.exit.thread": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h90be76f607614798E.exit", %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3f6208f0c5e83b0E.exit.i.i.lr.ph.loopexit", %_ZN3std2io4Read8read_buf17h51536c6dc4490099E.exit, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3f6208f0c5e83b0E.exit.i.i", %32, %3
-  %.018.ph101237 = phi i64 [ %.018.ph101240, %_ZN3std2io4Read8read_buf17h51536c6dc4490099E.exit ], [ 0, %3 ], [ %.018.ph101240, %32 ], [ %.018.ph101240, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3f6208f0c5e83b0E.exit.i.i" ], [ %95, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3f6208f0c5e83b0E.exit.i.i.lr.ph.loopexit" ], [ %.018.ph101240, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h90be76f607614798E.exit" ]
+  %.018.ph101237 = phi i64 [ 0, %3 ], [ %.018.ph101240, %_ZN3std2io4Read8read_buf17h51536c6dc4490099E.exit ], [ %.018.ph101240, %32 ], [ %.018.ph101240, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3f6208f0c5e83b0E.exit.i.i" ], [ %95, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3f6208f0c5e83b0E.exit.i.i.lr.ph.loopexit" ], [ %.018.ph101240, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h90be76f607614798E.exit" ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.018.ph101237, ptr %94, align 8
   br label %115
@@ -58130,7 +58130,7 @@ _ZN6flate22gz14GzHeaderParser5parse17h9d81095d37fc410aE.exit.i: ; preds = %threa
   br label %"_ZN72_$LT$flate2..gz..write..GzDecoder$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h736900e8136ee204E.exit.thread"
 
 .loopexit.i:                                      ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h69c21a8f18e56de6E.exit174.i.i", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h69c21a8f18e56de6E.exit.i.i", %273, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h93fb204172d88492E.exit.i181.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h93fb204172d88492E.exit.i.i.i", %178, %139, %83, %277, %240, %213, %102, %95, %90
-  %309 = phi ptr [ inttoptr (i64 158913789955 to ptr), %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h93fb204172d88492E.exit.i181.i.i" ], [ inttoptr (i64 158913789955 to ptr), %178 ], [ inttoptr (i64 158913789955 to ptr), %139 ], [ %103, %102 ], [ %278, %277 ], [ inttoptr (i64 158913789955 to ptr), %273 ], [ %214, %213 ], [ inttoptr (i64 158913789955 to ptr), %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h93fb204172d88492E.exit.i.i.i" ], [ inttoptr (i64 158913789955 to ptr), %83 ], [ %241, %240 ], [ %91, %90 ], [ %96, %95 ], [ inttoptr (i64 158913789955 to ptr), %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h69c21a8f18e56de6E.exit.i.i" ], [ inttoptr (i64 158913789955 to ptr), %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h69c21a8f18e56de6E.exit174.i.i" ]
+  %309 = phi ptr [ %103, %102 ], [ inttoptr (i64 158913789955 to ptr), %178 ], [ inttoptr (i64 158913789955 to ptr), %139 ], [ inttoptr (i64 158913789955 to ptr), %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h93fb204172d88492E.exit.i181.i.i" ], [ %278, %277 ], [ inttoptr (i64 158913789955 to ptr), %273 ], [ %214, %213 ], [ inttoptr (i64 158913789955 to ptr), %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h93fb204172d88492E.exit.i.i.i" ], [ inttoptr (i64 158913789955 to ptr), %83 ], [ %241, %240 ], [ %91, %90 ], [ %96, %95 ], [ inttoptr (i64 158913789955 to ptr), %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h69c21a8f18e56de6E.exit.i.i" ], [ inttoptr (i64 158913789955 to ptr), %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h69c21a8f18e56de6E.exit174.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !7954
   store ptr %309, ptr %9, align 8, !noalias !7954
   %310 = ptrtoint ptr %309 to i64
@@ -146466,7 +146466,7 @@ define hidden void @"_ZN104_$LT$ockam_api..kafka..protocol_aware..MessageWrapper
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %203, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit251", %148, %3
-  %.0207.ph.ph = phi i8 [ 1, %203 ], [ 0, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit251" ], [ 1, %3 ], [ 1, %148 ]
+  %.0207.ph.ph = phi i8 [ 0, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit251" ], [ 1, %203 ], [ 1, %3 ], [ 1, %148 ]
   %lpad.loopexit.split-lp303 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

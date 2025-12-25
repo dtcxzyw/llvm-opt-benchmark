@@ -5342,13 +5342,13 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
   br label %.thread175
 
 .loopexit:                                        ; preds = %12, %159, %.critedge, %._crit_edge, %._crit_edge228, %._crit_edge231, %._crit_edge234, %._crit_edge237, %.thread
-  %.0139 = phi ptr [ null, %159 ], [ %143, %._crit_edge ], [ %131, %._crit_edge228 ], [ %175, %.critedge ], [ %108, %._crit_edge234 ], [ %120, %._crit_edge231 ], [ %92, %.thread ], [ %100, %._crit_edge237 ], [ null, %12 ]
-  %.0134 = phi i32 [ %163, %159 ], [ %136, %._crit_edge ], [ %127, %._crit_edge228 ], [ %.8, %.critedge ], [ %105, %._crit_edge234 ], [ %113, %._crit_edge231 ], [ %.6, %.thread ], [ %97, %._crit_edge237 ], [ %17, %12 ]
+  %.0139 = phi ptr [ %120, %._crit_edge231 ], [ %143, %._crit_edge ], [ %131, %._crit_edge228 ], [ %175, %.critedge ], [ %108, %._crit_edge234 ], [ null, %159 ], [ %92, %.thread ], [ %100, %._crit_edge237 ], [ null, %12 ]
+  %.0134 = phi i32 [ %113, %._crit_edge231 ], [ %136, %._crit_edge ], [ %127, %._crit_edge228 ], [ %.8, %.critedge ], [ %105, %._crit_edge234 ], [ %163, %159 ], [ %.6, %.thread ], [ %97, %._crit_edge237 ], [ %17, %12 ]
   %.not167 = icmp eq i32 %.0134, 0
   br i1 %.not167, label %.thread175, label %.thread175.thread.sink.split
 
 .thread175:                                       ; preds = %26, %144, %149, %153, %179, %.loopexit
-  %.0139180 = phi ptr [ %.0139, %.loopexit ], [ null, %179 ], [ null, %144 ], [ null, %149 ], [ null, %153 ], [ null, %26 ]
+  %.0139180 = phi ptr [ %.0139, %.loopexit ], [ null, %179 ], [ null, %149 ], [ null, %144 ], [ null, %153 ], [ null, %26 ]
   %.not168 = icmp eq i32 %2, 0
   br i1 %.not168, label %.thread175.thread, label %.thread175.thread.sink.split
 

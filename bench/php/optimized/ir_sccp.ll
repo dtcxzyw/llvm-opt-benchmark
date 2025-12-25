@@ -3695,7 +3695,7 @@ ir_try_promote_ext.exit.thread.sink.split:        ; preds = %88, %84
   store i32 %.sink, ptr %75, align 4, !tbaa !39
   br label %ir_try_promote_ext.exit.thread
 
-ir_try_promote_ext.exit.thread:                   ; preds = %159, %155, %ir_try_promote_ext.exit.thread.sink.split, %130, %118, %109, %112, %99, %127, %59, %90, %82, %86, %66, %70
+ir_try_promote_ext.exit.thread:                   ; preds = %155, %159, %ir_try_promote_ext.exit.thread.sink.split, %130, %118, %109, %112, %99, %127, %59, %90, %82, %86, %66, %70
   %285 = load ptr, ptr %0, align 8, !tbaa !38
   %286 = getelementptr inbounds nuw %struct._ir_insn, ptr %285, i64 %34
   %287 = load i16, ptr %286, align 8, !tbaa !39
@@ -6796,7 +6796,7 @@ tailrecurse.backedge:                             ; preds = %24, %40
   br i1 %43, label %tailrecurse.backedge, label %switch.edge
 
 switch.edge:                                      ; preds = %11, %34, %40, %24, %tailrecurse._crit_edge, %15
-  %.0 = phi i1 [ %switch, %tailrecurse._crit_edge ], [ %23, %15 ], [ false, %24 ], [ false, %40 ], [ false, %34 ], [ false, %11 ]
+  %.0 = phi i1 [ %23, %15 ], [ %switch, %tailrecurse._crit_edge ], [ false, %24 ], [ false, %40 ], [ false, %34 ], [ false, %11 ]
   ret i1 %.0
 }
 

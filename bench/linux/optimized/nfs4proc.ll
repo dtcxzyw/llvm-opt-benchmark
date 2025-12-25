@@ -610,7 +610,7 @@ define internal fastcc range(i32 -1000, -2147483648) i32 @nfs4_do_handle_excepti
   br label %.thread14
 
 87:                                               ; preds = %57, %53, %32
-  %88 = phi i32 [ %1, %32 ], [ %58, %57 ], [ %54, %53 ]
+  %88 = phi i32 [ %58, %57 ], [ %1, %32 ], [ %54, %53 ]
   %89 = icmp sgt i32 %88, -1001
   br i1 %89, label %.thread15, label %.thread14
 

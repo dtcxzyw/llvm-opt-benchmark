@@ -1292,7 +1292,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fib_nl_newrule(ptr noundef %0, p
   call void @kfree(ptr noundef %305) #16
   br label %.thread29
 
-.thread29:                                        ; preds = %.loopexit32, %.thread22.thread, %51, %.thread22, %53, %304, %298
+.thread29:                                        ; preds = %.loopexit32, %.thread22.thread, %.thread22, %51, %53, %304, %298
   %307 = phi i32 [ 0, %304 ], [ 0, %298 ], [ %306, %.loopexit32 ], [ %48, %.thread22 ], [ %52, %51 ], [ %55, %53 ], [ -22, %.thread22.thread ]
   %308 = load ptr, ptr %32, align 8
   call void @module_put(ptr noundef %308) #16

@@ -5278,10 +5278,10 @@ define hidden void @"_ZN5gimli4read8loclists20LocListIter$LT$R$GT$4next17h983b81
   br label %656
 
 651:                                              ; preds = %.thread149.i, %646
-  %.sroa.13.1924.ph = phi ptr [ %.sroa.9.sroa.0.1.ph.ph610, %646 ], [ %.sroa.4776.0.i.i, %.thread149.i ]
-  %.sroa.25.1922.ph = phi i64 [ %.sroa.9.sroa.5.1.ph.ph607, %646 ], [ %.sroa.17.0.i.i, %.thread149.i ]
-  %.sroa.32.1921.ph = phi i64 [ %.sroa.097.0.i, %646 ], [ 0, %.thread149.i ]
-  %.sroa.34.1919.ph = phi i64 [ %.sroa.8.0.i, %646 ], [ -1, %.thread149.i ]
+  %.sroa.13.1924.ph = phi ptr [ %.sroa.4776.0.i.i, %.thread149.i ], [ %.sroa.9.sroa.0.1.ph.ph610, %646 ]
+  %.sroa.25.1922.ph = phi i64 [ %.sroa.17.0.i.i, %.thread149.i ], [ %.sroa.9.sroa.5.1.ph.ph607, %646 ]
+  %.sroa.32.1921.ph = phi i64 [ 0, %.thread149.i ], [ %.sroa.097.0.i, %646 ]
+  %.sroa.34.1919.ph = phi i64 [ -1, %.thread149.i ], [ %.sroa.8.0.i, %646 ]
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.13.1924.ph, ptr %652, align 8
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5930,7 +5930,7 @@ default.unreachable147.i:                         ; preds = %36
   store i64 %.sroa.625.sroa.0.0.copyload58.sink, ptr %29, align 8, !alias.scope !1876, !noalias !1879
   br label %128
 
-128:                                              ; preds = %.sink.split, %111, %95
+128:                                              ; preds = %.sink.split, %95, %111
   %129 = load i64, ptr %13, align 8, !alias.scope !1941, !noalias !1864, !noundef !4
   %130 = icmp eq i64 %129, 0
   br i1 %130, label %.thread94, label %30

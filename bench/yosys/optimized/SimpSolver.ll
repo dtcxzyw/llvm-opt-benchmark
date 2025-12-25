@@ -5177,9 +5177,9 @@ _ZN7Minisat3vecIjiED2Ev.exit111:                  ; preds = %_ZN7Minisat3vecIjiE
   ret i1 %.3201
 
 258:                                              ; preds = %173, %188, %219, %245, %137
-  %.sroa.0126.1 = phi ptr [ %.sroa.0126.2, %137 ], [ %.sroa.0126.0.lcssa358, %173 ], [ %.sroa.0126.0.lcssa358, %188 ], [ %.sroa.0126.0.lcssa358, %245 ], [ %.sroa.0126.0.lcssa358, %219 ]
-  %.sroa.0146.1 = phi ptr [ %.sroa.0146.2, %137 ], [ %.sroa.0146.0.lcssa363, %173 ], [ %.sroa.0146.0.lcssa363, %188 ], [ %.sroa.0146.0.lcssa363, %245 ], [ %.sroa.0146.0.lcssa363, %219 ]
-  %.pn82.pn = phi { ptr, i32 } [ %138, %137 ], [ %174, %173 ], [ %189, %188 ], [ %246, %245 ], [ %220, %219 ]
+  %.sroa.0126.1 = phi ptr [ %.sroa.0126.2, %137 ], [ %.sroa.0126.0.lcssa358, %188 ], [ %.sroa.0126.0.lcssa358, %173 ], [ %.sroa.0126.0.lcssa358, %245 ], [ %.sroa.0126.0.lcssa358, %219 ]
+  %.sroa.0146.1 = phi ptr [ %.sroa.0146.2, %137 ], [ %.sroa.0146.0.lcssa363, %188 ], [ %.sroa.0146.0.lcssa363, %173 ], [ %.sroa.0146.0.lcssa363, %245 ], [ %.sroa.0146.0.lcssa363, %219 ]
+  %.pn82.pn = phi { ptr, i32 } [ %138, %137 ], [ %189, %188 ], [ %174, %173 ], [ %246, %245 ], [ %220, %219 ]
   %.not.i.i112 = icmp eq ptr %.sroa.0126.1, null
   br i1 %.not.i.i112, label %_ZN7Minisat3vecIjiED2Ev.exit114, label %.preheader.i.i113
 

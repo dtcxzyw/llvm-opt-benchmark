@@ -3087,7 +3087,7 @@ goughExec8_i.exit.sink.split:                     ; preds = %goughExec8_i.exit.s
   br label %goughExec8_i.exit
 
 goughExec8_i.exit:                                ; preds = %238, %213, %254, %353, %327, %367, %goughExec8_i.exit.sink.split, %._crit_edge
-  %.6.i = phi i8 [ 1, %goughExec8_i.exit.sink.split ], [ 0, %254 ], [ 0, %213 ], [ 1, %._crit_edge ], [ 0, %367 ], [ 0, %353 ], [ 0, %327 ], [ 0, %238 ]
+  %.6.i = phi i8 [ 1, %goughExec8_i.exit.sink.split ], [ 0, %254 ], [ 0, %353 ], [ 1, %._crit_edge ], [ 0, %367 ], [ 0, %213 ], [ 0, %327 ], [ 0, %238 ]
   ret i8 %.6.i
 }
 
@@ -4096,7 +4096,7 @@ doReports.exit.i:                                 ; preds = %330, %304, %326, %3
   br label %goughExec16_i.exit
 
 goughExec16_i.exit:                               ; preds = %171, %145, %185, %326, %300, %340, %287, %132, %368
-  %.6.i = phi i8 [ 0, %326 ], [ 0, %340 ], [ 1, %368 ], [ 1, %132 ], [ 0, %185 ], [ 1, %287 ], [ 0, %300 ], [ 0, %145 ], [ 0, %171 ]
+  %.6.i = phi i8 [ 0, %340 ], [ 0, %185 ], [ 1, %368 ], [ 1, %132 ], [ 1, %287 ], [ 0, %326 ], [ 0, %300 ], [ 0, %145 ], [ 0, %171 ]
   ret i8 %.6.i
 }
 

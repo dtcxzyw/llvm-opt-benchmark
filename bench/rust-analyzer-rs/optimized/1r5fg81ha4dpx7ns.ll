@@ -17695,7 +17695,7 @@ _ZN8smallvec10deallocate17he5eec86b647c25a9E.exit.i: ; preds = %42
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %44, i64 noundef 8) #42, !noalias !3603
   br label %_ZN8smallvec10infallible17ha27ad5bd5b135115E.llvm.11687988487834292117.exit
 
-46:                                               ; preds = %32, %29
+46:                                               ; preds = %29, %32
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d1ff9934ece6813bf2a30f9ce237ed68.92.llvm.11687988487834292117, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d1ff9934ece6813bf2a30f9ce237ed68.93.llvm.11687988487834292117) #39
   unreachable
 
@@ -23796,7 +23796,7 @@ default.unreachable32:                            ; preds = %4
   br label %85
 
 85:                                               ; preds = %34, %83, %64, %137, %15
-  %.017 = phi i8 [ %37, %34 ], [ %19, %15 ], [ %.219, %137 ], [ %65, %64 ], [ %84, %83 ]
+  %.017 = phi i8 [ %65, %64 ], [ %19, %15 ], [ %.219, %137 ], [ %84, %83 ], [ %37, %34 ]
   %86 = trunc nuw i8 %.017 to i1
   br i1 %86, label %.thread, label %.thread28
 
@@ -23935,8 +23935,8 @@ default.unreachable32:                            ; preds = %4
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #40
   unreachable
 
-.thread28:                                        ; preds = %13, %28, %76, %4, %4, %4, %4, %145, %85
-  %.3 = phi i8 [ 0, %145 ], [ 1, %85 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %76 ], [ 1, %28 ], [ 1, %13 ]
+.thread28:                                        ; preds = %28, %13, %76, %4, %4, %4, %4, %145, %85
+  %.3 = phi i8 [ 0, %145 ], [ 1, %85 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %4 ], [ 1, %76 ], [ 1, %13 ], [ 1, %28 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$17hfb7f5bedd34d2becE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %150 unwind label %148
 

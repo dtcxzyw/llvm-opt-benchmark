@@ -1974,7 +1974,7 @@ define dso_local noundef range(i32 -12, 1) i32 @xhci_alloc_tt_info(ptr noundef r
   br i1 %130, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .loopexit:                                        ; preds = %94, %55, %128, %126, %109, %102, %.split10.us, %12
-  %131 = phi i32 [ -12, %.split10.us ], [ -12, %102 ], [ -12, %109 ], [ 0, %12 ], [ 0, %55 ], [ -12, %128 ], [ -12, %126 ], [ 0, %94 ]
+  %131 = phi i32 [ -12, %.split10.us ], [ -12, %102 ], [ -12, %109 ], [ 0, %12 ], [ -12, %128 ], [ 0, %55 ], [ -12, %126 ], [ 0, %94 ]
   ret i32 %131
 }
 

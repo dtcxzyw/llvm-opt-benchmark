@@ -118,7 +118,7 @@ do_create.exit:                                   ; preds = %.lr.ph, %19, %45
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.loopexit.sink.split, %.preheader
-  %.0 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %.preheader ], [ 1, %8 ]
+  %.0 = phi i32 [ 1, %.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %8 ]
   ret i32 %.0
 }
 

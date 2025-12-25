@@ -2032,8 +2032,8 @@ select.unfold:                                    ; preds = %_ZN4cvc58internal12
   %.not138 = icmp eq i32 %.4110, 0
   br i1 %.not138, label %.thread, label %.thread490
 
-.thread490:                                       ; preds = %92, %112, %194, %127, %select.unfold
-  %.4110494 = phi i32 [ %.4110, %select.unfold ], [ 1, %112 ], [ %211, %194 ], [ 1, %127 ], [ %93, %92 ]
+.thread490:                                       ; preds = %92, %127, %112, %194, %select.unfold
+  %.4110494 = phi i32 [ %.4110, %select.unfold ], [ 1, %127 ], [ 1, %112 ], [ %211, %194 ], [ %93, %92 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %.sroa.0460.0532, ptr %13, align 8, !tbaa !205
   %212 = load i64, ptr %.sroa.0460.0532, align 8

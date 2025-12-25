@@ -321,13 +321,13 @@ define internal void @_ZL28_UTF16BEToUnicodeWithOffsetsP23UConverterToUnicodeArg
   br label %.loopexit297
 
 .loopexit297:                                     ; preds = %.loopexit297.loopexit, %109, %111, %79
-  %128 = phi i32 [ %51, %111 ], [ %51, %109 ], [ %63, %79 ], [ %.lcssa365, %.loopexit297.loopexit ]
-  %129 = phi i32 [ %56, %111 ], [ %56, %109 ], [ %64, %79 ], [ %.lcssa362, %.loopexit297.loopexit ]
-  %.1221 = phi ptr [ %102, %111 ], [ %105, %109 ], [ %76, %79 ], [ %25, %.loopexit297.loopexit ]
-  %.2210 = phi ptr [ %36, %111 ], [ %.3211, %109 ], [ %.1209, %79 ], [ %36, %.loopexit297.loopexit ]
-  %.1204 = phi i32 [ 0, %111 ], [ %110, %109 ], [ %80, %79 ], [ %34, %.loopexit297.loopexit ]
-  %.1192 = phi i8 [ 0, %111 ], [ 0, %109 ], [ 0, %79 ], [ %127, %.loopexit297.loopexit ]
-  %.2180 = phi i16 [ 0, %111 ], [ 0, %109 ], [ 0, %79 ], [ %.2180.ph, %.loopexit297.loopexit ]
+  %128 = phi i32 [ %51, %109 ], [ %51, %111 ], [ %63, %79 ], [ %.lcssa365, %.loopexit297.loopexit ]
+  %129 = phi i32 [ %56, %109 ], [ %56, %111 ], [ %64, %79 ], [ %.lcssa362, %.loopexit297.loopexit ]
+  %.1221 = phi ptr [ %105, %109 ], [ %102, %111 ], [ %76, %79 ], [ %25, %.loopexit297.loopexit ]
+  %.2210 = phi ptr [ %.3211, %109 ], [ %36, %111 ], [ %.1209, %79 ], [ %36, %.loopexit297.loopexit ]
+  %.1204 = phi i32 [ %110, %109 ], [ 0, %111 ], [ %80, %79 ], [ %34, %.loopexit297.loopexit ]
+  %.1192 = phi i8 [ 0, %109 ], [ 0, %111 ], [ 0, %79 ], [ %127, %.loopexit297.loopexit ]
+  %.2180 = phi i16 [ 0, %109 ], [ 0, %111 ], [ 0, %79 ], [ %.2180.ph, %.loopexit297.loopexit ]
   store i8 %.1192, ptr %46, align 8, !tbaa !29
   br label %130
 
@@ -947,12 +947,12 @@ define internal void @_ZL30_UTF16BEFromUnicodeWithOffsetsP25UConverterFromUnicod
   %.not162 = icmp eq i16 %.2123190, 0
   br i1 %.not162, label %.thread193, label %.thread205
 
-.thread205:                                       ; preds = %169, %69, %.thread183
-  %181 = phi ptr [ %178, %.thread183 ], [ %166, %169 ], [ %29, %69 ]
-  %.5126215 = phi i16 [ %.2123190, %.thread183 ], [ %171, %169 ], [ %42, %69 ]
-  %.4131214 = phi i32 [ %.1128189, %.thread183 ], [ %.1128181, %169 ], [ 0, %69 ]
-  %.2139213 = phi i32 [ %180, %.thread183 ], [ %77, %169 ], [ %37, %69 ]
-  %.7212 = phi ptr [ %.3144188, %.thread183 ], [ %170, %169 ], [ %7, %69 ]
+.thread205:                                       ; preds = %69, %169, %.thread183
+  %181 = phi ptr [ %178, %.thread183 ], [ %29, %69 ], [ %166, %169 ]
+  %.5126215 = phi i16 [ %.2123190, %.thread183 ], [ %42, %69 ], [ %171, %169 ]
+  %.4131214 = phi i32 [ %.1128189, %.thread183 ], [ 0, %69 ], [ %.1128181, %169 ]
+  %.2139213 = phi i32 [ %180, %.thread183 ], [ %37, %69 ], [ %77, %169 ]
+  %.7212 = phi ptr [ %.3144188, %.thread183 ], [ %7, %69 ], [ %170, %169 ]
   %182 = and i16 %.5126215, 1024
   %183 = icmp eq i16 %182, 0
   br i1 %183, label %184, label %203
@@ -1627,13 +1627,13 @@ define internal void @_ZL28_UTF16LEToUnicodeWithOffsetsP23UConverterToUnicodeArg
   br label %.loopexit297
 
 .loopexit297:                                     ; preds = %.loopexit297.loopexit, %104, %106, %79
-  %123 = phi i32 [ %51, %106 ], [ %51, %104 ], [ %63, %79 ], [ %.lcssa365, %.loopexit297.loopexit ]
-  %124 = phi i32 [ %56, %106 ], [ %56, %104 ], [ %64, %79 ], [ %.lcssa362, %.loopexit297.loopexit ]
-  %.1221 = phi ptr [ %97, %106 ], [ %100, %104 ], [ %76, %79 ], [ %25, %.loopexit297.loopexit ]
-  %.2210 = phi ptr [ %36, %106 ], [ %.3211, %104 ], [ %.1209, %79 ], [ %36, %.loopexit297.loopexit ]
-  %.1204 = phi i32 [ 0, %106 ], [ %105, %104 ], [ %80, %79 ], [ %34, %.loopexit297.loopexit ]
-  %.1192 = phi i8 [ 0, %106 ], [ 0, %104 ], [ 0, %79 ], [ %122, %.loopexit297.loopexit ]
-  %.2180 = phi i16 [ 0, %106 ], [ 0, %104 ], [ 0, %79 ], [ %.2180.ph, %.loopexit297.loopexit ]
+  %123 = phi i32 [ %51, %104 ], [ %51, %106 ], [ %63, %79 ], [ %.lcssa365, %.loopexit297.loopexit ]
+  %124 = phi i32 [ %56, %104 ], [ %56, %106 ], [ %64, %79 ], [ %.lcssa362, %.loopexit297.loopexit ]
+  %.1221 = phi ptr [ %100, %104 ], [ %97, %106 ], [ %76, %79 ], [ %25, %.loopexit297.loopexit ]
+  %.2210 = phi ptr [ %.3211, %104 ], [ %36, %106 ], [ %.1209, %79 ], [ %36, %.loopexit297.loopexit ]
+  %.1204 = phi i32 [ %105, %104 ], [ 0, %106 ], [ %80, %79 ], [ %34, %.loopexit297.loopexit ]
+  %.1192 = phi i8 [ 0, %104 ], [ 0, %106 ], [ 0, %79 ], [ %122, %.loopexit297.loopexit ]
+  %.2180 = phi i16 [ 0, %104 ], [ 0, %106 ], [ 0, %79 ], [ %.2180.ph, %.loopexit297.loopexit ]
   store i8 %.1192, ptr %46, align 8, !tbaa !29
   br label %125
 
@@ -2307,12 +2307,12 @@ define internal void @_ZL30_UTF16LEFromUnicodeWithOffsetsP25UConverterFromUnicod
   %.not162 = icmp eq i16 %.2124190, 0
   br i1 %.not162, label %.thread193, label %.thread205
 
-.thread205:                                       ; preds = %169, %69, %.thread183
-  %177 = phi ptr [ %174, %.thread183 ], [ %166, %169 ], [ %29, %69 ]
-  %.5127215 = phi i16 [ %.2124190, %.thread183 ], [ %171, %169 ], [ %42, %69 ]
-  %.4132214 = phi i32 [ %.1129189, %.thread183 ], [ %.1129181, %169 ], [ 0, %69 ]
-  %.2140213 = phi i32 [ %176, %.thread183 ], [ %77, %169 ], [ %37, %69 ]
-  %.7212 = phi ptr [ %.3145188, %.thread183 ], [ %170, %169 ], [ %7, %69 ]
+.thread205:                                       ; preds = %69, %169, %.thread183
+  %177 = phi ptr [ %174, %.thread183 ], [ %29, %69 ], [ %166, %169 ]
+  %.5127215 = phi i16 [ %.2124190, %.thread183 ], [ %42, %69 ], [ %171, %169 ]
+  %.4132214 = phi i32 [ %.1129189, %.thread183 ], [ 0, %69 ], [ %.1129181, %169 ]
+  %.2140213 = phi i32 [ %176, %.thread183 ], [ %37, %69 ], [ %77, %169 ]
+  %.7212 = phi ptr [ %.3145188, %.thread183 ], [ %7, %69 ], [ %170, %169 ]
   %178 = and i16 %.5127215, 1024
   %179 = icmp eq i16 %178, 0
   br i1 %179, label %180, label %191

@@ -134,7 +134,7 @@ list_length.exit107:                              ; preds = %54
 
 60:                                               ; preds = %list_length.exit107
   %.not100 = icmp eq ptr %.086136, null
-  br i1 %.not100, label %72, label %61
+  br i1 %.not100, label %79, label %61
 
 61:                                               ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %.086136, i64 32
@@ -150,42 +150,42 @@ list_length.exit107:                              ; preds = %54
   %69 = getelementptr inbounds nuw i8, ptr %.086136, i64 80
   %70 = load ptr, ptr %69, align 8
   %71 = call zeroext i1 @is_pseudo_constant_clause_relids(ptr noundef %68, ptr noundef %70) #4
-  br i1 %71, label %.thread140, label %86
+  br i1 %71, label %.thread140, label %72
 
-72:                                               ; preds = %60
-  %73 = call i32 @NumRelids(ptr noundef %0, ptr noundef nonnull %.087134) #4
-  %74 = icmp eq i32 %73, 1
-  br i1 %74, label %75, label %is_opclause.exit.thread
+72:                                               ; preds = %65
+  %73 = load ptr, ptr %55, align 8
+  %74 = getelementptr i8, ptr %73, i64 16
+  %.val102 = load ptr, ptr %74, align 8
+  %75 = load ptr, ptr %.val102, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %.086136, i64 72
+  %77 = load ptr, ptr %76, align 8
+  %78 = call zeroext i1 @is_pseudo_constant_clause_relids(ptr noundef %75, ptr noundef %77) #4
+  br i1 %78, label %.thread140, label %is_opclause.exit.thread
 
-75:                                               ; preds = %72
-  %76 = load ptr, ptr %55, align 8
-  %77 = getelementptr i8, ptr %76, i64 16
-  %.val103 = load ptr, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %.val103, i64 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = call zeroext i1 @is_pseudo_constant_clause(ptr noundef %79) #4
-  br i1 %80, label %.thread140, label %81
+79:                                               ; preds = %60
+  %80 = call i32 @NumRelids(ptr noundef %0, ptr noundef nonnull %.087134) #4
+  %81 = icmp eq i32 %80, 1
+  br i1 %81, label %82, label %is_opclause.exit.thread
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr %55, align 8
-  %83 = getelementptr i8, ptr %82, i64 16
-  %.val104 = load ptr, ptr %83, align 8
-  %84 = load ptr, ptr %.val104, align 8
-  %85 = call zeroext i1 @is_pseudo_constant_clause(ptr noundef %84) #4
-  br i1 %85, label %.thread140, label %is_opclause.exit.thread
+82:                                               ; preds = %79
+  %83 = load ptr, ptr %55, align 8
+  %84 = getelementptr i8, ptr %83, i64 16
+  %.val103 = load ptr, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %.val103, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = call zeroext i1 @is_pseudo_constant_clause(ptr noundef %86) #4
+  br i1 %87, label %.thread140, label %88
 
-86:                                               ; preds = %65
-  %87 = load ptr, ptr %55, align 8
-  %88 = getelementptr i8, ptr %87, i64 16
-  %.val102 = load ptr, ptr %88, align 8
-  %89 = load ptr, ptr %.val102, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %.086136, i64 72
-  %91 = load ptr, ptr %90, align 8
-  %92 = call zeroext i1 @is_pseudo_constant_clause_relids(ptr noundef %89, ptr noundef %91) #4
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %55, align 8
+  %90 = getelementptr i8, ptr %89, i64 16
+  %.val104 = load ptr, ptr %90, align 8
+  %91 = load ptr, ptr %.val104, align 8
+  %92 = call zeroext i1 @is_pseudo_constant_clause(ptr noundef %91) #4
   br i1 %92, label %.thread140, label %is_opclause.exit.thread
 
-.thread140:                                       ; preds = %75, %65, %81, %86
-  %.1143 = phi i1 [ false, %81 ], [ false, %86 ], [ true, %65 ], [ true, %75 ]
+.thread140:                                       ; preds = %82, %65, %72, %88
+  %.1143 = phi i1 [ false, %72 ], [ false, %88 ], [ true, %65 ], [ true, %82 ]
   %93 = getelementptr inbounds nuw i8, ptr %.087134, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = call i32 @get_oprrest(i32 noundef %94) #4
@@ -422,7 +422,7 @@ addRangeClause.exit.thread152:                    ; preds = %.thread140
   %190 = fmul double %.183160194, %40
   br label %addRangeClause.exit
 
-is_opclause.exit.thread:                          ; preds = %72, %61, %86, %81, %54, %49, %list_length.exit107, %is_opclause.exit
+is_opclause.exit.thread:                          ; preds = %79, %61, %88, %72, %54, %49, %list_length.exit107, %is_opclause.exit
   %191 = fmul double %.183160194, %40
   br label %addRangeClause.exit
 
@@ -921,7 +921,7 @@ is_andclause.exit:                                ; preds = %.lr.ph64.preheader
   br label %._crit_edge.thread
 
 select.unfold:                                    ; preds = %30, %19, %23, %33, %24
-  %.428 = phi i32 [ %22, %19 ], [ %.0245762, %33 ], [ %.0245762, %24 ], [ %.0245762, %23 ], [ %32, %30 ]
+  %.428 = phi i32 [ %22, %19 ], [ %.0245762, %24 ], [ %.0245762, %33 ], [ %.0245762, %23 ], [ %32, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %4, align 4

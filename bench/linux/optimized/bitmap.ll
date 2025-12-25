@@ -1283,7 +1283,7 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   br label %72
 
 72:                                               ; preds = %61, %.loopexit
-  %73 = phi i32 [ %58, %.loopexit ], [ %71, %61 ]
+  %73 = phi i32 [ %71, %61 ], [ %58, %.loopexit ]
   %74 = icmp slt i32 %73, 0
   %75 = icmp eq i32 %35, 0
   %76 = select i1 %74, i1 true, i1 %75

@@ -1434,8 +1434,8 @@ define internal noundef ptr @H5O__efl_copy_file(ptr readnone captures(none) %0, 
   %96 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__efl_copy_file, i32 noundef 495, i64 noundef %94, i64 noundef %95, ptr noundef nonnull @.str.21) #11
   br label %.thread67
 
-.thread67:                                        ; preds = %76, %72, %53, %65, %93
-  %.172 = phi ptr [ null, %53 ], [ null, %93 ], [ null, %65 ], [ %17, %72 ], [ %17, %76 ]
+.thread67:                                        ; preds = %76, %72, %53, %93, %65
+  %.172 = phi ptr [ null, %53 ], [ null, %65 ], [ null, %93 ], [ %17, %72 ], [ %17, %76 ]
   %97 = call i32 @H5HL_unprotect(ptr noundef nonnull %44) #11
   %98 = icmp slt i32 %97, 0
   br i1 %98, label %99, label %.thread

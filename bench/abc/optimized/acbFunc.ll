@@ -478,7 +478,7 @@ define void @Acb_VerilogRemoveComments(ptr noundef captures(none) %0) local_unna
   br label %.preheader, !llvm.loop !17
 
 .critedge:                                        ; preds = %.preheader, %.preheader, %2, %4
-  %.2 = phi ptr [ %.0, %2 ], [ %.0, %4 ], [ %.1, %.preheader ], [ %.1, %.preheader ]
+  %.2 = phi ptr [ %.0, %4 ], [ %.0, %2 ], [ %.1, %.preheader ], [ %.1, %.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   br label %2, !llvm.loop !18
 
@@ -529,7 +529,7 @@ define noalias noundef ptr @Acb_VerilogSimpleLex(ptr noundef %0, ptr noundef %1)
   br label %.preheader.i, !llvm.loop !17
 
 .critedge.i:                                      ; preds = %.preheader.i, %.preheader.i, %12, %10
-  %.2.i = phi ptr [ %.0.i, %10 ], [ %.0.i, %12 ], [ %.1.i, %.preheader.i ], [ %.1.i, %.preheader.i ]
+  %.2.i = phi ptr [ %.0.i, %12 ], [ %.0.i, %10 ], [ %.1.i, %.preheader.i ], [ %.1.i, %.preheader.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   br label %10, !llvm.loop !18
 
@@ -10206,7 +10206,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %201
 
 201:                                              ; preds = %.thread, %.critedge2
-  %.2 = phi ptr [ %13, %.thread ], [ %.3, %.critedge2 ]
+  %.2 = phi ptr [ %.3, %.critedge2 ], [ %13, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %202
 

@@ -5284,8 +5284,8 @@ if.else5.i.thread:                                ; preds = %land.lhs.true.i, %l
   br label %if.then7.i
 
 _ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit: ; preds = %for.body.i15.i, %if.end.i, %land.lhs.true10.i, %if.then12.i
-  %unicode.1 = phi i32 [ %add.i29.i, %if.then12.i ], [ %add.i.i, %if.end.i ], [ %add.i.i, %land.lhs.true10.i ], [ %add.i.i, %for.body.i15.i ]
-  %retval.0.i.idx = phi i64 [ %add.ptr.i.i.add, %if.then12.i ], [ %incdec.ptr.i.add, %if.end.i ], [ %incdec.ptr.i.add, %land.lhs.true10.i ], [ %incdec.ptr.i.add, %for.body.i15.i ]
+  %unicode.1 = phi i32 [ %add.i.i, %land.lhs.true10.i ], [ %add.i.i, %if.end.i ], [ %add.i29.i, %if.then12.i ], [ %add.i.i, %for.body.i15.i ]
+  %retval.0.i.idx = phi i64 [ %incdec.ptr.i.add, %land.lhs.true10.i ], [ %incdec.ptr.i.add, %if.end.i ], [ %add.ptr.i.i.add, %if.then12.i ], [ %incdec.ptr.i.add, %for.body.i15.i ]
   %retval.0.i.ptr = getelementptr inbounds nuw i8, ptr %call6.pn, i64 %retval.0.i.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   %cmp.i63 = icmp ult i32 %unicode.1, 128

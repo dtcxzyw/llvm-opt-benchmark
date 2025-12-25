@@ -5107,7 +5107,7 @@ tn3270_add_hf_items.exit.preheader.i370:          ; preds = %732, %tn3270_add_hf
   br i1 %.not.i30.i.i378, label %dissect_query_reply_implicit_partitions_sd_parms.exit.i, label %.lr.ph.i27.preheader.i.i374, !llvm.loop !6
 
 dissect_query_reply_implicit_partitions_sd_parms.exit.i: ; preds = %.lr.ph.i27.preheader.i.i374, %.lr.ph.i22.preheader.i.i, %.lr.ph.i.preheader.i.i381
-  %.pn.i = phi i32 [ %761, %.lr.ph.i22.preheader.i.i ], [ %750, %.lr.ph.i.preheader.i.i381 ], [ %772, %.lr.ph.i27.preheader.i.i374 ]
+  %.pn.i = phi i32 [ %750, %.lr.ph.i.preheader.i.i381 ], [ %761, %.lr.ph.i22.preheader.i.i ], [ %772, %.lr.ph.i27.preheader.i.i374 ]
   %775 = icmp eq i32 %.pn.i, %.02338.i
   br i1 %775, label %.thread.i371, label %776
 

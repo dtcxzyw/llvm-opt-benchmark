@@ -2708,8 +2708,8 @@ define range(i32 -1, 1) i32 @H5Fclose_async(ptr noundef %0, ptr noundef %1, i32 
   br label %76
 
 76:                                               ; preds = %65, %67, %72, %61
-  %.027 = phi i32 [ 0, %65 ], [ 0, %67 ], [ -1, %72 ], [ -1, %61 ]
-  %.0 = phi i1 [ false, %65 ], [ false, %67 ], [ true, %72 ], [ true, %61 ]
+  %.027 = phi i32 [ 0, %65 ], [ -1, %61 ], [ -1, %72 ], [ 0, %67 ]
+  %.0 = phi i1 [ false, %65 ], [ true, %61 ], [ true, %72 ], [ false, %67 ]
   %.not36 = icmp eq ptr %.131, null
   br i1 %.not36, label %85, label %77
 
@@ -3216,10 +3216,10 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
   br label %151
 
 151:                                              ; preds = %.thread, %139, %147, %135, %130, %121
-  %.063 = phi ptr [ %.164.ph, %.thread ], [ %.265, %135 ], [ %.265, %139 ], [ %.265, %147 ], [ %.265, %130 ], [ %.265, %121 ]
-  %.060 = phi ptr [ null, %.thread ], [ %.262, %135 ], [ %.262, %139 ], [ %.262, %147 ], [ %.262, %130 ], [ %.262, %121 ]
-  %.054 = phi i32 [ -1, %.thread ], [ -1, %135 ], [ 0, %139 ], [ -1, %147 ], [ -1, %130 ], [ -1, %121 ]
-  %.052 = phi i1 [ true, %.thread ], [ true, %135 ], [ false, %139 ], [ true, %147 ], [ true, %130 ], [ true, %121 ]
+  %.063 = phi ptr [ %.265, %121 ], [ %.265, %130 ], [ %.265, %147 ], [ %.265, %139 ], [ %.265, %135 ], [ %.164.ph, %.thread ]
+  %.060 = phi ptr [ %.262, %121 ], [ %.262, %130 ], [ %.262, %147 ], [ %.262, %139 ], [ %.262, %135 ], [ null, %.thread ]
+  %.054 = phi i32 [ -1, %121 ], [ -1, %130 ], [ -1, %147 ], [ 0, %139 ], [ -1, %135 ], [ -1, %.thread ]
+  %.052 = phi i1 [ true, %121 ], [ true, %130 ], [ true, %147 ], [ false, %139 ], [ true, %135 ], [ true, %.thread ]
   %.not82 = icmp eq ptr %.063, null
   br i1 %.not82, label %168, label %152
 
@@ -3476,10 +3476,10 @@ define range(i32 -1, 1) i32 @H5Funmount(i64 noundef %0, ptr noundef %1) local_un
   br label %108
 
 108:                                              ; preds = %.thread, %99, %104
-  %.048 = phi ptr [ %.149.ph, %.thread ], [ %.250, %99 ], [ %.250, %104 ]
-  %.045 = phi ptr [ null, %.thread ], [ %.247, %99 ], [ %.247, %104 ]
-  %.040 = phi i32 [ -1, %.thread ], [ 0, %99 ], [ -1, %104 ]
-  %.038 = phi i1 [ true, %.thread ], [ false, %99 ], [ true, %104 ]
+  %.048 = phi ptr [ %.250, %99 ], [ %.149.ph, %.thread ], [ %.250, %104 ]
+  %.045 = phi ptr [ %.247, %99 ], [ null, %.thread ], [ %.247, %104 ]
+  %.040 = phi i32 [ 0, %99 ], [ -1, %.thread ], [ -1, %104 ]
+  %.038 = phi i1 [ false, %99 ], [ true, %.thread ], [ true, %104 ]
   %.not61 = icmp eq ptr %.048, null
   br i1 %.not61, label %125, label %109
 

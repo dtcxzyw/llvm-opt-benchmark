@@ -4449,9 +4449,9 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   br i1 %123, label %.split151.us, label %187
 
 .split151.us:                                     ; preds = %120, %106, %100, %67, %85, %79
-  %.us-phi = phi i1 [ false, %67 ], [ true, %85 ], [ true, %106 ], [ true, %79 ], [ true, %100 ], [ false, %120 ]
-  %.us-phi152 = phi ptr [ %.0148.us165.us, %67 ], [ %.0148.us.us181.us, %85 ], [ %.0148.us178, %106 ], [ %.0148.us.us181.us, %79 ], [ %.0148.us178, %100 ], [ %.0148, %120 ]
-  %.us-phi153 = phi ptr [ %63, %67 ], [ %75, %85 ], [ %96, %106 ], [ %75, %79 ], [ %96, %100 ], [ %114, %120 ]
+  %.us-phi = phi i1 [ false, %67 ], [ true, %106 ], [ true, %85 ], [ true, %79 ], [ true, %100 ], [ false, %120 ]
+  %.us-phi152 = phi ptr [ %.0148.us165.us, %67 ], [ %.0148.us178, %106 ], [ %.0148.us.us181.us, %85 ], [ %.0148.us.us181.us, %79 ], [ %.0148.us178, %100 ], [ %.0148, %120 ]
+  %.us-phi153 = phi ptr [ %63, %67 ], [ %96, %106 ], [ %75, %85 ], [ %75, %79 ], [ %96, %100 ], [ %114, %120 ]
   %124 = getelementptr inbounds nuw i8, ptr %.us-phi152, i64 24
   %125 = load i32, ptr %124, align 8
   %126 = and i32 %125, 4

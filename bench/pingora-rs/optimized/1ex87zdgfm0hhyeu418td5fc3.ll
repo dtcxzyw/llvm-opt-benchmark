@@ -4233,8 +4233,8 @@ _ZN13pingora_cache3put14parse_response13ResponseParse10parse_body17h05f870236f1e
   br label %.loopexit103
 
 .loopexit:                                        ; preds = %249, %258, %260, %.lr.ph.i.i.i, %.noexc31.i, %.noexc31.i, %.noexc33.i, %.noexc34.i, %239, %240, %240, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h1247f22bf2e783e5E.exit.i.i"
-  %.sroa.116.0.sink.i.i = phi i64 [ 0, %.noexc33.i ], [ 0, %.noexc31.i ], [ 0, %.lr.ph.i.i.i ], [ %.sroa.116.0.i.i, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h1247f22bf2e783e5E.exit.i.i" ], [ 0, %.noexc34.i ], [ 0, %.noexc31.i ], [ %238, %239 ], [ 0, %240 ], [ 0, %240 ], [ 0, %260 ], [ 0, %258 ], [ 0, %249 ]
-  %storemerge.sink.i.i = phi i8 [ 3, %.noexc33.i ], [ 4, %.noexc31.i ], [ 3, %.lr.ph.i.i.i ], [ %spec.select71.i, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h1247f22bf2e783e5E.exit.i.i" ], [ 3, %.noexc34.i ], [ 4, %.noexc31.i ], [ 3, %239 ], [ 3, %240 ], [ 3, %240 ], [ 3, %260 ], [ 3, %258 ], [ 3, %249 ]
+  %.sroa.116.0.sink.i.i = phi i64 [ 0, %.noexc33.i ], [ 0, %.noexc31.i ], [ 0, %.noexc34.i ], [ %.sroa.116.0.i.i, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h1247f22bf2e783e5E.exit.i.i" ], [ 0, %.lr.ph.i.i.i ], [ 0, %.noexc31.i ], [ %238, %239 ], [ 0, %240 ], [ 0, %240 ], [ 0, %260 ], [ 0, %258 ], [ 0, %249 ]
+  %storemerge.sink.i.i = phi i8 [ 3, %.noexc33.i ], [ 4, %.noexc31.i ], [ 3, %.noexc34.i ], [ %spec.select71.i, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17h1247f22bf2e783e5E.exit.i.i" ], [ 3, %.lr.ph.i.i.i ], [ 4, %.noexc31.i ], [ 3, %239 ], [ 3, %240 ], [ 3, %240 ], [ 3, %260 ], [ 3, %258 ], [ 3, %249 ]
   store i8 %storemerge.sink.i.i, ptr %1, align 8, !alias.scope !214, !noalias !219
   store i64 %.sroa.116.0.sink.i.i, ptr %84, align 8, !alias.scope !214, !noalias !219
   store i64 0, ptr %85, align 8, !alias.scope !214, !noalias !219

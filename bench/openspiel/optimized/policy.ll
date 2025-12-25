@@ -7735,8 +7735,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit92.thread:           ; preds = %149
   br label %.body53
 
 .loopexit.split-lp221.loopexit:                   ; preds = %.noexc85, %271, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i
-  %.sroa.24.2.ph.ph = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i ], [ %.sroa.24.6, %271 ], [ %.sroa.24.6, %.noexc85 ]
-  %.sroa.0173.2.ph.ph = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i ], [ %.sroa.0173.6, %271 ], [ %.sroa.0173.6, %.noexc85 ]
+  %.sroa.24.2.ph.ph = phi ptr [ %.sroa.24.6, %271 ], [ null, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i ], [ %.sroa.24.6, %.noexc85 ]
+  %.sroa.0173.2.ph.ph = phi ptr [ %.sroa.0173.6, %271 ], [ null, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i ], [ %.sroa.0173.6, %.noexc85 ]
   %lpad.loopexit232 = landingpad { ptr, i32 }
           cleanup
   br label %.body53

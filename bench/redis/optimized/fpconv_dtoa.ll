@@ -360,8 +360,8 @@ round_digit.exit94.i.i:                           ; preds = %.critedge2.i91.i.i,
   br i1 %.not.i35.i, label %grisu2.exit, label %.preheader.i.i
 
 grisu2.exit:                                      ; preds = %161, %.critedge2.i.i.i, %184, %round_digit.exit94.i.i, %150
-  %.2 = phi i32 [ %185, %184 ], [ %151, %150 ], [ %.1, %round_digit.exit94.i.i ], [ %151, %.critedge2.i.i.i ], [ %151, %161 ]
-  %.2.i.i = phi i32 [ %.381.i.i, %184 ], [ %.179.i.i, %150 ], [ %.4.i.i, %round_digit.exit94.i.i ], [ %.179.i.i, %.critedge2.i.i.i ], [ %.179.i.i, %161 ]
+  %.2 = phi i32 [ %151, %150 ], [ %185, %184 ], [ %.1, %round_digit.exit94.i.i ], [ %151, %.critedge2.i.i.i ], [ %151, %161 ]
+  %.2.i.i = phi i32 [ %.179.i.i, %150 ], [ %.381.i.i, %184 ], [ %.4.i.i, %round_digit.exit94.i.i ], [ %.179.i.i, %.critedge2.i.i.i ], [ %.179.i.i, %161 ]
   %206 = add nsw i32 %.2.i.i, %.2
   %207 = icmp slt i32 %206, 1
   %208 = sub nsw i32 1, %206

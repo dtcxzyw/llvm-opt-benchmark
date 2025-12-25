@@ -520,7 +520,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_info_register(ptr noundef %0
   br label %.thread6
 
 .thread6:                                         ; preds = %47, %43, %.thread6.sink.split, %5
-  %51 = phi i32 [ -12, %.thread6.sink.split ], [ -6, %5 ], [ %49, %47 ], [ 0, %43 ]
+  %51 = phi i32 [ -12, %.thread6.sink.split ], [ -6, %5 ], [ 0, %43 ], [ %49, %47 ]
   ret i32 %51
 }
 

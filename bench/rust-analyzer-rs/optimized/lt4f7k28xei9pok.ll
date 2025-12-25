@@ -55198,7 +55198,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i153: ; preds = %213, %21
   br label %270
 
 270:                                              ; preds = %.sink.split, %307, %284
-  %.8 = phi i8 [ 1, %284 ], [ 1, %307 ], [ 0, %.sink.split ]
+  %.8 = phi i8 [ 1, %307 ], [ 1, %284 ], [ 0, %.sink.split ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10408)
   call void @llvm.experimental.noalias.scope.decl(metadata !10411)
   call void @llvm.experimental.noalias.scope.decl(metadata !10414)

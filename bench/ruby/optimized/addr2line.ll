@@ -370,7 +370,7 @@ print_line.exit:                                  ; preds = %print_line0.exit.i
   br i1 %.old137, label %.lr.ph123.backedge, label %._crit_edge124
 
 .lr.ph123.backedge:                               ; preds = %145, %140
-  %.1121.be = phi i32 [ %143, %140 ], [ %.old, %145 ]
+  %.1121.be = phi i32 [ %.old, %145 ], [ %143, %140 ]
   br label %.lr.ph123, !llvm.loop !40
 
 ._crit_edge124:                                   ; preds = %145, %140, %main_exe_path.exit.thread

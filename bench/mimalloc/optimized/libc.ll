@@ -1049,8 +1049,8 @@ mi_out_fill.exit:                                 ; preds = %347, %.lr.ph.prehea
   br label %mi_out_alignright.exit
 
 mi_out_alignright.exit:                           ; preds = %mi_out_fill.exit, %mi_outs.exit, %354, %.preheader.preheader.i, %mi_outc.exit, %switch.early.test
-  %.2 = phi ptr [ %.09.lcssa.i, %mi_out_fill.exit ], [ %.fr.i, %mi_outs.exit ], [ %.0302342, %switch.early.test ], [ %21, %mi_outc.exit ], [ %.09.lcssa.i, %354 ], [ %.09.lcssa.i, %.preheader.preheader.i ]
-  %.1194 = phi ptr [ %.9, %mi_out_fill.exit ], [ %.9, %mi_outs.exit ], [ %18, %switch.early.test ], [ %18, %mi_outc.exit ], [ %.9, %354 ], [ %.9, %.preheader.preheader.i ]
+  %.2 = phi ptr [ %.09.lcssa.i, %.preheader.preheader.i ], [ %.fr.i, %mi_outs.exit ], [ %.0302342, %switch.early.test ], [ %21, %mi_outc.exit ], [ %.09.lcssa.i, %354 ], [ %.09.lcssa.i, %mi_out_fill.exit ]
+  %.1194 = phi ptr [ %.9, %.preheader.preheader.i ], [ %.9, %mi_outs.exit ], [ %18, %switch.early.test ], [ %18, %mi_outc.exit ], [ %.9, %354 ], [ %.9, %mi_out_fill.exit ]
   %.not = icmp ult ptr %.2, %10
   br i1 %.not, label %14, label %mi_out_alignright.exit.thread325
 

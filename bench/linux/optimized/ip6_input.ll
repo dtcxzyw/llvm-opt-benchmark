@@ -1746,7 +1746,7 @@ define dso_local void @ip6_protocol_deliver_rcu(ptr noundef readonly captures(no
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef %347) #7
   br label %.critedge19.thread37
 
-.critedge19.thread37:                             ; preds = %251, %259, %353, %344, %.critedge23
+.critedge19.thread37:                             ; preds = %259, %251, %353, %344, %.critedge23
   ret void
 }
 

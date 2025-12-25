@@ -1183,8 +1183,8 @@ select.unfold:                                    ; preds = %115, %18, %49
           cleanup
   br label %.loopexit.split-lp
 
-.thread56:                                        ; preds = %102, %99, %132
-  %.4 = phi i8 [ 1, %132 ], [ 1, %102 ], [ 0, %99 ]
+.thread56:                                        ; preds = %99, %102, %132
+  %.4 = phi i8 [ 1, %132 ], [ 0, %99 ], [ 1, %102 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %136
@@ -2040,8 +2040,8 @@ select.unfold:                                    ; preds = %132, %18, %49
           cleanup
   br label %.loopexit.split-lp
 
-.thread64:                                        ; preds = %112, %109, %150
-  %.4 = phi i8 [ 1, %150 ], [ 1, %112 ], [ 0, %109 ]
+.thread64:                                        ; preds = %109, %112, %150
+  %.4 = phi i8 [ 1, %150 ], [ 0, %109 ], [ 1, %112 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %154

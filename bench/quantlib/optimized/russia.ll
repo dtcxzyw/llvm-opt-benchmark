@@ -1267,7 +1267,7 @@ _ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit: ; preds = %sw.bb
   %cmp19.i = icmp eq i32 %sub.i, 29
   br i1 %cmp19.i, label %cleanup, label %if.end35
 
-if.end35:                                         ; preds = %sw.bb4.i, %sw.bb.i, %if.end, %sw.bb13.i, %sw.bb1.i, %sw.bb2.i, %sw.bb7.i, %sw.bb14.i, %sw.bb9.i, %sw.bb16.i, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit
+if.end35:                                         ; preds = %sw.bb4.i, %sw.bb.i, %if.end, %sw.bb13.i, %sw.bb1.i, %sw.bb2.i, %sw.bb7.i, %sw.bb14.i, %sw.bb16.i, %sw.bb9.i, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit
   %call36 = tail call noundef zeroext i1 @_ZNK8QuantLib8Calendar12OrthodoxImpl9isWeekendENS_7WeekdayE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %cond.i)
   br i1 %call36, label %cleanup, label %lor.lhs.false
 
@@ -1347,8 +1347,8 @@ if.end82:                                         ; preds = %land.lhs.true47, %l
   %not.call83 = xor i1 %call83, true
   br label %cleanup
 
-cleanup:                                          ; preds = %sw.bb4.i, %sw.bb4.i, %sw.bb1.i, %sw.bb2.i, %sw.bb7.i, %sw.bb14.i, %sw.bb9.i, %sw.bb16.i, %if.end82, %if.end35, %land.lhs.true47, %land.lhs.true61, %land.lhs.true75, %lor.lhs.false, %lor.lhs.false41, %lor.lhs.false49, %lor.lhs.false55, %lor.lhs.false63, %lor.lhs.false69, %lor.lhs.false77, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit
-  %retval.0 = phi i1 [ false, %if.end35 ], [ true, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit ], [ %not.call83, %if.end82 ], [ false, %lor.lhs.false77 ], [ false, %lor.lhs.false69 ], [ false, %lor.lhs.false63 ], [ false, %lor.lhs.false55 ], [ false, %lor.lhs.false49 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false ], [ false, %land.lhs.true75 ], [ false, %land.lhs.true61 ], [ false, %land.lhs.true47 ], [ true, %sw.bb16.i ], [ true, %sw.bb9.i ], [ true, %sw.bb14.i ], [ true, %sw.bb7.i ], [ true, %sw.bb4.i ], [ true, %sw.bb2.i ], [ true, %sw.bb1.i ], [ true, %sw.bb4.i ]
+cleanup:                                          ; preds = %sw.bb4.i, %sw.bb4.i, %sw.bb1.i, %sw.bb2.i, %sw.bb7.i, %sw.bb14.i, %sw.bb16.i, %sw.bb9.i, %if.end82, %if.end35, %land.lhs.true47, %land.lhs.true61, %land.lhs.true75, %lor.lhs.false, %lor.lhs.false41, %lor.lhs.false49, %lor.lhs.false55, %lor.lhs.false63, %lor.lhs.false69, %lor.lhs.false77, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit
+  %retval.0 = phi i1 [ false, %if.end35 ], [ true, %_ZN8QuantLib12_GLOBAL__N_116isWorkingWeekendEiNS_5MonthEi.exit ], [ %not.call83, %if.end82 ], [ false, %lor.lhs.false77 ], [ false, %lor.lhs.false69 ], [ false, %lor.lhs.false63 ], [ false, %lor.lhs.false55 ], [ false, %lor.lhs.false49 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false ], [ false, %land.lhs.true75 ], [ false, %land.lhs.true61 ], [ false, %land.lhs.true47 ], [ true, %sw.bb9.i ], [ true, %sw.bb16.i ], [ true, %sw.bb14.i ], [ true, %sw.bb7.i ], [ true, %sw.bb4.i ], [ true, %sw.bb2.i ], [ true, %sw.bb1.i ], [ true, %sw.bb4.i ]
   ret i1 %retval.0
 
 unreachable:                                      ; preds = %invoke.cont21

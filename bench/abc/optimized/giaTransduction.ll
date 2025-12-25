@@ -2193,8 +2193,8 @@ _ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE8noexcess
   br i1 %.not166, label %._crit_edge180, label %.lr.ph179, !llvm.loop !191
 
 ._crit_edge180:                                   ; preds = %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE8noexcessERKSt6vectorIbSaIbEEj.exit, %351
-  %.034.lcssa = phi i1 [ %.034176, %351 ], [ %.135, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE8noexcessERKSt6vectorIbSaIbEEj.exit ]
-  %.3.lcssa = phi i32 [ %.3177, %351 ], [ %.4, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE8noexcessERKSt6vectorIbSaIbEEj.exit ]
+  %.034.lcssa = phi i1 [ %.135, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE8noexcessERKSt6vectorIbSaIbEEj.exit ], [ %.034176, %351 ]
+  %.3.lcssa = phi i32 [ %.4, %_ZN12Transduction12TransductionIN6NewBdd3ManENS1_5ParamEjLj4294967295EE8noexcessERKSt6vectorIbSaIbEEj.exit ], [ %.3177, %351 ]
   br i1 %.034.lcssa, label %498, label %._crit_edge180.thread
 
 498:                                              ; preds = %._crit_edge180
@@ -7378,8 +7378,8 @@ _ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE8noexcessE
   br i1 %.not166, label %._crit_edge180, label %.lr.ph179, !llvm.loop !299
 
 ._crit_edge180:                                   ; preds = %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE8noexcessERKSt6vectorIbSaIbEEj.exit, %351
-  %.034.lcssa = phi i1 [ %.034176, %351 ], [ %.135, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE8noexcessERKSt6vectorIbSaIbEEj.exit ]
-  %.3.lcssa = phi i32 [ %.3177, %351 ], [ %.4, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE8noexcessERKSt6vectorIbSaIbEEj.exit ]
+  %.034.lcssa = phi i1 [ %.135, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE8noexcessERKSt6vectorIbSaIbEEj.exit ], [ %.034176, %351 ]
+  %.3.lcssa = phi i32 [ %.4, %_ZN12Transduction12TransductionIN5NewTt3ManENS1_5ParamEjLj4294967295EE8noexcessERKSt6vectorIbSaIbEEj.exit ], [ %.3177, %351 ]
   br i1 %.034.lcssa, label %498, label %._crit_edge180.thread
 
 498:                                              ; preds = %._crit_edge180

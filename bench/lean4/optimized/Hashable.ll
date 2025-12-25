@@ -18838,8 +18838,8 @@ lean_alloc_ctor.exit754:                          ; preds = %lean_dec.exit397
   br label %.backedge
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit754, %lean_dec.exit430
-  %.0308.be = phi ptr [ %830, %lean_alloc_ctor.exit754 ], [ %322, %lean_dec.exit430 ]
-  %.0302.be = phi ptr [ %865, %lean_alloc_ctor.exit754 ], [ %.0294, %lean_dec.exit430 ]
+  %.0308.be = phi ptr [ %322, %lean_dec.exit430 ], [ %830, %lean_alloc_ctor.exit754 ]
+  %.0302.be = phi ptr [ %.0294, %lean_dec.exit430 ], [ %865, %lean_alloc_ctor.exit754 ]
   br label %35
 
 871:                                              ; preds = %lean_obj_tag.exit745

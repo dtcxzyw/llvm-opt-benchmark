@@ -13021,7 +13021,7 @@ for.inc.i:                                        ; preds = %land.rhs.i.i302, %f
   br i1 %cmp.i301, label %for.body.i, label %if.end303, !llvm.loop !137
 
 if.end303:                                        ; preds = %for.inc.i, %for.inc.us.i, %if.then297, %cond.false232, %if.else241, %cond.true226
-  %field.1 = phi ptr [ %call231, %cond.true226 ], [ %call243, %if.else241 ], [ %call2.i261, %cond.false232 ], [ null, %for.inc.us.i ], [ null, %if.then297 ], [ null, %for.inc.i ]
+  %field.1 = phi ptr [ %call231, %cond.true226 ], [ %call243, %if.else241 ], [ %call2.i261, %cond.false232 ], [ null, %if.then297 ], [ null, %for.inc.us.i ], [ null, %for.inc.i ]
   %cmp304.not = icmp eq ptr %field.1, null
   br i1 %cmp304.not, label %if.then307, label %invoke.cont437
 
@@ -14120,7 +14120,7 @@ cleanup730.sink.split:                            ; preds = %invoke.cont539, %in
   br label %cleanup730
 
 cleanup730:                                       ; preds = %invoke.cont651, %invoke.cont629, %invoke.cont623, %cleanup730.sink.split, %if.then712, %cleanup.done704, %invoke.cont670, %invoke.cont664, %invoke.cont570, %if.end431, %if.then427, %invoke.cont207, %invoke.cont137, %invoke.cont127
-  %retval.3 = phi i1 [ %retval.3.ph, %cleanup730.sink.split ], [ false, %invoke.cont207 ], [ %call429, %if.then427 ], [ false, %invoke.cont127 ], [ false, %invoke.cont670 ], [ true, %cleanup.done704 ], [ true, %if.then712 ], [ false, %invoke.cont570 ], [ %call433, %if.end431 ], [ false, %invoke.cont137 ], [ false, %invoke.cont664 ], [ false, %invoke.cont623 ], [ false, %invoke.cont629 ], [ false, %invoke.cont651 ]
+  %retval.3 = phi i1 [ %retval.3.ph, %cleanup730.sink.split ], [ false, %invoke.cont207 ], [ %call429, %if.then427 ], [ false, %invoke.cont127 ], [ false, %invoke.cont670 ], [ true, %cleanup.done704 ], [ false, %invoke.cont137 ], [ false, %invoke.cont570 ], [ %call433, %if.end431 ], [ true, %if.then712 ], [ false, %invoke.cont664 ], [ false, %invoke.cont623 ], [ false, %invoke.cont629 ], [ false, %invoke.cont651 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %field_name) #36
   ret i1 %retval.3
 
@@ -15421,7 +15421,7 @@ if.end156:                                        ; preds = %invoke.cont95, %inv
   br label %return
 
 return:                                           ; preds = %invoke.cont78, %if.else56, %if.then52, %cleanup, %if.end156, %invoke.cont117, %if.end86, %while.end, %invoke.cont
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ true, %while.end ], [ true, %if.end86 ], [ false, %cleanup ], [ false, %invoke.cont117 ], [ true, %if.end156 ], [ false, %if.then52 ], [ false, %if.else56 ], [ false, %invoke.cont78 ]
+  %retval.0 = phi i1 [ false, %invoke.cont ], [ true, %while.end ], [ true, %if.end86 ], [ true, %if.end156 ], [ false, %invoke.cont117 ], [ false, %cleanup ], [ false, %if.then52 ], [ false, %if.else56 ], [ false, %invoke.cont78 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup155, %ehcleanup121, %ehcleanup98, %ehcleanup81, %ehcleanup70, %ehcleanup51, %ehcleanup27, %ehcleanup, %lpad
@@ -23008,7 +23008,7 @@ for.cond.backedge:                                ; preds = %for.end110, %if.end
   br label %for.cond, !llvm.loop !202
 
 return:                                           ; preds = %for.end110, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit
-  %retval.sroa.0.0 = phi ptr [ %__middle.coerce, %for.body.i ], [ %__last.coerce, %entry ], [ %__first.coerce, %if.else ], [ %add.ptr.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit ], [ %add.ptr.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit ], [ %add.ptr.i, %for.end ], [ %add.ptr.i, %for.end110 ]
+  %retval.sroa.0.0 = phi ptr [ %add.ptr.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit ], [ %__last.coerce, %entry ], [ %__first.coerce, %if.else ], [ %add.ptr.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit ], [ %__middle.coerce, %for.body.i ], [ %add.ptr.i, %for.end ], [ %add.ptr.i, %for.end110 ]
   ret ptr %retval.sroa.0.0
 }
 

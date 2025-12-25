@@ -11632,8 +11632,8 @@ define internal noundef zeroext i1 @"_ZN68_$LT$rowan..api..SyntaxNode$LT$L$GT$$u
   br i1 %exitcond.not, label %92, label %93
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2e98b4f4f66c77cdE.exit": ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit
-  %.sroa.2.0.copyload.i186 = phi i64 [ %.sroa.2.0.copyload.i187, %.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.2.0.copyload.i.lcssa181, %.loopexit.split-lp.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit.split-lp127, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit126, %.loopexit.split-lp.loopexit ]
+  %.sroa.2.0.copyload.i186 = phi i64 [ %.sroa.2.0.copyload.i.lcssa181, %.loopexit.split-lp.loopexit ], [ %.sroa.2.0.copyload.i187, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit126, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp127, %.loopexit.split-lp.loopexit.split-lp ]
   %90 = icmp eq i64 %.sroa.2.0.copyload.i186, 0
   br i1 %90, label %159, label %.thread89
 
@@ -39317,7 +39317,7 @@ _ZN3hir9semantics13SemanticsImpl6to_def17h3dd8436065f9fa58E.exit.i.i.i.i.i: ; pr
   br label %.body.i
 
 .body.i:                                          ; preds = %71, %58, %52
-  %eh.lpad-body.i = phi { ptr, i32 } [ %72, %71 ], [ %lpad.phi.i.i, %52 ], [ %lpad.phi.i.i, %58 ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %72, %71 ], [ %lpad.phi.i.i, %58 ], [ %lpad.phi.i.i, %52 ]
   br i1 %20, label %common.resume, label %73
 
 73:                                               ; preds = %.body.i
@@ -39781,7 +39781,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2856947585988979465.ex
   br label %.body
 
 .body:                                            ; preds = %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17h62557014025ba199E.exit.i.i.i.i", %128, %236
-  %eh.lpad-body = phi { ptr, i32 } [ %237, %236 ], [ %.pn25.i.i.i.i, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17h62557014025ba199E.exit.i.i.i.i" ], [ %.pn25.i.i.i.i, %128 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %237, %236 ], [ %.pn25.i.i.i.i, %128 ], [ %.pn25.i.i.i.i, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17h62557014025ba199E.exit.i.i.i.i" ]
   br i1 %102, label %common.resume, label %238
 
 238:                                              ; preds = %.body

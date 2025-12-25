@@ -517,8 +517,8 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph85, %60, %.lr.ph92, %77, %82, %._crit_edge93, %._crit_edge86, %49, %32, %25, %28
-  %.057 = phi ptr [ %26, %.lr.ph92 ], [ %26, %60 ], [ %26, %._crit_edge93 ], [ %26, %28 ], [ %26, %25 ], [ null, %82 ], [ %26, %49 ], [ %26, %._crit_edge86 ], [ %26, %32 ], [ %26, %77 ], [ %26, %.lr.ph85 ]
-  %.0 = phi i32 [ 0, %.lr.ph92 ], [ 0, %60 ], [ 1, %._crit_edge93 ], [ 0, %28 ], [ 0, %25 ], [ %spec.select, %82 ], [ 0, %49 ], [ 0, %._crit_edge86 ], [ 0, %32 ], [ 0, %77 ], [ 0, %.lr.ph85 ]
+  %.057 = phi ptr [ %26, %.lr.ph92 ], [ %26, %60 ], [ %26, %28 ], [ %26, %._crit_edge93 ], [ %26, %25 ], [ null, %82 ], [ %26, %49 ], [ %26, %._crit_edge86 ], [ %26, %32 ], [ %26, %77 ], [ %26, %.lr.ph85 ]
+  %.0 = phi i32 [ 0, %.lr.ph92 ], [ 0, %60 ], [ 0, %28 ], [ 1, %._crit_edge93 ], [ 0, %25 ], [ %spec.select, %82 ], [ 0, %49 ], [ 0, %._crit_edge86 ], [ 0, %32 ], [ 0, %77 ], [ 0, %.lr.ph85 ]
   tail call void @ossl_pqueue_free(ptr noundef %.057) #9
   br label %86
 

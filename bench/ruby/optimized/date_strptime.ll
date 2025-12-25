@@ -457,8 +457,8 @@ define internal fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef 
   br i1 %.not1026, label %.backedge1801, label %42, !llvm.loop !19
 
 .backedge1801:                                    ; preds = %45, %959, %962
-  %.0837.be = phi i64 [ %961, %959 ], [ %963, %962 ], [ %43, %45 ]
-  %.0766.be = phi i64 [ %960, %959 ], [ %.8774, %962 ], [ %.1767.lcssa, %45 ]
+  %.0837.be = phi i64 [ %963, %962 ], [ %961, %959 ], [ %43, %45 ]
+  %.0766.be = phi i64 [ %.8774, %962 ], [ %960, %959 ], [ %.1767.lcssa, %45 ]
   %52 = icmp ult i64 %.0837.be, %3
   br i1 %52, label %26, label %.thread1733, !llvm.loop !20
 

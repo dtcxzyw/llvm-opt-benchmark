@@ -185,7 +185,7 @@ Py_DECREF.exit67:                                 ; preds = %46, %49, %52
   br label %56
 
 56:                                               ; preds = %54, %Py_DECREF.exit67
-  %.1 = phi i1 [ %.not60, %54 ], [ %53, %Py_DECREF.exit67 ]
+  %.1 = phi i1 [ %53, %Py_DECREF.exit67 ], [ %.not60, %54 ]
   %57 = load i32, ptr %34, align 8, !tbaa !9
   %.not.i68 = icmp sgt i32 %57, -1
   br i1 %.not.i68, label %58, label %Py_DECREF.exit69

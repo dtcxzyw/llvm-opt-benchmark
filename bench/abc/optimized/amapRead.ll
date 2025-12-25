@@ -1198,7 +1198,7 @@ define ptr @Amap_LibReadBuffer(ptr noundef %0, i32 %1) local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %.sink.split, %.thread.i, %11, %3, %9, %6
-  %.131.idx54.i = phi i64 [ %.030.idx.i, %3 ], [ %.131.idx5360.i, %.thread.i ], [ %.131.idx5360.i, %9 ], [ %.131.idx5360.i, %11 ], [ 0, %6 ], [ %.131.idx5360.i, %.sink.split ]
+  %.131.idx54.i = phi i64 [ %.030.idx.i, %3 ], [ 0, %6 ], [ %.131.idx5360.i, %9 ], [ %.131.idx5360.i, %11 ], [ %.131.idx5360.i, %.thread.i ], [ %.131.idx5360.i, %.sink.split ]
   %.131.add.i = add nuw nsw i64 %.131.idx54.i, 1
   br label %3, !llvm.loop !8
 

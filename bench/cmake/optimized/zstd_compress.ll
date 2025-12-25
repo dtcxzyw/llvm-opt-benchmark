@@ -14552,7 +14552,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %45, %48, %51
   br label %ZSTD_postProcessSequenceProducerResult.exit
 
 ZSTD_postProcessSequenceProducerResult.exit:      ; preds = %121, %129
-  %.0.i = phi i64 [ %118, %121 ], [ %130, %129 ]
+  %.0.i = phi i64 [ %130, %129 ], [ %118, %121 ]
   %131 = icmp ult i64 %.0.i, -119
   br i1 %131, label %132, label %ZSTD_postProcessSequenceProducerResult.exit.thread
 

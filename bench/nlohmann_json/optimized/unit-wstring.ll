@@ -5692,7 +5692,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   br label %.thread91
 
 .thread91:                                        ; preds = %307, %305, %303, %301, %299, %297, %295, %31, %.thread91.sink.split
-  %.1 = phi i32 [ 14, %.thread91.sink.split ], [ 14, %305 ], [ 14, %307 ], [ 4, %31 ], [ 14, %295 ], [ 14, %297 ], [ 14, %299 ], [ 14, %301 ], [ 14, %303 ]
+  %.1 = phi i32 [ 14, %.thread91.sink.split ], [ 14, %303 ], [ 14, %301 ], [ 14, %299 ], [ 14, %297 ], [ 14, %295 ], [ 4, %31 ], [ 14, %307 ], [ 14, %305 ]
   ret i32 %.1
 }
 
@@ -28645,7 +28645,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   br label %.thread94
 
 .thread94:                                        ; preds = %365, %363, %361, %359, %357, %355, %353, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDsNS7_IDsS8_IDsESaIDsEEEEEEEDsEEE3getEv.exit, %.thread94.sink.split
-  %.1 = phi i32 [ 14, %.thread94.sink.split ], [ 14, %363 ], [ 14, %365 ], [ 4, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDsNS7_IDsS8_IDsESaIDsEEEEEEEDsEEE3getEv.exit ], [ 14, %353 ], [ 14, %355 ], [ 14, %357 ], [ 14, %359 ], [ 14, %361 ]
+  %.1 = phi i32 [ 14, %.thread94.sink.split ], [ 14, %361 ], [ 14, %359 ], [ 14, %357 ], [ 14, %355 ], [ 14, %353 ], [ 4, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDsNS7_IDsS8_IDsESaIDsEEEEEEEDsEEE3getEv.exit ], [ 14, %365 ], [ 14, %363 ]
   ret i32 %.1
 }
 
@@ -29521,7 +29521,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   br i1 %switch20, label %372, label %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDsNS7_IDsS8_IDsESaIDsEEEEEEEDsEEE3getEv.exit.thread
 
 _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDsNS7_IDsS8_IDsESaIDsEEEEEEEDsEEE3getEv.exit.thread: ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i, %161, %268, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDsNS7_IDsS8_IDsESaIDsEEEEEEEDsEEE3addEi.exit68, %.preheader, %190, %98
-  %.212 = phi i32 [ %.010, %98 ], [ 7, %268 ], [ 7, %.preheader ], [ %.111.ph, %190 ], [ 7, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDsNS7_IDsS8_IDsESaIDsEEEEEEEDsEEE3addEi.exit68 ], [ %.111.ph, %161 ], [ %.111.ph, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i ]
+  %.212 = phi i32 [ %.010, %98 ], [ 7, %268 ], [ %.111.ph, %190 ], [ 7, %.preheader ], [ 7, %_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDsNS7_IDsS8_IDsESaIDsEEEEEEEDsEEE3addEi.exit68 ], [ %.111.ph, %161 ], [ %.111.ph, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit.i ]
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %390, align 8, !tbaa !430
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -41935,7 +41935,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7
   br label %.thread91
 
 .thread91:                                        ; preds = %307, %305, %303, %301, %299, %297, %295, %31, %.thread91.sink.split
-  %.1 = phi i32 [ 14, %.thread91.sink.split ], [ 14, %305 ], [ 14, %307 ], [ 4, %31 ], [ 14, %295 ], [ 14, %297 ], [ 14, %299 ], [ 14, %301 ], [ 14, %303 ]
+  %.1 = phi i32 [ 14, %.thread91.sink.split ], [ 14, %303 ], [ 14, %301 ], [ 14, %299 ], [ 14, %297 ], [ 14, %295 ], [ 4, %31 ], [ 14, %307 ], [ 14, %305 ]
   ret i32 %.1
 }
 

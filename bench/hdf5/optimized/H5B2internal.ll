@@ -1938,7 +1938,7 @@ define noundef range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr n
   br label %279
 
 279:                                              ; preds = %275, %273, %266
-  %.1169 = phi i32 [ %spec.select, %273 ], [ %spec.select200, %275 ], [ 3, %266 ]
+  %.1169 = phi i32 [ %spec.select, %273 ], [ 3, %266 ], [ %spec.select200, %275 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %280

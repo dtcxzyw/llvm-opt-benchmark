@@ -259,7 +259,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_
   store double %.sink.i, ptr %3, align 8
   br label %227
 
-82:                                               ; preds = %58, %55
+82:                                               ; preds = %55, %58
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %83 = icmp sgt i32 %1, 0

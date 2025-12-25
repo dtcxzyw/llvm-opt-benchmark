@@ -250,7 +250,7 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i: ; preds = %_ZN4llvmltERKNS_12V
   br label %_ZSt3maxIN4llvm12VersionTupleEERKT_S4_S4_.exit
 
 _ZSt3maxIN4llvm12VersionTupleEERKT_S4_S4_.exit:   ; preds = %120, %124, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i
-  %130 = phi ptr [ %95, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i ], [ %3, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i ], [ %3, %120 ], [ %3, %124 ]
+  %130 = phi ptr [ %95, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i ], [ %3, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i ], [ %3, %124 ], [ %3, %120 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %130, i64 16, i1 false), !tbaa.struct !27
   %131 = load i64, ptr %4, align 8
   %132 = and i64 %131, 9223372036854775807
@@ -392,7 +392,7 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i22: ; preds = %_ZN4llvmltERKNS_1
   br label %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit
 
 _ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit:   ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i22, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i20, %203, %199, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i17, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i15, %170, %166
-  %.sink = phi ptr [ %4, %170 ], [ %138, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i17 ], [ %4, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i15 ], [ %4, %166 ], [ %179, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i22 ], [ %4, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i20 ], [ %4, %199 ], [ %4, %203 ]
+  %.sink = phi ptr [ %4, %166 ], [ %138, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i17 ], [ %4, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i15 ], [ %4, %170 ], [ %179, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i22 ], [ %4, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i20 ], [ %4, %203 ], [ %4, %199 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink, i64 16, i1 false)
   %209 = load i64, ptr %5, align 8
   %210 = and i64 %209, 9223372036854775807
@@ -534,7 +534,7 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i38: ; preds = %_ZN4llvmltERKNS_1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i38, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i36, %281, %277, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i32, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i30, %248, %244
-  %.sink105 = phi ptr [ %5, %248 ], [ %216, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i32 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i30 ], [ %5, %244 ], [ %257, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i38 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i36 ], [ %5, %277 ], [ %5, %281 ]
+  %.sink105 = phi ptr [ %5, %244 ], [ %216, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i32 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i30 ], [ %5, %248 ], [ %257, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i38 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i36 ], [ %5, %281 ], [ %5, %277 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %.sink105, i64 16, i1 false)
   br label %287
 

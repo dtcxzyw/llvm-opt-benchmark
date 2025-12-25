@@ -6960,7 +6960,7 @@ _ZL7xdrProc11XdrDataType.exit.thread.i.i.i.us.us.i.us: ; preds = %152
   br label %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.i.us
 
 _ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.i.us: ; preds = %_ZL7xdrProc11XdrDataType.exit.thread.i.i.i.us.us.i.us, %_ZL25convertArrayRealPrecisionPKcPdi.exit.i.i.i.us.us.i.us
-  %.1.i.i.i.us.us.i.us = phi i32 [ %spec.select.i.i.i.us.us.i.us, %_ZL7xdrProc11XdrDataType.exit.thread.i.i.i.us.us.i.us ], [ 0, %_ZL25convertArrayRealPrecisionPKcPdi.exit.i.i.i.us.us.i.us ]
+  %.1.i.i.i.us.us.i.us = phi i32 [ 0, %_ZL25convertArrayRealPrecisionPKcPdi.exit.i.i.i.us.us.i.us ], [ %spec.select.i.i.i.us.us.i.us, %_ZL7xdrProc11XdrDataType.exit.thread.i.i.i.us.us.i.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next.i60.us = add nuw nsw i64 %indvars.iv.i59.us, 1

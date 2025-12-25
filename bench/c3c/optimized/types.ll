@@ -4053,7 +4053,7 @@ compare_func_param.exit52.thread.i:               ; preds = %tailrecurse.backedg
 compare_function.exit:                            ; preds = %compare_func_param.exit.i
   br i1 %270, label %compare_function.exit.thread, label %func_create_new_func_proto.exit
 
-compare_function.exit.thread:                     ; preds = %257, %252, %255, %compare_func_param.exit52.i, %288, %291, %293, %214, %237, %compare_function.exit, %210
+compare_function.exit.thread:                     ; preds = %257, %255, %252, %compare_func_param.exit52.i, %291, %288, %293, %214, %237, %compare_function.exit, %210
   %307 = add i32 %.01762, 1
   %.017 = and i32 %307, %36
   %308 = zext i32 %.017 to i64
@@ -5002,7 +5002,7 @@ define dso_local noundef zeroext i1 @type_is_subtype(ptr noundef readnone captur
   br label %type_find_parent_type.exit
 
 type_find_parent_type.exit:                       ; preds = %14, %24
-  %.0.i.in = phi ptr [ %28, %24 ], [ %17, %14 ]
+  %.0.i.in = phi ptr [ %17, %14 ], [ %28, %24 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %.not.not = icmp eq ptr %.0.i, null
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -5422,7 +5422,7 @@ type_flatten.exit79:                              ; preds = %type_flatten.exit75
   br label %type_find_parent_type.exit.i
 
 type_find_parent_type.exit.i:                     ; preds = %95, %85
-  %.0.i.in.i = phi ptr [ %99, %95 ], [ %88, %85 ]
+  %.0.i.in.i = phi ptr [ %88, %85 ], [ %99, %95 ]
   %.0.i.i = load ptr, ptr %.0.i.in.i, align 8
   %.not.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !23
@@ -6301,7 +6301,7 @@ define internal fastcc ptr @type_find_max_ptr_type(ptr noundef readonly captures
   br label %type_find_parent_type.exit.i
 
 type_find_parent_type.exit.i:                     ; preds = %60, %50
-  %.0.i.in.i = phi ptr [ %64, %60 ], [ %53, %50 ]
+  %.0.i.in.i = phi ptr [ %53, %50 ], [ %64, %60 ]
   %.0.i.i = load ptr, ptr %.0.i.in.i, align 8
   %.not.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.not.i, label %.loopexit50, label %.lr.ph.i, !llvm.loop !23
@@ -6356,7 +6356,7 @@ type_find_parent_type.exit.i:                     ; preds = %60, %50
   br label %type_find_parent_type.exit.i40
 
 type_find_parent_type.exit.i40:                   ; preds = %86, %76
-  %.0.i.in.i41 = phi ptr [ %90, %86 ], [ %79, %76 ]
+  %.0.i.in.i41 = phi ptr [ %79, %76 ], [ %90, %86 ]
   %.0.i.i42 = load ptr, ptr %.0.i.in.i41, align 8
   %.not.not.i43 = icmp eq ptr %.0.i.i42, null
   br i1 %.not.not.i43, label %.loopexit, label %.lr.ph.i37, !llvm.loop !23
@@ -6529,7 +6529,7 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
   br i1 %.not55, label %.loopexit58, label %.lr.ph67.split
 
 .loopexit58:                                      ; preds = %31, %..loopexit_crit_edge.us, %.lr.ph67.split.us, %56, %.loopexit, %.lr.ph67.split, %.preheader, %13, %20, %14, %10, %4, %2
-  %.037 = phi ptr [ null, %13 ], [ %0, %2 ], [ %6, %4 ], [ null, %10 ], [ null, %14 ], [ null, %.preheader ], [ %21, %20 ], [ null, %..loopexit_crit_edge.us ], [ null, %.loopexit ], [ %54, %56 ], [ null, %.lr.ph67.split ], [ null, %.lr.ph67.split.us ], [ %8, %31 ]
+  %.037 = phi ptr [ null, %13 ], [ %0, %2 ], [ %6, %4 ], [ null, %10 ], [ null, %14 ], [ %21, %20 ], [ null, %.preheader ], [ %54, %56 ], [ null, %..loopexit_crit_edge.us ], [ null, %.loopexit ], [ null, %.lr.ph67.split ], [ null, %.lr.ph67.split.us ], [ %8, %31 ]
   ret ptr %.037
 }
 
@@ -6763,7 +6763,7 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
   unreachable
 
 .loopexit:                                        ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %21, %16, %14, %12, %6
-  %.012 = phi ptr [ null, %6 ], [ null, %16 ], [ %22, %21 ], [ %13, %12 ], [ %15, %14 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ]
+  %.012 = phi ptr [ null, %6 ], [ %13, %12 ], [ %22, %21 ], [ null, %16 ], [ %15, %14 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ]
   ret ptr %.012
 }
 

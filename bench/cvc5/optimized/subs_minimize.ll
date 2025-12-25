@@ -4366,9 +4366,9 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit794
   br label %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit
 
 1839:                                             ; preds = %.loopexit1269, %.loopexit.split-lp1270, %1830, %1785
-  %.sroa.01032.6 = phi ptr [ %.sroa.01032.8, %1830 ], [ %.sroa.01032.41396, %1785 ], [ %.sroa.01032.8, %.loopexit1269 ], [ %.sroa.01032.8, %.loopexit.split-lp1270 ]
-  %.sroa.14.6 = phi ptr [ %.sroa.14.8, %1830 ], [ %.sroa.14.41398, %1785 ], [ %.sroa.14.8, %.loopexit1269 ], [ %.sroa.14.8, %.loopexit.split-lp1270 ]
-  %.pn202.pn = phi { ptr, i32 } [ %1831, %1830 ], [ %.pn198.pn, %1785 ], [ %lpad.loopexit1271, %.loopexit1269 ], [ %lpad.loopexit.split-lp1272, %.loopexit.split-lp1270 ]
+  %.sroa.01032.6 = phi ptr [ %.sroa.01032.41396, %1785 ], [ %.sroa.01032.8, %1830 ], [ %.sroa.01032.8, %.loopexit1269 ], [ %.sroa.01032.8, %.loopexit.split-lp1270 ]
+  %.sroa.14.6 = phi ptr [ %.sroa.14.41398, %1785 ], [ %.sroa.14.8, %1830 ], [ %.sroa.14.8, %.loopexit1269 ], [ %.sroa.14.8, %.loopexit.split-lp1270 ]
+  %.pn202.pn = phi { ptr, i32 } [ %.pn198.pn, %1785 ], [ %1831, %1830 ], [ %lpad.loopexit1271, %.loopexit1269 ], [ %lpad.loopexit.split-lp1272, %.loopexit.split-lp1270 ]
   %.not.i.i.i796 = icmp eq ptr %.sroa.01032.6, null
   br i1 %.not.i.i.i796, label %_ZNSt6vectorIjSaIjEED2Ev.exit797, label %1840
 

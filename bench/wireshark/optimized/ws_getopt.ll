@@ -704,7 +704,7 @@ permute.exit.loopexit.us:                         ; preds = %.lr.ph.i49.us
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %.lr.ph, %__getopt_long_core.exit, %._crit_edge, %12, %14
-  %.0 = phi i32 [ -1, %12 ], [ %.1.i, %__getopt_long_core.exit ], [ -1, %14 ], [ %.1.i, %._crit_edge ], [ -1, %.lr.ph ], [ -1, %28 ]
+  %.0 = phi i32 [ -1, %12 ], [ %.1.i, %._crit_edge ], [ -1, %14 ], [ %.1.i, %__getopt_long_core.exit ], [ -1, %.lr.ph ], [ -1, %28 ]
   ret i32 %.0
 }
 

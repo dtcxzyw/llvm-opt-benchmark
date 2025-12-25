@@ -1767,11 +1767,11 @@ select.unfold.i:                                  ; preds = %select.unfold.i.bac
   br i1 %187, label %select.unfold.i.backedge, label %_ZN5Lexer13EatWhitespaceEv.exit
 
 select.unfold.i.backedge:                         ; preds = %.preheader.i, %184, %182
-  %.018.i.be = phi ptr [ %183, %182 ], [ %188, %184 ], [ %177, %.preheader.i ]
+  %.018.i.be = phi ptr [ %188, %184 ], [ %183, %182 ], [ %177, %.preheader.i ]
   br label %select.unfold.i, !llvm.loop !33
 
 _ZN5Lexer13EatWhitespaceEv.exit:                  ; preds = %184, %179, %select.unfold.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.thread154, %174
-  %.292 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ true, %.thread154 ], [ true, %174 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %select.unfold.i ], [ true, %179 ], [ true, %184 ]
+  %.292 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %.thread154 ], [ true, %174 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ true, %select.unfold.i ], [ true, %179 ], [ true, %184 ]
   ret i1 %.292
 }
 

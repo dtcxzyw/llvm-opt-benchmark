@@ -2097,7 +2097,7 @@ define internal fastcc range(i32 0, 2) i32 @ipv4_from_asc(ptr noundef writeonly 
   br label %get_ipv4_component.exit.thread
 
 get_ipv4_component.exit.thread:                   ; preds = %17, %7, %3, %39, %29, %25, %61, %51, %47, %83, %73, %69, %63, %41, %19, %85
-  %.0 = phi i32 [ 0, %39 ], [ %spec.select, %85 ], [ 0, %63 ], [ 0, %83 ], [ 0, %41 ], [ 0, %61 ], [ 0, %19 ], [ 0, %69 ], [ 0, %73 ], [ 0, %47 ], [ 0, %51 ], [ 0, %25 ], [ 0, %29 ], [ 0, %3 ], [ 0, %7 ], [ 0, %17 ]
+  %.0 = phi i32 [ 0, %61 ], [ %spec.select, %85 ], [ 0, %63 ], [ 0, %83 ], [ 0, %41 ], [ 0, %39 ], [ 0, %19 ], [ 0, %69 ], [ 0, %73 ], [ 0, %47 ], [ 0, %51 ], [ 0, %25 ], [ 0, %29 ], [ 0, %3 ], [ 0, %7 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -2846,7 +2846,7 @@ equal_nocase.exit76.i:                            ; preds = %128, %equal_nocase.
   br i1 %.not53.i, label %equal_nocase.exit, label %.lr.ph.i29, !llvm.loop !62
 
 equal_nocase.exit:                                ; preds = %107, %.lr.ph.i.i28, %123, %.lr.ph.i65.i, %157, %153, %88, %83, %.lr.ph.i24, %149, %146, %140, %135, %92, %.preheader.i, %skip_prefix.exit.i
-  %.021 = phi i32 [ 0, %83 ], [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %153 ], [ 1, %149 ], [ 0, %92 ], [ 0, %123 ], [ 0, %135 ], [ 0, %140 ], [ 1, %146 ], [ 1, %88 ], [ 0, %.lr.ph.i24 ], [ 1, %157 ], [ 0, %.lr.ph.i65.i ], [ 0, %.lr.ph.i.i28 ], [ 0, %107 ]
+  %.021 = phi i32 [ 1, %149 ], [ 0, %skip_prefix.exit.i ], [ 1, %.preheader.i ], [ 0, %123 ], [ 0, %153 ], [ 0, %92 ], [ 0, %83 ], [ 0, %135 ], [ 0, %140 ], [ 1, %146 ], [ 1, %88 ], [ 0, %.lr.ph.i24 ], [ 1, %157 ], [ 0, %.lr.ph.i65.i ], [ 0, %.lr.ph.i.i28 ], [ 0, %107 ]
   ret i32 %.021
 }
 

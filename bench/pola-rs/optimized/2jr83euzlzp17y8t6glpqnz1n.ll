@@ -18242,7 +18242,7 @@ _ZN10polars_row6decode24rows_for_fixed_size_list17h1c3e75505b187d62E.exit: ; pre
   br label %.thread238
 
 .thread238.loopexit.split-lp.loopexit.split-lp:   ; preds = %._crit_edge.invoke, %346, %350, %353, %384, %392, %478, %549, %532, %345
-  %.sroa.020.2.ph.ph = phi i8 [ 1, %._crit_edge.invoke ], [ 1, %532 ], [ 1, %350 ], [ 1, %384 ], [ 0, %392 ], [ 1, %549 ], [ 1, %353 ], [ 1, %346 ], [ 1, %478 ], [ 1, %345 ]
+  %.sroa.020.2.ph.ph = phi i8 [ 1, %._crit_edge.invoke ], [ 0, %392 ], [ 1, %350 ], [ 1, %384 ], [ 1, %549 ], [ 1, %353 ], [ 1, %532 ], [ 1, %346 ], [ 1, %478 ], [ 1, %345 ]
   %lpad.loopexit.split-lp302 = landingpad { ptr, i32 }
           cleanup
   br label %.thread238

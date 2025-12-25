@@ -6164,7 +6164,7 @@ _ZNK3euf5enode8get_declEv.exit100:                ; preds = %.lr.ph153.split, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN3euf11enode_class8iteratorppEv.exit93, %_ZN3euf11enode_class8iteratorppEv.exit, %.critedge79.us, %.critedge79, %.loopexit.sink.split, %.preheader131.thread, %45, %15, %.preheader131
-  %.3 = phi i1 [ false, %15 ], [ false, %.preheader131 ], [ false, %_ZN3euf11enode_class8iteratorppEv.exit ], [ true, %.loopexit.sink.split ], [ false, %.critedge79.us ], [ false, %.preheader131.thread ], [ false, %45 ], [ false, %.critedge79 ], [ false, %_ZN3euf11enode_class8iteratorppEv.exit93 ]
+  %.3 = phi i1 [ false, %15 ], [ false, %.preheader131 ], [ false, %.critedge79.us ], [ true, %.loopexit.sink.split ], [ false, %_ZN3euf11enode_class8iteratorppEv.exit ], [ false, %.preheader131.thread ], [ false, %45 ], [ false, %.critedge79 ], [ false, %_ZN3euf11enode_class8iteratorppEv.exit93 ]
   ret i1 %.3
 }
 

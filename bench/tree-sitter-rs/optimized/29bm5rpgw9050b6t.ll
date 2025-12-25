@@ -2229,7 +2229,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17h170b4bfb4774fc91E.exit.i.i.i: ; p
   br label %_ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit
 
 .thread24.i:                                      ; preds = %312, %_ZN10serde_json3ser18format_escaped_str17h77e78e0ba3aba8c9E.exit.i.i.i.i
-  %.0.i.i.ph.i = phi ptr [ %210, %_ZN10serde_json3ser18format_escaped_str17h77e78e0ba3aba8c9E.exit.i.i.i.i ], [ %.0.i.ph.i.i.i, %312 ]
+  %.0.i.i.ph.i = phi ptr [ %.0.i.ph.i.i.i, %312 ], [ %210, %_ZN10serde_json3ser18format_escaped_str17h77e78e0ba3aba8c9E.exit.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !394
   br label %315
 

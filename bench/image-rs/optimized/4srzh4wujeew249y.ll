@@ -2161,10 +2161,10 @@ _ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit: ; preds = %503
   %628 = icmp eq i64 %625, -9223372036854775805
   br i1 %628, label %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit.thread, label %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit.thread789
 
-_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit.thread789: ; preds = %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit, %585, %614, %532, %568, %498, %542
-  %.sroa.29.7785 = phi i64 [ %.sroa.6119.i.sroa.4.0.copyload, %542 ], [ %.sroa.3137.i.sroa.4.0.copyload, %585 ], [ %.sroa.3146.i.sroa.4.0.copyload, %614 ], [ %.sroa.398.i.sroa.4.0.copyload, %532 ], [ %.sroa.3128.i.sroa.4.0.copyload, %568 ], [ %.sroa.389.i.sroa.4.0.copyload, %498 ], [ 40, %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit ]
-  %.sroa.12.7784 = phi ptr [ %543, %542 ], [ %586, %585 ], [ %615, %614 ], [ %533, %532 ], [ %569, %568 ], [ %499, %498 ], [ %626, %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit ]
-  %.sroa.0130.0 = phi i64 [ %538, %542 ], [ %580, %585 ], [ %591, %614 ], [ %511, %532 ], [ %547, %568 ], [ %493, %498 ], [ %625, %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit ]
+_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit.thread789: ; preds = %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit, %585, %542, %532, %568, %498, %614
+  %.sroa.29.7785 = phi i64 [ %.sroa.3146.i.sroa.4.0.copyload, %614 ], [ %.sroa.3137.i.sroa.4.0.copyload, %585 ], [ %.sroa.6119.i.sroa.4.0.copyload, %542 ], [ %.sroa.398.i.sroa.4.0.copyload, %532 ], [ %.sroa.3128.i.sroa.4.0.copyload, %568 ], [ %.sroa.389.i.sroa.4.0.copyload, %498 ], [ 40, %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit ]
+  %.sroa.12.7784 = phi ptr [ %615, %614 ], [ %586, %585 ], [ %543, %542 ], [ %533, %532 ], [ %569, %568 ], [ %499, %498 ], [ %626, %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit ]
+  %.sroa.0130.0 = phi i64 [ %591, %614 ], [ %580, %585 ], [ %538, %542 ], [ %511, %532 ], [ %547, %568 ], [ %493, %498 ], [ %625, %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit ]
   %629 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0130.0, ptr %629, align 8
   %.sroa.2291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2175,7 +2175,7 @@ _ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit.thread789: ; pr
   br label %822
 
 _ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit.thread: ; preds = %724, %572, %561, %544, %648, %655, %734, %.preheader.i519, %576, %583, %.preheader.i, %536, %_ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h1794f9bcfa816708E.exit, %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit
-  %.7 = phi i16 [ %.61616, %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit ], [ %.13, %_ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h1794f9bcfa816708E.exit ], [ %537, %536 ], [ %584, %583 ], [ %578, %576 ], [ 0, %.preheader.i519 ], [ %.61616, %.preheader.i ], [ %659, %734 ], [ %.61616, %648 ], [ %.61616, %572 ], [ %.61616, %655 ], [ %.61616, %544 ], [ %.61616, %561 ], [ %.14, %724 ]
+  %.7 = phi i16 [ %.61616, %_ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit ], [ %.13, %_ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h1794f9bcfa816708E.exit ], [ %537, %536 ], [ %584, %583 ], [ %578, %576 ], [ %.61616, %648 ], [ %.61616, %.preheader.i ], [ %659, %734 ], [ 0, %.preheader.i519 ], [ %.61616, %572 ], [ %.61616, %655 ], [ %.61616, %544 ], [ %.61616, %561 ], [ %.14, %724 ]
   %exitcond2043.not = icmp eq i16 %405, %404
   br i1 %exitcond2043.not, label %.loopexit894, label %.lr.ph1619
 
@@ -4638,10 +4638,10 @@ _ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit: ; preds = %503
   %628 = icmp eq i64 %625, -9223372036854775805
   br i1 %628, label %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit.thread, label %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit.thread787
 
-_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit.thread787: ; preds = %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit, %585, %614, %532, %568, %498, %542
-  %.sroa.29.7783 = phi i64 [ %.sroa.6119.i.sroa.4.0.copyload, %542 ], [ %.sroa.3137.i.sroa.4.0.copyload, %585 ], [ %.sroa.3146.i.sroa.4.0.copyload, %614 ], [ %.sroa.398.i.sroa.4.0.copyload, %532 ], [ %.sroa.3128.i.sroa.4.0.copyload, %568 ], [ %.sroa.389.i.sroa.4.0.copyload, %498 ], [ 40, %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit ]
-  %.sroa.12.7782 = phi ptr [ %543, %542 ], [ %586, %585 ], [ %615, %614 ], [ %533, %532 ], [ %569, %568 ], [ %499, %498 ], [ %626, %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit ]
-  %.sroa.0130.0 = phi i64 [ %538, %542 ], [ %580, %585 ], [ %591, %614 ], [ %511, %532 ], [ %547, %568 ], [ %493, %498 ], [ %625, %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit ]
+_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit.thread787: ; preds = %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit, %585, %542, %532, %568, %498, %614
+  %.sroa.29.7783 = phi i64 [ %.sroa.3146.i.sroa.4.0.copyload, %614 ], [ %.sroa.3137.i.sroa.4.0.copyload, %585 ], [ %.sroa.6119.i.sroa.4.0.copyload, %542 ], [ %.sroa.398.i.sroa.4.0.copyload, %532 ], [ %.sroa.3128.i.sroa.4.0.copyload, %568 ], [ %.sroa.389.i.sroa.4.0.copyload, %498 ], [ 40, %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit ]
+  %.sroa.12.7782 = phi ptr [ %615, %614 ], [ %586, %585 ], [ %543, %542 ], [ %533, %532 ], [ %569, %568 ], [ %499, %498 ], [ %626, %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit ]
+  %.sroa.0130.0 = phi i64 [ %591, %614 ], [ %580, %585 ], [ %538, %542 ], [ %511, %532 ], [ %547, %568 ], [ %493, %498 ], [ %625, %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit ]
   %629 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0130.0, ptr %629, align 8
   %.sroa.2291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4652,7 +4652,7 @@ _ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit.thread787: ; pr
   br label %822
 
 _ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit.thread: ; preds = %724, %572, %561, %544, %648, %655, %734, %.preheader.i517, %576, %583, %.preheader.i, %536, %_ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb51eE.exit, %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit
-  %.7 = phi i16 [ %.61614, %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit ], [ %.13, %_ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb51eE.exit ], [ %537, %536 ], [ %584, %583 ], [ %578, %576 ], [ 0, %.preheader.i517 ], [ %.61614, %.preheader.i ], [ %659, %734 ], [ %.61614, %648 ], [ %.61614, %572 ], [ %.61614, %655 ], [ %.61614, %544 ], [ %.61614, %561 ], [ %.14, %724 ]
+  %.7 = phi i16 [ %.61614, %_ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit ], [ %.13, %_ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb51eE.exit ], [ %537, %536 ], [ %584, %583 ], [ %578, %576 ], [ %.61614, %648 ], [ %.61614, %.preheader.i ], [ %659, %734 ], [ 0, %.preheader.i517 ], [ %.61614, %572 ], [ %.61614, %655 ], [ %.61614, %544 ], [ %.61614, %561 ], [ %.14, %724 ]
   %exitcond2041.not = icmp eq i16 %405, %404
   br i1 %exitcond2041.not, label %.loopexit892, label %.lr.ph1617
 
@@ -7112,10 +7112,10 @@ _ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit: ; preds = %503
   %628 = icmp eq i64 %625, -9223372036854775805
   br i1 %628, label %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit.thread, label %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit.thread787
 
-_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit.thread787: ; preds = %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit, %585, %614, %532, %568, %498, %542
-  %.sroa.29.7783 = phi i64 [ %.sroa.6119.i.sroa.4.0.copyload, %542 ], [ %.sroa.3137.i.sroa.4.0.copyload, %585 ], [ %.sroa.3146.i.sroa.4.0.copyload, %614 ], [ %.sroa.398.i.sroa.4.0.copyload, %532 ], [ %.sroa.3128.i.sroa.4.0.copyload, %568 ], [ %.sroa.389.i.sroa.4.0.copyload, %498 ], [ 40, %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit ]
-  %.sroa.12.7782 = phi ptr [ %543, %542 ], [ %586, %585 ], [ %615, %614 ], [ %533, %532 ], [ %569, %568 ], [ %499, %498 ], [ %626, %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit ]
-  %.sroa.0130.0 = phi i64 [ %538, %542 ], [ %580, %585 ], [ %591, %614 ], [ %511, %532 ], [ %547, %568 ], [ %493, %498 ], [ %625, %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit ]
+_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit.thread787: ; preds = %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit, %585, %542, %532, %568, %498, %614
+  %.sroa.29.7783 = phi i64 [ %.sroa.3146.i.sroa.4.0.copyload, %614 ], [ %.sroa.3137.i.sroa.4.0.copyload, %585 ], [ %.sroa.6119.i.sroa.4.0.copyload, %542 ], [ %.sroa.398.i.sroa.4.0.copyload, %532 ], [ %.sroa.3128.i.sroa.4.0.copyload, %568 ], [ %.sroa.389.i.sroa.4.0.copyload, %498 ], [ 40, %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit ]
+  %.sroa.12.7782 = phi ptr [ %615, %614 ], [ %586, %585 ], [ %543, %542 ], [ %533, %532 ], [ %569, %568 ], [ %499, %498 ], [ %626, %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit ]
+  %.sroa.0130.0 = phi i64 [ %591, %614 ], [ %580, %585 ], [ %538, %542 ], [ %511, %532 ], [ %547, %568 ], [ %493, %498 ], [ %625, %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit ]
   %629 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0130.0, ptr %629, align 8
   %.sroa.2291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7126,7 +7126,7 @@ _ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit.thread787: ; pr
   br label %822
 
 _ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit.thread: ; preds = %724, %572, %561, %544, %648, %655, %734, %.preheader.i517, %576, %583, %.preheader.i, %536, %_ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bcae3E.exit, %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit
-  %.7 = phi i16 [ %.61614, %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit ], [ %.13, %_ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bcae3E.exit ], [ %537, %536 ], [ %584, %583 ], [ %578, %576 ], [ 0, %.preheader.i517 ], [ %.61614, %.preheader.i ], [ %659, %734 ], [ %.61614, %648 ], [ %.61614, %572 ], [ %.61614, %655 ], [ %.61614, %544 ], [ %.61614, %561 ], [ %.14, %724 ]
+  %.7 = phi i16 [ %.61614, %_ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit ], [ %.13, %_ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bcae3E.exit ], [ %537, %536 ], [ %584, %583 ], [ %578, %576 ], [ %.61614, %648 ], [ %.61614, %.preheader.i ], [ %659, %734 ], [ 0, %.preheader.i517 ], [ %.61614, %572 ], [ %.61614, %655 ], [ %.61614, %544 ], [ %.61614, %561 ], [ %.14, %724 ]
   %exitcond2041.not = icmp eq i16 %405, %404
   br i1 %exitcond2041.not, label %.loopexit892, label %.lr.ph1617
 

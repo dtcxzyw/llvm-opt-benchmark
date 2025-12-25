@@ -2421,7 +2421,7 @@ svq3_decode_mb.exit.thread:                       ; preds = %605, %601, %452, %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1066, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %1067, i32 noundef %1068) #12
   br label %.critedge
 
-1069:                                             ; preds = %1059, %.loopexit.i306
+1069:                                             ; preds = %.loopexit.i306, %1059
   br i1 %428, label %1070, label %.thread332
 
 1070:                                             ; preds = %1069

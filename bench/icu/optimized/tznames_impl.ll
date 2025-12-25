@@ -5675,7 +5675,7 @@ define noundef ptr @_ZN6icu_779TZDBNames14createInstanceEP15UResourceBundlePKc(p
   br label %.critedge101
 
 .critedge101:                                     ; preds = %.critedge101.sink.split, %14, %60, %63, %55, %10
-  %.1 = phi ptr [ null, %10 ], [ null, %14 ], [ %61, %63 ], [ null, %55 ], [ null, %60 ], [ null, %.critedge101.sink.split ]
+  %.1 = phi ptr [ null, %10 ], [ null, %14 ], [ null, %60 ], [ null, %55 ], [ %61, %63 ], [ null, %.critedge101.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66

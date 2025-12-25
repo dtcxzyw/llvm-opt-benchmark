@@ -1330,7 +1330,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi
   br label %64
 
 _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE11squaredNormEv.exit: ; preds = %.lr.ph85.i.i.i.i, %.lr.ph90.i.i.i.i, %51, %41
-  %61 = phi float [ %58, %.lr.ph90.i.i.i.i ], [ %44, %41 ], [ %53, %51 ], [ %49, %.lr.ph85.i.i.i.i ]
+  %61 = phi float [ %44, %41 ], [ %58, %.lr.ph90.i.i.i.i ], [ %53, %51 ], [ %49, %.lr.ph85.i.i.i.i ]
   %62 = load float, ptr %8, align 4, !tbaa !6
   %63 = fcmp ugt float %61, 0x3810000000000000
   br i1 %63, label %.critedge, label %64

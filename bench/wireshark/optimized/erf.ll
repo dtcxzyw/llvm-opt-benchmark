@@ -2023,7 +2023,7 @@ populate_interface_info.exit.i:                   ; preds = %.critedge.thread.i.
   br label %populate_module_info.exit.i
 
 populate_module_info.exit.i:                      ; preds = %340, %326, %841, %populate_interface_info.exit.thread.i, %.critedge.i145.i, %414, %413, %412, %290
-  %.1.i = phi ptr [ %.074.ph255.i, %290 ], [ %.074.ph255.i, %.critedge.i145.i ], [ %843, %841 ], [ %.074.ph255.i, %populate_interface_info.exit.thread.i ], [ %.074.ph255.i, %414 ], [ %.074.ph255.i, %413 ], [ %.074.ph255.i, %412 ], [ %.074.ph255.i, %326 ], [ %.074.ph255.i, %340 ]
+  %.1.i = phi ptr [ %.074.ph255.i, %290 ], [ %.074.ph255.i, %.critedge.i145.i ], [ %843, %841 ], [ %.074.ph255.i, %populate_interface_info.exit.thread.i ], [ %.074.ph255.i, %414 ], [ %.074.ph255.i, %412 ], [ %.074.ph255.i, %413 ], [ %.074.ph255.i, %326 ], [ %.074.ph255.i, %340 ]
   %844 = load ptr, ptr %11, align 8
   %845 = load i32, ptr %21, align 8
   %846 = icmp eq ptr %844, null
@@ -3748,7 +3748,7 @@ erf_update_anchors_from_header.exit:              ; preds = %erf_find_anchor_map
   br label %.loopexit
 
 .loopexit:                                        ; preds = %88, %.loopexit.sink.split, %278, %265, %252, %240, %._crit_edge, %9
-  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ false, %._crit_edge ], [ false, %9 ], [ true, %278 ], [ false, %240 ], [ false, %265 ], [ false, %252 ], [ false, %88 ]
+  %.0 = phi i1 [ false, %240 ], [ false, %._crit_edge ], [ false, %9 ], [ true, %278 ], [ false, %.loopexit.sink.split ], [ false, %265 ], [ false, %252 ], [ false, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -4167,9 +4167,9 @@ wtap_wtap_encap_to_erf_encap.exit:                ; preds = %.preheader
   br label %76
 
 76:                                               ; preds = %.sink.split, %wtap_wtap_encap_to_erf_encap.exit, %71, %67
-  %.1155 = phi i1 [ false, %wtap_wtap_encap_to_erf_encap.exit ], [ false, %71 ], [ false, %67 ], [ true, %.sink.split ]
-  %.0149 = phi i32 [ %36, %wtap_wtap_encap_to_erf_encap.exit ], [ %36, %71 ], [ %68, %67 ], [ %74, %.sink.split ]
-  %.0148 = phi i32 [ %38, %wtap_wtap_encap_to_erf_encap.exit ], [ %38, %71 ], [ %38, %67 ], [ %75, %.sink.split ]
+  %.1155 = phi i1 [ false, %wtap_wtap_encap_to_erf_encap.exit ], [ false, %67 ], [ false, %71 ], [ true, %.sink.split ]
+  %.0149 = phi i32 [ %36, %wtap_wtap_encap_to_erf_encap.exit ], [ %68, %67 ], [ %36, %71 ], [ %74, %.sink.split ]
+  %.0148 = phi i32 [ %38, %wtap_wtap_encap_to_erf_encap.exit ], [ %38, %67 ], [ %38, %71 ], [ %75, %.sink.split ]
   %77 = or i8 %57, -128
   store i8 %77, ptr %58, align 8
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -4611,8 +4611,8 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %127, %._crit_edge.i
   br label %erf_dump_priv_compare_capture_comment.exit
 
 erf_dump_priv_compare_capture_comment.exit:       ; preds = %214, %266, %.thread.i181, %.thread18.i, %.thread.thread.sink.split.i
-  %.017.sink.i = phi ptr [ null, %214 ], [ null, %.thread.i181 ], [ %268, %266 ], [ null, %.thread18.i ], [ %.01621.i, %.thread.thread.sink.split.i ]
-  %.025.i = phi i1 [ false, %214 ], [ %.022.lcssa.i, %.thread.i181 ], [ %.02235.i, %266 ], [ %.02225.i, %.thread18.i ], [ %.025.ph.i, %.thread.thread.sink.split.i ]
+  %.017.sink.i = phi ptr [ %268, %266 ], [ null, %.thread.i181 ], [ null, %214 ], [ null, %.thread18.i ], [ %.01621.i, %.thread.thread.sink.split.i ]
+  %.025.i = phi i1 [ %.02235.i, %266 ], [ %.022.lcssa.i, %.thread.i181 ], [ false, %214 ], [ %.02225.i, %.thread18.i ], [ %.025.ph.i, %.thread.thread.sink.split.i ]
   call void @g_free(ptr noundef %.017.sink.i)
   %286 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %287 = zext i1 %.025.i to i8

@@ -1158,7 +1158,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %37 = and i1 %36, %35
   br i1 %37, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread63, label %.critedge
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread63: ; preds = %.noexc, %28, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread63: ; preds = %28, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %38 = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i, label %43, label %39
@@ -1876,7 +1876,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc
   %38 = and i1 %37, %36
   br i1 %38, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread70, label %.critedge
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread70: ; preds = %.noexc, %29, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread70: ; preds = %29, %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %39 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %44, label %40
@@ -5950,7 +5950,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %.noexc176
   %975 = and i1 %974, %973
   br i1 %975, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread416, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread416: ; preds = %.noexc176, %966, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread416: ; preds = %966, %.noexc176, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %976 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute16HasAuthoredValueEv(ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %977 unwind label %982
 
@@ -6142,7 +6142,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit197: ; preds = %.noexc
   %1061 = and i1 %1060, %1059
   br i1 %1061, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit197.thread420, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit197.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit197.thread420: ; preds = %.noexc196, %1052, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit197
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit197.thread420: ; preds = %1052, %.noexc196, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit197
   %1062 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute16HasAuthoredValueEv(ptr noundef nonnull align 8 dereferenceable(32) %40)
           to label %1063 unwind label %1068
 
@@ -6270,7 +6270,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit211: ; preds = %.noexc
   %1116 = and i1 %1115, %1114
   br i1 %1116, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit211.thread424, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit211.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit211.thread424: ; preds = %.noexc210, %1107, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit211
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit211.thread424: ; preds = %1107, %.noexc210, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit211
   %1117 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute16HasAuthoredValueEv(ptr noundef nonnull align 8 dereferenceable(32) %42)
           to label %1118 unwind label %1121
 
@@ -6456,7 +6456,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit232: ; preds = %.noexc
   %1200 = and i1 %1199, %1198
   br i1 %1200, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit232.thread428, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit232.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit232.thread428: ; preds = %.noexc231, %1191, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit232
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit232.thread428: ; preds = %1191, %.noexc231, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit232
   %1201 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute16HasAuthoredValueEv(ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %1202 unwind label %1207
 
@@ -6648,7 +6648,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit253: ; preds = %.noexc
   %1286 = and i1 %1285, %1284
   br i1 %1286, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit253.thread432, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit253.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit253.thread432: ; preds = %.noexc252, %1277, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit253
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit253.thread432: ; preds = %1277, %.noexc252, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit253
   %1287 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute16HasAuthoredValueEv(ptr noundef nonnull align 8 dereferenceable(32) %45)
           to label %1288 unwind label %1293
 
@@ -6843,7 +6843,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit274: ; preds = %.noexc
   %1373 = and i1 %1372, %1371
   br i1 %1373, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit274.thread436, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit274.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit274.thread436: ; preds = %.noexc273, %1364, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit274
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit274.thread436: ; preds = %1364, %.noexc273, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit274
   %1374 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute16HasAuthoredValueEv(ptr noundef nonnull align 8 dereferenceable(32) %47)
           to label %1375 unwind label %1380
 
@@ -7431,7 +7431,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit309: ; preds = %.noexc
   %1632 = and i1 %1631, %1630
   br i1 %1632, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit309.thread440, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit309.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit309.thread440: ; preds = %.noexc308, %1623, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit309
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit309.thread440: ; preds = %1623, %.noexc308, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit309
   %1633 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__15UsdRelationship18HasAuthoredTargetsEv(ptr noundef nonnull align 8 dereferenceable(32) %49)
           to label %1634 unwind label %1639
 
@@ -9224,7 +9224,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit: ; preds = %16
   %23 = and i1 %22, %21
   br i1 %23, label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread37, label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread37: ; preds = %16, %14, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
+_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread37: ; preds = %14, %16, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %24)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16

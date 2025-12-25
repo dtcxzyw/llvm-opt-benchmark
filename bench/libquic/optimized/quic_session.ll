@@ -5632,7 +5632,7 @@ _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8eq
   br label %_ZN4base11ContainsKeyINS_8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEELi10ES9_NS_8internal19SmallMapDefaultInitISE_EEEEjEEbRKT_RKT0_.exit
 
 .loopexit.i20:                                    ; preds = %.lr.ph.i.i.i.i.i.i15, %82, %64, %63, %..loopexit_crit_edge21.i.i.i.i.i.i19, %77, %68
-  %.sroa.4.0.i.ph.i21 = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i.i19 ], [ %.sroa.06.0.i.i.i.i23, %64 ], [ %78, %77 ], [ null, %68 ], [ null, %63 ], [ null, %.lr.ph.i.i.i.i.i.i15 ], [ %84, %82 ]
+  %.sroa.4.0.i.ph.i21 = phi ptr [ %.sroa.06.0.i.i.i.i23, %64 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i.i19 ], [ %78, %77 ], [ null, %68 ], [ null, %63 ], [ null, %.lr.ph.i.i.i.i.i.i15 ], [ %84, %82 ]
   %93 = icmp eq ptr %.sroa.4.0.i.ph.i21, null
   br label %_ZN4base11ContainsKeyINS_8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEELi10ES9_NS_8internal19SmallMapDefaultInitISE_EEEEjEEbRKT_RKT0_.exit
 

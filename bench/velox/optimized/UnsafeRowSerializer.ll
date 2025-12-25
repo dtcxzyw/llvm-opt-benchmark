@@ -6423,8 +6423,8 @@ cond.end.fold.split.i.i:                          ; preds = %cond.true.i.i, %con
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.end.fold.split.i.i, %sw.bb12.i.i.i, %sw.bb10.i.i.i, %sw.bb8.i.i.i, %sw.bb4.i.i.i, %cond.true.i.i, %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIterator12isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i, %call1.i14.i.noexc.i
-  %cmp25.not.i.i = phi i1 [ true, %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIterator12isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i ], [ false, %sw.bb12.i.i.i ], [ true, %cond.true.i.i ], [ true, %call1.i14.i.noexc.i ], [ false, %sw.bb4.i.i.i ], [ false, %sw.bb10.i.i.i ], [ false, %sw.bb8.i.i.i ], [ false, %cond.end.fold.split.i.i ]
-  %cond.i.i = phi i64 [ 0, %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIterator12isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i ], [ 16, %sw.bb12.i.i.i ], [ 0, %cond.true.i.i ], [ 0, %call1.i14.i.noexc.i ], [ 4, %sw.bb4.i.i.i ], [ 8, %sw.bb10.i.i.i ], [ 2, %sw.bb8.i.i.i ], [ 1, %cond.end.fold.split.i.i ]
+  %cmp25.not.i.i = phi i1 [ true, %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIterator12isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i ], [ false, %sw.bb12.i.i.i ], [ true, %cond.true.i.i ], [ false, %sw.bb10.i.i.i ], [ false, %sw.bb4.i.i.i ], [ true, %call1.i14.i.noexc.i ], [ false, %sw.bb8.i.i.i ], [ false, %cond.end.fold.split.i.i ]
+  %cond.i.i = phi i64 [ 0, %_ZN8facebook5velox3row12_GLOBAL__N_126UnsafeRowDataBatchIterator12isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit.i.i ], [ 16, %sw.bb12.i.i.i ], [ 0, %cond.true.i.i ], [ 8, %sw.bb10.i.i.i ], [ 4, %sw.bb4.i.i.i ], [ 0, %call1.i14.i.noexc.i ], [ 2, %sw.bb8.i.i.i ], [ 1, %cond.end.fold.split.i.i ]
   %530 = load i64, ptr %numElements_.i.i, align 8, !noalias !186
   %conv.i16.i.i = trunc i64 %530 to i32
   %add.i.i.i.i.i93 = add i32 %conv.i16.i.i, 63
@@ -8444,8 +8444,8 @@ cond.end.fold.split.i.i.i.i.i.i.i.i:              ; preds = %call1.i.noexc.i.i.i
   br label %cond.end.i.i.i.i.i.i.i.i
 
 cond.end.i.i.i.i.i.i.i.i:                         ; preds = %cond.end.fold.split.i.i.i.i.i.i.i.i, %sw.bb12.i.i.i.i.i.i.i.i.i, %sw.bb10.i.i.i.i.i.i.i.i.i, %sw.bb8.i.i.i.i.i.i.i.i.i, %sw.bb4.i.i.i.i.i.i.i.i.i, %call1.i.noexc.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i, %invoke.cont5.thread25.i.i.i.i.i.i.i.i
-  %fixedDataWidth_23.i.i.i.i.i.i.i.i = phi ptr [ %fixedDataWidth_.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %call1.i.noexc.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_28.i.i.i.i.i.i.i.i, %invoke.cont5.thread25.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %sw.bb12.i.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %sw.bb10.i.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %sw.bb4.i.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %sw.bb8.i.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %cond.end.fold.split.i.i.i.i.i.i.i.i ]
-  %cond.i.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont5.i.i.i.i.i.i.i.i ], [ 0, %call1.i.noexc.i.i.i.i.i.i.i.i ], [ 0, %invoke.cont5.thread25.i.i.i.i.i.i.i.i ], [ 16, %sw.bb12.i.i.i.i.i.i.i.i.i ], [ 8, %sw.bb10.i.i.i.i.i.i.i.i.i ], [ 4, %sw.bb4.i.i.i.i.i.i.i.i.i ], [ 2, %sw.bb8.i.i.i.i.i.i.i.i.i ], [ 1, %cond.end.fold.split.i.i.i.i.i.i.i.i ]
+  %fixedDataWidth_23.i.i.i.i.i.i.i.i = phi ptr [ %fixedDataWidth_.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %call1.i.noexc.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_28.i.i.i.i.i.i.i.i, %invoke.cont5.thread25.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %sw.bb10.i.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %sw.bb12.i.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %sw.bb4.i.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %sw.bb8.i.i.i.i.i.i.i.i.i ], [ %fixedDataWidth_24.i.i.i.i.i.i.i.i, %cond.end.fold.split.i.i.i.i.i.i.i.i ]
+  %cond.i.i.i.i.i.i.i.i = phi i64 [ 0, %invoke.cont5.i.i.i.i.i.i.i.i ], [ 0, %call1.i.noexc.i.i.i.i.i.i.i.i ], [ 0, %invoke.cont5.thread25.i.i.i.i.i.i.i.i ], [ 8, %sw.bb10.i.i.i.i.i.i.i.i.i ], [ 16, %sw.bb12.i.i.i.i.i.i.i.i.i ], [ 4, %sw.bb4.i.i.i.i.i.i.i.i.i ], [ 2, %sw.bb8.i.i.i.i.i.i.i.i.i ], [ 1, %cond.end.fold.split.i.i.i.i.i.i.i.i ]
   store i64 %cond.i.i.i.i.i.i.i.i, ptr %fixedDataWidth_23.i.i.i.i.i.i.i.i, align 8, !noalias !241
   %columnData_.i.i.i.i.i.i.i.i92 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i68, i64 88
   %totalNumElements_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i68, i64 112
@@ -17111,7 +17111,7 @@ while.body7:                                      ; preds = %if.then.i.i.i
   br i1 %tobool.i.not.i.i.i.i, label %if.then.i.i, label %while.end, !llvm.loop !315
 
 while.end:                                        ; preds = %while.body7, %if.then.i.i.i, %if.then.i.i.i.us96.us, %if.then.i.i.i.us81, %if.end16.i.i.i.us79, %while.body.split, %if.then.i.i.lr.ph.split.split.split.us.split, %while.body
-  %.us-phi = phi ptr [ %__first.sroa.0.0, %while.body ], [ %__first.sroa.0.0, %while.body.split ], [ %__first.sroa.0.0, %if.then.i.i.lr.ph.split.split.split.us.split ], [ %__first.sroa.0.168.us, %if.then.i.i.i.us81 ], [ %incdec.ptr.i.us98.us, %if.then.i.i.i.us96.us ], [ %__first.sroa.0.168.us, %if.end16.i.i.i.us79 ], [ %__first.sroa.0.0, %if.then.i.i.i ], [ %incdec.ptr.i, %while.body7 ]
+  %.us-phi = phi ptr [ %__first.sroa.0.0, %while.body ], [ %__first.sroa.0.0, %while.body.split ], [ %__first.sroa.0.0, %if.then.i.i.lr.ph.split.split.split.us.split ], [ %__first.sroa.0.168.us, %if.then.i.i.i.us81 ], [ %incdec.ptr.i.us98.us, %if.then.i.i.i.us96.us ], [ %__first.sroa.0.168.us, %if.end16.i.i.i.us79 ], [ %incdec.ptr.i, %while.body7 ], [ %__first.sroa.0.0, %if.then.i.i.i ]
   br label %while.cond10
 
 while.cond10:                                     ; preds = %while.cond10.backedge, %while.end

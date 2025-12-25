@@ -4523,8 +4523,8 @@ thread-pre-split.i.i.i.i63.preheader:             ; preds = %_ZNK6vectorIjLb0EjE
   br label %_ZN7nat_set13assure_domainEj.exit.i57
 
 thread-pre-split.i.i.i.i63:                       ; preds = %thread-pre-split.i.i.i.i63.backedge, %thread-pre-split.i.i.i.i63.preheader
-  %189 = phi ptr [ %178, %thread-pre-split.i.i.i.i63.preheader ], [ %.be, %thread-pre-split.i.i.i.i63.backedge ]
-  %190 = phi ptr [ %.ph, %thread-pre-split.i.i.i.i63.preheader ], [ %.be, %thread-pre-split.i.i.i.i63.backedge ]
+  %189 = phi ptr [ %178, %thread-pre-split.i.i.i.i63.preheader ], [ %.be199, %thread-pre-split.i.i.i.i63.backedge ]
+  %190 = phi ptr [ %.ph, %thread-pre-split.i.i.i.i63.preheader ], [ %.be199, %thread-pre-split.i.i.i.i63.backedge ]
   %191 = icmp eq ptr %190, null
   br i1 %191, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i.i.i70, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i.i67
 
@@ -4648,7 +4648,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %thread-pre-split.i.i.i.i63.backedge
 
 thread-pre-split.i.i.i.i63.backedge:              ; preds = %236, %196
-  %.be = phi ptr [ %239, %236 ], [ %199, %196 ]
+  %.be199 = phi ptr [ %199, %196 ], [ %239, %236 ]
   br label %thread-pre-split.i.i.i.i63, !llvm.loop !239
 
 240:                                              ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i82
@@ -12485,7 +12485,7 @@ _ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit:   ; preds = %48, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !391
 
 _ZSt11swap_rangesIPP3appS2_ET0_T_S4_S3_.exit:     ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit, %5, %3
-  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %1, %.lr.ph.i ], [ %23, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
+  %.053 = phi ptr [ %0, %5 ], [ %2, %3 ], [ %23, %_ZSt13move_backwardIPP3appS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt4moveIPP3appS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

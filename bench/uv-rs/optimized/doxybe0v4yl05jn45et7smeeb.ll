@@ -2009,7 +2009,7 @@ define hidden void @_ZN8tempfile4util13create_helper17h1255ba044c60a4ffE(ptr dea
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %9, %27, %70, %_ZN3std4path4Path4join17h448b04e27084c074E.exit, %43, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17h539022f219774cd7E.exit.i"
-  %.sroa.014.0.ph = phi i8 [ 0, %9 ], [ %.sroa.014.2, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17h539022f219774cd7E.exit.i" ], [ %.sroa.014.2, %70 ], [ %.sroa.014.2, %43 ], [ 1, %_ZN3std4path4Path4join17h448b04e27084c074E.exit ], [ 0, %27 ]
+  %.sroa.014.0.ph = phi i8 [ 0, %9 ], [ 0, %27 ], [ 1, %_ZN3std4path4Path4join17h448b04e27084c074E.exit ], [ %.sroa.014.2, %43 ], [ %.sroa.014.2, %70 ], [ %.sroa.014.2, %"_ZN111_$LT$core..result..Result$LT$T$C$std..io..error..Error$GT$$u20$as$u20$tempfile..error..IoResultExt$LT$T$GT$$GT$13with_err_path28_$u7b$$u7b$closure$u7d$$u7d$17h539022f219774cd7E.exit.i" ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body

@@ -2566,8 +2566,8 @@ recv_connect_ack.exit:                            ; preds = %306
   call void (i32, ptr, ...) @pmix_output(i32 noundef %305, ptr noundef nonnull @.str.59) #20
   br label %recv_connect_ack.exit.thread47
 
-recv_connect_ack.exit.thread47:                   ; preds = %300, %pmix_ptl_base_set_timeout.exit.thread.i, %304, %306, %recv_connect_ack.exit
-  %358 = phi i32 [ %297, %recv_connect_ack.exit ], [ %297, %300 ], [ %299, %pmix_ptl_base_set_timeout.exit.thread.i ], [ %297, %304 ], [ %297, %306 ]
+recv_connect_ack.exit.thread47:                   ; preds = %pmix_ptl_base_set_timeout.exit.thread.i, %306, %304, %300, %recv_connect_ack.exit
+  %358 = phi i32 [ %297, %recv_connect_ack.exit ], [ %299, %pmix_ptl_base_set_timeout.exit.thread.i ], [ %297, %306 ], [ %297, %304 ], [ %297, %300 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

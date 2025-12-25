@@ -457,7 +457,7 @@ define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr readnon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.sink.split, %.critedge.preheader
-  %.134 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.critedge.preheader ], [ true, %.critedge ]
+  %.134 = phi i1 [ true, %.critedge.preheader ], [ false, %.loopexit.sink.split ], [ true, %.critedge ]
   ret i1 %.134
 }
 

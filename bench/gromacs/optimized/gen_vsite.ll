@@ -8598,9 +8598,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit930.i: ; preds = %
   br label %.critedge2
 
 .critedge2:                                       ; preds = %3226, %.critedge2.loopexit.split.loop.exit, %sub_1, %sub_0, %3217, %1331, %.tail, %1310, %.critedge676
-  %.1508 = phi i32 [ %.05075200, %1331 ], [ %.05075200, %.tail ], [ %.05075200, %.critedge676 ], [ %.05075200, %1310 ], [ %.3510, %3217 ], [ %.05075200, %sub_0 ], [ %.05075200, %sub_1 ], [ %3228, %.critedge2.loopexit.split.loop.exit ], [ 0, %3226 ]
-  %.1477 = phi i32 [ %.04765201, %1331 ], [ %.04765201, %.tail ], [ %.04765201, %.critedge676 ], [ %.04765201, %1310 ], [ %.6, %3217 ], [ %.04765201, %sub_0 ], [ %.04765201, %sub_1 ], [ %.6, %.critedge2.loopexit.split.loop.exit ], [ %.6, %3226 ]
-  %.1458 = phi i32 [ %.04575202, %1331 ], [ %.04575202, %.tail ], [ %.04575202, %.critedge676 ], [ %.04575202, %1310 ], [ %.2, %3217 ], [ %.04575202, %sub_0 ], [ %.04575202, %sub_1 ], [ %.2, %.critedge2.loopexit.split.loop.exit ], [ %.2, %3226 ]
+  %.1508 = phi i32 [ %.05075200, %.tail ], [ %.05075200, %1331 ], [ %.05075200, %.critedge676 ], [ %.05075200, %1310 ], [ %.3510, %3217 ], [ %.05075200, %sub_0 ], [ %.05075200, %sub_1 ], [ %3228, %.critedge2.loopexit.split.loop.exit ], [ 0, %3226 ]
+  %.1477 = phi i32 [ %.04765201, %.tail ], [ %.04765201, %1331 ], [ %.04765201, %.critedge676 ], [ %.04765201, %1310 ], [ %.6, %3217 ], [ %.04765201, %sub_0 ], [ %.04765201, %sub_1 ], [ %.6, %.critedge2.loopexit.split.loop.exit ], [ %.6, %3226 ]
+  %.1458 = phi i32 [ %.04575202, %.tail ], [ %.04575202, %1331 ], [ %.04575202, %.critedge676 ], [ %.04575202, %1310 ], [ %.2, %3217 ], [ %.04575202, %sub_0 ], [ %.04575202, %sub_1 ], [ %.2, %.critedge2.loopexit.split.loop.exit ], [ %.2, %3226 ]
   %3229 = sext i32 %.1508 to i64
   %3230 = getelementptr inbounds %struct.VsiteTypeAndSign, ptr %985, i64 %3229
   %3231 = getelementptr inbounds nuw i8, ptr %3230, i64 4
@@ -9469,7 +9469,7 @@ _ZNSt12_Vector_baseI16VsiteTypeAndSignSaIS0_EED2Ev.exit.i: ; preds = %3543
   br i1 %3608, label %"_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i", label %_ZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit.thread
 
 "_ZSt7find_ifIN3gmx12ArrayRefIterIK24VirtualSiteConfigurationEEZL18get_dummymass_nameNS0_8ArrayRefIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_E3$_0ET_SG_SG_T0_.exit.i": ; preds = %.noexc940, %.noexc938, %.noexc936, %.noexc934, %.noexc946, %.noexc944, %.noexc942
-  %.sroa.010.0.in.sroa.speculated.i.i.i.i926 = phi ptr [ %.sroa.040.1.i.i.i.i, %.noexc944 ], [ %.sroa.040.2.i.i.i.i, %.noexc946 ], [ %.sroa.040.0.lcssa.i.i.i.i, %.noexc942 ], [ %.sroa.040.048.i.i.i.i, %.noexc934 ], [ %3579, %.noexc936 ], [ %3587, %.noexc940 ], [ %3583, %.noexc938 ]
+  %.sroa.010.0.in.sroa.speculated.i.i.i.i926 = phi ptr [ %.sroa.040.1.i.i.i.i, %.noexc944 ], [ %.sroa.040.2.i.i.i.i, %.noexc946 ], [ %.sroa.040.0.lcssa.i.i.i.i, %.noexc942 ], [ %3579, %.noexc936 ], [ %.sroa.040.048.i.i.i.i, %.noexc934 ], [ %3587, %.noexc940 ], [ %3583, %.noexc938 ]
   %.not.i927 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i.i926, %3569
   br i1 %.not.i927, label %_ZL18get_dummymass_nameN3gmx8ArrayRefIK24VirtualSiteConfigurationEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit.thread, label %3609
 

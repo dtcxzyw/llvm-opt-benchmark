@@ -1068,7 +1068,7 @@ define ptr @__cli_strnstr(ptr noundef readonly captures(ret: address, provenance
   br i1 %.not21, label %.loopexit, label %.backedge
 
 .loopexit:                                        ; preds = %18, %16, %8, %11, %3
-  %.0 = phi ptr [ %0, %3 ], [ null, %16 ], [ %.2, %18 ], [ null, %11 ], [ null, %8 ]
+  %.0 = phi ptr [ %0, %3 ], [ %.2, %18 ], [ null, %16 ], [ null, %11 ], [ null, %8 ]
   ret ptr %.0
 }
 

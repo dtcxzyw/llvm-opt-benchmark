@@ -4899,9 +4899,9 @@ default.unreachable:                              ; preds = %43, %6
 43:                                               ; preds = %37
   switch i8 %40, label %default.unreachable [
     i8 0, label %44
-    i8 1, label %50
-    i8 2, label %56
-    i8 3, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit
+    i8 1, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit
+    i8 2, label %50
+    i8 3, label %56
   ]
 
 44:                                               ; preds = %43
@@ -4918,15 +4918,15 @@ default.unreachable:                              ; preds = %43, %6
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %54 = load i8, ptr %53, align 1, !range !159, !alias.scope !624, !noalias !623, !noundef !3
   %55 = icmp eq i8 %52, %54
-  br i1 %55, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread5, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread
+  br i1 %55, label %68, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread
 
 56:                                               ; preds = %43
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %58 = load i8, ptr %57, align 1, !range !159, !alias.scope !623, !noalias !624, !noundef !3
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %60 = load i8, ptr %59, align 1, !range !159, !alias.scope !624, !noalias !623, !noundef !3
-  %61 = icmp eq i8 %58, %60
-  br i1 %61, label %68, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = load i32, ptr %57, align 4, !range !625, !alias.scope !623, !noalias !624, !noundef !3
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %60 = load i32, ptr %59, align 8, !range !625, !alias.scope !624, !noalias !623, !noundef !3
+  %61 = icmp eq i32 %58, %60
+  br i1 %61, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread5, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread
 
 62:                                               ; preds = %44
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -4936,7 +4936,7 @@ default.unreachable:                              ; preds = %43, %6
   %67 = icmp eq i8 %64, %66
   br i1 %67, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread5, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread
 
-68:                                               ; preds = %56
+68:                                               ; preds = %50
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.val.i.i.i = load i8, ptr %70, align 1, !range !152, !alias.scope !623, !noalias !624, !noundef !3
@@ -4963,19 +4963,19 @@ default.unreachable:                              ; preds = %43, %6
   br i1 %78, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread5, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread
 
 _ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit: ; preds = %43
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = load i32, ptr %79, align 4, !range !625, !alias.scope !623, !noalias !624, !noundef !3
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %82 = load i32, ptr %81, align 8, !range !625, !alias.scope !624, !noalias !623, !noundef !3
-  %83 = icmp eq i32 %80, %82
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %80 = load i8, ptr %79, align 1, !range !159, !alias.scope !623, !noalias !624, !noundef !3
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %82 = load i8, ptr %81, align 1, !range !159, !alias.scope !624, !noalias !623, !noundef !3
+  %83 = icmp eq i8 %80, %82
   br i1 %83, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread5, label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread: ; preds = %31, %50, %75, %62, %77, %7, %68, %44, %56, %37, %13, %25, %19, %2, %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit
+_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread: ; preds = %31, %62, %75, %56, %77, %7, %68, %44, %50, %37, %13, %25, %19, %2, %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   br label %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread5
 
-_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread5: ; preds = %31, %50, %75, %62, %77, %7, %74, %6, %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit, %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread
-  %84 = phi i1 [ false, %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit ], [ true, %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread ], [ false, %6 ], [ false, %74 ], [ false, %7 ], [ false, %77 ], [ false, %62 ], [ false, %75 ], [ false, %50 ], [ false, %31 ]
+_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread5: ; preds = %31, %62, %75, %56, %77, %7, %74, %6, %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit, %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread
+  %84 = phi i1 [ false, %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit ], [ true, %_ZN4core3cmp9PartialEq2ne17h0a7a5c4d50bab3b1E.exit.thread ], [ false, %6 ], [ false, %74 ], [ false, %7 ], [ false, %77 ], [ false, %56 ], [ false, %75 ], [ false, %62 ], [ false, %31 ]
   ret i1 %84
 }
 
@@ -5057,12 +5057,12 @@ _ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit: ; preds = %30
   %33 = icmp eq i8 %.val2.i.i.i, %.sroa.8.0.extract.trunc
   br i1 %33, label %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit.thread9, label %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit.thread
 
-_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit.thread: ; preds = %10, %31, %18, %22, %26, %6, %14, %2, %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit
+_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit.thread: ; preds = %10, %18, %31, %22, %26, %6, %14, %2, %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit
   store i64 %1, ptr %0, align 4
   br label %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit.thread9
 
-_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit.thread9: ; preds = %10, %31, %18, %22, %30, %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit, %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit.thread
-  %34 = phi i1 [ false, %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit ], [ true, %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit.thread ], [ false, %30 ], [ false, %22 ], [ false, %18 ], [ false, %31 ], [ false, %10 ]
+_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit.thread9: ; preds = %10, %18, %31, %22, %30, %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit, %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit.thread
+  %34 = phi i1 [ false, %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit ], [ true, %_ZN4core3cmp9PartialEq2ne17hcebad5e703771c4dE.exit.thread ], [ false, %30 ], [ false, %22 ], [ false, %31 ], [ false, %18 ], [ false, %10 ]
   ret i1 %34
 }
 
@@ -5226,7 +5226,7 @@ _ZN4core3cmp9PartialEq2ne17hd431b57ca2eb4f29E.exit: ; preds = %"_ZN82_$LT$ruff_p
   tail call void @"_ZN4core3ptr58drop_in_place$LT$ruff_python_parser..error..ParseError$GT$17hf70145a8e9ee1fc8E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   br label %84
 
-_ZN4core3cmp9PartialEq2ne17hd431b57ca2eb4f29E.exit.thread: ; preds = %38, %14, %2, %20, %.noexc4, %26, %32, %51, %45, %.noexc, %"_ZN82_$LT$ruff_python_parser..error..ParseErrorType$u20$as$u20$core..cmp..PartialEq$GT$2eq17he955226fe68315f4E.exit.thread3.i.i", %.noexc5, %_ZN4core3cmp9PartialEq2ne17hd431b57ca2eb4f29E.exit
+_ZN4core3cmp9PartialEq2ne17hd431b57ca2eb4f29E.exit.thread: ; preds = %38, %14, %2, %20, %.noexc4, %26, %32, %45, %51, %.noexc, %"_ZN82_$LT$ruff_python_parser..error..ParseErrorType$u20$as$u20$core..cmp..PartialEq$GT$2eq17he955226fe68315f4E.exit.thread3.i.i", %.noexc5, %_ZN4core3cmp9PartialEq2ne17hd431b57ca2eb4f29E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ruff_python_parser..error..ParseError$GT$17hf70145a8e9ee1fc8E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)

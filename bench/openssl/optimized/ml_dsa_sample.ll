@@ -319,7 +319,7 @@ shake_xof.exit:                                   ; preds = %9
   br i1 %.not24, label %shake_xof.exit.thread, label %.preheader.backedge
 
 shake_xof.exit.thread:                            ; preds = %30, %26, %20, %5, %9, %shake_xof.exit
-  %.0 = phi i32 [ 0, %shake_xof.exit ], [ 0, %5 ], [ 0, %9 ], [ 0, %30 ], [ 1, %20 ], [ 1, %26 ]
+  %.0 = phi i32 [ 0, %shake_xof.exit ], [ 0, %9 ], [ 0, %5 ], [ 0, %30 ], [ 1, %20 ], [ 1, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

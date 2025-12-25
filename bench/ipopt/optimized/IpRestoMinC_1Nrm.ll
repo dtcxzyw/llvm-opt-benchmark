@@ -4241,11 +4241,11 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit699.thread: ; preds = %_ZN5Ipopt8SmartP
   br i1 %.not.i.i5721905, label %_ZN5Ipopt8SmartPtrIKNS_14CompoundVectorEED2Ev.exit703.thread, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689.thread
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689:     ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit699.thread, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit691.thread, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit687.thread
-  %.pn262 = phi { ptr, i32 } [ %.pn257, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit699.thread ], [ %.pn2542022, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit691.thread ], [ %.pn2511968, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit687.thread ]
+  %.pn262 = phi { ptr, i32 } [ %.pn2542022, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit691.thread ], [ %.pn2511968, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit687.thread ], [ %.pn257, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit699.thread ]
   br i1 %.not.i.i5721905, label %_ZN5Ipopt8SmartPtrIKNS_14CompoundVectorEED2Ev.exit703.thread, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689.thread
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689.thread: ; preds = %1046, %988, %1008, %970, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689
-  %.pn2622127 = phi { ptr, i32 } [ %.pn257, %1046 ], [ %.pn262, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689 ], [ %971, %970 ], [ %.pn2542022, %1008 ], [ %.pn2511968, %988 ]
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689.thread: ; preds = %988, %1008, %1046, %970, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689
+  %.pn2622127 = phi { ptr, i32 } [ %.pn2511968, %988 ], [ %.pn262, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689 ], [ %971, %970 ], [ %.pn257, %1046 ], [ %.pn2542022, %1008 ]
   %1050 = getelementptr inbounds nuw i8, ptr %storemerge.i.i5691894, i64 8
   %1051 = load i32, ptr %1050, align 8, !tbaa !3
   %1052 = add nsw i32 %1051, -1
@@ -4261,8 +4261,8 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689.thread: ; preds = %1046, %988, %100
   %.pre = load i32, ptr %1050, align 8, !tbaa !3
   br label %_ZN5Ipopt8SmartPtrIKNS_14CompoundVectorEED2Ev.exit703
 
-_ZN5Ipopt8SmartPtrIKNS_14CompoundVectorEED2Ev.exit703.thread: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689, %970, %1008, %988, %1046
-  %.pn262.pn.ph = phi { ptr, i32 } [ %.pn257, %1046 ], [ %.pn2511968, %988 ], [ %.pn2542022, %1008 ], [ %971, %970 ], [ %.pn262, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689 ]
+_ZN5Ipopt8SmartPtrIKNS_14CompoundVectorEED2Ev.exit703.thread: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689, %970, %1046, %1008, %988
+  %.pn262.pn.ph = phi { ptr, i32 } [ %.pn2511968, %988 ], [ %.pn2542022, %1008 ], [ %.pn257, %1046 ], [ %971, %970 ], [ %.pn262, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689 ]
   br i1 %.not.i.i5641879, label %_ZN5Ipopt8SmartPtrIKNS_14CompoundVectorEED2Ev.exit707.thread, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit705.thread
 
 _ZN5Ipopt8SmartPtrIKNS_14CompoundVectorEED2Ev.exit703: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit689.thread, %1054

@@ -3236,8 +3236,8 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %54, %55
   ret void
 
 59:                                               ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i, %33, %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetStackFramesEmPSt6vectorImSaImEE.exit
-  %.ph = phi ptr [ %15, %33 ], [ %15, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i ], [ %15, %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i ], [ %52, %_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetStackFramesEmPSt6vectorImSaImEE.exit ]
-  %.ph39 = phi ptr [ %16, %33 ], [ %16, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i ], [ %16, %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetStackFramesEmPSt6vectorImSaImEE.exit ]
+  %.ph = phi ptr [ %15, %33 ], [ %15, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i ], [ %52, %_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetStackFramesEmPSt6vectorImSaImEE.exit ], [ %15, %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i ]
+  %.ph39 = phi ptr [ %16, %33 ], [ %16, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetStackFramesEmPSt6vectorImSaImEE.exit ], [ %16, %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i4 = icmp eq ptr %.ph39, null

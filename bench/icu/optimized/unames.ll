@@ -1210,12 +1210,12 @@ _ZN6icu_77L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.thread
   br i1 %200, label %.loopexit.sink.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %24, %70, %68, %86, %._crit_edge, %36, %38, %.critedge, %.critedge.thread, %83, %15, %18
-  %.sink = phi i32 [ 12, %36 ], [ 12, %70 ], [ 12, %86 ], [ 12, %38 ], [ 1, %15 ], [ 1, %18 ], [ 12, %._crit_edge ], [ 12, %83 ], [ 12, %.critedge.thread ], [ 12, %.critedge ], [ 12, %68 ], [ 12, %24 ]
+  %.sink = phi i32 [ 12, %36 ], [ 12, %38 ], [ 12, %86 ], [ 12, %70 ], [ 1, %15 ], [ 1, %18 ], [ 12, %._crit_edge ], [ 12, %83 ], [ 12, %.critedge.thread ], [ 12, %.critedge ], [ 12, %68 ], [ 12, %24 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6icu_77L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.us, %.loopexit.sink.split, %._crit_edge, %83, %21, %3, %12
-  %.0 = phi i32 [ 65535, %3 ], [ 65535, %.loopexit.sink.split ], [ %.087, %83 ], [ 65535, %12 ], [ %199, %._crit_edge ], [ 65535, %21 ], [ %.0.i.us, %_ZN6icu_77L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.us ]
+  %.0 = phi i32 [ 65535, %3 ], [ %.087, %83 ], [ 65535, %12 ], [ 65535, %.loopexit.sink.split ], [ %199, %._crit_edge ], [ 65535, %21 ], [ %.0.i.us, %_ZN6icu_77L11findAlgNameEPNS_16AlgorithmicRangeE15UCharNameChoicePKc.exit.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4269,9 +4269,9 @@ define internal fastcc noundef zeroext i16 @_ZN6icu_77L10expandNameEPNS_10UCharN
   br i1 %.not124, label %.loopexit99, label %.lr.ph, !llvm.loop !117
 
 .loopexit99:                                      ; preds = %.split.us, %.outer, %97, %.split.us189, %.outer.us, %75, %73, %16, %.loopexit102
-  %.079.ph121 = phi ptr [ %4, %16 ], [ %4, %.loopexit102 ], [ %.079.ph180.us, %75 ], [ %.079.ph180.us, %.split.us189 ], [ %.079.ph180.us, %73 ], [ %.281.us, %.outer.us ], [ %.079.ph180, %97 ], [ %.281, %.outer ], [ %.079.ph180, %.split.us ]
-  %.073.ph119 = phi i16 [ %5, %16 ], [ %5, %.loopexit102 ], [ %.073.ph181.us, %75 ], [ %.073.ph181.us, %.split.us189 ], [ %.073.ph181.us, %73 ], [ %.275.us, %.outer.us ], [ %.073.ph181, %97 ], [ %.275, %.outer ], [ %.073.ph181, %.split.us ]
-  %.062117 = phi i16 [ 0, %16 ], [ 0, %.loopexit102 ], [ 0, %75 ], [ %.062126.us, %.split.us189 ], [ %.062126.us, %73 ], [ %.163.us, %.outer.us ], [ %.062.ph183, %97 ], [ %.163, %.outer ], [ %.062.ph183, %.split.us ]
+  %.079.ph121 = phi ptr [ %.079.ph180.us, %75 ], [ %4, %.loopexit102 ], [ %4, %16 ], [ %.079.ph180.us, %.split.us189 ], [ %.079.ph180.us, %73 ], [ %.281.us, %.outer.us ], [ %.079.ph180, %97 ], [ %.079.ph180, %.split.us ], [ %.281, %.outer ]
+  %.073.ph119 = phi i16 [ %.073.ph181.us, %75 ], [ %5, %.loopexit102 ], [ %5, %16 ], [ %.073.ph181.us, %.split.us189 ], [ %.073.ph181.us, %73 ], [ %.275.us, %.outer.us ], [ %.073.ph181, %97 ], [ %.073.ph181, %.split.us ], [ %.275, %.outer ]
+  %.062117 = phi i16 [ 0, %75 ], [ 0, %.loopexit102 ], [ 0, %16 ], [ %.062126.us, %.split.us189 ], [ %.062126.us, %73 ], [ %.163.us, %.outer.us ], [ %.062.ph183, %97 ], [ %.062.ph183, %.split.us ], [ %.163, %.outer ]
   %.not97 = icmp eq i16 %.073.ph119, 0
   br i1 %.not97, label %121, label %120
 
