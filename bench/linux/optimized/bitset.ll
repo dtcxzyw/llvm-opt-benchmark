@@ -134,10 +134,10 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %77 = add i32 %76, %50
   br label %78
 
-78:                                               ; preds = %68, %.split.split.us
-  %79 = phi i32 [ %77, %68 ], [ %50, %.split.split.us ]
-  %80 = add nuw nsw i64 %49, 1
-  %81 = icmp eq i64 %80, %12
+.split4.us:                                       ; preds = %68, %.split.split.us
+  %.us-phi = phi i32 [ %77, %68 ], [ %50, %.split.split.us ]
+  %118 = add nuw nsw i64 %49, 1
+  %81 = icmp eq i64 %118, %12
   br i1 %81, label %.split4.us, label %.split.split.us, !llvm.loop !5
 
 82:                                               ; preds = %5
@@ -177,12 +177,12 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %109 = and i32 %108, -4
   br label %110
 
-110:                                              ; preds = %104, %102
-  %111 = phi i32 [ %109, %104 ], [ 12, %102 ]
+120:                                              ; preds = %104, %102
+  %121 = phi i32 [ %109, %104 ], [ 12, %102 ]
   %112 = add i32 %111, %91
   br label %113
 
-113:                                              ; preds = %110, %.split.split
+113:; preds = %120, %.split.split
   %114 = phi i32 [ %112, %110 ], [ %91, %.split.split ]
   %115 = add nuw nsw i64 %90, 1
   %116 = icmp eq i64 %115, %12
@@ -1738,10 +1738,10 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %77 = add i32 %76, %50
   br label %78
 
-78:                                               ; preds = %68, %.split.split.us
-  %79 = phi i32 [ %77, %68 ], [ %50, %.split.split.us ]
-  %80 = add nuw nsw i64 %49, 1
-  %81 = icmp eq i64 %80, %12
+.split4.us:                                       ; preds = %68, %.split.split.us
+  %.us-phi = phi i32 [ %77, %68 ], [ %50, %.split.split.us ]
+  %118 = add nuw nsw i64 %49, 1
+  %81 = icmp eq i64 %118, %12
   br i1 %81, label %.split4.us, label %.split.split.us, !llvm.loop !5
 
 82:                                               ; preds = %5
@@ -1781,12 +1781,12 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %109 = and i32 %108, -4
   br label %110
 
-110:                                              ; preds = %104, %102
-  %111 = phi i32 [ %109, %104 ], [ 12, %102 ]
+120:                                              ; preds = %104, %102
+  %121 = phi i32 [ %109, %104 ], [ 12, %102 ]
   %112 = add i32 %111, %91
   br label %113
 
-113:                                              ; preds = %110, %.split.split
+113:; preds = %120, %.split.split
   %114 = phi i32 [ %112, %110 ], [ %91, %.split.split ]
   %115 = add nuw nsw i64 %90, 1
   %116 = icmp eq i64 %115, %12

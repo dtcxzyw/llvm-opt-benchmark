@@ -1068,7 +1068,7 @@ define internal zeroext i1 @capture_tr(ptr noundef %0, i32 noundef %1, i32 nound
   %7 = add i32 %1, 14
   %.not = icmp ugt i32 %7, %2
   %or.cond96 = or i1 %6, %.not
-  br i1 %or.cond96, label %120, label %.preheader
+  br i1 %or.cond96, label %119, label %.preheader
 
 .preheader:                                       ; preds = %5, %10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %10 ], [ 1, %5 ]
@@ -1155,7 +1155,7 @@ check_for_old_linux.exit:                         ; preds = %10, %.split.loop.ex
 
 57:                                               ; preds = %check_for_old_linux.exit
   %. = select i1 %30, i8 0, i8 %27
-  br label %115
+  br label %114
 
 58:                                               ; preds = %49, %39, %31, %56, %34
   %.083.shrunk.ph = phi i8 [ 0, %39 ], [ %22, %31 ], [ 0, %34 ], [ 0, %49 ], [ 1, %56 ]
@@ -1165,7 +1165,7 @@ check_for_old_linux.exit:                         ; preds = %10, %.split.loop.ex
   %60 = icmp eq i8 %20, 1
   %61 = select i1 %.not116, i1 true, i1 %59
   %or.cond98 = select i1 %61, i1 %60, i1 false
-  br i1 %or.cond98, label %62, label %115
+  br i1 %or.cond98, label %62, label %114
 
 62:                                               ; preds = %58
   %63 = add i32 %12, 32
@@ -1240,26 +1240,26 @@ check_for_old_linux.exit:                         ; preds = %10, %.split.loop.ex
   %112 = load i8, ptr %111, align 1
   %113 = icmp eq i8 %112, 17
   %spec.select99 = select i1 %113, i8 18, i8 %.103
-  %114 = select i1 %113, i32 22, i32 14
-  %.pre = add i32 %114, %12
+  %spec.select100 = select i1 %113, i32 22, i32 14
+  %.pre = add i32 %spec.select100, %12
   br label %.thread109
 
-115:                                              ; preds = %57, %58
+114:                                              ; preds = %57, %58
   %.185 = phi i8 [ %., %57 ], [ %.103, %58 ]
   %cond = icmp eq i8 %20, 1
-  br i1 %cond, label %.thread109, label %120
+  br i1 %cond, label %.thread109, label %119
 
-.thread109:                                       ; preds = %102, %96, %90, %.thread107, %79, %73, %108, %115
+.thread109:                                       ; preds = %102, %96, %90, %.thread107, %79, %73, %108, %114
   %.pre-phi = phi i32 [ %23, %102 ], [ %23, %96 ], [ %23, %90 ], [ %23, %.thread107 ], [ %23, %79 ], [ %23, %73 ], [ %.pre, %108 ], [ %23, %115 ]
   %.185113 = phi i8 [ %.103, %102 ], [ %.103, %96 ], [ %.103, %90 ], [ %.103, %.thread107 ], [ 18, %79 ], [ 18, %73 ], [ %spec.select99, %108 ], [ %.185, %115 ]
-  %116 = zext nneg i8 %.185113 to i32
-  %117 = add i32 %.pre-phi, %116
-  %118 = load ptr, ptr @llc_cap_handle, align 8
-  %119 = tail call zeroext i1 @call_capture_dissector(ptr noundef %118, ptr noundef %0, i32 noundef %117, i32 noundef %2, ptr noundef %3, ptr noundef %4)
-  br label %120
+  %115 = zext nneg i8 %.185113 to i32
+  %116 = add i32 %.pre-phi, %115
+  %117 = load ptr, ptr @llc_cap_handle, align 8
+  %118 = tail call zeroext i1 @call_capture_dissector(ptr noundef %117, ptr noundef %0, i32 noundef %116, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  br label %119
 
-120:                                              ; preds = %115, %5, %.thread109
-  %.0 = phi i1 [ %119, %.thread109 ], [ false, %5 ], [ false, %115 ]
+119:                                              ; preds = %114, %5, %.thread109
+  %.0 = phi i1 [ %118, %.thread109 ], [ false, %5 ], [ false, %115 ]
   ret i1 %.0
 }
 

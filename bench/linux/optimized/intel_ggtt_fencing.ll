@@ -179,27 +179,27 @@ define internal fastcc void @fence_write(ptr noundef readonly captures(none) %0)
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 768
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %69, label %68
+  br i1 %67, label %70, label %68
 
 68:                                               ; preds = %63, %60
   br label %69
 
-69:                                               ; preds = %68, %63
-  %70 = phi i32 [ 9, %68 ], [ 7, %63 ]
-  %71 = lshr i32 %62, %70
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %73 = load i32, ptr %72, align 8
+70:                                               ; preds = %68, %63
+  %71 = phi i32 [ 9, %68 ], [ 7, %63 ]
+  %72 = lshr i32 %62, %71
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %74 = load i32, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %75 = load i32, ptr %74, align 4
   %76 = lshr i32 %75, 20
   %77 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %76, i32 -1) #10, !srcloc !5
   %78 = shl i32 %77, 8
-  %79 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %71, i32 -1) #10, !srcloc !6
-  %80 = shl i32 %79, 4
+  %80 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %71, i32 -1) #10, !srcloc !6
+  %81 = shl i32 %80, 4
   %81 = select i1 %.not, i32 4097, i32 1
-  %82 = or i32 %81, %73
-  %83 = or i32 %82, %78
-  %84 = or i32 %83, %80
+  %82 = or i32 %81, %74
+  %84 = or i32 %82, %78
+  %85 = or i32 %84, %80
   br label %85
 
 85:                                               ; preds = %69, %56
@@ -231,7 +231,7 @@ define internal fastcc void @fence_write(ptr noundef readonly captures(none) %0)
   %110 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %109) #9, !srcloc !8
   br label %199
 
-111:                                              ; preds = %1
+111:; preds = %1
   %112 = icmp ugt i8 %7, 5
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %114 = load i32, ptr %113, align 8
@@ -245,7 +245,7 @@ define internal fastcc void @fence_write(ptr noundef readonly captures(none) %0)
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %145, label %123
 
-123:                                              ; preds = %111
+123:; preds = %111
   %124 = select i1 %112, i64 32, i64 2
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %126 = load i32, ptr %125, align 4
@@ -269,7 +269,7 @@ define internal fastcc void @fence_write(ptr noundef readonly captures(none) %0)
   %144 = or i64 %143, %136
   br label %145
 
-145:                                              ; preds = %123, %111
+145:; preds = %123, %111
   %146 = phi i64 [ %144, %123 ], [ 0, %111 ]
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %148 = load ptr, ptr %147, align 8
@@ -278,7 +278,7 @@ define internal fastcc void @fence_write(ptr noundef readonly captures(none) %0)
   %151 = icmp ult i32 %118, 262144
   br i1 %151, label %152, label %161
 
-152:                                              ; preds = %145
+152:; preds = %145
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 36
   %154 = load i32, ptr %153, align 4
   %155 = add i32 %154, %118
@@ -291,14 +291,14 @@ define internal fastcc void @fence_write(ptr noundef readonly captures(none) %0)
   %.pre = zext i32 %160 to i64
   br label %165
 
-161:                                              ; preds = %145
+161:; preds = %145
   %162 = load ptr, ptr %150, align 8
   %163 = zext i32 %118 to i64
   %164 = getelementptr i8, ptr %162, i64 %163
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %164) #9, !srcloc !7
   br label %165
 
-165:                                              ; preds = %161, %152
+165:  ; preds = %161, %152
   %.pre-phi = phi i64 [ %163, %161 ], [ %.pre, %152 ]
   %166 = load ptr, ptr %150, align 8
   %167 = getelementptr i8, ptr %166, i64 %.pre-phi
@@ -308,13 +308,13 @@ define internal fastcc void @fence_write(ptr noundef readonly captures(none) %0)
   %171 = icmp ult i32 %119, 262144
   br i1 %171, label %172, label %176
 
-172:                                              ; preds = %165
+172:; preds = %165
   %173 = getelementptr inbounds nuw i8, ptr %150, i64 36
   %174 = load i32, ptr %173, align 4
   %175 = add i32 %174, %119
   br label %176
 
-176:                                              ; preds = %172, %165
+176:; preds = %172, %165
   %177 = phi i32 [ %175, %172 ], [ %119, %165 ]
   %178 = load ptr, ptr %150, align 8
   %179 = zext i32 %177 to i64
@@ -323,7 +323,7 @@ define internal fastcc void @fence_write(ptr noundef readonly captures(none) %0)
   %181 = trunc i64 %146 to i32
   br i1 %151, label %182, label %191
 
-182:                                              ; preds = %176
+182:; preds = %176
   %183 = getelementptr inbounds nuw i8, ptr %150, i64 36
   %184 = load i32, ptr %183, align 4
   %185 = add i32 %184, %118
@@ -336,21 +336,21 @@ define internal fastcc void @fence_write(ptr noundef readonly captures(none) %0)
   %.pre7 = zext i32 %190 to i64
   br label %195
 
-191:                                              ; preds = %176
+191:; preds = %176
   %192 = load ptr, ptr %150, align 8
   %193 = zext i32 %118 to i64
   %194 = getelementptr i8, ptr %192, i64 %193
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %181, ptr elementtype(i32) %194) #9, !srcloc !7
   br label %195
 
-195:                                              ; preds = %191, %182
+195:  ; preds = %191, %182
   %.pre-phi8 = phi i64 [ %193, %191 ], [ %.pre7, %182 ]
   %196 = load ptr, ptr %150, align 8
   %197 = getelementptr i8, ptr %196, i64 %.pre-phi8
   %198 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %197) #9, !srcloc !8
   br label %199
 
-199:                                              ; preds = %195, %85, %30
+199:; preds = %195, %85, %30
   ret void
 }
 

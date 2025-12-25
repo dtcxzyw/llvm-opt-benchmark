@@ -751,9 +751,9 @@ define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 der
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i32 0, ptr %69, align 8, !tbaa !56
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %100
+  br label %101
 
-71:                                               ; preds = %100
+71:                                               ; preds = %101
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %73, align 8, !tbaa !59
@@ -770,7 +770,7 @@ define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 der
   store i8 0, ptr %75, align 1, !tbaa !4
   %76 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %70, i64 noundef 6) #30
   %.not15.i = icmp eq i32 %76, 0
-  br i1 %.not15.i, label %77, label %99
+  br i1 %.not15.i, label %77, label %100
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 6
@@ -802,24 +802,24 @@ define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 der
   %97 = select i1 %96, i32 5, i32 1
   %98 = or i32 %93, %97
   store i32 %98, ptr %69, align 8, !tbaa !56
-  br label %99
+  br label %100
 
-99:                                               ; preds = %84, %74
+100:                                              ; preds = %84, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6bParse5bFile11parseHeaderEv.exit
 
-_ZN6bParse5bFile11parseHeaderEv.exit:             ; preds = %71, %99
+_ZN6bParse5bFile11parseHeaderEv.exit:             ; preds = %71, %100
   ret void
 
-100:                                              ; preds = %4, %100
+101:                                              ; preds = %4, %101
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %100 ]
-  %101 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  %102 = load i8, ptr %101, align 1, !tbaa !4
-  %103 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv
-  store i8 %102, ptr %103, align 1, !tbaa !4
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
+  %103 = load i8, ptr %102, align 1, !tbaa !4
+  %104 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv
+  store i8 %103, ptr %104, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %71, label %100, !llvm.loop !62
+  br i1 %exitcond.not, label %71, label %101, !llvm.loop !62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -978,13 +978,13 @@ define dso_local void @_ZN6bParse5bFile11parseHeaderEv(ptr noundef nonnull align
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !58
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %38, label %5
+  br i1 %.not, label %39, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !59
   %.not14 = icmp eq ptr %7, null
-  br i1 %.not14, label %38, label %8
+  br i1 %.not14, label %39, label %8
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -994,7 +994,7 @@ define dso_local void @_ZN6bParse5bFile11parseHeaderEv(ptr noundef nonnull align
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %10, i64 noundef 6) #30
   %.not15 = icmp eq i32 %11, 0
-  br i1 %.not15, label %12, label %37
+  br i1 %.not15, label %12, label %38
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 6
@@ -1031,11 +1031,11 @@ define dso_local void @_ZN6bParse5bFile11parseHeaderEv(ptr noundef nonnull align
   store i32 %36, ptr %34, align 8, !tbaa !56
   br label %37
 
-37:                                               ; preds = %8, %20
+38:                                               ; preds = %8, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %38
+  br label %39
 
-38:                                               ; preds = %1, %5, %37
+39:                                               ; preds = %1, %5, %38
   ret void
 }
 

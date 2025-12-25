@@ -1879,7 +1879,7 @@ define dso_local void @intel_pmu_pebs_enable(ptr noundef captures(none) %0) loca
   %172 = load i32, ptr %20, align 4
   %173 = and i32 %172, 2048
   %174 = icmp eq i32 %173, 0
-  br i1 %174, label %207, label %._crit_edge
+  br i1 %174, label %208, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %162
   %175 = load i32, ptr %11, align 4
@@ -1910,23 +1910,23 @@ define dso_local void @intel_pmu_pebs_enable(ptr noundef captures(none) %0) loca
   %197 = load i64, ptr %196, align 8
   br label %198
 
-198:                                              ; preds = %188, %._crit_edge
-  %199 = phi i64 [ %178, %._crit_edge ], [ %197, %188 ]
-  %200 = phi i32 [ 5313, %._crit_edge ], [ 4873, %188 ]
-  %201 = phi i32 [ %175, %._crit_edge ], [ %189, %188 ]
-  %202 = add i32 %201, %200
-  %203 = trunc i64 %199 to i32
-  %204 = lshr i64 %199, 32
-  %205 = trunc nuw i64 %204 to i32
-  call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %202, i32 %203, i32 %205) #14, !srcloc !42
+199:                                              ; preds = %188, %._crit_edge
+  %200 = phi i64 [ %178, %._crit_edge ], [ %197, %188 ]
+  %201 = phi i32 [ 5313, %._crit_edge ], [ 4873, %188 ]
+  %202 = phi i32 [ %175, %._crit_edge ], [ %189, %188 ]
+  %203 = add i32 %202, %201
+  %204 = trunc i64 %200 to i32
+  %205 = lshr i64 %200, 32
+  %206 = trunc nuw i64 %205 to i32
+  call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %203, i32 %204, i32 %206) #14, !srcloc !42
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #14
           to label %207 [label %206], !srcloc !10
 
-206:                                              ; preds = %198
-  call void @do_trace_write_msr(i32 noundef %202, i64 noundef %199, i32 noundef 0) #14
-  br label %207
+207:                                              ; preds = %199
+  call void @do_trace_write_msr(i32 noundef %203, i64 noundef %200, i32 noundef 0) #14
+  br label %208
 
-207:                                              ; preds = %206, %198, %162
+208:                                              ; preds = %207, %199, %162
   ret void
 }
 

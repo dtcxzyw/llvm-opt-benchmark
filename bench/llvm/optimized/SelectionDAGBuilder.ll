@@ -80010,13 +80010,13 @@ _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_6SDNodeEEEDcPT0_.exit.thread: ; preds
 
 830:                                              ; preds = %828
   %831 = call noundef zeroext i1 @_ZNK4llvm8Argument12hasAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(40) %.0320661, i32 noundef 79) #38
-  %spec.select = select i1 %831, i32 4, i32 %.sroa.0492.2654
-  %spec.select762 = select i1 %831, i64 4294967296, i64 0
+  %spec.select762 = select i1 %831, i32 4, i32 %.sroa.0492.2654
+  %spec.select763 = select i1 %831, i64 4294967296, i64 0
   br label %832
 
 832:                                              ; preds = %830, %828
-  %.sroa.0492.4 = phi i32 [ %spec.select, %830 ], [ 3, %828 ]
-  %.sroa.5494.0 = phi i64 [ %spec.select762, %830 ], [ 4294967296, %828 ]
+  %.sroa.0492.4 = phi i32 [ %spec.select762, %830 ], [ 3, %828 ]
+  %.sroa.5494.0 = phi i64 [ %spec.select763, %830 ], [ 4294967296, %828 ]
   %833 = zext i32 %.3319657 to i64
   %834 = load ptr, ptr %25, align 8, !tbaa !25
   %835 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %834, i64 %833

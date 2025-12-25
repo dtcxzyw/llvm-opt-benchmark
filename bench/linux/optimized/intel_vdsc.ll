@@ -3620,45 +3620,45 @@ define internal fastcc i32 @intel_dsc_pps_read_and_verify(ptr noundef readonly c
 
 intel_dsc_get_pps_reg.exit:                       ; preds = %.thread2.i, %.thread.i
   %.sroa.6.2 = phi i32 [ %.sroa.6.0, %.thread2.i ], [ %.sroa.6.1, %.thread.i ]
-  %44 = phi i32 [ %36, %.thread2.i ], [ %43, %.thread.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 7368
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 7512
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 %47(ptr noundef nonnull %45, i32 %44, i1 noundef zeroext true) #8
-  br i1 %.not, label %.loopexit, label %49
+  %46 = phi i32 [ %36, %.thread2.i ], [ %43, %.thread.i ]
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 7368
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 7512
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call i32 %47(ptr noundef nonnull %47, i32 %46, i1 noundef zeroext true) #8
+  br i1 %.not, label %.loopexit, label %51
 
-49:                                               ; preds = %intel_dsc_get_pps_reg.exit
-  %50 = load ptr, ptr %46, align 8
-  %51 = tail call i32 %50(ptr noundef nonnull %45, i32 %.sroa.6.2, i1 noundef zeroext true) #8
-  %52 = icmp eq i32 %51, %48
-  br i1 %52, label %.loopexit, label %53, !llvm.loop !22
+51:                                               ; preds = %intel_dsc_get_pps_reg.exit
+  %52 = load ptr, ptr %48, align 8
+  %53 = tail call i32 %50(ptr noundef nonnull %47, i32 %.sroa.6.2, i1 noundef zeroext true) #8
+  %54 = icmp eq i32 %53, %50
+  br i1 %54, label %.loopexit, label %55, !llvm.loop !22
 
-53:                                               ; preds = %49
+55:                                               ; preds = %51
   tail call void asm sideeffect "922: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 922b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 922) #8, !srcloc !23
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call ptr @dev_driver_string(ptr noundef %55) #8
-  %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 80
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %63
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call ptr @dev_driver_string(ptr noundef %57) #8
+  %59 = load ptr, ptr %56, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 80
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %63, label %65
 
-61:                                               ; preds = %53
-  %62 = load ptr, ptr %57, align 8
-  br label %63
+63:                                               ; preds = %55
+  %64 = load ptr, ptr %59, align 8
+  br label %65
 
-63:                                               ; preds = %61, %53
-  %64 = phi ptr [ %62, %61 ], [ %59, %53 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.3, ptr noundef %56, ptr noundef %64, ptr noundef nonnull @.str.25) #8
+65:                                               ; preds = %63, %55
+  %66 = phi ptr [ %64, %61 ], [ %61, %53 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.3, ptr noundef %58, ptr noundef %66, ptr noundef nonnull @.str.25) #8
   tail call void asm sideeffect "923: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 923b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 923) #8, !srcloc !24
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 852, i32 2313, i64 12) #8, !srcloc !25
   tail call void asm sideeffect "924: nop\0A\09.pushsection .discard.instr_end\0A\09.long 924b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 924) #8, !srcloc !26
   tail call void asm sideeffect "925: nop\0A\09.pushsection .discard.instr_end\0A\09.long 925b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 925) #8, !srcloc !27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %intel_dsc_get_pps_reg.exit, %49, %63
-  ret i32 %48
+.loopexit:                                        ; preds = %intel_dsc_get_pps_reg.exit, %51, %65
+  ret i32 %50
 }
 
 ; Function Attrs: null_pointer_is_valid

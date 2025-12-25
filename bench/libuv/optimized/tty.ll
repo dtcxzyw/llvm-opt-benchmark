@@ -123,8 +123,8 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.not45 = icmp eq i32 %15, 1
   %.not46 = icmp eq i32 %15, 0
   %35 = select i1 %.not45, i32 32768, i32 49152
-  %.2.v = select i1 %.not46, i32 16384, i32 %35
-  %.2 = or disjoint i32 %.03956, %.2.v
+  %.2 = select i1 %.not46, i32 16384, i32 %35
+  %.2 = or disjoint i32 %.03956, %.2
   %36 = call i32 @uv__stream_open(ptr noundef %1, i32 noundef %.03758, i32 noundef %.2) #8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 308
   store i32 0, ptr %37, align 4

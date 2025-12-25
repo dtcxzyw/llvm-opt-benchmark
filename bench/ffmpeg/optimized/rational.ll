@@ -456,22 +456,22 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %21 = load i8, ptr %20, align 1, !tbaa !12
   %22 = zext i8 %21 to i32
   %23 = select i1 %.not.i44, i32 23, i32 15
-  %.neg51 = add nsw i32 %23, %spec.select11.i43.neg
-  %24 = add nsw i32 %.neg51, %.1.i
+  %23 = add nsw i32 %23, %spec.select11.i43.neg
+  %24 = add nsw i32 %23, %.1.i
   %25 = add nsw i32 %24, %15
   %26 = sub nsw i32 %25, %22
   %27 = icmp sgt i32 %26, -1
   %28 = zext nneg i32 %.sroa.0.1 to i64
   br i1 %27, label %29, label %34
 
-29:                                               ; preds = %7
+29:; preds = %7
   %30 = zext nneg i32 %26 to i64
   %31 = shl nuw i64 1, %30
   %32 = zext nneg i32 %.sroa.14.0 to i64
   %33 = tail call i64 @av_rescale(i64 noundef %28, i64 noundef %31, i64 noundef %32) #9
   br label %40
 
-34:                                               ; preds = %7
+34:; preds = %7
   %35 = zext nneg i32 %.sroa.14.0 to i64
   %36 = sub nsw i32 0, %26
   %37 = zext nneg i32 %36 to i64
@@ -479,7 +479,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %39 = tail call i64 @av_rescale(i64 noundef %28, i64 noundef 1, i64 noundef %38) #9
   br label %40
 
-40:                                               ; preds = %34, %29
+40:; preds = %34, %29
   %.034 = phi i64 [ %33, %29 ], [ %39, %34 ]
   %41 = icmp sgt i64 %.034, 16777215
   %.neg = sext i1 %41 to i32
@@ -491,14 +491,14 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %47 = zext nneg i32 %.sroa.0.1 to i64
   br i1 %46, label %48, label %53
 
-48:                                               ; preds = %40
+48:; preds = %40
   %49 = zext nneg i32 %45 to i64
   %50 = shl nuw i64 1, %49
   %51 = zext nneg i32 %.sroa.14.0 to i64
   %52 = tail call i64 @av_rescale(i64 noundef %47, i64 noundef %50, i64 noundef %51) #9
   br label %59
 
-53:                                               ; preds = %40
+53:; preds = %40
   %54 = zext nneg i32 %.sroa.14.0 to i64
   %55 = sub nsw i32 0, %45
   %56 = zext nneg i32 %55 to i64
@@ -506,7 +506,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %58 = tail call i64 @av_rescale(i64 noundef %47, i64 noundef 1, i64 noundef %57) #9
   br label %59
 
-59:                                               ; preds = %53, %48
+59:; preds = %53, %48
   %.1 = phi i64 [ %52, %48 ], [ %58, %53 ]
   %60 = shl i32 %45, 23
   %61 = sub i32 1258291200, %60
@@ -516,7 +516,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #2 {
   %65 = or i32 %62, %64
   br label %66
 
-66:                                               ; preds = %1, %59
+66:; preds = %1, %59
   %.035 = phi i32 [ %65, %59 ], [ %.mux.mux, %1 ]
   ret i32 %.035
 }
