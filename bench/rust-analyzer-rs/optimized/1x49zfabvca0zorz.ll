@@ -62463,17 +62463,17 @@ define void @_ZN3hir8ScopeDef9all_items17hf348aba49a066f45E(ptr noalias noundef 
   %11 = load i8, ptr %5, align 4, !range !13686, !noundef !11
   %12 = icmp eq i8 %11, 11
   %.sink400.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink400.sroa.gep405 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %.sink400.sroa.gep406 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink400.sroa.gep407 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink400.sroa.gep409 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %.sink400.sroa.gep410 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink400.sroa.gep411 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sink401.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %.sink401.sroa.gep408 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink401.sroa.gep409 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %.sink401.sroa.gep410 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %.sink401.sroa.gep412 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink401.sroa.gep413 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %.sink401.sroa.gep414 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %.sink402.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink402.sroa.gep411 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %.sink402.sroa.gep412 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink402.sroa.gep413 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink402.sroa.gep415 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %.sink402.sroa.gep416 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink402.sroa.gep417 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %10, label %13, label %14
 
 13:                                               ; preds = %2
@@ -62483,11 +62483,11 @@ define void @_ZN3hir8ScopeDef9all_items17hf348aba49a066f45E(ptr noalias noundef 
   br i1 %12, label %23, label %26
 
 .sink.split:                                      ; preds = %22, %64, %68, %67
-  %.sink402.sroa.phi = phi ptr [ %.sink402.sroa.gep, %67 ], [ %.sink402.sroa.gep411, %68 ], [ %.sink402.sroa.gep412, %64 ], [ %.sink402.sroa.gep413, %22 ]
+  %.sink406.sroa.phi = phi ptr [ %.sink402.sroa.gep, %67 ], [ %.sink402.sroa.gep411, %68 ], [ %.sink402.sroa.gep412, %64 ], [ %.sink402.sroa.gep413, %22 ]
   %.sroa.16238.0.sink = phi i32 [ %.sroa.16238.0, %67 ], [ %.sroa.7145.0.copyload, %68 ], [ %.sroa.1638.0, %64 ], [ %.sroa.1666.0, %22 ]
-  %.sink401.sroa.phi = phi ptr [ %.sink401.sroa.gep, %67 ], [ %.sink401.sroa.gep408, %68 ], [ %.sink401.sroa.gep409, %64 ], [ %.sink401.sroa.gep410, %22 ]
+  %.sink401.sroa.phi = phi ptr [ %.sink401.sroa.gep, %67 ], [ %.sink401.sroa.gep412, %68 ], [ %.sink401.sroa.gep413, %64 ], [ %.sink401.sroa.gep414, %22 ]
   %.sroa.26239.0.sink = phi i32 [ %.sroa.26239.0, %67 ], [ %.sroa.17155.0.copyload, %68 ], [ %.sroa.26.0, %64 ], [ %.sroa.2667.0, %22 ]
-  %.sink400.sroa.phi = phi ptr [ %.sink400.sroa.gep, %67 ], [ %.sink400.sroa.gep405, %68 ], [ %.sink400.sroa.gep406, %64 ], [ %.sink400.sroa.gep407, %22 ]
+  %.sink400.sroa.phi = phi ptr [ %.sink400.sroa.gep, %67 ], [ %.sink400.sroa.gep409, %68 ], [ %.sink400.sroa.gep410, %64 ], [ %.sink400.sroa.gep411, %22 ]
   %.sroa.28240.0.sink = phi i32 [ %.sroa.28240.0, %67 ], [ %.sroa.20.0.copyload, %68 ], [ %.sroa.28.0, %64 ], [ %.sroa.2868.0, %22 ]
   %.sink = phi i32 [ 1, %67 ], [ 2, %68 ], [ 1, %64 ], [ 1, %22 ]
   store i32 %.sroa.16238.0.sink, ptr %.sink402.sroa.phi, align 4, !noalias !11
@@ -62793,18 +62793,18 @@ default.unreachable:                              ; preds = %66, %28
   %.sroa.7276.0..sroa_idx277 = getelementptr inbounds nuw i8, ptr %73, i64 12
   store i32 %71, ptr %.sroa.7276.0..sroa_idx277, align 4, !alias.scope !13717, !noalias !13721
   %74 = add nuw nsw i32 %.pr, 1
-  br label %.sink.split403
+  br label %.sink.split407
 
 75:                                               ; preds = %70
   store i32 6, ptr %7, align 4, !alias.scope !13723, !noalias !13727
-  br label %.sink.split403
+  br label %.sink.split407
 
-.sink.split403:                                   ; preds = %75, %.thread390
-  %.sink404 = phi i32 [ %74, %.thread390 ], [ 1, %75 ]
-  store i32 %.sink404, ptr %8, align 4, !noalias !11
+.sink.split407:                                   ; preds = %75, %.thread390
+  %.sink408 = phi i32 [ %74, %.thread390 ], [ 1, %75 ]
+  store i32 %.sink408, ptr %8, align 4, !noalias !11
   br label %76
 
-76:                                               ; preds = %.sink.split403, %70
+76:                                               ; preds = %.sink.split407, %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

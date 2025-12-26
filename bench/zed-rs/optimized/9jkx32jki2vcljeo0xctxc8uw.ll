@@ -2949,10 +2949,10 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12strip_prefix17
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.13010770310605403811.exit"
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.13010770310605403811.exit": ; preds = %4, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit.i"
-  %7 = phi ptr [ null, %4 ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit.i" ]
+  %8 = phi ptr [ null, %4 ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit.i" ]
   %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
-  %9 = insertvalue { ptr, i64 } %8, i64 undef, 1
-  ret { ptr, i64 } %9
+  %10 = insertvalue { ptr, i64 } %8, i64 undef, 1
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
@@ -3964,10 +3964,10 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pa
   br label %.thread
 
 .thread:                                          ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit", %4
-  %7 = phi ptr [ null, %4 ], [ %spec.select, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit" ]
+  %8 = phi ptr [ null, %4 ], [ %spec.select, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit" ]
   %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
-  %9 = insertvalue { ptr, i64 } %8, i64 undef, 1
-  ret { ptr, i64 } %9
+  %10 = insertvalue { ptr, i64 } %8, i64 undef, 1
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: nonlazybind uwtable

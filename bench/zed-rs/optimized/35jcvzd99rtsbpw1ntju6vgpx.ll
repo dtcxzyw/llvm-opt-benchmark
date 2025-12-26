@@ -15218,9 +15218,9 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.1586311960047661
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hc6f1a528931799f3E.llvm.15863119600476612186.exit"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hc6f1a528931799f3E.llvm.15863119600476612186.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i.i"
-  %55 = phi ptr [ null, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit.i ], [ %spec.select.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i.i" ]
+  %56 = phi ptr [ null, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit.i ], [ %spec.select.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i.i" ]
   %56 = insertvalue { ptr, i64 } poison, ptr %55, 0
-  %57 = insertvalue { ptr, i64 } %56, i64 undef, 1
+  %58 = insertvalue { ptr, i64 } %56, i64 undef, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3572
   ret { ptr, i64 } %57
 }
@@ -15239,10 +15239,10 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12strip_prefix17
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.15863119600476612186.exit"
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.15863119600476612186.exit": ; preds = %4, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i"
-  %7 = phi ptr [ null, %4 ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i" ]
+  %8 = phi ptr [ null, %4 ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i" ]
   %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
-  %9 = insertvalue { ptr, i64 } %8, i64 undef, 1
-  ret { ptr, i64 } %9
+  %10 = insertvalue { ptr, i64 } %8, i64 undef, 1
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
@@ -16755,9 +16755,9 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.1586311960047661
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.15863119600476612186.exit"
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.15863119600476612186.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i"
-  %55 = phi ptr [ null, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i" ]
+  %56 = phi ptr [ null, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i" ]
   %56 = insertvalue { ptr, i64 } poison, ptr %55, 0
-  %57 = insertvalue { ptr, i64 } %56, i64 undef, 1
+  %58 = insertvalue { ptr, i64 } %56, i64 undef, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret { ptr, i64 } %57
 }
@@ -16808,10 +16808,10 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pa
   br label %.thread
 
 .thread:                                          ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit", %4
-  %7 = phi ptr [ null, %4 ], [ %spec.select, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit" ]
+  %8 = phi ptr [ null, %4 ], [ %spec.select, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit" ]
   %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
-  %9 = insertvalue { ptr, i64 } %8, i64 undef, 1
-  ret { ptr, i64 } %9
+  %10 = insertvalue { ptr, i64 } %8, i64 undef, 1
+  ret { ptr, i64 } %10
 }
 
 ; Function Attrs: nonlazybind uwtable

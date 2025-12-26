@@ -7781,12 +7781,12 @@ define dso_local void @PyConfig_Read(ptr dead_on_unwind noalias writable writeon
 define dso_local noalias noundef ptr @_Py_GetConfigsAsDict() local_unnamed_addr #5 {
   %1 = tail call ptr @PyDict_New() #30
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %Py_XDECREF.exit50, label %3
+  br i1 %2, label %Py_DECREF.exit, label %3
 
 3:                                                ; preds = %0
   %4 = tail call ptr @PyDict_New() #30
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %280, label %6
+  br i1 %5, label %_Py_GetGlobalVariablesAsDict.exit, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @Py_FileSystemDefaultEncoding, align 8, !tbaa !250
@@ -7806,7 +7806,7 @@ define dso_local noalias noundef ptr @_Py_GetConfigsAsDict() local_unnamed_addr 
 _Py_NewRef.exit.i:                                ; preds = %6
   %13 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %7) #30
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %280, label %_Py_NewRef.exit.thread.i
+  br i1 %14, label %_Py_GetGlobalVariablesAsDict.exit, label %_Py_NewRef.exit.thread.i
 
 _Py_NewRef.exit.thread.i:                         ; preds = %_Py_NewRef.exit.i, %11, %8
   %15 = phi ptr [ %13, %_Py_NewRef.exit.i ], [ @_Py_NoneStruct, %8 ], [ @_Py_NoneStruct, %11 ]
@@ -7834,7 +7834,7 @@ Py_DECREF.exit206.i:                              ; preds = %21, %18, %_Py_NewRe
   %25 = sext i32 %24 to i64
   %26 = tail call ptr @PyLong_FromLong(i64 noundef %25) #30
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %280, label %28
+  br i1 %27, label %_Py_GetGlobalVariablesAsDict.exit, label %28
 
 28:                                               ; preds = %23
   %29 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.217, ptr noundef nonnull %26) #30
@@ -7874,7 +7874,7 @@ Py_DECREF.exit204.i:                              ; preds = %34, %31, %28
 _Py_NewRef.exit227.i:                             ; preds = %36
   %43 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %37) #30
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %280, label %_Py_NewRef.exit227.thread.i
+  br i1 %44, label %_Py_GetGlobalVariablesAsDict.exit, label %_Py_NewRef.exit227.thread.i
 
 _Py_NewRef.exit227.thread.i:                      ; preds = %_Py_NewRef.exit227.i, %41, %38
   %45 = phi ptr [ %43, %_Py_NewRef.exit227.i ], [ @_Py_NoneStruct, %38 ], [ @_Py_NoneStruct, %41 ]
@@ -7902,7 +7902,7 @@ Py_DECREF.exit202.i:                              ; preds = %51, %48, %_Py_NewRe
   %55 = sext i32 %54 to i64
   %56 = tail call ptr @PyLong_FromLong(i64 noundef %55) #30
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %280, label %58
+  br i1 %57, label %_Py_GetGlobalVariablesAsDict.exit, label %58
 
 58:                                               ; preds = %53
   %59 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.219, ptr noundef nonnull %56) #30
@@ -7929,7 +7929,7 @@ Py_DECREF.exit200.i:                              ; preds = %64, %61, %58
   %68 = sext i32 %67 to i64
   %69 = tail call ptr @PyLong_FromLong(i64 noundef %68) #30
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %280, label %71
+  br i1 %70, label %_Py_GetGlobalVariablesAsDict.exit, label %71
 
 71:                                               ; preds = %66
   %72 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.220, ptr noundef nonnull %69) #30
@@ -7956,7 +7956,7 @@ Py_DECREF.exit198.i:                              ; preds = %77, %74, %71
   %81 = sext i32 %80 to i64
   %82 = tail call ptr @PyLong_FromLong(i64 noundef %81) #30
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %280, label %84
+  br i1 %83, label %_Py_GetGlobalVariablesAsDict.exit, label %84
 
 84:                                               ; preds = %79
   %85 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.221, ptr noundef nonnull %82) #30
@@ -7983,7 +7983,7 @@ Py_DECREF.exit196.i:                              ; preds = %90, %87, %84
   %94 = sext i32 %93 to i64
   %95 = tail call ptr @PyLong_FromLong(i64 noundef %94) #30
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %280, label %97
+  br i1 %96, label %_Py_GetGlobalVariablesAsDict.exit, label %97
 
 97:                                               ; preds = %92
   %98 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.222, ptr noundef nonnull %95) #30
@@ -8010,7 +8010,7 @@ Py_DECREF.exit194.i:                              ; preds = %103, %100, %97
   %107 = sext i32 %106 to i64
   %108 = tail call ptr @PyLong_FromLong(i64 noundef %107) #30
   %109 = icmp eq ptr %108, null
-  br i1 %109, label %280, label %110
+  br i1 %109, label %_Py_GetGlobalVariablesAsDict.exit, label %110
 
 110:                                              ; preds = %105
   %111 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.223, ptr noundef nonnull %108) #30
@@ -8037,7 +8037,7 @@ Py_DECREF.exit192.i:                              ; preds = %116, %113, %110
   %120 = sext i32 %119 to i64
   %121 = tail call ptr @PyLong_FromLong(i64 noundef %120) #30
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %280, label %123
+  br i1 %122, label %_Py_GetGlobalVariablesAsDict.exit, label %123
 
 123:                                              ; preds = %118
   %124 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.224, ptr noundef nonnull %121) #30
@@ -8064,7 +8064,7 @@ Py_DECREF.exit190.i:                              ; preds = %129, %126, %123
   %133 = sext i32 %132 to i64
   %134 = tail call ptr @PyLong_FromLong(i64 noundef %133) #30
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %280, label %136
+  br i1 %135, label %_Py_GetGlobalVariablesAsDict.exit, label %136
 
 136:                                              ; preds = %131
   %137 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.225, ptr noundef nonnull %134) #30
@@ -8091,7 +8091,7 @@ Py_DECREF.exit188.i:                              ; preds = %142, %139, %136
   %146 = sext i32 %145 to i64
   %147 = tail call ptr @PyLong_FromLong(i64 noundef %146) #30
   %148 = icmp eq ptr %147, null
-  br i1 %148, label %280, label %149
+  br i1 %148, label %_Py_GetGlobalVariablesAsDict.exit, label %149
 
 149:                                              ; preds = %144
   %150 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.226, ptr noundef nonnull %147) #30
@@ -8118,7 +8118,7 @@ Py_DECREF.exit186.i:                              ; preds = %155, %152, %149
   %159 = sext i32 %158 to i64
   %160 = tail call ptr @PyLong_FromLong(i64 noundef %159) #30
   %161 = icmp eq ptr %160, null
-  br i1 %161, label %280, label %162
+  br i1 %161, label %_Py_GetGlobalVariablesAsDict.exit, label %162
 
 162:                                              ; preds = %157
   %163 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.227, ptr noundef nonnull %160) #30
@@ -8145,7 +8145,7 @@ Py_DECREF.exit184.i:                              ; preds = %168, %165, %162
   %172 = sext i32 %171 to i64
   %173 = tail call ptr @PyLong_FromLong(i64 noundef %172) #30
   %174 = icmp eq ptr %173, null
-  br i1 %174, label %280, label %175
+  br i1 %174, label %_Py_GetGlobalVariablesAsDict.exit, label %175
 
 175:                                              ; preds = %170
   %176 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.228, ptr noundef nonnull %173) #30
@@ -8172,7 +8172,7 @@ Py_DECREF.exit182.i:                              ; preds = %181, %178, %175
   %185 = sext i32 %184 to i64
   %186 = tail call ptr @PyLong_FromLong(i64 noundef %185) #30
   %187 = icmp eq ptr %186, null
-  br i1 %187, label %280, label %188
+  br i1 %187, label %_Py_GetGlobalVariablesAsDict.exit, label %188
 
 188:                                              ; preds = %183
   %189 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.229, ptr noundef nonnull %186) #30
@@ -8199,7 +8199,7 @@ Py_DECREF.exit180.i:                              ; preds = %194, %191, %188
   %198 = sext i32 %197 to i64
   %199 = tail call ptr @PyLong_FromLong(i64 noundef %198) #30
   %200 = icmp eq ptr %199, null
-  br i1 %200, label %280, label %201
+  br i1 %200, label %_Py_GetGlobalVariablesAsDict.exit, label %201
 
 201:                                              ; preds = %196
   %202 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.230, ptr noundef nonnull %199) #30
@@ -8226,7 +8226,7 @@ Py_DECREF.exit178.i:                              ; preds = %207, %204, %201
   %211 = sext i32 %210 to i64
   %212 = tail call ptr @PyLong_FromLong(i64 noundef %211) #30
   %213 = icmp eq ptr %212, null
-  br i1 %213, label %280, label %214
+  br i1 %213, label %_Py_GetGlobalVariablesAsDict.exit, label %214
 
 214:                                              ; preds = %209
   %215 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.231, ptr noundef nonnull %212) #30
@@ -8253,7 +8253,7 @@ Py_DECREF.exit176.i:                              ; preds = %220, %217, %214
   %224 = sext i32 %223 to i64
   %225 = tail call ptr @PyLong_FromLong(i64 noundef %224) #30
   %226 = icmp eq ptr %225, null
-  br i1 %226, label %280, label %227
+  br i1 %226, label %_Py_GetGlobalVariablesAsDict.exit, label %227
 
 227:                                              ; preds = %222
   %228 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.232, ptr noundef nonnull %225) #30
@@ -8280,7 +8280,7 @@ Py_DECREF.exit174.i:                              ; preds = %233, %230, %227
   %237 = sext i32 %236 to i64
   %238 = tail call ptr @PyLong_FromLong(i64 noundef %237) #30
   %239 = icmp eq ptr %238, null
-  br i1 %239, label %280, label %240
+  br i1 %239, label %_Py_GetGlobalVariablesAsDict.exit, label %240
 
 240:                                              ; preds = %235
   %241 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.233, ptr noundef nonnull %238) #30
@@ -8307,7 +8307,7 @@ Py_DECREF.exit172.i:                              ; preds = %246, %243, %240
   %250 = sext i32 %249 to i64
   %251 = tail call ptr @PyLong_FromLong(i64 noundef %250) #30
   %252 = icmp eq ptr %251, null
-  br i1 %252, label %280, label %253
+  br i1 %252, label %_Py_GetGlobalVariablesAsDict.exit, label %253
 
 253:                                              ; preds = %248
   %254 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.234, ptr noundef nonnull %251) #30
@@ -8334,7 +8334,7 @@ Py_DECREF.exit170.i:                              ; preds = %259, %256, %253
   %263 = sext i32 %262 to i64
   %264 = tail call ptr @PyLong_FromLong(i64 noundef %263) #30
   %265 = icmp eq ptr %264, null
-  br i1 %265, label %280, label %266
+  br i1 %265, label %_Py_GetGlobalVariablesAsDict.exit, label %266
 
 266:                                              ; preds = %261
   %267 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %4, ptr noundef nonnull @.str.235, ptr noundef nonnull %264) #30
@@ -8354,39 +8354,39 @@ Py_DECREF.exit170.i:                              ; preds = %259, %256, %253
 
 Py_DECREF.exit168.i:                              ; preds = %272, %269, %266
   %273 = icmp slt i32 %267, 0
-  br i1 %273, label %274, label %280
+  br i1 %273, label %274, label %_Py_GetGlobalVariablesAsDict.exit
 
 274:                                              ; preds = %Py_DECREF.exit168.i, %Py_DECREF.exit170.i, %Py_DECREF.exit172.i, %Py_DECREF.exit174.i, %Py_DECREF.exit176.i, %Py_DECREF.exit178.i, %Py_DECREF.exit180.i, %Py_DECREF.exit182.i, %Py_DECREF.exit184.i, %Py_DECREF.exit186.i, %Py_DECREF.exit188.i, %Py_DECREF.exit190.i, %Py_DECREF.exit192.i, %Py_DECREF.exit194.i, %Py_DECREF.exit196.i, %Py_DECREF.exit198.i, %Py_DECREF.exit200.i, %Py_DECREF.exit202.i, %Py_DECREF.exit204.i, %Py_DECREF.exit206.i
   %275 = load i32, ptr %4, align 8, !tbaa !36
   %.not.i.i = icmp sgt i32 %275, -1
-  br i1 %.not.i.i, label %276, label %280
+  br i1 %.not.i.i, label %276, label %_Py_GetGlobalVariablesAsDict.exit
 
 276:                                              ; preds = %274
   %277 = add nsw i32 %275, -1
   store i32 %277, ptr %4, align 8, !tbaa !36
   %278 = icmp eq i32 %277, 0
-  br i1 %278, label %279, label %280
+  br i1 %278, label %279, label %_Py_GetGlobalVariablesAsDict.exit
 
 279:                                              ; preds = %276
   tail call void @_Py_Dealloc(ptr noundef nonnull %4) #30
-  br label %280
+  br label %_Py_GetGlobalVariablesAsDict.exit
 
-280:                                              ; preds = %279, %276, %274, %Py_DECREF.exit168.i, %261, %248, %235, %222, %209, %196, %183, %170, %157, %144, %131, %118, %105, %92, %79, %66, %53, %_Py_NewRef.exit227.i, %23, %_Py_NewRef.exit.i, %3
+_Py_GetGlobalVariablesAsDict.exit:                ; preds = %279, %276, %274, %Py_DECREF.exit168.i, %261, %248, %235, %222, %209, %196, %183, %170, %157, %144, %131, %118, %105, %92, %79, %66, %53, %_Py_NewRef.exit227.i, %23, %_Py_NewRef.exit.i, %3
   %281 = load i32, ptr %1, align 8, !tbaa !36
-  %.not.i.i47 = icmp sgt i32 %281, -1
-  br i1 %.not.i.i47, label %282, label %Py_XDECREF.exit50
+  %281 = icmp sgt i32 %281, -1
+  br i1 %281, label %282, label %Py_DECREF.exit
 
-282:                                              ; preds = %280
+282:                                              ; preds = %_Py_GetGlobalVariablesAsDict.exit
   %283 = add nsw i32 %281, -1
   store i32 %283, ptr %1, align 8, !tbaa !36
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %285, label %Py_XDECREF.exit50
 
-285:                                              ; preds = %282
+284:                                              ; preds = %282
   tail call void @_Py_Dealloc(ptr noundef nonnull %1) #30
-  br label %Py_XDECREF.exit50
+  br label %Py_DECREF.exit
 
-Py_XDECREF.exit50:                                ; preds = %0, %280, %282, %285
+Py_DECREF.exit:                                   ; preds = %0, %280, %282, %285
   ret ptr null
 }
 

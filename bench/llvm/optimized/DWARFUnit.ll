@@ -2445,26 +2445,26 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %49, %_ZNSt10unique_
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre.i.i = load i8, ptr %42, align 8
-  br label %53
+  br label %55
 
-53:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit.i.i, %41
-  %54 = phi i8 [ %.pre.i.i, %_ZN4llvm5ErrorD2Ev.exit.i.i ], [ %43, %41 ]
+55:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit.i.i, %41
+  %56 = phi i8 [ %.pre.i.i, %_ZN4llvm5ErrorD2Ev.exit.i.i ], [ %43, %41 ]
   %55 = trunc i8 %54 to i1
   br i1 %55, label %56, label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %5, align 8, !tbaa !163
-  %.not.i.i.i.i = icmp eq ptr %57, null
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %5, align 8, !tbaa !163
+  %.not.i.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i: ; preds = %56
-  %58 = load ptr, ptr %57, align 8, !tbaa !8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %57) #24
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i: ; preds = %58
+  %60 = load ptr, ptr %59, align 8, !tbaa !8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i
 
-_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i, %56, %53
+_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i, %58, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEEPKc.exit
 

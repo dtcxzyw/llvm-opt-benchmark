@@ -7,14 +7,14 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) initializes((0, 8)) %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 %3)
   %6 = extractvalue { i64, i1 } %5, 1
-  br i1 %6, label %8, label %7
+  br i1 %6, label %27, label %7
 
 7:                                                ; preds = %4
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.312.0..sroa_idx, align 8
   br label %8
 
-8:                                                ; preds = %4, %7
+27:                                               ; preds = %4, %7
   %.sink = phi i64 [ %2, %7 ], [ 0, %4 ]
   store i64 %.sink, ptr %0, align 8
   ret void

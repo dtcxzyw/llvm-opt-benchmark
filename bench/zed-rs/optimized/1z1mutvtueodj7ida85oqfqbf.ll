@@ -57256,7 +57256,7 @@ _ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.3474792849321645876.exit: ; p
   %44 = urem i32 %43, %33
   %45 = zext i32 %44 to i64
   %46 = icmp ugt i64 %22, %45
-  br i1 %46, label %49, label %55
+  br i1 %46, label %49, label %56
 
 .thread:                                          ; preds = %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.3474792849321645876.exit", %49, %3
   %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %49 ], [ %spec.select, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.3474792849321645876.exit" ]
@@ -57279,7 +57279,7 @@ _ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.3474792849321645876.exit: ; p
   %spec.select = select i1 %54, ptr %50, ptr null
   br label %.thread
 
-55:                                               ; preds = %_ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.3474792849321645876.exit
+56:                                               ; preds = %_ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.3474792849321645876.exit
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %45, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6e93f00919303b61ac3c464eac50b925.223.llvm.3474792849321645876) #66
   unreachable
 }

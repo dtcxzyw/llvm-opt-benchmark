@@ -102,13 +102,13 @@ define hidden void @_ZN11shellexpand18tilde_with_context17h652747be5e138578E(ptr
   %13 = icmp eq i8 %rhsc.fr, 126
   br i1 %13, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h346b320ba59f659cE.exit", label %14
 
-14:                                               ; preds = %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h346b320ba59f659cE.exit.i"
+15:                                               ; preds = %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h346b320ba59f659cE.exit.i"
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.val13, ptr %16, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %49
+  br label %53
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h346b320ba59f659cE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h346b320ba59f659cE.exit.i"
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 1
@@ -118,12 +118,12 @@ define hidden void @_ZN11shellexpand18tilde_with_context17h652747be5e138578E(ptr
   %18 = icmp eq i8 %rhsc18, 47
   br i1 %18, label %19, label %22
 
-19:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h346b320ba59f659cE.exit"
+23:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h346b320ba59f659cE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4dirs8home_dir17h0d1d6b8f53ac9c1dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9)
-  %20 = load i64, ptr %9, align 8, !range !5, !noundef !4
-  %21 = icmp eq i64 %20, -9223372036854775808
-  br i1 %21, label %26, label %31
+  %24 = load i64, ptr %9, align 8, !range !5, !noundef !4
+  %25 = icmp eq i64 %24, -9223372036854775808
+  br i1 %25, label %26, label %35
 
 22:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h346b320ba59f659cE.exit"
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -145,29 +145,29 @@ define hidden void @_ZN11shellexpand18tilde_with_context17h652747be5e138578E(ptr
   store i64 -9223372036854775808, ptr %0, align 8
   br label %46
 
-29:                                               ; preds = %31
+30:                                               ; preds = %31
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17ha13e7dd6ef87eda7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #25
-          to label %50 unwind label %47
+          to label %50 unwind label %51
 
-31:                                               ; preds = %19
+35:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val14 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.val15 = load i64, ptr %33, align 8, !noundef !4
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.val14 = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.val15 = load i64, ptr %37, align 8, !noundef !4
   store ptr %.val14, ptr %5, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.val15, ptr %34, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.val15, ptr %38, align 8
   store ptr %5, ptr %6, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN57_$LT$std..path..Display$u20$as$u20$core..fmt..Display$GT$3fmt17h545caae3e66cac47E", ptr %.sroa.46.0..sroa_idx, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %10, ptr %35, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %10, ptr %39, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h285e07b7c36fcde4E", ptr %.sroa.410.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6
@@ -181,17 +181,17 @@ define hidden void @_ZN11shellexpand18tilde_with_context17h652747be5e138578E(ptr
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !13
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %36 unwind label %29
+          to label %36 unwind label %30
 
-36:                                               ; preds = %31
+40:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !14
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h878498b5ab88bb6eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %38 = load i64, ptr %37, align 8, !range !5, !noalias !14, !noundef !4
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %42 = load i64, ptr %41, align 8, !range !5, !noalias !14, !noundef !4
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17ha13e7dd6ef87eda7E.exit", label %40
 
@@ -206,25 +206,25 @@ define hidden void @_ZN11shellexpand18tilde_with_context17h652747be5e138578E(ptr
   call void @__rust_dealloc(ptr noundef nonnull %45, i64 noundef %42, i64 noundef %38) #22
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17ha13e7dd6ef87eda7E.exit"
 
-"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17ha13e7dd6ef87eda7E.exit": ; preds = %36, %40, %44
+"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17ha13e7dd6ef87eda7E.exit": ; preds = %40, %40, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %46
+  br label %50
 
-46:                                               ; preds = %26, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17ha13e7dd6ef87eda7E.exit"
+50:                                               ; preds = %26, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17ha13e7dd6ef87eda7E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %25
 
-47:                                               ; preds = %29
-  %48 = landingpad { ptr, i32 }
+51:                                               ; preds = %30
+  %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #26
   unreachable
 
-49:                                               ; preds = %25, %14
+53:                                               ; preds = %25, %14
   ret void
 
-50:                                               ; preds = %29
+54:                                               ; preds = %30
   resume { ptr, i32 } %30
 }
 
