@@ -2944,17 +2944,15 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12strip_prefix17
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %0, i64 %3), !alias.scope !392
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
   %5 = icmp eq i32 %bcmp.i.i.fr.i, 0
-  %6 = sub nuw i64 %1, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 %3
-  %spec.select.i = select i1 %5, ptr %7, ptr null
+  %6 = getelementptr inbounds i8, ptr %0, i64 %3
+  %spec.select.i = select i1 %5, ptr %6, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.13010770310605403811.exit"
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.13010770310605403811.exit": ; preds = %4, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit.i"
-  %8 = phi i64 [ undef, %4 ], [ %6, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit.i" ]
-  %9 = phi ptr [ null, %4 ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit.i" ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %9, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %8, 1
-  ret { ptr, i64 } %11
+  %7 = phi ptr [ null, %4 ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit.i" ]
+  %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
+  %9 = insertvalue { ptr, i64 } %8, i64 undef, 1
+  ret { ptr, i64 } %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
@@ -3961,17 +3959,15 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pa
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull readonly align 1 %2, i64 %1), !alias.scope !498
   %bcmp.i.i.fr = freeze i32 %bcmp.i.i
   %5 = icmp eq i32 %bcmp.i.i.fr, 0
-  %6 = sub nuw i64 %3, %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 %1
-  %spec.select = select i1 %5, ptr %7, ptr null
+  %6 = getelementptr inbounds i8, ptr %2, i64 %1
+  %spec.select = select i1 %5, ptr %6, ptr null
   br label %.thread
 
 .thread:                                          ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit", %4
-  %8 = phi i64 [ undef, %4 ], [ %6, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit" ]
-  %9 = phi ptr [ null, %4 ], [ %spec.select, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit" ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %9, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %8, 1
-  ret { ptr, i64 } %11
+  %7 = phi ptr [ null, %4 ], [ %spec.select, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit" ]
+  %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
+  %9 = insertvalue { ptr, i64 } %8, i64 undef, 1
+  ret { ptr, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -2333,7 +2333,7 @@ _ZNSt6vectorIN4llvm19DWARFDebugInfoEntryESaIS1_EED2Ev.exit: ; preds = %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm9DWARFUnit17getCompilationDirEv(ptr noundef nonnull align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define dso_local noalias noundef ptr @_ZN4llvm9DWARFUnit17getCompilationDirEv(ptr noundef nonnull align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Error", align 8
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %class.anon.316, align 1
@@ -2410,7 +2410,7 @@ _ZN4llvm9DWARFUnit10getUnitDIEEb.exit:            ; preds = %1, %26, %28
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %39 = load i8, ptr %38, align 8, !tbaa !316, !range !127, !noundef !128
   %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %41, label %.thread.i
+  br i1 %40, label %41, label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEEPKc.exit
 
 41:                                               ; preds = %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2445,42 +2445,33 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %49, %_ZNSt10unique_
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre.i.i = load i8, ptr %42, align 8
-  br label %55
+  br label %53
 
-53:                                               ; preds = %41
-  %54 = load ptr, ptr %5, align 8, !tbaa !114
-  br label %55
+53:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit.i.i, %41
+  %54 = phi i8 [ %.pre.i.i, %_ZN4llvm5ErrorD2Ev.exit.i.i ], [ %43, %41 ]
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i
 
-55:                                               ; preds = %53, %_ZN4llvm5ErrorD2Ev.exit.i.i
-  %56 = phi i8 [ %43, %53 ], [ %.pre.i.i, %_ZN4llvm5ErrorD2Ev.exit.i.i ]
-  %.sroa.04.1.i.i = phi ptr [ %54, %53 ], [ undef, %_ZN4llvm5ErrorD2Ev.exit.i.i ]
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %58, label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i
-
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %5, align 8, !tbaa !163
-  %.not.i.i.i.i = icmp eq ptr %59, null
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %5, align 8, !tbaa !163
+  %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i: ; preds = %58
-  %60 = load ptr, ptr %59, align 8, !tbaa !8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i: ; preds = %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %57) #24
   br label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i
 
-_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i, %58, %55
+_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i, %56, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %44, label %.thread.i, label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEEPKc.exit
-
-.thread.i:                                        ; preds = %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i, %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit
   br label %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEEPKc.exit
 
-_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEEPKc.exit: ; preds = %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i, %.thread.i
-  %63 = phi ptr [ null, %.thread.i ], [ %.sroa.04.1.i.i, %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i ]
+_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEEPKc.exit: ; preds = %_ZN4llvm9DWARFUnit10getUnitDIEEb.exit, %_ZN4llvm5dwarf8toStringERKSt8optionalINS_14DWARFFormValueEE.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret ptr %63
+  ret ptr null
 }
 
 declare void @_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE(ptr dead_on_unwind writable sret(%"class.std::optional.71") align 8, ptr noundef nonnull align 8 dereferenceable(16), i16 noundef zeroext) local_unnamed_addr #1

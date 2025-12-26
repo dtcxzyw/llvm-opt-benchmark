@@ -5006,7 +5006,7 @@ _ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperat
   %.not = icmp eq i32 %64, 0
   br i1 %.not, label %.thread, label %_ZN7glslangL28getCorrespondingUnsignedTypeENS_10TBasicTypeE.exit118
 
-_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit.thread: ; preds = %44, %60, %42
+_ZNK7glslang13TIntermediate20canImplicitlyPromoteENS_10TBasicTypeES1_NS_9TOperatorE.exit.thread: ; preds = %60, %44, %42
   %65 = icmp eq i32 %3, 3
   br i1 %65, label %66, label %.thread
 

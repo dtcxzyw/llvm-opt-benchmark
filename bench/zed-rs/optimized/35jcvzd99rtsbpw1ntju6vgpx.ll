@@ -15213,18 +15213,16 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.1586311960047661
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(1) %4, ptr noundef nonnull readonly align 1 dereferenceable(1) %0, i64 %52), !alias.scope !3578
   %bcmp.i.i.fr.i.i = freeze i32 %bcmp.i.i.i.i
   %53 = icmp eq i32 %bcmp.i.i.fr.i.i, 0
-  %54 = sub nuw i64 %1, %52
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %52
-  %spec.select.i.i = select i1 %53, ptr %55, ptr null
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %52
+  %spec.select.i.i = select i1 %53, ptr %54, ptr null
   br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hc6f1a528931799f3E.llvm.15863119600476612186.exit"
 
 "_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hc6f1a528931799f3E.llvm.15863119600476612186.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i.i"
-  %56 = phi i64 [ undef, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit.i ], [ %54, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i.i" ]
-  %57 = phi ptr [ null, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit.i ], [ %spec.select.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i.i" ]
-  %58 = insertvalue { ptr, i64 } poison, ptr %57, 0
-  %59 = insertvalue { ptr, i64 } %58, i64 %56, 1
+  %55 = phi ptr [ null, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit.i ], [ %spec.select.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i.i" ]
+  %56 = insertvalue { ptr, i64 } poison, ptr %55, 0
+  %57 = insertvalue { ptr, i64 } %56, i64 undef, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3572
-  ret { ptr, i64 } %59
+  ret { ptr, i64 } %57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -15236,17 +15234,15 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12strip_prefix17
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %0, i64 %3), !alias.scope !3588
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
   %5 = icmp eq i32 %bcmp.i.i.fr.i, 0
-  %6 = sub nuw i64 %1, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 %3
-  %spec.select.i = select i1 %5, ptr %7, ptr null
+  %6 = getelementptr inbounds i8, ptr %0, i64 %3
+  %spec.select.i = select i1 %5, ptr %6, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.15863119600476612186.exit"
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.15863119600476612186.exit": ; preds = %4, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i"
-  %8 = phi i64 [ undef, %4 ], [ %6, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i" ]
-  %9 = phi ptr [ null, %4 ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i" ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %9, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %8, 1
-  ret { ptr, i64 } %11
+  %7 = phi ptr [ null, %4 ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i" ]
+  %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
+  %9 = insertvalue { ptr, i64 } %8, i64 undef, 1
+  ret { ptr, i64 } %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
@@ -16754,18 +16750,16 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.1586311960047661
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(1) %4, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %52), !alias.scope !3717
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
   %53 = icmp eq i32 %bcmp.i.i.fr.i, 0
-  %54 = sub nuw i64 %2, %52
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %52
-  %spec.select.i = select i1 %53, ptr %55, ptr null
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %52
+  %spec.select.i = select i1 %53, ptr %54, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.15863119600476612186.exit"
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.llvm.15863119600476612186.exit": ; preds = %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i"
-  %56 = phi i64 [ undef, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit ], [ %54, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i" ]
-  %57 = phi ptr [ null, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i" ]
-  %58 = insertvalue { ptr, i64 } poison, ptr %57, 0
-  %59 = insertvalue { ptr, i64 } %58, i64 %56, 1
+  %55 = phi ptr [ null, %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit ], [ %spec.select.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit.i" ]
+  %56 = insertvalue { ptr, i64 } poison, ptr %55, 0
+  %57 = insertvalue { ptr, i64 } %56, i64 undef, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret { ptr, i64 } %59
+  ret { ptr, i64 } %57
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -16809,17 +16803,15 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pa
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %0, ptr nonnull readonly align 1 %2, i64 %1), !alias.scope !3741
   %bcmp.i.i.fr = freeze i32 %bcmp.i.i
   %5 = icmp eq i32 %bcmp.i.i.fr, 0
-  %6 = sub nuw i64 %3, %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 %1
-  %spec.select = select i1 %5, ptr %7, ptr null
+  %6 = getelementptr inbounds i8, ptr %2, i64 %1
+  %spec.select = select i1 %5, ptr %6, ptr null
   br label %.thread
 
 .thread:                                          ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit", %4
-  %8 = phi i64 [ undef, %4 ], [ %6, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit" ]
-  %9 = phi ptr [ null, %4 ], [ %spec.select, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit" ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %9, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %8, 1
-  ret { ptr, i64 } %11
+  %7 = phi ptr [ null, %4 ], [ %spec.select, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h6ae2eb2c8beb2b34E.exit" ]
+  %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
+  %9 = insertvalue { ptr, i64 } %8, i64 undef, 1
+  ret { ptr, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable

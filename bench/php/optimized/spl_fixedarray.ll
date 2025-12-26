@@ -2400,18 +2400,18 @@ define internal fastcc i64 @spl_offset_convert_to_long(ptr noundef %0) unnamed_a
   %2 = alloca i64, align 8
   br label %3
 
-3:                                                ; preds = %38, %1
-  %.010 = phi ptr [ %0, %1 ], [ %40, %38 ]
+3:                                                ; preds = %37, %1
+  %.010 = phi ptr [ %0, %1 ], [ %39, %37 ]
   %4 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !8
   switch i8 %5, label %.loopexit [
     i8 6, label %6
-    i8 5, label %22
-    i8 4, label %36
+    i8 5, label %21
+    i8 4, label %35
     i8 2, label %zend_dval_to_lval_safe.exit.loopexit
     i8 3, label %zend_dval_to_lval_safe.exit
-    i8 10, label %38
-    i8 9, label %41
+    i8 10, label %37
+    i8 9, label %40
   ]
 
 6:                                                ; preds = %3
@@ -2445,68 +2445,67 @@ define internal fastcc i64 @spl_offset_convert_to_long(ptr noundef %0) unnamed_a
 
 _zend_handle_numeric_str.exit:                    ; preds = %13, %16
   %20 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %8, i64 noundef %10, ptr noundef nonnull %2) #12
-  %21 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %20, label %zend_dval_to_lval_safe.exit, label %.loopexit
 
-22:                                               ; preds = %3
-  %23 = load double, ptr %.010, align 8, !tbaa !8
-  %24 = tail call double @llvm.fabs.f64(double %23)
-  %25 = fcmp ueq double %24, 0x7FF0000000000000
-  br i1 %25, label %zend_dval_to_lval.exit, label %26, !prof !28
+21:                                               ; preds = %3
+  %22 = load double, ptr %.010, align 8, !tbaa !8
+  %23 = tail call double @llvm.fabs.f64(double %22)
+  %24 = fcmp ueq double %23, 0x7FF0000000000000
+  br i1 %24, label %zend_dval_to_lval.exit, label %25, !prof !28
 
-26:                                               ; preds = %22
-  %27 = fcmp oge double %23, 0x43E0000000000000
-  %28 = fcmp olt double %23, 0xC3E0000000000000
-  %or.cond.i12 = or i1 %27, %28
-  br i1 %or.cond.i12, label %29, label %31
+25:                                               ; preds = %21
+  %26 = fcmp oge double %22, 0x43E0000000000000
+  %27 = fcmp olt double %22, 0xC3E0000000000000
+  %or.cond.i12 = or i1 %26, %27
+  br i1 %or.cond.i12, label %28, label %30
 
-29:                                               ; preds = %26
-  %30 = tail call i64 @zend_dval_to_lval_slow(double noundef %23) #12
+28:                                               ; preds = %25
+  %29 = tail call i64 @zend_dval_to_lval_slow(double noundef %22) #12
   br label %zend_dval_to_lval.exit
 
-31:                                               ; preds = %26
-  %32 = fptosi double %23 to i64
+30:                                               ; preds = %25
+  %31 = fptosi double %22 to i64
   br label %zend_dval_to_lval.exit
 
-zend_dval_to_lval.exit:                           ; preds = %22, %29, %31
-  %.0.i13 = phi i64 [ %32, %31 ], [ %30, %29 ], [ 0, %22 ]
-  %33 = sitofp i64 %.0.i13 to double
-  %34 = fcmp oeq double %23, %33
-  br i1 %34, label %zend_dval_to_lval_safe.exit, label %35
+zend_dval_to_lval.exit:                           ; preds = %21, %28, %30
+  %.0.i13 = phi i64 [ %31, %30 ], [ %29, %28 ], [ 0, %21 ]
+  %32 = sitofp i64 %.0.i13 to double
+  %33 = fcmp oeq double %22, %32
+  br i1 %33, label %zend_dval_to_lval_safe.exit, label %34
 
-35:                                               ; preds = %zend_dval_to_lval.exit
-  tail call void @zend_incompatible_double_to_long_error(double noundef %23) #12
+34:                                               ; preds = %zend_dval_to_lval.exit
+  tail call void @zend_incompatible_double_to_long_error(double noundef %22) #12
   br label %zend_dval_to_lval_safe.exit
 
-36:                                               ; preds = %3
-  %37 = load i64, ptr %.010, align 8, !tbaa !8
+35:                                               ; preds = %3
+  %36 = load i64, ptr %.010, align 8, !tbaa !8
   br label %zend_dval_to_lval_safe.exit
 
-38:                                               ; preds = %3
-  %39 = load ptr, ptr %.010, align 8, !tbaa !8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+37:                                               ; preds = %3
+  %38 = load ptr, ptr %.010, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   br label %3
 
-41:                                               ; preds = %3
+40:                                               ; preds = %3
   tail call void @zend_use_resource_as_offset(ptr noundef nonnull %.010) #12
-  %42 = load ptr, ptr %.010, align 8, !tbaa !8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !118
+  %41 = load ptr, ptr %.010, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !118
   br label %zend_dval_to_lval_safe.exit
 
 .loopexit:                                        ; preds = %3, %.thread, %_zend_handle_numeric_str.exit
-  %45 = load ptr, ptr @spl_ce_SplFixedArray, align 8, !tbaa !42
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !70
-  call void @zend_illegal_container_offset(ptr noundef %47, ptr noundef nonnull %.010, i32 noundef 0) #12
+  %44 = load ptr, ptr @spl_ce_SplFixedArray, align 8, !tbaa !42
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !70
+  call void @zend_illegal_container_offset(ptr noundef %46, ptr noundef nonnull %.010, i32 noundef 0) #12
   br label %zend_dval_to_lval_safe.exit
 
 zend_dval_to_lval_safe.exit.loopexit:             ; preds = %3
   br label %zend_dval_to_lval_safe.exit
 
-zend_dval_to_lval_safe.exit:                      ; preds = %3, %zend_dval_to_lval_safe.exit.loopexit, %35, %zend_dval_to_lval.exit, %_zend_handle_numeric_str.exit, %.loopexit, %41, %36
-  %.1 = phi i64 [ 0, %.loopexit ], [ %21, %_zend_handle_numeric_str.exit ], [ %.0.i13, %35 ], [ %37, %36 ], [ %44, %41 ], [ 0, %zend_dval_to_lval_safe.exit.loopexit ], [ %.0.i13, %zend_dval_to_lval.exit ], [ 1, %3 ]
+zend_dval_to_lval_safe.exit:                      ; preds = %3, %zend_dval_to_lval_safe.exit.loopexit, %34, %zend_dval_to_lval.exit, %_zend_handle_numeric_str.exit, %.loopexit, %40, %35
+  %.1 = phi i64 [ 0, %.loopexit ], [ undef, %_zend_handle_numeric_str.exit ], [ %.0.i13, %34 ], [ %36, %35 ], [ %43, %40 ], [ 0, %zend_dval_to_lval_safe.exit.loopexit ], [ %.0.i13, %zend_dval_to_lval.exit ], [ 1, %3 ]
   ret i64 %.1
 }
 

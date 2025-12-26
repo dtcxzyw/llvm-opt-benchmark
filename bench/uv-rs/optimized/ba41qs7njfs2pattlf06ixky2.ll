@@ -5073,12 +5073,12 @@ define void @_ZN12uv_installer13site_packages12SitePackages16from_interpreter17h
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) @anon.d901c6a302b122279b3f606c354fc311.50, i64 32, i1 false)
   invoke void @_ZN9uv_python11interpreter11Interpreter13site_packages17h50e62f79b72a6f1bE(ptr noalias noundef nonnull sret([288 x i8]) align 8 captures(none) dereferenceable(288) %75, ptr noundef nonnull align 8 %1)
-          to label %81 unwind label %.thread586
+          to label %81 unwind label %.thread585
 
 "_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit": ; preds = %.body, %178
   br i1 %.sroa.024.3, label %645, label %common.resume
 
-.thread586:                                       ; preds = %"_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit93", %2, %596
+.thread585:                                       ; preds = %"_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit93", %2, %596
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %645
@@ -5088,12 +5088,11 @@ define void @_ZN12uv_installer13site_packages12SitePackages16from_interpreter17h
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %74, ptr noundef nonnull align 8 dereferenceable(288) %75, i64 288, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %74, i64 56
-  %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %74, i64 64
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 16
   %83 = getelementptr inbounds nuw i8, ptr %74, i64 72
   %84 = getelementptr inbounds nuw i8, ptr %74, i64 120
   %.sroa.8.0..sroa_idx5.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %74, i64 128
+  %.sroa.7238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
   %85 = getelementptr inbounds nuw i8, ptr %74, i64 144
   %86 = getelementptr inbounds nuw i8, ptr %74, i64 152
   %87 = getelementptr inbounds nuw i8, ptr %74, i64 160
@@ -5198,12 +5197,12 @@ define void @_ZN12uv_installer13site_packages12SitePackages16from_interpreter17h
   %148 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %149 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %150 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %.sroa.7.0..sroa_idx704 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %.sroa.8.0..sroa_idx706 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %.sroa.7.0..sroa_idx703 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %.sroa.8.0..sroa_idx705 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %.sroa.8708.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %.sroa.9709.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %.sroa.8707.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %.sroa.9708.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 32
   br label %151
 
 151:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..borrow..Cow$LT$std..path..Path$GT$$GT$17h4d0322b7837050deE.exit", %81
@@ -5232,7 +5231,6 @@ define void @_ZN12uv_installer13site_packages12SitePackages16from_interpreter17h
 156:                                              ; preds = %154
   %.sroa.7.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !alias.scope !1182, !noalias !1193
   %.sroa.7.0.copyload.i.fr.i.i.i.i.i.i.i = freeze ptr %.sroa.7.0.copyload.i.i.i.i.i.i.i.i
-  %.sroa.8.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !alias.scope !1182, !noalias !1193
   %157 = icmp eq ptr %.sroa.7.0.copyload.i.fr.i.i.i.i.i.i.i, null
   %.promoted.i.i.i.i.i.i.i.i = load i64, ptr %82, align 8, !alias.scope !1197, !noalias !1193
   %.promoted.i.fr.i.i.i.i.i.i.i = freeze i64 %.promoted.i.i.i.i.i.i.i.i
@@ -5315,7 +5313,6 @@ _ZN4core3ops8function6FnOnce9call_once17hbcbe70c0f5b2a5e9E.exit.i: ; preds = %"_
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i.i.i.i.i.i.i)
   %.sroa.6237.0.copyload290.pre = load ptr, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !1165
-  %.sroa.7238.0.copyload292.pre = load i64, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8, !noalias !1165
   br label %.thread287
 
 169:                                              ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h585c18224b72aad3E.exit.i.i.i.i.i.i.i.i"
@@ -5364,9 +5361,9 @@ _ZN4core3ops8function6FnOnce9call_once17hbcbe70c0f5b2a5e9E.exit.i: ; preds = %"_
   br label %.body
 
 .thread287:                                       ; preds = %_ZN4core3ops8function6FnOnce9call_once17hbcbe70c0f5b2a5e9E.exit.thread7.i, %_ZN4core3ops8function6FnOnce9call_once17hbcbe70c0f5b2a5e9E.exit.i
-  %.sroa.7238.0.copyload292 = phi i64 [ %.sroa.7238.0.copyload292.pre, %_ZN4core3ops8function6FnOnce9call_once17hbcbe70c0f5b2a5e9E.exit.i ], [ %.sroa.8.0.copyload.i.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hbcbe70c0f5b2a5e9E.exit.thread7.i ]
   %.sroa.6237.0.copyload290 = phi ptr [ %.sroa.6237.0.copyload290.pre, %_ZN4core3ops8function6FnOnce9call_once17hbcbe70c0f5b2a5e9E.exit.i ], [ %.sroa.7.0.copyload.i.fr.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hbcbe70c0f5b2a5e9E.exit.thread7.i ]
   %.sroa.0236.0.copyload.ph = phi i64 [ %.sroa.0.i.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i.i.i.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17hbcbe70c0f5b2a5e9E.exit.i ], [ -9223372036854775808, %_ZN4core3ops8function6FnOnce9call_once17hbcbe70c0f5b2a5e9E.exit.thread7.i ]
+  %.sroa.7238.0.copyload292 = load i64, ptr %.sroa.7238.0..sroa_idx, align 8, !noalias !1165
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !1168
   br label %209
 
@@ -5550,7 +5547,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd96461dd99f9871fE.exit.i8.i.i.i.i.i: ; 
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   invoke fastcc void @"_ZN74_$LT$uv_python..interpreter..Interpreter$u20$as$u20$core..clone..Clone$GT$5clone17h41ea463d6231758eE"(ptr noalias noundef align 8 captures(none) dereferenceable(592) %43, ptr noundef nonnull align 8 %1)
-          to label %221 unwind label %.thread586
+          to label %221 unwind label %.thread585
 
 221:                                              ; preds = %"_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit93"
   %222 = getelementptr inbounds nuw i8, ptr %44, i64 592
@@ -5588,20 +5585,20 @@ _ZN4core3ops8function6FnOnce9call_once17hd96461dd99f9871fE.exit.i8.i.i.i.i.i: ; 
   br label %.body96
 
 226:                                              ; preds = %214
-  %.sroa.0.0.copyload703 = load i64, ptr %39, align 8, !noalias !1357
-  %.sroa.7.0.copyload705 = load ptr, ptr %.sroa.7.0..sroa_idx704, align 8, !noalias !1357
-  %.sroa.8.0.copyload707 = load i64, ptr %.sroa.8.0..sroa_idx706, align 8, !noalias !1357
+  %.sroa.0.0.copyload702 = load i64, ptr %39, align 8, !noalias !1357
+  %.sroa.7.0.copyload704 = load ptr, ptr %.sroa.7.0..sroa_idx703, align 8, !noalias !1357
+  %.sroa.8.0.copyload706 = load i64, ptr %.sroa.8.0..sroa_idx705, align 8, !noalias !1357
   call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !1338
-  %227 = icmp eq i64 %.sroa.0.0.copyload703, -9223372036854775808
+  %227 = icmp eq i64 %.sroa.0.0.copyload702, -9223372036854775808
   br i1 %227, label %.loopexit427, label %228
 
 228:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !1358
-  store i64 %.sroa.0.0.copyload703, ptr %34, align 8
-  store ptr %.sroa.7.0.copyload705, ptr %.sroa.7.0..sroa_idx, align 8
-  store i64 %.sroa.8.0.copyload707, ptr %.sroa.8.0..sroa_idx, align 8
-  store ptr %.sink1.i.i, ptr %.sroa.8708.0..sroa_idx, align 8
-  store i8 %215, ptr %.sroa.9709.0..sroa_idx, align 8
+  store i64 %.sroa.0.0.copyload702, ptr %34, align 8
+  store ptr %.sroa.7.0.copyload704, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.8.0.copyload706, ptr %.sroa.8.0..sroa_idx, align 8
+  store ptr %.sink1.i.i, ptr %.sroa.8707.0..sroa_idx, align 8
+  store i8 %215, ptr %.sroa.9708.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !1358
   store ptr null, ptr %36, align 8, !noalias !1358
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !1358
@@ -5645,7 +5642,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd96461dd99f9871fE.exit.i8.i.i.i.i.i: ; 
           to label %.body96 unwind label %232, !noalias !1358
 
 .loopexit427:                                     ; preds = %226, %.thread312
-  %235 = phi ptr [ %218, %.thread312 ], [ %.sroa.7.0.copyload705, %226 ]
+  %235 = phi ptr [ %218, %.thread312 ], [ %.sroa.7.0.copyload704, %226 ]
   %236 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17he6aa3f96c380349fE(ptr nonnull %235)
   %237 = icmp eq i8 %236, 0
   br i1 %237, label %590, label %576
@@ -6781,12 +6778,12 @@ _ZN4core3ops8function6FnOnce9call_once17hd96461dd99f9871fE.exit.i8.i.i.i.i.i: ; 
   %593 = icmp eq i64 %592, 3
   %594 = load i64, ptr %83, align 8, !range !1209
   %595 = icmp eq i64 %594, -9223372036854775806
-  %or.cond628 = select i1 %593, i1 true, i1 %595
-  br i1 %or.cond628, label %"_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit182", label %596
+  %or.cond627 = select i1 %593, i1 true, i1 %595
+  br i1 %or.cond627, label %"_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit182", label %596
 
 596:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..borrow..Cow$LT$std..path..Path$GT$$GT$17h4d0322b7837050deE.exit155"
   invoke void @"_ZN4core3ptr220drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$C$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$17h1d212c1cf13cc4b5E.llvm.17527439469218822883"(ptr noalias noundef nonnull align 8 dereferenceable(72) %83)
-          to label %"_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit182" unwind label %.thread586
+          to label %"_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit182" unwind label %.thread585
 
 "_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit182": ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..borrow..Cow$LT$std..path..Path$GT$$GT$17h4d0322b7837050deE.exit155", %596
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
@@ -6866,8 +6863,8 @@ _ZN4core3ops8function6FnOnce9call_once17hd96461dd99f9871fE.exit.i8.i.i.i.i.i: ; 
   %622 = icmp eq i64 %621, 3
   %623 = load i64, ptr %83, align 8, !range !1209
   %624 = icmp eq i64 %623, -9223372036854775806
-  %or.cond630 = select i1 %622, i1 true, i1 %624
-  br i1 %or.cond630, label %626, label %625
+  %or.cond629 = select i1 %622, i1 true, i1 %624
+  br i1 %or.cond629, label %626, label %625
 
 625:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..borrow..Cow$LT$std..path..Path$GT$$GT$17h4d0322b7837050deE.exit190"
   call void @"_ZN4core3ptr220drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$C$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$17h1d212c1cf13cc4b5E.llvm.17527439469218822883"(ptr noalias noundef nonnull align 8 dereferenceable(72) %83)
@@ -6933,14 +6930,14 @@ common.resume:                                    ; preds = %649, %"_ZN4core3ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1659
   br label %225
 
-645:                                              ; preds = %.thread586, %"_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit"
-  %.pn84585 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread586 ], [ %.pn82, %"_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit" ]
+645:                                              ; preds = %.thread585, %"_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit"
+  %.pn84584 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread585 ], [ %.pn82, %"_ZN4core3ptr879drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Owned$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..chain..Chain$LT$core..iter..sources..once..Once$LT$$RF$std..path..Path$GT$$C$core..option..IntoIter$LT$$RF$std..path..Path$GT$$GT$$GT$$GT$$C$alloc..borrow..Cow$LT$std..path..Path$GT$..Borrowed$GT$$GT$$GT$17h60a9319eac0fe577E.exit" ]
   %646 = getelementptr inbounds nuw i8, ptr %76, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17he4737f3f0841880eE(ptr noalias noundef nonnull align 8 dereferenceable(32) %76, ptr noalias noundef nonnull readonly align 1 %646, i64 noundef 112, i64 noundef 16)
           to label %647 unwind label %446
 
 647:                                              ; preds = %598, %645
-  %.pn84.pn.ph = phi { ptr, i32 } [ %599, %598 ], [ %.pn84585, %645 ]
+  %.pn84.pn.ph = phi { ptr, i32 } [ %599, %598 ], [ %.pn84584, %645 ]
   %648 = getelementptr inbounds nuw i8, ptr %77, i64 32
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hc2f36778c8a6665eE(ptr noalias noundef nonnull align 8 dereferenceable(32) %77, ptr noalias noundef nonnull readonly align 1 %648, i64 noundef 32, i64 noundef 16)
           to label %649 unwind label %446

@@ -57256,13 +57256,12 @@ _ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.3474792849321645876.exit: ; p
   %44 = urem i32 %43, %33
   %45 = zext i32 %44 to i64
   %46 = icmp ugt i64 %22, %45
-  br i1 %46, label %49, label %56
+  br i1 %46, label %49, label %55
 
 .thread:                                          ; preds = %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.3474792849321645876.exit", %49, %3
-  %.sroa.4.0 = phi ptr [ undef, %3 ], [ undef, %49 ], [ %55, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.3474792849321645876.exit" ]
   %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %49 ], [ %spec.select, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.3474792849321645876.exit" ]
   %47 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %48 = insertvalue { ptr, ptr } %47, ptr %.sroa.4.0, 1
+  %48 = insertvalue { ptr, ptr } %47, ptr undef, 1
   ret { ptr, ptr } %48
 
 49:                                               ; preds = %_ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.3474792849321645876.exit
@@ -57277,11 +57276,10 @@ _ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.3474792849321645876.exit: ; p
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %53, ptr nonnull readonly align 1 %1, i64 %2), !alias.scope !14904
   %bcmp.i.i.fr = freeze i32 %bcmp.i.i
   %54 = icmp eq i32 %bcmp.i.i.fr, 0
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %spec.select = select i1 %54, ptr %50, ptr null
   br label %.thread
 
-56:                                               ; preds = %_ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.3474792849321645876.exit
+55:                                               ; preds = %_ZN10phf_shared9get_index17h05b8019cebc867d1E.llvm.3474792849321645876.exit
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %45, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6e93f00919303b61ac3c464eac50b925.223.llvm.3474792849321645876) #66
   unreachable
 }

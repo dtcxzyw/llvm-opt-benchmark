@@ -49213,52 +49213,41 @@ define { ptr, i64 } @_ZN6client14parse_zed_link17h1af0eb6b619e7261E(ptr noalias 
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %10, ptr nonnull readonly align 1 %0, i64 %8), !alias.scope !10148
   %bcmp.i.i.fr.i = freeze i32 %bcmp.i.i.i
-  %11 = icmp ne i32 %bcmp.i.i.fr.i, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 %8
-  %.not.i.i13 = icmp eq i64 %1, %8
-  %or.cond34 = or i1 %11, %.not.i.i13
-  br i1 %or.cond34, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i14"
+  %11 = icmp eq i32 %bcmp.i.i.fr.i, 0
+  br i1 %11, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit18", label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i14": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i"
+"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit18": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i"
+  %12 = getelementptr inbounds i8, ptr %0, i64 %8
   %rhsc = load i8, ptr %12, align 1
   %rhsc.fr = freeze i8 %rhsc
-  %13 = icmp eq i8 %rhsc.fr, 47
-  br i1 %13, label %16, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread"
+  %.not = icmp eq i8 %rhsc.fr, 47
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  br i1 %.not, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit24.thread", label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread"
 
-"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i14", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i", %3
+"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i", %3, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit18"
   %.not.i.i19 = icmp ult i64 %1, 3
   br i1 %.not.i.i19, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit24.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i20"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i20": ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread"
   %bcmp.i.i.i21 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) @anon.2ddd5f0bcca2257bc784f7a8d3ca6654.460, ptr noundef nonnull readonly align 1 dereferenceable(3) %0, i64 3), !alias.scope !10158
   %bcmp.i.i.fr.i22 = freeze i32 %bcmp.i.i.i21
-  %14 = icmp ne i32 %bcmp.i.i.fr.i22, 0
-  %15 = icmp ult i64 %1, 6
-  %or.cond = or i1 %15, %14
-  br i1 %or.cond, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit24.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i26"
+  %14 = icmp eq i32 %bcmp.i.i.fr.i22, 0
+  br i1 %14, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit30", label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit24.thread"
 
-16:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i14"
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %18 = xor i64 %8, -1
-  %19 = add i64 %1, %18
-  br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit24.thread"
-
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i26": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i20"
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %bcmp.i.i.i27 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) @anon.2ddd5f0bcca2257bc784f7a8d3ca6654.461, ptr noundef nonnull readonly align 1 dereferenceable(3) %20, i64 3), !alias.scope !10168
+"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit30": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i20"
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %bcmp.i.i.i27 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) @anon.2ddd5f0bcca2257bc784f7a8d3ca6654.461, ptr noundef nonnull readonly align 1 dereferenceable(3) %15, i64 3), !alias.scope !10168
   %bcmp.i.i.fr.i28 = freeze i32 %bcmp.i.i.i27
-  %21 = icmp eq i32 %bcmp.i.i.fr.i28, 0
-  %22 = add i64 %1, -6
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %spec.select.i29 = select i1 %21, ptr %23, ptr null
+  %16 = icmp eq i32 %bcmp.i.i.fr.i28, 0
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %spec.select.i29 = select i1 %16, ptr %17, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit24.thread"
 
-"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit24.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i26", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i20", %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread", %16
-  %.sroa.4.0 = phi i64 [ %19, %16 ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i20" ], [ undef, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread" ], [ %22, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i26" ]
-  %.sroa.0.0 = phi ptr [ %17, %16 ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i20" ], [ null, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread" ], [ %spec.select.i29, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i26" ]
-  %24 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %25 = insertvalue { ptr, i64 } %24, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %25
+"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit24.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i20", %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread", %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit18", %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit30"
+  %.sroa.0.0 = phi ptr [ %13, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit18" ], [ %spec.select.i29, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit30" ], [ null, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread" ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb6ce933c56c456f8E.exit.i20" ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %19 = insertvalue { ptr, i64 } %18, i64 undef, 1
+  ret { ptr, i64 } %19
 }
 
 ; Function Attrs: nonlazybind uwtable

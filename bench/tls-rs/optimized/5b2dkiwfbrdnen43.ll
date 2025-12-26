@@ -21845,14 +21845,10 @@ default.unreachable:                              ; preds = %18
           to label %_ZN6rustls6crypto12SharedSecret19strip_leading_zeros17h002082db803cc305E.exit unwind label %32
 
 _ZN6rustls6crypto12SharedSecret19strip_leading_zeros17h002082db803cc305E.exit: ; preds = %.noexc13
-  %.fca.0.extract.i = extractvalue { i64, ptr } %45, 0
-  %.fca.1.extract.i = extractvalue { i64, ptr } %45, 1
-  %.not.i = icmp eq ptr %.fca.1.extract.i, null
   %48 = extractvalue { ptr, i64 } %47, 1
-  %spec.select.i = select i1 %.not.i, i64 %48, i64 %.fca.0.extract.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !662
   %49 = load i64, ptr %36, align 8, !alias.scope !662, !noundef !14
-  %50 = add i64 %49, %spec.select.i
+  %50 = add i64 %49, %48
   store i64 %50, ptr %36, align 8, !alias.scope !662
   br label %51
 

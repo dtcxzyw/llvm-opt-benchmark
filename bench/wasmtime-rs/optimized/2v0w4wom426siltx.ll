@@ -7,55 +7,16 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h167200f8b8481a97E(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) initializes((0, 8)) %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 %3)
   %6 = extractvalue { i64, i1 } %5, 1
-  br i1 %6, label %12, label %7
+  br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  %8 = extractvalue { i64, i1 } %5, 0
-  %9 = add i64 %2, -1
-  %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 %9)
-  %11 = extractvalue { i64, i1 } %10, 1
-  br i1 %11, label %21, label %13
-
-12:                                               ; preds = %4
-  store i64 0, ptr %0, align 8
-  br label %28
-
-13:                                               ; preds = %7
-  %14 = extractvalue { i64, i1 } %10, 0
-  %15 = sub i64 0, %2
-  %16 = and i64 %14, %15
-  %17 = add i64 %3, 16
-  %18 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %17)
-  %19 = extractvalue { i64, i1 } %18, 1
-  %20 = extractvalue { i64, i1 } %18, 0
-  br i1 %19, label %25, label %22
-
-21:                                               ; preds = %7
-  store i64 0, ptr %0, align 8
-  br label %28
-
-22:                                               ; preds = %13
-  %23 = sub i64 -9223372036854775808, %2
-  %24 = icmp ugt i64 %20, %23
-  br i1 %24, label %27, label %26
-
-25:                                               ; preds = %13
-  store i64 0, ptr %0, align 8
-  br label %28
-
-26:                                               ; preds = %22
-  store i64 %2, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %20, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %16, ptr %.sroa.312.0..sroa_idx, align 8
-  br label %28
+  store i64 0, ptr %.sroa.312.0..sroa_idx, align 8
+  br label %8
 
-27:                                               ; preds = %22
-  store i64 0, ptr %0, align 8
-  br label %28
-
-28:                                               ; preds = %12, %21, %25, %27, %26
+8:                                                ; preds = %4, %7
+  %.sink = phi i64 [ %2, %7 ], [ 0, %4 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -722,9 +683,6 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw19capacity_to_buckets17h2a3a4ae4f5f
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #3
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
