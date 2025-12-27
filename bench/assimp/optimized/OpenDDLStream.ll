@@ -170,15 +170,15 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 define hidden noundef zeroext i1 @_ZN10ODDLParser12IOStreamBase5closeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %6, label %4
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %6, label %4
 
-4:                                                ; preds = %1
-  %5 = tail call i32 @fclose(ptr noundef nonnull %3)
+5:                                                ; preds = %1
+  %6 = tail call i32 @fclose(ptr noundef nonnull %3)
   store ptr null, ptr %2, align 8
-  br label %6
+  br label %7
 
-6:                                                ; preds = %1, %4
+7:                                                ; preds = %1, %5
   ret i1 false
 }
 
@@ -221,11 +221,11 @@ define hidden noundef i64 @_ZN10ODDLParser12IOStreamBase5writeERKNSt7__cxx1112ba
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %6, label %23, label %7
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2
+7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -242,10 +242,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2
   %20 = add i64 %19, 1
   call void @_ZdlPvm(ptr noundef %17, i64 noundef %20) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %21
+  br label %23
 
-21:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi i64 [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %2 ]
+23:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.0 = phi i64 [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %2 ]
   ret i64 %.0
 }
 

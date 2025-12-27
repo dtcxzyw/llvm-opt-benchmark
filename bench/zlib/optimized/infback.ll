@@ -107,13 +107,13 @@ define range(i32 -5, 2) i32 @inflateBack(ptr noundef %0, ptr noundef readonly ca
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %677, label %8
+  br i1 %7, label %679, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %677, label %12
+  br i1 %11, label %679, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -175,8 +175,8 @@ define range(i32 -5, 2) i32 @inflateBack(ptr noundef %0, ptr noundef readonly ca
     i32 16193, label %83
     i32 16196, label %.preheader696
     i32 16200, label %373
-    i32 16208, label %.loopexit687.loopexit1483
-    i32 16209, label %.loopexit687.loopexit1581
+    i32 16208, label %.loopexit687.loopexit1484
+    i32 16209, label %.loopexit687.loopexit1582
   ]
 
 .preheader696:                                    ; preds = %47
@@ -261,7 +261,7 @@ define range(i32 -5, 2) i32 @inflateBack(ptr noundef %0, ptr noundef readonly ca
   store ptr @.str.1, ptr %13, align 8, !tbaa !6
   br label %80
 
-default.unreachable1383:                          ; preds = %72
+default.unreachable1384:                          ; preds = %72
   unreachable
 
 80:                                               ; preds = %72, %77, %78, %79
@@ -1662,16 +1662,16 @@ default.unreachable1383:                          ; preds = %72
   %.pre = load i32, ptr %14, align 8, !tbaa !27
   br label %47
 
-.loopexit687.loopexit1483:                        ; preds = %47
+.loopexit687.loopexit1484:                        ; preds = %47
   br label %.loopexit687
 
-.loopexit687.loopexit1581:                        ; preds = %47
+.loopexit687.loopexit1582:                        ; preds = %47
   br label %.loopexit687
 
-.loopexit687:                                     ; preds = %477, %647, %120, %47, %.loopexit687.loopexit1581, %.loopexit687.loopexit1483, %616, %576, %537, %500, %444, %405, %320, %298, %267, %222, %.split, %138, %117, %95, %.split1064
+.loopexit687:                                     ; preds = %477, %647, %120, %47, %.loopexit687.loopexit1582, %.loopexit687.loopexit1484, %616, %576, %537, %500, %444, %405, %320, %298, %267, %222, %.split, %138, %117, %95, %.split1064
   %.4568 = phi i32 [ %.0564, %.loopexit687.loopexit1483 ], [ 0, %.split1064 ], [ 0, %95 ], [ 0, %117 ], [ %.40, %647 ], [ 0, %138 ], [ 0, %.split ], [ 0, %267 ], [ %.0564, %47 ], [ 0, %500 ], [ 0, %616 ], [ %.9573, %120 ], [ 0, %576 ], [ 0, %537 ], [ 0, %444 ], [ 0, %405 ], [ 0, %298 ], [ 0, %320 ], [ 0, %222 ], [ %.31, %477 ], [ %.0564, %.loopexit687.loopexit1581 ]
   %.2558 = phi i32 [ %.0556, %.loopexit687.loopexit1483 ], [ %.0556, %.split1064 ], [ %.0556, %95 ], [ %.35591048, %117 ], [ %.pre1330, %647 ], [ %.0556, %138 ], [ %.0556, %.split ], [ %.0556, %267 ], [ %.0556, %47 ], [ %.0556, %500 ], [ %.0556, %616 ], [ %122, %120 ], [ %.0556, %576 ], [ %.0556, %537 ], [ %.0556, %444 ], [ %.0556, %405 ], [ %.0556, %298 ], [ %.0556, %320 ], [ %.0556, %222 ], [ %479, %477 ], [ %.0556, %.loopexit687.loopexit1581 ]
-  %.0 = phi i32 [ 1, %.loopexit687.loopexit1483 ], [ -5, %.split1064 ], [ -5, %95 ], [ -5, %117 ], [ -5, %647 ], [ -5, %138 ], [ -5, %.split ], [ -5, %267 ], [ -2, %47 ], [ -5, %500 ], [ -5, %616 ], [ -5, %120 ], [ -5, %576 ], [ -5, %537 ], [ -5, %444 ], [ -5, %405 ], [ -5, %298 ], [ -5, %320 ], [ -5, %222 ], [ -5, %477 ], [ -3, %.loopexit687.loopexit1581 ]
+  %669 = phi i32 [ 1, %.loopexit687.loopexit1483 ], [ -5, %.split1064 ], [ -5, %95 ], [ -5, %117 ], [ -5, %647 ], [ -5, %138 ], [ -5, %.split ], [ -5, %267 ], [ -2, %47 ], [ -5, %500 ], [ -5, %616 ], [ -5, %120 ], [ -5, %576 ], [ -5, %537 ], [ -5, %444 ], [ -5, %405 ], [ -5, %298 ], [ -5, %320 ], [ -5, %222 ], [ -5, %477 ], [ -3, %.loopexit687.loopexit1581 ]
   %669 = load i32, ptr %24, align 4, !tbaa !22
   %670 = icmp ult i32 %.2558, %669
   br i1 %670, label %671, label %675
@@ -1682,13 +1682,13 @@ default.unreachable1383:                          ; preds = %72
   %674 = call i32 %3(ptr noundef %4, ptr noundef %672, i32 noundef %673) #5
   br label %675
 
-675:                                              ; preds = %671, %.loopexit687
+675:; preds = %671, %.loopexit687
   %676 = load ptr, ptr %6, align 8, !tbaa !30
   store ptr %676, ptr %0, align 8, !tbaa !29
   store i32 %.4568, ptr %44, align 8, !tbaa !31
-  br label %677
+  br label %679
 
-677:                                              ; preds = %5, %8, %675
+679:                                              ; preds = %5, %8, %675
   %.0598 = phi i32 [ %.0, %675 ], [ -2, %8 ], [ -2, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0598

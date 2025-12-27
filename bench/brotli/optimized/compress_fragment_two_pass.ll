@@ -9242,9 +9242,9 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
   store i8 %92, ptr %93, align 1, !tbaa !7
   %94 = add nuw nsw i64 %.067.i, 1
   %exitcond.not.i = icmp eq i64 %94, 8
-  br i1 %exitcond.not.i, label %.lr.ph78.preheader, label %82, !llvm.loop !507
+  br i1 %exitcond.not.i, label %BuildAndStoreCommandPrefixCode.exit, label %82, !llvm.loop !507
 
-.lr.ph78.preheader:                               ; preds = %82
+BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
   tail call void @BrotliStoreHuffmanTree(ptr noundef nonnull %41, i64 noundef 704, ptr noundef nonnull %18, ptr noundef %5, ptr noundef %6) #11
   tail call void @BrotliStoreHuffmanTree(ptr noundef nonnull %42, i64 noundef 64, ptr noundef nonnull %18, ptr noundef %5, ptr noundef %6) #11
   %.pre = load i64, ptr %5, align 8, !tbaa !3, !alias.scope !508, !noalias !511

@@ -420,7 +420,7 @@ default.unreachable:                              ; preds = %229, %212, %38, %22
 24:                                               ; preds = %22
   %25 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 @anon.7b12c2ab9e1ce74a96d00cd7e4c1ea31.14, i64 noundef 4), !noalias !73
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread55, label %27
+  br i1 %26, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread53, label %27
 
 27:                                               ; preds = %24
   %28 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %25), !noalias !73
@@ -443,7 +443,7 @@ default.unreachable:                              ; preds = %229, %212, %38, %22
 _ZN10serde_json3ser9Formatter10write_bool17h7ec1e3dc0b6bf878E.exit.i.i.i: ; preds = %.split.i.i.i.i, %.split2.i.i.i.i
   %phi.call.i.i.i.i = phi ptr [ %34, %.split.i.i.i.i ], [ %33, %.split2.i.i.i.i ]
   %35 = icmp eq ptr %phi.call.i.i.i.i, null
-  br i1 %35, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread55, label %36
+  br i1 %35, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread53, label %36
 
 36:                                               ; preds = %_ZN10serde_json3ser9Formatter10write_bool17h7ec1e3dc0b6bf878E.exit.i.i.i
   %37 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %phi.call.i.i.i.i), !noalias !73
@@ -542,7 +542,7 @@ _ZN10serde_json3ser9Formatter9write_u6417h834517c92d4fb842E.exit.i.i.i.i: ; pred
   %87 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 %86, i64 noundef %85), !noalias !85
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !80
   %88 = icmp eq ptr %87, null
-  br i1 %88, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread55, label %89
+  br i1 %88, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread53, label %89
 
 89:                                               ; preds = %_ZN10serde_json3ser9Formatter9write_u6417h834517c92d4fb842E.exit.i.i.i.i
   %90 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %87), !noalias !85
@@ -642,7 +642,7 @@ _ZN10serde_json3ser9Formatter9write_i6417h9b366e3739ad435dE.exit.i.i.i.i: ; pred
   %141 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 %140, i64 noundef %139), !noalias !85
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !80
   %142 = icmp eq ptr %141, null
-  br i1 %142, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread55, label %143
+  br i1 %142, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread53, label %143
 
 143:                                              ; preds = %_ZN10serde_json3ser9Formatter9write_i6417h9b366e3739ad435dE.exit.i.i.i.i
   %144 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %141), !noalias !85
@@ -660,7 +660,7 @@ _ZN10serde_json3ser9Formatter9write_i6417h9b366e3739ad435dE.exit.i.i.i.i: ; pred
   %150 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %149), !noalias !85
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !80
   %151 = icmp eq ptr %150, null
-  br i1 %151, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread55, label %152
+  br i1 %151, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread53, label %152
 
 152:                                              ; preds = %148
   %153 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %150), !noalias !85
@@ -669,7 +669,7 @@ _ZN10serde_json3ser9Formatter9write_i6417h9b366e3739ad435dE.exit.i.i.i.i: ; pred
 select.unfold.i.i.i.i:                            ; preds = %145
   %154 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 @anon.7b12c2ab9e1ce74a96d00cd7e4c1ea31.14, i64 noundef 4), !noalias !85
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread55, label %156
+  br i1 %155, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread53, label %156
 
 156:                                              ; preds = %select.unfold.i.i.i.i
   %157 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %154), !noalias !85
@@ -698,7 +698,7 @@ _ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.i.i.i: ; preds 
   %169 = load ptr, ptr %16, align 8, !alias.scope !110, !noalias !111, !nonnull !5, !align !113, !noundef !5
   %170 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %169, ptr noalias noundef nonnull readonly align 1 @anon.7383d113eafbf7870c8f4bb85f4fa11e.11.llvm.18206402751905676474, i64 noundef 1), !noalias !114
   %171 = icmp eq ptr %170, null
-  br i1 %171, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread55, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i.i.i
+  br i1 %171, label %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread53, label %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i.i.i
 
 _ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i.i.i: ; preds = %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.i.i.i, %165, %158
   %.0.i3.i.i.i = phi ptr [ %170, %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.i.i.i ], [ %167, %165 ], [ %163, %158 ]
@@ -815,20 +815,20 @@ _ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread: ; preds = %210, %
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !64
   br label %211
 
-_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread55: ; preds = %24, %_ZN10serde_json3ser9Formatter10write_bool17h7ec1e3dc0b6bf878E.exit.i.i.i, %select.unfold.i.i.i.i, %_ZN10serde_json3ser9Formatter9write_u6417h834517c92d4fb842E.exit.i.i.i.i, %148, %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.i.i.i, %_ZN10serde_json3ser9Formatter9write_i6417h9b366e3739ad435dE.exit.i.i.i.i
+_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread53: ; preds = %24, %_ZN10serde_json3ser9Formatter10write_bool17h7ec1e3dc0b6bf878E.exit.i.i.i, %select.unfold.i.i.i.i, %_ZN10serde_json3ser9Formatter9write_u6417h834517c92d4fb842E.exit.i.i.i.i, %148, %_ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.i.i.i, %_ZN10serde_json3ser9Formatter9write_i6417h9b366e3739ad435dE.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !64
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit"
 
 _ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit: ; preds = %173, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03981213a55c5436E.exit.i.i"
   %.0.i.i = phi ptr [ %.0.i18.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03981213a55c5436E.exit.i.i" ], [ %175, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !64
-  %.not.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit", label %211
+  %.not60 = icmp eq ptr %.0.i.i, null
+  br i1 %.not60, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit", label %211
 
 211:                                              ; preds = %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread, %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit
-  %.0.i.i53 = phi ptr [ %.0.i.i.ph, %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread ], [ %.0.i.i, %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit ]
+  %.0.i.i51 = phi ptr [ %.0.i.i.ph, %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread ], [ %.0.i.i, %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !126
-  store ptr %.0.i.i53, ptr %10, align 8, !noalias !129
+  store ptr %.0.i.i51, ptr %10, align 8, !noalias !129
   call void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h63f136b54a0d01beE.llvm.12266911530922283489"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !126
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit"
@@ -860,7 +860,7 @@ _ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit: ; preds = %173, %"_ZN83_
 215:                                              ; preds = %212
   %216 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 @anon.7b12c2ab9e1ce74a96d00cd7e4c1ea31.14, i64 noundef 4), !noalias !149
   %217 = icmp eq ptr %216, null
-  br i1 %217, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread62, label %218
+  br i1 %217, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread58, label %218
 
 218:                                              ; preds = %215
   %219 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %216), !noalias !149
@@ -883,7 +883,7 @@ _ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit: ; preds = %173, %"_ZN83_
 _ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i.i.i: ; preds = %.split.i.i.i.i49, %.split2.i.i.i.i47
   %phi.call.i.i.i.i48 = phi ptr [ %225, %.split.i.i.i.i49 ], [ %224, %.split2.i.i.i.i47 ]
   %226 = icmp eq ptr %phi.call.i.i.i.i48, null
-  br i1 %226, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread62, label %227
+  br i1 %226, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread58, label %227
 
 227:                                              ; preds = %_ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i.i.i
   %228 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %phi.call.i.i.i.i48), !noalias !149
@@ -982,7 +982,7 @@ _ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i.i.i: ; pred
   %278 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 %277, i64 noundef %276), !noalias !159
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !154
   %279 = icmp eq ptr %278, null
-  br i1 %279, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread62, label %280
+  br i1 %279, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread58, label %280
 
 280:                                              ; preds = %_ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i.i.i
   %281 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %278), !noalias !159
@@ -1082,7 +1082,7 @@ _ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i.i.i: ; pred
   %332 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 %331, i64 noundef %330), !noalias !159
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !154
   %333 = icmp eq ptr %332, null
-  br i1 %333, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread62, label %334
+  br i1 %333, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread58, label %334
 
 334:                                              ; preds = %_ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i.i.i
   %335 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %332), !noalias !159
@@ -1100,7 +1100,7 @@ _ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i.i.i: ; pred
   %341 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %340), !noalias !159
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !154
   %342 = icmp eq ptr %341, null
-  br i1 %342, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread62, label %343
+  br i1 %342, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread58, label %343
 
 343:                                              ; preds = %339
   %344 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %341), !noalias !159
@@ -1109,7 +1109,7 @@ _ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i.i.i: ; pred
 select.unfold.i.i.i.i19:                          ; preds = %336
   %345 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 @anon.7b12c2ab9e1ce74a96d00cd7e4c1ea31.14, i64 noundef 4), !noalias !159
   %346 = icmp eq ptr %345, null
-  br i1 %346, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread62, label %347
+  br i1 %346, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread58, label %347
 
 347:                                              ; preds = %select.unfold.i.i.i.i19
   %348 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %345), !noalias !159
@@ -1137,7 +1137,7 @@ _ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i.i: ; preds 
   %359 = load ptr, ptr %9, align 8, !alias.scope !184, !noalias !185, !nonnull !5, !align !113, !noundef !5
   %360 = call noundef ptr @_ZN3std2io5Write9write_all17h6ffa51b6097a75eaE(ptr noalias noundef nonnull align 8 dereferenceable(8) %359, ptr noalias noundef nonnull readonly align 1 @anon.7383d113eafbf7870c8f4bb85f4fa11e.11.llvm.18206402751905676474, i64 noundef 1), !noalias !187
   %361 = icmp eq ptr %360, null
-  br i1 %361, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread62, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i.i.i
+  br i1 %361, label %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread58, label %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i.i.i
 
 _ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i.i.i: ; preds = %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i.i, %356, %349
   %.0.i3.i.i.i17 = phi ptr [ %360, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i.i ], [ %357, %356 ], [ %354, %349 ]
@@ -1332,25 +1332,25 @@ _ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !135
   br label %429
 
-_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread62: ; preds = %215, %_ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i.i.i, %select.unfold.i.i.i.i19, %_ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i.i.i, %339, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i.i, %_ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i.i.i
+_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread58: ; preds = %215, %_ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i.i.i, %select.unfold.i.i.i.i19, %_ZN10serde_json3ser9Formatter9write_u6417hc93ca8d034f51936E.exit.i.i.i.i, %339, %_ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.i.i.i, %_ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !135
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit"
 
 _ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit: ; preds = %363, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03e2085cde463d2dE.exit.i.i"
   %.0.i.i2 = phi ptr [ %.0.i20.i.i, %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeMap$GT$3end17h03e2085cde463d2dE.exit.i.i" ], [ %365, %363 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !135
-  %.not.i50 = icmp eq ptr %.0.i.i2, null
-  br i1 %.not.i50, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit", label %429
+  %.not = icmp eq ptr %.0.i.i2, null
+  br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit", label %429
 
 429:                                              ; preds = %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread, %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit
-  %.0.i.i260 = phi ptr [ %.0.i.i2.ph, %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread ], [ %.0.i.i2, %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit ]
+  %.0.i.i256 = phi ptr [ %.0.i.i2.ph, %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread ], [ %.0.i.i2, %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !251
-  store ptr %.0.i.i260, ptr %3, align 8, !noalias !254
+  store ptr %.0.i.i256, ptr %3, align 8, !noalias !254
   call void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17h63f136b54a0d01beE.llvm.12266911530922283489"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !251
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit": ; preds = %429, %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit, %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread62, %211, %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit, %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread55
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd835812e833fb377E.exit": ; preds = %429, %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit, %_ZN10serde_json3ser16to_writer_pretty17h43d5d3095db3fc07E.exit.thread58, %211, %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit, %_ZN10serde_json3ser9to_writer17h4f601c413d134b6eE.exit.thread53
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i1 false
 }

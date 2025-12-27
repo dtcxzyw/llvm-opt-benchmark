@@ -1867,13 +1867,13 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %6 = alloca %"class.nanobind::object", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN8nanobind4evalILNS_9eval_modeE258ELm18EEENS_6objectERAT0__KcNS_6handleES6_(ptr dead_on_unwind nonnull writable sret(%"class.nanobind::object") align 8 %6, ptr noundef nonnull align 1 dereferenceable(18) @.str.18, ptr null, ptr null) #12
-          to label %7 unwind label %9
+          to label %7 unwind label %"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit"
 
 7:                                                ; preds = %5
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
   br label %"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit"
 
-9:                                                ; preds = %5
+"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit": ; preds = %5
   %10 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8nanobind12python_errorE
   %11 = extractvalue { ptr, i32 } %10, 1
@@ -1887,14 +1887,14 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   call void @__cxa_end_catch()
   br label %"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit"
 
-17:                                               ; preds = %9
+17:                                               ; preds = %"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit"
   resume { ptr, i32 } %10
 
 "_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit": ; preds = %7, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %18 = load i64, ptr @_Py_FalseStruct, align 8, !tbaa !18
-  %19 = add nsw i64 %18, 1
-  store i64 %19, ptr @_Py_FalseStruct, align 8, !tbaa !18
+  %19 = load i64, ptr @_Py_FalseStruct, align 8, !tbaa !18
+  %20 = add nsw i64 %19, 1
+  store i64 %20, ptr @_Py_FalseStruct, align 8, !tbaa !18
   ret ptr @_Py_FalseStruct
 }
 

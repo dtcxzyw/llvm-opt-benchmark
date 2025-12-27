@@ -469,20 +469,20 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 9:                                                ; preds = %7
   %10 = tail call i32 @chdir(ptr noundef nonnull @.str.34) #15
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %.loopexit.i, label %7
+  br i1 %11, label %12, label %7
 
-.loopexit.i:                                      ; preds = %9
+12:                                               ; preds = %9
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.36) #14
   unreachable
 
 ChangeToWolfRoot.exit:                            ; preds = %7
-  %12 = tail call i32 @fclose(ptr noundef nonnull %8)
+  %15 = tail call i32 @fclose(ptr noundef nonnull %8)
   call void @echoclient_test(ptr noundef nonnull %3)
-  %13 = tail call i32 @wolfSSL_Cleanup() #15
-  %14 = load i32, ptr %5, align 8, !tbaa !9
+  %16 = tail call i32 @wolfSSL_Cleanup() #15
+  %17 = load i32, ptr %5, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %14
+  ret i32 %17
 }
 
 declare i32 @wolfSSL_Init() local_unnamed_addr #3

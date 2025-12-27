@@ -1201,13 +1201,13 @@ if.end59:                                         ; preds = %invoke.cont57, %if.
   br i1 %cmp60.not, label %cleanup, label %cleanup.sink.split
 
 if.end64:                                         ; preds = %invoke.cont17
-  br i1 %call18, label %if.then74, label %if.then67
+  br i1 %call18, label %if.end72, label %if.then67
 
 if.then67:                                        ; preds = %if.end64
   %cmp68.not = icmp eq ptr %error_info, null
   br i1 %cmp68.not, label %cleanup, label %cleanup.sink.split
 
-if.then74:                                        ; preds = %if.end64
+if.end72:                                         ; preds = %if.end64
   %25 = load i32, ptr %13, align 8
   %cmp.i.not = icmp eq i32 %25, 0
   br i1 %cmp.i.not, label %if.then79, label %invoke.cont93
@@ -1252,7 +1252,7 @@ invoke.cont85:                                    ; preds = %invoke.cont6.i39
   %call90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i32, ptr noundef nonnull @.str.11)
           to label %invoke.cont89 unwind label %lpad86
 
-invoke.cont89:                                    ; preds = %invoke.cont85
+cleanup.thread:                                   ; preds = %invoke.cont85
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp84) #19
   br label %delete.notnull.i.i
 
@@ -1287,7 +1287,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %return, label %delete.notnull.i.i
 
-delete.notnull.i.i:                               ; preds = %invoke.cont89, %if.then101, %if.end99, %cleanup
+delete.notnull.i.i:                               ; preds = %cleanup.thread, %if.then101, %if.end99, %cleanup
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   %29 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %29, null

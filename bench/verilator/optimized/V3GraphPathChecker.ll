@@ -719,30 +719,30 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.032.038 = load ptr, ptr %34, align 8, !tbaa !30
   %.not3739 = icmp eq ptr %.sroa.032.038, null
-  br i1 %.not3739, label %.loopexit, label %.lr.ph.split.preheader
+  br i1 %.not3739, label %.loopexit, label %.lr.ph
 
-.lr.ph.split.preheader:                           ; preds = %33
+.lr.ph:                                           ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %.lr.ph.split
+  br label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %48
-  %.sroa.032.041 = phi ptr [ %.sroa.032.0, %48 ], [ %.sroa.032.038, %.lr.ph.split.preheader ]
-  %.02440 = phi i1 [ %.1, %48 ], [ false, %.lr.ph.split.preheader ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.032.041, i64 8
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %48
+  %.sroa.032.041.us = phi ptr [ %.sroa.032.0, %48 ], [ %.sroa.032.038, %.lr.ph.split.preheader ]
+  %.02440.us = phi i1 [ %.1, %48 ], [ false, %.lr.ph.split.preheader ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.032.041.us, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !33
-  %.not.i = icmp eq ptr %37, null
-  %38 = select i1 %.not.i, ptr %.sroa.032.041, ptr %37
+  %.not.i.us = icmp eq ptr %37, null
+  %38 = select i1 %.not.i.us, ptr %.sroa.032.041.us, ptr %37
   call void @llvm.prefetch.p0(ptr nonnull %38, i32 1, i32 3, i32 1)
   %39 = load ptr, ptr %35, align 8, !tbaa !35
-  %40 = call noundef zeroext i1 %39(ptr noundef nonnull %.sroa.032.041)
+  %40 = call noundef zeroext i1 %39(ptr noundef nonnull %.sroa.032.041.us)
   br i1 %40, label %41, label %48
 
-41:                                               ; preds = %.lr.ph.split
+41:                                               ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.032.041, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.032.041.us, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !42
   %44 = call noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEPK13V3GraphVertexS2_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %43, ptr noundef nonnull %2, ptr noundef nonnull %5)
-  %spec.select = select i1 %44, i1 true, i1 %.02440
+  %spec.select.us = select i1 %44, i1 true, i1 %.02440.us
   %45 = load i32, ptr %5, align 4, !tbaa !40
   %46 = load i32, ptr %3, align 4, !tbaa !40
   %47 = add i32 %46, %45
@@ -750,13 +750,13 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
-48:                                               ; preds = %.lr.ph.split, %41
+58:                                               ; preds = %.lr.ph.split, %41
   %.1 = phi i1 [ %spec.select, %41 ], [ %.02440, %.lr.ph.split ]
   %.sroa.032.0 = load ptr, ptr %36, align 8, !tbaa !30
   %.not37 = icmp eq ptr %.sroa.032.0, null
   br i1 %.not37, label %.loopexit, label %.lr.ph.split
 
-.loopexit:                                        ; preds = %48, %33, %28, %21, %19, %15, %16
+.loopexit:                                        ; preds = %58, %33, %28, %21, %19, %15, %16
   %.0 = phi i1 [ false, %28 ], [ false, %15 ], [ true, %19 ], [ false, %21 ], [ false, %16 ], [ false, %33 ], [ %.1, %48 ]
   ret i1 %.0
 }
@@ -783,21 +783,21 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker16isTransitiveEdgeEPK1
   store i64 %9, ptr %7, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.015.021 = load ptr, ptr %10, align 8, !tbaa !30
-  %.not22 = icmp eq ptr %.sroa.015.021, null
-  br i1 %.not22, label %.critedge, label %.lr.ph
+  %.not = icmp eq ptr %.sroa.015.021, null
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %19
-  %.sroa.015.023 = phi ptr [ %.sroa.015.0, %19 ], [ %.sroa.015.021, %2 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.015.023, i64 8
+  %.sroa.015.022 = phi ptr [ %.sroa.015.0, %19 ], [ %.sroa.015.021, %2 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.015.022, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %.not.i = icmp eq ptr %12, null
-  %13 = select i1 %.not.i, ptr %.sroa.015.023, ptr %12
+  %13 = select i1 %.not.i, ptr %.sroa.015.022, ptr %12
   tail call void @llvm.prefetch.p0(ptr nonnull %13, i32 1, i32 3, i32 1)
-  %14 = icmp eq ptr %.sroa.015.023, %1
+  %14 = icmp eq ptr %.sroa.015.022, %1
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.015.023, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.015.022, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = tail call noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEPK13V3GraphVertexS2_Pj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %17, ptr noundef %6, ptr noundef null)
   br i1 %18, label %.critedge, label %._crit_edge
@@ -808,8 +808,8 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker16isTransitiveEdgeEPK1
 
 19:                                               ; preds = %._crit_edge, %.lr.ph
   %.sroa.015.0 = phi ptr [ %.sroa.015.0.pre, %._crit_edge ], [ %12, %.lr.ph ]
-  %.not = icmp eq ptr %.sroa.015.0, null
-  br i1 %.not, label %.critedge, label %.lr.ph
+  %.not25 = icmp eq ptr %.sroa.015.0, null
+  br i1 %.not25, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %15, %19, %2
   ret i1 false

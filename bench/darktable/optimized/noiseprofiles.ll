@@ -98,11 +98,11 @@ define noundef ptr @dt_noiseprofile_init(ptr noundef %0) local_unnamed_addr #0 {
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !11
   %14 = and i32 %13, 2
   %.not9 = icmp eq i32 %14, 0
-  br i1 %.not9, label %_noiseprofile_verify.exit, label %15
+  br i1 %.not9, label %197, label %15
 
 15:                                               ; preds = %12
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4, ptr noundef nonnull %3) #11
-  br label %_noiseprofile_verify.exit
+  br label %197
 
 16:                                               ; preds = %10
   %17 = call ptr @json_parser_new() #11
@@ -118,7 +118,7 @@ define noundef ptr @dt_noiseprofile_init(ptr noundef %0) local_unnamed_addr #0 {
   %23 = load ptr, ptr %2, align 8, !tbaa !6
   call void @g_error_free(ptr noundef %23) #11
   call void @g_object_unref(ptr noundef %17) #11
-  br label %_noiseprofile_verify.exit
+  br label %197
 
 24:                                               ; preds = %16
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !11
@@ -594,14 +594,14 @@ is_member.exit180.i:                              ; preds = %.lr.ph.i175.i
   call void @g_object_unref(ptr noundef nonnull %35) #11
   br label %_noiseprofile_verify.exit
 
-_noiseprofile_verify.exit.thread:                 ; preds = %33, %30
+_noiseprofile_verify.exit:                        ; preds = %33, %30
   %196 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #11
   call void (ptr, ...) @dt_control_log(ptr noundef %196, ptr noundef nonnull %3) #11
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #11
   call void @g_object_unref(ptr noundef %17) #11
-  br label %_noiseprofile_verify.exit
+  br label %197
 
-_noiseprofile_verify.exit:                        ; preds = %195, %.thread215.i, %19, %_noiseprofile_verify.exit.thread, %12, %15
+197:                                              ; preds = %195, %.thread215.i, %19, %_noiseprofile_verify.exit, %12, %15
   %.0 = phi ptr [ null, %12 ], [ null, %15 ], [ null, %19 ], [ null, %_noiseprofile_verify.exit.thread ], [ %17, %.thread215.i ], [ %17, %195 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

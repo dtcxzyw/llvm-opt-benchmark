@@ -277,14 +277,14 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_16GetMainThreadPi
 define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_13PidHasChangedEv() local_unnamed_addr #2 {
   %1 = tail call i32 @getpid() #25
   %2 = load i32, ptr @_ZN6google24glog_internal_namespace_L17g_main_thread_pidE, align 4, !tbaa !40
-  %.not = icmp eq i32 %2, %1
-  br i1 %.not, label %4, label %3
+  %3 = icmp eq i32 %2, %1
+  br i1 %3, label %4, label %3
 
-3:                                                ; preds = %0
+4:                                                ; preds = %0
   store i32 %1, ptr @_ZN6google24glog_internal_namespace_L17g_main_thread_pidE, align 4, !tbaa !40
-  br label %4
+  br label %5
 
-4:                                                ; preds = %0, %3
+5:                                                ; preds = %0, %4
   ret i1 false
 }
 

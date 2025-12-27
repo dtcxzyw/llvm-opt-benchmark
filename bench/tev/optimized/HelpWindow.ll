@@ -4656,24 +4656,24 @@ define dso_local noundef zeroext i1 @_ZN3tev10HelpWindow14keyboard_eventEiiii(pt
   %or.cond.not = or i1 %7, %6
   br i1 %or.cond.not, label %16, label %8
 
-8:                                                ; preds = %5
+7:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %10 = load ptr, ptr %9, align 16
+  %10 = load ptr, ptr %9, align 17
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZNKSt3__18functionIFvvEEclEv.exit
 
-12:                                               ; preds = %8
+13:                                               ; preds = %8
   tail call void @_ZNSt3__125__throw_bad_function_callB8ne190000Ev() #23
   unreachable
 
 _ZNKSt3__18functionIFvvEEclEv.exit:               ; preds = %8
-  %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %15 = load ptr, ptr %14, align 8
+  %14 = load ptr, ptr %10, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %16 = load ptr, ptr %15, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  br label %16
+  br label %17
 
-16:                                               ; preds = %5, %_ZNKSt3__18functionIFvvEEclEv.exit
+17:                                               ; preds = %5, %_ZNKSt3__18functionIFvvEEclEv.exit
   ret i1 false
 }
 

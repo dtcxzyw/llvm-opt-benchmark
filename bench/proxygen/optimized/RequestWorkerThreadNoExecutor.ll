@@ -237,13 +237,13 @@ _ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i: ; preds = %0, %entr
   %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8proxygen12WorkerThread14currentWorker_E)
   %2 = load ptr, ptr %1, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5, label %dynamic_cast.notnull.i
+  br i1 %3, label %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit, label %dynamic_cast.notnull.i
 
 dynamic_cast.notnull.i:                           ; preds = %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i
   %4 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN8proxygen12WorkerThreadE, ptr nonnull @_ZTIN8proxygen29RequestWorkerThreadNoExecutorE, i64 0) #20
-  br label %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5
+  br label %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit
 
-_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5: ; preds = %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i, %dynamic_cast.notnull.i
+_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit: ; preds = %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i, %dynamic_cast.notnull.i
   %5 = phi ptr [ %4, %dynamic_cast.notnull.i ], [ null, %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i ]
   store ptr %5, ptr %self.i, align 8
   %call1.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen29RequestWorkerThreadNoExecutorEEET_PKciS7_OS5_(ptr noundef nonnull @.str.3, i32 noundef 63, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %self.i)
@@ -258,20 +258,20 @@ _ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5: ; preds = %_ZN8pro
   br i1 %9, label %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit8, label %dynamic_cast.notnull.i6
 
 dynamic_cast.notnull.i6:                          ; preds = %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5
-  %10 = call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN8proxygen12WorkerThreadE, ptr nonnull @_ZTIN8proxygen29RequestWorkerThreadNoExecutorE, i64 0) #20
+  %11 = call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN8proxygen12WorkerThreadE, ptr nonnull @_ZTIN8proxygen29RequestWorkerThreadNoExecutorE, i64 0) #20
   br label %_ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit8
 
 _ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.exit8: ; preds = %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5, %dynamic_cast.notnull.i6
-  %11 = phi ptr [ %10, %dynamic_cast.notnull.i6 ], [ null, %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5 ]
+  %12 = phi ptr [ %11, %dynamic_cast.notnull.i6 ], [ null, %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i5 ]
   %and = and i64 %7, -72057594037927936
   %add = add i64 %7, 1
   %and1 = and i64 %add, 72057594037927935
   %or = or disjoint i64 %and1, %and
-  store ptr %11, ptr %self.i3, align 8
+  store ptr %12, ptr %self.i3, align 8
   %call1.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen29RequestWorkerThreadNoExecutorEEET_PKciS7_OS5_(ptr noundef nonnull @.str.3, i32 noundef 63, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %self.i3)
-  %12 = load ptr, ptr %self.i3, align 8
+  %13 = load ptr, ptr %self.i3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %self.i3)
-  %nextRequestId_3 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %nextRequestId_3 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store i64 %or, ptr %nextRequestId_3, align 8
   ret i64 %7
 }

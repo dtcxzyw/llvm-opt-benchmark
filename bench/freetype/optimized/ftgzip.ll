@@ -333,7 +333,7 @@ define internal fastcc i64 @ft_gzip_file_io(ptr noundef %0, i64 noundef %1, ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8336
   %6 = load i64, ptr %5, align 8, !tbaa !22
   %7 = icmp ult i64 %1, %6
-  br i1 %7, label %8, label %ft_gzip_file_reset.exit
+  br i1 %7, label %8, label %22
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8, !tbaa !18
@@ -341,37 +341,37 @@ define internal fastcc i64 @ft_gzip_file_io(ptr noundef %0, i64 noundef %1, ptr 
   %11 = load i64, ptr %10, align 8, !tbaa !23
   %12 = tail call i32 @FT_Stream_Seek(ptr noundef %9, i64 noundef %11) #6
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %13, label %.ft_gzip_file_reset.exit_crit_edge
+  br i1 %.not.i, label %13, label %ft_gzip_file_reset.exit.thread
 
-.ft_gzip_file_reset.exit_crit_edge:               ; preds = %8
+ft_gzip_file_reset.exit.thread:                   ; preds = %8
   %.pre = load i64, ptr %5, align 8, !tbaa !22
   br label %ft_gzip_file_reset.exit
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+13: ; preds = %8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = tail call i32 @inflateReset(ptr noundef nonnull %14) #6
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %16, align 8, !tbaa !27
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %17, ptr %14, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 0, ptr %17, align 8, !tbaa !27
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %18, ptr %14, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %18, align 8, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4240
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %19, ptr %20, align 8, !tbaa !32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %19, ptr %21, align 8, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8352
   store ptr %5, ptr %21, align 8, !tbaa !20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8344
   store ptr %5, ptr %22, align 8, !tbaa !21
   store i64 0, ptr %5, align 8, !tbaa !22
-  br label %ft_gzip_file_reset.exit
+  br label %22
 
-ft_gzip_file_reset.exit:                          ; preds = %.ft_gzip_file_reset.exit_crit_edge, %13, %4
+22:                                               ; preds = %ft_gzip_file_reset.exit.thread, %13, %4
   %23 = phi i64 [ %.pre, %.ft_gzip_file_reset.exit_crit_edge ], [ 0, %13 ], [ %6, %4 ]
   %24 = icmp ugt i64 %1, %23
   br i1 %24, label %25, label %43
 
-25:                                               ; preds = %ft_gzip_file_reset.exit
+25:                                               ; preds = %22
   %26 = sub nuw i64 %1, %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8352
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8344
@@ -397,15 +397,15 @@ ft_gzip_file_reset.exit:                          ; preds = %.ft_gzip_file_reset
 40:                                               ; preds = %29
   %41 = tail call fastcc i32 @ft_gzip_file_fill_output(ptr noundef nonnull %0)
   %.not21.i = icmp eq i32 %41, 0
-  br i1 %.not21.i, label %29, label %ft_gzip_file_skip_output.exit.thread
+  br i1 %.not21.i, label %29, label %ft_gzip_file_reset.exit
 
 ft_gzip_file_skip_output.exit:                    ; preds = %29
   %42 = icmp eq i64 %3, 0
-  br i1 %42, label %ft_gzip_file_skip_output.exit.thread, label %.preheader
+  br i1 %42, label %ft_gzip_file_reset.exit, label %.preheader
 
-43:                                               ; preds = %ft_gzip_file_reset.exit
+43:                                               ; preds = %22
   %.old1 = icmp eq i64 %3, 0
-  br i1 %.old1, label %ft_gzip_file_skip_output.exit.thread, label %.preheader
+  br i1 %.old1, label %ft_gzip_file_reset.exit, label %.preheader
 
 .preheader:                                       ; preds = %43, %ft_gzip_file_skip_output.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8352
@@ -432,15 +432,15 @@ ft_gzip_file_skip_output.exit:                    ; preds = %29
   store i64 %56, ptr %5, align 8, !tbaa !22
   %57 = sub i64 %.037, %spec.select
   %58 = icmp eq i64 %57, 0
-  br i1 %58, label %ft_gzip_file_skip_output.exit.thread, label %59
+  br i1 %58, label %ft_gzip_file_reset.exit, label %59
 
 59:                                               ; preds = %46
   %60 = getelementptr inbounds nuw i8, ptr %.038, i64 %spec.select
   %61 = tail call fastcc i32 @ft_gzip_file_fill_output(ptr noundef nonnull %0)
   %.not45 = icmp eq i32 %61, 0
-  br i1 %.not45, label %46, label %ft_gzip_file_skip_output.exit.thread
+  br i1 %.not45, label %46, label %ft_gzip_file_reset.exit
 
-ft_gzip_file_skip_output.exit.thread:             ; preds = %40, %59, %46, %43, %ft_gzip_file_skip_output.exit
+ft_gzip_file_reset.exit:                          ; preds = %40, %59, %46, %43, %ft_gzip_file_skip_output.exit
   %.036 = phi i64 [ 0, %43 ], [ 0, %ft_gzip_file_skip_output.exit ], [ %52, %59 ], [ %52, %46 ], [ 0, %40 ]
   ret i64 %.036
 }

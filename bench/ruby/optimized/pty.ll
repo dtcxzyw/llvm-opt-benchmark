@@ -450,16 +450,16 @@ obtain_ctty.exit:                                 ; preds = %3, %14
   %16 = tail call i32 @getuid() #10
   %17 = tail call i32 @seteuid(i32 noundef %16) #10
   %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %20, label %18
+  br i1 %.not.i, label %19, label %drop_privilege.exit
 
-18:                                               ; preds = %obtain_ctty.exit
-  %19 = tail call i64 @strlcpy(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef %2) #10
+drop_privilege.exit:                              ; preds = %obtain_ctty.exit
+  %18 = tail call i64 @strlcpy(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef %2) #10
   br label %20
 
-20:                                               ; preds = %obtain_ctty.exit, %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !19
-  %23 = tail call i32 @rb_exec_async_signal_safe(ptr noundef %22, ptr noundef %1, i64 noundef %2) #10
+19:                                               ; preds = %obtain_ctty.exit, %18
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !19
+  %22 = tail call i32 @rb_exec_async_signal_safe(ptr noundef %21, ptr noundef %1, i64 noundef %2) #10
   ret i32 %23
 }
 

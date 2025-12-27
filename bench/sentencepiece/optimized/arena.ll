@@ -1180,22 +1180,22 @@ _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit: ; preds = %12
 ; Function Attrs: mustprogress noinline uwtable
 define noundef ptr @_ZN6google8protobuf8internal9ArenaImpl22GetSerialArenaFallbackEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i64, ptr %0 acquire, align 8
-  %.not21 = icmp eq i64 %3, 0
-  br i1 %.not21, label %.critedge, label %.lr.ph.preheader
+  %.not24 = icmp eq i64 %3, 0
+  br i1 %.not24, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %.0.i.i = inttoptr i64 %3 to ptr
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
-  %.022 = phi ptr [ %9, %7 ], [ %.0.i.i, %.lr.ph.preheader ]
-  %4 = getelementptr inbounds nuw i8, ptr %.022, i64 8
+  %.025 = phi ptr [ %9, %7 ], [ %.0.i.i, %.lr.ph.preheader ]
+  %4 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !47
   %6 = icmp eq ptr %5, %1
   br i1 %6, label %41, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.022, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %.025, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !63
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !72
@@ -1248,10 +1248,10 @@ _ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit: ; preds = %12, %17
   %.0.i.i12 = inttoptr i64 %33 to ptr
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %35 = ptrtoint ptr %24 to i64
-  br label %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit
+  br label %.loopexit
 
-_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit: ; preds = %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit
-  %.013 = phi ptr [ %.0.i.i12, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ], [ %.114, %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit ]
+.loopexit:                                        ; preds = %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit
+  %.pre-phi = phi ptr [ %.0.i.i12, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ], [ %.114, %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit ]
   store ptr %.013, ptr %34, align 8, !tbaa !63
   %36 = ptrtoint ptr %.013 to i64
   %37 = cmpxchg weak ptr %0, i64 %36, i64 %35 release monotonic, align 8

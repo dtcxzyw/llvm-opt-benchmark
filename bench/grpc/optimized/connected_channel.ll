@@ -831,7 +831,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %_ZN4absl12lts_20240
   %25 = load i64, ptr %3, align 8, !tbaa !48
   %26 = and i64 %25, 1
   %.not.i.i5.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i5.i, label %27, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  br i1 %.not.i.i5.i, label %27, label %33
 
 27:                                               ; preds = %24
   %28 = inttoptr i64 %25 to ptr
@@ -852,7 +852,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %_ZN4absl12lts_20240
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
   resume { ptr, i32 } %32
 
-_ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %24, %27
+33:                                               ; preds = %24, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @gpr_free(ptr noundef nonnull %0)
   ret void

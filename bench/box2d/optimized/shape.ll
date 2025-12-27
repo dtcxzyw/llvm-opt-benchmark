@@ -3746,9 +3746,9 @@ define void @b2Shape_SetPolygon(i64 %0, ptr noundef readonly captures(none) %1) 
 define noundef i64 @b2Shape_GetParentChain(i64 %0) local_unnamed_addr #0 {
 .thread:
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
-  %1 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
-  %2 = and i32 %1, 65535
-  %3 = tail call ptr @b2GetWorld(i32 noundef %2) #10
+  %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
+  %3 = and i32 %2, 65535
+  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
   ret i64 0
 }
 

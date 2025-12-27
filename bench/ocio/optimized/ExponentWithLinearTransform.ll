@@ -603,7 +603,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31ExponentWithLinearTransformImpl8v
   %11 = extractvalue { ptr, i32 } %10, 1
   %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE) #22
   %13 = icmp eq i32 %11, %12
-  br i1 %13, label %14, label %39
+  br i1 %13, label %14, label %40
 
 14:                                               ; preds = %9
   %15 = extractvalue { ptr, i32 } %10, 0
@@ -636,49 +636,49 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31ExponentWithLinearTransformImpl8v
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %37
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 29:                                               ; preds = %26, %17
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br label %33
 
 31:                                               ; preds = %23
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %24) #22
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br label %33
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %31, %29
+33:                                               ; preds = %31, %29
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ]
-  %33 = load ptr, ptr %2, align 8, !tbaa !60
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %34 = load ptr, ptr %2, align 8, !tbaa !60
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %35 = load i64, ptr %34, align 8, !tbaa !57
   %36 = add i64 %35, 1
   call void @_ZdlPvm(ptr noundef %33, i64 noundef %36) #25
-  br label %37
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-37:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %27
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %27
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %28, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   invoke void @__cxa_end_catch()
-          to label %39 unwind label %40
+          to label %39 unwind label %41
 
-38:                                               ; preds = %4
+39:                                               ; preds = %4
   ret void
 
-39:                                               ; preds = %37, %9
+40:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %9
   %.merged = phi { ptr, i32 } [ %10, %9 ], [ %.pn.pn, %37 ]
   resume { ptr, i32 } %.merged
 
-40:                                               ; preds = %37
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #24
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #24
   unreachable
 
-43:                                               ; preds = %26
+44:                                               ; preds = %26
   unreachable
 }
 

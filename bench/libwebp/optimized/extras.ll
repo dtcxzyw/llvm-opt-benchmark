@@ -63,7 +63,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportGray(ptr noundef readonly captur
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %30, i64 %34
   tail call void @llvm.memset.p0.i64(ptr align 1 %35, i8 -128, i64 %21, i1 false)
-  %36 = load ptr, ptr %22, align 8, !tbaa !19
+  %35 = load ptr, ptr %22, align 8, !tbaa !19
   %37 = load i32, ptr %20, align 4, !tbaa !18
   %38 = mul nsw i32 %37, %31
   %39 = sext i32 %38 to i64
@@ -74,7 +74,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportGray(ptr noundef readonly captur
   %43 = icmp slt i32 %41, %42
   br i1 %43, label %23, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %23, %8, %5, %2
+.loopexit:; preds = %23, %8, %5, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %23 ]
   ret i32 %.0
 }

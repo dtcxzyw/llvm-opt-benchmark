@@ -1317,14 +1317,14 @@ call_init.exit:                                   ; preds = %lj_state_checkstack
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 336
   %84 = load ptr, ptr %83, align 8, !tbaa !66
   %.not.i42 = icmp eq ptr %84, null
-  br i1 %.not.i42, label %.lr.ph46, label %85
+  br i1 %.not.i42, label %callhook.exit, label %85
 
 85:                                               ; preds = %._crit_edge
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 145
   %87 = load i8, ptr %86, align 1, !tbaa !50
   %88 = and i8 %87, 16
   %.not15.i = icmp eq i8 %88, 0
-  br i1 %.not15.i, label %89, label %.lr.ph46
+  br i1 %.not15.i, label %89, label %callhook.exit
 
 89:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1371,9 +1371,9 @@ lj_state_checkstack.exit.i44:                     ; preds = %109, %89
   %115 = and i8 %114, -17
   store i8 %115, ptr %86, align 1, !tbaa !50
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.lr.ph46
+  br label %callhook.exit
 
-.lr.ph46:                                         ; preds = %lj_state_checkstack.exit.i44, %85, %._crit_edge
+callhook.exit:                                    ; preds = %lj_state_checkstack.exit.i44, %85, %._crit_edge
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.promoted = load ptr, ptr %116, align 8, !tbaa !57
   br label %117

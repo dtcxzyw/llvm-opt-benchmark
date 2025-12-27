@@ -2838,7 +2838,7 @@ _ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152: ; preds = %539, %_ZN
   %566 = icmp slt <16 x i8> %565, zeroinitializer
   %567 = bitcast <16 x i1> %566 to i16
   %.not.i17.i154 = icmp eq i16 %567, 0
-  br i1 %.not.i17.i154, label %.lr.ph194.preheader, label %568
+  br i1 %.not.i17.i154, label %_ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv4_fS6_S6_S6_.exit156, label %568
 
 568:                                              ; preds = %_ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152
   %569 = bitcast <4 x i32> %564 to <2 x i64>
@@ -2849,9 +2849,9 @@ _ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152: ; preds = %539, %_ZN
   %574 = xor <2 x i64> %561, %573
   %575 = and <2 x i64> %574, %569
   %576 = xor <2 x i64> %575, %561
-  br label %.lr.ph194.preheader
+  br label %_ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv4_fS6_S6_S6_.exit156
 
-.lr.ph194.preheader:                              ; preds = %568, %_ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152
+_ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv4_fS6_S6_S6_.exit156: ; preds = %568, %_ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152
   %.0.i18.i155 = phi <2 x i64> [ %576, %568 ], [ %561, %_ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152 ]
   %577 = bitcast <4 x float> %530 to <4 x i32>
   %578 = lshr <4 x i32> %577, splat (i32 13)

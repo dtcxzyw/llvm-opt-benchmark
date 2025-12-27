@@ -472,7 +472,7 @@ define internal noundef i32 @luaB_print(ptr noundef %0) #0 {
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.010 = phi i32 [ %8, %.lr.ph ], [ 1, %1 ]
+  %.010 = phi i32 [ %12, %.lr.ph ], [ 1, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = call ptr @luaL_tolstring(ptr noundef %0, i32 noundef %.010, ptr noundef nonnull %2) #9
   %5 = load i64, ptr %2, align 8, !tbaa !9
@@ -480,15 +480,15 @@ define internal noundef i32 @luaB_print(ptr noundef %0) #0 {
   %7 = call i64 @fwrite(ptr noundef %4, i64 noundef 1, i64 noundef %5, ptr noundef %6)
   call void @lua_settop(ptr noundef %0, i32 noundef -2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %8 = add nuw nsw i32 %.010, 1
+  %12 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %.010, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %9 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %fputc = call i32 @fputc(i32 10, ptr %9)
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %11 = call i32 @fflush(ptr noundef %10)
+  %13 = load ptr, ptr @stdout, align 8, !tbaa !11
+  %fputc = call i32 @fputc(i32 10, ptr %13)
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !11
+  %15 = call i32 @fflush(ptr noundef %14)
   ret i32 0
 }
 

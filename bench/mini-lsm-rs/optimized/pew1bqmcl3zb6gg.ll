@@ -27,7 +27,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
   ]
 
-default.unreachable9:                             ; preds = %2
+default.unreachable10:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -174,7 +174,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
   ]
 
-default.unreachable9:                             ; preds = %2
+default.unreachable10:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -721,7 +721,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
   ]
 
-default.unreachable9:                             ; preds = %3
+default.unreachable10:                            ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -904,7 +904,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
   ]
 
-default.unreachable9:                             ; preds = %3
+default.unreachable10:                            ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -1907,7 +1907,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7channel15Sender$LT$T$G
     i64 2, label %26
   ]
 
-default.unreachable10:                            ; preds = %1
+default.unreachable8:                             ; preds = %1
   unreachable
 
 6:                                                ; preds = %1
@@ -1936,7 +1936,7 @@ default.unreachable10:                            ; preds = %1
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
   %17 = load ptr, ptr %16, align 8, !alias.scope !196, !noundef !5
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread, label %19
+  br i1 %18, label %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit", label %19
 
 19:                                               ; preds = %15
   %20 = load i64, ptr %10, align 8, !alias.scope !196, !noundef !5
@@ -1947,9 +1947,9 @@ default.unreachable10:                            ; preds = %1
   %24 = atomicrmw or ptr %23, i64 1 release, align 8, !noalias !196
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 256
   call void @_ZN17crossbeam_channel5waker9SyncWaker6notify17hffe30b35fb8f6864E.llvm.15562554790014090263(ptr noundef nonnull align 8 %25), !noalias !196
-  br label %.thread
+  br label %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit"
 
-.thread:                                          ; preds = %19, %15
+"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit": ; preds = %19, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit"
 

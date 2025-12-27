@@ -1477,8 +1477,8 @@ define internal fastcc noundef i32 @save_string_vector(ptr noundef %0, ptr nound
   br label %save_attr_sz.exit
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.025.lcssa40 = phi i64 [ 0, %._crit_edge.thread ], [ %31, %._crit_edge ]
-  %17 = trunc nuw nsw i64 %.025.lcssa40 to i32
+  %.025.lcssa43 = phi i64 [ 0, %._crit_edge.thread ], [ %31, %._crit_edge ]
+  %17 = trunc nuw nsw i64 %.025.lcssa43 to i32
   store i32 %17, ptr %4, align 4, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !46
@@ -1490,9 +1490,9 @@ save_attr_sz.exit:                                ; preds = %12, %16
   %.0.i = phi i32 [ %15, %12 ], [ %21, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq i32 %.0.i, 0
-  br i1 %22, label %.lr.ph32, label %.critedge
+  br i1 %22, label %.lr.ph33, label %.critedge
 
-.lr.ph32:                                         ; preds = %save_attr_sz.exit
+.lr.ph33:                                         ; preds = %save_attr_sz.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1510,12 +1510,12 @@ save_attr_sz.exit:                                ; preds = %12, %16
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !86
 
-32:                                               ; preds = %.lr.ph32, %50
-  %indvars.iv35 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next36, %50 ]
+32:                                               ; preds = %.lr.ph33, %50
+  %indvars.iv38 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next36, %50 ]
   %33 = load ptr, ptr %5, align 8, !tbaa !35
   %34 = load i32, ptr %33, align 8, !tbaa !36
   %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %indvars.iv35, %35
+  %36 = icmp slt i64 %indvars.iv38, %35
   br i1 %36, label %37, label %.critedge
 
 .critedge:                                        ; preds = %save_attr_sz.exit28, %32, %50, %save_attr_sz.exit
@@ -1524,7 +1524,7 @@ save_attr_sz.exit:                                ; preds = %12, %16
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !38
-  %40 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %39, i64 %indvars.iv35
+  %40 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %39, i64 %indvars.iv38
   %41 = load i32, ptr %40, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = icmp slt i32 %41, 0

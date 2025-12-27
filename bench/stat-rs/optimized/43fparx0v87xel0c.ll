@@ -1081,7 +1081,7 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   br label %41
 
 41:                                               ; preds = %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i", %.lr.ph.i
-  %.sroa.0.015.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %70, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
+  %.sroa.0.015.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %71, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
   %.sroa.0.01014.i = phi i64 [ 0, %.lr.ph.i ], [ %42, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
   %42 = add nuw nsw i64 %.sroa.0.01014.i, 1
   %43 = icmp ugt i64 %.sroa.0.01014.i, %15
@@ -1097,59 +1097,59 @@ define noundef double @"_ZN123_$LT$statrs..distribution..hypergeometric..Hyperge
   %46 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %.sroa.0.01014.i
   %47 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(8) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7), !noalias !211
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !211
-  %48 = fsub double %45, %47
-  %49 = sub nuw i64 %15, %.sroa.0.01014.i
+  %49 = fsub double %45, %47
+  %50 = sub nuw i64 %15, %.sroa.0.01014.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !211
-  store i64 %49, ptr %6, align 8, !noalias !211
-  %50 = icmp ult i64 %49, 171
-  %51 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %49
-  %.sroa.0.0.i.i3.i.i.i = select i1 %50, ptr %51, ptr null
-  %52 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6), !noalias !211
+  store i64 %50, ptr %6, align 8, !noalias !211
+  %51 = icmp ult i64 %50, 171
+  %52 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %50
+  %.sroa.0.0.i.i3.i.i.i = select i1 %51, ptr %52, ptr null
+  %53 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6), !noalias !211
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !211
-  %53 = fsub double %48, %52
+  %54 = fsub double %49, %53
   br label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i
 
 _ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i: ; preds = %44, %41
-  %.sroa.0.0.i.i8.i = phi double [ %53, %44 ], [ 0xFFF0000000000000, %41 ]
-  %54 = sub i64 %13, %.sroa.0.01014.i
-  %55 = icmp ugt i64 %54, %38
-  br i1 %55, label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i", label %56
+  %.sroa.0.0.i.i8.i = phi double [ %54, %44 ], [ 0xFFF0000000000000, %41 ]
+  %55 = sub i64 %13, %.sroa.0.01014.i
+  %56 = icmp ugt i64 %55, %38
+  br i1 %56, label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i", label %57
 
-56:                                               ; preds = %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i
+57:                                               ; preds = %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !211
   store i64 %38, ptr %5, align 8, !noalias !211
-  %57 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5), !noalias !211
+  %58 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i.i1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5), !noalias !211
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !211
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !211
-  store i64 %54, ptr %4, align 8, !noalias !211
-  %58 = icmp ult i64 %54, 171
-  %59 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %54
-  %.sroa.0.0.i.i2.i2.i.i = select i1 %58, ptr %59, ptr null
-  %60 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i2.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !211
+  store i64 %55, ptr %4, align 8, !noalias !211
+  %59 = icmp ult i64 %55, 171
+  %60 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %55
+  %.sroa.0.0.i.i2.i2.i.i = select i1 %59, ptr %60, ptr null
+  %61 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i2.i2.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !211
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !211
-  %61 = fsub double %57, %60
-  %62 = sub nuw i64 %38, %54
+  %62 = fsub double %58, %61
+  %63 = sub nuw i64 %38, %55
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !211
-  store i64 %62, ptr %3, align 8, !noalias !211
-  %63 = icmp ult i64 %62, 171
-  %64 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %62
-  %.sroa.0.0.i.i3.i3.i.i = select i1 %63, ptr %64, ptr null
-  %65 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !211
+  store i64 %63, ptr %3, align 8, !noalias !211
+  %64 = icmp ult i64 %63, 171
+  %65 = getelementptr inbounds double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %63
+  %.sroa.0.0.i.i3.i3.i.i = select i1 %64, ptr %65, ptr null
+  %66 = call noundef double @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb08c284b5fa5f68eE.llvm.9554138872291501309"(ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.0.0.i.i3.i3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !211
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !211
-  %66 = fsub double %61, %65
+  %67 = fsub double %62, %66
   br label %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i"
 
-"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i": ; preds = %56, %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i
-  %.sroa.0.0.i4.i.i = phi double [ %66, %56 ], [ 0xFFF0000000000000, %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i ]
-  %67 = fadd double %.sroa.0.0.i.i8.i, %.sroa.0.0.i4.i.i
-  %68 = fsub double %67, %.sroa.0.0.i
-  %69 = call double @llvm.exp.f64(double %68)
-  %70 = fadd double %.sroa.0.015.i, %69
+"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i": ; preds = %57, %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i
+  %.sroa.0.0.i4.i.i = phi double [ %67, %56 ], [ 0xFFF0000000000000, %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit.i.i ]
+  %68 = fadd double %.sroa.0.0.i.i8.i, %.sroa.0.0.i4.i.i
+  %69 = fsub double %68, %.sroa.0.0.i
+  %70 = call double @llvm.exp.f64(double %69)
+  %71 = fadd double %.sroa.0.015.i, %70
   %exitcond.not.i = icmp eq i64 %.sroa.0.01014.i, %1
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE.exit, label %41
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hb666c70ed2b734eaE.exit: ; preds = %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i", %20, %2
-  %.sroa.0.0 = phi double [ 1.000000e+00, %20 ], [ 0.000000e+00, %2 ], [ %70, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
+  %.sroa.0.0 = phi double [ 1.000000e+00, %20 ], [ 0.000000e+00, %2 ], [ %71, %"_ZN123_$LT$statrs..distribution..hypergeometric..Hypergeometric$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$3cdf28_$u7b$$u7b$closure$u7d$$u7d$17h385a8ae1c45e71d9E.exit.i" ]
   ret double %.sroa.0.0
 }
 

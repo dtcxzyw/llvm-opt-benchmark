@@ -474,7 +474,7 @@ define noundef ptr @"_ZN6boxcar3raw12Vec$LT$T$GT$12get_or_alloc17h1736668ee18b8f
 .preheader:                                       ; preds = %"_ZN6boxcar3raw15Bucket$LT$T$GT$5alloc17h6c21aa21874bde37E.exit", %15
   %.sroa.0.0.i.i = phi i64 [ %17, %15 ], [ 0, %"_ZN6boxcar3raw15Bucket$LT$T$GT$5alloc17h6c21aa21874bde37E.exit" ]
   %14 = icmp eq i64 %.sroa.0.0.i.i, %1
-  br i1 %14, label %"_ZN4core3ptr106drop_in_place$LT$alloc..boxed..Box$LT$$u5b$boxcar..raw..Entry$LT$salsa..views..ViewCaster$GT$$u5d$$GT$$GT$17h20af715bc1fc1ba9E.exit", label %15
+  br i1 %14, label %"_ZN4core3ptr81drop_in_place$LT$$u5b$boxcar..raw..Entry$LT$salsa..views..ViewCaster$GT$$u5d$$GT$17he4924daf05658ab6E.exit.i", label %15
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %8, i64 %.sroa.0.0.i.i
@@ -508,7 +508,7 @@ define noundef ptr @"_ZN6boxcar3raw12Vec$LT$T$GT$12get_or_alloc17h1736668ee18b8f
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %8, i64 noundef range(i64 1, -9223372036854775808) %5, i64 noundef 8) #22
   resume { ptr, i32 } %21
 
-"_ZN4core3ptr106drop_in_place$LT$alloc..boxed..Box$LT$$u5b$boxcar..raw..Entry$LT$salsa..views..ViewCaster$GT$$u5d$$GT$$GT$17h20af715bc1fc1ba9E.exit": ; preds = %.preheader, %"_ZN6boxcar3raw15Bucket$LT$T$GT$5alloc17h6c21aa21874bde37E.exit"
+"_ZN4core3ptr81drop_in_place$LT$$u5b$boxcar..raw..Entry$LT$salsa..views..ViewCaster$GT$$u5d$$GT$17he4924daf05658ab6E.exit.i": ; preds = %.preheader, %"_ZN6boxcar3raw15Bucket$LT$T$GT$5alloc17h6c21aa21874bde37E.exit"
   %.sroa.0.0 = phi ptr [ %8, %"_ZN6boxcar3raw15Bucket$LT$T$GT$5alloc17h6c21aa21874bde37E.exit" ], [ %13, %.preheader ]
   ret ptr %.sroa.0.0
 }
@@ -543,7 +543,7 @@ define noundef ptr @"_ZN6boxcar3raw12Vec$LT$T$GT$12get_or_alloc17h2ec930aa0d966f
 .preheader:                                       ; preds = %"_ZN6boxcar3raw15Bucket$LT$T$GT$5alloc17hc7a92c43125016aeE.exit", %15
   %.sroa.0.0.i.i = phi i64 [ %17, %15 ], [ 0, %"_ZN6boxcar3raw15Bucket$LT$T$GT$5alloc17hc7a92c43125016aeE.exit" ]
   %14 = icmp eq i64 %.sroa.0.0.i.i, %1
-  br i1 %14, label %"_ZN4core3ptr115drop_in_place$LT$alloc..boxed..Box$LT$$u5b$boxcar..raw..Entry$LT$salsa..table..memo..MemoEntryType$GT$$u5d$$GT$$GT$17h0f9241b5f9ff51edE.exit", label %15
+  br i1 %14, label %"_ZN4core3ptr90drop_in_place$LT$$u5b$boxcar..raw..Entry$LT$salsa..table..memo..MemoEntryType$GT$$u5d$$GT$17hd1e9e0fdbdd66e96E.exit.i", label %15
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr inbounds nuw { { { { [4 x i64] } } }, { i8 }, [7 x i8] }, ptr %8, i64 %.sroa.0.0.i.i
@@ -577,7 +577,7 @@ define noundef ptr @"_ZN6boxcar3raw12Vec$LT$T$GT$12get_or_alloc17h2ec930aa0d966f
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %8, i64 noundef range(i64 1, -9223372036854775808) %5, i64 noundef 8) #22
   resume { ptr, i32 } %21
 
-"_ZN4core3ptr115drop_in_place$LT$alloc..boxed..Box$LT$$u5b$boxcar..raw..Entry$LT$salsa..table..memo..MemoEntryType$GT$$u5d$$GT$$GT$17h0f9241b5f9ff51edE.exit": ; preds = %.preheader, %"_ZN6boxcar3raw15Bucket$LT$T$GT$5alloc17hc7a92c43125016aeE.exit"
+"_ZN4core3ptr90drop_in_place$LT$$u5b$boxcar..raw..Entry$LT$salsa..table..memo..MemoEntryType$GT$$u5d$$GT$17hd1e9e0fdbdd66e96E.exit.i": ; preds = %.preheader, %"_ZN6boxcar3raw15Bucket$LT$T$GT$5alloc17hc7a92c43125016aeE.exit"
   %.sroa.0.0 = phi ptr [ %8, %"_ZN6boxcar3raw15Bucket$LT$T$GT$5alloc17hc7a92c43125016aeE.exit" ], [ %13, %.preheader ]
   ret ptr %.sroa.0.0
 }

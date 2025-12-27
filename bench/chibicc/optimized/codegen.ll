@@ -3265,16 +3265,16 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br i1 %24, label %select.unfold29.preheader, label %.loopexit
 
 select.unfold29.preheader:                        ; preds = %22
-  %25 = tail call i32 @llvm.umin.i32(i32 %23, i32 16)
+  %27 = tail call i32 @llvm.umin.i32(i32 %23, i32 16)
   br label %select.unfold29
 
 select.unfold29:                                  ; preds = %select.unfold29.preheader, %select.unfold29
-  %.0.in33 = phi i32 [ %.0, %select.unfold29 ], [ %25, %select.unfold29.preheader ]
+  %.0.in33 = phi i32 [ %.0, %select.unfold29 ], [ %27, %select.unfold29.preheader ]
   %.0 = add nsw i32 %.0.in33, -1
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.72)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.276, i32 noundef %.0, ptr noundef nonnull @.str.54)
-  %26 = icmp samesign ugt i32 %.0.in33, 9
-  br i1 %26, label %select.unfold29, label %.loopexit, !llvm.loop !127
+  %28 = icmp samesign ugt i32 %.0.in33, 9
+  br i1 %28, label %select.unfold29, label %.loopexit, !llvm.loop !127
 
 .loopexit:                                        ; preds = %select.unfold29, %22, %21, %.loopexit31
   ret void
@@ -3718,7 +3718,7 @@ define internal fastcc void @copy_ret_buffer(ptr noundef nonnull readonly captur
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %28
 
-28:                                               ; preds = %.lr.ph40, %28
+28:; preds = %.lr.ph40, %28
   %.039 = phi i32 [ 8, %.lr.ph40 ], [ %31, %28 ]
   %29 = load i32, ptr %27, align 8, !tbaa !33
   %30 = add nsw i32 %29, %.039
@@ -3730,7 +3730,7 @@ define internal fastcc void @copy_ret_buffer(ptr noundef nonnull readonly captur
   %33 = icmp slt i32 %31, %spec.select34
   br i1 %33, label %28, label %.loopexit, !llvm.loop !133
 
-.loopexit:                                        ; preds = %28, %.loopexit.sink.split, %.loopexit35
+.loopexit:; preds = %28, %.loopexit.sink.split, %.loopexit35
   ret void
 }
 

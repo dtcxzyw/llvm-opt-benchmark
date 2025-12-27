@@ -34,7 +34,7 @@ define dso_local ptr @grabbag__picture_parse_specification(ptr noundef %0, ptr n
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %.thread136.thread190, label %5
+  br i1 %or.cond, label %.thread136.thread191, label %5
 
 5:                                                ; preds = %2
   store ptr null, ptr %1, align 8, !tbaa !4
@@ -44,7 +44,7 @@ define dso_local ptr @grabbag__picture_parse_specification(ptr noundef %0, ptr n
 
 8:                                                ; preds = %5
   store ptr @.str.3, ptr %1, align 8, !tbaa !4
-  br label %.thread136.thread190
+  br label %.thread136.thread191
 
 9:                                                ; preds = %5
   %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 124) #13
@@ -228,9 +228,9 @@ safe_malloc_add_2op_.exit.i106:                   ; preds = %46
   store i32 %.051.i, ptr %14, align 8, !tbaa !18
   %78 = add nuw i64 %.04050.i, 1
   %exitcond.not60.i = icmp eq i64 %78, %59
-  br i1 %exitcond.not60.i, label %local__parse_resolution_.exit.thread186, label %.preheader.outer.i, !llvm.loop !17
+  br i1 %exitcond.not60.i, label %local__parse_resolution_.exit.thread187, label %.preheader.outer.i, !llvm.loop !17
 
-local__parse_resolution_.exit.thread186:          ; preds = %.thread.i
+local__parse_resolution_.exit.thread187:          ; preds = %.thread.i
   store i32 0, ptr %13, align 4, !tbaa !19
   br label %local__parse_type_.exit.thread
 
@@ -256,7 +256,7 @@ local__parse_resolution_.exit:                    ; preds = %81
   %or.cond89.not.i.not = select i1 %82, i1 %84, i1 false
   br i1 %or.cond89.not.i.not, label %.thread136.thread.sink.split, label %local__parse_type_.exit.thread
 
-local__parse_type_.exit.thread:                   ; preds = %local__parse_resolution_.exit.thread186, %56, %21, %34, %local__parse_resolution_.exit.thread124, %local__parse_resolution_.exit, %53, %35, %43
+local__parse_type_.exit.thread:                   ; preds = %local__parse_resolution_.exit.thread187, %56, %21, %34, %local__parse_resolution_.exit.thread124, %local__parse_resolution_.exit, %53, %35, %43
   %.pre.pr = load ptr, ptr %1, align 8, !tbaa !4
   %85 = getelementptr inbounds nuw i8, ptr %.0161, i64 1
   %86 = add nuw nsw i32 %.075160.ph, 1
@@ -335,7 +335,7 @@ thread-pre-split:                                 ; preds = %114
   %123 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %124 = load i32, ptr %123, align 8, !tbaa !9
   %125 = icmp eq i32 %124, 1
-  br i1 %125, label %126, label %.thread136.thread190
+  br i1 %125, label %126, label %.thread136.thread191
 
 126:                                              ; preds = %122
   %127 = load ptr, ptr %96, align 8, !tbaa !9
@@ -358,7 +358,7 @@ thread-pre-split:                                 ; preds = %114
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %136 = load i32, ptr %135, align 4, !tbaa !9
   %.not99 = icmp eq i32 %136, 32
-  br i1 %.not99, label %.thread136.thread190, label %.thread136.thread.sink.split
+  br i1 %.not99, label %.thread136.thread191, label %.thread136.thread.sink.split
 
 .thread136.thread.sink.split:                     ; preds = %20, %local__parse_resolution_.exit, %79, %81, %53, %46, %safe_malloc_add_2op_.exit.i106, %43, %36, %safe_malloc_add_2op_.exit.i, %68, %.preheader.i, %70, %63, %134, %131, %129, %106, %110, %114, %103, %100, %94
   %.str.4.sink = phi ptr [ @.str.12, %131 ], [ @.str.6, %106 ], [ @.str.5, %70 ], [ @.str.6, %114 ], [ @.str.6, %110 ], [ @.str.12, %129 ], [ @.str.5, %68 ], [ @.str.10, %.preheader.i ], [ @.str.4, %94 ], [ @.str.3, %103 ], [ @.str.4, %100 ], [ @.str.12, %134 ], [ @.str.5, %63 ], [ @.str.3, %43 ], [ @.str.3, %53 ], [ @.str.4, %20 ], [ @.str.3, %safe_malloc_add_2op_.exit.i ], [ @.str.3, %safe_malloc_add_2op_.exit.i106 ], [ @.str.5, %81 ], [ @.str.5, %79 ], [ @.str.5, %local__parse_resolution_.exit ], [ @.str.3, %36 ], [ @.str.3, %46 ]
@@ -367,9 +367,9 @@ thread-pre-split:                                 ; preds = %114
 
 .thread136.thread:                                ; preds = %local__parse_type_.exit.thread, %.thread136.thread.sink.split, %120, %.preheader, %.thread
   tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %6) #12
-  br label %.thread136.thread190
+  br label %.thread136.thread191
 
-.thread136.thread190:                             ; preds = %134, %122, %.thread136.thread, %2, %8
+.thread136.thread191:                             ; preds = %134, %122, %.thread136.thread, %2, %8
   %.078 = phi ptr [ null, %.thread136.thread ], [ null, %2 ], [ null, %8 ], [ %6, %122 ], [ %6, %134 ]
   ret ptr %.078
 }

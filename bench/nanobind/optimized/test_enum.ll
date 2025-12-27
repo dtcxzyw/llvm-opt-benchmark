@@ -1594,7 +1594,7 @@ declare noundef ptr @_ZN8nanobind6detail11nb_type_newEPKNS0_14type_init_dataE(pt
 define linkonce_odr hidden noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJEE7executeINS_6class_I12EnumPropertyJEEEJEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS6_EEE_vJSF_EJLm0EEJNS_5scopeENS_4nameENS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESZ_S10_S11_S12_S14_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJEE7executeINS_6class_I12EnumPropertyJEEEJEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS6_EEE_vJSF_EJLm0EEJNS_5scopeENS_4nameENS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESZ_S10_S11_S12_S14_.exit:
   %5 = alloca %"struct.nanobind::detail::type_caster.109", align 8
-  %6 = load ptr, ptr %1, align 8, !tbaa !78
+  %8 = load ptr, ptr %1, align 8, !tbaa !78
   %7 = load i8, ptr %2, align 1, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = and i8 %7, 8

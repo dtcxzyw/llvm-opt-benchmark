@@ -1279,7 +1279,7 @@ prepCallInfo.exit.i:                              ; preds = %39, %31
 precallC.exit:                                    ; preds = %prepCallInfo.exit.i, %47
   %55 = tail call i32 %16(ptr noundef nonnull %0) #13
   tail call void @luaD_poscall(ptr noundef nonnull %0, ptr noundef nonnull %41, i32 noundef %55)
-  br label %190
+  br label %193
 
 56:                                               ; preds = %10
   %57 = load ptr, ptr %.062, align 8, !tbaa !27
@@ -1346,7 +1346,7 @@ prepCallInfo.exit.i70:                            ; preds = %80, %72
 precallC.exit73:                                  ; preds = %prepCallInfo.exit.i70, %88
   %96 = tail call i32 %57(ptr noundef nonnull %0) #13
   tail call void @luaD_poscall(ptr noundef nonnull %0, ptr noundef nonnull %82, i32 noundef %96)
-  br label %190
+  br label %193
 
 97:                                               ; preds = %10
   %98 = load ptr, ptr %.062, align 8, !tbaa !27
@@ -1449,7 +1449,7 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
   %150 = zext nneg i32 %.164.lcssa to i64
   %151 = getelementptr inbounds nuw %union.StackValue, ptr %136, i64 %150
   store ptr %151, ptr %7, align 8, !tbaa !27
-  br label %190
+  br label %193
 
 152:                                              ; preds = %10
   %153 = load ptr, ptr %6, align 8, !tbaa !27
@@ -1486,7 +1486,7 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
 174:                                              ; preds = %167
   %175 = load ptr, ptr %7, align 8, !tbaa !27
   %176 = icmp ugt ptr %175, %.2
-  br i1 %176, label %.lr.ph.i, label %tryfuncTM.exit
+  br i1 %176, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %174, %.lr.ph.i
   %.025.i = phi ptr [ %177, %.lr.ph.i ], [ %175, %174 ]
@@ -1502,9 +1502,9 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i74 = load ptr, ptr %7, align 8, !tbaa !27
-  br label %tryfuncTM.exit
+  br label %._crit_edge.i
 
-tryfuncTM.exit:                                   ; preds = %174, %._crit_edge.loopexit.i
+._crit_edge.i:                                    ; preds = %174, %._crit_edge.loopexit.i
   %183 = phi ptr [ %.pre.i74, %._crit_edge.loopexit.i ], [ %175, %174 ]
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   store ptr %184, ptr %7, align 8, !tbaa !27
@@ -1518,7 +1518,7 @@ tryfuncTM.exit:                                   ; preds = %174, %._crit_edge.l
   %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
   br label %10
 
-190:                                              ; preds = %._crit_edge93, %precallC.exit73, %precallC.exit
+193:                                              ; preds = %._crit_edge93, %precallC.exit73, %precallC.exit
   %.0 = phi i32 [ %55, %precallC.exit ], [ %96, %precallC.exit73 ], [ -1, %._crit_edge93 ]
   ret i32 %.0
 }

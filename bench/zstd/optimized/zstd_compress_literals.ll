@@ -346,22 +346,22 @@ allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %ZSTD_noC
 129:                                              ; preds = %127, %allBytesIdentical.exit
   %130 = trunc i64 %87 to i32
   switch i64 %18, label %default.unreachable131 [
-    i64 3, label %131
+    i64 3, label %130
     i64 4, label %143
     i64 5, label %149
   ]
 
-131:                                              ; preds = %129
-  %132 = select i1 %spec.select, i32 4, i32 0
-  %133 = trunc i64 %3 to i32
-  %134 = shl i32 %133, 4
+130:                                              ; preds = %129
+  %131 = select i1 %spec.select, i32 4, i32 0
+  %132 = trunc i64 %3 to i32
+  %133 = shl i32 %132, 4
   %135 = shl i32 %130, 14
   %136 = or disjoint i32 %134, %132
   %137 = or disjoint i32 %136, 3
-  %138 = add i32 %137, %135
+  %137 = add i32 %137, %135
   %139 = trunc i32 %138 to i16
   store i16 %139, ptr %0, align 1, !tbaa !6
-  %140 = lshr i32 %138, 16
+  %140 = lshr i32 %137, 16
   %141 = trunc i32 %140 to i8
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %141, ptr %142, align 1, !tbaa !3
@@ -376,7 +376,7 @@ allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %ZSTD_noC
   store i32 %148, ptr %0, align 1, !tbaa !8
   br label %158
 
-149:                                              ; preds = %129
+149:; preds = %129
   %150 = trunc i64 %3 to i32
   %151 = shl i32 %150, 4
   %152 = or disjoint i32 %151, 15
@@ -389,7 +389,7 @@ allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %ZSTD_noC
   store i8 %156, ptr %157, align 1, !tbaa !3
   br label %158
 
-158:                                              ; preds = %131, %143, %149
+158: ; preds = %130, %143, %149
   %159 = add i64 %87, %18
   br label %ZSTD_noCompressLiterals.exit
 

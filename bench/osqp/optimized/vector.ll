@@ -501,7 +501,7 @@ define noalias noundef ptr @OSQPVectorf_subvector_byrows(ptr noundef readonly ca
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #20
   store ptr %17, ptr %12, align 8, !tbaa !10
   %.not12.i = icmp eq ptr %17, null
-  br i1 %.not12.i, label %18, label %OSQPVectorf_malloc.exit.thread
+  br i1 %.not12.i, label %18, label %OSQPVectorf_malloc.exit
 
 18:                                               ; preds = %15
   tail call void @free(ptr noundef nonnull %12) #21
@@ -509,10 +509,10 @@ define noalias noundef ptr @OSQPVectorf_subvector_byrows(ptr noundef readonly ca
 
 19:                                               ; preds = %13
   store ptr null, ptr %12, align 8, !tbaa !10
-  br label %OSQPVectorf_malloc.exit.thread
+  br label %OSQPVectorf_malloc.exit
 
-OSQPVectorf_malloc.exit.thread:                   ; preds = %19, %15, %._crit_edge, %18
-  %.019 = phi ptr [ null, %._crit_edge ], [ null, %18 ], [ %12, %15 ], [ %12, %19 ]
+OSQPVectorf_malloc.exit:                          ; preds = %19, %15, %._crit_edge, %18
+  %20 = phi ptr [ null, %._crit_edge ], [ null, %18 ], [ %12, %15 ], [ %12, %19 ]
   ret ptr %.019
 }
 

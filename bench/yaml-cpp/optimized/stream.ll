@@ -766,12 +766,12 @@ define void @_ZN4YAML6Stream3getB5cxx11Ei(ptr dead_on_unwind noalias writable sr
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br label %31
 
-.lr.ph:                                           ; preds = %7, %22
-  %.012 = phi i32 [ %27, %22 ], [ 0, %7 ]
+.lr.ph:                                           ; preds = %7, %23
+  %.012 = phi i32 [ %28, %22 ], [ 0, %7 ]
   %11 = invoke noundef signext i8 @_ZN4YAML6Stream3getEv(ptr noundef nonnull align 8 dereferenceable(136) %1)
-          to label %12 unwind label %28
+          to label %12 unwind label %29
 
 12:                                               ; preds = %.lr.ph
   %13 = load i64, ptr %5, align 8, !tbaa !75
@@ -790,38 +790,38 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   %20 = icmp ugt i64 %14, %19
   br i1 %20, label %21, label %22
 
-21:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
+22:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %13, i64 noundef 0, ptr noundef null, i64 noundef 1)
-          to label %.noexc unwind label %28
+          to label %.noexc unwind label %29
 
-.noexc:                                           ; preds = %21
+.noexc:                                           ; preds = %22
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !77
-  br label %22
+  br label %23
 
-22:                                               ; preds = %.noexc, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
-  %23 = phi ptr [ %.pre.i.i, %.noexc ], [ %15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %13
-  store i8 %11, ptr %24, align 1, !tbaa !36
+23:                                               ; preds = %.noexc, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
+  %24 = phi ptr [ %.pre.i.i, %.noexc ], [ %15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %13
+  store i8 %11, ptr %25, align 1, !tbaa !36
   store i64 %14, ptr %5, align 8, !tbaa !75
-  %25 = load ptr, ptr %0, align 8, !tbaa !77
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %14
-  store i8 0, ptr %26, align 1, !tbaa !36
-  %27 = add nuw nsw i32 %.012, 1
-  %exitcond.not = icmp eq i32 %27, %2
+  %26 = load ptr, ptr %0, align 8, !tbaa !77
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %14
+  store i8 0, ptr %27, align 1, !tbaa !36
+  %28 = add nuw nsw i32 %.012, 1
+  %exitcond.not = icmp eq i32 %28, %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !78
 
-28:                                               ; preds = %21, %.lr.ph
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %22, %.lr.ph
+  %30 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br label %31
 
-.loopexit:                                        ; preds = %22, %3
+.loopexit:                                        ; preds = %23, %3
   ret void
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %9
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %10, %9 ]
-  %30 = load ptr, ptr %0, align 8, !tbaa !77
-  tail call void @_ZdlPv(ptr noundef %30) #17
+31:                                               ; preds = %29, %9
+  %.pn = phi { ptr, i32 } [ %30, %28 ], [ %10, %9 ]
+  %32 = load ptr, ptr %0, align 8, !tbaa !77
+  tail call void @_ZdlPv(ptr noundef %32) #17
   resume { ptr, i32 } %.pn
 }
 

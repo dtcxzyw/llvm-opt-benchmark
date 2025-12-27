@@ -346,7 +346,7 @@ _ZN15output_redirect7restoreEv.exit:              ; preds = %2, %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = icmp eq i32 %13, -1
-  br i1 %14, label %29, label %15
+  br i1 %14, label %31, label %15
 
 15:                                               ; preds = %_ZN15output_redirect7restoreEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -383,28 +383,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 
 25:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %29
+  br label %31
 
 .loopexit:                                        ; preds = %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br label %26
 
 .loopexit.split-lp:                               ; preds = %24, %22
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br label %26
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.loopexit.split-lp, %.loopexit
+26:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %26 = load ptr, ptr %0, align 8, !tbaa !27
+  %27 = load ptr, ptr %0, align 8, !tbaa !27
   %27 = load i64, ptr %10, align 8, !tbaa !25
   %28 = add i64 %27, 1
   call void @_ZdlPvm(ptr noundef %26, i64 noundef %28) #20
   resume { ptr, i32 } %lpad.phi
 
-29:                                               ; preds = %25, %_ZN15output_redirect7restoreEv.exit
+31:                                               ; preds = %25, %_ZN15output_redirect7restoreEv.exit
   ret void
 }
 
@@ -439,16 +439,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br label %15
 
 .loopexit.split-lp:                               ; preds = %14
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br label %15
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.loopexit.split-lp, %.loopexit
+15:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %15 = load ptr, ptr %0, align 8, !tbaa !27
+  %16 = load ptr, ptr %0, align 8, !tbaa !27
   %16 = load i64, ptr %4, align 8, !tbaa !25
   %17 = add i64 %16, 1
   tail call void @_ZdlPvm(ptr noundef %15, i64 noundef %17) #20

@@ -209,17 +209,17 @@ locfile_get_line.exit:                            ; preds = %8
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %19 = call i32 @jv_get_kind(i64 %17, ptr %18) #7
-  %.not31 = icmp eq i32 %19, 0
-  br i1 %.not31, label %20, label %23
+  %20 = call i32 @jv_get_kind(i64 %17, ptr %18) #7
+  %.not31 = icmp eq i32 %20, 0
+  br i1 %.not31, label %21, label %24
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %22 = load ptr, ptr %21, align 8, !tbaa !4
-  call void @jq_report_error(ptr noundef %22, i64 %17, ptr %18) #7
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %23 = load ptr, ptr %22, align 8, !tbaa !4
+  call void @jq_report_error(ptr noundef %23, i64 %17, ptr %18) #7
   br label %45
 
-23:                                               ; preds = %15
+24:                                               ; preds = %15
   %24 = call ptr @jv_string_value(i64 %17, ptr %18) #7
   %25 = load i64, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -246,7 +246,7 @@ locfile_get_line.exit:                            ; preds = %8
   call void @jq_report_error(ptr noundef %44, i64 %41, ptr %42) #7
   br label %45
 
-45:                                               ; preds = %23, %20
+45:; preds = %23, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

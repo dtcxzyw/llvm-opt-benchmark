@@ -503,7 +503,7 @@ _ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_writerERNS0_2d112rtm_rw_mutexERNS4
   %.not.i.i = icmp eq i64 %23, 0
   br i1 %.not.i.i, label %24, label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit
 
-24:                                               ; preds = %21
+26:                                               ; preds = %21
   %25 = cmpxchg ptr %0, i64 %22, i64 1 seq_cst seq_cst, align 8
   br label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit
 
@@ -571,13 +571,13 @@ _ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_readerERNS0_2d112rtm_rw_mutexERNS4
   %28 = atomicrmw add ptr %0, i64 4 seq_cst, align 8
   %29 = and i64 %28, 1
   %.not5.not.i.i = icmp eq i64 %29, 0
-  br i1 %.not5.not.i.i, label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit, label %30
+  br i1 %.not5.not.i.i, label %_ZN3tbb6detail2d113spin_rw_mutex15try_lock_sharedEv.exit.i, label %30
 
 30:                                               ; preds = %27
   %31 = atomicrmw sub ptr %0, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit
 
-_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit: ; preds = %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i, %24, %27, %30
+_ZN3tbb6detail2d113spin_rw_mutex15try_lock_sharedEv.exit.i: ; preds = %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i, %24, %27, %30
   ret i1 false
 }
 

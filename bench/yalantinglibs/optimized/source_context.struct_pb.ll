@@ -1301,7 +1301,7 @@ if.end.i.i21:                                     ; preds = %if.then10
 
 if.end11:                                         ; preds = %if.end.i.i21, %if.then.i20, %if.end
   %tobool12.not = icmp eq i64 %0, %1
-  br i1 %tobool12.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit, label %if.then13
+  br i1 %tobool12.not, label %if.then.i28, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
   %add.ptr14 = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %__pos
@@ -1314,13 +1314,13 @@ if.then13:                                        ; preds = %if.end11
 if.then.i24:                                      ; preds = %if.then13
   %7 = load i8, ptr %add.ptr18, align 1
   store i8 %7, ptr %add.ptr15, align 1
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit
+  br label %if.then.i28
 
 if.end.i.i25:                                     ; preds = %if.then13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr15, ptr align 1 %add.ptr18, i64 %sub2, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; preds = %if.end11, %if.then.i24, %if.end.i.i25
+if.then.i28:                                      ; preds = %if.end11, %if.then.i24, %if.end.i.i25
   tail call void @_ZdlPv(ptr noundef %2) #12
   store ptr %call5.i.i.i, ptr %this, align 8
   store i64 %__new_capacity.0, ptr %3, align 8

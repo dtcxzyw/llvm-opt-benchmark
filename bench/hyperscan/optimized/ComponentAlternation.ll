@@ -948,8 +948,8 @@ define hidden noundef zeroext i1 @_ZNK3ue220ComponentAlternation5emptyEv(ptr nou
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %.not12 = icmp eq ptr %3, %5
-  br i1 %.not12, label %._crit_edge, label %.lr.ph
+  %.not12.not = icmp eq ptr %3, %5
+  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.08.013 = phi ptr [ %11, %.lr.ph ], [ %3, %1 ]
@@ -959,8 +959,8 @@ define hidden noundef zeroext i1 @_ZNK3ue220ComponentAlternation5emptyEv(ptr nou
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
-  %.not = icmp eq ptr %11, %5
-  %or.cond = select i1 %10, i1 true, i1 %.not
+  %.not.not = icmp eq ptr %11, %5
+  %or.cond = select i1 %10, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -1094,8 +1094,8 @@ define hidden noundef zeroext i1 @_ZNK3ue220ComponentAlternation18vacuous_everyw
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %.not12 = icmp eq ptr %3, %5
-  br i1 %.not12, label %._crit_edge, label %.lr.ph
+  %.not12.not = icmp eq ptr %3, %5
+  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.08.013 = phi ptr [ %11, %.lr.ph ], [ %3, %1 ]
@@ -1105,8 +1105,8 @@ define hidden noundef zeroext i1 @_ZNK3ue220ComponentAlternation18vacuous_everyw
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
-  %.not = icmp eq ptr %11, %5
-  %or.cond = select i1 %10, i1 true, i1 %.not
+  %.not.not = icmp eq ptr %11, %5
+  %or.cond = select i1 %10, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

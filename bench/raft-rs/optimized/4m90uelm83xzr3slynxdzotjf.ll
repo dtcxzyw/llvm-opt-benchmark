@@ -1129,11 +1129,11 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17h48a9a970678ff9a7E(
   %.sroa.6.0.i.i.pn = phi i64 [ %2, %20 ], [ 0, %15 ], [ 0, %17 ], [ 0, %25 ], [ %2, %27 ]
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
-  %.sroa.012.0.i.i.pn.sink = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
+  %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
   %.sroa.6.0.i.i.pn.sink = select i1 %30, i64 %2, i64 %.sroa.6.0.i.i.pn
   %storemerge = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.012.0.i.i.pn.sink, ptr %32, align 8
+  store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.6.0.i.i.pn.sink, ptr %33, align 8
   store i64 %storemerge, ptr %0, align 8

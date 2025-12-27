@@ -1352,14 +1352,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo3MD5(ptr noundef n
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !30
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !30
   %.pre = load ptr, ptr %5, align 8, !tbaa !13
-  %.pre3 = load i64, ptr %32, align 8, !tbaa !19
+  %.pre5 = load i64, ptr %32, align 8, !tbaa !19
   br label %_ZNK3MD59hexdigestB5cxx11Ev.exit
 
 _ZNK3MD59hexdigestB5cxx11Ev.exit:                 ; preds = %._crit_edge.i.i.i, %30
-  %35 = phi i64 [ 0, %._crit_edge.i.i.i ], [ %.pre3, %30 ]
+  %35 = phi i64 [ 0, %._crit_edge.i.i.i ], [ %.pre5, %30 ]
   %36 = phi ptr [ %8, %._crit_edge.i.i.i ], [ %.pre, %30 ]
   %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %36, i64 noundef %35)
-          to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2
+          to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit unwind label %43
 
 _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit: ; preds = %_ZNK3MD59hexdigestB5cxx11Ev.exit
   %38 = load ptr, ptr %5, align 8, !tbaa !13
@@ -1370,16 +1370,16 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %37
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2: ; preds = %_ZNK3MD59hexdigestB5cxx11Ev.exit
-  %42 = landingpad { ptr, i32 }
+43:                                               ; preds = %_ZNK3MD59hexdigestB5cxx11Ev.exit
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %5, align 8, !tbaa !13
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %45 = load ptr, ptr %5, align 8, !tbaa !13
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !24
   %46 = add i64 %45, 1
   call void @_ZdlPvm(ptr noundef %43, i64 noundef %46) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %42
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress uwtable

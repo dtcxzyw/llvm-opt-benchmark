@@ -55,29 +55,29 @@ define hidden noundef i32 @nghttp2_map_each(ptr noundef readonly captures(none) 
   %10 = trunc i64 %9 to i32
   %11 = shl nuw i32 1, %10
   %12 = zext i32 %11 to i64
-  br label %.backedge
+  br label %13
 
-.backedge:                                        ; preds = %.backedge.backedge, %7
+13:                                               ; preds = %.backedge13, %7
   %.01316 = phi i64 [ 0, %7 ], [ %.01316.be, %.backedge.backedge ]
-  %13 = load ptr, ptr %0, align 8, !tbaa !10
-  %14 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %13, i64 %.01316
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !13
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %22, label %18
+  %14 = load ptr, ptr %0, align 8, !tbaa !10
+  %15 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %14, i64 %.01316
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !13
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %22, label %19
 
-18:                                               ; preds = %.backedge
-  %19 = tail call i32 %1(ptr noundef nonnull %16, ptr noundef %2) #12
-  %.not = icmp eq i32 %19, 0
+19:                                               ; preds = %13
+  %20 = tail call i32 %1(ptr noundef nonnull %17, ptr noundef %2) #12
+  %.not = icmp eq i32 %20, 0
   %20 = add nuw nsw i64 %.01316, 1
   %21 = icmp samesign ult i64 %20, %12
   %or.cond = select i1 %.not, i1 %21, i1 false
-  br i1 %or.cond, label %.backedge.backedge, label %.loopexit
+  br i1 %or.cond, label %.backedge13, label %.loopexit
 
-22:                                               ; preds = %.backedge
+22:   ; preds = %13
   %.old = add nuw nsw i64 %.01316, 1
   %.old17 = icmp samesign ult i64 %.old, %12
-  br i1 %.old17, label %.backedge.backedge, label %.loopexit
+  br i1 %.old17, label %.backedge13, label %.loopexit
 
 .backedge.backedge:                               ; preds = %22, %18
   %.01316.be = phi i64 [ %.old, %22 ], [ %20, %18 ]

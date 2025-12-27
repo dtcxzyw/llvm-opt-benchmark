@@ -217,7 +217,7 @@ declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_ZN27owner_tests_basic_test_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-_ZN7testing15AssertionResultD2Ev.exit35:
+_ZN7testing15AssertionResultD2Ev.exit43:
   ret void
 }
 
@@ -361,34 +361,34 @@ define internal void @_GLOBAL__sub_I_owner_tests.cpp() #13 section ".text.startu
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 27, ptr %26, align 8
   %27 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
-          to label %28 unwind label %_ZN7testing8internal12CodeLocationD2Ev.exit8.i
+          to label %28 unwind label %47
 
 28:                                               ; preds = %21
   %29 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 27)
-          to label %30 unwind label %_ZN7testing8internal12CodeLocationD2Ev.exit8.i
+          to label %30 unwind label %47
 
 30:                                               ; preds = %28
   %31 = invoke noundef ptr @_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci(ptr noundef nonnull @.str.3, i32 noundef 27)
-          to label %32 unwind label %_ZN7testing8internal12CodeLocationD2Ev.exit8.i
+          to label %32 unwind label %47
 
 32:                                               ; preds = %30
   %33 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #16
-          to label %34 unwind label %_ZN7testing8internal12CodeLocationD2Ev.exit8.i
+          to label %34 unwind label %47
 
 34:                                               ; preds = %32
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7testing8internal15TestFactoryImplI27owner_tests_basic_test_TestEE, i64 16), ptr %33, align 8
   %35 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef %27, ptr noundef %29, ptr noundef %31, ptr noundef nonnull %33)
-          to label %_ZN7testing8internal12CodeLocationD2Ev.exit.i unwind label %_ZN7testing8internal12CodeLocationD2Ev.exit8.i
+          to label %_ZN7testing8internal12CodeLocationD2Ev.exit.i unwind label %47
 
-_ZN7testing8internal12CodeLocationD2Ev.exit.i:    ; preds = %34
-  %36 = load ptr, ptr %3, align 8
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %3, align 8
   %37 = load i64, ptr %11, align 8
   %38 = add i64 %37, 1
   call void @_ZdlPvm(ptr noundef %36, i64 noundef %38) #15
   %39 = load ptr, ptr %4, align 8
-  %40 = load i64, ptr %6, align 8
-  %41 = add i64 %40, 1
-  call void @_ZdlPvm(ptr noundef %39, i64 noundef %41) #15
+  %39 = load i64, ptr %6, align 8
+  %40 = add i64 %39, 1
+  call void @_ZdlPvm(ptr noundef %39, i64 noundef %40) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %35, ptr @_ZN27owner_tests_basic_test_Test10test_info_E, align 8
   %42 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN27owner_tests_basic_test_Test10test_info_E)
@@ -400,16 +400,16 @@ _ZN7testing8internal12CodeLocationD2Ev.exit.i:    ; preds = %34
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i
 
-_ZN7testing8internal12CodeLocationD2Ev.exit8.i:   ; preds = %34, %32, %30, %28, %21
-  %45 = landingpad { ptr, i32 }
+47:                                               ; preds = %34, %32, %30, %28, %21
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %46 = load ptr, ptr %3, align 8
+  %49 = load ptr, ptr %3, align 8
   %47 = load i64, ptr %11, align 8
   %48 = add i64 %47, 1
   call void @_ZdlPvm(ptr noundef %46, i64 noundef %48) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i: ; preds = %_ZN7testing8internal12CodeLocationD2Ev.exit8.i, %43
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i:; preds = %47, %43
   %.pn.pn.i = phi { ptr, i32 } [ %45, %_ZN7testing8internal12CodeLocationD2Ev.exit8.i ], [ %44, %43 ]
   %49 = load ptr, ptr %4, align 8
   %50 = load i64, ptr %6, align 8

@@ -5725,25 +5725,25 @@ define hidden void @_ZN4core4iter8adapters11try_process17h2c3c46c07ae77233E(ptr 
   store ptr %5, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1737, !noalias !1741
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8bd57bb875ab93aeE.llvm.14496618814205752201"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1730
-  %6 = load i64, ptr %5, align 8, !range !113, !noundef !9
-  %.not.not = icmp eq i64 %6, 17
-  br i1 %.not.not, label %.thread14, label %9
+  %10 = load i64, ptr %5, align 8, !range !113, !noundef !9
+  %.not.not = icmp eq i64 %10, 17
+  br i1 %.not.not, label %.thread, label %13
 
-.thread14:                                        ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+.thread:                                          ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 17, ptr %0, align 8, !alias.scope !1742, !noalias !1745
-  br label %8
+  br label %12
 
-8:                                                ; preds = %9, %.thread14
+12:                                               ; preds = %13, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-9:                                                ; preds = %2
+13:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$arrow_cast..display..ArrayFormatter$GT$$GT$17h84d390cc70627d55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  br label %8
+  br label %12
 }
 
 ; Function Attrs: nonlazybind uwtable

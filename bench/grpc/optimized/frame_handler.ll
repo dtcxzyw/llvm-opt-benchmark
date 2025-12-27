@@ -271,16 +271,16 @@ define void @_Z31alts_reset_reader_output_bufferP17alts_frame_readerPh(ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef zeroext i1 @_Z23alts_reset_frame_readerP17alts_frame_readerPh(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %5, label %3
+  %3 = icmp eq ptr %1, null
+  br i1 %3, label %5, label %3
 
-3:                                                ; preds = %2
+4:                                                ; preds = %2
   store ptr %1, ptr %0, align 8, !tbaa !14
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  br label %5
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  br label %6
 
-5:                                                ; preds = %2, %3
+6:                                                ; preds = %2, %4
   ret i1 false
 }
 

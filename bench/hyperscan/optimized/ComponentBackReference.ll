@@ -221,8 +221,8 @@ define hidden void @_ZN3ue222ComponentBackReference14buildFollowSetERNS_18Glushk
 define linkonce_odr hidden void @_ZN3ue222ComponentBackReferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN3ue222ComponentBackReferenceE, i64 16), ptr %0, align 8
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2 = load ptr, ptr %1, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
   tail call void @_ZdlPv(ptr noundef %2) #13
   tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   ret void
@@ -232,8 +232,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
 define linkonce_odr hidden void @_ZN3ue222ComponentBackReferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN3ue222ComponentBackReferenceD2Ev.exit:
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN3ue222ComponentBackReferenceE, i64 16), ptr %0, align 8
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2 = load ptr, ptr %1, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8
   tail call void @_ZdlPv(ptr noundef %2) #13
   tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13

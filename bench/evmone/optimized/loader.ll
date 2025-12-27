@@ -409,23 +409,23 @@ get_token.exit45:                                 ; preds = %45, %47
   %.030 = phi ptr [ null, %5 ], [ %.0.i39, %33 ], [ %.0.i39, %52 ], [ %.0.i39, %60 ], [ %.0.i39, %56 ], [ %.0.i39, %29 ]
   %.028 = phi i32 [ 3, %5 ], [ 6, %33 ], [ 6, %52 ], [ 7, %60 ], [ 7, %56 ], [ 0, %29 ]
   %.not34 = icmp eq ptr %1, null
-  br i1 %.not34, label %65, label %64
+  br i1 %.not34, label %66, label %65
 
-64:                                               ; preds = %.thread
+65:                                               ; preds = %.thread
   store i32 %.028, ptr %1, align 4, !tbaa !11
-  br label %65
+  br label %66
 
-65:                                               ; preds = %.thread, %64
+66:                                               ; preds = %.thread, %64
   %.not35 = icmp eq ptr %.030, null
-  br i1 %.not35, label %evmc_load_and_create.exit.thread, label %66
+  br i1 %.not35, label %evmc_load_and_create.exit.thread, label %68
 
-66:                                               ; preds = %65
-  %67 = getelementptr inbounds nuw i8, ptr %.030, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !15
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %.030, i64 24
+  %70 = load ptr, ptr %69, align 8, !tbaa !15
   call void %68(ptr noundef nonnull %.030) #10
   br label %evmc_load_and_create.exit.thread
 
-evmc_load_and_create.exit.thread:                 ; preds = %get_token.exit, %65, %66, %evmc_load_and_create.exit
+evmc_load_and_create.exit.thread:                 ; preds = %get_token.exit, %66, %66, %evmc_load_and_create.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3) #10
   ret ptr null
 }

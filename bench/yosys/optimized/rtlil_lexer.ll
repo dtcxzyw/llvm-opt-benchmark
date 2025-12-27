@@ -1652,14 +1652,14 @@ define void @_Z34rtlil_frontend_yy_switch_to_bufferP15yy_buffer_state(ptr nounde
   store i64 0, ptr %4, align 8
   store i64 1, ptr @_ZL19yy_buffer_stack_max, align 8, !tbaa !18
   store i64 0, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
-  br label %_ZL36rtlil_frontend_yyensure_buffer_stackv.exit
+  br label %.thread
 
 7:                                                ; preds = %1
   %8 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
   %9 = load i64, ptr @_ZL19yy_buffer_stack_max, align 8, !tbaa !18
   %10 = add i64 %9, -1
   %.not10.i = icmp ult i64 %8, %10
-  br i1 %.not10.i, label %_ZL36rtlil_frontend_yyensure_buffer_stackv.exit, label %11
+  br i1 %.not10.i, label %.thread, label %11
 
 11:                                               ; preds = %7
   %12 = add i64 %9, 8
@@ -1677,9 +1677,9 @@ define void @_Z34rtlil_frontend_yy_switch_to_bufferP15yy_buffer_state(ptr nounde
   %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
   store i64 %12, ptr @_ZL19yy_buffer_stack_max, align 8, !tbaa !18
-  br label %_ZL36rtlil_frontend_yyensure_buffer_stackv.exit
+  br label %.thread
 
-_ZL36rtlil_frontend_yyensure_buffer_stackv.exit:  ; preds = %6, %7, %16
+.thread:                                          ; preds = %6, %7, %16
   %18 = phi i64 [ 0, %6 ], [ %8, %7 ], [ %8, %16 ]
   %19 = phi ptr [ %4, %6 ], [ %2, %7 ], [ %14, %16 ]
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
@@ -1687,16 +1687,16 @@ _ZL36rtlil_frontend_yyensure_buffer_stackv.exit:  ; preds = %6, %7, %16
   %22 = icmp eq ptr %21, %0
   br i1 %22, label %40, label %23
 
-23:                                               ; preds = %_ZL36rtlil_frontend_yyensure_buffer_stackv.exit
+25:                                               ; preds = %.thread
   %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
-  %25 = load ptr, ptr %24, align 8, !tbaa !20
-  %26 = icmp eq ptr %25, null
+  %27 = load ptr, ptr %24, align 8, !tbaa !20
+  %26 = icmp eq ptr %27, null
   br i1 %26, label %.critedge, label %27
 
-27:                                               ; preds = %23
-  %28 = load i8, ptr @_ZL12yy_hold_char, align 1, !tbaa !29
+27:; preds = %23
+  %30 = load i8, ptr @_ZL12yy_hold_char, align 1, !tbaa !29
   %29 = load ptr, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !6
-  store i8 %28, ptr %29, align 1, !tbaa !29
+  store i8 %30, ptr %29, align 1, !tbaa !29
   %30 = load ptr, ptr %24, align 8, !tbaa !20
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %29, ptr %31, align 8, !tbaa !27

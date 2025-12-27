@@ -4926,14 +4926,14 @@ bitwriter_grow_.exit.i.thread:                    ; preds = %5, %12, %bitwriter_
   store i64 0, ptr %53, align 8, !tbaa !16
   br label %.lr.ph.i, !llvm.loop !22
 
-54:                                               ; preds = %41
+._crit_edge.i:                                    ; preds = %41
   %.not36.i = icmp eq i32 %42, 0
   br i1 %.not36.i, label %FLAC__bitwriter_write_zeroes.exit, label %.thread5
 
 .thread5:                                         ; preds = %bitwriter_grow_.exit.i, %54
   %.1.lcssa.i8 = phi i32 [ %42, %54 ], [ %6, %bitwriter_grow_.exit.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %55, align 8, !tbaa !15
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %57, align 8, !tbaa !15
   store i32 %.1.lcssa.i8, ptr %2, align 8, !tbaa !12
   br label %FLAC__bitwriter_write_zeroes.exit
 

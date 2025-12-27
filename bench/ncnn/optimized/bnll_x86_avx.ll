@@ -133,11 +133,11 @@ define internal void @_ZNK4ncnn12BNLL_x86_avx15forward_inplaceERNS_3MatERKNS_6Op
   %29 = icmp sgt i32 %22, 7
   br i1 %29, label %.lr.ph, label %.preheader232
 
-.preheader232.loopexit:                           ; preds = %.lr.ph
+.preheader232:                                    ; preds = %.lr.ph
   %30 = or disjoint i32 %107, 3
   br label %.preheader232
 
-.preheader232:                                    ; preds = %.preheader232.loopexit, %.noexc
+.preheader232:; preds = %.preheader232, %.noexc
   %31 = phi i32 [ %22, %.noexc ], [ %109, %.preheader232.loopexit ]
   %.055.lcssa = phi i32 [ 3, %.noexc ], [ %30, %.preheader232.loopexit ]
   %.054.lcssa = phi ptr [ %28, %.noexc ], [ %106, %.preheader232.loopexit ]
@@ -229,7 +229,7 @@ define internal void @_ZNK4ncnn12BNLL_x86_avx15forward_inplaceERNS_3MatERKNS_6Op
   %108 = or disjoint i32 %107, 7
   %109 = load i32, ptr %4, align 4, !tbaa !16
   %110 = icmp slt i32 %108, %109
-  br i1 %110, label %.lr.ph, label %.preheader232.loopexit, !llvm.loop !44
+  br i1 %110, label %.lr.ph, label %.preheader232, !llvm.loop !44
 
 .preheader:                                       ; preds = %.lr.ph238, %.preheader232
   %111 = phi i32 [ %31, %.preheader232 ], [ %189, %.lr.ph238 ]

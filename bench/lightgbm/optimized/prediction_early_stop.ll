@@ -235,7 +235,7 @@ define linkonce_odr void @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef %0, ...) local
 
 .noexc.i:                                         ; preds = %1
   %15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-          to label %.noexc unwind label %30
+          to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %.noexc.i
   store ptr %15, ptr %5, align 8, !tbaa !34
@@ -274,28 +274,28 @@ define linkonce_odr void @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef %0, ...) local
   invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #20
           to label %33 unwind label %27
 
-27:                                               ; preds = %26, %21
-  %28 = landingpad { ptr, i32 }
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %26, %21
+  %27 = landingpad { ptr, i32 }
           cleanup
   %29 = load ptr, ptr %5, align 8, !tbaa !34
   call void @_ZdlPv(ptr noundef %29) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
-30:                                               ; preds = %.noexc.i
+28:                                               ; preds = %.noexc.i
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @__cxa_free_exception(ptr %11) #23
-  br label %32
+  br label %33
 
-32:                                               ; preds = %27, %30
-  %.pn8 = phi { ptr, i32 } [ %31, %30 ], [ %28, %27 ]
+33:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %30
+  %.pn8 = phi { ptr, i32 } [ %31, %30 ], [ %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn8
 
-33:                                               ; preds = %26
+34:                                               ; preds = %26
   unreachable
 }
 

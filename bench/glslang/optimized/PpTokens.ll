@@ -325,8 +325,8 @@ define noundef zeroext i1 @_ZN7glslang10TPpContext11TokenStream20peekTokenizedPa
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = sdiv exact i64 %11, 56
-  %.not.i15 = icmp ult i64 %4, %12
-  br i1 %.not.i15, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread
+  %.not.i16 = icmp ult i64 %4, %12
+  br i1 %.not.i16, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit: ; preds = %2, %16
   %13 = phi i64 [ %17, %16 ], [ %4, %2 ]
@@ -344,15 +344,15 @@ _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit: ; preds = %2, %16
   br i1 %exitcond.not, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit, !llvm.loop !13
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread: ; preds = %16, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit, %2
-  %.promoted18 = phi i64 [ %4, %2 ], [ %12, %16 ], [ %13, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit ]
+  %.promoted19 = phi i64 [ %4, %2 ], [ %12, %16 ], [ %13, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit ]
   br i1 %1, label %.preheader, label %24
 
 .preheader:                                       ; preds = %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread
-  %.not19 = icmp ult i64 %.promoted18, %12
-  br i1 %.not19, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9, label %.sink.split
+  %.not = icmp ult i64 %.promoted19, %12
+  br i1 %.not, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9, label %.sink.split
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9: ; preds = %.preheader, %22
-  %18 = phi i64 [ %23, %22 ], [ %.promoted18, %.preheader ]
+  %18 = phi i64 [ %23, %22 ], [ %.promoted19, %.preheader ]
   %19 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %8, i64 %18
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 32
@@ -361,11 +361,11 @@ _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9: ; preds = %.preheader, %
 22:                                               ; preds = %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9
   %23 = add i64 %18, 1
   store i64 %23, ptr %3, align 8
-  %exitcond22.not = icmp eq i64 %23, %12
-  br i1 %exitcond22.not, label %.sink.split, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9, !llvm.loop !15
+  %exitcond26.not = icmp eq i64 %23, %12
+  br i1 %exitcond26.not, label %.sink.split, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9, !llvm.loop !15
 
 .sink.split:                                      ; preds = %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9, %22, %.preheader
-  %.promoted18.sink = phi i64 [ %.promoted18, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9 ], [ %.promoted18, %.preheader ], [ %.promoted18, %22 ], [ %4, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit ]
+  %.promoted19.sink = phi i64 [ %.promoted19, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9 ], [ %.promoted19, %.preheader ], [ %.promoted19, %22 ], [ %4, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit ]
   store i64 %.promoted18.sink, ptr %3, align 8
   br label %24
 
@@ -820,8 +820,8 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang10TPpContext11tTokenInput11pe
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 56
-  %.not.i15.i = icmp ult i64 %8, %16
-  br i1 %.not.i15.i, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread.i
+  %.not.i16.i = icmp ult i64 %8, %16
+  br i1 %.not.i16.i, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread.i
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i: ; preds = %1, %20
   %17 = phi i64 [ %21, %20 ], [ %8, %1 ]
@@ -839,15 +839,15 @@ _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i: ; preds = %1, %20
   br i1 %exitcond.not.i, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread.i, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i, !llvm.loop !13
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread.i: ; preds = %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i, %20, %1
-  %.promoted18.i = phi i64 [ %8, %1 ], [ %16, %20 ], [ %17, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i ]
+  %.promoted19.i = phi i64 [ %8, %1 ], [ %16, %20 ], [ %17, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i ]
   br i1 %6, label %.preheader.i, label %_ZN7glslang10TPpContext11TokenStream20peekTokenizedPastingEb.exit
 
 .preheader.i:                                     ; preds = %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread.i
-  %.not19.i = icmp ult i64 %.promoted18.i, %16
-  br i1 %.not19.i, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9.i, label %.sink.split.i
+  %.not.i = icmp ult i64 %.promoted19.i, %16
+  br i1 %.not.i, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9.i, label %.sink.split.i
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9.i: ; preds = %.preheader.i, %26
-  %22 = phi i64 [ %27, %26 ], [ %.promoted18.i, %.preheader.i ]
+  %22 = phi i64 [ %27, %26 ], [ %.promoted19.i, %.preheader.i ]
   %23 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %12, i64 %22
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 32
@@ -856,11 +856,11 @@ _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9.i: ; preds = %.preheader.
 26:                                               ; preds = %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9.i
   %27 = add i64 %22, 1
   store i64 %27, ptr %7, align 8
-  %exitcond22.not.i = icmp eq i64 %27, %16
-  br i1 %exitcond22.not.i, label %.sink.split.i, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9.i, !llvm.loop !15
+  %exitcond26.not.i = icmp eq i64 %27, %16
+  br i1 %exitcond26.not.i, label %.sink.split.i, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9.i, !llvm.loop !15
 
 .sink.split.i:                                    ; preds = %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i, %26, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9.i, %.preheader.i
-  %.promoted18.sink.i = phi i64 [ %.promoted18.i, %26 ], [ %.promoted18.i, %.preheader.i ], [ %.promoted18.i, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9.i ], [ %8, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i ]
+  %.promoted19.sink.i = phi i64 [ %.promoted19.i, %26 ], [ %.promoted19.i, %.preheader.i ], [ %.promoted19.i, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9.i ], [ %8, %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i ]
   store i64 %.promoted18.sink.i, ptr %7, align 8
   br label %_ZN7glslang10TPpContext11TokenStream20peekTokenizedPastingEb.exit
 

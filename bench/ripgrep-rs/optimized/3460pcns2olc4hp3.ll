@@ -742,23 +742,23 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %136 = ptrtoint ptr %.sroa.4.042 to i64
   %137 = sub i64 %.sroa.16.140, %136
   %138 = add i64 %137, %135
-  br i1 %.not44, label %.loopexit.thread, label %.loopexit.thread55
+  br i1 %.not44, label %.loopexit.thread, label %140
 
 .loopexit:                                        ; preds = %104, %133
-  br i1 %.not44, label %.loopexit.thread, label %.loopexit.thread55
+  br i1 %.not44, label %.loopexit.thread, label %140
 
 .loopexit.thread:                                 ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc7ec117ee4b58513E.llvm.7986975010621958062.exit.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h4fbff3123edfd4f5E.llvm.7986975010621958062.exit", %.loopexit
   %139 = phi i64 [ %138, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h4fbff3123edfd4f5E.llvm.7986975010621958062.exit" ], [ %70, %.loopexit ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc7ec117ee4b58513E.llvm.7986975010621958062.exit.i" ]
-  br label %.loopexit.thread55
+  br label %140
 
-.loopexit.thread55:                               ; preds = %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h2309694e5fbc9b58E.llvm.7986975010621958062.exit", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h4fbff3123edfd4f5E.llvm.7986975010621958062.exit", %.loopexit, %.loopexit.thread
-  %140 = phi i64 [ %139, %.loopexit.thread ], [ %70, %.loopexit ], [ %138, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h4fbff3123edfd4f5E.llvm.7986975010621958062.exit" ], [ %70, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h2309694e5fbc9b58E.llvm.7986975010621958062.exit" ]
-  %141 = phi i64 [ 0, %.loopexit.thread ], [ %.sroa.415.038, %.loopexit ], [ %.sroa.415.038, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h4fbff3123edfd4f5E.llvm.7986975010621958062.exit" ], [ %.sroa.415.038, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h2309694e5fbc9b58E.llvm.7986975010621958062.exit" ]
-  %142 = getelementptr inbounds i8, ptr %0, i64 %141
-  %143 = sub i64 %140, %141
-  %144 = insertvalue { ptr, i64 } poison, ptr %142, 0
-  %145 = insertvalue { ptr, i64 } %144, i64 %143, 1
-  ret { ptr, i64 } %145
+140:                                              ; preds = %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h2309694e5fbc9b58E.llvm.7986975010621958062.exit", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h4fbff3123edfd4f5E.llvm.7986975010621958062.exit", %.loopexit, %.loopexit.thread
+  %141 = phi i64 [ %139, %.loopexit.thread ], [ %70, %.loopexit ], [ %138, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h4fbff3123edfd4f5E.llvm.7986975010621958062.exit" ], [ %70, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h2309694e5fbc9b58E.llvm.7986975010621958062.exit" ]
+  %142 = phi i64 [ 0, %.loopexit.thread ], [ %.sroa.415.038, %.loopexit ], [ %.sroa.415.038, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h4fbff3123edfd4f5E.llvm.7986975010621958062.exit" ], [ %.sroa.415.038, %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h2309694e5fbc9b58E.llvm.7986975010621958062.exit" ]
+  %143 = getelementptr inbounds i8, ptr %0, i64 %142
+  %144 = sub i64 %141, %142
+  %145 = insertvalue { ptr, i64 } poison, ptr %143, 0
+  %146 = insertvalue { ptr, i64 } %145, i64 %144, 1
+  ret { ptr, i64 } %146
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -1366,12 +1366,12 @@ define noundef zeroext i1 @_ZN8grep_cli17is_readable_stdin17h9bf1ee3ca75ae77bE()
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hee637f9e7da05d74E.llvm.1231196827938639477(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %14)
   %15 = load i8, ptr %2, align 8, !range !172, !alias.scope !173, !noalias !171, !noundef !4
   %16 = icmp eq i8 %15, 3
-  br i1 %16, label %17, label %39
+  br i1 %16, label %17, label %42
 
 17:                                               ; preds = %.noexc17.i
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h09d58dbbd9d54a99E.llvm.1231196827938639477"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18)
-  br label %39
+  br label %42
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1389,12 +1389,12 @@ define noundef zeroext i1 @_ZN8grep_cli17is_readable_stdin17h9bf1ee3ca75ae77bE()
           cleanup
   %24 = load i32, ptr %4, align 4, !alias.scope !177, !noundef !4
   %25 = invoke noundef i32 @close(i32 noundef %24)
-          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hb3a32104259b4d47E.exit.i" unwind label %37
+          to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hb3a32104259b4d47E.exit.i" unwind label %40
 
 26:                                               ; preds = %19
   %27 = load i64, ptr %3, align 8, !range !188, !noundef !4
   %.not.i = icmp eq i64 %27, 2
-  br i1 %.not.i, label %28, label %switch.edge.i
+  br i1 %.not.i, label %28, label %34
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1413,7 +1413,7 @@ define noundef zeroext i1 @_ZN8grep_cli17is_readable_stdin17h9bf1ee3ca75ae77bE()
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h09d58dbbd9d54a99E.llvm.1231196827938639477"(ptr noalias noundef nonnull align 8 dereferenceable(8) %33)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hb3a32104259b4d47E.exit37.i" unwind label %22
 
-switch.edge.i:                                    ; preds = %26
+34:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = call noundef i32 @close(i32 noundef %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1422,18 +1422,18 @@ switch.edge.i:                                    ; preds = %26
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hb3a32104259b4d47E.exit37.i": ; preds = %32, %.noexc31.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !189
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %35 = load i32, ptr %4, align 4, !alias.scope !199, !noundef !4
-  %36 = call noundef i32 @close(i32 noundef %35)
+  %38 = load i32, ptr %4, align 4, !alias.scope !199, !noundef !4
+  %39 = call noundef i32 @close(i32 noundef %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN8grep_cli17is_readable_stdin3imp17h591316f291c8cd73E.exit
 
-37:                                               ; preds = %22
-  %38 = landingpad { ptr, i32 }
+40:                                               ; preds = %22
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #14
   unreachable
 
-39:                                               ; preds = %17, %.noexc17.i
+42:                                               ; preds = %17, %.noexc17.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !171
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1442,7 +1442,7 @@ switch.edge.i:                                    ; preds = %26
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hb3a32104259b4d47E.exit.i": ; preds = %22
   resume { ptr, i32 } %23
 
-_ZN8grep_cli17is_readable_stdin3imp17h591316f291c8cd73E.exit: ; preds = %0, %39, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hb3a32104259b4d47E.exit37.i", %switch.edge.i
+_ZN8grep_cli17is_readable_stdin3imp17h591316f291c8cd73E.exit: ; preds = %0, %42, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hb3a32104259b4d47E.exit37.i", %switch.edge.i
   ret i1 false
 }
 

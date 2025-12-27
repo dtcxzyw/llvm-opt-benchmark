@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i64 @libdeflate_zlib_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp ult i64 %4, 7
-  br i1 %6, label %27, label %7
+  br i1 %6, label %28, label %7
 
 7:                                                ; preds = %5
   %8 = tail call i32 @libdeflate_get_compression_level(ptr noundef %0) #3
@@ -33,7 +33,7 @@ define noundef i64 @libdeflate_zlib_compress(ptr noundef %0, ptr noundef %1, i64
   %20 = add i64 %4, -6
   %21 = tail call i64 @libdeflate_deflate_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %19, i64 noundef %20) #3
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %27, label %23
+  br i1 %22, label %28, label %23
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %21
@@ -42,7 +42,7 @@ define noundef i64 @libdeflate_zlib_compress(ptr noundef %0, ptr noundef %1, i64
   store i32 %26, ptr %24, align 1
   br label %27
 
-27:                                               ; preds = %14, %5, %23
+28:                                               ; preds = %14, %5, %23
   ret i64 0
 }
 

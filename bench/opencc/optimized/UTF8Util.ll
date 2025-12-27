@@ -23,19 +23,19 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 align 2 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %.loopexit, label %3
+  br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i64 @ftell(ptr noundef nonnull %0)
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %.preheader, label %.loopexit
+  br i1 %.not, label %.preheader, label %7
 
 .preheader:                                       ; preds = %3, %.preheader
   %5 = tail call i32 @getc(ptr noundef nonnull %0)
   %.not20 = icmp eq i32 %5, -1
-  br i1 %.not20, label %.loopexit, label %.preheader
+  br i1 %.not20, label %7, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %3, %1
+7:                                                ; preds = %.preheader, %3, %1
   ret void
 }
 

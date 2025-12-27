@@ -176,35 +176,35 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
   %59 = load atomic i64, ptr %58 acquire, align 8
   %60 = and i64 %59, 1
   %61 = icmp eq i64 %60, 0
-  br i1 %61, label %.lr.ph.i33, label %.loopexit
+  br i1 %61, label %.lr.ph.i33, label %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hc0bbce794cc99c69E.exit"
 
 .lr.ph.i33:                                       ; preds = %56, %.lr.ph.i33
   call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   %62 = load atomic i64, ptr %58 acquire, align 8
   %63 = and i64 %62, 1
   %64 = icmp eq i64 %63, 0
-  br i1 %64, label %.lr.ph.i33, label %.loopexit
+  br i1 %64, label %.lr.ph.i33, label %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hc0bbce794cc99c69E.exit"
 
-.loopexit:                                        ; preds = %.lr.ph.i33, %56
+"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hc0bbce794cc99c69E.exit": ; preds = %.lr.ph.i33, %56
   %65 = load ptr, ptr %57, align 8
   %66 = atomicrmw or ptr %58, i64 2 acq_rel, align 8
   %67 = and i64 %66, 4
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit", label %69
 
-69:                                               ; preds = %.loopexit
+69:; preds = %.loopexit
   %70 = icmp samesign ult i64 %10, 29
   br i1 %70, label %.lr.ph.i36, label %._crit_edge.i35
 
-._crit_edge.i35:                                  ; preds = %81, %69
+._crit_edge.i35:; preds = %81, %69
   call void @__rust_dealloc(ptr noundef nonnull %.0.le, i64 noundef 504, i64 noundef 8) #11
   br label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit"
 
-.lr.ph.i36:                                       ; preds = %69, %81
+"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit": ; preds = %69, %81
   %.sroa.01.09.i37 = phi i64 [ %71, %81 ], [ %40, %69 ]
   %71 = add nuw nsw i64 %.sroa.01.09.i37, 1
-  %72 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %.0.le, i64 %.sroa.01.09.i37
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %95 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %.0.le, i64 %.sroa.01.09.i37
+  %73 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %74 = load atomic i64, ptr %73 acquire, align 8
   %75 = and i64 %74, 2
   %76 = icmp eq i64 %75, 0

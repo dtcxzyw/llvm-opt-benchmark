@@ -121,8 +121,8 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %_ZNK3dpx13GenericHe
   br i1 %19, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread
 
 _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 812
-  %21 = load i32, ptr %20, align 4, !tbaa !18
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 812
+  %24 = load i32, ptr %23, align 4, !tbaa !18
   %22 = add i32 %21, 1
   %.not = icmp ult i32 %22, 2
   br i1 %.not, label %25, label %switch.early.test
@@ -141,21 +141,21 @@ switch.early.test:                                ; preds = %_ZNK3dpx13GenericHe
   br i1 %or.cond9, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
 
 _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %25
-  %27 = sext i32 %14 to i64
-  %28 = sext i32 %15 to i64
-  %29 = sext i32 %13 to i64
-  %30 = sext i32 %16 to i64
-  %31 = mul nsw i64 %27, %29
-  %32 = mul i64 %31, %28
-  %33 = mul i64 %32, %30
-  %34 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #10
-  store ptr %34, ptr %17, align 8, !tbaa !6
-  %35 = tail call noalias noundef nonnull dereferenceable(53440) ptr @_Znam(i64 noundef 53440) #10
-  %36 = load ptr, ptr %2, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %1, i32 noundef %3, i64 noundef 0, ptr noundef nonnull %35, i64 noundef 40080)
-  tail call void @_ZdaPv(ptr noundef nonnull %35) #8
+  %30 = sext i32 %14 to i64
+  %31 = sext i32 %15 to i64
+  %32 = sext i32 %13 to i64
+  %33 = sext i32 %16 to i64
+  %34 = mul nsw i64 %30, %32
+  %35 = mul i64 %34, %31
+  %36 = mul i64 %35, %33
+  %37 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %36) #10
+  store ptr %37, ptr %17, align 8, !tbaa !6
+  %38 = tail call noalias noundef nonnull dereferenceable(53440) ptr @_Znam(i64 noundef 53440) #10
+  %39 = load ptr, ptr %2, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %1, i32 noundef %3, i64 noundef 0, ptr noundef nonnull %35, i64 noundef 40080)
+  tail call void @_ZdaPv(ptr noundef nonnull %38) #8
   br label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread
 
 _ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread: ; preds = %7, %25, %switch.early.test, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit

@@ -548,13 +548,13 @@ define noundef range(i8 0, 3) i8 @_ZN10rayon_core11thread_pool10ThreadPool11yiel
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i": ; preds = %1
   %10 = icmp eq ptr %7, null
-  br i1 %10, label %_ZN10rayon_core8registry12WorkerThread11yield_local17h00ee3528ace85d2aE.exit, label %11
+  br i1 %10, label %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit.thread, label %11
 
 11:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i"
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %13 = load ptr, ptr %12, align 16, !nonnull !4, !noundef !4
   %14 = icmp eq ptr %13, %4
-  br i1 %14, label %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit, label %_ZN10rayon_core8registry12WorkerThread11yield_local17h00ee3528ace85d2aE.exit
+  br i1 %14, label %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit, label %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit.thread
 
 _ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit: ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 280
@@ -579,7 +579,7 @@ _ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit: ; pr
 
 _ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i: ; preds = %18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_ZN10rayon_core8registry12WorkerThread11yield_local17h00ee3528ace85d2aE.exit
+  br label %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit.thread
 
 default.unreachable:                              ; preds = %18
   unreachable
@@ -603,9 +603,9 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.
   %.fca.0.extract.pre-phi4.i = phi ptr [ %22, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.i ], [ %.fca.0.extract.i.i, %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit ]
   %.fca.1.extract.i = extractvalue { ptr, ptr } %.merged.i5.i, 1
   tail call void %.fca.0.extract.pre-phi4.i(ptr noundef %.fca.1.extract.i)
-  br label %_ZN10rayon_core8registry12WorkerThread11yield_local17h00ee3528ace85d2aE.exit
+  br label %_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit.thread
 
-_ZN10rayon_core8registry12WorkerThread11yield_local17h00ee3528ace85d2aE.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i", %11, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i
+_ZN10rayon_core8registry8Registry14current_thread17h48d147d3f6f52d55E.exit.thread:; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i", %11, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i
   %.0 = phi i8 [ 0, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread.i ], [ 0, %_ZN10rayon_core8registry12WorkerThread14take_local_job17h2230933171f8808bE.llvm.14976363794789945401.exit.thread6.i ], [ 2, %11 ], [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h390e0a82b1a81ed6E.llvm.14976363794789945401.exit.i" ]
   ret i8 %.0
 }

@@ -215,12 +215,12 @@ define dso_local i32 @uv_thread_setaffinity(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @uv_cpumask_size() #12
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %50, label %9
+  br i1 %8, label %51, label %9
 
 9:                                                ; preds = %4
   %10 = zext nneg i32 %7 to i64
   %11 = icmp ult i64 %3, %10
-  br i1 %11, label %50, label %12
+  br i1 %11, label %51, label %12
 
 12:                                               ; preds = %9
   %.not = icmp eq ptr %2, null
@@ -274,7 +274,7 @@ define dso_local i32 @uv_thread_setaffinity(ptr noundef readonly captures(none) 
 uv_thread_getaffinity.exit.thread:                ; preds = %16, %13
   %.0.i.ph = phi i32 [ %14, %13 ], [ -22, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %50
+  br label %51
 
 uv_thread_getaffinity.exit.thread29:              ; preds = %31, %.preheader.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -284,7 +284,7 @@ uv_thread_getaffinity.exit:                       ; preds = %19
   %34 = sub nsw i32 0, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = icmp sgt i32 %21, 0
-  br i1 %35, label %50, label %36
+  br i1 %35, label %51, label %36
 
 36:                                               ; preds = %uv_thread_getaffinity.exit.thread29, %12, %uv_thread_getaffinity.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
@@ -300,10 +300,10 @@ uv_thread_getaffinity.exit:                       ; preds = %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %38 = load i8, ptr %37, align 1
-  %.not26.not = icmp eq i8 %38, 0
-  br i1 %.not26.not, label %46, label %39
+  %.not26 = icmp eq i8 %38, 0
+  br i1 %.not26, label %46, label %39
 
-39:                                               ; preds = %.lr.ph
+39:; preds = %.lr.ph
   %40 = and i64 %indvars.iv, 63
   %41 = shl nuw i64 1, %40
   %42 = lshr i64 %indvars.iv, 6
@@ -313,19 +313,19 @@ uv_thread_getaffinity.exit:                       ; preds = %19
   store i64 %45, ptr %43, align 8
   br label %46
 
-46:                                               ; preds = %39, %.lr.ph
+46:; preds = %39, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %46, %36
-  %47 = load i64, ptr %0, align 8
-  %48 = call i32 @pthread_setaffinity_np(i64 noundef %47, i64 noundef 128, ptr noundef nonnull %6) #12
-  %49 = sub nsw i32 0, %48
-  br label %50
+  %48 = load i64, ptr %0, align 8
+  %49 = call i32 @pthread_setaffinity_np(i64 noundef %48, i64 noundef 128, ptr noundef nonnull %6) #12
+  %50 = sub nsw i32 0, %49
+  br label %51
 
-50:                                               ; preds = %uv_thread_getaffinity.exit.thread, %uv_thread_getaffinity.exit, %9, %4, %._crit_edge
-  %.0 = phi i32 [ %49, %._crit_edge ], [ %7, %4 ], [ -22, %9 ], [ %34, %uv_thread_getaffinity.exit ], [ %.0.i.ph, %uv_thread_getaffinity.exit.thread ]
+51:                                               ; preds = %uv_thread_getaffinity.exit.thread, %uv_thread_getaffinity.exit, %9, %4, %._crit_edge
+  %.0 = phi i32 [ %50, %._crit_edge ], [ %7, %4 ], [ -22, %9 ], [ %34, %uv_thread_getaffinity.exit ], [ %.0.i.ph, %uv_thread_getaffinity.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

@@ -896,7 +896,7 @@ define noundef zeroext i1 @_ZN4ring2ec10curve255196x2551911x25519_ecdh17hf317766
 
 _ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit: ; preds = %5
   %.not = icmp eq i64 %11, 32
-  br i1 %.not, label %14, label %22
+  br i1 %.not, label %14, label %23
 
 14:                                               ; preds = %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -935,9 +935,9 @@ _ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exi
 
 .sink.split:                                      ; preds = %_ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exit, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %.sink.split, %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit
+23:                                               ; preds = %.sink.split, %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit
   ret i1 false
 }
 

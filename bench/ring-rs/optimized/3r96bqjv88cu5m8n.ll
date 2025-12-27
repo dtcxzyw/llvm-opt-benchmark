@@ -329,8 +329,8 @@ define hidden { i8, i8 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u2
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = load i64, ptr %0, align 8, !noundef !4
-  %.not.not = icmp eq i64 %3, %4
-  br i1 %.not.not, label %.thread, label %5
+  %.not = icmp eq i64 %3, %4
+  br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %1
   %6 = add nuw nsw i64 %4, 1

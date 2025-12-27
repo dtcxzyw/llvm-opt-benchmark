@@ -46,7 +46,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br label %99
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %.lr.ph
   %.043 = phi i64 [ %48, %.lr.ph ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
@@ -161,15 +161,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 97:                                               ; preds = %92
   %98 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br label %99
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit40: ; preds = %92
   ret void
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %97, %12
+99:                                               ; preds = %97, %12
   %.pn = phi { ptr, i32 } [ %98, %97 ], [ %13, %12 ]
-  %99 = load ptr, ptr %0, align 8, !tbaa !13
-  tail call void @_ZdlPv(ptr noundef %99) #10
+  %100 = load ptr, ptr %0, align 8, !tbaa !13
+  tail call void @_ZdlPv(ptr noundef %100) #10
   resume { ptr, i32 } %.pn
 }
 

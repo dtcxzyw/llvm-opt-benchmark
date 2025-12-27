@@ -481,8 +481,8 @@ define internal range(i32 0, 3) i32 @lj_cf_debug_getupvalue(ptr noundef %0) #0 {
   %2 = tail call i32 @lj_lib_checkint(ptr noundef %0, i32 noundef 2) #10
   %3 = tail call ptr @lj_lib_checkfunc(ptr noundef %0, i32 noundef 1) #10
   %4 = tail call ptr @lua_getupvalue(ptr noundef %0, i32 noundef 1, i32 noundef %2) #10
-  %.not16.i = icmp eq ptr %4, null
-  br i1 %.not16.i, label %debug_getupvalue.exit, label %5
+  %.not1617.i = icmp eq ptr %4, null
+  br i1 %.not1617.i, label %debug_getupvalue.exit, label %5
 
 5:                                                ; preds = %1
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %4) #10

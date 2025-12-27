@@ -122,24 +122,24 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
 47:                                               ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
   %48 = and i64 %.2, 9223372036854775807
   %49 = icmp eq i8 %.sroa.51.0.in.i, 14
-  br i1 %49, label %50, label %52
+  br i1 %49, label %50, label %.thread89
 
 50:                                               ; preds = %47
   %51 = icmp eq i8 %21, 0
   br i1 %51, label %.thread98, label %67
 
-52:                                               ; preds = %47
+.thread89:                                        ; preds = %47
   %narrow = add nuw nsw i8 %.sroa.51.0.in.i, 50
-  %53 = zext nneg i8 %narrow to i64
-  %54 = lshr i64 %48, %53
-  %55 = trunc nuw nsw i64 %54 to i16
-  %56 = shl nuw i64 562949953421312, %.sroa.51.0.insert.ext.i
-  %57 = and i64 %56, %48
-  %.not = icmp eq i64 %57, 0
-  %58 = sub nuw nsw i64 15, %.sroa.51.0.insert.ext.i
-  %59 = shl i64 %48, %58
-  %60 = icmp ne i64 %59, 0
-  %spec.select64 = select i1 %60, i1 true, i1 %.054
+  %51 = zext nneg i8 %narrow to i64
+  %52 = lshr i64 %48, %51
+  %53 = trunc nuw nsw i64 %52 to i16
+  %54 = shl nuw i64 562949953421312, %.sroa.51.0.insert.ext.i
+  %55 = and i64 %54, %48
+  %56 = icmp eq i64 %55, 0
+  %57 = sub nuw nsw i64 15, %.sroa.51.0.insert.ext.i
+  %58 = shl i64 %48, %57
+  %59 = icmp ne i64 %58, 0
+  %spec.select64 = select i1 %59, i1 true, i1 %.054
   %61 = zext nneg i8 %21 to i16
   %62 = zext nneg i8 %.sroa.51.0.in.i to i16
   %63 = sub nuw nsw i16 13, %62
@@ -155,14 +155,14 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
 
 68:                                               ; preds = %52, %67
   %.15596 = phi i1 [ %spec.select64, %52 ], [ %spec.select63, %67 ]
-  %.052 = phi i16 [ %66, %52 ], [ %.sroa.0.0.i, %67 ]
-  %69 = and i16 %.052, 1
+  %.15597 = phi i16 [ %66, %52 ], [ %.sroa.0.0.i, %67 ]
+  %69 = and i16 %.0.thread89, 1
   %70 = zext i1 %.15596 to i16
   %71 = or i16 %69, %70
   %72 = add nuw i16 %71, %.052
   br label %.thread98
 
-.thread98:                                        ; preds = %50, %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit, %52, %68
+.thread98:; preds = %50, %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit, %52, %68
   %.153 = phi i16 [ %66, %52 ], [ 32767, %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit ], [ %72, %68 ], [ poison, %50 ]
   %73 = sub i16 0, %.153
   br label %5

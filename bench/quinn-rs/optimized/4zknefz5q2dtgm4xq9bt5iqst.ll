@@ -1611,7 +1611,7 @@ common.resume:                                    ; preds = %29, %16
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$quinn..mutex..non_tracking..MutexGuard$LT$quinn..connection..State$GT$$GT$17h6e6d7574907dd673E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #18
-          to label %common.resume unwind label %39
+          to label %common.resume unwind label %40
 
 31:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h362e80bdf19b37b9E.exit"
   %32 = invoke { i64, i64 } @_ZN11quinn_proto10connection7streams10SendStream6finish17h7ab33425b58f2866E(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
@@ -1634,8 +1634,8 @@ common.resume:                                    ; preds = %29, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 false
 
-39:                                               ; preds = %29
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %29
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16
   unreachable

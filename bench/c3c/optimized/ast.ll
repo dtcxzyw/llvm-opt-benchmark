@@ -697,7 +697,7 @@ define dso_local noundef range(i32 0, 190) i32 @binaryop_to_token(i32 noundef %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %5, label %6, label %2
 
-6:                                                ; preds = %2
+.split.loop.exit:                                 ; preds = %2
   ret i32 0
 }
 
@@ -755,7 +755,7 @@ define dso_local noundef range(i32 0, 42) i32 @attribute_by_name(ptr noundef rea
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %5, label %6, label %2
 
-6:                                                ; preds = %2
+.split.loop.exit8:                                ; preds = %2
   ret i32 0
 }
 

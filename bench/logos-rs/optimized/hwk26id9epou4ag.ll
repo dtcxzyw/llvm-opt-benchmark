@@ -144,52 +144,52 @@ define void @_ZN4core4iter8adapters11try_process17h30c3f45d9218bb3aE(ptr sret([2
   call void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h91cb7b121923217aE"(ptr nonnull sret([24 x i8]) align 8 %6, ptr nonnull align 1 %3, ptr nonnull align 8 %5)
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %12, label %13
+  br i1 %.not, label %12, label %.thread10
 
-9:                                                ; preds = %12
+13:                                               ; preds = %12
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = load ptr, ptr %7, align 8
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %.thread, label %22
 
-12:                                               ; preds = %2
+15:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   invoke void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h54f8311c798c621eE"(ptr sret([24 x i8]) align 8 %0, ptr nonnull align 8 %4)
-          to label %16 unwind label %9
+          to label %16 unwind label %.thread10
 
-13:                                               ; preds = %2
+.thread10:                                        ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hb87fe743a9fe284dE"(ptr sret([24 x i8]) align 8 %0, ptr nonnull %8, i64 %15, ptr nonnull align 8 @anon.3158e36315581d60fa55fc3296e99966.3)
           to label %17 unwind label %18
 
-16:                                               ; preds = %17, %12
+20:                                               ; preds = %17, %12
   ret void
 
-17:                                               ; preds = %13
+21:                                               ; preds = %13
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..mir..Mir$GT$$GT$17hc20cac6ab2edaf04E"(ptr nonnull align 8 %6)
   br label %16
 
-18:                                               ; preds = %13
-  %19 = landingpad { ptr, i32 }
+22:                                               ; preds = %13
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..mir..Mir$GT$$GT$17hc20cac6ab2edaf04E"(ptr nonnull align 8 %6) #6
-          to label %.thread unwind label %20
+          to label %.thread unwind label %24
 
-20:                                               ; preds = %22, %18
-  %21 = landingpad { ptr, i32 }
+24:                                               ; preds = %26, %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
   unreachable
 
-.thread:                                          ; preds = %18, %22, %9
-  %.pn9 = phi { ptr, i32 } [ %10, %9 ], [ %10, %22 ], [ %19, %18 ]
+.thread:                                          ; preds = %22, %26, %9
+  %.pn9 = phi { ptr, i32 } [ %10, %9 ], [ %10, %22 ], [ %23, %18 ]
   resume { ptr, i32 } %.pn9
 
-22:                                               ; preds = %9
+26:                                               ; preds = %9
   invoke void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$logos_codegen..error..Error$GT$$GT$17ha848683f0254fea1E"(ptr nonnull align 8 %7) #6
-          to label %.thread unwind label %20
+          to label %.thread unwind label %24
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

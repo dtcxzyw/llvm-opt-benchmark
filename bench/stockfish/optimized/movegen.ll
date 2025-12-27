@@ -1802,8 +1802,8 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 24
   %453 = load i32, ptr %452, align 8
   %454 = and i32 %453, %444
-  %.not91.i96 = icmp eq i32 %454, 0
-  br i1 %.not91.i96, label %462, label %455
+  %.not91.i98 = icmp eq i32 %454, 0
+  br i1 %.not91.i98, label %462, label %455
 
 455:                                              ; preds = %450
   %456 = getelementptr inbounds nuw i32, ptr %440, i64 %446
@@ -4911,8 +4911,8 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 24
   %621 = load i32, ptr %620, align 8
   %622 = and i32 %621, %612
-  %.not91.i131 = icmp eq i32 %622, 0
-  br i1 %.not91.i131, label %630, label %623
+  %.not91.i133 = icmp eq i32 %622, 0
+  br i1 %.not91.i133, label %630, label %623
 
 623:                                              ; preds = %618
   %624 = getelementptr inbounds nuw i32, ptr %608, i64 %614

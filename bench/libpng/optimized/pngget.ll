@@ -795,14 +795,14 @@ define range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readnone capt
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
-  br i1 %or.cond, label %8, label %35
+  br i1 %or.cond, label %8, label %38
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !22
   %11 = and i32 %10, 128
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %35, label %12
+  br i1 %.not, label %38, label %12
 
 12:                                               ; preds = %8
   %.not29 = icmp eq ptr %2, null
@@ -828,7 +828,7 @@ define range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readnone capt
 20:                                               ; preds = %17, %16
   %.2 = phi i32 [ 128, %17 ], [ %.1, %16 ]
   %.not31 = icmp eq ptr %4, null
-  br i1 %.not31, label %35, label %21
+  br i1 %.not31, label %38, label %21
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -836,7 +836,7 @@ define range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readnone capt
   %24 = zext i8 %23 to i32
   store i32 %24, ptr %4, align 4, !tbaa !68
   %25 = icmp eq i8 %23, 1
-  br i1 %25, label %26, label %35
+  br i1 %25, label %26, label %38
 
 26:                                               ; preds = %21
   %27 = load i32, ptr %2, align 4, !tbaa !68
@@ -851,7 +851,7 @@ define range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readnone capt
   store i32 %34, ptr %3, align 4, !tbaa !68
   br label %35
 
-35:                                               ; preds = %20, %26, %21, %8, %5
+38:                                               ; preds = %20, %26, %21, %8, %5
   %.0 = phi i32 [ 128, %26 ], [ 0, %5 ], [ 128, %21 ], [ %.2, %20 ], [ 0, %8 ]
   ret i32 %.0
 }

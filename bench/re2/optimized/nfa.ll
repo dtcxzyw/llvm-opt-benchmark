@@ -2092,10 +2092,10 @@ invoke.cont:                                      ; preds = %entry
   ret i1 false
 
 lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+  %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3re23NFAD1Ev(ptr noundef nonnull align 8 dereferenceable(233) %nfa) #19
-  resume { ptr, i32 } %1
+  resume { ptr, i32 } %0
 }
 
 ; Function Attrs: mustprogress uwtable

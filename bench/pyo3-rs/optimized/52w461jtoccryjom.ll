@@ -480,8 +480,8 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 4:                                                ; preds = %6, %2
   %5 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51c255ab4840291dE"(ptr align 8 %0)
-  %.not.not = icmp eq ptr %5, null
-  br i1 %.not.not, label %8, label %6
+  %.not.not.not.not.not.not = icmp eq ptr %5, null
+  br i1 %.not.not.not.not.not.not, label %8, label %6
 
 6:                                                ; preds = %4
   %7 = call zeroext i1 @"_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new15is_numeric_type28_$u7b$$u7b$closure$u7d$$u7d$17hca5e53aa28822b8fE"(ptr nonnull align 8 %3, ptr nonnull align 8 %5)
@@ -527,8 +527,8 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 6:                                                ; preds = %8, %3
   %7 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h785778b424ed1a1fE"(ptr align 8 %0)
-  %.not.not = icmp eq ptr %7, null
-  br i1 %.not.not, label %10, label %8
+  %.not.not.not.not.not.not = icmp eq ptr %7, null
+  br i1 %.not.not.not.not.not.not, label %10, label %8
 
 8:                                                ; preds = %6
   %9 = call zeroext i1 @"_ZN19pyo3_macros_backend6module13has_attribute28_$u7b$$u7b$closure$u7d$$u7d$17h4ea454053a62a893E"(ptr nonnull align 8 %4, ptr nonnull align 8 %7)

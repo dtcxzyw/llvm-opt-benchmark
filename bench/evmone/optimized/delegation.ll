@@ -18,7 +18,7 @@ define void @_ZN6evmone20get_delegate_addressERKN4evmc13HostInterfaceERKNS0_7add
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(20) %2, i64 noundef 0, ptr noundef nonnull %4, i64 noundef 23) #3
+  %8 = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(20) %2, i64 noundef 0, ptr noundef nonnull %4, i64 noundef 23) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %0, i8 0, i64 21, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4) #3
   ret void
@@ -28,7 +28,7 @@ define void @_ZN6evmone20get_delegate_addressERKN4evmc13HostInterfaceERKNS0_7add
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #1

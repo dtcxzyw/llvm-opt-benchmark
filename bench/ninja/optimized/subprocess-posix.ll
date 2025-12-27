@@ -78,31 +78,31 @@ define dso_local void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 captures(
 
 5:                                                ; preds = %1
   %6 = invoke i32 @close(i32 noundef %3)
-          to label %7 unwind label %16
+          to label %7 unwind label %18
 
 7:                                                ; preds = %5, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %.not = icmp eq i32 %9, -1
-  br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %10
+  br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %7
   %11 = invoke noundef i32 @_ZN10Subprocess6FinishEv(ptr noundef nonnull align 8 dereferenceable(41) %0)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit unwind label %16
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit unwind label %18
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %7
-  %12 = load ptr, ptr %0, align 8, !tbaa !20
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+12:                                               ; preds = %10, %7
+  %13 = load ptr, ptr %0, align 8, !tbaa !20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !13
   %15 = add i64 %14, 1
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %15) #22
   ret void
 
-16:                                               ; preds = %10, %5
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %10, %5
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #23
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #23
   unreachable
 }
 
@@ -809,9 +809,9 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 ca
   %.not = icmp eq ptr %18, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
-._crit_edge18:                                    ; preds = %42
+._crit_edge18:                                    ; preds = %44
   %.pre22 = load ptr, ptr %0, align 8, !tbaa !28
-  %19 = icmp eq ptr %43, %.pre22
+  %19 = icmp eq ptr %45, %.pre22
   br i1 %19, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %20
 
 20:                                               ; preds = %._crit_edge18
@@ -821,12 +821,12 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 ca
 _ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %._crit_edge18, %20
   ret void
 
-.lr.ph17:                                         ; preds = %._crit_edge, %42
-  %21 = phi ptr [ %43, %42 ], [ %17, %._crit_edge ]
-  %.sroa.01.015 = phi ptr [ %44, %42 ], [ %.pre20, %._crit_edge ]
+.lr.ph17:                                         ; preds = %._crit_edge, %44
+  %21 = phi ptr [ %45, %42 ], [ %17, %._crit_edge ]
+  %.sroa.01.015 = phi ptr [ %46, %42 ], [ %.pre20, %._crit_edge ]
   %22 = load ptr, ptr %.sroa.01.015, align 8, !tbaa !43
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %42, label %24
+  br i1 %23, label %44, label %24
 
 24:                                               ; preds = %.lr.ph17
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -842,21 +842,21 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %.
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %32 = load i32, ptr %31, align 4, !tbaa !18
   %.not.i = icmp eq i32 %32, -1
-  br i1 %.not.i, label %_ZN10SubprocessD2Ev.exit, label %33
+  br i1 %.not.i, label %35, label %33
 
 33:                                               ; preds = %30
   %34 = invoke noundef i32 @_ZN10Subprocess6FinishEv(ptr noundef nonnull align 8 dereferenceable(41) %22)
           to label %_ZN10SubprocessD2Ev.exit unwind label %39
 
-_ZN10SubprocessD2Ev.exit:                         ; preds = %33, %30
-  %35 = load ptr, ptr %22, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw i8, ptr %22, i64 16
+35:                                               ; preds = %33, %30
+  %36 = load ptr, ptr %22, align 8, !tbaa !20
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %37 = load i64, ptr %36, align 8, !tbaa !13
   %38 = add i64 %37, 1
   tail call void @_ZdlPvm(ptr noundef %35, i64 noundef %38) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 48) #22
   %.pre21 = load ptr, ptr %3, align 8, !tbaa !39
-  br label %42
+  br label %44
 
 39:                                               ; preds = %33, %28
   %40 = landingpad { ptr, i32 }
@@ -865,10 +865,10 @@ _ZN10SubprocessD2Ev.exit:                         ; preds = %33, %30
   tail call void @__clang_call_terminate(ptr %41) #23
   unreachable
 
-42:                                               ; preds = %.lr.ph17, %_ZN10SubprocessD2Ev.exit
-  %43 = phi ptr [ %21, %.lr.ph17 ], [ %.pre21, %_ZN10SubprocessD2Ev.exit ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.01.015, i64 8
-  %.not9 = icmp eq ptr %44, %43
+44:                                               ; preds = %.lr.ph17, %_ZN10SubprocessD2Ev.exit
+  %45 = phi ptr [ %21, %.lr.ph17 ], [ %.pre21, %_ZN10SubprocessD2Ev.exit ]
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.01.015, i64 8
+  %.not9 = icmp eq ptr %46, %45
   br i1 %.not9, label %._crit_edge18, label %.lr.ph17, !llvm.loop !47
 }
 

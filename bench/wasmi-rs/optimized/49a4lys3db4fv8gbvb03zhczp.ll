@@ -447,11 +447,11 @@ define hidden { i32, i32 } @_ZN5wasmi5table7element14ElementSegment3new17ha94131
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10wasmi_core5table7element14ElementSegment3new17h2d5cebbc19bda908E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i8 noundef %27, ptr noalias noundef nonnull align 8 %.sroa.0.0, i64 noundef %.sroa.6.0)
   %.val = load ptr, ptr %11, align 8, !nonnull !3, !align !29, !noundef !3
-  %28 = call { i32, i32 } @_ZN5wasmi5store5inner10StoreInner21alloc_element_segment17ha1abc48cd9f2d413E(ptr noalias noundef nonnull align 8 dereferenceable(240) %.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
+  %29 = call { i32, i32 } @_ZN5wasmi5store5inner10StoreInner21alloc_element_segment17ha1abc48cd9f2d413E(ptr noalias noundef nonnull align 8 dereferenceable(240) %.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret { i32, i32 } %28
+  ret { i32, i32 } %29
 }
 
 ; Function Attrs: nonlazybind uwtable

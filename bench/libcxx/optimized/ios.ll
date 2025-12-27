@@ -630,11 +630,11 @@ define dso_local void @_ZNSt3__18ios_base5clearEj(ptr noundef nonnull align 8 ca
   %.not4 = icmp eq i32 %9, 0
   br i1 %.not4, label %11, label %10
 
-10:                                               ; preds = %2
+10:; preds = %2
   tail call void @_ZNSt3__115__throw_failureB8ne210000EPKc(ptr noundef nonnull @.str.2) #28
   unreachable
 
-11:                                               ; preds = %2
+13:                                               ; preds = %2
   ret void
 }
 
