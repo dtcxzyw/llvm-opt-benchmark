@@ -46,9 +46,9 @@ define dso_local range(i32 0, 2) i32 @WebPImportGray(ptr noundef readonly captur
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %23
 
-23:                                               ; preds = %.lr.ph, %44
-  %.02631 = phi ptr [ %0, %.lr.ph ], [ %29, %44 ]
-  %.02730 = phi i32 [ 0, %.lr.ph ], [ %45, %44 ]
+23:                                               ; preds = %.lr.ph, %23
+  %.02631 = phi ptr [ %0, %.lr.ph ], [ %29, %23 ]
+  %.02730 = phi i32 [ 0, %.lr.ph ], [ %41, %23 ]
   %24 = load ptr, ptr %16, align 8, !tbaa !15
   %25 = load i32, ptr %17, align 8, !tbaa !16
   %26 = mul nsw i32 %25, %.02730
@@ -56,34 +56,26 @@ define dso_local range(i32 0, 2) i32 @WebPImportGray(ptr noundef readonly captur
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %.02631, i64 %18, i1 false)
   %29 = getelementptr inbounds i8, ptr %.02631, i64 %18
-  %30 = and i32 %.02730, 1
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %44
+  %30 = load ptr, ptr %19, align 8, !tbaa !17
+  %31 = lshr exact i32 %.02730, 1
+  %32 = load i32, ptr %20, align 4, !tbaa !18
+  %33 = mul nsw i32 %32, %31
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %30, i64 %34
+  tail call void @llvm.memset.p0.i64(ptr align 1 %35, i8 -128, i64 %21, i1 false)
+  %36 = load ptr, ptr %22, align 8, !tbaa !19
+  %37 = load i32, ptr %20, align 4, !tbaa !18
+  %38 = mul nsw i32 %37, %31
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %36, i64 %39
+  tail call void @llvm.memset.p0.i64(ptr align 1 %40, i8 -128, i64 %21, i1 false)
+  %41 = add nuw nsw i32 %.02730, 1
+  %42 = load i32, ptr %9, align 4, !tbaa !13
+  %43 = icmp slt i32 %41, %42
+  br i1 %43, label %23, label %.loopexit, !llvm.loop !20
 
-32:                                               ; preds = %23
-  %33 = load ptr, ptr %19, align 8, !tbaa !17
-  %34 = lshr exact i32 %.02730, 1
-  %35 = load i32, ptr %20, align 4, !tbaa !18
-  %36 = mul nsw i32 %35, %34
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %33, i64 %37
-  tail call void @llvm.memset.p0.i64(ptr align 1 %38, i8 -128, i64 %21, i1 false)
-  %39 = load ptr, ptr %22, align 8, !tbaa !19
-  %40 = load i32, ptr %20, align 4, !tbaa !18
-  %41 = mul nsw i32 %40, %34
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  tail call void @llvm.memset.p0.i64(ptr align 1 %43, i8 -128, i64 %21, i1 false)
-  br label %44
-
-44:                                               ; preds = %23, %32
-  %45 = add nuw nsw i32 %.02730, 1
-  %46 = load i32, ptr %9, align 4, !tbaa !13
-  %47 = icmp slt i32 %45, %46
-  br i1 %47, label %23, label %.loopexit, !llvm.loop !20
-
-.loopexit:                                        ; preds = %44, %8, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %44 ]
+.loopexit:                                        ; preds = %23, %8, %5, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %23 ]
   ret i32 %.0
 }
 

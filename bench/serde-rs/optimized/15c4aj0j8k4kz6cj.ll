@@ -44,39 +44,43 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
   %.idx = shl nsw i64 %2, 4
   %4 = getelementptr inbounds i8, ptr %1, i64 %.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3b0d78e82faf87b5E.llvm.2284647516453932833.exit", label %.lr.ph.i
+  %5 = icmp eq i64 %2, 0
+  br i1 %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3b0d78e82faf87b5E.llvm.2284647516453932833.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !alias.scope !20, !noalias !23, !noundef !4
-  %7 = load ptr, ptr %0, align 8, !alias.scope !17, !noalias !29, !nonnull !4, !align !5
-  br label %8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8, !alias.scope !20, !noalias !23, !noundef !4
+  %8 = load ptr, ptr %0, align 8, !alias.scope !17, !noalias !29, !nonnull !4, !align !5
+  br label %.backedge
 
-8:                                                ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge.i", %.lr.ph.i
-  %9 = phi ptr [ %1, %.lr.ph.i ], [ %10, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge.i" ]
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph.i
+  %9 = phi ptr [ %1, %.lr.ph.i ], [ %10, %.backedge.backedge ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !alias.scope !33, !noalias !34, !noundef !4
-  %.not.i.i.i.i.i = icmp eq i64 %12, %6
+  %.not.i.i.i.i.i = icmp eq i64 %12, %7
   br i1 %.not.i.i.i.i.i, label %13, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge.i"
 
-13:                                               ; preds = %8
+13:                                               ; preds = %.backedge
   %14 = load ptr, ptr %9, align 8, !alias.scope !33, !noalias !34, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %14, ptr nonnull readonly align 1 %7, i64 %6), !alias.scope !35, !noalias !42
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %14, ptr nonnull readonly align 1 %8, i64 %7), !alias.scope !35, !noalias !42
   %15 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3b0d78e82faf87b5E.llvm.2284647516453932833.exit", label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge.i"
+  %16 = icmp eq ptr %10, %4
+  %or.cond.i = select i1 %15, i1 true, i1 %16
+  br i1 %or.cond.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3b0d78e82faf87b5E.llvm.2284647516453932833.exit", label %.backedge.backedge
 
-"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge.i": ; preds = %13, %8
-  %.not11.i = icmp eq ptr %10, %4
-  br i1 %.not11.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3b0d78e82faf87b5E.llvm.2284647516453932833.exit", label %8
+.backedge.backedge:                               ; preds = %13, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge.i"
+  br label %.backedge
+
+"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge.i": ; preds = %.backedge
+  %.old.i = icmp eq ptr %10, %4
+  br i1 %.old.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3b0d78e82faf87b5E.llvm.2284647516453932833.exit", label %.backedge.backedge
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3b0d78e82faf87b5E.llvm.2284647516453932833.exit": ; preds = %13, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge.i", %3
-  %.lcssa.i = phi i1 [ false, %3 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge.i" ], [ true, %13 ]
-  ret i1 %.lcssa.i
+  ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, target_mem0: none, target_mem1: none) uwtable
@@ -108,44 +112,47 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !57, !nonnull !4, !noundef !4
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !57
-  %.not = icmp eq ptr %.promoted, %4
-  br i1 %.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92faf1476f0ac206E.llvm.2284647516453932833.exit", label %.lr.ph
+  %5 = icmp eq ptr %.promoted, %4
+  br i1 %5, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92faf1476f0ac206E.llvm.2284647516453932833.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !alias.scope !60, !noalias !63, !noundef !4
-  %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5
-  br label %8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i64, ptr %6, align 8, !alias.scope !60, !noalias !63, !noundef !4
+  %8 = load ptr, ptr %1, align 8, !nonnull !4, !align !5
+  br label %.backedge
 
-8:                                                ; preds = %.lr.ph, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge"
-  %9 = phi ptr [ %.promoted, %.lr.ph ], [ %10, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge" ]
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
+  %9 = phi ptr [ %.promoted, %.lr.ph ], [ %10, %.backedge.backedge ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !alias.scope !70, !noalias !71, !noundef !4
-  %.not.i.i.i.i = icmp eq i64 %12, %6
+  %.not.i.i.i.i = icmp eq i64 %12, %7
   br i1 %.not.i.i.i.i, label %13, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge"
 
-13:                                               ; preds = %8
+13:                                               ; preds = %.backedge
   %14 = load ptr, ptr %9, align 8, !alias.scope !70, !noalias !71, !nonnull !4, !align !5, !noundef !4
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %14, ptr nonnull readonly align 1 %7, i64 %6), !alias.scope !72, !noalias !79
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %14, ptr nonnull readonly align 1 %8, i64 %7), !alias.scope !72, !noalias !79
   %15 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %15, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92faf1476f0ac206E.llvm.2284647516453932833.exit.sink.split", label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge"
+  %16 = icmp eq ptr %10, %4
+  %or.cond = select i1 %15, i1 true, i1 %16
+  br i1 %or.cond, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92faf1476f0ac206E.llvm.2284647516453932833.exit.sink.split", label %.backedge.backedge
 
-"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge": ; preds = %13, %8
-  %.not11 = icmp eq ptr %10, %4
-  br i1 %.not11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92faf1476f0ac206E.llvm.2284647516453932833.exit.sink.split", label %8
+"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge": ; preds = %.backedge
+  %.old = icmp eq ptr %10, %4
+  br i1 %.old, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92faf1476f0ac206E.llvm.2284647516453932833.exit.sink.split", label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge", %13
+  br label %.backedge
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92faf1476f0ac206E.llvm.2284647516453932833.exit.sink.split": ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge", %13
-  %.lcssa.ph = phi i1 [ true, %13 ], [ false, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd2d0d55a194614c7E.llvm.2284647516453932833.exit.backedge" ]
   store ptr %10, ptr %0, align 8, !alias.scope !57
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92faf1476f0ac206E.llvm.2284647516453932833.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92faf1476f0ac206E.llvm.2284647516453932833.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92faf1476f0ac206E.llvm.2284647516453932833.exit.sink.split", %2
-  %.lcssa = phi i1 [ false, %2 ], [ %.lcssa.ph, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h92faf1476f0ac206E.llvm.2284647516453932833.exit.sink.split" ]
-  ret i1 %.lcssa
+  ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

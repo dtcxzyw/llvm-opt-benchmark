@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @attr_recursive = internal global %union.pthread_mutexattr_t zeroinitializer, align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evthread_use_pthreads_with_flags(i32 noundef %0) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @evthread_use_pthreads_with_flags(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.evthread_lock_callbacks, align 8
   %3 = alloca %struct.evthread_condition_callbacks, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -78,10 +78,9 @@ define range(i32 -1, 1) i32 @evthread_use_pthreads_with_flags(i32 noundef %0) lo
   br label %25
 
 25:                                               ; preds = %23, %19, %5
-  %.0 = phi i32 [ 0, %5 ], [ -1, %23 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.0
+  ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -265,7 +264,7 @@ define internal i64 @evthread_posix_get_id() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evthread_use_pthreads() local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @evthread_use_pthreads() local_unnamed_addr #0 {
   %1 = tail call i32 @evthread_use_pthreads_with_flags(i32 noundef 0)
   ret i32 %1
 }

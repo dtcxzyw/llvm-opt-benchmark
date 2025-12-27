@@ -110,12 +110,12 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIhE21PackRGBAFromIm
   %48 = getelementptr inbounds i8, ptr %47, i64 %33
   %49 = getelementptr inbounds i8, ptr %48, i64 %36
   %wide.trip.count = zext nneg i32 %3 to i64
-  %spec.select92 = select i1 %.not80, ptr null, ptr %37
+  %spec.select = select i1 %.not80, ptr null, ptr %37
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph.preheader ]
-  %.186 = phi ptr [ %spec.select, %59 ], [ %spec.select92, %.lr.ph.preheader ]
+  %.186 = phi ptr [ %65, %59 ], [ %spec.select, %.lr.ph.preheader ]
   %.07185 = phi ptr [ %64, %59 ], [ %41, %.lr.ph.preheader ]
   %.07284 = phi ptr [ %63, %59 ], [ %45, %.lr.ph.preheader ]
   %.07383 = phi ptr [ %62, %59 ], [ %49, %.lr.ph.preheader ]
@@ -145,7 +145,6 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIhE21PackRGBAFromIm
   %63 = getelementptr inbounds i8, ptr %.07284, i64 %26
   %64 = getelementptr inbounds i8, ptr %.07185, i64 %26
   %65 = getelementptr inbounds i8, ptr %.186, i64 %26
-  %spec.select = select i1 %.not81, ptr null, ptr %65
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
 
@@ -254,12 +253,12 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIhE21UnpackRGBAToIm
   %49 = getelementptr inbounds i8, ptr %25, i64 %40
   %50 = getelementptr inbounds i8, ptr %49, i64 %43
   %wide.trip.count = zext nneg i32 %3 to i64
-  %spec.select89 = select i1 %.not78, ptr null, ptr %44
+  %spec.select = select i1 %.not78, ptr null, ptr %44
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph.preheader ]
-  %.183 = phi ptr [ %spec.select, %61 ], [ %spec.select89, %.lr.ph.preheader ]
+  %.183 = phi ptr [ %65, %61 ], [ %spec.select, %.lr.ph.preheader ]
   %.07182 = phi ptr [ %64, %61 ], [ %46, %.lr.ph.preheader ]
   %.07281 = phi ptr [ %63, %61 ], [ %48, %.lr.ph.preheader ]
   %.07380 = phi ptr [ %62, %61 ], [ %50, %.lr.ph.preheader ]
@@ -288,7 +287,6 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIhE21UnpackRGBAToIm
   %63 = getelementptr inbounds i8, ptr %.07281, i64 %21
   %64 = getelementptr inbounds i8, ptr %.07182, i64 %21
   %65 = getelementptr inbounds i8, ptr %.183, i64 %21
-  %spec.select = select i1 %.not79, ptr null, ptr %65
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
@@ -372,12 +370,12 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21PackRGBAFromIm
   %48 = getelementptr inbounds i8, ptr %47, i64 %33
   %49 = getelementptr inbounds i8, ptr %48, i64 %36
   %wide.trip.count = zext nneg i32 %3 to i64
-  %spec.select92 = select i1 %.not80, ptr null, ptr %37
+  %spec.select = select i1 %.not80, ptr null, ptr %37
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph.preheader ]
-  %.186 = phi ptr [ %spec.select, %58 ], [ %spec.select92, %.lr.ph.preheader ]
+  %.186 = phi ptr [ %64, %58 ], [ %spec.select, %.lr.ph.preheader ]
   %.07185 = phi ptr [ %63, %58 ], [ %41, %.lr.ph.preheader ]
   %.07284 = phi ptr [ %62, %58 ], [ %45, %.lr.ph.preheader ]
   %.07383 = phi ptr [ %61, %58 ], [ %49, %.lr.ph.preheader ]
@@ -407,7 +405,6 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21PackRGBAFromIm
   %62 = getelementptr inbounds i8, ptr %.07284, i64 %26
   %63 = getelementptr inbounds i8, ptr %.07185, i64 %26
   %64 = getelementptr inbounds i8, ptr %.186, i64 %26
-  %spec.select = select i1 %.not81, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
 
@@ -502,12 +499,12 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21UnpackRGBAToIm
   %49 = getelementptr inbounds i8, ptr %25, i64 %40
   %50 = getelementptr inbounds i8, ptr %49, i64 %43
   %wide.trip.count = zext nneg i32 %3 to i64
-  %spec.select89 = select i1 %.not78, ptr null, ptr %44
+  %spec.select = select i1 %.not78, ptr null, ptr %44
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %60
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph.preheader ]
-  %.183 = phi ptr [ %spec.select, %60 ], [ %spec.select89, %.lr.ph.preheader ]
+  %.183 = phi ptr [ %64, %60 ], [ %spec.select, %.lr.ph.preheader ]
   %.07182 = phi ptr [ %63, %60 ], [ %46, %.lr.ph.preheader ]
   %.07281 = phi ptr [ %62, %60 ], [ %48, %.lr.ph.preheader ]
   %.07380 = phi ptr [ %61, %60 ], [ %50, %.lr.ph.preheader ]
@@ -536,7 +533,6 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21UnpackRGBAToIm
   %62 = getelementptr inbounds i8, ptr %.07281, i64 %21
   %63 = getelementptr inbounds i8, ptr %.07182, i64 %21
   %64 = getelementptr inbounds i8, ptr %.183, i64 %21
-  %spec.select = select i1 %.not79, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
@@ -620,12 +616,12 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
   %48 = getelementptr inbounds i8, ptr %47, i64 %33
   %49 = getelementptr inbounds i8, ptr %48, i64 %36
   %wide.trip.count = zext nneg i32 %3 to i64
-  %spec.select92 = select i1 %.not80, ptr null, ptr %37
+  %spec.select = select i1 %.not80, ptr null, ptr %37
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph.preheader ]
-  %.186 = phi ptr [ %spec.select, %58 ], [ %spec.select92, %.lr.ph.preheader ]
+  %.186 = phi ptr [ %63, %58 ], [ %spec.select, %.lr.ph.preheader ]
   %.07185 = phi ptr [ %62, %58 ], [ %41, %.lr.ph.preheader ]
   %.07284 = phi ptr [ %61, %58 ], [ %45, %.lr.ph.preheader ]
   %.07383 = phi ptr [ %60, %58 ], [ %49, %.lr.ph.preheader ]
@@ -655,7 +651,6 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
   %61 = getelementptr inbounds i8, ptr %.07284, i64 %26
   %62 = getelementptr inbounds i8, ptr %.07185, i64 %26
   %63 = getelementptr inbounds i8, ptr %.186, i64 %26
-  %spec.select = select i1 %.not81, ptr null, ptr %63
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
 
@@ -750,12 +745,12 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
   %49 = getelementptr inbounds i8, ptr %25, i64 %40
   %50 = getelementptr inbounds i8, ptr %49, i64 %43
   %wide.trip.count = zext nneg i32 %3 to i64
-  %spec.select89 = select i1 %.not78, ptr null, ptr %44
+  %spec.select = select i1 %.not78, ptr null, ptr %44
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %60
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph.preheader ]
-  %.183 = phi ptr [ %spec.select, %60 ], [ %spec.select89, %.lr.ph.preheader ]
+  %.183 = phi ptr [ %64, %60 ], [ %spec.select, %.lr.ph.preheader ]
   %.07182 = phi ptr [ %63, %60 ], [ %46, %.lr.ph.preheader ]
   %.07281 = phi ptr [ %62, %60 ], [ %48, %.lr.ph.preheader ]
   %.07380 = phi ptr [ %61, %60 ], [ %50, %.lr.ph.preheader ]
@@ -784,7 +779,6 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
   %62 = getelementptr inbounds i8, ptr %.07281, i64 %21
   %63 = getelementptr inbounds i8, ptr %.07182, i64 %21
   %64 = getelementptr inbounds i8, ptr %.183, i64 %21
-  %spec.select = select i1 %.not79, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
@@ -868,12 +862,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21PackRGBAFromImageDescER
   %48 = getelementptr inbounds i8, ptr %47, i64 %33
   %49 = getelementptr inbounds i8, ptr %48, i64 %36
   %wide.trip.count = zext nneg i32 %3 to i64
-  %spec.select92 = select i1 %.not80, ptr null, ptr %37
+  %spec.select = select i1 %.not80, ptr null, ptr %37
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph.preheader ]
-  %.186 = phi ptr [ %spec.select, %58 ], [ %spec.select92, %.lr.ph.preheader ]
+  %.186 = phi ptr [ %64, %58 ], [ %spec.select, %.lr.ph.preheader ]
   %.07185 = phi ptr [ %63, %58 ], [ %41, %.lr.ph.preheader ]
   %.07284 = phi ptr [ %62, %58 ], [ %45, %.lr.ph.preheader ]
   %.07383 = phi ptr [ %61, %58 ], [ %49, %.lr.ph.preheader ]
@@ -903,7 +897,6 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21PackRGBAFromImageDescER
   %62 = getelementptr inbounds i8, ptr %.07284, i64 %26
   %63 = getelementptr inbounds i8, ptr %.07185, i64 %26
   %64 = getelementptr inbounds i8, ptr %.186, i64 %26
-  %spec.select = select i1 %.not81, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
 
@@ -998,12 +991,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21UnpackRGBAToImageDescER
   %49 = getelementptr inbounds i8, ptr %25, i64 %40
   %50 = getelementptr inbounds i8, ptr %49, i64 %43
   %wide.trip.count = zext nneg i32 %3 to i64
-  %spec.select89 = select i1 %.not78, ptr null, ptr %44
+  %spec.select = select i1 %.not78, ptr null, ptr %44
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %60
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph.preheader ]
-  %.183 = phi ptr [ %spec.select, %60 ], [ %spec.select89, %.lr.ph.preheader ]
+  %.183 = phi ptr [ %64, %60 ], [ %spec.select, %.lr.ph.preheader ]
   %.07182 = phi ptr [ %63, %60 ], [ %46, %.lr.ph.preheader ]
   %.07281 = phi ptr [ %62, %60 ], [ %48, %.lr.ph.preheader ]
   %.07380 = phi ptr [ %61, %60 ], [ %50, %.lr.ph.preheader ]
@@ -1032,7 +1025,6 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21UnpackRGBAToImageDescER
   %62 = getelementptr inbounds i8, ptr %.07281, i64 %21
   %63 = getelementptr inbounds i8, ptr %.07182, i64 %21
   %64 = getelementptr inbounds i8, ptr %.183, i64 %21
-  %spec.select = select i1 %.not79, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 

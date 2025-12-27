@@ -126,39 +126,27 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagRFvvEEEEvDpOT_.exit: ; pred
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %0, align 8, !tbaa !11
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !21
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = icmp eq ptr %3, %4
-  br i1 %5, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %6 = load i64, ptr %4, align 8, !tbaa !19
-  %7 = add i64 %6, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #16
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2 = load ptr, ptr %1, align 8, !tbaa !21
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = load i64, ptr %3, align 8, !tbaa !19
+  %5 = add i64 %4, 1
+  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %5) #16
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal19ImplicitWeakMessageD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev.exit:
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %0, align 8, !tbaa !11
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !21
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = icmp eq ptr %3, %4
-  br i1 %5, label %_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
-  %6 = load i64, ptr %4, align 8, !tbaa !19
-  %7 = add i64 %6, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #16
-  br label %_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev.exit
-
-_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %2 = load ptr, ptr %1, align 8, !tbaa !21
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = load i64, ptr %3, align 8, !tbaa !19
+  %5 = add i64 %4, 1
+  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %5) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #16
   ret void
 }

@@ -1362,8 +1362,7 @@ lpad:                                             ; preds = %land.lhs.true.i, %e
   br label %return
 
 return:                                           ; preds = %invoke.cont2, %land.lhs.true.i, %lpad
-  %retval.0 = phi i32 [ -1, %lpad ], [ 0, %land.lhs.true.i ], [ 0, %invoke.cont2 ]
-  ret i32 %retval.0
+  ret i32 0
 }
 
 declare noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE9showmanycEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #0
@@ -1421,13 +1420,11 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit:           ; preds = %if.end8
   %.pre = load i64, ptr %pback_size_, align 8
   br label %if.end19
 
-if.end19:                                         ; preds = %if.end8, %_ZNSt11char_traitsIcE4moveEPcPKcm.exit
-  %idx.neg23.pre-phi = phi i64 [ %idx.neg, %_ZNSt11char_traitsIcE4moveEPcPKcm.exit ], [ 0, %if.end8 ]
+if.end19:                                         ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit, %if.end8
   %4 = phi i64 [ %.pre, %_ZNSt11char_traitsIcE4moveEPcPKcm.exit ], [ %2, %if.end8 ]
   %5 = load ptr, ptr %buffer_.i, align 8
   %add.ptr22 = getelementptr inbounds i8, ptr %5, i64 %4
-  %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr22, i64 %idx.neg23.pre-phi
-  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %add.ptr24, ptr noundef %add.ptr22, ptr noundef %add.ptr22)
+  tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %add.ptr22, ptr noundef %add.ptr22, ptr noundef %add.ptr22)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt17iostream_categoryv() #30
@@ -1472,8 +1469,7 @@ if.then5:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
-  %spec.select.i = phi i32 [ %c, %if.then5 ], [ 0, %if.then ]
-  ret i32 %spec.select.i
+  ret i32 %c
 
 if.else:                                          ; preds = %entry
   call void @_ZN5boost9iostreams6detail11bad_putbackB5cxx11Ev(ptr nonnull sret(%"class.std::ios_base::failure") align 8 %ref.tmp9)
@@ -1516,7 +1512,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %entry, %land.lhs.true, %if.then
   %cmp.i1 = icmp eq i32 %c, -1
-  br i1 %cmp.i1, label %return, label %if.then9
+  br i1 %cmp.i1, label %if.end33, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   %2 = load i32, ptr %flags_.i, align 8
@@ -1542,7 +1538,7 @@ if.end22:                                         ; preds = %if.then15, %if.then
   %call24 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %this)
   store i8 %conv.i, ptr %call24, align 1
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE5pbumpEi(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef 1)
-  br label %return
+  br label %if.end33
 
 if.else:                                          ; preds = %if.then9
   %conv.i5 = trunc i32 %c to i8
@@ -1550,11 +1546,13 @@ if.else:                                          ; preds = %if.then9
   %storage_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %call.i.i.i.i = call noundef i64 @_ZN5boost9iostreams15file_descriptor5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i, ptr noundef nonnull %d, i64 noundef 1)
   %cmp28.not = icmp eq i64 %call.i.i.i.i, 1
-  %spec.select = select i1 %cmp28.not, i32 %c, i32 -1
+  br i1 %cmp28.not, label %if.end33, label %return
+
+if.end33:                                         ; preds = %if.end22, %if.else, %if.end
   br label %return
 
-return:                                           ; preds = %if.else, %if.end, %if.end22, %if.then15
-  %retval.0 = phi i32 [ -1, %if.then15 ], [ %spec.select, %if.else ], [ %c, %if.end22 ], [ 0, %if.end ]
+return:                                           ; preds = %if.else, %if.then15, %if.end33
+  %retval.0 = phi i32 [ -1, %if.then15 ], [ %c, %if.end33 ], [ -1, %if.else ]
   ret i32 %retval.0
 }
 

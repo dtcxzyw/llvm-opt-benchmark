@@ -155,7 +155,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   call void @dspmv_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @c_b12, ptr noundef %3, ptr noundef %72, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b14, ptr noundef %81, ptr noundef nonnull @c__1) #5
   %82 = load i32, ptr %1, align 4, !tbaa !3
   %.not370392 = icmp slt i32 %82, 1
-  br i1 %.not370392, label %._crit_edge422, label %.lr.ph.preheader
+  br i1 %.not370392, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %73
   %83 = add nuw i32 %82, 1
@@ -173,17 +173,17 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %87, ptr %88, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-._crit_edge.thread:                               ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph, %73
   %89 = add nuw i32 %82, 1
   br i1 %.not, label %.lr.ph416, label %.lr.ph404.preheader
 
-.lr.ph404.preheader:                              ; preds = %._crit_edge.thread
+.lr.ph404.preheader:                              ; preds = %._crit_edge
   %wide.trip.count469 = zext i32 %89 to i64
   br label %.lr.ph404
 
-.lr.ph416:                                        ; preds = %._crit_edge.thread
+.lr.ph416:                                        ; preds = %._crit_edge
   %90 = zext nneg i32 %82 to i64
   %wide.trip.count488 = zext i32 %89 to i64
   br label %126
@@ -249,7 +249,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %125, ptr %113, align 8, !tbaa !7
   %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
   %exitcond470.not = icmp eq i64 %indvars.iv.next467, %wide.trip.count469
-  br i1 %exitcond470.not, label %.lr.ph421.preheader, label %.lr.ph404, !llvm.loop !13
+  br i1 %exitcond470.not, label %.loopexit385, label %.lr.ph404, !llvm.loop !13
 
 126:                                              ; preds = %.lr.ph416, %._crit_edge411
   %indvars.iv485 = phi i64 [ 1, %.lr.ph416 ], [ %indvars.iv.next486, %._crit_edge411 ]
@@ -276,7 +276,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %.not372405.not, label %.lr.ph410.preheader, label %._crit_edge411
 
 .lr.ph410.preheader:                              ; preds = %126
-  %140 = sext i32 %indvars.iv477 to i64
+  %140 = zext nneg i32 %indvars.iv477 to i64
   br label %.lr.ph410
 
 .lr.ph410:                                        ; preds = %.lr.ph410.preheader, %.lr.ph410
@@ -303,7 +303,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %155 = fneg double %153
   %156 = select i1 %154, double %153, double %155
   %157 = call double @llvm.fmuladd.f64(double %152, double %156, double %.1348407)
-  %indvars.iv.next480 = add nsw i64 %indvars.iv479, 1
+  %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next480 to i32
   %exitcond484.not = icmp eq i32 %89, %lftr.wideiv
   br i1 %exitcond484.not, label %._crit_edge411.loopexit, label %.lr.ph410, !llvm.loop !14
@@ -321,9 +321,12 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %indvars.iv.next472 = add i32 %indvars.iv471, -1
   %indvars.iv.next478 = add nuw i32 %indvars.iv477, 1
   %exitcond489.not = icmp eq i64 %indvars.iv.next486, %wide.trip.count488
-  br i1 %exitcond489.not, label %.lr.ph421.preheader, label %126, !llvm.loop !15
+  br i1 %exitcond489.not, label %.loopexit385, label %126, !llvm.loop !15
 
-.lr.ph421.preheader:                              ; preds = %._crit_edge400, %._crit_edge411
+.loopexit385:                                     ; preds = %._crit_edge400, %._crit_edge411
+  br i1 %.not370392, label %._crit_edge422, label %.lr.ph421.preheader
+
+.lr.ph421.preheader:                              ; preds = %.loopexit385
   %160 = zext nneg i32 %82 to i64
   %161 = add nuw i32 %82, 1
   %wide.trip.count493 = zext i32 %161 to i64
@@ -367,8 +370,8 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %exitcond494.not = icmp eq i64 %indvars.iv.next491, %wide.trip.count493
   br i1 %exitcond494.not, label %._crit_edge422, label %.lr.ph421, !llvm.loop !16
 
-._crit_edge422:                                   ; preds = %179, %73
-  %.2.lcssa = phi double [ 0.000000e+00, %73 ], [ %181, %179 ]
+._crit_edge422:                                   ; preds = %179, %.loopexit385
+  %.2.lcssa = phi double [ 0.000000e+00, %.loopexit385 ], [ %181, %179 ]
   store double %.2.lcssa, ptr %66, align 8, !tbaa !7
   %182 = fcmp ogt double %.2.lcssa, %56
   br i1 %182, label %183, label %197

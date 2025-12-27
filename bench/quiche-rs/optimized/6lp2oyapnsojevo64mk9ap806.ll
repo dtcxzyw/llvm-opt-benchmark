@@ -3779,30 +3779,12 @@ define noundef i64 @_ZN6quiche5frame5Frame8wire_len17h41353290038c5b4bE(ptr noal
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @_ZN6quiche5frame5Frame13ack_eliciting17ha6a46ae69c40dff8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 {
-  %2 = load i64, ptr %0, align 8, !range !107, !noundef !12
-  %3 = add nsw i64 %2, -2
-  %4 = icmp ult i64 %3, 27
-  %5 = icmp ne i64 %3, 2
-  tail call void @llvm.assume(i1 %5)
-  %6 = select i1 %4, i64 %3, i64 2
-  %7 = icmp samesign ugt i64 %6, 23
-  %switch.cast = trunc nuw nsw i64 %6 to i24
-  %switch.downshift = lshr i24 4194298, %switch.cast
-  %switch.masked = trunc i24 %switch.downshift to i1
-  %8 = select i1 %7, i1 true, i1 %switch.masked
-  ret i1 %8
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @_ZN6quiche5frame5Frame7probing17he2b9f440f325578fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 {
-switch.lookup:
-  %1 = load i64, ptr %0, align 8, !range !107, !noundef !12
-  %2 = icmp ne i64 %1, 4
-  tail call void @llvm.assume(i1 %2)
-  %switch.cast = trunc nuw i64 %1 to i29
-  %switch.downshift = lshr i29 13631492, %switch.cast
-  %switch.masked = trunc i29 %switch.downshift to i1
-  ret i1 %switch.masked
+  ret i1 false
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7839,7 +7821,7 @@ define void @"_ZN112_$LT$quiche..recovery..gcongestion..pacer..Pacer$u20$as$u20$
 
 27:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %28 = add i64 %5, %3
+  %28 = add nuw nsw i64 %5, %3
   %29 = tail call noundef i64 @"_ZN111_$LT$quiche..recovery..gcongestion..bbr2..BBRv2$u20$as$u20$quiche..recovery..gcongestion..CongestionControl$GT$11pacing_rate17h0fc944b21f6879c6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1024) %10, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %7)
   %30 = load i64, ptr %0, align 8, !range !91, !alias.scope !339, !noalias !342, !noundef !12
   %31 = trunc nuw i64 %30 to i1

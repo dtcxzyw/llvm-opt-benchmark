@@ -145,7 +145,6 @@ $_ZZN8nanobind6detail11func_createILb1ELb1EZNS_12cpp_functionI12EnumProperty4Enu
 @_ZTS12EnumProperty = linkonce_odr hidden constant [15 x i8] c"12EnumProperty\00", comdat, align 1
 @.str.31 = private unnamed_addr constant [9 x i8] c"__init__\00", align 1
 @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJEE7executeINS_6class_I12EnumPropertyJEEEJEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS6_EEE_vJSF_EJLm0EEJNS_5scopeENS_4nameENS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr = linkonce_odr hidden constant %"struct.nanobind::detail::descr.103" { [14 x i8] c"({%}) -> None\00" }, comdat, align 1
-@_Py_NoneStruct = external global %struct._object, align 8
 @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_12cpp_functionI12EnumProperty4EnumS3_JEJNS_9is_methodENS_9is_getterENS_9rv_policyEEEENS_6objectEMT1_FT0_DpT2_EDpRKT3_EUlPS3_E_S4_JSJ_EJLm0EEJS5_S6_S7_EEEP7_objectOS9_PFT2_DpSF_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr = linkonce_odr hidden constant %"struct.nanobind::detail::descr.111" { [11 x i8] c"({%}) -> %\00" }, comdat, align 1
 
 ; Function Attrs: mustprogress optsize uwtable
@@ -1593,27 +1592,18 @@ declare noundef ptr @_ZN8nanobind6detail11nb_type_newEPKNS0_14type_init_dataE(pt
 
 ; Function Attrs: inlinehint mustprogress optsize uwtable
 define linkonce_odr hidden noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJEE7executeINS_6class_I12EnumPropertyJEEEJEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS6_EEE_vJSF_EJLm0EEJNS_5scopeENS_4nameENS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESZ_S10_S11_S12_S14_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"struct.nanobind::detail::type_caster.109", align 8
-  %7 = load ptr, ptr %1, align 8, !tbaa !78
-  %8 = load i8, ptr %2, align 1, !tbaa !54
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %9 = and i8 %8, 8
-  %.not.i.i = icmp eq i8 %9, 0
-  %10 = and i8 %8, -2
-  %spec.select.i.i = select i1 %.not.i.i, i8 %8, i8 %10
-  %11 = call noundef zeroext i1 @_ZN8nanobind6detail11nb_type_getEPKSt9type_infoP7_objecthPNS0_12cleanup_listEPPv(ptr noundef nonnull @_ZTI12EnumProperty, ptr noundef %7, i8 noundef zeroext %spec.select.i.i, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %6) #13
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %11, label %12, label %_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJEE7executeINS_6class_I12EnumPropertyJEEEJEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS6_EEE_vJSF_EJLm0EEJNS_5scopeENS_4nameENS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESZ_S10_S11_S12_S14_.exit
-
-12:                                               ; preds = %5
-  %13 = load i64, ptr @_Py_NoneStruct, align 8, !tbaa !18
-  %14 = add nsw i64 %13, 1
-  store i64 %14, ptr @_Py_NoneStruct, align 8, !tbaa !18
-  br label %_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJEE7executeINS_6class_I12EnumPropertyJEEEJEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS6_EEE_vJSF_EJLm0EEJNS_5scopeENS_4nameENS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESZ_S10_S11_S12_S14_.exit
-
-_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJEE7executeINS_6class_I12EnumPropertyJEEEJEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS6_EEE_vJSF_EJLm0EEJNS_5scopeENS_4nameENS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESZ_S10_S11_S12_S14_.exit: ; preds = %5, %12
-  %.0.i = phi ptr [ @_Py_NoneStruct, %12 ], [ inttoptr (i64 1 to ptr), %5 ]
-  ret ptr %.0.i
+_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJEE7executeINS_6class_I12EnumPropertyJEEEJEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS6_EEE_vJSF_EJLm0EEJNS_5scopeENS_4nameENS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSL_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESZ_S10_S11_S12_S14_.exit:
+  %5 = alloca %"struct.nanobind::detail::type_caster.109", align 8
+  %6 = load ptr, ptr %1, align 8, !tbaa !78
+  %7 = load i8, ptr %2, align 1, !tbaa !54
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %8 = and i8 %7, 8
+  %.not.i.i = icmp eq i8 %8, 0
+  %9 = and i8 %7, -2
+  %spec.select.i.i = select i1 %.not.i.i, i8 %7, i8 %9
+  %10 = call noundef zeroext i1 @_ZN8nanobind6detail11nb_type_getEPKSt9type_infoP7_objecthPNS0_12cleanup_listEPPv(ptr noundef nonnull @_ZTI12EnumProperty, ptr noundef %6, i8 noundef zeroext %spec.select.i.i, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  ret ptr inttoptr (i64 1 to ptr)
 }
 
 ; Function Attrs: nounwind optsize

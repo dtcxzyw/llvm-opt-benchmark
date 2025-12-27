@@ -43,7 +43,7 @@ define hidden void @nghttp2_map_free(ptr noundef readonly captures(address_is_nu
 declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_map_each(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden noundef i32 @nghttp2_map_each(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = icmp eq i64 %5, 0
@@ -55,30 +55,36 @@ define hidden i32 @nghttp2_map_each(ptr noundef readonly captures(none) %0, ptr 
   %10 = trunc i64 %9 to i32
   %11 = shl nuw i32 1, %10
   %12 = zext i32 %11 to i64
-  br label %13
+  br label %.backedge
 
-13:                                               ; preds = %7, %21
-  %.01316 = phi i64 [ 0, %7 ], [ %22, %21 ]
-  %14 = load ptr, ptr %0, align 8, !tbaa !10
-  %15 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %14, i64 %.01316
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !13
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %21, label %19
+.backedge:                                        ; preds = %.backedge.backedge, %7
+  %.01316 = phi i64 [ 0, %7 ], [ %.01316.be, %.backedge.backedge ]
+  %13 = load ptr, ptr %0, align 8, !tbaa !10
+  %14 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %13, i64 %.01316
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !13
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %22, label %18
 
-19:                                               ; preds = %13
-  %20 = tail call i32 %1(ptr noundef nonnull %17, ptr noundef %2) #12
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %21, label %.loopexit
+18:                                               ; preds = %.backedge
+  %19 = tail call i32 %1(ptr noundef nonnull %16, ptr noundef %2) #12
+  %.not = icmp eq i32 %19, 0
+  %20 = add nuw nsw i64 %.01316, 1
+  %21 = icmp samesign ult i64 %20, %12
+  %or.cond = select i1 %.not, i1 %21, i1 false
+  br i1 %or.cond, label %.backedge.backedge, label %.loopexit
 
-21:                                               ; preds = %19, %13
-  %22 = add nuw nsw i64 %.01316, 1
-  %exitcond.not = icmp eq i64 %22, %12
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !16
+22:                                               ; preds = %.backedge
+  %.old = add nuw nsw i64 %.01316, 1
+  %.old17 = icmp samesign ult i64 %.old, %12
+  br i1 %.old17, label %.backedge.backedge, label %.loopexit
 
-.loopexit:                                        ; preds = %21, %19, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %21 ], [ %20, %19 ]
-  ret i32 %.0
+.backedge.backedge:                               ; preds = %22, %18
+  %.01316.be = phi i64 [ %.old, %22 ], [ %20, %18 ]
+  br label %.backedge, !llvm.loop !16
+
+.loopexit:                                        ; preds = %22, %18, %3
+  ret i32 0
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -137,7 +143,7 @@ define hidden void @nghttp2_map_print_distance(ptr noundef readonly captures(non
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -501, 0) i32 @nghttp2_map_insert(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %5
 

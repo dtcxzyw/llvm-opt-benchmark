@@ -3259,24 +3259,22 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   br label %.loopexit
 
 22:                                               ; preds = %19
-  %23 = select i1 %6, ptr @.str.258, ptr @.str.54
-  %24 = select i1 %6, ptr @.str.85, ptr @.str.72
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.182, ptr noundef nonnull %24)
-  %25 = load i32, ptr %16, align 4, !tbaa !32
-  %26 = icmp sgt i32 %25, 8
-  br i1 %26, label %select.unfold29.preheader, label %.loopexit
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.182, ptr noundef nonnull @.str.72)
+  %23 = load i32, ptr %16, align 4, !tbaa !32
+  %24 = icmp sgt i32 %23, 8
+  br i1 %24, label %select.unfold29.preheader, label %.loopexit
 
 select.unfold29.preheader:                        ; preds = %22
-  %27 = tail call i32 @llvm.umin.i32(i32 %25, i32 16)
+  %25 = tail call i32 @llvm.umin.i32(i32 %23, i32 16)
   br label %select.unfold29
 
 select.unfold29:                                  ; preds = %select.unfold29.preheader, %select.unfold29
-  %.0.in33 = phi i32 [ %.0, %select.unfold29 ], [ %27, %select.unfold29.preheader ]
+  %.0.in33 = phi i32 [ %.0, %select.unfold29 ], [ %25, %select.unfold29.preheader ]
   %.0 = add nsw i32 %.0.in33, -1
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.275, ptr noundef nonnull %24)
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.276, i32 noundef %.0, ptr noundef nonnull %23)
-  %28 = icmp samesign ugt i32 %.0.in33, 9
-  br i1 %28, label %select.unfold29, label %.loopexit, !llvm.loop !127
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.72)
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.276, i32 noundef %.0, ptr noundef nonnull @.str.54)
+  %26 = icmp samesign ugt i32 %.0.in33, 9
+  br i1 %26, label %select.unfold29, label %.loopexit, !llvm.loop !127
 
 .loopexit:                                        ; preds = %select.unfold29, %22, %21, %.loopexit31
   ret void
@@ -3717,24 +3715,22 @@ define internal fastcc void @copy_ret_buffer(ptr noundef nonnull readonly captur
   br label %.loopexit
 
 .lr.ph40:                                         ; preds = %21
-  %27 = select i1 %4, ptr @.str.258, ptr @.str.54
-  %28 = select i1 %4, ptr @.str.85, ptr @.str.72
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %30
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %28
 
-30:                                               ; preds = %.lr.ph40, %30
-  %.039 = phi i32 [ 8, %.lr.ph40 ], [ %33, %30 ]
-  %31 = load i32, ptr %29, align 8, !tbaa !33
-  %32 = add nsw i32 %31, %.039
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef nonnull %27, i32 noundef %32)
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.51, ptr noundef nonnull %28)
-  %33 = add nuw nsw i32 %.039, 1
-  %34 = load i32, ptr %18, align 4, !tbaa !32
-  %spec.select34 = tail call i32 @llvm.smin.i32(i32 %34, i32 16)
-  %35 = icmp slt i32 %33, %spec.select34
-  br i1 %35, label %30, label %.loopexit, !llvm.loop !133
+28:                                               ; preds = %.lr.ph40, %28
+  %.039 = phi i32 [ 8, %.lr.ph40 ], [ %31, %28 ]
+  %29 = load i32, ptr %27, align 8, !tbaa !33
+  %30 = add nsw i32 %29, %.039
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.54, i32 noundef %30)
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.72)
+  %31 = add nuw nsw i32 %.039, 1
+  %32 = load i32, ptr %18, align 4, !tbaa !32
+  %spec.select34 = tail call i32 @llvm.smin.i32(i32 %32, i32 16)
+  %33 = icmp slt i32 %31, %spec.select34
+  br i1 %33, label %28, label %.loopexit, !llvm.loop !133
 
-.loopexit:                                        ; preds = %30, %.loopexit.sink.split, %.loopexit35
+.loopexit:                                        ; preds = %28, %.loopexit.sink.split, %.loopexit35
   ret void
 }
 

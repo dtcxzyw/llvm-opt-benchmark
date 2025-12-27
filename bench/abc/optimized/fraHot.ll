@@ -1612,13 +1612,11 @@ define void @Fra_OneHotAddKnownConstraint(ptr noundef captures(none) %0, ptr nou
 .critedge4.loopexit:                              ; preds = %24
   %.pre = sext i32 %.val31 to i64
   %17 = icmp slt i64 %indvars.iv.next53, %.pre
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %17, label %18, label %.critedge2.loopexit, !llvm.loop !84
 
 18:                                               ; preds = %.lr.ph45, %.critedge4.loopexit
   %.val3260 = phi i32 [ %.val3243, %.lr.ph45 ], [ %.val31, %.critedge4.loopexit ]
   %indvars.iv52 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next53, %.critedge4.loopexit ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph45 ], [ %indvars.iv.next, %.critedge4.loopexit ]
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %19 = sext i32 %.val3260 to i64
   %20 = icmp slt i64 %indvars.iv.next53, %19
@@ -1639,7 +1637,7 @@ define void @Fra_OneHotAddKnownConstraint(ptr noundef captures(none) %0, ptr nou
   br i1 %26, label %27, label %.critedge4.loopexit, !llvm.loop !85
 
 27:                                               ; preds = %.lr.ph, %24
-  %indvars.iv49 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next50, %24 ]
+  %indvars.iv49 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next50, %24 ]
   %.val33 = load ptr, ptr %16, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i32, ptr %.val33, i64 %indvars.iv49
   %29 = load i32, ptr %28, align 4, !tbaa !16

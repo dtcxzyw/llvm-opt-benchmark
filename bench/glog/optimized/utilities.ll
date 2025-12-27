@@ -277,15 +277,15 @@ define hidden noundef i32 @_ZN6google24glog_internal_namespace_16GetMainThreadPi
 define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_13PidHasChangedEv() local_unnamed_addr #2 {
   %1 = tail call i32 @getpid() #25
   %2 = load i32, ptr @_ZN6google24glog_internal_namespace_L17g_main_thread_pidE, align 4, !tbaa !40
-  %3 = icmp ne i32 %2, %1
-  br i1 %3, label %4, label %5
+  %.not = icmp eq i32 %2, %1
+  br i1 %.not, label %4, label %3
 
-4:                                                ; preds = %0
+3:                                                ; preds = %0
   store i32 %1, ptr @_ZN6google24glog_internal_namespace_L17g_main_thread_pidE, align 4, !tbaa !40
-  br label %5
+  br label %4
 
-5:                                                ; preds = %0, %4
-  ret i1 %3
+4:                                                ; preds = %0, %3
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -583,26 +583,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 .loopexit:                                        ; preds = %14, %.noexc2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %27
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 .loopexit.split-lp:                               ; preds = %1, %24
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %27
-
-27:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %28 = load ptr, ptr %0, align 8, !tbaa !56
-  %29 = icmp eq ptr %28, %6
-  br i1 %29, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %27
-  %30 = load i64, ptr %6, align 8, !tbaa !50
-  %31 = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %28, i64 noundef %31) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.loopexit.split-lp, %.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %27 = load ptr, ptr %0, align 8, !tbaa !56
+  %28 = load i64, ptr %6, align 8, !tbaa !50
+  %29 = add i64 %28, 1
+  call void @_ZdlPvm(ptr noundef %27, i64 noundef %29) #29
   resume { ptr, i32 } %lpad.phi
 
 .loopexit7:                                       ; preds = %26, %.noexc

@@ -504,7 +504,8 @@ define internal fastcc void @append_uint(ptr noundef %0, i64 noundef %1, i32 nou
   br label %7
 
 7:                                                ; preds = %5, %3
-  %8 = urem i64 %1, %4
+  %.urem = phi i64 [ %4, %5 ], [ 0, %3 ]
+  %8 = sub nuw nsw i64 %1, %.urem
   %9 = getelementptr inbounds nuw i8, ptr @append_uint.digits, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !11
   %11 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %10) #7

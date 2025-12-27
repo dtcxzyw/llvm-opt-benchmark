@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
-@.str = private unnamed_addr constant [33 x i8] c"jq: error: %s\0A<unknown location>\00", align 1
 @.str.1 = private unnamed_addr constant [27 x i8] c"%s at %s, line %d:\0A%.*s%*s\00", align 1
 @.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
@@ -182,7 +181,7 @@ define dso_local void @locfile_locate(ptr noundef readonly captures(none) %0, i6
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %.not = icmp eq i32 %.sroa.025.0.extract.trunc, -1
-  br i1 %.not, label %16, label %5
+  br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -198,75 +197,56 @@ define dso_local void @locfile_locate(ptr noundef readonly captures(none) %0, i6
   br i1 %.not.i, label %locfile_get_line.exit, label %8, !llvm.loop !25
 
 locfile_get_line.exit:                            ; preds = %8
-  %11 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %12 = add nsw i32 %11, -1
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %7, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !21
-  br label %16
+  %11 = add nuw i64 %indvars.iv.i, 4294967295
+  %12 = and i64 %11, 4294967295
+  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !21
+  br label %15
 
-16:                                               ; preds = %locfile_get_line.exit, %3
-  %.029 = phi i32 [ %15, %locfile_get_line.exit ], [ undef, %3 ]
-  %.0 = phi i32 [ %12, %locfile_get_line.exit ], [ undef, %3 ]
-  %17 = call { i64, ptr } @jv_string_vfmt(ptr noundef %2, ptr noundef nonnull %4) #7
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
+15:                                               ; preds = %locfile_get_line.exit, %3
+  %.029 = phi i32 [ %14, %locfile_get_line.exit ], [ undef, %3 ]
+  %16 = call { i64, ptr } @jv_string_vfmt(ptr noundef %2, ptr noundef nonnull %4) #7
+  %17 = extractvalue { i64, ptr } %16, 0
+  %18 = extractvalue { i64, ptr } %16, 1
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %20 = call i32 @jv_get_kind(i64 %18, ptr %19) #7
-  %.not31 = icmp eq i32 %20, 0
-  br i1 %.not31, label %21, label %24
+  %19 = call i32 @jv_get_kind(i64 %17, ptr %18) #7
+  %.not31 = icmp eq i32 %19, 0
+  br i1 %.not31, label %20, label %23
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %23 = load ptr, ptr %22, align 8, !tbaa !4
-  call void @jq_report_error(ptr noundef %23, i64 %18, ptr %19) #7
-  br label %57
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %22 = load ptr, ptr %21, align 8, !tbaa !4
+  call void @jq_report_error(ptr noundef %22, i64 %17, ptr %18) #7
+  br label %45
 
-24:                                               ; preds = %16
-  br i1 %.not, label %25, label %32
+23:                                               ; preds = %15
+  %24 = call ptr @jv_string_value(i64 %17, ptr %18) #7
+  %25 = load i64, ptr %0, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = call ptr @jv_string_value(i64 %25, ptr %27) #7
+  %29 = getelementptr i8, ptr %0, i64 32
+  %.val = load ptr, ptr %29, align 8, !tbaa !20
+  %30 = getelementptr i8, ptr %.val, i64 4
+  %31 = load i32, ptr %30, align 4, !tbaa !21
+  %32 = load i32, ptr %.val, align 4, !tbaa !21
+  %33 = xor i32 %32, -1
+  %34 = add i32 %31, %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !16
+  %37 = sext i32 %.029 to i64
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  %39 = sub nsw i32 %.sroa.025.0.extract.trunc, %.029
+  %40 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.1, ptr noundef %24, ptr noundef %28, i32 noundef 1, i32 noundef %34, ptr noundef %38, i32 noundef %39, ptr noundef nonnull @.str.2) #7
+  %41 = extractvalue { i64, ptr } %40, 0
+  %42 = extractvalue { i64, ptr } %40, 1
+  call void @jv_free(i64 %17, ptr %18) #7
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %44 = load ptr, ptr %43, align 8, !tbaa !4
+  call void @jq_report_error(ptr noundef %44, i64 %41, ptr %42) #7
+  br label %45
 
-25:                                               ; preds = %24
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = load ptr, ptr %26, align 8, !tbaa !4
-  %28 = call ptr @jv_string_value(i64 %18, ptr %19) #7
-  %29 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str, ptr noundef %28) #7
-  %30 = extractvalue { i64, ptr } %29, 0
-  %31 = extractvalue { i64, ptr } %29, 1
-  call void @jq_report_error(ptr noundef %27, i64 %30, ptr %31) #7
-  call void @jv_free(i64 %18, ptr %19) #7
-  br label %57
-
-32:                                               ; preds = %24
-  %33 = call ptr @jv_string_value(i64 %18, ptr %19) #7
-  %34 = load i64, ptr %0, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = call ptr @jv_string_value(i64 %34, ptr %36) #7
-  %38 = add nsw i32 %.0, 1
-  %39 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %39, align 8, !tbaa !20
-  %40 = sext i32 %.0 to i64
-  %41 = getelementptr i32, ptr %.val, i64 %40
-  %42 = getelementptr i8, ptr %41, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !21
-  %44 = load i32, ptr %41, align 4, !tbaa !21
-  %45 = xor i32 %44, -1
-  %46 = add i32 %43, %45
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !16
-  %49 = sext i32 %.029 to i64
-  %50 = getelementptr inbounds i8, ptr %48, i64 %49
-  %51 = sub nsw i32 %.sroa.025.0.extract.trunc, %.029
-  %52 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.1, ptr noundef %33, ptr noundef %37, i32 noundef %38, i32 noundef %46, ptr noundef %50, i32 noundef %51, ptr noundef nonnull @.str.2) #7
-  %53 = extractvalue { i64, ptr } %52, 0
-  %54 = extractvalue { i64, ptr } %52, 1
-  call void @jv_free(i64 %18, ptr %19) #7
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %56 = load ptr, ptr %55, align 8, !tbaa !4
-  call void @jq_report_error(ptr noundef %56, i64 %53, ptr %54) #7
-  br label %57
-
-57:                                               ; preds = %32, %25, %21
+45:                                               ; preds = %23, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

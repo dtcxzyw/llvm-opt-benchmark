@@ -448,8 +448,7 @@ define noundef zeroext i1 @_ZN3tbb6detail2r19downgradeERNS0_2d112rtm_rw_mutex11s
   br label %_ZN3tbb6detail2r117rtm_rw_mutex_impl9downgradeERNS0_2d112rtm_rw_mutex11scoped_lockE.exit
 
 _ZN3tbb6detail2r117rtm_rw_mutex_impl9downgradeERNS0_2d112rtm_rw_mutex11scoped_lockE.exit: ; preds = %1, %4, %9
-  %.0.i = phi i1 [ true, %9 ], [ true, %4 ], [ false, %1 ]
-  ret i1 %.0.i
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
@@ -502,23 +501,14 @@ _ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_writerERNS0_2d112rtm_rw_mutexERNS4
   %22 = load atomic i64, ptr %0 monotonic, align 128
   %23 = and i64 %22, -3
   %.not.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i, label %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i, label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit
+  br i1 %.not.i.i, label %24, label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit
 
-_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %21
-  %24 = cmpxchg ptr %0, i64 %22, i64 1 seq_cst seq_cst, align 8
-  %25 = extractvalue { i64, i1 } %24, 1
-  br i1 %25, label %26, label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit
-
-26:                                               ; preds = %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i
-  store ptr %0, ptr %1, align 8, !tbaa !19
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store atomic i8 1, ptr %27 monotonic, align 64
-  store i32 4, ptr %18, align 8, !tbaa !14
+24:                                               ; preds = %21
+  %25 = cmpxchg ptr %0, i64 %22, i64 1 seq_cst seq_cst, align 8
   br label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit
 
-_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit: ; preds = %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i, %21, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i, %26
-  %.0.i = phi i1 [ true, %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i ], [ true, %26 ], [ false, %_ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i ], [ false, %21 ]
-  ret i1 %.0.i
+_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit: ; preds = %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_writerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i, %21, %24
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
@@ -581,20 +571,14 @@ _ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_readerERNS0_2d112rtm_rw_mutexERNS4
   %28 = atomicrmw add ptr %0, i64 4 seq_cst, align 8
   %29 = and i64 %28, 1
   %.not5.not.i.i = icmp eq i64 %29, 0
-  br i1 %.not5.not.i.i, label %_ZN3tbb6detail2d113spin_rw_mutex15try_lock_sharedEv.exit.i, label %30
+  br i1 %.not5.not.i.i, label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit, label %30
 
 30:                                               ; preds = %27
   %31 = atomicrmw sub ptr %0, i64 4 seq_cst, align 8
   br label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit
 
-_ZN3tbb6detail2d113spin_rw_mutex15try_lock_sharedEv.exit.i: ; preds = %27
-  store ptr %0, ptr %1, align 8, !tbaa !19
-  store i32 3, ptr %21, align 8, !tbaa !14
-  br label %_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit
-
-_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit: ; preds = %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i, %24, %30, %_ZN3tbb6detail2d113spin_rw_mutex15try_lock_sharedEv.exit.i
-  %.0.i = phi i1 [ true, %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i ], [ true, %_ZN3tbb6detail2d113spin_rw_mutex15try_lock_sharedEv.exit.i ], [ false, %24 ], [ false, %30 ]
-  ret i1 %.0.i
+_ZN3tbb6detail2r117rtm_rw_mutex_impl18try_acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockE.exit: ; preds = %_ZN3tbb6detail2r117rtm_rw_mutex_impl14acquire_readerERNS0_2d112rtm_rw_mutexERNS4_11scoped_lockEb.exit.i, %24, %27, %30
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
@@ -772,8 +756,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %_ZNS
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, !llvm.loop !20
 
 _ZN3tbb6detail2d113spin_rw_mutex4lockEv.exit:     ; preds = %32, %._crit_edge15
-  %45 = phi i1 [ true, %._crit_edge15 ], [ false, %32 ]
-  ret i1 %45
+  ret i1 false
 }
 
 ; Function Attrs: nounwind

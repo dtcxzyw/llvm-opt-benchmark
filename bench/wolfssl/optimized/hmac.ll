@@ -28,7 +28,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @_InitHmac(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @_InitHmac(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   switch i32 %1, label %HmacKeyInitHash.exit.thread [
     i32 3, label %4
     i32 4, label %6
@@ -98,7 +98,7 @@ HmacKeyInitHash.exit.thread:                      ; preds = %3, %HmacKeyInitHash
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 -200, 1) i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.thread293, label %7
 
@@ -470,13 +470,13 @@ define void @wc_HmacFree(ptr noundef %0) local_unnamed_addr #1 {
   %24 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !14
   %25 = add nsw i32 %.01827.i, -8
-  %26 = icmp ugt i32 %25, 7
+  %26 = icmp samesign ugt i32 %.01827.i, 15
   br i1 %26, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !16
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
   %.11734.i = phi ptr [ %28, %.lr.ph35.i ], [ %24, %.preheader.i ]
   %.11933.i = phi i32 [ %27, %.lr.ph35.i ], [ %25, %.preheader.i ]
-  %27 = add i32 %.11933.i, -1
+  %27 = add nsw i32 %.11933.i, -1
   %28 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
   store volatile i8 0, ptr %.11734.i, align 1, !tbaa !10
   %.not22.i = icmp eq i32 %27, 0
@@ -533,7 +533,7 @@ declare i32 @wc_Sha3_512_Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HmacSetKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 -200, 1) i32 @wc_HmacSetKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1)
   ret i32 %5
 }
@@ -689,7 +689,7 @@ define internal fastcc i32 @HmacKeyHashUpdate(i8 noundef zeroext %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HmacFinal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_HmacFinal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1026,7 +1026,7 @@ switch.lookup:                                    ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 768
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %10, i8 0, i64 784, i1 false)
   store ptr %6, ptr %17, align 16, !tbaa !3
-  %18 = call i32 @wc_HmacSetKey_ex(ptr noundef nonnull %10, i32 noundef %0, ptr noundef nonnull %.020, i32 noundef %.022, i32 noundef 1)
+  %18 = call range(i32 -200, 1) i32 @wc_HmacSetKey_ex(ptr noundef nonnull %10, i32 noundef %0, ptr noundef nonnull %.020, i32 noundef %.022, i32 noundef 1)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %.thread
 
@@ -1081,7 +1081,7 @@ switch.lookup:                                    ; preds = %6
   %.022.i = phi i32 [ %switch.load, %11 ], [ %2, %switch.lookup ]
   %.020.i = phi ptr [ %7, %11 ], [ %1, %switch.lookup ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %8, i8 0, i64 784, i1 false)
-  %15 = call i32 @wc_HmacSetKey_ex(ptr noundef nonnull %8, i32 noundef %0, ptr noundef nonnull %.020.i, i32 noundef %.022.i, i32 noundef 1)
+  %15 = call range(i32 -200, 1) i32 @wc_HmacSetKey_ex(ptr noundef nonnull %8, i32 noundef %0, ptr noundef nonnull %.020.i, i32 noundef %.022.i, i32 noundef 1)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %.thread.i
 
@@ -1107,7 +1107,7 @@ wc_HKDF_Extract_ex.exit:                          ; preds = %6, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6, ptr noundef %7, i32 %8) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6, ptr noundef %7, i32 %8) local_unnamed_addr #1 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [1 x %struct.Hmac], align 16
   %12 = alloca i8, align 1
@@ -1151,7 +1151,7 @@ switch.lookup:                                    ; preds = %9
   %25 = phi i8 [ %45, %38 ], [ 1, %23 ]
   %.04064 = phi i32 [ %43, %38 ], [ 0, %23 ]
   %26 = sub nuw i32 %6, %.04064
-  %27 = call i32 @wc_HmacSetKey_ex(ptr noundef nonnull %11, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 1)
+  %27 = call range(i32 -200, 1) i32 @wc_HmacSetKey_ex(ptr noundef nonnull %11, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 1)
   %.not54 = icmp eq i32 %27, 0
   br i1 %.not54, label %28, label %.thread
 
@@ -1191,12 +1191,11 @@ switch.lookup:                                    ; preds = %9
   br i1 %46, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %38, %.lr.ph, %28, %32, %34, %36, %23
-  %.1 = phi i32 [ 0, %23 ], [ %27, %.lr.ph ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %28 ], [ 0, %38 ]
   call void @wc_HmacFree(ptr noundef nonnull %11)
   br label %wc_HmacSizeByType.exit
 
 wc_HmacSizeByType.exit:                           ; preds = %9, %switch.lookup, %16, %.thread
-  %.0 = phi i32 [ %.1, %.thread ], [ -173, %9 ], [ -173, %switch.lookup ], [ -173, %16 ]
+  %.0 = phi i32 [ 0, %.thread ], [ -173, %9 ], [ -173, %switch.lookup ], [ -173, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1204,13 +1203,13 @@ wc_HmacSizeByType.exit:                           ; preds = %9, %switch.lookup, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF_Expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_HKDF_Expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = tail call i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef null, i32 poison)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_HKDF(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #1 {
+define range(i32 -200, 1) i32 @wc_HKDF(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #1 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [1 x %struct.Hmac], align 16
   %12 = alloca [64 x i8], align 16
@@ -1291,7 +1290,7 @@ wc_HKDF_Extract.exit.thread:                      ; preds = %16
   %.022.i.i = phi i32 [ %.030.i.ph.i.i, %22 ], [ %4, %20 ]
   %.020.i.i = phi ptr [ %10, %22 ], [ %3, %20 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %11, i8 0, i64 784, i1 false)
-  %25 = call i32 @wc_HmacSetKey_ex(ptr noundef nonnull %11, i32 noundef %0, ptr noundef nonnull %.020.i.i, i32 noundef %.022.i.i, i32 noundef 1)
+  %25 = call range(i32 -200, 1) i32 @wc_HmacSetKey_ex(ptr noundef nonnull %11, i32 noundef %0, ptr noundef nonnull %.020.i.i, i32 noundef %.022.i.i, i32 noundef 1)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %wc_HKDF_Extract.exit.thread30
 
@@ -1316,7 +1315,7 @@ wc_HKDF_Extract.exit:                             ; preds = %27
   br i1 %.not, label %31, label %wc_HmacSizeByType.exit
 
 31:                                               ; preds = %wc_HKDF_Extract.exit
-  %32 = call i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef nonnull %12, i32 noundef %.030.i.ph22, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef null, i32 poison)
+  %32 = call range(i32 -173, 1) i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef nonnull %12, i32 noundef %.030.i.ph22, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef null, i32 poison)
   br label %wc_HmacSizeByType.exit
 
 wc_HmacSizeByType.exit:                           ; preds = %wc_HKDF_Extract.exit.thread30, %wc_HKDF_Extract.exit.thread, %9, %wc_HKDF_Extract.exit, %31

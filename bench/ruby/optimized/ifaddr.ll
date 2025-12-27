@@ -704,24 +704,10 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   store i32 1, ptr %20, align 8, !tbaa !36
   %30 = call i64 @rb_ary_new_capa(i64 noundef %17) #7
   %31 = call i64 @rb_ary_push(i64 noundef %30, i64 noundef %16) #7
-  %.not45.i = icmp eq i32 %.03441.i, 0
-  br i1 %.not45.i, label %rsock_getifaddrs.exit, label %.lr.ph.i
+  br label %rsock_getifaddrs.exit
 
-.lr.ph.i:                                         ; preds = %27, %.lr.ph.i
-  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %.lr.ph.i ], [ 1, %27 ]
-  %32 = load i64, ptr @rb_cSockIfaddr, align 8, !tbaa !6
-  %33 = getelementptr inbounds nuw %struct.rb_ifaddr_tag, ptr %22, i64 %indvars.iv49.i
-  %34 = call i64 @rb_data_typed_object_wrap(i64 noundef %32, ptr noundef nonnull %33, ptr noundef nonnull @ifaddr_type) #7
-  %35 = load i32, ptr %20, align 8, !tbaa !36
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %20, align 8, !tbaa !36
-  %37 = call i64 @rb_ary_push(i64 noundef %30, i64 noundef %34) #7
-  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
-  %exitcond54.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count.i
-  br i1 %exitcond54.not.i, label %rsock_getifaddrs.exit, label %.lr.ph.i, !llvm.loop !37
-
-rsock_getifaddrs.exit:                            ; preds = %.lr.ph.i, %10, %27
-  %.0.i = phi i64 [ %11, %10 ], [ %30, %27 ], [ %30, %.lr.ph.i ]
+rsock_getifaddrs.exit:                            ; preds = %10, %27
+  %.0.i = phi i64 [ %11, %10 ], [ %30, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i
 }
@@ -866,4 +852,3 @@ attributes #9 = { nounwind allocsize(0) }
 !34 = !{!"RBasic", !7, i64 0, !7, i64 8}
 !35 = !{!"p1 _ZTS19rb_data_type_struct", !14, i64 0}
 !36 = !{!29, !12, i64 0}
-!37 = distinct !{!37, !27}

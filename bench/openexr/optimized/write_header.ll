@@ -214,12 +214,11 @@ define hidden i32 @internal_exr_write_header(ptr noundef %0) local_unnamed_addr 
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.loopexit.thread.i, %.lr.ph61.i
-  %indvars.iv67.ph.i = phi i64 [ %indvars.iv.next6881.i, %.loopexit.thread.i ], [ 0, %.lr.ph61.i ]
   %21 = phi i1 [ false, %.loopexit.thread.i ], [ true, %.lr.ph61.i ]
   br label %22
 
 22:                                               ; preds = %.loopexit.i, %.outer.i
-  %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.loopexit.i ], [ %indvars.iv67.ph.i, %.outer.i ]
+  %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.loopexit.i ], [ 0, %.outer.i ]
   %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv67.i
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -1146,7 +1145,7 @@ save_attr_sz.exit:                                ; preds = %10, %14
   br label %65
 
 65:                                               ; preds = %44, %48, %save_attr_sz.exit, %21, %29
-  %.1 = phi i32 [ %.0.i, %save_attr_sz.exit ], [ %37, %29 ], [ 0, %21 ], [ %47, %44 ], [ %62, %48 ]
+  %.1 = phi i32 [ %.0.i, %save_attr_sz.exit ], [ %37, %29 ], [ 0, %21 ], [ 0, %44 ], [ %62, %48 ]
   ret i32 %.1
 }
 
@@ -1447,7 +1446,7 @@ save_attr_sz.exit:                                ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @save_string_vector(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
+define internal fastcc noundef i32 @save_string_vector(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1478,8 +1477,8 @@ define internal fastcc i32 @save_string_vector(ptr noundef %0, ptr noundef reado
   br label %save_attr_sz.exit
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.025.lcssa43 = phi i64 [ 0, %._crit_edge.thread ], [ %31, %._crit_edge ]
-  %17 = trunc nuw nsw i64 %.025.lcssa43 to i32
+  %.025.lcssa40 = phi i64 [ 0, %._crit_edge.thread ], [ %31, %._crit_edge ]
+  %17 = trunc nuw nsw i64 %.025.lcssa40 to i32
   store i32 %17, ptr %4, align 4, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !46
@@ -1491,9 +1490,9 @@ save_attr_sz.exit:                                ; preds = %12, %16
   %.0.i = phi i32 [ %15, %12 ], [ %21, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq i32 %.0.i, 0
-  br i1 %22, label %.lr.ph33, label %.critedge
+  br i1 %22, label %.lr.ph32, label %.critedge
 
-.lr.ph33:                                         ; preds = %save_attr_sz.exit
+.lr.ph32:                                         ; preds = %save_attr_sz.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1511,22 +1510,21 @@ save_attr_sz.exit:                                ; preds = %12, %16
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !86
 
-32:                                               ; preds = %.lr.ph33, %50
-  %indvars.iv38 = phi i64 [ 0, %.lr.ph33 ], [ %indvars.iv.next39, %50 ]
+32:                                               ; preds = %.lr.ph32, %50
+  %indvars.iv35 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next36, %50 ]
   %33 = load ptr, ptr %5, align 8, !tbaa !35
   %34 = load i32, ptr %33, align 8, !tbaa !36
   %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %indvars.iv38, %35
+  %36 = icmp slt i64 %indvars.iv35, %35
   br i1 %36, label %37, label %.critedge
 
 .critedge:                                        ; preds = %save_attr_sz.exit28, %32, %50, %save_attr_sz.exit
-  %.0.lcssa = phi i32 [ %.0.i, %save_attr_sz.exit ], [ %.0.i27, %save_attr_sz.exit28 ], [ %56, %50 ], [ 0, %32 ]
-  ret i32 %.0.lcssa
+  ret i32 0
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !38
-  %40 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %39, i64 %indvars.iv38
+  %40 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %39, i64 %indvars.iv35
   %41 = load i32, ptr %40, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = icmp slt i32 %41, 0
@@ -1556,8 +1554,8 @@ save_attr_sz.exit28:                              ; preds = %43, %46
   %54 = load i32, ptr %40, align 8, !tbaa !84
   %55 = sext i32 %54 to i64
   %56 = call i32 %51(ptr noundef nonnull %0, ptr noundef %53, i64 noundef %55, ptr noundef nonnull %24) #6
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %57 = icmp eq i32 %56, 0
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   br i1 %57, label %32, label %.critedge, !llvm.loop !87
 }
 

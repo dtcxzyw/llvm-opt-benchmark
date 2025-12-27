@@ -473,7 +473,7 @@ define dso_local noundef zeroext i1 @_Z13QueryCallback9b2ShapeIdPv(i64 %0, ptr n
   %3 = tail call i64 @b2Shape_GetBody(i64 %0)
   %4 = tail call i32 @b2Body_GetType(i64 %3)
   %.not = icmp eq i32 %4, 2
-  br i1 %.not, label %5, label %10
+  br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %2
   %.sroa.0.0.copyload = load <2 x float>, ptr %1, align 4
@@ -485,13 +485,8 @@ define dso_local noundef zeroext i1 @_Z13QueryCallback9b2ShapeIdPv(i64 %0, ptr n
   store i64 %3, ptr %8, align 4
   br label %9
 
-9:                                                ; preds = %5, %7
-  %.1 = xor i1 %6, true
-  br label %10
-
-10:                                               ; preds = %2, %9
-  %.0 = phi i1 [ %.1, %9 ], [ true, %2 ]
-  ret i1 %.0
+9:                                                ; preds = %7, %5, %2
+  ret i1 true
 }
 
 declare i64 @b2Shape_GetBody(i64) local_unnamed_addr #1

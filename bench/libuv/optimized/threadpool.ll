@@ -197,7 +197,7 @@ define internal void @init_once() #0 {
 
 14:                                               ; preds = %.thread12.i, %.thread13.i
   %15 = phi i64 [ 1024, %.thread13.i ], [ %8, %.thread12.i ]
-  %16 = shl i64 %15, 3
+  %16 = shl nuw nsw i64 %15, 3
   %17 = and i64 %16, 16376
   %18 = tail call ptr @uv__malloc(i64 noundef %17) #9
   store ptr %18, ptr @threads, align 8
@@ -327,11 +327,10 @@ uv__queue_move.exit:                              ; preds = %6, %8
   call void @uv_mutex_unlock(ptr noundef nonnull %3) #9
   %14 = load ptr, ptr %2, align 8
   %.not16 = icmp eq ptr %2, %14
-  br i1 %.not16, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %uv__queue_move.exit, %.lr.ph
-  %15 = phi ptr [ %28, %.lr.ph ], [ %14, %uv__queue_move.exit ]
-  %.017 = phi i32 [ %27, %.lr.ph ], [ 0, %uv__queue_move.exit ]
+  %15 = phi ptr [ %27, %.lr.ph ], [ %14, %uv__queue_move.exit ]
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -346,37 +345,11 @@ uv__queue_move.exit:                              ; preds = %6, %8
   %25 = getelementptr inbounds i8, ptr %15, i64 -16
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull %21, i32 noundef %24) #9
-  %27 = add nuw nsw i32 %.017, 1
-  %28 = load ptr, ptr %2, align 8
-  %.not = icmp eq ptr %2, %28
+  %27 = load ptr, ptr %2, align 8
+  %.not = icmp eq ptr %2, %27
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %.not22 = icmp eq i32 %.017, 0
-  br i1 %.not22, label %._crit_edge.thread, label %29
-
-29:                                               ; preds = %._crit_edge
-  %30 = zext nneg i32 %.017 to i64
-  %31 = getelementptr inbounds i8, ptr %0, i64 -136
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load i64, ptr %33, align 8
-  %35 = add i64 %34, %30
-  store i64 %35, ptr %33, align 8
-  %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 192
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %._crit_edge.thread
-
-40:                                               ; preds = %29
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %42 = load i64, ptr %41, align 8
-  %43 = add i64 %42, %30
-  store i64 %43, ptr %41, align 8
-  br label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %uv__queue_move.exit, %29, %40, %._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph, %uv__queue_move.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

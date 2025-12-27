@@ -182,10 +182,10 @@ _ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit:   ; preds = %45, %43, %_ZNSt12_V
 define noundef zeroext i1 @_ZN5draco13EncoderBuffer16StartBitEncodingElb(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !tbaa !10
-  %6 = icmp slt i64 %5, 1
-  %7 = icmp sgt i64 %1, 0
-  %or.cond.not = and i1 %7, %6
-  br i1 %or.cond.not, label %8, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit
+  %6 = icmp sgt i64 %5, 0
+  %7 = icmp slt i64 %1, 1
+  %or.cond = or i1 %7, %6
+  br i1 %or.cond, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit, label %8
 
 8:                                                ; preds = %3
   %9 = zext i1 %2 to i8
@@ -221,7 +221,7 @@ _ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i.i.i:
   br label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit: ; preds = %8, %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i.i.i, %3
-  ret i1 %or.cond.not
+  ret i1 false
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -353,8 +353,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13Enco
   store i8 %8, ptr %3, align 1, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !10
-  %11 = icmp slt i64 %10, 1
-  br i1 %11, label %12, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %11 = icmp sgt i64 %10, 0
+  br i1 %11, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -366,15 +366,18 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13Enco
   %19 = sub i64 %17, %18
   %20 = getelementptr inbounds i8, ptr %16, i64 %19
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr %20, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %15)
+  br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %12, %7
   %21 = lshr i64 %0, 7
   %22 = call noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13EncoderBufferE(i64 noundef %21, ptr noundef nonnull %1)
-  br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit11
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load i64, ptr %24, align 8, !tbaa !10
-  %26 = icmp slt i64 %25, 1
-  br i1 %26, label %27, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %26 = icmp sgt i64 %25, 0
+  br i1 %26, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit11, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -386,12 +389,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco12EncodeVarintImEEbT_PNS_13Enco
   %34 = sub i64 %32, %33
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr %35, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %30)
-  br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit11
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %27, %23, %7, %12
-  %spec.select = phi i1 [ false, %7 ], [ %22, %12 ], [ false, %23 ], [ true, %27 ]
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit11:  ; preds = %27, %23, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %spec.select
+  ret i1 true
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

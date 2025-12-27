@@ -1897,17 +1897,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK7glslang12TIntermTyped16isFloatingDo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7glslang12TIntermTyped15isIntegerDomainEv(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #1 comdat align 2 {
-_ZNK7glslang5TType15isIntegerDomainEv.exit:
-  %1 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2 = load i32, ptr %1, align 8
-  %trunc.i = trunc i32 %2 to i8
-  %3 = icmp ult i8 %trunc.i, 14
-  %4 = trunc i32 %2 to i14
-  %switch.cast = and i14 %4, 255
-  %switch.downshift = lshr i14 -4112, %switch.cast
-  %switch.masked = trunc i14 %switch.downshift to i1
-  %.0.i = select i1 %3, i1 %switch.masked, i1 false
-  ret i1 %.0.i
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

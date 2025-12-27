@@ -1652,14 +1652,14 @@ define void @_Z34rtlil_frontend_yy_switch_to_bufferP15yy_buffer_state(ptr nounde
   store i64 0, ptr %4, align 8
   store i64 1, ptr @_ZL19yy_buffer_stack_max, align 8, !tbaa !18
   store i64 0, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
-  br label %.thread
+  br label %_ZL36rtlil_frontend_yyensure_buffer_stackv.exit
 
 7:                                                ; preds = %1
   %8 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
   %9 = load i64, ptr @_ZL19yy_buffer_stack_max, align 8, !tbaa !18
   %10 = add i64 %9, -1
   %.not10.i = icmp ult i64 %8, %10
-  br i1 %.not10.i, label %.thread, label %11
+  br i1 %.not10.i, label %_ZL36rtlil_frontend_yyensure_buffer_stackv.exit, label %11
 
 11:                                               ; preds = %7
   %12 = add i64 %9, 8
@@ -1677,49 +1677,50 @@ define void @_Z34rtlil_frontend_yy_switch_to_bufferP15yy_buffer_state(ptr nounde
   %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, i8 0, i64 64, i1 false)
   store i64 %12, ptr @_ZL19yy_buffer_stack_max, align 8, !tbaa !18
-  br label %.thread
+  br label %_ZL36rtlil_frontend_yyensure_buffer_stackv.exit
 
-.thread:                                          ; preds = %16, %7, %6
+_ZL36rtlil_frontend_yyensure_buffer_stackv.exit:  ; preds = %6, %7, %16
   %18 = phi i64 [ 0, %6 ], [ %8, %7 ], [ %8, %16 ]
   %19 = phi ptr [ %4, %6 ], [ %2, %7 ], [ %14, %16 ]
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = icmp eq ptr %21, %0
-  br i1 %22, label %39, label %23
+  br i1 %22, label %40, label %23
 
-23:                                               ; preds = %.thread
-  %24 = icmp eq ptr %21, null
-  br i1 %24, label %.critedge, label %25
+23:                                               ; preds = %_ZL36rtlil_frontend_yyensure_buffer_stackv.exit
+  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %25 = load ptr, ptr %24, align 8, !tbaa !20
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %.critedge, label %27
 
-25:                                               ; preds = %23
-  %26 = load i8, ptr @_ZL12yy_hold_char, align 1, !tbaa !29
-  %27 = load ptr, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !6
-  store i8 %26, ptr %27, align 1, !tbaa !29
-  %28 = load ptr, ptr %20, align 8, !tbaa !20
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr %27, ptr %29, align 8, !tbaa !27
-  %30 = load i32, ptr @_ZL10yy_n_chars, align 4, !tbaa !11
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 28
-  store i32 %30, ptr %31, align 4, !tbaa !26
+27:                                               ; preds = %23
+  %28 = load i8, ptr @_ZL12yy_hold_char, align 1, !tbaa !29
+  %29 = load ptr, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !6
+  store i8 %28, ptr %29, align 1, !tbaa !29
+  %30 = load ptr, ptr %24, align 8, !tbaa !20
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store ptr %29, ptr %31, align 8, !tbaa !27
+  %32 = load i32, ptr @_ZL10yy_n_chars, align 4, !tbaa !11
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 28
+  store i32 %32, ptr %33, align 4, !tbaa !26
   br label %.critedge
 
-.critedge:                                        ; preds = %25, %23
-  %32 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
-  store ptr %0, ptr %32, align 8, !tbaa !20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %34 = load i32, ptr %33, align 4, !tbaa !26
-  store i32 %34, ptr @_ZL10yy_n_chars, align 4, !tbaa !11
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !27
-  store ptr %36, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !6
-  store ptr %36, ptr @rtlil_frontend_yytext, align 8, !tbaa !6
-  %37 = load ptr, ptr %0, align 8, !tbaa !28
-  store ptr %37, ptr @rtlil_frontend_yyin, align 8, !tbaa !13
-  %38 = load i8, ptr %36, align 1, !tbaa !29
-  store i8 %38, ptr @_ZL12yy_hold_char, align 1, !tbaa !29
-  br label %39
+.critedge:                                        ; preds = %27, %23
+  store ptr %0, ptr %24, align 8, !tbaa !20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %35 = load i32, ptr %34, align 4, !tbaa !26
+  store i32 %35, ptr @_ZL10yy_n_chars, align 4, !tbaa !11
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %37 = load ptr, ptr %36, align 8, !tbaa !27
+  store ptr %37, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !6
+  store ptr %37, ptr @rtlil_frontend_yytext, align 8, !tbaa !6
+  %38 = load ptr, ptr %0, align 8, !tbaa !28
+  store ptr %38, ptr @rtlil_frontend_yyin, align 8, !tbaa !13
+  %39 = load i8, ptr %37, align 1, !tbaa !29
+  store i8 %39, ptr @_ZL12yy_hold_char, align 1, !tbaa !29
+  br label %40
 
-39:                                               ; preds = %.thread, %.critedge
+40:                                               ; preds = %_ZL36rtlil_frontend_yyensure_buffer_stackv.exit, %.critedge
   ret void
 }
 

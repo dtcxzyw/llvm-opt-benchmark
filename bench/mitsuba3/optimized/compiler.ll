@@ -303,7 +303,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11addFuncNodeEPP
   br label %29
 
 29:                                               ; preds = %17, %3
-  ret i32 %7
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -401,8 +401,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14newFuncRetNode
   br label %46
 
 46:                                               ; preds = %45, %25
-  %47 = phi i32 [ 0, %45 ], [ %26, %25 ]
-  ret i32 %47
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -499,8 +498,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14addFuncRetNode
   br label %59
 
 59:                                               ; preds = %56, %28
-  %60 = phi i32 [ 0, %56 ], [ %29, %28 ]
-  ret i32 %60
+  ret i32 0
 }
 
 ; Function Attrs: nounwind
@@ -606,7 +604,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13newInvokeNodeE
 
 33:                                               ; preds = %30, %11
   %34 = phi i8 [ 4, %11 ], [ %31, %30 ]
-  %35 = zext i8 %34 to i64
+  %35 = zext nneg i8 %34 to i64
   %36 = getelementptr i8, ptr %9, i64 80
   %37 = shl nuw nsw i64 %35, 4
   %38 = add nuw nsw i64 %37, 68719476704
@@ -700,7 +698,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13addInvokeNodeE
   br label %31
 
 31:                                               ; preds = %28, %5
-  ret i32 %14
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -797,7 +795,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPN
   br label %60
 
 60:                                               ; preds = %58, %51
-  %61 = trunc i64 %49 to i32
+  %61 = trunc nuw nsw i64 %49 to i32
   store i32 %61, ptr %48, align 8, !tbaa !44
   br label %78
 
@@ -901,7 +899,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   br label %28
 
 28:                                               ; preds = %27, %12
-  %29 = phi i32 [ %13, %12 ], [ %17, %27 ]
+  %29 = phi i32 [ %13, %12 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %29
 }
@@ -978,7 +976,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10_newRegFmtEPNS
   br label %40
 
 40:                                               ; preds = %39, %20
-  %41 = phi i32 [ %28, %39 ], [ %21, %20 ]
+  %41 = phi i32 [ 0, %39 ], [ %21, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = call noundef i32 @_ZN6asmjit9_abi_1_106String5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
@@ -1183,7 +1181,7 @@ switch.lookup:                                    ; preds = %.split1
   br label %105
 
 105:                                              ; preds = %104, %89, %70
-  %106 = phi i32 [ %71, %70 ], [ %90, %89 ], [ %94, %104 ]
+  %106 = phi i32 [ %71, %70 ], [ %90, %89 ], [ 0, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %106
@@ -1288,7 +1286,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newStackEPNS0_
   br label %38
 
 38:                                               ; preds = %37, %17, %11
-  %39 = phi i32 [ %12, %11 ], [ %20, %37 ], [ %18, %17 ]
+  %39 = phi i32 [ %12, %11 ], [ 0, %37 ], [ %18, %17 ]
   ret i32 %39
 }
 
@@ -1490,7 +1488,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012BaseCompiler6renameERKNS0_7BaseRegE
   br label %37
 
 37:                                               ; preds = %35, %28
-  %38 = trunc i64 %26 to i32
+  %38 = trunc nuw nsw i64 %26 to i32
   store i32 %38, ptr %25, align 8, !tbaa !44
   br label %39
 
@@ -1667,8 +1665,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler17emitAnnotatedJ
   br label %46
 
 46:                                               ; preds = %44, %33
-  %47 = phi i32 [ 0, %44 ], [ %34, %33 ]
-  ret i32 %47
+  ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1784,8 +1781,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler8onAttachEPNS0_1
   br label %44
 
 44:                                               ; preds = %39, %36, %2
-  %45 = phi i32 [ %3, %2 ], [ %37, %39 ], [ 0, %36 ]
-  ret i32 %45
+  ret i32 0
 }
 
 ; Function Attrs: nounwind
@@ -1872,8 +1868,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_108FuncPass3runEPNS0_4ZoneEPNS0_
   br label %13, !llvm.loop !146
 
 .loopexit:                                        ; preds = %16, %24, %3
-  %34 = phi i32 [ 0, %3 ], [ 0, %24 ], [ %22, %16 ]
-  ret i32 %34
+  ret i32 0
 }
 
 declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter8finalizeEv(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #4

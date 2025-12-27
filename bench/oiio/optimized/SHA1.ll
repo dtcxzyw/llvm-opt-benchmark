@@ -401,16 +401,16 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16: ; preds = %.loopexit.i10, %.lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA17GetHashEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #10 align 2 {
-  %3 = icmp ne ptr %1, null
-  br i1 %3, label %4, label %6
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %5, label %3
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %5, i64 20, i1 false)
-  br label %6
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %4, i64 20, i1 false)
+  br label %5
 
-6:                                                ; preds = %2, %4
-  ret i1 %3
+5:                                                ; preds = %2, %3
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -436,31 +436,24 @@ define void @_ZN11OpenImageIO6v3_1_04SHA16digestB5cxx11Ev(ptr dead_on_unwind noa
   %12 = load ptr, ptr %1, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = call noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcNS1_11REPORT_TYPEE(ptr noundef nonnull readonly align 8 dereferenceable(200) %12, ptr noundef nonnull %3, i32 noundef 2)
-  br i1 %13, label %14, label %24
+  br i1 %13, label %14, label %22
 
 14:                                               ; preds = %9
   %15 = load i64, ptr %11, align 8, !tbaa !29
   %16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
   %17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %15, ptr noundef nonnull %3, i64 noundef %16)
-          to label %24 unwind label %18
+          to label %22 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-18:                                               ; preds = %14
-  %19 = landingpad { ptr, i32 }
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %14
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %20 = load ptr, ptr %0, align 8, !tbaa !32
-  %21 = icmp eq ptr %20, %10
-  br i1 %21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %19 = load ptr, ptr %0, align 8, !tbaa !32
+  %20 = load i64, ptr %10, align 8, !tbaa !22
+  %21 = add i64 %20, 1
+  call void @_ZdlPvm(ptr noundef %19, i64 noundef %21) #20
+  resume { ptr, i32 } %18
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %18
-  %22 = load i64, ptr %10, align 8, !tbaa !22
-  %23 = add i64 %22, 1
-  call void @_ZdlPvm(ptr noundef %20, i64 noundef %23) #20
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  resume { ptr, i32 } %19
-
-24:                                               ; preds = %9, %14
+22:                                               ; preds = %9, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -481,7 +474,7 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA113ReportHashStlE
 
 11:                                               ; preds = %6, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %5
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -2420,13 +2413,11 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !37
 
 .loopexit:                                        ; preds = %44, %.split, %.split.us, %10
-  %.1 = phi i1 [ false, %10 ], [ true, %.split.us ], [ true, %.split ], [ true, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
 52:                                               ; preds = %3, %.loopexit
-  %.019 = phi i1 [ %.1, %.loopexit ], [ false, %3 ]
-  ret i1 %.019
+  ret i1 false
 }
 
 ; Function Attrs: nofree nounwind

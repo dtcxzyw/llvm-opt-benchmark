@@ -450,21 +450,17 @@ obtain_ctty.exit:                                 ; preds = %3, %14
   %16 = tail call i32 @getuid() #10
   %17 = tail call i32 @seteuid(i32 noundef %16) #10
   %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %19, label %drop_privilege.exit
+  br i1 %.not.i, label %20, label %18
 
-drop_privilege.exit:                              ; preds = %obtain_ctty.exit
-  %18 = tail call i64 @strlcpy(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef %2) #10
-  br label %23
+18:                                               ; preds = %obtain_ctty.exit
+  %19 = tail call i64 @strlcpy(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef %2) #10
+  br label %20
 
-19:                                               ; preds = %obtain_ctty.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !19
-  %22 = tail call i32 @rb_exec_async_signal_safe(ptr noundef %21, ptr noundef %1, i64 noundef %2) #10
-  br label %23
-
-23:                                               ; preds = %drop_privilege.exit, %19
-  %.0 = phi i32 [ %22, %19 ], [ -1, %drop_privilege.exit ]
-  ret i32 %.0
+20:                                               ; preds = %obtain_ctty.exit, %18
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = load ptr, ptr %21, align 8, !tbaa !19
+  %23 = tail call i32 @rb_exec_async_signal_safe(ptr noundef %22, ptr noundef %1, i64 noundef %2) #10
+  ret i32 %23
 }
 
 declare ptr @rb_errno_ptr() local_unnamed_addr #1
@@ -477,7 +473,7 @@ declare void @rb_execarg_parent_end(i64 noundef) local_unnamed_addr #1
 declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_device_once(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @get_device_once(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.sigaction, align 8
   %7 = alloca %struct.sigaction, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -549,10 +545,9 @@ no_mesg.exit.thread:                              ; preds = %25, %no_mesg.exit
   unreachable
 
 36:                                               ; preds = %33, %30
-  %.022 = phi i32 [ -1, %33 ], [ 0, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.022
+  ret i32 0
 }
 
 declare void @rb_gc() local_unnamed_addr #1

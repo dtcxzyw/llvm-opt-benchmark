@@ -2838,7 +2838,7 @@ _ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152: ; preds = %539, %_ZN
   %566 = icmp slt <16 x i8> %565, zeroinitializer
   %567 = bitcast <16 x i1> %566 to i16
   %.not.i17.i154 = icmp eq i16 %567, 0
-  br i1 %.not.i17.i154, label %_ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv4_fS6_S6_S6_.exit156, label %568
+  br i1 %.not.i17.i154, label %.lr.ph194.preheader, label %568
 
 568:                                              ; preds = %_ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152
   %569 = bitcast <4 x i32> %564 to <2 x i64>
@@ -2849,9 +2849,9 @@ _ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152: ; preds = %539, %_ZN
   %574 = xor <2 x i64> %561, %573
   %575 = and <2 x i64> %574, %569
   %576 = xor <2 x i64> %575, %561
-  br label %_ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv4_fS6_S6_S6_.exit156
+  br label %.lr.ph194.preheader
 
-_ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv4_fS6_S6_S6_.exit156: ; preds = %_ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152, %568
+.lr.ph194.preheader:                              ; preds = %568, %_ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152
   %.0.i18.i155 = phi <2 x i64> [ %576, %568 ], [ %561, %_ZN19OpenColorIO_v2_5devL13sse2_cvtps_phEDv4_f.exit16.i152 ]
   %577 = bitcast <4 x float> %530 to <4 x i32>
   %578 = lshr <4 x i32> %577, splat (i32 13)
@@ -2910,9 +2910,6 @@ _ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %630 = xor <4 x i32> %629, %589
   %631 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store <4 x i32> %630, ptr %631, align 16, !tbaa !3
-  br i1 %329, label %.lr.ph194.preheader, label %._crit_edge195
-
-.lr.ph194.preheader:                              ; preds = %_ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv4_fS6_S6_S6_.exit156
   %632 = zext nneg i32 %328 to i64
   br label %.lr.ph194
 
@@ -2939,7 +2936,7 @@ _ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %645 = icmp samesign ult i64 %indvars.iv.next, %330
   br i1 %645, label %.lr.ph189, label %._crit_edge190.loopexit, !llvm.loop !24
 
-._crit_edge195:                                   ; preds = %.lr.ph194, %_ZN19OpenColorIO_v2_5dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14halfEDv4_fS6_S6_S6_.exit156
+._crit_edge195:                                   ; preds = %.lr.ph194
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %659

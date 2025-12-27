@@ -535,7 +535,7 @@ define noundef zeroext i1 @_ZN4pkpy4Dict5eraseEPNS_8PyObjectE(ptr noundef nonnul
   br label %70
 
 70:                                               ; preds = %2, %59
-  ret i1 %6
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -738,7 +738,6 @@ define void @_ZNK4pkpy4Dict4keysEv(ptr dead_on_unwind noalias nonnull writable s
   br label %45
 
 43:                                               ; preds = %35, %34
-  %.0 = phi i1 [ false, %35 ], [ true, %34 ]
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
@@ -746,20 +745,18 @@ define void @_ZNK4pkpy4Dict4keysEv(ptr dead_on_unwind noalias nonnull writable s
 
 45:                                               ; preds = %43, %41
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.4 = phi i1 [ %.0, %43 ], [ true, %41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   br label %46
 
 46:                                               ; preds = %45, %39
   %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %40, %39 ]
-  %.3 = phi i1 [ %.4, %45 ], [ true, %39 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   br label %47
 
 47:                                               ; preds = %37, %46
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %46 ], [ %38, %37 ]
-  %.2 = phi i1 [ %.3, %46 ], [ true, %37 ]
+  %.2 = phi i1 [ false, %46 ], [ true, %37 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   br i1 %.2, label %48, label %50
@@ -1104,7 +1101,6 @@ define void @_ZNK4pkpy4Dict6valuesEv(ptr dead_on_unwind noalias nonnull writable
   br label %46
 
 44:                                               ; preds = %36, %35
-  %.0 = phi i1 [ false, %36 ], [ true, %35 ]
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
@@ -1112,20 +1108,18 @@ define void @_ZNK4pkpy4Dict6valuesEv(ptr dead_on_unwind noalias nonnull writable
 
 46:                                               ; preds = %44, %42
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
-  %.4 = phi i1 [ %.0, %44 ], [ true, %42 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   br label %47
 
 47:                                               ; preds = %46, %40
   %.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %41, %40 ]
-  %.3 = phi i1 [ %.4, %46 ], [ true, %40 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   br label %48
 
 48:                                               ; preds = %38, %47
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %47 ], [ %39, %38 ]
-  %.2 = phi i1 [ %.3, %47 ], [ true, %38 ]
+  %.2 = phi i1 [ false, %47 ], [ true, %38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   br i1 %.2, label %49, label %51

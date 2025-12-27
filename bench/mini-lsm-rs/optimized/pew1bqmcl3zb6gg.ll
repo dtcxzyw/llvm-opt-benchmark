@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17hc7387a892f8b0de1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %4, label %default.unreachable10 [
+  switch i64 %4, label %default.unreachable9 [
     i64 0, label %5
     i64 1, label %9
     i64 2, label %13
@@ -27,7 +27,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
   ]
 
-default.unreachable10:                            ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -157,7 +157,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd164605c3cbed6E.exit.i:
   br label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
 
 "_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit": ; preds = %57, %47, %.thread.sink.split.i, %64, %38, %33, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i", %28, %24, %17, %2, %13, %9, %5
-  %.0.shrunk = phi i1 [ %8, %5 ], [ %12, %9 ], [ %16, %13 ], [ false, %2 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ true, %33 ], [ false, %24 ], [ false, %17 ], [ false, %28 ], [ false, %38 ], [ true, %.thread.sink.split.i ], [ false, %64 ], [ false, %47 ], [ false, %57 ]
+  %.0.shrunk = phi i1 [ %8, %5 ], [ %12, %9 ], [ %16, %13 ], [ false, %2 ], [ false, %33 ], [ false, %17 ], [ false, %24 ], [ false, %28 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %38 ], [ false, %64 ], [ false, %.thread.sink.split.i ], [ false, %47 ], [ false, %57 ]
   ret i1 %.0.shrunk
 }
 
@@ -165,7 +165,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd164605c3cbed6E.exit.i:
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17hea3874780a71eea3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(72) %1) unnamed_addr #0 {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %4, label %default.unreachable10 [
+  switch i64 %4, label %default.unreachable9 [
     i64 0, label %5
     i64 1, label %9
     i64 2, label %13
@@ -174,7 +174,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
   ]
 
-default.unreachable10:                            ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -304,7 +304,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd164605c3cbed6E.exit.i:
   br label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
 
 "_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit": ; preds = %57, %47, %.thread.sink.split.i, %64, %38, %33, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i", %28, %24, %17, %2, %13, %9, %5
-  %.0.shrunk = phi i1 [ %8, %5 ], [ %12, %9 ], [ %16, %13 ], [ false, %2 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ true, %33 ], [ false, %24 ], [ false, %17 ], [ false, %28 ], [ false, %38 ], [ true, %.thread.sink.split.i ], [ false, %64 ], [ false, %47 ], [ false, %57 ]
+  %.0.shrunk = phi i1 [ %8, %5 ], [ %12, %9 ], [ %16, %13 ], [ false, %2 ], [ false, %33 ], [ false, %17 ], [ false, %24 ], [ false, %28 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %38 ], [ false, %64 ], [ false, %.thread.sink.split.i ], [ false, %47 ], [ false, %57 ]
   ret i1 %.0.shrunk
 }
 
@@ -712,7 +712,7 @@ default.unreachable7:                             ; preds = %3
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$6accept17h3490f681b29995f8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %default.unreachable10 [
+  switch i64 %5, label %default.unreachable9 [
     i64 0, label %6
     i64 1, label %10
     i64 2, label %14
@@ -721,7 +721,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
   ]
 
-default.unreachable10:                            ; preds = %3
+default.unreachable9:                             ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -887,7 +887,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd164605c3cbed6E.exit.i:
   br label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
 
 "_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit": ; preds = %67, %57, %.thread.sink.split.i, %74, %48, %43, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i", %38, %34, %27, %3, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit, %10, %6
-  %.0.shrunk = phi i1 [ %9, %6 ], [ %13, %10 ], [ true, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit ], [ false, %3 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ true, %43 ], [ false, %34 ], [ false, %27 ], [ false, %38 ], [ false, %48 ], [ true, %.thread.sink.split.i ], [ false, %74 ], [ false, %57 ], [ false, %67 ]
+  %.0.shrunk = phi i1 [ %9, %6 ], [ %13, %10 ], [ true, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit ], [ false, %3 ], [ false, %43 ], [ false, %27 ], [ false, %34 ], [ false, %38 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %48 ], [ false, %74 ], [ false, %.thread.sink.split.i ], [ false, %57 ], [ false, %67 ]
   ret i1 %.0.shrunk
 }
 
@@ -895,7 +895,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd164605c3cbed6E.exit.i:
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$6accept17hf7470c18e40122caE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %5, label %default.unreachable10 [
+  switch i64 %5, label %default.unreachable9 [
     i64 0, label %6
     i64 1, label %10
     i64 2, label %14
@@ -904,7 +904,7 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiv
     i64 5, label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
   ]
 
-default.unreachable10:                            ; preds = %3
+default.unreachable9:                             ; preds = %3
   unreachable
 
 6:                                                ; preds = %3
@@ -1070,7 +1070,7 @@ _ZN17crossbeam_channel7flavors4tick7Channel8try_recv17h2bd164605c3cbed6E.exit.i:
   br label %"_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit"
 
 "_ZN99_$LT$crossbeam_channel..flavors..at..Channel$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$10try_select17h5af93ce364f752b7E.exit": ; preds = %67, %57, %.thread.sink.split.i, %74, %48, %43, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i", %38, %34, %27, %3, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit, %10, %6
-  %.0.shrunk = phi i1 [ %9, %6 ], [ %13, %10 ], [ true, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit ], [ false, %3 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ true, %43 ], [ false, %34 ], [ false, %27 ], [ false, %38 ], [ false, %48 ], [ true, %.thread.sink.split.i ], [ false, %74 ], [ false, %57 ], [ false, %67 ]
+  %.0.shrunk = phi i1 [ %9, %6 ], [ %13, %10 ], [ true, %_ZN17crossbeam_channel7context7Context11wait_packet17h5e493d1acb462601E.exit ], [ false, %3 ], [ false, %43 ], [ false, %27 ], [ false, %34 ], [ false, %38 ], [ false, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread8.i.i" ], [ false, %48 ], [ false, %74 ], [ false, %.thread.sink.split.i ], [ false, %57 ], [ false, %67 ]
   ret i1 %.0.shrunk
 }
 
@@ -1901,13 +1901,13 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7channel15Sender$LT$T$G
   %3 = load i64, ptr %0, align 8, !range !194, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !noundef !5
-  switch i64 %3, label %default.unreachable8 [
+  switch i64 %3, label %default.unreachable10 [
     i64 0, label %6
     i64 1, label %8
     i64 2, label %26
   ]
 
-default.unreachable8:                             ; preds = %1
+default.unreachable10:                            ; preds = %1
   unreachable
 
 6:                                                ; preds = %1
@@ -1936,7 +1936,7 @@ default.unreachable8:                             ; preds = %1
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
   %17 = load ptr, ptr %16, align 8, !alias.scope !196, !noundef !5
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit", label %19
+  br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %15
   %20 = load i64, ptr %10, align 8, !alias.scope !196, !noundef !5
@@ -1947,31 +1947,29 @@ default.unreachable8:                             ; preds = %1
   %24 = atomicrmw or ptr %23, i64 1 release, align 8, !noalias !196
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 256
   call void @_ZN17crossbeam_channel5waker9SyncWaker6notify17hffe30b35fb8f6864E.llvm.15562554790014090263(ptr noundef nonnull align 8 %25), !noalias !196
-  br label %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit"
+  br label %.thread
 
-"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit": ; preds = %15, %19
-  %spec.select.i.i = phi i8 [ 1, %15 ], [ 2, %19 ]
+.thread:                                          ; preds = %19, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %28
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit"
 
 26:                                               ; preds = %1
   %27 = tail call noundef i8 @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4send17hea73a569536d85dcE"(ptr noundef nonnull align 8 %5, i64 undef, i32 noundef 1000000000), !range !195
   br label %28
 
-28:                                               ; preds = %26, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit", %6
-  %.0 = phi i8 [ %7, %6 ], [ %spec.select.i.i, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit" ], [ %27, %26 ]
-  %29 = icmp ne i8 %.0, 2
-  %.not.i = xor i1 %29, true
+28:                                               ; preds = %26, %6
+  %.0 = phi i8 [ %7, %6 ], [ %27, %26 ]
+  %29 = icmp eq i8 %.0, 2
   %30 = trunc i8 %.0 to i1
-  %or.cond.i = or i1 %.not.i, %30
+  %or.cond.i = or i1 %29, %30
   br i1 %or.cond.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit", label %31
 
 31:                                               ; preds = %28
-  call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b45185a57254b681b92dcc8dbc2a40cb.2.llvm.1391893842591846125, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b45185a57254b681b92dcc8dbc2a40cb.4.llvm.1391893842591846125) #11
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b45185a57254b681b92dcc8dbc2a40cb.2.llvm.1391893842591846125, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b45185a57254b681b92dcc8dbc2a40cb.4.llvm.1391893842591846125) #11
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit": ; preds = %28
-  ret i1 %29
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit": ; preds = %.thread, %28
+  ret i1 false
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -2090,7 +2088,7 @@ default.unreachable14:                            ; preds = %2
   br label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h29b21b7ed60a86a4E.exit"
 
 "_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4read17h29b21b7ed60a86a4E.exit": ; preds = %32, %.sink.split.i, %14, %10, %5, %2, %48, %40, %36
-  %.0.shrunk = phi i1 [ true, %2 ], [ false, %10 ], [ %39, %36 ], [ %47, %40 ], [ %55, %48 ], [ true, %5 ], [ true, %14 ], [ false, %.sink.split.i ], [ false, %32 ]
+  %.0.shrunk = phi i1 [ true, %2 ], [ false, %10 ], [ %39, %36 ], [ %47, %40 ], [ %55, %48 ], [ false, %5 ], [ false, %14 ], [ false, %.sink.split.i ], [ false, %32 ]
   ret i1 %.0.shrunk
 }
 
@@ -2250,10 +2248,9 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i: ; preds = %9, %_ZN3std
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125"(i8 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = icmp ne i8 %0, 2
-  %.not = xor i1 %2, true
+  %2 = icmp eq i8 %0, 2
   %3 = trunc i8 %0 to i1
-  %or.cond = or i1 %.not, %3
+  %or.cond = or i1 %2, %3
   br i1 %or.cond, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hb3f9f7a3d3ff25bbE.llvm.1391893842591846125.exit", label %4
 
 4:                                                ; preds = %1
@@ -2261,7 +2258,7 @@ define hidden noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err1
   unreachable
 
 "_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hb3f9f7a3d3ff25bbE.llvm.1391893842591846125.exit": ; preds = %1
-  ret i1 %2
+  ret i1 false
 }
 
 ; Function Attrs: nonlazybind uwtable

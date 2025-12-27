@@ -561,16 +561,7 @@ define dso_local void @__cxa_rethrow() local_unnamed_addr #10 personality ptr @_
   tail call void @__clang_call_terminate(ptr %40) #19
   unreachable
 
-__cxa_begin_catch.exit:                           ; preds = %30, %37
-  br i1 %8, label %41, label %44
-
-41:                                               ; preds = %__cxa_begin_catch.exit
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !22
-  tail call void @_ZSt11__terminatePFvvE(ptr noundef %43) #16
-  unreachable
-
-44:                                               ; preds = %__cxa_begin_catch.exit
+__cxa_begin_catch.exit:                           ; preds = %37, %30
   tail call void @_ZSt9terminatev() #16
   unreachable
 }

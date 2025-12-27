@@ -661,7 +661,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i: ; preds = %1
   br label %"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$10is_enabled17h3a252632719b07c6E.exit"
 
 "_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$10is_enabled17h3a252632719b07c6E.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i, %21, %.thread.i.i
-  ret i1 %4
+  ret i1 false
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -763,7 +763,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i: ; preds = %1
   br label %"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$10is_enabled17h3a252632719b07c6E.exit"
 
 "_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$10is_enabled17h3a252632719b07c6E.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i, %21, %.thread.i.i
-  ret i1 %4
+  ret i1 false
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1126,15 +1126,17 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17h48a9a970678ff9a7E(
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hdefe27c558adca29E.exit": ; preds = %27, %25, %20, %17, %15
   %.sroa.012.0.i.i.pn = phi ptr [ %22, %20 ], [ %16, %15 ], [ %19, %17 ], [ %26, %25 ], [ %29, %27 ]
+  %.sroa.6.0.i.i.pn = phi i64 [ %2, %20 ], [ 0, %15 ], [ 0, %17 ], [ 0, %25 ], [ %2, %27 ]
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
-  %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select6 = zext i1 %30 to i64
+  %.sroa.012.0.i.i.pn.sink = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
+  %.sroa.6.0.i.i.pn.sink = select i1 %30, i64 %2, i64 %.sroa.6.0.i.i.pn
+  %storemerge = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %spec.select, ptr %32, align 8
+  store ptr %.sroa.012.0.i.i.pn.sink, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %33, align 8
-  store i64 %spec.select6, ptr %0, align 8
+  store i64 %.sroa.6.0.i.i.pn.sink, ptr %33, align 8
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 

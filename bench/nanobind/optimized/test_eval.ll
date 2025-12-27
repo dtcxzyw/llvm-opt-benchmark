@@ -1867,36 +1867,35 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %6 = alloca %"class.nanobind::object", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN8nanobind4evalILNS_9eval_modeE258ELm18EEENS_6objectERAT0__KcNS_6handleES6_(ptr dead_on_unwind nonnull writable sret(%"class.nanobind::object") align 8 %6, ptr noundef nonnull align 1 dereferenceable(18) @.str.18, ptr null, ptr null) #12
-          to label %"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit" unwind label %7
+          to label %7 unwind label %9
 
 7:                                                ; preds = %5
-  %8 = landingpad { ptr, i32 }
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  br label %"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit"
+
+9:                                                ; preds = %5
+  %10 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8nanobind12python_errorE
-  %9 = extractvalue { ptr, i32 } %8, 1
-  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #14
-  %11 = icmp eq i32 %9, %10
-  br i1 %11, label %14, label %12
+  %11 = extractvalue { ptr, i32 } %10, 1
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #14
+  %13 = icmp eq i32 %11, %12
+  br i1 %13, label %14, label %17
 
-12:                                               ; preds = %7
-  resume { ptr, i32 } %8
-
-"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit": ; preds = %5
-  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
-  br label %17
-
-14:                                               ; preds = %7
-  %15 = extractvalue { ptr, i32 } %8, 0
+14:                                               ; preds = %9
+  %15 = extractvalue { ptr, i32 } %10, 0
   %16 = call ptr @__cxa_begin_catch(ptr %15) #14
   call void @__cxa_end_catch()
-  br label %17
+  br label %"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit"
 
-17:                                               ; preds = %"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit", %14
-  %18 = phi ptr [ @_Py_TrueStruct, %14 ], [ @_Py_FalseStruct, %"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit" ]
+17:                                               ; preds = %9
+  resume { ptr, i32 } %10
+
+"_ZZL27nanobind_init_test_eval_extRN8nanobind7module_EENK3$_3clEv.exit": ; preds = %7, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %19 = load i64, ptr %18, align 8, !tbaa !18
-  %20 = add nsw i64 %19, 1
-  store i64 %20, ptr %18, align 8, !tbaa !18
-  ret ptr %18
+  %18 = load i64, ptr @_Py_FalseStruct, align 8, !tbaa !18
+  %19 = add nsw i64 %18, 1
+  store i64 %19, ptr @_Py_FalseStruct, align 8, !tbaa !18
+  ret ptr @_Py_FalseStruct
 }
 
 ; Function Attrs: mustprogress optsize uwtable

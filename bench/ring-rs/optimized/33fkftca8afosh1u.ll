@@ -875,8 +875,7 @@ _ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit: ; preds = %6
   br label %18
 
 18:                                               ; preds = %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit, %3, %12
-  %.0 = phi i1 [ false, %12 ], [ true, %3 ], [ true, %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit ]
-  ret i1 %.0
+  ret i1 false
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -897,7 +896,7 @@ define noundef zeroext i1 @_ZN4ring2ec10curve255196x2551911x25519_ecdh17hf317766
 
 _ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit: ; preds = %5
   %.not = icmp eq i64 %11, 32
-  br i1 %.not, label %14, label %23
+  br i1 %.not, label %14, label %22
 
 14:                                               ; preds = %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -911,7 +910,7 @@ _ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit: ; preds = %5
   %.not21 = icmp eq i64 %4, 32
   %.not22 = icmp eq i64 %1, 32
   %or.cond = and i1 %.not22, %.not21
-  br i1 %or.cond, label %17, label %22
+  br i1 %or.cond, label %17, label %.sink.split
 
 17:                                               ; preds = %14
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 8), align 4, !noalias !94, !noundef !12
@@ -931,21 +930,15 @@ _ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %21 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull readonly align 1 %0, ptr noundef nonnull readonly align 1 %7, i64 noundef 32)
-  %.not23 = icmp eq i32 %21, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not23, label %22, label %.sink.split
-
-22:                                               ; preds = %_ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exit, %14
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exit, %22
-  %.014.ph = phi i1 [ true, %22 ], [ false, %_ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exit ]
+.sink.split:                                      ; preds = %_ZN4ring2ec10curve255196x2551911x25519_ecdh11scalar_mult17hbe643e1ad68e8a28E.exit, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %23
+  br label %22
 
-23:                                               ; preds = %.sink.split, %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit
-  %.014 = phi i1 [ true, %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit ], [ %.014.ph, %.sink.split ]
-  ret i1 %.014
+22:                                               ; preds = %.sink.split, %_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671dab9ceE.exit
+  ret i1 false
 }
 
 ; Function Attrs: nonlazybind uwtable

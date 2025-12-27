@@ -1355,7 +1355,6 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   br i1 %.not89.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %211
 
 211:                                              ; preds = %._crit_edge.i
-  store i32 1, ptr %4, align 4
   %212 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %212, align 4
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -1365,10 +1364,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   br label %217
 
 217:                                              ; preds = %236, %211
+  %218 = phi i32 [ 1, %211 ], [ %.pre127, %236 ]
   %.2102.i = phi ptr [ %.0.lcssa.i, %211 ], [ %.3.i, %236 ]
   %.036.idx101.i = phi i64 [ 0, %211 ], [ %.036.add.i, %236 ]
-  %.036.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.036.idx101.i
-  %218 = load i32, ptr %.036.ptr.i, align 4
   %219 = load i64, ptr %9, align 8
   %220 = zext i32 %218 to i64
   %221 = getelementptr inbounds nuw i64, ptr %213, i64 %220
@@ -1398,11 +1396,11 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
 236:                                              ; preds = %229, %224, %217
   %.3.i = phi ptr [ %.2102.i, %217 ], [ %235, %229 ], [ %.2102.i, %224 ]
   %.036.add.i = add nuw nsw i64 %.036.idx101.i, 4
-  %.not37.i = icmp eq i64 %.036.add.i, 8
-  br i1 %.not37.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %217
+  %.036.ptr.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 %.036.add.i
+  %.pre127 = load i32, ptr %.036.ptr.i.phi.trans.insert, align 4
+  br label %217
 
-_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %236, %._crit_edge.i
-  %.1.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %.3.i, %236 ]
+_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %463
 
@@ -1779,7 +1777,6 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   br i1 %.not89.i89, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %437
 
 437:                                              ; preds = %._crit_edge.i87
-  store i32 4, ptr %3, align 4
   %438 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 8, ptr %438, align 4
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -1789,10 +1786,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   br label %443
 
 443:                                              ; preds = %462, %437
+  %444 = phi i32 [ 4, %437 ], [ %.pre, %462 ]
   %.2102.i90 = phi ptr [ %.0.lcssa.i88, %437 ], [ %.3.i94, %462 ]
   %.036.idx101.i91 = phi i64 [ 0, %437 ], [ %.036.add.i95, %462 ]
-  %.036.ptr.i92 = getelementptr inbounds nuw i8, ptr %3, i64 %.036.idx101.i91
-  %444 = load i32, ptr %.036.ptr.i92, align 4
   %445 = load i64, ptr %9, align 8
   %446 = zext i32 %444 to i64
   %447 = getelementptr inbounds nuw i64, ptr %439, i64 %446
@@ -1806,8 +1802,8 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 24
   %453 = load i32, ptr %452, align 8
   %454 = and i32 %453, %444
-  %.not91.i98 = icmp eq i32 %454, 0
-  br i1 %.not91.i98, label %462, label %455
+  %.not91.i96 = icmp eq i32 %454, 0
+  br i1 %.not91.i96, label %462, label %455
 
 455:                                              ; preds = %450
   %456 = getelementptr inbounds nuw i32, ptr %440, i64 %446
@@ -1822,16 +1818,16 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
 462:                                              ; preds = %455, %450, %443
   %.3.i94 = phi ptr [ %.2102.i90, %443 ], [ %461, %455 ], [ %.2102.i90, %450 ]
   %.036.add.i95 = add nuw nsw i64 %.036.idx101.i91, 4
-  %.not37.i96 = icmp eq i64 %.036.add.i95, 8
-  br i1 %.not37.i96, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %443
+  %.036.ptr.i92.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 %.036.add.i95
+  %.pre = load i32, ptr %.036.ptr.i92.phi.trans.insert, align 4
+  br label %443
 
-_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %462, %._crit_edge.i87
-  %.1.i97 = phi ptr [ %.0.lcssa.i88, %._crit_edge.i87 ], [ %.3.i94, %462 ]
+_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %._crit_edge.i87
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %463
 
 463:                                              ; preds = %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit
-  %464 = phi ptr [ %.1.i, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit ], [ %.1.i97, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit ]
+  %464 = phi ptr [ %.0.lcssa.i, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit ], [ %.0.lcssa.i88, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit ]
   ret ptr %464
 }
 
@@ -4310,7 +4306,6 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   br i1 %.not89.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %295
 
 295:                                              ; preds = %._crit_edge.i
-  store i32 1, ptr %4, align 4
   %296 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %296, align 4
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -4320,10 +4315,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
   br label %301
 
 301:                                              ; preds = %320, %295
+  %302 = phi i32 [ 1, %295 ], [ %.pre182, %320 ]
   %.2107.i = phi ptr [ %.0.lcssa.i, %295 ], [ %.3.i, %320 ]
   %.036.idx106.i = phi i64 [ 0, %295 ], [ %.036.add.i, %320 ]
-  %.036.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.036.idx106.i
-  %302 = load i32, ptr %.036.ptr.i, align 4
   %303 = load i64, ptr %18, align 8
   %304 = zext i32 %302 to i64
   %305 = getelementptr inbounds nuw i64, ptr %297, i64 %304
@@ -4353,11 +4347,11 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
 320:                                              ; preds = %313, %308, %301
   %.3.i = phi ptr [ %.2107.i, %301 ], [ %319, %313 ], [ %.2107.i, %308 ]
   %.036.add.i = add nuw nsw i64 %.036.idx106.i, 4
-  %.not37.i = icmp eq i64 %.036.add.i, 8
-  br i1 %.not37.i, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %301
+  %.036.ptr.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 %.036.add.i
+  %.pre182 = load i32, ptr %.036.ptr.i.phi.trans.insert, align 4
+  br label %301
 
-_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %320, %._crit_edge.i
-  %.1.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %.3.i, %320 ]
+_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %631
 
@@ -4892,7 +4886,6 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   br i1 %.not89.i124, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %605
 
 605:                                              ; preds = %._crit_edge.i122
-  store i32 4, ptr %3, align 4
   %606 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 8, ptr %606, align 4
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -4902,10 +4895,9 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   br label %611
 
 611:                                              ; preds = %630, %605
+  %612 = phi i32 [ 4, %605 ], [ %.pre, %630 ]
   %.2107.i125 = phi ptr [ %.0.lcssa.i123, %605 ], [ %.3.i129, %630 ]
   %.036.idx106.i126 = phi i64 [ 0, %605 ], [ %.036.add.i130, %630 ]
-  %.036.ptr.i127 = getelementptr inbounds nuw i8, ptr %3, i64 %.036.idx106.i126
-  %612 = load i32, ptr %.036.ptr.i127, align 4
   %613 = load i64, ptr %330, align 8
   %614 = zext i32 %612 to i64
   %615 = getelementptr inbounds nuw i64, ptr %607, i64 %614
@@ -4919,8 +4911,8 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 24
   %621 = load i32, ptr %620, align 8
   %622 = and i32 %621, %612
-  %.not91.i133 = icmp eq i32 %622, 0
-  br i1 %.not91.i133, label %630, label %623
+  %.not91.i131 = icmp eq i32 %622, 0
+  br i1 %.not91.i131, label %630, label %623
 
 623:                                              ; preds = %618
   %624 = getelementptr inbounds nuw i32, ptr %608, i64 %614
@@ -4935,16 +4927,16 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
 630:                                              ; preds = %623, %618, %611
   %.3.i129 = phi ptr [ %.2107.i125, %611 ], [ %629, %623 ], [ %.2107.i125, %618 ]
   %.036.add.i130 = add nuw nsw i64 %.036.idx106.i126, 4
-  %.not37.i131 = icmp eq i64 %.036.add.i130, 8
-  br i1 %.not37.i131, label %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, label %611
+  %.036.ptr.i127.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 %.036.add.i130
+  %.pre = load i32, ptr %.036.ptr.i127.phi.trans.insert, align 4
+  br label %611
 
-_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %630, %._crit_edge.i122
-  %.1.i132 = phi ptr [ %.0.lcssa.i123, %._crit_edge.i122 ], [ %.3.i129, %630 ]
+_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %._crit_edge.i122
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %631
 
 631:                                              ; preds = %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit
-  %632 = phi ptr [ %.1.i, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit ], [ %.1.i132, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit ]
+  %632 = phi ptr [ %.0.lcssa.i, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit ], [ %.0.lcssa.i123, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit ]
   ret ptr %632
 }
 

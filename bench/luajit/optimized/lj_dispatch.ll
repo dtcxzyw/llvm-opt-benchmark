@@ -1317,14 +1317,14 @@ call_init.exit:                                   ; preds = %lj_state_checkstack
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 336
   %84 = load ptr, ptr %83, align 8, !tbaa !66
   %.not.i42 = icmp eq ptr %84, null
-  br i1 %.not.i42, label %callhook.exit, label %85
+  br i1 %.not.i42, label %.lr.ph46, label %85
 
 85:                                               ; preds = %._crit_edge
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 145
   %87 = load i8, ptr %86, align 1, !tbaa !50
   %88 = and i8 %87, 16
   %.not15.i = icmp eq i8 %88, 0
-  br i1 %.not15.i, label %89, label %callhook.exit
+  br i1 %.not15.i, label %89, label %.lr.ph46
 
 89:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1371,13 +1371,10 @@ lj_state_checkstack.exit.i44:                     ; preds = %109, %89
   %115 = and i8 %114, -17
   store i8 %115, ptr %86, align 1, !tbaa !50
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %callhook.exit
+  br label %.lr.ph46
 
-callhook.exit:                                    ; preds = %._crit_edge, %85, %lj_state_checkstack.exit.i44
+.lr.ph46:                                         ; preds = %lj_state_checkstack.exit.i44, %85, %._crit_edge
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br i1 %.not48, label %.critedge, label %.lr.ph46
-
-.lr.ph46:                                         ; preds = %callhook.exit
   %.promoted = load ptr, ptr %116, align 8, !tbaa !57
   br label %117
 
@@ -1395,8 +1392,8 @@ callhook.exit:                                    ; preds = %._crit_edge, %85, %
   %124 = icmp sgt i32 %.in, 1
   br i1 %124, label %117, label %.critedge, !llvm.loop !84
 
-.critedge:                                        ; preds = %122, %117, %callhook.exit, %72, %60
-  %.033 = phi ptr [ %62, %60 ], [ %1, %72 ], [ %1, %callhook.exit ], [ %1, %117 ], [ %1, %122 ]
+.critedge:                                        ; preds = %122, %117, %72, %60
+  %.033 = phi ptr [ %62, %60 ], [ %1, %72 ], [ %1, %117 ], [ %1, %122 ]
   %125 = getelementptr inbounds i8, ptr %.033, i64 -4
   %126 = load i32, ptr %125, align 4, !tbaa !44
   %127 = and i32 %126, 255

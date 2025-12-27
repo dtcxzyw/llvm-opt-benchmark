@@ -201,18 +201,18 @@ define hidden void @"_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   br i1 %22, label %24, label %23, !prof !32
 
 23:                                               ; preds = %21
-  invoke void @_ZN4core5slice4sort6stable14driftsort_main17hc7b09e226a5d7f48E(ptr noalias noundef nonnull align 8 %19, i64 noundef range(i64 1, 384307168202282326) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %26 unwind label %44
+  call void @_ZN4core5slice4sort6stable14driftsort_main17hc7b09e226a5d7f48E(ptr noalias noundef nonnull align 8 %19, i64 noundef range(i64 1, 384307168202282326) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
+  br label %26
 
 24:                                               ; preds = %21
-  invoke fastcc void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h225cb9c56a5beacdE(ptr noalias noundef nonnull align 8 %19, i64 noundef range(i64 1, 384307168202282326) %12)
-          to label %26 unwind label %44
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h225cb9c56a5beacdE(ptr noalias noundef nonnull align 8 %19, i64 noundef range(i64 1, 384307168202282326) %12)
+  br label %26
 
 25:                                               ; preds = %28, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
-26:                                               ; preds = %24, %17, %23
+26:                                               ; preds = %23, %24, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !25
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
@@ -275,23 +275,10 @@ define hidden void @"_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$$LP$u32$C$elfshaker..packidx..ObjectMetadata$RP$$GT$$GT$17h859b6139dc6be2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #23
-          to label %.body.thread unwind label %40, !noalias !33
+          to label %.body unwind label %40, !noalias !33
 
-.body.thread:                                     ; preds = %42, %44
-  %eh.lpad-body6 = phi { ptr, i32 } [ %43, %42 ], [ %lpad.thr_comm, %44 ]
-  resume { ptr, i32 } %eh.lpad-body6
-
-44:                                               ; preds = %24, %23
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$$LP$u32$C$elfshaker..packidx..ObjectMetadata$RP$$GT$$GT$17h859b6139dc6be2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #23
-          to label %.body.thread unwind label %45
-
-45:                                               ; preds = %44
-  %46 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24
-  unreachable
+.body:                                            ; preds = %42
+  resume { ptr, i32 } %43
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -336,18 +323,18 @@ define hidden void @"_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   br i1 %22, label %24, label %23, !prof !32
 
 23:                                               ; preds = %21
-  invoke void @_ZN4core5slice4sort6stable14driftsort_main17h95a9e7857b220901E(ptr noalias noundef nonnull align 8 %19, i64 noundef range(i64 1, 384307168202282326) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %26 unwind label %44
+  call void @_ZN4core5slice4sort6stable14driftsort_main17h95a9e7857b220901E(ptr noalias noundef nonnull align 8 %19, i64 noundef range(i64 1, 384307168202282326) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
+  br label %26
 
 24:                                               ; preds = %21
-  invoke fastcc void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hc32923ea26caa9e7E(ptr noalias noundef nonnull align 8 %19, i64 noundef range(i64 1, 384307168202282326) %12)
-          to label %26 unwind label %44
+  call fastcc void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hc32923ea26caa9e7E(ptr noalias noundef nonnull align 8 %19, i64 noundef range(i64 1, 384307168202282326) %12)
+  br label %26
 
 25:                                               ; preds = %28, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
-26:                                               ; preds = %24, %17, %23
+26:                                               ; preds = %23, %24, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !52
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
@@ -410,23 +397,10 @@ define hidden void @"_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$$LP$u32$C$elfshaker..packidx..ObjectMetadata$RP$$GT$$GT$17h859b6139dc6be2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #23
-          to label %.body.thread unwind label %40, !noalias !59
+          to label %.body unwind label %40, !noalias !59
 
-.body.thread:                                     ; preds = %42, %44
-  %eh.lpad-body6 = phi { ptr, i32 } [ %43, %42 ], [ %lpad.thr_comm, %44 ]
-  resume { ptr, i32 } %eh.lpad-body6
-
-44:                                               ; preds = %24, %23
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$$LP$u32$C$elfshaker..packidx..ObjectMetadata$RP$$GT$$GT$17h859b6139dc6be2d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #23
-          to label %.body.thread unwind label %45
-
-45:                                               ; preds = %44
-  %46 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24
-  unreachable
+.body:                                            ; preds = %42
+  resume { ptr, i32 } %43
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4116,7 +4090,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h3
   %.sroa.09.0 = phi i64 [ 13, %23 ], [ 9, %409 ], [ 1, %21 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !557)
   %628 = add nsw i64 %.sroa.09.0, -1
-  %or.cond.not.i = icmp ult i64 %628, %.sroa.9.0
+  %or.cond.not.i = icmp samesign ult i64 %628, %.sroa.9.0
   br i1 %or.cond.not.i, label %630, label %629
 
 629:                                              ; preds = %627
@@ -4983,7 +4957,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store i64 0, ptr %.sroa.519.0..sroa_idx, align 8
   %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %15, ptr %.sroa.620.0..sroa_idx, align 8
-  %37 = sub i64 %1, %15
+  %37 = sub nsw i64 %1, %15
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.07.129 = add nuw nsw i64 %.sroa.0.0, 1
@@ -5267,7 +5241,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store i64 0, ptr %.sroa.519.0..sroa_idx, align 8
   %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %15, ptr %.sroa.620.0..sroa_idx, align 8
-  %80 = sub i64 %1, %15
+  %80 = sub nsw i64 %1, %15
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.07.149 = add nuw nsw i64 %.sroa.0.0, 1
@@ -5507,7 +5481,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store i64 0, ptr %.sroa.519.0..sroa_idx, align 8
   %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %15, ptr %.sroa.620.0..sroa_idx, align 8
-  %22 = sub i64 %1, %15
+  %22 = sub nsw i64 %1, %15
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -5836,7 +5810,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store i64 0, ptr %.sroa.519.0..sroa_idx, align 8
   %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %15, ptr %.sroa.620.0..sroa_idx, align 8
-  %22 = sub i64 %1, %15
+  %22 = sub nsw i64 %1, %15
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6239,7 +6213,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store i64 0, ptr %.sroa.519.0..sroa_idx, align 8
   %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %15, ptr %.sroa.620.0..sroa_idx, align 8
-  %94 = sub i64 %1, %15
+  %94 = sub nsw i64 %1, %15
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -6570,7 +6544,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store i64 0, ptr %.sroa.519.0..sroa_idx, align 8
   %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %15, ptr %.sroa.620.0..sroa_idx, align 8
-  %80 = sub i64 %1, %15
+  %80 = sub nsw i64 %1, %15
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.07.149 = add nuw nsw i64 %.sroa.0.0, 1
@@ -7443,7 +7417,7 @@ define internal fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$
   %.sroa.011.0.i = phi i64 [ %14, %13 ], [ 0, %10 ]
   %.sroa.0.0.i = phi i64 [ 4, %13 ], [ 0, %10 ]
   %16 = or disjoint i64 %.sroa.0.0.i, 1
-  %17 = icmp ult i64 %16, %.sroa.0.0.sroa.speculated.i
+  %17 = icmp samesign ult i64 %16, %.sroa.0.0.sroa.speculated.i
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15
@@ -7459,7 +7433,7 @@ define internal fastcc void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$
 25:                                               ; preds = %18, %15
   %.sroa.011.1.i = phi i64 [ %23, %18 ], [ %.sroa.011.0.i, %15 ]
   %.sroa.0.1.i = phi i64 [ %24, %18 ], [ %.sroa.0.0.i, %15 ]
-  %26 = icmp ult i64 %.sroa.0.1.i, %.sroa.0.0.sroa.speculated.i
+  %26 = icmp samesign ult i64 %.sroa.0.1.i, %.sroa.0.0.sroa.speculated.i
   br i1 %26, label %27, label %_ZN4core4hash3sip9u8to64_le17hdbc674c1681e6e6fE.exit
 
 27:                                               ; preds = %25

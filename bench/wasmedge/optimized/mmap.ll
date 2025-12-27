@@ -31,16 +31,12 @@ define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr noundef non
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %9, align 8, !noalias !4
   %10 = icmp slt i32 %7, 0
-  br i1 %10, label %21, label %11
+  br i1 %10, label %thread-pre-split.thread, label %11
 
 11:                                               ; preds = %8
   %12 = call i32 @fstat(i32 noundef %7, ptr noundef nonnull %3) #13, !noalias !4
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %.thread9, label %thread-pre-split
-
-.thread9:                                         ; preds = %11
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
-  br label %.thread8
+  br i1 %13, label %thread-pre-split.thread, label %thread-pre-split
 
 14:                                               ; preds = %.noexc
   %15 = landingpad { ptr, i32 }
@@ -48,6 +44,10 @@ define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr noundef non
   %16 = extractvalue { ptr, i32 } %15, 0
   tail call void @__clang_call_terminate(ptr %16) #14, !noalias !4
   unreachable
+
+thread-pre-split.thread:                          ; preds = %8, %11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
+  br label %21
 
 thread-pre-split:                                 ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -57,28 +57,24 @@ thread-pre-split:                                 ; preds = %11
   store ptr %19, ptr %4, align 8, !noalias !4
   %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
-  br i1 %20, label %.thread8, label %.thread
+  br i1 %20, label %21, label %.thread
 
 .thread:                                          ; preds = %thread-pre-split
   store ptr %4, ptr %0, align 8
   br label %_ZNSt10unique_ptrIN8WasmEdge12_GLOBAL__N_19ImplementESt14default_deleteIS2_EED2Ev.exit
 
-21:                                               ; preds = %8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
-  br label %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i
-
-.thread8:                                         ; preds = %thread-pre-split, %.thread9
+21:                                               ; preds = %thread-pre-split.thread, %thread-pre-split
   %22 = invoke i32 @close(i32 noundef %7)
           to label %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i unwind label %23
 
-23:                                               ; preds = %.thread8
+23:                                               ; preds = %21
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   tail call void @__clang_call_terminate(ptr %25) #14
   unreachable
 
-_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i: ; preds = %21, %.thread8
+_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i: ; preds = %21
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 24) #15
   br label %_ZNSt10unique_ptrIN8WasmEdge12_GLOBAL__N_19ImplementESt14default_deleteIS2_EED2Ev.exit
 

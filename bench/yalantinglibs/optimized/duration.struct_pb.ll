@@ -49,7 +49,7 @@ do.body.i13:                                      ; preds = %_ZNK9struct_pb13Unk
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit17: ; preds = %do.body.i13
   %add = add i64 %total.0.lcssa.i, 2
-  %add3 = add i64 %add, %ret.i12.0
+  %add3 = add nuw nsw i64 %add, %ret.i12.0
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit17, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
@@ -73,7 +73,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
   %add8 = add i64 %total.0, 2
-  %add9 = add i64 %add8, %ret.i.0
+  %add9 = add nuw nsw i64 %add8, %ret.i.0
   br label %if.end10
 
 if.end10:                                         ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, %if.end
@@ -110,24 +110,23 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit37: ; preds = %while.body.i3
   %pos.1.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit53 ], [ %inc.i34, %while.body.i31 ]
   %v.addr.i25.0.lcssa = phi i64 [ %1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit53 ], [ %shr.i36, %while.body.i31 ]
   %conv1.i28 = trunc nuw nsw i64 %v.addr.i25.0.lcssa to i8
-  %inc2.i29 = add i64 %pos.1.lcssa, 1
   %arrayidx3.i30 = getelementptr inbounds i8, ptr %data, i64 %pos.1.lcssa
   store i8 %conv1.i28, ptr %arrayidx3.i30, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit37, %entry
-  %pos.0 = phi i64 [ 0, %entry ], [ %inc2.i29, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit37 ]
+  %pos.0 = phi i64 [ 0, %entry ], [ 2, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit37 ]
   %nanos = getelementptr inbounds nuw i8, ptr %t, i64 8
   %3 = load i32, ptr %nanos, align 8
   %cmp2.not = icmp eq i32 %3, 0
   br i1 %cmp2.not, label %if.end5, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit21
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit21: ; preds = %if.end
-  %arrayidx3.i14 = getelementptr inbounds i8, ptr %data, i64 %pos.0
+  %arrayidx3.i14 = getelementptr inbounds nuw i8, ptr %data, i64 %pos.0
   store i8 16, ptr %arrayidx3.i14, align 1
   %4 = load i32, ptr %nanos, align 8
   %conv = sext i32 %4 to i64
-  %pos.343 = add i64 %pos.0, 1
+  %pos.343 = or disjoint i64 %pos.0, 1
   %cmp.i44 = icmp ugt i32 %4, 127
   br i1 %cmp.i44, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit
 
@@ -136,7 +135,7 @@ while.body.i:                                     ; preds = %_ZN9struct_pb8inter
   %v.addr.i.045 = phi i64 [ %shr.i, %while.body.i ], [ %conv, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit21 ]
   %5 = trunc i64 %v.addr.i.045 to i8
   %conv.i = or i8 %5, -128
-  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 %pos.346
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %data, i64 %pos.346
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %v.addr.i.045, 7
   %pos.3 = add nuw nsw i64 %pos.346, 1
@@ -148,7 +147,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %
   %v.addr.i.0.lcssa = phi i64 [ %conv, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit21 ], [ %shr.i, %while.body.i ]
   %pos.3.lcssa = phi i64 [ %pos.343, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit21 ], [ %pos.3, %while.body.i ]
   %conv1.i = trunc nuw nsw i64 %v.addr.i.0.lcssa to i8
-  %inc2.i = add i64 %pos.3.in.lcssa, 2
+  %inc2.i = add nuw nsw i64 %pos.3.in.lcssa, 2
   %arrayidx3.i = getelementptr inbounds i8, ptr %data, i64 %pos.3.lcssa
   store i8 %conv1.i, ptr %arrayidx3.i, align 1
   br label %if.end5
@@ -668,7 +667,7 @@ sw.epilog:                                        ; preds = %if.end12, %if.end5
   br i1 %cmp, label %land.lhs.true.i306, label %return, !llvm.loop !9
 
 return:                                           ; preds = %sw.epilog, %if.end82.i286, %if.end82.i, %if.end82.i144, %while.cond.i189.preheader, %while.cond.i47.preheader, %while.cond.i.preheader, %while.body.i203, %while.body.i61, %while.body.i, %entry, %sw.default
-  %retval.0 = phi i1 [ %call14, %sw.default ], [ false, %while.body.i61 ], [ true, %entry ], [ false, %while.body.i ], [ false, %while.body.i203 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i47.preheader ], [ false, %while.cond.i189.preheader ], [ false, %if.end82.i ], [ false, %if.end82.i286 ], [ true, %sw.epilog ], [ false, %if.end82.i144 ]
+  %retval.0 = phi i1 [ %call14, %sw.default ], [ false, %while.body.i61 ], [ false, %entry ], [ false, %while.body.i ], [ false, %while.body.i203 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i47.preheader ], [ false, %while.cond.i189.preheader ], [ false, %if.end82.i144 ], [ false, %if.end82.i ], [ false, %if.end82.i286 ], [ false, %sw.epilog ]
   ret i1 %retval.0
 }
 
@@ -1288,8 +1287,7 @@ _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EE
   br label %return
 
 return:                                           ; preds = %while.body.i67, %while.body.i, %while.cond.i53.preheader, %while.cond.i.preheader, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273, %if.then.i.i.i249, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239, %if.then.i.i.i215, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205, %if.then.i.i.i181, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %if.end82.i151, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, %sw.bb21, %if.end15, %sw.bb4, %if.end82.i, %entry
-  %retval.0 = phi i1 [ false, %if.end15 ], [ false, %sw.bb21 ], [ false, %entry ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273 ], [ false, %sw.bb4 ], [ false, %while.cond.i.preheader ], [ false, %if.end82.i ], [ true, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205 ], [ true, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ false, %if.end82.i151 ], [ true, %if.then.i.i.i ], [ true, %if.then.i.i.i181 ], [ true, %if.then.i.i.i215 ], [ true, %if.then.i.i.i249 ], [ false, %while.cond.i53.preheader ], [ false, %while.body.i ], [ false, %while.body.i67 ]
-  ret i1 %retval.0
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable

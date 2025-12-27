@@ -1112,7 +1112,7 @@ define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopegu
 
 9:                                                ; preds = %26, %.lr.ph.i.i
   %.sroa.04.03.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %10, %26 ]
-  %10 = add nuw i64 %.sroa.04.03.i.i, 1
+  %10 = add nuw nsw i64 %.sroa.04.03.i.i, 1
   %11 = load ptr, ptr %.val2.i, align 8, !noalias !162, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.04.03.i.i
   %13 = load i8, ptr %12, align 1, !noalias !162, !noundef !3
@@ -1121,7 +1121,7 @@ define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopegu
 
 15:                                               ; preds = %9
   %.neg.i.i = xor i64 %.sroa.04.03.i.i, -1
-  %16 = add i64 %.sroa.04.03.i.i, -16
+  %16 = add nuw nsw i64 %.sroa.04.03.i.i, -16
   %17 = load i64, ptr %6, align 8, !noalias !162, !noundef !3
   %18 = and i64 %17, %16
   store i8 -1, ptr %12, align 1, !noalias !162
@@ -1185,7 +1185,7 @@ define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopegu
 
 9:                                                ; preds = %26, %.lr.ph.i.i
   %.sroa.0.03.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %10, %26 ]
-  %10 = add nuw i64 %.sroa.0.03.i.i, 1
+  %10 = add nuw nsw i64 %.sroa.0.03.i.i, 1
   %11 = load ptr, ptr %.val2.i, align 8, !noalias !165, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.0.03.i.i
   %13 = load i8, ptr %12, align 1, !noalias !165, !noundef !3
@@ -1194,7 +1194,7 @@ define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopegu
 
 15:                                               ; preds = %9
   %.neg.i.i = xor i64 %.sroa.0.03.i.i, -1
-  %16 = add i64 %.sroa.0.03.i.i, -16
+  %16 = add nuw nsw i64 %.sroa.0.03.i.i, -16
   %17 = load i64, ptr %6, align 8, !noalias !165, !noundef !3
   %18 = and i64 %17, %16
   store i8 -1, ptr %12, align 1, !noalias !165
@@ -4316,7 +4316,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17hdcbcce8ec60b7b37E.ex
   %.sroa.0.03.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %16 ]
   %.sroa.5.02.i = phi i64 [ %.sroa.05.0.i.i.i, %.lr.ph.i ], [ %18, %16 ]
   %17 = add i64 %.sroa.0.03.i, 16
-  %18 = add i64 %.sroa.5.02.i, -1
+  %18 = add nsw i64 %.sroa.5.02.i, -1
   %19 = getelementptr inbounds nuw i8, ptr %.val12, i64 %.sroa.0.03.i
   %20 = load <16 x i8>, ptr %19, align 16
   %.lobit.i.i.i = ashr <16 x i8> %20, splat (i8 7)
@@ -7567,7 +7567,7 @@ common.resume:                                    ; preds = %242, %84
   %.sroa.04.03.i = phi i64 [ %.sroa.05.0.i.i.i, %.lr.ph.i ], [ %192, %190 ]
   %.sroa.03.02.i = phi i64 [ 0, %.lr.ph.i ], [ %191, %190 ]
   %191 = add i64 %.sroa.03.02.i, 16
-  %192 = add i64 %.sroa.04.03.i, -1
+  %192 = add nsw i64 %.sroa.04.03.i, -1
   %193 = getelementptr inbounds nuw i8, ptr %.val6, i64 %.sroa.03.02.i
   %194 = load <16 x i8>, ptr %193, align 16
   %.lobit.i.i.i = ashr <16 x i8> %194, splat (i8 7)
@@ -8316,7 +8316,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17hafa16f75bc
   %46 = icmp eq i64 %24, 0
   br i1 %46, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17h431f1953e7c3eac5E.exit, label %11
 
-47:                                               ; preds = %1, %"_ZN4core3ptr443drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hca3c2a48416710e2E.exit3"
+47:                                               ; preds = %1, %"_ZN4core3ptr443drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hca3c2a48416710e2E.exit2"
   ret void
 
 .body:                                            ; preds = %38, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hbe0bed701c47e163E.exit.i4.i.i.i"
@@ -8324,45 +8324,35 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17hafa16f75bc
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load i64, ptr %48, align 8, !alias.scope !959, !noundef !3
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %63, label %51
+  br i1 %50, label %59, label %51
 
 51:                                               ; preds = %.body
   %52 = add i64 %49, 17
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %6, i8 -1, i64 %52, i1 false), !noalias !959
-  br label %63
+  br label %59
 
 _ZN9hashbrown3raw13RawTableInner13drop_elements17h431f1953e7c3eac5E.exit: ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17h456899ec9a873c7fE.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !962)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load i64, ptr %53, align 8, !alias.scope !962, !noundef !3
   %55 = icmp eq i64 %54, 0
-  br i1 %55, label %"_ZN4core3ptr443drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hca3c2a48416710e2E.exit3", label %56
+  br i1 %55, label %"_ZN4core3ptr443drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hca3c2a48416710e2E.exit2", label %56
 
 56:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h431f1953e7c3eac5E.exit
   %57 = add i64 %54, 17
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %6, i8 -1, i64 %57, i1 false), !noalias !962
-  br label %"_ZN4core3ptr443drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hca3c2a48416710e2E.exit3"
+  br label %"_ZN4core3ptr443drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hca3c2a48416710e2E.exit2"
 
-"_ZN4core3ptr443drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hca3c2a48416710e2E.exit3": ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h431f1953e7c3eac5E.exit, %56
+"_ZN4core3ptr443drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hca3c2a48416710e2E.exit2": ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h431f1953e7c3eac5E.exit, %56
   store i64 0, ptr %2, align 8, !alias.scope !962
-  %58 = icmp ult i64 %54, 8
-  %59 = add i64 %54, 1
-  %60 = lshr i64 %59, 3
-  %61 = mul nuw i64 %60, 7
-  %.sroa.0.0.i.i.i.i2 = select i1 %58, i64 %54, i64 %61
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.i.i.i.i2, ptr %62, align 8, !alias.scope !962
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %54, ptr %58, align 8, !alias.scope !962
   br label %47
 
-63:                                               ; preds = %51, %.body
+59:                                               ; preds = %51, %.body
   store i64 0, ptr %2, align 8, !alias.scope !959
-  %64 = icmp ult i64 %49, 8
-  %65 = add i64 %49, 1
-  %66 = lshr i64 %65, 3
-  %67 = mul nuw i64 %66, 7
-  %.sroa.0.0.i.i.i.i = select i1 %64, i64 %49, i64 %67
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.i.i.i.i, ptr %68, align 8, !alias.scope !959
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %49, ptr %60, align 8, !alias.scope !959
   resume { ptr, i32 } %39
 }
 

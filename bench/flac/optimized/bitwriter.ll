@@ -4916,37 +4916,29 @@ bitwriter_grow_.exit.i.thread:                    ; preds = %5, %12, %bitwriter_
   store i64 %43, ptr %48, align 8, !tbaa !16
   store i32 0, ptr %2, align 8, !tbaa !12
   %49 = icmp ugt i32 %42, 63
-  br i1 %49, label %.lr.ph.i, label %56
+  br i1 %49, label %.lr.ph.i, label %54
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
   %50 = phi i32 [ %51, %.lr.ph.i ], [ %46, %41 ]
-  %.139.i = phi i32 [ %54, %.lr.ph.i ], [ %42, %41 ]
   %51 = add i32 %50, 1
   %52 = zext i32 %50 to i64
   %53 = getelementptr inbounds nuw i64, ptr %44, i64 %52
   store i64 0, ptr %53, align 8, !tbaa !16
-  %54 = add i32 %.139.i, -64
-  %55 = icmp ugt i32 %54, 63
-  br i1 %55, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
+  br label %.lr.ph.i, !llvm.loop !22
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store i32 %51, ptr %9, align 4, !tbaa !13
-  br label %56
-
-56:                                               ; preds = %._crit_edge.i, %41
-  %.1.lcssa.i = phi i32 [ %54, %._crit_edge.i ], [ %42, %41 ]
-  %.not36.i = icmp eq i32 %.1.lcssa.i, 0
+54:                                               ; preds = %41
+  %.not36.i = icmp eq i32 %42, 0
   br i1 %.not36.i, label %FLAC__bitwriter_write_zeroes.exit, label %.thread5
 
-.thread5:                                         ; preds = %bitwriter_grow_.exit.i, %56
-  %.1.lcssa.i8 = phi i32 [ %.1.lcssa.i, %56 ], [ %6, %bitwriter_grow_.exit.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %57, align 8, !tbaa !15
+.thread5:                                         ; preds = %bitwriter_grow_.exit.i, %54
+  %.1.lcssa.i8 = phi i32 [ %42, %54 ], [ %6, %bitwriter_grow_.exit.i ]
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %55, align 8, !tbaa !15
   store i32 %.1.lcssa.i8, ptr %2, align 8, !tbaa !12
   br label %FLAC__bitwriter_write_zeroes.exit
 
-FLAC__bitwriter_write_zeroes.exit:                ; preds = %.thread5, %56, %bitwriter_grow_.exit.i.thread, %23, %16, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %23 ], [ 1, %bitwriter_grow_.exit.i.thread ], [ 1, %56 ], [ 1, %.thread5 ], [ 0, %16 ]
+FLAC__bitwriter_write_zeroes.exit:                ; preds = %.thread5, %54, %bitwriter_grow_.exit.i.thread, %23, %16, %1
+  %.0 = phi i32 [ 1, %1 ], [ 0, %23 ], [ 1, %bitwriter_grow_.exit.i.thread ], [ 1, %54 ], [ 1, %.thread5 ], [ 0, %16 ]
   ret i32 %.0
 }
 

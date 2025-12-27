@@ -461,8 +461,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %6 = tail call i32 @wolfSSL_Init() #15
   br label %7
 
-7:                                                ; preds = %13, %2
-  %.0820.i = phi i32 [ 0, %2 ], [ %14, %13 ]
+7:                                                ; preds = %9, %2
   %8 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33)
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %ChangeToWolfRoot.exit
@@ -470,28 +469,20 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 9:                                                ; preds = %7
   %10 = tail call i32 @chdir(ptr noundef nonnull @.str.34) #15
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %12, label %13
+  br i1 %11, label %.loopexit.i, label %7
 
-12:                                               ; preds = %9
+.loopexit.i:                                      ; preds = %9
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %.loopexit.i
-
-13:                                               ; preds = %9
-  %14 = add nuw nsw i32 %.0820.i, 1
-  %exitcond.not.i = icmp eq i32 %14, 6
-  br i1 %exitcond.not.i, label %.loopexit.i, label %7, !llvm.loop !39
-
-.loopexit.i:                                      ; preds = %13, %12
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.36) #14
   unreachable
 
 ChangeToWolfRoot.exit:                            ; preds = %7
-  %15 = tail call i32 @fclose(ptr noundef nonnull %8)
+  %12 = tail call i32 @fclose(ptr noundef nonnull %8)
   call void @echoclient_test(ptr noundef nonnull %3)
-  %16 = tail call i32 @wolfSSL_Cleanup() #15
-  %17 = load i32, ptr %5, align 8, !tbaa !9
+  %13 = tail call i32 @wolfSSL_Cleanup() #15
+  %14 = load i32, ptr %5, align 8, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %17
+  ret i32 %14
 }
 
 declare i32 @wolfSSL_Init() local_unnamed_addr #3
@@ -617,4 +608,3 @@ attributes #19 = { cold noreturn nounwind }
 !36 = distinct !{!36, !33}
 !37 = distinct !{!37, !33}
 !38 = !{!7, !7, i64 0}
-!39 = distinct !{!39, !33}

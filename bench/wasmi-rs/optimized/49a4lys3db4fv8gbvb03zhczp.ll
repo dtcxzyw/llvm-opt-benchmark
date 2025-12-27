@@ -443,34 +443,15 @@ define hidden { i32, i32 } @_ZN5wasmi5table7element14ElementSegment3new17ha94131
 26:                                               ; preds = %4, %18
   %.sroa.6.0 = phi i64 [ %25, %18 ], [ 0, %4 ]
   %.sroa.0.0 = phi ptr [ %24, %18 ], [ inttoptr (i64 8 to ptr), %4 ]
-  %27 = invoke noundef i8 @_ZN5wasmi6module7element14ElementSegment2ty17h02c02d0affaed741E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
-          to label %28 unwind label %30
-
-28:                                               ; preds = %26
+  %27 = call noundef i8 @_ZN5wasmi6module7element14ElementSegment2ty17h02c02d0affaed741E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10wasmi_core5table7element14ElementSegment3new17h2d5cebbc19bda908E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i8 noundef %27, ptr noalias noundef nonnull align 8 %.sroa.0.0, i64 noundef %.sroa.6.0)
   %.val = load ptr, ptr %11, align 8, !nonnull !3, !align !29, !noundef !3
-  %29 = call { i32, i32 } @_ZN5wasmi5store5inner10StoreInner21alloc_element_segment17ha1abc48cd9f2d413E(ptr noalias noundef nonnull align 8 dereferenceable(240) %.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
+  %28 = call { i32, i32 } @_ZN5wasmi5store5inner10StoreInner21alloc_element_segment17ha1abc48cd9f2d413E(ptr noalias noundef nonnull align 8 dereferenceable(240) %.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret { i32, i32 } %29
-
-30:                                               ; preds = %26
-  %31 = landingpad { ptr, i32 }
-          cleanup
-  %32 = icmp eq i64 %.sroa.6.0, 0
-  br i1 %32, label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17h39dc6920a0b128dcE.exit", label %33
-
-33:                                               ; preds = %30
-  %34 = shl nuw nsw i64 %.sroa.6.0, 4
-  %35 = icmp ne ptr %.sroa.0.0, null
-  call void @llvm.assume(i1 %35)
-  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.0.0, i64 noundef range(i64 1, -9223372036854775808) %34, i64 noundef 8) #20
-  br label %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17h39dc6920a0b128dcE.exit"
-
-"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi_core..untyped..UntypedVal$u5d$$GT$$GT$17h39dc6920a0b128dcE.exit": ; preds = %33, %30
-  resume { ptr, i32 } %31
+  ret { i32, i32 } %28
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -44,28 +44,21 @@ define linkonce_odr dso_local void @_ZN5vcpkg6Checks21msg_exit_with_messageIJEJE
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %3, i64 %1)
   invoke void @_ZN5vcpkg6Checks21msg_exit_with_messageERKNS_8LineInfoERKNS_15LocalizedStringE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %3) #5
-          to label %4 unwind label %5
+          to label %4 unwind label %_ZN5vcpkg15LocalizedStringD2Ev.exit
 
 4:                                                ; preds = %2
   unreachable
 
-5:                                                ; preds = %2
-  %6 = landingpad { ptr, i32 }
+_ZN5vcpkg15LocalizedStringD2Ev.exit:              ; preds = %2
+  %5 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %3, align 8, !tbaa !14
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = icmp eq ptr %7, %8
-  br i1 %9, label %_ZN5vcpkg15LocalizedStringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %5
-  %10 = load i64, ptr %8, align 8, !tbaa !17
-  %11 = add i64 %10, 1
-  call void @_ZdlPvm(ptr noundef %7, i64 noundef %11) #6
-  br label %_ZN5vcpkg15LocalizedStringD2Ev.exit
-
-_ZN5vcpkg15LocalizedStringD2Ev.exit:              ; preds = %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %6 = load ptr, ptr %3, align 8, !tbaa !14
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %8 = load i64, ptr %7, align 8, !tbaa !17
+  %9 = add i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %6, i64 noundef %9) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 }
 
 ; Function Attrs: noreturn

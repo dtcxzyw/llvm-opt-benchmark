@@ -28,8 +28,8 @@ define ptr @cs_spalloc(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nound
   %17 = tail call ptr @cs_malloc(i32 noundef %10, i64 noundef 4) #4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %17, ptr %18, align 8, !tbaa !15
-  %.not27 = icmp ne i32 %3, 0
-  br i1 %.not27, label %19, label %21
+  %.not27 = icmp eq i32 %3, 0
+  br i1 %.not27, label %21, label %19
 
 19:                                               ; preds = %7
   %20 = tail call ptr @cs_malloc(i32 noundef %10, i64 noundef 8) #4
@@ -47,9 +47,8 @@ define ptr @cs_spalloc(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nound
   %26 = load ptr, ptr %18, align 8, !tbaa !15
   %.not29 = icmp eq ptr %26, null
   %.not30 = icmp eq ptr %22, null
-  %or.cond = select i1 %.not27, i1 %.not30, i1 false
-  %or.cond31 = select i1 %.not29, i1 true, i1 %or.cond
-  br i1 %or.cond31, label %cs_spfree.exit, label %33
+  %or.cond = select i1 %.not29, i1 true, i1 %.not30
+  br i1 %or.cond, label %cs_spfree.exit, label %33
 
 cs_spfree.exit:                                   ; preds = %25, %21
   %27 = tail call ptr @cs_free(ptr noundef %24) #4

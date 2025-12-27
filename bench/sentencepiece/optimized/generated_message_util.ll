@@ -136,18 +136,12 @@ define void @_ZN6google8protobuf8internal14DestroyMessageEPKv(ptr noundef %0) lo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf8internal13DestroyStringEPKv(ptr noundef readonly captures(address) %0) #3 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !6
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = icmp eq ptr %2, %3
-  br i1 %4, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %5 = load i64, ptr %3, align 8, !tbaa !13
-  %6 = add i64 %5, 1
-  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %6) #17
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
+  %1 = load ptr, ptr %0, align 8, !tbaa !6
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i64, ptr %2, align 8, !tbaa !13
+  %4 = add i64 %3, 1
+  tail call void @_ZdlPvm(ptr noundef %1, i64 noundef %4) #17
   ret void
 }
 
@@ -203,10 +197,8 @@ define noundef i64 @_ZN6google8protobuf8internal32StringSpaceUsedExcludingSelfLo
   %4 = icmp ult ptr %2, %3
   %or.cond = select i1 %.not, i1 %4, i1 false
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = icmp eq ptr %2, %5
-  %7 = load i64, ptr %5, align 8
-  %8 = select i1 %6, i64 15, i64 %7
-  %.0 = select i1 %or.cond, i64 0, i64 %8
+  %6 = load i64, ptr %5, align 8
+  %.0 = select i1 %or.cond, i64 0, i64 %6
   ret i64 %.0
 }
 

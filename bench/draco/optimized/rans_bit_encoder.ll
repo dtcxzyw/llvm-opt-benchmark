@@ -872,8 +872,8 @@ _ZN5dracoL13ans_write_endEPNS_8AnsCoderE.exit:    ; preds = %87, %79, %72, %85
   %.0.i = phi i32 [ %76, %72 ], [ %84, %79 ], [ %95, %87 ], [ %.sroa.10.1.lcssa, %85 ]
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %130 = load i64, ptr %129, align 8, !tbaa !36
-  %131 = icmp slt i64 %130, 1
-  br i1 %131, label %132, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %131 = icmp sgt i64 %130, 0
+  br i1 %131, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit, label %132
 
 132:                                              ; preds = %_ZN5dracoL13ans_write_endEPNS_8AnsCoderE.exit
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -893,8 +893,8 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %_ZN5dracoL13ans_wri
 
 142:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %143 = load i64, ptr %129, align 8, !tbaa !36
-  %144 = icmp slt i64 %143, 1
-  br i1 %144, label %145, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
+  %144 = icmp sgt i64 %143, 0
+  br i1 %144, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, label %145
 
 145:                                              ; preds = %142
   %146 = sext i32 %.0.i to i64
@@ -1037,8 +1037,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13Enco
   store i8 %8, ptr %3, align 1, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !36
-  %11 = icmp slt i64 %10, 1
-  br i1 %11, label %12, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %11 = icmp sgt i64 %10, 0
+  br i1 %11, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1050,15 +1050,18 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13Enco
   %19 = sub i64 %17, %18
   %20 = getelementptr inbounds i8, ptr %16, i64 %19
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr %20, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %15)
+  br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %12, %7
   %21 = lshr i32 %0, 7
   %22 = call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %21, ptr noundef nonnull %1)
-  br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit11
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load i64, ptr %24, align 8, !tbaa !36
-  %26 = icmp slt i64 %25, 1
-  br i1 %26, label %27, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %26 = icmp sgt i64 %25, 0
+  br i1 %26, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit11, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1070,12 +1073,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13Enco
   %34 = sub i64 %32, %33
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr %35, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %30)
-  br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit11
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %27, %23, %7, %12
-  %spec.select = phi i1 [ false, %7 ], [ %22, %12 ], [ false, %23 ], [ true, %27 ]
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit11:  ; preds = %27, %23, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %spec.select
+  ret i1 true
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

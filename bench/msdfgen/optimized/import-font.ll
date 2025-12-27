@@ -564,8 +564,7 @@ if.end6:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end6
-  %retval.0 = phi i1 [ true, %if.end6 ], [ false, %entry ], [ false, %if.end ]
-  ret i1 %retval.0
+  ret i1 false
 }
 
 declare i32 @FT_Load_Char(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
@@ -806,28 +805,23 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %if.end26, %invoke.c
   resume { ptr, i32 } %9
 
 if.end26:                                         ; preds = %for.cond, %for.cond.preheader, %if.then21, %invoke.cont13
-  %success.2 = phi i1 [ false, %invoke.cont13 ], [ true, %if.then21 ], [ false, %for.cond.preheader ], [ false, %for.cond ]
   %10 = load ptr, ptr %font, align 8
   %call32 = invoke i32 @FT_Set_Var_Design_Coordinates(ptr noundef %10, i32 noundef %conv10, ptr noundef nonnull %call5.i.i.i.i2.i.i9)
           to label %_ZNSt6vectorIlSaIlEED2Ev.exit18 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit18:                  ; preds = %if.end26
-  %tobool33.not = icmp eq i32 %call32, 0
-  %spec.select = and i1 %success.2, %tobool33.not
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i9) #17
   %.pre = load ptr, ptr %master, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit18, %land.lhs.true, %if.end
   %11 = phi ptr [ %.pre, %_ZNSt6vectorIlSaIlEED2Ev.exit18 ], [ %2, %land.lhs.true ], [ null, %if.end ]
-  %success.1 = phi i1 [ %spec.select, %_ZNSt6vectorIlSaIlEED2Ev.exit18 ], [ false, %land.lhs.true ], [ false, %if.end ]
   %12 = load ptr, ptr %library, align 8
   %call38 = call i32 @FT_Done_MM_Var(ptr noundef %12, ptr noundef %11)
   br label %return
 
 return:                                           ; preds = %entry, %if.end36, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ %success.1, %if.end36 ], [ false, %entry ]
-  ret i1 %retval.0
+  ret i1 false
 }
 
 declare i32 @FT_Get_MM_Var(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -951,8 +945,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   br label %return
 
 return:                                           ; preds = %entry, %if.then, %for.end
-  %retval.0 = phi i1 [ false, %if.then ], [ true, %for.end ], [ false, %entry ]
-  ret i1 %retval.0
+  ret i1 false
 }
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #4

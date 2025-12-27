@@ -333,7 +333,7 @@ define internal fastcc i64 @ft_gzip_file_io(ptr noundef %0, i64 noundef %1, ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8336
   %6 = load i64, ptr %5, align 8, !tbaa !22
   %7 = icmp ult i64 %1, %6
-  br i1 %7, label %8, label %22
+  br i1 %7, label %8, label %ft_gzip_file_reset.exit
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8, !tbaa !18
@@ -341,33 +341,37 @@ define internal fastcc i64 @ft_gzip_file_io(ptr noundef %0, i64 noundef %1, ptr 
   %11 = load i64, ptr %10, align 8, !tbaa !23
   %12 = tail call i32 @FT_Stream_Seek(ptr noundef %9, i64 noundef %11) #6
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %ft_gzip_file_reset.exit.thread, label %ft_gzip_file_reset.exit
+  br i1 %.not.i, label %13, label %.ft_gzip_file_reset.exit_crit_edge
 
-ft_gzip_file_reset.exit.thread:                   ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = tail call i32 @inflateReset(ptr noundef nonnull %13) #6
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %15, align 8, !tbaa !27
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %16, ptr %13, align 8, !tbaa !28
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %17, align 8, !tbaa !33
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4240
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %18, ptr %19, align 8, !tbaa !32
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8352
-  store ptr %5, ptr %20, align 8, !tbaa !20
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8344
-  store ptr %5, ptr %21, align 8, !tbaa !21
+.ft_gzip_file_reset.exit_crit_edge:               ; preds = %8
+  %.pre = load i64, ptr %5, align 8, !tbaa !22
+  br label %ft_gzip_file_reset.exit
+
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = tail call i32 @inflateReset(ptr noundef nonnull %14) #6
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 0, ptr %16, align 8, !tbaa !27
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %17, ptr %14, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %18, align 8, !tbaa !33
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4240
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %19, ptr %20, align 8, !tbaa !32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8352
+  store ptr %5, ptr %21, align 8, !tbaa !20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  store ptr %5, ptr %22, align 8, !tbaa !21
   store i64 0, ptr %5, align 8, !tbaa !22
-  br label %22
+  br label %ft_gzip_file_reset.exit
 
-22:                                               ; preds = %ft_gzip_file_reset.exit.thread, %4
-  %23 = phi i64 [ 0, %ft_gzip_file_reset.exit.thread ], [ %6, %4 ]
+ft_gzip_file_reset.exit:                          ; preds = %.ft_gzip_file_reset.exit_crit_edge, %13, %4
+  %23 = phi i64 [ %.pre, %.ft_gzip_file_reset.exit_crit_edge ], [ 0, %13 ], [ %6, %4 ]
   %24 = icmp ugt i64 %1, %23
   br i1 %24, label %25, label %43
 
-25:                                               ; preds = %22
+25:                                               ; preds = %ft_gzip_file_reset.exit
   %26 = sub nuw i64 %1, %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8352
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8344
@@ -393,15 +397,15 @@ ft_gzip_file_reset.exit.thread:                   ; preds = %8
 40:                                               ; preds = %29
   %41 = tail call fastcc i32 @ft_gzip_file_fill_output(ptr noundef nonnull %0)
   %.not21.i = icmp eq i32 %41, 0
-  br i1 %.not21.i, label %29, label %ft_gzip_file_reset.exit
+  br i1 %.not21.i, label %29, label %ft_gzip_file_skip_output.exit.thread
 
 ft_gzip_file_skip_output.exit:                    ; preds = %29
   %42 = icmp eq i64 %3, 0
-  br i1 %42, label %ft_gzip_file_reset.exit, label %.preheader
+  br i1 %42, label %ft_gzip_file_skip_output.exit.thread, label %.preheader
 
-43:                                               ; preds = %22
+43:                                               ; preds = %ft_gzip_file_reset.exit
   %.old1 = icmp eq i64 %3, 0
-  br i1 %.old1, label %ft_gzip_file_reset.exit, label %.preheader
+  br i1 %.old1, label %ft_gzip_file_skip_output.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %43, %ft_gzip_file_skip_output.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8352
@@ -428,16 +432,16 @@ ft_gzip_file_skip_output.exit:                    ; preds = %29
   store i64 %56, ptr %5, align 8, !tbaa !22
   %57 = sub i64 %.037, %spec.select
   %58 = icmp eq i64 %57, 0
-  br i1 %58, label %ft_gzip_file_reset.exit, label %59
+  br i1 %58, label %ft_gzip_file_skip_output.exit.thread, label %59
 
 59:                                               ; preds = %46
   %60 = getelementptr inbounds nuw i8, ptr %.038, i64 %spec.select
   %61 = tail call fastcc i32 @ft_gzip_file_fill_output(ptr noundef nonnull %0)
   %.not45 = icmp eq i32 %61, 0
-  br i1 %.not45, label %46, label %ft_gzip_file_reset.exit
+  br i1 %.not45, label %46, label %ft_gzip_file_skip_output.exit.thread
 
-ft_gzip_file_reset.exit:                          ; preds = %40, %59, %46, %8, %43, %ft_gzip_file_skip_output.exit
-  %.036 = phi i64 [ 0, %43 ], [ 0, %ft_gzip_file_skip_output.exit ], [ %52, %59 ], [ 0, %8 ], [ %52, %46 ], [ 0, %40 ]
+ft_gzip_file_skip_output.exit.thread:             ; preds = %40, %59, %46, %43, %ft_gzip_file_skip_output.exit
+  %.036 = phi i64 [ 0, %43 ], [ 0, %ft_gzip_file_skip_output.exit ], [ %52, %59 ], [ %52, %46 ], [ 0, %40 ]
   ret i64 %.036
 }
 
@@ -669,7 +673,7 @@ ft_gzip_file_fill_input.exit:                     ; preds = %16, %33
   %39 = add i64 %38, %.0.i
   store i64 %39, ptr %37, align 8, !tbaa !30
   store ptr %8, ptr %2, align 8, !tbaa !28
-  %40 = trunc i64 %.0.i to i32
+  %40 = trunc nuw nsw i64 %.0.i to i32
   store i32 %40, ptr %7, align 8, !tbaa !27
   br label %41
 

@@ -1522,7 +1522,7 @@ define i32 @b2Chain_GetSegmentCount(i64 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @b2Chain_GetSegments(i64 %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @b2Chain_GetSegments(i64 %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.216.0.extract.shift = lshr i64 %0, 32
   %.sroa.216.0.extract.trunc = trunc i64 %.sroa.216.0.extract.shift to i16
   %4 = trunc nuw i64 %.sroa.216.0.extract.shift to i32
@@ -3743,47 +3743,13 @@ define void @b2Shape_SetPolygon(i64 %0, ptr noundef readonly captures(none) %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2Shape_GetParentChain(i64 %0) local_unnamed_addr #0 {
+define noundef i64 @b2Shape_GetParentChain(i64 %0) local_unnamed_addr #0 {
+.thread:
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
-  %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
-  %3 = and i32 %2, 65535
-  %4 = tail call ptr @b2GetWorld(i32 noundef %3) #10
-  %5 = getelementptr i8, ptr %4, i64 1256
-  %.val = load ptr, ptr %5, align 8, !tbaa !14
-  %6 = shl i64 %0, 32
-  %sext.i = add i64 %6, -4294967296
-  %7 = ashr exact i64 %sext.i, 32
-  %8 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %10 = load i32, ptr %9, align 4, !tbaa !171
-  %11 = icmp eq i32 %10, 4
-  br i1 %11, label %12, label %.thread
-
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 164
-  %14 = load i32, ptr %13, align 4, !tbaa !168
-  %.not = icmp eq i32 %14, -1
-  br i1 %.not, label %.thread, label %15
-
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 1272
-  %.val11 = load ptr, ptr %16, align 8, !tbaa !10
-  %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds %struct.b2ChainShape, ptr %.val11, i64 %17
-  %19 = add nuw nsw i32 %14, 1
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %21 = load i16, ptr %20, align 8, !tbaa !125
-  %22 = zext i16 %21 to i64
-  %23 = shl nuw i64 %22, 48
-  %24 = and i64 %0, 281470681743360
-  %25 = or disjoint i64 %23, %24
-  %26 = zext i32 %19 to i64
-  %27 = or disjoint i64 %25, %26
-  br label %.thread
-
-.thread:                                          ; preds = %12, %1, %15
-  %.sroa.5.1 = phi i64 [ %27, %15 ], [ 0, %1 ], [ 0, %12 ]
-  ret i64 %.sroa.5.1
+  %1 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
+  %2 = and i32 %1, 65535
+  %3 = tail call ptr @b2GetWorld(i32 noundef %2) #10
+  ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4234,7 +4200,7 @@ define i32 @b2Shape_GetSensorCapacity(i64 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @b2Shape_GetSensorOverlaps(i64 %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @b2Shape_GetSensorOverlaps(i64 %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.218.0.extract.shift = lshr i64 %0, 32
   %.sroa.218.0.extract.trunc = trunc i64 %.sroa.218.0.extract.shift to i16
   %4 = trunc nuw i64 %.sroa.218.0.extract.shift to i32

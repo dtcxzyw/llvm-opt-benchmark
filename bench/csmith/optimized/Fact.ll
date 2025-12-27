@@ -842,7 +842,6 @@ define dso_local noundef zeroext i1 @_Z10merge_factRSt6vectorIPK4FactSaIS2_EES2_
 .thread:                                          ; preds = %29, %..threadthread-pre-split_crit_edge, %2, %18
   %.01726 = phi i64 [ %.01729, %18 ], [ %.01729, %..threadthread-pre-split_crit_edge ], [ 0, %2 ], [ %30, %29 ]
   %38 = phi ptr [ %27, %18 ], [ %.pr.pre, %..threadthread-pre-split_crit_edge ], [ %5, %2 ], [ %32, %29 ]
-  %.1 = phi i1 [ true, %18 ], [ false, %..threadthread-pre-split_crit_edge ], [ false, %2 ], [ false, %29 ]
   %39 = load ptr, ptr %3, align 8, !tbaa !111
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %38 to i64
@@ -907,8 +906,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_
   br label %_ZNSt6vectorIPK4FactSaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPK4FactSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %48, %.thread
-  %.4 = phi i1 [ %.1, %.thread ], [ true, %48 ], [ true, %_ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
-  ret i1 %.4
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1025,8 +1023,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_
   br label %_ZNSt6vectorIPK4FactSaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPK4FactSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %43, %thread-pre-split, %13
-  %.012 = phi i1 [ false, %13 ], [ true, %thread-pre-split ], [ true, %43 ], [ true, %_ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
-  ret i1 %.012
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1277,12 +1274,10 @@ define dso_local noundef zeroext i1 @_Z10same_factsRKSt6vectorIPK4FactSaIS2_EES6
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
-  %15 = icmp eq i64 %8, %14
-  br i1 %15, label %.preheader, label %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread
-
-.preheader:                                       ; preds = %2
+  %15 = icmp ne i64 %8, %14
   %.not12.not = icmp eq ptr %4, %5
-  br i1 %.not12.not, label %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, label %.lr.ph
+  %or.cond = or i1 %15, %.not12.not
+  br i1 %or.cond, label %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, label %.lr.ph
 
 16:                                               ; preds = %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit
   %17 = add nuw i64 %.013, 1
@@ -1295,9 +1290,9 @@ define dso_local noundef zeroext i1 @_Z10same_factsRKSt6vectorIPK4FactSaIS2_EES6
   %.not = icmp ult i64 %17, %23
   br i1 %.not, label %.lr.ph, label %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, !llvm.loop !129
 
-.lr.ph:                                           ; preds = %.preheader, %16
-  %24 = phi ptr [ %19, %16 ], [ %5, %.preheader ]
-  %.013 = phi i64 [ %17, %16 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %2, %16
+  %24 = phi ptr [ %19, %16 ], [ %5, %2 ]
+  %.013 = phi i64 [ %17, %16 ], [ 0, %2 ]
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.013
   %26 = load ptr, ptr %25, align 8, !tbaa !112
   %27 = load ptr, ptr %9, align 8, !tbaa !111
@@ -1332,9 +1327,8 @@ _Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit:  ; preds = %.lr.ph.i
   %46 = icmp eq i64 %45, 4294967295
   br i1 %46, label %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, label %16
 
-_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread: ; preds = %16, %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit, %.lr.ph, %36, %.preheader, %2
-  %.1 = phi i1 [ false, %2 ], [ true, %.preheader ], [ false, %36 ], [ false, %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit ], [ true, %16 ], [ false, %.lr.ph ]
-  ret i1 %.1
+_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread: ; preds = %16, %_Z9find_factRKSt6vectorIPK4FactSaIS2_EES2_.exit, %.lr.ph, %36, %2
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1351,12 +1345,10 @@ define dso_local noundef zeroext i1 @_Z12subset_factsRKSt6vectorIPK4FactSaIS2_EE
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
-  %15 = icmp eq i64 %8, %14
-  br i1 %15, label %.preheader, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread
-
-.preheader:                                       ; preds = %2
+  %15 = icmp ne i64 %8, %14
   %.not19.not = icmp eq ptr %4, %5
-  br i1 %.not19.not, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, label %.lr.ph
+  %or.cond = or i1 %15, %.not19.not
+  br i1 %or.cond, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, label %.lr.ph
 
 16:                                               ; preds = %.critedge
   %17 = add nuw i64 %.01420, 1
@@ -1369,9 +1361,9 @@ define dso_local noundef zeroext i1 @_Z12subset_factsRKSt6vectorIPK4FactSaIS2_EE
   %.not = icmp ult i64 %17, %23
   br i1 %.not, label %.lr.ph, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread, !llvm.loop !130
 
-.lr.ph:                                           ; preds = %.preheader, %16
-  %24 = phi ptr [ %19, %16 ], [ %5, %.preheader ]
-  %.01420 = phi i64 [ %17, %16 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %2, %16
+  %24 = phi ptr [ %19, %16 ], [ %5, %2 ]
+  %.01420 = phi i64 [ %17, %16 ], [ 0, %2 ]
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.01420
   %26 = load ptr, ptr %25, align 8, !tbaa !112
   %27 = load ptr, ptr %9, align 8, !tbaa !111
@@ -1415,9 +1407,8 @@ _Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit: ; preds = %.lr.ph.i
   %52 = tail call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(12) %47, ptr noundef nonnull align 8 dereferenceable(12) %26)
   br i1 %52, label %16, label %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread
 
-_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread: ; preds = %16, %.critedge, %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit, %.lr.ph, %36, %.preheader, %2
-  %.3 = phi i1 [ false, %36 ], [ false, %2 ], [ true, %.preheader ], [ false, %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit ], [ true, %16 ], [ false, %.critedge ], [ false, %.lr.ph ]
-  ret i1 %.3
+_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit.thread: ; preds = %16, %.critedge, %_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_.exit, %.lr.ph, %36, %2
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable

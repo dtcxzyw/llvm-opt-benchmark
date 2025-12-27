@@ -132,17 +132,17 @@ define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noun
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv126 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next127, %.lr.ph ]
+  %indvars.iv127 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next128, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   store i8 0, ptr %27, align 2, !tbaa !3
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv126
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv127
   %29 = load i8, ptr %28, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %29, ptr %30, align 1, !tbaa !3
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -186,60 +186,49 @@ define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noun
 
 47:                                               ; preds = %45
   %.not79 = icmp eq i32 %10, 0
-  br i1 %.not79, label %.thread113, label %48
+  %. = zext i1 %.not79 to i32
+  %48 = call i32 @wc_AesSetKey(ptr noundef nonnull %15, ptr noundef nonnull %13, i32 noundef %.070.ph, ptr noundef %9, i32 noundef %.) #3
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %52
 
-48:                                               ; preds = %47
-  %49 = call i32 @wc_AesSetKey(ptr noundef nonnull %15, ptr noundef nonnull %13, i32 noundef %.070.ph, ptr noundef %9, i32 noundef 0) #3
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %53, label %56
+50:                                               ; preds = %47
+  %51 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %15, ptr noundef %6, ptr noundef %6, i32 noundef %7) #3
+  br label %52
 
-.thread113:                                       ; preds = %47
-  %51 = call i32 @wc_AesSetKey(ptr noundef nonnull %15, ptr noundef nonnull %13, i32 noundef %.070.ph, ptr noundef %9, i32 noundef 1) #3
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %.thread115, label %56
-
-53:                                               ; preds = %48
-  %54 = call i32 @wc_AesCbcEncrypt(ptr noundef nonnull %15, ptr noundef %6, ptr noundef %6, i32 noundef %7) #3
-  br label %56
-
-.thread115:                                       ; preds = %.thread113
-  %55 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %15, ptr noundef %6, ptr noundef %6, i32 noundef %7) #3
-  br label %56
-
-56:                                               ; preds = %.thread113, %53, %.thread115, %48
-  %.6.ph = phi i32 [ %51, %.thread113 ], [ %49, %48 ], [ %55, %.thread115 ], [ %54, %53 ]
+52:                                               ; preds = %50, %47
+  %.6.ph = phi i32 [ %48, %47 ], [ %51, %50 ]
   call void @wc_AesFree(ptr noundef nonnull %15) #3
   br label %.lr.ph29.preheader.i
 
-.lr.ph29.preheader.i:                             ; preds = %56, %45
-  %.6120 = phi i32 [ %.6.ph, %56 ], [ %46, %45 ]
+.lr.ph29.preheader.i:                             ; preds = %52, %45
+  %.6116 = phi i32 [ %.6.ph, %52 ], [ %46, %45 ]
   br label %.lr.ph29.i
 
 .lr.ph29.i:                                       ; preds = %.lr.ph29.i, %.lr.ph29.preheader.i
-  %.01528.i = phi ptr [ %57, %.lr.ph29.i ], [ %15, %.lr.ph29.preheader.i ]
-  %.01827.i = phi i32 [ %58, %.lr.ph29.i ], [ 848, %.lr.ph29.preheader.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
+  %.01528.i = phi ptr [ %53, %.lr.ph29.i ], [ %15, %.lr.ph29.preheader.i ]
+  %.01827.i = phi i32 [ %54, %.lr.ph29.i ], [ 848, %.lr.ph29.preheader.i ]
+  %53 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !8
-  %58 = add nsw i32 %.01827.i, -8
-  %.not122 = icmp eq i32 %58, 0
-  br i1 %.not122, label %ForceZero.exit, label %.lr.ph29.i, !llvm.loop !10
+  %54 = add nsw i32 %.01827.i, -8
+  %55 = icmp samesign ugt i32 %.01827.i, 15
+  br i1 %55, label %.lr.ph29.i, label %ForceZero.exit, !llvm.loop !10
 
 ForceZero.exit:                                   ; preds = %.lr.ph29.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.lr.ph29.preheader.i89
 
 .lr.ph29.preheader.i89:                           ; preds = %43, %ForceZero.exit, %19, %17
-  %.4 = phi i32 [ %.1, %43 ], [ %.6120, %ForceZero.exit ], [ -133, %17 ], [ -133, %19 ]
+  %.4 = phi i32 [ %.1, %43 ], [ %.6116, %ForceZero.exit ], [ -133, %17 ], [ -133, %19 ]
   br label %.lr.ph29.i91
 
 .lr.ph29.i91:                                     ; preds = %.lr.ph29.i91, %.lr.ph29.preheader.i89
-  %.01528.i92 = phi ptr [ %59, %.lr.ph29.i91 ], [ %13, %.lr.ph29.preheader.i89 ]
-  %.01827.i93 = phi i32 [ %60, %.lr.ph29.i91 ], [ 64, %.lr.ph29.preheader.i89 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.01528.i92, i64 8
+  %.01528.i92 = phi ptr [ %56, %.lr.ph29.i91 ], [ %13, %.lr.ph29.preheader.i89 ]
+  %.01827.i93 = phi i32 [ %57, %.lr.ph29.i91 ], [ 64, %.lr.ph29.preheader.i89 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.01528.i92, i64 8
   store volatile i64 0, ptr %.01528.i92, align 8, !tbaa !8
-  %60 = add nsw i32 %.01827.i93, -8
-  %.not123 = icmp eq i32 %60, 0
-  br i1 %.not123, label %ForceZero.exit100, label %.lr.ph29.i91, !llvm.loop !10
+  %57 = add nsw i32 %.01827.i93, -8
+  %58 = icmp samesign ugt i32 %.01827.i93, 15
+  br i1 %58, label %.lr.ph29.i91, label %ForceZero.exit100, !llvm.loop !10
 
 ForceZero.exit100:                                ; preds = %.lr.ph29.i91, %12
   %.072 = phi i32 [ -279, %12 ], [ %.4, %.lr.ph29.i91 ]

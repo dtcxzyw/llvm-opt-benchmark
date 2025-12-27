@@ -115,58 +115,51 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %_ZNK3dpx13GenericHe
   %14 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %1)
   %15 = tail call noundef i32 @_ZNK3dpx6Header6HeightEv(ptr noundef nonnull align 4 dereferenceable(2049) %1)
   %16 = tail call noundef i32 @_ZNK3dpx13GenericHeader18ComponentByteCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %1, i32 noundef %3)
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 812
-  %18 = load i32, ptr %17, align 4, !tbaa !18
-  %19 = icmp eq i32 %18, -1
-  %..i = select i1 %19, i32 0, i32 %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !6
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !6
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %_ZNK3dpx13GenericHeader8BitDepthEi.exit, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread
 
 _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 803
-  %24 = load i8, ptr %23, align 1, !tbaa !19
-  %.not = icmp eq i32 %..i, 0
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 812
+  %21 = load i32, ptr %20, align 4, !tbaa !18
+  %22 = add i32 %21, 1
+  %.not = icmp ult i32 %22, 2
   br i1 %.not, label %25, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 803
+  %24 = load i8, ptr %23, align 1, !tbaa !19
   switch i8 %24, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread [
     i8 16, label %25
     i8 8, label %25
   ]
 
 25:                                               ; preds = %switch.early.test, %switch.early.test, %_ZNK3dpx13GenericHeader8BitDepthEi.exit
-  %26 = icmp eq i8 %24, 16
-  %27 = and i32 %..i, -3
-  %28 = icmp ne i32 %27, 0
-  %or.cond7 = and i1 %28, %26
-  %29 = add i32 %6, -3
-  %or.cond9 = icmp ult i32 %29, 2
-  %or.cond76 = or i1 %or.cond9, %or.cond7
-  br i1 %or.cond76, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
+  %26 = add i32 %6, -3
+  %or.cond9 = icmp ult i32 %26, 2
+  br i1 %or.cond9, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread, label %_ZNK3dpx13GenericHeader10DataOffsetEi.exit
 
 _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %25
-  %30 = sext i32 %14 to i64
-  %31 = sext i32 %15 to i64
-  %32 = sext i32 %13 to i64
-  %33 = sext i32 %16 to i64
-  %34 = mul nsw i64 %30, %32
-  %35 = mul i64 %34, %31
-  %36 = mul i64 %35, %33
-  %37 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %36) #10
-  store ptr %37, ptr %20, align 8, !tbaa !6
-  %38 = tail call noalias noundef nonnull dereferenceable(53440) ptr @_Znam(i64 noundef 53440) #10
-  %39 = load ptr, ptr %2, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %1, i32 noundef %3, i64 noundef 0, ptr noundef nonnull %38, i64 noundef 40080)
-  tail call void @_ZdaPv(ptr noundef nonnull %38) #8
+  %27 = sext i32 %14 to i64
+  %28 = sext i32 %15 to i64
+  %29 = sext i32 %13 to i64
+  %30 = sext i32 %16 to i64
+  %31 = mul nsw i64 %27, %29
+  %32 = mul i64 %31, %28
+  %33 = mul i64 %32, %30
+  %34 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #10
+  store ptr %34, ptr %17, align 8, !tbaa !6
+  %35 = tail call noalias noundef nonnull dereferenceable(53440) ptr @_Znam(i64 noundef 53440) #10
+  %36 = load ptr, ptr %2, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %1, i32 noundef %3, i64 noundef 0, ptr noundef nonnull %35, i64 noundef 40080)
+  tail call void @_ZdaPv(ptr noundef nonnull %35) #8
   br label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread
 
 _ZNK3dpx13GenericHeader13ImageEncodingEi.exit.thread: ; preds = %7, %25, %switch.early.test, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
-  %.0 = phi i1 [ false, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit ], [ false, %switch.early.test ], [ true, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit ], [ false, %25 ], [ true, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ false, %7 ]
-  ret i1 %.0
+  ret i1 false
 }
 
 declare noundef i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr noundef nonnull align 4 dereferenceable(1664), i32 noundef) local_unnamed_addr #1

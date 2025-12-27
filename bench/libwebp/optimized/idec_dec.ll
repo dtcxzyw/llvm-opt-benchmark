@@ -292,14 +292,13 @@ define ptr @WebPINewYUVA(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nou
   %.058 = phi i64 [ 0, %12 ], [ %10, %26 ], [ %10, %25 ]
   %.057 = phi i32 [ 0, %12 ], [ %11, %26 ], [ %11, %25 ]
   %.056 = phi i64 [ 0, %12 ], [ %1, %26 ], [ %1, %25 ]
-  %.0 = phi i32 [ 12, %12 ], [ 12, %26 ], [ 11, %25 ]
   %30 = tail call fastcc ptr @NewDecoder(ptr noundef null, ptr noundef null)
   %31 = icmp eq ptr %30, null
   br i1 %31, label %47, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 352
-  store i32 %.0, ptr %33, align 8, !tbaa !29
+  store i32 12, ptr %33, align 8, !tbaa !29
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 364
   store i32 %13, ptr %34, align 4, !tbaa !30
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 368
@@ -370,14 +369,13 @@ define ptr @WebPINewYUV(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noun
   %.061.i = phi i64 [ 0, %9 ], [ %7, %18 ]
   %.060.i = phi i32 [ 0, %9 ], [ %8, %18 ]
   %.056.i = phi i64 [ 0, %9 ], [ %1, %18 ]
-  %.0.i = phi i32 [ 12, %9 ], [ 11, %18 ]
   %23 = tail call fastcc ptr @NewDecoder(ptr noundef null, ptr noundef null)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %WebPINewYUVA.exit, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 352
-  store i32 %.0.i, ptr %26, align 8, !tbaa !29
+  store i32 12, ptr %26, align 8, !tbaa !29
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 364
   store i32 %10, ptr %27, align 4, !tbaa !30
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 368
@@ -979,7 +977,7 @@ IDecError.exit56.i:                               ; preds = %215, %212
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %281, %.lr.ph.preheader.i
-  %224 = phi i32 [ %237, %281 ], [ %.pre.i, %.lr.ph.preheader.i ]
+  %224 = phi i32 [ 0, %281 ], [ %.pre.i, %.lr.ph.preheader.i ]
   %225 = phi i32 [ %283, %281 ], [ %221, %.lr.ph.preheader.i ]
   %226 = load i32, ptr %192, align 4, !tbaa !74
   %227 = and i32 %226, %224
@@ -1170,7 +1168,7 @@ IDecError.exit60.i:                               ; preds = %._crit_edge70.i
   br label %DecodeRemaining.exitthread-pre-split
 
 DecodeRemaining.exitthread-pre-split:             ; preds = %.thread.i, %307, %309, %312, %.thread.i.i
-  %.3.ph = phi i32 [ 0, %309 ], [ 0, %.thread.i.i ], [ %308, %307 ], [ %313, %312 ], [ %.3.ph.i, %.thread.i ]
+  %.3.ph = phi i32 [ 0, %.thread.i.i ], [ 0, %312 ], [ 0, %309 ], [ 0, %307 ], [ %.3.ph.i, %.thread.i ]
   %.pr48 = load i32, ptr %0, align 8, !tbaa !3
   br label %DecodeRemaining.exit
 
@@ -1353,7 +1351,7 @@ IDecError.exit.i.i45:                             ; preds = %378, %375
   br label %.critedge
 
 .critedge:                                        ; preds = %IDecError.exit60.i, %IDecError.exit59.i, %IDecError.exit56.i, %IDecError.exit.i29, %DecodePartition0.exit.thread, %IDecError.exit.i.i, %IDecError.exit.i32, %.thread.i.i43, %397, %394, %392, %382, %IDecError.exit.i.i45, %373, %185, %DecodeVP8LHeader.exit, %66
-  %.0 = phi i32 [ %.5.ph.ph, %DecodeVP8LHeader.exit ], [ 5, %185 ], [ 5, %66 ], [ 0, %394 ], [ 5, %382 ], [ 5, %373 ], [ %372, %IDecError.exit.i.i45 ], [ %398, %397 ], [ %393, %392 ], [ 0, %.thread.i.i43 ], [ %334, %IDecError.exit.i.i ], [ %352, %IDecError.exit.i32 ], [ 3, %IDecError.exit.i29 ], [ %.0.ph.i23, %DecodePartition0.exit.thread ], [ 6, %IDecError.exit60.i ], [ 6, %IDecError.exit59.i ], [ 3, %IDecError.exit56.i ]
+  %.0 = phi i32 [ %.5.ph.ph, %DecodeVP8LHeader.exit ], [ 5, %185 ], [ 5, %66 ], [ 0, %.thread.i.i43 ], [ 5, %382 ], [ 5, %373 ], [ %372, %IDecError.exit.i.i45 ], [ 0, %392 ], [ 0, %394 ], [ 0, %397 ], [ %334, %IDecError.exit.i.i ], [ %352, %IDecError.exit.i32 ], [ 3, %IDecError.exit.i29 ], [ %.0.ph.i23, %DecodePartition0.exit.thread ], [ 6, %IDecError.exit60.i ], [ 6, %IDecError.exit59.i ], [ 3, %IDecError.exit56.i ]
   ret i32 %.0
 }
 

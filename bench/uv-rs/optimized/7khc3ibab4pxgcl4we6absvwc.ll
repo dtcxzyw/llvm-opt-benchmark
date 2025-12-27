@@ -99,8 +99,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %.not1.i.not, label %4, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread6"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread6": ; preds = %4, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread"
-  %49 = phi i1 [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit" ], [ false, %4 ]
-  ret i1 %49
+  ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
@@ -114,7 +113,7 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   br i1 %or.cond, label %8, label %7
 
 7:                                                ; preds = %2, %8
-  ret i1 %6
+  ret i1 false
 
 8:                                                ; preds = %2
   tail call void @llvm.assume(i1 %5)
@@ -128,16 +127,16 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !10
   %.not.i = icmp ult i64 %6, 5
-  br i1 %.not.i, label %.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit"
+  br i1 %.not.i, label %_ZN12uv_git_types9reference22looks_like_commit_hash17hcb5b1f61666c0e8eE.llvm.9912425598987717364.exit, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit": ; preds = %2
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(5) @anon.86d151933e283cf377ce94c5f4c085e0.3.llvm.9912425598987717364, ptr noundef nonnull readonly align 1 dereferenceable(5) %4, i64 5), !alias.scope !24
   %7 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %_ZN12uv_git_types9reference22looks_like_commit_hash17hcb5b1f61666c0e8eE.llvm.9912425598987717364.exit, label %8
 
 8:                                                ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit"
   %9 = icmp ugt i64 %6, 6
-  br i1 %9, label %10, label %.thread
+  br i1 %9, label %10, label %_ZN12uv_git_types9reference22looks_like_commit_hash17hcb5b1f61666c0e8eE.llvm.9912425598987717364.exit
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %4, i64 %6
@@ -146,7 +145,7 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
 12:                                               ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i", %10
   %13 = phi ptr [ %51, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ], [ %4, %10 ]
   %14 = icmp eq ptr %13, %11
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %_ZN12uv_git_types9reference22looks_like_commit_hash17hcb5b1f61666c0e8eE.llvm.9912425598987717364.exit, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 1
@@ -199,7 +198,7 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
   %49 = or disjoint i32 %46, %48
   %50 = or disjoint i32 %49, %45
   %.not.i.i = icmp eq i32 %50, 1114112
-  br i1 %.not.i.i, label %.thread, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i"
+  br i1 %.not.i.i, label %_ZN12uv_git_types9reference22looks_like_commit_hash17hcb5b1f61666c0e8eE.llvm.9912425598987717364.exit, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i"
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i": ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit14.i.i.i.i", %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i.i.i"
   %51 = phi ptr [ %42, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i" ], [ %16, %29 ], [ %32, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit14.i.i.i.i" ], [ %22, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i.i.i" ]
@@ -210,13 +209,13 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
   %55 = add nsw i32 %54, -65
   %56 = icmp ult i32 %55, 6
   %.not1.i.not.i.i = or i1 %.sroa.0.0.i.i.i.i, %56
-  br i1 %.not1.i.not.i.i, label %12, label %.thread
+  br i1 %.not1.i.not.i.i, label %12, label %_ZN12uv_git_types9reference22looks_like_commit_hash17hcb5b1f61666c0e8eE.llvm.9912425598987717364.exit
 
-.thread:                                          ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i", %12, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i", %8, %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit"
-  %.sink = phi i64 [ 4, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit" ], [ 2, %8 ], [ 2, %2 ], [ 3, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i" ], [ 3, %12 ], [ 2, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ]
+_ZN12uv_git_types9reference22looks_like_commit_hash17hcb5b1f61666c0e8eE.llvm.9912425598987717364.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i", %12, %8, %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit"
+  %storemerge = phi i64 [ 4, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit" ], [ 2, %8 ], [ 2, %2 ], [ 2, %12 ], [ 2, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i" ], [ 2, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  store i64 %.sink, ptr %0, align 8
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -471,8 +470,7 @@ define hidden noundef zeroext i1 @_ZN12uv_git_types9reference22looks_like_commit
   br i1 %.not1.i.not.i, label %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i", %6, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %6 ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i" ]
-  ret i1 %.sroa.0.0
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

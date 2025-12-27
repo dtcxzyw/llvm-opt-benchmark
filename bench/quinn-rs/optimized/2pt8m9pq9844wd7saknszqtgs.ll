@@ -51,7 +51,7 @@ define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopegu
 
 9:                                                ; preds = %26, %.lr.ph.i.i
   %.sroa.0.03.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %10, %26 ]
-  %10 = add nuw i64 %.sroa.0.03.i.i, 1
+  %10 = add nuw nsw i64 %.sroa.0.03.i.i, 1
   %11 = load ptr, ptr %.val2.i, align 8, !noalias !5, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.0.03.i.i
   %13 = load i8, ptr %12, align 1, !noalias !5, !noundef !3
@@ -60,7 +60,7 @@ define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopegu
 
 15:                                               ; preds = %9
   %.neg.i.i = xor i64 %.sroa.0.03.i.i, -1
-  %16 = add i64 %.sroa.0.03.i.i, -16
+  %16 = add nuw nsw i64 %.sroa.0.03.i.i, -16
   %17 = load i64, ptr %6, align 8, !noalias !5, !noundef !3
   %18 = and i64 %17, %16
   store i8 -1, ptr %12, align 1, !noalias !5
@@ -365,7 +365,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17hdcbcce8ec60b7b37E.ex
   %.sroa.0.03.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %16 ]
   %.sroa.5.02.i = phi i64 [ %.sroa.05.0.i.i.i, %.lr.ph.i ], [ %18, %16 ]
   %17 = add i64 %.sroa.0.03.i, 16
-  %18 = add i64 %.sroa.5.02.i, -1
+  %18 = add nsw i64 %.sroa.5.02.i, -1
   %19 = getelementptr inbounds nuw i8, ptr %.val12, i64 %.sroa.0.03.i
   %20 = load <16 x i8>, ptr %19, align 16
   %.lobit.i.i.i = ashr <16 x i8> %20, splat (i8 7)
@@ -2609,7 +2609,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h64027753ae
   %26 = icmp eq i64 %23, 0
   br i1 %26, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17h550fbdddd4681e99E.exit, label %11
 
-27:                                               ; preds = %1, %"_ZN4core3ptr427drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h017aff141336e857E.exit3"
+27:                                               ; preds = %1, %"_ZN4core3ptr427drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h017aff141336e857E.exit2"
   ret void
 
 28:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hbfb839eb7cb4bd68E.exit.i"
@@ -2619,47 +2619,37 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h64027753ae
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8, !alias.scope !287, !noundef !3
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %47, label %33
+  br i1 %32, label %43, label %33
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %0, align 8, !alias.scope !287, !nonnull !3, !noundef !3
   %35 = add i64 %31, 17
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %34, i8 -1, i64 %35, i1 false), !noalias !287
-  br label %47
+  br label %43
 
 _ZN9hashbrown3raw13RawTableInner13drop_elements17h550fbdddd4681e99E.exit: ; preds = %.noexc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i64, ptr %36, align 8, !alias.scope !290, !noundef !3
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %"_ZN4core3ptr427drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h017aff141336e857E.exit3", label %39
+  br i1 %38, label %"_ZN4core3ptr427drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h017aff141336e857E.exit2", label %39
 
 39:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h550fbdddd4681e99E.exit
   %40 = load ptr, ptr %0, align 8, !alias.scope !290, !nonnull !3, !noundef !3
   %41 = add i64 %37, 17
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %40, i8 -1, i64 %41, i1 false), !noalias !290
-  br label %"_ZN4core3ptr427drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h017aff141336e857E.exit3"
+  br label %"_ZN4core3ptr427drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h017aff141336e857E.exit2"
 
-"_ZN4core3ptr427drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h017aff141336e857E.exit3": ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h550fbdddd4681e99E.exit, %39
+"_ZN4core3ptr427drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$$C$hashbrown..raw..RawTable$LT$$LP$quinn_proto..endpoint..ConnectionHandle$C$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$RP$$GT$..clear..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h017aff141336e857E.exit2": ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h550fbdddd4681e99E.exit, %39
   store i64 0, ptr %2, align 8, !alias.scope !290
-  %42 = icmp ult i64 %37, 8
-  %43 = add i64 %37, 1
-  %44 = lshr i64 %43, 3
-  %45 = mul nuw i64 %44, 7
-  %.sroa.0.0.i.i.i.i2 = select i1 %42, i64 %37, i64 %45
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.i.i.i.i2, ptr %46, align 8, !alias.scope !290
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %37, ptr %42, align 8, !alias.scope !290
   br label %27
 
-47:                                               ; preds = %33, %28
+43:                                               ; preds = %33, %28
   store i64 0, ptr %2, align 8, !alias.scope !287
-  %48 = icmp ult i64 %31, 8
-  %49 = add i64 %31, 1
-  %50 = lshr i64 %49, 3
-  %51 = mul nuw i64 %50, 7
-  %.sroa.0.0.i.i.i.i = select i1 %48, i64 %31, i64 %51
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.i.i.i.i, ptr %52, align 8, !alias.scope !287
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %31, ptr %44, align 8, !alias.scope !287
   resume { ptr, i32 } %29
 }
 

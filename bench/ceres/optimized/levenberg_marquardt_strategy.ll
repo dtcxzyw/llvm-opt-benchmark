@@ -708,7 +708,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi28EEERS2_RAT__Kc.exit: ; pr
 121:                                              ; preds = %119, %117
   %.pn57 = phi { ptr, i32 } [ %120, %119 ], [ %118, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %192
+  br label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit68
 
 122:                                              ; preds = %_ZN5ceres8internal14ParallelAssignIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS2_12CwiseUnaryOpINS2_8internal14scalar_sqrt_opIdEEKNS2_13CwiseBinaryOpINS6_18scalar_quotient_opIddEEKS4_KNS2_14CwiseNullaryOpINS6_18scalar_constant_opIdEESC_EEEEEEEEvPNS0_11ContextImplEiRT_RKT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -743,7 +743,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit: ; pr
 131:                                              ; preds = %129, %127
   %.pn55 = phi { ptr, i32 } [ %130, %129 ], [ %128, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %192
+  br label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit68
 
 132:                                              ; preds = %_ZN5ceres8internal14ParallelAssignIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEENS2_12CwiseUnaryOpINS2_8internal14scalar_sqrt_opIdEEKNS2_13CwiseBinaryOpINS6_18scalar_quotient_opIddEEKS4_KNS2_14CwiseNullaryOpINS6_18scalar_constant_opIdEESC_EEEEEEEEvPNS0_11ContextImplEiRT_RKT0_.exit
   %133 = invoke noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noundef %104, ptr noundef nonnull %4)
@@ -770,7 +770,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit: ; pr
 137:                                              ; preds = %168, %132
   %138 = landingpad { ptr, i32 }
           cleanup
-  br label %192
+  br label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit68
 
 139:                                              ; preds = %135
   %140 = landingpad { ptr, i32 }
@@ -786,7 +786,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit: ; pr
 143:                                              ; preds = %141, %139
   %.pn = phi { ptr, i32 } [ %142, %141 ], [ %140, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %192
+  br label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit68
 
 144:                                              ; preds = %134
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -837,7 +837,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit: ; pr
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %192
+  br label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit68
 
 161:                                              ; preds = %126, %158, %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit, %116
   store i8 1, ptr %31, align 8, !tbaa !34
@@ -848,7 +848,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit: ; pr
   %166 = load i64, ptr %165, align 8
   %167 = icmp eq i64 %166, 0
   %or.cond = select i1 %164, i1 %167, i1 false
-  br i1 %or.cond, label %182, label %168
+  br i1 %or.cond, label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit, label %168
 
 168:                                              ; preds = %161
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -857,7 +857,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit: ; pr
           to label %172 unwind label %137
 
 172:                                              ; preds = %168
-  br i1 %171, label %182, label %173
+  br i1 %171, label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit, label %173
 
 173:                                              ; preds = %172
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -879,7 +879,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit: ; pr
 176:                                              ; preds = %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit
   call void @_ZN4absl12lts_2024011612log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %182
+  br label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit
 
 177:                                              ; preds = %173
   %178 = landingpad { ptr, i32 }
@@ -895,46 +895,32 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit: ; pr
 181:                                              ; preds = %179, %177
   %.pn59 = phi { ptr, i32 } [ %180, %179 ], [ %178, %177 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %192
+  br label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit68
 
-182:                                              ; preds = %161, %172, %176
-  %183 = load double, ptr %17, align 8, !tbaa !101
-  %184 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %185 = load i64, ptr %184, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %187 = load ptr, ptr %186, align 8, !tbaa !41
-  %188 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %189 = icmp eq ptr %187, %188
-  br i1 %189, label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %182
-  %190 = load i64, ptr %188, align 8, !tbaa !102
-  %191 = add i64 %190, 1
-  call void @_ZdlPvm(ptr noundef %187, i64 noundef %191) #32
-  br label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit
-
-_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit: ; preds = %182, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit: ; preds = %161, %172, %176
+  %182 = load double, ptr %17, align 8, !tbaa !101
+  %183 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %184 = load i64, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %186 = load ptr, ptr %185, align 8, !tbaa !41
+  %187 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %188 = load i64, ptr %187, align 8, !tbaa !102
+  %189 = add i64 %188, 1
+  call void @_ZdlPvm(ptr noundef %186, i64 noundef %189) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.fca.0.insert = insertvalue { double, i64 } poison, double %183, 0
-  %.fca.1.insert = insertvalue { double, i64 } %.fca.0.insert, i64 %185, 1
+  %.fca.0.insert = insertvalue { double, i64 } poison, double %182, 0
+  %.fca.1.insert = insertvalue { double, i64 } %.fca.0.insert, i64 %184, 1
   ret { double, i64 } %.fca.1.insert
 
-192:                                              ; preds = %181, %159, %143, %137, %131, %121
+_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit68: ; preds = %181, %159, %143, %137, %131, %121
   %.pn59.pn = phi { ptr, i32 } [ %.pn59, %181 ], [ %138, %137 ], [ %.pn57, %121 ], [ %.pn55, %131 ], [ %160, %159 ], [ %.pn, %143 ]
-  %193 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %194 = load ptr, ptr %193, align 8, !tbaa !41
-  %195 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %196 = icmp eq ptr %194, %195
-  br i1 %196, label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i68
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i68: ; preds = %192
-  %197 = load i64, ptr %195, align 8, !tbaa !102
-  %198 = add i64 %197, 1
-  call void @_ZdlPvm(ptr noundef %194, i64 noundef %198) #32
-  br label %_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit70
-
-_ZN5ceres8internal12LinearSolver7SummaryD2Ev.exit70: ; preds = %192, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i68
+  %190 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %191 = load ptr, ptr %190, align 8, !tbaa !41
+  %192 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %193 = load i64, ptr %192, align 8, !tbaa !102
+  %194 = add i64 %193, 1
+  call void @_ZdlPvm(ptr noundef %191, i64 noundef %194) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   resume { ptr, i32 } %.pn59.pn

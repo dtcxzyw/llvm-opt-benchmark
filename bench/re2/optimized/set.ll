@@ -1201,16 +1201,13 @@ if.end59:                                         ; preds = %invoke.cont57, %if.
   br i1 %cmp60.not, label %cleanup, label %cleanup.sink.split
 
 if.end64:                                         ; preds = %invoke.cont17
-  br i1 %call18, label %if.end72, label %if.then67
+  br i1 %call18, label %if.then74, label %if.then67
 
 if.then67:                                        ; preds = %if.end64
   %cmp68.not = icmp eq ptr %error_info, null
   br i1 %cmp68.not, label %cleanup, label %cleanup.sink.split
 
-if.end72:                                         ; preds = %if.end64
-  br i1 %cmp6.not, label %if.end99, label %if.then74
-
-if.then74:                                        ; preds = %if.end72
+if.then74:                                        ; preds = %if.end64
   %25 = load i32, ptr %13, align 8
   %cmp.i.not = icmp eq i32 %25, 0
   br i1 %cmp.i.not, label %if.then79, label %invoke.cont93
@@ -1253,9 +1250,9 @@ lpad.i34:                                         ; preds = %invoke.cont6.i39, %
 
 invoke.cont85:                                    ; preds = %invoke.cont6.i39
   %call90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i32, ptr noundef nonnull @.str.11)
-          to label %cleanup.thread unwind label %lpad86
+          to label %invoke.cont89 unwind label %lpad86
 
-cleanup.thread:                                   ; preds = %invoke.cont85
+invoke.cont89:                                    ; preds = %invoke.cont85
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp84) #19
   br label %delete.notnull.i.i
 
@@ -1273,23 +1270,24 @@ invoke.cont93:                                    ; preds = %if.then74
   invoke void @_ZNSt6vectorIiSaIiEE13_M_assign_auxIPiEEvT_S4_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef nonnull %28, ptr noundef nonnull %add.ptr.i)
           to label %if.end99 unwind label %lpad8
 
-if.end99:                                         ; preds = %invoke.cont93, %if.end72
+if.end99:                                         ; preds = %invoke.cont93
   %cmp100.not = icmp eq ptr %error_info, null
-  br i1 %cmp100.not, label %cleanup, label %cleanup.sink.split
+  br i1 %cmp100.not, label %delete.notnull.i.i, label %if.then101
 
-cleanup.sink.split:                               ; preds = %if.end99, %if.then67, %if.end59
-  %.sink = phi i32 [ 0, %if.then67 ], [ 2, %if.end59 ], [ 0, %if.end99 ]
-  %retval.1.ph = phi i1 [ false, %if.then67 ], [ false, %if.end59 ], [ true, %if.end99 ]
+if.then101:                                       ; preds = %if.end99
+  store i32 0, ptr %error_info, align 4
+  br label %delete.notnull.i.i
+
+cleanup.sink.split:                               ; preds = %if.then67, %if.end59
+  %.sink = phi i32 [ 2, %if.end59 ], [ 0, %if.then67 ]
   store i32 %.sink, ptr %error_info, align 4
   br label %cleanup
 
-cleanup:                                          ; preds = %cleanup.sink.split, %if.end99, %if.then67, %if.end59
-  %retval.1 = phi i1 [ false, %if.then67 ], [ false, %if.end59 ], [ true, %if.end99 ], [ %retval.1.ph, %cleanup.sink.split ]
+cleanup:                                          ; preds = %cleanup.sink.split, %if.then67, %if.end59
   %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %return, label %delete.notnull.i.i
 
-delete.notnull.i.i:                               ; preds = %cleanup.thread, %cleanup
-  %retval.155 = phi i1 [ false, %cleanup.thread ], [ %retval.1, %cleanup ]
+delete.notnull.i.i:                               ; preds = %invoke.cont89, %if.then101, %if.end99, %cleanup
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   %29 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %29, null
@@ -1320,8 +1318,7 @@ ehcleanup:                                        ; preds = %lpad.i21, %lpad.i34
   br label %common.resume
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN3re210SparseSetTIvEEEclEPS2_.exit.i, %cleanup, %invoke.cont3
-  %retval.0 = phi i1 [ false, %invoke.cont3 ], [ %retval.1, %cleanup ], [ %retval.155, %_ZNKSt14default_deleteIN3re210SparseSetTIvEEEclEPS2_.exit.i ]
-  ret i1 %retval.0
+  ret i1 false
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -1477,8 +1474,7 @@ if.then.i.i.i6:                                   ; preds = %invoke.cont.i
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i6, %invoke.cont.i, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3re26RegexpEESaISA_EED2Ev.exit.i
-  %retval.0 = phi i1 [ false, %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3re26RegexpEESaISA_EED2Ev.exit.i ], [ true, %invoke.cont.i ], [ true, %if.then.i.i.i6 ]
-  ret i1 %retval.0
+  ret i1 false
 
 terminate.lpad:                                   ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3re26RegexpEESaISA_EED2Ev.exit.i
   %6 = landingpad { ptr, i32 }

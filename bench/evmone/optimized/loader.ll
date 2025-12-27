@@ -254,7 +254,7 @@ define ptr @evmc_load_and_create(ptr noundef %0, ptr noundef writeonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evmc_load_and_configure(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @evmc_load_and_configure(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3) #10
   %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #9
@@ -407,32 +407,27 @@ get_token.exit45:                                 ; preds = %45, %47
 
 .thread:                                          ; preds = %29, %52, %56, %60, %33, %5
   %.030 = phi ptr [ null, %5 ], [ %.0.i39, %33 ], [ %.0.i39, %52 ], [ %.0.i39, %60 ], [ %.0.i39, %56 ], [ %.0.i39, %29 ]
-  %64 = phi i1 [ false, %5 ], [ false, %33 ], [ false, %52 ], [ false, %60 ], [ false, %56 ], [ true, %29 ]
   %.028 = phi i32 [ 3, %5 ], [ 6, %33 ], [ 6, %52 ], [ 7, %60 ], [ 7, %56 ], [ 0, %29 ]
   %.not34 = icmp eq ptr %1, null
-  br i1 %.not34, label %66, label %65
+  br i1 %.not34, label %65, label %64
 
-65:                                               ; preds = %.thread
+64:                                               ; preds = %.thread
   store i32 %.028, ptr %1, align 4, !tbaa !11
-  br label %66
+  br label %65
 
-66:                                               ; preds = %65, %.thread
-  br i1 %64, label %evmc_load_and_create.exit.thread, label %67
-
-67:                                               ; preds = %66
+65:                                               ; preds = %.thread, %64
   %.not35 = icmp eq ptr %.030, null
-  br i1 %.not35, label %evmc_load_and_create.exit.thread, label %68
+  br i1 %.not35, label %evmc_load_and_create.exit.thread, label %66
 
-68:                                               ; preds = %67
-  %69 = getelementptr inbounds nuw i8, ptr %.030, i64 24
-  %70 = load ptr, ptr %69, align 8, !tbaa !15
-  call void %70(ptr noundef nonnull %.030) #10
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %.030, i64 24
+  %68 = load ptr, ptr %67, align 8, !tbaa !15
+  call void %68(ptr noundef nonnull %.030) #10
   br label %evmc_load_and_create.exit.thread
 
-evmc_load_and_create.exit.thread:                 ; preds = %get_token.exit, %67, %68, %66, %evmc_load_and_create.exit
-  %.0 = phi ptr [ null, %evmc_load_and_create.exit ], [ %.030, %66 ], [ null, %68 ], [ null, %67 ], [ null, %get_token.exit ]
+evmc_load_and_create.exit.thread:                 ; preds = %get_token.exit, %65, %66, %evmc_load_and_create.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3) #10
-  ret ptr %.0
+  ret ptr null
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn

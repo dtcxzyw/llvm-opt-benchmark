@@ -859,10 +859,9 @@ common.resume:                                    ; preds = %39, %18
   br label %50
 
 50:                                               ; preds = %41, %44, %48
-  %.sroa.0.1 = phi i1 [ false, %48 ], [ false, %41 ], [ true, %44 ]
   call void @"_ZN4core3ptr91drop_in_place$LT$quinn..mutex..non_tracking..MutexGuard$LT$quinn..connection..State$GT$$GT$17h6e6d7574907dd673E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i1 %.sroa.0.1
+  ret i1 false
 
 51:                                               ; preds = %39
   %52 = landingpad { ptr, i32 }
@@ -1612,7 +1611,7 @@ common.resume:                                    ; preds = %29, %16
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$quinn..mutex..non_tracking..MutexGuard$LT$quinn..connection..State$GT$$GT$17h6e6d7574907dd673E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #18
-          to label %common.resume unwind label %40
+          to label %common.resume unwind label %39
 
 31:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h362e80bdf19b37b9E.exit"
   %32 = invoke { i64, i64 } @_ZN11quinn_proto10connection7streams10SendStream6finish17h7ab33425b58f2866E(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
@@ -1620,10 +1619,8 @@ common.resume:                                    ; preds = %29, %16
 
 33:                                               ; preds = %31
   %34 = extractvalue { i64, i64 } %32, 0
-  switch i64 %34, label %38 [
-    i64 2, label %35
-    i64 0, label %39
-  ]
+  %cond = icmp eq i64 %34, 2
+  br i1 %cond, label %35, label %38
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %5, align 8, !nonnull !8, !align !58, !noundef !8
@@ -1631,18 +1628,14 @@ common.resume:                                    ; preds = %29, %16
   invoke void @_ZN5quinn10connection5State4wake17hbe58586656adee20E(ptr noalias noundef nonnull align 16 dereferenceable(6432) %37)
           to label %38 unwind label %29
 
-38:                                               ; preds = %33, %35, %39
-  %.sroa.0.0 = phi i1 [ false, %35 ], [ false, %39 ], [ true, %33 ]
+38:                                               ; preds = %33, %35
   call void @"_ZN4core3ptr91drop_in_place$LT$quinn..mutex..non_tracking..MutexGuard$LT$quinn..connection..State$GT$$GT$17h6e6d7574907dd673E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %.sroa.0.0
+  ret i1 false
 
-39:                                               ; preds = %33
-  br label %38
-
-40:                                               ; preds = %29
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %29
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16
   unreachable
@@ -1751,10 +1744,9 @@ common.resume:                                    ; preds = %38, %17
           to label %47 unwind label %38
 
 47:                                               ; preds = %44, %40, %43
-  %.sroa.0.1 = phi i1 [ true, %43 ], [ false, %40 ], [ false, %44 ]
   call void @"_ZN4core3ptr91drop_in_place$LT$quinn..mutex..non_tracking..MutexGuard$LT$quinn..connection..State$GT$$GT$17h6e6d7574907dd673E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i1 %.sroa.0.1
+  ret i1 false
 
 48:                                               ; preds = %38
   %49 = landingpad { ptr, i32 }

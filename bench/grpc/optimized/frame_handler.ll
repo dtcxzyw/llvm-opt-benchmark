@@ -77,8 +77,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit: ; pr
   br label %21
 
 21:                                               ; preds = %11, %14, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %14 ], [ false, %11 ]
-  ret i1 %.0
+  ret i1 false
 }
 
 ; Function Attrs: cold
@@ -163,7 +162,7 @@ _Z25alts_is_frame_writer_doneP17alts_frame_writer.exit: ; preds = %6
   br label %37
 
 37:                                               ; preds = %.sink.split, %3
-  ret i1 %or.cond.not
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -272,17 +271,17 @@ define void @_Z31alts_reset_reader_output_bufferP17alts_frame_readerPh(ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef zeroext i1 @_Z23alts_reset_frame_readerP17alts_frame_readerPh(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
-  %3 = icmp ne ptr %1, null
-  br i1 %3, label %4, label %6
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %5, label %3
 
-4:                                                ; preds = %2
+3:                                                ; preds = %2
   store ptr %1, ptr %0, align 8, !tbaa !14
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  br label %6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
+  br label %5
 
-6:                                                ; preds = %2, %4
-  ret i1 %3
+5:                                                ; preds = %2, %3
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -467,13 +466,11 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; pr
 
 .critedge.sink.split:                             ; preds = %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit, %13, %11, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit, %59, %57
   %.sink = phi i64 [ 0, %57 ], [ %66, %59 ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit ], [ 0, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit ], [ 0, %11 ], [ 0, %13 ], [ %.sroa.speculated, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73 ]
-  %.0.ph = phi i1 [ false, %57 ], [ true, %59 ], [ false, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit ], [ true, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit ], [ false, %11 ], [ true, %13 ], [ true, %_Z25alts_is_frame_reader_doneP17alts_frame_reader.exit.thread73 ]
   store i64 %.sink, ptr %2, align 8, !tbaa !3
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %3
-  %.0 = phi i1 [ false, %3 ], [ %.0.ph, %.critedge.sink.split ]
-  ret i1 %.0
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

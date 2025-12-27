@@ -507,7 +507,7 @@ define range(i32 -9999, 2) i32 @PaPulseAudio_Initialize(ptr noundef captures(non
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 264
   store ptr %6, ptr %7, align 8, !tbaa !28
   %.not87 = icmp eq ptr %6, null
-  br i1 %.not87, label %84, label %8
+  br i1 %.not87, label %.thread, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 272
@@ -535,7 +535,7 @@ define range(i32 -9999, 2) i32 @PaPulseAudio_Initialize(ptr noundef captures(non
 21:                                               ; preds = %8
   %22 = sext i32 %19 to i64
   tail call void @PaUtil_SetLastHostErrorInfo(i32 noundef 0, i64 noundef %22, ptr noundef nonnull @.str.15) #14
-  br label %.thread101
+  br label %.thread
 
 select.unfold.preheader:                          ; preds = %8, %PaPulseAudio_CheckConnection.exit
   %23 = load ptr, ptr %15, align 8, !tbaa !21
@@ -544,7 +544,7 @@ select.unfold.preheader:                          ; preds = %8, %PaPulseAudio_Ch
   %25 = tail call i32 @pa_context_get_state(ptr noundef %24) #14
   %26 = add i32 %25, -5
   %narrow.i.i = icmp ult i32 %26, -4
-  br i1 %narrow.i.i, label %.thread101, label %PaPulseAudio_CheckConnection.exit
+  br i1 %narrow.i.i, label %.thread, label %PaPulseAudio_CheckConnection.exit
 
 PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.preheader
   %cond.i.not.not = icmp eq i32 %25, 4
@@ -631,7 +631,7 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   store ptr %69, ptr %71, align 8, !tbaa !89
   %.not91 = icmp eq ptr %69, null
-  br i1 %.not91, label %.thread101, label %.preheader
+  br i1 %.not91, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %65
   %72 = load i32, ptr %60, align 8, !tbaa !24
@@ -667,19 +667,16 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
   call void @PaPulseAudio_UnLock(ptr noundef %82) #14
   br label %.thread98
 
-.thread101:                                       ; preds = %select.unfold.preheader, %21, %65
-  %.07996104 = phi i32 [ -9992, %65 ], [ -9999, %21 ], [ 1, %select.unfold.preheader ]
-  %83 = load ptr, ptr %15, align 8, !tbaa !21
-  call void @PaPulseAudio_UnLock(ptr noundef %83) #14
-  br label %84
-
-84:                                               ; preds = %5, %.thread101
-  %.07996105 = phi i32 [ %.07996104, %.thread101 ], [ -9992, %5 ]
+.thread:                                          ; preds = %select.unfold.preheader, %21, %5, %65
+  %.07996 = phi i32 [ -9992, %5 ], [ -9999, %21 ], [ -9992, %65 ], [ 1, %select.unfold.preheader ]
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 82216
+  %84 = load ptr, ptr %83, align 8, !tbaa !21
+  call void @PaPulseAudio_UnLock(ptr noundef %84) #14
   call void @PaPulseAudio_Free(ptr noundef nonnull %4)
   br label %.thread98
 
-.thread98:                                        ; preds = %2, %84, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ %.07996105, %84 ], [ -9992, %2 ]
+.thread98:                                        ; preds = %2, %.thread, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ %.07996, %.thread ], [ -9992, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
@@ -717,7 +714,7 @@ define void @Terminate(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, double noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #0 {
+define range(i32 -9995, 1) i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, double noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #0 {
   %10 = and i64 %6, 4294901760
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %11, label %160

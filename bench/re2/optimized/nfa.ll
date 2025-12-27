@@ -740,7 +740,7 @@ sw.bb39:                                          ; preds = %_ZN3re211SparseArra
   br i1 %tobool.not, label %if.then41, label %Loop.outer.backedge
 
 if.then41:                                        ; preds = %sw.bb39
-  %add44 = add nsw i32 %a.sroa.0.0, 1
+  %add44 = add nuw nsw i32 %a.sroa.0.0, 1
   %inc46 = add nsw i32 %nstk.1.ph, 1
   %idxprom47 = sext i32 %nstk.1.ph to i64
   %arrayidx48 = getelementptr inbounds %"struct.re2::NFA::AddState", ptr %0, i64 %idxprom47
@@ -762,7 +762,7 @@ sw.bb54:                                          ; preds = %_ZN3re211SparseArra
   br i1 %tobool56.not, label %if.then57, label %if.end65
 
 if.then57:                                        ; preds = %sw.bb54
-  %add60 = add nsw i32 %a.sroa.0.0, 1
+  %add60 = add nuw nsw i32 %a.sroa.0.0, 1
   %inc62 = add nsw i32 %nstk.1.ph, 1
   %idxprom63 = sext i32 %nstk.1.ph to i64
   %arrayidx64 = getelementptr inbounds %"struct.re2::NFA::AddState", ptr %0, i64 %idxprom63
@@ -910,7 +910,7 @@ sw.bb109:                                         ; preds = %_ZN3re211SparseArra
   br i1 %tobool111.not, label %if.then112, label %if.end120
 
 if.then112:                                       ; preds = %sw.bb109
-  %add115 = add nsw i32 %a.sroa.0.0, 1
+  %add115 = add nuw nsw i32 %a.sroa.0.0, 1
   %inc117 = add nsw i32 %nstk.1.ph, 1
   %idxprom118 = sext i32 %nstk.1.ph to i64
   %arrayidx119 = getelementptr inbounds %"struct.re2::NFA::AddState", ptr %0, i64 %idxprom118
@@ -1683,8 +1683,8 @@ if.end57:                                         ; preds = %if.end46
   store i32 %mul, ptr %ncapture_, align 4
   %longest_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 %longest.addr.0, ptr %longest_, align 8
-  %cmp60 = icmp ne i32 %nsubmatch, 0
-  br i1 %cmp60, label %if.end63, label %if.then61
+  %cmp60 = icmp eq i32 %nsubmatch, 0
+  br i1 %cmp60, label %if.then61, label %if.end63
 
 if.then61:                                        ; preds = %if.end57
   store i32 2, ptr %ncapture_, align 4
@@ -1740,10 +1740,10 @@ cond.end:                                         ; preds = %for.cond, %cond.tru
 for.cond83:                                       ; preds = %cond.end, %for.cond83.backedge
   %id.0 = phi i32 [ %id.0.be, %for.cond83.backedge ], [ %call79, %cond.end ]
   %14 = load ptr, ptr %this, align 8
-  %conv.i.i = sext i32 %id.0 to i64
+  %conv.i.i = zext nneg i32 %id.0 to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 120
   %15 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds %"class.re2::Prog::Inst", ptr %15, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.re2::Prog::Inst", ptr %15, i64 %conv.i.i
   %16 = load i32, ptr %arrayidx.i.i.i, align 4
   %and.i = and i32 %16, 7
   switch i32 %and.i, label %sw.default [
@@ -2018,8 +2018,9 @@ for.inc179:                                       ; preds = %if.end.i83, %if.the
 for.end181:                                       ; preds = %if.end159, %for.inc179, %for.end169
   %62 = load i8, ptr %matched_, align 8
   %tobool183 = trunc i8 %62 to i1
-  %brmerge.not = and i1 %cmp60, %tobool183
-  br i1 %brmerge.not, label %for.body188.preheader, label %return
+  %cmp187135 = icmp ne i32 %nsubmatch, 0
+  %or.cond137 = and i1 %cmp187135, %tobool183
+  br i1 %or.cond137, label %for.body188.preheader, label %return
 
 for.body188.preheader:                            ; preds = %for.end181
   %smax = call i32 @llvm.smax.i32(i32 %nsubmatch, i32 1)
@@ -2058,9 +2059,8 @@ return.sink.split:                                ; preds = %invoke.cont53, %_ZN
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp49.sink) #19
   br label %return
 
-return:                                           ; preds = %_ZN4absl7debian211string_viewC2EPKcm.exit, %return.sink.split, %for.end181, %if.end19, %land.lhs.true30, %entry
-  %retval.0 = phi i1 [ %tobool183, %for.end181 ], [ false, %land.lhs.true30 ], [ false, %entry ], [ false, %if.end19 ], [ false, %return.sink.split ], [ true, %_ZN4absl7debian211string_viewC2EPKcm.exit ]
-  ret i1 %retval.0
+return:                                           ; preds = %_ZN4absl7debian211string_viewC2EPKcm.exit, %return.sink.split, %if.end19, %for.end181, %land.lhs.true30, %entry
+  ret i1 false
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -2070,18 +2070,17 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re24Prog9SearchNFAEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_i(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i32 noundef %anchor, i32 noundef %kind, ptr noundef captures(none) %match, i32 noundef %nmatch) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3re24Prog9SearchNFAEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_i(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i32 noundef %anchor, i32 noundef %kind, ptr noundef writeonly captures(none) %match, i32 noundef %nmatch) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nfa = alloca %"class.re2::NFA", align 8
   %sp = alloca %"class.absl::debian2::string_view", align 8
   call void @_ZN3re23NFAC1EPNS_4ProgE(ptr noundef nonnull align 8 dereferenceable(233) %nfa, ptr noundef nonnull %this)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sp, i8 0, i64 16, i1 false)
   %cmp = icmp eq i32 %kind, 2
   %cmp2 = icmp eq i32 %nmatch, 0
   %spec.select = call i32 @llvm.umax.i32(i32 %nmatch, i32 1)
-  %spec.select8 = select i1 %cmp2, ptr %sp, ptr %match
   %nmatch.addr.0 = select i1 %cmp, i32 %spec.select, i32 %nmatch
-  %match.addr.0 = select i1 %cmp, ptr %spec.select8, ptr %match
+  %0 = and i1 %cmp, %cmp2
+  %match.addr.0 = select i1 %0, ptr %sp, ptr %match
   %cmp610 = icmp eq i32 %anchor, 1
   %cmp6 = or i1 %cmp610, %cmp
   %cmp7 = icmp ne i32 %kind, 0
@@ -2089,34 +2088,14 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  br i1 %call, label %if.end9, label %cleanup
+  call void @_ZN3re23NFAD1Ev(ptr noundef nonnull align 8 dereferenceable(233) %nfa) #19
+  ret i1 false
 
 lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3re23NFAD1Ev(ptr noundef nonnull align 8 dereferenceable(233) %nfa) #19
-  resume { ptr, i32 } %0
-
-if.end9:                                          ; preds = %invoke.cont
-  br i1 %cmp, label %land.lhs.true, label %if.end19
-
-land.lhs.true:                                    ; preds = %if.end9
-  %agg.tmp11.sroa.0.0.copyload = load ptr, ptr %spec.select8, align 8
-  %spec.select8.sroa.sel.v.sroa.sel.v = select i1 %cmp2, ptr %sp, ptr %match
-  %spec.select8.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select8.sroa.sel.v.sroa.sel.v, i64 8
-  %agg.tmp11.sroa.2.0.copyload = load i64, ptr %spec.select8.sroa.sel.v.sroa.sel, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp11.sroa.0.0.copyload, i64 %agg.tmp11.sroa.2.0.copyload
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
-  %cmp17.not = icmp eq ptr %add.ptr.i, %add.ptr.i9
-  br i1 %cmp17.not, label %if.end19, label %cleanup
-
-if.end19:                                         ; preds = %land.lhs.true, %if.end9
-  br label %cleanup
-
-cleanup:                                          ; preds = %land.lhs.true, %invoke.cont, %if.end19
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ true, %if.end19 ], [ false, %land.lhs.true ]
-  call void @_ZN3re23NFAD1Ev(ptr noundef nonnull align 8 dereferenceable(233) %nfa) #19
-  ret i1 %retval.0
+  resume { ptr, i32 } %1
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -153,16 +153,15 @@ define dso_local noundef zeroext i1 @abi_arg_is_indirect(ptr noundef readonly ca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 63
-  %5 = icmp samesign ult i8 %4, 9
-  br i1 %5, label %switch.lookup, label %6
+  %switch = icmp samesign ult i8 %4, 9
+  br i1 %switch, label %6, label %5
 
-6:                                                ; preds = %1
+5:                                                ; preds = %1
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.abi_arg_is_indirect, ptr noundef nonnull @.str.2, i32 noundef 59) #6
   unreachable
 
-switch.lookup:                                    ; preds = %1
-  %switch.masked = icmp eq i8 %4, 7
-  ret i1 %switch.masked
+6:                                                ; preds = %1
+  ret i1 false
 }
 
 ; Function Attrs: noreturn

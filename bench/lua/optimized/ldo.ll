@@ -1202,8 +1202,8 @@ define hidden noundef i32 @luaD_pretailcall(ptr noundef %0, ptr noundef captures
 10:                                               ; preds = %tryfuncTM.exit, %5
   %11 = phi i8 [ %186, %tryfuncTM.exit ], [ %.pre, %5 ]
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %tryfuncTM.exit ], [ %9, %5 ]
-  %.065 = phi i32 [ %191, %tryfuncTM.exit ], [ 0, %5 ]
-  %.063 = phi i32 [ %192, %tryfuncTM.exit ], [ %3, %5 ]
+  %.065 = phi i32 [ %188, %tryfuncTM.exit ], [ 0, %5 ]
+  %.063 = phi i32 [ %189, %tryfuncTM.exit ], [ %3, %5 ]
   %.062 = phi ptr [ %.2, %tryfuncTM.exit ], [ %2, %5 ]
   %12 = and i8 %11, 63
   switch i8 %12, label %152 [
@@ -1279,7 +1279,7 @@ prepCallInfo.exit.i:                              ; preds = %39, %31
 precallC.exit:                                    ; preds = %prepCallInfo.exit.i, %47
   %55 = tail call i32 %16(ptr noundef nonnull %0) #13
   tail call void @luaD_poscall(ptr noundef nonnull %0, ptr noundef nonnull %41, i32 noundef %55)
-  br label %193
+  br label %190
 
 56:                                               ; preds = %10
   %57 = load ptr, ptr %.062, align 8, !tbaa !27
@@ -1346,7 +1346,7 @@ prepCallInfo.exit.i70:                            ; preds = %80, %72
 precallC.exit73:                                  ; preds = %prepCallInfo.exit.i70, %88
   %96 = tail call i32 %57(ptr noundef nonnull %0) #13
   tail call void @luaD_poscall(ptr noundef nonnull %0, ptr noundef nonnull %82, i32 noundef %96)
-  br label %193
+  br label %190
 
 97:                                               ; preds = %10
   %98 = load ptr, ptr %.062, align 8, !tbaa !27
@@ -1449,7 +1449,7 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
   %150 = zext nneg i32 %.164.lcssa to i64
   %151 = getelementptr inbounds nuw %union.StackValue, ptr %136, i64 %150
   store ptr %151, ptr %7, align 8, !tbaa !27
-  br label %193
+  br label %190
 
 152:                                              ; preds = %10
   %153 = load ptr, ptr %6, align 8, !tbaa !27
@@ -1486,7 +1486,7 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
 174:                                              ; preds = %167
   %175 = load ptr, ptr %7, align 8, !tbaa !27
   %176 = icmp ugt ptr %175, %.2
-  br i1 %176, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %176, label %.lr.ph.i, label %tryfuncTM.exit
 
 .lr.ph.i:                                         ; preds = %174, %.lr.ph.i
   %.025.i = phi ptr [ %177, %.lr.ph.i ], [ %175, %174 ]
@@ -1502,9 +1502,9 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i74 = load ptr, ptr %7, align 8, !tbaa !27
-  br label %._crit_edge.i
+  br label %tryfuncTM.exit
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %174
+tryfuncTM.exit:                                   ; preds = %174, %._crit_edge.loopexit.i
   %183 = phi ptr [ %.pre.i74, %._crit_edge.loopexit.i ], [ %175, %174 ]
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   store ptr %184, ptr %7, align 8, !tbaa !27
@@ -1513,21 +1513,12 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
   %186 = load i8, ptr %169, align 8, !tbaa !31
   %187 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   store i8 %186, ptr %187, align 8, !tbaa !31
-  %188 = and i32 %.065, 3840
-  %189 = icmp eq i32 %188, 3840
-  br i1 %189, label %190, label %tryfuncTM.exit
-
-190:                                              ; preds = %._crit_edge.i
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #14
-  unreachable
-
-tryfuncTM.exit:                                   ; preds = %._crit_edge.i
-  %191 = add nuw nsw i32 %.065, 256
-  %192 = add nsw i32 %.063, 1
+  %188 = add nuw nsw i32 %.065, 256
+  %189 = add nsw i32 %.063, 1
   %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
   br label %10
 
-193:                                              ; preds = %._crit_edge93, %precallC.exit73, %precallC.exit
+190:                                              ; preds = %._crit_edge93, %precallC.exit73, %precallC.exit
   %.0 = phi i32 [ %55, %precallC.exit ], [ %96, %precallC.exit73 ], [ -1, %._crit_edge93 ]
   ret i32 %.0
 }

@@ -4652,32 +4652,29 @@ declare noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3tev10HelpWindow14keyboard_eventEiiii(ptr noundef nonnull align 16 dereferenceable(224) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
   %6 = tail call noundef zeroext i1 @_ZN7nanogui6Widget14keyboard_eventEiiii(ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-  br i1 %6, label %17, label %7
+  %7 = icmp ne i32 %1, 256
+  %or.cond.not = or i1 %7, %6
+  br i1 %or.cond.not, label %16, label %8
 
-7:                                                ; preds = %5
-  %8 = icmp eq i32 %1, 256
-  br i1 %8, label %9, label %17
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %10 = load ptr, ptr %9, align 16
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %_ZNKSt3__18functionIFvvEEclEv.exit
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %11 = load ptr, ptr %10, align 16
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %_ZNKSt3__18functionIFvvEEclEv.exit
-
-13:                                               ; preds = %9
+12:                                               ; preds = %8
   tail call void @_ZNSt3__125__throw_bad_function_callB8ne190000Ev() #23
   unreachable
 
-_ZNKSt3__18functionIFvvEEclEv.exit:               ; preds = %9
-  %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  br label %17
+_ZNKSt3__18functionIFvvEEclEv.exit:               ; preds = %8
+  %13 = load ptr, ptr %10, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  br label %16
 
-17:                                               ; preds = %7, %5, %_ZNKSt3__18functionIFvvEEclEv.exit
-  %.0 = phi i1 [ true, %5 ], [ true, %_ZNKSt3__18functionIFvvEEclEv.exit ], [ false, %7 ]
-  ret i1 %.0
+16:                                               ; preds = %5, %_ZNKSt3__18functionIFvvEEclEv.exit
+  ret i1 false
 }
 
 declare noundef zeroext i1 @_ZN7nanogui6Widget14keyboard_eventEiiii(ptr noundef nonnull align 8 dereferenceable(132), i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #4

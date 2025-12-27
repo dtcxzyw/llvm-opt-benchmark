@@ -1304,7 +1304,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 define linkonce_odr void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !99
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %34, label %4
+  br i1 %3, label %33, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -1360,20 +1360,13 @@ _ZNSt12__shared_ptrIN5arrow12StatusDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !118
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %31 = icmp eq ptr %29, %30
-  br i1 %31, label %_ZN5arrow6Status5StateD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt12__shared_ptrIN5arrow12StatusDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  %32 = load i64, ptr %30, align 8, !tbaa !90
-  %33 = add i64 %32, 1
-  tail call void @_ZdlPvm(ptr noundef %29, i64 noundef %33) #18
-  br label %_ZN5arrow6Status5StateD2Ev.exit
-
-_ZN5arrow6Status5StateD2Ev.exit:                  ; preds = %_ZNSt12__shared_ptrIN5arrow12StatusDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %31 = load i64, ptr %30, align 8, !tbaa !90
+  %32 = add i64 %31, 1
+  tail call void @_ZdlPvm(ptr noundef %29, i64 noundef %32) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 56) #18
-  br label %34
+  br label %33
 
-34:                                               ; preds = %_ZN5arrow6Status5StateD2Ev.exit, %1
+33:                                               ; preds = %_ZNSt12__shared_ptrIN5arrow12StatusDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %1
   ret void
 }
 

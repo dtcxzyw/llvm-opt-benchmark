@@ -624,19 +624,17 @@ define dso_local void @_ZNSt3__18ios_base5clearEj(ptr noundef nonnull align 8 ca
   %spec.select = or i32 %1, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %spec.select, ptr %6, align 8, !tbaa !29
-  %7 = zext i1 %.not to i32
-  %8 = or i32 %1, %7
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %10 = load i32, ptr %9, align 4, !tbaa !30
-  %11 = and i32 %10, %8
-  %.not4 = icmp eq i32 %11, 0
-  br i1 %.not4, label %13, label %12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %8 = load i32, ptr %7, align 4, !tbaa !30
+  %9 = and i32 %8, %1
+  %.not4 = icmp eq i32 %9, 0
+  br i1 %.not4, label %11, label %10
 
-12:                                               ; preds = %2
+10:                                               ; preds = %2
   tail call void @_ZNSt3__115__throw_failureB8ne210000EPKc(ptr noundef nonnull @.str.2) #28
   unreachable
 
-13:                                               ; preds = %2
+11:                                               ; preds = %2
   ret void
 }
 

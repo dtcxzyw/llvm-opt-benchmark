@@ -480,15 +480,15 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 4:                                                ; preds = %6, %2
   %5 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51c255ab4840291dE"(ptr align 8 %0)
-  %.not.not.not.not.not.not = icmp ne ptr %5, null
-  br i1 %.not.not.not.not.not.not, label %6, label %8
+  %.not.not = icmp eq ptr %5, null
+  br i1 %.not.not, label %8, label %6
 
 6:                                                ; preds = %4
   %7 = call zeroext i1 @"_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new15is_numeric_type28_$u7b$$u7b$closure$u7d$$u7d$17hca5e53aa28822b8fE"(ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   br i1 %7, label %8, label %4
 
 8:                                                ; preds = %6, %4
-  ret i1 %.not.not.not.not.not.not
+  ret i1 false
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -514,8 +514,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit.thread", label %4
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit.thread": ; preds = %4, %9, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit"
-  %.not7 = phi i1 [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e25de5c7d7ac730E.exit" ], [ true, %9 ], [ false, %4 ]
-  ret i1 %.not7
+  ret i1 false
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -528,15 +527,15 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 6:                                                ; preds = %8, %3
   %7 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h785778b424ed1a1fE"(ptr align 8 %0)
-  %.not.not.not.not.not.not = icmp ne ptr %7, null
-  br i1 %.not.not.not.not.not.not, label %8, label %10
+  %.not.not = icmp eq ptr %7, null
+  br i1 %.not.not, label %10, label %8
 
 8:                                                ; preds = %6
   %9 = call zeroext i1 @"_ZN19pyo3_macros_backend6module13has_attribute28_$u7b$$u7b$closure$u7d$$u7d$17h4ea454053a62a893E"(ptr nonnull align 8 %4, ptr nonnull align 8 %7)
   br i1 %9, label %10, label %6
 
 10:                                               ; preds = %8, %6
-  ret i1 %.not.not.not.not.not.not
+  ret i1 false
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

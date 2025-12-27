@@ -119,39 +119,25 @@ define noundef zeroext i1 @_ZN5Ipopt16SimpleBacksolver14InitializeImplERKNS_11Op
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %14 = load ptr, ptr %13, align 8
   %15 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %16 unwind label %21
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
-16:                                               ; preds = %.noexc.i
-  %17 = load ptr, ptr %4, align 8, !tbaa !32
-  %18 = icmp eq ptr %17, %5
-  br i1 %18, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %16
-  %19 = load i64, ptr %5, align 8, !tbaa !34
-  %20 = add i64 %19, 1
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %20) #12
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %.noexc.i
+  %16 = load ptr, ptr %4, align 8, !tbaa !32
+  %17 = load i64, ptr %5, align 8, !tbaa !34
+  %18 = add i64 %17, 1
+  call void @_ZdlPvm(ptr noundef %16, i64 noundef %18) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 true
 
-21:                                               ; preds = %.noexc.i
-  %22 = landingpad { ptr, i32 }
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %.noexc.i
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %4, align 8, !tbaa !32
-  %24 = icmp eq ptr %23, %5
-  br i1 %24, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6: ; preds = %21
-  %25 = load i64, ptr %5, align 8, !tbaa !34
-  %26 = add i64 %25, 1
-  call void @_ZdlPvm(ptr noundef %23, i64 noundef %26) #12
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
+  %20 = load ptr, ptr %4, align 8, !tbaa !32
+  %21 = load i64, ptr %5, align 8, !tbaa !34
+  %22 = add i64 %21, 1
+  call void @_ZdlPvm(ptr noundef %20, i64 noundef %22) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable

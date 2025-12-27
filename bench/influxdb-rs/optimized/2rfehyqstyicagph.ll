@@ -5712,7 +5712,7 @@ define hidden noundef range(i64 0, 461168601842738791) i64 @_ZN4core4iter6traits
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core4iter8adapters11try_process17h2c3c46c07ae77233E(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core4iter8adapters11try_process17h2c3c46c07ae77233E(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, ptr }, ptr }, ptr }, align 8
   %4 = alloca { { ptr, i64 }, i64 }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
@@ -5723,50 +5723,27 @@ define hidden void @_ZN4core4iter8adapters11try_process17h2c3c46c07ae77233E(ptr 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !1737, !noalias !1741
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %5, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1737, !noalias !1741
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8bd57bb875ab93aeE.llvm.14496618814205752201"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
-          to label %9 unwind label %6
-
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  %8 = load i64, ptr %5, align 8, !range !113, !noundef !9
-  %.not = icmp eq i64 %8, 17
-  br i1 %.not, label %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$arrow_schema..error..ArrowError$GT$$GT$17hfa40953c8e2ad878E.llvm.3086495437288348183.exit", label %16
-
-9:                                                ; preds = %2
+  call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8bd57bb875ab93aeE.llvm.14496618814205752201"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1730
-  %10 = load i64, ptr %5, align 8, !range !113, !noundef !9
-  %.not.not = icmp eq i64 %10, 17
-  br i1 %.not.not, label %.thread, label %13
+  %6 = load i64, ptr %5, align 8, !range !113, !noundef !9
+  %.not.not = icmp eq i64 %6, 17
+  br i1 %.not.not, label %.thread14, label %9
 
-.thread:                                          ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+.thread14:                                        ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 17, ptr %0, align 8, !alias.scope !1742, !noalias !1745
-  br label %12
+  br label %8
 
-12:                                               ; preds = %13, %.thread
+8:                                                ; preds = %9, %.thread14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-13:                                               ; preds = %9
+9:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$arrow_cast..display..ArrayFormatter$GT$$GT$17h84d390cc70627d55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  br label %12
-
-14:                                               ; preds = %16
-  %15 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #25
-  unreachable
-
-"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$arrow_schema..error..ArrowError$GT$$GT$17hfa40953c8e2ad878E.llvm.3086495437288348183.exit": ; preds = %16, %6
-  resume { ptr, i32 } %7
-
-16:                                               ; preds = %6
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$arrow_schema..error..ArrowError$GT$17h07e66ab687aa2743E.llvm.3086495437288348183"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
-          to label %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$arrow_schema..error..ArrowError$GT$$GT$17hfa40953c8e2ad878E.llvm.3086495437288348183.exit" unwind label %14
+  br label %8
 }
 
 ; Function Attrs: nonlazybind uwtable

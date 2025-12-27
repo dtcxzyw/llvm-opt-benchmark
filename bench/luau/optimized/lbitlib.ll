@@ -337,46 +337,14 @@ _ZL7b_shiftP9lua_Stateji.exit:                    ; preds = %6, %9
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL9b_countlzP9lua_State(ptr noundef %0) #0 {
   %2 = tail call noundef i32 @_Z18luaL_checkunsignedP9lua_Statei(ptr noundef %0, i32 noundef 1)
-  br label %3
-
-3:                                                ; preds = %1, %6
-  %.08 = phi i32 [ 0, %1 ], [ %7, %6 ]
-  %4 = lshr exact i32 -2147483648, %.08
-  %5 = and i32 %4, %2
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %8
-
-6:                                                ; preds = %3
-  %7 = add nuw nsw i32 %.08, 1
-  %exitcond.not = icmp eq i32 %7, 32
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !8
-
-8:                                                ; preds = %3, %6
-  %.07 = phi i32 [ 32, %6 ], [ %.08, %3 ]
-  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.07)
+  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef 0)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL9b_countrzP9lua_State(ptr noundef %0) #0 {
   %2 = tail call noundef i32 @_Z18luaL_checkunsignedP9lua_Statei(ptr noundef %0, i32 noundef 1)
-  br label %3
-
-3:                                                ; preds = %1, %6
-  %.08 = phi i32 [ 0, %1 ], [ %7, %6 ]
-  %4 = shl nuw i32 1, %.08
-  %5 = and i32 %4, %2
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %8
-
-6:                                                ; preds = %3
-  %7 = add nuw nsw i32 %.08, 1
-  %exitcond.not = icmp eq i32 %7, 32
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !9
-
-8:                                                ; preds = %3, %6
-  %.07 = phi i32 [ 32, %6 ], [ %.08, %3 ]
-  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %.07)
+  tail call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef 0)
   ret i32 1
 }
 
@@ -431,5 +399,3 @@ attributes #4 = { noreturn }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

@@ -957,7 +957,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17h5
   %.sroa.09.0 = phi i64 [ 13, %22 ], [ 9, %125 ], [ 1, %20 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !189)
   %185 = add nsw i64 %.sroa.09.0, -1
-  %or.cond.not.i = icmp ult i64 %185, %.sroa.9.0
+  %or.cond.not.i = icmp samesign ult i64 %185, %.sroa.9.0
   br i1 %or.cond.not.i, label %187, label %186
 
 186:                                              ; preds = %184
@@ -1479,7 +1479,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
   store i64 0, ptr %.sroa.519.0..sroa_idx, align 8
   %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %15, ptr %.sroa.620.0..sroa_idx, align 8
-  %87 = sub i64 %1, %15
+  %87 = sub nsw i64 %1, %15
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1701,20 +1701,12 @@ define hidden noundef zeroext i1 @"_ZN76_$LT$std..sync..poison..PoisonError$LT$T
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN4raft8raw_node12is_local_msg17h8358dd2c2d75a4d9E(i8 noundef range(i8 0, 19) %0) unnamed_addr #3 {
-switch.lookup:
-  %switch.cast = zext nneg i8 %0 to i19
-  %switch.downshift = lshr i19 7171, %switch.cast
-  %switch.masked = trunc i19 %switch.downshift to i1
-  ret i1 %switch.masked
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN4raft8raw_node15is_response_msg17he3bc4fe67005a393E(i8 noundef range(i8 0, 19) %0) unnamed_addr #3 {
-switch.lookup:
-  %switch.cast = zext nneg i8 %0 to i19
-  %switch.downshift = lshr i19 -260528, %switch.cast
-  %switch.masked = trunc i19 %switch.downshift to i1
-  ret i1 %switch.masked
+  ret i1 false
 }
 
 ; Function Attrs: nonlazybind uwtable

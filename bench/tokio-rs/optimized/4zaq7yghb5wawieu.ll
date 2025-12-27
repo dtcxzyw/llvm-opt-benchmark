@@ -133,70 +133,64 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i: ; pre
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #15, !noalias !18
   unreachable
 
-common.resume.i:                                  ; preds = %39, %19
-  %common.resume.op.i = phi { ptr, i32 } [ %20, %19 ], [ %40, %39 ]
+common.resume.i:                                  ; preds = %38, %19
+  %common.resume.op.i = phi { ptr, i32 } [ %20, %19 ], [ %39, %38 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit.i": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h7657b45618dbb8a1E.exit.i"
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load i64, ptr %24, align 8, !noundef !10
-  switch i64 %25, label %26 [
-    i64 0, label %28
-    i64 1, label %27
-  ]
+  %switch.i = icmp ult i64 %25, 2
+  br i1 %switch.i, label %27, label %26
 
 26:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit.i"
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.7327f57b40318b5a6f61d49f8bdf2f55.29, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7327f57b40318b5a6f61d49f8bdf2f55.30) #13
-          to label %41 unwind label %39
+          to label %40 unwind label %38
 
 27:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit.i"
-  br label %28
+  %28 = trunc nuw i8 %.0.i.i.i.i to i1
+  br i1 %28, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i, label %29
 
-28:                                               ; preds = %27, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit.i"
-  %.0.i = phi i1 [ true, %27 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he5b3009b7675717dE.exit.i" ]
-  %29 = trunc nuw i8 %.0.i.i.i.i to i1
-  br i1 %29, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i, label %30
+29:                                               ; preds = %27
+  %30 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17ha93a1baa6fc65cd0E monotonic, align 8
+  %31 = and i64 %30, 9223372036854775807
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i, label %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i
 
-30:                                               ; preds = %28
-  %31 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17ha93a1baa6fc65cd0E monotonic, align 8
-  %32 = and i64 %31, 9223372036854775807
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i, label %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i
+_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i: ; preds = %29
+  %33 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h658c934b8397a2acE()
+  br i1 %33, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i, label %34
 
-_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i: ; preds = %30
-  %34 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h658c934b8397a2acE()
-  br i1 %34, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i, label %35
-
-35:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i
+34:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i
   store atomic i8 1, ptr %15 monotonic, align 1
   br label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i
 
-_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %35, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i, %30, %28
-  %36 = atomicrmw xchg ptr %4, i32 0 release, align 4
-  %37 = icmp eq i32 %36, 2
-  br i1 %37, label %38, label %_ZN10tokio_test4task11ThreadWaker8is_woken17h6ac0e4f758829393E.exit
+_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %34, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i, %29, %27
+  %35 = atomicrmw xchg ptr %4, i32 0 release, align 4
+  %36 = icmp eq i32 %35, 2
+  br i1 %36, label %37, label %_ZN10tokio_test4task11ThreadWaker8is_woken17h6ac0e4f758829393E.exit
 
-38:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i
+37:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i
   tail call void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17hb07a3d057da5ea39E(ptr noundef nonnull align 8 %4)
   br label %_ZN10tokio_test4task11ThreadWaker8is_woken17h6ac0e4f758829393E.exit
 
-39:                                               ; preds = %26
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %26
+  %39 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$std..sync..mutex..MutexGuard$LT$usize$GT$$GT$17hf0e5300e01df7278E"(ptr nonnull align 8 %4, i8 %.0.i.i.i.i) #14
-          to label %common.resume.i unwind label %42
+          to label %common.resume.i unwind label %41
 
-41:                                               ; preds = %26
+40:                                               ; preds = %26
   unreachable
 
-42:                                               ; preds = %39
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %38
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #15
   unreachable
 
-_ZN10tokio_test4task11ThreadWaker8is_woken17h6ac0e4f758829393E.exit: ; preds = %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i, %38
-  ret i1 %.0.i
+_ZN10tokio_test4task11ThreadWaker8is_woken17h6ac0e4f758829393E.exit: ; preds = %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i, %37
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

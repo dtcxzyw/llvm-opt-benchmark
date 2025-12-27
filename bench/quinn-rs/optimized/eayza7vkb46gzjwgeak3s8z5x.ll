@@ -466,15 +466,17 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17ha2688847d7bfdc1aE(
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hdefe27c558adca29E.exit": ; preds = %27, %25, %20, %17, %15
   %.sroa.012.0.i.i.pn = phi ptr [ %22, %20 ], [ %16, %15 ], [ %19, %17 ], [ %26, %25 ], [ %29, %27 ]
+  %.sroa.6.0.i.i.pn = phi i64 [ %2, %20 ], [ 0, %15 ], [ 0, %17 ], [ 0, %25 ], [ %2, %27 ]
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
-  %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select6 = zext i1 %30 to i64
+  %.sroa.012.0.i.i.pn.sink = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
+  %.sroa.6.0.i.i.pn.sink = select i1 %30, i64 %2, i64 %.sroa.6.0.i.i.pn
+  %storemerge = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %spec.select, ptr %32, align 8
+  store ptr %.sroa.012.0.i.i.pn.sink, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %33, align 8
-  store i64 %spec.select6, ptr %0, align 8
+  store i64 %.sroa.6.0.i.i.pn.sink, ptr %33, align 8
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -725,10 +727,9 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unc
   br label %18
 
 18:                                               ; preds = %4, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit", %17
-  %.sroa.4.0 = phi i64 [ undef, %17 ], [ %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit" ], [ undef, %4 ]
   %.sroa.03.0 = phi i64 [ -9223372036854775807, %17 ], [ %2, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h142e5a9580be609aE.exit" ], [ -9223372036854775807, %4 ]
   %19 = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
-  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
+  %20 = insertvalue { i64, i64 } %19, i64 0, 1
   ret { i64, i64 } %20
 }
 

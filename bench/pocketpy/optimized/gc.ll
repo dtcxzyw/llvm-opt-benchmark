@@ -346,7 +346,6 @@ define noundef i32 @_ZN4pkpy11ManagedHeap7collectEv(ptr noundef nonnull align 8 
   br label %29
 
 27:                                               ; preds = %19, %18
-  %.04 = phi i1 [ false, %19 ], [ true, %18 ]
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
@@ -354,20 +353,18 @@ define noundef i32 @_ZN4pkpy11ManagedHeap7collectEv(ptr noundef nonnull align 8 
 
 29:                                               ; preds = %27, %25
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  %.4 = phi i1 [ %.04, %27 ], [ true, %25 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   br label %30
 
 30:                                               ; preds = %29, %23
   %.pn.pn = phi { ptr, i32 } [ %.pn, %29 ], [ %24, %23 ]
-  %.37 = phi i1 [ %.4, %29 ], [ true, %23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   br label %31
 
 31:                                               ; preds = %21, %30
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %30 ], [ %22, %21 ]
-  %.26 = phi i1 [ %.37, %30 ], [ true, %21 ]
+  %.26 = phi i1 [ false, %30 ], [ true, %21 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
   br i1 %.26, label %32, label %35

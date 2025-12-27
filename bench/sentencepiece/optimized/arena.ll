@@ -805,7 +805,7 @@ define { ptr, i64 } @_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm(ptr nou
 
 .critedge23:                                      ; preds = %23, %24
   %25 = phi ptr [ %19, %23 ], [ %.pre, %24 ]
-  %26 = add i64 %2, 24
+  %26 = add nuw i64 %2, 24
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %.0, i64 %26)
   %.not21 = icmp eq ptr %25, null
   br i1 %.not21, label %31, label %27
@@ -1180,22 +1180,22 @@ _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit: ; preds = %12
 ; Function Attrs: mustprogress noinline uwtable
 define noundef ptr @_ZN6google8protobuf8internal9ArenaImpl22GetSerialArenaFallbackEPv(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i64, ptr %0 acquire, align 8
-  %.not24 = icmp eq i64 %3, 0
-  br i1 %.not24, label %.critedge, label %.lr.ph.preheader
+  %.not21 = icmp eq i64 %3, 0
+  br i1 %.not21, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %.0.i.i = inttoptr i64 %3 to ptr
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
-  %.025 = phi ptr [ %9, %7 ], [ %.0.i.i, %.lr.ph.preheader ]
-  %4 = getelementptr inbounds nuw i8, ptr %.025, i64 8
+  %.022 = phi ptr [ %9, %7 ], [ %.0.i.i, %.lr.ph.preheader ]
+  %4 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !47
   %6 = icmp eq ptr %5, %1
-  br i1 %6, label %.loopexit.loopexit27, label %7
+  br i1 %6, label %41, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.025, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %.022, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !63
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !72
@@ -1245,40 +1245,34 @@ _ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit: ; preds = %12, %17
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %33 = load atomic i64, ptr %0 monotonic, align 8
+  %.0.i.i12 = inttoptr i64 %33 to ptr
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %35 = ptrtoint ptr %24 to i64
-  %.01326 = inttoptr i64 %33 to ptr
-  store ptr %.01326, ptr %34, align 8, !tbaa !63
-  %36 = cmpxchg weak ptr %0, i64 %33, i64 %35 release monotonic, align 8
-  %37 = extractvalue { i64, i1 } %36, 1
-  br i1 %37, label %.loopexit, label %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit
+  br label %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit
 
-_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit: ; preds = %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit, %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit
-  %38 = phi { i64, i1 } [ %40, %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit ], [ %36, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ]
-  %39 = extractvalue { i64, i1 } %38, 0
-  %.013 = inttoptr i64 %39 to ptr
+_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit: ; preds = %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit
+  %.013 = phi ptr [ %.0.i.i12, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ], [ %.114, %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit ]
   store ptr %.013, ptr %34, align 8, !tbaa !63
-  %40 = cmpxchg weak ptr %0, i64 %39, i64 %35 release monotonic, align 8
-  %41 = extractvalue { i64, i1 } %40, 1
-  br i1 %41, label %.loopexit, label %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit, !llvm.loop !73
+  %36 = ptrtoint ptr %.013 to i64
+  %37 = cmpxchg weak ptr %0, i64 %36, i64 %35 release monotonic, align 8
+  %38 = extractvalue { i64, i1 } %37, 1
+  %39 = extractvalue { i64, i1 } %37, 0
+  %40 = inttoptr i64 %39 to ptr
+  %.114 = select i1 %38, ptr %.013, ptr %40
+  br label %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit, !llvm.loop !73
 
-.loopexit.loopexit27:                             ; preds = %.lr.ph
-  %.pre = ptrtoint ptr %.025 to i64
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit, %.loopexit.loopexit27, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit
-  %.pre-phi = phi i64 [ %.pre, %.loopexit.loopexit27 ], [ %35, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ], [ %35, %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit ]
-  %.1 = phi ptr [ %.025, %.loopexit.loopexit27 ], [ %24, %_ZN6google8protobuf8internal9ArenaImpl9NewBufferEmm.exit ], [ %24, %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit ]
+41:                                               ; preds = %.lr.ph
   %42 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal9ArenaImpl13thread_cache_E)
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store ptr %.1, ptr %43, align 16, !tbaa !51
+  store ptr %.022, ptr %43, align 16, !tbaa !51
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load i64, ptr %44, align 8, !tbaa !40
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 %45, ptr %46, align 8, !tbaa !52
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store atomic i64 %.pre-phi, ptr %47 release, align 8
-  ret ptr %.1
+  %48 = ptrtoint ptr %.022 to i64
+  store atomic i64 %48, ptr %47 release, align 8
+  ret ptr %.022
 }
 
 ; Function Attrs: mustprogress noinline uwtable

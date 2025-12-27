@@ -119,7 +119,7 @@ define i32 @dt_cache_contains(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 declare i32 @g_hash_table_contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @dt_cache_for_all(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef i32 @dt_cache_for_all(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._GHashTableIter, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -148,12 +148,11 @@ define i32 @dt_cache_for_all(ptr noundef %0, ptr noundef readonly captures(none)
   br i1 %.not12, label %10, label %.thread
 
 .thread:                                          ; preds = %10, %12
-  %.2 = phi i32 [ %18, %12 ], [ 0, %10 ]
   %19 = call i32 @pthread_mutex_unlock(ptr noundef %0) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.2
+  ret i32 0
 }
 
 declare void @g_hash_table_iter_init(ptr noundef, ptr noundef) local_unnamed_addr #1

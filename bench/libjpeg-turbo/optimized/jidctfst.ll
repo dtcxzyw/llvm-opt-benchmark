@@ -3,7 +3,7 @@ source_filename = "bench/libjpeg-turbo/original/jidctfst.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: nofree norecurse noreturn nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [64 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -117,7 +117,7 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   %82 = sub i16 %70, %78
   %83 = getelementptr inbounds nuw i8, ptr %.0223265, i64 16
   %84 = load i16, ptr %83, align 2, !tbaa !32
-  %85 = mul i16 %84, %15
+  %85 = mul nuw nsw i16 %84, %15
   %86 = getelementptr inbounds nuw i8, ptr %.0225264, i64 48
   %87 = load i16, ptr %86, align 2, !tbaa !32
   %88 = getelementptr inbounds nuw i8, ptr %.0223265, i64 48
@@ -135,7 +135,7 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   %100 = mul i16 %99, %97
   %101 = add i16 %95, %90
   %102 = sub i16 %95, %90
-  %103 = add i16 %100, %85
+  %103 = add nuw nsw i16 %100, %85
   %104 = sub i16 %85, %100
   %105 = sext i16 %103 to i32
   %106 = sext i16 %101 to i32
@@ -203,7 +203,7 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   %153 = icmp samesign ugt i32 %.0267, 1
   br i1 %153, label %13, label %.preheader, !llvm.loop !34
 
-154:                                              ; preds = %.preheader, %308
+154:                                              ; preds = %308, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %308 ]
   %.2268 = phi ptr [ %6, %.preheader ], [ %.3, %308 ]
   %155 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
@@ -302,7 +302,7 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   %223 = zext i32 %222 to i64
   %224 = getelementptr inbounds nuw i8, ptr %.2268, i64 28
   %225 = load i32, ptr %224, align 4, !tbaa !33
-  %226 = add i32 %225, %159
+  %226 = add nuw nsw i32 %225, %159
   %227 = sub i32 %159, %225
   %228 = zext i32 %227 to i64
   %sext238 = shl i32 %226, 16
@@ -406,21 +406,13 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
   store i8 %.sink278, ptr %309, align 1, !tbaa !37
   %.3 = getelementptr inbounds nuw i8, ptr %.2268, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %310, label %154, !llvm.loop !38
-
-310:                                              ; preds = %308
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret void
+  br label %154
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
-
-attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse noreturn nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
@@ -463,4 +455,3 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !35 = !{!"llvm.loop.mustprogress"}
 !36 = !{!18, !18, i64 0}
 !37 = !{!7, !7, i64 0}
-!38 = distinct !{!38, !35}

@@ -9,14 +9,10 @@ define hidden noundef zeroext i1 @je_pa_central_init(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %4
   %6 = tail call zeroext i1 @je_hpa_central_init(ptr noundef %0, ptr noundef %1, ptr noundef %3) #4
-  br i1 %6, label %8, label %7
+  br label %7
 
 7:                                                ; preds = %5, %4
-  br label %8
-
-8:                                                ; preds = %5, %7
-  %.0 = phi i1 [ false, %7 ], [ true, %5 ]
-  ret i1 %.0
+  ret i1 false
 }
 
 declare zeroext i1 @je_hpa_central_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -55,8 +51,7 @@ define hidden noundef zeroext i1 @je_pa_shard_init(ptr noundef %0, ptr noundef %
   br label %28
 
 28:                                               ; preds = %15, %12, %19
-  %.0 = phi i1 [ false, %19 ], [ true, %12 ], [ true, %15 ]
-  ret i1 %.0
+  ret i1 false
 }
 
 declare zeroext i1 @je_edata_cache_init(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -94,8 +89,7 @@ define hidden noundef zeroext i1 @je_pa_shard_enable_hpa(ptr noundef %0, ptr nou
   br label %22
 
 22:                                               ; preds = %15, %4, %19
-  %.0 = phi i1 [ false, %19 ], [ true, %4 ], [ true, %15 ]
-  ret i1 %.0
+  ret i1 false
 }
 
 declare zeroext i1 @je_hpa_shard_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -263,8 +257,7 @@ define hidden noundef zeroext i1 @je_pa_expand(ptr noundef %0, ptr noundef %1, p
   br label %29
 
 29:                                               ; preds = %17, %10, %8
-  %.0 = phi i1 [ true, %8 ], [ true, %10 ], [ false, %17 ]
-  ret i1 %.0
+  ret i1 false
 }
 
 ; Function Attrs: nounwind uwtable
@@ -301,8 +294,7 @@ define hidden noundef zeroext i1 @je_pa_shrink(ptr noundef %0, ptr noundef %1, p
   br label %28
 
 28:                                               ; preds = %16, %9, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %9 ], [ false, %16 ]
-  ret i1 %.0
+  ret i1 false
 }
 
 ; Function Attrs: nounwind uwtable

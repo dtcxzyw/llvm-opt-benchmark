@@ -64,8 +64,7 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit.i:               ; preds = %19, %18, %7
   br label %_ZN5draco10DataBuffer6UpdateEPKvll.exit
 
 _ZN5draco10DataBuffer6UpdateEPKvll.exit:          ; preds = %6, %8, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i
-  %.0.i = phi i1 [ false, %6 ], [ true, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i ], [ false, %8 ]
-  ret i1 %.0.i
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -119,8 +118,7 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit:                 ; preds = %23, %22, %9
   br label %29
 
 29:                                               ; preds = %10, %6, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit
-  %.0 = phi i1 [ false, %6 ], [ true, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit ], [ false, %10 ]
-  ret i1 %.0
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable

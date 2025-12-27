@@ -309,7 +309,7 @@ _hashitem_before.exit.thread:                     ; preds = %.critedge2.i, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @start_assoc_maintenance_thread() local_unnamed_addr #0 {
+define dso_local noundef range(i32 -1, 1) i32 @start_assoc_maintenance_thread() local_unnamed_addr #0 {
   %1 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #18
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %2
@@ -338,8 +338,7 @@ define dso_local range(i32 -1, 1) i32 @start_assoc_maintenance_thread() local_un
   br label %13
 
 13:                                               ; preds = %11, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %11 ]
-  ret i32 %.0
+  ret i32 0
 }
 
 ; Function Attrs: nofree nounwind memory(read)
@@ -652,8 +651,7 @@ define dso_local noundef zeroext i1 @assoc_iterate(ptr noundef captures(none) %0
   br label %39
 
 39:                                               ; preds = %35, %31, %19, %18
-  %.0 = phi i1 [ true, %18 ], [ false, %19 ], [ true, %31 ], [ true, %35 ]
-  ret i1 %.0
+  ret i1 false
 }
 
 declare void @item_unlock(i32 noundef) local_unnamed_addr #4

@@ -329,8 +329,8 @@ define hidden { i8, i8 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u2
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = load i64, ptr %0, align 8, !noundef !4
-  %.not = icmp ne i64 %3, %4
-  br i1 %.not, label %5, label %.thread
+  %.not.not = icmp eq i64 %3, %4
+  br i1 %.not.not, label %.thread, label %5
 
 5:                                                ; preds = %1
   %6 = add nuw nsw i64 %4, 1
@@ -344,10 +344,8 @@ define hidden { i8, i8 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u2
 
 .thread:                                          ; preds = %1, %5
   %.sroa.3.0 = phi i8 [ %10, %5 ], [ undef, %1 ]
-  %11 = zext i1 %.not to i8
-  %12 = insertvalue { i8, i8 } poison, i8 %11, 0
-  %13 = insertvalue { i8, i8 } %12, i8 %.sroa.3.0, 1
-  ret { i8, i8 } %13
+  %11 = insertvalue { i8, i8 } { i8 0, i8 poison }, i8 %.sroa.3.0, 1
+  ret { i8, i8 } %11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -959,20 +957,17 @@ _ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_dige
   br label %130
 
 130:                                              ; preds = %129, %99
-  %.2.i = phi i1 [ %trunc24.i, %129 ], [ true, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !99
   br label %131
 
 131:                                              ; preds = %130, %89
-  %.1.i = phi i1 [ %.2.i, %130 ], [ true, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !99
   br label %_ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest17h8e779b1f61e573adE.exit
 
 _ZN4ring2ec7suite_b5ecdsa12verification26EcdsaVerificationAlgorithm13verify_digest17h8e779b1f61e573adE.exit: ; preds = %.thread42.i, %72, %127, %131
-  %.5.i = phi i1 [ true, %127 ], [ true, %72 ], [ %.1.i, %131 ], [ true, %.thread42.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !99
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  ret i1 %.5.i
+  ret i1 false
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2012,10 +2007,9 @@ define hidden void @"_ZN4ring3rsa7keypair24PrivateCrtPrime$LT$M$GT$3new17h09b68f
           to label %20 unwind label %18
 
 "_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit": ; preds = %.body, %18
-  %.0 = phi i1 [ true, %18 ], [ false, %.body ]
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %31, %.body ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
-          to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..P$GT$$GT$17hb7d8ca51207c2aa6E.exit" unwind label %45
+          to label %common.resume unwind label %45
 
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
@@ -2079,8 +2073,8 @@ define hidden void @"_ZN4ring3rsa7keypair24PrivateCrtPrime$LT$M$GT$3new17h09b68f
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #27
   unreachable
 
-common.resume:                                    ; preds = %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..P$GT$$GT$17hb7d8ca51207c2aa6E.exit", %47, %37
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %.pn, %47 ], [ %.pn, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..P$GT$$GT$17hb7d8ca51207c2aa6E.exit" ]
+common.resume:                                    ; preds = %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit", %37
+  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %.pn, %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..P$GT$$GT$17h7c6357846459f3c2E.exit": ; preds = %34
@@ -2110,19 +2104,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr97drop
 44:                                               ; preds = %43, %"_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..P$GT$$GT$17h7c6357846459f3c2E.exit"
   ret void
 
-45:                                               ; preds = %47, %.body, %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit"
+45:                                               ; preds = %.body, %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit"
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #27
   unreachable
-
-"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..P$GT$$GT$17hb7d8ca51207c2aa6E.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit"
-  br i1 %.0, label %47, label %common.resume
-
-47:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..P$GT$$GT$17hb7d8ca51207c2aa6E.exit"
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %48)
-          to label %common.resume unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2149,10 +2135,9 @@ define hidden void @"_ZN4ring3rsa7keypair24PrivateCrtPrime$LT$M$GT$3new17h9b0bf5
           to label %20 unwind label %18
 
 "_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit": ; preds = %.body, %18
-  %.0 = phi i1 [ true, %18 ], [ false, %.body ]
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %31, %.body ]
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
-          to label %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit" unwind label %45
+          to label %common.resume unwind label %45
 
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
@@ -2216,8 +2201,8 @@ define hidden void @"_ZN4ring3rsa7keypair24PrivateCrtPrime$LT$M$GT$3new17h9b0bf5
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #27
   unreachable
 
-common.resume:                                    ; preds = %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit", %47, %37
-  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %.pn, %47 ], [ %.pn, %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit" ]
+common.resume:                                    ; preds = %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit", %37
+  %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %.pn, %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..Q$GT$$GT$17hb50d01ef26b362f5E.exit": ; preds = %34
@@ -2247,19 +2232,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr97drop
 44:                                               ; preds = %43, %"_ZN4core3ptr82drop_in_place$LT$ring..rsa..keypair..PrivatePrime$LT$ring..rsa..keypair..Q$GT$$GT$17hb50d01ef26b362f5E.exit"
   ret void
 
-45:                                               ; preds = %47, %.body, %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit"
+45:                                               ; preds = %.body, %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit"
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #27
   unreachable
-
-"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$ring..arithmetic..bigint..private_exponent..PrivateExponent$GT$17hdc66e7936f8bd37dE.exit"
-  br i1 %.0, label %47, label %common.resume
-
-47:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$ring..arithmetic..bigint..modulus..OwnedModulus$LT$ring..rsa..keypair..Q$GT$$GT$17h44cb655db0d6a694E.exit"
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hea6b5afbd10e64d6E.llvm.4129427866461079095"(ptr noalias noundef nonnull align 8 dereferenceable(16) %48)
-          to label %common.resume unwind label %45
 }
 
 ; Function Attrs: nonlazybind uwtable

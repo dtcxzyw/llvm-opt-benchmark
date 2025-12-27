@@ -61,8 +61,8 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
   %20 = add i32 %18, 2
   call void @_ZN9tiny_skia6pixmap6Pixmap3new17hcd265c6525366ef5E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %10, i32 noundef %19, i32 noundef %20)
   %21 = load i64, ptr %10, align 8, !range !8, !noundef !7
-  %22 = icmp ne i64 %21, -9223372036854775808
-  br i1 %22, label %47, label %98
+  %22 = icmp eq i64 %21, -9223372036854775808
+  br i1 %22, label %98, label %47
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -317,8 +317,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h0cdbf60c6bc4
   br label %.thread121
 
 .thread121:                                       ; preds = %..loopexit_crit_edge.split.us.us, %..loopexit_crit_edge.split.us163.us, %.thread121.sink.split, %.lr.ph159.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit97
-  %.0 = phi i1 [ true, %.lr.ph159.split ], [ true, %..loopexit_crit_edge.split.us163.us ], [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit97 ], [ %22, %.thread121.sink.split ], [ true, %..loopexit_crit_edge.split.us.us ]
-  ret i1 %.0
+  ret i1 false
 
 143:                                              ; preds = %44
   %144 = lshr exact i64 %40, 2
@@ -566,8 +565,8 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
   %30 = add i32 %28, 2
   call void @_ZN9tiny_skia6pixmap6Pixmap3new17hcd265c6525366ef5E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %20, i32 noundef %29, i32 noundef %30)
   %31 = load i64, ptr %20, align 8, !range !8, !noundef !7
-  %32 = icmp ne i64 %31, -9223372036854775808
-  br i1 %32, label %57, label %127
+  %32 = icmp eq i64 %31, -9223372036854775808
+  br i1 %32, label %127, label %57
 
 33:                                               ; preds = %4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -892,8 +891,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h3c7c22b86ba8
   br label %.thread133
 
 .thread133:                                       ; preds = %..loopexit_crit_edge.us, %.thread133.sink.split, %.lr.ph166.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit98
-  %.0 = phi i1 [ true, %.lr.ph166.split ], [ %32, %.thread133.sink.split ], [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit98 ], [ true, %..loopexit_crit_edge.us ]
-  ret i1 %.0
+  ret i1 false
 
 172:                                              ; preds = %54
   %173 = lshr exact i64 %50, 2
@@ -1116,8 +1114,8 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
   %24 = add i32 %22, 2
   call void @_ZN9tiny_skia6pixmap6Pixmap3new17hcd265c6525366ef5E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %14, i32 noundef %23, i32 noundef %24)
   %25 = load i64, ptr %14, align 8, !range !8, !noundef !7
-  %26 = icmp ne i64 %25, -9223372036854775808
-  br i1 %26, label %51, label %137
+  %26 = icmp eq i64 %25, -9223372036854775808
+  br i1 %26, label %137, label %51
 
 27:                                               ; preds = %4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1444,8 +1442,7 @@ define hidden noundef zeroext i1 @_ZN12typst_render12write_bitmap17h709fa1febefc
   br label %.thread126
 
 .thread126:                                       ; preds = %..loopexit_crit_edge.us, %.thread126.sink.split, %.lr.ph165.split, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit96
-  %.0 = phi i1 [ true, %.lr.ph165.split ], [ %26, %.thread126.sink.split ], [ true, %_ZN4core3cmp3Ord5clamp17h9a060355ad59a718E.exit96 ], [ true, %..loopexit_crit_edge.us ]
-  ret i1 %.0
+  ret i1 false
 
 182:                                              ; preds = %48
   %183 = lshr exact i64 %44, 2

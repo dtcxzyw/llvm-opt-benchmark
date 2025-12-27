@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [10 x i8] c"SUCCESS!\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -38,7 +38,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   store i32 0, ptr %4, align 4, !tbaa !4
   %12 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #10
   %.not19.i = icmp eq ptr %12, null
-  br i1 %.not19.i, label %.thread139, label %13
+  br i1 %.not19.i, label %.thread138, label %13
 
 13:                                               ; preds = %9
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #11
@@ -72,16 +72,16 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   br label %76
 
 28:                                               ; preds = %24
-  %.pr138 = load i8, ptr %11, align 1, !tbaa !8
-  %.not77 = icmp eq i8 %.pr138, 3
-  br i1 %.not77, label %.thread139, label %29
+  %.pr137 = load i8, ptr %11, align 1, !tbaa !8
+  %.not77 = icmp eq i8 %.pr137, 3
+  br i1 %.not77, label %.thread138, label %29
 
 29:                                               ; preds = %28
-  %30 = sext i8 %.pr138 to i32
+  %30 = sext i8 %.pr137 to i32
   %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef 115, i32 noundef %30, i32 noundef 3)
   br label %76
 
-.thread139:                                       ; preds = %9, %28
+.thread138:                                       ; preds = %9, %28
   store i32 0, ptr %4, align 4, !tbaa !4
   store i8 1, ptr %3, align 1, !tbaa !8
   store i8 2, ptr %10, align 1, !tbaa !8
@@ -90,7 +90,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   %.not19.i104 = icmp eq ptr %32, null
   br i1 %.not19.i104, label %38, label %33
 
-33:                                               ; preds = %.thread139
+33:                                               ; preds = %.thread138
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #11
   %35 = add i64 %34, -1
   %36 = icmp ult i64 %35, -2
@@ -100,8 +100,8 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   %stxncpy.char0 = load i8, ptr %32, align 1
   br label %38
 
-38:                                               ; preds = %.thread139, %37
-  %storemerge = phi i8 [ %stxncpy.char0, %37 ], [ 0, %.thread139 ]
+38:                                               ; preds = %.thread138, %37
+  %storemerge = phi i8 [ %stxncpy.char0, %37 ], [ 0, %.thread138 ]
   store i8 %storemerge, ptr %3, align 1
   %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 136, i32 noundef 0, i32 noundef 34)
   br label %76
@@ -194,9 +194,8 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   br label %76
 
 76:                                               ; preds = %75, %72, %67, %61, %57, %49, %38, %29, %25, %21, %17, %7
-  %.0 = phi i32 [ 0, %75 ], [ -1, %72 ], [ -1, %67 ], [ -1, %61 ], [ -1, %7 ], [ -1, %29 ], [ -1, %57 ], [ -1, %25 ], [ -1, %49 ], [ -1, %21 ], [ -1, %38 ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.0
+  ret i32 0
 }
 
 ; Function Attrs: nofree nounwind

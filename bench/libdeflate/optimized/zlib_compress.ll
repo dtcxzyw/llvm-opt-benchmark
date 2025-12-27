@@ -4,9 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i64 7, 1) i64 @libdeflate_zlib_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define noundef i64 @libdeflate_zlib_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp ult i64 %4, 7
-  br i1 %6, label %28, label %7
+  br i1 %6, label %27, label %7
 
 7:                                                ; preds = %5
   %8 = tail call i32 @libdeflate_get_compression_level(ptr noundef %0) #3
@@ -33,19 +33,17 @@ define range(i64 7, 1) i64 @libdeflate_zlib_compress(ptr noundef %0, ptr noundef
   %20 = add i64 %4, -6
   %21 = tail call i64 @libdeflate_deflate_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %19, i64 noundef %20) #3
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %28, label %23
+  br i1 %22, label %27, label %23
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %21
   %25 = tail call i32 @libdeflate_adler32(i32 noundef 1, ptr noundef %1, i64 noundef %2) #3
   %26 = tail call i32 @llvm.bswap.i32(i32 %25)
   store i32 %26, ptr %24, align 1
-  %27 = add nuw nsw i64 %21, 6
-  br label %28
+  br label %27
 
-28:                                               ; preds = %14, %5, %23
-  %.0 = phi i64 [ %27, %23 ], [ 0, %5 ], [ 0, %14 ]
-  ret i64 %.0
+27:                                               ; preds = %14, %5, %23
+  ret i64 0
 }
 
 declare i32 @libdeflate_get_compression_level(ptr noundef) local_unnamed_addr #1

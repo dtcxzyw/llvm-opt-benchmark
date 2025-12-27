@@ -481,8 +481,8 @@ define internal range(i32 0, 3) i32 @lj_cf_debug_getupvalue(ptr noundef %0) #0 {
   %2 = tail call i32 @lj_lib_checkint(ptr noundef %0, i32 noundef 2) #10
   %3 = tail call ptr @lj_lib_checkfunc(ptr noundef %0, i32 noundef 1) #10
   %4 = tail call ptr @lua_getupvalue(ptr noundef %0, i32 noundef 1, i32 noundef %2) #10
-  %.not1617.i = icmp eq ptr %4, null
-  br i1 %.not1617.i, label %debug_getupvalue.exit, label %5
+  %.not16.i = icmp eq ptr %4, null
+  br i1 %.not16.i, label %debug_getupvalue.exit, label %5
 
 5:                                                ; preds = %1
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %4) #10
@@ -502,7 +502,7 @@ debug_getupvalue.exit:                            ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @lj_cf_debug_setupvalue(ptr noundef %0) #0 {
+define internal range(i32 0, 3) i32 @lj_cf_debug_setupvalue(ptr noundef %0) #0 {
   %2 = tail call ptr @lj_lib_checkany(ptr noundef %0, i32 noundef 3) #10
   %3 = tail call i32 @lj_lib_checkint(ptr noundef %0, i32 noundef 2) #10
   %4 = tail call ptr @lj_lib_checkfunc(ptr noundef %0, i32 noundef 1) #10
@@ -512,10 +512,18 @@ define internal range(i32 0, 2) i32 @lj_cf_debug_setupvalue(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %5) #10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = load ptr, ptr %7, align 8, !tbaa !4
+  %9 = getelementptr inbounds i8, ptr %8, i64 -16
+  %10 = load i64, ptr %9, align 8, !tbaa !15
+  store i64 %10, ptr %8, align 8, !tbaa !15
+  %11 = load ptr, ptr %7, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %12, ptr %7, align 8, !tbaa !4
   br label %debug_getupvalue.exit
 
 debug_getupvalue.exit:                            ; preds = %1, %6
-  %.0.i = phi i32 [ 0, %1 ], [ 1, %6 ]
+  %.0.i = phi i32 [ 2, %6 ], [ 0, %1 ]
   ret i32 %.0.i
 }
 

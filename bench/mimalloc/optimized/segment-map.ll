@@ -33,7 +33,7 @@ define hidden void @_mi_segment_map_allocated_at(ptr noundef %0) local_unnamed_a
 
 16:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %17 = call ptr @_mi_os_alloc(i64 noundef 8088, ptr noundef nonnull %2) #5
+  %17 = call ptr @_mi_os_alloc(i64 noundef 8088, ptr noundef nonnull %2) #6
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.critedge.i, label %19
 
@@ -47,7 +47,7 @@ define hidden void @_mi_segment_map_allocated_at(ptr noundef %0) local_unnamed_a
 23:                                               ; preds = %19
   %24 = extractvalue { i64, i1 } %21, 0
   %25 = inttoptr i64 %24 to ptr
-  call void @_mi_os_free(ptr noundef nonnull %17, i64 noundef 8088, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %2) #5
+  call void @_mi_os_free(ptr noundef nonnull %17, i64 noundef 8088, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %2) #6
   br label %26
 
 26:                                               ; preds = %23, %19
@@ -132,7 +132,7 @@ mi_segment_map_index_of.exit.thread:              ; preds = %23, %8, %5, %1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @_mi_arena_contains(ptr noundef %0) #5
+  %2 = tail call zeroext i1 @_mi_arena_contains(ptr noundef %0) #6
   br i1 %2, label %mi_is_valid_pointer.exit, label %3
 
 3:                                                ; preds = %1
@@ -178,52 +178,49 @@ mi_is_valid_pointer.exit:                         ; preds = %1, %3, %5, %14, %mi
   ret i1 %31
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_map_unsafe_destroy() local_unnamed_addr #0 {
-  br label %2
+; Function Attrs: noreturn nounwind uwtable
+define hidden void @_mi_segment_map_unsafe_destroy() local_unnamed_addr #2 {
+  br label %1
 
-1:                                                ; preds = %7
-  ret void
+1:                                                ; preds = %6, %0
+  %.08 = phi i64 [ 0, %0 ], [ %7, %6 ]
+  %2 = getelementptr inbounds nuw ptr, ptr @mi_segment_map, i64 %.08
+  %3 = atomicrmw xchg ptr %2, i64 0 monotonic, align 8
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %6, label %4
 
-2:                                                ; preds = %0, %7
-  %.08 = phi i64 [ 0, %0 ], [ %8, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @mi_segment_map, i64 %.08
-  %4 = atomicrmw xchg ptr %3, i64 0 monotonic, align 8
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %7, label %5
+4:                                                ; preds = %1
+  %5 = inttoptr i64 %3 to ptr
+  tail call void @_mi_os_free(ptr noundef nonnull %5, i64 noundef 8088, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %5) #6
+  br label %6
 
-5:                                                ; preds = %2
-  %6 = inttoptr i64 %4 to ptr
-  tail call void @_mi_os_free(ptr noundef nonnull %6, i64 noundef 8088, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %6) #5
-  br label %7
-
-7:                                                ; preds = %5, %2
-  %8 = add nuw nsw i64 %.08, 1
-  %exitcond.not = icmp eq i64 %8, 196
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !21
+6:                                                ; preds = %4, %1
+  %7 = add nuw nsw i64 %.08, 1
+  br label %1
 }
 
-declare void @_mi_os_free(ptr noundef, i64 noundef, ptr noundef byval(%struct.mi_memid_s) align 8) local_unnamed_addr #2
+declare void @_mi_os_free(ptr noundef, i64 noundef, ptr noundef byval(%struct.mi_memid_s) align 8) local_unnamed_addr #3
 
-declare ptr @_mi_os_alloc(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_mi_os_alloc(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare zeroext i1 @_mi_arena_contains(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+declare zeroext i1 @_mi_arena_contains(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "no-builtin-malloc" }
+attributes #2 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind "no-builtin-malloc" }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -248,4 +245,3 @@ attributes #5 = { nounwind "no-builtin-malloc" }
 !18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
 !20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}

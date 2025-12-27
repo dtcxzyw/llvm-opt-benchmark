@@ -537,8 +537,7 @@ _ZN4absl12_GLOBAL__N_19IsNanCharEc.exit.thread:   ; preds = %.lr.ph
   br label %.critedge40
 
 .critedge40:                                      ; preds = %_ZN4absl12_GLOBAL__N_19IsNanCharEc.exit.thread, %37, %8, %29, %34, %48, %.critedge, %26, %20, %23, %10, %3
-  %.035 = phi i1 [ false, %26 ], [ true, %29 ], [ false, %3 ], [ false, %10 ], [ true, %20 ], [ true, %23 ], [ false, %8 ], [ true, %.critedge ], [ true, %48 ], [ true, %34 ], [ true, %37 ], [ true, %_ZN4absl12_GLOBAL__N_19IsNanCharEc.exit.thread ]
-  ret i1 %.035
+  ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

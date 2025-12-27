@@ -471,33 +471,24 @@ define internal noundef i32 @luaB_print(ptr noundef %0) #0 {
   %.not9 = icmp slt i32 %3, 1
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %8
-  %.010 = phi i32 [ %12, %8 ], [ 1, %1 ]
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %.010 = phi i32 [ %8, %.lr.ph ], [ 1, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = call ptr @luaL_tolstring(ptr noundef %0, i32 noundef %.010, ptr noundef nonnull %2) #9
-  %5 = icmp samesign ugt i32 %.010, 1
-  br i1 %5, label %6, label %8
-
-6:                                                ; preds = %.lr.ph
-  %7 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %fputc8 = call i32 @fputc(i32 9, ptr %7)
-  br label %8
-
-8:                                                ; preds = %6, %.lr.ph
-  %9 = load i64, ptr %2, align 8, !tbaa !9
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %11 = call i64 @fwrite(ptr noundef %4, i64 noundef 1, i64 noundef %9, ptr noundef %10)
+  %5 = load i64, ptr %2, align 8, !tbaa !9
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !11
+  %7 = call i64 @fwrite(ptr noundef %4, i64 noundef 1, i64 noundef %5, ptr noundef %6)
   call void @lua_settop(ptr noundef %0, i32 noundef -2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %12 = add nuw i32 %.010, 1
+  %8 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %.010, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %8, %1
-  %13 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %fputc = call i32 @fputc(i32 10, ptr %13)
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %15 = call i32 @fflush(ptr noundef %14)
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !11
+  %fputc = call i32 @fputc(i32 10, ptr %9)
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !11
+  %11 = call i32 @fflush(ptr noundef %10)
   ret i32 0
 }
 
@@ -511,7 +502,7 @@ define internal noundef i32 @luaB_warn(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.017 = phi i32 [ %5, %.lr.ph ], [ 2, %1 ]
   %4 = tail call ptr @luaL_checklstring(ptr noundef %0, i32 noundef %.017, ptr noundef null) #9
-  %5 = add nuw i32 %.017, 1
+  %5 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %.017, %2
   br i1 %exitcond.not, label %.lr.ph19, label %.lr.ph
 

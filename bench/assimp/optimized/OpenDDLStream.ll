@@ -170,16 +170,16 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 define hidden noundef zeroext i1 @_ZN10ODDLParser12IOStreamBase5closeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %7
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %6, label %4
 
-5:                                                ; preds = %1
-  %6 = tail call i32 @fclose(ptr noundef nonnull %3)
+4:                                                ; preds = %1
+  %5 = tail call i32 @fclose(ptr noundef nonnull %3)
   store ptr null, ptr %2, align 8
-  br label %7
+  br label %6
 
-7:                                                ; preds = %1, %5
-  ret i1 %4
+6:                                                ; preds = %1, %4
+  ret i1 false
 }
 
 ; Function Attrs: nofree nounwind
@@ -221,38 +221,31 @@ define hidden noundef i64 @_ZN10ODDLParser12IOStreamBase5writeERKNSt7__cxx1112ba
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %23, label %7
+  br i1 %6, label %21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-7:                                                ; preds = %2
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8
-  call void %12(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = load ptr, ptr %4, align 8
-  %17 = call i64 @fwrite(ptr noundef %13, i64 noundef 1, i64 noundef %15, ptr noundef %16)
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %20 = icmp eq ptr %18, %19
-  br i1 %20, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %7
-  %21 = load i64, ptr %19, align 8
-  %22 = add i64 %21, 1
-  call void @_ZdlPvm(ptr noundef %18, i64 noundef %22) #12
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = call i64 @fwrite(ptr noundef %12, i64 noundef 1, i64 noundef %14, ptr noundef %15)
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %19 = load i64, ptr %18, align 8
+  %20 = add i64 %19, 1
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %20) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %23
+  br label %21
 
-23:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi i64 [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %2 ]
+21:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.0 = phi i64 [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %2 ]
   ret i64 %.0
 }
 

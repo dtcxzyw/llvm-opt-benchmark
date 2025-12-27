@@ -1317,7 +1317,6 @@ define hidden void @_ZN11wasmi_c_api5types6export17wasm_exporttype_t3new17hbf1c2
 
 10:                                               ; preds = %.body, %14
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %15, %14 ]
-  %.sroa.0.0 = phi i1 [ %.sroa.0.1, %.body ], [ true, %14 ]
   %11 = load i8, ptr %2, align 8, !range !89, !alias.scope !90, !noundef !3
   %12 = icmp samesign ult i8 %11, 2
   br i1 %12, label %13, label %"_ZN4core3ptr60drop_in_place$LT$wasmi_c_api..types..extern..CExternType$GT$17h19d73a0510156968E.exit"
@@ -1483,7 +1482,6 @@ define hidden void @_ZN11wasmi_c_api5types6export17wasm_exporttype_t3new17hbf1c2
 
 .body:                                            ; preds = %42, %63
   %.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn.i, %42 ]
-  %.sroa.0.1 = phi i1 [ false, %63 ], [ true, %42 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$wasmi_c_api..vec..wasm_byte_vec_t$GT$17h26ce592068239181E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #19
           to label %10 unwind label %73
 
@@ -1540,21 +1538,14 @@ define hidden void @_ZN11wasmi_c_api5types6export17wasm_exporttype_t3new17hbf1c2
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-73:                                               ; preds = %13, %76, %63, %.body
+73:                                               ; preds = %13, %63, %.body
   %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable
 
-"_ZN4core3ptr60drop_in_place$LT$wasmi_c_api..types..extern..CExternType$GT$17h19d73a0510156968E.exit": ; preds = %10, %13
-  br i1 %.sroa.0.0, label %76, label %75
-
-75:                                               ; preds = %76, %"_ZN4core3ptr60drop_in_place$LT$wasmi_c_api..types..extern..CExternType$GT$17h19d73a0510156968E.exit"
+"_ZN4core3ptr60drop_in_place$LT$wasmi_c_api..types..extern..CExternType$GT$17h19d73a0510156968E.exit": ; preds = %13, %10
   resume { ptr, i32 } %.pn.pn
-
-76:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$wasmi_c_api..types..extern..CExternType$GT$17h19d73a0510156968E.exit"
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h1d3384f7051f5cb1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #19
-          to label %75 unwind label %73
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

@@ -248,7 +248,6 @@ default.unreachable131:                           ; preds = %129, %105, %59, %29
   %87 = call i64 %84(ptr noundef nonnull %85, i64 noundef %86, ptr noundef %2, i64 noundef %3, i32 noundef 255, i32 noundef 11, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %13, i32 noundef %82) #6, !callees !12
   %88 = load i32, ptr %13, align 4, !tbaa !8
   %.not99 = icmp eq i32 %88, 0
-  %.089 = select i1 %.not99, i32 2, i32 3
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %89 = call i32 @llvm.umax.i32(i32 %8, i32 7)
   %90 = add i32 %89, -1
@@ -345,61 +344,57 @@ allBytesIdentical.exit:                           ; preds = %.lr.ph.i, %ZSTD_noC
   br label %129
 
 129:                                              ; preds = %127, %allBytesIdentical.exit
+  %130 = trunc i64 %87 to i32
   switch i64 %18, label %default.unreachable131 [
-    i64 3, label %130
+    i64 3, label %131
     i64 4, label %143
-    i64 5, label %151
+    i64 5, label %149
   ]
 
-130:                                              ; preds = %129
-  %131 = select i1 %spec.select, i32 4, i32 0
-  %132 = trunc i64 %3 to i32
-  %133 = shl i32 %132, 4
-  %134 = or disjoint i32 %131, %133
-  %135 = trunc i64 %87 to i32
-  %136 = shl i32 %135, 14
-  %137 = add i32 %134, %136
-  %138 = or disjoint i32 %137, %.089
+131:                                              ; preds = %129
+  %132 = select i1 %spec.select, i32 4, i32 0
+  %133 = trunc i64 %3 to i32
+  %134 = shl i32 %133, 4
+  %135 = shl i32 %130, 14
+  %136 = or disjoint i32 %134, %132
+  %137 = or disjoint i32 %136, 3
+  %138 = add i32 %137, %135
   %139 = trunc i32 %138 to i16
   store i16 %139, ptr %0, align 1, !tbaa !6
-  %140 = lshr i32 %137, 16
+  %140 = lshr i32 %138, 16
   %141 = trunc i32 %140 to i8
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %141, ptr %142, align 1, !tbaa !3
-  br label %162
+  br label %158
 
 143:                                              ; preds = %129
   %144 = trunc i64 %3 to i32
   %145 = shl i32 %144, 4
-  %146 = trunc i64 %87 to i32
-  %147 = shl i32 %146, 18
-  %148 = or disjoint i32 %145, 8
-  %149 = add i32 %148, %147
-  %150 = or disjoint i32 %149, %.089
-  store i32 %150, ptr %0, align 1, !tbaa !8
-  br label %162
+  %146 = or disjoint i32 %145, 11
+  %147 = shl i32 %130, 18
+  %148 = add i32 %146, %147
+  store i32 %148, ptr %0, align 1, !tbaa !8
+  br label %158
 
-151:                                              ; preds = %129
-  %152 = trunc i64 %3 to i32
-  %153 = shl i32 %152, 4
-  %154 = trunc i64 %87 to i32
-  %155 = shl i32 %154, 22
-  %156 = or disjoint i32 %153, 12
-  %157 = add i32 %156, %155
-  %158 = or disjoint i32 %157, %.089
-  store i32 %158, ptr %0, align 1, !tbaa !8
-  %159 = lshr i64 %87, 10
-  %160 = trunc i64 %159 to i8
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %160, ptr %161, align 1, !tbaa !3
-  br label %162
+149:                                              ; preds = %129
+  %150 = trunc i64 %3 to i32
+  %151 = shl i32 %150, 4
+  %152 = or disjoint i32 %151, 15
+  %153 = shl i32 %130, 22
+  %154 = add i32 %152, %153
+  store i32 %154, ptr %0, align 1, !tbaa !8
+  %155 = lshr i64 %87, 10
+  %156 = trunc i64 %155 to i8
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %156, ptr %157, align 1, !tbaa !3
+  br label %158
 
-162:                                              ; preds = %130, %143, %151
-  %163 = add i64 %87, %18
+158:                                              ; preds = %131, %143, %149
+  %159 = add i64 %87, %18
   br label %ZSTD_noCompressLiterals.exit
 
-ZSTD_noCompressLiterals.exit:                     ; preds = %114, %96, %68, %50, %38, %20, %70, %162, %allBytesIdentical.exit.thread
-  %.0 = phi i64 [ -70, %70 ], [ -70, %20 ], [ -70, %50 ], [ %126, %allBytesIdentical.exit.thread ], [ %163, %162 ], [ %27, %38 ], [ %57, %68 ], [ -70, %96 ], [ %103, %114 ]
+ZSTD_noCompressLiterals.exit:                     ; preds = %114, %96, %68, %50, %38, %20, %70, %158, %allBytesIdentical.exit.thread
+  %.0 = phi i64 [ -70, %70 ], [ -70, %20 ], [ -70, %50 ], [ %126, %allBytesIdentical.exit.thread ], [ %159, %158 ], [ %27, %38 ], [ %57, %68 ], [ -70, %96 ], [ %103, %114 ]
   ret i64 %.0
 }
 
