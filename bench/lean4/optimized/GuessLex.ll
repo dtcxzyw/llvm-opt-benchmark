@@ -187952,8 +187952,8 @@ lean_obj_tag.exit:                                ; preds = %138, %141
   br label %lean_dec.exit660
 
 lean_dec.exit660:                                 ; preds = %166, %165, %163, %157
-  %cond = icmp eq i8 %154, 1
-  br i1 %cond, label %213, label %167
+  %cond1075 = icmp eq i8 %154, 1
+  br i1 %cond1075, label %213, label %167
 
 167:                                              ; preds = %lean_dec.exit660
   %168 = getelementptr inbounds nuw i8, ptr %135, i64 8
@@ -188295,8 +188295,8 @@ lean_dec.exit649:                                 ; preds = %269, %268, %266, %l
   br label %lean_dec.exit648
 
 lean_dec.exit648:                                 ; preds = %281, %280, %278, %273
-  %cond1073 = icmp eq i8 %271, 1
-  br i1 %cond1073, label %333, label %282
+  %cond1074 = icmp eq i8 %271, 1
+  br i1 %cond1074, label %333, label %282
 
 282:                                              ; preds = %lean_dec.exit648
   %283 = ptrtoint ptr %90 to i64
@@ -189236,8 +189236,8 @@ lean_dec_ref.exit847:                             ; preds = %593, %592, %590, %l
   br label %lean_dec.exit626
 
 lean_dec.exit626:                                 ; preds = %607, %606, %604, %599
-  %cond1074 = icmp eq i8 %595, 1
-  br i1 %cond1074, label %669, label %608
+  %cond1073 = icmp eq i8 %595, 1
+  br i1 %cond1073, label %669, label %608
 
 608:                                              ; preds = %lean_dec.exit626
   %609 = ptrtoint ptr %90 to i64
@@ -190507,8 +190507,8 @@ lean_dec_ref.exit841:                             ; preds = %1038, %1037, %1035,
   br label %lean_dec.exit602
 
 lean_dec.exit602:                                 ; preds = %1052, %1051, %1049, %1044
-  %cond1075 = icmp eq i8 %1040, 1
-  br i1 %cond1075, label %1122, label %1053
+  %cond = icmp eq i8 %1040, 1
+  br i1 %cond, label %1122, label %1053
 
 1053:                                             ; preds = %lean_dec.exit602
   br i1 %.not1077, label %1054, label %lean_dec.exit601

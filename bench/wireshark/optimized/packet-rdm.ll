@@ -1690,14 +1690,14 @@ dissect_rdm_mdb.exit:                             ; preds = %8, %63, %64, %66, %
   %85 = icmp ult i32 %reass.sub, 2147483647
   br i1 %85, label %86, label %91
 
-86:                                               ; preds = %dissect_rdm_mdb.exit
+.thread:                                          ; preds = %dissect_rdm_mdb.exit
   %87 = add nuw nsw i32 %reass.sub, 1
-  %88 = load i32, ptr @hf_rdm_intron, align 4
+  %87 = load i32, ptr @hf_rdm_intron, align 4
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %88, ptr noundef %0, i32 noundef %.1.i, i32 noundef %87, i32 noundef 0)
   %90 = add i32 %87, %.1.i
   br label %91
 
-91:                                               ; preds = %86, %dissect_rdm_mdb.exit
+91:; preds = %.thread, %dissect_rdm_mdb.exit
   %.0 = phi i32 [ %90, %86 ], [ %.1.i, %dissect_rdm_mdb.exit ]
   %92 = load i32, ptr @hf_rdm_checksum, align 4
   %93 = load i32, ptr @hf_rdm_checksum_status, align 4
@@ -1706,7 +1706,7 @@ dissect_rdm_mdb.exit:                             ; preds = %8, %63, %64, %66, %
 
 .lr.ph.i:                                         ; preds = %91, %.lr.ph.i
   %.08.i = phi i32 [ %97, %.lr.ph.i ], [ 0, %91 ]
-  %.067.i = phi i16 [ %96, %.lr.ph.i ], [ 204, %91 ]
+  %95 = phi i16 [ %96, %.lr.ph.i ], [ 204, %91 ]
   %94 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.08.i)
   %95 = zext i8 %94 to i16
   %96 = add i16 %.067.i, %95
@@ -1715,23 +1715,23 @@ dissect_rdm_mdb.exit:                             ; preds = %8, %63, %64, %66, %
   br i1 %exitcond.not.i, label %rdm_checksum.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 rdm_checksum.exit.loopexit:                       ; preds = %.lr.ph.i
-  %98 = zext i16 %96 to i32
+  %101 = zext i16 %96 to i32
   br label %rdm_checksum.exit
 
 rdm_checksum.exit:                                ; preds = %rdm_checksum.exit.loopexit, %91
-  %.06.lcssa.i = phi i32 [ 204, %91 ], [ %98, %rdm_checksum.exit.loopexit ]
+  %102 = phi i32 [ 204, %91 ], [ %98, %rdm_checksum.exit.loopexit ]
   %99 = tail call ptr @proto_tree_add_checksum(ptr noundef %12, ptr noundef %0, i32 noundef %.0, i32 noundef %92, i32 noundef %93, ptr noundef nonnull @ei_rdm_checksum, ptr noundef %1, i32 noundef %.06.lcssa.i, i32 noundef 0, i32 noundef 1)
   %100 = add i32 %.0, 2
   %101 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %102 = icmp ult i32 %100, %101
   br i1 %102, label %103, label %106
 
-103:                                              ; preds = %rdm_checksum.exit
+103:; preds = %rdm_checksum.exit
   %104 = load i32, ptr @hf_rdm_trailer, align 4
   %105 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %104, ptr noundef %0, i32 noundef %100, i32 noundef -1, i32 noundef 0)
   br label %106
 
-106:                                              ; preds = %rdm_checksum.exit, %103, %4
+106:; preds = %rdm_checksum.exit, %103, %4
   %107 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %107
 }
