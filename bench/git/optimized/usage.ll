@@ -215,7 +215,7 @@ define internal fastcc noundef nonnull ptr @fmt_with_err(ptr noundef nonnull ret
   br i1 %.not, label %12, label %.backedge
 
 12:                                               ; preds = %.lr.ph
-  %13 = icmp samesign ult i64 %.017, 254
+  %13 = icmp ult i64 %.017, 254
   br i1 %13, label %14, label %._crit_edge
 
 14:                                               ; preds = %12
@@ -296,7 +296,7 @@ define dso_local noundef i32 @die_message_errno(ptr noundef %0, ...) local_unnam
   br i1 %.not.i, label %13, label %.backedge.i
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = icmp samesign ult i64 %.017.i, 254
+  %14 = icmp ult i64 %.017.i, 254
   br i1 %14, label %15, label %fmt_with_err.exit
 
 15:                                               ; preds = %13
@@ -368,7 +368,7 @@ define dso_local noundef i32 @error_errno(ptr noundef %0, ...) local_unnamed_add
   br i1 %.not.i, label %14, label %.backedge.i
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = icmp samesign ult i64 %.017.i, 254
+  %15 = icmp ult i64 %.017.i, 254
   br i1 %15, label %16, label %fmt_with_err.exit
 
 16:                                               ; preds = %14
@@ -440,7 +440,7 @@ define dso_local void @warning_errno(ptr noundef %0, ...) local_unnamed_addr #5 
   br i1 %.not.i, label %14, label %.backedge.i
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = icmp samesign ult i64 %.017.i, 254
+  %15 = icmp ult i64 %.017.i, 254
   br i1 %15, label %16, label %fmt_with_err.exit
 
 16:                                               ; preds = %14

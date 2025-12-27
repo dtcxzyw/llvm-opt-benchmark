@@ -84,7 +84,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @busmaster_parse(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @busmaster_parse(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   store ptr %0, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -381,41 +381,38 @@ busmaster_find_priv_entry.exit.thread:            ; preds = %19, %5, %busmaster_
   store i32 -13, ptr %3, align 4
   %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3)
   store ptr %22, ptr %4, align 8
-  br label %39
+  br label %37
 
 23:                                               ; preds = %busmaster_find_priv_entry.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @file_seek(ptr noundef %25, i64 noundef %1, i32 noundef 0, ptr noundef %3)
   %27 = icmp eq i64 %26, -1
-  br i1 %27, label %39, label %28
+  br i1 %27, label %37, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   %30 = load ptr, ptr %24, align 8
   %31 = call fastcc i32 @busmaster_parse(ptr noundef %30, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %4)
-  %32 = add i32 %31, 1
-  %or.cond = icmp ult i32 %32, 2
-  br i1 %or.cond, label %39, label %33
+  switch i32 %31, label %32 [
+    i32 -1, label %37
+    i32 5, label %34
+  ]
 
-33:                                               ; preds = %28
-  %.not24 = icmp eq i32 %31, 5
-  br i1 %.not24, label %36, label %34
-
-34:                                               ; preds = %33
+32:                                               ; preds = %28
   store i32 -13, ptr %3, align 4
-  %35 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.4)
-  store ptr %35, ptr %4, align 8
-  br label %39
+  %33 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.4)
+  store ptr %33, ptr %4, align 8
+  br label %37
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %38 = call fastcc zeroext i1 @busmaster_gen_packet(ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %37, ptr noundef %3, ptr noundef %4)
-  br label %39
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  %36 = call fastcc zeroext i1 @busmaster_gen_packet(ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %35, ptr noundef %3, ptr noundef %4)
+  br label %37
 
-39:                                               ; preds = %28, %23, %36, %34, %busmaster_find_priv_entry.exit.thread
-  %.0 = phi i1 [ false, %busmaster_find_priv_entry.exit.thread ], [ false, %23 ], [ false, %34 ], [ %38, %36 ], [ false, %28 ]
+37:                                               ; preds = %28, %23, %34, %32, %busmaster_find_priv_entry.exit.thread
+  %.0 = phi i1 [ false, %busmaster_find_priv_entry.exit.thread ], [ false, %23 ], [ false, %32 ], [ %36, %34 ], [ false, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

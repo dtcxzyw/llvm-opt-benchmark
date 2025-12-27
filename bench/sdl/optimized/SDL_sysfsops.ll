@@ -208,7 +208,7 @@ define hidden zeroext i1 @SDL_SYS_CopyFile(ptr noundef %0, ptr noundef %1) local
 6:                                                ; preds = %4
   %7 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 4096) #7
   %.not29 = icmp eq ptr %7, null
-  br i1 %.not29, label %.thread55.sink.split, label %.preheader
+  br i1 %.not29, label %.thread.thread75, label %.preheader
 
 .preheader:                                       ; preds = %6, %9
   %8 = tail call i64 @SDL_ReadIO_REAL(ptr noundef nonnull %3, ptr noundef nonnull %7, i64 noundef 4096) #7
@@ -218,12 +218,12 @@ define hidden zeroext i1 @SDL_SYS_CopyFile(ptr noundef %0, ptr noundef %1) local
 9:                                                ; preds = %.preheader
   %10 = tail call i64 @SDL_WriteIO_REAL(ptr noundef nonnull %5, ptr noundef nonnull %7, i64 noundef %8) #7
   %11 = icmp ult i64 %10, %8
-  br i1 %11, label %.thread55.sink.split, label %.preheader, !llvm.loop !6
+  br i1 %11, label %.thread.thread75, label %.preheader, !llvm.loop !6
 
 12:                                               ; preds = %.preheader
   %13 = tail call i32 @SDL_GetIOStatus_REAL(ptr noundef nonnull %3) #7
   %.not31 = icmp eq i32 %13, 2
-  br i1 %.not31, label %14, label %.thread55.sink.split
+  br i1 %.not31, label %14, label %.thread.thread75
 
 14:                                               ; preds = %12
   %15 = tail call zeroext i1 @SDL_CloseIO_REAL(ptr noundef nonnull %3) #7
@@ -232,12 +232,12 @@ define hidden zeroext i1 @SDL_SYS_CopyFile(ptr noundef %0, ptr noundef %1) local
   %. = select i1 %16, i1 %17, i1 false
   br label %.thread.thread
 
-.thread55.sink.split:                             ; preds = %9, %6, %12
+.thread.thread75:                                 ; preds = %9, %12, %6
   %18 = tail call zeroext i1 @SDL_CloseIO_REAL(ptr noundef nonnull %5) #7
   br label %.thread55
 
-.thread55:                                        ; preds = %.thread55.sink.split, %4
-  %.0204062 = phi ptr [ null, %4 ], [ %7, %.thread55.sink.split ]
+.thread55:                                        ; preds = %4, %.thread.thread75
+  %.0204062 = phi ptr [ %7, %.thread.thread75 ], [ null, %4 ]
   %19 = tail call zeroext i1 @SDL_CloseIO_REAL(ptr noundef nonnull %3) #7
   br label %.thread.thread
 
