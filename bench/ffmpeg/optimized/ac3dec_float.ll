@@ -6039,7 +6039,7 @@ do_rematrixing.exit.i:                            ; preds = %.loopexit.i679.i, %
   br i1 %exitcond227.not.i.i, label %.loopexit.i686.i, label %3240, !llvm.loop !230
 
 .loopexit.i686.i:                                 ; preds = %._crit_edge183.i.i, %._crit_edge160.i.i, %3165
-  %3279 = phi i32 [ %3183, %._crit_edge160.i.i ], [ %3166, %3165 ], [ %3183, %._crit_edge183.i.i ]
+  %3279 = phi i32 [ %3166, %3165 ], [ %3183, %._crit_edge160.i.i ], [ %3183, %._crit_edge183.i.i ]
   %indvars.iv.next229.i.i = add nuw nsw i64 %indvars.iv228.i.i, 1
   %3280 = load i32, ptr %85, align 4, !tbaa !82
   %3281 = sext i32 %3280 to i64

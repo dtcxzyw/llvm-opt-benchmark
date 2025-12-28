@@ -14913,7 +14913,7 @@ zend_string_addref.exit115:                       ; preds = %278
   br label %_zend_hash_add_or_update_i.exit
 
 _zend_hash_add_or_update_i.exit:                  ; preds = %272, %286
-  %.1.i = phi ptr [ %266, %272 ], [ %293, %286 ]
+  %.1.i = phi ptr [ %293, %286 ], [ %266, %272 ]
   br i1 %.not125, label %_zend_hash_add_or_update_i.exit.thread, label %_zend_hash_add_or_update_i.exit.thread.sink.split
 
 307:                                              ; preds = %208
