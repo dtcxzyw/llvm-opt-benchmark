@@ -19647,7 +19647,7 @@ search_method.exit:                               ; preds = %36, %30, %._crit_ed
   br label %prepare_callable_method_entry.exit
 
 prepare_callable_method_entry.exit:               ; preds = %42, %52, %.thread27.i, %66
-  %.020.i = phi ptr [ %59, %66 ], [ %.1.i.i, %42 ], [ %54, %52 ], [ %59, %.thread27.i ]
+  %.020.i = phi ptr [ %59, %.thread27.i ], [ %.1.i.i, %42 ], [ %54, %52 ], [ %59, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %83
 
@@ -20307,7 +20307,7 @@ method_entry_resolve_refinement.exit.cont:        ; preds = %method_entry_resolv
   br label %prepare_callable_method_entry.exit
 
 prepare_callable_method_entry.exit:               ; preds = %method_entry_resolve_refinement.exit.cont, %89, %99, %.thread27.i, %113
-  %.020.i = phi ptr [ %106, %.thread27.i ], [ %.0.i93, %89 ], [ %101, %99 ], [ %106, %113 ], [ null, %method_entry_resolve_refinement.exit.cont ]
+  %.020.i = phi ptr [ %106, %113 ], [ %.0.i93, %89 ], [ %101, %99 ], [ %106, %.thread27.i ], [ null, %method_entry_resolve_refinement.exit.cont ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.020.i
 }
