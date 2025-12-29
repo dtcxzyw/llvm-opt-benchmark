@@ -3461,11 +3461,11 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaOpen(ptr noundef readonly ca
   br label %16
 
 16:                                               ; preds = %14, %7
-  %.025.in = phi ptr [ %15, %14 ], [ %13, %7 ]
-  %.025 = load ptr, ptr %.025.in, align 8, !tbaa !114
+  %.021.in = phi ptr [ %15, %14 ], [ %13, %7 ]
+  %.021 = load ptr, ptr %.021.in, align 8, !tbaa !114
   %17 = xor i32 %2, 1
   %18 = load i32, ptr @busyRetries_, align 4
-  %19 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.025, i32 noundef range(i32 0, 2) %17, i32 noundef 1) #27, !callees !165
+  %19 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.021, i32 noundef range(i32 0, 2) %17, i32 noundef 1) #27, !callees !165
   %20 = icmp sgt i32 %18, 0
   %21 = icmp eq i32 %19, -16
   %22 = select i1 %20, i1 %21, i1 false
@@ -3474,7 +3474,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaOpen(ptr noundef readonly ca
 .lr.ph.split.i:                                   ; preds = %16, %.lr.ph.split.i
   %.01617.i = phi i32 [ %24, %.lr.ph.split.i ], [ 0, %16 ]
   tail call void @Pa_Sleep(i64 noundef 10) #27
-  %23 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.025, i32 noundef range(i32 0, 2) %17, i32 noundef 1) #27, !callees !165
+  %23 = tail call i32 @snd_pcm_open(ptr noundef nonnull %3, ptr noundef %.021, i32 noundef range(i32 0, 2) %17, i32 noundef 1) #27, !callees !165
   %24 = add nuw nsw i32 %.01617.i, 1
   %25 = icmp sgt i32 %18, %24
   %26 = icmp eq i32 %23, -16
@@ -3488,36 +3488,35 @@ OpenPcm.exit:                                     ; preds = %.lr.ph.split.i, %16
 
 29:                                               ; preds = %OpenPcm.exit
   store ptr null, ptr %3, align 8, !tbaa !153
+  tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.98) #27
   %30 = icmp eq i32 %.0.lcssa.i, -16
   %31 = select i1 %30, i32 -9985, i32 -9993
-  br label %.sink.split
+  br label %43
 
 32:                                               ; preds = %OpenPcm.exit
   %33 = load ptr, ptr %3, align 8, !tbaa !153
   %34 = tail call i32 @snd_pcm_nonblock(ptr noundef %33, i32 noundef 0) #27, !callees !169
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %42, !prof !9
+  br i1 %35, label %36, label %43, !prof !9
 
 36:                                               ; preds = %32
   %37 = tail call i64 @pthread_self() #30
   %38 = load i64, ptr @paUnixMainThread, align 8, !tbaa !108
-  %.not30 = icmp eq i64 %37, %38
-  br i1 %.not30, label %39, label %.sink.split
+  %.not26 = icmp eq i64 %37, %38
+  br i1 %.not26, label %39, label %42
 
 39:                                               ; preds = %36
   %40 = sext i32 %34 to i64
   %41 = tail call ptr @snd_strerror(i32 noundef %34) #27, !callees !109
   tail call void @PaUtil_SetLastHostErrorInfo(i32 noundef 8, i64 noundef %40, ptr noundef %41) #27
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %36, %39, %29
-  %.str.98.sink = phi ptr [ @.str.98, %29 ], [ @.str.99, %39 ], [ @.str.99, %36 ]
-  %.3.ph = phi i32 [ %31, %29 ], [ -9999, %39 ], [ -9999, %36 ]
-  tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull %.str.98.sink) #27
   br label %42
 
-42:                                               ; preds = %.sink.split, %32
-  %.3 = phi i32 [ 0, %32 ], [ %.3.ph, %.sink.split ]
+42:                                               ; preds = %39, %36
+  tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.99) #27
+  br label %43
+
+43:                                               ; preds = %29, %32, %42
+  %.3 = phi i32 [ %31, %29 ], [ -9999, %42 ], [ 0, %32 ]
   ret i32 %.3
 }
 
