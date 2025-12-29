@@ -3059,7 +3059,7 @@ switch.lookup:                                    ; preds = %173
   br label %_get_tres_state_reason.exit
 
 _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %193, %186, %178
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %spec.select306, %193 ], [ 100, %178 ], [ 106, %186 ]
+  %.0.i = phi i32 [ 100, %178 ], [ %spec.select306, %193 ], [ %switch.load, %switch.lookup ], [ 106, %186 ]
   store i32 %.0.i, ptr %23, align 8
   %201 = call i32 @get_log_level() #15
   %202 = icmp sgt i32 %201, 5
@@ -3133,7 +3133,7 @@ switch.lookup606:                                 ; preds = %221
   br label %_get_tres_state_reason.exit206
 
 _get_tres_state_reason.exit206:                   ; preds = %switch.lookup606, %241, %234, %226
-  %.0.i202 = phi i32 [ %switch.load608, %switch.lookup606 ], [ %spec.select307, %241 ], [ 100, %226 ], [ 106, %234 ]
+  %.0.i202 = phi i32 [ %spec.select307, %241 ], [ 100, %226 ], [ %switch.load608, %switch.lookup606 ], [ 106, %234 ]
   store i32 %.0.i202, ptr %23, align 8
   %249 = call i32 @get_log_level() #15
   %250 = icmp sgt i32 %249, 5
@@ -3207,7 +3207,7 @@ switch.lookup609:                                 ; preds = %269
   br label %_get_tres_state_reason.exit211
 
 _get_tres_state_reason.exit211:                   ; preds = %switch.lookup609, %289, %282, %274
-  %.0.i207 = phi i32 [ 100, %274 ], [ %switch.load611, %switch.lookup609 ], [ %spec.select308, %289 ], [ 106, %282 ]
+  %.0.i207 = phi i32 [ %spec.select308, %289 ], [ %switch.load611, %switch.lookup609 ], [ 100, %274 ], [ 106, %282 ]
   store i32 %.0.i207, ptr %23, align 8
   %297 = call i32 @get_log_level() #15
   %298 = icmp sgt i32 %297, 5
@@ -3967,7 +3967,7 @@ switch.lookup:                                    ; preds = %77
   br label %_get_tres_state_reason.exit
 
 _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %96, %89, %81
-  %.0.i = phi i32 [ %spec.select, %96 ], [ %switch.load, %switch.lookup ], [ 153, %89 ], [ 145, %81 ]
+  %.0.i = phi i32 [ 153, %89 ], [ %switch.load, %switch.lookup ], [ %spec.select, %96 ], [ 145, %81 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i, ptr %104, align 8
   %105 = call i32 @get_log_level() #15
@@ -4035,7 +4035,7 @@ switch.lookup444:                                 ; preds = %119
   br label %_get_tres_state_reason.exit255
 
 _get_tres_state_reason.exit255:                   ; preds = %switch.lookup444, %138, %131, %123
-  %.0.i251 = phi i32 [ 153, %131 ], [ %switch.load446, %switch.lookup444 ], [ 145, %123 ], [ %spec.select323, %138 ]
+  %.0.i251 = phi i32 [ 145, %123 ], [ %switch.load446, %switch.lookup444 ], [ %spec.select323, %138 ], [ 153, %131 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i251, ptr %146, align 8
   %147 = call i32 @get_log_level() #15
@@ -4272,7 +4272,7 @@ switch.lookup450:                                 ; preds = %252
   br label %_get_tres_state_reason.exit265
 
 _get_tres_state_reason.exit265:                   ; preds = %switch.lookup450, %270, %263, %255
-  %.0.i261 = phi i32 [ %switch.load452, %switch.lookup450 ], [ 144, %255 ], [ 152, %263 ], [ %spec.select325, %270 ]
+  %.0.i261 = phi i32 [ 152, %263 ], [ %switch.load452, %switch.lookup450 ], [ %spec.select325, %270 ], [ 144, %255 ]
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i261, ptr %277, align 8
   %278 = call i32 @get_log_level() #15
@@ -4341,7 +4341,7 @@ switch.lookup453:                                 ; preds = %292
   br label %_get_tres_state_reason.exit270
 
 _get_tres_state_reason.exit270:                   ; preds = %switch.lookup453, %310, %303, %295
-  %.0.i266 = phi i32 [ %switch.load455, %switch.lookup453 ], [ 152, %303 ], [ 144, %295 ], [ %spec.select326, %310 ]
+  %.0.i266 = phi i32 [ 152, %303 ], [ %switch.load455, %switch.lookup453 ], [ 144, %295 ], [ %spec.select326, %310 ]
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 %.0.i266, ptr %317, align 8
   %318 = call i32 @get_log_level() #15
@@ -10073,7 +10073,7 @@ switch.lookup28:                                  ; preds = %271
   br label %_get_tres_state_reason.exit250
 
 _get_tres_state_reason.exit250:                   ; preds = %switch.lookup28, %288, %281, %273
-  %.0.i246 = phi i32 [ 100, %273 ], [ %spec.select353, %288 ], [ %switch.load30, %switch.lookup28 ], [ 106, %281 ]
+  %.0.i246 = phi i32 [ %switch.load30, %switch.lookup28 ], [ %spec.select353, %288 ], [ 100, %273 ], [ 106, %281 ]
   store i32 %.0.i246, ptr %5, align 4
   br label %295
 
@@ -10248,7 +10248,7 @@ switch.lookup31:                                  ; preds = %358
   br label %_get_tres_state_reason.exit275
 
 _get_tres_state_reason.exit275:                   ; preds = %switch.lookup31, %375, %368, %360
-  %.0.i271 = phi i32 [ %spec.select354, %375 ], [ %switch.load33, %switch.lookup31 ], [ 107, %368 ], [ 101, %360 ]
+  %.0.i271 = phi i32 [ 107, %368 ], [ %switch.load33, %switch.lookup31 ], [ %spec.select354, %375 ], [ 101, %360 ]
   store i32 %.0.i271, ptr %5, align 4
   br label %382
 
@@ -10508,7 +10508,7 @@ switch.lookup34:                                  ; preds = %488
   br label %_get_tres_state_reason.exit295
 
 _get_tres_state_reason.exit295:                   ; preds = %switch.lookup34, %505, %498, %490
-  %.0.i291 = phi i32 [ 102, %490 ], [ 108, %498 ], [ %switch.load36, %switch.lookup34 ], [ %spec.select355, %505 ]
+  %.0.i291 = phi i32 [ 102, %490 ], [ %switch.load36, %switch.lookup34 ], [ 108, %498 ], [ %spec.select355, %505 ]
   store i32 %.0.i291, ptr %5, align 4
   br label %513
 
@@ -10988,7 +10988,7 @@ switch.lookup:                                    ; preds = %55
   br label %_get_tres_state_reason.exit
 
 _get_tres_state_reason.exit:                      ; preds = %switch.lookup, %71, %64, %57
-  %.0.i = phi i32 [ 171, %57 ], [ %switch.load, %switch.lookup ], [ 173, %64 ], [ %spec.select, %71 ]
+  %.0.i = phi i32 [ 173, %64 ], [ 171, %57 ], [ %switch.load, %switch.lookup ], [ %spec.select, %71 ]
   store i32 %.0.i, ptr %5, align 4
   br label %78
 
@@ -11092,7 +11092,7 @@ switch.lookup559:                                 ; preds = %118
   br label %_get_tres_state_reason.exit289
 
 _get_tres_state_reason.exit289:                   ; preds = %switch.lookup559, %134, %127, %120
-  %.0.i285 = phi i32 [ %spec.select425, %134 ], [ 156, %127 ], [ %switch.load561, %switch.lookup559 ], [ 149, %120 ]
+  %.0.i285 = phi i32 [ 156, %127 ], [ %switch.load561, %switch.lookup559 ], [ 149, %120 ], [ %spec.select425, %134 ]
   store i32 %.0.i285, ptr %5, align 4
   br label %142
 
@@ -11171,7 +11171,7 @@ switch.lookup562:                                 ; preds = %165
   br label %_get_tres_state_reason.exit294
 
 _get_tres_state_reason.exit294:                   ; preds = %switch.lookup562, %181, %174, %167
-  %.0.i290 = phi i32 [ %switch.load564, %switch.lookup562 ], [ 152, %174 ], [ 144, %167 ], [ %spec.select426, %181 ]
+  %.0.i290 = phi i32 [ 152, %174 ], [ %spec.select426, %181 ], [ 144, %167 ], [ %switch.load564, %switch.lookup562 ]
   store i32 %.0.i290, ptr %5, align 4
   br label %189
 
@@ -11389,7 +11389,7 @@ switch.lookup565:                                 ; preds = %280
   br label %_get_tres_state_reason.exit301
 
 _get_tres_state_reason.exit301:                   ; preds = %switch.lookup565, %297, %290, %282
-  %.0.i297 = phi i32 [ %switch.load567, %switch.lookup565 ], [ 150, %282 ], [ 157, %290 ], [ %spec.select427, %297 ]
+  %.0.i297 = phi i32 [ %switch.load567, %switch.lookup565 ], [ 150, %282 ], [ %spec.select427, %297 ], [ 157, %290 ]
   store i32 %.0.i297, ptr %5, align 4
   br label %304
 
@@ -11559,7 +11559,7 @@ switch.lookup568:                                 ; preds = %363
   br label %_get_tres_state_reason.exit326
 
 _get_tres_state_reason.exit326:                   ; preds = %switch.lookup568, %380, %373, %365
-  %.0.i322 = phi i32 [ %spec.select428, %380 ], [ %switch.load570, %switch.lookup568 ], [ 145, %365 ], [ 153, %373 ]
+  %.0.i322 = phi i32 [ 153, %373 ], [ %switch.load570, %switch.lookup568 ], [ %spec.select428, %380 ], [ 145, %365 ]
   store i32 %.0.i322, ptr %5, align 4
   br label %387
 
@@ -12161,7 +12161,7 @@ switch.lookup571:                                 ; preds = %664
   br label %_get_tres_state_reason.exit389
 
 _get_tres_state_reason.exit389:                   ; preds = %switch.lookup571, %681, %674, %666
-  %.0.i385 = phi i32 [ 155, %674 ], [ 147, %666 ], [ %spec.select429, %681 ], [ %switch.load573, %switch.lookup571 ]
+  %.0.i385 = phi i32 [ 147, %666 ], [ 155, %674 ], [ %switch.load573, %switch.lookup571 ], [ %spec.select429, %681 ]
   store i32 %.0.i385, ptr %5, align 4
   br label %688
 
