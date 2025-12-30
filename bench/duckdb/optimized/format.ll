@@ -21299,7 +21299,7 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerI
 
 _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerInNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit18: ; preds = %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerInNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit, %56, %73, %77
   %.2 = phi ptr [ %50, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerInNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit ], [ %50, %56 ], [ %76, %73 ], [ %76, %77 ]
-  %79 = icmp ugt i128 %.01332, 9999
+  %79 = icmp samesign ugt i128 %.01332, 9999
   br i1 %79, label %13, label %._crit_edge, !llvm.loop !489
 
 ._crit_edge:                                      ; preds = %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerInNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit18, %5
@@ -24337,7 +24337,7 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerI
 
 _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerIoNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit18: ; preds = %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerIoNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit, %56, %73, %77
   %.2 = phi ptr [ %50, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerIoNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit ], [ %50, %56 ], [ %76, %73 ], [ %76, %77 ]
-  %79 = icmp ugt i128 %.01332, 9999
+  %79 = icmp samesign ugt i128 %.01332, 9999
   br i1 %79, label %13, label %._crit_edge, !llvm.loop !543
 
 ._crit_edge:                                      ; preds = %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerIoNS0_18basic_format_specsIcEEE10num_writerclIRPcEEvOT_ENKUlSD_E_clESD_.exit18, %5
@@ -54613,7 +54613,7 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerI
 _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerInNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19: ; preds = %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerInNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit, %59, %76, %80
   %82 = phi ptr [ %53, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerInNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit ], [ %53, %59 ], [ %53, %76 ], [ %.pre, %80 ]
   %.2 = phi ptr [ %56, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerInNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit ], [ %56, %59 ], [ %79, %76 ], [ %79, %80 ]
-  %83 = icmp ugt i128 %.01334, 9999
+  %83 = icmp samesign ugt i128 %.01334, 9999
   br i1 %83, label %13, label %._crit_edge, !llvm.loop !1060
 
 ._crit_edge:                                      ; preds = %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerInNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19, %5
@@ -58036,7 +58036,7 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerI
 _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerIoNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19: ; preds = %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerIoNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit, %59, %76, %80
   %82 = phi ptr [ %53, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerIoNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit ], [ %53, %59 ], [ %53, %76 ], [ %.pre, %80 ]
   %.2 = phi ptr [ %56, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerIoNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit ], [ %56, %59 ], [ %79, %76 ], [ %79, %80 ]
-  %83 = icmp ugt i128 %.01334, 9999
+  %83 = icmp samesign ugt i128 %.01334, 9999
   br i1 %83, label %13, label %._crit_edge, !llvm.loop !1114
 
 ._crit_edge:                                      ; preds = %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerIoNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19, %5

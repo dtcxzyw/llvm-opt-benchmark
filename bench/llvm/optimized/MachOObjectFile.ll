@@ -12142,7 +12142,7 @@ define internal fastcc void @_ZL15checkSubCommandRKN4llvm6object15MachOObjectFil
   %30 = alloca %"class.llvm::Twine", align 8
   %31 = alloca %"class.llvm::Twine", align 8
   %32 = icmp ult i32 %4, 12
-  br i1 %32, label %_ZN4llvmplERKNS_5TwineES2_.exit38, label %102
+  br i1 %32, label %_ZN4llvmplERKNS_5TwineES2_.exit38, label %100
 
 _ZN4llvmplERKNS_5TwineES2_.exit38:                ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -12216,22 +12216,20 @@ _ZN4llvmplERKNS_5TwineES2_.exit53:                ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit69
 
 _ZN4llvmplERKNS_5TwineES2_.exit69:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit53, %44, %45
-  %.sink205 = phi i8 [ 3, %44 ], [ %.014.i.i58, %45 ], [ %.pre146, %_ZN4llvmplERKNS_5TwineES2_.exit53 ]
+  %.sink208 = phi i8 [ 3, %44 ], [ %.014.i.i58, %45 ], [ %.pre146, %_ZN4llvmplERKNS_5TwineES2_.exit53 ]
   %.sink = phi i8 [ 1, %44 ], [ 3, %45 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit53 ]
   %.sroa.56.0.copyload.i.i75 = phi i64 [ undef, %44 ], [ %.sroa.56.0.i.i60, %45 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit53 ]
   %.sroa.05.0.copyload.i.i73 = phi ptr [ @.str.377, %44 ], [ %.sroa.05.0.i.i59, %45 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit53 ]
   %51 = phi i1 [ true, %44 ], [ false, %45 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit53 ]
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i8 %.sink205, ptr %52, align 8, !tbaa !1117
+  store i8 %.sink208, ptr %52, align 8, !tbaa !1117
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 %.sink, ptr %53, align 1, !tbaa !1117
   %54 = load i8, ptr %5, align 1, !tbaa !229
   %.not.i70 = icmp eq i8 %54, 0
   %storemerge.i71 = select i1 %.not.i70, i8 1, i8 3
-  switch i8 %.sink205, label %58 [
-    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit87.thread
-    i8 1, label %57
-  ]
+  %cond = icmp eq i8 %.sink208, 0
+  br i1 %cond, label %_ZN4llvmplERKNS_5TwineES2_.exit87.thread, label %57
 
 _ZN4llvmplERKNS_5TwineES2_.exit87.thread:         ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit69
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -12241,190 +12239,172 @@ _ZN4llvmplERKNS_5TwineES2_.exit87.thread:         ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit103
 
 57:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit69
-  store ptr %5, ptr %15, align 8
-  %.sroa.695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i8 %storemerge.i71, ptr %.sroa.695.0..sroa_idx, align 8, !tbaa !1117
-  %.sroa.896.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 33
-  store i8 1, ptr %.sroa.896.0..sroa_idx, align 1, !tbaa !1117
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit87
+  br i1 %.not.i70, label %58, label %59
 
-58:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit69
-  br i1 %.not.i70, label %59, label %60
-
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !1132
   %.phi.trans.insert149 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %.pre150 = load i8, ptr %.phi.trans.insert149, align 8, !tbaa !61, !noalias !2161
   br label %_ZN4llvmplERKNS_5TwineES2_.exit87
 
-60:                                               ; preds = %58
-  %.014.i.i76 = select i1 %51, i8 %.sink205, i8 2
+59:                                               ; preds = %57
+  %.014.i.i76 = select i1 %51, i8 %.sink208, i8 2
   %.sroa.05.0.i.i77 = select i1 %51, ptr %.sroa.05.0.copyload.i.i73, ptr %16
   %.sroa.56.0.i.i78 = select i1 %51, i64 %.sroa.56.0.copyload.i.i75, i64 undef
   store ptr %.sroa.05.0.i.i77, ptr %15, align 8, !alias.scope !2156
   %.sroa.23.0..sroa_idx.i.i.i85 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %.sroa.56.0.i.i78, ptr %.sroa.23.0..sroa_idx.i.i.i85, align 8, !tbaa !229, !alias.scope !2156
-  %61 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %5, ptr %61, align 8, !alias.scope !2156
-  %62 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i8 %.014.i.i76, ptr %62, align 8, !tbaa !61, !alias.scope !2156
-  %63 = getelementptr inbounds nuw i8, ptr %15, i64 33
-  store i8 %storemerge.i71, ptr %63, align 1, !tbaa !64, !alias.scope !2156
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store ptr %5, ptr %60, align 8, !alias.scope !2156
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store i8 %.014.i.i76, ptr %61, align 8, !tbaa !61, !alias.scope !2156
+  %62 = getelementptr inbounds nuw i8, ptr %15, i64 33
+  store i8 %storemerge.i71, ptr %62, align 1, !tbaa !64, !alias.scope !2156
   br label %_ZN4llvmplERKNS_5TwineES2_.exit87
 
-_ZN4llvmplERKNS_5TwineES2_.exit87:                ; preds = %57, %59, %60
-  %64 = phi i8 [ %storemerge.i71, %57 ], [ %.pre150, %59 ], [ %.014.i.i76, %60 ]
+_ZN4llvmplERKNS_5TwineES2_.exit87:                ; preds = %58, %59
+  %63 = phi i8 [ %.pre150, %58 ], [ %.014.i.i76, %59 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2166)
   call void @llvm.experimental.noalias.scope.decl(metadata !2167)
-  switch i8 %64, label %66 [
+  switch i8 %63, label %65 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit103
-    i8 1, label %65
+    i8 1, label %64
   ]
 
-65:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit87
+64:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit87
   store ptr @.str.426, ptr %14, align 8
   br label %_ZN4llvmplERKNS_5TwineES2_.exit103
 
-66:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit87
-  %67 = getelementptr inbounds nuw i8, ptr %15, i64 33
-  %68 = load i8, ptr %67, align 1, !tbaa !64, !noalias !2161
-  %69 = icmp eq i8 %68, 1
+65:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit87
+  %66 = getelementptr inbounds nuw i8, ptr %15, i64 33
+  %67 = load i8, ptr %66, align 1, !tbaa !64, !noalias !2161
+  %68 = icmp eq i8 %67, 1
   %.sroa.05.0.copyload.i.i89 = load ptr, ptr %15, align 8, !noalias !2161
   %.sroa.56.0..sroa_idx.i.i90 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.56.0.copyload.i.i91 = load i64, ptr %.sroa.56.0..sroa_idx.i.i90, align 8, !noalias !2161
-  %.014.i.i92 = select i1 %69, i8 %64, i8 2
-  %.sroa.05.0.i.i93 = select i1 %69, ptr %.sroa.05.0.copyload.i.i89, ptr %15
-  %.sroa.56.0.i.i94 = select i1 %69, i64 %.sroa.56.0.copyload.i.i91, i64 undef
+  %.014.i.i92 = select i1 %68, i8 %63, i8 2
+  %.sroa.05.0.i.i93 = select i1 %68, ptr %.sroa.05.0.copyload.i.i89, ptr %15
+  %.sroa.56.0.i.i94 = select i1 %68, i64 %.sroa.56.0.copyload.i.i91, i64 undef
   store ptr %.sroa.05.0.i.i93, ptr %14, align 8, !alias.scope !2161
   %.sroa.23.0..sroa_idx.i.i.i101 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %.sroa.56.0.i.i94, ptr %.sroa.23.0..sroa_idx.i.i.i101, align 8, !tbaa !229, !alias.scope !2161
-  %70 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr @.str.426, ptr %70, align 8, !alias.scope !2161
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr @.str.426, ptr %69, align 8, !alias.scope !2161
   br label %_ZN4llvmplERKNS_5TwineES2_.exit103
 
-_ZN4llvmplERKNS_5TwineES2_.exit103:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit87, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread, %65, %66
-  %.sink209 = phi i8 [ 3, %65 ], [ %.014.i.i92, %66 ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread ], [ %64, %_ZN4llvmplERKNS_5TwineES2_.exit87 ]
-  %.sink207 = phi i8 [ 1, %65 ], [ 3, %66 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit87 ]
-  %.sroa.56.0.copyload.i.i109 = phi i64 [ undef, %65 ], [ %.sroa.56.0.i.i94, %66 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit87 ]
-  %.sroa.05.0.copyload.i.i107 = phi ptr [ @.str.426, %65 ], [ %.sroa.05.0.i.i93, %66 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit87 ]
-  %71 = phi i1 [ true, %65 ], [ false, %66 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit87 ]
-  %72 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i8 %.sink209, ptr %72, align 8, !tbaa !1117
-  %73 = getelementptr inbounds nuw i8, ptr %14, i64 33
-  store i8 %.sink207, ptr %73, align 1, !tbaa !1117
-  %74 = load i8, ptr %3, align 1, !tbaa !229
-  %.not.i104 = icmp eq i8 %74, 0
+_ZN4llvmplERKNS_5TwineES2_.exit103:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit87, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread, %64, %65
+  %.sink212 = phi i8 [ 3, %64 ], [ %.014.i.i92, %65 ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread ], [ %63, %_ZN4llvmplERKNS_5TwineES2_.exit87 ]
+  %.sink210 = phi i8 [ 1, %64 ], [ 3, %65 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit87 ]
+  %.sroa.56.0.copyload.i.i109 = phi i64 [ undef, %64 ], [ %.sroa.56.0.i.i94, %65 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit87 ]
+  %.sroa.05.0.copyload.i.i107 = phi ptr [ @.str.426, %64 ], [ %.sroa.05.0.i.i93, %65 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit87 ]
+  %70 = phi i1 [ true, %64 ], [ false, %65 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit87.thread ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit87 ]
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store i8 %.sink212, ptr %71, align 8, !tbaa !1117
+  %72 = getelementptr inbounds nuw i8, ptr %14, i64 33
+  store i8 %.sink210, ptr %72, align 1, !tbaa !1117
+  %73 = load i8, ptr %3, align 1, !tbaa !229
+  %.not.i104 = icmp eq i8 %73, 0
   %storemerge.i105 = select i1 %.not.i104, i8 1, i8 3
-  switch i8 %.sink209, label %78 [
-    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit121.thread
-    i8 1, label %77
-  ]
+  %cond204 = icmp eq i8 %.sink212, 0
+  br i1 %cond204, label %_ZN4llvmplERKNS_5TwineES2_.exit121.thread, label %76
 
 _ZN4llvmplERKNS_5TwineES2_.exit121.thread:        ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit103
-  %75 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i8 0, ptr %75, align 8, !tbaa !61, !alias.scope !2168
-  %76 = getelementptr inbounds nuw i8, ptr %13, i64 33
-  store i8 1, ptr %76, align 1, !tbaa !64, !alias.scope !2168
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store i8 0, ptr %74, align 8, !tbaa !61, !alias.scope !2168
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  store i8 1, ptr %75, align 1, !tbaa !64, !alias.scope !2168
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !2173
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2173
-  br label %85
+  br label %83
 
-77:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit103
-  store ptr %3, ptr %13, align 8
-  %.sroa.683.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i8 %storemerge.i105, ptr %.sroa.683.0..sroa_idx, align 8, !tbaa !1117
-  %.sroa.884.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 33
-  store i8 1, ptr %.sroa.884.0..sroa_idx, align 1, !tbaa !1117
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit121
+76:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit103
+  br i1 %.not.i104, label %77, label %78
 
-78:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit103
-  br i1 %.not.i104, label %79, label %80
-
-79:                                               ; preds = %78
+77:                                               ; preds = %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !1132
   %.phi.trans.insert153 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.pre154 = load i8, ptr %.phi.trans.insert153, align 8, !tbaa !61, !noalias !2176
   br label %_ZN4llvmplERKNS_5TwineES2_.exit121
 
-80:                                               ; preds = %78
-  %.014.i.i110 = select i1 %71, i8 %.sink209, i8 2
-  %.sroa.05.0.i.i111 = select i1 %71, ptr %.sroa.05.0.copyload.i.i107, ptr %14
-  %.sroa.56.0.i.i112 = select i1 %71, i64 %.sroa.56.0.copyload.i.i109, i64 undef
+78:                                               ; preds = %76
+  %.014.i.i110 = select i1 %70, i8 %.sink212, i8 2
+  %.sroa.05.0.i.i111 = select i1 %70, ptr %.sroa.05.0.copyload.i.i107, ptr %14
+  %.sroa.56.0.i.i112 = select i1 %70, i64 %.sroa.56.0.copyload.i.i109, i64 undef
   store ptr %.sroa.05.0.i.i111, ptr %13, align 8, !alias.scope !2168
   %.sroa.23.0..sroa_idx.i.i.i119 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %.sroa.56.0.i.i112, ptr %.sroa.23.0..sroa_idx.i.i.i119, align 8, !tbaa !229, !alias.scope !2168
-  %81 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %3, ptr %81, align 8, !alias.scope !2168
-  %82 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i8 %.014.i.i110, ptr %82, align 8, !tbaa !61, !alias.scope !2168
-  %83 = getelementptr inbounds nuw i8, ptr %13, i64 33
-  store i8 %storemerge.i105, ptr %83, align 1, !tbaa !64, !alias.scope !2168
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %3, ptr %79, align 8, !alias.scope !2168
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store i8 %.014.i.i110, ptr %80, align 8, !tbaa !61, !alias.scope !2168
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  store i8 %storemerge.i105, ptr %81, align 1, !tbaa !64, !alias.scope !2168
   br label %_ZN4llvmplERKNS_5TwineES2_.exit121
 
-_ZN4llvmplERKNS_5TwineES2_.exit121:               ; preds = %77, %79, %80
-  %84 = phi i8 [ %storemerge.i105, %77 ], [ %.pre154, %79 ], [ %.014.i.i110, %80 ]
+_ZN4llvmplERKNS_5TwineES2_.exit121:               ; preds = %77, %78
+  %82 = phi i8 [ %.pre154, %77 ], [ %.014.i.i110, %78 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2182)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !2182
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2182
   call void @llvm.experimental.noalias.scope.decl(metadata !2183)
   call void @llvm.experimental.noalias.scope.decl(metadata !2184)
-  switch i8 %84, label %88 [
-    i8 0, label %85
+  switch i8 %82, label %86 [
+    i8 0, label %83
     i8 1, label %.thread29.i
   ]
 
 .thread29.i:                                      ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit121
   store ptr @.str.332, ptr %12, align 8, !noalias !2182
-  br label %93
+  br label %91
 
-85:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit121.thread, %_ZN4llvmplERKNS_5TwineES2_.exit121
-  %86 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i8 0, ptr %86, align 8, !tbaa !61, !alias.scope !2185, !noalias !2182
-  %87 = getelementptr inbounds nuw i8, ptr %12, i64 33
-  store i8 1, ptr %87, align 1, !tbaa !64, !alias.scope !2185, !noalias !2182
+83:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit121.thread, %_ZN4llvmplERKNS_5TwineES2_.exit121
+  %84 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i8 0, ptr %84, align 8, !tbaa !61, !alias.scope !2185, !noalias !2182
+  %85 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  store i8 1, ptr %85, align 1, !tbaa !64, !alias.scope !2185, !noalias !2182
   br label %_ZL14malformedErrorRKN4llvm5TwineE.exit
 
-88:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit121
-  %89 = getelementptr inbounds nuw i8, ptr %13, i64 33
-  %90 = load i8, ptr %89, align 1, !tbaa !64, !noalias !2176
-  %91 = icmp eq i8 %90, 1
+86:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit121
+  %87 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  %88 = load i8, ptr %87, align 1, !tbaa !64, !noalias !2176
+  %89 = icmp eq i8 %88, 1
   %.sroa.04.0.copyload.i.i.i = load ptr, ptr %13, align 8, !noalias !2176
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !2176
-  %.0.i.i.i = select i1 %91, i8 %84, i8 2
-  %.sroa.04.0.i.i.i = select i1 %91, ptr %.sroa.04.0.copyload.i.i.i, ptr %13
-  %.sroa.5.0.i.i.i = select i1 %91, i64 %.sroa.5.0.copyload.i.i.i, i64 undef
+  %.0.i.i.i = select i1 %89, i8 %82, i8 2
+  %.sroa.04.0.i.i.i = select i1 %89, ptr %.sroa.04.0.copyload.i.i.i, ptr %13
+  %.sroa.5.0.i.i.i = select i1 %89, i64 %.sroa.5.0.copyload.i.i.i, i64 undef
   store ptr @.str.332, ptr %12, align 8, !alias.scope !2185, !noalias !2182
-  %92 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %.sroa.04.0.i.i.i, ptr %92, align 8, !alias.scope !2185, !noalias !2182
+  %90 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %.sroa.04.0.i.i.i, ptr %90, align 8, !alias.scope !2185, !noalias !2182
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 %.sroa.5.0.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !229, !alias.scope !2185, !noalias !2182
-  br label %93
+  br label %91
 
-93:                                               ; preds = %88, %.thread29.i
-  %.0.i.i.i.sink = phi i8 [ %.0.i.i.i, %88 ], [ 1, %.thread29.i ]
-  %94 = phi i8 [ 2, %88 ], [ 3, %.thread29.i ]
-  %95 = phi ptr [ %12, %88 ], [ @.str.332, %.thread29.i ]
-  %96 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i8 3, ptr %96, align 8, !tbaa !1117, !noalias !2182
-  %97 = getelementptr inbounds nuw i8, ptr %12, i64 33
-  store i8 %.0.i.i.i.sink, ptr %97, align 1, !tbaa !1117, !noalias !2182
-  store ptr %95, ptr %11, align 8, !alias.scope !2186, !noalias !2182
-  %98 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr @.str.333, ptr %98, align 8, !alias.scope !2186, !noalias !2182
+91:                                               ; preds = %86, %.thread29.i
+  %.0.i.i.i.sink = phi i8 [ %.0.i.i.i, %86 ], [ 1, %.thread29.i ]
+  %92 = phi i8 [ 2, %86 ], [ 3, %.thread29.i ]
+  %93 = phi ptr [ %12, %86 ], [ @.str.332, %.thread29.i ]
+  %94 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i8 3, ptr %94, align 8, !tbaa !1117, !noalias !2182
+  %95 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  store i8 %.0.i.i.i.sink, ptr %95, align 1, !tbaa !1117, !noalias !2182
+  store ptr %93, ptr %11, align 8, !alias.scope !2186, !noalias !2182
+  %96 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr @.str.333, ptr %96, align 8, !alias.scope !2186, !noalias !2182
   br label %_ZL14malformedErrorRKN4llvm5TwineE.exit
 
-_ZL14malformedErrorRKN4llvm5TwineE.exit:          ; preds = %85, %93
-  %.sink34.i = phi i8 [ 0, %85 ], [ %94, %93 ]
-  %.sink.i = phi i8 [ 1, %85 ], [ 3, %93 ]
-  %99 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i8 %.sink34.i, ptr %99, align 8, !tbaa !61, !alias.scope !2186, !noalias !2182
-  %100 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 %.sink.i, ptr %100, align 1, !tbaa !64, !alias.scope !2186, !noalias !2182
+_ZL14malformedErrorRKN4llvm5TwineE.exit:          ; preds = %83, %91
+  %.sink34.i = phi i8 [ 0, %83 ], [ %92, %91 ]
+  %.sink.i = phi i8 [ 1, %83 ], [ 3, %91 ]
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i8 %.sink34.i, ptr %97, align 8, !tbaa !61, !alias.scope !2186, !noalias !2182
+  %98 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  store i8 %.sink.i, ptr %98, align 1, !tbaa !64, !alias.scope !2186, !noalias !2182
   call void @llvm.experimental.noalias.scope.decl(metadata !2191)
-  %101 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31, !noalias !2194
-  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %101, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 noundef 3) #32, !noalias !2194
-  store ptr %101, ptr %0, align 8, !tbaa !3, !alias.scope !2197
+  %99 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31, !noalias !2194
+  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %99, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 noundef 3) #32, !noalias !2194
+  store ptr %99, ptr %0, align 8, !tbaa !3, !alias.scope !2197
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !2182
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !2182
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -12434,17 +12414,17 @@ _ZL14malformedErrorRKN4llvm5TwineE.exit:          ; preds = %85, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %214
+  br label %210
 
-102:                                              ; preds = %6
+100:                                              ; preds = %6
   %.not = icmp ult i32 %4, %.12.val
   br i1 %.not, label %.preheader.preheader, label %_ZN4llvmplERKNS_5TwineES2_.exit153
 
-.preheader.preheader:                             ; preds = %102
-  %103 = zext i32 %4 to i64
+.preheader.preheader:                             ; preds = %100
+  %101 = zext i32 %4 to i64
   br label %.preheader
 
-_ZN4llvmplERKNS_5TwineES2_.exit153:               ; preds = %102
+_ZN4llvmplERKNS_5TwineES2_.exit153:               ; preds = %100
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -12452,34 +12432,34 @@ _ZN4llvmplERKNS_5TwineES2_.exit153:               ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %.sroa.068.0.insert.ext = zext i32 %1 to i64
-  %104 = inttoptr i64 %.sroa.068.0.insert.ext to ptr
+  %102 = inttoptr i64 %.sroa.068.0.insert.ext to ptr
   store ptr @.str.4, ptr %25, align 8, !alias.scope !2198
-  %105 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr %104, ptr %105, align 8, !alias.scope !2198
-  %106 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i8 3, ptr %106, align 8, !tbaa !61, !alias.scope !2198
-  %107 = getelementptr inbounds nuw i8, ptr %25, i64 33
-  store i8 9, ptr %107, align 1, !tbaa !64, !alias.scope !2198
+  %103 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store ptr %102, ptr %103, align 8, !alias.scope !2198
+  %104 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store i8 3, ptr %104, align 8, !tbaa !61, !alias.scope !2198
+  %105 = getelementptr inbounds nuw i8, ptr %25, i64 33
+  store i8 9, ptr %105, align 1, !tbaa !64, !alias.scope !2198
   store ptr %25, ptr %24, align 8, !alias.scope !2203
-  %108 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr @.str.377, ptr %108, align 8, !alias.scope !2203
-  %109 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i8 2, ptr %109, align 8, !tbaa !61, !alias.scope !2203
-  %110 = getelementptr inbounds nuw i8, ptr %24, i64 33
-  store i8 3, ptr %110, align 1, !tbaa !64, !alias.scope !2203
-  %111 = load i8, ptr %2, align 1, !tbaa !229
-  %.not.i154 = icmp eq i8 %111, 0
+  %106 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store ptr @.str.377, ptr %106, align 8, !alias.scope !2203
+  %107 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store i8 2, ptr %107, align 8, !tbaa !61, !alias.scope !2203
+  %108 = getelementptr inbounds nuw i8, ptr %24, i64 33
+  store i8 3, ptr %108, align 1, !tbaa !64, !alias.scope !2203
+  %109 = load i8, ptr %2, align 1, !tbaa !229
+  %.not.i154 = icmp eq i8 %109, 0
   br i1 %.not.i154, label %_ZN4llvmplERKNS_5TwineES2_.exit171, label %_ZN4llvmplERKNS_5TwineES2_.exit171.thread
 
 _ZN4llvmplERKNS_5TwineES2_.exit171.thread:        ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit153
   store ptr %24, ptr %23, align 8, !alias.scope !2208
-  %112 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %2, ptr %112, align 8, !alias.scope !2208
-  %113 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i8 2, ptr %113, align 8, !tbaa !61, !alias.scope !2208
-  %114 = getelementptr inbounds nuw i8, ptr %23, i64 33
-  store i8 3, ptr %114, align 1, !tbaa !64, !alias.scope !2208
-  br label %116
+  %110 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store ptr %2, ptr %110, align 8, !alias.scope !2208
+  %111 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store i8 2, ptr %111, align 8, !tbaa !61, !alias.scope !2208
+  %112 = getelementptr inbounds nuw i8, ptr %23, i64 33
+  store i8 3, ptr %112, align 1, !tbaa !64, !alias.scope !2208
+  br label %114
 
 _ZN4llvmplERKNS_5TwineES2_.exit171:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %24, i64 40, i1 false), !tbaa.struct !1132
@@ -12487,170 +12467,160 @@ _ZN4llvmplERKNS_5TwineES2_.exit171:               ; preds = %_ZN4llvmplERKNS_5Tw
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !61, !noalias !2213
   call void @llvm.experimental.noalias.scope.decl(metadata !2218)
   call void @llvm.experimental.noalias.scope.decl(metadata !2219)
-  switch i8 %.pre, label %116 [
+  switch i8 %.pre, label %114 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit187
-    i8 1, label %115
+    i8 1, label %113
   ]
 
-115:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit171
+113:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit171
   store ptr @.str.377, ptr %22, align 8
   br label %_ZN4llvmplERKNS_5TwineES2_.exit187
 
-116:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit171.thread, %_ZN4llvmplERKNS_5TwineES2_.exit171
-  %117 = phi i8 [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit171.thread ], [ %.pre, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
-  %118 = getelementptr inbounds nuw i8, ptr %23, i64 33
-  %119 = load i8, ptr %118, align 1, !tbaa !64, !noalias !2213
-  %120 = icmp eq i8 %119, 1
+114:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit171.thread, %_ZN4llvmplERKNS_5TwineES2_.exit171
+  %115 = phi i8 [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit171.thread ], [ %.pre, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
+  %116 = getelementptr inbounds nuw i8, ptr %23, i64 33
+  %117 = load i8, ptr %116, align 1, !tbaa !64, !noalias !2213
+  %118 = icmp eq i8 %117, 1
   %.sroa.05.0.copyload.i.i173 = load ptr, ptr %23, align 8, !noalias !2213
   %.sroa.56.0..sroa_idx.i.i174 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.56.0.copyload.i.i175 = load i64, ptr %.sroa.56.0..sroa_idx.i.i174, align 8, !noalias !2213
-  %.014.i.i176 = select i1 %120, i8 %117, i8 2
-  %.sroa.05.0.i.i177 = select i1 %120, ptr %.sroa.05.0.copyload.i.i173, ptr %23
-  %.sroa.56.0.i.i178 = select i1 %120, i64 %.sroa.56.0.copyload.i.i175, i64 undef
+  %.014.i.i176 = select i1 %118, i8 %115, i8 2
+  %.sroa.05.0.i.i177 = select i1 %118, ptr %.sroa.05.0.copyload.i.i173, ptr %23
+  %.sroa.56.0.i.i178 = select i1 %118, i64 %.sroa.56.0.copyload.i.i175, i64 undef
   store ptr %.sroa.05.0.i.i177, ptr %22, align 8, !alias.scope !2213
   %.sroa.23.0..sroa_idx.i.i.i185 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %.sroa.56.0.i.i178, ptr %.sroa.23.0..sroa_idx.i.i.i185, align 8, !tbaa !229, !alias.scope !2213
-  %121 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr @.str.377, ptr %121, align 8, !alias.scope !2213
+  %119 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr @.str.377, ptr %119, align 8, !alias.scope !2213
   br label %_ZN4llvmplERKNS_5TwineES2_.exit187
 
-_ZN4llvmplERKNS_5TwineES2_.exit187:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit171, %115, %116
-  %.sink215 = phi i8 [ 3, %115 ], [ %.014.i.i176, %116 ], [ %.pre, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
-  %.sink213 = phi i8 [ 1, %115 ], [ 3, %116 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
-  %.sroa.56.0.copyload.i.i193 = phi i64 [ undef, %115 ], [ %.sroa.56.0.i.i178, %116 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
-  %.sroa.05.0.copyload.i.i191 = phi ptr [ @.str.377, %115 ], [ %.sroa.05.0.i.i177, %116 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
-  %122 = phi i1 [ true, %115 ], [ false, %116 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
-  %123 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store i8 %.sink215, ptr %123, align 8, !tbaa !1117
-  %124 = getelementptr inbounds nuw i8, ptr %22, i64 33
-  store i8 %.sink213, ptr %124, align 1, !tbaa !1117
-  %125 = load i8, ptr %5, align 1, !tbaa !229
-  %.not.i188 = icmp eq i8 %125, 0
+_ZN4llvmplERKNS_5TwineES2_.exit187:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit171, %113, %114
+  %.sink218 = phi i8 [ 3, %113 ], [ %.014.i.i176, %114 ], [ %.pre, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
+  %.sink216 = phi i8 [ 1, %113 ], [ 3, %114 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
+  %.sroa.56.0.copyload.i.i193 = phi i64 [ undef, %113 ], [ %.sroa.56.0.i.i178, %114 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
+  %.sroa.05.0.copyload.i.i191 = phi ptr [ @.str.377, %113 ], [ %.sroa.05.0.i.i177, %114 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
+  %120 = phi i1 [ true, %113 ], [ false, %114 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit171 ]
+  %121 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store i8 %.sink218, ptr %121, align 8, !tbaa !1117
+  %122 = getelementptr inbounds nuw i8, ptr %22, i64 33
+  store i8 %.sink216, ptr %122, align 1, !tbaa !1117
+  %123 = load i8, ptr %5, align 1, !tbaa !229
+  %.not.i188 = icmp eq i8 %123, 0
   %storemerge.i189 = select i1 %.not.i188, i8 1, i8 3
-  switch i8 %.sink215, label %129 [
-    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit205.thread
-    i8 1, label %128
-  ]
+  %cond206 = icmp eq i8 %.sink218, 0
+  br i1 %cond206, label %_ZN4llvmplERKNS_5TwineES2_.exit205.thread, label %126
 
 _ZN4llvmplERKNS_5TwineES2_.exit205.thread:        ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit187
-  %126 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i8 0, ptr %126, align 8, !tbaa !61, !alias.scope !2220
-  %127 = getelementptr inbounds nuw i8, ptr %21, i64 33
-  store i8 1, ptr %127, align 1, !tbaa !64, !alias.scope !2220
+  %124 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store i8 0, ptr %124, align 8, !tbaa !61, !alias.scope !2220
+  %125 = getelementptr inbounds nuw i8, ptr %21, i64 33
+  store i8 1, ptr %125, align 1, !tbaa !64, !alias.scope !2220
   br label %_ZN4llvmplERKNS_5TwineES2_.exit221.thread162
 
-128:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit187
-  store ptr %5, ptr %21, align 8
-  %.sroa.647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i8 %storemerge.i189, ptr %.sroa.647.0..sroa_idx, align 8, !tbaa !1117
-  %.sroa.848.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 33
-  store i8 1, ptr %.sroa.848.0..sroa_idx, align 1, !tbaa !1117
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit205
+126:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit187
+  br i1 %.not.i188, label %127, label %128
 
-129:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit187
-  br i1 %.not.i188, label %130, label %131
-
-130:                                              ; preds = %129
+127:                                              ; preds = %126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false), !tbaa.struct !1132
   %.phi.trans.insert131 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %.pre132 = load i8, ptr %.phi.trans.insert131, align 8, !tbaa !61, !noalias !2225
   br label %_ZN4llvmplERKNS_5TwineES2_.exit205
 
-131:                                              ; preds = %129
-  %.014.i.i194 = select i1 %122, i8 %.sink215, i8 2
-  %.sroa.05.0.i.i195 = select i1 %122, ptr %.sroa.05.0.copyload.i.i191, ptr %22
-  %.sroa.56.0.i.i196 = select i1 %122, i64 %.sroa.56.0.copyload.i.i193, i64 undef
+128:                                              ; preds = %126
+  %.014.i.i194 = select i1 %120, i8 %.sink218, i8 2
+  %.sroa.05.0.i.i195 = select i1 %120, ptr %.sroa.05.0.copyload.i.i191, ptr %22
+  %.sroa.56.0.i.i196 = select i1 %120, i64 %.sroa.56.0.copyload.i.i193, i64 undef
   store ptr %.sroa.05.0.i.i195, ptr %21, align 8, !alias.scope !2220
   %.sroa.23.0..sroa_idx.i.i.i203 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %.sroa.56.0.i.i196, ptr %.sroa.23.0..sroa_idx.i.i.i203, align 8, !tbaa !229, !alias.scope !2220
-  %132 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %5, ptr %132, align 8, !alias.scope !2220
-  %133 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i8 %.014.i.i194, ptr %133, align 8, !tbaa !61, !alias.scope !2220
-  %134 = getelementptr inbounds nuw i8, ptr %21, i64 33
-  store i8 %storemerge.i189, ptr %134, align 1, !tbaa !64, !alias.scope !2220
+  %129 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store ptr %5, ptr %129, align 8, !alias.scope !2220
+  %130 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store i8 %.014.i.i194, ptr %130, align 8, !tbaa !61, !alias.scope !2220
+  %131 = getelementptr inbounds nuw i8, ptr %21, i64 33
+  store i8 %storemerge.i189, ptr %131, align 1, !tbaa !64, !alias.scope !2220
   br label %_ZN4llvmplERKNS_5TwineES2_.exit205
 
-_ZN4llvmplERKNS_5TwineES2_.exit205:               ; preds = %128, %130, %131
-  %135 = phi i8 [ %storemerge.i189, %128 ], [ %.pre132, %130 ], [ %.014.i.i194, %131 ]
+_ZN4llvmplERKNS_5TwineES2_.exit205:               ; preds = %127, %128
+  %132 = phi i8 [ %.pre132, %127 ], [ %.014.i.i194, %128 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2230)
   call void @llvm.experimental.noalias.scope.decl(metadata !2231)
-  switch i8 %135, label %_ZN4llvmplERKNS_5TwineES2_.exit221 [
+  switch i8 %132, label %_ZN4llvmplERKNS_5TwineES2_.exit221 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit221.thread162
-    i8 1, label %146
+    i8 1, label %143
   ]
 
 _ZN4llvmplERKNS_5TwineES2_.exit221.thread162:     ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit205, %_ZN4llvmplERKNS_5TwineES2_.exit205.thread
-  %136 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store i8 0, ptr %136, align 8, !tbaa !61, !alias.scope !2225
-  %137 = getelementptr inbounds nuw i8, ptr %20, i64 33
-  store i8 1, ptr %137, align 1, !tbaa !64, !alias.scope !2225
+  %133 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store i8 0, ptr %133, align 8, !tbaa !61, !alias.scope !2225
+  %134 = getelementptr inbounds nuw i8, ptr %20, i64 33
+  store i8 1, ptr %134, align 1, !tbaa !64, !alias.scope !2225
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2232
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !2232
-  %138 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 0, ptr %138, align 8, !tbaa !61, !alias.scope !2235, !noalias !2240
-  %139 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  store i8 1, ptr %139, align 1, !tbaa !64, !alias.scope !2235, !noalias !2240
+  %135 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i8 0, ptr %135, align 8, !tbaa !61, !alias.scope !2235, !noalias !2240
+  %136 = getelementptr inbounds nuw i8, ptr %10, i64 33
+  store i8 1, ptr %136, align 1, !tbaa !64, !alias.scope !2235, !noalias !2240
   br label %_ZL14malformedErrorRKN4llvm5TwineE.exit234
 
 _ZN4llvmplERKNS_5TwineES2_.exit221:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit205
-  %140 = getelementptr inbounds nuw i8, ptr %21, i64 33
-  %141 = load i8, ptr %140, align 1, !tbaa !64, !noalias !2225
-  %142 = icmp eq i8 %141, 1
+  %137 = getelementptr inbounds nuw i8, ptr %21, i64 33
+  %138 = load i8, ptr %137, align 1, !tbaa !64, !noalias !2225
+  %139 = icmp eq i8 %138, 1
   %.sroa.05.0.copyload.i.i207 = load ptr, ptr %21, align 8, !noalias !2225
   %.sroa.56.0..sroa_idx.i.i208 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.56.0.copyload.i.i209 = load i64, ptr %.sroa.56.0..sroa_idx.i.i208, align 8, !noalias !2225
-  %.014.i.i210 = select i1 %142, i8 %135, i8 2
-  %.sroa.05.0.i.i211 = select i1 %142, ptr %.sroa.05.0.copyload.i.i207, ptr %21
-  %.sroa.56.0.i.i212 = select i1 %142, i64 %.sroa.56.0.copyload.i.i209, i64 undef
+  %.014.i.i210 = select i1 %139, i8 %132, i8 2
+  %.sroa.05.0.i.i211 = select i1 %139, ptr %.sroa.05.0.copyload.i.i207, ptr %21
+  %.sroa.56.0.i.i212 = select i1 %139, i64 %.sroa.56.0.copyload.i.i209, i64 undef
   store ptr %.sroa.05.0.i.i211, ptr %20, align 8, !alias.scope !2225
   %.sroa.23.0..sroa_idx.i.i.i219 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %.sroa.56.0.i.i212, ptr %.sroa.23.0..sroa_idx.i.i.i219, align 8, !tbaa !229, !alias.scope !2225
-  %143 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr @.str.427, ptr %143, align 8, !alias.scope !2225
-  %144 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store i8 %.014.i.i210, ptr %144, align 8, !tbaa !61, !alias.scope !2225
-  %145 = getelementptr inbounds nuw i8, ptr %20, i64 33
-  store i8 3, ptr %145, align 1, !tbaa !64, !alias.scope !2225
+  %140 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr @.str.427, ptr %140, align 8, !alias.scope !2225
+  %141 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store i8 %.014.i.i210, ptr %141, align 8, !tbaa !61, !alias.scope !2225
+  %142 = getelementptr inbounds nuw i8, ptr %20, i64 33
+  store i8 3, ptr %142, align 1, !tbaa !64, !alias.scope !2225
   call void @llvm.experimental.noalias.scope.decl(metadata !2240)
-  br label %147
+  br label %144
 
-146:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit205
+143:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit205
   store ptr @.str.427, ptr %20, align 8
   %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i8 3, ptr %.sroa.541.0..sroa_idx, align 8, !tbaa !1117
   %.sroa.742.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 33
   store i8 1, ptr %.sroa.742.0..sroa_idx, align 1, !tbaa !1117
-  br label %147
+  br label %144
 
-147:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit221, %146
-  %148 = phi ptr [ @.str.427, %146 ], [ %20, %_ZN4llvmplERKNS_5TwineES2_.exit221 ]
-  %149 = phi i8 [ 3, %146 ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit221 ]
+144:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit221, %143
+  %145 = phi ptr [ @.str.427, %143 ], [ %20, %_ZN4llvmplERKNS_5TwineES2_.exit221 ]
+  %146 = phi i8 [ 3, %143 ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit221 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !601
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !601
   store ptr @.str.332, ptr %10, align 8, !alias.scope !2235, !noalias !2240
-  %150 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %148, ptr %150, align 8, !alias.scope !2235, !noalias !2240
-  %151 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 3, ptr %151, align 8, !tbaa !61, !alias.scope !2235, !noalias !2240
-  %152 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  store i8 %149, ptr %152, align 1, !tbaa !64, !alias.scope !2235, !noalias !2240
+  %147 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %145, ptr %147, align 8, !alias.scope !2235, !noalias !2240
+  %148 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i8 3, ptr %148, align 8, !tbaa !61, !alias.scope !2235, !noalias !2240
+  %149 = getelementptr inbounds nuw i8, ptr %10, i64 33
+  store i8 %146, ptr %149, align 1, !tbaa !64, !alias.scope !2235, !noalias !2240
   store ptr %10, ptr %9, align 8, !alias.scope !2242, !noalias !2240
-  %153 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr @.str.333, ptr %153, align 8, !alias.scope !2242, !noalias !2240
+  %150 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr @.str.333, ptr %150, align 8, !alias.scope !2242, !noalias !2240
   br label %_ZL14malformedErrorRKN4llvm5TwineE.exit234
 
-_ZL14malformedErrorRKN4llvm5TwineE.exit234:       ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit221.thread162, %147
-  %.sink34.i225 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit221.thread162 ], [ 2, %147 ]
-  %.sink.i226 = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit221.thread162 ], [ 3, %147 ]
-  %154 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i8 %.sink34.i225, ptr %154, align 8, !tbaa !61, !alias.scope !2242, !noalias !2240
-  %155 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 %.sink.i226, ptr %155, align 1, !tbaa !64, !alias.scope !2242, !noalias !2240
+_ZL14malformedErrorRKN4llvm5TwineE.exit234:       ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit221.thread162, %144
+  %.sink34.i225 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit221.thread162 ], [ 2, %144 ]
+  %.sink.i226 = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit221.thread162 ], [ 3, %144 ]
+  %151 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i8 %.sink34.i225, ptr %151, align 8, !tbaa !61, !alias.scope !2242, !noalias !2240
+  %152 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 %.sink.i226, ptr %152, align 1, !tbaa !64, !alias.scope !2242, !noalias !2240
   call void @llvm.experimental.noalias.scope.decl(metadata !2247)
-  %156 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31, !noalias !2250
-  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %156, ptr noundef nonnull align 8 dereferenceable(34) %9, i32 noundef 3) #32, !noalias !2250
-  store ptr %156, ptr %0, align 8, !tbaa !3, !alias.scope !2253
+  %153 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31, !noalias !2250
+  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %153, ptr noundef nonnull align 8 dereferenceable(34) %9, i32 noundef 3) #32, !noalias !2250
+  store ptr %153, ptr %0, align 8, !tbaa !3, !alias.scope !2253
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2240
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !2240
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -12659,22 +12629,22 @@ _ZL14malformedErrorRKN4llvm5TwineE.exit234:       ; preds = %_ZN4llvmplERKNS_5Tw
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %214
+  br label %210
 
-157:                                              ; preds = %.preheader
+154:                                              ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %.12.val, %lftr.wideiv
   br i1 %exitcond.not, label %_ZN4llvmplERKNS_5TwineES2_.exit266, label %.preheader, !llvm.loop !2254
 
-.preheader:                                       ; preds = %.preheader.preheader, %157
-  %indvars.iv = phi i64 [ %103, %.preheader.preheader ], [ %indvars.iv.next, %157 ]
-  %158 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %indvars.iv
-  %159 = load i8, ptr %158, align 1, !tbaa !229
-  %160 = icmp eq i8 %159, 0
-  br i1 %160, label %_ZN4llvm5ErrorD2Ev.exit, label %157
+.preheader:                                       ; preds = %.preheader.preheader, %154
+  %indvars.iv = phi i64 [ %101, %.preheader.preheader ], [ %indvars.iv.next, %154 ]
+  %155 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %indvars.iv
+  %156 = load i8, ptr %155, align 1, !tbaa !229
+  %157 = icmp eq i8 %156, 0
+  br i1 %157, label %_ZN4llvm5ErrorD2Ev.exit, label %154
 
-_ZN4llvmplERKNS_5TwineES2_.exit266:               ; preds = %157
+_ZN4llvmplERKNS_5TwineES2_.exit266:               ; preds = %154
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -12682,34 +12652,34 @@ _ZN4llvmplERKNS_5TwineES2_.exit266:               ; preds = %157
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %.sroa.027.0.insert.ext = zext i32 %1 to i64
-  %161 = inttoptr i64 %.sroa.027.0.insert.ext to ptr
+  %158 = inttoptr i64 %.sroa.027.0.insert.ext to ptr
   store ptr @.str.4, ptr %31, align 8, !alias.scope !2255
-  %162 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store ptr %161, ptr %162, align 8, !alias.scope !2255
-  %163 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store i8 3, ptr %163, align 8, !tbaa !61, !alias.scope !2255
-  %164 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  store i8 9, ptr %164, align 1, !tbaa !64, !alias.scope !2255
+  %159 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store ptr %158, ptr %159, align 8, !alias.scope !2255
+  %160 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  store i8 3, ptr %160, align 8, !tbaa !61, !alias.scope !2255
+  %161 = getelementptr inbounds nuw i8, ptr %31, i64 33
+  store i8 9, ptr %161, align 1, !tbaa !64, !alias.scope !2255
   store ptr %31, ptr %30, align 8, !alias.scope !2260
-  %165 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr @.str.377, ptr %165, align 8, !alias.scope !2260
-  %166 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store i8 2, ptr %166, align 8, !tbaa !61, !alias.scope !2260
-  %167 = getelementptr inbounds nuw i8, ptr %30, i64 33
-  store i8 3, ptr %167, align 1, !tbaa !64, !alias.scope !2260
-  %168 = load i8, ptr %2, align 1, !tbaa !229
-  %.not.i267 = icmp eq i8 %168, 0
+  %162 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store ptr @.str.377, ptr %162, align 8, !alias.scope !2260
+  %163 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store i8 2, ptr %163, align 8, !tbaa !61, !alias.scope !2260
+  %164 = getelementptr inbounds nuw i8, ptr %30, i64 33
+  store i8 3, ptr %164, align 1, !tbaa !64, !alias.scope !2260
+  %165 = load i8, ptr %2, align 1, !tbaa !229
+  %.not.i267 = icmp eq i8 %165, 0
   br i1 %.not.i267, label %_ZN4llvmplERKNS_5TwineES2_.exit284, label %_ZN4llvmplERKNS_5TwineES2_.exit284.thread
 
 _ZN4llvmplERKNS_5TwineES2_.exit284.thread:        ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit266
   store ptr %30, ptr %29, align 8, !alias.scope !2265
-  %169 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %2, ptr %169, align 8, !alias.scope !2265
-  %170 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store i8 2, ptr %170, align 8, !tbaa !61, !alias.scope !2265
-  %171 = getelementptr inbounds nuw i8, ptr %29, i64 33
-  store i8 3, ptr %171, align 1, !tbaa !64, !alias.scope !2265
-  br label %173
+  %166 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store ptr %2, ptr %166, align 8, !alias.scope !2265
+  %167 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  store i8 2, ptr %167, align 8, !tbaa !61, !alias.scope !2265
+  %168 = getelementptr inbounds nuw i8, ptr %29, i64 33
+  store i8 3, ptr %168, align 1, !tbaa !64, !alias.scope !2265
+  br label %170
 
 _ZN4llvmplERKNS_5TwineES2_.exit284:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit266
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %30, i64 40, i1 false), !tbaa.struct !1132
@@ -12717,170 +12687,160 @@ _ZN4llvmplERKNS_5TwineES2_.exit284:               ; preds = %_ZN4llvmplERKNS_5Tw
   %.pre137 = load i8, ptr %.phi.trans.insert136, align 8, !tbaa !61, !noalias !2270
   call void @llvm.experimental.noalias.scope.decl(metadata !2275)
   call void @llvm.experimental.noalias.scope.decl(metadata !2276)
-  switch i8 %.pre137, label %173 [
+  switch i8 %.pre137, label %170 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit300
-    i8 1, label %172
+    i8 1, label %169
   ]
 
-172:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit284
+169:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit284
   store ptr @.str.377, ptr %28, align 8
   br label %_ZN4llvmplERKNS_5TwineES2_.exit300
 
-173:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit284.thread, %_ZN4llvmplERKNS_5TwineES2_.exit284
-  %174 = phi i8 [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit284.thread ], [ %.pre137, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
-  %175 = getelementptr inbounds nuw i8, ptr %29, i64 33
-  %176 = load i8, ptr %175, align 1, !tbaa !64, !noalias !2270
-  %177 = icmp eq i8 %176, 1
+170:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit284.thread, %_ZN4llvmplERKNS_5TwineES2_.exit284
+  %171 = phi i8 [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit284.thread ], [ %.pre137, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
+  %172 = getelementptr inbounds nuw i8, ptr %29, i64 33
+  %173 = load i8, ptr %172, align 1, !tbaa !64, !noalias !2270
+  %174 = icmp eq i8 %173, 1
   %.sroa.05.0.copyload.i.i286 = load ptr, ptr %29, align 8, !noalias !2270
   %.sroa.56.0..sroa_idx.i.i287 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.56.0.copyload.i.i288 = load i64, ptr %.sroa.56.0..sroa_idx.i.i287, align 8, !noalias !2270
-  %.014.i.i289 = select i1 %177, i8 %174, i8 2
-  %.sroa.05.0.i.i290 = select i1 %177, ptr %.sroa.05.0.copyload.i.i286, ptr %29
-  %.sroa.56.0.i.i291 = select i1 %177, i64 %.sroa.56.0.copyload.i.i288, i64 undef
+  %.014.i.i289 = select i1 %174, i8 %171, i8 2
+  %.sroa.05.0.i.i290 = select i1 %174, ptr %.sroa.05.0.copyload.i.i286, ptr %29
+  %.sroa.56.0.i.i291 = select i1 %174, i64 %.sroa.56.0.copyload.i.i288, i64 undef
   store ptr %.sroa.05.0.i.i290, ptr %28, align 8, !alias.scope !2270
   %.sroa.23.0..sroa_idx.i.i.i298 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %.sroa.56.0.i.i291, ptr %.sroa.23.0..sroa_idx.i.i.i298, align 8, !tbaa !229, !alias.scope !2270
-  %178 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr @.str.377, ptr %178, align 8, !alias.scope !2270
+  %175 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store ptr @.str.377, ptr %175, align 8, !alias.scope !2270
   br label %_ZN4llvmplERKNS_5TwineES2_.exit300
 
-_ZN4llvmplERKNS_5TwineES2_.exit300:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit284, %172, %173
-  %.sink219 = phi i8 [ 3, %172 ], [ %.014.i.i289, %173 ], [ %.pre137, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
-  %.sink217 = phi i8 [ 1, %172 ], [ 3, %173 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
-  %.sroa.56.0.copyload.i.i306 = phi i64 [ undef, %172 ], [ %.sroa.56.0.i.i291, %173 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
-  %.sroa.05.0.copyload.i.i304 = phi ptr [ @.str.377, %172 ], [ %.sroa.05.0.i.i290, %173 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
-  %179 = phi i1 [ true, %172 ], [ false, %173 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
-  %180 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store i8 %.sink219, ptr %180, align 8, !tbaa !1117
-  %181 = getelementptr inbounds nuw i8, ptr %28, i64 33
-  store i8 %.sink217, ptr %181, align 1, !tbaa !1117
-  %182 = load i8, ptr %5, align 1, !tbaa !229
-  %.not.i301 = icmp eq i8 %182, 0
+_ZN4llvmplERKNS_5TwineES2_.exit300:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit284, %169, %170
+  %.sink222 = phi i8 [ 3, %169 ], [ %.014.i.i289, %170 ], [ %.pre137, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
+  %.sink220 = phi i8 [ 1, %169 ], [ 3, %170 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
+  %.sroa.56.0.copyload.i.i306 = phi i64 [ undef, %169 ], [ %.sroa.56.0.i.i291, %170 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
+  %.sroa.05.0.copyload.i.i304 = phi ptr [ @.str.377, %169 ], [ %.sroa.05.0.i.i290, %170 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
+  %176 = phi i1 [ true, %169 ], [ false, %170 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit284 ]
+  %177 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store i8 %.sink222, ptr %177, align 8, !tbaa !1117
+  %178 = getelementptr inbounds nuw i8, ptr %28, i64 33
+  store i8 %.sink220, ptr %178, align 1, !tbaa !1117
+  %179 = load i8, ptr %5, align 1, !tbaa !229
+  %.not.i301 = icmp eq i8 %179, 0
   %storemerge.i302 = select i1 %.not.i301, i8 1, i8 3
-  switch i8 %.sink219, label %186 [
-    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit318.thread
-    i8 1, label %185
-  ]
+  %cond205 = icmp eq i8 %.sink222, 0
+  br i1 %cond205, label %_ZN4llvmplERKNS_5TwineES2_.exit318.thread, label %182
 
 _ZN4llvmplERKNS_5TwineES2_.exit318.thread:        ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit300
-  %183 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i8 0, ptr %183, align 8, !tbaa !61, !alias.scope !2277
-  %184 = getelementptr inbounds nuw i8, ptr %27, i64 33
-  store i8 1, ptr %184, align 1, !tbaa !64, !alias.scope !2277
+  %180 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store i8 0, ptr %180, align 8, !tbaa !61, !alias.scope !2277
+  %181 = getelementptr inbounds nuw i8, ptr %27, i64 33
+  store i8 1, ptr %181, align 1, !tbaa !64, !alias.scope !2277
   br label %_ZN4llvmplERKNS_5TwineES2_.exit334.thread185
 
-185:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit300
-  store ptr %5, ptr %27, align 8
-  %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i8 %storemerge.i302, ptr %.sroa.67.0..sroa_idx, align 8, !tbaa !1117
-  %.sroa.88.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 33
-  store i8 1, ptr %.sroa.88.0..sroa_idx, align 1, !tbaa !1117
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit318
+182:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit300
+  br i1 %.not.i301, label %183, label %184
 
-186:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit300
-  br i1 %.not.i301, label %187, label %188
-
-187:                                              ; preds = %186
+183:                                              ; preds = %182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false), !tbaa.struct !1132
   %.phi.trans.insert140 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre141 = load i8, ptr %.phi.trans.insert140, align 8, !tbaa !61, !noalias !2282
   br label %_ZN4llvmplERKNS_5TwineES2_.exit318
 
-188:                                              ; preds = %186
-  %.014.i.i307 = select i1 %179, i8 %.sink219, i8 2
-  %.sroa.05.0.i.i308 = select i1 %179, ptr %.sroa.05.0.copyload.i.i304, ptr %28
-  %.sroa.56.0.i.i309 = select i1 %179, i64 %.sroa.56.0.copyload.i.i306, i64 undef
+184:                                              ; preds = %182
+  %.014.i.i307 = select i1 %176, i8 %.sink222, i8 2
+  %.sroa.05.0.i.i308 = select i1 %176, ptr %.sroa.05.0.copyload.i.i304, ptr %28
+  %.sroa.56.0.i.i309 = select i1 %176, i64 %.sroa.56.0.copyload.i.i306, i64 undef
   store ptr %.sroa.05.0.i.i308, ptr %27, align 8, !alias.scope !2277
   %.sroa.23.0..sroa_idx.i.i.i316 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %.sroa.56.0.i.i309, ptr %.sroa.23.0..sroa_idx.i.i.i316, align 8, !tbaa !229, !alias.scope !2277
-  %189 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %5, ptr %189, align 8, !alias.scope !2277
-  %190 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i8 %.014.i.i307, ptr %190, align 8, !tbaa !61, !alias.scope !2277
-  %191 = getelementptr inbounds nuw i8, ptr %27, i64 33
-  store i8 %storemerge.i302, ptr %191, align 1, !tbaa !64, !alias.scope !2277
+  %185 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store ptr %5, ptr %185, align 8, !alias.scope !2277
+  %186 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store i8 %.014.i.i307, ptr %186, align 8, !tbaa !61, !alias.scope !2277
+  %187 = getelementptr inbounds nuw i8, ptr %27, i64 33
+  store i8 %storemerge.i302, ptr %187, align 1, !tbaa !64, !alias.scope !2277
   br label %_ZN4llvmplERKNS_5TwineES2_.exit318
 
-_ZN4llvmplERKNS_5TwineES2_.exit318:               ; preds = %185, %187, %188
-  %192 = phi i8 [ %storemerge.i302, %185 ], [ %.pre141, %187 ], [ %.014.i.i307, %188 ]
+_ZN4llvmplERKNS_5TwineES2_.exit318:               ; preds = %183, %184
+  %188 = phi i8 [ %.pre141, %183 ], [ %.014.i.i307, %184 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2287)
   call void @llvm.experimental.noalias.scope.decl(metadata !2288)
-  switch i8 %192, label %_ZN4llvmplERKNS_5TwineES2_.exit334 [
+  switch i8 %188, label %_ZN4llvmplERKNS_5TwineES2_.exit334 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit334.thread185
-    i8 1, label %203
+    i8 1, label %199
   ]
 
 _ZN4llvmplERKNS_5TwineES2_.exit334.thread185:     ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit318, %_ZN4llvmplERKNS_5TwineES2_.exit318.thread
-  %193 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store i8 0, ptr %193, align 8, !tbaa !61, !alias.scope !2282
-  %194 = getelementptr inbounds nuw i8, ptr %26, i64 33
-  store i8 1, ptr %194, align 1, !tbaa !64, !alias.scope !2282
+  %189 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store i8 0, ptr %189, align 8, !tbaa !61, !alias.scope !2282
+  %190 = getelementptr inbounds nuw i8, ptr %26, i64 33
+  store i8 1, ptr %190, align 1, !tbaa !64, !alias.scope !2282
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2289
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2289
-  %195 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 0, ptr %195, align 8, !tbaa !61, !alias.scope !2292, !noalias !2297
-  %196 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 1, ptr %196, align 1, !tbaa !64, !alias.scope !2292, !noalias !2297
+  %191 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 0, ptr %191, align 8, !tbaa !61, !alias.scope !2292, !noalias !2297
+  %192 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 1, ptr %192, align 1, !tbaa !64, !alias.scope !2292, !noalias !2297
   br label %_ZL14malformedErrorRKN4llvm5TwineE.exit347
 
 _ZN4llvmplERKNS_5TwineES2_.exit334:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit318
-  %197 = getelementptr inbounds nuw i8, ptr %27, i64 33
-  %198 = load i8, ptr %197, align 1, !tbaa !64, !noalias !2282
-  %199 = icmp eq i8 %198, 1
+  %193 = getelementptr inbounds nuw i8, ptr %27, i64 33
+  %194 = load i8, ptr %193, align 1, !tbaa !64, !noalias !2282
+  %195 = icmp eq i8 %194, 1
   %.sroa.05.0.copyload.i.i320 = load ptr, ptr %27, align 8, !noalias !2282
   %.sroa.56.0..sroa_idx.i.i321 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.56.0.copyload.i.i322 = load i64, ptr %.sroa.56.0..sroa_idx.i.i321, align 8, !noalias !2282
-  %.014.i.i323 = select i1 %199, i8 %192, i8 2
-  %.sroa.05.0.i.i324 = select i1 %199, ptr %.sroa.05.0.copyload.i.i320, ptr %27
-  %.sroa.56.0.i.i325 = select i1 %199, i64 %.sroa.56.0.copyload.i.i322, i64 undef
+  %.014.i.i323 = select i1 %195, i8 %188, i8 2
+  %.sroa.05.0.i.i324 = select i1 %195, ptr %.sroa.05.0.copyload.i.i320, ptr %27
+  %.sroa.56.0.i.i325 = select i1 %195, i64 %.sroa.56.0.copyload.i.i322, i64 undef
   store ptr %.sroa.05.0.i.i324, ptr %26, align 8, !alias.scope !2282
   %.sroa.23.0..sroa_idx.i.i.i332 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %.sroa.56.0.i.i325, ptr %.sroa.23.0..sroa_idx.i.i.i332, align 8, !tbaa !229, !alias.scope !2282
-  %200 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr @.str.428, ptr %200, align 8, !alias.scope !2282
-  %201 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store i8 %.014.i.i323, ptr %201, align 8, !tbaa !61, !alias.scope !2282
-  %202 = getelementptr inbounds nuw i8, ptr %26, i64 33
-  store i8 3, ptr %202, align 1, !tbaa !64, !alias.scope !2282
+  %196 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store ptr @.str.428, ptr %196, align 8, !alias.scope !2282
+  %197 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store i8 %.014.i.i323, ptr %197, align 8, !tbaa !61, !alias.scope !2282
+  %198 = getelementptr inbounds nuw i8, ptr %26, i64 33
+  store i8 3, ptr %198, align 1, !tbaa !64, !alias.scope !2282
   call void @llvm.experimental.noalias.scope.decl(metadata !2297)
-  br label %204
+  br label %200
 
-203:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit318
+199:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit318
   store ptr @.str.428, ptr %26, align 8
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i8 3, ptr %.sroa.54.0..sroa_idx, align 8, !tbaa !1117
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 33
   store i8 1, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !1117
-  br label %204
+  br label %200
 
-204:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit334, %203
-  %205 = phi ptr [ @.str.428, %203 ], [ %26, %_ZN4llvmplERKNS_5TwineES2_.exit334 ]
-  %206 = phi i8 [ 3, %203 ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit334 ]
+200:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit334, %199
+  %201 = phi ptr [ @.str.428, %199 ], [ %26, %_ZN4llvmplERKNS_5TwineES2_.exit334 ]
+  %202 = phi i8 [ 3, %199 ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit334 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !601
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !601
   store ptr @.str.332, ptr %8, align 8, !alias.scope !2292, !noalias !2297
-  %207 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %205, ptr %207, align 8, !alias.scope !2292, !noalias !2297
-  %208 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 3, ptr %208, align 8, !tbaa !61, !alias.scope !2292, !noalias !2297
-  %209 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 %206, ptr %209, align 1, !tbaa !64, !alias.scope !2292, !noalias !2297
+  %203 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %201, ptr %203, align 8, !alias.scope !2292, !noalias !2297
+  %204 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 3, ptr %204, align 8, !tbaa !61, !alias.scope !2292, !noalias !2297
+  %205 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 %202, ptr %205, align 1, !tbaa !64, !alias.scope !2292, !noalias !2297
   store ptr %8, ptr %7, align 8, !alias.scope !2299, !noalias !2297
-  %210 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @.str.333, ptr %210, align 8, !alias.scope !2299, !noalias !2297
+  %206 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @.str.333, ptr %206, align 8, !alias.scope !2299, !noalias !2297
   br label %_ZL14malformedErrorRKN4llvm5TwineE.exit347
 
-_ZL14malformedErrorRKN4llvm5TwineE.exit347:       ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit334.thread185, %204
-  %.sink34.i338 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit334.thread185 ], [ 2, %204 ]
-  %.sink.i339 = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit334.thread185 ], [ 3, %204 ]
-  %211 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 %.sink34.i338, ptr %211, align 8, !tbaa !61, !alias.scope !2299, !noalias !2297
-  %212 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 %.sink.i339, ptr %212, align 1, !tbaa !64, !alias.scope !2299, !noalias !2297
+_ZL14malformedErrorRKN4llvm5TwineE.exit347:       ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit334.thread185, %200
+  %.sink34.i338 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit334.thread185 ], [ 2, %200 ]
+  %.sink.i339 = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit334.thread185 ], [ 3, %200 ]
+  %207 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 %.sink34.i338, ptr %207, align 8, !tbaa !61, !alias.scope !2299, !noalias !2297
+  %208 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 %.sink.i339, ptr %208, align 1, !tbaa !64, !alias.scope !2299, !noalias !2297
   call void @llvm.experimental.noalias.scope.decl(metadata !2304)
-  %213 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31, !noalias !2307
-  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %213, ptr noundef nonnull align 8 dereferenceable(34) %7, i32 noundef 3) #32, !noalias !2307
-  store ptr %213, ptr %0, align 8, !tbaa !3, !alias.scope !2310
+  %209 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31, !noalias !2307
+  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %209, ptr noundef nonnull align 8 dereferenceable(34) %7, i32 noundef 3) #32, !noalias !2307
+  store ptr %209, ptr %0, align 8, !tbaa !3, !alias.scope !2310
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2297
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2297
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
@@ -12889,13 +12849,13 @@ _ZL14malformedErrorRKN4llvm5TwineE.exit347:       ; preds = %_ZN4llvmplERKNS_5Tw
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %214
+  br label %210
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %.preheader
   store ptr null, ptr %0, align 8, !tbaa !3
-  br label %214
+  br label %210
 
-214:                                              ; preds = %_ZL14malformedErrorRKN4llvm5TwineE.exit347, %_ZN4llvm5ErrorD2Ev.exit, %_ZL14malformedErrorRKN4llvm5TwineE.exit234, %_ZL14malformedErrorRKN4llvm5TwineE.exit
+210:                                              ; preds = %_ZL14malformedErrorRKN4llvm5TwineE.exit347, %_ZN4llvm5ErrorD2Ev.exit, %_ZL14malformedErrorRKN4llvm5TwineE.exit234, %_ZL14malformedErrorRKN4llvm5TwineE.exit
   ret void
 }
 

@@ -7250,8 +7250,10 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit243:  ; preds = %if.then.i.i239, %if
 lor.lhs.false.i.i248:                             ; preds = %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit243
   %leftKind_.i8.i.i249 = getelementptr inbounds nuw i8, ptr %ref.tmp52, i64 8
   %40 = load i32, ptr %leftKind_.i8.i.i249, align 8, !noalias !148
-  %cmp.i9.i.i250 = icmp eq i32 %40, 0
-  br i1 %cmp.i9.i.i250, label %if.then.i.i279, label %if.end.i.i251
+  switch i32 %40, label %if.end8.i.i255 [
+    i32 0, label %if.then.i.i279
+    i32 1, label %if.then7.i.i277
+  ]
 
 if.then.i.i279:                                   ; preds = %lor.lhs.false.i.i248, %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit243
   %leftKind_.i.i.i.i280 = getelementptr inbounds nuw i8, ptr %ref.tmp45, i64 8
@@ -7262,23 +7264,11 @@ if.then.i.i279:                                   ; preds = %lor.lhs.false.i.i24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftSize_.i.i.i.i282, i8 0, i64 16, i1 false), !alias.scope !149
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283
 
-if.end.i.i251:                                    ; preds = %lor.lhs.false.i.i248
-  %cmp.i11.i.i252 = icmp eq i32 %38, 1
-  br i1 %cmp.i11.i.i252, label %if.then4.i.i278, label %if.end5.i.i253
-
-if.then4.i.i278:                                  ; preds = %if.end.i.i251
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp52, i64 48, i1 false)
-  br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283
-
-if.end5.i.i253:                                   ; preds = %if.end.i.i251
-  %cmp.i13.i.i254 = icmp eq i32 %40, 1
-  br i1 %cmp.i13.i.i254, label %if.then7.i.i277, label %if.end8.i.i255
-
-if.then7.i.i277:                                  ; preds = %if.end5.i.i253
+if.then7.i.i277:                                  ; preds = %lor.lhs.false.i.i248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp46, i64 48, i1 false)
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283
 
-if.end8.i.i255:                                   ; preds = %if.end5.i.i253
+if.end8.i.i255:                                   ; preds = %lor.lhs.false.i.i248
   %add.i.i.i258 = add i64 %36, %37
   %leftSize_.i14.i.i259 = getelementptr inbounds nuw i8, ptr %ref.tmp52, i64 32
   %41 = load i64, ptr %leftSize_.i14.i.i259, align 8, !noalias !148
@@ -7306,7 +7296,7 @@ if.end8.i.i255:                                   ; preds = %if.end5.i.i253
   store i64 %add.i16.i.i261, ptr %rightSize_.i25.i.i276, align 8, !alias.scope !148
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283
 
-_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283:  ; preds = %if.then.i.i279, %if.then4.i.i278, %if.then7.i.i277, %if.end8.i.i255
+_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit283:  ; preds = %if.then.i.i279, %if.then7.i.i277, %if.end8.i.i255
   call void @llvm.experimental.noalias.scope.decl(metadata !152)
   call void @llvm.experimental.noalias.scope.decl(metadata !155)
   %leftKind_.i.i.i292 = getelementptr inbounds nuw i8, ptr %ref.tmp45, i64 8
