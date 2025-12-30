@@ -3957,9 +3957,9 @@ _ZL8zreceiveP4zbufi.exit72.i.i:                   ; preds = %_ZL5zget8P4zbuf.exi
   br label %_ZL15zhuffman_decodeP4zbufP8zhuffman.exit.i.i
 
 _ZL15zhuffman_decodeP4zbufP8zhuffman.exit.i.i:    ; preds = %212, %179
-  %219 = phi i32 [ %182, %179 ], [ %213, %212 ]
-  %220 = phi i32 [ %184, %179 ], [ %215, %212 ]
-  %.0.i.i.i = phi i32 [ %185, %179 ], [ %218, %212 ]
+  %219 = phi i32 [ %213, %212 ], [ %182, %179 ]
+  %220 = phi i32 [ %215, %212 ], [ %184, %179 ]
+  %.0.i.i.i = phi i32 [ %218, %212 ], [ %185, %179 ]
   %or.cond.i.i = icmp samesign ugt i32 %.0.i.i.i, 18
   br i1 %or.cond.i.i, label %_ZL21compute_huffman_codesP4zbuf.exit.thread.i, label %221
 
@@ -4193,9 +4193,9 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %275
   br label %_ZL15zhuffman_decodeP4zbufP8zhuffman.exit.i30.i
 
 _ZL15zhuffman_decodeP4zbufP8zhuffman.exit.i30.i:  ; preds = %327, %294
-  %334 = phi i32 [ %297, %294 ], [ %328, %327 ]
-  %.pr.i = phi i32 [ %299, %294 ], [ %330, %327 ]
-  %.0.i.i31.i = phi i32 [ %300, %294 ], [ %333, %327 ]
+  %334 = phi i32 [ %328, %327 ], [ %297, %294 ]
+  %.pr.i = phi i32 [ %330, %327 ], [ %299, %294 ]
+  %.0.i.i31.i = phi i32 [ %333, %327 ], [ %300, %294 ]
   %335 = icmp samesign ult i32 %.0.i.i31.i, 256
   br i1 %335, label %336, label %341
 
@@ -4338,9 +4338,9 @@ thread-pre-split.i.i:                             ; preds = %_ZL8zreceiveP4zbufi
   br label %_ZL15zhuffman_decodeP4zbufP8zhuffman.exit75.i.i
 
 _ZL15zhuffman_decodeP4zbufP8zhuffman.exit75.i.i:  ; preds = %406, %373
-  %413 = phi i32 [ %376, %373 ], [ %407, %406 ]
-  %414 = phi i32 [ %378, %373 ], [ %409, %406 ]
-  %.0.i73.i.i = phi i32 [ %379, %373 ], [ %412, %406 ]
+  %413 = phi i32 [ %407, %406 ], [ %376, %373 ]
+  %414 = phi i32 [ %409, %406 ], [ %378, %373 ]
+  %.0.i73.i.i = phi i32 [ %412, %406 ], [ %379, %373 ]
   %415 = zext nneg i32 %.0.i73.i.i to i64
   %416 = getelementptr inbounds nuw i32, ptr @_ZL10zdist_base, i64 %415
   %417 = load i32, ptr %416, align 4, !tbaa !10
@@ -4426,7 +4426,7 @@ _ZL8zreceiveP4zbufi.exit.i34.i:                   ; preds = %423, %419
   br i1 %.not66.i36.i, label %.loopexit.i.i, label %.preheader94.i.i, !llvm.loop !37
 
 .loopexit.i.i:                                    ; preds = %.preheader94.i.i, %452, %.preheader.preheader.i37.i, %447, %338
-  %.155.i.i = phi ptr [ %340, %338 ], [ %.054.i28.i, %452 ], [ %.054.i28.i, %447 ], [ %scevgep101.i.i, %.preheader.preheader.i37.i ], [ %455, %.preheader94.i.i ]
+  %.155.i.i = phi ptr [ %340, %338 ], [ %scevgep101.i.i, %.preheader.preheader.i37.i ], [ %.054.i28.i, %447 ], [ %.054.i28.i, %452 ], [ %455, %.preheader94.i.i ]
   br label %282, !llvm.loop !38
 
 457:                                              ; preds = %341

@@ -330,7 +330,7 @@ ikcp_segment_delete.exit:                         ; preds = %30, %31
   br i1 %.not59, label %.preheader76, label %.lr.ph.split, !llvm.loop !62
 
 .preheader75:                                     ; preds = %ikcp_segment_delete.exit66, %ikcp_segment_delete.exit66.us, %.preheader76.thread, %.preheader76
-  %.pre97.pre98.pre.pre = phi ptr [ %.pre97.pre98.pre.pre.pre, %.preheader76 ], [ null, %.preheader76.thread ], [ null, %ikcp_segment_delete.exit66.us ], [ %.pre97.pre98.pre.pre107, %ikcp_segment_delete.exit66 ]
+  %.pre97.pre98.pre.pre = phi ptr [ null, %ikcp_segment_delete.exit66.us ], [ null, %.preheader76.thread ], [ %.pre97.pre98.pre.pre.pre, %.preheader76 ], [ %.pre97.pre98.pre.pre107, %ikcp_segment_delete.exit66 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %35 = load ptr, ptr %34, align 8, !tbaa !30
   %.not6181 = icmp eq ptr %34, %35
@@ -479,7 +479,7 @@ ikcp_segment_delete.exit70:                       ; preds = %82, %83
   br i1 %.not62, label %._crit_edge, label %.lr.ph84.split, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %ikcp_segment_delete.exit70, %ikcp_segment_delete.exit70.us, %.preheader.thread, %.preheader
-  %.pre97.pre98 = phi ptr [ %.pre97.pre98.pre, %.preheader ], [ null, %.preheader.thread ], [ null, %ikcp_segment_delete.exit70.us ], [ %.pre97.pre98101, %ikcp_segment_delete.exit70 ]
+  %.pre97.pre98 = phi ptr [ null, %ikcp_segment_delete.exit70.us ], [ null, %.preheader.thread ], [ %.pre97.pre98.pre, %.preheader ], [ %.pre97.pre98101, %ikcp_segment_delete.exit70 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %87 = load ptr, ptr %86, align 8, !tbaa !29
   %.not63 = icmp eq ptr %87, null
@@ -495,7 +495,7 @@ ikcp_segment_delete.exit70:                       ; preds = %82, %83
   br label %ikcp_free.exit
 
 ikcp_free.exit:                                   ; preds = %89, %._crit_edge
-  %.pre97 = phi ptr [ %.pre97.pre, %89 ], [ %.pre97.pre98, %._crit_edge ]
+  %.pre97 = phi ptr [ %.pre97.pre98, %._crit_edge ], [ %.pre97.pre, %89 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %91 = load ptr, ptr %90, align 8, !tbaa !69
   %.not64 = icmp eq ptr %91, null
@@ -750,7 +750,7 @@ ikcp_canlog.exit.thread:                          ; preds = %81, %90, %ikcp_canl
   br i1 %94, label %.split89.us, label %.split
 
 .split89.us:                                      ; preds = %.split, %ikcp_canlog.exit.thread, %.split.us, %ikcp_segment_delete.exit.us
-  %.us-phi = phi i32 [ %50, %ikcp_segment_delete.exit.us ], [ %.174.us, %.split.us ], [ %83, %ikcp_canlog.exit.thread ], [ %.174, %.split ]
+  %.us-phi = phi i32 [ %.174.us, %.split.us ], [ %50, %ikcp_segment_delete.exit.us ], [ %83, %ikcp_canlog.exit.thread ], [ %.174, %.split ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %96 = load ptr, ptr %95, align 8, !tbaa !36
   %.not8390 = icmp eq ptr %95, %96
@@ -816,7 +816,7 @@ ikcp_canlog.exit.thread:                          ; preds = %81, %90, %ikcp_canl
   br label %ikcp_peeksize.exit.thread
 
 ikcp_peeksize.exit.thread:                        ; preds = %14, %._crit_edge, %124, %28, %ikcp_peeksize.exit, %3
-  %.0 = phi i32 [ -1, %3 ], [ -2, %ikcp_peeksize.exit ], [ -3, %28 ], [ %.us-phi, %124 ], [ %.us-phi, %._crit_edge ], [ -2, %14 ]
+  %.0 = phi i32 [ -3, %28 ], [ -1, %3 ], [ -2, %ikcp_peeksize.exit ], [ %.us-phi, %124 ], [ %.us-phi, %._crit_edge ], [ -2, %14 ]
   ret i32 %.0
 }
 
@@ -862,7 +862,7 @@ define dso_local i32 @ikcp_peeksize(ptr noundef readonly captures(address) %0) l
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
 
 .loopexit:                                        ; preds = %.lr.ph, %23, %12, %1, %9
-  %.017 = phi i32 [ %11, %9 ], [ -1, %1 ], [ -1, %12 ], [ %19, %23 ], [ %19, %.lr.ph ]
+  %.017 = phi i32 [ -1, %12 ], [ %11, %9 ], [ -1, %1 ], [ %19, %23 ], [ %19, %.lr.ph ]
   ret i32 %.017
 }
 
@@ -1134,7 +1134,7 @@ ikcp_segment_new.exit162:                         ; preds = %104, %106
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !82
 
 .critedge:                                        ; preds = %114, %ikcp_segment_new.exit162, %84, %ikcp_segment_new.exit162.us, %.thread, %ikcp_segment_new.exit, %66, %ikcp_segment_delete.exit, %3
-  %.0 = phi i32 [ -1, %3 ], [ %.1135, %ikcp_segment_delete.exit ], [ %.0134., %66 ], [ -2, %ikcp_segment_new.exit ], [ %.0134, %.thread ], [ %98, %84 ], [ -2, %ikcp_segment_new.exit162.us ], [ %128, %114 ], [ -2, %ikcp_segment_new.exit162 ]
+  %.0 = phi i32 [ -2, %ikcp_segment_new.exit ], [ -1, %3 ], [ %.0134., %66 ], [ %.1135, %ikcp_segment_delete.exit ], [ %98, %84 ], [ %.0134, %.thread ], [ -2, %ikcp_segment_new.exit162.us ], [ %128, %114 ], [ -2, %ikcp_segment_new.exit162 ]
   ret i32 %.0
 }
 
@@ -1532,7 +1532,7 @@ ikcp_segment_delete.exit.i:                       ; preds = %128, %127
   br i1 %133, label %ikcp_parse_ack.exit, label %.preheader, !llvm.loop !90
 
 ikcp_parse_ack.exit:                              ; preds = %.preheader, %131, %110, %113, %ikcp_segment_delete.exit.i
-  %134 = phi ptr [ %77, %110 ], [ %77, %113 ], [ %.pre255, %ikcp_segment_delete.exit.i ], [ %77, %131 ], [ %77, %.preheader ]
+  %134 = phi ptr [ %.pre255, %ikcp_segment_delete.exit.i ], [ %77, %110 ], [ %77, %113 ], [ %77, %131 ], [ %77, %.preheader ]
   %.not.i149 = icmp eq ptr %134, %19
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 36
   %.sink.in.i150 = select i1 %.not.i149, ptr %21, ptr %135
@@ -1790,9 +1790,9 @@ ikcp_canlog.exit168:                              ; preds = %243
   br label %ikcp_canlog.exit154.thread
 
 ikcp_canlog.exit154.thread:                       ; preds = %243, %235, %143, %148, %ikcp_canlog.exit154, %242, %ikcp_canlog.exit165, %ikcp_canlog.exit168, %248, %ikcp_canlog.exit157.thread, %234, %ikcp_ack_push.exit
-  %.3124 = phi i32 [ %.2123, %148 ], [ %.2123, %ikcp_canlog.exit154 ], [ %.0121248, %234 ], [ %.0121248, %ikcp_ack_push.exit ], [ %.0121248, %ikcp_canlog.exit157.thread ], [ %.0121248, %242 ], [ %.0121248, %ikcp_canlog.exit165 ], [ %.0121248, %248 ], [ %.0121248, %ikcp_canlog.exit168 ], [ %.2123, %143 ], [ %.0121248, %235 ], [ %.0121248, %243 ]
-  %.3120 = phi i32 [ %.2119, %148 ], [ %.2119, %ikcp_canlog.exit154 ], [ %.0117249, %234 ], [ %.0117249, %ikcp_ack_push.exit ], [ %.0117249, %ikcp_canlog.exit157.thread ], [ %.0117249, %242 ], [ %.0117249, %ikcp_canlog.exit165 ], [ %.0117249, %248 ], [ %.0117249, %ikcp_canlog.exit168 ], [ %.2119, %143 ], [ %.0117249, %235 ], [ %.0117249, %243 ]
-  %.3 = phi i32 [ 1, %148 ], [ 1, %ikcp_canlog.exit154 ], [ %.0114250, %234 ], [ %.0114250, %ikcp_ack_push.exit ], [ %.0114250, %ikcp_canlog.exit157.thread ], [ %.0114250, %242 ], [ %.0114250, %ikcp_canlog.exit165 ], [ %.0114250, %248 ], [ %.0114250, %ikcp_canlog.exit168 ], [ 1, %143 ], [ %.0114250, %235 ], [ %.0114250, %243 ]
+  %.3124 = phi i32 [ %.2123, %148 ], [ %.2123, %ikcp_canlog.exit154 ], [ %.0121248, %234 ], [ %.0121248, %ikcp_ack_push.exit ], [ %.0121248, %ikcp_canlog.exit157.thread ], [ %.0121248, %242 ], [ %.0121248, %ikcp_canlog.exit165 ], [ %.0121248, %248 ], [ %.0121248, %ikcp_canlog.exit168 ], [ %.0121248, %235 ], [ %.2123, %143 ], [ %.0121248, %243 ]
+  %.3120 = phi i32 [ %.2119, %148 ], [ %.2119, %ikcp_canlog.exit154 ], [ %.0117249, %234 ], [ %.0117249, %ikcp_ack_push.exit ], [ %.0117249, %ikcp_canlog.exit157.thread ], [ %.0117249, %242 ], [ %.0117249, %ikcp_canlog.exit165 ], [ %.0117249, %248 ], [ %.0117249, %ikcp_canlog.exit168 ], [ %.0117249, %235 ], [ %.2119, %143 ], [ %.0117249, %243 ]
+  %.3 = phi i32 [ 1, %148 ], [ 1, %ikcp_canlog.exit154 ], [ %.0114250, %234 ], [ %.0114250, %ikcp_ack_push.exit ], [ %.0114250, %ikcp_canlog.exit157.thread ], [ %.0114250, %242 ], [ %.0114250, %ikcp_canlog.exit165 ], [ %.0114250, %248 ], [ %.0114250, %ikcp_canlog.exit168 ], [ %.0114250, %235 ], [ 1, %143 ], [ %.0114250, %243 ]
   %250 = getelementptr inbounds nuw i8, ptr %52, i64 %54
   %251 = sub nsw i64 %53, %54
   %252 = icmp slt i64 %251, 24
@@ -1851,7 +1851,7 @@ ikcp_canlog.exit154.thread:                       ; preds = %243, %235, %143, %1
   br i1 %.not.i170, label %ikcp_parse_fastack.exit, label %.lr.ph.i169, !llvm.loop !100
 
 ikcp_parse_fastack.exit:                          ; preds = %279, %.lr.ph.i169, %._crit_edge.thread, %261, %256, %._crit_edge
-  %.pre256291 = phi i32 [ %.pre256290, %._crit_edge.thread ], [ %.pre256, %261 ], [ %.pre256, %256 ], [ %.pre256, %._crit_edge ], [ %.pre256, %.lr.ph.i169 ], [ %.pre256, %279 ]
+  %.pre256291 = phi i32 [ %.pre256290, %._crit_edge.thread ], [ %.pre256, %._crit_edge ], [ %.pre256, %261 ], [ %.pre256, %256 ], [ %.pre256, %.lr.ph.i169 ], [ %.pre256, %279 ]
   %280 = sub i32 %.pre256291, %5
   %281 = icmp sgt i32 %280, 0
   br i1 %281, label %282, label %.thread
@@ -1916,8 +1916,8 @@ ikcp_parse_fastack.exit:                          ; preds = %279, %.lr.ph.i169, 
   store i32 %318, ptr %319, align 8, !tbaa !24
   br label %.thread
 
-.thread:                                          ; preds = %ikcp_parse_una.exit, %57, %37, %34, %ikcp_parse_fastack.exit, %282, %317, %314, %ikcp_canlog.exit.thread
-  %.0 = phi i32 [ -1, %ikcp_canlog.exit.thread ], [ 0, %314 ], [ 0, %317 ], [ 0, %282 ], [ 0, %ikcp_parse_fastack.exit ], [ -1, %34 ], [ -2, %37 ], [ -3, %57 ], [ -3, %ikcp_parse_una.exit ]
+.thread:                                          ; preds = %ikcp_parse_una.exit, %37, %34, %57, %ikcp_parse_fastack.exit, %282, %317, %314, %ikcp_canlog.exit.thread
+  %.0 = phi i32 [ -1, %ikcp_canlog.exit.thread ], [ 0, %ikcp_parse_fastack.exit ], [ 0, %314 ], [ 0, %317 ], [ 0, %282 ], [ -3, %57 ], [ -1, %34 ], [ -2, %37 ], [ -3, %ikcp_parse_una.exit ]
   ret i32 %.0
 }
 
@@ -2550,9 +2550,9 @@ ikcp_output.exit256:                              ; preds = %307, %ikcp_canlog.e
   br label %345
 
 345:                                              ; preds = %273, %276, %341, %344
-  %.1215288 = phi i32 [ %.1215.ph, %344 ], [ %.1215.ph, %341 ], [ %.0214307, %273 ], [ %.0214307, %276 ]
-  %.1217286 = phi i32 [ %.1217.ph, %344 ], [ %.1217.ph, %341 ], [ %.0216306, %273 ], [ %.0216306, %276 ]
-  %.7 = phi ptr [ %.9, %344 ], [ %.9, %341 ], [ %.6308, %273 ], [ %.6308, %276 ]
+  %.1215288 = phi i32 [ %.1215.ph, %341 ], [ %.1215.ph, %344 ], [ %.0214307, %273 ], [ %.0214307, %276 ]
+  %.1217286 = phi i32 [ %.1217.ph, %341 ], [ %.1217.ph, %344 ], [ %.0216306, %273 ], [ %.0216306, %276 ]
+  %.7 = phi ptr [ %.9, %341 ], [ %.9, %344 ], [ %.6308, %273 ], [ %.6308, %276 ]
   %.0212 = load ptr, ptr %.0212309, align 8, !tbaa !58
   %.not226 = icmp eq ptr %.0212, %224
   br i1 %.not226, label %._crit_edge312.loopexit, label %237, !llvm.loop !105

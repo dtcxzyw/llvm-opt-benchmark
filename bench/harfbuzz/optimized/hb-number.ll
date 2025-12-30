@@ -71,7 +71,7 @@ define hidden noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef capture
   br label %"_ZL13_parse_numberIiZ12hb_parse_intPPKcS1_PibE3$_0EbS2_S1_PT_bT0_.exit"
 
 "_ZL13_parse_numberIiZ12hb_parse_intPPKcS1_PibE3$_0EbS2_S1_PT_bT0_.exit": ; preds = %4, %22, %29, %30
-  %.0.i = phi i1 [ false, %29 ], [ true, %30 ], [ false, %22 ], [ false, %4 ]
+  %.0.i = phi i1 [ false, %22 ], [ false, %29 ], [ true, %30 ], [ false, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
@@ -137,7 +137,7 @@ define hidden noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef captu
   br label %"_ZL13_parse_numberIjZ13hb_parse_uintPPKcS1_PjbiE3$_0EbS2_S1_PT_bT0_.exit"
 
 "_ZL13_parse_numberIjZ13hb_parse_uintPPKcS1_PjbiE3$_0EbS2_S1_PT_bT0_.exit": ; preds = %5, %23, %30, %31
-  %.0.i = phi i1 [ false, %30 ], [ true, %31 ], [ false, %23 ], [ false, %5 ]
+  %.0.i = phi i1 [ false, %23 ], [ false, %30 ], [ true, %31 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0.i
@@ -300,7 +300,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   br i1 %.not90.i, label %71, label %.preheader134.i
 
 71:                                               ; preds = %69, %67
-  %.1.i = phi ptr [ %.2.i, %67 ], [ %scevgep139.i, %69 ]
+  %.1.i = phi ptr [ %scevgep139.i, %69 ], [ %.2.i, %67 ]
   %72 = fcmp une double %.268.i, 0.000000e+00
   br i1 %72, label %73, label %85
 
